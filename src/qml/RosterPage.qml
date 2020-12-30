@@ -150,6 +150,7 @@ Kirigami.ScrollablePage {
 		while (pageStack.depth > 1)
 			pageStack.pop()
 
+		popLayersAboveLowest()
 		pageStack.push(chatPage)
 	}
 }

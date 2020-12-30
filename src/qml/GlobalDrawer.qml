@@ -86,6 +86,11 @@ Kirigami.GlobalDrawer {
 
 	actions: [
 		Kirigami.Action {
+			text: qsTr("Scan QR codes")
+			icon.name: "view-barcode-qr"
+			onTriggered: pageStack.layers.push(qrCodePage)
+		},
+		Kirigami.Action {
 			text: qsTr("Invite friends")
 			icon.name: "mail-invitation"
 			onTriggered: {

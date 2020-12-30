@@ -90,8 +90,7 @@ ExplainedContentPage {
 	}
 
 	content: Item {
-		Layout.fillHeight: true
-		Layout.fillWidth: true
+		anchors.fill: parent
 
 		QrCode {
 			id: qrCode

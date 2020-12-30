@@ -46,6 +46,7 @@
 #include "MessageDb.h"
 #include "Notifications.h"
 #include "RosterDb.h"
+#include "RosterManager.h"
 #include "Settings.h"
 
 Kaidan *Kaidan::s_instance;

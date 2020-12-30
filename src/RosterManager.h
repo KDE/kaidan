@@ -58,8 +58,9 @@ signals:
 	 *
 	 * @param nick A simple nick name for the new contact, which should be
 	 *             used to display in the roster.
+	 * @param msg message presented to the added contact
 	 */
-	void addContactRequested(const QString &jid, const QString &nick, const QString &msg);
+	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &msg = {});
 
 	/**
 	 * Remove a contact from your roster
@@ -74,7 +75,7 @@ signals:
 	void renameContactRequested(const QString &jid, const QString &newContactName);
 
 public slots:
-	void addContact(const QString &jid, const QString &name, const QString &msg);
+	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
 	void removeContact(const QString &jid);
 	void renameContact(const QString &jid, const QString &newContactName);
 

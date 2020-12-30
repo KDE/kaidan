@@ -75,8 +75,7 @@ ExplanationTogglePage {
 
 	content: QrCodeScanner {
 		id: scanner
-		Layout.fillWidth: true
-		Layout.fillHeight: true
+		anchors.fill: parent
 
 		Item {
 			anchors.centerIn: parent

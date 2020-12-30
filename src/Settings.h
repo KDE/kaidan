@@ -44,6 +44,8 @@ class Settings : public QObject
 {
     Q_OBJECT
 
+    Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
+
 public:
     explicit Settings(QObject *parent = nullptr);
 
@@ -77,6 +79,20 @@ public:
     Kaidan::PasswordVisibility authPasswordVisibility() const;
     void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
 
+    /**
+     * Retrieves the visibility of the QrCodePage's explanation from the settings file.
+     *
+     * @return true if the explanation is set to be visible, otherwise false
+     */
+    bool qrCodePageExplanationVisible() const;
+
+    /**
+     * Stores the visibility of the QrCodePage's explanation in the settings file.
+     *
+     * @param isVisible true if the explanation should be visible in the future, otherwise false
+     */
+    void setQrCodePageExplanationVisible(bool isVisible);
+
     bool notificationsMuted(const QString &bareJid) const;
     void setNotificationsMuted(const QString &bareJid, bool muted);
 
@@ -96,6 +112,7 @@ signals:
     void authHostChanged();
     void authPortChanged();
     void authPasswordVisibilityChanged();
+    void qrCodePageExplanationVisibleChanged();
     void notificationsMutedChanged(const QString &bareJid);
     void favoriteEmojisChanged();
     void windowSizeChanged();

@@ -36,7 +36,9 @@
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "RosterDb.h"
+#include "RosterManager.h"
 
+#include "qxmpp-exts/QXmppUri.h"
 #include <QXmppUtils.h>
 
 RosterModel *RosterModel::s_instance = nullptr;
@@ -142,6 +144,11 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 	return {};
 }
 
+bool RosterModel::hasItem(const QString &jid) const
+{
+	return findItem(jid).has_value();
+}
+
 std::optional<const RosterItem> RosterModel::findItem(const QString &jid) const
 {
 	for (const auto &item : qAsConst(m_items)) {
@@ -157,6 +164,29 @@ QString RosterModel::itemName(const QString &, const QString &jid) const
 	if (auto item = findItem(jid))
 		return determineItemName(jid, item->name());
 	return {};
+}
+
+RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &uriString)
+{
+	if (QXmppUri::isXmppUri(uriString)) {
+		auto uri = QXmppUri(uriString);
+		auto jid = uri.jid();
+
+		if (jid.isEmpty()) {
+			return AddContactByUriResult::InvalidUri;
+		}
+
+		if (RosterModel::instance()->hasItem(jid)) {
+			Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
+			return AddContactByUriResult::ContactExists;
+		}
+
+		emit Kaidan::instance()->client()->rosterManager()->addContactRequested(jid);
+
+		return AddContactByUriResult::AddingContact;
+	}
+
+	return AddContactByUriResult::InvalidUri;
 }
 
 void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)

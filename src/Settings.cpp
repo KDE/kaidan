@@ -134,6 +134,17 @@ void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 	emit authPasswordVisibilityChanged();
 }
 
+bool Settings::qrCodePageExplanationVisible() const
+{
+	return m_settings.value(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE, true).toBool();
+}
+
+void Settings::setQrCodePageExplanationVisible(bool isVisible)
+{
+	m_settings.setValue(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE, isVisible);
+	emit qrCodePageExplanationVisibleChanged();
+}
+
 bool Settings::notificationsMuted(const QString &bareJid) const
 {
 	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED) + bareJid, false).toBool();

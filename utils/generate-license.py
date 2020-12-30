@@ -416,6 +416,16 @@ def main():
 			}
 		),
 		CopyrightTarget(
+			files = [
+				"data/images/qr-code-scan-1.svg",
+				"data/images/qr-code-scan-2.svg",
+			],
+			licenseName = "CC-BY-SA-4.0",
+			authorList = {
+				"Mathis Brüchert <mbblp@protonmail.ch>": CopyrightAuthor(years = "2021")
+			}
+		),
+		CopyrightTarget(
 			files = ["utils/convert-prl-libs-to-cmake.pl"],
 			licenseName = "MIT-Apple",
 			authorList = {

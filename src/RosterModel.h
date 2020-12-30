@@ -56,6 +56,16 @@ public:
 		LastMessageRole,
 	};
 
+	/**
+	 * Result for adding a contact by an XMPP URI specifying how the URI is used
+	 */
+	enum AddContactByUriResult {
+		AddingContact,  ///< The contact is being added to the roster.
+		ContactExists,  ///< The contact is already in the roster.
+		InvalidUri      ///< The URI cannot be used for contact addition.
+	};
+	Q_ENUM(AddContactByUriResult)
+
 	static RosterModel *instance();
 
 	RosterModel(QObject *parent = nullptr);
@@ -68,6 +78,15 @@ public:
 	Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
 
 	/**
+	 * Returns whether this model has a roster item with the passed properties.
+	 *
+	 * @param jid JID of the roster item
+	 *
+	 * @return true if a roster item with the passed properties exists, otherwise false
+	 */
+	Q_INVOKABLE bool hasItem(const QString &jid) const;
+
+	/**
 	 * Retrieves the name of a roster item or its JID's local part.
 	 *
 	 * @param accountJid JID of the account whose roster item is retrieved
@@ -78,6 +97,14 @@ public:
 	 * an empty string if no roster item with the given JID could be found
 	 */
 	Q_INVOKABLE QString itemName(const QString &accountJid, const QString &jid) const;
+
+	/**
+	 * Adds a contact (bare JID) by a given XMPP URI (e.g., from a scanned QR
+	 * code) such as "xmpp:user@example.org".
+	 *
+	 * @param uriString XMPP URI string that contains only a JID
+	 */
+	Q_INVOKABLE AddContactByUriResult addContactByUri(const QString &uriString);
 
 signals:
 	void addItemRequested(const RosterItem &item);

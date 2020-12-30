@@ -76,53 +76,49 @@ Kirigami.Page {
 	property bool useMarginsForContent: true
 
 	Item {
+		id: contentArea
 		anchors.fill: parent
+		anchors.margins: useMarginsForContent ? 20 : 0
+		anchors.bottomMargin: useMarginsForContent ? parent.height - buttonArea.y : 0
+	}
+
+	// background of overlay
+	Rectangle {
+		z: 1
+		anchors.fill: overlay
+		anchors.margins: -8
+		radius: roundedCornersRadius
+		color: Kirigami.Theme.backgroundColor
+		opacity: 0.90
+		visible: explanationArea.visible
+	}
+
+	ColumnLayout {
+		id: overlay
+		z: 2
+		anchors.margins: 18
+		anchors.top: parent.top
+		anchors.left: parent.left
+		anchors.right: parent.right
+		anchors.bottom: parent.bottom
 
 		GridLayout {
-			id: contentArea
-			anchors.fill: parent
-			anchors.margins: useMarginsForContent ? 20 : 0
-			anchors.bottomMargin: useMarginsForContent ? parent.height - buttonArea.y : 0
-		}
-
-		// background of overlay
-		Rectangle {
-			z: 1
-			anchors.fill: overlay
-			anchors.margins: -8
-			radius: roundedCornersRadius
-			color: Kirigami.Theme.backgroundColor
-			opacity: 0.90
-			visible: explanationArea.visible
+			id: explanationArea
+			Layout.fillWidth: true
+			Layout.fillHeight: true
 		}
 
 		ColumnLayout {
-			id: overlay
-			z: 2
-			anchors.margins: 18
-			anchors.top: parent.top
-			anchors.left: parent.left
-			anchors.right: parent.right
-			anchors.bottom: parent.bottom
+			id: buttonArea
+			Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
+			Layout.maximumWidth: largeButtonWidth
 
-			GridLayout {
-				id: explanationArea
-				Layout.fillWidth: true
-				Layout.fillHeight: true
+			CenteredAdaptiveHighlightedButton {
+				id: primaryButton
 			}
 
-			ColumnLayout {
-				id: buttonArea
-				Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-				Layout.maximumWidth: largeButtonWidth
-
-				CenteredAdaptiveHighlightedButton {
-					id: primaryButton
-				}
-
-				CenteredAdaptiveButton {
-					id: secondaryButton
-				}
+			CenteredAdaptiveButton {
+				id: secondaryButton
 			}
 		}
 	}

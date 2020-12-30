@@ -60,6 +60,7 @@ class Kaidan : public QObject
 	Q_PROPERTY(PresenceCache* presenceCache READ presenceCache CONSTANT)
 	Q_PROPERTY(TransferCache* transferCache READ transferCache CONSTANT)
 	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
+	Q_PROPERTY(Settings* settings READ settings CONSTANT)
 	Q_PROPERTY(quint8 connectionState READ connectionState NOTIFY connectionStateChanged)
 	Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
 	Q_PROPERTY(quint8 connectionError READ connectionError NOTIFY connectionErrorChanged)
@@ -190,7 +191,9 @@ public:
 	void addOpenUri(const QString &uri);
 
 	/**
-	 * Connects to the server by the parsed credentials (bare JID and password) from a given XMPP URI (e.g. from scanning a QR code) like "xmpp:user@example.org?login;password=abc"
+	 * Connects to the server by the parsed credentials (bare JID and
+	 * password) from a given XMPP URI (e.g. from scanning a QR code) such
+	 * as "xmpp:user@example.org?login;password=abc"
 	 *
 	 * The URI is used in the following cases.
 	 *
