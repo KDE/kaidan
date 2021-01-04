@@ -89,6 +89,7 @@ signals:
 	void unsupportedFormatReceived(const QString& format);
 
 private:
+	bool m_videoFrameMirrored = false;
 	QrCodeDecoder *m_decoder;
 
 	/**

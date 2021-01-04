@@ -32,6 +32,7 @@
 
 #include <QDebug>
 #include <QCamera>
+#include <QCameraInfo>
 #include <QCameraViewfinderSettings>
 #include <QtConcurrent/QtConcurrent>
 
@@ -68,6 +69,11 @@ void QrCodeScannerFilter::setCameraDefaultVideoFormat(QObject *qmlCamera)
 	QCamera *camera = qvariant_cast<QCamera*>(qmlCamera->property("mediaObject"));
 	if (camera) {
 		QCameraViewfinderSettings settings = camera->viewfinderSettings();
+		// Set "m_videoFrameMirrored" according to the camera position in order to mirror the
+		// video frame later.
+		if (QCameraInfo(*camera).position() != QCamera::BackFace) {
+			m_videoFrameMirrored = true;
+		}
 		settings.setPixelFormat(QVideoFrame::Format_RGB24);
 		camera->setViewfinderSettings(settings);
 	} else {
@@ -103,7 +109,11 @@ QVideoFrame QrCodeScannerFilterRunnable::run(
 			m_filter->m_frame,
 			m_filter
 	);
-	return *input;
+
+	// Create a mirrored video frame on devices without a rear camera.
+	// That way, the QR code can be easily placed in front of the webcam of a desktop device.
+	// TODO: Check if "videoSurfaceFormat.setMirrored(true);" can be used instead of creating a new image and mirroring it
+	return m_filter->m_videoFrameMirrored ? QVideoFrame(input->image().mirrored(true, false)) : *input;
 }
 
 void QrCodeScannerFilterRunnable::processVideoFrameProbed(
