@@ -285,9 +285,6 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	// Send gone state to old chat partner
 	sendChatState(QXmppMessage::State::Gone);
 
-	m_currentAccountJid = accountJid;
-	m_currentChatJid = chatJid;
-
 	// Reset chat states
 	m_ownChatState = QXmppMessage::State::None;
 	m_chatPartnerChatState = m_chatStateCache.value(chatJid, QXmppMessage::State::Gone);
@@ -299,7 +296,11 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	// Send active state to new chat partner
 	sendChatState(QXmppMessage::State::Active);
 
+	m_currentAccountJid = accountJid;
+	m_currentChatJid = chatJid;
+	emit currentAccountJidChanged(accountJid);
 	emit currentChatJidChanged(chatJid);
+
 	removeAllMessages();
 }
 
