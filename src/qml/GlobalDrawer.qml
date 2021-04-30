@@ -36,11 +36,6 @@ Kirigami.GlobalDrawer {
 		AccountDetailsPage {}
 	}
 
-	RosterAddContactSheet {
-		id: contactAdditionSheet
-		jid: ""
-	}
-
 	SearchPublicGroupChatSheet {
 		id: searchPublicGroupChatSheet
 	}
@@ -148,7 +143,7 @@ Kirigami.GlobalDrawer {
 						icon.name: "contact-new-symbolic"
 						onClicked: {
 							root.close()
-							contactAdditionSheet.open()
+							openView(contactAdditionDialog, contactAdditionPage)
 						}
 					}
 
@@ -234,8 +229,7 @@ Kirigami.GlobalDrawer {
 
 		function onXmppUriReceived(uri) {
 			// 'xmpp:' has length 5.
-			contactAdditionSheet.jid = uri.substr(5)
-			contactAdditionSheet.open()
+			openView(contactAdditionDialog, contactAdditionPage).jid = uri.substr(5)
 		}
 	}
 }

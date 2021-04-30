@@ -227,10 +227,6 @@ DetailsContent {
 		}
 	}
 
-	RosterAddContactSheet {
-		id: contactAdditionSheet
-	}
-
 	MobileForm.FormCard {
 		id: providerArea
 		Layout.fillWidth: true
@@ -285,14 +281,14 @@ DetailsContent {
 				visible: providerArea.chatSupportList.length > 0
 				onClicked: {
 					if (providerArea.chatSupportList.length === 1) {
-						if (!contactAdditionSheet.sheetOpen) {
-							contactAdditionSheet.jid = providerArea.chatSupportList[0]
-							contactAdditionSheet.name = qsTr("Support")
+						let contactAdditionContainer = openView(contactAdditionDialog, contactAdditionPage)
+						contactAdditionContainer.jid = providerArea.chatSupportList[0]
+						contactAdditionContainer.name = qsTr("Support")
+
+						if (root.sheet) {
 							root.sheet.close()
-							contactAdditionSheet.open()
 						}
-					} else if (!chatSupportSheet.sheetOpen) {
-						root.sheet.close()
+					} else {
 						chatSupportSheet.open()
 					}
 				}

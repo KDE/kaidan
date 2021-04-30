@@ -94,6 +94,8 @@ Kirigami.ApplicationWindow {
 	Component {id: emptyChatPage; EmptyChatPage {}}
 	Component {id: settingsPage; SettingsPage {}}
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
+	Component {id: contactAdditionPage; ContactAdditionPage {}}
+	Component {id: contactAdditionDialog; ContactAdditionDialog {}}
 
 	onWideScreenChanged: showRosterPageForNarrowWindow()
 
@@ -139,6 +141,26 @@ Kirigami.ApplicationWindow {
 		if (!Kirigami.Settings.isMobile)
 			pageStack.push(emptyChatPage)
 		showRosterPageForNarrowWindow()
+	}
+
+	/**
+	 * Creates and opens an overlay (e.g., Kirigami.OverlaySheet or Kirigami.Dialog) on desktop
+	 * devices or a page (e.g., Kirigami.ScrollablePage) on mobile devices.
+	 *
+	 * @param overlayComponent component containing the overlay to be opened
+	 * @param pageComponent component containing the page to be opened
+	 *
+	 * @return the opened page or sheet
+	 */
+	function openView(overlayComponent, pageComponent) {
+		if (Kirigami.Settings.isMobile) {
+			popLayersAboveLowest()
+			return pageStack.layers.push(pageComponent)
+		} else {
+			let overlay = overlayComponent.createObject(root)
+			overlay.open()
+			return overlay
+		}
 	}
 
 	// Show the rosterPage instead of the emptyChatPage if the window is narrow.
