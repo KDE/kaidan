@@ -107,6 +107,7 @@ Kirigami.ScrollablePage {
 
 		delegate: RosterListItem {
 			id: rosterItem
+			accountJid: AccountManager.jid
 			jid: model.jid
 			name: model.name ? model.name : model.jid
 			lastMessage: model.lastMessage

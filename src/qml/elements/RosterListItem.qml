@@ -39,11 +39,16 @@ import im.kaidan.kaidan 1.0
 Kirigami.SwipeListItem {
 	id: root
 
+	property string accountJid
 	property string jid
 	property string name
 	property string lastMessage
 	property int unreadMessages
-	property bool isSelected: !Kirigami.Settings.isMobile && MessageModel.currentChatJid === jid
+	property bool isSelected: {
+		return !Kirigami.Settings.isMobile &&
+			MessageModel.currentAccountJid === accountJid &&
+			MessageModel.currentChatJid === jid
+	}
 
 	topPadding: 0
 	leftPadding: 0
