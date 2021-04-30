@@ -30,78 +30,56 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
-import QtGraphicalEffects 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-UserListItem {
+Kirigami.SwipeListItem {
 	id: root
 
-	property string lastMessage
-	property int unreadMessages
+	default property alias __data: content.data
+	property alias avatar: avatar
 
-	isSelected: {
-		return !Kirigami.Settings.isMobile &&
-			MessageModel.currentAccountJid === accountJid &&
-			MessageModel.currentChatJid === jid
-	}
+	property string accountJid
+	property string jid
+	property string name
+	property bool isSelected: false
 
-	// middle
-	ColumnLayout {
-		spacing: Kirigami.Units.largeSpacing
-		Layout.fillWidth: true
+	topPadding: 0
+	leftPadding: 0
+	bottomPadding: 0
+	height: 65
+	backgroundColor: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
 
-		// name
-		Kirigami.Heading {
-			text: name
-			textFormat: Text.PlainText
-			elide: Text.ElideRight
-			maximumLineCount: 1
-			level: 3
-			Layout.fillWidth: true
-			Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
+	RowLayout {
+		id: content
+		spacing: Kirigami.Units.gridUnit * 0.5
+
+		// left border: presence
+		Rectangle {
+			id: presenceIndicator
+			width: Kirigami.Units.gridUnit * 0.3
+			height: parent.height
+			color: userPresence.availabilityColor
+
+			UserPresenceWatcher {
+				id: userPresence
+				jid: root.jid
+			}
 		}
 
-		// last message or error status message if available, otherwise not visible
-		Controls.Label {
-			visible: text
-			Layout.fillWidth: true
-			elide: Text.ElideRight
-			maximumLineCount: 1
-			text: Utils.removeNewLinesFromString(lastMessage)
-			textFormat: Text.PlainText
-			font.weight: Font.Light
-		}
-	}
+		// left: avatar
+		Item {
+			Layout.preferredHeight: parent.height - Kirigami.Units.gridUnit * 0.8
+			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
 
-	// right: icon for muted contact
-	Kirigami.Icon {
-		id: mutedIcon
-		source: "audio-volume-muted-symbolic"
-		width: 22
-		height: 22
-		visible: Kaidan.notificationsMuted(jid)
-	}
-
-	// right: unread message counter
-	MessageCounter {
-		id: counter
-		visible: unreadMessages > 0
-		counter: unreadMessages
-		muted: Kaidan.notificationsMuted(jid)
-		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
-		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
-	}
-
-	Connections {
-		target: Kaidan
-
-		function onNotificationsMutedChanged(jid) {
-			if (jid === root.jid) {
-				counter.muted = Kaidan.notificationsMuted(jid)
-				mutedIcon.visible = Kaidan.notificationsMuted(jid)
+			ShadowedAvatar {
+				id: avatar
+				anchors.fill: parent
+				jid: root.jid
+				name: root.name
+				width: height
+				isBorderVisible: root.hovered || root.isSelected
 			}
 		}
 	}
