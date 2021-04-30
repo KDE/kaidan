@@ -112,7 +112,13 @@ Kirigami.ScrollablePage {
 			name: model.name ? model.name : model.jid
 			lastMessage: model.lastMessage
 			unreadMessages: model.unreadMessages
-			onClicked: openChatPage(AccountManager.jid, model.jid)
+
+			onClicked: {
+				// Open the chatPage only if it is not yet open.
+				if (!isSelected) {
+					openChatPage(accountJid, jid)
+				}
+			}
 		}
 
 		Connections {
