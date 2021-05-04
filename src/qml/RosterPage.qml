@@ -12,64 +12,19 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
-import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigami 2.12 as Kirigami
+
 import im.kaidan.kaidan 1.0
+
 import "elements"
 
-Kirigami.ScrollablePage {
-	id: root
-	title: {
-		Kaidan.connectionState === Enums.StateConnecting ? qsTr("Connecting…") :
-		Kaidan.connectionState === Enums.StateDisconnected ? qsTr("Offline") :
-		qsTr("Contacts")
-	}
-	leftPadding: 0
-	topPadding: 0
-	rightPadding: 0
-	bottomPadding: 0
-
-	mainAction: Kirigami.Action {
-		id: searchAction
-		text: qsTr("Search contacts")
-		checkable: true
-		icon.name: "system-search-symbolic"
-		displayHint: Kirigami.DisplayHint.IconOnly
-		onTriggered: {
-			if (checked) {
-				searchField.forceActiveFocus()
-				searchField.selectAll()
-			}
-		}
-		shortcut: "Ctrl+F"
-	}
-
-	header: Item {
-		height: searchField.visible ? searchField.height : 0
-		clip: true
-
-		Behavior on height {
-			SmoothedAnimation {
-				velocity: 200
-			}
-		}
-
-		Kirigami.SearchField {
-			id: searchField
-			focusSequence: ""
-			width: parent.width
-			height: Kirigami.Units.gridUnit * 2
-			visible: searchAction.checked
-			onVisibleChanged: text = ""
-			onTextChanged: filterModel.setFilterFixedString(text.toLowerCase())
-		}
-	}
+SearchBarPage {
+	isSearchFieldFillingActionToolBar: true
+	listView: rosterListView
 
 	ListView {
 		id: rosterListView
 
-		width: root.width
 		model: RosterFilterProxyModel {
 			id: filterModel
 			sourceModel: RosterModel
@@ -95,9 +50,16 @@ Kirigami.ScrollablePage {
 				notificationsMuted: model ? model.notificationsMuted : false
 
 				onClicked: {
+//					// Open the chatPage only if it is not yet open.
+//					if (!isSelected || !wideScreen) {
+//						openChatPage(accountJid, jid)
+//					}
+
+					// TODO: Is this actually needed instead of the previous part?
 					// Open the chatPage only if it is not yet open.
+					// Emitting the signal is needed because there are slots in other places.
 					if (!isSelected || !wideScreen) {
-						openChatPage(accountJid, jid)
+						Kaidan.openChatPageRequested(accountJid, jid)
 					}
 				}
 			}
@@ -122,34 +84,37 @@ Kirigami.ScrollablePage {
 		Connections {
 			target: Kaidan
 
+			/**
+			 * Opens the chat page for the chat JID currently set in the message model.
+			 *
+			 * @param accountJid JID of the account for that the chat page is opened
+			 * @param chatJid JID of the chat for that the chat page is opened
+			 */
 			function onOpenChatPageRequested(accountJid, chatJid) {
-				openChatPage(accountJid, chatJid)
+				if (Kirigami.Settings.isMobile) {
+					toggleSearchBar()
+				} else {
+					searchField.text = ""
+				}
+
+				for (let i = 0; i < pageStack.items.length; ++i) {
+					let page = pageStack.items[i];
+
+					if (page instanceof ChatPage) {
+						page.saveDraft();
+					}
+				}
+
+				MessageModel.setCurrentChat(accountJid, chatJid)
+
+				// Close all pages (especially the chat page) except the roster page.
+				while (pageStack.depth > 1) {
+					pageStack.pop()
+				}
+
+				popLayersAboveLowest()
+				pageStack.push(chatPage)
 			}
 		}
-	}
-
-	/**
-	 * Opens the chat page for the chat JID currently set in the message model.
-	 *
-	 * @param accountJid JID of the account for that the chat page is opened
-	 * @param chatJid JID of the chat for that the chat page is opened
-	 */
-	function openChatPage(accountJid, chatJid) {
-		for (let i = 0; i < pageStack.items.length; ++i) {
-			let page = pageStack.items[i];
-
-			if (page instanceof ChatPage) {
-				page.saveDraft();
-			}
-		}
-		MessageModel.setCurrentChat(accountJid, chatJid)
-		searchAction.checked = false
-
-		// Close all pages (especially the chat page) except the roster page.
-		while (pageStack.depth > 1)
-			pageStack.pop()
-
-		popLayersAboveLowest()
-		pageStack.push(chatPage)
 	}
 }
