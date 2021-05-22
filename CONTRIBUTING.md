@@ -52,6 +52,10 @@ Feel free to ask if anything is unclear.
 
 Reviews have to be done by at least one maintainer not involved as the MR's author or co-author.
 
+## Features
+
+If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.
+
 ## Graphics
 
 The preferred format for graphics in Kaidan is *SVG*.
