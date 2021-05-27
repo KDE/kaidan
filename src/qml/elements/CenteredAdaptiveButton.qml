@@ -41,7 +41,6 @@ import im.kaidan.kaidan 1.0
 Button {
 	Layout.alignment: Qt.AlignHCenter
 	Layout.fillWidth: true
-	flat: Style.isMaterial ? true : false
 
 	Kirigami.Theme.textColor: {
 		if (Style.isMaterial)

@@ -31,9 +31,11 @@
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.12 as Kirigami
 
+import im.kaidan.kaidan 1.0
+
 /**
  * This is a button fitting mobile and desktop user interfaces.
  */
 Controls.Button {
-	flat: Kirigami.Settings.isMobile
+	flat: Style.isMaterial
 }
