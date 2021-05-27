@@ -28,7 +28,6 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick.Controls.Material 2.14 as Material
 import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -40,5 +39,5 @@ import im.kaidan.kaidan 1.0
  */
 CenteredAdaptiveButton {
 	Kirigami.Theme.textColor: Style.buttonColoringEnabled ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-	Kirigami.Theme.backgroundColor: Material.Material.accent
+	Kirigami.Theme.backgroundColor: Kirigami.Theme.positiveTextColor
 }
