@@ -39,5 +39,8 @@ import im.kaidan.kaidan 1.0
  */
 CenteredAdaptiveButton {
 	Kirigami.Theme.textColor: Style.buttonColoringEnabled ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
-	Kirigami.Theme.backgroundColor: Kirigami.Theme.positiveTextColor
+	Kirigami.Theme.backgroundColor: positive ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.negativeTextColor
+
+	// Set the property to 'false' for a cancellation or a dangerous action.
+	property bool positive: true
 }
