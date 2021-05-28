@@ -84,9 +84,11 @@ Item {
 	// hint for camera issues
 	Kirigami.InlineMessage {
 		visible: cameraEnabled && text !== ""
+		icon.source: "camera-video-symbolic"
+		type: Kirigami.MessageType.Warning
 		anchors.centerIn: parent
-		width: 300
-		height: 60
+		width: Math.min(largeButtonWidth, parent.width)
+		height: Math.min(60, parent.height)
 
 		text: {
 			switch (camera.availability) {
