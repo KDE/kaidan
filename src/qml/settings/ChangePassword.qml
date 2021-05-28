@@ -61,6 +61,7 @@ Kirigami.Page {
 				echoMode: TextInput.Password
 				selectByMouse: true
 				Kirigami.FormData.label: qsTr("Current password:")
+				visible: Kaidan.passwordVisibility === Kaidan.PasswordInvisible
 			}
 			Controls.TextField {
 				id: password1
@@ -116,9 +117,13 @@ Kirigami.Page {
 				Layout.fillWidth: true
 				enabled: password1.text === password2.text && password1.text !== ""
 				onClicked: {
-					if (oldPassword.text !== AccountManager.password) {
-						currentPasswordInvalidMessage.visible = true
-						return
+					if (oldPassword.visible) {
+						if (oldPassword.text !== AccountManager.password) {
+							currentPasswordInvalidMessage.visible = true
+							return
+						}
+
+						currentPasswordInvalidMessage.visible = false
 					}
 
 					Kaidan.client.registrationManager.changePasswordRequested(password1.text)
