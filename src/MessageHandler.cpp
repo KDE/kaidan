@@ -216,7 +216,7 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.setFrom(m_client->configuration().jidBare());
 	msg.setTo(toJid);
 	msg.setBody(body);
-	msg.setId(QXmppUtils::generateStanzaHash());
+	msg.setId(QXmppUtils::generateStanzaUuid());
 	msg.setOriginId(msg.id());
 	msg.setReceiptRequested(true);
 	msg.setIsOwn(true);
