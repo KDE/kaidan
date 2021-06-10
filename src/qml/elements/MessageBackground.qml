@@ -128,6 +128,17 @@ Item {
 			text: Qt.formatDateTime(message.dateTime, "hh:mm")
 			font.pointSize: -1
 			font.pixelSize: Kirigami.Units.gridUnit * (2/3)
+
+			MouseArea {
+				id: timestampMouseArea
+				anchors.fill: parent
+			}
+
+			Controls.ToolTip {
+				visible: timestampMouseArea.containsMouse
+				text: Qt.formatDateTime(message.dateTime, "dd. MMM yyyy, hh:mm")
+				delay: 500
+			}
 		}
 		Image {
 			visible: message.isOwn
