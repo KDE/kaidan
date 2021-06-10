@@ -75,7 +75,6 @@ RowLayout {
 
 	// Own messages are on the right, others on the left side.
 	layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
-	spacing: 8
 	width: ListView.view.width
 
 	// placeholder
@@ -88,24 +87,26 @@ RowLayout {
 		visible: !isOwn
 		jid: root.senderJid
 		name: root.senderName
-		Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+		Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
 	}
 
 	// message bubble
-	Item {
-		Layout.preferredWidth: content.width + 16
-		Layout.preferredHeight: content.height + 16
+	Controls.Control {
+		id: bubble
 
-		// inner area of the message bubble
-		Kirigami.ShadowedRectangle {
-			id: messageBubble
-			anchors.fill: parent
-			shadow.color: Qt.darker(color, 1.2)
-			shadow.size: 4
-			radius: roundedCornersRadius
-			color: isOwn ? rightMessageBubbleColor : primaryBackgroundColor
+		readonly property string paddingText: {
+			"⠀".repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
+		}
+
+		topPadding: Kirigami.Units.largeSpacing
+		bottomPadding: Kirigami.Units.largeSpacing
+		leftPadding: Kirigami.Units.largeSpacing + background.tailSize
+		rightPadding: Kirigami.Units.largeSpacing
+
+		background: MessageBackground {
+			message: root
 
 			MouseArea {
 				anchors.fill: parent
@@ -120,10 +121,8 @@ RowLayout {
 			}
 		}
 
-		ColumnLayout {
+		contentItem: ColumnLayout {
 			id: content
-			spacing: 5
-			anchors.centerIn: parent
 
 			RowLayout {
 				id: spoilerHintRow
@@ -226,12 +225,11 @@ RowLayout {
 				Controls.Label {
 					id: bodyLabel
 					visible: messageBody
-					text: Utils.formatMessage(messageBody)
+					text: Utils.formatMessage(messageBody) + bubble.paddingText
 					textFormat: Text.StyledText
 					wrapMode: Text.Wrap
 					color: Kirigami.Theme.textColor
 					onLinkActivated: Qt.openUrlExternally(link)
-
 					Layout.maximumWidth: media.enabled
 										? media.width
 										: root.width - Kirigami.Units.gridUnit * 6
@@ -244,47 +242,6 @@ RowLayout {
 						var textColor = Kirigami.Theme.textColor
 						return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 					}
-				}
-			}
-
-			// message meta data: date, deliveryState
-			RowLayout {
-				Layout.bottomMargin: -4
-
-				Controls.Label {
-					id: dateLabel
-					text: Qt.formatDateTime(dateTime, "dd. MMM yyyy, hh:mm")
-					color: Kirigami.Theme.disabledTextColor
-					font.pixelSize: Kirigami.Units.gridUnit * 0.8
-				}
-
-				Image {
-					id: checkmark
-					visible: isOwn
-					source: deliveryStateIcon
-					Layout.preferredHeight: Kirigami.Units.gridUnit * 0.65
-					Layout.preferredWidth: Kirigami.Units.gridUnit * 0.65
-					sourceSize.height: Kirigami.Units.gridUnit * 0.65
-					sourceSize.width: Kirigami.Units.gridUnit * 0.65
-
-					MouseArea {
-						id: checkmarkMouseArea
-						anchors.fill: parent
-						hoverEnabled: true
-					}
-
-					Controls.ToolTip {
-						text: deliveryStateName
-						visible: checkmarkMouseArea.containsMouse
-						delay: 500
-					}
-				}
-
-				Kirigami.Icon {
-					source: "document-edit-symbolic"
-					visible: edited
-					Layout.preferredHeight: Kirigami.Units.gridUnit * 0.65
-					Layout.preferredWidth: Kirigami.Units.gridUnit * 0.65
 				}
 			}
 
