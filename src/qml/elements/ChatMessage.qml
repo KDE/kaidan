@@ -69,6 +69,10 @@ RowLayout {
 	property alias bodyLabel: bodyLabel
 	property string deliveryStateName
 	property url deliveryStateIcon
+	property bool isGroupBegin: {
+		return modelIndex < 1 ||
+			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
+	}
 
 	signal messageEditRequested(string id, string body)
 	signal quoteRequested(string body)
@@ -76,20 +80,26 @@ RowLayout {
 	// Own messages are on the right, others on the left side.
 	layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
 	width: ListView.view.width
+	height: implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 
 	// placeholder
 	Item {
 		Layout.preferredWidth: 5
 	}
 
-	Avatar {
-		id: avatar
+	Item {
 		visible: !isOwn
-		jid: root.senderJid
-		name: root.senderName
 		Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
+
+		Avatar {
+			id: avatar
+			visible: !isOwn && isGroupBegin
+			anchors.fill: parent
+			jid: root.senderJid
+			name: root.senderName
+		}
 	}
 
 	// message bubble
@@ -107,6 +117,7 @@ RowLayout {
 
 		background: MessageBackground {
 			message: root
+			showTail: !isOwn && isGroupBegin
 
 			MouseArea {
 				anchors.fill: parent

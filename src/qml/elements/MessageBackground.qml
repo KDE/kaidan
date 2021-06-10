@@ -44,7 +44,7 @@ Item {
 	property QtObject message
 	property color color: message.isOwn ? rightMessageBubbleColor : primaryBackgroundColor
 	property int tailSize: Kirigami.Units.largeSpacing
-	property bool showTail: !message.isOwn
+	property bool showTail: true
 	property alias dummy: dummy
 	readonly property alias metaInfoWidth: metaInfo.width
 

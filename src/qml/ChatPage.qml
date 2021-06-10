@@ -302,7 +302,7 @@ ChatPageBase {
 	ListView {
 		id: messageListView
 		verticalLayoutDirection: ListView.BottomToTop
-		spacing: Kirigami.Units.smallSpacing * 1.5
+		spacing: 0
 
 		// Highlighting of the message containing a searched string.
 		highlight: Component {
