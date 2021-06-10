@@ -57,17 +57,20 @@ UserListItem {
 
 		// name
 		Kirigami.Heading {
+			id: nameText
 			text: name
 			textFormat: Text.PlainText
 			elide: Text.ElideRight
 			maximumLineCount: 1
-			level: 3
+			level: 4
 			Layout.fillWidth: true
 			Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
+			color: Kirigami.Theme.textColor
 		}
 
 		// last message or error status message if available, otherwise not visible
 		Controls.Label {
+			id: lastMessageText
 			visible: text
 			Layout.fillWidth: true
 			elide: Text.ElideRight
@@ -75,7 +78,20 @@ UserListItem {
 			text: Utils.removeNewLinesFromString(lastMessage)
 			textFormat: Text.PlainText
 			font.weight: Font.Light
+			color: Kirigami.Theme.textColor
 		}
+	}
+
+	onIsSelectedChanged: textColorAnimation.restart()
+
+	// fading text colors
+	ColorAnimation {
+		id: textColorAnimation
+		targets: [nameText, lastMessageText]
+		property: "color"
+		to: root.isSelected ? Kirigami.Theme.textColor : Kirigami.Theme.highlightedTextColor
+		duration: 150
+		running: false
 	}
 
 	// right: icon for muted contact
