@@ -273,14 +273,18 @@ ChatPageBase {
 		anchors.right: parent.right
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin: {
-			Kirigami.Settings.isMobile
+			return Kirigami.Settings.isMobile
 				? sendingPane.height
 				: sendingPane.height + 5
 		}
 		anchors.rightMargin: {
-			Kirigami.Settings.isMobile
-				? root.flickable.Controls.ScrollBar.vertical.implicitWidth + 35
-				: root.flickable.Controls.ScrollBar.vertical.implicitWidth + 5
+			if (root.flickable.Controls.ScrollBar.vertical) {
+				return Kirigami.Settings.isMobile
+					? root.flickable.Controls.ScrollBar.vertical.implicitWidth + 35
+					: root.flickable.Controls.ScrollBar.vertical.implicitWidth + 5
+			}
+
+			return Kirigami.Settings.isMobile ? 35 : 5
 		}
 		icon.name: "go-down"
 		onClicked: messageListView.positionViewAtIndex(0, ListView.Center)
