@@ -42,7 +42,7 @@ import im.kaidan.kaidan 1.0
 Column {
 	property string title: qsTr("Settings")
 	spacing: 0
-	height: root.height * 0.9
+	height: applicationWindow().height * 0.9
 
 	SettingsItem {
 		name: qsTr("Change password")
