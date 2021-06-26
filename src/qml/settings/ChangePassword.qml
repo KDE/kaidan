@@ -39,6 +39,7 @@ import "../elements"
 Kirigami.Page {
 	title: qsTr("Change password")
 	topPadding: 0
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	Controls.BusyIndicator {
 		id: busyIndicator

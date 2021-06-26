@@ -41,6 +41,7 @@ import "../elements"
  */
 ConfirmationPage {
 	title: qsTr("Don't show your password")
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	topDescription: qsTr("Your password will not be shown anymore but still exposed via the login QR code.\nYou won't be able to see your password again because this action cannot be undone!\nConsider storing the password somewhere else if you want to use your account on another device without the login QR code.")
 

@@ -37,6 +37,7 @@ import im.kaidan.kaidan 1.0
 
 BinaryDecisionPage {
 	title: qsTr("Account Security")
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	topDescription: qsTr("Allow to add additional devices using the login QR code but never show the password.")
 	topAction: Kirigami.Action {

@@ -39,6 +39,7 @@ import MediaUtils 0.1
 
 Kirigami.Page {
 	id: root
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	title: qsTr("Multimedia Settings")
 

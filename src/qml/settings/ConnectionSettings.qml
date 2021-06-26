@@ -40,6 +40,7 @@ Kirigami.Page {
 	title: qsTr("Connection settings")
 	topPadding: 0
 	Layout.maximumWidth: largeButtonWidth
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	Controls.BusyIndicator {
 		id: busyIndicator

@@ -40,6 +40,7 @@ import "../elements"
  */
 ConfirmationPage {
 	title: qsTr("Remove account from this app")
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	topDescription: qsTr("Your account will be removed from this app.\nYour password will be deleted, make sure it is stored in a password manager or you know it!")
 

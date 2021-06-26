@@ -40,6 +40,7 @@ import "../elements"
  */
 ConfirmationPage {
 	title: qsTr("Delete account completely")
+	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	topDescription: qsTr("Your account will be deleted completely, which means from this app and from the server.\nYou will not be able to use your account again!")
 
