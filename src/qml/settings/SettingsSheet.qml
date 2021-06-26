@@ -56,7 +56,7 @@ Kirigami.OverlaySheet {
 		}
 	}
 
-	ColumnLayout {
+	contentItem: ColumnLayout {
 		Controls.StackView {
 			Layout.fillHeight: true
 			Layout.fillWidth: true
