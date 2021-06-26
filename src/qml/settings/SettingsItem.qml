@@ -39,7 +39,7 @@ Kirigami.BasicListItem {
 
 	reserveSpaceForIcon: icon
 
-	ColumnLayout {
+	contentItem: ColumnLayout {
 		Kirigami.Heading {
 			text: name
 			textFormat: Text.PlainText
