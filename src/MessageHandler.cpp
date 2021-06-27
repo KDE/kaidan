@@ -37,6 +37,7 @@
 #include <QXmppRosterManager.h>
 #include <QXmppUtils.h>
 // Kaidan
+#include "AccountManager.h"
 #include "ClientWorker.h"
 #include "Globals.h"
 #include "Kaidan.h"
@@ -213,7 +214,7 @@ void MessageHandler::sendMessage(const QString& toJid,
                                  const QString& spoilerHint)
 {
 	Message msg;
-	msg.setFrom(m_client->configuration().jidBare());
+	msg.setFrom(AccountManager::instance()->jid());
 	msg.setTo(toJid);
 	msg.setBody(body);
 	msg.setId(QXmppUtils::generateStanzaUuid());
