@@ -210,7 +210,7 @@ void Kaidan::initializeDatabase()
 	m_database = new Database();
 	m_database->moveToThread(m_dbThrd);
 
-	m_msgDb = new MessageDb();
+	m_msgDb = new MessageDb(m_database);
 	m_msgDb->moveToThread(m_dbThrd);
 
 	m_rosterDb = new RosterDb(m_database);

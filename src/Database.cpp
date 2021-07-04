@@ -32,17 +32,15 @@
 #include "Globals.h"
 #include "Utils.h"
 
-#include <QDebug>
 #include <QDir>
-#include <QSqlDatabase>
+#include <QRandomGenerator>
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlField>
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QStandardPaths>
-#include <QString>
-#include <QStringList>
+#include <QThreadStorage>
 
 #include "Kaidan.h"
 
@@ -71,6 +69,50 @@
 #define SQL_ATTRIBUTE(name, dataType) \
 	SQL_LAST_ATTRIBUTE(name, dataType) ","
 
+class DbConnection;
+
+static QThreadStorage<DbConnection *> dbConnections;
+
+class DbConnection
+{
+	Q_DISABLE_COPY(DbConnection)
+public:
+	DbConnection()
+		: m_name(QString::number(QRandomGenerator::global()->generate(), 36))
+	{
+		auto database = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), m_name);
+		if (!database.isValid()) {
+			qFatal("Cannot add database: %s", qPrintable(database.lastError().text()));
+		}
+
+		const auto writeDir = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
+		if (!writeDir.mkpath(QLatin1String("."))) {
+			qFatal("Failed to create writable directory at %s", qPrintable(writeDir.absolutePath()));
+		}
+
+		// Ensure that we have a writable location on all devices.
+		const auto fileName = writeDir.absoluteFilePath(QStringLiteral(DB_FILENAME));
+		// open() will create the SQLite database if it doesn't exist.
+		database.setDatabaseName(fileName);
+		if (!database.open()) {
+			qFatal("Cannot open database: %s", qPrintable(database.lastError().text()));
+		}
+	}
+
+	~DbConnection()
+	{
+		QSqlDatabase::removeDatabase(m_name);
+	}
+
+	QSqlDatabase database()
+	{
+		return QSqlDatabase::database(m_name);
+	}
+
+private:
+	QString m_name;
+};
+
 enum DatabaseVersion {
 	DbNotLoaded = -1,
 	DbNotCreated = 0,  // no tables
@@ -79,8 +121,6 @@ enum DatabaseVersion {
 
 struct DatabasePrivate
 {
-	QSqlDatabase database;
-
 	int version = DbNotLoaded;
 	int transactions = 0;
 };
@@ -95,29 +135,10 @@ Database::Database(QObject *parent)
 
 Database::~Database()
 {
-	d->database.close();
-	d->database = {};
 }
 
 void Database::openDatabase()
 {
-	d->database = QSqlDatabase::addDatabase("QSQLITE", DB_CONNECTION);
-	if (!d->database.isValid())
-		qFatal("Cannot add database: %s", qPrintable(d->database.lastError().text()));
-
-	const QDir writeDir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-	if (!writeDir.mkpath(".")) {
-		qFatal("Failed to create writable directory at %s", qPrintable(writeDir.absolutePath()));
-	}
-
-	// Ensure that we have a writable location on all devices.
-	const QString fileName = writeDir.absoluteFilePath(DB_FILENAME);
-	// open() will create the SQLite database if it doesn't exist.
-	d->database.setDatabaseName(fileName);
-	if (!d->database.open()) {
-		qFatal("Cannot open database: %s", qPrintable(d->database.lastError().text()));
-	}
-
 	loadDatabaseInfo();
 
 	if (needToConvert())
@@ -126,47 +147,69 @@ void Database::openDatabase()
 
 void Database::transaction()
 {
-	if (!d->transactions) {
+	auto &transactions = activeTransactions();
+	if (!transactions) {
+		auto db = currentDatabase();
 		// currently no transactions running
-		if (!d->database.transaction()) {
+		if (!db.transaction()) {
 			qWarning() << "Could not begin transaction on database:"
-			           << d->database.lastError().text();
+			           << db.lastError().text();
 		}
 	}
 	// increase counter
-	d->transactions++;
+	transactions++;
 }
 
 void Database::commit()
 {
-	// reduce counter
-	d->transactions--;
-	Q_ASSERT(d->transactions >= 0);
+	auto &transactions = activeTransactions();
 
-	if (!d->transactions) {
+	// reduce counter
+	transactions--;
+	Q_ASSERT(transactions >= 0);
+
+	if (!transactions) {
 		// no transaction requested anymore
-		if (!d->database.commit()) {
+		auto db = currentDatabase();
+		if (!db.commit()) {
 			qWarning() << "Could not commit transaction on database:"
-			           << d->database.lastError().text();
+			           << db.lastError().text();
 		}
 	}
 }
 
+QSqlDatabase Database::currentDatabase()
+{
+	if (!dbConnections.hasLocalData()) {
+		dbConnections.setLocalData(new DbConnection());
+	}
+	return dbConnections.localData()->database();
+}
+
+QSqlQuery Database::createQuery()
+{
+	QSqlQuery query(currentDatabase());
+	query.setForwardOnly(true);
+	return query;
+}
+
 void Database::loadDatabaseInfo()
 {
-	QStringList tables = d->database.tables();
+	auto db = currentDatabase();
+	const auto tables = db.tables();
 	if (!tables.contains(DB_TABLE_INFO)) {
 		if (tables.contains(DB_TABLE_MESSAGES) &&
-			tables.contains(DB_TABLE_ROSTER))
+			tables.contains(DB_TABLE_ROSTER)) {
 			// old Kaidan v0.1/v0.2 table
 			d->version = DbOldVersion;
-		else
+		} else {
 			d->version = DbNotCreated;
+		}
 		// we've got all we want; do not query for a db version
 		return;
 	}
 
-	QSqlQuery query(d->database);
+	QSqlQuery query(db);
 	Utils::execQuery(query, "SELECT version FROM " DB_TABLE_INFO);
 
 	QSqlRecord record = query.record();
@@ -186,16 +229,23 @@ void Database::saveDatabaseInfo()
 	QSqlRecord updateRecord;
 	updateRecord.append(Utils::createSqlField("version", d->version));
 
-	QSqlQuery query(d->database);
+	auto db = currentDatabase();
+	QSqlQuery query(db);
 	Utils::execQuery(
 		query,
-		d->database.driver()->sqlStatement(
+		db.driver()->sqlStatement(
 			QSqlDriver::UpdateStatement,
 			DB_TABLE_INFO,
 			updateRecord,
 			false
 		)
 	);
+}
+
+int &Database::activeTransactions()
+{
+	thread_local static int activeTransactions = 0;
+	return activeTransactions;
 }
 
 bool Database::needToConvert()
@@ -228,7 +278,8 @@ void Database::createNewDatabase()
 
 void Database::createDbInfoTable()
 {
-	QSqlQuery query(d->database);
+	auto db = currentDatabase();
+	QSqlQuery query(db);
 	Utils::execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -240,13 +291,13 @@ void Database::createDbInfoTable()
 	QSqlRecord insertRecord;
 	insertRecord.append(Utils::createSqlField("version", DATABASE_LATEST_VERSION));
 	Utils::execQuery(
-	        query,
-			d->database.driver()->sqlStatement(
-	                QSqlDriver::InsertStatement,
-	                DB_TABLE_INFO,
-	                insertRecord,
-	                false
-	        )
+		query,
+		db.driver()->sqlStatement(
+			QSqlDriver::InsertStatement,
+			DB_TABLE_INFO,
+			insertRecord,
+			false
+		)
 	);
 }
 
@@ -254,7 +305,7 @@ void Database::createRosterTable()
 {
 	// TODO: remove lastExchanged and lastMessage
 
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -276,7 +327,7 @@ void Database::createMessagesTable()
 	//  * remove 'NOT NULL' from id
 	//  * remove columns isSent, isDelivered
 
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -322,7 +373,7 @@ void Database::convertDatabaseToV2()
 void Database::convertDatabaseToV3()
 {
 	DATABASE_CONVERT_TO_VERSION(2);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Roster ADD avatarHash " SQL_TEXT);
 	d->version = 3;
 }
@@ -330,7 +381,7 @@ void Database::convertDatabaseToV3()
 void Database::convertDatabaseToV4()
 {
 	DATABASE_CONVERT_TO_VERSION(3);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	// SQLite doesn't support the ALTER TABLE drop columns feature, so we have to use a workaround.
 	// we copy all rows into a back-up table (but without `avatarHash`), and then delete the old table
 	// and copy everything to the normal table again
@@ -351,7 +402,7 @@ void Database::convertDatabaseToV4()
 void Database::convertDatabaseToV5()
 {
 	DATABASE_CONVERT_TO_VERSION(4);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD type " SQL_INTEGER);
 	Utils::execQuery(query, "UPDATE Messages SET type = 0 WHERE type IS NULL");
 	Utils::execQuery(query, "ALTER TABLE Messages ADD mediaUrl " SQL_TEXT);
@@ -361,7 +412,7 @@ void Database::convertDatabaseToV5()
 void Database::convertDatabaseToV6()
 {
 	DATABASE_CONVERT_TO_VERSION(5);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	for (const QString &column : {	"mediaSize " SQL_INTEGER,
 									"mediaContentType " SQL_TEXT,
 									"mediaLastModified " SQL_INTEGER,
@@ -374,7 +425,7 @@ void Database::convertDatabaseToV6()
 void Database::convertDatabaseToV7()
 {
 	DATABASE_CONVERT_TO_VERSION(6);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD mediaThumb " SQL_BLOB);
 	Utils::execQuery(query, "ALTER TABLE Messages ADD mediaHashes " SQL_TEXT);
 	d->version = 7;
@@ -383,7 +434,7 @@ void Database::convertDatabaseToV7()
 void Database::convertDatabaseToV8()
 {
 	DATABASE_CONVERT_TO_VERSION(7);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged, unreadMessages, lastMessage)");
 	Utils::execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster");
 	Utils::execQuery(query, "DROP TABLE Roster");
@@ -407,7 +458,7 @@ void Database::convertDatabaseToV8()
 void Database::convertDatabaseToV9()
 {
 	DATABASE_CONVERT_TO_VERSION(8);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD edited " SQL_BOOL);
 	d->version = 9;
 }
@@ -415,7 +466,7 @@ void Database::convertDatabaseToV9()
 void Database::convertDatabaseToV10()
 {
 	DATABASE_CONVERT_TO_VERSION(9);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD isSpoiler " SQL_BOOL);
 	Utils::execQuery(query, "ALTER TABLE Messages ADD spoilerHint " SQL_TEXT);
 	d->version = 10;
@@ -424,7 +475,7 @@ void Database::convertDatabaseToV10()
 void Database::convertDatabaseToV11()
 {
 	DATABASE_CONVERT_TO_VERSION(10);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD deliveryState " SQL_INTEGER);
 	Utils::execQuery(query, "UPDATE Messages SET deliveryState = 2 WHERE isDelivered = 1");
 	Utils::execQuery(query, "UPDATE Messages SET deliveryState = 1 WHERE deliveryState IS NULL");
@@ -435,7 +486,7 @@ void Database::convertDatabaseToV11()
 void Database::convertDatabaseToV12()
 {
 	DATABASE_CONVERT_TO_VERSION(11);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD replaceId " SQL_TEXT);
 	d->version = 12;
 }
@@ -443,7 +494,7 @@ void Database::convertDatabaseToV12()
 void Database::convertDatabaseToV13()
 {
 	DATABASE_CONVERT_TO_VERSION(12);
-	QSqlQuery query(d->database);
+	QSqlQuery query(currentDatabase());
 	Utils::execQuery(query, "ALTER TABLE Messages ADD stanzaId " SQL_TEXT);
 	Utils::execQuery(query, "ALTER TABLE Messages ADD originId " SQL_TEXT);
 	d->version = 13;

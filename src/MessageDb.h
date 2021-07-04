@@ -34,6 +34,7 @@
 
 #include "Message.h"
 
+class Database;
 class QSqlQuery;
 class QSqlRecord;
 
@@ -49,7 +50,7 @@ class MessageDb : public QObject
 	Q_OBJECT
 
 public:
-	explicit MessageDb(QObject *parent = nullptr);
+	explicit MessageDb(Database *db, QObject *parent = nullptr);
 	~MessageDb();
 
 	static MessageDb *instance();
@@ -170,4 +171,5 @@ private slots:
 
 private:
 	static MessageDb *s_instance;
+	Database *m_db;
 };

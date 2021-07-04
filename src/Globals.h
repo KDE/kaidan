@@ -57,7 +57,6 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define NS_CARBONS "urn:xmpp:carbons:2"
 
 // SQL
-#define DB_CONNECTION "kaidan-messages"
 #define DB_FILENAME "messages.sqlite3"
 #define DB_TABLE_INFO "dbinfo"
 #define DB_TABLE_ROSTER "Roster"

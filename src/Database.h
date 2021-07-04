@@ -34,6 +34,7 @@
 #include <QObject>
 
 class QSqlQuery;
+class QSqlDatabase;
 struct DatabasePrivate;
 
 /**
@@ -49,8 +50,8 @@ public:
 	~Database();
 
 	/**
-	 * Opens the database for reading and writing and guarantees the database to be
-	 * up-to-date.
+	 * Converts the database to the latest version and guarantees that all tables have
+	 * been created.
 	 */
 	void openDatabase();
 
@@ -64,6 +65,9 @@ public:
 	 */
 	void commit();
 
+	QSqlDatabase currentDatabase();
+	QSqlQuery createQuery();
+
 signals:
 	/// Emit, to begin a transaction if none has been started already.
 	void transactionRequested();
@@ -72,6 +76,9 @@ signals:
 	void commitRequested();
 
 private:
+	/// Returns the number of active transactions on the current thread.
+	int &activeTransactions();
+
 	/**
 	 * @return true if the database has to be converted using @c convertDatabase()
 	 * because the database is not up-to-date.

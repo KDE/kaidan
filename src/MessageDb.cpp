@@ -38,6 +38,7 @@
 #include <QSqlRecord>
 #include <QStringBuilder>
 // Kaidan
+#include "Database.h"
 #include "Globals.h"
 #include "Utils.h"
 
@@ -45,8 +46,9 @@
 
 MessageDb *MessageDb::s_instance = nullptr;
 
-MessageDb::MessageDb(QObject *parent)
-        : QObject(parent)
+MessageDb::MessageDb(Database *db, QObject *parent)
+	: QObject(parent),
+	  m_db(db)
 {
 	Q_ASSERT(!MessageDb::s_instance);
 	s_instance = this;
@@ -190,7 +192,8 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 
 void MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
+
 	query.setForwardOnly(true);
 
 	QMap<QString, QVariant> bindValues;
@@ -217,7 +220,7 @@ void MessageDb::fetchMessages(const QString &user1, const QString &user2, int in
 
 Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	query.setForwardOnly(true);
 
 	QMap<QString, QVariant> bindValues = {
@@ -245,7 +248,7 @@ Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 
 void MessageDb::fetchLastMessageStamp()
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	query.setForwardOnly(true);
 
 	Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
@@ -282,7 +285,7 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 	// to speed up the whole process emit signal first and do the actual insert after that
 	emit messageAdded(msg, origin);
 
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 
 	QSqlRecord record = db.record(DB_TABLE_MESSAGES);
 	record.setValue("author", msg.from());
@@ -316,7 +319,7 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 
 void MessageDb::removeMessages(const QString &, const QString &)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	Utils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
 }
 
@@ -324,7 +327,7 @@ void MessageDb::updateMessage(const QString &id,
                               const std::function<void (Message &)> &updateMsg)
 {
 	// load current message item from db
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 
 	QSqlQuery query(db);
 	query.setForwardOnly(true);
@@ -364,7 +367,7 @@ void MessageDb::updateMessage(const QString &id,
 void MessageDb::updateMessageRecord(const QString &id,
                                     const QSqlRecord &updateRecord)
 {
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 	QSqlQuery query(db);
 	Utils::execQuery(
 	        query,
@@ -415,7 +418,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	query.setForwardOnly(true);
 	Utils::execQuery(query, querySql, bindValues);
 
@@ -428,7 +431,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 
 void MessageDb::fetchPendingMessages(const QString& userJid)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	query.setForwardOnly(true);
 
 	QMap<QString, QVariant> bindValues;

@@ -105,7 +105,7 @@ void RosterDb::addItem(const RosterItem &item)
 
 void RosterDb::addItems(const QVector<RosterItem> &items)
 {
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 	m_db->transaction();
 
 	QSqlQuery query(db);
@@ -132,7 +132,7 @@ void RosterDb::updateItem(const QString &jid,
 			  const std::function<void (RosterItem &)> &updateItem)
 {
 	// load current roster item from db
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 
 	QSqlQuery query(db);
 	query.setForwardOnly(true);
@@ -167,7 +167,7 @@ void RosterDb::updateItem(const QString &jid,
 void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 {
 	// load current items
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 	QSqlQuery query(db);
 	query.setForwardOnly(true);
 	Utils::execQuery(query, "SELECT * FROM Roster");
@@ -208,13 +208,13 @@ void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 
 void RosterDb::removeItems(const QString &, const QString &)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	Utils::execQuery(query, "DELETE FROM Roster");
 }
 
 void RosterDb::setItemName(const QString &jid, const QString &name)
 {
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 	QSqlQuery query(db);
 
 	QSqlRecord rec;
@@ -234,7 +234,7 @@ void RosterDb::setItemName(const QString &jid, const QString &name)
 
 void RosterDb::fetchItems(const QString &accountId)
 {
-	QSqlQuery query(QSqlDatabase::database(DB_CONNECTION));
+	QSqlQuery query(m_db->currentDatabase());
 	query.setForwardOnly(true);
 	Utils::execQuery(query, "SELECT * FROM Roster");
 
@@ -252,7 +252,7 @@ void RosterDb::fetchItems(const QString &accountId)
 
 void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 {
-	QSqlDatabase db = QSqlDatabase::database(DB_CONNECTION);
+	auto db = m_db->currentDatabase();
 	QSqlQuery query(db);
 
 	QMap<QString, QVariant> keyValuePairs = {
