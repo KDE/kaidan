@@ -30,10 +30,11 @@
 
 #pragma once
 
+#include <memory>
 #include <QObject>
-#include <QSqlDatabase>
 
 class QSqlQuery;
+struct DatabasePrivate;
 
 /**
  * The Database class manages the SQL database. It opens the database and converts old
@@ -120,15 +121,5 @@ private:
 	void convertDatabaseToV12();
 	void convertDatabaseToV13();
 
-	QSqlDatabase m_database;
-
-	/**
-	 * -1	: Database not loaded.
-	 * 0	: Database not existent.
-	 * 1	: Old database before Kaidan v0.3.
-	 * > 1	: Database version.
-	 */
-	int m_version = -1;
-
-	int m_transactions = 0;
+	std::unique_ptr<DatabasePrivate> d;
 };
