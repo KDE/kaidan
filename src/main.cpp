@@ -99,6 +99,7 @@ Q_DECLARE_METATYPE(QXmppResultSetReply);
 Q_DECLARE_METATYPE(QXmppVCardIq)
 Q_DECLARE_METATYPE(QXmppVersionIq)
 
+Q_DECLARE_METATYPE(std::function<void()>)
 Q_DECLARE_METATYPE(std::function<void(RosterItem&)>)
 Q_DECLARE_METATYPE(std::function<void(Message&)>)
 
@@ -252,6 +253,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QVector<Message>>();
 	qRegisterMetaType<QVector<RosterItem>>();
 	qRegisterMetaType<QHash<QString,RosterItem>>();
+	qRegisterMetaType<std::function<void()>>();
 	qRegisterMetaType<std::function<void(RosterItem&)>>();
 	qRegisterMetaType<std::function<void(Message&)>>();
 	qRegisterMetaType<QXmppVCardIq>();

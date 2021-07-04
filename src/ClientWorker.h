@@ -30,11 +30,13 @@
 
 #pragma once
 
+#include <functional>
 // Qt
 // QXmpp
 #include <QXmppClient.h>
 // Kaidan
 #include "Enums.h"
+#include "Globals.h"
 
 class AccountManager;
 class AvatarFileStorage;
@@ -61,6 +63,7 @@ class Settings;
 class ClientWorker : public QObject
 {
 	Q_OBJECT
+	RUN_FUNCTION()
 
 	Q_PROPERTY(RegistrationManager* registrationManager READ registrationManager CONSTANT)
 	Q_PROPERTY(VCardManager* vCardManager READ vCardManager CONSTANT)

@@ -107,4 +107,17 @@ constexpr auto SERVER_LIST_MIN_SERVERS_FROM_COUNTRY = 2;
 // JPEG export quality used when saving images lossy (e.g. when saving images from clipboard)
 constexpr auto JPEG_EXPORT_QUALITY = 85;
 
+// Defines run function to run any code on the object's thread
+#define RUN_FUNCTION() \
+public: \
+	void run(std::function<void()> &&function) \
+	{ \
+		QMetaObject::invokeMethod(this, "_run", Q_ARG(std::function<void()>, std::move(function))); \
+	} \
+private: \
+	Q_INVOKABLE void _run(const std::function<void()> &function) \
+	{ \
+		function(); \
+	}
+
 #endif // GLOBALS_H
