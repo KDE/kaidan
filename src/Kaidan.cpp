@@ -216,7 +216,7 @@ void Kaidan::initializeDatabase()
 	m_rosterDb = new RosterDb(m_database);
 	m_rosterDb->moveToThread(m_dbThrd);
 
-	connect(m_dbThrd, &QThread::started, m_database, &Database::openDatabase);
+	connect(m_dbThrd, &QThread::started, m_database, &Database::createTables);
 	m_dbThrd->start();
 }
 

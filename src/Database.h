@@ -53,7 +53,7 @@ public:
 	 * Converts the database to the latest version and guarantees that all tables have
 	 * been created.
 	 */
-	void openDatabase();
+	void createTables();
 
 	/**
 	 * Begins a transaction if none has been started.

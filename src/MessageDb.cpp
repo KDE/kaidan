@@ -192,9 +192,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 
 void MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
 {
-	QSqlQuery query(m_db->currentDatabase());
-
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 
 	QMap<QString, QVariant> bindValues;
 	bindValues[":user1"] = user1;
@@ -220,8 +218,7 @@ void MessageDb::fetchMessages(const QString &user1, const QString &user2, int in
 
 Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 {
-	QSqlQuery query(m_db->currentDatabase());
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 
 	QMap<QString, QVariant> bindValues = {
 		{ QStringLiteral(":user1"), user1 },
@@ -248,9 +245,7 @@ Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 
 void MessageDb::fetchLastMessageStamp()
 {
-	QSqlQuery query(m_db->currentDatabase());
-	query.setForwardOnly(true);
-
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
 
 	QDateTime stamp;
@@ -308,7 +303,7 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 	record.setValue("originId", msg.originId());
 	record.setValue("stanzaId", msg.stanzaId());
 
-	QSqlQuery query(db);
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, db.driver()->sqlStatement(
 	        QSqlDriver::InsertStatement,
 	        DB_TABLE_MESSAGES,
@@ -328,9 +323,7 @@ void MessageDb::updateMessage(const QString &id,
 {
 	// load current message item from db
 	auto db = m_db->currentDatabase();
-
-	QSqlQuery query(db);
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 	Utils::execQuery(
 		query,
 		"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
@@ -368,7 +361,7 @@ void MessageDb::updateMessageRecord(const QString &id,
                                     const QSqlRecord &updateRecord)
 {
 	auto db = m_db->currentDatabase();
-	QSqlQuery query(db);
+	auto query = m_db->createQuery();
 	Utils::execQuery(
 	        query,
 	        db.driver()->sqlStatement(
@@ -418,8 +411,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
-	QSqlQuery query(m_db->currentDatabase());
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, querySql, bindValues);
 
 	int count = 0;
@@ -431,8 +423,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 
 void MessageDb::fetchPendingMessages(const QString& userJid)
 {
-	QSqlQuery query(m_db->currentDatabase());
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 
 	QMap<QString, QVariant> bindValues;
 	bindValues[":user"] = userJid;

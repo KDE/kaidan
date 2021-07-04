@@ -33,6 +33,7 @@
 #include "Utils.h"
 
 #include <QDir>
+#include <QMutex>
 #include <QRandomGenerator>
 #include <QSqlDriver>
 #include <QSqlError>
@@ -121,8 +122,10 @@ enum DatabaseVersion {
 
 struct DatabasePrivate
 {
+	QMutex tableCreationMutex;
 	int version = DbNotLoaded;
 	int transactions = 0;
+	bool tablesCreated = false;
 };
 
 Database::Database(QObject *parent)
@@ -137,12 +140,19 @@ Database::~Database()
 {
 }
 
-void Database::openDatabase()
+void Database::createTables()
 {
+	QMutexLocker locker(&d->tableCreationMutex);
+	if (d->tablesCreated) {
+		return;
+	}
+
 	loadDatabaseInfo();
 
 	if (needToConvert())
 		convertDatabase();
+
+	d->tablesCreated = true;
 }
 
 void Database::transaction()
@@ -188,6 +198,9 @@ QSqlDatabase Database::currentDatabase()
 
 QSqlQuery Database::createQuery()
 {
+	if (!d->tablesCreated) {
+		createTables();
+	}
 	QSqlQuery query(currentDatabase());
 	query.setForwardOnly(true);
 	return query;

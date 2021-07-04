@@ -106,9 +106,9 @@ void RosterDb::addItem(const RosterItem &item)
 void RosterDb::addItems(const QVector<RosterItem> &items)
 {
 	auto db = m_db->currentDatabase();
+	auto query = m_db->createQuery();
 	m_db->transaction();
 
-	QSqlQuery query(db);
 	Utils::prepareQuery(query, db.driver()->sqlStatement(
 		QSqlDriver::InsertStatement,
 		DB_TABLE_ROSTER,
@@ -132,11 +132,7 @@ void RosterDb::updateItem(const QString &jid,
 			  const std::function<void (RosterItem &)> &updateItem)
 {
 	// load current roster item from db
-	auto db = m_db->currentDatabase();
-
-	QSqlQuery query(db);
-	query.setForwardOnly(true);
-
+	auto query = m_db->createQuery();
 	Utils::execQuery(
 	        query,
 	        "SELECT * FROM Roster WHERE jid = ? LIMIT 1",
@@ -167,9 +163,7 @@ void RosterDb::updateItem(const QString &jid,
 void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 {
 	// load current items
-	auto db = m_db->currentDatabase();
-	QSqlQuery query(db);
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, "SELECT * FROM Roster");
 
 	QVector<RosterItem> currentItems;
@@ -208,14 +202,14 @@ void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 
 void RosterDb::removeItems(const QString &, const QString &)
 {
-	QSqlQuery query(m_db->currentDatabase());
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, "DELETE FROM Roster");
 }
 
 void RosterDb::setItemName(const QString &jid, const QString &name)
 {
 	auto db = m_db->currentDatabase();
-	QSqlQuery query(db);
+	auto query = m_db->createQuery();
 
 	QSqlRecord rec;
 	rec.append(Utils::createSqlField("name", name));
@@ -234,8 +228,7 @@ void RosterDb::setItemName(const QString &jid, const QString &name)
 
 void RosterDb::fetchItems(const QString &accountId)
 {
-	QSqlQuery query(m_db->currentDatabase());
-	query.setForwardOnly(true);
+	auto query = m_db->createQuery();
 	Utils::execQuery(query, "SELECT * FROM Roster");
 
 	QVector<RosterItem> items;
@@ -253,7 +246,7 @@ void RosterDb::fetchItems(const QString &accountId)
 void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 {
 	auto db = m_db->currentDatabase();
-	QSqlQuery query(db);
+	auto query = m_db->createQuery();
 
 	QMap<QString, QVariant> keyValuePairs = {
 		{ "jid", jid }
