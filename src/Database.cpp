@@ -71,17 +71,17 @@
 #define SQL_ATTRIBUTE(name, dataType) \
 	SQL_LAST_ATTRIBUTE(name, dataType) ","
 
+enum DatabaseVersion {
+	DbNotLoaded = -1,
+	DbNotCreated = 0,  // no tables
+	DbOldVersion = 1,  // Kaidan v0.3 or before
+};
+
 struct DatabasePrivate
 {
 	QSqlDatabase database;
 
-	/**
-	 * -1	: Database not loaded.
-	 * 0	: Database not existent.
-	 * 1	: Old database before Kaidan v0.3.
-	 * > 1	: Database version.
-	 */
-	int version = -1;
+	int version = DbNotLoaded;
 	int transactions = 0;
 };
 
@@ -159,9 +159,9 @@ void Database::loadDatabaseInfo()
 		if (tables.contains(DB_TABLE_MESSAGES) &&
 			tables.contains(DB_TABLE_ROSTER))
 			// old Kaidan v0.1/v0.2 table
-			d->version = 1;
+			d->version = DbOldVersion;
 		else
-			d->version = 0;
+			d->version = DbNotCreated;
 		// we've got all we want; do not query for a db version
 		return;
 	}
@@ -179,8 +179,9 @@ void Database::loadDatabaseInfo()
 
 void Database::saveDatabaseInfo()
 {
-	if (d->version < 2 || d->version > DATABASE_LATEST_VERSION)
+	if (d->version <= DbOldVersion || d->version > DATABASE_LATEST_VERSION) {
 		qFatal("[database] Fatal error: Attempted to save invalid db version number.");
+	}
 
 	QSqlRecord updateRecord;
 	updateRecord.append(Utils::createSqlField("version", d->version));
@@ -207,7 +208,7 @@ void Database::convertDatabase()
 	qDebug() << "[database] Converting database to latest version from version" << d->version;
 	transaction();
 
-	if (d->version == 0)
+	if (d->version == DbNotCreated)
 		createNewDatabase();
 	else
 		DATABASE_CONVERT_TO_LATEST_VERSION();
