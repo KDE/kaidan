@@ -30,15 +30,11 @@
 
 #pragma once
 
-// Qt
-#include <QObject>
-class QSqlQuery;
-class QSqlRecord;
-// Kaidan
-class RosterItem;
-class Database;
+#include "DatabaseComponent.h"
 
-class RosterDb : public QObject
+class RosterItem;
+
+class RosterDb : public DatabaseComponent
 {
 	Q_OBJECT
 
@@ -96,8 +92,6 @@ private slots:
 
 private:
 	void updateItemByRecord(const QString &jid, const QSqlRecord &record);
-
-	Database *m_db;
 
 	static RosterDb *s_instance;
 };

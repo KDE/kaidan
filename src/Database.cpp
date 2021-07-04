@@ -42,6 +42,7 @@
 #include <QSqlRecord>
 #include <QStandardPaths>
 #include <QThreadStorage>
+#include <QThreadPool>
 
 #include "Kaidan.h"
 
@@ -122,6 +123,7 @@ enum DatabaseVersion {
 
 struct DatabasePrivate
 {
+	QThreadPool pool;
 	QMutex tableCreationMutex;
 	int version = DbNotLoaded;
 	int transactions = 0;
@@ -132,6 +134,8 @@ Database::Database(QObject *parent)
 	: QObject(parent),
 	  d(new DatabasePrivate)
 {
+	d->pool.setMaxThreadCount(1);
+	d->pool.setExpiryTimeout(-1);
 	connect(this, &Database::transactionRequested, this, &Database::transaction);
 	connect(this, &Database::commitRequested, this, &Database::commit);
 }
@@ -259,6 +263,11 @@ int &Database::activeTransactions()
 {
 	thread_local static int activeTransactions = 0;
 	return activeTransactions;
+}
+
+QThreadPool &Database::threadPool()
+{
+	return d->pool;
 }
 
 bool Database::needToConvert()

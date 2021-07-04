@@ -33,6 +33,7 @@
 #include <QObject>
 
 #include "Message.h"
+#include "DatabaseComponent.h"
 
 class Database;
 class QSqlQuery;
@@ -45,7 +46,7 @@ class QSqlRecord;
  * All queries must be executed only after the Kaidan SQL connection has been opened in
  * the Database class.
  */
-class MessageDb : public QObject
+class MessageDb : public DatabaseComponent
 {
 	Q_OBJECT
 
@@ -171,5 +172,4 @@ private slots:
 
 private:
 	static MessageDb *s_instance;
-	Database *m_db;
 };

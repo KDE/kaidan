@@ -30,7 +30,6 @@
 
 #include "RosterDb.h"
 // Kaidan
-#include "Database.h"
 #include "Globals.h"
 #include "Utils.h"
 #include "RosterItem.h"
@@ -45,8 +44,7 @@
 RosterDb *RosterDb::s_instance = nullptr;
 
 RosterDb::RosterDb(Database *db, QObject *parent)
-        : QObject(parent),
-          m_db(db)
+        : DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!RosterDb::s_instance);
 	s_instance = this;
@@ -105,14 +103,13 @@ void RosterDb::addItem(const RosterItem &item)
 
 void RosterDb::addItems(const QVector<RosterItem> &items)
 {
-	auto db = m_db->currentDatabase();
-	auto query = m_db->createQuery();
-	m_db->transaction();
+	auto query = createQuery();
+	transaction();
 
-	Utils::prepareQuery(query, db.driver()->sqlStatement(
+	Utils::prepareQuery(query, sqlDriver().sqlStatement(
 		QSqlDriver::InsertStatement,
 		DB_TABLE_ROSTER,
-		db.record(DB_TABLE_ROSTER),
+		sqlRecord(DB_TABLE_ROSTER),
 		true
 	));
 
@@ -125,14 +122,14 @@ void RosterDb::addItems(const QVector<RosterItem> &items)
 		Utils::execQuery(query);
 	}
 
-	m_db->commit();
+	commit();
 }
 
 void RosterDb::updateItem(const QString &jid,
 			  const std::function<void (RosterItem &)> &updateItem)
 {
 	// load current roster item from db
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(
 	        query,
 	        "SELECT * FROM Roster WHERE jid = ? LIMIT 1",
@@ -163,13 +160,13 @@ void RosterDb::updateItem(const QString &jid,
 void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 {
 	// load current items
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(query, "SELECT * FROM Roster");
 
 	QVector<RosterItem> currentItems;
 	parseItemsFromQuery(query, currentItems);
 
-	m_db->transaction();
+	transaction();
 
 	QList<QString> keys = items.keys();
 	QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
@@ -197,38 +194,38 @@ void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 	for (const QString &jid : newJids)
 		addItem(items[jid]);
 
-	m_db->commit();
+	commit();
 }
 
 void RosterDb::removeItems(const QString &, const QString &)
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(query, "DELETE FROM Roster");
 }
 
 void RosterDb::setItemName(const QString &jid, const QString &name)
 {
-	auto db = m_db->currentDatabase();
-	auto query = m_db->createQuery();
+	auto query = createQuery();
+	auto &driver = sqlDriver();
 
 	QSqlRecord rec;
 	rec.append(Utils::createSqlField("name", name));
 
 	Utils::execQuery(
 		query,
-		db.driver()->sqlStatement(
+		driver.sqlStatement(
 			QSqlDriver::UpdateStatement,
 			DB_TABLE_ROSTER,
 			rec,
 			false
 		) +
-		Utils::simpleWhereStatement(db.driver(), "jid", jid)
+		Utils::simpleWhereStatement(&driver, "jid", jid)
 	);
 }
 
 void RosterDb::fetchItems(const QString &accountId)
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(query, "SELECT * FROM Roster");
 
 	QVector<RosterItem> items;
@@ -245,8 +242,8 @@ void RosterDb::fetchItems(const QString &accountId)
 
 void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 {
-	auto db = m_db->currentDatabase();
-	auto query = m_db->createQuery();
+	auto query = createQuery();
+	auto &driver = sqlDriver();
 
 	QMap<QString, QVariant> keyValuePairs = {
 		{ "jid", jid }
@@ -254,12 +251,12 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 
 	Utils::execQuery(
 		query,
-		db.driver()->sqlStatement(
+		driver.sqlStatement(
 			QSqlDriver::UpdateStatement,
 			DB_TABLE_ROSTER,
 			record,
 			false
 		) +
-		Utils::simpleWhereStatement(db.driver(), keyValuePairs)
+		Utils::simpleWhereStatement(&driver, keyValuePairs)
 	);
 }

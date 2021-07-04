@@ -10,6 +10,7 @@ set(KAIDAN_SOURCES
 	src/ClientWorker.cpp
 	src/AvatarFileStorage.cpp
 	src/Database.cpp
+	src/DatabaseComponent.cpp
 	src/RosterItem.cpp
 	src/RosterModel.cpp
 	src/RosterFilterProxyModel.cpp

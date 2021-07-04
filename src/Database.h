@@ -35,6 +35,7 @@
 
 class QSqlQuery;
 class QSqlDatabase;
+class QThreadPool;
 struct DatabasePrivate;
 
 /**
@@ -44,6 +45,7 @@ struct DatabasePrivate;
 class Database : public QObject
 {
 	Q_OBJECT
+	friend class DatabaseComponent;
 
 public:
 	Database(QObject *parent = nullptr);
@@ -55,19 +57,6 @@ public:
 	 */
 	void createTables();
 
-	/**
-	 * Begins a transaction if none has been started.
-	 */
-	void transaction();
-
-	/**
-	 * Commits the transaction if every transaction has been finished.
-	 */
-	void commit();
-
-	QSqlDatabase currentDatabase();
-	QSqlQuery createQuery();
-
 signals:
 	/// Emit, to begin a transaction if none has been started already.
 	void transactionRequested();
@@ -76,8 +65,17 @@ signals:
 	void commitRequested();
 
 private:
+	QSqlDatabase currentDatabase();
+	QSqlQuery createQuery();
+
 	/// Returns the number of active transactions on the current thread.
 	int &activeTransactions();
+	/// Begins a transaction if none has been started.
+	void transaction();
+	/// Commits the transaction if every transaction has been finished.
+	void commit();
+
+	QThreadPool &threadPool();
 
 	/**
 	 * @return true if the database has to be converted using @c convertDatabase()

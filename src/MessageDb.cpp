@@ -47,8 +47,7 @@
 MessageDb *MessageDb::s_instance = nullptr;
 
 MessageDb::MessageDb(Database *db, QObject *parent)
-	: QObject(parent),
-	  m_db(db)
+	: DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!MessageDb::s_instance);
 	s_instance = this;
@@ -192,7 +191,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 
 void MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 
 	QMap<QString, QVariant> bindValues;
 	bindValues[":user1"] = user1;
@@ -218,7 +217,7 @@ void MessageDb::fetchMessages(const QString &user1, const QString &user2, int in
 
 Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 
 	QMap<QString, QVariant> bindValues = {
 		{ QStringLiteral(":user1"), user1 },
@@ -245,7 +244,7 @@ Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 
 void MessageDb::fetchLastMessageStamp()
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
 
 	QDateTime stamp;
@@ -280,9 +279,7 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 	// to speed up the whole process emit signal first and do the actual insert after that
 	emit messageAdded(msg, origin);
 
-	auto db = m_db->currentDatabase();
-
-	QSqlRecord record = db.record(DB_TABLE_MESSAGES);
+	QSqlRecord record = sqlRecord(DB_TABLE_MESSAGES);
 	record.setValue("author", msg.from());
 	record.setValue("recipient", msg.to());
 	record.setValue("timestamp", msg.stamp().toString(Qt::ISODate));
@@ -303,8 +300,8 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 	record.setValue("originId", msg.originId());
 	record.setValue("stanzaId", msg.stanzaId());
 
-	auto query = m_db->createQuery();
-	Utils::execQuery(query, db.driver()->sqlStatement(
+	auto query = createQuery();
+	Utils::execQuery(query, sqlDriver().sqlStatement(
 	        QSqlDriver::InsertStatement,
 	        DB_TABLE_MESSAGES,
 	        record,
@@ -314,7 +311,7 @@ void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 
 void MessageDb::removeMessages(const QString &, const QString &)
 {
-	QSqlQuery query(m_db->currentDatabase());
+	auto query = createQuery();
 	Utils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
 }
 
@@ -322,8 +319,7 @@ void MessageDb::updateMessage(const QString &id,
                               const std::function<void (Message &)> &updateMsg)
 {
 	// load current message item from db
-	auto db = m_db->currentDatabase();
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(
 		query,
 		"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
@@ -342,16 +338,17 @@ void MessageDb::updateMessage(const QString &id,
 		if (msgs.first() != msg) {
 			// create an SQL record with only the differences
 			QSqlRecord rec = createUpdateRecord(msgs.first(), msg);
+			auto &driver = sqlDriver();
 
 			Utils::execQuery(
-			        query,
-			        db.driver()->sqlStatement(
-			                QSqlDriver::UpdateStatement,
-			                DB_TABLE_MESSAGES,
-			                rec,
-			                false
-			        ) +
-			        Utils::simpleWhereStatement(db.driver(), "id", id)
+				query,
+				driver.sqlStatement(
+					QSqlDriver::UpdateStatement,
+					DB_TABLE_MESSAGES,
+					rec,
+					false
+				) +
+				Utils::simpleWhereStatement(&driver, "id", id)
 			);
 		}
 	}
@@ -360,17 +357,17 @@ void MessageDb::updateMessage(const QString &id,
 void MessageDb::updateMessageRecord(const QString &id,
                                     const QSqlRecord &updateRecord)
 {
-	auto db = m_db->currentDatabase();
-	auto query = m_db->createQuery();
+	auto query = createQuery();
+	auto &driver = sqlDriver();
 	Utils::execQuery(
 	        query,
-	        db.driver()->sqlStatement(
+	        driver.sqlStatement(
 	                QSqlDriver::UpdateStatement,
 	                DB_TABLE_MESSAGES,
 	                updateRecord,
 	                false
 	        ) +
-	        Utils::simpleWhereStatement(db.driver(), "id", id)
+	        Utils::simpleWhereStatement(&driver, "id", id)
 	);
 }
 
@@ -411,7 +408,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 	Utils::execQuery(query, querySql, bindValues);
 
 	int count = 0;
@@ -423,7 +420,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 
 void MessageDb::fetchPendingMessages(const QString& userJid)
 {
-	auto query = m_db->createQuery();
+	auto query = createQuery();
 
 	QMap<QString, QVariant> bindValues;
 	bindValues[":user"] = userJid;
