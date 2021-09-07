@@ -32,6 +32,7 @@
 
 // Kaidan
 #include "AccountManager.h"
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
@@ -54,9 +55,6 @@ RosterModel::RosterModel(QObject *parent)
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
-	connect(RosterDb::instance(), &RosterDb::itemsFetched,
-		this, &RosterModel::handleItemsFetched);
-
 	connect(this, &RosterModel::addItemRequested, this, &RosterModel::addItem);
 	connect(this, &RosterModel::addItemRequested, RosterDb::instance(), &RosterDb::addItem);
 
@@ -76,12 +74,13 @@ RosterModel::RosterModel(QObject *parent)
 		m_items.clear();
 		endResetModel();
 
-		emit RosterDb::instance()->fetchItemsRequested(AccountManager::instance()->jid());
+		await(RosterDb::instance()->fetchItems(AccountManager::instance()->jid()), this, [this](QVector<RosterItem> items) {
+			handleItemsFetched(items);
+		});
 	});
 
 	connect(this, &RosterModel::removeItemsRequested, this, [=](const QString &accountJid, const QString &chatJid) {
-		emit RosterDb::instance()->removeItemsRequested(accountJid, chatJid);
-
+		RosterDb::instance()->removeItems(accountJid, chatJid);
 		removeItems(accountJid, chatJid);
 
 		if (accountJid == MessageModel::instance()->currentAccountJid() && chatJid == MessageModel::instance()->currentChatJid())
@@ -335,7 +334,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		itr->setUnreadMessages(*newUnreadMessages);
 		changedRoles << int(UnreadMessagesRole);
 
-		emit RosterDb::instance()->updateItemRequested(contactJid, [=](RosterItem &item) {
+		RosterDb::instance()->updateItem(contactJid, [=](RosterItem &item) {
 			item.setUnreadMessages(*newUnreadMessages);
 		});
 	}

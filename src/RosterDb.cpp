@@ -48,10 +48,6 @@ RosterDb::RosterDb(Database *db, QObject *parent)
 {
 	Q_ASSERT(!RosterDb::s_instance);
 	s_instance = this;
-
-	connect(this, &RosterDb::fetchItemsRequested, this, &RosterDb::fetchItems);
-	connect(this, &RosterDb::updateItemRequested, this, &RosterDb::updateItem);
-	connect(this, &RosterDb::removeItemsRequested, this, &RosterDb::removeItems);
 }
 
 RosterDb::~RosterDb()
@@ -96,148 +92,161 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 	return rec;
 }
 
-void RosterDb::addItem(const RosterItem &item)
+QFuture<void> RosterDb::addItem(const RosterItem &item)
 {
-	addItems(QVector<RosterItem>() << item);
+	return addItems({item});
 }
 
-void RosterDb::addItems(const QVector<RosterItem> &items)
+QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 {
-	auto query = createQuery();
-	transaction();
+	return run([this, items]() {
+		auto query = createQuery();
+		transaction();
 
-	Utils::prepareQuery(query, sqlDriver().sqlStatement(
-		QSqlDriver::InsertStatement,
-		DB_TABLE_ROSTER,
-		sqlRecord(DB_TABLE_ROSTER),
-		true
-	));
+		Utils::prepareQuery(query, sqlDriver().sqlStatement(
+			QSqlDriver::InsertStatement,
+			DB_TABLE_ROSTER,
+			sqlRecord(DB_TABLE_ROSTER),
+			true
+		));
 
-	for (const auto &item : items) {
-		query.addBindValue(item.jid());
-		query.addBindValue(item.name());
-		query.addBindValue(QStringLiteral("")); // lastExchanged (NOT NULL)
-		query.addBindValue(item.unreadMessages());
-		query.addBindValue(QString()); // lastMessage
-		Utils::execQuery(query);
-	}
+		for (const auto &item : items) {
+			query.addBindValue(item.jid());
+			query.addBindValue(item.name());
+			query.addBindValue(QStringLiteral("")); // lastExchanged (NOT NULL)
+			query.addBindValue(item.unreadMessages());
+			query.addBindValue(QString()); // lastMessage
+			Utils::execQuery(query);
+		}
 
-	commit();
+		commit();
+	});
 }
 
-void RosterDb::updateItem(const QString &jid,
+QFuture<void> RosterDb::updateItem(const QString &jid,
 			  const std::function<void (RosterItem &)> &updateItem)
 {
-	// load current roster item from db
-	auto query = createQuery();
-	Utils::execQuery(
-	        query,
-	        "SELECT * FROM Roster WHERE jid = ? LIMIT 1",
-	        QVector<QVariant>() << jid
-	);
+	return run([this, jid, updateItem]() {
+		// load current roster item from db
+		auto query = createQuery();
+		Utils::execQuery(
+				query,
+				"SELECT * FROM Roster WHERE jid = ? LIMIT 1",
+				QVector<QVariant>() << jid
+		);
 
-	QVector<RosterItem> items;
-	parseItemsFromQuery(query, items);
+		QVector<RosterItem> items;
+		parseItemsFromQuery(query, items);
 
-	// update loaded item
-	if (!items.isEmpty()) {
-		RosterItem item = items.first();
-		updateItem(item);
+		// update loaded item
+		if (!items.isEmpty()) {
+			RosterItem item = items.first();
+			updateItem(item);
 
-		// replace old item with updated one, if item has changed
-		if (items.first() != item) {
-			// create an SQL record with only the differences
-			QSqlRecord rec = createUpdateRecord(items.first(), item);
+			// replace old item with updated one, if item has changed
+			if (items.first() != item) {
+				// create an SQL record with only the differences
+				QSqlRecord rec = createUpdateRecord(items.first(), item);
 
-			if (rec.isEmpty())
-				return;
+				if (rec.isEmpty())
+					return;
 
-			updateItemByRecord(jid, rec);
+				updateItemByRecord(jid, rec);
+			}
 		}
-	}
+	});
 }
 
-void RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
+QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 {
-	// load current items
-	auto query = createQuery();
-	Utils::execQuery(query, "SELECT * FROM Roster");
+	return run([this, items]() {
+		// load current items
+		auto query = createQuery();
+		Utils::execQuery(query, "SELECT * FROM Roster");
 
-	QVector<RosterItem> currentItems;
-	parseItemsFromQuery(query, currentItems);
+		QVector<RosterItem> currentItems;
+		parseItemsFromQuery(query, currentItems);
 
-	transaction();
+		transaction();
 
-	QList<QString> keys = items.keys();
-	QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
+		QList<QString> keys = items.keys();
+		QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
 
-	for (const auto &oldItem : qAsConst(currentItems)) {
-		// We will remove the already existing JIDs, so we get a set of JIDs that
-		// are completely new.
-		//
-		// By calling remove(), we also find out whether the JID is already
-		// existing or not.
-		if (newJids.remove(oldItem.jid())) {
-			// item is also included in newJids -> update
+		for (const auto &oldItem : qAsConst(currentItems)) {
+			// We will remove the already existing JIDs, so we get a set of JIDs that
+			// are completely new.
+			//
+			// By calling remove(), we also find out whether the JID is already
+			// existing or not.
+			if (newJids.remove(oldItem.jid())) {
+				// item is also included in newJids -> update
 
-			// name is (currently) the only attribute that is defined by the
-			// XMPP roster and so could cause a change
-			if (oldItem.name() != items[oldItem.jid()].name())
-				setItemName(oldItem.jid(), items[oldItem.jid()].name());
-		} else {
-			// item is not included in newJids -> delete
-			removeItems({}, oldItem.jid());
+				// name is (currently) the only attribute that is defined by the
+				// XMPP roster and so could cause a change
+				if (oldItem.name() != items[oldItem.jid()].name())
+					setItemName(oldItem.jid(), items[oldItem.jid()].name());
+			} else {
+				// item is not included in newJids -> delete
+				removeItems({}, oldItem.jid());
+			}
 		}
-	}
 
-	// now add the completely new JIDs
-	for (const QString &jid : newJids)
-		addItem(items[jid]);
+		// now add the completely new JIDs
+		for (const QString &jid : newJids) {
+			addItem(items[jid]);
+		}
 
-	commit();
+		commit();
+	});
 }
 
-void RosterDb::removeItems(const QString &, const QString &)
+QFuture<void> RosterDb::removeItems(const QString &, const QString &)
 {
-	auto query = createQuery();
-	Utils::execQuery(query, "DELETE FROM Roster");
+	return run([this]() {
+		auto query = createQuery();
+		Utils::execQuery(query, "DELETE FROM Roster");
+	});
 }
 
-void RosterDb::setItemName(const QString &jid, const QString &name)
+QFuture<void> RosterDb::setItemName(const QString &jid, const QString &name)
 {
-	auto query = createQuery();
-	auto &driver = sqlDriver();
+	return run([this, jid, name]() {
+		auto query = createQuery();
+		auto &driver = sqlDriver();
 
-	QSqlRecord rec;
-	rec.append(Utils::createSqlField("name", name));
+		QSqlRecord rec;
+		rec.append(Utils::createSqlField("name", name));
 
-	Utils::execQuery(
-		query,
-		driver.sqlStatement(
-			QSqlDriver::UpdateStatement,
-			DB_TABLE_ROSTER,
-			rec,
-			false
-		) +
-		Utils::simpleWhereStatement(&driver, "jid", jid)
-	);
+		Utils::execQuery(
+			query,
+			driver.sqlStatement(
+				QSqlDriver::UpdateStatement,
+				DB_TABLE_ROSTER,
+				rec,
+				false
+			) +
+			Utils::simpleWhereStatement(&driver, "jid", jid)
+		);
+	});
 }
 
-void RosterDb::fetchItems(const QString &accountId)
+QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 {
-	auto query = createQuery();
-	Utils::execQuery(query, "SELECT * FROM Roster");
+	return run([this, accountId]() {
+		auto query = createQuery();
+		Utils::execQuery(query, "SELECT * FROM Roster");
 
-	QVector<RosterItem> items;
-	parseItemsFromQuery(query, items);
+		QVector<RosterItem> items;
+		parseItemsFromQuery(query, items);
 
-	for (auto &item : items) {
-		Message lastMessage = MessageDb::instance()->fetchLastMessage(accountId, item.jid());
-		item.setLastExchanged(lastMessage.stamp());
-		item.setLastMessage(lastMessage.previewText());
-	}
+		for (auto &item : items) {
+			Message lastMessage = MessageDb::instance()->fetchLastMessage(accountId, item.jid());
+			item.setLastExchanged(lastMessage.stamp());
+			item.setLastMessage(lastMessage.previewText());
+		}
 
-	emit itemsFetched(items);
+		return items;
+	});
 }
 
 void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)

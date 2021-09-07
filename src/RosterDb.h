@@ -55,27 +55,11 @@ public:
 	static QSqlRecord createUpdateRecord(const RosterItem &oldItem,
 	                                     const RosterItem &newItem);
 
-signals:
-	void fetchItemsRequested(const QString &accountId);
-	void itemsFetched(const QVector<RosterItem> &items);
-	void updateItemRequested(const QString &jid,
-	                         const std::function<void (RosterItem &)> &updateItem);
-	void clearAllRequested();
-
-	/**
-	 * Emitted to remove all roster items of an account or a specific roster item.
-	 *
-	 * @param accountJid JID of the account whose roster items are being removed
-	 * @param jid JID of the roster item being removed (optional)
-	 */
-	void removeItemsRequested(const QString &accountJid, const QString &jid = {});
-
-public slots:
-	void addItem(const RosterItem &item);
-	void addItems(const QVector<RosterItem> &items);
-	void updateItem(const QString &jid,
+	QFuture<void> addItem(const RosterItem &item);
+	QFuture<void> addItems(const QVector<RosterItem> &items);
+	QFuture<void> updateItem(const QString &jid,
 	                const std::function<void (RosterItem &)> &updateItem);
-	void replaceItems(const QHash<QString, RosterItem> &items);
+	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
 
 	/**
 	 * Removes all roster items of an account or a specific roster item.
@@ -83,12 +67,9 @@ public slots:
 	 * @param accountJid JID of the account whose roster items are being removed
 	 * @param jid JID of the roster item being removed (optional)
 	 */
-	void removeItems(const QString &accountJid, const QString &jid = {});
-
-	void setItemName(const QString &jid, const QString &name);
-
-private slots:
-	void fetchItems(const QString &accountId);
+	QFuture<void> removeItems(const QString &accountJid, const QString &jid = {});
+	QFuture<void> setItemName(const QString &jid, const QString &name);
+	QFuture<QVector<RosterItem>> fetchItems(const QString &accountId);
 
 private:
 	void updateItemByRecord(const QString &jid, const QSqlRecord &record);
