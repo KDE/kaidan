@@ -75,7 +75,7 @@ private:
 	/// Commits the transaction if every transaction has been finished.
 	void commit();
 
-	QThreadPool &threadPool();
+	QThreadPool *threadPool();
 
 	/**
 	 * @return true if the database has to be converted using @c convertDatabase()

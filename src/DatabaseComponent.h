@@ -52,13 +52,13 @@ public:
     void commit();
 
     template<typename Functor>
-    void run(Functor function)
+    auto run(Functor function)
     {
-        QtConcurrent::run(threadPool(), function);
+        return QtConcurrent::run(threadPool(), function);
     }
 
 private:
-    QThreadPool &threadPool() const;
+	QThreadPool *threadPool() const;
 
     Database *m_database;
 };

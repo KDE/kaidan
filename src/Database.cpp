@@ -265,9 +265,9 @@ int &Database::activeTransactions()
 	return activeTransactions;
 }
 
-QThreadPool &Database::threadPool()
+QThreadPool *Database::threadPool()
 {
-	return d->pool;
+	return &d->pool;
 }
 
 bool Database::needToConvert()

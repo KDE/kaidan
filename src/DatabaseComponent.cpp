@@ -68,7 +68,7 @@ void DatabaseComponent::commit()
 	m_database->commit();
 }
 
-QThreadPool &DatabaseComponent::threadPool() const
+QThreadPool *DatabaseComponent::threadPool() const
 {
 	return m_database->threadPool();
 }
