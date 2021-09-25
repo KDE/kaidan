@@ -73,7 +73,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.setName(query.value(idxName).toString());
 		item.setUnreadMessages(query.value(idxUnreadMessages).toInt());
 
-		items << item;
+		items << std::move(item);
 	}
 }
 
@@ -113,7 +113,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 		for (const auto &item : items) {
 			query.addBindValue(item.jid());
 			query.addBindValue(item.name());
-			query.addBindValue(QStringLiteral("")); // lastExchanged (NOT NULL)
+			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
 			query.addBindValue(item.unreadMessages());
 			query.addBindValue(QString()); // lastMessage
 			Utils::execQuery(query);
