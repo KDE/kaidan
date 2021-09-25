@@ -51,14 +51,6 @@ MessageDb::MessageDb(Database *db, QObject *parent)
 {
 	Q_ASSERT(!MessageDb::s_instance);
 	s_instance = this;
-
-	connect(this, &MessageDb::fetchMessagesRequested,
-	        this, &MessageDb::fetchMessages);
-
-	connect(this, &MessageDb::fetchPendingMessagesRequested,
-	        this, &MessageDb::fetchPendingMessages);
-
-	connect(this, &MessageDb::fetchLastMessageStampRequested, this, &MessageDb::fetchLastMessageStamp);
 }
 
 MessageDb::~MessageDb()

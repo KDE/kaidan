@@ -67,41 +67,6 @@ public:
 	static QSqlRecord createUpdateRecord(const Message &oldMsg,
 	                                     const Message &newMsg);
 
-signals:
-	/**
-	 * Can be used to triggerd fetchMessages()
-	 */
-	void fetchMessagesRequested(const QString &user1,
-	                            const QString &user2,
-	                            int index);
-
-	/**
-	 *  Emitted to fetch pending messages.
-	 */
-	void fetchPendingMessagesRequested(const QString &userJid);
-	void fetchLastMessageStampRequested();
-
-	void updateMessageRequested(const QString &id, const std::function<void (Message &)> &updateMsg);
-	void removeAllMessagesRequested();
-
-	/**
-	 * Emitted when new messages have been fetched
-	 */
-	void messagesFetched(const QVector<Message> &messages);
-
-	/**
-	 * Emitted when pending messages have been fetched
-	 */
-	void pendingMessagesFetched(const QVector<Message> &messages);
-
-	/**
-	 * Emitted when the latest message stamp was fetched
-	 */
-	void lastMessageStampFetched(const QDateTime &stamp);
-
-	void messageAdded(const Message &msg, MessageOrigin origin);
-
-public slots:
 	/**
 	 * @brief Fetches more entries from the database and emits messagesFetched() with
 	 * the results.
@@ -111,6 +76,7 @@ public slots:
 	 * @param index Number of entries to be skipped, used for paging.
 	 */
 	QFuture<QVector<Message>> fetchMessages(const QString &user1, const QString &user2, int index);
+	Q_SIGNAL void messagesFetched(const QVector<Message> &messages);
 
 	/**
 	 * @brief Fetches messages that are marked as pending.
@@ -118,6 +84,7 @@ public slots:
 	 * @param userJid JID of the user whose messages should be fetched
 	 */
 	QFuture<QVector<Message>> fetchPendingMessages(const QString &userJid);
+	Q_SIGNAL void pendingMessagesFetched(const QVector<Message> &messages);
 
 	/**
 	 * Fetches the last message and returns it.
@@ -128,11 +95,13 @@ public slots:
 	 * Fetch the latest message stamp
 	 */
 	QFuture<QDateTime> fetchLastMessageStamp();
+	Q_SIGNAL void lastMessageStampFetched(const QDateTime &stamp);
 
 	/**
 	 * Adds a message to the database.
 	 */
 	QFuture<void> addMessage(const Message &msg, MessageOrigin origin);
+	Q_SIGNAL void messageAdded(const Message &msg, MessageOrigin origin);
 
 	/**
 	 * Removes all messages of an account or an account's chat.

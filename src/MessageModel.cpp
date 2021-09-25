@@ -244,7 +244,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 void MessageModel::fetchMore(const QModelIndex &)
 {
 	if (!m_fetchedAllFromDb) {
-		emit MessageDb::instance()->fetchMessagesRequested(
+		MessageDb::instance()->fetchMessages(
 				AccountManager::instance()->jid(), m_currentChatJid, m_messages.size());
 	} else if (!m_fetchedAllFromMam) {
 		// use earliest timestamp
@@ -460,7 +460,7 @@ void MessageModel::updateMessage(const QString &id,
 		}
 	}
 
-	emit MessageDb::instance()->updateMessageRequested(id, updateMsg);
+	MessageDb::instance()->updateMessage(id, updateMsg);
 }
 
 void MessageModel::handleMessage(Message msg, MessageOrigin origin)
@@ -515,7 +515,7 @@ void MessageModel::processMessage(Message &msg)
 
 void MessageModel::sendPendingMessages()
 {
-	emit MessageDb::instance()->fetchPendingMessagesRequested(AccountManager::instance()->jid());
+	MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid());
 }
 
 QXmppMessage::State MessageModel::chatState() const
@@ -592,7 +592,7 @@ void MessageModel::correctMessage(const QString &msgId, const QString &message)
 		QModelIndex index = createIndex(std::distance(m_messages.begin(), itr), 0);
 		emit dataChanged(index, index);
 
-		emit MessageDb::instance()->updateMessageRequested(msgId, [=](Message &localMessage) {
+		MessageDb::instance()->updateMessage(msgId, [=](Message &localMessage) {
 			localMessage = msg;
 		});
 	}

@@ -109,7 +109,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 			this, &MessageHandler::handlePendingMessages);
 
 	// get last message stamp to retrieve all new messages from the server since then
-	emit MessageDb::instance()->fetchLastMessageStampRequested();
+	MessageDb::instance()->fetchLastMessageStamp();
 }
 
 MessageHandler::~MessageHandler()
