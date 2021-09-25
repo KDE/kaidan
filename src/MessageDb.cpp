@@ -189,30 +189,34 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	return rec;
 }
 
-void MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
+QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
 {
-	auto query = createQuery();
+	return run([this, user1, user2, index]() {
+		auto query = createQuery();
 
-	QMap<QString, QVariant> bindValues;
-	bindValues[":user1"] = user1;
-	bindValues[":user2"] = user2;
-	bindValues[":index"] = index;
-	bindValues[":limit"] = DB_QUERY_LIMIT_MESSAGES;
+		QMap<QString, QVariant> bindValues = {
+			{":user1", user1},
+			{":user2", user2},
+			{":index", index},
+			{":limit", DB_QUERY_LIMIT_MESSAGES},
+		};
 
-	Utils::execQuery(
-		query,
-		"SELECT * FROM " DB_TABLE_MESSAGES " "
-		"WHERE (author = :user1 AND recipient = :user2) OR "
-			"(author = :user2 AND recipient = :user1) "
-		"ORDER BY timestamp DESC "
-		"LIMIT :index, :limit",
-		bindValues
-	);
+		Utils::execQuery(
+			query,
+			"SELECT * FROM " DB_TABLE_MESSAGES " "
+			"WHERE (author = :user1 AND recipient = :user2) OR "
+			      "(author = :user2 AND recipient = :user1) "
+			"ORDER BY timestamp DESC "
+			"LIMIT :index, :limit",
+			bindValues
+		);
 
-	QVector<Message> messages;
-	parseMessagesFromQuery(query, messages);
+		QVector<Message> messages;
+		parseMessagesFromQuery(query, messages);
 
-	emit messagesFetched(messages);
+		emit messagesFetched(messages);
+		return messages;
+	});
 }
 
 Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
@@ -242,116 +246,125 @@ Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
 	return {};
 }
 
-void MessageDb::fetchLastMessageStamp()
+QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 {
-	auto query = createQuery();
-	Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
+	return run([this]() {
+		auto query = createQuery();
+		Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
 
-	QDateTime stamp;
-	while (query.next()) {
-		stamp = QDateTime::fromString(
-			query.value(query.record().indexOf("timestamp")).toString(),
-			Qt::ISODate
-		);
-	}
-
-	emit lastMessageStampFetched(stamp);
-}
-
-void MessageDb::addMessage(const Message &msg, MessageOrigin origin)
-{
-	// deduplication
-	switch (origin) {
-	case MessageOrigin::MamBacklog:
-	case MessageOrigin::MamCatchUp:
-	case MessageOrigin::Stream:
-		if (checkMessageExists(msg)) {
-			// message deduplicated (messageAdded() signal is not emitted)
-			return;
-		}
-		break;
-	case MessageOrigin::MamInitial:
-	case MessageOrigin::UserInput:
-		// no deduplication required
-		break;
-	}
-
-	// to speed up the whole process emit signal first and do the actual insert after that
-	emit messageAdded(msg, origin);
-
-	QSqlRecord record = sqlRecord(DB_TABLE_MESSAGES);
-	record.setValue("author", msg.from());
-	record.setValue("recipient", msg.to());
-	record.setValue("timestamp", msg.stamp().toString(Qt::ISODate));
-	record.setValue("message", msg.body());
-	record.setValue("id", msg.id().isEmpty() ? " " : msg.id());
-	record.setValue("deliveryState", int(msg.deliveryState()));
-	record.setValue("type", int(msg.mediaType()));
-	record.setValue("edited", msg.isEdited());
-	record.setValue("isSpoiler", msg.isSpoiler());
-	record.setValue("spoilerHint", msg.spoilerHint());
-	record.setValue("mediaUrl", msg.outOfBandUrl());
-	record.setValue("mediaContentType", msg.mediaContentType());
-	record.setValue("mediaLocation", msg.mediaLocation());
-	record.setValue("mediaSize", msg.mediaSize());
-	record.setValue("mediaLastModified", msg.mediaLastModified().toMSecsSinceEpoch());
-	record.setValue("errorText", msg.errorText());
-	record.setValue("replaceId", msg.replaceId());
-	record.setValue("originId", msg.originId());
-	record.setValue("stanzaId", msg.stanzaId());
-
-	auto query = createQuery();
-	Utils::execQuery(query, sqlDriver().sqlStatement(
-	        QSqlDriver::InsertStatement,
-	        DB_TABLE_MESSAGES,
-	        record,
-	        false
-	));
-}
-
-void MessageDb::removeMessages(const QString &, const QString &)
-{
-	auto query = createQuery();
-	Utils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
-}
-
-void MessageDb::updateMessage(const QString &id,
-                              const std::function<void (Message &)> &updateMsg)
-{
-	// load current message item from db
-	auto query = createQuery();
-	Utils::execQuery(
-		query,
-		"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
-		QVector<QVariant>() << id
-	);
-
-	QVector<Message> msgs;
-	parseMessagesFromQuery(query, msgs);
-
-	// update loaded item
-	if (!msgs.isEmpty()) {
-		Message msg = msgs.first();
-		updateMsg(msg);
-
-		// replace old message with updated one, if message has changed
-		if (msgs.first() != msg) {
-			// create an SQL record with only the differences
-			QSqlRecord rec = createUpdateRecord(msgs.first(), msg);
-			auto &driver = sqlDriver();
-
-			Utils::execQuery(
-				query,
-				driver.sqlStatement(
-					QSqlDriver::UpdateStatement,
-					DB_TABLE_MESSAGES,
-					rec,
-					false
-				) +
-				Utils::simpleWhereStatement(&driver, "id", id)
+		QDateTime stamp;
+		while (query.next()) {
+			stamp = QDateTime::fromString(
+				query.value(query.record().indexOf("timestamp")).toString(),
+				Qt::ISODate
 			);
 		}
-	}
+
+		emit lastMessageStampFetched(stamp);
+		return stamp;
+	});
+}
+
+QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
+{
+	return run([this, msg, origin]() {
+		// deduplication
+		switch (origin) {
+		case MessageOrigin::MamBacklog:
+		case MessageOrigin::MamCatchUp:
+		case MessageOrigin::Stream:
+			if (checkMessageExists(msg)) {
+				// message deduplicated (messageAdded() signal is not emitted)
+				return;
+			}
+			break;
+		case MessageOrigin::MamInitial:
+		case MessageOrigin::UserInput:
+			// no deduplication required
+			break;
+		}
+
+		// to speed up the whole process emit signal first and do the actual insert after that
+		emit messageAdded(msg, origin);
+
+		QSqlRecord record = sqlRecord(DB_TABLE_MESSAGES);
+		record.setValue("author", msg.from());
+		record.setValue("recipient", msg.to());
+		record.setValue("timestamp", msg.stamp().toString(Qt::ISODate));
+		record.setValue("message", msg.body());
+		record.setValue("id", msg.id().isEmpty() ? " " : msg.id());
+		record.setValue("deliveryState", int(msg.deliveryState()));
+		record.setValue("type", int(msg.mediaType()));
+		record.setValue("edited", msg.isEdited());
+		record.setValue("isSpoiler", msg.isSpoiler());
+		record.setValue("spoilerHint", msg.spoilerHint());
+		record.setValue("mediaUrl", msg.outOfBandUrl());
+		record.setValue("mediaContentType", msg.mediaContentType());
+		record.setValue("mediaLocation", msg.mediaLocation());
+		record.setValue("mediaSize", msg.mediaSize());
+		record.setValue("mediaLastModified", msg.mediaLastModified().toMSecsSinceEpoch());
+		record.setValue("errorText", msg.errorText());
+		record.setValue("replaceId", msg.replaceId());
+		record.setValue("originId", msg.originId());
+		record.setValue("stanzaId", msg.stanzaId());
+
+		auto query = createQuery();
+		Utils::execQuery(query, sqlDriver().sqlStatement(
+				QSqlDriver::InsertStatement,
+				DB_TABLE_MESSAGES,
+				record,
+				false
+		));
+	});
+}
+
+QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
+{
+	return run([this]() {
+		auto query = createQuery();
+		Utils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
+	});
+}
+
+QFuture<void> MessageDb::updateMessage(const QString &id,
+                                       const std::function<void (Message &)> &updateMsg)
+{
+	return run([this, id, updateMsg]() {
+		// load current message item from db
+		auto query = createQuery();
+		Utils::execQuery(
+			query,
+			"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
+			QVector<QVariant> { id }
+		);
+
+		QVector<Message> msgs;
+		parseMessagesFromQuery(query, msgs);
+
+		// update loaded item
+		if (!msgs.isEmpty()) {
+			Message msg = msgs.first();
+			updateMsg(msg);
+
+			// replace old message with updated one, if message has changed
+			if (msgs.first() != msg) {
+				// create an SQL record with only the differences
+				QSqlRecord rec = createUpdateRecord(msgs.first(), msg);
+				auto &driver = sqlDriver();
+
+				Utils::execQuery(
+					query,
+					driver.sqlStatement(
+						QSqlDriver::UpdateStatement,
+						DB_TABLE_MESSAGES,
+						rec,
+						false
+					) +
+					Utils::simpleWhereStatement(&driver, "id", id)
+				);
+			}
+		}
+	});
 }
 
 void MessageDb::updateMessageRecord(const QString &id,
@@ -404,7 +417,7 @@ bool MessageDb::checkMessageExists(const Message &message)
 	const QString idConditionSql = idChecks.join(u" OR ");
 	const QString querySql =
 		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES " "
-			       "WHERE (author = :from AND recipient = :to AND (") %
+		               "WHERE (author = :from AND recipient = :to AND (") %
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
@@ -418,25 +431,29 @@ bool MessageDb::checkMessageExists(const Message &message)
 	return count > 0;
 }
 
-void MessageDb::fetchPendingMessages(const QString& userJid)
+QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid)
 {
-	auto query = createQuery();
+	return run([this, userJid]() {
+		auto query = createQuery();
 
-	QMap<QString, QVariant> bindValues;
-	bindValues[":user"] = userJid;
-	bindValues[":deliveryState"] = int(Enums::DeliveryState::Pending);
+		QMap<QString, QVariant> bindValues = {
+			{":user", userJid},
+			{":deliveryState", int(Enums::DeliveryState::Pending)},
+		};
 
-	Utils::execQuery(
-		query,
-		"SELECT * FROM " DB_TABLE_MESSAGES " "
-		"WHERE (author = :user AND deliveryState = :deliveryState) "
-		"ORDER BY timestamp ASC",
-		bindValues
-	);
+		Utils::execQuery(
+			query,
+			"SELECT * FROM " DB_TABLE_MESSAGES " "
+			"WHERE (author = :user AND deliveryState = :deliveryState) "
+			"ORDER BY timestamp ASC",
+			bindValues
+		);
 
-	QVector<Message> messages;
-	parseMessagesFromQuery(query, messages);
+		QVector<Message> messages;
+		parseMessagesFromQuery(query, messages);
 
-	emit pendingMessagesFetched(messages);
+		emit pendingMessagesFetched(messages);
+		return messages;
+	});
 }
 

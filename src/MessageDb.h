@@ -42,9 +42,6 @@ class QSqlRecord;
 /**
  * @class The MessageDb is used to query the 'messages' database table. It's used by the
  * MessageModel to load messages and by the MessageHandler to insert messages.
- *
- * All queries must be executed only after the Kaidan SQL connection has been opened in
- * the Database class.
  */
 class MessageDb : public DatabaseComponent
 {
@@ -113,16 +110,14 @@ public slots:
 	 * @param user2 Messages are from or to this JID.
 	 * @param index Number of entries to be skipped, used for paging.
 	 */
-	void fetchMessages(const QString &user1,
-	                   const QString &user2,
-	                   int index);
+	QFuture<QVector<Message>> fetchMessages(const QString &user1, const QString &user2, int index);
 
 	/**
 	 * @brief Fetches messages that are marked as pending.
 	 *
 	 * @param userJid JID of the user whose messages should be fetched
 	 */
-	void fetchPendingMessages(const QString &userJid);
+	QFuture<QVector<Message>> fetchPendingMessages(const QString &userJid);
 
 	/**
 	 * Fetches the last message and returns it.
@@ -132,12 +127,12 @@ public slots:
 	/**
 	 * Fetch the latest message stamp
 	 */
-	void fetchLastMessageStamp();
+	QFuture<QDateTime> fetchLastMessageStamp();
 
 	/**
 	 * Adds a message to the database.
 	 */
-	void addMessage(const Message &msg, MessageOrigin origin);
+	QFuture<void> addMessage(const Message &msg, MessageOrigin origin);
 
 	/**
 	 * Removes all messages of an account or an account's chat.
@@ -145,15 +140,14 @@ public slots:
 	 * @param accountJid JID of the account whose messages are being removed
 	 * @param chatJid JID of the chat whose messages are being removed (optional)
 	 */
-	void removeMessages(const QString &accountJid, const QString &chatJid = {});
+	QFuture<void> removeMessages(const QString &accountJid, const QString &chatJid = {});
 
 	/**
 	 * Loads a message, runs the update lambda and writes it to the DB again.
 	 *
 	 * @param updateMsg Function that changes the message
 	 */
-	void updateMessage(const QString &id,
-			   const std::function<void (Message &)> &updateMsg);
+	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 	/**
 	 * Updates message by @c UPDATE record: This means it doesn't load the message
@@ -164,12 +158,11 @@ public slots:
 	void updateMessageRecord(const QString &id,
 	                         const QSqlRecord &updateRecord);
 
-private slots:
+private:
 	/**
 	 * Checks whether a message already exists in the database
 	 */
 	bool checkMessageExists(const Message &message);
 
-private:
 	static MessageDb *s_instance;
 };
