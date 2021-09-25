@@ -122,7 +122,7 @@ public slots:
 	/**
 	 * Fetches the last message and returns it.
 	 */
-	Message fetchLastMessage(const QString &user1, const QString &user2);
+	Message _fetchLastMessage(const QString &user1, const QString &user2);
 
 	/**
 	 * Fetch the latest message stamp
@@ -153,7 +153,7 @@ private:
 	/**
 	 * Checks whether a message already exists in the database
 	 */
-	bool checkMessageExists(const Message &message);
+	bool _checkMessageExists(const Message &message);
 
 	static MessageDb *s_instance;
 };

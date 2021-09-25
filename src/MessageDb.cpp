@@ -219,7 +219,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 	});
 }
 
-Message MessageDb::fetchLastMessage(const QString &user1, const QString &user2)
+Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 {
 	auto query = createQuery();
 
@@ -273,7 +273,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		case MessageOrigin::MamBacklog:
 		case MessageOrigin::MamCatchUp:
 		case MessageOrigin::Stream:
-			if (checkMessageExists(msg)) {
+			if (_checkMessageExists(msg)) {
 				// message deduplicated (messageAdded() signal is not emitted)
 				return;
 			}
@@ -367,7 +367,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 	});
 }
 
-bool MessageDb::checkMessageExists(const Message &message)
+bool MessageDb::_checkMessageExists(const Message &message)
 {
 	QMap<QString, QVariant> bindValues = {
 		{ ":to", message.to() },
