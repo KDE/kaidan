@@ -149,15 +149,6 @@ public slots:
 	 */
 	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
 
-	/**
-	 * Updates message by @c UPDATE record: This means it doesn't load the message
-	 * from the database and writes it again, but executes an UPDATE query.
-	 *
-	 * @param updateRecord
-	 */
-	void updateMessageRecord(const QString &id,
-	                         const QSqlRecord &updateRecord);
-
 private:
 	/**
 	 * Checks whether a message already exists in the database

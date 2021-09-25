@@ -367,23 +367,6 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 	});
 }
 
-void MessageDb::updateMessageRecord(const QString &id,
-                                    const QSqlRecord &updateRecord)
-{
-	auto query = createQuery();
-	auto &driver = sqlDriver();
-	Utils::execQuery(
-	        query,
-	        driver.sqlStatement(
-	                QSqlDriver::UpdateStatement,
-	                DB_TABLE_MESSAGES,
-	                updateRecord,
-	                false
-	        ) +
-	        Utils::simpleWhereStatement(&driver, "id", id)
-	);
-}
-
 bool MessageDb::checkMessageExists(const Message &message)
 {
 	QMap<QString, QVariant> bindValues = {
