@@ -384,11 +384,6 @@ public slots:
 
 private:
 	/**
-	 * Initializes the database and the corresponding thread.
-	 */
-	void initializeDatabase();
-
-	/**
 	 * Initializes the caches.
 	 */
 	void initializeCaches();
@@ -401,7 +396,6 @@ private:
 	void initializeClientWorker(bool enableLogging = true);
 
 	Database *m_database;
-	QThread *m_dbThrd;
 	MessageDb *m_msgDb;
 	RosterDb *m_rosterDb;
 	QThread *m_cltThrd;

@@ -57,7 +57,11 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
-	initializeDatabase();
+	// database
+	m_database = new Database(this);
+	m_msgDb = new MessageDb(m_database, this);
+	m_rosterDb = new RosterDb(m_database, this);
+
 	initializeCaches();
 	initializeClientWorker(enableLogging);
 
@@ -70,7 +74,6 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 Kaidan::~Kaidan()
 {
 	delete m_caches;
-	delete m_database;
 	s_instance = nullptr;
 }
 
@@ -201,24 +204,6 @@ quint8 Kaidan::logInByUri(const QString &uri)
 	AccountManager::instance()->setPassword(parsedUri.password());
 	logIn();
 	return quint8(LoginByUriState::Connecting);
-}
-
-void Kaidan::initializeDatabase()
-{
-	m_dbThrd = new QThread();
-	m_dbThrd->setObjectName("SqlDatabase");
-
-	m_database = new Database();
-	m_database->moveToThread(m_dbThrd);
-
-	m_msgDb = new MessageDb(m_database);
-	m_msgDb->moveToThread(m_dbThrd);
-
-	m_rosterDb = new RosterDb(m_database);
-	m_rosterDb->moveToThread(m_dbThrd);
-
-	connect(m_dbThrd, &QThread::started, m_database, &Database::createTables);
-	m_dbThrd->start();
 }
 
 void Kaidan::initializeCaches()
