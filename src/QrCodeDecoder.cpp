@@ -74,6 +74,15 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 	const auto result = MultiFormatReader(decodeHints).read(binImage);
 #endif
 
+	// FIXME: `this` is not supposed to become nullptr in well-defined C++ code,
+	//        so if we are unlucky, the compiler may optimize the entire check away.
+	//        Additionally, this could be racy if the object is deleted on the other thread
+	//        in between this check and the emit.
+	const auto *self = this;
+	if (!self) {
+		return;
+	}
+
 	// If a QR code could be found and decoded, emit a signal with the decoded string.
 	// Otherwise, emit a signal for failed decoding.
 	if (result.isValid())
