@@ -116,7 +116,8 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	connect(Kaidan::instance(), &Kaidan::deleteAccountFromClientAndServer, this, &ClientWorker::deleteAccountFromClientAndServer);
 }
 
-void ClientWorker::startTask(const std::function<void ()> task) {
+void ClientWorker::startTask(const std::function<void ()> &task)
+{
 	if (m_client->isAuthenticated()) {
 		task();
 	} else {

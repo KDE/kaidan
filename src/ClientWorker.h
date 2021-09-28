@@ -174,7 +174,7 @@ public:
 	 * @param task task which is run directly if the user is logged in or enqueued to be
 	 * run after an automatic login
 	 */
-	void startTask(const std::function<void ()> task);
+	void startTask(const std::function<void ()> &task);
 
 	/**
 	 * Finishes a task started by "startTask()".
