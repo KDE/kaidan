@@ -406,7 +406,7 @@ void MessageHandler::handleArchiveResults(const QString &queryId,
 {
 	if (queryId == m_runnningCatchUpQueryId) {
 		m_runnningCatchUpQueryId.clear();
-		emit Kaidan::instance()->database()->commitRequested();
+		Kaidan::instance()->database()->commitTransaction();
 		return;
 	}
 
@@ -414,7 +414,7 @@ void MessageHandler::handleArchiveResults(const QString &queryId,
 		m_runningInitialMessageQueryIds.removeOne(queryId);
 
 		if (m_runningInitialMessageQueryIds.isEmpty()) {
-			emit Kaidan::instance()->database()->commitRequested();
+			Kaidan::instance()->database()->commitTransaction();
 
 			// so this won't be triggered again on reconnect
 			m_lastMessageStamp = QDateTime::currentDateTimeUtc();
@@ -455,7 +455,7 @@ void MessageHandler::retrieveInitialMessages()
 		));
 	}
 
-	emit Kaidan::instance()->database()->transactionRequested();
+	Kaidan::instance()->database()->startTransaction();
 }
 
 void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
@@ -466,7 +466,7 @@ void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
 
 	m_runnningCatchUpQueryId = m_mamManager->retrieveArchivedMessages({}, {}, {}, stamp, {}, queryLimit);
 
-	emit Kaidan::instance()->database()->transactionRequested();
+	Kaidan::instance()->database()->startTransaction();
 }
 
 void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime &stamp)

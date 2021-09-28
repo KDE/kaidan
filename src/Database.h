@@ -57,12 +57,10 @@ public:
 	 */
 	void createTables();
 
-signals:
-	/// Emit, to begin a transaction if none has been started already.
-	void transactionRequested();
-
-	/// Emit, to commit the transaction if every transaction has been finished.
-	void commitRequested();
+	/// Transaction on random thread from the thread pool (should be replaced in the
+	/// future).
+	void startTransaction();
+	void commitTransaction();
 
 private:
 	QSqlDatabase currentDatabase();

@@ -43,6 +43,7 @@
 #include <QStandardPaths>
 #include <QThreadStorage>
 #include <QThreadPool>
+#include <QtConcurrent/QtConcurrentRun>
 
 #include "Kaidan.h"
 
@@ -136,8 +137,6 @@ Database::Database(QObject *parent)
 {
 	d->pool.setMaxThreadCount(1);
 	d->pool.setExpiryTimeout(-1);
-	connect(this, &Database::transactionRequested, this, &Database::transaction);
-	connect(this, &Database::commitRequested, this, &Database::commit);
 }
 
 Database::~Database()
@@ -157,6 +156,20 @@ void Database::createTables()
 		convertDatabase();
 
 	d->tablesCreated = true;
+}
+
+void Database::startTransaction()
+{
+	QtConcurrent::run(&d->pool, [this] {
+		transaction();
+	});
+}
+
+void Database::commitTransaction()
+{
+	QtConcurrent::run(&d->pool, [this] {
+		commit();
+	});
 }
 
 void Database::transaction()
@@ -180,7 +193,10 @@ void Database::commit()
 
 	// reduce counter
 	transactions--;
-	Q_ASSERT(transactions >= 0);
+	if (transactions < 0) {
+		transactions = 0;
+		qWarning() << "[Database] commit() called, but there's no transaction to commit.";
+	}
 
 	if (!transactions) {
 		// no transaction requested anymore
