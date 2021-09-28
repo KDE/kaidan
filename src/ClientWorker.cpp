@@ -346,17 +346,14 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 	// no mutex needed, because this is called from updateClient()
 	qDebug() << "[client] Disconnected:" << error;
 
-	QXmppStanza::Error::Condition xmppStreamError;
-	QAbstractSocket::SocketError socketError;
-
 	switch (error) {
 	case QXmppClient::NoError:
 		Q_UNREACHABLE();
 	case QXmppClient::KeepAliveError:
 		emit connectionErrorChanged(ClientWorker::KeepAliveError);
 		break;
-	case QXmppClient::XmppStreamError:
-		xmppStreamError = m_client->xmppStreamError();
+	case QXmppClient::XmppStreamError: {
+		QXmppStanza::Error::Condition xmppStreamError = m_client->xmppStreamError();
 		qDebug() << "[client] XMPP stream error:" << xmppStreamError;
 		if (xmppStreamError == QXmppStanza::Error::NotAuthorized) {
 			emit connectionErrorChanged(ClientWorker::AuthenticationFailed);
@@ -364,8 +361,9 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 			emit connectionErrorChanged(ClientWorker::NotConnected);
 		}
 		break;
-	case QXmppClient::SocketError:
-		socketError = m_client->socketError();
+	}
+	case QXmppClient::SocketError: {
+		QAbstractSocket::SocketError socketError = m_client->socketError();
 		switch (socketError) {
 		case QAbstractSocket::ConnectionRefusedError:
 		case QAbstractSocket::RemoteHostClosedError:
@@ -388,6 +386,7 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 			emit connectionErrorChanged(ClientWorker::NotConnected);
 		}
 		break;
+	}
 	}
 }
 
