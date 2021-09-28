@@ -91,21 +91,6 @@ void Kaidan::storeApplicationWindowSize(const QSize &size) const
 	m_caches->settings->setWindowSize(size);
 }
 
-void Kaidan::logIn()
-{
-	emit logInRequested();
-}
-
-void Kaidan::requestRegistrationForm()
-{
-	emit registrationFormRequested();
-}
-
-void Kaidan::logOut()
-{
-	emit logOutRequested();
-}
-
 QString Kaidan::connectionStateText() const
 {
 	switch (m_connectionState) {
@@ -167,11 +152,6 @@ Kaidan::PasswordVisibility Kaidan::passwordVisibility() const
 	return m_caches->settings->authPasswordVisibility();
 }
 
-quint8 Kaidan::connectionError() const
-{
-	return quint8(m_connectionError);
-}
-
 void Kaidan::addOpenUri(const QString &uri)
 {
 	if (!QXmppUri::isXmppUri(uri))
@@ -225,14 +205,4 @@ void Kaidan::initializeClientWorker(bool enableLogging)
 	connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
 
 	m_cltThrd->start();
-}
-
-Kaidan *Kaidan::instance()
-{
-	return s_instance;
-}
-
-Database *Kaidan::database() const
-{
-	return m_database;
 }

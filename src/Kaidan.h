@@ -77,7 +77,7 @@ public:
 	};
 	Q_ENUM(PasswordVisibility)
 
-	static Kaidan *instance();
+	static Kaidan *instance() { return s_instance; }
 
 	/**
 	 * Constructs Kaidan's main object and initializes all components / threads.
@@ -108,12 +108,18 @@ public:
 	 *
 	 * The username and password are retrieved from the settings file.
 	 */
-	Q_INVOKABLE void logIn();
+	Q_INVOKABLE void logIn()
+	{
+		emit logInRequested();
+	}
 
 	/**
 	 * Connects to the server and requests a data form for account registration.
 	 */
-	Q_INVOKABLE void requestRegistrationForm();
+	Q_INVOKABLE void requestRegistrationForm()
+	{
+		emit registrationFormRequested();
+	}
 
 	/**
 	 * Logs out of the XMPP server.
@@ -121,7 +127,10 @@ public:
 	 * This disconnects the client from the server.
 	 * When disconnected, the connectionStateChanged signal is emitted.
 	 */
-	Q_INVOKABLE void logOut();
+	Q_INVOKABLE void logOut()
+	{
+		emit logOutRequested();
+	}
 
 	/**
 	 * Returns the current ConnectionState
@@ -136,7 +145,7 @@ public:
 	/**
 	 * Returns the last connection error.
 	 */
-	quint8 connectionError() const;
+	quint8 connectionError() const { return quint8(m_connectionError); }
 
 	/**
 	 * Sets the visibility of the password on the account transfer page.
@@ -148,42 +157,14 @@ public:
 	 */
 	PasswordVisibility passwordVisibility() const;
 
-	ClientWorker *client() const
-	{
-		return m_client;
-	}
-
-	AvatarFileStorage* avatarStorage() const
-	{
-		return m_caches->avatarStorage;
-	}
-
-	PresenceCache* presenceCache() const
-	{
-		return m_caches->presCache;
-	}
-
-	TransferCache* transferCache() const
-	{
-		return m_caches->transferCache;
-	}
-
-	ServerFeaturesCache *serverFeaturesCache() const
-	{
-		return m_caches->serverFeaturesCache;
-	}
-
-	VCardCache *vCardCache() const
-	{
-		return m_caches->vCardCache;
-	}
-
-	Settings *settings() const
-	{
-		return m_caches->settings;
-	}
-
-	Database *database() const;
+	ClientWorker *client() const { return m_client; }
+	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
+	PresenceCache *presenceCache() const { return m_caches->presCache; }
+	TransferCache *transferCache() const { return m_caches->transferCache; }
+	ServerFeaturesCache *serverFeaturesCache() const { return m_caches->serverFeaturesCache; }
+	VCardCache *vCardCache() const { return m_caches->vCardCache; }
+	Settings *settings() const { return m_caches->settings; }
+	Database *database() const { return m_database; }
 
 	/**
 	 * Adds XMPP URI to open as soon as possible
