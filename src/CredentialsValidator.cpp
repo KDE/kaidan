@@ -44,12 +44,12 @@ bool CredentialsValidator::isAccountJidValid(const QString &jid)
 
 bool CredentialsValidator::isUsernameValid(const QString &username)
 {
-	return !(username.isEmpty() || username.contains(" "));
+	return !(username.isEmpty() || username.contains(u' '));
 }
 
 bool CredentialsValidator::isServerValid(const QString &server)
 {
-	return !(server.isEmpty() || server.contains(" "));
+	return !(server.isEmpty() || server.contains(u' '));
 }
 
 bool CredentialsValidator::isPasswordValid(const QString &password)
