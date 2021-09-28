@@ -172,7 +172,7 @@ QSize Settings::windowSize() const
 	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE)).toSize();
 }
 
-void Settings::setWindowSize(const QSize size)
+void Settings::setWindowSize(QSize size)
 {
 	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), size);
 	emit windowSizeChanged();

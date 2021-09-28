@@ -100,7 +100,7 @@ public:
     void setFavoriteEmojis(const QStringList &emoji);
 
     QSize windowSize() const;
-    void setWindowSize(const QSize size);
+    void setWindowSize(QSize size);
 
     void remove(const QStringList &keys);
 

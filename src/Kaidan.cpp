@@ -86,7 +86,7 @@ QSize Kaidan::applicationWindowSize() const
 	return m_caches->settings->windowSize();
 }
 
-void Kaidan::storeApplicationWindowSize(const QSize &size) const
+void Kaidan::storeApplicationWindowSize(QSize size) const
 {
 	m_caches->settings->setWindowSize(size);
 }

@@ -101,7 +101,7 @@ public:
 	 *
 	 * @param size size of the application window
 	 */
-	Q_INVOKABLE void storeApplicationWindowSize(const QSize &size) const;
+	Q_INVOKABLE void storeApplicationWindowSize(QSize size) const;
 
 	/**
 	 * Connects to the XMPP server and logs in to it.
