@@ -40,15 +40,15 @@ AvatarFileStorage::AvatarFileStorage(QObject *parent) : QObject(parent)
 {
 	// create avatar directory, if it doesn't exists
 	QDir cacheDir(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
-	if (!cacheDir.exists("avatars"))
-		cacheDir.mkpath("avatars");
+	if (!cacheDir.exists(QStringLiteral("avatars")))
+		cacheDir.mkpath(QStringLiteral("avatars"));
 
 	// search for the avatar list file (hash <-> jid)
-	QString avatarFilePath = getAvatarPath("avatar_list.sha1");
+	QString avatarFilePath = getAvatarPath(QStringLiteral("avatar_list.sha1"));
 
 	try {
 		// check if file was found
-		if (avatarFilePath != "") {
+		if (avatarFilePath != QLatin1String("")) {
 			//
 			// restore saved avatars
 			//
@@ -106,7 +106,7 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
 	// write the avatar to disk:
 	// get the writable cache location for writing
 	QFile file(QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-		   QDir::separator() + QString("avatars") + QDir::separator() + result.hash);
+		   QDir::separator() + QStringLiteral("avatars") + QDir::separator() + result.hash);
 	if (!file.open(QIODevice::WriteOnly))
 		return result;
 
@@ -149,7 +149,7 @@ void AvatarFileStorage::cleanUp(QString &oldHash)
 
 	// delete the old avatar locally
 	QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-		       QDir::separator() + QString("avatars");
+	               QDir::separator() + QStringLiteral("avatars");
 	QDir dir(path);
 	if (dir.exists(oldHash))
 		dir.remove(oldHash);
@@ -157,8 +157,8 @@ void AvatarFileStorage::cleanUp(QString &oldHash)
 
 QString AvatarFileStorage::getAvatarPath(const QString &hash) const
 {
-	return QStandardPaths::locate(QStandardPaths::CacheLocation, QString("avatars") +
-		QDir::separator() + hash, QStandardPaths::LocateFile);
+	return QStandardPaths::locate(QStandardPaths::CacheLocation, QStringLiteral("avatars") +
+	       QDir::separator() + hash, QStandardPaths::LocateFile);
 }
 
 QString AvatarFileStorage::getHashOfJid(const QString& jid) const
@@ -184,8 +184,8 @@ bool AvatarFileStorage::hasAvatarHash(const QString& hash) const
 void AvatarFileStorage::saveAvatarsFile()
 {
 	QString path = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) +
-	               QDir::separator() + QString("avatars") + QDir::separator() +
-	               QString("avatar_list.sha1");
+	               QDir::separator() + QStringLiteral("avatars") + QDir::separator() +
+	               QStringLiteral("avatar_list.sha1");
 	QFile file(path);
 	if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
 		return;
