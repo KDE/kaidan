@@ -32,9 +32,11 @@
 
 // Qt
 #include <QObject>
-#include <QMap>
 
-class Message;
+#include <unordered_map>
+
+#include "Message.h"
+
 class RosterManager;
 class QXmppClient;
 class QXmppHttpUpload;
@@ -79,5 +81,5 @@ private:
 	QXmppUploadManager *m_manager;
 	RosterManager *m_rosterManager;
 
-	QMap<int, Message*> m_messages;
+	std::unordered_map<int, Message> m_messages;
 };
