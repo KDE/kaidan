@@ -122,7 +122,7 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
 	return result;
 }
 
-void AvatarFileStorage::clearAvatar(QString &jid)
+void AvatarFileStorage::clearAvatar(const QString &jid)
 {
 	QString oldHash;
 	if (m_jidAvatarMap.contains(jid))

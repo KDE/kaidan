@@ -60,7 +60,7 @@ public:
 	/**
 	 * Clears the user's avatar
 	 */
-	void clearAvatar(QString &jid);
+	void clearAvatar(const QString &jid);
 
 	/**
 	 * Deletes the avatar with this hash, if it isn't used anymore
