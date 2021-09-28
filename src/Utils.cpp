@@ -110,7 +110,8 @@ QString Utils::simpleWhereStatement(const QSqlDriver *driver, const QMap<QString
 {
 	QSqlRecord rec;
 
-	for (const QString &key : keyValuePairs.keys())
+	const auto keys = keyValuePairs.keys();
+	for (const QString &key : keys)
 		rec.append(createSqlField(key, keyValuePairs.value(key)));
 
 	return " " + driver->sqlStatement(
