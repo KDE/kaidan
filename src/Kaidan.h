@@ -384,11 +384,6 @@ public slots:
 
 private:
 	/**
-	 * Initializes the caches.
-	 */
-	void initializeCaches();
-
-	/**
 	 * Initializes the client worker and the corresponding thread.
 	 *
 	 * @param enableLogging true to enable logging, otherwise false

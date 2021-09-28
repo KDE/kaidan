@@ -73,10 +73,6 @@ ClientWorker::Caches::Caches(QObject *parent)
 	rosterModel->setMessageModel(msgModel);
 }
 
-ClientWorker::Caches::~Caches()
-{
-}
-
 ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	: QObject(parent),
 	  m_caches(caches),

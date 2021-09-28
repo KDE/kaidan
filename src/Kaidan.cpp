@@ -62,7 +62,12 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	m_msgDb = new MessageDb(m_database, this);
 	m_rosterDb = new RosterDb(m_database, this);
 
-	initializeCaches();
+	// caches
+	m_caches = new ClientWorker::Caches(this);
+	// Connect the avatar changed signal of the avatarStorage with the NOTIFY signal
+	// of the Q_PROPERTY for the avatar storage (so all avatars are updated in QML)
+	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
+
 	initializeClientWorker(enableLogging);
 
 	// Log out of the server when the application window is closed.
@@ -73,7 +78,6 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 Kaidan::~Kaidan()
 {
-	delete m_caches;
 	s_instance = nullptr;
 }
 
@@ -204,15 +208,6 @@ quint8 Kaidan::logInByUri(const QString &uri)
 	AccountManager::instance()->setPassword(parsedUri.password());
 	logIn();
 	return quint8(LoginByUriState::Connecting);
-}
-
-void Kaidan::initializeCaches()
-{
-	m_caches = new ClientWorker::Caches(this);
-
-	// Connect the avatar changed signal of the avatarStorage with the NOTIFY signal
-	// of the Q_PROPERTY for the avatar storage (so all avatars are updated in QML)
-	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 }
 
 void Kaidan::initializeClientWorker(bool enableLogging)

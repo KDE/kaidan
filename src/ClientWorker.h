@@ -95,7 +95,6 @@ public:
 
 	struct Caches {
 		Caches(QObject *parent = nullptr);
-		~Caches();
 
 		Settings *settings;
 		VCardCache *vCardCache;
