@@ -40,7 +40,7 @@
 // Kaidan
 #include "Database.h"
 #include "Globals.h"
-#include "Utils.h"
+#include "SqlUtils.h"
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
 
@@ -123,60 +123,60 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	QSqlRecord rec;
 
 	if (oldMsg.from() != newMsg.from())
-		rec.append(Utils::createSqlField("author", newMsg.from()));
+		rec.append(SqlUtils::createSqlField("author", newMsg.from()));
 	if (oldMsg.to() != newMsg.to())
-		rec.append(Utils::createSqlField("recipient", newMsg.to()));
+		rec.append(SqlUtils::createSqlField("recipient", newMsg.to()));
 	if (oldMsg.stamp() != newMsg.stamp())
-		rec.append(Utils::createSqlField(
+		rec.append(SqlUtils::createSqlField(
 		        "timestamp",
 		        newMsg.stamp().toString(Qt::ISODate)
 		));
 	if (oldMsg.id() != newMsg.id()) {
 		// TODO: remove as soon as 'NOT NULL' was removed from id column
 		if (newMsg.id().isEmpty())
-			rec.append(Utils::createSqlField("id", QStringLiteral(" ")));
+			rec.append(SqlUtils::createSqlField("id", QStringLiteral(" ")));
 		else
-			rec.append(Utils::createSqlField("id", newMsg.id()));
+			rec.append(SqlUtils::createSqlField("id", newMsg.id()));
 	}
 	if (oldMsg.body() != newMsg.body())
-		rec.append(Utils::createSqlField("message", newMsg.body()));
+		rec.append(SqlUtils::createSqlField("message", newMsg.body()));
 	if (oldMsg.deliveryState() != newMsg.deliveryState())
-		rec.append(Utils::createSqlField("deliveryState", int(newMsg.deliveryState())));
+		rec.append(SqlUtils::createSqlField("deliveryState", int(newMsg.deliveryState())));
 	if (oldMsg.errorText() != newMsg.errorText())
-		rec.append(Utils::createSqlField("errorText", newMsg.errorText()));
+		rec.append(SqlUtils::createSqlField("errorText", newMsg.errorText()));
 	if (oldMsg.mediaType() != newMsg.mediaType())
-		rec.append(Utils::createSqlField("type", int(newMsg.mediaType())));
+		rec.append(SqlUtils::createSqlField("type", int(newMsg.mediaType())));
 	if (oldMsg.outOfBandUrl() != newMsg.outOfBandUrl())
-		rec.append(Utils::createSqlField("mediaUrl", newMsg.outOfBandUrl()));
+		rec.append(SqlUtils::createSqlField("mediaUrl", newMsg.outOfBandUrl()));
 	if (oldMsg.mediaContentType() != newMsg.mediaContentType())
-		rec.append(Utils::createSqlField(
+		rec.append(SqlUtils::createSqlField(
 		        "mediaContentType",
 		        newMsg.mediaContentType()
 		));
 	if (oldMsg.mediaLocation() != newMsg.mediaLocation())
-		rec.append(Utils::createSqlField(
+		rec.append(SqlUtils::createSqlField(
 		         "mediaLocation",
 		         newMsg.mediaLocation()
 		));
 	if (oldMsg.mediaSize() != newMsg.mediaSize())
-		rec.append(Utils::createSqlField("mediaSize", newMsg.mediaSize()));
+		rec.append(SqlUtils::createSqlField("mediaSize", newMsg.mediaSize()));
 	if (oldMsg.mediaLastModified() != newMsg.mediaLastModified())
-		rec.append(Utils::createSqlField(
+		rec.append(SqlUtils::createSqlField(
 			"mediaLastModified",
 			newMsg.mediaLastModified().toMSecsSinceEpoch()
 		));
 	if (oldMsg.isEdited() != newMsg.isEdited())
-		rec.append(Utils::createSqlField("edited", newMsg.isEdited()));
+		rec.append(SqlUtils::createSqlField("edited", newMsg.isEdited()));
 	if (oldMsg.spoilerHint() != newMsg.spoilerHint())
-		rec.append(Utils::createSqlField("spoilerHint", newMsg.spoilerHint()));
+		rec.append(SqlUtils::createSqlField("spoilerHint", newMsg.spoilerHint()));
 	if (oldMsg.isSpoiler() != newMsg.isSpoiler())
-		rec.append(Utils::createSqlField("isSpoiler", newMsg.isSpoiler()));
+		rec.append(SqlUtils::createSqlField("isSpoiler", newMsg.isSpoiler()));
 	if (oldMsg.replaceId() != newMsg.replaceId())
-		rec.append(Utils::createSqlField("replaceId", newMsg.replaceId()));
+		rec.append(SqlUtils::createSqlField("replaceId", newMsg.replaceId()));
 	if (oldMsg.originId() != newMsg.originId())
-		rec.append(Utils::createSqlField("originId", newMsg.originId()));
+		rec.append(SqlUtils::createSqlField("originId", newMsg.originId()));
 	if (oldMsg.stanzaId() != newMsg.stanzaId())
-		rec.append(Utils::createSqlField("stanzaId", newMsg.stanzaId()));
+		rec.append(SqlUtils::createSqlField("stanzaId", newMsg.stanzaId()));
 
 	return rec;
 }
@@ -193,7 +193,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 			{":limit", DB_QUERY_LIMIT_MESSAGES},
 		};
 
-		Utils::execQuery(
+		SqlUtils::execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
 			"WHERE (author = :user1 AND recipient = :user2) OR "
@@ -220,7 +220,7 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 		{ QStringLiteral(":user2"), user2 },
 	};
 
-	Utils::execQuery(
+	SqlUtils::execQuery(
 		query,
 		"SELECT * FROM " DB_TABLE_MESSAGES " "
 		"WHERE (author = :user1 AND recipient = :user2) OR "
@@ -242,7 +242,7 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 {
 	return run([this]() {
 		auto query = createQuery();
-		Utils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
+		SqlUtils::execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
 
 		QDateTime stamp;
 		while (query.next()) {
@@ -301,7 +301,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		record.setValue("stanzaId", msg.stanzaId());
 
 		auto query = createQuery();
-		Utils::execQuery(query, sqlDriver().sqlStatement(
+		SqlUtils::execQuery(query, sqlDriver().sqlStatement(
 				QSqlDriver::InsertStatement,
 				DB_TABLE_MESSAGES,
 				record,
@@ -314,7 +314,7 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 {
 	return run([this]() {
 		auto query = createQuery();
-		Utils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
+		SqlUtils::execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
 	});
 }
 
@@ -324,7 +324,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 	return run([this, id, updateMsg]() {
 		// load current message item from db
 		auto query = createQuery();
-		Utils::execQuery(
+		SqlUtils::execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
 			QVector<QVariant> { id }
@@ -344,7 +344,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				QSqlRecord rec = createUpdateRecord(msgs.first(), msg);
 				auto &driver = sqlDriver();
 
-				Utils::execQuery(
+				SqlUtils::execQuery(
 					query,
 					driver.sqlStatement(
 						QSqlDriver::UpdateStatement,
@@ -352,7 +352,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 						rec,
 						false
 					) +
-					Utils::simpleWhereStatement(&driver, "id", id)
+					SqlUtils::simpleWhereStatement(&driver, "id", id)
 				);
 			}
 		}
@@ -397,7 +397,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
 	auto query = createQuery();
-	Utils::execQuery(query, querySql, bindValues);
+	SqlUtils::execQuery(query, querySql, bindValues);
 
 	int count = 0;
 	if (query.next()) {
@@ -416,7 +416,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 			{":deliveryState", int(Enums::DeliveryState::Pending)},
 		};
 
-		Utils::execQuery(
+		SqlUtils::execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
 			"WHERE (author = :user AND deliveryState = :deliveryState) "

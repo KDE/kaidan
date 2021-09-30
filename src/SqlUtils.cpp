@@ -28,7 +28,7 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Utils.h"
+#include "SqlUtils.h"
 // Qt
 #include <QDebug>
 #include <QSqlDriver>
@@ -37,7 +37,9 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
-void Utils::prepareQuery(QSqlQuery &query, const QString &sql)
+namespace SqlUtils {
+
+void prepareQuery(QSqlQuery &query, const QString &sql)
 {
 	if (!query.prepare(sql)) {
 		qDebug() << "Failed to prepare query:" << sql;
@@ -45,7 +47,7 @@ void Utils::prepareQuery(QSqlQuery &query, const QString &sql)
 	}
 }
 
-void Utils::execQuery(QSqlQuery &query)
+void execQuery(QSqlQuery &query)
 {
 	if (!query.exec()) {
 		qDebug() << "Failed to execute query:" << query.executedQuery();
@@ -53,15 +55,15 @@ void Utils::execQuery(QSqlQuery &query)
 	}
 }
 
-void Utils::execQuery(QSqlQuery &query, const QString &sql)
+void execQuery(QSqlQuery &query, const QString &sql)
 {
 	prepareQuery(query, sql);
 	execQuery(query);
 }
 
-void Utils::execQuery(QSqlQuery &query,
-                      const QString &sql,
-                      const QVector<QVariant> &bindValues)
+void execQuery(QSqlQuery &query,
+               const QString &sql,
+               const QVector<QVariant> &bindValues)
 {
 	prepareQuery(query, sql);
 
@@ -71,9 +73,9 @@ void Utils::execQuery(QSqlQuery &query,
 	execQuery(query);
 }
 
-void Utils::execQuery(QSqlQuery &query,
-                      const QString &sql,
-                      const QMap<QString, QVariant> &bindValues)
+void execQuery(QSqlQuery &query,
+               const QString &sql,
+               const QMap<QString, QVariant> &bindValues)
 {
 	prepareQuery(query, sql);
 
@@ -84,16 +86,16 @@ void Utils::execQuery(QSqlQuery &query,
 	execQuery(query);
 }
 
-QSqlField Utils::createSqlField(const QString &key, const QVariant &val)
+QSqlField createSqlField(const QString &key, const QVariant &val)
 {
 	QSqlField field(key, val.type());
 	field.setValue(val);
 	return field;
 }
 
-QString Utils::simpleWhereStatement(const QSqlDriver *driver,
-                                    const QString &key,
-                                    const QVariant &val)
+QString simpleWhereStatement(const QSqlDriver *driver,
+                             const QString &key,
+                             const QVariant &val)
 {
 	QSqlRecord rec;
 	rec.append(createSqlField(key, val));
@@ -106,7 +108,7 @@ QString Utils::simpleWhereStatement(const QSqlDriver *driver,
 	);
 }
 
-QString Utils::simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVariant> &keyValuePairs)
+QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVariant> &keyValuePairs)
 {
 	QSqlRecord rec;
 
@@ -120,4 +122,6 @@ QString Utils::simpleWhereStatement(const QSqlDriver *driver, const QMap<QString
 		rec,
 		false
 	);
+}
+
 }

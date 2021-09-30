@@ -35,7 +35,7 @@ set(KAIDAN_SOURCES
 	src/DownloadManager.cpp
 	src/ServerFeaturesCache.cpp
 	src/QmlUtils.cpp
-	src/Utils.cpp
+	src/SqlUtils.cpp
 	src/VersionManager.cpp
 	src/QrCodeDecoder.cpp
 	src/QrCodeGenerator.cpp
