@@ -41,6 +41,8 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
+using namespace SqlUtils;
+
 RosterDb *RosterDb::s_instance = nullptr;
 
 RosterDb::RosterDb(Database *db, QObject *parent)
@@ -81,11 +83,11 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 {
 	QSqlRecord rec;
 	if (oldItem.jid() != newItem.jid())
-		rec.append(SqlUtils::createSqlField("jid", newItem.jid()));
+		rec.append(createSqlField("jid", newItem.jid()));
 	if (oldItem.name() != newItem.name())
-		rec.append(SqlUtils::createSqlField("name", newItem.name()));
+		rec.append(createSqlField("name", newItem.name()));
 	if (oldItem.unreadMessages() != newItem.unreadMessages())
-		rec.append(SqlUtils::createSqlField(
+		rec.append(createSqlField(
 			"unreadMessages",
 			newItem.unreadMessages()
 		));
@@ -103,7 +105,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 		auto query = createQuery();
 		transaction();
 
-		SqlUtils::prepareQuery(query, sqlDriver().sqlStatement(
+		prepareQuery(query, sqlDriver().sqlStatement(
 			QSqlDriver::InsertStatement,
 			DB_TABLE_ROSTER,
 			sqlRecord(DB_TABLE_ROSTER),
@@ -116,7 +118,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
 			query.addBindValue(item.unreadMessages());
 			query.addBindValue(QString()); // lastMessage
-			SqlUtils::execQuery(query);
+			execQuery(query);
 		}
 
 		commit();
@@ -129,7 +131,7 @@ QFuture<void> RosterDb::updateItem(const QString &jid,
 	return run([this, jid, updateItem]() {
 		// load current roster item from db
 		auto query = createQuery();
-		SqlUtils::execQuery(
+		execQuery(
 				query,
 				"SELECT * FROM Roster WHERE jid = ? LIMIT 1",
 				QVector<QVariant>() << jid
@@ -162,7 +164,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 	return run([this, items]() {
 		// load current items
 		auto query = createQuery();
-		SqlUtils::execQuery(query, "SELECT * FROM Roster");
+		execQuery(query, "SELECT * FROM Roster");
 
 		QVector<RosterItem> currentItems;
 		parseItemsFromQuery(query, currentItems);
@@ -204,7 +206,7 @@ QFuture<void> RosterDb::removeItems(const QString &, const QString &)
 {
 	return run([this]() {
 		auto query = createQuery();
-		SqlUtils::execQuery(query, "DELETE FROM Roster");
+		execQuery(query, "DELETE FROM Roster");
 	});
 }
 
@@ -215,9 +217,9 @@ QFuture<void> RosterDb::setItemName(const QString &jid, const QString &name)
 		auto &driver = sqlDriver();
 
 		QSqlRecord rec;
-		rec.append(SqlUtils::createSqlField("name", name));
+		rec.append(createSqlField("name", name));
 
-		SqlUtils::execQuery(
+		execQuery(
 			query,
 			driver.sqlStatement(
 				QSqlDriver::UpdateStatement,
@@ -225,7 +227,7 @@ QFuture<void> RosterDb::setItemName(const QString &jid, const QString &name)
 				rec,
 				false
 			) +
-			SqlUtils::simpleWhereStatement(&driver, "jid", jid)
+			simpleWhereStatement(&driver, "jid", jid)
 		);
 	});
 }
@@ -234,7 +236,7 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 {
 	return run([this, accountId]() {
 		auto query = createQuery();
-		SqlUtils::execQuery(query, "SELECT * FROM Roster");
+		execQuery(query, "SELECT * FROM Roster");
 
 		QVector<RosterItem> items;
 		parseItemsFromQuery(query, items);
@@ -258,7 +260,7 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 		{ "jid", jid }
 	};
 
-	SqlUtils::execQuery(
+	execQuery(
 		query,
 		driver.sqlStatement(
 			QSqlDriver::UpdateStatement,
@@ -266,6 +268,6 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 			record,
 			false
 		) +
-		SqlUtils::simpleWhereStatement(&driver, keyValuePairs)
+		simpleWhereStatement(&driver, keyValuePairs)
 	);
 }

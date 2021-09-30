@@ -47,6 +47,8 @@
 
 #include "Kaidan.h"
 
+using namespace SqlUtils;
+
 #define DATABASE_CONVERT_TO_VERSION(n) \
 	if (d->version < n) { \
 		convertDatabaseToV##n(); \
@@ -243,7 +245,7 @@ void Database::loadDatabaseInfo()
 	}
 
 	QSqlQuery query(db);
-	SqlUtils::execQuery(query, "SELECT version FROM " DB_TABLE_INFO);
+	execQuery(query, "SELECT version FROM " DB_TABLE_INFO);
 
 	QSqlRecord record = query.record();
 	int versionCol = record.indexOf("version");
@@ -260,11 +262,11 @@ void Database::saveDatabaseInfo()
 	}
 
 	QSqlRecord updateRecord;
-	updateRecord.append(SqlUtils::createSqlField("version", d->version));
+	updateRecord.append(createSqlField("version", d->version));
 
 	auto db = currentDatabase();
 	QSqlQuery query(db);
-	SqlUtils::execQuery(
+	execQuery(
 		query,
 		db.driver()->sqlStatement(
 			QSqlDriver::UpdateStatement,
@@ -318,7 +320,7 @@ void Database::createDbInfoTable()
 {
 	auto db = currentDatabase();
 	QSqlQuery query(db);
-	SqlUtils::execQuery(
+	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_INFO,
@@ -327,8 +329,8 @@ void Database::createDbInfoTable()
 	);
 
 	QSqlRecord insertRecord;
-	insertRecord.append(SqlUtils::createSqlField("version", DATABASE_LATEST_VERSION));
-	SqlUtils::execQuery(
+	insertRecord.append(createSqlField("version", DATABASE_LATEST_VERSION));
+	execQuery(
 		query,
 		db.driver()->sqlStatement(
 			QSqlDriver::InsertStatement,
@@ -344,7 +346,7 @@ void Database::createRosterTable()
 	// TODO: remove lastExchanged and lastMessage
 
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(
+	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_ROSTER,
@@ -366,7 +368,7 @@ void Database::createMessagesTable()
 	//  * remove columns isSent, isDelivered
 
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(
+	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_MESSAGES,
@@ -412,7 +414,7 @@ void Database::convertDatabaseToV3()
 {
 	DATABASE_CONVERT_TO_VERSION(2);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Roster ADD avatarHash " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Roster ADD avatarHash " SQL_TEXT);
 	d->version = 3;
 }
 
@@ -423,17 +425,17 @@ void Database::convertDatabaseToV4()
 	// SQLite doesn't support the ALTER TABLE drop columns feature, so we have to use a workaround.
 	// we copy all rows into a back-up table (but without `avatarHash`), and then delete the old table
 	// and copy everything to the normal table again
-	SqlUtils::execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged,"
+	execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged,"
 							"unreadMessages, lastMessage, lastOnline, activity, status, mood)");
-	SqlUtils::execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages,"
+	execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages,"
 							"lastMessage, lastOnline, activity, status, mood FROM " DB_TABLE_ROSTER);
-	SqlUtils::execQuery(query, "DROP TABLE Roster");
-	SqlUtils::execQuery(query, "CREATE TABLE Roster (jid " SQL_TEXT_NOT_NULL ", name " SQL_TEXT_NOT_NULL ","
+	execQuery(query, "DROP TABLE Roster");
+	execQuery(query, "CREATE TABLE Roster (jid " SQL_TEXT_NOT_NULL ", name " SQL_TEXT_NOT_NULL ","
 							"lastExchanged " SQL_TEXT_NOT_NULL ", unreadMessages " SQL_INTEGER ", lastMessage  " SQL_TEXT ","
 							"lastOnline " SQL_TEXT ", activity " SQL_TEXT ", status " SQL_TEXT ", mood " SQL_TEXT ")");
-	SqlUtils::execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages,"
+	execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages,"
 							"lastMessage, lastOnline, activity, status, mood FROM Roster_backup");
-	SqlUtils::execQuery(query, "DROP TABLE Roster_backup");
+	execQuery(query, "DROP TABLE Roster_backup");
 	d->version = 4;
 }
 
@@ -441,9 +443,9 @@ void Database::convertDatabaseToV5()
 {
 	DATABASE_CONVERT_TO_VERSION(4);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD type " SQL_INTEGER);
-	SqlUtils::execQuery(query, "UPDATE Messages SET type = 0 WHERE type IS NULL");
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD mediaUrl " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD type " SQL_INTEGER);
+	execQuery(query, "UPDATE Messages SET type = 0 WHERE type IS NULL");
+	execQuery(query, "ALTER TABLE Messages ADD mediaUrl " SQL_TEXT);
 	d->version = 5;
 }
 
@@ -455,7 +457,7 @@ void Database::convertDatabaseToV6()
 									"mediaContentType " SQL_TEXT,
 									"mediaLastModified " SQL_INTEGER,
 									"mediaLocation " SQL_TEXT }) {
-		SqlUtils::execQuery(query, QString("ALTER TABLE Messages ADD ").append(column));
+		execQuery(query, QString("ALTER TABLE Messages ADD ").append(column));
 	}
 	d->version = 6;
 }
@@ -464,8 +466,8 @@ void Database::convertDatabaseToV7()
 {
 	DATABASE_CONVERT_TO_VERSION(6);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD mediaThumb " SQL_BLOB);
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD mediaHashes " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD mediaThumb " SQL_BLOB);
+	execQuery(query, "ALTER TABLE Messages ADD mediaHashes " SQL_TEXT);
 	d->version = 7;
 }
 
@@ -473,10 +475,10 @@ void Database::convertDatabaseToV8()
 {
 	DATABASE_CONVERT_TO_VERSION(7);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged, unreadMessages, lastMessage)");
-	SqlUtils::execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster");
-	SqlUtils::execQuery(query, "DROP TABLE Roster");
-	SqlUtils::execQuery(
+	execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged, unreadMessages, lastMessage)");
+	execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster");
+	execQuery(query, "DROP TABLE Roster");
+	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			"Roster",
@@ -488,8 +490,8 @@ void Database::convertDatabaseToV8()
 		)
 	);
 
-	SqlUtils::execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster_backup");
-	SqlUtils::execQuery(query, "DROP TABLE roster_backup");
+	execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster_backup");
+	execQuery(query, "DROP TABLE roster_backup");
 	d->version = 8;
 }
 
@@ -497,7 +499,7 @@ void Database::convertDatabaseToV9()
 {
 	DATABASE_CONVERT_TO_VERSION(8);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD edited " SQL_BOOL);
+	execQuery(query, "ALTER TABLE Messages ADD edited " SQL_BOOL);
 	d->version = 9;
 }
 
@@ -505,8 +507,8 @@ void Database::convertDatabaseToV10()
 {
 	DATABASE_CONVERT_TO_VERSION(9);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD isSpoiler " SQL_BOOL);
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD spoilerHint " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD isSpoiler " SQL_BOOL);
+	execQuery(query, "ALTER TABLE Messages ADD spoilerHint " SQL_TEXT);
 	d->version = 10;
 }
 
@@ -514,10 +516,10 @@ void Database::convertDatabaseToV11()
 {
 	DATABASE_CONVERT_TO_VERSION(10);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD deliveryState " SQL_INTEGER);
-	SqlUtils::execQuery(query, "UPDATE Messages SET deliveryState = 2 WHERE isDelivered = 1");
-	SqlUtils::execQuery(query, "UPDATE Messages SET deliveryState = 1 WHERE deliveryState IS NULL");
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD errorText " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD deliveryState " SQL_INTEGER);
+	execQuery(query, "UPDATE Messages SET deliveryState = 2 WHERE isDelivered = 1");
+	execQuery(query, "UPDATE Messages SET deliveryState = 1 WHERE deliveryState IS NULL");
+	execQuery(query, "ALTER TABLE Messages ADD errorText " SQL_TEXT);
 	d->version = 11;
 }
 
@@ -525,7 +527,7 @@ void Database::convertDatabaseToV12()
 {
 	DATABASE_CONVERT_TO_VERSION(11);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD replaceId " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD replaceId " SQL_TEXT);
 	d->version = 12;
 }
 
@@ -533,7 +535,7 @@ void Database::convertDatabaseToV13()
 {
 	DATABASE_CONVERT_TO_VERSION(12);
 	QSqlQuery query(currentDatabase());
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD stanzaId " SQL_TEXT);
-	SqlUtils::execQuery(query, "ALTER TABLE Messages ADD originId " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD stanzaId " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD originId " SQL_TEXT);
 	d->version = 13;
 }
