@@ -82,7 +82,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	notification->sendEvent();
 }
 #else
-void Notifications::sendMessageNotification(const QString&, const QString&, const QString&)
+void Notifications::sendMessageNotification(const QString&, const QString&, const QString&, const QString&)
 {
 }
 #endif // HAVE_KNOTIFICATIONS
