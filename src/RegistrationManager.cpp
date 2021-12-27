@@ -126,6 +126,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		// If there is a standardized out-of-band URL, use that.
 		if (!iq.outOfBandUrl().isEmpty()) {
 			emit Kaidan::instance()->registrationOutOfBandUrlReceived(iq.outOfBandUrl());
+			setRegisterOnConnectEnabled(false);
 			return;
 		}
 #endif
@@ -135,6 +136,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		for (const auto &instructionPart : words) {
 			if (instructionPart.startsWith(u"https://")) {
 				emit Kaidan::instance()->registrationOutOfBandUrlReceived(instructionPart);
+				setRegisterOnConnectEnabled(false);
 				return;
 			}
 		}
@@ -142,6 +144,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		// If no URL has been found in the instructions, there is a
 		// problem with the server.
 		emit m_clientWorker->connectionErrorChanged(ClientWorker::RegistrationUnsupported);
+		setRegisterOnConnectEnabled(false);
 		return;
 	}
 
