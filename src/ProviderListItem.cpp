@@ -158,21 +158,21 @@ QString ProviderListItem::flag() const
 	QString flag;
 
 	// Iterate over the characters of the country string.
-	// Example: For the country string "DE" the loop iterates over the characters "D" and "E".
+	// Example: For the country string "DE", the loop iterates over the characters "D" and "E".
 	// An emoji flag sequence (i.e. the flag of the corresponding country / region) is represented by two regional indicator symbols.
 	// Example: 🇩 (U+1F1E9 = 0x1F1E9 = 127465) and 🇪 (U+1F1EA = 127466) concatenated result in 🇩🇪.
 	// Each regional indicator symbol is created by a string which has the following Unicode code point:
 	// REGIONAL_INDICATOR_SYMBOL_BASE + unicode code point of the character of the country string.
 	// Example: 127397 (REGIONAL_INDICATOR_SYMBOL_BASE) + 68 (unicode code point of "D") = 127465 for 🇩
 	//
-	// QString does not provide to create a string by its corresponding Unicode code point.
+	// QString does not provide creating a string by its corresponding Unicode code point.
 	// Therefore, QChar must be used to create a character by its Unicode code point.
-	// Unfortunately, that can be done in one step because QChar does not support creating Unicode characters greater than 16 bits.
+	// Unfortunately, that cannot be done in one step because QChar does not support creating Unicode characters greater than 16 bits.
 	// For this reason, each character of the country string is split into two parts.
 	// Each part consists of 16 bits of the original character.
 	// The first and the second part are then merged into one string.
 	//
-	// Finally, the string consisting of the first regional indicator symbol and the string consisting the second one are concatenated.
+	// Finally, the string consisting of the first regional indicator symbol and the string consisting of the second one are concatenated.
 	// The resulting string represents the emoji flag sequence.
 	for (const auto &character : d->country) {
 		uint32_t regionalIncidatorSymbolCodePoint = REGIONAL_INDICATOR_SYMBOL_BASE + character.unicode();

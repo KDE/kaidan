@@ -111,8 +111,8 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 		case -1:
 			return QString();
 		case 0:
-			//: Unlimited file size for uploading files
-			return tr("No limitation");
+			//: Unlimited file size for uploading
+			return tr("Unlimited");
 		default:
 			return QLocale::system().formattedDataSize(item.httpUploadSize() * 1024LL * 1024LL, 0);
 		}
@@ -121,8 +121,8 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 		case -1:
 			return QString();
 		case 0:
-			//: Deletion of message history saved on provider
-			return tr("No limitation");
+			//: Deletion of message history stored on provider
+			return tr("Unlimited");
 		default:
 			return tr("%1 days").arg(item.messageStorageDuration());
 		}
