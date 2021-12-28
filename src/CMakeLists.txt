@@ -53,8 +53,8 @@ set(KAIDAN_SOURCES
 	src/DataFormModel.cpp
 	src/RegistrationDataFormFilterModel.cpp
 	src/RegistrationDataFormModel.cpp
-	src/ServerListModel.cpp
-	src/ServerListItem.cpp
+	src/ProviderListModel.cpp
+	src/ProviderListItem.cpp
 	src/Settings.cpp
 	src/AccountManager.cpp
 	src/VCardCache.cpp

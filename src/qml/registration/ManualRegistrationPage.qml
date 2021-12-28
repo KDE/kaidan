@@ -61,7 +61,7 @@ RegistrationPage {
 
 	property alias displayName: displayNameView.text
 
-	server: serverView.text
+	provider: providerView.text
 	username: usernameView ? usernameView.text : ""
 	password: passwordView ? passwordView.text : ""
 
@@ -79,7 +79,7 @@ RegistrationPage {
 			onCurrentIndexChanged: {
 				if (connectionErrorOccurred) {
 					connectionErrorOccurred = false
-				} else if (!loadingViewActive && currentIndex > lastIndex && currentIndex === serverView.Controls.SwipeView.index + 1 && !webRegistrationView) {
+				} else if (!loadingViewActive && currentIndex > lastIndex && currentIndex === providerView.Controls.SwipeView.index + 1 && !webRegistrationView) {
 					addLoadingView(currentIndex)
 					requestRegistrationForm()
 				}
@@ -91,8 +91,8 @@ RegistrationPage {
 				id: displayNameView
 			}
 
-			ServerView {
-				id: serverView
+			ProviderView {
+				id: providerView
 			}
 
 			// All dynamically loaded views are inserted here when needed.
@@ -129,15 +129,15 @@ RegistrationPage {
 
 			// There are three cases here:
 			//
-			// 1. The server did not include a "username" field.
+			// 1. The provider did not include a "username" field.
 			// The username view needs to be removed.
 			if (!formModel.hasUsernameField()) {
 				swipeView.removeItem(usernameView)
-			// 2. The server did include a "username" field, but the server selected before did not include it and the username view has been removed.
+			// 2. The provider did include a "username" field, but the provider selected before did not include it and the username view has been removed.
 			// The view needs to be added again.
 			} else if (!usernameView) {
 				addUsernameView(++indexToInsert)
-			// 3. The server did include a "username" field and the username view is already loaded.
+			// 3. The provider did include a "username" field and the username view is already loaded.
 			} else {
 				indexToInsert++
 			}
@@ -164,7 +164,7 @@ RegistrationPage {
 			// Depending on the error, the swipe view jumps to a particular view (see onRegistrationFailed).
 			if (registrationErrorOccurred)
 				registrationErrorOccurred = false
-			else if (serverView.Controls.SwipeView.isPreviousItem)
+			else if (providerView.Controls.SwipeView.isPreviousItem)
 				jumpToNextView()
 
 			removeLoadingView()
@@ -172,12 +172,12 @@ RegistrationPage {
 		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
-			serverView.outOfBandUrl = outOfBandUrl
+			providerView.outOfBandUrl = outOfBandUrl
 			handleInBandRegistrationNotSupported()
 		}
 
 		// Depending on the error, the swipe view jumps to the view where the input should be corrected.
-		// For all remaining errors, the swipe view jumps to the server view.
+		// For all remaining errors, the swipe view jumps to the provider view.
 		function onRegistrationFailed(error, errorMessage) {
 			registrationErrorOccurred = true
 
@@ -192,7 +192,7 @@ RegistrationPage {
 				break
 			case RegistrationManager.PasswordTooWeak:
 				requestRegistrationForm()
-				passiveNotification(qsTr("The server requires a stronger password."))
+				passiveNotification(qsTr("The provider requires a stronger password."))
 				jumpToView(passwordView)
 				break
 			case RegistrationManager.CaptchaVerificationFailed:
@@ -212,7 +212,7 @@ RegistrationPage {
 			default:
 				requestRegistrationForm()
 				showPassiveNotificationForUnknownError(errorMessage)
-				jumpToView(serverView)
+				jumpToView(providerView)
 			}
 		}
 	}
@@ -231,19 +231,19 @@ RegistrationPage {
 
 	/**
 	 * Shows a passive notification regarding the missing support of In-Band Registration.
-	 * If the server supports web registration, the corresponding view is opened.
-	 * If the server does not support web registration and it is not a custom server, another one is automatically selected.
+	 * If the provider supports web registration, the corresponding view is opened.
+	 * If the provider does not support web registration and it is not a custom provider, another one is automatically selected.
 	 */
 	function handleInBandRegistrationNotSupported() {
-		var notificationText = serverView.customServerSelected ? qsTr("The server does not support registration via this app.") : qsTr("The server does currently not support registration via this app.")
+		var notificationText = providerView.customProviderSelected ? qsTr("The provider does not support registration via this app.") : qsTr("The provider does currently not support registration via this app.")
 
-		if (serverView.registrationWebPage || serverView.outOfBandUrl) {
+		if (providerView.registrationWebPage || providerView.outOfBandUrl) {
 			addWebRegistrationView()
-			notificationText += " " + qsTr("But you can use the server's web registration.")
+			notificationText += " " + qsTr("But you can use the provider's web registration.")
 		} else {
-			if (!serverView.customServerSelected) {
-				serverView.selectServerRandomly()
-				notificationText += " " + qsTr("A new server has been randomly selected.")
+			if (!providerView.customProviderSelected) {
+				providerView.selectProviderRandomly()
+				notificationText += " " + qsTr("A new provider has been randomly selected.")
 			}
 
 			jumpToPreviousView()
@@ -254,7 +254,7 @@ RegistrationPage {
 	}
 
 	/**
-	 * Shows a passive notification if a username is already taken on the server.
+	 * Shows a passive notification if a username is already taken on the provider.
 	 * If a random username was used for registration, a new one is generated.
 	 */
 	function handleUsernameConflictError() {
@@ -285,7 +285,7 @@ RegistrationPage {
 		removeDynamicallyLoadedInBandRegistrationViews()
 
 		webRegistrationView = webRegistrationViewComponent.createObject(swipeView)
-		swipeView.insertItem(serverView.Controls.SwipeView.index + 1, webRegistrationView)
+		swipeView.insertItem(providerView.Controls.SwipeView.index + 1, webRegistrationView)
 	}
 
 	/**
@@ -302,7 +302,7 @@ RegistrationPage {
 	 * Adds the dynamically loaded views used for the In-Band Registration to the swipe view.
 	 */
 	function addDynamicallyLoadedInBandRegistrationViews() {
-		var indexToInsert = serverView.Controls.SwipeView.index
+		var indexToInsert = providerView.Controls.SwipeView.index
 
 		addUsernameView(++indexToInsert)
 		addPasswordView(++indexToInsert)

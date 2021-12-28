@@ -28,7 +28,7 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ServerListModel.h"
+#include "ProviderListModel.h"
 // Qt
 #include <QFile>
 #include <QJsonArray>
@@ -36,21 +36,21 @@
 #include <QJsonObject>
 #include <QRandomGenerator>
 // Kaidan
-#include "ServerListItem.h"
+#include "ProviderListItem.h"
 #include "Globals.h"
 #include "QmlUtils.h"
 
-ServerListModel::ServerListModel(QObject *parent)
+ProviderListModel::ProviderListModel(QObject *parent)
 	: QAbstractListModel(parent)
 {
-	ServerListItem customServer(true);
-	customServer.setJid(tr("Custom server"));
-	m_items << customServer;
+	ProviderListItem customProvider(true);
+	customProvider.setJid(tr("Custom provider"));
+	m_items << customProvider;
 
-	readItemsFromJsonFile(SERVER_LIST_FILE_PATH);
+	readItemsFromJsonFile(PROVIDER_LIST_FILE_PATH);
 }
 
-QHash<int, QByteArray> ServerListModel::roleNames() const
+QHash<int, QByteArray> ProviderListModel::roleNames() const
 {
 	return {
 		{DisplayRole, QByteArrayLiteral("display")},
@@ -60,14 +60,14 @@ QHash<int, QByteArray> ServerListModel::roleNames() const
 		{LanguageRole, QByteArrayLiteral("language")},
 		{CountryRole, QByteArrayLiteral("country")},
 		{FlagRole, QByteArrayLiteral("flag")},
-		{IsCustomServerRole, QByteArrayLiteral("isCustomServer")},
+		{IsCustomProviderRole, QByteArrayLiteral("isCustomProvider")},
 		{WebsiteRole, QByteArrayLiteral("website")},
 		{HttpUploadSizeRole, QByteArrayLiteral("httpUploadSize")},
 		{MessageStorageDurationRole, QByteArrayLiteral("messageStorageDuration")}
 	};
 }
 
-int ServerListModel::rowCount(const QModelIndex &parent) const
+int ProviderListModel::rowCount(const QModelIndex &parent) const
 {
 	// For list models, only the root node (an invalid parent) should return the list's size.
 	// For all other (valid) parents, rowCount() should return 0 so that it does not become a tree model.
@@ -77,11 +77,11 @@ int ServerListModel::rowCount(const QModelIndex &parent) const
 	return m_items.size();
 }
 
-QVariant ServerListModel::data(const QModelIndex &index, int role) const
+QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 {
 	Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
 
-	const ServerListItem &item = m_items.at(index.row());
+	const ProviderListItem &item = m_items.at(index.row());
 
 	switch (role) {
 	case DisplayRole:
@@ -98,8 +98,8 @@ QVariant ServerListModel::data(const QModelIndex &index, int role) const
 		return item.country();
 	case FlagRole:
 		return item.flag();
-	case IsCustomServerRole:
-		return item.isCustomServer();
+	case IsCustomProviderRole:
+		return item.isCustomProvider();
 	case WebsiteRole:
 		return QmlUtils::formatMessage(item.website().toString());
 	case OnlineSinceRole:
@@ -121,7 +121,7 @@ QVariant ServerListModel::data(const QModelIndex &index, int role) const
 		case -1:
 			return QString();
 		case 0:
-			//: Deletion of message history saved on server
+			//: Deletion of message history saved on provider
 			return tr("No limitation");
 		default:
 			return tr("%1 days").arg(item.messageStorageDuration());
@@ -131,85 +131,85 @@ QVariant ServerListModel::data(const QModelIndex &index, int role) const
 	return {};
 }
 
-QVariant ServerListModel::data(int row, ServerListModel::Role role) const
+QVariant ProviderListModel::data(int row, ProviderListModel::Role role) const
 {
 	return data(index(row), role);
 }
 
-int ServerListModel::randomlyChooseIndex() const
+int ProviderListModel::randomlyChooseIndex() const
 {
-	QVector<ServerListItem> serversWithInBandRegistration = serversSupportingInBandRegistration();
+	QVector<ProviderListItem> providersWithInBandRegistration = providersSupportingInBandRegistration();
 
 	QString systemCountryCode = QLocale::system().name().split(QStringLiteral("_")).last();
-	QVector<ServerListItem> serversWithInBandRegistrationFromCountry = serversFromCountry(serversWithInBandRegistration, systemCountryCode);
+	QVector<ProviderListItem> providersWithInBandRegistrationFromCountry = providersFromCountry(providersWithInBandRegistration, systemCountryCode);
 
-	if (serversWithInBandRegistrationFromCountry.size() < SERVER_LIST_MIN_SERVERS_FROM_COUNTRY)
-		return indexOfRandomlySelectedServer(serversWithInBandRegistration);
+	if (providersWithInBandRegistrationFromCountry.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY)
+		return indexOfRandomlySelectedProvider(providersWithInBandRegistration);
 
-	return indexOfRandomlySelectedServer(serversWithInBandRegistrationFromCountry);
+	return indexOfRandomlySelectedProvider(providersWithInBandRegistrationFromCountry);
 }
 
-void ServerListModel::readItemsFromJsonFile(const QString &filePath)
+void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
 {
 	QFile file(filePath);
 	if (!file.exists()) {
-		qWarning() << "[ServerListModel] Could not parse server list:"
+		qWarning() << "[ProviderListModel] Could not parse provider list:"
 				   << filePath
 				   << "- file does not exist!";
 		return;
 	}
 
 	if (!file.open(QIODevice::ReadOnly)) {
-		qWarning() << "[ServerListModel] Could not open file for reading:" << filePath;
+		qWarning() << "[ProviderListModel] Could not open file for reading:" << filePath;
 		return;
 	}
 
 	QByteArray content = file.readAll();
 
 	QJsonParseError parseError;
-	QJsonArray jsonServerArray = QJsonDocument::fromJson(content, &parseError).array();
-	if (jsonServerArray.isEmpty()) {
-		qWarning() << "[ServerListModel] Could not parse server list JSON file or no servers defined.";
-		qWarning() << "[ServerListModel] QJsonParseError:" << parseError.errorString() << "at" << parseError.offset;
+	QJsonArray jsonProviderArray = QJsonDocument::fromJson(content, &parseError).array();
+	if (jsonProviderArray.isEmpty()) {
+		qWarning() << "[ProviderListModel] Could not parse provider list JSON file or no providers defined.";
+		qWarning() << "[ProviderListModel] QJsonParseError:" << parseError.errorString() << "at" << parseError.offset;
 		return;
 	}
 
-	for (auto jsonServerItem : jsonServerArray) {
-		if (!jsonServerItem.isNull() && jsonServerItem.isObject())
-			m_items << ServerListItem::fromJson(jsonServerItem.toObject());
+	for (auto jsonProviderItem : jsonProviderArray) {
+		if (!jsonProviderItem.isNull() && jsonProviderItem.isObject())
+			m_items << ProviderListItem::fromJson(jsonProviderItem.toObject());
 	}
 
-	// Sort the parsed servers.
-	// The first item ("Custom server") is not sorted.
+	// Sort the parsed providers.
+	// The first item ("Custom provider") is not sorted.
 	if (m_items.size() > 1)
 		std::sort(m_items.begin() + 1, m_items.end());
 }
 
-QVector<ServerListItem> ServerListModel::serversSupportingInBandRegistration() const
+QVector<ProviderListItem> ProviderListModel::providersSupportingInBandRegistration() const
 {
-	QVector<ServerListItem> servers;
+	QVector<ProviderListItem> providers;
 
-	// The search starts at index 1 to exclude the custom server.
-	std::copy_if(m_items.begin() + 1, m_items.end(), std::back_inserter(servers), [](const ServerListItem &item) {
+	// The search starts at index 1 to exclude the custom provider.
+	std::copy_if(m_items.begin() + 1, m_items.end(), std::back_inserter(providers), [](const ProviderListItem &item) {
 		return item.supportsInBandRegistration();
 	});
 
-	return servers;
+	return providers;
 }
 
-QVector<ServerListItem> ServerListModel::serversFromCountry(const QVector<ServerListItem> &preSelectedServers, const QString &country) const
+QVector<ProviderListItem> ProviderListModel::providersFromCountry(const QVector<ProviderListItem> &preSelectedProviders, const QString &country) const
 {
-	QVector<ServerListItem> servers;
+	QVector<ProviderListItem> providers;
 
-	for (const auto &server : preSelectedServers) {
-		if (server.country() == country)
-			servers << server;
+	for (const auto &provider : preSelectedProviders) {
+		if (provider.country() == country)
+			providers << provider;
 	}
 
-	return servers;
+	return providers;
 }
 
-int ServerListModel::indexOfRandomlySelectedServer(const QVector<ServerListItem> &preSelectedServers) const
+int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const
 {
-	return m_items.indexOf(preSelectedServers.at(QRandomGenerator::global()->generate() % preSelectedServers.size()));
+	return m_items.indexOf(preSelectedProviders.at(QRandomGenerator::global()->generate() % preSelectedProviders.size()));
 }

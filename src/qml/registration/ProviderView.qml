@@ -40,17 +40,17 @@ import "../elements/fields"
 import "../settings"
 
 /**
- * This view is used for choosing a server.
+ * This view is used for choosing a provider.
  */
 FieldView {
-	descriptionText: qsTr("The server is the provider your communication will be managed by.\nThe selectable servers are hand-picked by our community!")
-	imageSource: "server"
+	descriptionText: qsTr("The provider is where your account is located.\nThe selectable providers are hand-picked by our community!")
+	imageSource: "provider"
 
-	property string text: customServerSelected ? field.text : serverListModel.data(comboBox.currentIndex, ServerListModel.JidRole)
-	property bool customServerSelected: serverListModel.data(comboBox.currentIndex, ServerListModel.IsCustomServerRole)
-	property bool inBandRegistrationSupported: serverListModel.data(comboBox.currentIndex, ServerListModel.SupportsInBandRegistrationRole)
-	property string registrationWebPage: serverListModel.data(comboBox.currentIndex, ServerListModel.RegistrationWebPageRole)
-	property bool shouldWebRegistrationViewBeShown: !customServerSelected && !inBandRegistrationSupported
+	property string text: customProviderSelected ? field.text : providerListModel.data(comboBox.currentIndex, ProviderListModel.JidRole)
+	property bool customProviderSelected: providerListModel.data(comboBox.currentIndex, ProviderListModel.IsCustomProviderRole)
+	property bool inBandRegistrationSupported: providerListModel.data(comboBox.currentIndex, ProviderListModel.SupportsInBandRegistrationRole)
+	property string registrationWebPage: providerListModel.data(comboBox.currentIndex, ProviderListModel.RegistrationWebPageRole)
+	property bool shouldWebRegistrationViewBeShown: !customProviderSelected && !inBandRegistrationSupported
 	property string outOfBandUrl
 
 	property alias customConnectionSettings: customConnectionSettings
@@ -60,17 +60,17 @@ FieldView {
 		spacing: Kirigami.Units.largeSpacing
 
 		Controls.Label {
-			text: qsTr("Server")
+			text: qsTr("Provider")
 		}
 
 		Controls.ComboBox {
 			id: comboBox
 			Layout.fillWidth: true
-			model: ServerListModel {
-				id: serverListModel
+			model: ProviderListModel {
+				id: providerListModel
 			}
 			textRole: "display"
-			currentIndex: indexOfRandomlySelectedServer()
+			currentIndex: indexOfRandomlySelectedProvider()
 			onCurrentIndexChanged: field.text = ""
 
 			onActivated: {
@@ -90,7 +90,7 @@ FieldView {
 
 		Field {
 			id: field
-			visible: customServerSelected
+			visible: customProviderSelected
 			placeholderText: "example.org"
 			inputMethodHints: Qt.ImhUrlCharactersOnly
 
@@ -108,7 +108,7 @@ FieldView {
 			]
 
 			onTextChanged: {
-				if (outOfBandUrl && customServerSelected) {
+				if (outOfBandUrl && customProviderSelected) {
 					outOfBandUrl = ""
 					removeWebRegistrationView()
 				}
@@ -139,45 +139,45 @@ FieldView {
 
 			Kirigami.FormLayout {
 				Controls.Label {
-					visible: !customServerSelected && text
+					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Web registration only:")
 					text: inBandRegistrationSupported ? qsTr("No") : qsTr("Yes")
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
+					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Region:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.CountryRole)
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.CountryRole)
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
-					Kirigami.FormData.label: qsTr("Server language:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.LanguageRole)
+					visible: !customProviderSelected && text
+					Kirigami.FormData.label: qsTr("Provider language:")
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.LanguageRole)
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
-					Kirigami.FormData.label: qsTr("Server website:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.WebsiteRole)
+					visible: !customProviderSelected && text
+					Kirigami.FormData.label: qsTr("Provider website:")
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
+					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Online since:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.OnlineSinceRole)
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.OnlineSinceRole)
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
+					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Maximum size for sending files:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.HttpUploadSizeRole)
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.HttpUploadSizeRole)
 				}
 
 				Controls.Label {
-					visible: !customServerSelected && text
+					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Duration of message storage:")
-					text: serverListModel.data(comboBox.currentIndex, ServerListModel.MessageStorageDurationRole)
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.MessageStorageDurationRole)
 				}
 			}
 		}
@@ -189,7 +189,7 @@ FieldView {
 	}
 
 	onShouldWebRegistrationViewBeShownChanged: {
-		// Show the web registration view for non-custom servers if only web registration is supported or hides the view otherwise.
+		// Show the web registration view for non-custom providers if only web registration is supported or hides the view otherwise.
 		if (shouldWebRegistrationViewBeShown)
 			addWebRegistrationView()
 		else
@@ -197,16 +197,16 @@ FieldView {
 	}
 
 	/**
-	 * Randomly sets a new server as selected for registration.
+	 * Randomly sets a new provider as selected for registration.
 	 */
-	function selectServerRandomly() {
-		comboBox.currentIndex = indexOfRandomlySelectedServer()
+	function selectProviderRandomly() {
+		comboBox.currentIndex = indexOfRandomlySelectedProvider()
 	}
 
 	/**
-	 * Returns the index of a randomly selected server for registration.
+	 * Returns the index of a randomly selected provider for registration.
 	 */
-	function indexOfRandomlySelectedServer() {
-		return serverListModel.randomlyChooseIndex()
+	function indexOfRandomlySelectedProvider() {
+		return providerListModel.randomlyChooseIndex()
 	}
 }

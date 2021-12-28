@@ -39,7 +39,7 @@ import "../elements"
  * This view is used for creating an account via web registration.
  */
 View {
-	descriptionText: qsTr("The selected server only provides web registration. After creating an account via the web page, you can log in via Kaidan.")
+	descriptionText: qsTr("The selected provider only provides web registration. After creating an account via the web page, you can log in via Kaidan.")
 	imageSource: "web-registration"
 
 	ColumnLayout {
@@ -47,12 +47,12 @@ View {
 
 		CenteredAdaptiveHighlightedButton {
 			text: qsTr("Open registration web page")
-			onClicked: Qt.openUrlExternally(serverView.registrationWebPage ? serverView.registrationWebPage : serverView.outOfBandUrl)
+			onClicked: Qt.openUrlExternally(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
 		}
 
 		CenteredAdaptiveButton {
 			text: qsTr("Copy registration web page address")
-			onClicked: Utils.copyToClipboard(serverView.registrationWebPage ? serverView.registrationWebPage : serverView.outOfBandUrl)
+			onClicked: Utils.copyToClipboard(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
 		}
 
 		CenteredAdaptiveHighlightedButton {

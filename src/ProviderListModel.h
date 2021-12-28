@@ -33,9 +33,9 @@
 #include <QAbstractListModel>
 #include <QVector>
 
-#include "ServerListItem.h"
+#include "ProviderListItem.h"
 
-class ServerListModel : public QAbstractListModel
+class ProviderListModel : public QAbstractListModel
 {
 	Q_OBJECT
 
@@ -48,7 +48,7 @@ public:
 		LanguageRole,
 		CountryRole,
 		FlagRole,
-		IsCustomServerRole,
+		IsCustomProviderRole,
 		WebsiteRole,
 		OnlineSinceRole,
 		HttpUploadSizeRole,
@@ -56,22 +56,22 @@ public:
 	};
 	Q_ENUM(Role)
 
-	explicit ServerListModel(QObject *parent = nullptr);
+	explicit ProviderListModel(QObject *parent = nullptr);
 
 	QHash<int, QByteArray> roleNames() const override;
 	int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 	// overloaded method for QML
-	Q_INVOKABLE QVariant data(int row, ServerListModel::Role role) const;
+	Q_INVOKABLE QVariant data(int row, ProviderListModel::Role role) const;
 
 	Q_INVOKABLE int randomlyChooseIndex() const;
 
 private:
 	void readItemsFromJsonFile(const QString &filePath);
-	QVector<ServerListItem> serversSupportingInBandRegistration() const;
-	QVector<ServerListItem> serversFromCountry(const QVector<ServerListItem> &preSelectedServers, const QString &country) const;
-	int indexOfRandomlySelectedServer(const QVector<ServerListItem> &preSelectedServers) const;
+	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
+	QVector<ProviderListItem> providersFromCountry(const QVector<ProviderListItem> &preSelectedProviders, const QString &country) const;
+	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
 
-	QVector<ServerListItem> m_items;
+	QVector<ProviderListItem> m_items;
 };

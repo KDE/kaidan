@@ -76,7 +76,7 @@
 #include "RosterModel.h"
 #include "RosterFilterProxyModel.h"
 #include "ServerFeaturesCache.h"
-#include "ServerListModel.h"
+#include "ProviderListModel.h"
 #include "StatusBar.h"
 #include "TransferCache.h"
 #include "UploadManager.h"
@@ -289,7 +289,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MediaRecorder::State>();
 	qRegisterMetaType<MediaRecorder::Status>();
 	qRegisterMetaType<MediaRecorder::Error>();
-	qRegisterMetaType<ServerListModel::Role>();
+	qRegisterMetaType<ProviderListModel::Role>();
 	qRegisterMetaType<ChatState::State>();
 
 	// QXmpp
@@ -418,7 +418,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
 	qmlRegisterType<QrCodeGenerator>(APPLICATION_ID, 1, 0, "QrCodeGenerator");
 	qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
-	qmlRegisterType<ServerListModel>(APPLICATION_ID, 1, 0, "ServerListModel");
+	qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
 	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
 	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
 

@@ -35,21 +35,21 @@
 class QUrl;
 class QJsonObject;
 
-class ServerListItemPrivate;
+class ProviderListItemPrivate;
 
-class ServerListItem
+class ProviderListItem
 {
 public:
-	static ServerListItem fromJson(const QJsonObject &object);
+	static ProviderListItem fromJson(const QJsonObject &object);
 
-	ServerListItem(bool isCustomServer = false);
-	ServerListItem(const ServerListItem &other);
-	~ServerListItem();
+	ProviderListItem(bool isCustomProvider = false);
+	ProviderListItem(const ProviderListItem &other);
+	~ProviderListItem();
 
-	ServerListItem &operator=(const ServerListItem &other);
+	ProviderListItem &operator=(const ProviderListItem &other);
 
-	bool isCustomServer() const;
-	void setIsCustomServer(bool isCustomServer);
+	bool isCustomProvider() const;
+	void setIsCustomProvider(bool isCustomProvider);
 
 	QString jid() const;
 	void setJid(const QString &jid);
@@ -80,13 +80,13 @@ public:
 	int messageStorageDuration() const;
 	void setMessageStorageDuration(int messageStorageDuration);
 
-	bool operator<(const ServerListItem &other) const;
-	bool operator>(const ServerListItem &other) const;
-	bool operator<=(const ServerListItem &other) const;
-	bool operator>=(const ServerListItem &other) const;
+	bool operator<(const ProviderListItem &other) const;
+	bool operator>(const ProviderListItem &other) const;
+	bool operator<=(const ProviderListItem &other) const;
+	bool operator>=(const ProviderListItem &other) const;
 
-	bool operator==(const ServerListItem &other) const;
+	bool operator==(const ProviderListItem &other) const;
 
 private:
-	QSharedDataPointer<ServerListItemPrivate> d;
+	QSharedDataPointer<ProviderListItemPrivate> d;
 };

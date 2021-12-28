@@ -37,20 +37,20 @@ import im.kaidan.kaidan 1.0
  * This is the base of a registration page.
  */
 Kirigami.Page {
-	// This model contains all fields from the registration form of the requested server.
+	// This model contains all fields from the registration form of the requested provider.
 	property DataFormModel formModel
 
-	// This model only contains the custom fields from the registration form of the requested server.
+	// This model only contains the custom fields from the registration form of the requested provider.
 	// It may contain e.g. a CAPTCHA or an email address.
-	// The server may not use the standard way for requesting the username and the password.
+	// The provider may not use the standard way for requesting the username and the password.
 	// In that case, this model could also include fields for those values.
 	property alias formFilterModel: formFilterModel
 
 	// generator for random usernames and passwords
 	property alias credentialsGenerator: credentialsGenerator
 
-	// JID of the server from whom the registration form is requested
-	property string server
+	// JID of the provider from whom the registration form is requested
+	property string provider
 
 	// username of the user to be registered
 	property string username
@@ -99,25 +99,25 @@ Kirigami.Page {
 	}
 
 	/**
-	 * Returns true if the registration form received from the server contains custom fields.
+	 * Returns true if the registration form received from the provider contains custom fields.
 	 */
 	function customFormFieldsAvailable() {
 		return formFilterModel.rowCount() > 0
 	}
 
 	/**
-	 * Requests a registration form from the server.
+	 * Requests a registration form from the provider.
 	 */
 	function requestRegistrationForm() {
-		// Set the server's JID.
-		AccountManager.jid = server
+		// Set the provider's JID.
+		AccountManager.jid = provider
 
 		// Request a registration form.
 		Kaidan.requestRegistrationForm()
 	}
 
 	/**
-	 * Sends the completed registration form to the server.
+	 * Sends the completed registration form to the provider.
 	 */
 	function sendRegistrationForm() {
 		if (formModel.hasUsernameField())

@@ -40,16 +40,16 @@ import "../elements"
  * This page is used for the automatic registration.
  *
  * Everything that can be automated is automated.
- * The server is randomly selected.
+ * The provider is randomly selected.
  * The username and password are randomly generated.
- * Therefore, only custom information requested by the server is shown.
+ * Therefore, only custom information requested by the provider is shown.
  * Only required information must be entered to register an account.
  */
 RegistrationPage {
 	title: qsTr("Register automatically")
 
-	property int maximumAttemptsForRequestingRegistrationFormFromAnotherServer: 3
-	property int remainingAttemptsForRequestingRegistrationFormFromAnotherServer: maximumAttemptsForRequestingRegistrationFormFromAnotherServer
+	property int maximumAttemptsForRequestingRegistrationFormFromAnotherProvider: 3
+	property int remainingAttemptsForRequestingRegistrationFormFromAnotherProvider: maximumAttemptsForRequestingRegistrationFormFromAnotherProvider
 
 	property int maximumRegistrationAttemptsAfterUsernameConflictOccurred: 2
 	property int remainingRegistrationAttemptsAfterUsernameConflictOccurred: maximumRegistrationAttemptsAfterUsernameConflictOccurred
@@ -60,8 +60,8 @@ RegistrationPage {
 	property int maximumRegistrationAttemptsAfterRequiredInformationMissingOccurred: 2
 	property int remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred: maximumRegistrationAttemptsAfterRequiredInformationMissingOccurred
 
-	ServerListModel {
-		id: serverListModel
+	ProviderListModel {
+		id: providerListModel
 	}
 
 	ColumnLayout {
@@ -81,7 +81,7 @@ RegistrationPage {
 	Component { id: customFormViewComponent; CustomFormViewAutomaticRegistration {}	}
 
 	Component.onCompleted: {
-		chooseServerRandomly()
+		chooseProviderRandomly()
 		chooseUsernameRandomly()
 		choosePasswordRandomly()
 		requestRegistrationForm()
@@ -103,23 +103,23 @@ RegistrationPage {
 		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
-			requestRegistrationFormFromAnotherServer(qsTr("The server does currently not support registration via this app."))
+			requestRegistrationFormFromAnotherProvider(qsTr("The provider does currently not support registration via this app."))
 		}
 
 		function onRegistrationFailed(error, errorMessage) {
 			switch (error) {
 			case RegistrationManager.InBandRegistrationNotSupported:
-				requestRegistrationFormFromAnotherServer(errorMessage)
+				requestRegistrationFormFromAnotherProvider(errorMessage)
 				break
 			case RegistrationManager.UsernameConflict:
 				if (remainingRegistrationAttemptsAfterUsernameConflictOccurred > 0) {
 					remainingRegistrationAttemptsAfterUsernameConflictOccurred--
-					// Try to register again with another username on the same server.
+					// Try to register again with another username on the same provider.
 					chooseUsernameRandomly()
 					requestRegistrationForm()
 				} else {
 					remainingRegistrationAttemptsAfterUsernameConflictOccurred = maximumRegistrationAttemptsAfterUsernameConflictOccurred
-					requestRegistrationFormFromAnotherServer(errorMessage)
+					requestRegistrationFormFromAnotherProvider(errorMessage)
 				}
 				break
 			case RegistrationManager.CaptchaVerificationFailed:
@@ -129,7 +129,7 @@ RegistrationPage {
 					showPassiveNotificationForCaptchaVerificationFailedError()
 				} else {
 					remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred = maximumRegistrationAttemptsAfterCaptchaVerificationFailedOccurred
-					requestRegistrationFormFromAnotherServer(errorMessage)
+					requestRegistrationFormFromAnotherProvider(errorMessage)
 				}
 				break
 			case RegistrationManager.RequiredInformationMissing:
@@ -139,11 +139,11 @@ RegistrationPage {
 					showPassiveNotificationForRequiredInformationMissingError(errorMessage)
 				} else {
 					remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred = remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred
-					requestRegistrationFormFromAnotherServer(errorMessage)
+					requestRegistrationFormFromAnotherProvider(errorMessage)
 				}
 				break
 			default:
-				requestRegistrationFormFromAnotherServer(errorMessage)
+				requestRegistrationFormFromAnotherProvider(errorMessage)
 			}
 		}
 
@@ -182,10 +182,10 @@ RegistrationPage {
 	}
 
 	/**
-	 * Sets a randomly chosen server for registration.
+	 * Sets a randomly chosen provider for registration.
 	 */
-	function chooseServerRandomly() {
-		server = serverListModel.data(serverListModel.randomlyChooseIndex(), ServerListModel.JidRole)
+	function chooseProviderRandomly() {
+		provider = providerListModel.data(providerListModel.randomlyChooseIndex(), ProviderListModel.JidRole)
 	}
 
 	/**
@@ -203,19 +203,19 @@ RegistrationPage {
 	}
 
 	/**
-	 * Requests a registration form from another randomly chosen server if an error occurred.
+	 * Requests a registration form from another randomly chosen provider if an error occurred.
 	 *
 	 * That is done multiple times and after a maximum number of attempts, the user has to intervene.
 	 *
 	 * @param errorMessage message describing the error
 	 */
-	function requestRegistrationFormFromAnotherServer(errorMessage) {
-		if (remainingAttemptsForRequestingRegistrationFormFromAnotherServer > 0) {
-			remainingAttemptsForRequestingRegistrationFormFromAnotherServer--
-			chooseServerRandomly()
+	function requestRegistrationFormFromAnotherProvider(errorMessage) {
+		if (remainingAttemptsForRequestingRegistrationFormFromAnotherProvider > 0) {
+			remainingAttemptsForRequestingRegistrationFormFromAnotherProvider--
+			chooseProviderRandomly()
 			requestRegistrationForm()
 		} else {
-			remainingAttemptsForRequestingRegistrationFormFromAnotherServer = maximumAttemptsForRequestingRegistrationFormFromAnotherServer
+			remainingAttemptsForRequestingRegistrationFormFromAnotherProvider = maximumAttemptsForRequestingRegistrationFormFromAnotherProvider
 			showPassiveNotificationForUnknownError(errorMessage)
 			popLayerIfNoCustomFormFieldsAvailable()
 		}

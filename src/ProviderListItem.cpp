@@ -28,19 +28,19 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "ServerListItem.h"
+#include "ProviderListItem.h"
 // Qt
 #include <QJsonObject>
 #include <QUrl>
 
 #define REGIONAL_INDICATOR_SYMBOL_BASE 0x1F1A5
 
-class ServerListItemPrivate : public QSharedData
+class ProviderListItemPrivate : public QSharedData
 {
 public:
-	ServerListItemPrivate();
+	ProviderListItemPrivate();
 
-	bool isCustomServer;
+	bool isCustomProvider;
 	QString jid;
 	bool supportsInBandRegistration;
 	QUrl registrationWebPage;
@@ -52,15 +52,15 @@ public:
 	int messageStorageDuration;
 };
 
-ServerListItemPrivate::ServerListItemPrivate()
-    : isCustomServer(false), supportsInBandRegistration(false), onlineSince(-1), httpUploadSize(-1), messageStorageDuration(-1)
+ProviderListItemPrivate::ProviderListItemPrivate()
+	: isCustomProvider(false), supportsInBandRegistration(false), onlineSince(-1), httpUploadSize(-1), messageStorageDuration(-1)
 {
 }
 
-ServerListItem ServerListItem::fromJson(const QJsonObject &object)
+ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 {
-	ServerListItem item;
-	item.setIsCustomServer(false);
+	ProviderListItem item;
+	item.setIsCustomProvider(false);
 	item.setJid(object.value(QLatin1String("jid")).toString());
 	item.setSupportsInBandRegistration(object.value(QLatin1String("supportsInBandRegistration")).toBool());
 	item.setRegistrationWebPage(QUrl(object.value(QLatin1String("registrationWebPage")).toString()));
@@ -73,82 +73,82 @@ ServerListItem ServerListItem::fromJson(const QJsonObject &object)
 	return item;
 }
 
-ServerListItem::ServerListItem(bool isCustomServer)
-	: d(new ServerListItemPrivate)
+ProviderListItem::ProviderListItem(bool isCustomProvider)
+	: d(new ProviderListItemPrivate)
 {
-	d->isCustomServer = isCustomServer;
+	d->isCustomProvider = isCustomProvider;
 }
 
-ServerListItem::ServerListItem(const ServerListItem& other) = default;
+ProviderListItem::ProviderListItem(const ProviderListItem& other) = default;
 
-ServerListItem::~ServerListItem() = default;
+ProviderListItem::~ProviderListItem() = default;
 
-ServerListItem & ServerListItem::operator=(const ServerListItem& other) = default;
+ProviderListItem & ProviderListItem::operator=(const ProviderListItem& other) = default;
 
-bool ServerListItem::isCustomServer() const
+bool ProviderListItem::isCustomProvider() const
 {
-	return d->isCustomServer;
+	return d->isCustomProvider;
 }
 
-void ServerListItem::setIsCustomServer(bool isCustomServer)
+void ProviderListItem::setIsCustomProvider(bool isCustomProvider)
 {
-	d->isCustomServer = isCustomServer;
+	d->isCustomProvider = isCustomProvider;
 }
 
-QString ServerListItem::jid() const
+QString ProviderListItem::jid() const
 {
 	return d->jid;
 }
 
-void ServerListItem::setJid(const QString &jid)
+void ProviderListItem::setJid(const QString &jid)
 {
 	d->jid = jid;
 }
 
-bool ServerListItem::supportsInBandRegistration() const
+bool ProviderListItem::supportsInBandRegistration() const
 {
 	return d->supportsInBandRegistration;
 }
 
-void ServerListItem::setSupportsInBandRegistration(bool supportsInBandRegistration)
+void ProviderListItem::setSupportsInBandRegistration(bool supportsInBandRegistration)
 {
 	d->supportsInBandRegistration = supportsInBandRegistration;
 }
 
-QUrl ServerListItem::registrationWebPage() const
+QUrl ProviderListItem::registrationWebPage() const
 {
 	return d->registrationWebPage;
 }
 
-void ServerListItem::setRegistrationWebPage(const QUrl &registrationWebPage)
+void ProviderListItem::setRegistrationWebPage(const QUrl &registrationWebPage)
 {
 	d->registrationWebPage = registrationWebPage;
 }
 
-QString ServerListItem::language() const
+QString ProviderListItem::language() const
 {
 	return d->language;
 }
 
-void ServerListItem::setLanguage(const QString &language)
+void ProviderListItem::setLanguage(const QString &language)
 {
 	d->language = language;
 }
 
-QString ServerListItem::country() const
+QString ProviderListItem::country() const
 {
 	return d->country;
 }
 
-void ServerListItem::setCountry(const QString &country)
+void ProviderListItem::setCountry(const QString &country)
 {
 	d->country = country;
 }
 
-QString ServerListItem::flag() const
+QString ProviderListItem::flag() const
 {
-	// If this object is the custom server, no flag should be shown.
-	if (d->isCustomServer)
+	// If this object is the custom provider, no flag should be shown.
+	if (d->isCustomProvider)
 		return {};
 
 	// If the country is not specified, return a flag for an unknown country.
@@ -190,67 +190,67 @@ QString ServerListItem::flag() const
 	return flag;
 }
 
-QUrl ServerListItem::website() const
+QUrl ProviderListItem::website() const
 {
 	return d->website;
 }
 
-void ServerListItem::setWebsite(const QUrl &website)
+void ProviderListItem::setWebsite(const QUrl &website)
 {
 	d->website = website;
 }
 
-int ServerListItem::onlineSince() const
+int ProviderListItem::onlineSince() const
 {
 	return d->onlineSince;
 }
 
-void ServerListItem::setOnlineSince(int onlineSince)
+void ProviderListItem::setOnlineSince(int onlineSince)
 {
 	d->onlineSince = onlineSince;
 }
 
-int ServerListItem::httpUploadSize() const
+int ProviderListItem::httpUploadSize() const
 {
 	return d->httpUploadSize;
 }
 
-void ServerListItem::setHttpUploadSize(int httpUploadSize)
+void ProviderListItem::setHttpUploadSize(int httpUploadSize)
 {
 	d->httpUploadSize = httpUploadSize;
 }
 
-int ServerListItem::messageStorageDuration() const
+int ProviderListItem::messageStorageDuration() const
 {
 	return d->messageStorageDuration;
 }
 
-void ServerListItem::setMessageStorageDuration(int messageStorageDuration)
+void ProviderListItem::setMessageStorageDuration(int messageStorageDuration)
 {
 	d->messageStorageDuration = messageStorageDuration;
 }
 
-bool ServerListItem::operator<(const ServerListItem& other) const
+bool ProviderListItem::operator<(const ProviderListItem& other) const
 {
 	return d->jid < other.jid();
 }
 
-bool ServerListItem::operator>(const ServerListItem& other) const
+bool ProviderListItem::operator>(const ProviderListItem& other) const
 {
 	return d->jid > other.jid();
 }
 
-bool ServerListItem::operator<=(const ServerListItem& other) const
+bool ProviderListItem::operator<=(const ProviderListItem& other) const
 {
 	return d->jid <= other.jid();
 }
 
-bool ServerListItem::operator>=(const ServerListItem& other) const
+bool ProviderListItem::operator>=(const ProviderListItem& other) const
 {
 	return d->jid >= other.jid();
 }
 
-bool ServerListItem::operator==(const ServerListItem& other) const
+bool ProviderListItem::operator==(const ProviderListItem& other) const
 {
 	return d == other.d;
 }

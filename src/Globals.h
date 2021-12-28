@@ -90,15 +90,15 @@ constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
 #define GENERATED_PASSWORD_ALPHABET_LENGTH GENERATED_PASSWORD_ALPHABET.size()
 
 /**
- * Path of the JSON server list file
+ * Path of the JSON provider list file
  */
-#define SERVER_LIST_FILE_PATH QStringLiteral(":/data/servers.json")
+#define PROVIDER_LIST_FILE_PATH QStringLiteral(":/data/providers.json")
 
 /**
- * Number of servers required in a country so that only servers from that country are
+ * Number of providers required in a country so that only providers from that country are
  * randomly selected.
  */
-constexpr auto SERVER_LIST_MIN_SERVERS_FROM_COUNTRY = 2;
+constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
 
 /**
  * Name of the @c QQuickImageProvider for Bits of Binary.
