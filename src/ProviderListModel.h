@@ -45,9 +45,9 @@ public:
 		JidRole = Qt::UserRole + 1,
 		SupportsInBandRegistrationRole,
 		RegistrationWebPageRole,
-		LanguageRole,
-		CountryRole,
-		FlagRole,
+		LanguagesRole,
+		CountriesRole,
+		FlagsRole,
 		IsCustomProviderRole,
 		WebsiteRole,
 		OnlineSinceRole,
@@ -55,6 +55,11 @@ public:
 		MessageStorageDurationRole
 	};
 	Q_ENUM(Role)
+
+	struct Locale {
+		QString languageCode;
+		QString countryCode;
+	};
 
 	explicit ProviderListModel(QObject *parent = nullptr);
 
@@ -70,8 +75,13 @@ public:
 private:
 	void readItemsFromJsonFile(const QString &filePath);
 	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
-	QVector<ProviderListItem> providersFromCountry(const QVector<ProviderListItem> &preSelectedProviders, const QString &country) const;
+	QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
 	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
+	QString chooseWebsite(const QMap<QString, QUrl> &websites) const;
+
+	QString systemLanguageCode() const;
+	QString systemCountryCode() const;
+	Locale systemLocale() const;
 
 	QVector<ProviderListItem> m_items;
 };

@@ -60,16 +60,15 @@ public:
 	QUrl registrationWebPage() const;
 	void setRegistrationWebPage(const QUrl &registrationWebPage);
 
-	QString language() const;
-	void setLanguage(const QString &language);
+	QVector<QString> languages() const;
 
-	QString country() const;
-	void setCountry(const QString &country);
+	QVector<QString> countries() const;
+	void setCountries(const QVector<QString> &country);
 
-	QString flag() const;
+	QVector<QString> flags() const;
 
-	QUrl website() const;
-	void setWebsite(const QUrl &website);
+	QMap<QString, QUrl> websites() const;
+	void setWebsites(const QMap<QString, QUrl> &websites);
 
 	int onlineSince() const;
 	void setOnlineSince(int onlineSince);

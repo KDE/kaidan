@@ -146,19 +146,19 @@ FieldView {
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Region:")
-					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.CountryRole)
+					Kirigami.FormData.label: qsTr("Server locations:")
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.CountriesRole)
 				}
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Provider language:")
-					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.LanguageRole)
+					Kirigami.FormData.label: qsTr("Languages:")
+					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.LanguagesRole)
 				}
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Provider website:")
+					Kirigami.FormData.label: qsTr("Website:")
 					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
 				}
 
@@ -170,13 +170,13 @@ FieldView {
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Maximum size for sending files:")
+					Kirigami.FormData.label: qsTr("Allows to share media up to:")
 					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.HttpUploadSizeRole)
 				}
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Duration of message storage:")
+					Kirigami.FormData.label: qsTr("Stores shared media up to:")
 					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.MessageStorageDurationRole)
 				}
 			}

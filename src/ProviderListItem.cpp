@@ -30,6 +30,7 @@
 
 #include "ProviderListItem.h"
 // Qt
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QUrl>
 
@@ -44,9 +45,9 @@ public:
 	QString jid;
 	bool supportsInBandRegistration;
 	QUrl registrationWebPage;
-	QString language;
-	QString country;
-	QUrl website;
+	QVector<QString> languages;
+	QVector<QString> countries;
+	QMap<QString, QUrl> websites;
 	int onlineSince;
 	int httpUploadSize;
 	int messageStorageDuration;
@@ -62,14 +63,28 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	ProviderListItem item;
 	item.setIsCustomProvider(false);
 	item.setJid(object.value(QLatin1String("jid")).toString());
-	item.setSupportsInBandRegistration(object.value(QLatin1String("supportsInBandRegistration")).toBool());
+	item.setSupportsInBandRegistration(object.value(QLatin1String("inBandRegistration")).toBool());
 	item.setRegistrationWebPage(QUrl(object.value(QLatin1String("registrationWebPage")).toString()));
-	item.setLanguage(object.value(QLatin1String("language")).toString().toUpper());
-	item.setCountry(object.value(QLatin1String("country")).toString().toUpper());
-	item.setWebsite(QUrl(object.value(QLatin1String("website")).toString()));
+
+	const auto serverLocations = object.value(QLatin1String("serverLocations")).toArray();
+	QVector<QString> countries;
+	for (const auto &country : serverLocations) {
+		countries.append(country.toString().toUpper());
+	}
+	item.setCountries(countries);
+
+	const auto websiteLanguageVersions = object.value(QLatin1String("website")).toObject();
+	QMap<QString, QUrl> websites;
+	for (auto itr = websiteLanguageVersions.constBegin(); itr != websiteLanguageVersions.constEnd(); ++itr) {
+		const auto language = itr.key().toUpper();
+		const QUrl url = { itr.value().toString() };
+		websites.insert(language, url);
+	}
+	item.setWebsites(websites);
+
 	item.setOnlineSince(object.value(QLatin1String("onlineSince")).toInt(-1));
-	item.setHttpUploadSize(object.value(QLatin1String("httpUploadSize")).toInt(-1));
-	item.setMessageStorageDuration(object.value(QLatin1String("messageStorageDuration")).toInt(-1));
+	item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
+	item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
 	return item;
 }
 
@@ -125,79 +140,77 @@ void ProviderListItem::setRegistrationWebPage(const QUrl &registrationWebPage)
 	d->registrationWebPage = registrationWebPage;
 }
 
-QString ProviderListItem::language() const
+QVector<QString> ProviderListItem::languages() const
 {
-	return d->language;
+	return d->websites.keys().toVector();
 }
 
-void ProviderListItem::setLanguage(const QString &language)
+QVector<QString> ProviderListItem::countries() const
 {
-	d->language = language;
+	return d->countries;
 }
 
-QString ProviderListItem::country() const
+void ProviderListItem::setCountries(const QVector<QString> &countries)
 {
-	return d->country;
+	d->countries = countries;
 }
 
-void ProviderListItem::setCountry(const QString &country)
-{
-	d->country = country;
-}
-
-QString ProviderListItem::flag() const
+QVector<QString> ProviderListItem::flags() const
 {
 	// If this object is the custom provider, no flag should be shown.
 	if (d->isCustomProvider)
 		return {};
 
-	// If the country is not specified, return a flag for an unknown country.
-	if (d->country.isEmpty())
-		return QStringLiteral("🏳️‍🌈");
-
-	QString flag;
-
-	// Iterate over the characters of the country string.
-	// Example: For the country string "DE", the loop iterates over the characters "D" and "E".
-	// An emoji flag sequence (i.e. the flag of the corresponding country / region) is represented by two regional indicator symbols.
-	// Example: 🇩 (U+1F1E9 = 0x1F1E9 = 127465) and 🇪 (U+1F1EA = 127466) concatenated result in 🇩🇪.
-	// Each regional indicator symbol is created by a string which has the following Unicode code point:
-	// REGIONAL_INDICATOR_SYMBOL_BASE + unicode code point of the character of the country string.
-	// Example: 127397 (REGIONAL_INDICATOR_SYMBOL_BASE) + 68 (unicode code point of "D") = 127465 for 🇩
-	//
-	// QString does not provide creating a string by its corresponding Unicode code point.
-	// Therefore, QChar must be used to create a character by its Unicode code point.
-	// Unfortunately, that cannot be done in one step because QChar does not support creating Unicode characters greater than 16 bits.
-	// For this reason, each character of the country string is split into two parts.
-	// Each part consists of 16 bits of the original character.
-	// The first and the second part are then merged into one string.
-	//
-	// Finally, the string consisting of the first regional indicator symbol and the string consisting of the second one are concatenated.
-	// The resulting string represents the emoji flag sequence.
-	for (const auto &character : d->country) {
-		uint32_t regionalIncidatorSymbolCodePoint = REGIONAL_INDICATOR_SYMBOL_BASE + character.unicode();
-		QString regionalIncidatorSymbol;
-
-		QChar regionalIncidatorSymbolParts[2];
-		regionalIncidatorSymbolParts[0] = QChar::highSurrogate(regionalIncidatorSymbolCodePoint);
-		regionalIncidatorSymbolParts[1] = QChar::lowSurrogate(regionalIncidatorSymbolCodePoint);
-
-		regionalIncidatorSymbol = QString(regionalIncidatorSymbolParts, 2);
-
-		flag.append(regionalIncidatorSymbol);
+	// If no country is specified, return a flag for an unknown country.
+	if (d->countries.isEmpty()) {
+		return { QStringLiteral("🏳️‍🌈") };
 	}
 
-	return flag;
+	QVector<QString> flags;
+	for (const auto &country : std::as_const(d->countries)) {
+		QString flag;
+
+		// Iterate over the characters of the country string.
+		// Example: For the country string "DE", the loop iterates over the characters "D" and "E".
+		// An emoji flag sequence (i.e. the flag of the corresponding country / region) is represented by two regional indicator symbols.
+		// Example: 🇩 (U+1F1E9 = 0x1F1E9 = 127465) and 🇪 (U+1F1EA = 127466) concatenated result in 🇩🇪.
+		// Each regional indicator symbol is created by a string which has the following Unicode code point:
+		// REGIONAL_INDICATOR_SYMBOL_BASE + unicode code point of the character of the country string.
+		// Example: 127397 (REGIONAL_INDICATOR_SYMBOL_BASE) + 68 (unicode code point of "D") = 127465 for 🇩
+		//
+		// QString does not provide creating a string by its corresponding Unicode code point.
+		// Therefore, QChar must be used to create a character by its Unicode code point.
+		// Unfortunately, that cannot be done in one step because QChar does not support creating Unicode characters greater than 16 bits.
+		// For this reason, each character of the country string is split into two parts.
+		// Each part consists of 16 bits of the original character.
+		// The first and the second part are then merged into one string.
+		//
+		// Finally, the string consisting of the first regional indicator symbol and the string consisting of the second one are concatenated.
+		// The resulting string represents the emoji flag sequence.
+		for (const auto &character : country) {
+			auto regionalIncidatorSymbolCodePoint = REGIONAL_INDICATOR_SYMBOL_BASE + character.unicode();
+			QChar regionalIncidatorSymbolParts[2];
+			regionalIncidatorSymbolParts[0] = QChar::highSurrogate(regionalIncidatorSymbolCodePoint);
+			regionalIncidatorSymbolParts[1] = QChar::lowSurrogate(regionalIncidatorSymbolCodePoint);
+
+			auto regionalIncidatorSymbol = QString(regionalIncidatorSymbolParts, 2);
+			flag.append(regionalIncidatorSymbol);
+		}
+
+		flags.append(flag);
+	}
+
+	return flags;
 }
 
-QUrl ProviderListItem::website() const
+QMap<QString, QUrl> ProviderListItem::websites() const
 {
-	return d->website;
+	return d->websites;
 }
 
-void ProviderListItem::setWebsite(const QUrl &website)
+void ProviderListItem::setWebsites(const QMap<QString, QUrl> &websites)
 {
-	d->website = website;
+	d->websites = websites;
 }
 
 int ProviderListItem::onlineSince() const

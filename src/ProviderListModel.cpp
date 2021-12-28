@@ -40,6 +40,9 @@
 #include "Globals.h"
 #include "QmlUtils.h"
 
+constexpr QStringView DEFAULT_LANGUAGE_CODE = u"EN";
+constexpr QStringView DEFAULT_COUNTRY_CODE = u"US";
+
 ProviderListModel::ProviderListModel(QObject *parent)
 	: QAbstractListModel(parent)
 {
@@ -57,9 +60,9 @@ QHash<int, QByteArray> ProviderListModel::roleNames() const
 		{JidRole, QByteArrayLiteral("jid")},
 		{SupportsInBandRegistrationRole, QByteArrayLiteral("supportsInBandRegistration")},
 		{RegistrationWebPageRole, QByteArrayLiteral("registrationWebPage")},
-		{LanguageRole, QByteArrayLiteral("language")},
-		{CountryRole, QByteArrayLiteral("country")},
-		{FlagRole, QByteArrayLiteral("flag")},
+		{LanguagesRole, QByteArrayLiteral("languages")},
+		{CountriesRole, QByteArrayLiteral("countries")},
+		{FlagsRole, QByteArrayLiteral("flags")},
 		{IsCustomProviderRole, QByteArrayLiteral("isCustomProvider")},
 		{WebsiteRole, QByteArrayLiteral("website")},
 		{HttpUploadSizeRole, QByteArrayLiteral("httpUploadSize")},
@@ -85,23 +88,23 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 
 	switch (role) {
 	case DisplayRole:
-		return QStringLiteral("%1 %2").arg(item.flag(), item.jid());
+		return QStringLiteral("%1 %2").arg(QStringList(item.flags().toList()).join(u' '), item.jid());
 	case JidRole:
 		return item.jid();
 	case SupportsInBandRegistrationRole:
 		return item.supportsInBandRegistration();
 	case RegistrationWebPageRole:
 		return item.registrationWebPage();
-	case LanguageRole:
-		return item.language();
-	case CountryRole:
-		return item.country();
-	case FlagRole:
-		return item.flag();
+	case LanguagesRole:
+		return QStringList(item.languages().toList()).join(QStringLiteral(", "));
+	case CountriesRole:
+		return QStringList(item.countries().toList()).join(QStringLiteral(", "));
+	case FlagsRole:
+		return QStringList(item.flags().toList()).join(QStringLiteral(", "));
 	case IsCustomProviderRole:
 		return item.isCustomProvider();
 	case WebsiteRole:
-		return QmlUtils::formatMessage(item.website().toString());
+		return chooseWebsite(item.websites());
 	case OnlineSinceRole:
 		if (item.onlineSince() == -1)
 			return QString();
@@ -114,7 +117,7 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 			//: Unlimited file size for uploading
 			return tr("Unlimited");
 		default:
-			return QLocale::system().formattedDataSize(item.httpUploadSize() * 1024LL * 1024LL, 0);
+			return QLocale::system().formattedDataSize(item.httpUploadSize() * 1000 * 1000, 0, QLocale::DataSizeSIFormat);
 		}
 	case MessageStorageDurationRole:
 		switch (item.messageStorageDuration()) {
@@ -139,14 +142,12 @@ QVariant ProviderListModel::data(int row, ProviderListModel::Role role) const
 int ProviderListModel::randomlyChooseIndex() const
 {
 	QVector<ProviderListItem> providersWithInBandRegistration = providersSupportingInBandRegistration();
+	QVector<ProviderListItem> providersWithInBandRegistrationAndSystemLocale = providersWithSystemLocale(providersWithInBandRegistration);
 
-	QString systemCountryCode = QLocale::system().name().split(QStringLiteral("_")).last();
-	QVector<ProviderListItem> providersWithInBandRegistrationFromCountry = providersFromCountry(providersWithInBandRegistration, systemCountryCode);
-
-	if (providersWithInBandRegistrationFromCountry.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY)
+	if (providersWithInBandRegistrationAndSystemLocale.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY)
 		return indexOfRandomlySelectedProvider(providersWithInBandRegistration);
 
-	return indexOfRandomlySelectedProvider(providersWithInBandRegistrationFromCountry);
+	return indexOfRandomlySelectedProvider(providersWithInBandRegistrationAndSystemLocale);
 }
 
 void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
@@ -197,12 +198,12 @@ QVector<ProviderListItem> ProviderListModel::providersSupportingInBandRegistrati
 	return providers;
 }
 
-QVector<ProviderListItem> ProviderListModel::providersFromCountry(const QVector<ProviderListItem> &preSelectedProviders, const QString &country) const
+QVector<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const
 {
 	QVector<ProviderListItem> providers;
 
 	for (const auto &provider : preSelectedProviders) {
-		if (provider.country() == country)
+		if (provider.languages().contains(systemLocale().languageCode) && provider.countries().contains(systemLocale().countryCode))
 			providers << provider;
 	}
 
@@ -212,4 +213,39 @@ QVector<ProviderListItem> ProviderListModel::providersFromCountry(const QVector<
 int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const
 {
 	return m_items.indexOf(preSelectedProviders.at(QRandomGenerator::global()->generate() % preSelectedProviders.size()));
+}
+
+QString ProviderListModel::chooseWebsite(const QMap<QString, QUrl> &websites) const
+{
+	QUrl website;
+
+	// Use the system-wide language website if available.
+	// Use the English website if no system-wide language website is available but English is.
+	// Use the first website if also no English version is available but another one is.
+	if (website = websites.value(systemLocale().languageCode); website.isEmpty()) {
+		if (website = websites.value("EN"); website.isEmpty() && !websites.isEmpty()) {
+			website = websites.first();
+		}
+	}
+
+	return QmlUtils::formatMessage(website.toString());
+}
+
+ProviderListModel::Locale ProviderListModel::systemLocale() const
+{
+	const auto systemLocaleParts = QLocale::system().name().split(QStringLiteral("_"));
+
+	// Use the retrieved codes or default values if there are not two codes.
+	// An example for usage of the default values is when the "C" locale is
+	// retrieved.
+	if (systemLocaleParts.size() >= 2) {
+		return {
+			.languageCode = systemLocaleParts.first().toUpper(),
+			.countryCode = systemLocaleParts.last()
+		};
+	}
+	return {
+		.languageCode = DEFAULT_LANGUAGE_CODE.toString(),
+		.countryCode = DEFAULT_COUNTRY_CODE.toString()
+	};
 }
