@@ -47,6 +47,7 @@ FieldView {
 	imageSource: "provider"
 
 	property string text: customProviderSelected ? field.text : providerListModel.data(comboBox.currentIndex, ProviderListModel.JidRole)
+	property string website: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
 	property bool customProviderSelected: providerListModel.data(comboBox.currentIndex, ProviderListModel.IsCustomProviderRole)
 	property bool inBandRegistrationSupported: providerListModel.data(comboBox.currentIndex, ProviderListModel.SupportsInBandRegistrationRole)
 	property string registrationWebPage: providerListModel.data(comboBox.currentIndex, ProviderListModel.RegistrationWebPageRole)
@@ -158,12 +159,6 @@ FieldView {
 
 				Controls.Label {
 					visible: !customProviderSelected && text
-					Kirigami.FormData.label: qsTr("Website:")
-					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
-				}
-
-				Controls.Label {
-					visible: !customProviderSelected && text
 					Kirigami.FormData.label: qsTr("Online since:")
 					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.OnlineSinceRole)
 				}
@@ -180,6 +175,16 @@ FieldView {
 					text: providerListModel.data(comboBox.currentIndex, ProviderListModel.MessageStorageDurationRole)
 				}
 			}
+		}
+
+		CenteredAdaptiveHighlightedButton {
+			text: qsTr("Open website")
+			onClicked: Qt.openUrlExternally(website)
+		}
+
+		CenteredAdaptiveButton {
+			text: qsTr("Copy website address")
+			onClicked: Utils.copyToClipboard(website)
 		}
 
 		// placeholder

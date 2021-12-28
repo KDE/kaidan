@@ -228,7 +228,7 @@ QString ProviderListModel::chooseWebsite(const QMap<QString, QUrl> &websites) co
 		}
 	}
 
-	return QmlUtils::formatMessage(website.toString());
+	return website.toString();
 }
 
 ProviderListModel::Locale ProviderListModel::systemLocale() const
