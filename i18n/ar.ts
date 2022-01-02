@@ -69,7 +69,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>كلمة المرور:</translation>
     </message>
     <message>
         <source>Hide QR code</source>
@@ -89,7 +89,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Copy password</source>
-        <translation type="unfinished"></translation>
+        <translation>انسخ كلمة المرور</translation>
     </message>
     <message>
         <source>Copy chat address</source>
@@ -132,11 +132,11 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>ألغِ</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation>تغيير</translation>
+        <translation>غيّر</translation>
     </message>
     <message>
         <source>Password changed successfully</source>
@@ -174,7 +174,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Edit message</source>
-        <translation type="unfinished"></translation>
+        <translation>حرر الرسالة</translation>
     </message>
     <message>
         <source>Copy download URL</source>
@@ -233,7 +233,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished">بحث</translation>
+        <translation>ابحث</translation>
     </message>
     <message>
         <source>Close</source>
@@ -282,15 +282,15 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"></translation>
+        <translation>منخفض</translation>
     </message>
     <message>
         <source>Normal</source>
-        <translation type="unfinished"></translation>
+        <translation>عادي</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"></translation>
+        <translation>عالي</translation>
     </message>
     <message>
         <source>Very high</source>
@@ -317,22 +317,22 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     <name>ConfirmationPage</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>ألغِ</translation>
     </message>
 </context>
 <context>
     <name>ConnectionSettings</name>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الاتّصال</translation>
     </message>
     <message>
         <source>Change</source>
-        <translation type="unfinished">تغيير</translation>
+        <translation>غيّر</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>ألغِ</translation>
     </message>
     <message>
         <source>Connection settings could not be changed</source>
@@ -347,7 +347,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     <name>CustomConnectionSettings</name>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم المضيف:</translation>
     </message>
     <message>
         <source>The hostname must not contain blank spaces</source>
@@ -355,7 +355,7 @@ Never show this QR code to anyone else. It would allow unlimited access to your 
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>المنفذ:</translation>
     </message>
 </context>
 <context>
@@ -499,15 +499,15 @@ Consider storing the password somewhere else if you want to use your account on 
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">غير متصل</translation>
+        <translation>غير متّصل</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"></translation>
+        <translation>متصل</translation>
     </message>
     <message>
         <source>Connecting…</source>
-        <translation type="unfinished">جارٍ الاتصال…</translation>
+        <translation>يتّصل…</translation>
     </message>
     <message>
         <source>Switch device</source>
@@ -536,7 +536,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>أزل</translation>
     </message>
 </context>
 <context>
@@ -599,14 +599,14 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الاتّصال</translation>
     </message>
 </context>
 <context>
     <name>LoginSettingsPage</name>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الاتّصال</translation>
     </message>
     <message>
         <source>The connection settings will be saved permanently after the first successful login. If they don&apos;t work, you&apos;ll get back to the login page.</source>
@@ -618,26 +618,26 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>المنفذ:</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>اسم المضيف:</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>صفّر</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>طبّق</translation>
     </message>
 </context>
 <context>
     <name>MediaRecorder</name>
     <message>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>المبدئيّ</translation>
     </message>
 </context>
 <context>
@@ -660,11 +660,11 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Choose file</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر ملفّا</translation>
     </message>
     <message>
         <source>Choose image</source>
-        <translation type="unfinished"></translation>
+        <translation>اختر صورة</translation>
     </message>
     <message>
         <source>Choose video</source>
@@ -680,23 +680,23 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>كلّ الملفّات</translation>
     </message>
     <message>
         <source>Images</source>
-        <translation type="unfinished"></translation>
+        <translation>الصور</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>الفيديوهات</translation>
     </message>
     <message>
         <source>Audio files</source>
-        <translation type="unfinished"></translation>
+        <translation>ملفات صوت</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>المستندات</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
@@ -704,27 +704,27 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">صوت</translation>
+        <translation>صوت</translation>
     </message>
     <message>
         <source>Document</source>
-        <translation type="unfinished">مستند</translation>
+        <translation>مستند</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation>المكان</translation>
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished">صورة</translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">فيديو</translation>
+        <translation>فيديو</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="unfinished">ملف</translation>
+        <translation>ملف</translation>
     </message>
 </context>
 <context>
@@ -757,11 +757,11 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>MessageModel</name>
     <message>
         <source>Pending</source>
-        <translation type="unfinished"></translation>
+        <translation>ينتظر</translation>
     </message>
     <message>
         <source>Sent</source>
-        <translation type="unfinished"></translation>
+        <translation>أُرسلت</translation>
     </message>
     <message>
         <source>Delivered</source>
@@ -769,18 +769,18 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished">خطأ</translation>
+        <translation>خطأ</translation>
     </message>
 </context>
 <context>
     <name>MultimediaSettings</name>
     <message>
         <source>Multimedia Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الوسائط المتعدّدة</translation>
     </message>
     <message>
         <source>Configure</source>
-        <translation type="unfinished"></translation>
+        <translation>اضبط</translation>
     </message>
     <message>
         <source>Image Capture</source>
@@ -788,15 +788,15 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Audio Recording</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل صوتي</translation>
     </message>
     <message>
         <source>Video Recording</source>
-        <translation type="unfinished"></translation>
+        <translation>تسجيل مرئي</translation>
     </message>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>كاميرا</translation>
     </message>
     <message>
         <source>Audio input</source>
@@ -808,15 +808,15 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Image</source>
-        <translation type="unfinished">صورة</translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">صوت</translation>
+        <translation>صوت</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished">فيديو</translation>
+        <translation>فيديو</translation>
     </message>
     <message>
         <source>Codec</source>
@@ -828,35 +828,35 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Quality</source>
-        <translation type="unfinished"></translation>
+        <translation>الجودة</translation>
     </message>
     <message>
         <source>Sample Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>معدّل الإعتيان</translation>
     </message>
     <message>
         <source>Frame Rate</source>
-        <translation type="unfinished"></translation>
+        <translation>معدل الإطارات</translation>
     </message>
     <message>
         <source>Ready</source>
-        <translation type="unfinished"></translation>
+        <translation>جاهز</translation>
     </message>
     <message>
         <source>Initializing…</source>
-        <translation type="unfinished"></translation>
+        <translation>يمهّد…</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>غير متوفّر</translation>
     </message>
     <message>
         <source>Recording…</source>
-        <translation type="unfinished"></translation>
+        <translation>يسجّل</translation>
     </message>
     <message>
         <source>Paused</source>
-        <translation type="unfinished"></translation>
+        <translation>أوقِفَ مؤقتا</translation>
     </message>
 </context>
 <context>
@@ -878,19 +878,19 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>NewMedia</name>
     <message>
         <source>Initializing…</source>
-        <translation type="unfinished"></translation>
+        <translation>يمهّد…</translation>
     </message>
     <message>
         <source>Unavailable</source>
-        <translation type="unfinished"></translation>
+        <translation>غير متوفّر</translation>
     </message>
     <message>
         <source>Recording… %1</source>
-        <translation type="unfinished"></translation>
+        <translation>يسجّل... %1</translation>
     </message>
     <message>
         <source>Paused %1</source>
-        <translation type="unfinished"></translation>
+        <translation>أوقِفَ مؤقتا %1</translation>
     </message>
 </context>
 <context>
@@ -916,23 +916,23 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>QObject</name>
     <message>
         <source>Mark as read</source>
-        <translation type="unfinished"></translation>
+        <translation>علّم كمقروءة</translation>
     </message>
     <message>
         <source>Available</source>
-        <translation type="unfinished">متوفر</translation>
+        <translation>متوفّرة</translation>
     </message>
     <message>
         <source>Free for chat</source>
-        <translation type="unfinished">متوفر للدردشة</translation>
+        <translation>متفرغ للدردشة</translation>
     </message>
     <message>
         <source>Away</source>
-        <translation type="unfinished">غائب</translation>
+        <translation>بالخارج</translation>
     </message>
     <message>
         <source>Do not disturb</source>
-        <translation type="unfinished">لا تزعجني</translation>
+        <translation>نمط عدم الإزعاج</translation>
     </message>
     <message>
         <source>Away for longer</source>
@@ -940,7 +940,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished">غير متصل</translation>
+        <translation>غير متّصل</translation>
     </message>
 </context>
 <context>
@@ -1019,7 +1019,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>%1 is online</source>
-        <translation type="unfinished"></translation>
+        <translation>‏%1 متّصل</translation>
     </message>
     <message>
         <source>%1 is typing…</source>
@@ -1057,7 +1057,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Connecting…</source>
-        <translation type="unfinished">جارٍ الاتصال…</translation>
+        <translation>يتّصل…</translation>
     </message>
     <message>
         <source>This QR code is not a valid login QR code.</source>
@@ -1095,7 +1095,7 @@ Try to close other applications using the camera.</source>
     </message>
     <message>
         <source>Register a new account</source>
-        <translation type="unfinished"></translation>
+        <translation>سجّل حساب جديد</translation>
     </message>
     <message>
         <source>Use an existing account</source>
@@ -1126,7 +1126,7 @@ You will not be able to use your account again!</source>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished">حذف</translation>
+        <translation>احذف</translation>
     </message>
 </context>
 <context>
@@ -1238,7 +1238,7 @@ You will not be able to use your account again!</source>
     </message>
     <message>
         <source>Search contacts</source>
-        <translation type="unfinished"></translation>
+        <translation>ابحث عن متراسلين</translation>
     </message>
 </context>
 <context>
@@ -1264,22 +1264,22 @@ You will not be able to use your account again!</source>
     <name>RosterRenameContactSheet</name>
     <message>
         <source>Rename contact</source>
-        <translation type="unfinished"></translation>
+        <translation>أعد تسمية المراسل</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">إلغاء</translation>
+        <translation>ألغِ</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>غيّر الاسم</translation>
     </message>
 </context>
 <context>
     <name>SendMediaSheet</name>
     <message>
         <source>Caption</source>
-        <translation type="unfinished">شرح</translation>
+        <translation>الوصف</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1305,14 +1305,14 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>%1 days</source>
-        <translation type="unfinished"></translation>
+        <translation>‏%1 يوم</translation>
     </message>
 </context>
 <context>
     <name>SettingsContent</name>
     <message>
         <source>Change password</source>
-        <translation type="unfinished">تغيير كلمة المرور</translation>
+        <translation>غيّر كلمة السر</translation>
     </message>
     <message>
         <source>Changes your account&apos;s password. You will need to re-enter it on your other devices.</source>
@@ -1320,7 +1320,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Multimedia Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الوسائط المتعدّدة</translation>
     </message>
     <message>
         <source>Configure photo, video and audio recording settings</source>
@@ -1328,7 +1328,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">الإعدادات</translation>
+        <translation>إعدادات</translation>
     </message>
     <message>
         <source>Account security</source>
@@ -1352,7 +1352,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Connection Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>إعدادات الاتّصال</translation>
     </message>
     <message>
         <source>Configure the hostname and port to connect to</source>
@@ -1434,19 +1434,19 @@ Deletion of message history saved on server</extracomment>
     <name>UserProfilePage</name>
     <message>
         <source>Profile</source>
-        <translation type="unfinished"></translation>
+        <translation>الملف الشخصي</translation>
     </message>
     <message>
         <source>Rename contact</source>
-        <translation type="unfinished"></translation>
+        <translation>أعد تسمية المراسل</translation>
     </message>
     <message>
         <source>Show QR code</source>
-        <translation type="unfinished"></translation>
+        <translation>أظهر باركود</translation>
     </message>
     <message>
         <source>Remove contact</source>
-        <translation type="unfinished"></translation>
+        <translation>أزل المتراسل</translation>
     </message>
     <message>
         <source>Online devices</source>
@@ -1457,15 +1457,15 @@ Deletion of message history saved on server</extracomment>
     <name>VCardModel</name>
     <message>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>الاسم</translation>
     </message>
     <message>
         <source>Nickname</source>
-        <translation type="unfinished"></translation>
+        <translation>الاسم المستعار</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">عن</translation>
+        <translation>عن</translation>
     </message>
     <message>
         <source>Email</source>
@@ -1473,7 +1473,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Birthday</source>
-        <translation type="unfinished"></translation>
+        <translation>عيد الميلاد</translation>
     </message>
     <message>
         <source>Website</source>
