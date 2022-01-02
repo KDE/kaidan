@@ -715,7 +715,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
+        <translation>Ton</translation>
     </message>
     <message>
         <source>Document</source>
@@ -742,7 +742,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>Message</name>
     <message>
         <source>Spoiler</source>
-        <translation type="unfinished">Versteckt</translation>
+        <translation>Spoiler</translation>
     </message>
 </context>
 <context>
@@ -827,7 +827,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Audio</source>
-        <translation type="unfinished">Audio</translation>
+        <translation>Ton</translation>
     </message>
     <message>
         <source>Video</source>
@@ -962,7 +962,7 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>QmlUtils</name>
     <message>
         <source>Invalid username or password.</source>
-        <translation type="unfinished">Falsche Zugangsdaten.</translation>
+        <translation>Ungültige Zugangsdaten.</translation>
     </message>
     <message>
         <source>Cannot connect to the server. Please check your internet connection.</source>
