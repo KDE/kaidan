@@ -1181,7 +1181,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>ਈ-ਮੇਲ</translation>
     </message>
     <message>
         <source>Birthday</source>

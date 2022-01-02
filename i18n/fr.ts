@@ -137,19 +137,19 @@ Assurez vous d&apos;en avoir fais une copie si vous comptez réutiliser ce compt
     </message>
     <message>
         <source>Allow to add additional devices using the login QR code but never show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Permettez l’ajout de dispositifs supplémentaires à l’aide du code QR de connexion, mais ne montrez jamais le mot de passe.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas afficher le mot de passe</translation>
     </message>
     <message>
         <source>Neither allow to add additional devices using the login QR code nor show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne permet pas d’ajouter des dispositifs supplémentaires en utilisant le code QR de connexion et ne montre pas le mot de passe.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>N’exposez pas votre mot de passe de quelque manière que ce soit</translation>
     </message>
 </context>
 <context>
@@ -163,10 +163,10 @@ Assurez vous d&apos;en avoir fais une copie si vous comptez réutiliser ce compt
 
 Attention:
 Never show this QR code to anyone else. It would allow unlimited access to your account!</source>
-        <translation>Scannez le QR code ou entrez les identifiants sur un autre appareil pour vous connecter sur celui-ci.
+        <translation>Scannez le code QR ou entrez les identifiants sur un autre appareil pour vous connecter sur celui-ci.
 
 Attention&#xa0;:
-Ne montrez ce QR code à personne d&apos;autre. Il permet un accès complet à votre compte !</translation>
+Ne montrez ce code QR à personne d’autre. Il permet un accès complet à votre compte&#xa0;!</translation>
     </message>
     <message>
         <source>Chat address:</source>
@@ -178,11 +178,11 @@ Ne montrez ce QR code à personne d&apos;autre. Il permet un accès complet à v
     </message>
     <message>
         <source>Hide QR code</source>
-        <translation>Cacher le QR code</translation>
+        <translation>Cacher le code QR</translation>
     </message>
     <message>
         <source>Show as QR code</source>
-        <translation>Afficher comme QR code</translation>
+        <translation>Afficher comme code QR</translation>
     </message>
     <message>
         <source>Hide text</source>
@@ -202,7 +202,7 @@ Ne montrez ce QR code à personne d&apos;autre. Il permet un accès complet à v
     </message>
     <message>
         <source>Copy chat address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copier l’adresse de la discussion</translation>
     </message>
 </context>
 <context>
@@ -541,17 +541,19 @@ Assurez-vous de l’avoir sauvegardé si vous souhaitez utiliser votre compte pl
     </message>
     <message>
         <source>Don&apos;t expose your password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne divulguez pas votre mot de passe de quelque manière que ce soit</translation>
     </message>
     <message>
         <source>Your password will neither be shown as plain text nor included in the login QR code anymore.
 You won&apos;t be able to use the login via QR code without entering your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device.</source>
-        <translation type="unfinished"></translation>
+        <translation>Votre mot de passe ne sera plus affiché en texte brut ni inclus dans le code QR de connexion.
+Vous ne pourrez plus utiliser la connexion par code QR sans saisir à nouveau votre mot de passe, car cette action ne peut être annulée !
+Pensez à stocker le mot de passe ailleurs si vous voulez utiliser votre compte sur un autre appareil.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>N’exposez pas votre mot de passe de quelque manière que ce soit</translation>
     </message>
 </context>
 <context>
@@ -574,17 +576,19 @@ Assurez-vous de l’avoir sauvegardé si vous souhaitez utiliser votre compte pl
     </message>
     <message>
         <source>Don&apos;t show your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne montrez pas votre mot de passe</translation>
     </message>
     <message>
         <source>Your password will not be shown anymore but still exposed via the login QR code.
 You won&apos;t be able to see your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device without the login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Votre mot de passe ne sera plus affiché, mais sera toujours visible via le code QR de connexion.
+Vous ne pourrez plus voir votre mot de passe car cette action ne peut être annulée !
+Pensez à stocker le mot de passe ailleurs si vous voulez utiliser votre compte sur un autre appareil sans le code QR de connexion.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ne pas afficher le mot de passe</translation>
     </message>
 </context>
 <context>
@@ -1035,7 +1039,7 @@ Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un 
     </message>
     <message>
         <source>Delivered</source>
-        <translation>Délivré</translation>
+        <translation>Distribué</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1247,7 +1251,7 @@ Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un 
     </message>
     <message>
         <source>You can decide to only not show your password for &lt;b&gt;%1&lt;/b&gt; as text anymore or to remove it completely from the account transfer. If you remove your password completely, you won&apos;t be able to use the account transfer via scanning without entering your password because it is also removed from the QR code.</source>
-        <translation>Vous pouvez décider non seulement d’interdire l’affichage en clair de votre mot de passe pour &lt;b&gt;%1&lt;/b&gt; mais également de le supprimer complètement lors du transfert de compte. Si vous supprimez complètement votre mot de passe, vous serez obligé de le resaisir lors d’un transfert de compte par scan de QR code car le mot de passe est également supprimé du QR code.</translation>
+        <translation>Vous pouvez décider non seulement d’interdire l’affichage en clair de votre mot de passe pour &lt;b&gt;%1&lt;/b&gt; mais également de le supprimer complètement lors du transfert de compte. Si vous supprimez complètement votre mot de passe, vous serez obligé de le resaisir lors d’un transfert de compte par scan de code QR car le mot de passe est également supprimé du code QR.</translation>
     </message>
     <message>
         <source>Do not show password as text</source>
@@ -1373,29 +1377,29 @@ Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un 
     </message>
     <message>
         <source>%1 is online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 est en ligne</translation>
     </message>
     <message>
         <source>%1 is typing…</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 écrit…</translation>
     </message>
     <message>
         <source>%1 paused typing</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 a arrêté d’écrire</translation>
     </message>
 </context>
 <context>
     <name>QrCodeGenerator</name>
     <message>
         <source>Generating the QR code failed: %1</source>
-        <translation>Échec de la génération du QR code : %1</translation>
+        <translation>La génération du code QR a échoué&#xa0;: %1</translation>
     </message>
 </context>
 <context>
     <name>QrCodeOnboardingPage</name>
     <message>
         <source>Scan QR code</source>
-        <translation>Scanner un QR code</translation>
+        <translation>Scanner un code QR</translation>
     </message>
     <message>
         <source>Show explanation</source>
@@ -1403,11 +1407,11 @@ Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un 
     </message>
     <message>
         <source>Continue without QR code</source>
-        <translation>Continuer sans QR code</translation>
+        <translation>Continuer sans code QR</translation>
     </message>
     <message>
         <source>Scan the QR code from your existing device to transfer your account.</source>
-        <translation>Scanner le QR code d’un autre de vos appareils pour transférer votre compte.</translation>
+        <translation>Scanner le code QR d’un autre de vos appareils pour transférer votre compte.</translation>
     </message>
     <message>
         <source>Connecting…</source>
@@ -1415,7 +1419,7 @@ Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un 
     </message>
     <message>
         <source>This QR code is not a valid login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ce code QR n’est pas un code QR de connexion valide.</translation>
     </message>
 </context>
 <context>
@@ -1806,7 +1810,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Configure whether this device can be used to log in on another device</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurer si cet appareil peut être utilisé pour se connecter sur un autre appareil</translation>
     </message>
 </context>
 <context>
@@ -1900,7 +1904,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Show QR code</source>
-        <translation>Afficher le QR code</translation>
+        <translation>Afficher le code QR</translation>
     </message>
     <message>
         <source>Remove contact</source>

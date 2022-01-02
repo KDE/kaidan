@@ -136,7 +136,7 @@ Zeigen Sie diesen QR-Code niemals anderen Personen. Dies würde unbegrenzten Zug
     </message>
     <message>
         <source>After changing your password, you will need to reenter it on all your other devices.</source>
-        <translation>Wenn Sie ihr Kennwort ändern, mußt du es im Anschluss auf allen Geräten neu eingeben.</translation>
+        <translation>Nachdem Sie Ihr Passwort geändert haben, werden Sie es auf allen anderen Geräten neu eingeben müssen.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -554,11 +554,11 @@ Your password will be deleted, make sure it is stored in a password manager or y
     <name>LoginPage</name>
     <message>
         <source>Log in</source>
-        <translation></translation>
+        <translation>Anmelden</translation>
     </message>
     <message>
         <source>Log in to your XMPP account</source>
-        <translation>Mit deinem XMPP-Account anmelden</translation>
+        <translation>Mit deinem XMPP-Konto anmelden</translation>
     </message>
     <message>
         <source>Your Jabber-ID:</source>
@@ -610,14 +610,14 @@ Your password will be deleted, make sure it is stored in a password manager or y
     </message>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished">Verbindungseinstellungen</translation>
+        <translation>Verbindungseinstellungen</translation>
     </message>
 </context>
 <context>
     <name>LoginSettingsPage</name>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished">Verbindungseinstellungen</translation>
+        <translation>Verbindungseinstellungen</translation>
     </message>
     <message>
         <source>The connection settings will be saved permanently after the first successful login. If they don&apos;t work, you&apos;ll get back to the login page.</source>
@@ -1410,7 +1410,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <source>Birthday</source>
@@ -1418,7 +1418,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>Website</translation>
     </message>
 </context>
 </TS>

@@ -1469,7 +1469,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>البريد الإلكتروني</translation>
     </message>
     <message>
         <source>Birthday</source>
@@ -1477,7 +1477,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Website</source>
-        <translation type="unfinished"></translation>
+        <translation>الموقع الإلكتروني</translation>
     </message>
 </context>
 </TS>

@@ -738,7 +738,7 @@ Speichere dein Passwort sicherheitshalber woanders um dich auf anderen Geräten 
     </message>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinde…</translation>
+        <translation>Verbinde&#xa0;…</translation>
     </message>
     <message>
         <source>Transfer account</source>
@@ -1147,7 +1147,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>Initializing…</source>
-        <translation>Initialisiere…</translation>
+        <translation>Initialisiere&#xa0;…</translation>
     </message>
     <message>
         <source>Unavailable</source>
@@ -1155,7 +1155,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>Recording…</source>
-        <translation>Aufnahme…</translation>
+        <translation>Aufnahme&#xa0;…</translation>
     </message>
     <message>
         <source>Paused</source>
@@ -1257,7 +1257,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>Initializing…</source>
-        <translation>Initializieren…</translation>
+        <translation>Initializieren&#xa0;…</translation>
     </message>
     <message>
         <source>Unavailable</source>
@@ -1265,7 +1265,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>Recording… %1</source>
-        <translation>Zeichne auf… %1</translation>
+        <translation>Zeichne auf&#xa0;… %1</translation>
     </message>
     <message>
         <source>Paused %1</source>
@@ -1410,7 +1410,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>%1 is typing…</source>
-        <translation>%1 tippt…</translation>
+        <translation>%1 tippt&#xa0;…</translation>
     </message>
     <message>
         <source>%1 paused typing</source>
@@ -1444,7 +1444,7 @@ Ihr Passwort wird gelöscht, stellen Sie sicher, dass es in einem Passwort-Manag
     </message>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinde…</translation>
+        <translation>Verbinde&#xa0;…</translation>
     </message>
     <message>
         <source>This QR code is not a valid login QR code.</source>
@@ -1669,7 +1669,7 @@ Sie werden Ihr Konto nicht mehr benutzen können!</translation>
     </message>
     <message>
         <source>Connecting…</source>
-        <translation>Verbinden…</translation>
+        <translation>Verbinden&#xa0;…</translation>
     </message>
     <message>
         <source>Offline</source>
