@@ -44,19 +44,19 @@
     </message>
     <message>
         <source>Allow to add additional devices using the login QR code but never show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir adicionar novos dispositivos usando o código QR de acesso mas nunca expor a senha.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Não mostrar a senha</translation>
     </message>
     <message>
         <source>Neither allow to add additional devices using the login QR code nor show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nem permitir adicionar novos dispositivos usando o código QR de acesso nem expor a senha.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Não expor a senha de forma nenhuma</translation>
     </message>
 </context>
 <context>
@@ -109,7 +109,7 @@ Nunca mostre este código QR a ninguém. Ele permitiria o acesso ilimitado à su
     </message>
     <message>
         <source>Copy chat address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar endereço de bate-papo</translation>
     </message>
 </context>
 <context>
@@ -370,17 +370,19 @@ Certifique-se de que fez o backup se quiser usar sua conta mais tarde.</translat
     </message>
     <message>
         <source>Don&apos;t expose your password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Não expor sua senha de forma nenhuma</translation>
     </message>
     <message>
         <source>Your password will neither be shown as plain text nor included in the login QR code anymore.
 You won&apos;t be able to use the login via QR code without entering your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sua senha não será mais exibida em texto puro ou incluída no código QR de acesso.
+Você não poderá usar o acesso via código QR sem informar a senha novamente porque essa ação não pode ser desfeita!
+Recomenda-se armazenar a senha em outro lugar se desejar usar sua conta em outro dispositivo.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Não expor a senha de forma nenhuma</translation>
     </message>
 </context>
 <context>
@@ -403,17 +405,19 @@ Certifique-se de fazer o backup dela se você deseja usar a sua conta mais tarde
     </message>
     <message>
         <source>Don&apos;t show your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Não expor a senha</translation>
     </message>
     <message>
         <source>Your password will not be shown anymore but still exposed via the login QR code.
 You won&apos;t be able to see your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device without the login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sua senha não será mais exibida mas ainda é exposta através do código QR de acesso.
+Você não poderá ver sua senha novamente porque essa ação não pode ser desfeita!
+Recomenda-se armazenar a senha em outro lugar se desejar usar sua conta em outro dispositivo sem o código QR de acesso.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Não mostrar a senha</translation>
     </message>
 </context>
 <context>
@@ -966,15 +970,15 @@ Sua senha também será excluída, certifique-se de que ela é armazenada num ge
     </message>
     <message>
         <source>%1 is online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 está conectado</translation>
     </message>
     <message>
         <source>%1 is typing…</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 está digitando…</translation>
     </message>
     <message>
         <source>%1 paused typing</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 parou de digitar</translation>
     </message>
 </context>
 <context>
@@ -1008,7 +1012,7 @@ Sua senha também será excluída, certifique-se de que ela é armazenada num ge
     </message>
     <message>
         <source>This QR code is not a valid login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este código QR não é um código QR de acesso válido.</translation>
     </message>
 </context>
 <context>
@@ -1331,7 +1335,7 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Configure whether this device can be used to log in on another device</source>
-        <translation type="unfinished"></translation>
+        <translation>Configurar se este dispositivo pode ser usado para acesso em outro dispositivo</translation>
     </message>
 </context>
 <context>
