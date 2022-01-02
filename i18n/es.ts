@@ -118,19 +118,19 @@ Cerciórese de tener una copia de respaldo de estos si quiere utilizar su cuenta
     </message>
     <message>
         <source>Allow to add additional devices using the login QR code but never show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Permitir agregar dispositivos adicionales usando el códgo QR pero nunca mostrando la contraseña.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>No mostrar la contraseña</translation>
     </message>
     <message>
         <source>Neither allow to add additional devices using the login QR code nor show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation>No permitir agregar dispositivos adicionales usando el código QR ni jamás mostrar la contraseña.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>No exponer la contraseña de ningún modo</translation>
     </message>
 </context>
 <context>
@@ -175,11 +175,11 @@ Atención:
     </message>
     <message>
         <source>Copy chat address</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar dirección del chat</translation>
     </message>
     <message>
         <source>Copy password</source>
-        <translation type="unfinished"></translation>
+        <translation>Copiar contraseña</translation>
     </message>
 </context>
 <context>
@@ -233,7 +233,7 @@ Atención:
     </message>
     <message>
         <source>Password changed successfully</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraseña cambiada con éxito</translation>
     </message>
     <message>
         <source>Failed to change password: %1</source>
