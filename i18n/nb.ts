@@ -70,19 +70,19 @@
     </message>
     <message>
         <source>Allow to add additional devices using the login QR code but never show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tillat å legge til ytterligere enheter ved bruk av innloggings-QR-kode, men aldri vis passordet.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis passord</translation>
     </message>
     <message>
         <source>Neither allow to add additional devices using the login QR code nor show the password.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Hverken tillat å legge til ytterligere enhter med innloggings-QR-kode, og ikke vis passordet.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis frem passordet på noen måte</translation>
     </message>
 </context>
 <context>
@@ -127,11 +127,11 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Copy password</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier passord</translation>
     </message>
     <message>
         <source>Copy chat address</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopier sludringsadresse</translation>
     </message>
 </context>
 <context>
@@ -177,7 +177,7 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Change</source>
@@ -185,7 +185,7 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Password changed successfully</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Passord endret</translation>
     </message>
     <message>
         <source>Failed to change password: %1</source>
@@ -310,7 +310,7 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Close message search bar</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lukk meldingssøkefelt</translation>
     </message>
 </context>
 <context>
@@ -321,7 +321,7 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Close spoiler hint field</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lukk avsløringshintfeltet</translation>
     </message>
     <message>
         <source>Compose message</source>
@@ -385,7 +385,7 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     <name>ConnectionSettings</name>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilkoblingsinnstillinger</translation>
     </message>
     <message>
         <source>Change</source>
@@ -397,11 +397,11 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     </message>
     <message>
         <source>Connection settings could not be changed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kunne ikke endre tilkoblingsinnstillinger</translation>
     </message>
     <message>
         <source>Connection settings changed</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilkoblingsinnstillinger endret</translation>
     </message>
 </context>
 <context>
@@ -415,15 +415,15 @@ Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til kontoe
     <name>CustomConnectionSettings</name>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertsnavn:</translation>
     </message>
     <message>
         <source>The hostname must not contain blank spaces</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Vertsnavnet kan ikke inneholde mellomrom</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>Port:</translation>
     </message>
 </context>
 <context>
@@ -446,17 +446,19 @@ Forsikre deg om at du har sikkerhetskopiert det hvis du ønsker å bruke kontoen
     </message>
     <message>
         <source>Don&apos;t expose your password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis frem passordet på noen måte</translation>
     </message>
     <message>
         <source>Your password will neither be shown as plain text nor included in the login QR code anymore.
 You won&apos;t be able to use the login via QR code without entering your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device.</source>
-        <translation type="unfinished"></translation>
+        <translation>Passordet ditt vil aldri bli vist i klartekst, og ei heller inkludert i innloggings-QR-koden framover.
+Du vil ikke kunne bruke innloggings-QR-koden uten å skrive inn passordet ditt igjen, fordi denne handlingen ikke kan angres.
+Overvei å lagre passordet et trygt sted, hvis du ønsker å bruke kontoen din på en annen enheten.</translation>
     </message>
     <message>
         <source>Don&apos;t expose password in any way</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis frem passordet på noen måte</translation>
     </message>
 </context>
 <context>
@@ -479,17 +481,19 @@ Forsikre deg om at du har sikkerhetskopiert passordet hvis du ønsker å bruke d
     </message>
     <message>
         <source>Don&apos;t show your password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis passordet ditt</translation>
     </message>
     <message>
         <source>Your password will not be shown anymore but still exposed via the login QR code.
 You won&apos;t be able to see your password again because this action cannot be undone!
 Consider storing the password somewhere else if you want to use your account on another device without the login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Passordet vil ikke vises, men er fremdeles tilgjengelig via innloggings-QR-koden.
+Du vil ikke kunne se passordet ditt igjen fordi denne handlingen ikke kan angres.
+Overvei å lagre passordet et trygt sted hvis du ønsker å bruke kontoen din på en annen enheten uten innloggings-QR-koden.</translation>
     </message>
     <message>
         <source>Don&apos;t show password</source>
-        <translation type="unfinished"></translation>
+        <translation>Ikke vis passord</translation>
     </message>
 </context>
 <context>
@@ -750,38 +754,38 @@ Passordet ditt vil bli slettet, forsikre deg om at det er lagret i en passordsh�
     </message>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilkoblingsinnstillinger</translation>
     </message>
 </context>
 <context>
     <name>LoginSettingsPage</name>
     <message>
         <source>Connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilkoblingsinnstillinger</translation>
     </message>
     <message>
         <source>The connection settings will be saved permanently after the first successful login. If they don&apos;t work, you&apos;ll get back to the login page.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Tilkoblingsinnstillingene vil bli lagret permanent ved første innlogging. Hvis de ikke fungerer kommer du deg tilbake til innloggingssiden.</translation>
     </message>
     <message>
         <source>Enable custom connection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Skru på egendefinerte tilkoblingsinnstillinger</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="unfinished"></translation>
+        <translation>Port:</translation>
     </message>
     <message>
         <source>Hostname:</source>
-        <translation type="unfinished"></translation>
+        <translation>Vertsnavn:</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilbakestill</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Bruk</translation>
     </message>
 </context>
 <context>
@@ -863,7 +867,7 @@ Passordet ditt vil bli slettet, forsikre deg om at det er lagret i en passordsh�
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Posisjon</translation>
     </message>
     <message>
         <source>Image</source>
@@ -1178,19 +1182,19 @@ Passordet ditt vil bli slettet, forsikre deg om at det er lagret i en passordsh�
     </message>
     <message>
         <source>Could not connect to the server. Please check your internet connection or your server name.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er oppe, og tjenernavnet ditt.</translation>
     </message>
     <message>
         <source>%1 is online</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 er pålogget</translation>
     </message>
     <message>
         <source>%1 is typing…</source>
-        <translation type="unfinished"></translation>
+        <translation>Du kjenner blott blodets hvisken og benpipernes bøn fra %1 sitt ubevisste sjeleliv …</translation>
     </message>
     <message>
         <source>%1 paused typing</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 tok en pause i skrivingen</translation>
     </message>
 </context>
 <context>
@@ -1224,7 +1228,7 @@ Passordet ditt vil bli slettet, forsikre deg om at det er lagret i en passordsh�
     </message>
     <message>
         <source>This QR code is not a valid login QR code.</source>
-        <translation type="unfinished"></translation>
+        <translation>Denne QR-koden er ikke en gylding innloggings-QR-kode.</translation>
     </message>
 </context>
 <context>
@@ -1476,7 +1480,7 @@ Du vil ikke kunne bruke kontoen igjen.</translation>
     </message>
     <message>
         <source>Do you really want to delete the contact &lt;b&gt;%1&lt;/b&gt; from your contact list?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ønsker du å slette &lt;b&gt;%1&lt;/b&gt; fra kontaktlisten din?</translation>
     </message>
 </context>
 <context>
@@ -1575,15 +1579,15 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Connection Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilkoblingsinnstillinger</translation>
     </message>
     <message>
         <source>Configure the hostname and port to connect to</source>
-        <translation type="unfinished"></translation>
+        <translation>Sett opp vertsnavnet og porten å koble til</translation>
     </message>
     <message>
         <source>Configure whether this device can be used to log in on another device</source>
-        <translation type="unfinished"></translation>
+        <translation>Sett opp hvorvidt denne enheten kan brukes til å logge på en annen enhet</translation>
     </message>
 </context>
 <context>
@@ -1679,15 +1683,15 @@ Deletion of message history saved on server</extracomment>
     </message>
     <message>
         <source>Show QR code</source>
-        <translation type="unfinished"></translation>
+        <translation>Vis QR-kode</translation>
     </message>
     <message>
         <source>Remove contact</source>
-        <translation type="unfinished"></translation>
+        <translation>Fjern kontakt</translation>
     </message>
     <message>
         <source>Online devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Påloggede enheter</translation>
     </message>
 </context>
 <context>
