@@ -104,7 +104,7 @@ void Settings::resetAuthHost()
 
 quint16 Settings::authPort() const
 {
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), NON_CUSTOM_PORT).value<quint16>();
+	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), PORT_AUTODETECT).value<quint16>();
 }
 
 void Settings::setAuthPort(quint16 port)
@@ -120,7 +120,7 @@ void Settings::resetAuthPort()
 
 bool Settings::isDefaultAuthPort()
 {
-	return authPort() == NON_CUSTOM_PORT;
+	return authPort() == PORT_AUTODETECT;
 }
 
 Kaidan::PasswordVisibility Settings::authPasswordVisibility() const

@@ -38,7 +38,7 @@
 #include "Globals.h"
 #include "Kaidan.h"
 
-constexpr quint16 NON_CUSTOM_PORT = 0;
+constexpr quint16 PORT_AUTODETECT = 0;
 
 class Settings : public QObject
 {

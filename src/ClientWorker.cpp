@@ -188,7 +188,7 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 			config.setHost(host);
 
 		auto port = AccountManager::instance()->port();
-		if (port != NON_CUSTOM_PORT) {
+		if (port != PORT_AUTODETECT) {
 			config.setPort(port);
 
 			// Set the JID's domain part as the host if no custom host is set.

@@ -53,7 +53,7 @@ AccountManager *AccountManager::instance()
 AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *parent)
 	: QObject(parent),
 	  m_settings(settings),
-	  m_port(NON_CUSTOM_PORT)
+	  m_port(PORT_AUTODETECT)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -154,7 +154,7 @@ void AccountManager::setPort(const quint16 port)
 
 quint16 AccountManager::nonCustomPort() const
 {
-	return NON_CUSTOM_PORT;
+	return PORT_AUTODETECT;
 }
 
 QString AccountManager::displayName()
@@ -172,7 +172,7 @@ QString AccountManager::displayName()
 void AccountManager::resetCustomConnectionSettings()
 {
 	setHost({});
-	setPort(NON_CUSTOM_PORT);
+	setPort(PORT_AUTODETECT);
 }
 
 bool AccountManager::hasNewCredentials() const
