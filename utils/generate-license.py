@@ -63,6 +63,7 @@ REPLACE_USER_IDS = [
 	("papadop _ <papadop@protonmail.com>", "papadop <papadop@protonmail.com>"),
 	("Anna _ <bs@sysrq.in>", "Anna <bs@sysrq.in>"),
 	("marek _ <Marek@walczak.io>", "marek <marek@walczak.io>"),
+    ("TigranKhachatryan0 _ <tigrank2008@gmail.com>", "TigranKhachatryan0 <tigrank2008@gmail.com>"),
 ]
 
 # These user ids will be excluded from any targets
