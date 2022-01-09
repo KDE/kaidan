@@ -63,8 +63,6 @@ class Settings;
 class ClientWorker : public QObject
 {
 	Q_OBJECT
-	RUN_FUNCTION()
-
 	Q_PROPERTY(RegistrationManager* registrationManager READ registrationManager CONSTANT)
 	Q_PROPERTY(VCardManager* vCardManager READ vCardManager CONSTANT)
 	Q_PROPERTY(RosterManager* rosterManager READ rosterManager CONSTANT)

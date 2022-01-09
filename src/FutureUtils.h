@@ -65,12 +65,12 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 
 	auto *watcher = new QFutureWatcher<Result>(context);
 	QObject::connect(watcher, &QFutureWatcherBase::finished,
-	                 context, [watcher, handler { std::move(handler) }]() {
+	                 context, [watcher, handler = std::move(handler)] {
 		handler(watcher->result());
 		watcher->deleteLater();
 	});
 
-	runner->run([watcher, function { std::move(function) }]() {
+	QMetaObject::invokeMethod(runner, [watcher, function = std::move(function)] {
 		watcher->setFuture(function());
 	});
 }
