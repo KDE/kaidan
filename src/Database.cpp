@@ -46,6 +46,12 @@
 #include <QThreadPool>
 #include <QtConcurrent/QtConcurrentRun>
 
+#ifdef DB_UNIT_TEST
+#define TEST_DB_FILENAME "tests_db_" + QCoreApplication::applicationName() + ".sqlite"
+#include <QFile>
+#include <QCoreApplication>
+#endif
+
 #include "Kaidan.h"
 
 using namespace SqlUtils;
@@ -91,13 +97,16 @@ public:
 			qFatal("Cannot add database: %s", qPrintable(database.lastError().text()));
 		}
 
+#ifdef DB_UNIT_TEST
+		const QString fileName = TEST_DB_FILENAME;
+#else
 		const auto writeDir = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
 		if (!writeDir.mkpath(QLatin1String("."))) {
 			qFatal("Failed to create writable directory at %s", qPrintable(writeDir.absolutePath()));
 		}
-
 		// Ensure that we have a writable location on all devices.
 		const auto fileName = writeDir.absoluteFilePath(QStringLiteral(DB_FILENAME));
+#endif
 		// open() will create the SQLite database if it doesn't exist.
 		database.setDatabaseName(fileName);
 		if (!database.open()) {
@@ -140,6 +149,13 @@ Database::Database(QObject *parent)
 {
 	d->pool.setMaxThreadCount(1);
 	d->pool.setExpiryTimeout(-1);
+
+#ifdef DB_UNIT_TEST
+	QFile file(TEST_DB_FILENAME);
+	if (file.exists()) {
+		file.remove();
+	}
+#endif
 }
 
 Database::~Database()
