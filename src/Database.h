@@ -96,13 +96,6 @@ private:
 	 */
 	void saveDatabaseInfo();
 
-	/*
-	 * These methods create new tables, they are used when creating a new database.
-	 */
-	void createDbInfoTable();
-	void createRosterTable();
-	void createMessagesTable();
-
 	/**
 	 * Creates a new database without content.
 	 */

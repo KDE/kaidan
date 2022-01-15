@@ -310,17 +310,10 @@ void Database::convertDatabase()
 
 void Database::createNewDatabase()
 {
-	createDbInfoTable();
-	createRosterTable();
-	createMessagesTable();
-
-	d->version = DATABASE_LATEST_VERSION;
-}
-
-void Database::createDbInfoTable()
-{
 	auto db = currentDatabase();
 	QSqlQuery query(db);
+
+	// DBINFO
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -340,13 +333,9 @@ void Database::createDbInfoTable()
 			false
 		)
 	);
-}
 
-void Database::createRosterTable()
-{
+	// ROSTER
 	// TODO: remove lastExchanged and lastMessage
-
-	QSqlQuery query(currentDatabase());
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -358,17 +347,13 @@ void Database::createRosterTable()
 			SQL_LAST_ATTRIBUTE(lastMessage, SQL_TEXT)
 		)
 	);
-}
 
-void Database::createMessagesTable()
-{
+	// MESSAGES
 	// TODO: the next time we change the messages table, we need to do:
 	//  * rename author to sender, edited to isEdited
 	//  * delete author_resource, recipient_resource
 	//  * remove 'NOT NULL' from id
 	//  * remove columns isSent, isDelivered
-
-	QSqlQuery query(currentDatabase());
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -402,12 +387,22 @@ void Database::createMessagesTable()
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
 	);
+
+	d->version = DATABASE_LATEST_VERSION;
 }
 
 void Database::convertDatabaseToV2()
 {
 	// create a new dbinfo table
-	createDbInfoTable();
+	QSqlQuery query(currentDatabase());
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_INFO,
+			SQL_LAST_ATTRIBUTE(version, SQL_INTEGER_NOT_NULL)
+		)
+	);
+	execQuery(query, "INSERT INTO dbinfo VALUES (:1)", { 2 });
 	d->version = 2;
 }
 
