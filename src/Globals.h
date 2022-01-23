@@ -59,6 +59,10 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_INFO "dbinfo"
 #define DB_TABLE_ROSTER "Roster"
 #define DB_TABLE_MESSAGES "Messages"
+#define DB_TABLE_TRUST_SECURITY_POLICIES "trust_security_policies"
+#define DB_TABLE_TRUST_OWN_KEYS "trust_own_keys"
+#define DB_TABLE_TRUST_KEYS "trust_keys"
+#define DB_TABLE_TRUST_KEYS_UNPROCESSED "trust_keys_unprocessed"
 #define DB_QUERY_LIMIT_MESSAGES 20
 
 //
