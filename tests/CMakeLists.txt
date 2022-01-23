@@ -19,3 +19,13 @@ ecm_add_test(
 	TEST_NAME UserPresenceWatcherTest
 	LINK_LIBRARIES Qt5::Test Qt5::Gui QXmpp::QXmpp
 )
+ecm_add_test(
+	TrustDbTest.cpp
+	../src/Database.cpp
+	../src/DatabaseComponent.cpp
+	../src/SqlUtils.cpp
+	../src/TrustDb.cpp
+	TEST_NAME TrustDbTest
+	LINK_LIBRARIES Qt5::Test Qt5::Gui Qt5::Sql QXmpp::QXmpp
+)
+target_compile_definitions(TrustDbTest PUBLIC DB_UNIT_TEST)
