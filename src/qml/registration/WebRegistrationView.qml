@@ -59,7 +59,10 @@ View {
 			id: loginButton
 			text: qsTr("Log in with your new account")
 			Layout.topMargin: height
-			onClicked: pageStack.layers.push(loginPage)
+			onClicked: {
+				var page = pageStack.layers.push(loginPage)
+				page.prefillJidDomain(serverView.text)
+			}
 		}
 	}
 }

@@ -148,4 +148,15 @@ Kirigami.Page {
 		AccountManager.resetCustomConnectionSettings()
 		jidField.forceActiveFocus()
 	}
+
+	/*
+	 * Fills the JID field with "@" followed by a domain and moves the cursor to
+	 * the beginning so that the username can be directly entered.
+	 *
+	 * \param domain domain being inserted into the JID field
+	 */
+	function prefillJidDomain(domain) {
+		jidField.text = "@" + domain
+		jidField.inputField.cursorPosition = 0
+	}
 }
