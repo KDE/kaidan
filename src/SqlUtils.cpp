@@ -47,6 +47,20 @@ void prepareQuery(QSqlQuery &query, const QString &sql)
 	}
 }
 
+void bindValues(QSqlQuery &query, const std::vector<QVariant> &values)
+{
+	for (const auto &val : values) {
+		query.addBindValue(val);
+	}
+}
+
+void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values)
+{
+	for (const auto &bindValue : values) {
+		query.bindValue(bindValue.key.toString(), bindValue.value);
+	}
+}
+
 void execQuery(QSqlQuery &query)
 {
 	if (!query.exec()) {
@@ -69,19 +83,6 @@ void execQuery(QSqlQuery &query,
 
 	for (const auto &val : bindValues)
 		query.addBindValue(val);
-
-	execQuery(query);
-}
-
-void execQuery(QSqlQuery &query,
-               const QString &sql,
-               const QMap<QString, QVariant> &bindValues)
-{
-	prepareQuery(query, sql);
-
-	const QStringList bindKeys = bindValues.keys();
-	for (const auto &key : bindKeys)
-		query.bindValue(key, bindValues.value(key));
 
 	execQuery(query);
 }

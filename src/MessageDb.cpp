@@ -187,23 +187,21 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 {
 	return run([this, user1, user2, index]() {
 		auto query = createQuery();
-
-		QMap<QString, QVariant> bindValues = {
-			{":user1", user1},
-			{":user2", user2},
-			{":index", index},
-			{":limit", DB_QUERY_LIMIT_MESSAGES},
-		};
-
-		execQuery(
+		prepareQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
 			"WHERE (author = :user1 AND recipient = :user2) OR "
 			      "(author = :user2 AND recipient = :user1) "
 			"ORDER BY timestamp DESC "
-			"LIMIT :index, :limit",
-			bindValues
+			"LIMIT :index, :limit"
 		);
+		bindValues(query, {
+			{ u":user1", user1 },
+			{ u":user2", user2 },
+			{ u":index", index },
+			{ u":limit", DB_QUERY_LIMIT_MESSAGES },
+		});
+		execQuery(query);
 
 		QVector<Message> messages;
 		parseMessagesFromQuery(query, messages);
@@ -216,12 +214,6 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 {
 	auto query = createQuery();
-
-	QMap<QString, QVariant> bindValues = {
-		{ QStringLiteral(":user1"), user1 },
-		{ QStringLiteral(":user2"), user2 },
-	};
-
 	execQuery(
 		query,
 		"SELECT * FROM " DB_TABLE_MESSAGES " "
@@ -229,7 +221,7 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 		      "(author = :user2 AND recipient = :user1) "
 		"ORDER BY timestamp DESC "
 		"LIMIT 1",
-		bindValues
+		{ { u":user1", user1 }, { u":user2", user2 } }
 	);
 
 	QVector<Message> messages;
@@ -329,7 +321,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 		execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
-			QVector<QVariant> { id }
+			{ id }
 		);
 
 		QVector<Message> msgs;
@@ -363,26 +355,26 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 
 bool MessageDb::_checkMessageExists(const Message &message)
 {
-	QMap<QString, QVariant> bindValues = {
-		{ ":to", message.to() },
-		{ ":from", message.from() },
+	std::vector<QueryBindValue> bindValues = {
+		{ u":to", message.to() },
+		{ u":from", message.from() },
 	};
 
 	// Check which IDs to check
 	QStringList idChecks;
 	if (!message.stanzaId().isEmpty()) {
 		idChecks << QStringLiteral("stanzaId = :stanzaId");
-		bindValues.insert(QStringLiteral(":stanzaId"), message.stanzaId());
+		bindValues.push_back({ u":stanzaId", message.stanzaId() });
 	}
 	// only check origin IDs if the message was possibly sent by us (since
 	// Kaidan uses random suffixes in the resource, we can't check the resource)
 	if (message.isOwn() && !message.originId().isEmpty()) {
 		idChecks << QStringLiteral("originId = :originId");
-		bindValues.insert(QStringLiteral(":originId"), message.stanzaId());
+		bindValues.push_back({ u":originId", message.stanzaId() });
 	}
 	if (!message.id().isEmpty()) {
 		idChecks << QStringLiteral("id = :id");
-		bindValues.insert(QStringLiteral(":id"), message.stanzaId());
+		bindValues.push_back({ u":id", message.stanzaId() });
 	}
 
 	if (idChecks.isEmpty()) {
@@ -412,18 +404,15 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 {
 	return run([this, userJid]() {
 		auto query = createQuery();
-
-		QMap<QString, QVariant> bindValues = {
-			{":user", userJid},
-			{":deliveryState", int(Enums::DeliveryState::Pending)},
-		};
-
 		execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
 			"WHERE (author = :user AND deliveryState = :deliveryState) "
 			"ORDER BY timestamp ASC",
-			bindValues
+			{
+				{ u":user", userJid },
+				{ u":deliveryState", int(Enums::DeliveryState::Pending) },
+			}
 		);
 
 		QVector<Message> messages;

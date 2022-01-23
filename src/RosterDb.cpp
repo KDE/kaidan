@@ -131,11 +131,7 @@ QFuture<void> RosterDb::updateItem(const QString &jid,
 	return run([this, jid, updateItem]() {
 		// load current roster item from db
 		auto query = createQuery();
-		execQuery(
-				query,
-				"SELECT * FROM Roster WHERE jid = ? LIMIT 1",
-				QVector<QVariant>() << jid
-		);
+		execQuery(query, "SELECT * FROM Roster WHERE jid = ? LIMIT 1", { jid });
 
 		QVector<RosterItem> items;
 		parseItemsFromQuery(query, items);

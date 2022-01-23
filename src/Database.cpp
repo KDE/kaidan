@@ -402,7 +402,7 @@ void Database::convertDatabaseToV2()
 			SQL_LAST_ATTRIBUTE(version, SQL_INTEGER_NOT_NULL)
 		)
 	);
-	execQuery(query, "INSERT INTO dbinfo VALUES (:1)", { 2 });
+	execQuery(query, "INSERT INTO dbinfo VALUES (:1)", { QVariant(2) });
 	d->version = 2;
 }
 

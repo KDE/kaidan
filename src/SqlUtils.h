@@ -30,15 +30,24 @@
 
 #pragma once
 
+#include <vector>
+#include <QStringView>
+#include <QVariant>
+
 template <class Key, class T> class QMap;
 class QSqlDriver;
 class QSqlField;
 class QSqlQuery;
 class QString;
-class QVariant;
-template <class T> class QVector;
 
 namespace SqlUtils {
+
+/// Key-value pair to be bound to a SqlQuery
+struct QueryBindValue
+{
+	QStringView key;
+	QVariant value;
+};
 
 /**
  * Prepares an SQL query for executing it by @c execQuery and handles possible
@@ -48,6 +57,9 @@ namespace SqlUtils {
  * @param sql SQL statement
  */
 void prepareQuery(QSqlQuery &query, const QString &sql);
+
+void bindValues(QSqlQuery &query, const std::vector<QVariant> &values);
+void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values);
 
 /**
  * Executes an SQL query and handles possible errors.
@@ -72,7 +84,12 @@ void execQuery(QSqlQuery &query, const QString &sql);
  * @param sql SQL statement
  * @param bindValues values to be bound sequentially
  */
-void execQuery(QSqlQuery &query, const QString &sql, const QVector<QVariant> &bindValues);
+inline void execQuery(QSqlQuery &query, const QString &sql, const std::vector<QVariant> &values)
+{
+	prepareQuery(query, sql);
+	bindValues(query, values);
+	execQuery(query);
+}
 
 /**
  * Prepares an SQL query, binds values by names, executes the query and handles
@@ -82,7 +99,12 @@ void execQuery(QSqlQuery &query, const QString &sql, const QVector<QVariant> &bi
  * @param sql SQL statement
  * @param bindValues values to be bound as key-value pairs
  */
-void execQuery(QSqlQuery &query, const QString &sql, const QMap<QString, QVariant> &bindValues);
+inline void execQuery(QSqlQuery &query, const QString &sql, const std::vector<QueryBindValue> &values)
+{
+	prepareQuery(query, sql);
+	bindValues(query, values);
+	execQuery(query);
+}
 
 /**
  * Creates an SQL field that may be used for an SQL statement.
