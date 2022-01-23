@@ -41,6 +41,7 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QStandardPaths>
+#include <QStringBuilder>
 #include <QThreadStorage>
 #include <QThreadPool>
 #include <QtConcurrent/QtConcurrentRun>
@@ -453,11 +454,14 @@ void Database::convertDatabaseToV6()
 {
 	DATABASE_CONVERT_TO_VERSION(5);
 	QSqlQuery query(currentDatabase());
-	for (const QString &column : {	"mediaSize " SQL_INTEGER,
-									"mediaContentType " SQL_TEXT,
-									"mediaLastModified " SQL_INTEGER,
-									"mediaLocation " SQL_TEXT }) {
-		execQuery(query, QString("ALTER TABLE Messages ADD ").append(column));
+	const std::initializer_list<QStringView> newColumns = {
+		u"mediaSize " SQL_INTEGER,
+		u"mediaContentType " SQL_TEXT,
+		u"mediaLastModified " SQL_INTEGER,
+		u"mediaLocation " SQL_TEXT
+	};
+	for (auto column : newColumns) {
+		execQuery(query, u"ALTER TABLE Messages ADD " % column);
 	}
 	d->version = 6;
 }
