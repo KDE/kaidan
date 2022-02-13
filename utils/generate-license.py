@@ -374,10 +374,8 @@ def main():
 			files = ["data/images/chat-page-background.svg"],
 			licenseName = "CC-BY-SA-4.0",
 			authorList = {
-				"Mathis Brüchert <mbblp@protonmail.ch>": CopyrightAuthor(years = "2019"),
-				"Melvin Keskin <melvo@olomono.de>": CopyrightAuthor(years = "2019")
+				"Raghavendra Kamath <raghu@raghukamath.com>": CopyrightAuthor(years = "2022"),
 			},
-			comment = "Inspired by graphic from https://www.toptal.com/designers/subtlepatterns/"
 		),
 		CopyrightTarget(
 			files = ["data/images/global-drawer-banner.svg"],
