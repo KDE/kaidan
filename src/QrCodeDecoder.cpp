@@ -60,7 +60,11 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 {
 	// Advise the decoder to check for QR codes and to try decoding rotated versions of the image.
 #if ZXING_VERSION >= QT_VERSION_CHECK(1, 1, 0)
+# if ZXING_VERSION >= QT_VERSION_CHECK(1, 1, 1)
+	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
+# else
 	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QR_CODE);
+# endif
 	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
 #else
 	const auto decodeHints =
