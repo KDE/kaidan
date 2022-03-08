@@ -19,6 +19,7 @@ ecm_add_test(
 	TEST_NAME UserPresenceWatcherTest
 	LINK_LIBRARIES Qt5::Test Qt5::Gui QXmpp::QXmpp
 )
+
 ecm_add_test(
 	TrustDbTest.cpp
 	../src/Database.cpp
@@ -29,3 +30,14 @@ ecm_add_test(
 	LINK_LIBRARIES Qt5::Test Qt5::Gui Qt5::Sql QXmpp::QXmpp
 )
 target_compile_definitions(TrustDbTest PUBLIC DB_UNIT_TEST)
+
+ecm_add_test(
+	OmemoDbTest.cpp
+	../src/Database.cpp
+	../src/DatabaseComponent.cpp
+	../src/SqlUtils.cpp
+	../src/OmemoDb.cpp
+	TEST_NAME OmemoDbTest
+	LINK_LIBRARIES Qt5::Test Qt5::Gui Qt5::Sql QXmpp::QXmpp QXmpp::Omemo
+)
+target_compile_definitions(OmemoDbTest PUBLIC DB_UNIT_TEST)
