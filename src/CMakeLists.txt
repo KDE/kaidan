@@ -37,6 +37,7 @@ set(KAIDAN_SOURCES
 	src/QmlUtils.cpp
 	src/SqlUtils.cpp
 	src/TrustDb.cpp
+	src/OmemoDb.cpp
 	src/VersionManager.cpp
 	src/QrCodeDecoder.cpp
 	src/QrCodeGenerator.cpp
