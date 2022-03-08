@@ -30,6 +30,7 @@
 
 #include "SqlUtils.h"
 // Qt
+#include <QDateTime>
 #include <QDebug>
 #include <QSqlDriver>
 #include <QSqlError>
@@ -125,4 +126,35 @@ QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVari
 	);
 }
 
+QVariant serialize(const std::optional<QDateTime> &dateTime)
+{
+	if (dateTime) {
+		return dateTime->toMSecsSinceEpoch();
+	}
+	return QVariant(QVariant::LongLong);
+}
+
+QVariant serialize(const QDateTime &dateTime)
+{
+	if (dateTime.isValid()) {
+		return dateTime.toMSecsSinceEpoch();
+	}
+	return QVariant(0LL);
+}
+
+std::optional<QDateTime> parseOptDateTime(QSqlQuery &query, int index)
+{
+	if (auto value = query.value(index); !value.isNull()) {
+		Q_ASSERT(value.type() == QVariant::LongLong);
+		if (auto integer = value.toLongLong(); integer != 0) {
+			return QDateTime::fromMSecsSinceEpoch(integer);
+		}
+	}
+	return {};
+}
+
+QDateTime parseDateTime(QSqlQuery &query, int index)
+{
+	return parseOptDateTime(query, index).value_or(QDateTime());
+}
 }

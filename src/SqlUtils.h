@@ -30,15 +30,14 @@
 
 #pragma once
 
-#include <vector>
 #include <QStringView>
 #include <QVariant>
+#include <optional>
+#include <vector>
 
-template <class Key, class T> class QMap;
 class QSqlDriver;
 class QSqlField;
 class QSqlQuery;
-class QString;
 
 namespace SqlUtils {
 
@@ -135,5 +134,15 @@ QString simpleWhereStatement(const QSqlDriver *driver, const QString &key, const
  *         appended to another statement
  */
 QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVariant> &keyValuePairs);
+
+/// Serialize optional<QDateTime> to nullable INTEGER
+QVariant serialize(const std::optional<QDateTime> &dateTime);
+/// Serialize QDateTime to 'INTEGER NOT NULL'
+QVariant serialize(const QDateTime &dateTime);
+
+/// Parse optional<QDateTime> from nullable INTEGER
+std::optional<QDateTime> parseOptDateTime(QSqlQuery &query, int index);
+/// Parse QDateTime from 'INTEGER NOT NULL'
+QDateTime parseDateTime(QSqlQuery &query, int index);
 
 }  // SqlUtils
