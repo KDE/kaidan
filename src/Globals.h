@@ -63,6 +63,10 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_TRUST_OWN_KEYS "trust_own_keys"
 #define DB_TABLE_TRUST_KEYS "trust_keys"
 #define DB_TABLE_TRUST_KEYS_UNPROCESSED "trust_keys_unprocessed"
+#define DB_TABLE_OMEMO_DEVICES "omemo_devices"
+#define DB_TABLE_OMEMO_OWN_DEVICES "omemo_devices_own"
+#define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemo_pre_key_pairs"
+#define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemo_pre_key_pairs_signed"
 #define DB_QUERY_LIMIT_MESSAGES 20
 
 //

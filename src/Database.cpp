@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 15
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(15)
+#define DATABASE_LATEST_VERSION 16
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(16)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -464,6 +464,59 @@ void Database::createNewDatabase()
 		)
 	);
 
+	// OMEMO data
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_OWN_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(private_key, SQL_BLOB)
+			SQL_ATTRIBUTE(public_key, SQL_BLOB)
+			SQL_ATTRIBUTE(latest_signed_pre_key_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(latest_pre_key_id, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB)
+			SQL_ATTRIBUTE(session, SQL_BLOB)
+			SQL_ATTRIBUTE(unresponded_stanzas_sent, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(unresponded_stanzas_received, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(removal_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, user_jid, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(account, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(creation_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, id)"
+		)
+	);
+
 	d->version = DATABASE_LATEST_VERSION;
 }
 
@@ -676,4 +729,64 @@ void Database::convertDatabaseToV15()
 		)
 	);
 	d->version = 15;
+}
+
+void Database::convertDatabaseToV16()
+{
+	DATABASE_CONVERT_TO_VERSION(15);
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_OWN_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(private_key, SQL_BLOB)
+			SQL_ATTRIBUTE(public_key, SQL_BLOB)
+			SQL_ATTRIBUTE(latest_signed_pre_key_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(latest_pre_key_id, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(session, SQL_BLOB)
+			SQL_ATTRIBUTE(unresponded_stanzas_sent, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(unresponded_stanzas_received, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(removal_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, user_jid, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(creation_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(id)"
+		)
+	);
+
+	d->version = 16;
 }
