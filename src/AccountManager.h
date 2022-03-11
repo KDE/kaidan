@@ -48,7 +48,7 @@ class AccountManager : public QObject
 	Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
 	Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
 	Q_PROPERTY(quint16 port READ port WRITE setPort NOTIFY portChanged)
-	Q_PROPERTY(quint16 nonCustomPort READ nonCustomPort CONSTANT)
+	Q_PROPERTY(quint16 portAutodetect READ portAutodetect CONSTANT)
 	Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
 
 public:
@@ -130,7 +130,7 @@ public:
 	 *
 	 * This method is thread-safe.
 	 *
-	 * @return the custom port or nonCustomPort if no custom port is set
+	 * @return the custom port or portAutodetect if no custom port is set
 	 */
 	quint16 port();
 
@@ -146,7 +146,7 @@ public:
 	/**
 	 * Returns the port which indicates that no custom port is set.
 	 */
-	quint16 nonCustomPort() const;
+	quint16 portAutodetect() const;
 
 	/**
 	 * Returns the user's display name.

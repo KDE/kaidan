@@ -152,7 +152,7 @@ void AccountManager::setPort(const quint16 port)
 	}
 }
 
-quint16 AccountManager::nonCustomPort() const
+quint16 AccountManager::portAutodetect() const
 {
 	return PORT_AUTODETECT;
 }
