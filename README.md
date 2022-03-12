@@ -58,6 +58,12 @@ If you are interested in contributing to Kaidan, please have a look at our
 [contribution guidelines][contributing]. If you want to improve Kaidan's
 website, feel free to visit its [project site][kaidan-website-repo].
 
+## Security Contact
+
+If you have found a security issue in Kaidan or related projects, you can find
+information on how to proceed in our [security.txt][securitytxt] or at the
+[KDE Security website][kdesecurity].
+
 [contributing]: CONTRIBUTING.md
 [downloads]: https://www.kaidan.im/download/
 [ecm]: https://api.kde.org/ecm/manual/ecm.7.html
@@ -74,3 +80,5 @@ website, feel free to visit its [project site][kaidan-website-repo].
 [xeps-rfcs]: https://invent.kde.org/network/kaidan/-/wikis/xeps-rfcs
 [xmpp]: https://xmpp.org
 [zxing-cpp]: https://github.com/nu-book/zxing-cpp
+[securitytxt]: https://www.kaidan.im/security.txt
+[kdesecurity]: https://kde.org/info/security/
