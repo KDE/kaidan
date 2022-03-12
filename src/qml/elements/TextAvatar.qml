@@ -44,7 +44,7 @@ Rectangle {
 		id: text
 
 		anchors.fill: parent
-		anchors.margins: Kirigami.Units.devicePixelRatio * 5
+		anchors.margins: 5
 
 		property var model
 
