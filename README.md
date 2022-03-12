@@ -80,5 +80,5 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [xeps-rfcs]: https://invent.kde.org/network/kaidan/-/wikis/xeps-rfcs
 [xmpp]: https://xmpp.org
 [zxing-cpp]: https://github.com/nu-book/zxing-cpp
-[securitytxt]: https://www.kaidan.im/security.txt
+[securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [kdesecurity]: https://kde.org/info/security/
