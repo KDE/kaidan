@@ -166,3 +166,24 @@ private:
 	QString m_resource;
 	bool m_resourceAutoPicked;
 };
+
+class UserResourcesWatcher : public QObject
+{
+	Q_OBJECT
+	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
+	Q_PROPERTY(int resourcesCount READ resourcesCount NOTIFY resourcesCountChanged)
+
+public:
+	explicit UserResourcesWatcher(QObject *parent = nullptr);
+
+	QString jid() const;
+	void setJid(const QString &jid);
+
+	int resourcesCount();
+
+	Q_SIGNAL void jidChanged();
+	Q_SIGNAL void resourcesCountChanged();
+
+private:
+	QString m_jid;
+};

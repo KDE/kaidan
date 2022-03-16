@@ -293,6 +293,11 @@ void UserPresenceWatcher::setJid(const QString &jid)
 	}
 }
 
+/**
+ * Returns the resource whose presence changes are watched.
+ *
+ * @return the watched resource
+ */
 QString UserPresenceWatcher::resource() const
 {
 	return m_resource;
@@ -334,9 +339,9 @@ void UserPresenceWatcher::handlePresencesCleared()
 }
 
 /**
- * Sets the resource and calls the updated-signals for all properties, if the resource
- * changed.
+ * Sets the resource whose presence changes are watched.
  *
+ * @param resource resource to be watched
  * @param autoPicked Whether the resource was picked automatically (@c true) or should be
  * fixed to this value (@c false).
  *
@@ -375,4 +380,53 @@ bool UserPresenceWatcher::autoPickResource()
 		return setResource({}, true);
 	}
 	return false;
+}
+
+UserResourcesWatcher::UserResourcesWatcher(QObject *parent)
+	: QObject(parent)
+{
+	connect(PresenceCache::instance(), &PresenceCache::presenceChanged,
+	        this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
+		emit resourcesCountChanged();
+	});
+
+	connect(PresenceCache::instance(), &PresenceCache::presencesCleared,
+	        this, &UserResourcesWatcher::resourcesCountChanged);
+}
+
+/**
+ * Returns the JID whose resource changes are watched.
+ *
+ * @return the watched JID
+ */
+QString UserResourcesWatcher::jid() const
+{
+	return m_jid;
+}
+
+/**
+ * Sets the JID whose resource changes are watched.
+ *
+ * @param jid JID to be watched
+ */
+void UserResourcesWatcher::setJid(const QString &jid)
+{
+	if (m_jid != jid) {
+		m_jid = jid;
+		emit jidChanged();
+
+		// That signal is emitted to reload the resources in QML after setting
+		// the JID.
+		emit resourcesCountChanged();
+	}
+}
+
+/**
+ * Returns the count of available resources.
+ *
+ * @return the resources count
+ */
+int UserResourcesWatcher::resourcesCount()
+{
+	return PresenceCache::instance()->resourcesCount(m_jid);
 }
