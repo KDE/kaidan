@@ -136,6 +136,17 @@ QList<QString> PresenceCache::resources(const QString &jid)
 	return m_presences.value(jid).keys();
 }
 
+/**
+ * Returns the count of a JID's available resources.
+ *
+ * @param jid JID whose resources are counted
+ * @return the resources count
+ */
+int PresenceCache::resourcesCount(const QString &jid)
+{
+	return m_presences.value(jid).size();
+}
+
 std::optional<QXmppPresence> PresenceCache::presence(const QString &jid, const QString &resource)
 {
 	if (const auto itr = m_presences.constFind(jid); itr != m_presences.cend()) {

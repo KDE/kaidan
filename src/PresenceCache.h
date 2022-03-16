@@ -94,6 +94,7 @@ public:
 
 	QString pickIdealResource(const QString &jid);
 	QList<QString> resources(const QString &jid);
+	int resourcesCount(const QString &jid);
 	std::optional<QXmppPresence> presence(const QString &jid, const QString &resource);
 
 public slots:
