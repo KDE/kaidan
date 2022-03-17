@@ -147,7 +147,9 @@ CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *err
 	QCommandLineOption helpOption = parser.addHelpOption();
 	QCommandLineOption versionOption = parser.addVersionOption();
 	parser.addOption({"disable-xml-log", "Disable output of full XMPP XML stream."});
+#ifndef NDEBUG
 	parser.addOption({{"m", "multiple"}, "Allow multiple instances to be started."});
+#endif
 	parser.addPositionalArgument("xmpp-uri", "An XMPP-URI to open (i.e. join a chat).",
 	                             "[xmpp-uri]");
 
@@ -330,11 +332,16 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	}
 
 #if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
+#ifdef NDEBUG
+	if (app.isSecondary()) {
+		qDebug() << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
+#else
 	// check if another instance already runs
 	if (app.isSecondary() && !parser.isSet("multiple")) {
 		qDebug().noquote() << QString("Another instance of %1 is already running.")
 		                      .arg(APPLICATION_DISPLAY_NAME)
 		                   << "You can enable multiple instances by specifying '--multiple'.";
+#endif
 
 		// send a possible link to the primary instance
 		if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
