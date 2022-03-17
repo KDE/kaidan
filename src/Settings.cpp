@@ -31,8 +31,7 @@
 #include "Settings.h"
 
 Settings::Settings(QObject *parent)
-	: QObject(parent)
-	, m_settings(QStringLiteral(APPLICATION_NAME), QStringLiteral(APPLICATION_NAME))
+	: QObject(parent), m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
 {
 
 }

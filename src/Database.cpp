@@ -29,7 +29,9 @@
  */
 
 #include "Database.h"
+
 #include "Globals.h"
+#include "Kaidan.h"
 #include "SqlUtils.h"
 
 #include <QDir>
@@ -51,8 +53,6 @@
 #include <QFile>
 #include <QCoreApplication>
 #endif
-
-#include "Kaidan.h"
 
 using namespace SqlUtils;
 
@@ -105,7 +105,7 @@ public:
 			qFatal("Failed to create writable directory at %s", qPrintable(writeDir.absolutePath()));
 		}
 		// Ensure that we have a writable location on all devices.
-		const auto fileName = writeDir.absoluteFilePath(QStringLiteral(DB_FILENAME));
+		const auto fileName = writeDir.absoluteFilePath(databaseFilename());
 #endif
 		// open() will create the SQLite database if it doesn't exist.
 		database.setDatabaseName(fileName);

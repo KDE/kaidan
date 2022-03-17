@@ -384,3 +384,17 @@ private:
 
 	static Kaidan *s_instance;
 };
+
+/**
+ * Returns the name of the configuration file without its file extension.
+ *
+ * @return the config file name without extension
+ */
+QString configFileBaseName();
+
+/**
+ * Returns the name of the database file.
+ *
+ * @return the database file name
+ */
+QString databaseFilename();

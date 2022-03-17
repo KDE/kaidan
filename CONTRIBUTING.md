@@ -52,6 +52,13 @@ Feel free to ask if anything is unclear.
 
 Reviews have to be done by at least one maintainer not involved as the MR's author or co-author.
 
+## Testing
+
+The environment variable `KAIDAN_PROFILE` can be set to run Kaidan with custom configuration and database files.
+It defines their filename suffixes after a separating `-` while their file extensions cannot be changed.
+In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
+E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
+
 ## Features
 
 If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.

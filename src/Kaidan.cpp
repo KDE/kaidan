@@ -33,6 +33,7 @@
 // Qt
 #include <QGuiApplication>
 #include <QSettings>
+#include <QStringBuilder>
 #include <QThread>
 #include <QTimer>
 // QXmpp
@@ -206,3 +207,45 @@ void Kaidan::initializeClientWorker(bool enableLogging)
 
 	m_cltThrd->start();
 }
+
+#ifdef NDEBUG
+QString configFileBaseName()
+{
+	return QStringLiteral(APPLICATION_NAME);
+}
+
+QString databaseFilename()
+{
+	return QStringLiteral(DB_FILE_BASE_NAME ".sqlite3");
+}
+#else
+/**
+ * Returns the name of the application profile usable as a suffix.
+ *
+ * The profile name is the value of the environment variable "KAIDAN_PROFILE".
+ * Only available in non-debug builds.
+ *
+ * @return the application profile name
+ */
+QString applicationProfileSuffix()
+{
+	static const auto profileSuffix = []() -> QString {
+		const auto profile = qEnvironmentVariable("KAIDAN_PROFILE");
+		if (!profile.isEmpty()) {
+			return u'-' + profile;
+		}
+		return {};
+	}();
+	return profileSuffix;
+}
+
+QString configFileBaseName()
+{
+	return u"" APPLICATION_NAME % applicationProfileSuffix();
+}
+
+QString databaseFilename()
+{
+	return u"" DB_FILE_BASE_NAME % applicationProfileSuffix() % u".sqlite3";
+}
+#endif
