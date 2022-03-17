@@ -103,7 +103,7 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	connect(m_client, &QXmppClient::disconnected, caches->presCache, &PresenceCache::clear);
 
 	// Reduce the network traffic when the application window is not active.
-	connect(qGuiApp, &QGuiApplication::applicationStateChanged, [=](Qt::ApplicationState state) {
+	connect(qGuiApp, &QGuiApplication::applicationStateChanged, this, [this](Qt::ApplicationState state) {
 		if (state == Qt::ApplicationActive) {
 			m_client->setActive(true);
 		} else {
