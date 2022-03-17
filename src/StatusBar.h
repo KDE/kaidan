@@ -28,7 +28,7 @@
 class StatusBar : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(QColor color READ color WRITE setColor)
+	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
 	Q_PROPERTY(bool available READ isAvailable CONSTANT)
 
 public:
@@ -36,6 +36,7 @@ public:
 
 	QColor color() const;
 	void setColor(const QColor &color);
+	Q_SIGNAL void colorChanged();
 
 	bool isAvailable() const;
 
