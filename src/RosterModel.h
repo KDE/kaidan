@@ -104,7 +104,7 @@ public:
 	 *
 	 * @param uriString XMPP URI string that contains only a JID
 	 */
-	Q_INVOKABLE AddContactByUriResult addContactByUri(const QString &uriString);
+	Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &uriString);
 
 signals:
 	void addItemRequested(const RosterItem &item);
