@@ -176,7 +176,7 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &u
 		}
 
 		if (RosterModel::instance()->hasItem(jid)) {
-			Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
+			emit Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
 			return AddContactByUriResult::ContactExists;
 		}
 
