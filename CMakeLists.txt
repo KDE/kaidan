@@ -121,6 +121,9 @@ if(ANDROID)
 	message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
 endif()
 
+include(ECMPoQmTools)
+
+ecm_install_po_files_as_qm(poqm)
 
 #
 # Load submodules
@@ -175,6 +178,8 @@ add_executable(${PROJECT_NAME}
 	${KAIDAN_NOTIFICATIONS_QRC}  #
 	"data/data.qrc"
 )
+
+ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
 target_link_libraries(${PROJECT_NAME}
 	Qt5::Core
