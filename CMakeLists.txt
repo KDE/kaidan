@@ -36,7 +36,6 @@ if(VERSION_EXTRA)
 endif()
 
 # CMake options
-option(I18N "Enable i18n support" FALSE)
 option(BUILD_TESTS "Build unit tests" FALSE)
 option(STATIC_BUILD "Build Kaidan statically")
 option(APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
@@ -130,12 +129,6 @@ endif()
 # Main kaidan sources
 include("${CMAKE_SOURCE_DIR}/src/CMakeLists.txt")
 
-# I18n support
-if(I18N)
-	include("${CMAKE_SOURCE_DIR}/i18n/CMakeLists.txt")
-endif()
-
-
 #
 # Sources / Resources
 #
@@ -179,7 +172,6 @@ add_executable(${PROJECT_NAME}
 	${KAIDAN_MISC_QRC}
 	${KAIDAN_ICONS_QRC}          # only set if enabled
 	${KAIDAN_IMAGES_QRC}         #
-	${I18N_QRC_CPP}              #
 	${KAIDAN_NOTIFICATIONS_QRC}  #
 	"data/data.qrc"
 )

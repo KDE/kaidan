@@ -306,10 +306,6 @@ def main():
 			}
 		),
 		CopyrightTarget(
-			directories = ["i18n"],
-			licenseName = "GPL-3+ with OpenSSL exception"
-		),
-		CopyrightTarget(
 			files = ["src/StatusBar.cpp", "src/StatusBar.h", "src/singleapp/*",
 				 "src/hsluv-c/*", "utils/generate-license.py"],
 			licenseName = "MIT",

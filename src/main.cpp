@@ -303,12 +303,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	                  QLibraryInfo::location(QLibraryInfo::TranslationsPath));
 	QCoreApplication::installTranslator(&qtTranslator);
 
-	// Kaidan-Translator
-	QTranslator kaidanTranslator;
-	// load the systems locale or none from resources
-	kaidanTranslator.load(QLocale::system().name(), ":/i18n");
-	QCoreApplication::installTranslator(&kaidanTranslator);
-
 	//
 	// Command line arguments
 	//
