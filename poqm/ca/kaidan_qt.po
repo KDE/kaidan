@@ -1,0 +1,1242 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: ca\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "El fitxer %1 no s'ha pogut desar"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Ha fallat la baixada: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Fora de línia"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "S’està connectant…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Fora de línia"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "L'enllaç s'obrirà després de que us hagueu connectat."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Per defecte"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr ""
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr ""
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr ""
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr ""
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr ""
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Qualitat constant"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr ""
+
+#: src/MediaUtils.cpp:252
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Àudio"
+
+#: src/MediaUtils.cpp:254
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Document"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr ""
+
+#: src/MediaUtils.cpp:258
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Imatge"
+
+#: src/MediaUtils.cpp:260
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Vídeo"
+
+#: src/MediaUtils.cpp:264
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Fitxer"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Fes una foto"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Enregistra un vídeo"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Enregistra la veu"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Envia la ubicació"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Tria un fitxer"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Tria una imatge"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Tria un vídeo"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Tria un fitxer d’àudio"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Tria un document"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Tots els fitxers"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Imatges"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Vídeos"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "Fitxers d’àudio"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Documents"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr ""
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "La correcció del missatge no ha anat bé."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "No s’ha pogut enviar el missatge."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr ""
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr ""
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+#, fuzzy
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Error"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/PresenceCache.cpp:63
+#, fuzzy
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Disponible"
+
+#: src/PresenceCache.cpp:65
+#, fuzzy
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Lliure per xatejar"
+
+#: src/PresenceCache.cpp:67
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Lluny"
+
+#: src/PresenceCache.cpp:69
+#, fuzzy
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "No em molesteu"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "He sortit una estona"
+
+#: src/PresenceCache.cpp:73
+#, fuzzy
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Fora de línia"
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/QmlUtils.cpp:72
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "El nom d’usuari o la contrasenya són incorrectes."
+
+#: src/QmlUtils.cpp:74
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"No s’ha pogut connectar al servidor. Comproveu la vostra connexió a internet."
+
+#: src/QmlUtils.cpp:76
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "S’ha produït un error en provar de connectar de forma segura."
+
+#: src/QmlUtils.cpp:78
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "El servidor no és compatible amb les connexions segures."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "El protocol d’autenticació no és compatible amb el servidor."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "No s'ha pogut enviar el fitxer perquè no hi ha connexió."
+
+#: src/UploadManager.cpp:141
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "No s’ha pogut enviar el missatge."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Nom"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr ""
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Quant a"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "Correu-e"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Aniversari"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Lloc web"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Client Jabber/XMPP senzill i fàcil d'usar"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Llicència:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Vegeu el codi font en línia"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Informeu de problemes"
+
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete account completely"
+#~ msgstr "Suprimeix el compte completament"
+
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete"
+#~ msgstr "Suprimeix"
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid "Delete account"
+#~ msgstr "Suprimeix el compte"
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid "Delete completely"
+#~ msgstr "Suprimeix completament"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Transfereix el compte a un altre dispositiu"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid ""
+#~ "Scan the QR code or enter the credentials as text on another device to "
+#~ "log in on it.\n"
+#~ "\n"
+#~ "Attention:\n"
+#~ "Never show this QR code to anyone else. It would allow unlimited access "
+#~ "to your account!"
+#~ msgstr ""
+#~ "Escanegeu el codi QR o introduïu les credencials com a text en un altre "
+#~ "dispositiu per a iniciar-hi una sessió.\n"
+#~ "\n"
+#~ "Atenció:\n"
+#~ "Mai no mostreu aquest codi QR als altres. Fer-ho donaria accés il·limitat "
+#~ "al vostre compte!"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Adreça del xat:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "Contrasenya:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Amaga el codi QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Mostra com a codi QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide text"
+#~ msgstr "Amaga el text"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as text"
+#~ msgstr "Mostra com a text"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Canvia la contrasenya"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Contrasenya actual:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Contrasenya nova:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Contrasenya nova (de nou):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Les contrasenyes noves no coincideixen."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "La contrasenya actual no és vàlida."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Heu de connectar-vos per a canviar la contrasenya."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Després de canviar la contrasenya, haureu de tornar a introduir-la a tots "
+#~ "els altres dispositius."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Canvia"
+
+#, fuzzy
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "No s’ha pogut canviar la contrasenya: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Copia el missatge"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Edita el missatge"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "Revelació"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Baixa"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Copia el missatge"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Edita el missatge"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Copia l’URL de la baixada"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Cita el missatge"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Crea un missatge"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Imatge"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Vídeo"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Àudio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Document"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Un altre fitxer"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Selecciona un fitxer"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Envia una revelació"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Indici de la revelació"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Torna a activar les notificacions"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Silencia les notificacions"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Mostra el perfil"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Tanca"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Cerca cap enrere"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Cerca cap endavant"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "Tots els fitxers"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Copy message"
+#~ msgstr "Copia el missatge"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Edit message"
+#~ msgstr "Edita el missatge"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Copia l’URL de la baixada"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Quote message"
+#~ msgstr "Cita el missatge"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Indici de la revelació"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Crea un missatge"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Canvia"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Preferits"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Gent"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Natura"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Menjar"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Activitat"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Viatges"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Objectes"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Símbols"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Banderes"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Cerca emojis"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Seleccioneu un xat per a començar"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Seleccioneu un fitxer"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Vés a la carpeta superior"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Tanca"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Surt"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Quant a"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Invita amistats"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "S'ha copiat l'enllaç d'invitació al porta-retalls"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Configuració"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Transfer account"
+#~ msgstr "Transfereix el compte"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Delete account"
+#~ msgstr "Suprimeix el compte"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Entra"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Entreu amb el vostre compte XMPP"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "El vostre ID de Jabber:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "usuari@exemple.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "La vostra contrasenya:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "S’està connectant…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Connecta"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Usuari o contrasenya invàlids."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "No s'ha pogut connectar al servidor. Comproveu la vostra connexió a "
+#~ "internet."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "El servidor no és compatible amb connexions segures."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "S'ha produït un error provant de connectar de forma segura."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "No s'ha pogut resoldre l'adreça del servidor. Torneu a comprovar el "
+#~ "vostre IDJ."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "No s'ha pogut connectar al servidor."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Protocol d'autenticació no compatible amb el servidor."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr ""
+#~ "S'ha produït un error desconegut. Vegeu el registre per més detalls."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "No s'ha pogut enviar el missatge perquè no teniu connexió."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "No s'ha pogut corregir el missatge perquè no teniu connexió."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "Revelació"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Configuració de multimèdia"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "Configura"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image Capture"
+#~ msgstr "Captura d’imatges"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "Enregistrament d’àudio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "Enregistrament de vídeo"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Càmera"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio input"
+#~ msgstr "Entrada d’àudio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Container"
+#~ msgstr "Contenidor"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Imatge"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Àudio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Vídeo"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Codec"
+#~ msgstr "Còdec"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Resolution"
+#~ msgstr "Resolució"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "Qualitat"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "Freqüència de mostratge"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "Freqüència dels fotogrames"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "Preparat"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "S’està inicialitzant…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "No disponible"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "S’està enregistrant…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "En pausa"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Imatge"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Àudio"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Vídeo"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Ready"
+#~ msgstr "Preparat"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "S’està inicialitzant…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "No disponible"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "S’està enregistrant… %1"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Disponible"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Lliure per xatejar"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Lluny"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "No em molesteu"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "He sortit una estona"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Fora de línia"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "No s'ha pogut connectar al servidor."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "La contrasenya s'ha canviat correctament."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "No s’ha pogut canviar la contrasenya: %1"
+
+#, fuzzy
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete account completely"
+#~ msgstr "Suprimeix el compte completament"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Afegeix un contacte nou"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Això també enviarà una petició d'accés la disponibilitat del contacte."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "ID Jabber:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "usuari@exemple.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Àlies:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Missatge opcional:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Digueu al vostre interlocutor/a qui sou."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Afegeix"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Error: Comproveu el IDJ."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Disponible"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Lliure per xatejar"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Lluny"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "No em molesteu"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "He sortit una estona"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Fora de línia"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Error"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "Filtració"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Connectant…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Contactes"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Afegeix un nou contacte"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Fora de línia"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr "Segur que voleu eliminar el contacte <b>%1</b> de la vostra llista?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Elimina el contacte"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Llegenda"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancel·la"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Envia"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Canvia la contrasenya"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Canvia la contrasenya del vostre compte. Haureu de tornar a introduir-la "
+#~ "als altres dispositius."
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Configuració de multimèdia"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Configuració"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account"
+#~ msgstr "Suprimeix el compte"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Configuració"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Canvia la contrasenya"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Canvia la contrasenya del vostre compte. Haureu de tornar a introduir-la "
+#~ "als altres dispositius."
+
+#~ msgctxt "SettingsSheet|"
+#~ msgid "Settings"
+#~ msgstr "Configuració"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Petició de subscripció"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Heu rebut una petició de subscripció de <b>%1</b>. Si l'acceptau, aquest "
+#~ "compte tendrà accés al vostre estat de dispobibilitat."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Rebutja"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Accepta"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Fitxer"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Perfil"

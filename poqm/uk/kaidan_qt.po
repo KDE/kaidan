@@ -1,0 +1,1796 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Language: uk\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Не вдалося вилучити ваш обліковий запис із сервера. Як наслідок, його також "
+"не було вилучено з цієї програми: %1"
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Не вдалося зберегти файл %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Невдала спроба отримання: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Online"
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "У мережі"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Встановлюємо з'єднання…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Поза мережею"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Посилання буде відкрито після встановлення з'єднання."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Типовий"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Дуже низька"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Низька"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Звичайна"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Висока"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Дуже висока"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Стала якість"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Стала бітова швидкість"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Середня бітова швидкість"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Два проходи"
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Звук"
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Документ"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "Місце"
+
+#: src/MediaUtils.cpp:258
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Зображення"
+
+#: src/MediaUtils.cpp:260
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Відео"
+
+#: src/MediaUtils.cpp:264
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Файл"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Зробити знімок"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Записати відео"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Записати голосове повідомлення"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Надіслати адресу"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Виберіть файл"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Виберіть зображення"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Виберіть відео"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Виберіть звуковий файл"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Виберіть документ"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "усі файли"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "зображення"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "відео"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "файли звукових даних"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "документи"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "Спойлер"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "Спроба виправити повідомлення зазнала невдачі."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Повідомлення не вдалося надіслати."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "Очікування"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "Надіслані"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr "Доставлено"
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Помилка"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr "Позначити як прочитане"
+
+#: src/PresenceCache.cpp:63
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Доступний"
+
+#: src/PresenceCache.cpp:65
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Вільний для спілкування"
+
+#: src/PresenceCache.cpp:67
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Відсутність"
+
+#: src/PresenceCache.cpp:69
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Не турбувати"
+
+#: src/PresenceCache.cpp:71
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Довга відсутність"
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Поза мережею"
+
+#: src/ProviderListModel.cpp:50
+#, fuzzy
+#| msgctxt "ServerListModel|"
+#| msgid "Custom server"
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr "Нетиповий сервер"
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, fuzzy, qt-format
+#| msgctxt "ServerListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr "%1 дні"
+
+#: src/QmlUtils.cpp:72
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Некоректне ім’я користувача або пароль."
+
+#: src/QmlUtils.cpp:74
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
+"ви з'єднання із інтернетом."
+
+#: src/QmlUtils.cpp:76
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Помилка під час спроби встановлення захищеного з'єднання."
+
+#: src/QmlUtils.cpp:78
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "На сервері не передбачено можливості захищених з'єднань."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+"Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
+"з'єднання або вказану назву сервера."
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
+
+#: src/QmlUtils.cpp:84
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr "Не вдалося освіжити з'єднання."
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+"З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
+"доступу до інтернету у вашій системі."
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr "На сервері не передбачено підтримки реєстрації."
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr "%1 у мережі"
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr "%1 пише…"
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr "%1 призупинив або призупинила введення повідомлення"
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr "Не вдалося створити QR-код: %1"
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Не вдалося додати контакт через те, що немає з'єднання."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Не вдалося вилучити контакт через те, що немає з'єднання."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+"Не вдалося перейменувати запис контакту через те, що не вдалося встановити "
+"з'єднання."
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Не вдалося надіслати файл через те, що немає з'єднання."
+
+#: src/UploadManager.cpp:141
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Повідомлення не вдалося надіслати."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Ім'я"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Псевдонім"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Про програму"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "Ел. пошта"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "День народження"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Сайт"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Простий дружній до користувачів клієнт Jabber/XMPP"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Ліцензування:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Переглянути початковий код у інтернеті"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Повідомити про проблеми"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Account Security"
+#~ msgstr "Безпека облікового запису"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Allow to add new devices using a QR-Code, but never show the password as "
+#~ "text. This action can not be undone, so consider storing the password in "
+#~ "another way before using it."
+#~ msgstr ""
+#~ "Дозволити додавання нових пристроїв за допомогою QR-коду, але ніколи не "
+#~ "показувати пароль як текст. Цю дію неможливо скасувати, тому вам варто "
+#~ "зберегти пароль в інший спосіб, перш ніж користатися кодом."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Disable showing the password"
+#~ msgstr "Вимкнути показ пароля"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Don't expose the password in any form. This action can not be undone."
+#~ msgstr ""
+#~ "Не показувати пароль у жодній формі. Наслідки цієї дії не можна скасувати."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Disable showing the QR-Code and password"
+#~ msgstr "Вимкнути показ QR-коду і пароля"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Allow to add additional devices using the login QR code but never show "
+#~ "the password."
+#~ msgstr ""
+#~ "Дозволити додавати пристрої за допомогою QR-коду, але ніколи не "
+#~ "показувати пароль."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't show password"
+#~ msgstr "Не показувати пароль"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Neither allow to add additional devices using the login QR code nor show "
+#~ "the password."
+#~ msgstr ""
+#~ "Не дозволяти додавати пристрої, у яких для входу використовуватиметься QR-"
+#~ "код, і не показувати пароль."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Не показувати пароль у будь-який спосіб"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Перенести обліковий запис на інший пристрій"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid ""
+#~ "Scan the QR code or enter the credentials as text on another device to "
+#~ "log in on it.\n"
+#~ "\n"
+#~ "Attention:\n"
+#~ "Never show this QR code to anyone else. It would allow unlimited access "
+#~ "to your account!"
+#~ msgstr ""
+#~ "Заскануйте QR-код або введіть реєстраційні дані як текст на іншому "
+#~ "пристрої, щоб увійти до облікового запису на ньому.\n"
+#~ "\n"
+#~ "Увага:\n"
+#~ "Ніколи не показуйте цей QR-код стороннім особам. Цей код надає "
+#~ "необмежений доступ до вашого облікового запису!"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Адреса спілкування:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "Пароль:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Приховати QR-код"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Показати як QR-код"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide text"
+#~ msgstr "Сховати текст"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as text"
+#~ msgstr "Показати як текст"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy JID"
+#~ msgstr "Копіювати JID"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy password"
+#~ msgstr "Копіювати пароль"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Копіювати адресу спілкування"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Змінити пароль"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Поточний пароль:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Новий пароль:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Новий пароль (ще раз):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Вказані нові паролі не збігаються."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "Поточний пароль є некоректним."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Вам слід встановити з'єднання, щоб змінити ваш пароль."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Після зміни вашого пароля вам доведеться повторно ввести його на усіх "
+#~ "інших ваших пристроях для спілкування."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Змінити"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Password changed successfully"
+#~ msgstr "Пароль успішно змінено"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Не вдалося змінити пароль: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Скопіювати повідомлення"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Редагування повідомлення"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "Спойлер"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Отримати"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Копіювати адресу даних"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Quote"
+#~ msgstr "Цитування"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Скопіювати повідомлення"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Редагування повідомлення"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Копіювати адресу даних"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Процитувати повідомлення"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Створити повідомлення"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Зображення"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Відео"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Звук"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Документ"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Інший файл"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Виберіть файл"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Надіслати повідомлення-спойлер"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Підказка до спойлера"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Увімкнути звук у сповіщеннях"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Вимкнути звук у сповіщеннях"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Переглянути профіль"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Multimedia settings"
+#~ msgstr "Параметри мультимедійних даних"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Шукати вище"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Шукати нижче"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "усі файли"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close message search bar"
+#~ msgstr "Закрити панель пошуку повідомлення"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Підказка до спойлера"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Close spoiler hint field"
+#~ msgstr "Закрити поле підказки до спойлера"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Створити повідомлення"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметри з'єднання"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Змінити"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings could not be changed"
+#~ msgstr "Не вдалося змінити параметри з'єднання"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings changed"
+#~ msgstr "Змінено параметри з'єднання"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Hostname:"
+#~ msgstr "Назва вузла:"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "The hostname must not contain blank spaces"
+#~ msgstr "У назві вузла не повинно бути пробілів"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Remove password completely"
+#~ msgstr "Вилучити пароль повністю"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be included in the QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Make sure that you backed it up if you want to use your account later."
+#~ msgstr ""
+#~ "Ваш пароль більше не включатиметься до QR-коду.\n"
+#~ "Ви не зможете скористатися входом за допомогою QR-коду без введення "
+#~ "вашого пароля, оскільки наслідки цієї дії неможливо скасувати!\n"
+#~ "Переконайтеся, що у вас є резервна копія пароля, якщо хочете надалі "
+#~ "користуватися вашим обліковим записом."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Remove password"
+#~ msgstr "Вилучити пароль"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose your password in any way"
+#~ msgstr "Не показувати ваш пароль ні за яких обставин"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will neither be shown as plain text nor included in the "
+#~ "login QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device."
+#~ msgstr ""
+#~ "Ваш пароль більше не буде показано у форматі звичайного тексту і не буде "
+#~ "включено до QR-коду для входу.\n"
+#~ "Ви не зможете користуватися входом за QR-кодом без введення пароля знову, "
+#~ "оскільки наслідки цієї дії не може бути скасовано!\n"
+#~ "Вам варто зберегти пароль десь в іншому місці, якщо ви хочете "
+#~ "користуватися вашим обліковим записом на іншому пристрої."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Не показувати пароль у будь-який спосіб"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Do not show password as text"
+#~ msgstr "Не показувати пароль як текст"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown as text anymore.\n"
+#~ "You won't be able to see your password as text again because this action "
+#~ "cannot be undone!\n"
+#~ "Make sure that you backed it up if you want to use your account later."
+#~ msgstr ""
+#~ "Ваш пароль більше не буде показано у текстовому форматі.\n"
+#~ "Ви не зможете бачити ваш пароль як текст, оскільки наслідки цієї дії "
+#~ "неможливо скасувати!\n"
+#~ "Переконайтеся, що у вас є резервна копія пароля, якщо хочете надалі "
+#~ "користуватися вашим обліковим записом."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Do not show password"
+#~ msgstr "Не показувати пароль"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show your password"
+#~ msgstr "Не показувати ваш пароль"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown anymore but still exposed via the login "
+#~ "QR code.\n"
+#~ "You won't be able to see your password again because this action cannot "
+#~ "be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device without the login QR code."
+#~ msgstr ""
+#~ "Ваш пароль більше не буде показано у форматі звичайного тексту, але його "
+#~ "буде показано як QR-код для входу.\n"
+#~ "Ви не зможете більше бачити ваш пароль, оскільки наслідки цієї дії не "
+#~ "може бути скасовано!\n"
+#~ "Вам варто зберегти пароль десь в іншому місці, якщо ви хочете "
+#~ "користуватися вашим обліковим записом на іншому пристрої без можливості "
+#~ "входу за QR-кодом."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show password"
+#~ msgstr "Не показувати пароль"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Улюблене"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Люди"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Природа"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Їжа"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Діяльність"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Подорожі"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Об'єкти"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Символи"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Прапори"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Шукати емодзі"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr ""
+#~ "Будь ласка, виберіть спілкування, щоб розпочати обмін повідомленнями"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Виберіть файл"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Перейти до батьківської теки"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Закрити"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Вийти"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Про програму"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Запросити друзів"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Посилання на запрошення скопійовано до буфера обміну даними"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Параметри"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Перемкнути пристрій"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No password found. Please enter it."
+#~ msgstr "Не знайдено збереженого пароля. Будь ласка, введіть його."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No valid login QR code found."
+#~ msgstr "Не знайдено коректного коду QR для входу."
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Вилучити обліковий запис з цієї програми"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid ""
+#~ "Your account will be removed from this app.\n"
+#~ "Your password will be deleted, make sure it is stored in a password "
+#~ "manager or you know it!"
+#~ msgstr ""
+#~ "Ваш обліковий запис буде вилучено з цієї програми.\n"
+#~ "Ваш пароль буде вилучено — не забудьте зберегти його у програмі для "
+#~ "керування паролями або запам'ятати його!"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove"
+#~ msgstr "Вилучити"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Увійти"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Увійдіть до вашого облікового запису XMPP"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Ваш ідентифікатор Jabber:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "користувач@example.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "Ваш пароль:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Встановлення з'єднання…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "З'єднатися"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Некоректне ім’я користувача або пароль."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи "
+#~ "маєте ви з'єднання із інтернетом."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "На сервері не передбачено можливості захищених з'єднань."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Помилка під час спроби встановлення захищеного з'єднання."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "Не вдалося визначити адресу сервера. Будь ласка, перевірте, чи правильно "
+#~ "вказано ідентифікатор Jabber."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Не вдалося встановити з’єднання із віддаленим сервером."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr "Сталася невідома помилка. Будь ласка, ознайомтеся із журналом."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in using a QR-Code"
+#~ msgstr "Вхід за допомогою QR-коду"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметри з'єднання"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметри з'єднання"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid ""
+#~ "The connection settings will be saved permanently after the first "
+#~ "successful login. If they don't work, you'll get back to the login page."
+#~ msgstr ""
+#~ "Параметри з'єднання буде збережено після першого успішного входу до "
+#~ "системи. Якщо вони не спрацюють, програма поверне вас до сторінки входу."
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Enable custom connection settings"
+#~ msgstr "Увімкнути нетипові параметри з'єднання"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Hostname:"
+#~ msgstr "Назва вузла:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Reset"
+#~ msgstr "Скинути"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Apply"
+#~ msgstr "Застосувати"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Не вдалося надіслати повідомлення через те, що немає з'єднання."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "Не вдалося виправити повідомлення через те, що немає з'єднання."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "Спойлер"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Параметри мультимедійних даних"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "Налаштувати"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image Capture"
+#~ msgstr "Захоплення зображень"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "Запис звуку"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "Запис відео"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Відеокамера"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio input"
+#~ msgstr "Звуковий вхід"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Container"
+#~ msgstr "Контейнер"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Зображення"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Звук"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Відео"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Codec"
+#~ msgstr "Кодек"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Resolution"
+#~ msgstr "Роздільність"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "Якість"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "Частота дискретизації"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "Частота кадрів"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "Готово"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "Ініціалізація…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "Немає даних"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "Запис…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "Призупинено"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Параметри мультимедійних даних"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Configure"
+#~ msgstr "Налаштувати"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image Capture"
+#~ msgstr "Захоплення зображень"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio Recording"
+#~ msgstr "Запис звуку"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video Recording"
+#~ msgstr "Запис відео"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Camera"
+#~ msgstr "Відеокамера"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio input"
+#~ msgstr "Звуковий вхід"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Container"
+#~ msgstr "Контейнер"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Зображення"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Звук"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Відео"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Codec"
+#~ msgstr "Кодек"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Resolution"
+#~ msgstr "Роздільність"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Quality"
+#~ msgstr "Якість"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Sample Rate"
+#~ msgstr "Частота дискретизації"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Frame Rate"
+#~ msgstr "Частота кадрів"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Ready"
+#~ msgstr "Готово"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Initializing…"
+#~ msgstr "Ініціалізація…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Unavailable"
+#~ msgstr "Немає даних"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Recording…"
+#~ msgstr "Запис…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Paused"
+#~ msgstr "Призупинено"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Ready"
+#~ msgstr "Готово"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "Ініціалізація…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "Немає даних"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "Запис… %1"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Paused %1"
+#~ msgstr "Призупинено %1"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove password"
+#~ msgstr "Вилучити пароль"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid ""
+#~ "You can decide to only not show your password for <b>%1</b> as text "
+#~ "anymore or to remove it completely from the account transfer. If you "
+#~ "remove your password completely, you won't be able to use the account "
+#~ "transfer via scanning without entering your password because it is also "
+#~ "removed from the QR code."
+#~ msgstr ""
+#~ "Ви можете наказати програмі лише більше не показувати ваш пароль до <b>"
+#~ "%1</b> або наказати їй повністю вилучити пароль із перенесення облікових "
+#~ "записів. Якщо ви повністю вилучите ваш пароль, ви не зможете скористатися "
+#~ "засобом перенесення облікових записів шляхом сканування коду без введення "
+#~ "вашого пароля, оскільки пароль буде вилучено з QR-коду."
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Do not show password as text"
+#~ msgstr "Не показувати пароль як текст"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove completely"
+#~ msgstr "Вилучити повністю"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Доступний"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Вільний для спілкування"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Відсутність"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Не турбувати"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Довга відсутність"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Поза мережею"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Помилка"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Invisible"
+#~ msgstr "Невидимий"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid ""
+#~ "Could not resolve the server's address. Please check your server name."
+#~ msgstr ""
+#~ "Не вдалося визначити адресу сервера. Будь ласка, перевірте, чи правильно "
+#~ "вказано назву сервера."
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Не вдалося встановити з’єднання із сервером."
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "An unknown error occured."
+#~ msgstr "Сталася невідома помилка."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Сканувати QR-код"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Show explanation"
+#~ msgstr "Показати пояснення"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Продовжити без QR-коду"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "Заскануйте QR-код з вашого наявного пристрою, щоб перенести ваш обліковий "
+#~ "запис."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Встановлюємо з'єднання…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "This QR code is not a valid login QR code."
+#~ msgstr "Цей QR-код не є коректним QR-кодом для входу."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Підтримки формату відеокамери «%1» не передбачено."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "There is no camera available."
+#~ msgstr "Немає доступної відеокамери."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Із відеокамерою працює інша програма.\n"
+#~ "Спробуйте завершити роботу інших програм, які користуються відеокамерою."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Сканувати QR-код"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "There is no camera available."
+#~ msgstr "Немає доступної відеокамери."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Із відеокамерою працює інша програма.\n"
+#~ "Спробуйте завершити роботу інших програм, які користуються відеокамерою."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Підримки формату відеокамери «%1» не передбачено."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Встановлення з’єднання…"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "Заскануйте QR-код з вашого наявного пристрою, щоб перенести ваш обліковий "
+#~ "запис."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Show explanation"
+#~ msgstr "Показати пояснення"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan"
+#~ msgstr "Сканувати"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Продовжити без QR-коду"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "Налаштувати"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "Зареєструвати новий обліковий запис"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "Використати наявний обліковий запис"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "Пароль успішно змінено."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Не вдалося змінити пароль: %1"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete account completely"
+#~ msgstr "Вилучити обліковий запис повністю"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid ""
+#~ "Your account will be deleted completely, which means from this app and "
+#~ "from the server.\n"
+#~ "You will not be able to use your account again!"
+#~ msgstr ""
+#~ "Ваш обліковий запис буде повністю вилучено. Це означає, що його буде "
+#~ "вилучено з цієї програми і з сервера.\n"
+#~ "Ви більше не зможете скористатися вашим обліковим записом!"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Вилучити"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Додати новий контакт"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Унаслідок цього також буде надіслано запит щодо доступу до даних щодо "
+#~ "присутності контакту у системі."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Ідентифікатор Jabber:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "користувач@example.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Псевдонім:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Додаткове повідомлення:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Повідомте вашому співрозмовнику дещо про вас."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Додати"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr ""
+#~ "Помилка: будь ласка, перевірте, чи правильно вказано ідентифікатор Jabber."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Доступний"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Вільний для спілкування"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Відсутність"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Не турбувати"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Довга відсутність"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Поза мережею"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Помилка"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "Спойлер"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Встановлення з’єднання…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Контакти"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Додати новий контакт"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Поза мережею"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Шукати контакти"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr ""
+#~ "Ви справді хочете вилучити запис контакту <b>%1</b> із вашої книги "
+#~ "записів контактів?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Вилучити контакт"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Вилучити"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid ""
+#~ "Do you really want to delete the contact <b>%1</b> from your contact list?"
+#~ msgstr ""
+#~ "Ви справді хочете вилучити запис контакту <b>%1</b> з вашого списку "
+#~ "контактів?"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Перейменувати запис контакту"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Edit name:"
+#~ msgstr "Редагування назви:"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Перейменувати"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Підпис"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Надіслати"
+
+#~ msgctxt "ServerListModel|"
+#~ msgid "No limitation"
+#~ msgstr "Без обмежень"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Параметри"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Змінити пароль"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Змінити пароль до вашого облікового запису. Вам доведеться повторно "
+#~ "ввести цей пароль на усіх інших ваших пристроях для спілкування."
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Параметри мультимедійних даних"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Налаштуйте параметри обробки фотографій, відео та звукових записів"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Account security"
+#~ msgstr "Безпека облікового запису"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "configure whether this device can be used to log in on a new device"
+#~ msgstr ""
+#~ "Налаштуйте, чи можна використовувати цей пристрій для входу з нового "
+#~ "пристрою"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from Kaidan"
+#~ msgstr "Вилучити обліковий запис з Kaidan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Вилучити обліковий запис з цієї програми"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account"
+#~ msgstr "Вилучити обліковий запис"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account from the server"
+#~ msgstr "Вилучити обліковий запис з сервера"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Connection Settings"
+#~ msgstr "Параметри з'єднання"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure the hostname and port to connect to"
+#~ msgstr "Налаштувати назву вузла і порт для з'єднання"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure whether this device can be used to log in on a new device"
+#~ msgstr ""
+#~ "Налаштувати, чи можна використовувати цей пристрій для входу на новому "
+#~ "пристрої"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Configure whether this device can be used to log in on another device"
+#~ msgstr ""
+#~ "Налаштувати, чи можна використовувати цей пристрій для входу з іншого "
+#~ "пристрою"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Параметри"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Змінити пароль"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Змінити пароль до вашого облікового запису. Вам доведеться повторно "
+#~ "ввести цей пароль на усіх інших ваших пристроях для спілкування."
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Параметри мультимедійних даних"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Налаштуйте параметри обробки фотографій, відео та звукових записів"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Enjoy free communication on every device!"
+#~ msgstr "Насолоджуйтеся вільним спілкуванням на будь-якому пристрої!"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "Розпочнімо"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Запит щодо підписки"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Вами отримано запити щодо підписки від <b>%1</b>. Якщо ви приймете його, "
+#~ "відповідний обліковий запис матиме доступ до вашого стану присутності у "
+#~ "системі."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Відхилити"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Прийняти"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Файл"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Профіль"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Перейменувати запис контакту"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Show QR code"
+#~ msgstr "Показати QR-код"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Remove contact"
+#~ msgstr "Вилучити контакт"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Online devices"
+#~ msgstr "Пристрої у мережі"

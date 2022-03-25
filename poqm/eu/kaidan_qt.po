@@ -1,0 +1,1044 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: eu\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Ezin izan da %1 fitxategia gorde"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Deskarga akatsa: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Lineaz kanpo"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Konektatzen…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Lineaz kanpo"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Esteka konektatu ondoren irekiko da."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr ""
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr ""
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr ""
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr ""
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr ""
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr ""
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr ""
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr ""
+
+#: src/MediaUtils.cpp:252
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Audioa"
+
+#: src/MediaUtils.cpp:254
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Dokumentua"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr ""
+
+#: src/MediaUtils.cpp:258
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Irudia"
+
+#: src/MediaUtils.cpp:260
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Bideoa"
+
+#: src/MediaUtils.cpp:264
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Artxiboa"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr ""
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr ""
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr ""
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr ""
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr ""
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr ""
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr ""
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr ""
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr ""
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr ""
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr ""
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr ""
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr ""
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr ""
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/Message.cpp:210
+#, fuzzy
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "«Spoiler»"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr ""
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr ""
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr ""
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr ""
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+#, fuzzy
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Errorea"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/PresenceCache.cpp:63
+#, fuzzy
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Eskuragarri"
+
+#: src/PresenceCache.cpp:65
+#, fuzzy
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Libre berriketarako"
+
+#: src/PresenceCache.cpp:67
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Kanpoan"
+
+#: src/PresenceCache.cpp:69
+#, fuzzy
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Ez molestatu"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Kanpoan denbora luzerako"
+
+#: src/PresenceCache.cpp:73
+#, fuzzy
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Lineaz kanpo"
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/QmlUtils.cpp:72
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Erabiltzaile edo pasahitz okerra."
+
+#: src/QmlUtils.cpp:74
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"Ezin da zerbitzarira konektatu. Mesedez egiaztatu zure internet konexioa."
+
+#: src/QmlUtils.cpp:76
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Akatsa segurtasunez konektatzerakoan."
+
+#: src/QmlUtils.cpp:78
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "Zerbitzariak ez du konexio segururik onartzen."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Autentifikazio protokoloa ez da zerbitzariarekin bateragarria."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Ezin izan da kontaktua gehitu, konektaturik ez zaudelako."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Ezin izan da kontaktua ezabatu, konektaturik ez zaudelako."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Ezin izan da artxiboa bidali, konektaturik ez zaudelako."
+
+#: src/UploadManager.cpp:141
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr ""
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr ""
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr ""
+
+#: src/VCardModel.cpp:96
+#, fuzzy
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Honi buruz"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "Posta elektronikoa"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr ""
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr ""
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Erabiltzeko erraza den Jabber/XMPP bezero bat"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Lizentzia:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Ikusi iturburu kodea linean"
+
+#, fuzzy
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete"
+#~ msgstr "Ezabatu"
+
+#~ msgctxt "BackButton|"
+#~ msgid "Navigate Back"
+#~ msgstr "Atzerantz nabigatu"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Pasahitza aldatu"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Egungo pasahitza:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Pasahitz berria:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Pasahitz berria (errepikatu):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Pasahitz berriak ez datoz bat."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "Egungo pasahitza ez da balekoa."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Pasahitza aldatzeko konektaturik egon behar duzu."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Pasahitza aldatu ostean, zure gainontzeko gailuetan berriro sartu beharko "
+#~ "duzu."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Aldatu"
+
+#, fuzzy
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Akatsa pasahitza aldatzean: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Message copied to clipboard"
+#~ msgstr "Mezua arbelean kopiatua"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Mezua kopiatu"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Mezua editatu"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Deskargatu"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Mezua sortu"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Irudia"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Bideoa"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Audioa"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Dokumentua"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Beste artxibo bat"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Artxibo bat aukeratu"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "«Spoiler» mezu bat bidali"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "«Spoiler» keinua"
+
+#, fuzzy
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Itxi"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "«Spoiler» keinua"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Mezua sortu"
+
+#, fuzzy
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Aldatu"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "ContextDrawer|"
+#~ msgid "Actions"
+#~ msgstr "Jarduerak"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Hauta ezazu txat bat mezuak bidaltzen hasteko"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Artxibo bat aukeratu"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "go to parent folder"
+#~ msgstr "maila bat goragoko karpetara joan"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Itxi"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Karpeta nagusira joan"
+
+#~ msgctxt "ForwardButton|"
+#~ msgid "Navigate Forward"
+#~ msgstr "Aurrerantz nabigatu"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Back"
+#~ msgstr "Atzera"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Saioa itxi"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Honi buruz"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Lagunak gonbidatu"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Gonbidapen esteka arbelean kopiatua"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Ezarpenak"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Ezin izan da mezua bidali, konektaturik ez zaudelako."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not add contact, as a result of not being connected."
+#~ msgstr "Ezin izan da kontaktua gehitu, konektaturik ez zaudelako."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not remove contact, as a result of not being connected."
+#~ msgstr "Ezin izan da kontaktua ezabatu, konektaturik ez zaudelako."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not send file, as a result of not being connected."
+#~ msgstr "Ezin izan da artxiboa bidali, konektaturik ez zaudelako."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Saioa hasi"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Hasi saioa zure XMPP kontuan"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Zure Jabber-IDa:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your diaspora*-ID:"
+#~ msgstr "Zure diaspora*-IDa:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "erabiltzailea@example.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@diaspora.pod"
+#~ msgstr "erabiltzailea@diaspora.pod"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "Zure Pasahitza:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Konektatzen…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Konektatu"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Erabiltzaile edo pasahitz okerra."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Ezin da zerbitzarira konektatu. Mesedez egiaztatu zure internet konexioa."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "Zerbitzariak ez du konexio segururik onartzen."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Akatsa segurtasunez konektatzerakoan."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "Ezin izan da zerbitzariaren helbidea ebatzi. Mesedez egiazta ezazu zure "
+#~ "JIDa berriz."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Ezin izan da zerbitzarira konektatu."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Autentifikazio protokoloa ez da zerbitzariarekin bateragarria."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr ""
+#~ "Akats ezezagun bat gertatu da; ikusi xehetasunak log edo erregistroetan."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Ezin izan da mezua bidali, konektaturik ez  dagoelako."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "Ezin izan da mezua zuzendu konektaturik ez zaudelako."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Irudia"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Audioa"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Bideoa"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Irudia"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Audioa"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Bideoa"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Eskuragarri"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Libre berriketarako"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Kanpoan"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Ez molestatu"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Kanpoan denbora luzerako"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Lineaz kanpo"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Errorea"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Ezin izan da zerbitzarira konektatu."
+
+#, fuzzy
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Konektatzen…"
+
+#, fuzzy
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Konektatzen…"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "Pasahitza behar bezala aldatu da."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Akatsa pasahitza aldatzean: %1"
+
+#, fuzzy
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Ezabatu"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Kontaktu berria gehitu"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Ezizena:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-IDa:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "erabiltzailea@example.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Gehitu"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "Honek kontaktuaren presentziara sarbide eskaera bidaliko du."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Aukerako mezua:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Esan nor zaren zure berriketa lagunari."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Errorea: Mesedez egiaztatu JIDa."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Eskuragarri"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Libre berriketarako"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Kanpoan"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Ez molestatu"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Kanpoan denbora luzerako"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Lineaz kanpo"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Errorea"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Invalid"
+#~ msgstr "Baliogabea"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Konektatzen…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Kontaktuak"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Kontaktu berria gehitu"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Lineaz kanpo"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Kontaktua ezabatu"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Ezabatu"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr ""
+#~ "Ziur al zaude <b>%1</b> kontaktua zure zerrendatik ezabatu nahi duzula?"
+
+#, fuzzy
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Izenburua"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Bidali"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Pasahitza aldatu"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Zure kontuaren pasahitza aldatzen du. Zure gainontzeko gailuetan berriro "
+#~ "sartu beharko duzu."
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Ezarpenak"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Ezarpenak"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Pasahitza aldatu"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Zure kontuaren pasahitza aldatzen du. Zure gainontzeko gailuetan berriro "
+#~ "sartu beharko duzu."
+
+#, fuzzy
+#~ msgctxt "SettingsSheet|"
+#~ msgid "Settings"
+#~ msgstr "Ezarpenak"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Izen emate eskaera"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Izen emate eskaera jaso duzu <b>%1</b>-(r)engandik. Onartzen baldin "
+#~ "baduzu, kontuak sarbidea izango du zure presentzia egoerara."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Ukatu"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Onartu"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Artxiboa"

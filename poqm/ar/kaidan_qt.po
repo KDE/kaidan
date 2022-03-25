@@ -1,0 +1,1139 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : (n%100>=3 "
+"&& n%100<=10) ? 3 : n%100>=11 ? 4 : 5);\n"
+"X-Language: ar\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "تعذر حفظ الملف: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "فشل التنزيل: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Online"
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "متصل"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "يتّصل…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "غير متّصل"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr ""
+"الرابط هو رابط XMPP (مثال: 'xmpp:kaidan@muc.kaidan.im?join' للإنضمام إلى "
+"محادثة)\n"
+"سيتم فتح هذا الرابط عندما تتصل بالإنترنت."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "المبدئيّ"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr ""
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "منخفض"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "عادي"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "عالي"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr ""
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr ""
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr ""
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "صوت"
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "مستند"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "المكان"
+
+#: src/MediaUtils.cpp:258
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "صورة"
+
+#: src/MediaUtils.cpp:260
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "فيديو"
+
+#: src/MediaUtils.cpp:264
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "ملف"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr ""
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr ""
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr ""
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr ""
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "اختر ملفّا"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "اختر صورة"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr ""
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr ""
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr ""
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "كلّ الملفّات"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "الصور"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "الفيديوهات"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "ملفات صوت"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "المستندات"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr ""
+
+#: src/MessageHandler.cpp:256
+#, fuzzy
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "تعديل الرسالة لم يتم بنجاح."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "تعذر ارسال الرسالة."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "ينتظر"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "أُرسلت"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "خطأ"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr "علّم كمقروءة"
+
+#: src/PresenceCache.cpp:63
+msgctxt "QObject|"
+msgid "Available"
+msgstr "متوفّرة"
+
+#: src/PresenceCache.cpp:65
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "متفرغ للدردشة"
+
+#: src/PresenceCache.cpp:67
+msgctxt "QObject|"
+msgid "Away"
+msgstr "بالخارج"
+
+#: src/PresenceCache.cpp:69
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "نمط عدم الإزعاج"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "غائب لفترة قد تطول"
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "غير متّصل"
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, fuzzy, qt-format
+#| msgctxt "ServerListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr "‏%1 يوم"
+
+#: src/QmlUtils.cpp:72
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "اسم المستخدم أو كلمة المرور غير صالحة."
+
+#: src/QmlUtils.cpp:74
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr "لا يمكن الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت."
+
+#: src/QmlUtils.cpp:76
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "خطأ أثناء محاولة الاتصال الآمن."
+
+#: src/QmlUtils.cpp:78
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "الخادم لا يدعم الاتصالات الآمنة."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "بروتوكول المصادقة غير مدعوم من الخادم."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr "‏%1 متّصل"
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "تعذر إضافة جهة اتصال جديدة بسبب عدم توفر الاتصال."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "تعذر إزالة جهة الاتصال بسبب عدم توفر الاتصال."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "تعذر ارسال الملف بسبب عدم توفر الاتصال."
+
+#: src/UploadManager.cpp:141
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "تعذر ارسال الرسالة."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "الاسم"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "الاسم المستعار"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "عن"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "عيد الميلاد"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "الموقع الإلكتروني"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "برنامج XMPP/جابر بسيط وسهل للاستخدام"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "الرخصة:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "عرض الشفرة المصدرية على الويب"
+
+#, fuzzy
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete"
+#~ msgstr "حذف"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "كلمة المرور:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy password"
+#~ msgstr "انسخ كلمة المرور"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "تغيير كلمة المرور"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "كلمة المرور الحالية:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "كلمة المرور الجديدة:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "كلمة المرور الجديدة (إعادة):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "كلمات المرور الجديدة غير متطابقة."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "كلمة المرور الحالية غير صالحة."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "يجب ان تكون متصل بالانترنيت لتغيير كلمة المرور"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "بعد تغيير كلمة المرور, يجب أن تعيد إدخالها في جميع الأجهزة المتصلة الأخرى."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "ألغِ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "غيّر"
+
+#, fuzzy
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "تعذر تغيير كلمة المرور: 1%"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "نسخ الرسالة"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "تعديل الرسالة"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "تنزيل"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "حرر الرسالة"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "تحرير رسالة"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "صورة"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "فيديو"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "صوت"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "مستند"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "ملف آخر"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "اختر ملفا"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "ابحث"
+
+#, fuzzy
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "أغلق"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "تحرير رسالة"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "ألغِ"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "غيّر"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "ألغِ"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Hostname:"
+#~ msgstr "اسم المضيف:"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Port:"
+#~ msgstr "المنفذ:"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "المفضلة"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "أناس"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "طبيعة"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "طعام"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "نشاط"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "سفر"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "أشياء"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "رموز"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "أعلام"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "بحث"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "بحث عن رمز تعبيري"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "من فضلك اختر محادثة للشروع في المراسلة"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "اختر ملفا"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "الانتقال إلى المجلد الأصلي"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "أغلق"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "تسجيل الخروج"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "عن"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "دعوة أصدقاء"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "تم نسخ رابط الدعوة إلى الحافظة"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove"
+#~ msgstr "أزل"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "تسجيل الدخول"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "تسجيل الدخول إلى حسابك XMPP"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "هويتك على جابر:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "user@example.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "كلمة مرورك:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "جارٍ الاتصال…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "اتصل"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "اسم المستخدم أو كلمة المرور غير صالحة."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr "لا يمكن الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "الخادم لا يدعم الاتصالات الآمنة."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "خطأ أثناء محاولة الاتصال الآمن."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "تعذر الإتصال بالخادم."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "بروتوكول المصادقة غير مدعوم من الخادم."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr "حدث خطأ مجهول ؛ اطلع على التفاصيل في السجل."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Connection settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Port:"
+#~ msgstr "المنفذ:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Hostname:"
+#~ msgstr "اسم المضيف:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Reset"
+#~ msgstr "صفّر"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Apply"
+#~ msgstr "طبّق"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "تعذر ارسال الرسالة بسبب عدم توفر الاتصال."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "تعذر تعديل الرسالة بسبب عدم توفر الاتصال."
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "إعدادات الوسائط المتعدّدة"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "اضبط"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "تسجيل صوتي"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "تسجيل مرئي"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "كاميرا"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "صورة"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "صوت"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "فيديو"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "الجودة"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "معدّل الإعتيان"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "معدل الإطارات"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "جاهز"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "يمهّد…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "غير متوفّر"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "يسجّل"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "أوقِفَ مؤقتا"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "صورة"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "صوت"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "فيديو"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "يمهّد…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "غير متوفّر"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "يسجّل... %1"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Paused %1"
+#~ msgstr "أوقِفَ مؤقتا %1"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "متوفر"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "متوفر للدردشة"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "غائب"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "لا تزعجني"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "غائب لفترة قد تطول"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "غير متصل"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "خطأ"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "تعذر الإتصال بالخادم."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "يتّصل…"
+
+#, fuzzy
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "جارٍ الاتصال…"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "سجّل حساب جديد"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "تم تغيير كلمة المرور بنجاح."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "تعذر تغيير كلمة المرور: 1%"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "احذف"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "أضف جهة اتصال جديدة"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "هوية جابر:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "user@example.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "الاسم المستعار:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "رسالة اختيارية:"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "عرف شريكك في المحادثة عن نفسك."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "إلغاء"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "أضف"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "خطأ: الرجاء التحقق من هوية جابر."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "متوفر"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "متوفر للدردشة"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "غائب"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "لا تزعجني"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "غائب لفترة قد تطول"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "غير متصل"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "خطأ"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "جارٍ الاتصال…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "جهات الاتصال"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "أضف جهة اتصال جديدة"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "غير متصل"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "ابحث عن متراسلين"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "إزالة جهة اتصال"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "إلغاء"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "حذف"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "أعد تسمية المراسل"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ألغِ"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "غيّر الاسم"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "الوصف"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "إلغاء"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "ارسل"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "غيّر كلمة السر"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "تغيير كلمة مرور حساباتك. يجب عليك إعادة إدخال كلمة المرور إلى جميع "
+#~ "الأجهزة الأخرى."
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "إعدادات الوسائط المتعدّدة"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "إعدادات"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Connection Settings"
+#~ msgstr "إعدادات الاتّصال"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "تغيير كلمة المرور"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "تغيير كلمة مرور حساباتك. يجب عليك إعادة إدخال كلمة المرور إلى جميع "
+#~ "الأجهزة الأخرى."
+
+#, fuzzy
+#~ msgctxt "SettingsSheet|"
+#~ msgid "Settings"
+#~ msgstr "الإعدادات"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "طلب اشتراك"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "رفض"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "قبول"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "ملف"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "الملف الشخصي"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "أعد تسمية المراسل"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Show QR code"
+#~ msgstr "أظهر باركود"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Remove contact"
+#~ msgstr "أزل المتراسل"

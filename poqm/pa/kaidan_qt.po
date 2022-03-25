@@ -1,0 +1,578 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: pa\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr ""
+
+#: src/Kaidan.cpp:98
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr ""
+
+#: src/Kaidan.cpp:100
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/Kaidan.cpp:102
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr ""
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr ""
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr ""
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr ""
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr ""
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr ""
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr ""
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr ""
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr ""
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr ""
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr ""
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr ""
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr ""
+
+#: src/MediaUtils.cpp:258
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr ""
+
+#: src/MediaUtils.cpp:260
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr ""
+
+#: src/MediaUtils.cpp:264
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr ""
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr ""
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr ""
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr ""
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr ""
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr ""
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr ""
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr ""
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr ""
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr ""
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr ""
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr ""
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr ""
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr ""
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr ""
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr ""
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr ""
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr ""
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr ""
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr ""
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr ""
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/PresenceCache.cpp:63
+msgctxt "QObject|"
+msgid "Available"
+msgstr ""
+
+#: src/PresenceCache.cpp:65
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr ""
+
+#: src/PresenceCache.cpp:67
+msgctxt "QObject|"
+msgid "Away"
+msgstr ""
+
+#: src/PresenceCache.cpp:69
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr ""
+
+#: src/PresenceCache.cpp:71
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr ""
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr ""
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/QmlUtils.cpp:72
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr ""
+
+#: src/QmlUtils.cpp:74
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+
+#: src/QmlUtils.cpp:76
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr ""
+
+#: src/QmlUtils.cpp:78
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr ""
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr ""
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr ""
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr ""
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr ""
+
+#: src/UploadManager.cpp:141
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr ""
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr ""
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr ""
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr ""
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "ਈ-ਮੇਲ"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr ""
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr ""
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "ਸਰਲ, ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਸੌਖਾ Jabber/XMPP ਕਲਾਈਂਟ"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "ਲਸੰਸ:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "ਸਰੋਤ ਕੋਡ ਆਨਲਾਈਨ ਵੇਖੋ"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "ਸਮੱਸਿਆਵਾਂ ਬਾਰੇ ਰਿਪੋਰਟ ਕਰੋ"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Account Security"
+#~ msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Disable showing the password"
+#~ msgstr "ਪਾਸਵਰਡ ਵੇਖਾਉਣਾ ਅਸਮਰੱਥ ਕਰੋ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "ਹੋਰ ਡਿਵਾਈਸ ਲਈ ਖਾਤਾ ਟਰਾਂਸਫਰ ਕਰੋ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Chat address:"
+#~ msgstr "ਚੈਟ ਐਡਰੈਸ:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "ਪਾਸਵਰਡ:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "QR ਕੋਡ ਲੁਕਾਓ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide text"
+#~ msgstr "ਲਿਖਤ ਲੁਕਾਓ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as text"
+#~ msgstr "ਲਿਖਤ ਵਜੋਂ ਵੇਖਾਓ"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy password"
+#~ msgstr "ਪਾਸਵਰਡ ਕਾਪੀ ਕਰੋ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "ਨਵਾਂ ਪਾਸਵਰਡ:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "ਨਵਾਂ ਪਾਸਵਰਡ (ਦੁਹਰਾਓ):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ।"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ।"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "ਬਦਲੋ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Password changed successfully"
+#~ msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਗਿਆ"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "ਪਾਸਵਰਡ ਬਦਲਣਾ ਅਸਫ਼ਲ ਹੈ: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "ਡਾਊਨਲੋਡ"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "ਸੁਨੇਹਾ ਕਾਪੀ ਕਰੋ"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+
+#, fuzzy
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "ਬਦਲੋ"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ਰੱਦ ਕਰੋ"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"

@@ -1,0 +1,1354 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Language: cs\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Soubor nelze uložit: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Chyba při stahování: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Nepřipojený"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Připojování…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Nepřipojený"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Odkaz se  otevře jakmile se připojíte."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Výchozí"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Velmi nízká"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Nízká"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Normální"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Vysoká"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Velmi vysoká"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Stálá kvalita"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Stálý datový tok"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Průměrný datový tok"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Dvouproudový"
+
+#: src/MediaUtils.cpp:252
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Audio"
+
+#: src/MediaUtils.cpp:254
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Dokument"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr ""
+
+#: src/MediaUtils.cpp:258
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Obrázek"
+
+#: src/MediaUtils.cpp:260
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:264
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Soubor"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Vyfotit"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Nahrát video"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Nahrát hlas"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Zaslat polohu"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Vybrat soubor"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Vybrat obrázek"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Vybrat video"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Vybrat audio soubor"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Vybrat dokument"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Všechny soubory"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Obrázky"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Videa"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "Audio soubory"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Dokumenty"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:210
+#, fuzzy
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "«Spoiler»"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "Oprava zprávy se nezdařila."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Zprávu se nepodařilo odeslat."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr ""
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr ""
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+#, fuzzy
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Chyba"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/PresenceCache.cpp:63
+#, fuzzy
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Dostupný"
+
+#: src/PresenceCache.cpp:65
+#, fuzzy
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Dostupný k chatování"
+
+#: src/PresenceCache.cpp:67
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Nepřítomný"
+
+#: src/PresenceCache.cpp:69
+#, fuzzy
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Nerušit"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Dlouhodobě nepřítomný"
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr ""
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/QmlUtils.cpp:72
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Neplatný uživatel nebo heslo."
+
+#: src/QmlUtils.cpp:74
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"Nelze se připojit k serveru.\n"
+"Prosím zkontrolujte své připojení k internetu."
+
+#: src/QmlUtils.cpp:76
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Hlášení o chybě při pokusu o zabezpečené připojení."
+
+#: src/QmlUtils.cpp:78
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "Server nepodporuje zabezpečená připojení."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Ověřovací protokol není kompatibilní se serverem."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Nelze přidat kontakt, neboť nejste připojeni."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Nelze smazat kontakt, neboť nejste připojeni."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr "Nepodařilo se kontakt přejmenovat, neboť nejste připojení."
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Soubor nelze odeslat, neboť nejste připojeni."
+
+#: src/UploadManager.cpp:141
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Zprávu se nepodařilo odeslat."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Jméno"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Alias"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "O aplikaci"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "E-mail"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Datum narození"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Webová stránka"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Jednoduchý a uživatelsky přívětivý Jabber/XMPP klient"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Licence:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Prohlédnout zdrojový kód online"
+
+#, fuzzy
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Změna hesla"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Stávající heslo:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Nové heslo:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Nové heslo (opakovat):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Nová hesla se neshodují."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "Stávající heslo je neplatné."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Pro změnu hesla je nutné být připojen."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Po změně hesla bude třeba zadat nové heslo na všech vašich ostatních "
+#~ "zařízeních."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Změnit"
+
+#, fuzzy
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Změna hesla se nezdařila: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Zkopírovat zprávu"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Editovat zprávu"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Stahnout"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Kopírovat stažitelnou URL"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Kopírovat stažitelnou URL"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Vytvořit zprávu"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Obrázek"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Další soubor"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Vybrat soubor"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Zaslat «spoiler» zprávu"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "«Spoiler» tip"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Zapnout notifikace"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Vypnout notifikace"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Prohlédnout profil"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Multimedia settings"
+#~ msgstr "Nastavení multimédií"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Hledat"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Zavřít"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Hledat výše"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Hledat níže"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "Všechny soubory"
+
+#, fuzzy
+#~ msgctxt "ChatPage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Kopírovat stažitelnou URL"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "«Spoiler» tip"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Vytvořit zprávu"
+
+#, fuzzy
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Změnit"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "DownloadJob|"
+#~ msgid "Download failed."
+#~ msgstr "Stahování selhalo."
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Oblíbené"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Lidé"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Příroda"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Jídlo"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Činnosti"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Cestování"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Předměty"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Symboly"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Vlajky"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Hledat"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Hledat emoji"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Pro zahájení konverzace vyberte chat"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Vybrat soubor"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Přesun o adresář výše"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Zavřít"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Odhlásit se"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "O aplikaci"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Pozvat přátele"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Zvací odkaz zkopírován do schránky"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No password found. Please enter it."
+#~ msgstr "Heslo nenalezeno. Prosím zadejte heslo."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No valid login QR code found."
+#~ msgstr "Nebyl nalezen žádný platný přihlašovací kód QR."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Přihlásit se"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Přihlásit se ke svému XMPP účtu"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Vaše Jabber-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your diaspora*-ID:"
+#~ msgstr "Vaše diaspora*-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "uživatel@example.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@diaspora.pod"
+#~ msgstr "uživatel@diaspora.pod"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "Vaše heslo:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Připojování…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Připojit"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Neplatný uživatel nebo heslo."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Nelze se připojit k serveru.\n"
+#~ "Prosím zkontrolujte své připojení k internetu."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "Server nepodporuje zabezpečená připojení."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Hlášení o chybě při pokusu o zabezpečené připojení."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr "Neznámá adresa serveru. Zkontrolujte znovu vaše JID."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Nebylo možné se připojit k serveru."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Ověřovací protokol není kompatibilní se serverem."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr "Došlo k neznámé chybě; pro více informací zkontrolujte seznam logů."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in using a QR-Code"
+#~ msgstr "Přihlaste se pomocí QR kódu"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Nelze odeslat zprávu, neboť nejste připojeni."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "Zprávu nelze editovat, neboť nejste připojeni."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Nastavení multimédií"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "Nastavit"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image Capture"
+#~ msgstr "Zachycení obrazu"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "Audio nahrávání"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "Video nahrávání"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Kamera"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio input"
+#~ msgstr "Audio vstup"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Container"
+#~ msgstr "Kontejner"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Obrázek"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Codec"
+#~ msgstr "Kodek"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Resolution"
+#~ msgstr "Rozlišení"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "Kvalita"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "Vzorkovací frekvence"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "Snímková frekvence"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "Připravený"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "Zahajuji…"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "Nedostupný"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "Nahrávám…"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "Pozastaven"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Nastavení multimédií"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Configure"
+#~ msgstr "Nastavit"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image Capture"
+#~ msgstr "Zachycení obrazu"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio Recording"
+#~ msgstr "Audio nahrávání"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video Recording"
+#~ msgstr "Video nahrávání"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Camera"
+#~ msgstr "Kamera"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio input"
+#~ msgstr "Audio vstup"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Container"
+#~ msgstr "Kontejner"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Obrázek"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Codec"
+#~ msgstr "Kodek"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Resolution"
+#~ msgstr "Rozlišení"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Quality"
+#~ msgstr "Kvalita"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Sample Rate"
+#~ msgstr "Vzorkovací frekvence"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Frame Rate"
+#~ msgstr "Snímková frekvence"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Ready"
+#~ msgstr "Připravený"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Initializing…"
+#~ msgstr "Zahajuji…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Unavailable"
+#~ msgstr "Nedostupný"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Recording…"
+#~ msgstr "Nahrávám…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Paused"
+#~ msgstr "Pozastaven"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Ready"
+#~ msgstr "Připravený"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "Zahajuji…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "Nedostupný"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "Nahrávání… %1"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Paused %1"
+#~ msgstr "Pozastaveno %1"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Dostupný"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Dostupný k chatování"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Nepřítomný"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Nerušit"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Dlouhodobě nepřítomný"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Chyba"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Invisible"
+#~ msgstr "Neviditelný"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Nebylo možné se připojit k serveru."
+
+#, fuzzy
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Naskenujte QR kód"
+
+#, fuzzy
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Připojování…"
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Formát fotoaparátu '% 1' není podporován."
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "There is no camera available."
+#~ msgstr "Není k dispozici žádná kamera."
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Váš fotoaparát je zaneprázdněn.\n"
+#~ "Zkuste zavřít jiné aplikace, které používají fotoaparát."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Naskenujte QR kód"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "There is no camera available."
+#~ msgstr "Není k dispozici žádná kamera."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Váš fotoaparát je zaneprázdněn.\n"
+#~ "Zkuste zavřít jiné aplikace, které používají fotoaparát."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Formát fotoaparátu '% 1' není podporován."
+
+#, fuzzy
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Připojování…"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "Změna hesla byla úspěšná."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Změna hesla se nezdařila: %1"
+
+#, fuzzy
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Přidat nový kontakt"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "Zároveň odešle žádost o přístup k přítomnosti kontaktu."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "uživatel@example.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Alias:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Volitelná zpráva:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Sdělit chatující proti-straně kdo jste."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Přidat"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Chyba: zkontrolujte prosím JID."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Dostupný"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Dostupný k chatování"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Nepřítomný"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Nerušit"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Dlouhodobě nepřítomný"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Nepřipojen"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Chyba"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "«Spoiler»"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Připojování…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Kontakty"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Přidat nový kontakt"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Odpojen"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Prohledat kontakty"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr "Opravdu chcete smazat kontakt <b>%1</b> z vašeho seznamu?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Smazat kontakt"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Smazat"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Přejmenovat kontakt"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Edit name:"
+#~ msgstr "Editovat jméno:"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Přejmenovat"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Titulek"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Zrušit"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Odeslat"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Změna hesla"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Změní heslo k vašemu účtu. Bude třeba ho zadat na všech vašich zařízeních."
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Nastavení multimédií"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Změna hesla"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Změní heslo k vašemu účtu. Bude třeba ho zadat na všech vašich zařízeních."
+
+#, fuzzy
+#~ msgctxt "SettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Nastavení multimédií"
+
+#, fuzzy
+#~ msgctxt "SettingsSheet|"
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Žádost o přihlášení"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Obdržena žádost o přihlášení od <b>%1</b>. Pokud přijmete, daný účet bude "
+#~ "mít přístup k informaci o vašem připojení."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Odmítnout"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Přijmout"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Soubor"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Profil"
+
+#, fuzzy
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Přejmenovat kontakt"

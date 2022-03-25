@@ -1,0 +1,1623 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: it\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Non è stato possibile eliminare il tuo account dal server. Pertanto, non è "
+"stato rimosso anche da questa applicazione: %1"
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Impossibile salvare il file: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Scaricamento fallito: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Online"
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "In linea"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Connessione…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Fuori linea"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Il collegamento verrà aperto appena ti sarai connesso."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Predefinito"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Molto basso"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Basso"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Normale"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Alto"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Molto alto"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Qualità costante"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Bit rate costante"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Bit rate medio"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Due passaggi"
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Audio"
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Documento"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "Posizione"
+
+#: src/MediaUtils.cpp:258
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Immagine"
+
+#: src/MediaUtils.cpp:260
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:264
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "File"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Scatta foto"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Registra video"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Registra audio"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Invia posizione"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Scegli un file"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Scegli un'immagine"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Scegli un video"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Scegli un file audio"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Scegli un documento"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Tutti i file"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Immagini"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "File audio"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Documenti"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "Spoiler"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "La correzione del messaggio non è riuscita."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Il messaggio non può essere inviato."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "In attesa"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "Inviato"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr "Consegnato"
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Errore"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr "Segna come letto"
+
+#: src/PresenceCache.cpp:63
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Disponibile"
+
+#: src/PresenceCache.cpp:65
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Disponibile a conversare"
+
+#: src/PresenceCache.cpp:67
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Assente"
+
+#: src/PresenceCache.cpp:69
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Non disturbare"
+
+#: src/PresenceCache.cpp:71
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Assente per molto tempo"
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Fuori linea"
+
+#: src/ProviderListModel.cpp:50
+#, fuzzy
+#| msgctxt "ServerListModel|"
+#| msgid "Custom server"
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr "Server personalizzato"
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, fuzzy, qt-format
+#| msgctxt "ServerListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr "%1 giorni"
+
+#: src/QmlUtils.cpp:72
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Nome utente o password non validi."
+
+#: src/QmlUtils.cpp:74
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"Impossibile connettersi al server. Per favore controlla la tua connessione a "
+"internet."
+
+#: src/QmlUtils.cpp:76
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Errore durante il tentativo di connessione sicura."
+
+#: src/QmlUtils.cpp:78
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "Il server non supporta connessioni sicure."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+"Impossibile connettersi al server. Per favore controlla la tua connessione "
+"internet o il nome del tuo server."
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr "Il server è fuori linea o bloccato da un firewall."
+
+#: src/QmlUtils.cpp:84
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Protocollo di autenticazione non supportato dal server."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr "Non è stato possibile aggiornare la connessione."
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+"L'accesso a internet non è permesso. Controlla la configurazione di accesso "
+"a internet del tuo sistema."
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr "Questo server non supporta la registrazione."
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr "%1 è in linea"
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr "%1 sta digitando…"
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr "%1 ha smesso di digitare"
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr "Generazione del codice QR fallita: %1"
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Impossibile aggiungere il contatto, perché non sei connesso."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Impossibile rimuovere il contatto, perché non sei connesso."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr "Impossibile rinominare il contatto, perchè non sei connesso."
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Impossibile inviare il file, in quanto non connesso."
+
+#: src/UploadManager.cpp:141
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Il messaggio non ha potuto essere inviato."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Nome"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Soprannome"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Informazioni"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "E-mail"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Compleanno"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Sito web"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Un client Jabber/XMPP semplice e intuitivo"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Licenza:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Visualizza il codice sorgente online"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Segnala problemi"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Account Security"
+#~ msgstr "Sicurezza dell'account"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Allow to add additional devices using the login QR code but never show "
+#~ "the password."
+#~ msgstr ""
+#~ "Permetti di aggiungere altri dispositivi usando il codice QR di accesso "
+#~ "ma non mostrare mai la password."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't show password"
+#~ msgstr "Non mostrare la password"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Neither allow to add additional devices using the login QR code nor show "
+#~ "the password."
+#~ msgstr ""
+#~ "Non permettere di aggiungere altri dispositivi usando il codice QR di "
+#~ "accesso né mostrare la password."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Non esporre la password in alcun modo"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Trasferisci l'account su un altro dispositivo"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid ""
+#~ "Scan the QR code or enter the credentials as text on another device to "
+#~ "log in on it.\n"
+#~ "\n"
+#~ "Attention:\n"
+#~ "Never show this QR code to anyone else. It would allow unlimited access "
+#~ "to your account!"
+#~ msgstr ""
+#~ "Scannerizza il codice QR o inserisci le credenziali come testo su un "
+#~ "altro dispositivo per accedere su di esso.\n"
+#~ "\n"
+#~ "Attenzione:\n"
+#~ "Non mostrare mai questo codice QR a nessun altro. Permetterebbe un "
+#~ "accesso illimitato al tuo account!"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Indirizzo della discussione:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "Password:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Nascondi il codice QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Mostra come codice QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide text"
+#~ msgstr "Nascondi il testo"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as text"
+#~ msgstr "Mostra come testo"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy password"
+#~ msgstr "Copia la password"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Copia l'indirizzo della discussione"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Cambia la password"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Password attuale:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Nuova password:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Nuova password (ripeti):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Le nuove password non corrispondono."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "La password attuale non è corretta."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Devi essere connesso per cambiare la tua password."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Dopo aver cambiato la tua password dovrai reinserirla in tutti i tuoi "
+#~ "altri dispositivi."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Cambia"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Password changed successfully"
+#~ msgstr "La password è stata cambiata correttamente"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Impossibile cambiare la password: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Copia il messaggio"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Modifica il messaggio"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Scarica"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Copia URL di download"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Quote"
+#~ msgstr "Cita"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Copia il messaggio"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Modifica il messaggio"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Copia l'URL di scaricamento"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Cita il messaggio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Componi il messaggio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Immagine"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Documento"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Altro file"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Seleziona un file"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Invia un messaggio con spoiler"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Accenno dello spoiler"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Riattiva notifiche"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Silenzia notifiche"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Visualizza profilo"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Multimedia settings"
+#~ msgstr "Impostazioni multimediali"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Chiudi"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Cerca verso l'alto"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Cerca verso il basso"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "Tutti i file"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close message search bar"
+#~ msgstr "Chiudi la barra di ricerca dei messaggi"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Accenno dello spoiler"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Close spoiler hint field"
+#~ msgstr "Chiudi il campo di avviso sul contenuto"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Componi un messaggio"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Cambia"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings could not be changed"
+#~ msgstr "Le impostazioni di connessione non possono essere modificate"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings changed"
+#~ msgstr "Impostazioni di connessione cambiate"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Hostname:"
+#~ msgstr "Nome dell'host:"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "The hostname must not contain blank spaces"
+#~ msgstr "Il nome dell'host non deve contenere spazi vuoti"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Port:"
+#~ msgstr "Porta:"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose your password in any way"
+#~ msgstr "Non esporre la tua password in nessun modo"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will neither be shown as plain text nor included in the "
+#~ "login QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device."
+#~ msgstr ""
+#~ "La tua password non sarà più mostrata come testo semplice né inclusa nel "
+#~ "codice QR di accesso.\n"
+#~ "Non sarai più in grado di effettuare l'accesso tramite codice QR senza "
+#~ "inserire nuovamente la tua password perché questa azione non può essere "
+#~ "annullata!\n"
+#~ "Considera di memorizzare la password da qualche altra parte se vuoi usare "
+#~ "il tuo account su un altro dispositivo."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Non esporre la password in alcun modo"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show your password"
+#~ msgstr "Non mostrare la tua password"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown anymore but still exposed via the login "
+#~ "QR code.\n"
+#~ "You won't be able to see your password again because this action cannot "
+#~ "be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device without the login QR code."
+#~ msgstr ""
+#~ "La tua password non sarà più mostrata, ma ancora esposta tramite il "
+#~ "codice QR di accesso.\n"
+#~ "Non sarai più in grado di vedere la tua password perché questa azione non "
+#~ "può essere annullata!\n"
+#~ "Considera di memorizzare la password da qualche altra parte se vuoi usare "
+#~ "il tuo account su un altro dispositivo senza il codice QR di accesso."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show password"
+#~ msgstr "Non mostrare la password"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Preferiti"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Persone"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Natura"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Cibo"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Attività"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Viaggi"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Oggetti"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Simboli"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Bandiere"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Cerca"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Cerca emoji"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Seleziona una conversazione per iniziare a messaggiare"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Seleziona un file"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Vai al livello superiore"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Chiudi"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Esci"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Informazioni"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Invita amici"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Collegamento dell'invito copiato negli appunti"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Cambia dispositivo"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No password found. Please enter it."
+#~ msgstr "Nessuna password trovata. Per favore inseriscila."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No valid login QR code found."
+#~ msgstr "Nessun codice QR di accesso valido trovato."
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Rimuovi l'account da questa applicazione"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid ""
+#~ "Your account will be removed from this app.\n"
+#~ "Your password will be deleted, make sure it is stored in a password "
+#~ "manager or you know it!"
+#~ msgstr ""
+#~ "Il tuo account sarà rimosso da questa applicazione.\n"
+#~ "La tua password sarà eliminata, assicurati che sia memorizzata in un "
+#~ "gestore di password o che tu la conosca!"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove"
+#~ msgstr "Elimina"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Accedi"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Accedi al tuo account XMPP"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Il tuo Jabber-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your diaspora*-ID:"
+#~ msgstr "Il tuo diaspora*-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "nome@esempio.org"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "La tua password:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Connessione…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Connetti"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Nome utente o password non validi."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Impossibile connettersi al server. Per favore controlla la tua "
+#~ "connessione a internet."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "Il server non supporta connessioni sicure."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Errore durante il tentativo di connessione sicura."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "Impossibile risolvere l'indirizzo del server. Per favore, controlla di "
+#~ "nuovo il tuo JID."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Non posso connettermi al server."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Protocollo di autenticazione non supportato dal server."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr ""
+#~ "Si è verificato un errore sconosciuto; per i dettagli guarda il registro."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in using a QR-Code"
+#~ msgstr "Accedi utilizzando un QR-Code"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid ""
+#~ "The connection settings will be saved permanently after the first "
+#~ "successful login. If they don't work, you'll get back to the login page."
+#~ msgstr ""
+#~ "Le impostazioni di connessione saranno salvate permanentemente dopo il "
+#~ "primo accesso riuscito. Se non funzionano, tornerai alla pagina di "
+#~ "accesso."
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Enable custom connection settings"
+#~ msgstr "Abilita le impostazioni di connessione personalizzate"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Port:"
+#~ msgstr "Porta:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Hostname:"
+#~ msgstr "Nome dell'host:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Reset"
+#~ msgstr "Ripristina"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Apply"
+#~ msgstr "Applica"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Impossibile inviare messaggi, perchè non sei connesso."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "Impossibile correggere il messaggio, perchè non sei connesso."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Impostazioni multimediali"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "Configura"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image Capture"
+#~ msgstr "Cattura immagine"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "Registrazione audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "Registrazione video"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Fotocamera"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio input"
+#~ msgstr "Ingresso audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Container"
+#~ msgstr "Contenitore"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Immagine"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Codec"
+#~ msgstr "Codec"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Resolution"
+#~ msgstr "Risoluzione"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "Qualità"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "Frequenza di campionamento"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "Frequenza fotogrammi"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "Pronto"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "Inizializzazione…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "Non disponibile"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "Registrazione…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "In pausa"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Immagine"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Ready"
+#~ msgstr "Pronto"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "Inizializzazione…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "Non disponibile"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "Registrazione… %1"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Paused %1"
+#~ msgstr "In pausa %1"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove password"
+#~ msgstr "Rimuovi la password"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid ""
+#~ "You can decide to only not show your password for <b>%1</b> as text "
+#~ "anymore or to remove it completely from the account transfer. If you "
+#~ "remove your password completely, you won't be able to use the account "
+#~ "transfer via scanning without entering your password because it is also "
+#~ "removed from the QR code."
+#~ msgstr ""
+#~ "Puoi decidere di non mostrare più la tua password per <b>%1</b> come "
+#~ "testo o di rimuoverla completamente dal trasferimento dell'account. Se "
+#~ "rimuovi completamente la password, non sarai in grado di utilizzare il "
+#~ "trasferimento dell'account tramite scansione senza inserire la password "
+#~ "perché questa viene rimossa anche dal codice QR."
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Do not show password as text"
+#~ msgstr "Non mostrare la password come testo"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove completely"
+#~ msgstr "Rimuovi completamente"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Disponibile"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Disponibile a conversare"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Assente"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Non disturbare"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Lontano per molto tempo"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Non in linea"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Errore"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Invisible"
+#~ msgstr "Invisibile"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid ""
+#~ "Could not resolve the server's address. Please check your server name."
+#~ msgstr ""
+#~ "Non è stato possibile trovare l'indirizzo del server. Si prega di "
+#~ "controllare il nome del server."
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Impossibile connettersi al server."
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "An unknown error occured."
+#~ msgstr "Si è verificato un errore sconosciuto."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Scansiona il codice QR"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Show explanation"
+#~ msgstr "Mostra la spiegazione"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Continua senza codice QR"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "Scannerizza il codice QR dal tuo dispositivo esistente per trasferire il "
+#~ "tuo account."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Connessione…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "This QR code is not a valid login QR code."
+#~ msgstr "Questo codice QR non è un codice QR valido per l'accesso."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Il formato della fotocamera «%1» non è supportato."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "There is no camera available."
+#~ msgstr "Non c'è nessuna fotocamera disponibile."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "La fotocamera è occupata.\n"
+#~ "Prova a chiudere altre applicazioni che stanno utilizzando la fotocamera."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Scansiona il codice QR"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "There is no camera available."
+#~ msgstr "Non c'è nessuna fotocamera disponibile."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "La fotocamera è occupata.\n"
+#~ "Provare a chiudere altre applicazioni che stanno utilizzando la "
+#~ "fotocamera."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Il formato della fotocamera «%1» non è supportato."
+
+#, fuzzy
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Connessione…"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "Configurazione"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "Registra un nuovo account"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "Usa un account esistente"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "La password è stata cambiata correttamente."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Cambio password non riuscito: %1"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete account completely"
+#~ msgstr "Elimina completamente l'account"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid ""
+#~ "Your account will be deleted completely, which means from this app and "
+#~ "from the server.\n"
+#~ "You will not be able to use your account again!"
+#~ msgstr ""
+#~ "Il tuo account sarà eliminato completamente, cioè da questa applicazione "
+#~ "e dal server.\n"
+#~ "Non sarai più in grado di utilizzare il tuo account!"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Aggiungi nuovo contatto"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "nome@esempio.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Questo invierà anche una richiesta di accesso allo stato di presenza del "
+#~ "contatto."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Soprannome:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Messaggio opzionale:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Scrivi al contatto della conversazione chi sei."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Non in linea"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Errore: per favore controlla il JID."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Disponibile"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Disponibile a conversare"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Lontano dal dispositivo"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Non disturbare"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Lontano per tanto tempo"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Errore"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Connessione…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Contatti"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Aggiungi nuovo contatto"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Fuori linea"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Cerca contatti"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr "Vuoi veramente eliminare il contatto <b>%1</b> dalla tua lista?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Elimina il contatto"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid ""
+#~ "Do you really want to delete the contact <b>%1</b> from your contact list?"
+#~ msgstr ""
+#~ "Vuoi davvero eliminare il contatto <b>%1</b> dalla tua lista di contatti?"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Rinomina il contatto"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Edit name:"
+#~ msgstr "Modifica il nome:"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Rinomina"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Descrizione"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Invia"
+
+#~ msgctxt "ServerListModel|"
+#~ msgid "No limitation"
+#~ msgstr "Nessuna limitazione"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Cambia la password"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Cambia la password del tuo account. Dovrai reinserirla negli altri tuoi "
+#~ "dispositivi."
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Impostazioni multimediali"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Configura le impostazioni di registrazione di foto, video e audio"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Account security"
+#~ msgstr "Sicurezza dell'account"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from Kaidan"
+#~ msgstr "Rimuovi l'account da Kaidan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Rimuovi l'account da questa applicazione"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account"
+#~ msgstr "Elimina l'account"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account from the server"
+#~ msgstr "Elimina l'account dal server"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Connection Settings"
+#~ msgstr "Impostazioni di connessione"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure the hostname and port to connect to"
+#~ msgstr "Configura il nome dell'host e la porta a cui connettersi"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Configure whether this device can be used to log in on another device"
+#~ msgstr ""
+#~ "Configura se questo dispositivo può essere usato per accedere a un altro "
+#~ "dispositivo"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Cambia la password"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Cambia la password del tuo account. Dovrai reinserirla negli altri tuoi "
+#~ "dispositivi."
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Impostazioni multimediali"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Configura le impostazioni di registrazione di foto, video e audio"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Enjoy free communication on every device!"
+#~ msgstr "Goditi la comunicazione libera su ogni dispositivo!"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "Iniziamo"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Richiesta di sottoscrizione"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Hai ricevuto una richiesta di sottoscrizione da <b>%1</b>. Se la accetti, "
+#~ "l'account avrà accesso al tuo stato di presenza."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Rifiuta"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Accetta"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "File"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Profilo"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Rinomina il contatto"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Show QR code"
+#~ msgstr "Mostra il codice QR"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Remove contact"
+#~ msgstr "Rimuovi il contatto"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Online devices"
+#~ msgstr "Dispositivi in linea"

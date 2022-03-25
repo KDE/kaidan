@@ -1,0 +1,1177 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Language: nl\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Kon bestand niet opslaan: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Downloaden mislukt: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Offline"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Verbinden…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Offline"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "De link wordt geopend nadat u verbinding hebt gemaakt."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Standaard"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Zeer laag"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Laag"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Normaal"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Hoog"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Zeer hoog"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Constante kwaliteit"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Constante bitsnelheid"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Gemiddelde bitsnelheid"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Twee passen"
+
+#: src/MediaUtils.cpp:252
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Geluid"
+
+#: src/MediaUtils.cpp:254
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Document"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr ""
+
+#: src/MediaUtils.cpp:258
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Afbeelding"
+
+#: src/MediaUtils.cpp:260
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:264
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Bestand"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Neem foto's"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Video opnemen"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Video opnemen"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Stuur locatie"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Kies bestand"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Kies een afbeelding"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Kies video"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Kies audiobestand"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Kies een document"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Alle bestanden"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr ""
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr ""
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr ""
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr ""
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr ""
+
+#: src/Message.cpp:210
+#, fuzzy
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "Spoiler"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "Het corrigeren van het bericht is mislukt."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Het bericht kon niet worden verzonden."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr ""
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr ""
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+#, fuzzy
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Fout"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/PresenceCache.cpp:63
+#, fuzzy
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Beschikbaar"
+
+#: src/PresenceCache.cpp:65
+#, fuzzy
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Beschikbaar voor gesprek"
+
+#: src/PresenceCache.cpp:67
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Afwezig"
+
+#: src/PresenceCache.cpp:69
+#, fuzzy
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Niet storen"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Langere tijd afwezig"
+
+#: src/PresenceCache.cpp:73
+#, fuzzy
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Offline"
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/QmlUtils.cpp:72
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Ongeldige gebruikersnaam of wachtwoord."
+
+#: src/QmlUtils.cpp:74
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+"Kan geen verbinding maken met de server. Controleer uw internetverbinding."
+
+#: src/QmlUtils.cpp:76
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Fout bij het maken van een beveiligde verbinding."
+
+#: src/QmlUtils.cpp:78
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "De server ondersteunt geen beveiligde verbindingen."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:84
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Authenticatieprotocol niet ondersteund door de server."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Kan geen contact toevoegen omdat er geen verbinding is."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Kan het contact niet verwijderen omdat er geen verbinding is."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+"De naam van het contact kon niet worden veranderd, doordat er geen "
+"verbinding beschikbaar is."
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Kon bestand niet verzenden omdat er geen verbinding is."
+
+#: src/UploadManager.cpp:141
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Het bericht kon niet worden verzonden."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Naam"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Bijnaam"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Over"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "E-mail"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Verjaardag"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Website"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Een eenvoudige, gebruiksvriendelijke Jabber/XMPP-client"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Licentie:"
+
+#, fuzzy
+#~ msgctxt "AboutDialog|"
+#~ msgid "Source code on GitHub"
+#~ msgstr "Broncode op GitHub"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Broncode online bekijken"
+
+#~ msgctxt "AboutSheet|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Een simpele, gebruiksvriendelijke Jabber/XMPP client"
+
+#~ msgctxt "AboutSheet|"
+#~ msgid "License:"
+#~ msgstr "Licentie:"
+
+#~ msgctxt "AboutSheet|"
+#~ msgid "Source code on GitHub"
+#~ msgstr "Broncode op GitHub"
+
+#~ msgctxt "BackButton|"
+#~ msgid "Navigate Back"
+#~ msgstr "Ga Terug"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Wachtwoord veranderen"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Huidig wachtwoord:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Nieuw wachtwoord:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Nieuw wachtwoord (opnieuw):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "De ingevulde wachtwoorden komen niet overeen."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "Het huidige wachtwoord is ongeldig."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Uw moet verbonden zijn om uw wachtwoord te kunnen veranderen."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Nadat u uw wachtwoord heeft veranderd, zult u het opnieuw in moeten "
+#~ "voeren op andere apparaten waarop u bent ingelogd."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Veranderen"
+
+#, fuzzy
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Fout bij het wijzigen van wachtwoord: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Bericht Kopiëren"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Bericht Bewerken"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Downloaden"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Kopiëer downloadlink"
+
+#, fuzzy
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Kopiëer downloadlink"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Bericht opstellen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send"
+#~ msgstr "Versturen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Afbeelding"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Geluid"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Document"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Ander bestand"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Selecteer een bestand"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Bericht met spoileralert versturen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Spoilerhint"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Meldingen inschakelen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Meldingen uitschakelen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Profiel bekijken"
+
+#, fuzzy
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#, fuzzy
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Sluiten"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Zoeken"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Zoek naar beneden"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "Alle bestanden"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Spoilerhint"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Bericht opstellen"
+
+#, fuzzy
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Veranderen"
+
+#~ msgctxt "ContextDrawer|"
+#~ msgid "Actions"
+#~ msgstr "Handelingen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Favorieten"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Mensen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Natuur"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Eten"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Activiteiten"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Reizigen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Voorwerpen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Symbolen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Vlaggen"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Zoeken"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Emoji's zoeken"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Selecteer een chat om een gesprek te beginnen"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Selecteer een bestand"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Ga naar bovenliggende map"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Sluiten"
+
+#~ msgctxt "ForwardButton|"
+#~ msgid "Navigate Forward"
+#~ msgstr "Ga Vooruit"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Back"
+#~ msgstr "Terug"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Log uit"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Over"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Nodig vrienden uit"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Uitnodigingslink gekopieerd naar klembord"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Instellingen"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No password found. Please enter it."
+#~ msgstr "Er is geen wachtwoord gevonden. Voor alstublieft een wachtwoord in."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No valid login QR code found."
+#~ msgstr "Geen geldige login-QR-code gevonden."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Log in"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP Account"
+#~ msgstr "Log in op uw XMPP-account"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Uw Jabber-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your diaspora*-ID:"
+#~ msgstr "Uw diaspora*-ID:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "gebruiker@voorbeeld.nl"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@diaspora.pod"
+#~ msgstr "gebruiker@diaspora.pod"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "Uw Wachtwoord:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Retry"
+#~ msgstr "Opnieuw proberen"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Verbind"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Log in op uw XMPP-account"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Ongeldige gebruikersnaam of wachtwoord."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Kan geen verbinding maken met de server. Controleer uw internetverbinding."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "De server ondersteunt geen beveiligde verbindingen."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Fout bij het maken van een beveiligde verbinding."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "Kan het adres van de server niet oplossen. Controleer uw JID opnieuw."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Kan geen verbinding maken met de server."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Authenticatieprotocol niet ondersteund door de server."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr "Er is een onbekende fout opgetreden; zie logboek voor details."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in using a QR-Code"
+#~ msgstr "Log in met behulp van een QR-code"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Kan geen bericht verzenden, omdat er geen verbinding is gemaakt."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr "Bericht kon niet verbeterd worden, omdat er geen verbinding is."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Afbeelding"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Geluid"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Afbeelding"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Geluid"
+
+#, fuzzy
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Beschikbaar"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Beschikbaar voor gesprek"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Afwezig"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Niet storen"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Langere tijd afwezig"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Offline"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Fout"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Invisible"
+#~ msgstr "Niet zichtbaar"
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Kan geen verbinding maken met de server."
+
+#, fuzzy
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Scan een QR-code"
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Het cameraformaat '%1' wordt niet ondersteund."
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "There is no camera available."
+#~ msgstr "Er is geen camera beschikbaar."
+
+#, fuzzy
+#~ msgctxt "QrCodeScanner|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Uw camera is bezig.\n"
+#~ "Probeer andere applicaties die de camera gebruiken te sluiten."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Scan een QR-code"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "There is no camera available."
+#~ msgstr "Er is geen camera beschikbaar."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Uw camera is bezig.\n"
+#~ "Probeer andere applicaties die de camera gebruiken te sluiten."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Het cameraformaat '%1' wordt niet ondersteund."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "Uw wachtwoord is veranderd."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Fout bij het wijzigen van wachtwoord: %1"
+
+#, fuzzy
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Verwijder"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Voeg nieuw contact toe"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Bijnaam:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "gebruiker@voorbeeld.nl"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annuleer"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Voeg toe"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Dit stuurt ook een verzoek om aanwezigheidsupdates naar het contact."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Optioneel bericht:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Vertel je gesprekspartner wie je bent."
+
+#, fuzzy
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Offline"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Fout: Controleer nogmaals het JID."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Beschikbaar"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Beschikbaar voor gesprek"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Afwezig"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Niet storen"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Langere tijd afwezig"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Fout"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Contacten"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Voeg nieuw contact toe"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Verbinding maken…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Offline"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Door contacten zoeken"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search…"
+#~ msgstr "Zoeken…"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact \"%1\" from your roster?"
+#~ msgstr "Wil je echt contact \"%1\" uit je contactenlijst verwijderen?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Verwijder contact"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annuleer"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Verwijder"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr ""
+#~ "Wil je echt het contact <b>%1</b> uit je contactenlijst verwijderen?"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Naam van contact veranderen"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Edit name:"
+#~ msgstr "Naam wijzigen:"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Naam wijzigen"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Annuleer"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Verstuur"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Bijschrift"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Instellingen"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Deze instelling verandert het wachtwoord van uw account. Als u ingelogd "
+#~ "bent op andere apparaten zult u het daar opnieuw in moeten voeren."
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Instellingen"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Wachtwoord wijzigen"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Deze instelling verandert het wachtwoord van uw account. Als u ingelogd "
+#~ "bent op andere apparaten zult u het daar opnieuw in moeten voeren."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Abonneerverzoek"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Je hebt een abonneringsverzoek ontvangen van <b>%1</b>. Als je toestemt "
+#~ "heeft deze account toegang tot je aanwezigheidsupdates."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Afwijzen"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Accepteren"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Bestand"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Profiel"
+
+#, fuzzy
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Naam van contact veranderen"

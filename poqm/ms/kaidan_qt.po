@@ -1,0 +1,1978 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Language: ja\n"
+"X-Qt-Contexts: true\n"
+
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Akaun anda tidak boleh dipadam daripada pelayan. Oleh itu, ia juga tidak "
+"dibuang daripada aplikasi ini: %1"
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Tidak dapat menyimpan fail: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Muat turun gagal: %1"
+
+#: src/Kaidan.cpp:98
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Online"
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Dalam talian"
+
+#: src/Kaidan.cpp:100
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Connecting…"
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr "Menyambung…"
+
+#: src/Kaidan.cpp:102
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Offline"
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Luar talian"
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:164
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Pautan akan dibuka selepas anda disambungkan."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Asal"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Sangat rendah"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Rendah"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Biasa"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Tinggi"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Sangat tinggi"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Kualiti malar"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Kadar bit malar"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Kadar bit purata"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Dua tapis"
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Audio"
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Dokumen"
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "Lokasi"
+
+#: src/MediaUtils.cpp:258
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Imej"
+
+#: src/MediaUtils.cpp:260
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:264
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Fail"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Ambil gambar"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Rakam video"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Rakam suara"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Hantar kedudukan"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Pilih fail"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Pilih imej"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Pilih video"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Pilih fail audio"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Pilih dokumen"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Semua fail"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Imej"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "Fail audio"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Dokumen"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:210
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "Beberan"
+
+#: src/MessageHandler.cpp:256
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "Pembetulan mesej tidak berjaya."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Mesej gagal dihantar."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "Menghantar"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "Dihantar"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr "Diterima"
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Ralat"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr "Tanda sebagai telah dibaca"
+
+#: src/PresenceCache.cpp:63
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Lapang"
+
+#: src/PresenceCache.cpp:65
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Boleh sembang"
+
+#: src/PresenceCache.cpp:67
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Tidak lapang"
+
+#: src/PresenceCache.cpp:69
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Jangan ganggu"
+
+#: src/PresenceCache.cpp:71
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Tidak lapang lebih lama"
+
+#: src/PresenceCache.cpp:73
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Luar talian"
+
+#: src/ProviderListModel.cpp:50
+#, fuzzy
+#| msgctxt "ServerListModel|"
+#| msgid "Custom server"
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr "Pelayan tersuai"
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, fuzzy, qt-format
+#| msgctxt "ServerListModel|"
+#| msgid "%1 days"
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr "%1 hari"
+
+#: src/QmlUtils.cpp:72
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Nama pengguna atau kata laluan tidak sah."
+
+#: src/QmlUtils.cpp:74
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr "Tidak dapat menghubungi pelayan. Sila periksa sambungan internet anda."
+
+#: src/QmlUtils.cpp:76
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Ralat ketika cuba untuk menyambung secara selamat."
+
+#: src/QmlUtils.cpp:78
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "Pelayan tidak menyokong sambungan selamat."
+
+#: src/QmlUtils.cpp:80
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+"Tidak boleh sambung ke pelayan. Sila periksa sambungan internet anda atau "
+"nama pelayan anda."
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr "Pelayan berada di luar talian atau disekat tembok api."
+
+#: src/QmlUtils.cpp:84
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Protokol pengesahan tidak disokong oleh pelayan."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr "Sambungan tidak dapat disegarkan semula."
+
+#: src/QmlUtils.cpp:88
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+"Capaian internet tidak dibenarkan. Sila periksa tatarajah capaian internet "
+"sistem anda."
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr "Pelayan ini tidak menyokong pendaftaran."
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr "%1 berada dalam talian"
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr "%1 sedang menaip…"
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr "%1 berhenti menaip"
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr "Penjanaan kod QR telah gagal: %1"
+
+#: src/RosterManager.cpp:130
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Tidak dapat menambah kenalan, kerana anda tiada sambungan internet."
+
+#: src/RosterManager.cpp:144
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Tidak dapat membuang kenalan, kerana anda tiada sambungan internet."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+"Tidak boleh menamakan semula kenalan, kerana anda tidak bersambung ke "
+"internet."
+
+#: src/UploadManager.cpp:72
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Tidak dapat menghantar fail, kerana anda tidak disambung ke internet."
+
+#: src/UploadManager.cpp:141
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Mesej tidak dapat dihantar."
+
+#: src/VCardModel.cpp:90
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Nama"
+
+#: src/VCardModel.cpp:93
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Nama panggilan"
+
+#: src/VCardModel.cpp:96
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Perihalan"
+
+#: src/VCardModel.cpp:99
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "Emel"
+
+#: src/VCardModel.cpp:102
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Hari lahir"
+
+#: src/VCardModel.cpp:105
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Laman web"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Klien Jabber/XMPP yang mudah, mesra pengguna"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Lesen:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Lihat kod sumber dalam talian"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Laporkan masalah"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "About"
+#~ msgstr "Latar Belakang"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Klien Jabber/XMPP yang mudah, mesra pengguna"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "License:"
+#~ msgstr "Lesen:"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "Sourcecode on GitHub"
+#~ msgstr "Kod sumber di GitHub"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "Close"
+#~ msgstr "Tutup"
+
+#, fuzzy
+#~ msgctxt "AboutSheet|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Klien Jabber/XMPP yang mudah, mesra pengguna"
+
+#, fuzzy
+#~ msgctxt "AboutSheet|"
+#~ msgid "License:"
+#~ msgstr "Lesen:"
+
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete account completely"
+#~ msgstr "Padam keseluruhan akaun"
+
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid ""
+#~ "Your account will be deleted completely, which means from this app and "
+#~ "from the server.\n"
+#~ "You will not be able to use your account again!"
+#~ msgstr ""
+#~ "Akaun anda akan dipadam keseluruhannya, iaitu dipadam daripada aplikasi "
+#~ "ini dan juga daripada pelayan.\n"
+#~ "Anda tidak akan mampu menggunakan akaun anda lagi!"
+
+#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
+#~ msgid "Delete"
+#~ msgstr "Padam"
+
+#~ msgctxt "AccountDeletionFromClientConfirmationPage|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Buang akaun daripada aplikasi ini"
+
+#~ msgctxt "AccountDeletionFromClientConfirmationPage|"
+#~ msgid ""
+#~ "Your account will be removed from this app.\n"
+#~ "You won't be able to get your credentials back!\n"
+#~ "Make sure that you have backed up those if you want to use your account "
+#~ "later."
+#~ msgstr ""
+#~ "Akaun anda akan dibuang daripada aplikasi ini.\n"
+#~ "Anda tidak akan mampu mendapatkan kelayakan anda semula!\n"
+#~ "Sila pastikan anda telah menyandarkan kelayakan sekiranya anda ingin "
+#~ "menggunakan akaun anda pada waktu akan datang."
+
+#~ msgctxt "AccountDeletionFromClientConfirmationPage|"
+#~ msgid "Remove"
+#~ msgstr "Buang"
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid "Delete account"
+#~ msgstr "Padam akaun"
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid ""
+#~ "You can remove your account <b>%1</b> only from this app or delete it "
+#~ "completely. If you delete your account completely, you won't be able to "
+#~ "use it with another app because it is also removed from the server."
+#~ msgstr ""
+#~ "Anda boleh membuang akaun anda <b>%1</b> hanya daripada aplikasi ini atau "
+#~ "memadamnya secara keseluruhannya. Jika anda memadam akaun anda "
+#~ "keseluruhannya, anda tidak akan mampu menggunakan akaun tersebut di "
+#~ "aplikasi lain kerana ia turut dibuang daripada pelayan."
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid "Remove from this app"
+#~ msgstr "Buang daripada aplikasi ini"
+
+#~ msgctxt "AccountDeletionPage|"
+#~ msgid "Delete completely"
+#~ msgstr "Padam keseluruhannya"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Account Security"
+#~ msgstr "Keselamatan Akaun"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Allow to add new devices using a QR-Code, but never show the password as "
+#~ "text. This action can not be undone, so consider storing the password in "
+#~ "another way before using it."
+#~ msgstr ""
+#~ "Membolehkan penambahan peranti baharu menggunakan Kod QR, tetapi tidak "
+#~ "menunjukkan kata laluan sebagai teks. Perbuatan ini tidak boleh diundur, "
+#~ "jadi anda disyorkan untuk menyimpan kata laluan dalam cara yang lain "
+#~ "sebelum menggunakannya."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Disable showing the password"
+#~ msgstr "Lumpuhkan penampakan kata laluan"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Don't expose the password in any form. This action can not be undone."
+#~ msgstr ""
+#~ "Jangan dedah kata laluan dengan sebarang cara. Perbuatan ini tidak boleh "
+#~ "diundur."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Disable showing the QR-Code and password"
+#~ msgstr "Lumpuhkan penampakan Kod QR dan kata laluan"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Allow to add additional devices using the login QR code but never show "
+#~ "the password."
+#~ msgstr ""
+#~ "Benarkan penambahan peranti tambahan menggunakan kod QR log masuk tetapi "
+#~ "jangan tunjukkan kata laluan."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't show password"
+#~ msgstr "Jangan tunjukkan kata laluan"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Neither allow to add additional devices using the login QR code nor show "
+#~ "the password."
+#~ msgstr ""
+#~ "Jangan benarkan penambahan peranti tambahan menggunakan kod QR log masuk "
+#~ "dan jangan tunjukkan kata laluan."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Jangan dedahkan kata laluan dalam sebarang cara"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Pindahkan akaun ke peranti lain"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid ""
+#~ "Scan the QR code or enter the credentials as text on another device to "
+#~ "log in on it.\n"
+#~ "\n"
+#~ "Attention:\n"
+#~ "Never show this QR code to anyone else. It would allow unlimited access "
+#~ "to your account!"
+#~ msgstr ""
+#~ "Imbas kod QR atau masukkan kelayakan sebagai teks di peranti lain untuk "
+#~ "log masuk ke akaun.\n"
+#~ "\n"
+#~ "Perhatian:\n"
+#~ "Jangan sesekali tunjukkan kod QR ini kepada orang lain. Ia akan "
+#~ "membenarkan capaian tanpa had ke akaun anda!"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Chat address:"
+#~ msgstr "Alamat sembang:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Password:"
+#~ msgstr "Kata laluan:"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide QR code"
+#~ msgstr "Sembunyi kod QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as QR code"
+#~ msgstr "Tunjuk sebagai kod QR"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Hide text"
+#~ msgstr "Sembunyi teks"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Show as text"
+#~ msgstr "Tunjuk sebagai teks"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy JID"
+#~ msgstr "Salin JID"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy password"
+#~ msgstr "Salin kata laluan"
+
+#~ msgctxt "AccountTransferPage|"
+#~ msgid "Copy chat address"
+#~ msgstr "Salin alamat sembang"
+
+#~ msgctxt "BackButton|"
+#~ msgid "Navigate Back"
+#~ msgstr "Ke Belakang"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change password"
+#~ msgstr "Tukar kata laluan"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password:"
+#~ msgstr "Kata laluan semasa:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Kata laluan baru:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Kata laluan baru (ulang semula):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "Kata laluan baru yang diulang tidak sepadan."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "Kata laluan semasa tidak sah."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "You need to be connected to change your password."
+#~ msgstr "Anda mesti sambung ke internet untuk menukar kata laluan anda."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid ""
+#~ "After changing your password, you will need to reenter it on all your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Selepas anda menukar kata laluan, anda perlu log masuk semula di kesemua "
+#~ "peranti anda yang lain."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Tukar"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Password changed successfully"
+#~ msgstr "Kata laluan berjaya ditukar"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Gagal menukar kata laluan: %1"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Message copied to clipboard"
+#~ msgstr "Mesej disalin ke papan klip"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy Message"
+#~ msgstr "Salin Mesej"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Edit Message"
+#~ msgstr "Sunting Mesej"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Spoiler"
+#~ msgstr "Beberan"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Muat Turun"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Salin URL muat turun"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Salin mesej"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Sunting mesej"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Salin URL muat turun"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Petik mesej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Compose message"
+#~ msgstr "Tulis mesej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send"
+#~ msgstr "Hantar"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Image"
+#~ msgstr "Imej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Document"
+#~ msgstr "Dokumen"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Other file"
+#~ msgstr "Fail lain"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Select a file"
+#~ msgstr "Pilih fail"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Hantar mesej beberan"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Tip beberan"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Buang bisu pemberitahuan"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Mute notifications"
+#~ msgstr "Bisukan pemberitahuan"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Lihat profil"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Multimedia settings"
+#~ msgstr "Tetapan multimedia"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search"
+#~ msgstr "Cari"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close"
+#~ msgstr "Tutup"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search up"
+#~ msgstr "Cari atas"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Search down"
+#~ msgstr "Cari bawah"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "All files"
+#~ msgstr "Semua fail"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Copy message"
+#~ msgstr "Salin mesej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Edit message"
+#~ msgstr "Sunting mesej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Copy download URL"
+#~ msgstr "Salin URL muat turun"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Quote message"
+#~ msgstr "Petik mesej"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Close message search bar"
+#~ msgstr "Tutup bar gelintar mesej"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Tip beberan"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Close spoiler hint field"
+#~ msgstr "Tutup medan tip beberan"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Compose message"
+#~ msgstr "Karang mesej"
+
+#~ msgctxt "ConfirmationPage|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings"
+#~ msgstr "Tetapan sambungan"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Tukar"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings could not be changed"
+#~ msgstr "Tetapan sambungan tidak dapat ditukar"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings changed"
+#~ msgstr "Tetapan sambungan ditukar"
+
+#~ msgctxt "ContextDrawer|"
+#~ msgid "Actions"
+#~ msgstr "Tindakan"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Hostname:"
+#~ msgstr "Nama hos:"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "The hostname must not contain blank spaces"
+#~ msgstr "Nama hos tidak boleh mengandungi ruang kosong"
+
+#~ msgctxt "CustomConnectionSettings|"
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Remove password completely"
+#~ msgstr "Buang kata laluan sepenuhnya"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be included in the QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Make sure that you backed it up if you want to use your account later."
+#~ msgstr ""
+#~ "Kata laluan anda sudah tidak akan disertakan dalam kod QR.\n"
+#~ "Anda tidak akan mampu log masuk menerusi kod QR tanpa memasukkan kata "
+#~ "laluan anda lagi kerana perbuatan ini tidak boleh diundur!\n"
+#~ "Pastikan anda sandarkannya jika anda ingin gunakan akaun anda kemudian."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Remove password"
+#~ msgstr "Buang kata laluan"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose your password in any way"
+#~ msgstr "Jangan dedahkan kata laluan anda dalam sebarang cara"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will neither be shown as plain text nor included in the "
+#~ "login QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device."
+#~ msgstr ""
+#~ "Kata laluan anda tidak akan ditunjukkan sebagai teks biasa dan tidak akan "
+#~ "disertakan dalam kod QR log masuk.\n"
+#~ "Anda tidak mampu menggunakan log masuk melalui kod QR tanpa memasukkan "
+#~ "kata laluan anda lagi kerana tindakan ini tidak boleh diundurkan!\n"
+#~ "Pertimbangkan untuk menyimpan kata laluan di tempat lain sekiranya anda "
+#~ "ingin gunakan akaun anda di peranti lain."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Jangan dedahkan kata laluan dalam sebarang cara"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Do not show password as text"
+#~ msgstr "Jangan tunjukkan kata laluan sebagai teks"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown as text anymore.\n"
+#~ "You won't be able to see your password as text again because this action "
+#~ "cannot be undone!\n"
+#~ "Make sure that you backed it up if you want to use your account later."
+#~ msgstr ""
+#~ "Kata laluan anda sudah tidak akan ditunjukkan sebagai teks.\n"
+#~ "Anda tidak akan mampu melihat kata laluan anda sebagai teks lagi kerana "
+#~ "perbuatan ini tidak boleh diundur!\n"
+#~ "Pastikan anda sandarkannya jika anda ingin gunakan akaun anda kemudian."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Do not show password"
+#~ msgstr "Jangan tunjuk kata laluan"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show your password"
+#~ msgstr "Jangan tunjukkan kata laluan anda"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown anymore but still exposed via the login "
+#~ "QR code.\n"
+#~ "You won't be able to see your password again because this action cannot "
+#~ "be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device without the login QR code."
+#~ msgstr ""
+#~ "Kata laluan anda tidak akan ditunjukkan lagi tetapi masih didedahkan "
+#~ "melalui kod QR log masuk.\n"
+#~ "Anda tidak mampu melihat kata laluan anda lagi kerana tindakan ini tidak "
+#~ "boleh diundurkan!\n"
+#~ "Pertimbangkan untuk menyimpan kata laluan di tempat lain sekiranya anda "
+#~ "ingin gunakan akaun anda di peranti lain tanpa kod QR log masuk."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show password"
+#~ msgstr "Jangan tunjukkan kata laluan"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Favorites"
+#~ msgstr "Kegemaran"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "People"
+#~ msgstr "Manusia"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Nature"
+#~ msgstr "Alam"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Food"
+#~ msgstr "Makanan"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Activity"
+#~ msgstr "Aktiviti"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Travel"
+#~ msgstr "Perlancongan"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Objects"
+#~ msgstr "Objek"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Symbols"
+#~ msgstr "Simbol"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Flags"
+#~ msgstr "Bendera"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search"
+#~ msgstr "Cari"
+
+#~ msgctxt "EmojiPicker|"
+#~ msgid "Search emoji"
+#~ msgstr "Cari emoji"
+
+#~ msgctxt "EmptyChatPage|"
+#~ msgid "Please select a chat to start messaging"
+#~ msgstr "Sila pilih seseorang untuk mula menghantar mesej"
+
+#~ msgctxt "FileChooser|"
+#~ msgid "Select a file"
+#~ msgstr "Pilih fail"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Close"
+#~ msgstr "Tutup"
+
+#~ msgctxt "FileChooserMobile|"
+#~ msgid "Go to parent folder"
+#~ msgstr "Naik ke folder atas"
+
+#~ msgctxt "ForwardButton|"
+#~ msgid "Navigate Forward"
+#~ msgstr "Ke Depan"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Log out"
+#~ msgstr "Log keluar"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "About"
+#~ msgstr "Latar Belakang"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Add new contact"
+#~ msgstr "Tambah kenalan baru"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Back"
+#~ msgstr "Kembali"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Undang kawan"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invitation link copied to clipboard"
+#~ msgstr "Pautan undangan telah disalin ke papan klip"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Settings"
+#~ msgstr "Tetapan"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Transfer account"
+#~ msgstr "Pindah akaun"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Delete account"
+#~ msgstr "Padam akaun"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Switch device"
+#~ msgstr "Tukar peranti"
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Tidak dapat hantar mesej, kerana anda tiada sambungan internet."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not add contact, as a result of not being connected."
+#~ msgstr "Tidak dapat menambah kenalan, kerana anda tiada sambungan internet."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not remove contact, as a result of not being connected."
+#~ msgstr "Tidak dapat membuang kenalan, kerana anda tiada sambungan internet."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "Could not send file, as a result of not being connected."
+#~ msgstr ""
+#~ "Tidak dapat menghantar fail, kerana anda tidak disambung ke internet."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No password found. Please enter it."
+#~ msgstr "Tiada kata laluan dijumpai. Sila masukkan kata laluan anda."
+
+#~ msgctxt "Kaidan|"
+#~ msgid "No valid login QR code found."
+#~ msgstr "Tiada kod QR log masuk yang sah dijumpai."
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Buang akaun daripada aplikasi ini"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid ""
+#~ "Your account will be removed from this app.\n"
+#~ "Your password will be deleted, make sure it is stored in a password "
+#~ "manager or you know it!"
+#~ msgstr ""
+#~ "Akaun anda akan dibuang daripada aplikasi ini.\n"
+#~ "Kata laluan anda akan dipadam, pastikan ia disimpan dalam pengurus kata "
+#~ "laluan anda atau pastikan anda mengetahui kata laluan anda!"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Remove"
+#~ msgstr "Buang"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Jabber-ID:"
+#~ msgstr "Jabber-ID anda："
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@example.org"
+#~ msgstr "contoh＠emel.com"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your Password:"
+#~ msgstr "Kata Laluan Anda："
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Password"
+#~ msgstr "Kata Laluan"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Retry"
+#~ msgstr "Cuba Lagi"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connect"
+#~ msgstr "Sambung"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Menyambung…"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in"
+#~ msgstr "Log masuk"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "Log masuk akaun XMPP anda"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Your diaspora*-ID:"
+#~ msgstr "ID diaspora* anda:"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "user@diaspora.pod"
+#~ msgstr "nama@diaspora.pod"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Invalid username or password."
+#~ msgstr "Nama pengguna atau kata laluan tidak sah."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Cannot connect to the server. Please check your internet connection."
+#~ msgstr ""
+#~ "Tidak dapat menghubungi pelayan. Sila periksa sambungan internet anda."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "The server doesn't support secure connections."
+#~ msgstr "Pelayan tidak menyokong sambungan selamat."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Error while trying to connect securely."
+#~ msgstr "Ralat ketika cuba untuk menyambung secara selamat."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not resolve the server's address. Please check your JID again."
+#~ msgstr ""
+#~ "Tidak dapat menetapkan alamat pelayan. Sila periksa semula JID anda."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Tidak dapat menghubungi pelayan."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Authentification protocol not supported by the server."
+#~ msgstr "Protokol pengesahan tidak disokong oleh pelayan."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "An unknown error occured; see log for details."
+#~ msgstr ""
+#~ "Telah berlaku ralat tidak diketahui; lihat log untuk maklumat lanjut."
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in using a QR-Code"
+#~ msgstr "Log masuk menggunakan kod QR"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Tetapan sambungan"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Connection settings"
+#~ msgstr "Tetapan sambungan"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid ""
+#~ "The connection settings will be saved permanently after the first "
+#~ "successful login. If they don't work, you'll get back to the login page."
+#~ msgstr ""
+#~ "Tetapan sambungan akan disimpan secara kekal selepas log masuk pertama "
+#~ "yang berjaya. Jika ia tidak berjaya, anda akan kembali ke halaman log "
+#~ "masuk."
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Enable custom connection settings"
+#~ msgstr "Bolehkan tetapan sambungan tersuai"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Hostname:"
+#~ msgstr "Nama hos:"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Reset"
+#~ msgstr "Tetap semula"
+
+#~ msgctxt "LoginSettingsPage|"
+#~ msgid "Apply"
+#~ msgstr "Gunakan"
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not send message, as a result of not being connected."
+#~ msgstr "Tidak dapat hantar mesej, kerana anda tiada sambungan internet."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Could not correct message, as a result of not being connected."
+#~ msgstr ""
+#~ "Tidak dapat membetulkan mesej, kerana anda tidak sambung ke internet."
+
+#~ msgctxt "MessageHandler|"
+#~ msgid "Spoiler"
+#~ msgstr "Beberan"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Tetapan Multimedia"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Configure"
+#~ msgstr "Tetapkan"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image Capture"
+#~ msgstr "Tangkapan Imej"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio Recording"
+#~ msgstr "Rakaman Audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video Recording"
+#~ msgstr "Rakaman Video"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Camera"
+#~ msgstr "Kamera"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio input"
+#~ msgstr "Kemasukan audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Container"
+#~ msgstr "Bekas"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Image"
+#~ msgstr "Imej"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Codec"
+#~ msgstr "Kodek"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Resolution"
+#~ msgstr "Resolusi"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Quality"
+#~ msgstr "Kualiti"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Sample Rate"
+#~ msgstr "Kadar Sampel"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Frame Rate"
+#~ msgstr "Kadar Bingkai"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Ready"
+#~ msgstr "Sedia"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Initializing…"
+#~ msgstr "Mengasalkan…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Unavailable"
+#~ msgstr "Tidak tersedia"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Recording…"
+#~ msgstr "Merakam…"
+
+#~ msgctxt "MultimediaSettings|"
+#~ msgid "Paused"
+#~ msgstr "Dijedakan"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Tetapan Multimedia"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Configure"
+#~ msgstr "Tetapkan"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image Capture"
+#~ msgstr "Tangkapan Imej"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio Recording"
+#~ msgstr "Rakaman Audio"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video Recording"
+#~ msgstr "Rakaman Video"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Camera"
+#~ msgstr "Kamera"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio input"
+#~ msgstr "Kemasukan audio"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Container"
+#~ msgstr "Bekas"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Image"
+#~ msgstr "Imej"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Codec"
+#~ msgstr "Kodek"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Resolution"
+#~ msgstr "Resolusi"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Quality"
+#~ msgstr "Kualiti"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Sample Rate"
+#~ msgstr "Kadar Sampel"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Frame Rate"
+#~ msgstr "Kadar Bingkai"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Ready"
+#~ msgstr "Sedia"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Initializing…"
+#~ msgstr "Mengasalkan…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Unavailable"
+#~ msgstr "Tidak tersedia"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Recording…"
+#~ msgstr "Merakam…"
+
+#~ msgctxt "MultimediaSettingsPage|"
+#~ msgid "Paused"
+#~ msgstr "Dijedakan"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Ready"
+#~ msgstr "Sedia"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Initializing…"
+#~ msgstr "Mengasalkan…"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Unavailable"
+#~ msgstr "Tidak tersedia"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Recording… %1"
+#~ msgstr "Merakam… %1"
+
+#~ msgctxt "NewMedia|"
+#~ msgid "Paused %1"
+#~ msgstr "Dijedakan %1"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove password"
+#~ msgstr "Buang kata laluan"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid ""
+#~ "You can decide to only not show your password for <b>%1</b> as text "
+#~ "anymore or to remove it completely from the account transfer. If you "
+#~ "remove your password completely, you won't be able to use the account "
+#~ "transfer via scanning without entering your password because it is also "
+#~ "removed from the QR code."
+#~ msgstr ""
+#~ "Anda boleh pilih sama ada anda hanya ingin kata laluan anda tidak "
+#~ "ditunjukkan sebagai teks lagi untuk <b>%1</b> ataupun anda ingin membuang "
+#~ "kata laluan sepenuhnya daripada pindahan akaun. Jika anda membuang kata "
+#~ "laluan sepenuhnya, anda tidak akan mampu menggunakan fungsi pindahan "
+#~ "akaun secara imbasan tanpa memasukkan kata laluan anda kerana kata laluan "
+#~ "akan turut dibuang daripada kod QR."
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Do not show password as text"
+#~ msgstr "Jangan tunjuk kata laluan sebagai teks"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove completely"
+#~ msgstr "Buang sepenuhnya"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Available"
+#~ msgstr "Tersedia"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Free for chat"
+#~ msgstr "Lapang untuk sembang"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away"
+#~ msgstr "Tidak lapang"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Do not disturb"
+#~ msgstr "Jangan ganggu"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Away for longer"
+#~ msgstr "Tidak lapang lebih lama"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Offline"
+#~ msgstr "Luar talian"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Error"
+#~ msgstr "Ralat"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid "Invisible"
+#~ msgstr "Tidak kelihatan"
+
+#~ msgctxt "QmlUtils|"
+#~ msgid ""
+#~ "Could not resolve the server's address. Please check your server name."
+#~ msgstr ""
+#~ "Tidak dapat menyelesaikan alamat pelayan. Sila periksa nama pelayan anda."
+
+#, fuzzy
+#~ msgctxt "QmlUtils|"
+#~ msgid "Could not connect to the server."
+#~ msgstr "Tidak dapat menghubungi pelayan."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Imbas kod QR"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Show explanation"
+#~ msgstr "Tunjukkan penjelasan"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Teruskan tanpa kod QR"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "Imbas kod QR dari peranti anda yang sedia ada untuk memindahkan akaun "
+#~ "anda."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Menyambung…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "This QR code is not a valid login QR code."
+#~ msgstr "Kod QR ini bukannya kod QR log masuk yang sah."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Format kamera '%1' tidak disokong."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid "There is no camera available."
+#~ msgstr "Tiada kamera tersedia."
+
+#~ msgctxt "QrCodeScanner|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Kamera anda sibuk.\n"
+#~ "Cuba tutup aplikasi lain yang menggunakan kamera."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan QR code"
+#~ msgstr "Imbas kod QR"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "There is no camera available."
+#~ msgstr "Tiada kamera tersedia."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid ""
+#~ "Your camera is busy.\n"
+#~ "Try to close other applications using the camera."
+#~ msgstr ""
+#~ "Kamera anda sibuk.\n"
+#~ "Cuba tutup aplikasi lain yang menggunakan kamera."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "The camera format '%1' is not supported."
+#~ msgstr "Format kamera '%1' tidak disokong."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Logging in…"
+#~ msgstr "Sedang log masuk…"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "Imbas kod QR daripada peranti anda yang sedia ada untuk memindahkan akaun "
+#~ "anda."
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Show explanation"
+#~ msgstr "Tunjukkan penjelasan"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Scan"
+#~ msgstr "Imbas"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Teruskan tanpa kod QR"
+
+#~ msgctxt "QrCodeScannerPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Menyambung…"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "Persediakan"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "Daftar akaun baharu"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "Guna akaun sedia ada"
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Password changed successfully."
+#~ msgstr "Kata laluan berjaya ditukar."
+
+#~ msgctxt "RegistrationManager|"
+#~ msgid "Failed to change password: %1"
+#~ msgstr "Gagal menukar kata laluan: %1"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete account completely"
+#~ msgstr "Padam akaun keseluruhannya"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid ""
+#~ "Your account will be deleted completely, which means from this app and "
+#~ "from the server.\n"
+#~ "You will not be able to use your account again!"
+#~ msgstr ""
+#~ "Akaun anda akan dipadam keseluruhannya, iaitu dipadam daripada aplikasi "
+#~ "ini dan juga daripada pelayan.\n"
+#~ "Anda tidak akan mampu menggunakan akaun anda lagi!"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete"
+#~ msgstr "Padam"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Nama panggilan:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "ID Jabber:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "contohemel@example.org"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add"
+#~ msgstr "Tambah"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Add new contact"
+#~ msgstr "Tambah kenalan baru"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Ini juga akan menghantar permintaan untuk mencapai kehadiran kenalan."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Mesej pilihan:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Beritahu pasangan sembang siapakah diri anda sebenarnya."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error: Please check the JID."
+#~ msgstr "Ralat: Sila periksa JID."
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Available"
+#~ msgstr "Sedang lapang"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Free for chat"
+#~ msgstr "Boleh sembang"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away"
+#~ msgstr "Tidak lapang"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Do not disturb"
+#~ msgstr "Jangan ganggu"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Away for longer"
+#~ msgstr "Tidak lapang lebih lama"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Offline"
+#~ msgstr "Tiada dalam talian"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Error"
+#~ msgstr "Ralat"
+
+#~ msgctxt "RosterListItem|"
+#~ msgid "Invalid"
+#~ msgstr "Tidak sah"
+
+#~ msgctxt "RosterManager|"
+#~ msgid "Spoiler"
+#~ msgstr "Beberan"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Kenalan"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Tambah kenalan baru"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Menyambung…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Luar talian"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Cari kenalan"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact \"%1\" from your roster?"
+#~ msgstr "Adakah anda ingin memadam kenalan \"%1\" daripada roster anda?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Padam kenalan"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Padam"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#~ msgstr "Adakah anda ingin memadam kenalan <b>%1</b> daripada senarai anda?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid ""
+#~ "Do you really want to delete the contact <b>%1</b> from your contact list?"
+#~ msgstr ""
+#~ "Adakah anda pasti anda ingin padam kenalan <b>%1</b> dari senarai kenalan "
+#~ "anda?"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Namakan semula kenalan"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Edit name:"
+#~ msgstr "Sunting nama:"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Namakan semula"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Send"
+#~ msgstr "Hantar"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Kapsyen"
+
+#~ msgctxt "ServerListModel|"
+#~ msgid "No limitation"
+#~ msgstr "Tiada had"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Tukar kata laluan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Tukar kata laluan akaun anda. Anda perlu masukkan ia semula di kesemua "
+#~ "peranti anda yang lain."
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Tetapan Multimedia"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure photo, video and audio recording settings"
+#~ msgstr "Menatarajah tetapan rakaman gambar, video dan audio"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Settings"
+#~ msgstr "Tetapan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Account security"
+#~ msgstr "Keselamatan akaun"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "configure whether this device can be used to log in on a new device"
+#~ msgstr ""
+#~ "tetapkan sama ada peranti ini boleh digunakan untuk log masuk peranti "
+#~ "baharu"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from Kaidan"
+#~ msgstr "Buang akaun daripada Kaidan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Remove account from this app"
+#~ msgstr "Buang akaun daripada aplikasi ini"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account"
+#~ msgstr "Padam akaun"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account from the server"
+#~ msgstr "Padam akaun daripada pelayan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Connection Settings"
+#~ msgstr "Tetapan Sambungan"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure the hostname and port to connect to"
+#~ msgstr "Tetapkan nama hos dan port untuk disambung"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Configure whether this device can be used to log in on a new device"
+#~ msgstr ""
+#~ "Tetapkan sama ada peranti ini boleh digunakan untuk log masuk di peranti "
+#~ "baharu"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Configure whether this device can be used to log in on another device"
+#~ msgstr ""
+#~ "Tetapkan sama ada peranti ini boleh digunakan untuk log masuk di peranti "
+#~ "yang lain"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Settings"
+#~ msgstr "Tetapan"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid "Change password"
+#~ msgstr "Tukar kata laluan"
+
+#~ msgctxt "SettingsPage|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Tukar kata laluan akaun anda. Anda perlu log masuk semula di kesemua "
+#~ "peranti anda yang lain."
+
+#, fuzzy
+#~ msgctxt "SettingsPage|"
+#~ msgid "Multimedia Settings"
+#~ msgstr "Tetapan Multimedia"
+
+#~ msgctxt "SettingsSheet|"
+#~ msgid "Settings"
+#~ msgstr "Tetapan"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Enjoy free communication on every device!"
+#~ msgstr "Nikmati perhubungan percuma di setiap peranti!"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "Mari mulakan"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Subscription Request"
+#~ msgstr "Permintaan Langganan"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid ""
+#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
+#~ "account will have access to your presence status."
+#~ msgstr ""
+#~ "Anda mendapat permintaan langganan daripada <b>%1</b>. Jika anda terima, "
+#~ "akaun tersebut boleh mencapai status kehadiran anda."
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Decline"
+#~ msgstr "Tolak"
+
+#~ msgctxt "SubRequestAcceptSheet|"
+#~ msgid "Accept"
+#~ msgstr "Terima"
+
+#~ msgctxt "ToolBarApplicationHeader|"
+#~ msgid "More Actions"
+#~ msgstr "Tindakan Lanjut"
+
+#, fuzzy
+#~ msgctxt "ToolBarPageHeader|"
+#~ msgid "More Actions"
+#~ msgstr "Tindakan Lanjut"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "File"
+#~ msgstr "Fail"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Profil"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Namakan semula kenalan"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Show QR code"
+#~ msgstr "Tunjuk kod QR"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Remove contact"
+#~ msgstr "Buang kenalan"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Online devices"
+#~ msgstr "Peranti dalam talian"
