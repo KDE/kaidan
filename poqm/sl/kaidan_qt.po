@@ -1,12 +1,19 @@
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-25 07:09+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 21.12.2\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -31,25 +38,16 @@ msgid "Download failed: %1"
 msgstr "Prenos spodletel: %1"
 
 #: src/Kaidan.cpp:98
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Online"
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Povezan"
 
 #: src/Kaidan.cpp:100
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
 #: src/Kaidan.cpp:102
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Offline"
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Nepovezan"
@@ -71,27 +69,27 @@ msgstr "Privzeto"
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "Zelo nizko"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "Nizko"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "Normalno"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "Visoko"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "Zelo visoko"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
@@ -222,7 +220,7 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:210
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "Spoiler"
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
@@ -290,12 +288,9 @@ msgid "Offline"
 msgstr "Nepovezan"
 
 #: src/ProviderListModel.cpp:50
-#, fuzzy
-#| msgctxt "ServerListModel|"
-#| msgid "Custom server"
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Strežnik po meri"
+msgstr "Ponudnik po meri"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -303,12 +298,10 @@ msgstr "Strežnik po meri"
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Neomejeno"
 
 #: src/ProviderListModel.cpp:130
-#, fuzzy, qt-format
-#| msgctxt "ServerListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr "%1 dni"
@@ -351,7 +344,7 @@ msgstr "Strežnik ni povezan ali pa je blokiran s strani požarnega zidu."
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr ""
+msgstr "Protokol za avtentikacijo na strežniku ni podprt."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
@@ -432,10 +425,9 @@ msgid "Nickname"
 msgstr "Vzdevek"
 
 #: src/VCardModel.cpp:96
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "Opis"
+msgstr "O programu"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"

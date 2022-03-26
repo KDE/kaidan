@@ -1,11 +1,18 @@
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-25 14:42+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: \n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -14,6 +21,8 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
+"Uw account kon niet van de server worden verwijderd. Het is daarom ook niet "
+"uit deze toepassing verwijderd: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
@@ -28,21 +37,16 @@ msgid "Download failed: %1"
 msgstr "Downloaden mislukt: %1"
 
 #: src/Kaidan.cpp:98
-#, fuzzy
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr "Offline"
+msgstr "Online"
 
 #: src/Kaidan.cpp:100
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "Verbinden…"
+msgstr "Bezig met verbinden…"
 
 #: src/Kaidan.cpp:102
-#, fuzzy
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
@@ -107,13 +111,11 @@ msgid "Two pass"
 msgstr "Twee passen"
 
 #: src/MediaUtils.cpp:252
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Geluid"
+msgstr "Audio"
 
 #: src/MediaUtils.cpp:254
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
@@ -121,22 +123,19 @@ msgstr "Document"
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 #: src/MediaUtils.cpp:258
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Afbeelding"
 
 #: src/MediaUtils.cpp:260
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
 #: src/MediaUtils.cpp:264
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Bestand"
@@ -194,31 +193,30 @@ msgstr "Alle bestanden"
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "Afbeeldingen"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "Video's"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "Geluidsbestanden"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "Documenten"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -236,20 +234,19 @@ msgstr "Het bericht kon niet worden verzonden."
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "In behandeling"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "Verzonden"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "Afgeleverd"
 
 #: src/MessageModel.cpp:233
-#, fuzzy
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
@@ -257,40 +254,34 @@ msgstr "Fout"
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Markeren als gelezen"
 
 #: src/PresenceCache.cpp:63
-#, fuzzy
 msgctxt "QObject|"
 msgid "Available"
 msgstr "Beschikbaar"
 
 #: src/PresenceCache.cpp:65
-#, fuzzy
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr "Beschikbaar voor gesprek"
+msgstr "Beschikbaar voor chat"
 
 #: src/PresenceCache.cpp:67
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away"
 msgstr "Afwezig"
 
 #: src/PresenceCache.cpp:69
-#, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "Niet storen"
 
 #: src/PresenceCache.cpp:71
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
 msgstr "Langere tijd afwezig"
 
 #: src/PresenceCache.cpp:73
-#, fuzzy
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Offline"
@@ -298,7 +289,7 @@ msgstr "Offline"
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "Aangepaste leverancier"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -306,35 +297,31 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Onbeperkt"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dagen"
 
 #: src/QmlUtils.cpp:72
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Ongeldige gebruikersnaam of wachtwoord."
 
 #: src/QmlUtils.cpp:74
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Kan geen verbinding maken met de server. Controleer uw internetverbinding."
 
 #: src/QmlUtils.cpp:76
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "Fout bij het maken van een beveiligde verbinding."
+msgstr "Fout bij het poging een beveiligde verbinding te maken."
 
 #: src/QmlUtils.cpp:78
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "De server ondersteunt geen beveiligde verbindingen."
@@ -345,14 +332,15 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"Kon geen verbinding maken met de server. Controleer uw internetverbinding of "
+"de naam van uw server."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "De server is offline of geblokkeerd door een firewall."
 
 #: src/QmlUtils.cpp:84
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Authenticatieprotocol niet ondersteund door de server."
@@ -360,7 +348,7 @@ msgstr "Authenticatieprotocol niet ondersteund door de server."
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "De verbinding kon niet vernieuwd worden."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -368,35 +356,37 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"Internettoegang is niet toegestaan. Controleer de configuratie van de "
+"internettoegang van uw systeem."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "Deze server ondersteunt geen registratie."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 is online"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 is bezig met typen…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1 is gepauzeerd met typen"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "De QR-code genereren is mislukt: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
@@ -421,10 +411,9 @@ msgid "Could not send file, as a result of not being connected."
 msgstr "Kon bestand niet verzenden omdat er geen verbinding is."
 
 #: src/UploadManager.cpp:141
-#, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "Het bericht kon niet worden verzonden."
+msgstr "Bericht kon niet worden verzonden."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"

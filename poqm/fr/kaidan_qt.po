@@ -1,14 +1,18 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: kaidan_qt\n"
+"PO-Revision-Date: 2022-03-25 18:32+0100\n"
+"Last-Translator: KDE Francophone <kde-francophone@kde.org>\n"
+"Language-Team: KDE Francophone <kde-francophone@kde.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Language: fr\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:269
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "ClientWorker|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -18,13 +22,13 @@ msgstr ""
 "supprimé non plus de l’application : %1"
 
 #: src/DownloadManager.cpp:129
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Impossible d’enregistrer le fichier : %1"
 
 #: src/DownloadManager.cpp:154
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
 msgstr "Échec du téléchargement : %1"
@@ -55,6 +59,7 @@ msgstr "Hors ligne"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
+#, fuzzy
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Kaidan ouvrira le lien une fois que vous serez connecté(e)."
@@ -63,227 +68,271 @@ msgstr "Kaidan ouvrira le lien une fois que vous serez connecté(e)."
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
 #: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
 #: src/MediaRecorder.cpp:1244
+#, fuzzy
 msgctxt "MediaRecorder|"
 msgid "Default"
 msgstr "Par défaut"
 
 #: src/MediaSettings.cpp:161
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
 msgstr "Très basse"
 
 #: src/MediaSettings.cpp:163
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
 msgstr "Basse"
 
 #: src/MediaSettings.cpp:165
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
 msgstr "Normale"
 
 #: src/MediaSettings.cpp:167
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "High"
 msgstr "Élevée"
 
 #: src/MediaSettings.cpp:169
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
 msgstr "Très élevée"
 
 #: src/MediaSettings.cpp:180
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
 msgstr "Qualité constante"
 
 #: src/MediaSettings.cpp:182
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
 msgstr "Débit constant"
 
 #: src/MediaSettings.cpp:184
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
 msgstr "Débit moyen"
 
 #: src/MediaSettings.cpp:186
+#, fuzzy
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
 msgstr "Deux passes"
 
 #: src/MediaUtils.cpp:252
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
 #: src/MediaUtils.cpp:254
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
 #: src/MediaUtils.cpp:256
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Position"
 
 #: src/MediaUtils.cpp:258
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Image"
 
 #: src/MediaUtils.cpp:260
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Vidéo"
 
 #: src/MediaUtils.cpp:264
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fichier"
 
 #: src/MediaUtils.cpp:273
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Prendre une photo"
 
 #: src/MediaUtils.cpp:275
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Enregistrer une vidéo"
 
 #: src/MediaUtils.cpp:277
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Enregistrer ma voix"
 
 #: src/MediaUtils.cpp:279
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Envoyer ma position"
 
 #: src/MediaUtils.cpp:317
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Choisir un fichier"
 
 #: src/MediaUtils.cpp:319
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Choisir une image"
 
 #: src/MediaUtils.cpp:321
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Choisir une vidéo"
 
 #: src/MediaUtils.cpp:323
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Choisir un fichier audio"
 
 #: src/MediaUtils.cpp:325
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Choisir un document"
 
 #: src/MediaUtils.cpp:347
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tous les fichiers"
 
 #: src/MediaUtils.cpp:349
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Images"
 
 #: src/MediaUtils.cpp:351
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Vidéos"
 
 #: src/MediaUtils.cpp:353
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fichiers audio"
 
 #: src/MediaUtils.cpp:355
+#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documents"
 
 #: src/MediaUtils.cpp:380
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
+#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avertissement sur le contenu"
 
 #: src/MessageHandler.cpp:256
+#, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
 msgstr "La correction du message a échoué."
 
 #: src/MessageHandler.cpp:329
+#, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Le message n’a pas pu être envoyé."
 
 #: src/MessageModel.cpp:227
+#, fuzzy
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "En attente"
 
 #: src/MessageModel.cpp:229
+#, fuzzy
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Envoyé"
 
 #: src/MessageModel.cpp:231
+#, fuzzy
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Distribué"
 
 #: src/MessageModel.cpp:233
+#, fuzzy
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erreur"
 
 #: src/Notifications.cpp:69
+#, fuzzy
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marquer comme lu"
 
 #: src/PresenceCache.cpp:63
+#, fuzzy
 msgctxt "QObject|"
 msgid "Available"
 msgstr "Disponible"
 
 #: src/PresenceCache.cpp:65
+#, fuzzy
 msgctxt "QObject|"
 msgid "Free for chat"
 msgstr "Libre pour discuter"
 
 #: src/PresenceCache.cpp:67
+#, fuzzy
 msgctxt "QObject|"
 msgid "Away"
 msgstr "Absent(e)"
 
 #: src/PresenceCache.cpp:69
+#, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "Ne pas déranger"
 
 #: src/PresenceCache.cpp:71
+#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
 msgstr "Absence prolongée"
 
 #: src/PresenceCache.cpp:73
+#, fuzzy
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Hors ligne"
@@ -313,11 +362,13 @@ msgid "%1 days"
 msgstr "%1 jours"
 
 #: src/QmlUtils.cpp:72
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Identifiant ou mot de passe invalide."
 
 #: src/QmlUtils.cpp:74
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
@@ -325,16 +376,19 @@ msgstr ""
 "Internet."
 
 #: src/QmlUtils.cpp:76
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Une erreur est survenue lors de la connexion sécurisée."
 
 #: src/QmlUtils.cpp:78
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Le serveur ne permet pas les connexions sécurisées."
 
 #: src/QmlUtils.cpp:80
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -344,21 +398,25 @@ msgstr ""
 "Internet et les paramètres du serveur."
 
 #: src/QmlUtils.cpp:82
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Le server est hors ligne ou bloqué par un pare-feu."
 
 #: src/QmlUtils.cpp:84
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Protocole d’authentification non pris en charge par le serveur."
 
 #: src/QmlUtils.cpp:86
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "La connexion ne peut pas être actualisée."
 
 #: src/QmlUtils.cpp:88
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -368,85 +426,97 @@ msgstr ""
 "système."
 
 #: src/QmlUtils.cpp:90
+#, fuzzy
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Ce serveur ne gère pas les inscriptions."
 
 #: src/QmlUtils.cpp:228
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 est en ligne"
 
 #: src/QmlUtils.cpp:230
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 écrit…"
 
 #: src/QmlUtils.cpp:232
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 a arrêté d’écrire"
 
 #: src/QrCodeGenerator.cpp:89
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "La génération du code QR a échoué : %1"
 
 #: src/RosterManager.cpp:130
+#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Impossible d’ajouter un contact car vous n’êtes pas connecté(e)."
 
 #: src/RosterManager.cpp:144
+#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Impossible de supprimer le contact car vous n’êtes pas connecté(e)."
 
 #: src/RosterManager.cpp:157
+#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Impossible de renommer le contact car vous n’êtes pas connecté(e)."
 
 #: src/UploadManager.cpp:72
+#, fuzzy
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "Impossible d’envoyer le fichier car vous n’êtes pas connecté(e)."
 
 #: src/UploadManager.cpp:141
+#, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "Le message n’a pas pu être envoyé."
 
 #: src/VCardModel.cpp:90
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Nom"
 
 #: src/VCardModel.cpp:93
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Pseudo"
 
 #: src/VCardModel.cpp:96
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "À propos"
 
 #: src/VCardModel.cpp:99
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "Courriel"
 
 #: src/VCardModel.cpp:102
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Anniversaire"
 
 #: src/VCardModel.cpp:105
+#, fuzzy
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site web"

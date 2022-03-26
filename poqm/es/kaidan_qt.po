@@ -1,11 +1,18 @@
+# Eloy Cuadra <ecuadra@eloihr.net>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-26 01:12+0100\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -14,50 +21,41 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"No se pudo eliminar la cuenta del servidor. Por ello, tampoco se ha quitado "
-"de esta aplicación: %1"
+"No se ha podido borrar la cuenta del servidor. Por ello, tampoco se ha "
+"eliminado de esta aplicación: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr "No se pudo guardar el archivo: %1"
+msgstr "No se ha podido guardar el archivo: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr "Error de descarga: %1"
+msgstr "La descarga ha fallado: %1"
 
 #: src/Kaidan.cpp:98
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Online"
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línea"
 
 #: src/Kaidan.cpp:100
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Conectando…"
 
 #: src/Kaidan.cpp:102
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Offline"
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr "Desconectado"
+msgstr "Sin conexión"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr "El enlace se abrirá después de que se haya conectado."
+msgstr "El enlace se abrirá cuando se haya conectado."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -105,7 +103,7 @@ msgstr "Tasa de bits constante"
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr "Tasa de bits promedio"
+msgstr "Tasa de bits media"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
@@ -113,13 +111,11 @@ msgid "Two pass"
 msgstr "Dos pasadas"
 
 #: src/MediaUtils.cpp:252
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Audio"
+msgstr "Sonido"
 
 #: src/MediaUtils.cpp:254
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Documento"
@@ -127,22 +123,19 @@ msgstr "Documento"
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #: src/MediaUtils.cpp:258
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Imagen"
 
 #: src/MediaUtils.cpp:260
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Vídeo"
 
 #: src/MediaUtils.cpp:264
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Archivo"
@@ -170,27 +163,27 @@ msgstr "Enviar ubicación"
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr "Elegir archivo"
+msgstr "Escoger archivo"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr "Elegir imagen"
+msgstr "Escoger imagen"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr "Elegir vídeo"
+msgstr "Escoger vídeo"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Elegir archivo de audio"
+msgstr "Escoger archivo de sonido"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr "Elegir documento"
+msgstr "Escoger documento"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
@@ -210,7 +203,7 @@ msgstr "Vídeos"
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr "Archivos de audio"
+msgstr "Archivos de sonido"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
@@ -224,10 +217,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "«Spoiler»"
+msgstr "Espóiler"
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
@@ -247,7 +239,7 @@ msgstr "Pendiente"
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr "Envié"
+msgstr "Enviado"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
@@ -257,7 +249,7 @@ msgstr "Entregado"
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr "Errores"
+msgstr "Error"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
@@ -265,7 +257,6 @@ msgid "Mark as read"
 msgstr "Marcar como leído"
 
 #: src/PresenceCache.cpp:63
-#, fuzzy
 msgctxt "QObject|"
 msgid "Available"
 msgstr "Disponible"
@@ -273,39 +264,32 @@ msgstr "Disponible"
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "Libre para chatear"
 
 #: src/PresenceCache.cpp:67
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away"
 msgstr "Ausente"
 
 #: src/PresenceCache.cpp:69
-#, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "No molestar"
 
 #: src/PresenceCache.cpp:71
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "Ausente por bastante tiempo"
+msgstr "Ausente desde hace mucho"
 
 #: src/PresenceCache.cpp:73
-#, fuzzy
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Desconectado"
 
 #: src/ProviderListModel.cpp:50
-#, fuzzy
-#| msgctxt "ServerListModel|"
-#| msgid "Custom server"
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Servidor personalizado"
+msgstr "Proveedor personalizado"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -313,12 +297,10 @@ msgstr "Servidor personalizado"
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Sin límite"
 
 #: src/ProviderListModel.cpp:130
-#, fuzzy, qt-format
-#| msgctxt "ServerListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr "%1 días"
@@ -326,7 +308,7 @@ msgstr "%1 días"
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "Usuario o contraseña no válido."
+msgstr "Nombre de usuario o contraseña no válidos."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
@@ -337,7 +319,7 @@ msgstr ""
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "Error al intentar conectar de forma segura."
+msgstr "Ha ocurrido un error al intentar conectar de forma segura."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
@@ -350,11 +332,13 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"No se ha podido conectar al servidor. Compruebe la conexión a internet o el "
+"nombre del servidor."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "El servidor está desconectado o bloqueado por un cortafuegos."
+msgstr "El servidor no está conectado o está bloqueado por un cortafuegos."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
@@ -364,7 +348,7 @@ msgstr "El servidor no admite el protocolo de autenticación."
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr "No se pudo actualizar la conexión."
+msgstr "No se ha podido actualizar la conexión."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -372,62 +356,63 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"No se permite el acceso a internet. Compruebe la configuración de acceso a "
-"internet del sistema."
+"No se permite el acceso a internet. Compruebe la configuración del sistema "
+"para acceder a internet."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr "Este servidor no admite registros."
+msgstr "Este servidor no admite registro."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 está conectado"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 está escribiendo..."
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1 ha dejado de escribir"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "Falló la generación del código QR: %1"
+msgstr "Ha fallado la generación del código QR: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "No se pudo añadir el contacto porque no está conectado."
+msgstr "No se ha podido añadir el contacto porque no está conectado."
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "No se pudo eliminar el contacto porque no está conectado."
+msgstr "No se ha podido eliminar el contacto porque no está conectado."
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr "No se pudo cambiar el nombre del contacto porque no está conectado."
+msgstr ""
+"No se ha podido cambiar el nombre del contacto porque no está conectado."
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr "No se pudo enviar el archivo porque no está conectado."
+msgstr "No se ha podido enviar el archivo porque no está conectado."
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "El mensaje no se pudo enviar."
+msgstr "No se ha podido enviar el mensaje."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
