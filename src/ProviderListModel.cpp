@@ -240,12 +240,12 @@ ProviderListModel::Locale ProviderListModel::systemLocale() const
 	// retrieved.
 	if (systemLocaleParts.size() >= 2) {
 		return {
-			.languageCode = systemLocaleParts.first().toUpper(),
-			.countryCode = systemLocaleParts.last()
+			systemLocaleParts.first().toUpper(),
+			systemLocaleParts.last()
 		};
 	}
 	return {
-		.languageCode = DEFAULT_LANGUAGE_CODE.toString(),
-		.countryCode = DEFAULT_COUNTRY_CODE.toString()
+		DEFAULT_LANGUAGE_CODE.toString(),
+		DEFAULT_COUNTRY_CODE.toString()
 	};
 }
