@@ -1,27 +1,17 @@
-# Translation of kaidan_qt.po to Catalan
-# Copyright (C) 2019-2022 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
-# or the same license as the source of its messages in English.
-#
-# Joan CiberSheep <cibersheep@gmail.com>, 2019.
-# Txaume <txaumevw@gmail.com>, 2019.
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-03-25 13:37+0100\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-26 10:58+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Language: ca\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 20.12.0\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.08.1\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -30,41 +20,41 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
-"eliminat d'aquesta aplicació: %1"
+"Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
+"tagits bort från programmet: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr "No s'ha pogut desar el fitxer: %1"
+msgstr "Kunde inte spara filen: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "Nerladdning misslyckades: %1"
 
 #: src/Kaidan.cpp:98
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr "En línia"
+msgstr "Uppkopplad"
 
 #: src/Kaidan.cpp:100
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "S'està connectant…"
+msgstr "Ansluter…"
 
 #: src/Kaidan.cpp:102
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr "Fora de línia"
+msgstr "Nerkopplad"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
+msgstr "Länken öppnas efter du har anslutit."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -72,17 +62,17 @@ msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr "Predeterminat"
+msgstr "Förval"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr "Molt baixa"
+msgstr "Mycket låg"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr "Baixa"
+msgstr "Låg"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
@@ -92,132 +82,132 @@ msgstr "Normal"
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr "Alta"
+msgstr "Hög"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr "Molt alta"
+msgstr "Mycket hög"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr "Qualitat constant"
+msgstr "Konstant kvalitet"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr "Velocitat de bits constant"
+msgstr "Konstant bithastighet"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr "Velocitat de bits mitjana"
+msgstr "Medelbithastighet"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr "Dues passades"
+msgstr "Två genomgångar"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Àudio"
+msgstr "Ljud"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr "Document"
+msgstr "Dokument"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr "Ubicació"
+msgstr "Plats"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr "Imatge"
+msgstr "Bild"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Video"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr "Fitxer"
+msgstr "Fil"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr "Pren una fotografia"
+msgstr "Ta en bild"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr "Enregistra un vídeo"
+msgstr "Spela in video"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr "Enregistra una veu"
+msgstr "Spela in röst"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr "Envia la ubicació"
+msgstr "Skicka plats"
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr "Trieu un fitxer"
+msgstr "Välj fil"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr "Trieu una imatge"
+msgstr "Välj bild"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr "Trieu un vídeo"
+msgstr "Välj video"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Trieu un fitxer d'àudio"
+msgstr "Välj ljudfil"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr "Trieu un document"
+msgstr "Välj dokument"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr "Tots els fitxers"
+msgstr "Alla filer"
 
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr "Imatges"
+msgstr "Bilder"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr "Vídeos"
+msgstr "Videor"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr "Fitxers d'àudio"
+msgstr "Ljudfiler"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr "Documents"
+msgstr "Dokument"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
@@ -228,77 +218,77 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:210
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "Espòiler"
+msgstr "Spoiler"
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr "La correcció del missatge no ha anat bé."
+msgstr "Rättning av meddelande lyckades inte."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "Meddelande kunde inte skickas."
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr "Pendent"
+msgstr "Väntande"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr "Enviat"
+msgstr "Skickat"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr "Lliurat"
+msgstr "Levererat"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr "Error"
+msgstr "Fel"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr "Marca com a llegit"
+msgstr "Markera som läst"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr "Disponible"
+msgstr "Tillgängligt"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr "Lliure per a xat"
+msgstr "Ledig för chatt"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr "Absent"
+msgstr "Borta"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr "No destorbar"
+msgstr "Stör ej"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "Absent des de fa estona"
+msgstr "Borta en längre tid"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr "Desconnectat"
+msgstr "Nerkopplad"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Proveïdor personalitzat"
+msgstr "Egen leverantör"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -306,34 +296,33 @@ msgstr "Proveïdor personalitzat"
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr "Sense límit"
+msgstr "Obegränsat"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr "%1 dies"
+msgstr "%1 dagar"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "El nom d'usuari o la contrasenya són incorrectes."
+msgstr "Ogiltigt användarnamn eller lösenord."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
+msgstr "Kan inte ansluta till servern. Kontrollera Internetanslutningen."
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "S'ha produït un error en provar de connectar de forma segura."
+msgstr "Fel vid försöka att ansluta säkert."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr "El servidor no és compatible amb les connexions segures."
+msgstr "Servern stöder inte säkra anslutningar."
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
@@ -341,23 +330,23 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
-"o el vostre nom de servidor."
+"Kunde inte ansluta till servern. Kontrollera Internetanslutningen eller "
+"servernamnet."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
+msgstr "Servern är nerkopplad eller blockerad av en brandvägg."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "El servidor no admet el protocol d'autenticació."
+msgstr "Behörighetskontrollprotokollet stöds inte av servern."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr "No s'ha pogut actualitzar la connexió."
+msgstr "Anslutningen kunde inte uppdateras."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -365,90 +354,91 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"No es permet l'accés a Internet. Comproveu la configuració d'accés a "
-"Internet del sistema."
+"Internetanslutning tillåts inte. Kontrollera systemets inställning av "
+"Internetåtkomst."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr "Aquest servidor no permet el registre."
+msgstr "Servern stöder inte registrering."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr "%1 està en línia"
+msgstr "%1 är uppkopplad"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr "%1 està escrivint…"
+msgstr "%1 skriver…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr "%1 ha parat d'escriure…"
+msgstr "%1 slutade skriva"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "Ha fallat en generar el codi QR: %1"
+msgstr "Misslyckades skapa QR-kod: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
+msgstr ""
+"Kunde inte lägga till kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
+msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
-"No s'ha pogut reanomenar el contacte, com a resultat de no estar connectat."
+"Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr "No s'ha pogut enviar el fitxer perquè no hi ha connexió."
+msgstr "Kunde inte skicka fil som resultat av att inte vara uppkopplad."
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "Meddelande kunde inte skickas."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr "Nom"
+msgstr "Namn"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr "Sobrenom"
+msgstr "Smeknamn"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "Quant a"
+msgstr "Om"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "Correu-e"
+msgstr "E-post"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr "Aniversari"
+msgstr "Födelsedag"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr "Lloc web"
+msgstr "Webbplats"
