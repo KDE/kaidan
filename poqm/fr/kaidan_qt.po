@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-03-26 08:15+0100\n"
+"PO-Revision-Date: 2022-03-26 19:39+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -14,14 +14,14 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:269
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ClientWorker|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"Votre compte ne peut pas être supprimé du serveur. Il n’a donc pas été "
-"supprimé non plus de l’application : %1"
+"Il a été impossible de supprimer votre compte du serveur. Par conséquent, il "
+"n'a pas non plus été supprimé de cette application : %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
@@ -52,10 +52,9 @@ msgstr "Hors ligne"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
-#, fuzzy
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr "Kaidan ouvrira le lien une fois que vous serez connecté(e)."
+msgstr "Le lien ne sera ouvert qu'une fois que vous vous serez connecté."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -319,11 +318,10 @@ msgid "Invalid username or password."
 msgstr "Identifiant ou mot de passe invalide."
 
 #: src/QmlUtils.cpp:74
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
-"Impossible de se connecter au serveur. Veuillez vérifier votre connexion "
+"Impossible de se connecter au serveur. Veuillez vérifier la connexion à "
 "Internet."
 
 #: src/QmlUtils.cpp:76
@@ -333,32 +331,29 @@ msgid "Error while trying to connect securely."
 msgstr "Une erreur est survenue lors de la connexion sécurisée."
 
 #: src/QmlUtils.cpp:78
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr "Le serveur ne permet pas les connexions sécurisées."
+msgstr "Le serveur ne prend pas en charge les connexions sécurisées."
 
 #: src/QmlUtils.cpp:80
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"Impossible de se connecter au serveur. Veuillez vérifier votre connexion "
-"Internet et les paramètres du serveur."
+"Impossible de se connecter au serveur. Veuillez vérifier la connexion à "
+"Internet ou le nom de votre serveur."
 
 #: src/QmlUtils.cpp:82
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "Le server est hors ligne ou bloqué par un pare-feu."
+msgstr "Le serveur est hors ligne ou bloqué par un pare-feu"
 
 #: src/QmlUtils.cpp:84
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "Protocole d’authentification non pris en charge par le serveur."
+msgstr ""
+"Le protocole d'authentification n'est pas pris en charge par le serveur."
 
 #: src/QmlUtils.cpp:86
 #, fuzzy
@@ -367,20 +362,18 @@ msgid "The connection could not be refreshed."
 msgstr "La connexion ne peut pas être actualisée."
 
 #: src/QmlUtils.cpp:88
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"L’accès à internet n’est pas autorisé. Merci de vérifier les permissions "
-"système."
+"L'accès à Internet n'est pas autorisé. Veuillez vérifier la configuration "
+"pour l'accès à Internet de votre système."
 
 #: src/QmlUtils.cpp:90
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr "Ce serveur ne gère pas les inscriptions."
+msgstr "Le serveur ne prend pas en charge les inscriptions."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
@@ -407,28 +400,24 @@ msgid "Generating the QR code failed: %1"
 msgstr "La génération du code QR a échoué : %1"
 
 #: src/RosterManager.cpp:130
-#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "Impossible d’ajouter un contact car vous n’êtes pas connecté(e)."
+msgstr "Impossible d'ajouter un contact, du fait de ne pas être connecté."
 
 #: src/RosterManager.cpp:144
-#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "Impossible de supprimer le contact car vous n’êtes pas connecté(e)."
+msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
 
 #: src/RosterManager.cpp:157
-#, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr "Impossible de renommer le contact car vous n’êtes pas connecté(e)."
+msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
 
 #: src/UploadManager.cpp:72
-#, fuzzy
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr "Impossible d’envoyer le fichier car vous n’êtes pas connecté(e)."
+msgstr "Impossible d'envoyer un fichier, du fait de ne pas être connecté."
 
 #: src/UploadManager.cpp:141
 #, fuzzy
