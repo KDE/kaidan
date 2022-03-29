@@ -1,14 +1,17 @@
+# Emir SARI <emir_sari@icloud.com>, 2022.
 msgid ""
 msgstr ""
-"Language: ja\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-28 12:01+0300\n"
+"Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Language: ja\n"
 "X-Qt-Contexts: true\n"
-"X-Accelerator-Marker: &\n"
-"X-Text-Markup: qtrich\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -17,42 +20,41 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
+"Hesabınız sunucudan silinemedi. Bundan dolayı bu uygulamadan da "
+"kaldırılamadı: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr ""
+msgstr "Dosya kaydedilemedi: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr ""
+msgstr "İndirme başarısız: %1"
 
 #: src/Kaidan.cpp:98
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "Çevrimiçi"
 
 #: src/Kaidan.cpp:100
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "接続"
+msgstr "Bağlanıyor…"
 
 #: src/Kaidan.cpp:102
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "Çevrimdışı"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr ""
+msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -60,233 +62,233 @@ msgstr ""
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr ""
+msgstr "Öntanımlı"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "Çok düşük"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "Düşük"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "Olağan"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "Yüksek"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "Çok yüksek"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr ""
+msgstr "Sabit kalite"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr ""
+msgstr "Sabit bit oranı"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr ""
+msgstr "Ortalama bit oranı"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr ""
+msgstr "İki geçiş"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "Ses"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "Belge"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "Konum"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "Görsel"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "Dosya"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr ""
+msgstr "Resim çek"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr ""
+msgstr "Video kaydet"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr ""
+msgstr "Ses kaydet"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr ""
+msgstr "Konum gönder"
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr ""
+msgstr "Dosya seç"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr ""
+msgstr "Görsel seç"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr ""
+msgstr "Video seç"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr ""
+msgstr "Ses dosyası seç"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr ""
+msgstr "Belge seç"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "Tüm dosyalar"
 
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "Görseller"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "Videolar"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "Ses dosyaları"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "Belgeler"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "Tatkaçıran"
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr ""
+msgstr "İleti düzeltmesi başarısız."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "İleti gönderilemedi."
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "Bekliyor"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "Gönderildi"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "Teslim edildi"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "Hata"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Okundu olarak imle"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "Uygun"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "Sohbete açık"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "Uzakta"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "Rahatsız etme"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr ""
+msgstr "Uzun süre yok"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "Çevrimdışı"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "Özel sağlayıcı"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -294,33 +296,33 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Sınırsız"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 gün"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "Geçersiz kullanıcı adı veya parola."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
+msgstr "Sunucuya bağlanamadı. İnternet bağlantınızı denetleyin."
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr ""
+msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr ""
+msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
@@ -328,21 +330,22 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr ""
+msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "Bağlantı yenilenemedi."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -350,237 +353,89 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"İnternet erişimine izin verilmiyor. Sisteminizin internet erişim "
+"yapılandırmasını denetleyin."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "Bu sunucu kaydolmayı desteklemiyor."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 çevrimiçi"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 yazıyor…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1 yazmayı duraklattı"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "Kare kod oluşturma başarısız: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr ""
+msgstr "Bağlantı olmadığından dolayı kişi eklenemedi."
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr ""
+msgstr "Bağlantı olmadığından dolayı kişi kaldırılamadı."
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
+msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr ""
+msgstr "Bağlantı olmadığından dolayı dosya gönderilemedi."
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "İleti gönderilemedi."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "Ad"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "Takma ad"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "Hakkında"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "電子メール"
+msgstr "E-posta"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "Doğum günü"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr "ウェブサイト"
-
-#, fuzzy
-#~ msgctxt "AboutDialog|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "シンプルで使いやすいJabber / XMPPクライアント"
-
-#, fuzzy
-#~ msgctxt "AboutDialog|"
-#~ msgid "License:"
-#~ msgstr "ライセンス:"
-
-#, fuzzy
-#~ msgctxt "AboutDialog|"
-#~ msgid "Source code on GitHub"
-#~ msgstr "ソースコードは GitHub 上で公開"
-
-#, fuzzy
-#~ msgctxt "AboutDialog|"
-#~ msgid "View source code online"
-#~ msgstr "ソースコードをオンラインで見る"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "Report problems"
-#~ msgstr "問題を報告"
-
-#~ msgctxt "AboutSheet|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "シンプルで使いやすいJabber / XMPPクライアント"
-
-#~ msgctxt "AboutSheet|"
-#~ msgid "License:"
-#~ msgstr "ライセンス:"
-
-#~ msgctxt "AboutSheet|"
-#~ msgid "Source code on GitHub"
-#~ msgstr "ソースコードは GitHub 上で公開"
-
-#, fuzzy
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Account Security"
-#~ msgstr "アカウントのセキュリティ"
-
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Disable showing the password"
-#~ msgstr "パスワードの表示を無効にする"
-
-#, fuzzy
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Disable showing the QR-Code and password"
-#~ msgstr "QRコードとパスワードの表示を無効にする"
-
-#, fuzzy
-#~ msgctxt "AccountTransferPage|"
-#~ msgid "Chat address:"
-#~ msgstr "チャットアドレス："
-
-#, fuzzy
-#~ msgctxt "AccountTransferPage|"
-#~ msgid "Password:"
-#~ msgstr "パスワード："
-
-#~ msgctxt "AccountTransferPage|"
-#~ msgid "Hide QR code"
-#~ msgstr "QRコードを隠す"
-
-#, fuzzy
-#~ msgctxt "AccountTransferPage|"
-#~ msgid "Hide text"
-#~ msgstr "テキストを隠す"
-
-#, fuzzy
-#~ msgctxt "ChangePassword|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Compose message"
-#~ msgstr "メッセージを書く"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Send"
-#~ msgstr "送る"
-
-#, fuzzy
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Compose message"
-#~ msgstr "メッセージを書く"
-
-#, fuzzy
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#, fuzzy
-#~ msgctxt "ConnectionSettings|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Jabber-ID:"
-#~ msgstr "君のJabber-ID："
-
-#~ msgctxt "LoginPage|"
-#~ msgid "user@example.org"
-#~ msgstr "user＠example.jp"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Password:"
-#~ msgstr "君の合言葉："
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Password"
-#~ msgstr "合言葉"
-
-#, fuzzy
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete"
-#~ msgstr "削除"
-
-#, fuzzy
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "user@example.org"
-#~ msgstr "user＠example.jp"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete"
-#~ msgstr "削除"
-
-#, fuzzy
-#~ msgctxt "RosterRenameContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#, fuzzy
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "キャンセル"
-
-#, fuzzy
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Send"
-#~ msgstr "送る"
+msgstr "Web sitesi"

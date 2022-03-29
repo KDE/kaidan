@@ -1,5 +1,11 @@
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-03-28 19:15+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7,6 +13,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Language: ar\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 21.07.70\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -29,25 +36,16 @@ msgid "Download failed: %1"
 msgstr "فشل التنزيل: %1"
 
 #: src/Kaidan.cpp:98
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Online"
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "متصل"
 
 #: src/Kaidan.cpp:100
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "يتّصل…"
 
 #: src/Kaidan.cpp:102
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Offline"
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "غير متّصل"
@@ -72,7 +70,7 @@ msgstr "المبدئيّ"
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "مُنخفِض جداً"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
@@ -92,7 +90,7 @@ msgstr "عالي"
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "عالي جداً"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
@@ -147,22 +145,22 @@ msgstr "ملف"
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr ""
+msgstr "خذ صورة"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr ""
+msgstr "سجّل فيديو"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr ""
+msgstr "سجّل"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr ""
+msgstr "أرسل موقع جغرافي"
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
@@ -221,9 +219,10 @@ msgid "%1 (%2)"
 msgstr ""
 
 #: src/Message.cpp:210
+#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "مثبط الرفع"
 
 #: src/MessageHandler.cpp:256
 #, fuzzy
@@ -249,7 +248,7 @@ msgstr "أُرسلت"
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "وصلت"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
@@ -303,15 +302,13 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "غير محدود"
 
 #: src/ProviderListModel.cpp:130
-#, fuzzy, qt-format
-#| msgctxt "ServerListModel|"
-#| msgid "%1 days"
+#, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr "‏%1 يوم"
+msgstr "%1 يوم"
 
 #: src/QmlUtils.cpp:72
 #, fuzzy
@@ -382,7 +379,7 @@ msgstr "‏%1 متّصل"
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "‏%1 يكتب…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
@@ -417,7 +414,6 @@ msgid "Could not send file, as a result of not being connected."
 msgstr "تعذر ارسال الملف بسبب عدم توفر الاتصال."
 
 #: src/UploadManager.cpp:141
-#, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "تعذر ارسال الرسالة."

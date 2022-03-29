@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-03-26 19:39+0100\n"
+"PO-Revision-Date: 2022-03-27 19:09+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -216,16 +216,14 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "Avertissement sur le contenu"
+msgstr "Message inapproprié"
 
 #: src/MessageHandler.cpp:256
-#, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr "La correction du message a échoué."
+msgstr "La correction du message n'a pas été réalisé avec succès."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
@@ -263,7 +261,6 @@ msgid "Available"
 msgstr "Disponible"
 
 #: src/PresenceCache.cpp:65
-#, fuzzy
 msgctxt "QObject|"
 msgid "Free for chat"
 msgstr "Libre pour discuter"
@@ -279,10 +276,9 @@ msgid "Do not disturb"
 msgstr "Ne pas déranger"
 
 #: src/PresenceCache.cpp:71
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "Absence prolongée"
+msgstr "Partir pour plus longtemps"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
@@ -290,12 +286,9 @@ msgid "Offline"
 msgstr "Hors ligne"
 
 #: src/ProviderListModel.cpp:50
-#, fuzzy
-#| msgctxt "ServerListModel|"
-#| msgid "Custom server"
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Autre serveur"
+msgstr "Fournisseur personnalisé"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -312,10 +305,9 @@ msgid "%1 days"
 msgstr "%1 jours"
 
 #: src/QmlUtils.cpp:72
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "Identifiant ou mot de passe invalide."
+msgstr "Nom d'utilisateur ou mot de passe non valable."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
@@ -325,10 +317,9 @@ msgstr ""
 "Internet."
 
 #: src/QmlUtils.cpp:76
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "Une erreur est survenue lors de la connexion sécurisée."
+msgstr "Erreur lors d'une tentative de connexion de façon sûre."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
@@ -356,10 +347,9 @@ msgstr ""
 "Le protocole d'authentification n'est pas pris en charge par le serveur."
 
 #: src/QmlUtils.cpp:86
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr "La connexion ne peut pas être actualisée."
+msgstr "Il a été impossible de rafraîchir la connexion."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -388,16 +378,16 @@ msgid "%1 is typing…"
 msgstr "%1 est en train de faire une saisie..."
 
 #: src/QmlUtils.cpp:232
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr "%1 a arrêté d’écrire"
+msgstr "%1 a suspendu sa saisie"
 
 #: src/QrCodeGenerator.cpp:89
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "La génération du code QR a échoué : %1"
+msgstr "La génération du code « QR » a échoué : %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
@@ -420,10 +410,9 @@ msgid "Could not send file, as a result of not being connected."
 msgstr "Impossible d'envoyer un fichier, du fait de ne pas être connecté."
 
 #: src/UploadManager.cpp:141
-#, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "Le message n’a pas pu être envoyé."
+msgstr "Le message pourrait ne pas être envoyé."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
