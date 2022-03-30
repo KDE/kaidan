@@ -1,11 +1,19 @@
+# translation of kaidan_qt.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: kaidan_qt\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2021-05-29 00:16+0000\n"
+"PO-Revision-Date: 2022-03-29 19:22+0200\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Language: pa\n"
-"X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 21.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -19,28 +27,28 @@ msgstr ""
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr ""
+msgstr "Nepodarilo sa uložiť súbor: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr ""
+msgstr "Sťahovanie zlyhalo: %1"
 
 #: src/Kaidan.cpp:98
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "Pripojený"
 
 #: src/Kaidan.cpp:100
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/Kaidan.cpp:102
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "Nepripojený"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
@@ -54,32 +62,32 @@ msgstr ""
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr ""
+msgstr "Predvolené"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "Veľmi nízke"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "Nízka"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "Normálne"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "Vysoká"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "Veľmi vysoké"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
@@ -104,32 +112,32 @@ msgstr ""
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "Zvuk"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "Umiestnenie"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "Obrázok"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "Súbor"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
@@ -154,12 +162,12 @@ msgstr ""
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr ""
+msgstr "Vybrať súbor"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr ""
+msgstr "Vybrať obrázok"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
@@ -179,33 +187,33 @@ msgstr ""
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "Všetky súbory"
 
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "Videá"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "Audio súbory"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "Dokumenty"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
 msgctxt "Message|"
@@ -225,12 +233,12 @@ msgstr ""
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "Čakajúci"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "Odoslané"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
@@ -240,32 +248,32 @@ msgstr ""
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Označiť ako prečítané"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "Dostupný"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "K dispozícii pre rozhovor"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "Neprítomný"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "Nevyrušovať"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
@@ -275,7 +283,7 @@ msgstr ""
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "Nepripojený"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
@@ -288,58 +296,58 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Bez obmedzenia"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dní"
 
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "ਸਰਲ, ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਸੌਖਾ Jabber/XMPP ਕਲਾਈਂਟ"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr "ਲਸੰਸ:"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr "ਸਮੱਸਿਆਵਾਂ ਬਾਰੇ ਰਿਪੋਰਟ ਕਰੋ"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr "ਸਰੋਤ ਕੋਡ ਆਨਲਾਈਨ ਵੇਖੋ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
-msgstr "ਹੋਰ ਡਿਵਾਈਸ ਲਈ ਖਾਤਾ ਟਰਾਂਸਫਰ ਕਰੋ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr "QR ਕੋਡ ਲੁਕਾਓ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
-msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
-msgstr "ਲਿਖਤ ਲੁਕਾਓ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
-msgstr "ਲਿਖਤ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -355,25 +363,22 @@ msgstr ""
 #: src/qml/AccountTransferPage.qml:107
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr "ਚੈਟ ਐਡਰੈਸ:"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:116
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr "ਚੈਟ ਐਡਰੈਸ:"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:126
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr "ਪਾਸਵਰਡ:"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:136
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr "ਪਾਸਵਰਡ ਕਾਪੀ ਕਰੋ"
+msgstr ""
 
 #: src/qml/ChatPage.qml:78
 msgctxt "ChatPage|"
@@ -408,17 +413,17 @@ msgstr ""
 #: src/qml/elements/ChatMessage.qml:200
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr "ਡਾਊਨਲੋਡ"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr "ਸੁਨੇਹਾ ਕਾਪੀ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr "ਸੁਨੇਹੇ ਨੂੰ ਸੋਧੋ"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
@@ -426,12 +431,9 @@ msgid "Copy download URL"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr "ਸੁਨੇਹਾ ਕਾਪੀ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -460,25 +462,21 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
 #, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr "ਸੁਨੇਹਾ ਕਾਪੀ ਕਰੋ"
+msgstr "Vybrať obrázok"
 
 #: src/qml/elements/ConfirmationPage.qml:48
-#, fuzzy
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:39
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "ਚੈਟ ਐਡਰੈਸ:"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:40
 msgctxt "JidField|"
@@ -491,12 +489,9 @@ msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:40
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "ਪਾਸਵਰਡ:"
+msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -509,9 +504,12 @@ msgid "Initializing…"
 msgstr ""
 
 #: src/qml/elements/NewMedia.qml:229
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr ""
+msgstr "Dostupný"
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
@@ -564,17 +562,17 @@ msgid "user@example.org"
 msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Nickname"
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr ""
+msgstr "Prezývka"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
-msgstr "ਸੁਨੇਹਾ ਕਾਪੀ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
@@ -582,10 +580,9 @@ msgid "Tell your chat partner who you are."
 msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
-#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
@@ -605,10 +602,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
-#, fuzzy
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
@@ -621,10 +617,9 @@ msgid "Rename contact"
 msgstr ""
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
-#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
@@ -632,15 +627,17 @@ msgid "Rename"
 msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:105
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
 msgctxt "SendMediaSheet|"
 msgid "Caption"
-msgstr ""
+msgstr "Umiestnenie"
 
 #: src/qml/elements/SendMediaSheet.qml:118
-#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
@@ -661,9 +658,12 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Online"
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr ""
+msgstr "Pripojený"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:73
 msgctxt "SubRequestAcceptSheet|"
@@ -676,12 +676,9 @@ msgid "Please select a chat to start messaging"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:89
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "GlobalDrawer|"
 msgid "Scan QR codes"
-msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -704,9 +701,12 @@ msgid "Settings"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:123
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr ""
+msgstr "O aplikácii"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
@@ -719,22 +719,25 @@ msgid "Log in to your XMPP account"
 msgstr ""
 
 #: src/qml/LoginPage.qml:75
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/LoginPage.qml:114
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -752,9 +755,12 @@ msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:103
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
@@ -762,12 +768,9 @@ msgid "This QR code is not a valid login QR code."
 msgstr ""
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
@@ -899,9 +902,12 @@ msgid "Provider"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:101
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -929,9 +935,12 @@ msgid "Languages:"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:162
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Online"
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr ""
+msgstr "Pripojený"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -944,17 +953,17 @@ msgid "Stores shared media up to:"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:181
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Website"
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr ""
+msgstr "Webová stránka"
 
 #: src/qml/registration/ProviderView.qml:186
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr "ਚੈਟ ਐਡਰੈਸ:"
+msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
@@ -1059,14 +1068,20 @@ msgid "Use an existing account"
 msgstr ""
 
 #: src/qml/RosterPage.qml:41
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/RosterPage.qml:42
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Offline"
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr ""
+msgstr "Nepripojený"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
@@ -1086,7 +1101,7 @@ msgstr ""
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
 msgid "Account Security"
-msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:42
 msgctxt "AccountSecurity|"
@@ -1096,12 +1111,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:44
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr "ਪਾਸਵਰਡ ਵੇਖਾਉਣਾ ਅਸਮਰੱਥ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1118,32 +1130,32 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ:"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr "ਨਵਾਂ ਪਾਸਵਰਡ:"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
-msgstr "ਨਵਾਂ ਪਾਸਵਰਡ (ਦੁਹਰਾਓ):"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
-msgstr "ਨਵੇਂ ਪਾਸਵਰਡ ਮਿਲਦੇ ਨਹੀਂ ਹਨ।"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
-msgstr "ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ।"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
@@ -1155,40 +1167,41 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr "ਬਦਲੋ"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr "ਪਾਸਵਰਡ ਕਾਮਯਾਬੀ ਨਾਲ ਬਦਲਿਆ ਗਿਆ"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:148
 #, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr "ਪਾਸਵਰਡ ਬਦਲਣਾ ਅਸਫ਼ਲ ਹੈ: %1"
-
-#: src/qml/settings/ConnectionSettings.qml:40
-msgctxt "ConnectionSettings|"
-msgid "Connection settings"
 msgstr ""
 
-#: src/qml/settings/ConnectionSettings.qml:70
+#: src/qml/settings/ConnectionSettings.qml:40
 #, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ConnectionSettings|"
+msgid "Connection settings"
+msgstr "Pripájam..."
+
+#: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr "ਬਦਲੋ"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:84
-#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr "ਰੱਦ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1237,12 +1250,9 @@ msgid "Don't expose password in any way"
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
-msgstr "ਪਾਸਵਰਡ ਵੇਖਾਉਣਾ ਅਸਮਰੱਥ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1256,12 +1266,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr "ਪਾਸਵਰਡ ਵੇਖਾਉਣਾ ਅਸਮਰੱਥ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1312,9 +1319,12 @@ msgid "Camera"
 msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:157
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio files"
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr ""
+msgstr "Audio súbory"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
@@ -1322,19 +1332,28 @@ msgid "Container"
 msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:226
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Image"
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr ""
+msgstr "Obrázok"
 
 #: src/qml/settings/MultimediaSettings.qml:231
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio"
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr ""
+msgstr "Zvuk"
 
 #: src/qml/settings/MultimediaSettings.qml:237
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Video"
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
@@ -1379,14 +1398,20 @@ msgid "Initializing…"
 msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:579
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr ""
+msgstr "Dostupný"
 
 #: src/qml/settings/MultimediaSettings.qml:587
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
@@ -1394,12 +1419,9 @@ msgid "Paused"
 msgstr ""
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr "ਪਾਸਵਰਡ ਕਾਪੀ ਕਰੋ"
+msgstr ""
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1446,10 +1468,9 @@ msgid "Settings"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr "ਪਾਸਵਰਡ ਬਦਲੋ"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
@@ -1469,9 +1490,12 @@ msgid "Configure photo, video and audio recording settings"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:61
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr ""
+msgstr "Pripájam..."
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
@@ -1479,12 +1503,9 @@ msgid "Configure the hostname and port to connect to"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:67
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "SettingsContent|"
 msgid "Account security"
-msgstr "ਅਕਾਊਂਟ ਸੁਰੱਖਿਆ"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
@@ -1537,12 +1558,9 @@ msgid "Rename contact"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:87
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr "QR ਕੋਡ ਵਜੋਂ ਵੇਖਾਓ"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:93
 msgctxt "UserProfilePage|"
@@ -1612,13 +1630,13 @@ msgstr ""
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 je prihlásený"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 píše..."
 
 #: src/QmlUtils.cpp:232
 #, qt-format
@@ -1660,29 +1678,29 @@ msgstr ""
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "Názov"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "Prezývka"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "O aplikácii"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "ਈ-ਮੇਲ"
+msgstr "E-mail"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "Narodeniny"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr ""
+msgstr "Webová stránka"

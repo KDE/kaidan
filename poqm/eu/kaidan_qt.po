@@ -312,6 +312,1307 @@ msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr ""
 
+#: src/qml/AboutDialog.qml:78
+msgctxt "AboutDialog|"
+msgid "A simple, user-friendly Jabber/XMPP client"
+msgstr "Erabiltzeko erraza den Jabber/XMPP bezero bat"
+
+#: src/qml/AboutDialog.qml:86
+msgctxt "AboutDialog|"
+msgid "License:"
+msgstr "Lizentzia:"
+
+#: src/qml/AboutDialog.qml:103
+msgctxt "AboutDialog|"
+msgid "Report problems"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:108
+msgctxt "AboutDialog|"
+msgid "View source code online"
+msgstr "Ikusi iturburu kodea linean"
+
+#: src/qml/AccountTransferPage.qml:46
+msgctxt "AccountTransferPage|"
+msgid "Transfer account to another device"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Hide QR code"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Show as QR code"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Hide text"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Show as text"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:86
+msgctxt "AccountTransferPage|"
+msgid ""
+"Scan the QR code or enter the credentials as text on another device to log "
+"in on it.\n"
+"\n"
+"Attention:\n"
+"Never show this QR code to anyone else. It would allow unlimited access to "
+"your account!"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:107
+msgctxt "AccountTransferPage|"
+msgid "Chat address:"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:116
+msgctxt "AccountTransferPage|"
+msgid "Copy chat address"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:126
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Your Password:"
+msgctxt "AccountTransferPage|"
+msgid "Password:"
+msgstr "Zure Pasahitza:"
+
+#: src/qml/AccountTransferPage.qml:136
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change password"
+msgctxt "AccountTransferPage|"
+msgid "Copy password"
+msgstr "Pasahitza aldatu"
+
+#: src/qml/ChatPage.qml:78
+msgctxt "ChatPage|"
+msgid "Search"
+msgstr ""
+
+#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+msgctxt "ChatPage|"
+msgid "Unmute notifications"
+msgstr ""
+
+#: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+msgctxt "ChatPage|"
+msgid "Mute notifications"
+msgstr ""
+
+#: src/qml/ChatPage.qml:123
+msgctxt "ChatPage|"
+msgid "View profile"
+msgstr ""
+
+#: src/qml/ChatPage.qml:183
+msgctxt "ChatPage|"
+msgid "Send a spoiler message"
+msgstr "«Spoiler» mezu bat bidali"
+
+#: src/qml/elements/ChatMessage.qml:143
+msgctxt "ChatMessage|"
+msgid "Spoiler"
+msgstr "«Spoiler»"
+
+#: src/qml/elements/ChatMessage.qml:200
+msgctxt "ChatMessage|"
+msgid "Download"
+msgstr "Deskargatu"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:45
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Copy Message"
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy message"
+msgstr "Mezua kopiatu"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:56
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Edit Message"
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit message"
+msgstr "Mezua editatu"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:62
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy download URL"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:68
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Compose message"
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote message"
+msgstr "Mezua sortu"
+
+#: src/qml/elements/ChatPageSearchView.qml:69
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Compose message"
+msgctxt "ChatPageSearchView|"
+msgid "Close message search bar"
+msgstr "Mezua sortu"
+
+#: src/qml/elements/ChatPageSearchView.qml:89
+msgctxt "ChatPageSearchView|"
+msgid "Search up"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:100
+msgctxt "ChatPageSearchView|"
+msgid "Search down"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:67
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Spoiler hint"
+msgstr "«Spoiler» keinua"
+
+#: src/qml/elements/ChatPageSendingPane.qml:74
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Close spoiler hint field"
+msgstr "«Spoiler» keinua"
+
+#: src/qml/elements/ChatPageSendingPane.qml:112
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Compose message"
+msgstr "Mezua sortu"
+
+#: src/qml/elements/ConfirmationPage.qml:48
+#, fuzzy
+msgctxt "ConfirmationPage|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/elements/fields/JidField.qml:39
+msgctxt "JidField|"
+msgid "Chat address"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:40
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "user@example.org"
+msgctxt "JidField|"
+msgid "user@example.org"
+msgstr "erabiltzailea@example.org"
+
+#: src/qml/elements/fields/JidField.qml:42
+msgctxt "JidField|"
+msgid "The chat address must have the form <b>username@server</b>"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:40
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Your Password:"
+msgctxt "PasswordField|"
+msgid "Password"
+msgstr "Zure Pasahitza:"
+
+#: src/qml/elements/fields/PasswordField.qml:41
+msgctxt "PasswordField|"
+msgid "Please enter a valid password"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
+msgctxt "NewMedia|"
+msgid "Initializing…"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:229
+#, fuzzy
+msgctxt "NewMedia|"
+msgid "Unavailable"
+msgstr "Eskuragarri"
+
+#: src/qml/elements/NewMedia.qml:239
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Paused %1"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:254
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Recording… %1"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:71
+#, qt-format
+msgctxt "QrCodeScanner|"
+msgid "The camera format '%1' is not supported."
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:98
+msgctxt "QrCodeScanner|"
+msgid "There is no camera available."
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:101
+msgctxt "QrCodeScanner|"
+msgid ""
+"Your camera is busy.\n"
+"Try to close other applications using the camera."
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:43
+msgctxt "RosterAddContactSheet|"
+msgid "Add new contact"
+msgstr "Kontaktu berria gehitu"
+
+#: src/qml/elements/RosterAddContactSheet.qml:51
+msgctxt "RosterAddContactSheet|"
+msgid "This will also send a request to access the presence of the contact."
+msgstr "Honek kontaktuaren presentziara sarbide eskaera bidaliko du."
+
+#: src/qml/elements/RosterAddContactSheet.qml:60
+msgctxt "RosterAddContactSheet|"
+msgid "Jabber-ID:"
+msgstr "Jabber-IDa:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:65
+msgctxt "RosterAddContactSheet|"
+msgid "user@example.org"
+msgstr "erabiltzailea@example.org"
+
+#: src/qml/elements/RosterAddContactSheet.qml:72
+msgctxt "RosterAddContactSheet|"
+msgid "Nickname:"
+msgstr "Ezizena:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:81
+msgctxt "RosterAddContactSheet|"
+msgid "Optional message:"
+msgstr "Aukerako mezua:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:89
+msgctxt "RosterAddContactSheet|"
+msgid "Tell your chat partner who you are."
+msgstr "Esan nor zaren zure berriketa lagunari."
+
+#: src/qml/elements/RosterAddContactSheet.qml:98
+msgctxt "RosterAddContactSheet|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/elements/RosterAddContactSheet.qml:108
+msgctxt "RosterAddContactSheet|"
+msgid "Add"
+msgstr "Gehitu"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:42
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete contact"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:48
+#, fuzzy, qt-format
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+msgctxt "RosterRemoveContactSheet|"
+msgid ""
+"Do you really want to delete the contact <b>%1</b> from your contact list?"
+msgstr ""
+"Ziur al zaude <b>%1</b> kontaktua zure zerrendatik ezabatu nahi duzula?"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:67
+msgctxt "RosterRemoveContactSheet|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:73
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:43
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename contact"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:62
+#, fuzzy
+msgctxt "RosterRenameContactSheet|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:69
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:105
+msgctxt "SendMediaSheet|"
+msgid "Caption"
+msgstr "Izenburua"
+
+#: src/qml/elements/SendMediaSheet.qml:118
+msgctxt "SendMediaSheet|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/elements/SendMediaSheet.qml:132
+msgctxt "SendMediaSheet|"
+msgid "Send"
+msgstr "Bidali"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:43
+msgctxt "SubRequestAcceptSheet|"
+msgid "Subscription Request"
+msgstr "Izen emate eskaera"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#, qt-format
+msgctxt "SubRequestAcceptSheet|"
+msgid ""
+"You received a subscription request by <b>%1</b>. If you accept it, the "
+"account will have access to your presence status."
+msgstr ""
+"Izen emate eskaera jaso duzu <b>%1</b>-(r)engandik. Onartzen baldin baduzu, "
+"kontuak sarbidea izango du zure presentzia egoerara."
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:64
+msgctxt "SubRequestAcceptSheet|"
+msgid "Decline"
+msgstr "Ukatu"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:73
+msgctxt "SubRequestAcceptSheet|"
+msgid "Accept"
+msgstr "Onartu"
+
+#: src/qml/EmptyChatPage.qml:54
+msgctxt "EmptyChatPage|"
+msgid "Please select a chat to start messaging"
+msgstr "Hauta ezazu txat bat mezuak bidaltzen hasteko"
+
+#: src/qml/GlobalDrawer.qml:89
+msgctxt "GlobalDrawer|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:94
+msgctxt "GlobalDrawer|"
+msgid "Invite friends"
+msgstr "Lagunak gonbidatu"
+
+#: src/qml/GlobalDrawer.qml:98
+msgctxt "GlobalDrawer|"
+msgid "Invitation link copied to clipboard"
+msgstr "Gonbidapen esteka arbelean kopiatua"
+
+#: src/qml/GlobalDrawer.qml:102
+msgctxt "GlobalDrawer|"
+msgid "Switch device"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:110
+msgctxt "GlobalDrawer|"
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: src/qml/GlobalDrawer.qml:123
+msgctxt "GlobalDrawer|"
+msgid "About"
+msgstr "Honi buruz"
+
+#: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
+msgctxt "LoginPage|"
+msgid "Log in"
+msgstr "Saioa hasi"
+
+#: src/qml/LoginPage.qml:49
+msgctxt "LoginPage|"
+msgid "Log in to your XMPP account"
+msgstr "Hasi saioa zure XMPP kontuan"
+
+#: src/qml/LoginPage.qml:75
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connecting…"
+msgctxt "LoginPage|"
+msgid "Connection settings"
+msgstr "Konektatzen…"
+
+#: src/qml/LoginPage.qml:114
+msgctxt "LoginPage|"
+msgid "Connecting…"
+msgstr "Konektatzen…"
+
+#: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:47
+msgctxt "QrCodeOnboardingPage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:56
+msgctxt "QrCodeOnboardingPage|"
+msgid "Continue without QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:62
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan the QR code from your existing device to transfer your account."
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:103
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Connecting…"
+msgstr "Konektatzen…"
+
+#: src/qml/QrCodeOnboardingPage.qml:121
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr ""
+
+#: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:69
+msgctxt "QrCodePage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:94
+msgctxt "QrCodePage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:126
+msgctxt "QrCodePage|"
+msgid "Contact added - Continue with step 2!"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:131
+msgctxt "QrCodePage|"
+msgid "This QR code does not contain a contact."
+msgstr ""
+
+#: src/qml/QrCodePage.qml:173
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "QrCodePage|"
+msgid "Adding contact…"
+msgstr "Kontaktu berria gehitu"
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:49
+msgctxt "AutomaticRegistrationPage|"
+msgid "Register automatically"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:106
+msgctxt "AutomaticRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/CustomFormView.qml:39
+msgctxt "CustomFormView|"
+msgid ""
+"The server has requested more information.\n"
+"Not everything may be required.\n"
+"If a CAPTCHA is shown, the displayed text must be entered."
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:39
+msgctxt "DisplayNameView|"
+msgid ""
+"Your display name is what your contacts will see.\n"
+"In case you don't want to use a display name, you can leave this field "
+"empty.\n"
+"Using a display name may let new contacts recognize you easier but also "
+"could decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:47
+msgctxt "DisplayNameView|"
+msgid "Display Name"
+msgstr ""
+
+#: src/qml/registration/LoadingView.qml:41
+msgctxt "LoadingView|"
+msgid "Requesting the server…"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:45
+msgctxt "ManualRegistrationPage|"
+msgid "Register manually"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:195
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+#, fuzzy
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Zerbitzariak ez du konexio segururik onartzen."
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:242
+msgctxt "ManualRegistrationPage|"
+msgid "But you can use the provider's web registration."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:246
+msgctxt "ManualRegistrationPage|"
+msgid "A new provider has been randomly selected."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:261
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:265
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr ""
+
+#: src/qml/registration/PasswordView.qml:43
+msgctxt "PasswordView|"
+msgid ""
+"Your password is used to log in to your account.\n"
+"If you don't enter a password, the randomly generated and already displayed "
+"one is used.\n"
+"Don't use passwords your're already using somewhere else!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:46
+msgctxt "ProviderView|"
+msgid ""
+"The provider is where your account is located.\n"
+"The selectable providers are hand-picked by our community!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:64
+msgctxt "ProviderView|"
+msgid "Provider"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:101
+#, fuzzy
+msgctxt "ProviderView|"
+msgid "Connection settings"
+msgstr "Konektatzen…"
+
+#: src/qml/registration/ProviderView.qml:144
+msgctxt "ProviderView|"
+msgid "Web registration only:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "No"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "Yes"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:150
+msgctxt "ProviderView|"
+msgid "Server locations:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:156
+msgctxt "ProviderView|"
+msgid "Languages:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:162
+#, fuzzy
+msgctxt "ProviderView|"
+msgid "Online since:"
+msgstr "Lineaz kanpo"
+
+#: src/qml/registration/ProviderView.qml:168
+msgctxt "ProviderView|"
+msgid "Allows to share media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:174
+msgctxt "ProviderView|"
+msgid "Stores shared media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:181
+msgctxt "ProviderView|"
+msgid "Open website"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:186
+msgctxt "ProviderView|"
+msgid "Copy website address"
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:37
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:41
+msgctxt "RegistrationDecisionPage|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:47
+msgctxt "RegistrationDecisionPage|"
+msgid "Generate an account automatically"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:52
+msgctxt "RegistrationDecisionPage|"
+msgid "Create an account manually"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:80
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:89
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:98
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr ""
+
+#: src/qml/registration/ResultView.qml:42
+msgctxt "ResultView|"
+msgid ""
+"Your chat address is used to chat with you, like your email address is used "
+"to exchange email messages.\n"
+"\n"
+"Your chat address will be:"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:43
+msgctxt "UsernameView|"
+msgid ""
+"Your username is used to log in to your account and to chat with you.\n"
+"If you don't enter a username, the randomly generated and already displayed "
+"one is used.\n"
+"Using an own username may let it be more recognizable but also could "
+"decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:60
+msgctxt "UsernameView|"
+msgid "Username"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:67
+msgctxt "UsernameView|"
+msgid ""
+"Please enter a valid username or leave the field empty for a random one."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:42
+msgctxt "WebRegistrationView|"
+msgid ""
+"The selected provider only provides web registration. After creating an "
+"account via the web page, you can log in via Kaidan."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:49
+msgctxt "WebRegistrationView|"
+msgid "Open registration web page"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:54
+msgctxt "WebRegistrationView|"
+msgid "Copy registration web page address"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:60
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in to your XMPP account"
+msgctxt "WebRegistrationView|"
+msgid "Log in with your new account"
+msgstr "Hasi saioa zure XMPP kontuan"
+
+#: src/qml/RegistrationLoginDecisionPage.qml:41
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Set up"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:47
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Register a new account"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:52
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Use an existing account"
+msgstr ""
+
+#: src/qml/RosterPage.qml:41
+msgctxt "RosterPage|"
+msgid "Connecting…"
+msgstr "Konektatzen…"
+
+#: src/qml/RosterPage.qml:42
+msgctxt "RosterPage|"
+msgid "Offline"
+msgstr "Lineaz kanpo"
+
+#: src/qml/RosterPage.qml:43
+msgctxt "RosterPage|"
+msgid "Contacts"
+msgstr "Kontaktuak"
+
+#: src/qml/RosterPage.qml:56
+msgctxt "RosterPage|"
+msgid "Add new contact"
+msgstr "Kontaktu berria gehitu"
+
+#: src/qml/RosterPage.qml:68
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "RosterPage|"
+msgid "Search contacts"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/settings/AccountSecurity.qml:39
+msgctxt "AccountSecurity|"
+msgid "Account Security"
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:42
+msgctxt "AccountSecurity|"
+msgid ""
+"Allow to add additional devices using the login QR code but never show the "
+"password."
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:44
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "New password:"
+msgctxt "AccountSecurity|"
+msgid "Don't show password"
+msgstr "Pasahitz berria:"
+
+#: src/qml/settings/AccountSecurity.qml:49
+msgctxt "AccountSecurity|"
+msgid ""
+"Neither allow to add additional devices using the login QR code nor show the "
+"password."
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:51
+msgctxt "AccountSecurity|"
+msgid "Don't expose password in any way"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:40
+msgctxt "ChangePassword|"
+msgid "Change password"
+msgstr "Pasahitza aldatu"
+
+#: src/qml/settings/ChangePassword.qml:64
+msgctxt "ChangePassword|"
+msgid "Current password:"
+msgstr "Egungo pasahitza:"
+
+#: src/qml/settings/ChangePassword.qml:71
+msgctxt "ChangePassword|"
+msgid "New password:"
+msgstr "Pasahitz berria:"
+
+#: src/qml/settings/ChangePassword.qml:77
+msgctxt "ChangePassword|"
+msgid "New password (repeat):"
+msgstr "Pasahitz berria (errepikatu):"
+
+#: src/qml/settings/ChangePassword.qml:84
+msgctxt "ChangePassword|"
+msgid "New passwords do not match."
+msgstr "Pasahitz berriak ez datoz bat."
+
+#: src/qml/settings/ChangePassword.qml:93
+msgctxt "ChangePassword|"
+msgid "Current password is invalid."
+msgstr "Egungo pasahitza ez da balekoa."
+
+#: src/qml/settings/ChangePassword.qml:100
+msgctxt "ChangePassword|"
+msgid ""
+"After changing your password, you will need to reenter it on all your other "
+"devices."
+msgstr ""
+"Pasahitza aldatu ostean, zure gainontzeko gailuetan berriro sartu beharko "
+"duzu."
+
+#: src/qml/settings/ChangePassword.qml:111
+msgctxt "ChangePassword|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/settings/ChangePassword.qml:117
+msgctxt "ChangePassword|"
+msgid "Change"
+msgstr "Aldatu"
+
+#: src/qml/settings/ChangePassword.qml:142
+#, fuzzy
+#| msgctxt "RegistrationManager|"
+#| msgid "Password changed successfully."
+msgctxt "ChangePassword|"
+msgid "Password changed successfully"
+msgstr "Pasahitza behar bezala aldatu da."
+
+#: src/qml/settings/ChangePassword.qml:148
+#, fuzzy, qt-format
+msgctxt "ChangePassword|"
+msgid "Failed to change password: %1"
+msgstr "Akatsa pasahitza aldatzean: %1"
+
+#: src/qml/settings/ConnectionSettings.qml:40
+#, fuzzy
+msgctxt "ConnectionSettings|"
+msgid "Connection settings"
+msgstr "Konektatzen…"
+
+#: src/qml/settings/ConnectionSettings.qml:70
+#, fuzzy
+msgctxt "ConnectionSettings|"
+msgid "Change"
+msgstr "Aldatu"
+
+#: src/qml/settings/ConnectionSettings.qml:84
+#, fuzzy
+msgctxt "ConnectionSettings|"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: src/qml/settings/ConnectionSettings.qml:98
+msgctxt "ConnectionSettings|"
+msgid "Connection settings could not be changed"
+msgstr ""
+
+#: src/qml/settings/ConnectionSettings.qml:107
+msgctxt "ConnectionSettings|"
+msgid "Connection settings changed"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:49
+msgctxt "CustomConnectionSettings|"
+msgid "Hostname:"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:53
+msgctxt "CustomConnectionSettings|"
+msgid "The hostname must not contain blank spaces"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:77
+msgctxt "CustomConnectionSettings|"
+msgid "Port:"
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:43
+msgctxt "DisablePasswordDisplay|"
+msgid "Don't expose your password in any way"
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:46
+msgctxt "DisablePasswordDisplay|"
+msgid ""
+"Your password will neither be shown as plain text nor included in the login "
+"QR code anymore.\n"
+"You won't be able to use the login via QR code without entering your "
+"password again because this action cannot be undone!\n"
+"Consider storing the password somewhere else if you want to use your account "
+"on another device."
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:51
+msgctxt "DisablePasswordDisplay|"
+msgid "Don't expose password in any way"
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid "Don't show your password"
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid ""
+"Your password will not be shown anymore but still exposed via the login QR "
+"code.\n"
+"You won't be able to see your password again because this action cannot be "
+"undone!\n"
+"Consider storing the password somewhere else if you want to use your account "
+"on another device without the login QR code."
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "New password:"
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid "Don't show password"
+msgstr "Pasahitz berria:"
+
+#: src/qml/settings/LocalAccountRemoval.qml:42
+msgctxt "LocalAccountRemoval|"
+msgid "Remove account from this app"
+msgstr ""
+
+#: src/qml/settings/LocalAccountRemoval.qml:45
+msgctxt "LocalAccountRemoval|"
+msgid ""
+"Your account will be removed from this app.\n"
+"Your password will be deleted, make sure it is stored in a password manager "
+"or you know it!"
+msgstr ""
+
+#: src/qml/settings/LocalAccountRemoval.qml:50
+msgctxt "LocalAccountRemoval|"
+msgid "Remove"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:44
+msgctxt "MultimediaSettings|"
+msgid "Multimedia Settings"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:56
+msgctxt "MultimediaSettings|"
+msgid "Configure"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:66
+msgctxt "MultimediaSettings|"
+msgid "Image Capture"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:71
+msgctxt "MultimediaSettings|"
+msgid "Audio Recording"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:76
+msgctxt "MultimediaSettings|"
+msgid "Video Recording"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:128
+msgctxt "MultimediaSettings|"
+msgid "Camera"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:157
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Audio input"
+msgstr "Audioa"
+
+#: src/qml/settings/MultimediaSettings.qml:187
+msgctxt "MultimediaSettings|"
+msgid "Container"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:226
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Image"
+msgstr "Irudia"
+
+#: src/qml/settings/MultimediaSettings.qml:231
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Audio"
+msgstr "Audioa"
+
+#: src/qml/settings/MultimediaSettings.qml:237
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Video"
+msgstr "Bideoa"
+
+#: src/qml/settings/MultimediaSettings.qml:264
+#: src/qml/settings/MultimediaSettings.qml:348
+#: src/qml/settings/MultimediaSettings.qml:432
+msgctxt "MultimediaSettings|"
+msgid "Codec"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:290
+#: src/qml/settings/MultimediaSettings.qml:458
+msgctxt "MultimediaSettings|"
+msgid "Resolution"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:316
+#: src/qml/settings/MultimediaSettings.qml:400
+#: src/qml/settings/MultimediaSettings.qml:510
+msgctxt "MultimediaSettings|"
+msgid "Quality"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:374
+msgctxt "MultimediaSettings|"
+msgid "Sample Rate"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:484
+msgctxt "MultimediaSettings|"
+msgid "Frame Rate"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
+msgctxt "MultimediaSettings|"
+msgid "Ready"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
+msgctxt "MultimediaSettings|"
+msgid "Initializing…"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:579
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Unavailable"
+msgstr "Eskuragarri"
+
+#: src/qml/settings/MultimediaSettings.qml:587
+#, fuzzy
+msgctxt "MultimediaSettings|"
+msgid "Recording…"
+msgstr "Konektatzen…"
+
+#: src/qml/settings/MultimediaSettings.qml:589
+msgctxt "MultimediaSettings|"
+msgid "Paused"
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:44
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "New password:"
+msgctxt "PasswordRemovalPage|"
+msgid "Remove password"
+msgstr "Pasahitz berria:"
+
+#: src/qml/settings/PasswordRemovalPage.qml:47
+#, qt-format
+msgctxt "PasswordRemovalPage|"
+msgid ""
+"You can decide to only not show your password for <b>%1</b> as text anymore "
+"or to remove it completely from the account transfer. If you remove your "
+"password completely, you won't be able to use the account transfer via "
+"scanning without entering your password because it is also removed from the "
+"QR code."
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:50
+msgctxt "PasswordRemovalPage|"
+msgid "Do not show password as text"
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:56
+msgctxt "PasswordRemovalPage|"
+msgid "Remove completely"
+msgstr ""
+
+#: src/qml/settings/RemoteAccountDeletion.qml:42
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "RemoteAccountDeletion|"
+msgid "Delete account completely"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/settings/RemoteAccountDeletion.qml:45
+msgctxt "RemoteAccountDeletion|"
+msgid ""
+"Your account will be deleted completely, which means from this app and from "
+"the server.\n"
+"You will not be able to use your account again!"
+msgstr ""
+
+#: src/qml/settings/RemoteAccountDeletion.qml:50
+#, fuzzy
+msgctxt "RemoteAccountDeletion|"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: src/qml/settings/SettingsContent.qml:43
+#, fuzzy
+msgctxt "SettingsContent|"
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: src/qml/settings/SettingsContent.qml:48
+#, fuzzy
+msgctxt "SettingsContent|"
+msgid "Change password"
+msgstr "Pasahitza aldatu"
+
+#: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+msgctxt "SettingsContent|"
+msgid ""
+"Changes your account's password. You will need to re-enter it on your other "
+"devices."
+msgstr ""
+"Zure kontuaren pasahitza aldatzen du. Zure gainontzeko gailuetan berriro "
+"sartu beharko duzu."
+
+#: src/qml/settings/SettingsContent.qml:55
+msgctxt "SettingsContent|"
+msgid "Multimedia Settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:56
+msgctxt "SettingsContent|"
+msgid "Configure photo, video and audio recording settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:61
+#, fuzzy
+msgctxt "SettingsContent|"
+msgid "Connection Settings"
+msgstr "Konektatzen…"
+
+#: src/qml/settings/SettingsContent.qml:62
+msgctxt "SettingsContent|"
+msgid "Configure the hostname and port to connect to"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:67
+msgctxt "SettingsContent|"
+msgid "Account security"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:68
+msgctxt "SettingsContent|"
+msgid "Configure whether this device can be used to log in on another device"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:73
+msgctxt "SettingsContent|"
+msgid "Remove account from Kaidan"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:74
+msgctxt "SettingsContent|"
+msgid "Remove account from this app"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:79
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "SettingsContent|"
+msgid "Delete account"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/settings/SettingsContent.qml:80
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Could not connect to the server."
+msgctxt "SettingsContent|"
+msgid "Delete account from the server"
+msgstr "Ezin izan da zerbitzarira konektatu."
+
+#: src/qml/settings/SettingsPage.qml:35
+msgctxt "SettingsPage|"
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: src/qml/StartPage.qml:68
+msgctxt "StartPage|"
+msgid "Enjoy free communication on every device!"
+msgstr ""
+
+#: src/qml/StartPage.qml:84
+msgctxt "StartPage|"
+msgid "Let's start"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:42
+msgctxt "UserProfilePage|"
+msgid "Profile"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:77
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "UserProfilePage|"
+msgid "Rename contact"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/UserProfilePage.qml:87
+msgctxt "UserProfilePage|"
+msgid "Show QR code"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:93
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "UserProfilePage|"
+msgid "Remove contact"
+msgstr "Kontaktua ezabatu"
+
+#: src/qml/UserProfilePage.qml:230
+msgctxt "UserProfilePage|"
+msgid "Online devices"
+msgstr ""
+
 #: src/QmlUtils.cpp:72
 #, fuzzy
 msgctxt "QmlUtils|"
@@ -452,18 +1753,6 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr ""
 
-#~ msgctxt "AboutDialog|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "Erabiltzeko erraza den Jabber/XMPP bezero bat"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "License:"
-#~ msgstr "Lizentzia:"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "View source code online"
-#~ msgstr "Ikusi iturburu kodea linean"
-
 #, fuzzy
 #~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #~ msgid "Delete"
@@ -474,77 +1763,12 @@ msgstr ""
 #~ msgstr "Atzerantz nabigatu"
 
 #~ msgctxt "ChangePassword|"
-#~ msgid "Change password"
-#~ msgstr "Pasahitza aldatu"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "Current password:"
-#~ msgstr "Egungo pasahitza:"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "New password:"
-#~ msgstr "Pasahitz berria:"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "New password (repeat):"
-#~ msgstr "Pasahitz berria (errepikatu):"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "New passwords do not match."
-#~ msgstr "Pasahitz berriak ez datoz bat."
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "Current password is invalid."
-#~ msgstr "Egungo pasahitza ez da balekoa."
-
-#~ msgctxt "ChangePassword|"
 #~ msgid "You need to be connected to change your password."
 #~ msgstr "Pasahitza aldatzeko konektaturik egon behar duzu."
-
-#~ msgctxt "ChangePassword|"
-#~ msgid ""
-#~ "After changing your password, you will need to reenter it on all your "
-#~ "other devices."
-#~ msgstr ""
-#~ "Pasahitza aldatu ostean, zure gainontzeko gailuetan berriro sartu beharko "
-#~ "duzu."
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "Change"
-#~ msgstr "Aldatu"
-
-#, fuzzy
-#~ msgctxt "ChangePassword|"
-#~ msgid "Failed to change password: %1"
-#~ msgstr "Akatsa pasahitza aldatzean: %1"
 
 #~ msgctxt "ChatMessage|"
 #~ msgid "Message copied to clipboard"
 #~ msgstr "Mezua arbelean kopiatua"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Copy Message"
-#~ msgstr "Mezua kopiatu"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Edit Message"
-#~ msgstr "Mezua editatu"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Spoiler"
-#~ msgstr "«Spoiler»"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Download"
-#~ msgstr "Deskargatu"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Compose message"
-#~ msgstr "Mezua sortu"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Image"
@@ -571,10 +1795,6 @@ msgstr ""
 #~ msgstr "Artxibo bat aukeratu"
 
 #~ msgctxt "ChatPage|"
-#~ msgid "Send a spoiler message"
-#~ msgstr "«Spoiler» mezu bat bidali"
-
-#~ msgctxt "ChatPage|"
 #~ msgid "Spoiler hint"
 #~ msgstr "«Spoiler» keinua"
 
@@ -583,38 +1803,9 @@ msgstr ""
 #~ msgid "Close"
 #~ msgstr "Itxi"
 
-#, fuzzy
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Spoiler hint"
-#~ msgstr "«Spoiler» keinua"
-
-#, fuzzy
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Compose message"
-#~ msgstr "Mezua sortu"
-
-#, fuzzy
-#~ msgctxt "ConfirmationPage|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#, fuzzy
-#~ msgctxt "ConnectionSettings|"
-#~ msgid "Change"
-#~ msgstr "Aldatu"
-
-#, fuzzy
-#~ msgctxt "ConnectionSettings|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
 #~ msgctxt "ContextDrawer|"
 #~ msgid "Actions"
 #~ msgstr "Jarduerak"
-
-#~ msgctxt "EmptyChatPage|"
-#~ msgid "Please select a chat to start messaging"
-#~ msgstr "Hauta ezazu txat bat mezuak bidaltzen hasteko"
 
 #~ msgctxt "FileChooser|"
 #~ msgid "Select a file"
@@ -644,22 +1835,6 @@ msgstr ""
 #~ msgid "Log out"
 #~ msgstr "Saioa itxi"
 
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "About"
-#~ msgstr "Honi buruz"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Invite friends"
-#~ msgstr "Lagunak gonbidatu"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Invitation link copied to clipboard"
-#~ msgstr "Gonbidapen esteka arbelean kopiatua"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
-
 #~ msgctxt "Kaidan|"
 #~ msgid "Could not send message, as a result of not being connected."
 #~ msgstr "Ezin izan da mezua bidali, konektaturik ez zaudelako."
@@ -677,14 +1852,6 @@ msgstr ""
 #~ msgstr "Ezin izan da artxiboa bidali, konektaturik ez zaudelako."
 
 #~ msgctxt "LoginPage|"
-#~ msgid "Log in"
-#~ msgstr "Saioa hasi"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Log in to your XMPP account"
-#~ msgstr "Hasi saioa zure XMPP kontuan"
-
-#~ msgctxt "LoginPage|"
 #~ msgid "Your Jabber-ID:"
 #~ msgstr "Zure Jabber-IDa:"
 
@@ -693,20 +1860,8 @@ msgstr ""
 #~ msgstr "Zure diaspora*-IDa:"
 
 #~ msgctxt "LoginPage|"
-#~ msgid "user@example.org"
-#~ msgstr "erabiltzailea@example.org"
-
-#~ msgctxt "LoginPage|"
 #~ msgid "user@diaspora.pod"
 #~ msgstr "erabiltzailea@diaspora.pod"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Password:"
-#~ msgstr "Zure Pasahitza:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Connecting…"
-#~ msgstr "Konektatzen…"
 
 #~ msgctxt "LoginPage|"
 #~ msgid "Connect"
@@ -736,10 +1891,6 @@ msgstr ""
 #~ "JIDa berriz."
 
 #~ msgctxt "LoginPage|"
-#~ msgid "Could not connect to the server."
-#~ msgstr "Ezin izan da zerbitzarira konektatu."
-
-#~ msgctxt "LoginPage|"
 #~ msgid "Authentification protocol not supported by the server."
 #~ msgstr "Autentifikazio protokoloa ez da zerbitzariarekin bateragarria."
 
@@ -759,21 +1910,6 @@ msgstr ""
 #~ msgctxt "MessageHandler|"
 #~ msgid "Spoiler"
 #~ msgstr "«Spoiler»"
-
-#, fuzzy
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Image"
-#~ msgstr "Irudia"
-
-#, fuzzy
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Audio"
-#~ msgstr "Audioa"
-
-#, fuzzy
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Video"
-#~ msgstr "Bideoa"
 
 #, fuzzy
 #~ msgctxt "MultimediaSettingsPage|"
@@ -831,63 +1967,13 @@ msgstr ""
 #~ msgstr "Ezin izan da zerbitzarira konektatu."
 
 #, fuzzy
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Connecting…"
-#~ msgstr "Konektatzen…"
-
-#, fuzzy
 #~ msgctxt "QrCodeScannerPage|"
 #~ msgid "Connecting…"
 #~ msgstr "Konektatzen…"
 
 #~ msgctxt "RegistrationManager|"
-#~ msgid "Password changed successfully."
-#~ msgstr "Pasahitza behar bezala aldatu da."
-
-#~ msgctxt "RegistrationManager|"
 #~ msgid "Failed to change password: %1"
 #~ msgstr "Akatsa pasahitza aldatzean: %1"
-
-#, fuzzy
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete"
-#~ msgstr "Ezabatu"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Add new contact"
-#~ msgstr "Kontaktu berria gehitu"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Nickname:"
-#~ msgstr "Ezizena:"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Jabber-ID:"
-#~ msgstr "Jabber-IDa:"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "user@example.org"
-#~ msgstr "erabiltzailea@example.org"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Add"
-#~ msgstr "Gehitu"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "This will also send a request to access the presence of the contact."
-#~ msgstr "Honek kontaktuaren presentziara sarbide eskaera bidaliko du."
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Optional message:"
-#~ msgstr "Aukerako mezua:"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "Tell your chat partner who you are."
-#~ msgstr "Esan nor zaren zure berriketa lagunari."
 
 #~ msgctxt "RosterListItem|"
 #~ msgid "Error: Please check the JID."
@@ -929,79 +2015,6 @@ msgstr ""
 #~ msgid "Spoiler"
 #~ msgstr "«Spoiler»"
 
-#~ msgctxt "RosterPage|"
-#~ msgid "Connecting…"
-#~ msgstr "Konektatzen…"
-
-#~ msgctxt "RosterPage|"
-#~ msgid "Contacts"
-#~ msgstr "Kontaktuak"
-
-#~ msgctxt "RosterPage|"
-#~ msgid "Add new contact"
-#~ msgstr "Kontaktu berria gehitu"
-
-#~ msgctxt "RosterPage|"
-#~ msgid "Offline"
-#~ msgstr "Lineaz kanpo"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete contact"
-#~ msgstr "Kontaktua ezabatu"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete"
-#~ msgstr "Ezabatu"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
-#~ msgstr ""
-#~ "Ziur al zaude <b>%1</b> kontaktua zure zerrendatik ezabatu nahi duzula?"
-
-#, fuzzy
-#~ msgctxt "RosterRenameContactSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Utzi"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Caption"
-#~ msgstr "Izenburua"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Send"
-#~ msgstr "Bidali"
-
-#, fuzzy
-#~ msgctxt "SettingsContent|"
-#~ msgid "Change password"
-#~ msgstr "Pasahitza aldatu"
-
-#, fuzzy
-#~ msgctxt "SettingsContent|"
-#~ msgid ""
-#~ "Changes your account's password. You will need to re-enter it on your "
-#~ "other devices."
-#~ msgstr ""
-#~ "Zure kontuaren pasahitza aldatzen du. Zure gainontzeko gailuetan berriro "
-#~ "sartu beharko duzu."
-
-#, fuzzy
-#~ msgctxt "SettingsContent|"
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
-
-#~ msgctxt "SettingsPage|"
-#~ msgid "Settings"
-#~ msgstr "Ezarpenak"
-
 #~ msgctxt "SettingsPage|"
 #~ msgid "Change password"
 #~ msgstr "Pasahitza aldatu"
@@ -1018,26 +2031,6 @@ msgstr ""
 #~ msgctxt "SettingsSheet|"
 #~ msgid "Settings"
 #~ msgstr "Ezarpenak"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Subscription Request"
-#~ msgstr "Izen emate eskaera"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid ""
-#~ "You received a subscription request by <b>%1</b>. If you accept it, the "
-#~ "account will have access to your presence status."
-#~ msgstr ""
-#~ "Izen emate eskaera jaso duzu <b>%1</b>-(r)engandik. Onartzen baldin "
-#~ "baduzu, kontuak sarbidea izango du zure presentzia egoerara."
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Decline"
-#~ msgstr "Ukatu"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Accept"
-#~ msgstr "Onartu"
 
 #~ msgctxt "UploadManager|"
 #~ msgid "File"

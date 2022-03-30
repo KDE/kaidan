@@ -307,6 +307,1301 @@ msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr "%1 dias"
 
+#: src/qml/AboutDialog.qml:78
+msgctxt "AboutDialog|"
+msgid "A simple, user-friendly Jabber/XMPP client"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:86
+msgctxt "AboutDialog|"
+msgid "License:"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:103
+msgctxt "AboutDialog|"
+msgid "Report problems"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:108
+msgctxt "AboutDialog|"
+msgid "View source code online"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:46
+msgctxt "AccountTransferPage|"
+msgid "Transfer account to another device"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Hide QR code"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Show as QR code"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Hide text"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Show as text"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:86
+msgctxt "AccountTransferPage|"
+msgid ""
+"Scan the QR code or enter the credentials as text on another device to log "
+"in on it.\n"
+"\n"
+"Attention:\n"
+"Never show this QR code to anyone else. It would allow unlimited access to "
+"your account!"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:107
+msgctxt "AccountTransferPage|"
+msgid "Chat address:"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:116
+msgctxt "AccountTransferPage|"
+msgid "Copy chat address"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:126
+msgctxt "AccountTransferPage|"
+msgid "Password:"
+msgstr ""
+
+#: src/qml/AccountTransferPage.qml:136
+msgctxt "AccountTransferPage|"
+msgid "Copy password"
+msgstr ""
+
+#: src/qml/ChatPage.qml:78
+msgctxt "ChatPage|"
+msgid "Search"
+msgstr ""
+
+#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+msgctxt "ChatPage|"
+msgid "Unmute notifications"
+msgstr ""
+
+#: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+msgctxt "ChatPage|"
+msgid "Mute notifications"
+msgstr ""
+
+#: src/qml/ChatPage.qml:123
+msgctxt "ChatPage|"
+msgid "View profile"
+msgstr ""
+
+#: src/qml/ChatPage.qml:183
+msgctxt "ChatPage|"
+msgid "Send a spoiler message"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:143
+#, fuzzy
+#| msgctxt "Message|"
+#| msgid "Spoiler"
+msgctxt "ChatMessage|"
+msgid "Spoiler"
+msgstr "Spoiler"
+
+#: src/qml/elements/ChatMessage.qml:200
+msgctxt "ChatMessage|"
+msgid "Download"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:45
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy message"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:56
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit message"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:62
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy download URL"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:68
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote message"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:69
+msgctxt "ChatPageSearchView|"
+msgid "Close message search bar"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:89
+msgctxt "ChatPageSearchView|"
+msgid "Search up"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:100
+msgctxt "ChatPageSearchView|"
+msgid "Search down"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:67
+#, fuzzy
+#| msgctxt "Message|"
+#| msgid "Spoiler"
+msgctxt "ChatPageSendingPane|"
+msgid "Spoiler hint"
+msgstr "Spoiler"
+
+#: src/qml/elements/ChatPageSendingPane.qml:74
+msgctxt "ChatPageSendingPane|"
+msgid "Close spoiler hint field"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:112
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
+msgctxt "ChatPageSendingPane|"
+msgid "Compose message"
+msgstr "Escolha uma imagem"
+
+#: src/qml/elements/ConfirmationPage.qml:48
+msgctxt "ConfirmationPage|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:39
+msgctxt "JidField|"
+msgid "Chat address"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:40
+msgctxt "JidField|"
+msgid "user@example.org"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:42
+msgctxt "JidField|"
+msgid "The chat address must have the form <b>username@server</b>"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:40
+msgctxt "PasswordField|"
+msgid "Password"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:41
+msgctxt "PasswordField|"
+msgid "Please enter a valid password"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
+msgctxt "NewMedia|"
+msgid "Initializing…"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:229
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
+msgctxt "NewMedia|"
+msgid "Unavailable"
+msgstr "Disponível"
+
+#: src/qml/elements/NewMedia.qml:239
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Paused %1"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:254
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Recording… %1"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:71
+#, qt-format
+msgctxt "QrCodeScanner|"
+msgid "The camera format '%1' is not supported."
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:98
+msgctxt "QrCodeScanner|"
+msgid "There is no camera available."
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:101
+msgctxt "QrCodeScanner|"
+msgid ""
+"Your camera is busy.\n"
+"Try to close other applications using the camera."
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:43
+msgctxt "RosterAddContactSheet|"
+msgid "Add new contact"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:51
+msgctxt "RosterAddContactSheet|"
+msgid "This will also send a request to access the presence of the contact."
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:60
+msgctxt "RosterAddContactSheet|"
+msgid "Jabber-ID:"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:65
+msgctxt "RosterAddContactSheet|"
+msgid "user@example.org"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:72
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Nickname"
+msgctxt "RosterAddContactSheet|"
+msgid "Nickname:"
+msgstr "Apelido"
+
+#: src/qml/elements/RosterAddContactSheet.qml:81
+msgctxt "RosterAddContactSheet|"
+msgid "Optional message:"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:89
+msgctxt "RosterAddContactSheet|"
+msgid "Tell your chat partner who you are."
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:98
+msgctxt "RosterAddContactSheet|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:108
+msgctxt "RosterAddContactSheet|"
+msgid "Add"
+msgstr ""
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:42
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete contact"
+msgstr ""
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:48
+#, qt-format
+msgctxt "RosterRemoveContactSheet|"
+msgid ""
+"Do you really want to delete the contact <b>%1</b> from your contact list?"
+msgstr ""
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:67
+msgctxt "RosterRemoveContactSheet|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:73
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete"
+msgstr ""
+
+#: src/qml/elements/RosterRenameContactSheet.qml:43
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename contact"
+msgstr ""
+
+#: src/qml/elements/RosterRenameContactSheet.qml:62
+msgctxt "RosterRenameContactSheet|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/elements/RosterRenameContactSheet.qml:69
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:105
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "SendMediaSheet|"
+msgid "Caption"
+msgstr "Local"
+
+#: src/qml/elements/SendMediaSheet.qml:118
+msgctxt "SendMediaSheet|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:132
+msgctxt "SendMediaSheet|"
+msgid "Send"
+msgstr ""
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:43
+msgctxt "SubRequestAcceptSheet|"
+msgid "Subscription Request"
+msgstr ""
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#, qt-format
+msgctxt "SubRequestAcceptSheet|"
+msgid ""
+"You received a subscription request by <b>%1</b>. If you accept it, the "
+"account will have access to your presence status."
+msgstr ""
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:64
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Online"
+msgctxt "SubRequestAcceptSheet|"
+msgid "Decline"
+msgstr "Online"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:73
+msgctxt "SubRequestAcceptSheet|"
+msgid "Accept"
+msgstr ""
+
+#: src/qml/EmptyChatPage.qml:54
+msgctxt "EmptyChatPage|"
+msgid "Please select a chat to start messaging"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:89
+msgctxt "GlobalDrawer|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:94
+msgctxt "GlobalDrawer|"
+msgid "Invite friends"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:98
+msgctxt "GlobalDrawer|"
+msgid "Invitation link copied to clipboard"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:102
+msgctxt "GlobalDrawer|"
+msgid "Switch device"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:110
+msgctxt "GlobalDrawer|"
+msgid "Settings"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:123
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "About"
+msgctxt "GlobalDrawer|"
+msgid "About"
+msgstr "Sobre"
+
+#: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
+msgctxt "LoginPage|"
+msgid "Log in"
+msgstr ""
+
+#: src/qml/LoginPage.qml:49
+msgctxt "LoginPage|"
+msgid "Log in to your XMPP account"
+msgstr ""
+
+#: src/qml/LoginPage.qml:75
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "LoginPage|"
+msgid "Connection settings"
+msgstr "A ligar…"
+
+#: src/qml/LoginPage.qml:114
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "LoginPage|"
+msgid "Connecting…"
+msgstr "A ligar…"
+
+#: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:47
+msgctxt "QrCodeOnboardingPage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:56
+msgctxt "QrCodeOnboardingPage|"
+msgid "Continue without QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:62
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan the QR code from your existing device to transfer your account."
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:103
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Connecting…"
+msgstr "A ligar…"
+
+#: src/qml/QrCodeOnboardingPage.qml:121
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr ""
+
+#: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:69
+msgctxt "QrCodePage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:94
+msgctxt "QrCodePage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:126
+msgctxt "QrCodePage|"
+msgid "Contact added - Continue with step 2!"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:131
+msgctxt "QrCodePage|"
+msgid "This QR code does not contain a contact."
+msgstr ""
+
+#: src/qml/QrCodePage.qml:173
+msgctxt "QrCodePage|"
+msgid "Adding contact…"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:49
+msgctxt "AutomaticRegistrationPage|"
+msgid "Register automatically"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:106
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "AutomaticRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr "Este servidor não suporta registação."
+
+#: src/qml/registration/CustomFormView.qml:39
+msgctxt "CustomFormView|"
+msgid ""
+"The server has requested more information.\n"
+"Not everything may be required.\n"
+"If a CAPTCHA is shown, the displayed text must be entered."
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:39
+msgctxt "DisplayNameView|"
+msgid ""
+"Your display name is what your contacts will see.\n"
+"In case you don't want to use a display name, you can leave this field "
+"empty.\n"
+"Using a display name may let new contacts recognize you easier but also "
+"could decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:47
+msgctxt "DisplayNameView|"
+msgid "Display Name"
+msgstr ""
+
+#: src/qml/registration/LoadingView.qml:41
+msgctxt "LoadingView|"
+msgid "Requesting the server…"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:45
+msgctxt "ManualRegistrationPage|"
+msgid "Register manually"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:195
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Este servidor não suporta registação."
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr "Este servidor não suporta registação."
+
+#: src/qml/registration/ManualRegistrationPage.qml:242
+msgctxt "ManualRegistrationPage|"
+msgid "But you can use the provider's web registration."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:246
+msgctxt "ManualRegistrationPage|"
+msgid "A new provider has been randomly selected."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:261
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:265
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr ""
+
+#: src/qml/registration/PasswordView.qml:43
+msgctxt "PasswordView|"
+msgid ""
+"Your password is used to log in to your account.\n"
+"If you don't enter a password, the randomly generated and already displayed "
+"one is used.\n"
+"Don't use passwords your're already using somewhere else!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:46
+msgctxt "ProviderView|"
+msgid ""
+"The provider is where your account is located.\n"
+"The selectable providers are hand-picked by our community!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:64
+#, fuzzy
+#| msgctxt "ProviderListModel|"
+#| msgid "Custom provider"
+msgctxt "ProviderView|"
+msgid "Provider"
+msgstr "Fornecedor personalizado"
+
+#: src/qml/registration/ProviderView.qml:101
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ProviderView|"
+msgid "Connection settings"
+msgstr "A ligar…"
+
+#: src/qml/registration/ProviderView.qml:144
+msgctxt "ProviderView|"
+msgid "Web registration only:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "No"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "Yes"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:150
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "ProviderView|"
+msgid "Server locations:"
+msgstr "Enviar a localização"
+
+#: src/qml/registration/ProviderView.qml:156
+msgctxt "ProviderView|"
+msgid "Languages:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:162
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Online"
+msgctxt "ProviderView|"
+msgid "Online since:"
+msgstr "Online"
+
+#: src/qml/registration/ProviderView.qml:168
+msgctxt "ProviderView|"
+msgid "Allows to share media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:174
+msgctxt "ProviderView|"
+msgid "Stores shared media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:181
+#, fuzzy
+#| msgctxt "VCardModel|"
+#| msgid "Website"
+msgctxt "ProviderView|"
+msgid "Open website"
+msgstr "Sítio Web"
+
+#: src/qml/registration/ProviderView.qml:186
+msgctxt "ProviderView|"
+msgid "Copy website address"
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:37
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:41
+msgctxt "RegistrationDecisionPage|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:47
+msgctxt "RegistrationDecisionPage|"
+msgid "Generate an account automatically"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:52
+msgctxt "RegistrationDecisionPage|"
+msgid "Create an account manually"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:80
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:89
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:98
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr ""
+
+#: src/qml/registration/ResultView.qml:42
+msgctxt "ResultView|"
+msgid ""
+"Your chat address is used to chat with you, like your email address is used "
+"to exchange email messages.\n"
+"\n"
+"Your chat address will be:"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:43
+msgctxt "UsernameView|"
+msgid ""
+"Your username is used to log in to your account and to chat with you.\n"
+"If you don't enter a username, the randomly generated and already displayed "
+"one is used.\n"
+"Using an own username may let it be more recognizable but also could "
+"decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:60
+msgctxt "UsernameView|"
+msgid "Username"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:67
+msgctxt "UsernameView|"
+msgid ""
+"Please enter a valid username or leave the field empty for a random one."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:42
+msgctxt "WebRegistrationView|"
+msgid ""
+"The selected provider only provides web registration. After creating an "
+"account via the web page, you can log in via Kaidan."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:49
+msgctxt "WebRegistrationView|"
+msgid "Open registration web page"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:54
+msgctxt "WebRegistrationView|"
+msgid "Copy registration web page address"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:60
+msgctxt "WebRegistrationView|"
+msgid "Log in with your new account"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:41
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Set up"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:47
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Register a new account"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:52
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Use an existing account"
+msgstr ""
+
+#: src/qml/RosterPage.qml:41
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "RosterPage|"
+msgid "Connecting…"
+msgstr "A ligar…"
+
+#: src/qml/RosterPage.qml:42
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Offline"
+msgctxt "RosterPage|"
+msgid "Offline"
+msgstr "Offline"
+
+#: src/qml/RosterPage.qml:43
+msgctxt "RosterPage|"
+msgid "Contacts"
+msgstr ""
+
+#: src/qml/RosterPage.qml:56
+msgctxt "RosterPage|"
+msgid "Add new contact"
+msgstr ""
+
+#: src/qml/RosterPage.qml:68
+msgctxt "RosterPage|"
+msgid "Search contacts"
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:39
+msgctxt "AccountSecurity|"
+msgid "Account Security"
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:42
+msgctxt "AccountSecurity|"
+msgid ""
+"Allow to add additional devices using the login QR code but never show the "
+"password."
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:44
+msgctxt "AccountSecurity|"
+msgid "Don't show password"
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:49
+msgctxt "AccountSecurity|"
+msgid ""
+"Neither allow to add additional devices using the login QR code nor show the "
+"password."
+msgstr ""
+
+#: src/qml/settings/AccountSecurity.qml:51
+msgctxt "AccountSecurity|"
+msgid "Don't expose password in any way"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:40
+msgctxt "ChangePassword|"
+msgid "Change password"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:64
+msgctxt "ChangePassword|"
+msgid "Current password:"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:71
+msgctxt "ChangePassword|"
+msgid "New password:"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:77
+msgctxt "ChangePassword|"
+msgid "New password (repeat):"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:84
+msgctxt "ChangePassword|"
+msgid "New passwords do not match."
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:93
+msgctxt "ChangePassword|"
+msgid "Current password is invalid."
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:100
+msgctxt "ChangePassword|"
+msgid ""
+"After changing your password, you will need to reenter it on all your other "
+"devices."
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:111
+msgctxt "ChangePassword|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:117
+msgctxt "ChangePassword|"
+msgid "Change"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:142
+msgctxt "ChangePassword|"
+msgid "Password changed successfully"
+msgstr ""
+
+#: src/qml/settings/ChangePassword.qml:148
+#, qt-format
+msgctxt "ChangePassword|"
+msgid "Failed to change password: %1"
+msgstr ""
+
+#: src/qml/settings/ConnectionSettings.qml:40
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ConnectionSettings|"
+msgid "Connection settings"
+msgstr "A ligar…"
+
+#: src/qml/settings/ConnectionSettings.qml:70
+msgctxt "ConnectionSettings|"
+msgid "Change"
+msgstr ""
+
+#: src/qml/settings/ConnectionSettings.qml:84
+msgctxt "ConnectionSettings|"
+msgid "Cancel"
+msgstr ""
+
+#: src/qml/settings/ConnectionSettings.qml:98
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "The connection could not be refreshed."
+msgctxt "ConnectionSettings|"
+msgid "Connection settings could not be changed"
+msgstr "A conexão não pôde ser atualizada."
+
+#: src/qml/settings/ConnectionSettings.qml:107
+msgctxt "ConnectionSettings|"
+msgid "Connection settings changed"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:49
+msgctxt "CustomConnectionSettings|"
+msgid "Hostname:"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:53
+msgctxt "CustomConnectionSettings|"
+msgid "The hostname must not contain blank spaces"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:77
+msgctxt "CustomConnectionSettings|"
+msgid "Port:"
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:43
+msgctxt "DisablePasswordDisplay|"
+msgid "Don't expose your password in any way"
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:46
+msgctxt "DisablePasswordDisplay|"
+msgid ""
+"Your password will neither be shown as plain text nor included in the login "
+"QR code anymore.\n"
+"You won't be able to use the login via QR code without entering your "
+"password again because this action cannot be undone!\n"
+"Consider storing the password somewhere else if you want to use your account "
+"on another device."
+msgstr ""
+
+#: src/qml/settings/DisablePasswordDisplay.qml:51
+msgctxt "DisablePasswordDisplay|"
+msgid "Don't expose password in any way"
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid "Don't show your password"
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid ""
+"Your password will not be shown anymore but still exposed via the login QR "
+"code.\n"
+"You won't be able to see your password again because this action cannot be "
+"undone!\n"
+"Consider storing the password somewhere else if you want to use your account "
+"on another device without the login QR code."
+msgstr ""
+
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
+msgctxt "DisablePlainTextPasswordDisplay|"
+msgid "Don't show password"
+msgstr ""
+
+#: src/qml/settings/LocalAccountRemoval.qml:42
+msgctxt "LocalAccountRemoval|"
+msgid "Remove account from this app"
+msgstr ""
+
+#: src/qml/settings/LocalAccountRemoval.qml:45
+msgctxt "LocalAccountRemoval|"
+msgid ""
+"Your account will be removed from this app.\n"
+"Your password will be deleted, make sure it is stored in a password manager "
+"or you know it!"
+msgstr ""
+
+#: src/qml/settings/LocalAccountRemoval.qml:50
+msgctxt "LocalAccountRemoval|"
+msgid "Remove"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:44
+msgctxt "MultimediaSettings|"
+msgid "Multimedia Settings"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:56
+msgctxt "MultimediaSettings|"
+msgid "Configure"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:66
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "MultimediaSettings|"
+msgid "Image Capture"
+msgstr "Tirar uma fotografia"
+
+#: src/qml/settings/MultimediaSettings.qml:71
+msgctxt "MultimediaSettings|"
+msgid "Audio Recording"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:76
+msgctxt "MultimediaSettings|"
+msgid "Video Recording"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:128
+msgctxt "MultimediaSettings|"
+msgid "Camera"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:157
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio files"
+msgctxt "MultimediaSettings|"
+msgid "Audio input"
+msgstr "Ficheiros de áudio"
+
+#: src/qml/settings/MultimediaSettings.qml:187
+msgctxt "MultimediaSettings|"
+msgid "Container"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:226
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Image"
+msgctxt "MultimediaSettings|"
+msgid "Image"
+msgstr "Imagem"
+
+#: src/qml/settings/MultimediaSettings.qml:231
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio"
+msgctxt "MultimediaSettings|"
+msgid "Audio"
+msgstr "Áudio"
+
+#: src/qml/settings/MultimediaSettings.qml:237
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Video"
+msgctxt "MultimediaSettings|"
+msgid "Video"
+msgstr "Vídeo"
+
+#: src/qml/settings/MultimediaSettings.qml:264
+#: src/qml/settings/MultimediaSettings.qml:348
+#: src/qml/settings/MultimediaSettings.qml:432
+msgctxt "MultimediaSettings|"
+msgid "Codec"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:290
+#: src/qml/settings/MultimediaSettings.qml:458
+msgctxt "MultimediaSettings|"
+msgid "Resolution"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:316
+#: src/qml/settings/MultimediaSettings.qml:400
+#: src/qml/settings/MultimediaSettings.qml:510
+msgctxt "MultimediaSettings|"
+msgid "Quality"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:374
+msgctxt "MultimediaSettings|"
+msgid "Sample Rate"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:484
+msgctxt "MultimediaSettings|"
+msgid "Frame Rate"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
+msgctxt "MultimediaSettings|"
+msgid "Ready"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
+msgctxt "MultimediaSettings|"
+msgid "Initializing…"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:579
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Available"
+msgctxt "MultimediaSettings|"
+msgid "Unavailable"
+msgstr "Disponível"
+
+#: src/qml/settings/MultimediaSettings.qml:587
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "MultimediaSettings|"
+msgid "Recording…"
+msgstr "A ligar…"
+
+#: src/qml/settings/MultimediaSettings.qml:589
+msgctxt "MultimediaSettings|"
+msgid "Paused"
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:44
+msgctxt "PasswordRemovalPage|"
+msgid "Remove password"
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:47
+#, qt-format
+msgctxt "PasswordRemovalPage|"
+msgid ""
+"You can decide to only not show your password for <b>%1</b> as text anymore "
+"or to remove it completely from the account transfer. If you remove your "
+"password completely, you won't be able to use the account transfer via "
+"scanning without entering your password because it is also removed from the "
+"QR code."
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:50
+msgctxt "PasswordRemovalPage|"
+msgid "Do not show password as text"
+msgstr ""
+
+#: src/qml/settings/PasswordRemovalPage.qml:56
+msgctxt "PasswordRemovalPage|"
+msgid "Remove completely"
+msgstr ""
+
+#: src/qml/settings/RemoteAccountDeletion.qml:42
+msgctxt "RemoteAccountDeletion|"
+msgid "Delete account completely"
+msgstr ""
+
+#: src/qml/settings/RemoteAccountDeletion.qml:45
+msgctxt "RemoteAccountDeletion|"
+msgid ""
+"Your account will be deleted completely, which means from this app and from "
+"the server.\n"
+"You will not be able to use your account again!"
+msgstr ""
+
+#: src/qml/settings/RemoteAccountDeletion.qml:50
+msgctxt "RemoteAccountDeletion|"
+msgid "Delete"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:43
+msgctxt "SettingsContent|"
+msgid "Settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:48
+msgctxt "SettingsContent|"
+msgid "Change password"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid ""
+"Changes your account's password. You will need to re-enter it on your other "
+"devices."
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:55
+msgctxt "SettingsContent|"
+msgid "Multimedia Settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:56
+msgctxt "SettingsContent|"
+msgid "Configure photo, video and audio recording settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:61
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "SettingsContent|"
+msgid "Connection Settings"
+msgstr "A ligar…"
+
+#: src/qml/settings/SettingsContent.qml:62
+msgctxt "SettingsContent|"
+msgid "Configure the hostname and port to connect to"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:67
+msgctxt "SettingsContent|"
+msgid "Account security"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:68
+msgctxt "SettingsContent|"
+msgid "Configure whether this device can be used to log in on another device"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:73
+msgctxt "SettingsContent|"
+msgid "Remove account from Kaidan"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:74
+msgctxt "SettingsContent|"
+msgid "Remove account from this app"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:79
+msgctxt "SettingsContent|"
+msgid "Delete account"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:80
+msgctxt "SettingsContent|"
+msgid "Delete account from the server"
+msgstr ""
+
+#: src/qml/settings/SettingsPage.qml:35
+msgctxt "SettingsPage|"
+msgid "Settings"
+msgstr ""
+
+#: src/qml/StartPage.qml:68
+msgctxt "StartPage|"
+msgid "Enjoy free communication on every device!"
+msgstr ""
+
+#: src/qml/StartPage.qml:84
+msgctxt "StartPage|"
+msgid "Let's start"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:42
+msgctxt "UserProfilePage|"
+msgid "Profile"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:77
+msgctxt "UserProfilePage|"
+msgid "Rename contact"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:87
+msgctxt "UserProfilePage|"
+msgid "Show QR code"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:93
+msgctxt "UserProfilePage|"
+msgid "Remove contact"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:230
+msgctxt "UserProfilePage|"
+msgid "Online devices"
+msgstr ""
+
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
