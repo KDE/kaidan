@@ -305,51 +305,61 @@ msgid "%1 days"
 msgstr "%1 jours"
 
 #: src/qml/AboutDialog.qml:78
+#, fuzzy
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
 msgstr "Un client Jabber/XMPP simple et convivial"
 
 #: src/qml/AboutDialog.qml:86
+#, fuzzy
 msgctxt "AboutDialog|"
 msgid "License:"
 msgstr "Licence :"
 
 #: src/qml/AboutDialog.qml:103
+#, fuzzy
 msgctxt "AboutDialog|"
 msgid "Report problems"
 msgstr "Signaler un problème"
 
 #: src/qml/AboutDialog.qml:108
+#, fuzzy
 msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Voir le code source en ligne"
 
 #: src/qml/AccountTransferPage.qml:46
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
 msgstr "Transférer le compte vers un autre appareil"
 
 #: src/qml/AccountTransferPage.qml:48
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
 msgstr "Cacher le code QR"
 
 #: src/qml/AccountTransferPage.qml:48
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
 msgstr "Afficher comme code QR"
 
 #: src/qml/AccountTransferPage.qml:52
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
 msgstr "Masquer le texte"
 
 #: src/qml/AccountTransferPage.qml:52
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
 msgstr "Afficher comme texte"
 
 #: src/qml/AccountTransferPage.qml:86
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -367,76 +377,91 @@ msgstr ""
 "compte !"
 
 #: src/qml/AccountTransferPage.qml:107
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
 msgstr "Adresse de clavardage :"
 
 #: src/qml/AccountTransferPage.qml:116
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
 msgstr "Copier l’adresse de la discussion"
 
 #: src/qml/AccountTransferPage.qml:126
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Password:"
 msgstr "Mot de passe :"
 
 #: src/qml/AccountTransferPage.qml:136
+#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Copier le mot de passe"
 
 #: src/qml/ChatPage.qml:78
+#, fuzzy
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Rechercher"
 
 #: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#, fuzzy
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Réactiver les notifications"
 
 #: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+#, fuzzy
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Désactiver les notifications"
 
 #: src/qml/ChatPage.qml:123
+#, fuzzy
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Afficher le profil"
 
 #: src/qml/ChatPage.qml:183
+#, fuzzy
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Envoyer un message contenant un avertissement sur le contenu"
 
 #: src/qml/elements/ChatMessage.qml:143
+#, fuzzy
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Avertissement sur le contenu"
 
 #: src/qml/elements/ChatMessage.qml:200
+#, fuzzy
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Télécharger"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
+#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Copier le message"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
+#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Modifier le message"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
+#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "Copier le lien de téléchargement"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
+#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Citer le message"
@@ -466,21 +491,25 @@ msgid "Search down"
 msgstr "Rechercher vers le bas"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
+#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
 msgstr "Avertissement sur le contenu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
+#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
 msgstr "Fermer l’avertissement sur le contenu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
+#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Écrire un message"
 
 #: src/qml/elements/ConfirmationPage.qml:48
+#, fuzzy
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Annuler"
@@ -520,39 +549,43 @@ msgid "Please enter a valid password"
 msgstr ""
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
+#, fuzzy
 msgctxt "NewMedia|"
 msgid "Initializing…"
 msgstr "Initialisation…"
 
 #: src/qml/elements/NewMedia.qml:229
+#, fuzzy
 msgctxt "NewMedia|"
 msgid "Unavailable"
 msgstr "Indisponible"
 
 #: src/qml/elements/NewMedia.qml:239
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
 msgstr "En pause %1"
 
 #: src/qml/elements/NewMedia.qml:254
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
 msgstr "Enregistrement… %1"
 
 #: src/qml/elements/QrCodeScanner.qml:71
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
 msgstr "Le format « %1 » de l’appareil photo n’est pas pris en charge."
 
 #: src/qml/elements/QrCodeScanner.qml:98
+#, fuzzy
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
 msgstr "Aucun appareil photo n’est disponible."
 
 #: src/qml/elements/QrCodeScanner.qml:101
+#, fuzzy
 msgctxt "QrCodeScanner|"
 msgid ""
 "Your camera is busy.\n"
@@ -562,11 +595,13 @@ msgstr ""
 "Essayez de fermer d’autres applications utilisant l’appareil photo."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Ajouter un nouveau contact"
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr ""
@@ -574,47 +609,55 @@ msgstr ""
 "de présence en ligne."
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Identifiant Jabber :"
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
 msgstr "identifiant@example.org"
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Pseudonyme :"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Message facultatif :"
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Informez votre contact sur votre identité."
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
+#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ajouter"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
+#, fuzzy
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
 msgstr "Supprimer le contact"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "RosterRemoveContactSheet|"
 msgid ""
 "Do you really want to delete the contact <b>%1</b> from your contact list?"
@@ -623,52 +666,61 @@ msgstr ""
 "contacts ?"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
+#, fuzzy
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
+#, fuzzy
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
 msgstr "Supprimer"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
+#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
 msgstr "Renommer le contact"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
+#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
+#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Renommer"
 
 #: src/qml/elements/SendMediaSheet.qml:105
+#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Caption"
 msgstr "Légende"
 
 #: src/qml/elements/SendMediaSheet.qml:118
+#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/elements/SendMediaSheet.qml:132
+#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Envoyer"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:43
+#, fuzzy
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "Demande d’accès à votre statut"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
@@ -678,16 +730,19 @@ msgstr ""
 "Si vous acceptez, ce compte aura accès à votre statut de présence en ligne."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
+#, fuzzy
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "Refuser"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:73
+#, fuzzy
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Accepter"
 
 #: src/qml/EmptyChatPage.qml:54
+#, fuzzy
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Sélectionnez une discussion pour commencer à échanger"
@@ -701,77 +756,92 @@ msgid "Scan QR codes"
 msgstr "Scanner un code QR"
 
 #: src/qml/GlobalDrawer.qml:94
+#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Inviter des amis"
 
 #: src/qml/GlobalDrawer.qml:98
+#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Lien d’invitation copié dans le presse-papier"
 
 #: src/qml/GlobalDrawer.qml:102
+#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Changer d’appareil"
 
 #: src/qml/GlobalDrawer.qml:110
+#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Paramètres"
 
 #: src/qml/GlobalDrawer.qml:123
+#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "À propos"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
+#, fuzzy
 msgctxt "LoginPage|"
 msgid "Log in"
 msgstr "Se connecter"
 
 #: src/qml/LoginPage.qml:49
+#, fuzzy
 msgctxt "LoginPage|"
 msgid "Log in to your XMPP account"
 msgstr "Se connecter à votre compte XMPP"
 
 #: src/qml/LoginPage.qml:75
+#, fuzzy
 msgctxt "LoginPage|"
 msgid "Connection settings"
 msgstr "Paramètres de connexion"
 
 #: src/qml/LoginPage.qml:114
+#, fuzzy
 msgctxt "LoginPage|"
 msgid "Connecting…"
 msgstr "Connexion en cours…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Scanner un code QR"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Afficher les explications"
 
 #: src/qml/QrCodeOnboardingPage.qml:56
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
 msgstr "Continuer sans code QR"
 
 #: src/qml/QrCodeOnboardingPage.qml:62
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
 "Scanner le code QR d’un autre de vos appareils pour transférer votre compte."
 
 #: src/qml/QrCodeOnboardingPage.qml:103
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Connexion…"
 
 #: src/qml/QrCodeOnboardingPage.qml:121
+#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Ce code QR n’est pas un code QR de connexion valide."
@@ -919,7 +989,7 @@ msgid ""
 "Your password is used to log in to your account.\n"
 "If you don't enter a password, the randomly generated and already displayed "
 "one is used.\n"
-"Don't use passwords your're already using somewhere else!"
+"Don't use passwords you're already using somewhere else!"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:46
@@ -1107,51 +1177,61 @@ msgid "Log in with your new account"
 msgstr "Se connecter à votre compte XMPP"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
+#, fuzzy
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
 msgstr "Configuration initiale"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:47
+#, fuzzy
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Register a new account"
 msgstr "Créer un nouveau compte"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:52
+#, fuzzy
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Utiliser un compte existant"
 
 #: src/qml/RosterPage.qml:41
+#, fuzzy
 msgctxt "RosterPage|"
 msgid "Connecting…"
 msgstr "Connexion en cours…"
 
 #: src/qml/RosterPage.qml:42
+#, fuzzy
 msgctxt "RosterPage|"
 msgid "Offline"
 msgstr "Hors ligne"
 
 #: src/qml/RosterPage.qml:43
+#, fuzzy
 msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contacts"
 
 #: src/qml/RosterPage.qml:56
+#, fuzzy
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Ajouter un nouveau contact"
 
 #: src/qml/RosterPage.qml:68
+#, fuzzy
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Rechercher dans les contacts"
 
 #: src/qml/settings/AccountSecurity.qml:39
+#, fuzzy
 msgctxt "AccountSecurity|"
 msgid "Account Security"
 msgstr "Sécurité du compte"
 
 #: src/qml/settings/AccountSecurity.qml:42
+#, fuzzy
 msgctxt "AccountSecurity|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1161,11 +1241,13 @@ msgstr ""
 "connexion, mais ne montrez jamais le mot de passe."
 
 #: src/qml/settings/AccountSecurity.qml:44
+#, fuzzy
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
 msgstr "Ne pas afficher le mot de passe"
 
 #: src/qml/settings/AccountSecurity.qml:49
+#, fuzzy
 msgctxt "AccountSecurity|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1175,41 +1257,49 @@ msgstr ""
 "QR de connexion et ne montre pas le mot de passe."
 
 #: src/qml/settings/AccountSecurity.qml:51
+#, fuzzy
 msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
 msgstr "N’exposez pas votre mot de passe de quelque manière que ce soit"
 
 #: src/qml/settings/ChangePassword.qml:40
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
 #: src/qml/settings/ChangePassword.qml:64
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Current password:"
 msgstr "Mot de passe actuel :"
 
 #: src/qml/settings/ChangePassword.qml:71
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "New password:"
 msgstr "Nouveau mot de passe :"
 
 #: src/qml/settings/ChangePassword.qml:77
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
 msgstr "Nouveau mot de passe (répétez) :"
 
 #: src/qml/settings/ChangePassword.qml:84
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
 msgstr "Les nouveaux mots de passe ne sont pas identiques."
 
 #: src/qml/settings/ChangePassword.qml:93
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
 msgstr "Le mot de passe actuel est invalide."
 
 #: src/qml/settings/ChangePassword.qml:100
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid ""
 "After changing your password, you will need to reenter it on all your other "
@@ -1219,72 +1309,85 @@ msgstr ""
 "vos autres appareils."
 
 #: src/qml/settings/ChangePassword.qml:111
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/settings/ChangePassword.qml:117
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Change"
 msgstr "Modifier"
 
 #: src/qml/settings/ChangePassword.qml:142
+#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
 msgstr "Mot de passe modifié"
 
 #: src/qml/settings/ChangePassword.qml:148
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
 msgstr "Échec de la modification du mot de passe : %1"
 
 #: src/qml/settings/ConnectionSettings.qml:40
+#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
 msgstr "Paramètres de connexion"
 
 #: src/qml/settings/ConnectionSettings.qml:70
+#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Change"
 msgstr "Modifier"
 
 #: src/qml/settings/ConnectionSettings.qml:84
+#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
 msgstr "Annuler"
 
 #: src/qml/settings/ConnectionSettings.qml:98
+#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Connection settings could not be changed"
 msgstr "Impossible de modifier les paramètres de connexion"
 
 #: src/qml/settings/ConnectionSettings.qml:107
+#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Connection settings changed"
 msgstr "Paramètres de connexion modifiés"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
+#, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Nom du serveur :"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
+#, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "Le nom du serveur ne doit pas contenir d’espace"
 
 #: src/qml/settings/CustomConnectionSettings.qml:77
+#, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Port :"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:43
+#, fuzzy
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose your password in any way"
 msgstr "Ne divulguez pas votre mot de passe de quelque manière que ce soit"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:46
+#, fuzzy
 msgctxt "DisablePasswordDisplay|"
 msgid ""
 "Your password will neither be shown as plain text nor included in the login "
@@ -1302,16 +1405,19 @@ msgstr ""
 "compte sur un autre appareil."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:51
+#, fuzzy
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose password in any way"
 msgstr "N’exposez pas votre mot de passe de quelque manière que ce soit"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
+#, fuzzy
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
 msgstr "Ne montrez pas votre mot de passe"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
+#, fuzzy
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid ""
 "Your password will not be shown anymore but still exposed via the login QR "
@@ -1329,16 +1435,19 @@ msgstr ""
 "compte sur un autre appareil sans le code QR de connexion."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
+#, fuzzy
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
 msgstr "Ne pas afficher le mot de passe"
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
+#, fuzzy
 msgctxt "LocalAccountRemoval|"
 msgid "Remove account from this app"
 msgstr "Supprimer ce compte de l’application"
 
 #: src/qml/settings/LocalAccountRemoval.qml:45
+#, fuzzy
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.\n"
@@ -1350,61 +1459,73 @@ msgstr ""
 "gestionnaire de mots de passe ou que vous le connaissez !"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
+#, fuzzy
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
 msgstr "Supprimer"
 
 #: src/qml/settings/MultimediaSettings.qml:44
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
 msgstr "Paramètres multimédia"
 
 #: src/qml/settings/MultimediaSettings.qml:56
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Configure"
 msgstr "Configurer"
 
 #: src/qml/settings/MultimediaSettings.qml:66
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
 msgstr "Capture d’images"
 
 #: src/qml/settings/MultimediaSettings.qml:71
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
 msgstr "Enregistrement audio"
 
 #: src/qml/settings/MultimediaSettings.qml:76
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
 msgstr "Enregistrement vidéo"
 
 #: src/qml/settings/MultimediaSettings.qml:128
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Camera"
 msgstr "Appareil photo"
 
 #: src/qml/settings/MultimediaSettings.qml:157
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
 msgstr "Entrée audio"
 
 #: src/qml/settings/MultimediaSettings.qml:187
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Container"
 msgstr "Conteneur"
 
 #: src/qml/settings/MultimediaSettings.qml:226
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Image"
 msgstr "Image"
 
 #: src/qml/settings/MultimediaSettings.qml:231
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio"
 msgstr "Audio"
 
 #: src/qml/settings/MultimediaSettings.qml:237
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Video"
 msgstr "Vidéo"
@@ -1412,12 +1533,14 @@ msgstr "Vidéo"
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Codec"
 msgstr "Codec"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
 msgstr "Résolution"
@@ -1425,54 +1548,63 @@ msgstr "Résolution"
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Quality"
 msgstr "Qualité"
 
 #: src/qml/settings/MultimediaSettings.qml:374
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
 msgstr "Taux d’échantillonnage"
 
 #: src/qml/settings/MultimediaSettings.qml:484
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
 msgstr "Images par seconde"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Ready"
 msgstr "Prêt"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
 msgstr "Initialisation…"
 
 #: src/qml/settings/MultimediaSettings.qml:579
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
 msgstr "Indisponible"
 
 #: src/qml/settings/MultimediaSettings.qml:587
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
 msgstr "Enregistrement…"
 
 #: src/qml/settings/MultimediaSettings.qml:589
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Paused"
 msgstr "En pause"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
+#, fuzzy
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
 msgstr "Supprimer le mot de passe"
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
-#, qt-format
+#, fuzzy, qt-format
 msgctxt "PasswordRemovalPage|"
 msgid ""
 "You can decide to only not show your password for <b>%1</b> as text anymore "
@@ -1488,21 +1620,25 @@ msgstr ""
 "code QR car le mot de passe est également supprimé du code QR."
 
 #: src/qml/settings/PasswordRemovalPage.qml:50
+#, fuzzy
 msgctxt "PasswordRemovalPage|"
 msgid "Do not show password as text"
 msgstr "Ne pas afficher le mot de passe sous forme de texte"
 
 #: src/qml/settings/PasswordRemovalPage.qml:56
+#, fuzzy
 msgctxt "PasswordRemovalPage|"
 msgid "Remove completely"
 msgstr "Supprimer complètement"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:42
+#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
 msgstr "Supprimer complètement le compte"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
+#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
@@ -1514,21 +1650,25 @@ msgstr ""
 "Vous ne pourrez plus jamais utiliser ce compte !"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
+#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
 msgstr "Supprimer"
 
 #: src/qml/settings/SettingsContent.qml:43
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Settings"
 msgstr "Paramètres"
 
 #: src/qml/settings/SettingsContent.qml:48
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Modifier le mot de passe"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
@@ -1538,31 +1678,37 @@ msgstr ""
 "autres appareils."
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Paramètres multimédia"
 
 #: src/qml/settings/SettingsContent.qml:56
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Configurer les paramètres d’enregistrement d’image, vidéo et audio"
 
 #: src/qml/settings/SettingsContent.qml:61
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
 msgstr "Paramètres de connexion"
 
 #: src/qml/settings/SettingsContent.qml:62
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
 msgstr "Configurer le nom du serveur et le port auxquels se connecter"
 
 #: src/qml/settings/SettingsContent.qml:67
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Account security"
 msgstr "Sécurité du compte"
 
 #: src/qml/settings/SettingsContent.qml:68
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
 msgstr ""
@@ -1570,61 +1716,73 @@ msgstr ""
 "appareil"
 
 #: src/qml/settings/SettingsContent.qml:73
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Remove account from Kaidan"
 msgstr "Supprimer ce compte de Kaidan"
 
 #: src/qml/settings/SettingsContent.qml:74
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
 msgstr "Supprimer ce compte de l’application"
 
 #: src/qml/settings/SettingsContent.qml:79
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Delete account"
 msgstr "Supprimer ce compte"
 
 #: src/qml/settings/SettingsContent.qml:80
+#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Supprimer ce compte du serveur"
 
 #: src/qml/settings/SettingsPage.qml:35
+#, fuzzy
 msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Paramètres"
 
 #: src/qml/StartPage.qml:68
+#, fuzzy
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Profitez d’une communication libre sur tous vos appareils !"
 
 #: src/qml/StartPage.qml:84
+#, fuzzy
 msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "C’est parti"
 
 #: src/qml/UserProfilePage.qml:42
+#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Profil"
 
 #: src/qml/UserProfilePage.qml:77
+#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
 msgstr "Renommer le contact"
 
 #: src/qml/UserProfilePage.qml:87
+#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
 msgstr "Afficher le code QR"
 
 #: src/qml/UserProfilePage.qml:93
+#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Supprimer le contact"
 
 #: src/qml/UserProfilePage.qml:230
+#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Appareils en ligne"

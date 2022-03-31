@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-03-25 08:53+0200\n"
+"PO-Revision-Date: 2022-03-30 09:15+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -444,25 +444,16 @@ msgid "Quote message"
 msgstr "Процитувати повідомлення"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
 msgstr "Закрити панель пошуку повідомлення"
 
 #: src/qml/elements/ChatPageSearchView.qml:89
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search up"
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
 msgstr "Шукати вище"
 
 #: src/qml/elements/ChatPageSearchView.qml:100
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search down"
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Шукати нижче"
@@ -488,38 +479,30 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/qml/elements/fields/JidField.qml:39
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "Адреса спілкування:"
+msgstr "Адреса спілкування"
 
 #: src/qml/elements/fields/JidField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr "користувач@example.org"
+msgstr "користувач@приклад.org"
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
+"Формат запису адреси спілкування має бути таким: <b>користувач@сервер</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:40
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "Пароль:"
+msgstr "Пароль"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "Будь ласка, введіть коректний пароль"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -696,12 +679,9 @@ msgid "Please select a chat to start messaging"
 msgstr "Будь ласка, виберіть спілкування, щоб розпочати обмін повідомленнями"
 
 #: src/qml/GlobalDrawer.qml:89
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "GlobalDrawer|"
 msgid "Scan QR codes"
-msgstr "Сканувати QR-код"
+msgstr "Сканування QR-кодів"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -781,17 +761,11 @@ msgid "This QR code is not a valid login QR code."
 msgstr "Цей QR-код не є коректним QR-кодом для входу."
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "Сканувати QR-код"
+msgstr "Сканування QR-кодів"
 
 #: src/qml/QrCodePage.qml:47
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "QrCodePage|"
 msgid "Show explanation"
 msgstr "Показати пояснення"
@@ -799,46 +773,37 @@ msgstr "Показати пояснення"
 #: src/qml/QrCodePage.qml:69
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "Крок 1: скануйте QR-код вашого <b>контакту</b>"
 
 #: src/qml/QrCodePage.qml:94
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "Крок 2: передайте вашому контакту <b>ваш</b> QR-код"
 
 #: src/qml/QrCodePage.qml:126
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2!"
-msgstr ""
+msgstr "Контакт додано — перейдіть до кроку 2!"
 
 #: src/qml/QrCodePage.qml:131
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "This QR code is not a valid login QR code."
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact."
-msgstr "Цей QR-код не є коректним QR-кодом для входу."
+msgstr "У QR-коді не міститься даних контакту."
 
 #: src/qml/QrCodePage.qml:173
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr "Додати новий контакт"
+msgstr "Додавання контакту…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
-msgstr ""
+msgstr "Автоматична реєстрація"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:106
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr "На сервері не передбачено підтримки реєстрації."
+msgstr "Цей надавач послуг поки не підтримує реєстрацію за допомогою програми."
 
 #: src/qml/registration/CustomFormView.qml:39
 msgctxt "CustomFormView|"
@@ -847,6 +812,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"Сервером надіслано запит щодо додаткових відомостей.\n"
+"Не усі ці відомості слід надавати обов'язково.\n"
+"Якщо показано CAPTCHA, має бути введено показаний текст."
 
 #: src/qml/registration/DisplayNameView.qml:39
 msgctxt "DisplayNameView|"
@@ -857,74 +825,84 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"Ваше екранне ім'я — те, що бачитимуть для вашого облікового запису "
+"контакти.\n"
+"Якщо ви не хочете користуватися екранним ім'ям, можете не заповнювати це "
+"поле.\n"
+"Використання екранного імені може спростити вашим контактам пошук вашого "
+"запису, але також може призвести до втрати конфіденційності!"
 
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "Екранне ім'я"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr ""
+msgstr "Надсилаємо запит на сервер…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
-msgstr "Зареєструвати новий обліковий запис"
+msgstr "Реєстрація вручну"
 
 #: src/qml/registration/ManualRegistrationPage.qml:195
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "Надавач послуг вимагає складнішого пароля."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr "На сервері не передбачено підтримки реєстрації."
+msgstr "Цей надавач послуг не підтримує реєстрацію за допомогою програми."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr "На сервері не передбачено підтримки реєстрації."
+msgstr "Цей надавач послуг поки не підтримує реєстрацію за допомогою програми."
 
 #: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
 msgstr ""
+"Втім, ви можете скористатися для реєстрації сторінкою надавача послуг в "
+"інтернеті."
 
 #: src/qml/registration/ManualRegistrationPage.qml:246
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
-msgstr ""
+msgstr "Нового надавача послуг вибрано випадковим чином."
 
 #: src/qml/registration/ManualRegistrationPage.qml:261
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "Це ім'я користувача вже зайняте."
 
 #: src/qml/registration/ManualRegistrationPage.qml:265
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "Було створено випадкову назву облікового запису."
 
 #: src/qml/registration/PasswordView.qml:43
+#, fuzzy
+#| msgctxt "PasswordView|"
+#| msgid ""
+#| "Your password is used to log in to your account.\n"
+#| "If you don't enter a password, the randomly generated and already "
+#| "displayed one is used.\n"
+#| "Don't use passwords your're already using somewhere else!"
 msgctxt "PasswordView|"
 msgid ""
 "Your password is used to log in to your account.\n"
 "If you don't enter a password, the randomly generated and already displayed "
 "one is used.\n"
-"Don't use passwords your're already using somewhere else!"
+"Don't use passwords you're already using somewhere else!"
 msgstr ""
+"Ваш пароль буде використано для входу до вашого облікового запису.\n"
+"Якщо вами не буде введено пароль, буде використано показаний випадковий "
+"пароль.\n"
+"Не користуйтеся паролями, які ви вже десь використовуєте!"
 
 #: src/qml/registration/ProviderView.qml:46
 msgctxt "ProviderView|"
@@ -932,19 +910,15 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"Надавач послуг — служба, де зберігатимуться дані вашого облікового запису.\n"
+"Список надавачів послуг формують учасники нашої спільноти!"
 
 #: src/qml/registration/ProviderView.qml:64
-#, fuzzy
-#| msgctxt "ProviderListModel|"
-#| msgid "Custom provider"
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr "Нетиповий надавач послуг"
+msgstr "Надавач послуг"
 
 #: src/qml/registration/ProviderView.qml:101
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings"
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Параметри з'єднання"
@@ -952,105 +926,87 @@ msgstr "Параметри з'єднання"
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr ""
+msgstr "Лише інтернет-реєстрація:"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: src/qml/registration/ProviderView.qml:150
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr "Надіслати адресу"
+msgstr "Розташування серверів:"
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "Мови:"
 
 #: src/qml/registration/ProviderView.qml:162
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr "Пристрої у мережі"
+msgstr "В мережі з:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr ""
+msgstr "Дозволяє оприлюднювати дані аж до:"
 
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr ""
+msgstr "Зберігає оприлюднені дані аж до:"
 
 #: src/qml/registration/ProviderView.qml:181
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr "Сайт"
+msgstr "Відкрити сайт"
 
 #: src/qml/registration/ProviderView.qml:186
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr "Копіювати адресу спілкування"
+msgstr "Копіювати адресу сайта"
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "Зареєструвати"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr ""
+msgstr "Реєстрація"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete account completely"
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
-msgstr "Вилучити обліковий запис повністю"
+msgstr "Створити обліковий запис автоматично"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:52
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete account completely"
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
-msgstr "Вилучити обліковий запис повністю"
+msgstr "Створити обліковий запис вручну"
 
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "Введено помилкову CAPTCHA"
 
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "Не вказано обов'язкових даних: "
 
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "Не вдалося зареєструватися:"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -1060,6 +1016,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"Вашу адресу спілкування буде використано для спілкування з вами, подібно до "
+"того, як використовують адресу електронної пошти для обміну повідомленнями.\n"
+"\n"
+"Вашою адресою спілкування буде така:"
 
 #: src/qml/registration/UsernameView.qml:43
 msgctxt "UsernameView|"
@@ -1070,20 +1030,25 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"Ваше ім'я користувача буде використано для входу до вашого облікового запису "
+"та спілкування з вами.\n"
+"Якщо вами не буде введено імені користувача, програма використовуватиме "
+"показане випадкове ім'я.\n"
+"Використання вигаданого вами імені користувача полегшить пошук його іншими "
+"користувачами, але також може зробити обліковий запис менш конфіденційним!"
 
 #: src/qml/registration/UsernameView.qml:60
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr "Перейменувати"
+msgstr "Користувач"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
+"Будь ласка, вкажіть коректне ім'я користувача або не заповнюйте це поле, "
+"якщо ім'я слід вибрати випадковим чином."
 
 #: src/qml/registration/WebRegistrationView.qml:42
 msgctxt "WebRegistrationView|"
@@ -1091,24 +1056,24 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"Вибраний надавач послуг надає доступ лише до інтернет-реєстрації. Після "
+"створення облікового запису за допомогою сторінки інтернету ви зможете "
+"увійти до нього за допомогою Kaidan."
 
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr ""
+msgstr "Відкрити сторінку реєстрації"
 
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr ""
+msgstr "Копіювати адресу сторінки реєстрації"
 
 #: src/qml/registration/WebRegistrationView.qml:60
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in to your XMPP account"
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr "Увійдіть до вашого облікового запису XMPP"
+msgstr "Увійдіть до вашого нового облікового запису"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
