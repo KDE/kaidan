@@ -28,26 +28,19 @@ msgid "Download failed: %1"
 msgstr "Chyba při stahování: %1"
 
 #: src/Kaidan.cpp:98
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Offline"
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr "Nepřipojený"
+msgstr ""
 
 #: src/Kaidan.cpp:100
-#, fuzzy
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/Kaidan.cpp:102
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Offline"
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr "Nepřipojený"
+msgstr ""
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:164
@@ -109,16 +102,14 @@ msgid "Two pass"
 msgstr "Dvouproudový"
 
 #: src/MediaUtils.cpp:252
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Audio"
+msgstr ""
 
 #: src/MediaUtils.cpp:254
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr "Dokument"
+msgstr ""
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
@@ -126,22 +117,19 @@ msgid "Location"
 msgstr ""
 
 #: src/MediaUtils.cpp:258
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr "Obrázek"
+msgstr ""
 
 #: src/MediaUtils.cpp:260
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr "Video"
+msgstr ""
 
 #: src/MediaUtils.cpp:264
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr "Soubor"
+msgstr ""
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
@@ -220,10 +208,9 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "«Spoiler»"
+msgstr ""
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
@@ -251,10 +238,9 @@ msgid "Delivered"
 msgstr ""
 
 #: src/MessageModel.cpp:233
-#, fuzzy
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr "Chyba"
+msgstr ""
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
@@ -262,34 +248,29 @@ msgid "Mark as read"
 msgstr ""
 
 #: src/PresenceCache.cpp:63
-#, fuzzy
 msgctxt "QObject|"
 msgid "Available"
-msgstr "Dostupný"
+msgstr ""
 
 #: src/PresenceCache.cpp:65
-#, fuzzy
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr "Dostupný k chatování"
+msgstr ""
 
 #: src/PresenceCache.cpp:67
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away"
-msgstr "Nepřítomný"
+msgstr ""
 
 #: src/PresenceCache.cpp:69
-#, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr "Nerušit"
+msgstr ""
 
 #: src/PresenceCache.cpp:71
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "Dlouhodobě nepřítomný"
+msgstr ""
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
@@ -341,16 +322,14 @@ msgid "Transfer account to another device"
 msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
@@ -384,20 +363,14 @@ msgid "Copy chat address"
 msgstr ""
 
 #: src/qml/AccountTransferPage.qml:126
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr "Vaše heslo:"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:136
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr "Změna hesla"
+msgstr ""
 
 #: src/qml/ChatPage.qml:78
 msgctxt "ChatPage|"
@@ -435,82 +408,59 @@ msgid "Download"
 msgstr "Stahnout"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Copy Message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr "Zkopírovat zprávu"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Edit Message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr "Editovat zprávu"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
-#, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr "Kopírovat stažitelnou URL"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr "Vytvořit zprávu"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:69
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr "Vytvořit zprávu"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:89
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search up"
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr "Hledat výše"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:100
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search down"
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr "Hledat níže"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr "«Spoiler» tip"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr "«Spoiler» tip"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr "Vytvořit zprávu"
+msgstr ""
 
 #: src/qml/elements/ConfirmationPage.qml:48
-#, fuzzy
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
@@ -518,12 +468,9 @@ msgid "Chat address"
 msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr "uživatel@example.org"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
@@ -531,12 +478,9 @@ msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "Vaše heslo:"
+msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -566,26 +510,22 @@ msgid "Recording… %1"
 msgstr "Nahrávání… %1"
 
 #: src/qml/elements/QrCodeScanner.qml:71
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr "Formát fotoaparátu '% 1' není podporován."
+msgstr ""
 
 #: src/qml/elements/QrCodeScanner.qml:98
-#, fuzzy
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr "Není k dispozici žádná kamera."
+msgstr ""
 
 #: src/qml/elements/QrCodeScanner.qml:101
-#, fuzzy
 msgctxt "QrCodeScanner|"
 msgid ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 msgstr ""
-"Váš fotoaparát je zaneprázdněn.\n"
-"Zkuste zavřít jiné aplikace, které používají fotoaparát."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
@@ -638,13 +578,11 @@ msgid "Delete contact"
 msgstr "Smazat kontakt"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
-#, fuzzy, qt-format
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
+#, qt-format
 msgctxt "RosterRemoveContactSheet|"
 msgid ""
 "Do you really want to delete the contact <b>%1</b> from your contact list?"
-msgstr "Opravdu chcete smazat kontakt <b>%1</b> z vašeho seznamu?"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
@@ -717,10 +655,9 @@ msgid "Please select a chat to start messaging"
 msgstr "Pro zahájení konverzace vyberte chat"
 
 #: src/qml/GlobalDrawer.qml:89
-#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Scan QR codes"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -758,12 +695,9 @@ msgid "Log in to your XMPP account"
 msgstr "Přihlásit se ke svému XMPP účtu"
 
 #: src/qml/LoginPage.qml:75
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
@@ -771,10 +705,9 @@ msgid "Connecting…"
 msgstr "Připojování…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -792,24 +725,19 @@ msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:103
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:121
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "No valid login QR code found."
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr "Nebyl nalezen žádný platný přihlašovací kód QR."
+msgstr ""
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
-#, fuzzy
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
@@ -837,12 +765,9 @@ msgid "This QR code does not contain a contact."
 msgstr ""
 
 #: src/qml/QrCodePage.qml:173
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr "Přidat nový kontakt"
+msgstr ""
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
@@ -893,10 +818,9 @@ msgid "The provider requires a stronger password."
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
-#, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr "Server nepodporuje zabezpečená připojení."
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
@@ -945,10 +869,9 @@ msgid "Provider"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:101
-#, fuzzy
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -966,12 +889,9 @@ msgid "Yes"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:150
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr "Zaslat polohu"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
@@ -979,12 +899,9 @@ msgid "Languages:"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:162
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "Offline"
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr "Nepřipojený"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -997,12 +914,9 @@ msgid "Stores shared media up to:"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:181
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr "Webová stránka"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:186
 msgctxt "ProviderView|"
@@ -1064,12 +978,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/registration/UsernameView.qml:60
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr "Přejmenovat"
+msgstr ""
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
@@ -1095,12 +1006,9 @@ msgid "Copy registration web page address"
 msgstr ""
 
 #: src/qml/registration/WebRegistrationView.qml:60
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in to your XMPP account"
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr "Přihlásit se ke svému XMPP účtu"
+msgstr ""
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1155,12 +1063,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:44
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr "Nové heslo:"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1224,36 +1129,30 @@ msgid "Change"
 msgstr "Změnit"
 
 #: src/qml/settings/ChangePassword.qml:142
-#, fuzzy
-#| msgctxt "RegistrationManager|"
-#| msgid "Password changed successfully."
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr "Změna hesla byla úspěšná."
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:148
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr "Změna hesla se nezdařila: %1"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:40
-#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:70
-#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr "Změnit"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:84
-#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1266,12 +1165,9 @@ msgid "Connection settings changed"
 msgstr ""
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Edit name:"
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr "Editovat jméno:"
+msgstr ""
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
@@ -1321,12 +1217,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr "Nové heslo:"
+msgstr ""
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1347,145 +1240,121 @@ msgid "Remove"
 msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:44
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr "Nastavení multimédií"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:56
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr "Nastavit"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:66
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr "Zachycení obrazu"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:71
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
-msgstr "Audio nahrávání"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:76
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
-msgstr "Video nahrávání"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:128
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr "Kamera"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:157
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr "Audio vstup"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:187
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr "Kontejner"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:226
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr "Obrázek"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:231
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr "Audio"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:237
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr "Video"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr "Kodek"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr "Rozlišení"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Quality"
-msgstr "Kvalita"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:374
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
-msgstr "Vzorkovací frekvence"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:484
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
-msgstr "Snímková frekvence"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Ready"
-msgstr "Připravený"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
-msgstr "Zahajuji…"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:579
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr "Nedostupný"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:587
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr "Nahrávám…"
+msgstr ""
 
 #: src/qml/settings/MultimediaSettings.qml:589
-#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Paused"
-msgstr "Pozastaven"
+msgstr ""
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr "Nové heslo:"
+msgstr ""
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1509,12 +1378,9 @@ msgid "Remove completely"
 msgstr ""
 
 #: src/qml/settings/RemoteAccountDeletion.qml:42
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
-msgstr "Smazat kontakt"
+msgstr ""
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
 msgctxt "RemoteAccountDeletion|"
@@ -1525,37 +1391,31 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
-#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
-msgstr "Smazat"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:43
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr "Nastavení"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr "Změna hesla"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
 "devices."
 msgstr ""
-"Změní heslo k vašemu účtu. Bude třeba ho zadat na všech vašich zařízeních."
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr "Nastavení multimédií"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
@@ -1563,10 +1423,9 @@ msgid "Configure photo, video and audio recording settings"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:61
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
@@ -1594,20 +1453,14 @@ msgid "Remove account from this app"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:79
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr "Smazat kontakt"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:80
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Could not connect to the server."
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
-msgstr "Nebylo možné se připojit k serveru."
+msgstr ""
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
@@ -1630,22 +1483,19 @@ msgid "Profile"
 msgstr "Profil"
 
 #: src/qml/UserProfilePage.qml:77
-#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
-msgstr "Přejmenovat kontakt"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:87
-#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr "Naskenujte QR kód"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:93
-#, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
-msgstr "Přejmenovat kontakt"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:230
 msgctxt "UserProfilePage|"
@@ -1653,30 +1503,24 @@ msgid "Online devices"
 msgstr ""
 
 #: src/QmlUtils.cpp:72
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "Neplatný uživatel nebo heslo."
+msgstr ""
 
 #: src/QmlUtils.cpp:74
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
-"Nelze se připojit k serveru.\n"
-"Prosím zkontrolujte své připojení k internetu."
 
 #: src/QmlUtils.cpp:76
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "Hlášení o chybě při pokusu o zabezpečené připojení."
+msgstr ""
 
 #: src/QmlUtils.cpp:78
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr "Server nepodporuje zabezpečená připojení."
+msgstr ""
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
@@ -1691,10 +1535,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr ""
 
 #: src/QmlUtils.cpp:84
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "Ověřovací protokol není kompatibilní se serverem."
+msgstr ""
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
@@ -1758,10 +1601,9 @@ msgid "Could not send file, as a result of not being connected."
 msgstr "Soubor nelze odeslat, neboť nejste připojeni."
 
 #: src/UploadManager.cpp:141
-#, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "Zprávu se nepodařilo odeslat."
+msgstr ""
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
@@ -1792,402 +1634,3 @@ msgstr "Datum narození"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#, fuzzy
-#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
-#~ msgid "Delete"
-#~ msgstr "Smazat"
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "You need to be connected to change your password."
-#~ msgstr "Pro změnu hesla je nutné být připojen."
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Copy download URL"
-#~ msgstr "Kopírovat stažitelnou URL"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Image"
-#~ msgstr "Obrázek"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Video"
-#~ msgstr "Video"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Audio"
-#~ msgstr "Audio"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Document"
-#~ msgstr "Dokument"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Other file"
-#~ msgstr "Další soubor"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Select a file"
-#~ msgstr "Vybrat soubor"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Spoiler hint"
-#~ msgstr "«Spoiler» tip"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Multimedia settings"
-#~ msgstr "Nastavení multimédií"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Close"
-#~ msgstr "Zavřít"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "All files"
-#~ msgstr "Všechny soubory"
-
-#, fuzzy
-#~ msgctxt "ChatPage|"
-#~ msgid "Copy download URL"
-#~ msgstr "Kopírovat stažitelnou URL"
-
-#~ msgctxt "DownloadJob|"
-#~ msgid "Download failed."
-#~ msgstr "Stahování selhalo."
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Favorites"
-#~ msgstr "Oblíbené"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "People"
-#~ msgstr "Lidé"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Nature"
-#~ msgstr "Příroda"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Food"
-#~ msgstr "Jídlo"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Activity"
-#~ msgstr "Činnosti"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Travel"
-#~ msgstr "Cestování"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Objects"
-#~ msgstr "Předměty"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Symbols"
-#~ msgstr "Symboly"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Flags"
-#~ msgstr "Vlajky"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Search"
-#~ msgstr "Hledat"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Search emoji"
-#~ msgstr "Hledat emoji"
-
-#~ msgctxt "FileChooser|"
-#~ msgid "Select a file"
-#~ msgstr "Vybrat soubor"
-
-#~ msgctxt "FileChooserMobile|"
-#~ msgid "Go to parent folder"
-#~ msgstr "Přesun o adresář výše"
-
-#~ msgctxt "FileChooserMobile|"
-#~ msgid "Close"
-#~ msgstr "Zavřít"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Log out"
-#~ msgstr "Odhlásit se"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "No password found. Please enter it."
-#~ msgstr "Heslo nenalezeno. Prosím zadejte heslo."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Jabber-ID:"
-#~ msgstr "Vaše Jabber-ID:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your diaspora*-ID:"
-#~ msgstr "Vaše diaspora*-ID:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "user@diaspora.pod"
-#~ msgstr "uživatel@diaspora.pod"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Connect"
-#~ msgstr "Připojit"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Invalid username or password."
-#~ msgstr "Neplatný uživatel nebo heslo."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Cannot connect to the server. Please check your internet connection."
-#~ msgstr ""
-#~ "Nelze se připojit k serveru.\n"
-#~ "Prosím zkontrolujte své připojení k internetu."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "The server doesn't support secure connections."
-#~ msgstr "Server nepodporuje zabezpečená připojení."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Error while trying to connect securely."
-#~ msgstr "Hlášení o chybě při pokusu o zabezpečené připojení."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Could not resolve the server's address. Please check your JID again."
-#~ msgstr "Neznámá adresa serveru. Zkontrolujte znovu vaše JID."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Authentification protocol not supported by the server."
-#~ msgstr "Ověřovací protokol není kompatibilní se serverem."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "An unknown error occured; see log for details."
-#~ msgstr "Došlo k neznámé chybě; pro více informací zkontrolujte seznam logů."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Log in using a QR-Code"
-#~ msgstr "Přihlaste se pomocí QR kódu"
-
-#~ msgctxt "MessageHandler|"
-#~ msgid "Could not send message, as a result of not being connected."
-#~ msgstr "Nelze odeslat zprávu, neboť nejste připojeni."
-
-#~ msgctxt "MessageHandler|"
-#~ msgid "Could not correct message, as a result of not being connected."
-#~ msgstr "Zprávu nelze editovat, neboť nejste připojeni."
-
-#~ msgctxt "MessageHandler|"
-#~ msgid "Spoiler"
-#~ msgstr "«Spoiler»"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Multimedia Settings"
-#~ msgstr "Nastavení multimédií"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Configure"
-#~ msgstr "Nastavit"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Image Capture"
-#~ msgstr "Zachycení obrazu"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Audio Recording"
-#~ msgstr "Audio nahrávání"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Video Recording"
-#~ msgstr "Video nahrávání"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Camera"
-#~ msgstr "Kamera"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Audio input"
-#~ msgstr "Audio vstup"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Container"
-#~ msgstr "Kontejner"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Image"
-#~ msgstr "Obrázek"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Audio"
-#~ msgstr "Audio"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Video"
-#~ msgstr "Video"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Codec"
-#~ msgstr "Kodek"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Resolution"
-#~ msgstr "Rozlišení"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Quality"
-#~ msgstr "Kvalita"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Sample Rate"
-#~ msgstr "Vzorkovací frekvence"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Frame Rate"
-#~ msgstr "Snímková frekvence"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Ready"
-#~ msgstr "Připravený"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Initializing…"
-#~ msgstr "Zahajuji…"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Unavailable"
-#~ msgstr "Nedostupný"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Recording…"
-#~ msgstr "Nahrávám…"
-
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Paused"
-#~ msgstr "Pozastaven"
-
-#~ msgctxt "NewMedia|"
-#~ msgid "Ready"
-#~ msgstr "Připravený"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Available"
-#~ msgstr "Dostupný"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Free for chat"
-#~ msgstr "Dostupný k chatování"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Away"
-#~ msgstr "Nepřítomný"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Do not disturb"
-#~ msgstr "Nerušit"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Away for longer"
-#~ msgstr "Dlouhodobě nepřítomný"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Error"
-#~ msgstr "Chyba"
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Invisible"
-#~ msgstr "Neviditelný"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Could not connect to the server."
-#~ msgstr "Nebylo možné se připojit k serveru."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Scan QR code"
-#~ msgstr "Naskenujte QR kód"
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "There is no camera available."
-#~ msgstr "Není k dispozici žádná kamera."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid ""
-#~ "Your camera is busy.\n"
-#~ "Try to close other applications using the camera."
-#~ msgstr ""
-#~ "Váš fotoaparát je zaneprázdněn.\n"
-#~ "Zkuste zavřít jiné aplikace, které používají fotoaparát."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "The camera format '%1' is not supported."
-#~ msgstr "Formát fotoaparátu '% 1' není podporován."
-
-#, fuzzy
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Connecting…"
-#~ msgstr "Připojování…"
-
-#~ msgctxt "RegistrationManager|"
-#~ msgid "Failed to change password: %1"
-#~ msgstr "Změna hesla se nezdařila: %1"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Error: Please check the JID."
-#~ msgstr "Chyba: zkontrolujte prosím JID."
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Available"
-#~ msgstr "Dostupný"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Free for chat"
-#~ msgstr "Dostupný k chatování"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Away"
-#~ msgstr "Nepřítomný"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Do not disturb"
-#~ msgstr "Nerušit"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Away for longer"
-#~ msgstr "Dlouhodobě nepřítomný"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Offline"
-#~ msgstr "Nepřipojen"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Error"
-#~ msgstr "Chyba"
-
-#~ msgctxt "RosterManager|"
-#~ msgid "Spoiler"
-#~ msgstr "«Spoiler»"
-
-#~ msgctxt "SettingsPage|"
-#~ msgid "Change password"
-#~ msgstr "Změna hesla"
-
-#~ msgctxt "SettingsPage|"
-#~ msgid ""
-#~ "Changes your account's password. You will need to re-enter it on your "
-#~ "other devices."
-#~ msgstr ""
-#~ "Změní heslo k vašemu účtu. Bude třeba ho zadat na všech vašich zařízeních."
-
-#, fuzzy
-#~ msgctxt "SettingsPage|"
-#~ msgid "Multimedia Settings"
-#~ msgstr "Nastavení multimédií"
-
-#, fuzzy
-#~ msgctxt "SettingsSheet|"
-#~ msgid "Settings"
-#~ msgstr "Nastavení"
-
-#~ msgctxt "UploadManager|"
-#~ msgid "File"
-#~ msgstr "Soubor"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-04-03 14:22+0200\n"
+"PO-Revision-Date: 2022-04-03 21:27+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -350,7 +350,6 @@ msgid "Show as text"
 msgstr "Afficher en texte"
 
 #: src/qml/AccountTransferPage.qml:86
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -360,12 +359,11 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Scannez le code QR ou entrez les identifiants sur un autre appareil pour "
-"vous connecter sur celui-ci.\n"
-"\n"
-"Attention :\n"
-"Ne montrez ce code QR à personne d’autre. Il permet un accès complet à votre "
-"compte !"
+"Lisez le code « QR » ou saisissez les identifiants sous forme de texte sur "
+"un autre appareil pour y ouvrir une session.\n"
+"Attention : \n"
+"Ne jamais afficher ce code « QR » à quelqu’un d’autre. Il permettrait un "
+"accès illimité à votre compte !"
 
 #: src/qml/AccountTransferPage.qml:107
 msgctxt "AccountTransferPage|"
@@ -655,14 +653,14 @@ msgid "Subscription Request"
 msgstr "Demande d'abonnement"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
-"Vous avez reçu une demande d’accès à votre statut de la part de <b>%1</b>. "
-"Si vous acceptez, ce compte aura accès à votre statut de présence en ligne."
+"Vous avez reçu une demande d’abonnement par <b>%1</b>. Si vous l’acceptez, "
+"le compte aura accès à votre statut de présence."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
 msgctxt "SubRequestAcceptSheet|"
@@ -815,6 +813,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"Le serveur a demandé plus d’informations. \n"
+"Tout n’est peut-être pas nécessaire.\n"
+"Si un CAPTCHA est affiché, le texte affiché doit être saisi."
 
 #: src/qml/registration/DisplayNameView.qml:39
 msgctxt "DisplayNameView|"
@@ -825,6 +826,12 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"Votre nom d’affichage est celui que verront vos contacts.\n"
+"Dans le cas où vous ne souhaitez pas utiliser un nom d’affichage, vous "
+"pouvez laisser ce champ vide.\n"
+"L’utilisation d’un nom d’affichage peut permettre aux nouveaux contacts de "
+"vous reconnaître plus facilement, mais pourrait également limiter votre vie "
+"privée !"
 
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
@@ -895,6 +902,9 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"Le fournisseur est l’endroit où se trouve votre compte.  \n"
+"Les fournisseurs sélectionnables sont triés sur le volet par notre "
+"communauté !"
 
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
@@ -999,6 +1009,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"Votre adresse de discussions est utilisée pour discuter avec vous, tout "
+"comme votre adresse de courriel est utilisée pour échanger des messages "
+"électroniques. \n"
+"Votre adresse de discussions sera :"
 
 #: src/qml/registration/UsernameView.qml:43
 msgctxt "UsernameView|"
@@ -1009,6 +1023,12 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"Votre nom d’utilisateur est utilisé pour ouvrir une session avec votre "
+"compte et discuter avec vous.\n"
+"Si vous ne saisissez pas de nom d’utilisateur, le nom d’utilisateur généré "
+"aléatoirement et déjà affiché est utilisé. \n"
+" L’utilisation d’un propre nom d’utilisateur peut le laisser être plus "
+"reconnaissable, mais pourrait également réduire votre vie privée !"
 
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
@@ -1029,6 +1049,9 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"Le fournisseur sélectionné ne fournit que l’enregistrement Internet. Après "
+"la création d'un compte grâce à la page Internet, vous pouvez vous connecter "
+"grâce à Kaidan."
 
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
@@ -1280,16 +1303,15 @@ msgid "Remove account from this app"
 msgstr "Supprimer un compte pour cette application"
 
 #: src/qml/settings/LocalAccountRemoval.qml:45
-#, fuzzy
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.\n"
 "Your password will be deleted, make sure it is stored in a password manager "
 "or you know it!"
 msgstr ""
-"Votre compte sera supprimé de l’application.\n"
-"Votre mot de passe sera supprimé, assurez-vous qu’il est enregistré dans un "
-"gestionnaire de mots de passe ou que vous le connaissez !"
+"Votre compte sera supprimé de cette application.\n"
+"Votre mot de passe sera supprimé. Veuillez vous assurer qu’il est enregistré "
+"dans un gestionnaire de mots de passe ou que vous vous en souvenez !"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
