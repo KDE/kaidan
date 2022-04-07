@@ -363,7 +363,7 @@ def main():
 			authorList = {
 				"Ilya Bizyaev <bizyaev@zoho.com>": CopyrightAuthor(years = "2016-2017"),
 				"Mathis Brüchert <mbblp@protonmail.ch>": CopyrightAuthor(years = "2020"),
-				"Melvin Keskin <melvo@olomono.de": CopyrightAuthor(years = "2020"),
+				"Melvin Keskin <melvo@olomono.de>": CopyrightAuthor(years = "2020"),
 			}
 		),
 		CopyrightTarget(
