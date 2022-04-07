@@ -82,7 +82,7 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	}
 	item.setWebsites(websites);
 
-	item.setOnlineSince(object.value(QLatin1String("onlineSince")).toInt(-1));
+	item.setOnlineSince(object.value(QLatin1String("since")).toInt(-1));
 	item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
 	item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
 	return item;

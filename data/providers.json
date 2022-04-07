@@ -1,6 +1,8 @@
 [
 	{
 		"jid": "5222.de",
+		"category": "B",
+		"lastCheck": "2022-01-20",
 		"website": {
 			"de": "https://5222.de"
 		},
@@ -41,90 +43,12 @@
 				"admin@5222.de"
 			]
 		},
-		"onlineSince": "2017-02-07"
-	},
-	{
-		"jid": "anoxinon.me",
-		"website": {
-			"de": "https://anoxinon.de/dienste/anoxinonmessenger/"
-		},
-		"busFactor": -1,
-		"company": false,
-		"passwordReset": {
-			"de": "https://anoxinon.de/faq/"
-		},
-		"inBandRegistration": false,
-		"registrationWebPage": {
-			"en": "https://xmpp.anoxinon.me/register/new"
-		},
-		"ratingXmppComplianceTester": 100,
-		"ratingImObservatoryClientToServer": "A",
-		"ratingImObservatoryServerToServer": "A",
-		"maximumHttpFileUploadFileSize": 25,
-		"maximumHttpFileUploadTotalSize": 50,
-		"maximumHttpFileUploadStorageTime": 14,
-		"maximumMessageArchiveManagementStorageTime": 14,
-		"professionalHosting": true,
-		"freeOfCharge": true,
-		"legalNotice": {
-			"de": "https://anoxinon.de/datenschutzerklaerung_xmpp/"
-		},
-		"serverLocations": [
-			"de"
-		],
-		"groupChatSupport": {
-			"de": [
-				"anoxinon@conference.anoxinon.me"
-			]
-		},
-		"chatSupport": {},
-		"emailSupport": {
-			"de": [
-				"postfach@anoxinon.de"
-			]
-		},
-		"onlineSince": "2018-10-04"
-	},
-	{
-		"jid": "chapril.org",
-		"website": {
-			"fr": "https://chapril.org/xmpp"
-		},
-		"busFactor": -1,
-		"company": false,
-		"passwordReset": {},
-		"inBandRegistration": true,
-		"registrationWebPage": {},
-		"ratingXmppComplianceTester": 100,
-		"ratingImObservatoryClientToServer": "A",
-		"ratingImObservatoryServerToServer": "A",
-		"maximumHttpFileUploadFileSize": 250,
-		"maximumHttpFileUploadTotalSize": 500,
-		"maximumHttpFileUploadStorageTime": 380,
-		"maximumMessageArchiveManagementStorageTime": 0,
-		"professionalHosting": true,
-		"freeOfCharge": true,
-		"legalNotice": {
-			"fr": "https://chapril.org/cgu"
-		},
-		"serverLocations": [
-			"de"
-		],
-		"groupChatSupport": {
-			"fr": [
-				"chapril@muc.chapril.org"
-			]
-		},
-		"chatSupport": {},
-		"emailSupport": {
-			"fr": [
-				"xmpp-support@chapril.org"
-			]
-		},
-		"onlineSince": "2020-03-08"
+		"since": "2017-02-07"
 	},
 	{
 		"jid": "hookipa.net",
+		"category": "A",
+		"lastCheck": "2021-07-05",
 		"website": {
 			"de": "https://hookipa.net",
 			"en": "https://hookipa.net/en/front-page/"
@@ -161,10 +85,12 @@
 		},
 		"chatSupport": {},
 		"emailSupport": {},
-		"onlineSince": "2008-05-28"
+		"since": "2008-05-28"
 	},
 	{
 		"jid": "jabber-germany.de",
+		"category": "B",
+		"lastCheck": "2021-12-22",
 		"website": {
 			"de": "https://jabber-germany.de/index-de.html",
 			"en": "https://jabber-germany.de"
@@ -211,95 +137,12 @@
 				"admin@jabber-germany.de"
 			]
 		},
-		"onlineSince": "2017-06-20"
-	},
-	{
-		"jid": "jabber.de",
-		"website": {
-			"de": "https://www.jabber.de"
-		},
-		"busFactor": -1,
-		"company": false,
-		"passwordReset": {
-			"de": "https://www.jabber.de/support/"
-		},
-		"inBandRegistration": true,
-		"registrationWebPage": {
-			"de": "https://www.jabber.de/anmeldung/"
-		},
-		"ratingXmppComplianceTester": 100,
-		"ratingImObservatoryClientToServer": "A",
-		"ratingImObservatoryServerToServer": "A",
-		"maximumHttpFileUploadFileSize": 10,
-		"maximumHttpFileUploadTotalSize": 2000,
-		"maximumHttpFileUploadStorageTime": 7,
-		"maximumMessageArchiveManagementStorageTime": 14,
-		"professionalHosting": true,
-		"freeOfCharge": true,
-		"legalNotice": {
-			"de": "https://www.jabber.de/impressum/"
-		},
-		"serverLocations": [
-			"de"
-		],
-		"groupChatSupport": {
-			"de": [
-				"support@conference.jabber.de"
-			]
-		},
-		"chatSupport": {},
-		"emailSupport": {
-			"de": [
-				"webmaster@jabber.de"
-			]
-		},
-		"onlineSince": "2012-02-16"
-	},
-	{
-		"jid": "jabber.fr",
-		"website": {
-			"fr": "https://jabberfr.org"
-		},
-		"busFactor": -1,
-		"company": false,
-		"passwordReset": {},
-		"inBandRegistration": true,
-		"registrationWebPage": {},
-		"ratingXmppComplianceTester": 100,
-		"ratingImObservatoryClientToServer": "A",
-		"ratingImObservatoryServerToServer": "A",
-		"maximumHttpFileUploadFileSize": 10,
-		"maximumHttpFileUploadTotalSize": 0,
-		"maximumHttpFileUploadStorageTime": 0,
-		"maximumMessageArchiveManagementStorageTime": 14,
-		"professionalHosting": true,
-		"freeOfCharge": true,
-		"legalNotice": {
-			"fr": "https://wiki.jabberfr.org/CGU"
-		},
-		"serverLocations": [
-			"fr"
-		],
-		"groupChatSupport": {
-			"fr": [
-				"jabberfr@chat.jabberfr.org"
-			]
-		},
-		"chatSupport": {
-			"fr": [
-				"linkmauve@linkmauve.fr",
-				"mathieui@mathieui.net"
-			]
-		},
-		"emailSupport": {
-			"fr": [
-				"admins@jabberfr.org"
-			]
-		},
-		"onlineSince": "2003-10-08"
+		"since": "2017-06-20"
 	},
 	{
 		"jid": "jabber.hot-chilli.net",
+		"category": "B",
+		"lastCheck": "2021-04-03",
 		"website": {
 			"de": "https://jabber.hot-chilli.net/de/",
 			"en": "https://jabber.hot-chilli.net"
@@ -348,10 +191,12 @@
 			]
 		},
 		"emailSupport": {},
-		"onlineSince": "2005-03-19"
+		"since": "2005-03-19"
 	},
 	{
 		"jid": "jabbers.one",
+		"category": "A",
+		"lastCheck": "2021-10-08",
 		"website": {
 			"de": "https://jabbers.one/de/",
 			"en": "https://jabbers.one/en/"
@@ -397,10 +242,12 @@
 				"info@jabbers.one"
 			]
 		},
-		"onlineSince": "2014-04-28"
+		"since": "2014-04-28"
 	},
 	{
 		"jid": "lightwitch.org",
+		"category": "A",
+		"lastCheck": "2021-04-18",
 		"website": {
 			"en": "https://lightwitch.org"
 		},
@@ -436,10 +283,12 @@
 		},
 		"chatSupport": {},
 		"emailSupport": {},
-		"onlineSince": "2017-11-03"
+		"since": "2017-11-03"
 	},
 	{
 		"jid": "macaw.me",
+		"category": "A",
+		"lastCheck": "2022-01-04",
 		"website": {
 			"en": "https://macaw.me"
 		},
@@ -489,10 +338,12 @@
 				"administrator@macaw.me"
 			]
 		},
-		"onlineSince": "2019-03-14"
+		"since": "2019-03-14"
 	},
 	{
 		"jid": "magicbroccoli.de",
+		"category": "A",
+		"lastCheck": "2021-04-02",
 		"website": {
 			"en": "https://magicbroccoli.de"
 		},
@@ -544,10 +395,12 @@
 				"nico@magicbroccoli.de"
 			]
 		},
-		"onlineSince": "2017-06-20"
+		"since": "2017-06-20"
 	},
 	{
 		"jid": "monocles.de",
+		"category": "B",
+		"lastCheck": "2022-01-13",
 		"website": {
 			"en": "https://monocles.de"
 		},
@@ -593,49 +446,12 @@
 				"support@monocles.de"
 			]
 		},
-		"onlineSince": "2018-02-28"
-	},
-	{
-		"jid": "movim.eu",
-		"website": {
-			"en": "https://movim.eu"
-		},
-		"busFactor": 1,
-		"company": false,
-		"passwordReset": {
-			"en": "https://api.movim.eu"
-		},
-		"inBandRegistration": false,
-		"registrationWebPage": {
-			"en": "https://api.movim.eu/register"
-		},
-		"ratingXmppComplianceTester": 100,
-		"ratingImObservatoryClientToServer": "A",
-		"ratingImObservatoryServerToServer": "A",
-		"maximumHttpFileUploadFileSize": 10,
-		"maximumHttpFileUploadTotalSize": 0,
-		"maximumHttpFileUploadStorageTime": 0,
-		"maximumMessageArchiveManagementStorageTime": 0,
-		"professionalHosting": true,
-		"freeOfCharge": true,
-		"legalNotice": {
-			"en": "https://api.movim.eu/legals"
-		},
-		"serverLocations": [
-			"de",
-			"fr"
-		],
-		"groupChatSupport": {
-			"en": [
-				"movim@conference.movim.eu"
-			]
-		},
-		"chatSupport": {},
-		"emailSupport": {},
-		"onlineSince": "2017-08-16"
+		"since": "2018-02-28"
 	},
 	{
 		"jid": "nixnet.services",
+		"category": "A",
+		"lastCheck": "2021-12-04",
 		"website": {
 			"en": "https://docs.nixnet.services/XMPP"
 		},
@@ -677,10 +493,12 @@
 				"amolith@nixnet.services"
 			]
 		},
-		"onlineSince": "2019-01-08"
+		"since": "2019-01-08"
 	},
 	{
 		"jid": "pimux.de",
+		"category": "B",
+		"lastCheck": "2021-12-22",
 		"website": {
 			"de": "https://www.pimux.de"
 		},
@@ -719,10 +537,12 @@
 				"finn@pimux.de"
 			]
 		},
-		"onlineSince": "2016-09-11"
+		"since": "2016-09-11"
 	},
 	{
 		"jid": "sure.im",
+		"category": "A",
+		"lastCheck": "2022-02-17",
 		"website": {
 			"en": "https://sure.im"
 		},
@@ -754,6 +574,6 @@
 		},
 		"chatSupport": {},
 		"emailSupport": {},
-		"onlineSince": "2009-12-31"
+		"since": "2009-12-31"
 	}
 ]

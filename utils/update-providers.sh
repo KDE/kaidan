@@ -35,7 +35,7 @@
 # It should be run before each new release.
 #
 
-SOURCE_URL="https://invent.kde.org/melvo/xmpp-providers/-/jobs/artifacts/master/raw/providers-B.json?job=filtered-provider-lists"
+SOURCE_URL="https://data.xmpp.net/providers/v1/providers-B.json"
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..
 DESTINATION_PATH="${KAIDAN_SOURCES}/data/providers.json"
 
