@@ -113,9 +113,9 @@ endif()
 
 if(ANDROID)
 	find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
-endif()
+	# We need to link against sqlite3 to help androiddeployqt detect that we need it
+	find_package(SQLite3 REQUIRED)
 
-if(ANDROID)
 	find_package(PkgConfig REQUIRED)
 	pkg_search_module(OPENSSL REQUIRED openssl IMPORTED_TARGET)
 	message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
@@ -197,6 +197,7 @@ target_link_libraries(${PROJECT_NAME}
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}
 )
+
 if(TARGET ZXing::ZXing)
         target_link_libraries(${PROJECT_NAME} ZXing::ZXing)
 elseif(TARGET ZXing::Core)
@@ -208,7 +209,7 @@ if(ANDROID OR IOS)
 endif()
 
 if(ANDROID)
-	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL)
+	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL SQLite::SQLite3)
 endif()
 
 if(ANDROID)
