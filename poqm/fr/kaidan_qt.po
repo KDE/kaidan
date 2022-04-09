@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-04-06 10:30+0200\n"
+"PO-Revision-Date: 2022-04-08 14:05+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -35,23 +35,23 @@ msgctxt "DownloadJob|"
 msgid "Download failed: %1"
 msgstr "Téléchargement impossible : %1"
 
-#: src/Kaidan.cpp:98
+#: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En ligne"
 
-#: src/Kaidan.cpp:100
+#: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Connexion en cours..."
 
-#: src/Kaidan.cpp:102
+#: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Hors ligne"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:164
+#: src/Kaidan.cpp:165
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Le lien ne sera ouvert qu'une fois que vous vous serez connecté."
@@ -362,7 +362,7 @@ msgstr ""
 "Lisez le code « QR » ou saisissez les identifiants sous forme de texte sur "
 "un autre appareil pour y ouvrir une session.\n"
 "Attention : \n"
-"Ne jamais afficher ce code « QR » à quelqu’un d’autre. Il permettrait un "
+"Ne jamais afficher ce code « QR » à quelqu'un d'autre. Il permettrait un "
 "accès illimité à votre compte !"
 
 #: src/qml/AccountTransferPage.qml:107
@@ -406,10 +406,9 @@ msgid "View profile"
 msgstr "Afficher un profil"
 
 #: src/qml/ChatPage.qml:183
-#, fuzzy
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr "Envoyer un message contenant un avertissement sur le contenu"
+msgstr "Envoyer un message inapproprié"
 
 #: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
@@ -457,16 +456,14 @@ msgid "Search down"
 msgstr "Rechercher vers le bas"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr "Avertissement sur le contenu"
+msgstr "Astuce pour message inapproprié"
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr "Fermer l’avertissement sur le contenu"
+msgstr "Fermer le champ d'astuces pour un message inapproprié"
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
 msgctxt "ChatPageSendingPane|"
@@ -545,7 +542,7 @@ msgid ""
 "Try to close other applications using the camera."
 msgstr ""
 "Votre appareil photo est occupé.\n"
-"Veuillez essayer de fermer les autres applications l'utilisant ."
+"Veuillez essayer de fermer les autres applications l'utilisant."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
@@ -659,8 +656,8 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
-"Vous avez reçu une demande d’abonnement par <b>%1</b>. Si vous l’acceptez, "
-"le compte aura accès à votre statut de présence."
+"Vous avez reçu une demande d'abonnement par <b>%1</b>. Si vous l'acceptez, "
+"le compte aura accès à votre état de présence."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
 msgctxt "SubRequestAcceptSheet|"
@@ -813,8 +810,8 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
-"Le serveur a demandé plus d’informations. \n"
-"Tout n’est peut-être pas nécessaire.\n"
+"Le serveur a demandé plus d'informations. \n"
+"Tout n'est peut-être pas nécessaire.\n"
 "Si un CAPTCHA est affiché, le texte affiché doit être saisi."
 
 #: src/qml/registration/DisplayNameView.qml:39
@@ -826,10 +823,10 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
-"Votre nom d’affichage est celui que verront vos contacts.\n"
-"Dans le cas où vous ne souhaitez pas utiliser un nom d’affichage, vous "
+"Votre nom d'affichage est celui que verront vos contacts.\n"
+"Dans le cas où vous ne souhaitez pas utiliser un nom d'affichage, vous "
 "pouvez laisser ce champ vide.\n"
-"L’utilisation d’un nom d’affichage peut permettre aux nouveaux contacts de "
+"L'utilisation d'un nom d'affichage peut permettre aux nouveaux contacts de "
 "vous reconnaître plus facilement, mais pourrait également limiter votre vie "
 "privée !"
 
@@ -898,7 +895,7 @@ msgstr ""
 "Votre mot de passe est utilisé pour vous connecter à votre compte.\n"
 "Si vous ne saisissez pas de mot de passe, celui généré au hasard et déjà "
 "affiché est utilisé.\n"
-"N’utilisez pas de mots de passe que vous utilisez déjà ailleurs !"
+"N'utilisez pas de mots de passe que vous utilisez déjà ailleurs !"
 
 #: src/qml/registration/ProviderView.qml:46
 msgctxt "ProviderView|"
@@ -906,7 +903,7 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
-"Le fournisseur est l’endroit où se trouve votre compte.  \n"
+"Le fournisseur est l'endroit où se trouve votre compte.\n"
 "Les fournisseurs sélectionnables sont triés sur le volet par notre "
 "communauté !"
 
@@ -1014,8 +1011,9 @@ msgid ""
 "Your chat address will be:"
 msgstr ""
 "Votre adresse de discussions est utilisée pour discuter avec vous, tout "
-"comme votre adresse de courriel est utilisée pour échanger des messages "
-"électroniques. \n"
+"comme votre adresse de courriel est utilisée pour échanger des messages de "
+"courriels.\n"
+"\n"
 "Votre adresse de discussions sera :"
 
 #: src/qml/registration/UsernameView.qml:43
@@ -1027,11 +1025,11 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
-"Votre nom d’utilisateur est utilisé pour ouvrir une session avec votre "
+"Votre nom d'utilisateur est utilisé pour ouvrir une session avec votre "
 "compte et discuter avec vous.\n"
-"Si vous ne saisissez pas de nom d’utilisateur, le nom d’utilisateur généré "
+"Si vous ne saisissez pas de nom d'utilisateur, le nom d'utilisateur généré "
 "aléatoirement et déjà affiché est utilisé. \n"
-" L’utilisation d’un propre nom d’utilisateur peut le laisser être plus "
+" L'utilisation d'un propre nom d'utilisateur peut le laisser être plus "
 "reconnaissable, mais pourrait également réduire votre vie privée !"
 
 #: src/qml/registration/UsernameView.qml:60
@@ -1053,7 +1051,7 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
-"Le fournisseur sélectionné ne fournit que l’enregistrement Internet. Après "
+"Le fournisseur sélectionné ne fournit que l'enregistrement Internet. Après "
 "la création d'un compte grâce à la page Internet, vous pouvez vous connecter "
 "grâce à Kaidan."
 
@@ -1262,10 +1260,10 @@ msgid ""
 msgstr ""
 "Votre mot de passe ne sera plus, ni affiché en texte brut, ni inclus dans le "
 "code « QR » de connexion. \n"
-"Vous ne pourrez pas utiliser la connexion via le code « QR » sans saisir à "
-"nouveau votre mot de passe car cette action ne peut pas être annulée "
-"Veuillez prévoir d'enregistrer votre mot de passe ailleurs si vous souhaitez "
-"utiliser votre compte sur un autre appareil."
+"Il vous sera impossible d'utiliser la connexion via le code « QR » sans "
+"saisir à nouveau votre mot de passe car l'annulation de cette action est "
+"impossible. Veuillez prévoir d'enregistrer votre mot de passe quelque part "
+"ailleurs si vous souhaitez utiliser votre compte sur un autre appareil."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
@@ -1278,7 +1276,6 @@ msgid "Don't show your password"
 msgstr "Ne pas afficher votre mot de passe"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
-#, fuzzy
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid ""
 "Your password will not be shown anymore but still exposed via the login QR "
@@ -1288,12 +1285,13 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device without the login QR code."
 msgstr ""
-"Votre mot de passe ne sera plus affiché, mais sera toujours visible via le "
-"code QR de connexion.\n"
-"Vous ne pourrez plus voir votre mot de passe car cette action ne peut être "
-"annulée !\n"
-"Pensez à stocker le mot de passe ailleurs si vous voulez utiliser votre "
-"compte sur un autre appareil sans le code QR de connexion."
+"Votre mot de passe ne s'affichera plus, mais il sera affiché au moyen du "
+"code « QR » de connexion. \n"
+"Il vous sera impossible de voir votre mot de passe à nouveau car "
+"l'annulation de cette action est impossible !\n"
+"Veuillez envisager d'enregistrer le mot de passe quelque part ailleurs si "
+"vous souhaitez utiliser votre compte sur un autre appareil sans le code "
+"« QR » de connexion."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1313,7 +1311,7 @@ msgid ""
 "or you know it!"
 msgstr ""
 "Votre compte sera supprimé de cette application.\n"
-"Votre mot de passe sera supprimé. Veuillez vous assurer qu’il est enregistré "
+"Votre mot de passe sera supprimé. Veuillez vous assurer qu'il est enregistré "
 "dans un gestionnaire de mots de passe ou que vous vous en souvenez !"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
@@ -1439,7 +1437,7 @@ msgid "Remove password"
 msgstr "Supprimer un mot de passe"
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "PasswordRemovalPage|"
 msgid ""
 "You can decide to only not show your password for <b>%1</b> as text anymore "
@@ -1448,11 +1446,11 @@ msgid ""
 "scanning without entering your password because it is also removed from the "
 "QR code."
 msgstr ""
-"Vous pouvez décider non seulement d’interdire l’affichage en clair de votre "
-"mot de passe pour <b>%1</b> mais également de le supprimer complètement lors "
-"du transfert de compte. Si vous supprimez complètement votre mot de passe, "
-"vous serez obligé de le resaisir lors d’un transfert de compte par scan de "
-"code QR car le mot de passe est également supprimé du code QR."
+"Vous pouvez décider de ne plus afficher votre mot de passe pour <b>%1</b> "
+"sous forme de texte ou de le supprimer complètement du transfert de compte. "
+"Si vous supprimez complètement votre mot de passe, vous ne pourrez pas "
+"utiliser le transfert de compte via la numérisation sans saisir votre mot de "
+"passe car votre code « QR » aura été également supprimé."
 
 #: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
@@ -1470,16 +1468,15 @@ msgid "Delete account completely"
 msgstr "Supprimer totalement un compte"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
-#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
 "the server.\n"
 "You will not be able to use your account again!"
 msgstr ""
-"Votre compte va être complètement supprimé, c’est-à-dire localement dans "
-"l’application et également sur le serveur.\n"
-"Vous ne pourrez plus jamais utiliser ce compte !"
+"Votre compte sera complètement supprimé, ce qui signifie à la fois dans "
+"cette application et du serveur.\n"
+"Vous ne pourrez plus utiliser votre compte à nouveau !"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
