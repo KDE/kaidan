@@ -1,3 +1,5 @@
+# Translation of kaidan_qt to Norwegian Bokmål
+#
 msgid ""
 msgstr ""
 "MIME-Version: 1.0\n"
@@ -6,102 +8,364 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nb\n"
 "X-Qt-Contexts: true\n"
+"Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
+"Language: nb\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: qtrich\n"
 
+#: src/ClientWorker.cpp:269
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Kontoen din kunne ikke slettes fra tjeneren. Derfor ble den heller ikke "
+"fjernet fra dette programmet: %1"
+
+#: src/DownloadManager.cpp:129
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Could not save file: %1"
+msgstr "Kunne ikke lagre fil: %1"
+
+#: src/DownloadManager.cpp:154
+#, qt-format
+msgctxt "DownloadJob|"
+msgid "Download failed: %1"
+msgstr "Nedlasting mislyktes: %1"
+
+#: src/Kaidan.cpp:99
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr ""
+
+#: src/Kaidan.cpp:101
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/Kaidan.cpp:103
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr ""
+
+#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
+#: src/Kaidan.cpp:165
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr "Lenken vil åpnes etter at du har koblet til."
+
+#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
+#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
+#: src/MediaRecorder.cpp:1244
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Forvalg"
+
+#: src/MediaSettings.cpp:161
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr "Veldig lavt"
+
+#: src/MediaSettings.cpp:163
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Lavt"
+
+#: src/MediaSettings.cpp:165
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Normalt"
+
+#: src/MediaSettings.cpp:167
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Høyt"
+
+#: src/MediaSettings.cpp:169
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr "Veldig høyt"
+
+#: src/MediaSettings.cpp:180
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr "Konstant kvalitet"
+
+#: src/MediaSettings.cpp:182
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr "Konstant bitrate"
+
+#: src/MediaSettings.cpp:184
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr "Gjennomsnittlig bitrate"
+
+#: src/MediaSettings.cpp:186
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr "Dobbelt-arbeidet"
+
+#: src/MediaUtils.cpp:252
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Lyd"
+
+#: src/MediaUtils.cpp:254
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Dokument"
+
+#: src/MediaUtils.cpp:256
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "Posisjon"
+
+#: src/MediaUtils.cpp:258
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Bilde"
+
+#: src/MediaUtils.cpp:260
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:264
+#, fuzzy
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Fil"
+
+#: src/MediaUtils.cpp:273
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr "Ta bilde"
+
+#: src/MediaUtils.cpp:275
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr "Ta opp video"
+
+#: src/MediaUtils.cpp:277
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr "Ta opp stemme"
+
+#: src/MediaUtils.cpp:279
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr "Send plassering"
+
+#: src/MediaUtils.cpp:317
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Velg fil"
+
+#: src/MediaUtils.cpp:319
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Velg bilde"
+
+#: src/MediaUtils.cpp:321
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr "Velg video"
+
+#: src/MediaUtils.cpp:323
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr "Velg lydfil"
+
+#: src/MediaUtils.cpp:325
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr "Velg dokument"
+
+#: src/MediaUtils.cpp:347
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Alle filer"
+
+#: src/MediaUtils.cpp:349
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Bilder"
+
+#: src/MediaUtils.cpp:351
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Videoer"
+
+#: src/MediaUtils.cpp:353
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "Lydfiler"
+
+#: src/MediaUtils.cpp:355
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Dokumenter"
+
+#: src/MediaUtils.cpp:380
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:210
+#, fuzzy
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr "Avsløring"
+
+#: src/MessageHandler.cpp:256
+#, fuzzy
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful."
+msgstr "Meldingstilkobling mislyktes."
+
+#: src/MessageHandler.cpp:329
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Meldingen kunne ikke sendes."
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "Venter"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "Sendt"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr "Levert"
+
+#: src/MessageModel.cpp:233
+#, fuzzy
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Feil"
+
+#: src/Notifications.cpp:69
+msgctxt "QObject|"
+msgid "Mark as read"
+msgstr "Marker som lest"
+
+#: src/PresenceCache.cpp:63
+#, fuzzy
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Tilgjengelig"
+
+#: src/PresenceCache.cpp:65
+#, fuzzy
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr "Ledig for sludring"
+
+#: src/PresenceCache.cpp:67
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away"
+msgstr "Borte"
+
+#: src/PresenceCache.cpp:69
+#, fuzzy
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Ikke forstyrr"
+
+#: src/PresenceCache.cpp:71
+#, fuzzy
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr "Lengre tids fravær"
+
+#: src/PresenceCache.cpp:73
+#, fuzzy
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Frakoblet"
+
+#: src/ProviderListModel.cpp:50
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr ""
+
+#: src/ProviderListModel.cpp:130
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
 msgstr "En enkel, brukervennlig XMPP-klient"
 
+#: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
 msgstr "Lisens:"
 
-#~ msgctxt "AboutDialog|"
-#~ msgid "Source code on GitHub"
-#~ msgstr "Kildekode på GitHub"
-
-msgctxt "AboutDialog|"
-msgid "View source code online"
-msgstr "Vis kildekoden på nett"
-
+#: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
 msgid "Report problems"
 msgstr "Innrapporter problemer"
 
-#~ msgctxt "AboutSheet|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "En enkel, brukervennlig Jabber/XMPP-klient"
+#: src/qml/AboutDialog.qml:108
+msgctxt "AboutDialog|"
+msgid "View source code online"
+msgstr "Vis kildekoden på nett"
 
-#~ msgctxt "AboutSheet|"
-#~ msgid "License:"
-#~ msgstr "Lisens:"
-
-#~ msgctxt "AboutSheet|"
-#~ msgid "Source code on GitHub"
-#~ msgstr "Kildekode på GitHub"
-
-#, fuzzy
-#~ msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
-#~ msgid "Delete"
-#~ msgstr "Slett"
-
-msgctxt "AccountSecurity|"
-msgid "Account Security"
-msgstr "Kontosikkerhet"
-
-#, fuzzy
-#~ msgctxt "AccountSecurity|"
-#~ msgid ""
-#~ "Allow to add new devices using a QR-Code, but never show the password as "
-#~ "text. This action can not be undone, so consider storing the password in "
-#~ "another way before using it."
-#~ msgstr ""
-#~ "Tillat tillegg av nye enheter ved bruk av QR-kode, men aldri vis passord "
-#~ "som tekst. Denne handlingen kan ikke angres, så overvei å lagre passordet "
-#~ "på annet vis først."
-
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Disable showing the password"
-#~ msgstr "Skru av visning av passordet"
-
-#~ msgctxt "AccountSecurity|"
-#~ msgid ""
-#~ "Don't expose the password in any form. This action can not be undone."
-#~ msgstr "Ikke vis passordet i noen form. Denne handlingen kan ikke angres."
-
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Disable showing the QR-Code and password"
-#~ msgstr "Skru av visning av QR-kode og passord"
-
-#, fuzzy
-msgctxt "AccountSecurity|"
-msgid ""
-"Allow to add additional devices using the login QR code but never show the "
-"password."
-msgstr ""
-"Tillat å legge til ytterligere enheter ved bruk av innloggings-QR-kode, men "
-"aldri vis passordet."
-
-msgctxt "AccountSecurity|"
-msgid "Don't show password"
-msgstr "Ikke vis passord"
-
-#, fuzzy
-msgctxt "AccountSecurity|"
-msgid ""
-"Neither allow to add additional devices using the login QR code nor show the "
-"password."
-msgstr ""
-"Hverken tillat å legge til ytterligere enhter med innloggings-QR-kode, og "
-"ikke vis passordet."
-
-msgctxt "AccountSecurity|"
-msgid "Don't expose password in any way"
-msgstr "Ikke vis frem passordet på noen måte"
-
+#: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
 msgstr "Overfør konto til en annen enhet"
 
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Hide QR code"
+msgstr "Skjul QR-kode"
+
+#: src/qml/AccountTransferPage.qml:48
+msgctxt "AccountTransferPage|"
+msgid "Show as QR code"
+msgstr "Vis som QR-kode"
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Hide text"
+msgstr "Skjul tekst"
+
+#: src/qml/AccountTransferPage.qml:52
+msgctxt "AccountTransferPage|"
+msgid "Show as text"
+msgstr "Vis som tekst"
+
+#: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -118,70 +382,789 @@ msgstr ""
 "Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til "
 "kontoen din!"
 
+#: src/qml/AccountTransferPage.qml:107
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
 msgstr "Sludreadresse:"
 
-msgctxt "AccountTransferPage|"
-msgid "Password:"
-msgstr "Passord:"
-
-msgctxt "AccountTransferPage|"
-msgid "Hide QR code"
-msgstr "Skjul QR-kode"
-
-msgctxt "AccountTransferPage|"
-msgid "Show as QR code"
-msgstr "Vis som QR-kode"
-
-msgctxt "AccountTransferPage|"
-msgid "Hide text"
-msgstr "Skjul tekst"
-
-msgctxt "AccountTransferPage|"
-msgid "Show as text"
-msgstr "Vis som tekst"
-
-msgctxt "AccountTransferPage|"
-msgid "Copy password"
-msgstr "Kopier passord"
-
+#: src/qml/AccountTransferPage.qml:116
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
 msgstr "Kopier sludringsadresse"
 
-#~ msgctxt "BackButton|"
-#~ msgid "Navigate Back"
-#~ msgstr "Tilbake"
+#: src/qml/AccountTransferPage.qml:126
+msgctxt "AccountTransferPage|"
+msgid "Password:"
+msgstr "Passord:"
 
+#: src/qml/AccountTransferPage.qml:136
+msgctxt "AccountTransferPage|"
+msgid "Copy password"
+msgstr "Kopier passord"
+
+#: src/qml/ChatPage.qml:78
+#, fuzzy
+msgctxt "ChatPage|"
+msgid "Search"
+msgstr "Søk"
+
+#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+msgctxt "ChatPage|"
+msgid "Unmute notifications"
+msgstr "Opphev forstumming av merknader"
+
+#: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+msgctxt "ChatPage|"
+msgid "Mute notifications"
+msgstr "Forstum merknader"
+
+#: src/qml/ChatPage.qml:123
+msgctxt "ChatPage|"
+msgid "View profile"
+msgstr "Vis profil"
+
+#: src/qml/ChatPage.qml:183
+msgctxt "ChatPage|"
+msgid "Send a spoiler message"
+msgstr "Send en avsløringsmelding"
+
+#: src/qml/elements/ChatMessage.qml:143
+msgctxt "ChatMessage|"
+msgid "Spoiler"
+msgstr "Avsløring"
+
+#: src/qml/elements/ChatMessage.qml:200
+msgctxt "ChatMessage|"
+msgid "Download"
+msgstr "Last ned"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:45
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy message"
+msgstr "Kopier melding"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:56
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit message"
+msgstr "Rediger melding"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:62
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy download URL"
+msgstr "Kopier nedlastings-nettadresse"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:68
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote message"
+msgstr "Siter melding"
+
+#: src/qml/elements/ChatPageSearchView.qml:69
+msgctxt "ChatPageSearchView|"
+msgid "Close message search bar"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:89
+msgctxt "ChatPageSearchView|"
+msgid "Search up"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:100
+msgctxt "ChatPageSearchView|"
+msgid "Search down"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:67
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Spoiler hint"
+msgstr "Avsløringshint"
+
+#: src/qml/elements/ChatPageSendingPane.qml:74
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Close spoiler hint field"
+msgstr "Lukk avsløringshintfeltet"
+
+#: src/qml/elements/ChatPageSendingPane.qml:112
+#, fuzzy
+msgctxt "ChatPageSendingPane|"
+msgid "Compose message"
+msgstr "Forfatt melding"
+
+#: src/qml/elements/ConfirmationPage.qml:48
+#, fuzzy
+msgctxt "ConfirmationPage|"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/qml/elements/fields/JidField.qml:39
+msgctxt "JidField|"
+msgid "Chat address"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:40
+msgctxt "JidField|"
+msgid "user@example.org"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:42
+msgctxt "JidField|"
+msgid "The chat address must have the form <b>username@server</b>"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:40
+msgctxt "PasswordField|"
+msgid "Password"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:41
+msgctxt "PasswordField|"
+msgid "Please enter a valid password"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
+msgctxt "NewMedia|"
+msgid "Initializing…"
+msgstr "Igangsetter…"
+
+#: src/qml/elements/NewMedia.qml:229
+msgctxt "NewMedia|"
+msgid "Unavailable"
+msgstr "Utilgjengelig"
+
+#: src/qml/elements/NewMedia.qml:239
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Paused %1"
+msgstr "Satt på pause %1"
+
+#: src/qml/elements/NewMedia.qml:254
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Recording… %1"
+msgstr "Tar opp… %1"
+
+#: src/qml/elements/QrCodeScanner.qml:71
+#, fuzzy, qt-format
+msgctxt "QrCodeScanner|"
+msgid "The camera format '%1' is not supported."
+msgstr "Kameraformatet \"%1\" støttes ikke."
+
+#: src/qml/elements/QrCodeScanner.qml:98
+#, fuzzy
+msgctxt "QrCodeScanner|"
+msgid "There is no camera available."
+msgstr "Kamera ikke tilgjengelig."
+
+#: src/qml/elements/QrCodeScanner.qml:101
+#, fuzzy
+msgctxt "QrCodeScanner|"
+msgid ""
+"Your camera is busy.\n"
+"Try to close other applications using the camera."
+msgstr ""
+"Kamera ditt er opptatt.\n"
+"Prøv å lukke andre programmer ved bruk av kameraet."
+
+#: src/qml/elements/RosterAddContactSheet.qml:43
+msgctxt "RosterAddContactSheet|"
+msgid "Add new contact"
+msgstr "Legg til ny kontakt"
+
+#: src/qml/elements/RosterAddContactSheet.qml:51
+msgctxt "RosterAddContactSheet|"
+msgid "This will also send a request to access the presence of the contact."
+msgstr ""
+"Dette vil også sende en forespørsel om tilgang til kontaktens "
+"tilstedeværelsesinfo."
+
+#: src/qml/elements/RosterAddContactSheet.qml:60
+msgctxt "RosterAddContactSheet|"
+msgid "Jabber-ID:"
+msgstr "Jabber-ID:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:65
+msgctxt "RosterAddContactSheet|"
+msgid "user@example.org"
+msgstr "bruker@eksempel.no"
+
+#: src/qml/elements/RosterAddContactSheet.qml:72
+msgctxt "RosterAddContactSheet|"
+msgid "Nickname:"
+msgstr "Kallenavn:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:81
+msgctxt "RosterAddContactSheet|"
+msgid "Optional message:"
+msgstr "Valgfri melding:"
+
+#: src/qml/elements/RosterAddContactSheet.qml:89
+msgctxt "RosterAddContactSheet|"
+msgid "Tell your chat partner who you are."
+msgstr "Fortell din sludrepartner hvem du er."
+
+#: src/qml/elements/RosterAddContactSheet.qml:98
+msgctxt "RosterAddContactSheet|"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/qml/elements/RosterAddContactSheet.qml:108
+msgctxt "RosterAddContactSheet|"
+msgid "Add"
+msgstr "Legg til"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:42
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete contact"
+msgstr "Slett kontakt"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:48
+#, fuzzy, qt-format
+msgctxt "RosterRemoveContactSheet|"
+msgid ""
+"Do you really want to delete the contact <b>%1</b> from your contact list?"
+msgstr "Ønsker du å slette <b>%1</b> fra kontaktlisten din?"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:67
+msgctxt "RosterRemoveContactSheet|"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/qml/elements/RosterRemoveContactSheet.qml:73
+msgctxt "RosterRemoveContactSheet|"
+msgid "Delete"
+msgstr "Slett"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:43
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename contact"
+msgstr "Gi kontakten nytt navn"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:62
+#, fuzzy
+msgctxt "RosterRenameContactSheet|"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/qml/elements/RosterRenameContactSheet.qml:69
+msgctxt "RosterRenameContactSheet|"
+msgid "Rename"
+msgstr "Gi nytt navn"
+
+#: src/qml/elements/SendMediaSheet.qml:105
+msgctxt "SendMediaSheet|"
+msgid "Caption"
+msgstr "Bildetekst"
+
+#: src/qml/elements/SendMediaSheet.qml:118
+#, fuzzy
+msgctxt "SendMediaSheet|"
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/qml/elements/SendMediaSheet.qml:132
+#, fuzzy
+msgctxt "SendMediaSheet|"
+msgid "Send"
+msgstr "Send"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:43
+msgctxt "SubRequestAcceptSheet|"
+msgid "Subscription Request"
+msgstr "Abonnementsforespørsel"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#, qt-format
+msgctxt "SubRequestAcceptSheet|"
+msgid ""
+"You received a subscription request by <b>%1</b>. If you accept it, the "
+"account will have access to your presence status."
+msgstr ""
+"Du har mottatt en abonnementsforespørsel av <b>%1</b>. Hvis du godtar den, "
+"vil kontoen ha tilgang til din tilstedeværelsesstatus."
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:64
+msgctxt "SubRequestAcceptSheet|"
+msgid "Decline"
+msgstr "Avslå"
+
+#: src/qml/elements/SubRequestAcceptSheet.qml:73
+msgctxt "SubRequestAcceptSheet|"
+msgid "Accept"
+msgstr "Godta"
+
+#: src/qml/EmptyChatPage.qml:54
+msgctxt "EmptyChatPage|"
+msgid "Please select a chat to start messaging"
+msgstr "Velg en sludring for å begynne å sende meldinger"
+
+#: src/qml/GlobalDrawer.qml:89
+msgctxt "GlobalDrawer|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:94
+msgctxt "GlobalDrawer|"
+msgid "Invite friends"
+msgstr "Inviter venner"
+
+#: src/qml/GlobalDrawer.qml:98
+msgctxt "GlobalDrawer|"
+msgid "Invitation link copied to clipboard"
+msgstr "Invitasjonslenke kopiert til utklippstavle"
+
+#: src/qml/GlobalDrawer.qml:102
+msgctxt "GlobalDrawer|"
+msgid "Switch device"
+msgstr "Bytt enhet"
+
+#: src/qml/GlobalDrawer.qml:110
+msgctxt "GlobalDrawer|"
+msgid "Settings"
+msgstr "Innstillinger"
+
+#: src/qml/GlobalDrawer.qml:123
+msgctxt "GlobalDrawer|"
+msgid "About"
+msgstr "Om"
+
+#: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
+msgctxt "LoginPage|"
+msgid "Log in"
+msgstr "Logg inn"
+
+#: src/qml/LoginPage.qml:49
+msgctxt "LoginPage|"
+msgid "Log in to your XMPP account"
+msgstr "Logg inn på din XMPP-konto"
+
+#: src/qml/LoginPage.qml:75
+msgctxt "LoginPage|"
+msgid "Connection settings"
+msgstr "Tilkoblingsinnstillinger"
+
+#: src/qml/LoginPage.qml:114
+msgctxt "LoginPage|"
+msgid "Connecting…"
+msgstr "Kobler til…"
+
+#: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan QR code"
+msgstr "Skann QR-kode"
+
+#: src/qml/QrCodeOnboardingPage.qml:47
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Show explanation"
+msgstr "Vis forklaring"
+
+#: src/qml/QrCodeOnboardingPage.qml:56
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Continue without QR code"
+msgstr "Fortsett uten QR-kode"
+
+#: src/qml/QrCodeOnboardingPage.qml:62
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan the QR code from your existing device to transfer your account."
+msgstr "Skann QR-koden fra din eksisterende enhet for å overføre kontoen din."
+
+#: src/qml/QrCodeOnboardingPage.qml:103
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Connecting…"
+msgstr "Kobler til…"
+
+#: src/qml/QrCodeOnboardingPage.qml:121
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Denne QR-koden er ikke en gylding innloggings-QR-kode."
+
+#: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:47
+msgctxt "QrCodePage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:69
+msgctxt "QrCodePage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:94
+msgctxt "QrCodePage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:126
+msgctxt "QrCodePage|"
+msgid "Contact added - Continue with step 2!"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:131
+msgctxt "QrCodePage|"
+msgid "This QR code does not contain a contact."
+msgstr ""
+
+#: src/qml/QrCodePage.qml:173
+msgctxt "QrCodePage|"
+msgid "Adding contact…"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:49
+msgctxt "AutomaticRegistrationPage|"
+msgid "Register automatically"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:106
+msgctxt "AutomaticRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/CustomFormView.qml:39
+msgctxt "CustomFormView|"
+msgid ""
+"The server has requested more information.\n"
+"Not everything may be required.\n"
+"If a CAPTCHA is shown, the displayed text must be entered."
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:39
+msgctxt "DisplayNameView|"
+msgid ""
+"Your display name is what your contacts will see.\n"
+"In case you don't want to use a display name, you can leave this field "
+"empty.\n"
+"Using a display name may let new contacts recognize you easier but also "
+"could decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:47
+msgctxt "DisplayNameView|"
+msgid "Display Name"
+msgstr ""
+
+#: src/qml/registration/LoadingView.qml:41
+msgctxt "LoadingView|"
+msgid "Requesting the server…"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:45
+msgctxt "ManualRegistrationPage|"
+msgid "Register manually"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:195
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:238
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:242
+msgctxt "ManualRegistrationPage|"
+msgid "But you can use the provider's web registration."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:246
+msgctxt "ManualRegistrationPage|"
+msgid "A new provider has been randomly selected."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:261
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:265
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr ""
+
+#: src/qml/registration/PasswordView.qml:43
+msgctxt "PasswordView|"
+msgid ""
+"Your password is used to log in to your account.\n"
+"If you don't enter a password, the randomly generated and already displayed "
+"one is used.\n"
+"Don't use passwords you're already using somewhere else!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:46
+msgctxt "ProviderView|"
+msgid ""
+"The provider is where your account is located.\n"
+"The selectable providers are hand-picked by our community!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:64
+msgctxt "ProviderView|"
+msgid "Provider"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:101
+msgctxt "ProviderView|"
+msgid "Connection settings"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:144
+msgctxt "ProviderView|"
+msgid "Web registration only:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "No"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:145
+msgctxt "ProviderView|"
+msgid "Yes"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:150
+msgctxt "ProviderView|"
+msgid "Server locations:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:156
+msgctxt "ProviderView|"
+msgid "Languages:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:162
+msgctxt "ProviderView|"
+msgid "Online since:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:168
+msgctxt "ProviderView|"
+msgid "Allows to share media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:174
+msgctxt "ProviderView|"
+msgid "Stores shared media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:181
+msgctxt "ProviderView|"
+msgid "Open website"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:186
+msgctxt "ProviderView|"
+msgid "Copy website address"
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:37
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:41
+msgctxt "RegistrationDecisionPage|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:47
+msgctxt "RegistrationDecisionPage|"
+msgid "Generate an account automatically"
+msgstr ""
+
+#: src/qml/registration/RegistrationDecisionPage.qml:52
+msgctxt "RegistrationDecisionPage|"
+msgid "Create an account manually"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:80
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:89
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:98
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr ""
+
+#: src/qml/registration/ResultView.qml:42
+msgctxt "ResultView|"
+msgid ""
+"Your chat address is used to chat with you, like your email address is used "
+"to exchange email messages.\n"
+"\n"
+"Your chat address will be:"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:43
+msgctxt "UsernameView|"
+msgid ""
+"Your username is used to log in to your account and to chat with you.\n"
+"If you don't enter a username, the randomly generated and already displayed "
+"one is used.\n"
+"Using an own username may let it be more recognizable but also could "
+"decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:60
+msgctxt "UsernameView|"
+msgid "Username"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:67
+msgctxt "UsernameView|"
+msgid ""
+"Please enter a valid username or leave the field empty for a random one."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:42
+msgctxt "WebRegistrationView|"
+msgid ""
+"The selected provider only provides web registration. After creating an "
+"account via the web page, you can log in via Kaidan."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:49
+msgctxt "WebRegistrationView|"
+msgid "Open registration web page"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:54
+msgctxt "WebRegistrationView|"
+msgid "Copy registration web page address"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:60
+msgctxt "WebRegistrationView|"
+msgid "Log in with your new account"
+msgstr ""
+
+#: src/qml/RegistrationLoginDecisionPage.qml:41
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Set up"
+msgstr "Sett opp"
+
+#: src/qml/RegistrationLoginDecisionPage.qml:47
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Register a new account"
+msgstr "Registrer ny konto"
+
+#: src/qml/RegistrationLoginDecisionPage.qml:52
+msgctxt "RegistrationLoginDecisionPage|"
+msgid "Use an existing account"
+msgstr "Bruk eksisterende konto"
+
+#: src/qml/RosterPage.qml:41
+msgctxt "RosterPage|"
+msgid "Connecting…"
+msgstr "Kobler til…"
+
+#: src/qml/RosterPage.qml:42
+msgctxt "RosterPage|"
+msgid "Offline"
+msgstr "Frakoblet"
+
+#: src/qml/RosterPage.qml:43
+msgctxt "RosterPage|"
+msgid "Contacts"
+msgstr "Kontakter"
+
+#: src/qml/RosterPage.qml:56
+msgctxt "RosterPage|"
+msgid "Add new contact"
+msgstr "Legg til ny kontakt"
+
+#: src/qml/RosterPage.qml:68
+msgctxt "RosterPage|"
+msgid "Search contacts"
+msgstr "Søk i kontakter"
+
+#: src/qml/settings/AccountSecurity.qml:39
+msgctxt "AccountSecurity|"
+msgid "Account Security"
+msgstr "Kontosikkerhet"
+
+#: src/qml/settings/AccountSecurity.qml:42
+#, fuzzy
+msgctxt "AccountSecurity|"
+msgid ""
+"Allow to add additional devices using the login QR code but never show the "
+"password."
+msgstr ""
+"Tillat å legge til ytterligere enheter ved bruk av innloggings-QR-kode, men "
+"aldri vis passordet."
+
+#: src/qml/settings/AccountSecurity.qml:44
+msgctxt "AccountSecurity|"
+msgid "Don't show password"
+msgstr "Ikke vis passord"
+
+#: src/qml/settings/AccountSecurity.qml:49
+#, fuzzy
+msgctxt "AccountSecurity|"
+msgid ""
+"Neither allow to add additional devices using the login QR code nor show the "
+"password."
+msgstr ""
+"Hverken tillat å legge til ytterligere enhter med innloggings-QR-kode, og "
+"ikke vis passordet."
+
+#: src/qml/settings/AccountSecurity.qml:51
+msgctxt "AccountSecurity|"
+msgid "Don't expose password in any way"
+msgstr "Ikke vis frem passordet på noen måte"
+
+#: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
 msgstr "Endre passord"
 
+#: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
 msgstr "Nåværende passord:"
 
+#: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
 msgstr "Nytt passord:"
 
+#: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
 msgstr "Nytt passord (gjenta:"
 
+#: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
 msgstr "De nye passordene samsvarer ikke."
 
+#: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
 msgstr "Det nåværende passordet er ugyldig."
 
-#~ msgctxt "ChangePassword|"
-#~ msgid "You need to be connected to change your password."
-#~ msgstr "Du må være tilkoblet for å endre passordet ditt."
-
+#: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
 msgid ""
 "After changing your password, you will need to reenter it on all your other "
@@ -190,269 +1173,78 @@ msgstr ""
 "Etter å ha endret passordet ditt, vil du måtte skrive det inn igjen på dine "
 "andre enheter."
 
+#: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
 msgstr "Avbryt"
 
+#: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
 msgstr "Endre"
 
+#: src/qml/settings/ChangePassword.qml:142
 #, fuzzy
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
 msgstr "Passord endret"
 
+#: src/qml/settings/ChangePassword.qml:148
 #, fuzzy, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
 msgstr "Klarte ikke å endre passord: %1"
 
-#~ msgctxt "ChatMessage|"
-#~ msgid "Message copied to clipboard"
-#~ msgstr "Melding kopiert til utklippstavle"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Copy Message"
-#~ msgstr "Kopier melding"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Edit Message"
-#~ msgstr "Rediger melding"
-
-msgctxt "ChatMessage|"
-msgid "Spoiler"
-msgstr "Avsløring"
-
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Last ned"
-
-msgctxt "ChatMessageContextMenu|"
-msgid "Copy message"
-msgstr "Kopier melding"
-
-msgctxt "ChatMessageContextMenu|"
-msgid "Edit message"
-msgstr "Rediger melding"
-
-msgctxt "ChatMessageContextMenu|"
-msgid "Copy download URL"
-msgstr "Kopier nedlastings-nettadresse"
-
-msgctxt "ChatMessageContextMenu|"
-msgid "Quote message"
-msgstr "Siter melding"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Compose message"
-#~ msgstr "Forfatt melding"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Send"
-#~ msgstr "Send"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Image"
-#~ msgstr "Bilde"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Video"
-#~ msgstr "Video"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Audio"
-#~ msgstr "Lyd"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Document"
-#~ msgstr "Dokument"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Other file"
-#~ msgstr "Annen fil"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Select a file"
-#~ msgstr "Velg en fil"
-
-msgctxt "ChatPage|"
-msgid "Send a spoiler message"
-msgstr "Send en avsløringsmelding"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Spoiler hint"
-#~ msgstr "Avsløringshint"
-
-msgctxt "ChatPage|"
-msgid "Unmute notifications"
-msgstr "Opphev forstumming av merknader"
-
-msgctxt "ChatPage|"
-msgid "Mute notifications"
-msgstr "Forstum merknader"
-
-msgctxt "ChatPage|"
-msgid "View profile"
-msgstr "Vis profil"
-
-#, fuzzy
-msgctxt "ChatPage|"
-msgid "Search"
-msgstr "Søk"
-
-#, fuzzy
-#~ msgctxt "ChatPage|"
-#~ msgid "Close"
-#~ msgstr "Lukk"
-
-msgctxt "ChatPage|"
-msgid "Search up"
-msgstr "Søk oppover"
-
-msgctxt "ChatPage|"
-msgid "Search down"
-msgstr "Søk nedover"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "All files"
-#~ msgstr "Alle filer"
-
-#, fuzzy
-msgctxt "ChatPage|"
-msgid "Close message search bar"
-msgstr "Lukk meldingssøkefelt"
-
-#, fuzzy
-msgctxt "ChatPageSendingPane|"
-msgid "Spoiler hint"
-msgstr "Avsløringshint"
-
-#, fuzzy
-msgctxt "ChatPageSendingPane|"
-msgid "Close spoiler hint field"
-msgstr "Lukk avsløringshintfeltet"
-
-#, fuzzy
-msgctxt "ChatPageSendingPane|"
-msgid "Compose message"
-msgstr "Forfatt melding"
-
-#, qt-format
-msgctxt "ClientWorker|"
-msgid ""
-"Your account could not be deleted from the server. Therefore, it was also "
-"not removed from this app: %1"
-msgstr ""
-"Kontoen din kunne ikke slettes fra tjeneren. Derfor ble den heller ikke "
-"fjernet fra dette programmet: %1"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Very low"
-msgstr "Veldig lavt"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Low"
-msgstr "Lavt"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Normal"
-msgstr "Normalt"
-
-msgctxt "CommonEncoderSettings|"
-msgid "High"
-msgstr "Høyt"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Very high"
-msgstr "Veldig høyt"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Constant quality"
-msgstr "Konstant kvalitet"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Constant bit rate"
-msgstr "Konstant bitrate"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Average bit rate"
-msgstr "Gjennomsnittlig bitrate"
-
-msgctxt "CommonEncoderSettings|"
-msgid "Two pass"
-msgstr "Dobbelt-arbeidet"
-
-#, fuzzy
-msgctxt "ConfirmationPage|"
-msgid "Cancel"
-msgstr "Avbryt"
-
+#: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
 msgstr "Tilkoblingsinnstillinger"
 
+#: src/qml/settings/ConnectionSettings.qml:70
 #, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Change"
 msgstr "Endre"
 
+#: src/qml/settings/ConnectionSettings.qml:84
 #, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
 msgstr "Avbryt"
 
+#: src/qml/settings/ConnectionSettings.qml:98
 #, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Connection settings could not be changed"
 msgstr "Kunne ikke endre tilkoblingsinnstillinger"
 
+#: src/qml/settings/ConnectionSettings.qml:107
 msgctxt "ConnectionSettings|"
 msgid "Connection settings changed"
 msgstr "Tilkoblingsinnstillinger endret"
 
-#~ msgctxt "ContextDrawer|"
-#~ msgid "Actions"
-#~ msgstr "Handling"
-
+#: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Vertsnavn:"
 
+#: src/qml/settings/CustomConnectionSettings.qml:53
 #, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "Vertsnavnet kan ikke inneholde mellomrom"
 
+#: src/qml/settings/CustomConnectionSettings.qml:77
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Port:"
 
-#~ msgctxt "DisablePasswordDisplay|"
-#~ msgid "Remove password completely"
-#~ msgstr "Fjern passord fullstendig"
-
-#~ msgctxt "DisablePasswordDisplay|"
-#~ msgid ""
-#~ "Your password will not be included in the QR code anymore.\n"
-#~ "You won't be able to use the login via QR code without entering your "
-#~ "password again because this action cannot be undone!\n"
-#~ "Make sure that you backed it up if you want to use your account later."
-#~ msgstr ""
-#~ "Passordet ditt vil ikke lenger være å finne i QR-koden.\n"
-#~ "Du vil ikke kunne logge inn via QR-koden uten å skrive passordet ditt "
-#~ "igjen, fordi handlingen ikke kan angres.\n"
-#~ "Forsikre deg om at du har sikkerhetskopiert det hvis du ønsker å bruke "
-#~ "kontoen din senere."
-
-#~ msgctxt "DisablePasswordDisplay|"
-#~ msgid "Remove password"
-#~ msgstr "Fjern passord"
-
+#: src/qml/settings/DisablePasswordDisplay.qml:43
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose your password in any way"
 msgstr "Ikke vis frem passordet på noen måte"
 
+#: src/qml/settings/DisablePasswordDisplay.qml:46
 msgctxt "DisablePasswordDisplay|"
 msgid ""
 "Your password will neither be shown as plain text nor included in the login "
@@ -469,35 +1261,17 @@ msgstr ""
 "Overvei å lagre passordet et trygt sted, hvis du ønsker å bruke kontoen din "
 "på en annen enheten."
 
+#: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose password in any way"
 msgstr "Ikke vis frem passordet på noen måte"
 
-#~ msgctxt "DisablePlainTextPasswordDisplay|"
-#~ msgid "Do not show password as text"
-#~ msgstr "Ikke vis passordet som tekst"
-
-#~ msgctxt "DisablePlainTextPasswordDisplay|"
-#~ msgid ""
-#~ "Your password will not be shown as text anymore.\n"
-#~ "You won't be able to see your password as text again because this action "
-#~ "cannot be undone!\n"
-#~ "Make sure that you backed it up if you want to use your account later."
-#~ msgstr ""
-#~ "Passordet ditt vil ikke lenger bli vist som tekst.\n"
-#~ "Du vil ikke kunne se passordet ditt som tekst igjen fordi handlingen ikke "
-#~ "kan angres.\n"
-#~ "Forsikre deg om at du har sikkerhetskopiert passordet hvis du ønsker å "
-#~ "bruke den senere."
-
-#~ msgctxt "DisablePlainTextPasswordDisplay|"
-#~ msgid "Do not show password"
-#~ msgstr "Ikke vis passord"
-
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
 msgstr "Ikke vis passordet ditt"
 
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 #, fuzzy
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid ""
@@ -508,166 +1282,24 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device without the login QR code."
 msgstr ""
-"Passordet vil ikke vises, men er fremdeles tilgjengelig via "
-"innloggings-QR-koden.\n"
+"Passordet vil ikke vises, men er fremdeles tilgjengelig via innloggings-QR-"
+"koden.\n"
 "Du vil ikke kunne se passordet ditt igjen fordi denne handlingen ikke kan "
 "angres.\n"
 "Overvei å lagre passordet et trygt sted hvis du ønsker å bruke kontoen din "
 "på en annen enheten uten innloggings-QR-koden."
 
+#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
 msgstr "Ikke vis passord"
 
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Could not save file: %1"
-msgstr "Kunne ikke lagre fil: %1"
-
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Download failed: %1"
-msgstr "Nedlasting mislyktes: %1"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Favorites"
-#~ msgstr "Favoritter"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "People"
-#~ msgstr "Folk"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Nature"
-#~ msgstr "Natur"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Food"
-#~ msgstr "Mat"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Activity"
-#~ msgstr "Aktivitet"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Travel"
-#~ msgstr "Reise"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Objects"
-#~ msgstr "Objekter"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Symbols"
-#~ msgstr "Symboler"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Flags"
-#~ msgstr "Flagg"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Search"
-#~ msgstr "Søk"
-
-#~ msgctxt "EmojiPicker|"
-#~ msgid "Search emoji"
-#~ msgstr "Søk etter emoji"
-
-msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
-msgstr "Velg en sludring for å begynne å sende meldinger"
-
-#~ msgctxt "FileChooser|"
-#~ msgid "Select a file"
-#~ msgstr "Velg en fil"
-
-#~ msgctxt "FileChooserMobile|"
-#~ msgid "go to parent folder"
-#~ msgstr "gå til overnevnt mappe"
-
-#~ msgctxt "FileChooserMobile|"
-#~ msgid "Close"
-#~ msgstr "Lukk"
-
-#~ msgctxt "FileChooserMobile|"
-#~ msgid "Go to parent folder"
-#~ msgstr "Gå til ovennevnt mappe"
-
-#~ msgctxt "ForwardButton|"
-#~ msgid "Navigate Forward"
-#~ msgstr "Framover"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Back"
-#~ msgstr "Tilbake"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Log out"
-#~ msgstr "Logg ut"
-
-msgctxt "GlobalDrawer|"
-msgid "About"
-msgstr "Om"
-
-msgctxt "GlobalDrawer|"
-msgid "Invite friends"
-msgstr "Inviter venner"
-
-msgctxt "GlobalDrawer|"
-msgid "Invitation link copied to clipboard"
-msgstr "Invitasjonslenke kopiert til utklippstavle"
-
-msgctxt "GlobalDrawer|"
-msgid "Settings"
-msgstr "Innstillinger"
-
-#, fuzzy
-msgctxt "GlobalDrawer|"
-msgid "Offline"
-msgstr "Frakoblet"
-
-msgctxt "GlobalDrawer|"
-msgid "Online"
-msgstr "Pålogget"
-
-#, fuzzy
-msgctxt "GlobalDrawer|"
-msgid "Connecting…"
-msgstr "Kobler til…"
-
-msgctxt "GlobalDrawer|"
-msgid "Switch device"
-msgstr "Bytt enhet"
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Could not send message, as a result of not being connected."
-#~ msgstr "Kunne ikke sende melding, som følge av manglende tilkobling."
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Could not add contact, as a result of not being connected."
-#~ msgstr "Kunne ikke legge til kontakt, som følge av manglende tilkobling."
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Could not remove contact, as a result of not being connected."
-#~ msgstr "Kunne ikke fjerne kontakt, som følge av manglende tilkobling."
-
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-msgctxt "Kaidan|"
-msgid "The link will be opened after you have connected."
-msgstr "Lenken vil åpnes etter at du har koblet til."
-
-#~ msgctxt "Kaidan|"
-#~ msgid "Could not send file, as a result of not being connected."
-#~ msgstr "Kunne ikke sende fil, som resultat av å ikke være tilkoblet."
-
-#~ msgctxt "Kaidan|"
-#~ msgid "No valid login QR code found."
-#~ msgstr "Fant ingen gyldig QR-kode for innlogging."
-
+#: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
 msgid "Remove account from this app"
 msgstr "Fjern konto fra dette programmet"
 
+#: src/qml/settings/LocalAccountRemoval.qml:45
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.\n"
@@ -678,387 +1310,132 @@ msgstr ""
 "Passordet ditt vil bli slettet, forsikre deg om at det er lagret i en "
 "passordshåndterer, eller at du husker det!"
 
+#: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
 msgstr "Fjern"
 
-msgctxt "LoginPage|"
-msgid "Log in"
-msgstr "Logg inn"
-
-msgctxt "LoginPage|"
-msgid "Log in to your XMPP account"
-msgstr "Logg inn på din XMPP-konto"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Jabber-ID:"
-#~ msgstr "Din Jabber-ID:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your diaspora*-ID:"
-#~ msgstr "Din diaspora*-ID:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "user@example.org"
-#~ msgstr "bruker@eksempel.no"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "user@diaspora.pod"
-#~ msgstr "bruker@diaspora.pod"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Your Password:"
-#~ msgstr "Ditt passord:"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Retry"
-#~ msgstr "Prøv igjen"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Connect"
-#~ msgstr "Koble til"
-
-msgctxt "LoginPage|"
-msgid "Connecting…"
-msgstr "Kobler til…"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Invalid username or password."
-#~ msgstr "Ugyldig brukernavn eller passord."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Cannot connect to the server. Please check your internet connection."
-#~ msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "The server doesn't support secure connections."
-#~ msgstr "Tjeneren støtter ikke sikre tilkoblinger."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Error while trying to connect securely."
-#~ msgstr "Feil under forsøk på sikker tilkobling."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Could not resolve the server's address. Please check your JID again."
-#~ msgstr "Kunne ikke fortolke tjenerens adresse. Sjekk din JID igjen."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Could not connect to the server."
-#~ msgstr "Kunne ikke koble til tjeneren."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Authentification protocol not supported by the server."
-#~ msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
-
-#~ msgctxt "LoginPage|"
-#~ msgid "An unknown error occured; see log for details."
-#~ msgstr "En ukjent feil inntraff; sjekk loggen for detaljer."
-
-msgctxt "LoginPage|"
-msgid "Connection settings"
-msgstr "Tilkoblingsinnstillinger"
-
-msgctxt "LoginSettingsPage|"
-msgid "Connection settings"
-msgstr "Tilkoblingsinnstillinger"
-
-#, fuzzy
-msgctxt "LoginSettingsPage|"
-msgid ""
-"The connection settings will be saved permanently after the first successful "
-"login. If they don't work, you'll get back to the login page."
-msgstr ""
-"Tilkoblingsinnstillingene vil bli lagret permanent ved første innlogging. "
-"Hvis de ikke fungerer kommer du deg tilbake til innloggingssiden."
-
-msgctxt "LoginSettingsPage|"
-msgid "Enable custom connection settings"
-msgstr "Skru på egendefinerte tilkoblingsinnstillinger"
-
-msgctxt "LoginSettingsPage|"
-msgid "Port:"
-msgstr "Port:"
-
-msgctxt "LoginSettingsPage|"
-msgid "Hostname:"
-msgstr "Vertsnavn:"
-
-msgctxt "LoginSettingsPage|"
-msgid "Reset"
-msgstr "Tilbakestill"
-
-msgctxt "LoginSettingsPage|"
-msgid "Apply"
-msgstr "Bruk"
-
-msgctxt "MediaRecorder|"
-msgid "Default"
-msgstr "Forvalg"
-
-msgctxt "MediaUtils|"
-msgid "Take picture"
-msgstr "Ta bilde"
-
-msgctxt "MediaUtils|"
-msgid "Record video"
-msgstr "Ta opp video"
-
-msgctxt "MediaUtils|"
-msgid "Record voice"
-msgstr "Ta opp stemme"
-
-msgctxt "MediaUtils|"
-msgid "Send location"
-msgstr "Send plassering"
-
-msgctxt "MediaUtils|"
-msgid "Choose file"
-msgstr "Velg fil"
-
-msgctxt "MediaUtils|"
-msgid "Choose image"
-msgstr "Velg bilde"
-
-msgctxt "MediaUtils|"
-msgid "Choose video"
-msgstr "Velg video"
-
-msgctxt "MediaUtils|"
-msgid "Choose audio file"
-msgstr "Velg lydfil"
-
-msgctxt "MediaUtils|"
-msgid "Choose document"
-msgstr "Velg dokument"
-
-msgctxt "MediaUtils|"
-msgid "All files"
-msgstr "Alle filer"
-
-msgctxt "MediaUtils|"
-msgid "Images"
-msgstr "Bilder"
-
-msgctxt "MediaUtils|"
-msgid "Videos"
-msgstr "Videoer"
-
-msgctxt "MediaUtils|"
-msgid "Audio files"
-msgstr "Lydfiler"
-
-msgctxt "MediaUtils|"
-msgid "Documents"
-msgstr "Dokumenter"
-
-#, qt-format
-msgctxt "MediaUtils|"
-msgid "%1 (%2)"
-msgstr "%1 (%2)"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "Audio"
-msgstr "Lyd"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "Document"
-msgstr "Dokument"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "Location"
-msgstr "Posisjon"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "Image"
-msgstr "Bilde"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "Video"
-msgstr "Video"
-
-#, fuzzy
-msgctxt "MediaUtils|"
-msgid "File"
-msgstr "Fil"
-
-#, fuzzy
-msgctxt "Message|"
-msgid "Spoiler"
-msgstr "Avsløring"
-
-#, fuzzy
-#~ msgctxt "MessageHandler|"
-#~ msgid "Could not send message, as a result of not being connected."
-#~ msgstr "Kunne ikke sende melding, som følge av manglende tilkobling."
-
-#, fuzzy
-#~ msgctxt "MessageHandler|"
-#~ msgid "Could not correct message, as a result of not being connected."
-#~ msgstr "Kunne ikke korrigere melding, siden du ikke er tilkoblet."
-
-#~ msgctxt "MessageHandler|"
-#~ msgid "Spoiler"
-#~ msgstr "Avsløring"
-
-msgctxt "MessageHandler|"
-msgid "Message could not be sent."
-msgstr "Meldingen kunne ikke sendes."
-
-#, fuzzy
-msgctxt "MessageHandler|"
-msgid "Message correction was not successful."
-msgstr "Meldingstilkobling mislyktes."
-
-msgctxt "MessageModel|"
-msgid "Pending"
-msgstr "Venter"
-
-msgctxt "MessageModel|"
-msgid "Sent"
-msgstr "Sendt"
-
-msgctxt "MessageModel|"
-msgid "Delivered"
-msgstr "Levert"
-
-#, fuzzy
-msgctxt "MessageModel|"
-msgid "Error"
-msgstr "Feil"
-
+#: src/qml/settings/MultimediaSettings.qml:44
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
 msgstr "Multimediainnstillinger"
 
+#: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
 msgstr "Sett opp"
 
+#: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
 msgstr "Bildeknipsing"
 
+#: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
 msgstr "Lydopptak"
 
+#: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
 msgstr "Videoopptak"
 
+#: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
 msgstr "Kamera"
 
+#: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
 msgstr "Lydinngang"
 
+#: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
 msgstr "Beholder"
 
+#: src/qml/settings/MultimediaSettings.qml:226
 #, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Image"
 msgstr "Bilde"
 
+#: src/qml/settings/MultimediaSettings.qml:231
 #, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Audio"
 msgstr "Lyd"
 
+#: src/qml/settings/MultimediaSettings.qml:237
 #, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Video"
 msgstr "Video"
 
+#: src/qml/settings/MultimediaSettings.qml:264
+#: src/qml/settings/MultimediaSettings.qml:348
+#: src/qml/settings/MultimediaSettings.qml:432
 msgctxt "MultimediaSettings|"
 msgid "Codec"
 msgstr "Kodek"
 
+#: src/qml/settings/MultimediaSettings.qml:290
+#: src/qml/settings/MultimediaSettings.qml:458
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
 msgstr "Oppløsning"
 
+#: src/qml/settings/MultimediaSettings.qml:316
+#: src/qml/settings/MultimediaSettings.qml:400
+#: src/qml/settings/MultimediaSettings.qml:510
 msgctxt "MultimediaSettings|"
 msgid "Quality"
 msgstr "Kvalitet"
 
+#: src/qml/settings/MultimediaSettings.qml:374
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
 msgstr "Samplingstakt"
 
+#: src/qml/settings/MultimediaSettings.qml:484
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
 msgstr "Rammetakt"
 
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Ready"
 msgstr "Klar"
 
+#: src/qml/settings/MultimediaSettings.qml:574
+#: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
 msgstr "Igangsetter…"
 
+#: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
 msgstr "Utilgjengelig"
 
+#: src/qml/settings/MultimediaSettings.qml:587
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
 msgstr "Tar opp…"
 
+#: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
 msgid "Paused"
 msgstr "Pauset"
 
-#, fuzzy
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Image"
-#~ msgstr "Bilde"
-
-#, fuzzy
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Audio"
-#~ msgstr "Lyd"
-
-#, fuzzy
-#~ msgctxt "MultimediaSettingsPage|"
-#~ msgid "Video"
-#~ msgstr "Video"
-
-#~ msgctxt "NewMedia|"
-#~ msgid "Ready"
-#~ msgstr "Klar"
-
-msgctxt "NewMedia|"
-msgid "Initializing…"
-msgstr "Igangsetter…"
-
-msgctxt "NewMedia|"
-msgid "Unavailable"
-msgstr "Utilgjengelig"
-
-#, qt-format
-msgctxt "NewMedia|"
-msgid "Recording… %1"
-msgstr "Tar opp… %1"
-
-#, qt-format
-msgctxt "NewMedia|"
-msgid "Paused %1"
-msgstr "Satt på pause %1"
-
+#: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
 msgstr "Fjern passord"
 
+#: src/qml/settings/PasswordRemovalPage.qml:47
 #, fuzzy, qt-format
 msgctxt "PasswordRemovalPage|"
 msgid ""
@@ -1073,284 +1450,22 @@ msgstr ""
 "passordet helt, vil du ikke kunne bruke konto-overføring via skanning uten å "
 "skrive inn passordet ditt, fordi det også fjernes fra QR-koden."
 
+#: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
 msgid "Do not show password as text"
 msgstr "Ikke vis passordet som tekst"
 
+#: src/qml/settings/PasswordRemovalPage.qml:56
 msgctxt "PasswordRemovalPage|"
 msgid "Remove completely"
 msgstr "Fjern fullstendig"
 
-msgctxt "QObject|"
-msgid "Mark as read"
-msgstr "Marker som lest"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Available"
-msgstr "Tilgjengelig"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Free for chat"
-msgstr "Ledig for sludring"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Away"
-msgstr "Borte"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Do not disturb"
-msgstr "Ikke forstyrr"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Away for longer"
-msgstr "Lengre tids fravær"
-
-#, fuzzy
-msgctxt "QObject|"
-msgid "Offline"
-msgstr "Frakoblet"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Available"
-#~ msgstr "Tilgjengelig"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Free for chat"
-#~ msgstr "Ledig for sludring"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Away"
-#~ msgstr "Borte"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Do not disturb"
-#~ msgstr "Ikke forstyrr"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Away for longer"
-#~ msgstr "Lengre tids fravær"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Offline"
-#~ msgstr "Frakoblet"
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Error"
-#~ msgstr "Feil"
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid "Invalid username or password."
-msgstr "Ugyldig brukernavn eller passord."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid "Cannot connect to the server. Please check your internet connection."
-msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid "The server doesn't support secure connections."
-msgstr "Tjeneren støtter ikke sikre tilkoblinger."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid "Error while trying to connect securely."
-msgstr "Feil under forsøk på sikker tilkobling."
-
-#~ msgctxt "QmlUtils|"
-#~ msgid ""
-#~ "Could not resolve the server's address. Please check your server name."
-#~ msgstr "Kunne ikke fortolke tjenerens adresse. Sjekk ditt tjenernavn."
-
-#, fuzzy
-#~ msgctxt "QmlUtils|"
-#~ msgid "Could not connect to the server."
-#~ msgstr "Kunne ikke koble til tjeneren."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid "Authentification protocol not supported by the server."
-msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
-
-msgctxt "QmlUtils|"
-msgid "This server does not support registration."
-msgstr "Denne tjeneren støtter ikke registrering."
-
-msgctxt "QmlUtils|"
-msgid "The server is offline or blocked by a firewall."
-msgstr "Tjeneren er nede eller blokkert av en brannmur."
-
-msgctxt "QmlUtils|"
-msgid "The connection could not be refreshed."
-msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid ""
-"The internet access is not permitted. Please check your system's internet "
-"access configuration."
-msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
-
-#, fuzzy
-msgctxt "QmlUtils|"
-msgid ""
-"Could not connect to the server. Please check your internet connection or "
-"your server name."
-msgstr ""
-"Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er "
-"oppe, og tjenernavnet ditt."
-
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is online"
-msgstr "%1 er pålogget"
-
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 is typing…"
-msgstr ""
-"Du kjenner blott blodets hvisken og benpipernes bøn fra %1 sitt ubevisste "
-"sjeleliv …"
-
-#, qt-format
-msgctxt "QmlUtils|"
-msgid "%1 paused typing"
-msgstr "%1 tok en pause i skrivingen"
-
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "Kunne ikke generere QR-kode: %1"
-
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan QR code"
-msgstr "Skann QR-kode"
-
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Show explanation"
-msgstr "Vis forklaring"
-
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Continue without QR code"
-msgstr "Fortsett uten QR-kode"
-
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan the QR code from your existing device to transfer your account."
-msgstr "Skann QR-koden fra din eksisterende enhet for å overføre kontoen din."
-
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Connecting…"
-msgstr "Kobler til…"
-
-msgctxt "QrCodeOnboardingPage|"
-msgid "This QR code is not a valid login QR code."
-msgstr "Denne QR-koden er ikke en gylding innloggings-QR-kode."
-
-#, fuzzy, qt-format
-msgctxt "QrCodeScanner|"
-msgid "The camera format '%1' is not supported."
-msgstr "Kameraformatet \"%1\" støttes ikke."
-
-#, fuzzy
-msgctxt "QrCodeScanner|"
-msgid "There is no camera available."
-msgstr "Kamera ikke tilgjengelig."
-
-#, fuzzy
-msgctxt "QrCodeScanner|"
-msgid ""
-"Your camera is busy.\n"
-"Try to close other applications using the camera."
-msgstr ""
-"Kamera ditt er opptatt.\n"
-"Prøv å lukke andre programmer ved bruk av kameraet."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Scan QR code"
-#~ msgstr "Skann QR-kode"
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "There is no camera available."
-#~ msgstr "Kamera ikke tilgjengelig."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid ""
-#~ "Your camera is busy.\n"
-#~ "Try to close other applications using the camera."
-#~ msgstr ""
-#~ "Kamera ditt er opptatt.\n"
-#~ "Prøv å lukke andre programmer ved bruk av kameraet."
-
-#, qt-format
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "The camera format '%1' is not supported."
-#~ msgstr "Kameraformatet \"%1\" støttes ikke."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Scan the QR code from your existing device to transfer your account."
-#~ msgstr ""
-#~ "Skann QR-koden fra din eksisterende enhet for å overføre kontoen din."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Show explanation"
-#~ msgstr "Vis forklaring"
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Scan"
-#~ msgstr "Skann"
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Continue without QR code"
-#~ msgstr "Fortsett uten QR-kode"
-
-#, fuzzy
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Connecting…"
-#~ msgstr "Kobler til…"
-
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Set up"
-msgstr "Sett opp"
-
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Register a new account"
-msgstr "Registrer ny konto"
-
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Use an existing account"
-msgstr "Bruk eksisterende konto"
-
-#~ msgctxt "RegistrationManager|"
-#~ msgid "Password changed successfully."
-#~ msgstr "Passord endret"
-
-#, qt-format
-#~ msgctxt "RegistrationManager|"
-#~ msgid "Failed to change password: %1"
-#~ msgstr "Klarte ikke å endre passord: %1"
-
+#: src/qml/settings/RemoteAccountDeletion.qml:42
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
 msgstr "Slett konto fullstendig"
 
+#: src/qml/settings/RemoteAccountDeletion.qml:45
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
@@ -1360,205 +1475,25 @@ msgstr ""
 "Kontoen din vil slettes fullstendig, fra programmet og tjeneren.\n"
 "Du vil ikke kunne bruke kontoen igjen."
 
+#: src/qml/settings/RemoteAccountDeletion.qml:50
 #, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
 msgstr "Slett"
 
-msgctxt "RosterAddContactSheet|"
-msgid "Add new contact"
-msgstr "Legg til ny kontakt"
-
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Kallenavn:"
-
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "bruker@eksempel.no"
-
-msgctxt "RosterAddContactSheet|"
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgctxt "RosterAddContactSheet|"
-msgid "Add"
-msgstr "Legg til"
-
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr ""
-"Dette vil også sende en forespørsel om tilgang til kontaktens "
-"tilstedeværelsesinfo."
-
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Valgfri melding:"
-
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Fortell din sludrepartner hvem du er."
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Error: Please check the JID."
-#~ msgstr "Feil: Sjekk JID-en."
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Available"
-#~ msgstr "Tilgjengelig"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Free for chat"
-#~ msgstr "Ledig for sludring"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Away"
-#~ msgstr "Borte"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Do not disturb"
-#~ msgstr "Ikke forstyrr"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Away for longer"
-#~ msgstr "Lengre tids fravær"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Offline"
-#~ msgstr "Frakoblet"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Error"
-#~ msgstr "Feil"
-
-#~ msgctxt "RosterListItem|"
-#~ msgid "Invalid"
-#~ msgstr "Ugyldig"
-
+#: src/qml/settings/SettingsContent.qml:43
 #, fuzzy
-msgctxt "RosterManager|"
-msgid "Could not add contact, as a result of not being connected."
-msgstr "Kunne ikke legge til kontakt, som følge av manglende tilkobling."
+msgctxt "SettingsContent|"
+msgid "Settings"
+msgstr "Innstillinger"
 
-#, fuzzy
-msgctxt "RosterManager|"
-msgid "Could not remove contact, as a result of not being connected."
-msgstr "Kunne ikke fjerne kontakt, som følge av manglende tilkobling."
-
-#~ msgctxt "RosterManager|"
-#~ msgid "Spoiler"
-#~ msgstr "Avsløring"
-
-msgctxt "RosterManager|"
-msgid "Could not rename contact, as a result of not being connected."
-msgstr "Kunne ikke gi kontakten nytt navn, fordi den ikke er tilkoblet."
-
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Kontakter"
-
-msgctxt "RosterPage|"
-msgid "Add new contact"
-msgstr "Legg til ny kontakt"
-
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Kobler til…"
-
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Frakoblet"
-
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Søk i kontakter"
-
-#, qt-format
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Do you really want to delete the contact \"%1\" from your roster?"
-#~ msgstr "Ønsker du virkelig å slette kontakten \"%1\" fra din kontaktliste?"
-
-msgctxt "RosterRemoveContactSheet|"
-msgid "Delete contact"
-msgstr "Slett kontakt"
-
-msgctxt "RosterRemoveContactSheet|"
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgctxt "RosterRemoveContactSheet|"
-msgid "Delete"
-msgstr "Slett"
-
-#, qt-format
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Do you really want to delete the contact <%1> from your roster?"
-#~ msgstr "Ønsker du virkelig å slette kontakten <%1> fra din kontaktliste?"
-
-#, qt-format
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Do you really want to delete the contact <b>%1</b> from your roster?"
-#~ msgstr ""
-#~ "Ønsker du virkelig å slette kontakten <b>%1</b> from din kontaktliste?"
-
-#, fuzzy, qt-format
-msgctxt "RosterRemoveContactSheet|"
-msgid ""
-"Do you really want to delete the contact <b>%1</b> from your contact list?"
-msgstr "Ønsker du å slette <b>%1</b> fra kontaktlisten din?"
-
-msgctxt "RosterRenameContactSheet|"
-msgid "Rename contact"
-msgstr "Gi kontakten nytt navn"
-
-#, fuzzy
-msgctxt "RosterRenameContactSheet|"
-msgid "Cancel"
-msgstr "Avbryt"
-
-msgctxt "RosterRenameContactSheet|"
-msgid "Rename"
-msgstr "Gi nytt navn"
-
-#, fuzzy
-msgctxt "SendMediaSheet|"
-msgid "Cancel"
-msgstr "Avbryt"
-
-#, fuzzy
-msgctxt "SendMediaSheet|"
-msgid "Send"
-msgstr "Send"
-
-msgctxt "SendMediaSheet|"
-msgid "Caption"
-msgstr "Bildetekst"
-
-msgctxt "ServerListModel|"
-msgid "Custom server"
-msgstr "Egendefinert tjener"
-
-#. Unlimited file size for uploading files
-#. ----------
-#. Deletion of message history saved on server
-msgctxt "ServerListModel|"
-msgid "No limitation"
-msgstr "Ingen begrensning"
-
-#, qt-format
-msgctxt "ServerListModel|"
-msgid "%1 days"
-msgstr "%1 dager"
-
+#: src/qml/settings/SettingsContent.qml:48
 #, fuzzy
 msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Endre passord"
 
+#: src/qml/settings/SettingsContent.qml:49
 #, fuzzy
 msgctxt "SettingsContent|"
 msgid ""
@@ -1568,172 +1503,243 @@ msgstr ""
 "Endrer passord på kontoen din. Du vil måtte skrive det inn igjen på dine "
 "andre enheter."
 
+#: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Multimedia-innstillinger"
 
+#: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Sett opp bilde- video- og lyd-opptaksinnstillinger"
 
-#, fuzzy
-msgctxt "SettingsContent|"
-msgid "Settings"
-msgstr "Innstillinger"
-
-msgctxt "SettingsContent|"
-msgid "Account security"
-msgstr "Kontosikkerhet"
-
-#~ msgctxt "SettingsContent|"
-#~ msgid "configure whether this device can be used to log in on a new device"
-#~ msgstr ""
-#~ "Sett opp hvorvidt denne enheten kan brukes for å logge inn på en annen"
-
-msgctxt "SettingsContent|"
-msgid "Remove account from Kaidan"
-msgstr "Fjern konto fra Kaidan"
-
-msgctxt "SettingsContent|"
-msgid "Remove account from this app"
-msgstr "Fjern konto fra dette programmet"
-
-msgctxt "SettingsContent|"
-msgid "Delete account"
-msgstr "Slett konto"
-
-msgctxt "SettingsContent|"
-msgid "Delete account from the server"
-msgstr "Slett konto fra tjeneren"
-
+#: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
 msgstr "Tilkoblingsinnstillinger"
 
+#: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
 msgstr "Sett opp vertsnavnet og porten å koble til"
 
+#: src/qml/settings/SettingsContent.qml:67
+msgctxt "SettingsContent|"
+msgid "Account security"
+msgstr "Kontosikkerhet"
+
+#: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
 msgstr ""
 "Sett opp hvorvidt denne enheten kan brukes til å logge på en annen enhet"
 
+#: src/qml/settings/SettingsContent.qml:73
+msgctxt "SettingsContent|"
+msgid "Remove account from Kaidan"
+msgstr "Fjern konto fra Kaidan"
+
+#: src/qml/settings/SettingsContent.qml:74
+msgctxt "SettingsContent|"
+msgid "Remove account from this app"
+msgstr "Fjern konto fra dette programmet"
+
+#: src/qml/settings/SettingsContent.qml:79
+msgctxt "SettingsContent|"
+msgid "Delete account"
+msgstr "Slett konto"
+
+#: src/qml/settings/SettingsContent.qml:80
+msgctxt "SettingsContent|"
+msgid "Delete account from the server"
+msgstr "Slett konto fra tjeneren"
+
+#: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#~ msgctxt "SettingsPage|"
-#~ msgid "Change password"
-#~ msgstr "Endre passord"
-
-#~ msgctxt "SettingsPage|"
-#~ msgid ""
-#~ "Changes your account's password. You will need to re-enter it on your "
-#~ "other devices."
-#~ msgstr ""
-#~ "Endrer passord på kontoen din. Du vil måtte skrive det inn igjen på dine "
-#~ "andre enheter."
-
-#, fuzzy
-#~ msgctxt "SettingsSheet|"
-#~ msgid "Settings"
-#~ msgstr "Innstillinger"
-
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Nyt fri kommunikasjon på alle enheter."
 
+#: src/qml/StartPage.qml:84
 msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "La oss begynne"
 
-msgctxt "SubRequestAcceptSheet|"
-msgid "Subscription Request"
-msgstr "Abonnementsforespørsel"
-
-#, qt-format
-msgctxt "SubRequestAcceptSheet|"
-msgid ""
-"You received a subscription request by <b>%1</b>. If you accept it, the "
-"account will have access to your presence status."
-msgstr ""
-"Du har mottatt en abonnementsforespørsel av <b>%1</b>. Hvis du godtar den, "
-"vil kontoen ha tilgang til din tilstedeværelsesstatus."
-
-msgctxt "SubRequestAcceptSheet|"
-msgid "Decline"
-msgstr "Avslå"
-
-msgctxt "SubRequestAcceptSheet|"
-msgid "Accept"
-msgstr "Godta"
-
-#~ msgctxt "ToolBarApplicationHeader|"
-#~ msgid "More Actions"
-#~ msgstr "Flere handlinger"
-
-#, fuzzy
-#~ msgctxt "ToolBarPageHeader|"
-#~ msgid "More Actions"
-#~ msgstr "Flere handlinger"
-
-#, fuzzy
-msgctxt "UploadManager|"
-msgid "Could not send file, as a result of not being connected."
-msgstr "Kunne ikke sende fil, som resultat av å ikke være tilkoblet."
-
-#~ msgctxt "UploadManager|"
-#~ msgid "File"
-#~ msgstr "Fil"
-
-#, fuzzy
-msgctxt "UploadManager|"
-msgid "Message could not be sent."
-msgstr "Meldingen kunne ikke sendes."
-
+#: src/qml/UserProfilePage.qml:42
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Profil"
 
+#: src/qml/UserProfilePage.qml:77
 #, fuzzy
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
 msgstr "Gi kontakten nytt navn"
 
+#: src/qml/UserProfilePage.qml:87
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
 msgstr "Vis QR-kode"
 
+#: src/qml/UserProfilePage.qml:93
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Fjern kontakt"
 
+#: src/qml/UserProfilePage.qml:230
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Påloggede enheter"
 
+#: src/QmlUtils.cpp:72
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr "Ugyldig brukernavn eller passord."
+
+#: src/QmlUtils.cpp:74
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
+
+#: src/QmlUtils.cpp:76
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr "Feil under forsøk på sikker tilkobling."
+
+#: src/QmlUtils.cpp:78
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr "Tjeneren støtter ikke sikre tilkoblinger."
+
+#: src/QmlUtils.cpp:80
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+"Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er "
+"oppe, og tjenernavnet ditt."
+
+#: src/QmlUtils.cpp:82
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr "Tjeneren er nede eller blokkert av en brannmur."
+
+#: src/QmlUtils.cpp:84
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
+
+#: src/QmlUtils.cpp:86
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
+
+#: src/QmlUtils.cpp:88
+#, fuzzy
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
+
+#: src/QmlUtils.cpp:90
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr "Denne tjeneren støtter ikke registrering."
+
+#: src/QmlUtils.cpp:228
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr "%1 er pålogget"
+
+#: src/QmlUtils.cpp:230
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+"Du kjenner blott blodets hvisken og benpipernes bøn fra %1 sitt ubevisste "
+"sjeleliv …"
+
+#: src/QmlUtils.cpp:232
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr "%1 tok en pause i skrivingen"
+
+#: src/QrCodeGenerator.cpp:89
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr "Kunne ikke generere QR-kode: %1"
+
+#: src/RosterManager.cpp:130
+#, fuzzy
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr "Kunne ikke legge til kontakt, som følge av manglende tilkobling."
+
+#: src/RosterManager.cpp:144
+#, fuzzy
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr "Kunne ikke fjerne kontakt, som følge av manglende tilkobling."
+
+#: src/RosterManager.cpp:157
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr "Kunne ikke gi kontakten nytt navn, fordi den ikke er tilkoblet."
+
+#: src/UploadManager.cpp:72
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Could not send file, as a result of not being connected."
+msgstr "Kunne ikke sende fil, som resultat av å ikke være tilkoblet."
+
+#: src/UploadManager.cpp:141
+#, fuzzy
+msgctxt "UploadManager|"
+msgid "Message could not be sent."
+msgstr "Meldingen kunne ikke sendes."
+
+#: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Navn"
 
+#: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Kallenavn"
 
+#: src/VCardModel.cpp:96
 #, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Om"
 
+#: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "E-post"
 
+#: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Geburtsdag"
 
+#: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Nettside"
