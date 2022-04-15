@@ -1,10 +1,16 @@
+# Vit Pelcak <vpelcak@suse.cz>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-04-06 12:04+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Language: cs\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:269
@@ -19,34 +25,34 @@ msgstr ""
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr "Soubor nelze uložit: %1"
+msgstr "Není možné uložit soubor: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr "Chyba při stahování: %1"
+msgstr "Stažení bylo neúspěšné: %1"
 
 #: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "Připojen"
 
 #: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "Odpojen"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:165
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr "Odkaz se  otevře jakmile se připojíte."
+msgstr ""
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -84,12 +90,12 @@ msgstr "Velmi vysoká"
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr "Stálá kvalita"
+msgstr "Konstantní kvalita"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr "Stálý datový tok"
+msgstr "Konstantní datový tok"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
@@ -99,62 +105,62 @@ msgstr "Průměrný datový tok"
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr "Dvouproudový"
+msgstr "Dva průchody"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "Zvuk"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "Soubor"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr "Vyfotit"
+msgstr "Pořídit obrázek"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr "Nahrát video"
+msgstr "Nahrávat video"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr "Nahrát hlas"
+msgstr "Nahrávat hlas"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr "Zaslat polohu"
+msgstr ""
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr "Vybrat soubor"
+msgstr "Vyberte soubor"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
@@ -164,17 +170,17 @@ msgstr "Vybrat obrázek"
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr "Vybrat video"
+msgstr ""
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Vybrat audio soubor"
+msgstr "Vyberte soubor audio"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr "Vybrat dokument"
+msgstr "Vyberte dokument"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
@@ -215,57 +221,57 @@ msgstr ""
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr "Oprava zprávy se nezdařila."
+msgstr ""
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr "Zprávu se nepodařilo odeslat."
+msgstr ""
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "Čeká se"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "Odesláno"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "Doručeno"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "Chyba"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Označit jako přečtené"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "Dostupné"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "Volný k pokecu"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "Pryč"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "Nerušit"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
@@ -299,12 +305,12 @@ msgstr ""
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Jednoduchý a uživatelsky přívětivý Jabber/XMPP klient"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr "Licence:"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
@@ -314,7 +320,7 @@ msgstr ""
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr "Prohlédnout zdrojový kód online"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
@@ -375,37 +381,37 @@ msgstr ""
 #: src/qml/ChatPage.qml:78
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr "Hledat"
+msgstr ""
 
 #: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
-msgstr "Zapnout notifikace"
+msgstr ""
 
 #: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Mute notifications"
-msgstr "Vypnout notifikace"
+msgstr ""
 
 #: src/qml/ChatPage.qml:123
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr "Prohlédnout profil"
+msgstr ""
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr "Zaslat «spoiler» zprávu"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr "«Spoiler»"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:200
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr "Stahnout"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -480,7 +486,7 @@ msgstr ""
 #: src/qml/elements/fields/PasswordField.qml:40
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -490,24 +496,24 @@ msgstr ""
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr "Zahajuji…"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr "Nedostupný"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
-msgstr "Pozastaveno %1"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:254
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
-msgstr "Nahrávání… %1"
+msgstr ""
 
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
@@ -530,52 +536,52 @@ msgstr ""
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
-msgstr "Přidat nový kontakt"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
-msgstr "Zároveň odešle žádost o přístup k přítomnosti kontaktu."
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
-msgstr "uživatel@example.org"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr "Alias:"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
-msgstr "Volitelná zpráva:"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
-msgstr "Sdělit chatující proti-straně kdo jste."
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
-msgstr "Přidat"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
-msgstr "Smazat kontakt"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
 #, qt-format
@@ -587,47 +593,47 @@ msgstr ""
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
-msgstr "Smazat"
+msgstr ""
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
-msgstr "Přejmenovat kontakt"
+msgstr ""
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
-msgstr "Přejmenovat"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:105
 msgctxt "SendMediaSheet|"
 msgid "Caption"
-msgstr "Titulek"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:118
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr "Odeslat"
+msgstr ""
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:43
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
-msgstr "Žádost o přihlášení"
+msgstr ""
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
 #, qt-format
@@ -636,23 +642,21 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
-"Obdržena žádost o přihlášení od <b>%1</b>. Pokud přijmete, daný účet bude "
-"mít přístup k informaci o vašem připojení."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr "Odmítnout"
+msgstr ""
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:73
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
-msgstr "Přijmout"
+msgstr ""
 
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
-msgstr "Pro zahájení konverzace vyberte chat"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
@@ -662,12 +666,12 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
-msgstr "Pozvat přátele"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:98
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr "Zvací odkaz zkopírován do schránky"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:102
 msgctxt "GlobalDrawer|"
@@ -677,22 +681,22 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr "Nastavení"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr "O aplikaci"
+msgstr ""
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
 msgid "Log in"
-msgstr "Přihlásit se"
+msgstr ""
 
 #: src/qml/LoginPage.qml:49
 msgctxt "LoginPage|"
 msgid "Log in to your XMPP account"
-msgstr "Přihlásit se ke svému XMPP účtu"
+msgstr ""
 
 #: src/qml/LoginPage.qml:75
 msgctxt "LoginPage|"
@@ -702,7 +706,7 @@ msgstr ""
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -1028,27 +1032,27 @@ msgstr ""
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr "Připojování…"
+msgstr ""
 
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr "Odpojen"
+msgstr ""
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
 msgid "Contacts"
-msgstr "Kontakty"
+msgstr ""
 
 #: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
-msgstr "Přidat nový kontakt"
+msgstr ""
 
 #: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
-msgstr "Prohledat kontakty"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
@@ -1082,32 +1086,32 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr "Změna hesla"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr "Stávající heslo:"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr "Nové heslo:"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
-msgstr "Nové heslo (opakovat):"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
-msgstr "Nová hesla se neshodují."
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
-msgstr "Stávající heslo je neplatné."
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
@@ -1115,18 +1119,16 @@ msgid ""
 "After changing your password, you will need to reenter it on all your other "
 "devices."
 msgstr ""
-"Po změně hesla bude třeba zadat nové heslo na všech vašich ostatních "
-"zařízeních."
 
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr "Zrušit"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr "Změnit"
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
@@ -1480,7 +1482,7 @@ msgstr ""
 #: src/qml/UserProfilePage.qml:42
 msgctxt "UserProfilePage|"
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:77
 msgctxt "UserProfilePage|"
@@ -1583,22 +1585,22 @@ msgstr ""
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "Nelze přidat kontakt, neboť nejste připojeni."
+msgstr ""
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "Nelze smazat kontakt, neboť nejste připojeni."
+msgstr ""
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr "Nepodařilo se kontakt přejmenovat, neboť nejste připojení."
+msgstr ""
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr "Soubor nelze odeslat, neboť nejste připojeni."
+msgstr ""
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
@@ -1608,29 +1610,29 @@ msgstr ""
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr "Jméno"
+msgstr ""
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr "Alias"
+msgstr ""
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "O aplikaci"
+msgstr ""
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "E-mail"
+msgstr ""
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr "Datum narození"
+msgstr ""
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr "Webová stránka"
+msgstr ""
