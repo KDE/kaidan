@@ -181,6 +181,14 @@
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0380.html'/>
+        <xmpp:status>partial</xmpp:status>
+        <xmpp:version>0.4</xmpp:version>
+        <xmpp:note>On message receiving, only fallback body displayed</xmpp:note>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0382.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.2</xmpp:version>
