@@ -60,6 +60,7 @@ set(KAIDAN_SOURCES
 	src/VCardCache.cpp
 
 	# needed to trigger moc generation / to be displayed in IDEs
+	src/Encryption.h
 	src/Enums.h
 	src/Globals.h
 	src/GuiStyle.h

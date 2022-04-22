@@ -59,6 +59,7 @@
 #include "DataFormModel.h"
 #include "DiscoveryManager.h"
 #include "EmojiModel.h"
+#include "Encryption.h"
 #include "Enums.h"
 #include "GuiStyle.h"
 #include "Kaidan.h"
@@ -291,6 +292,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MediaRecorder::Error>();
 	qRegisterMetaType<ProviderListModel::Role>();
 	qRegisterMetaType<ChatState::State>();
+	qRegisterMetaType<Encryption>();
 
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
@@ -435,6 +437,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<TransferCache>(APPLICATION_ID, 1, 0, "TransferCache", "TransferCache type usable");
 	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", "ServerFeaturesCache type usable");
+	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", "Cannot create object; only enums defined!");
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", "Can't create object; only enums defined!");
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", "Can't create object; only enums defined!");
