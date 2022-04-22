@@ -265,7 +265,7 @@ RowLayout {
 						if (MessageModel.isOmemoEncryptionEnabled) {
 							// Encryption is set for the current chat but this message is
 							// unencrypted.
-							return qsTr("Insecure")
+							return qsTr("Unencrypted")
 						}
 					} else if (MessageModel.encryption !== Encryption.NoEncryption && !root.isTrusted){
 						// Encryption is set for the current chat but the key of this message's

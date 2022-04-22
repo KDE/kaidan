@@ -38,10 +38,17 @@ import im.kaidan.kaidan 1.0
 import "elements"
 
 /**
- * This page is used for scanning QR codes of contacts and generating an own
- * QR code which can be scanned by contacts.
+ * This page is used for scanning QR codes and displaying an own QR code which
+ * can be scanned.
  */
 ExplanationTogglePage {
+	id: root
+
+	// Used for authenticating or distrusting keys via QR code scanning.
+	property bool isOnlyForTrustDecisions: isForOwnDevices || contactJid
+	property bool isForOwnDevices: false
+	property string contactJid
+
 	title: qsTr("Scan QR codes")
 	explanationArea.visible: Kaidan.settings.qrCodePageExplanationVisible
 	explanationToggleButton.text: explanationToggleButton.checked ? qsTr("Show explanation") : qsTr("Scan QR codes")
@@ -66,12 +73,17 @@ ExplanationTogglePage {
 
 		ColumnLayout {
 			CenteredAdaptiveText {
-				text: qsTr("Step 1: Scan your <b>contact's</b> QR code")
+				text: {
+					if (root.isForOwnDevices) {
+						return qsTr("Step 1: Scan your <b>other device's</b> QR code")
+					}
+					return qsTr("Step 1: Scan your <b>contact's</b> QR code")
+				}
 				scaleFactor: 1.5
 			}
 
 			Image {
-				source: Utils.getResourcePath("images/qr-code-scan-1.svg")
+				source: Utils.getResourcePath(root.isForOwnDevices ? "images/qr-code-scan-own-1.svg" : "images/qr-code-scan-1.svg")
 				sourceSize: Qt.size(860, 860)
 				fillMode: Image.PreserveAspectFit
 				mipmap: true
@@ -91,12 +103,17 @@ ExplanationTogglePage {
 
 		ColumnLayout {
 			CenteredAdaptiveText {
-				text: qsTr("Step 2: Let your contact scan <b>your</b> QR code")
+				text: {
+					if (root.isForOwnDevices) {
+						return qsTr("Step 2: Scan with your other device <b>this device's</b> QR code")
+					}
+					return qsTr("Step 2: Let your contact scan <b>your</b> QR code")
+				}
 				scaleFactor: 1.5
 			}
 
 			Image {
-				source: Utils.getResourcePath("images/qr-code-scan-2.svg")
+				source: Utils.getResourcePath(root.isForOwnDevices ? "images/qr-code-scan-own-2.svg" : "images/qr-code-scan-2.svg")
 				sourceSize: Qt.size(860, 860)
 				fillMode: Image.PreserveAspectFit
 				Layout.fillHeight: true
@@ -117,18 +134,56 @@ ExplanationTogglePage {
 			Layout.preferredWidth: applicationWindow().wideScreen ? parent.width * 0.48 : parent.width
 			Layout.preferredHeight: applicationWindow().wideScreen ? parent.height : Layout.preferredWidth
 
+			// Use the data from the decoded QR code.
 			filter.onScanningSucceeded: {
 				if (isAcceptingResult) {
 					isBusy = true
-					// Try to add a contact by the data from the decoded QR code.
-					switch (RosterModel.addContactByUri(result)) {
-					case RosterModel.AddingContact:
-						showPassiveNotification(qsTr("Contact added - Continue with step 2!"), Kirigami.Units.veryLongDuration * 4)
-						break
-					case RosterModel.ContactExists:
-						break
-					case RosterModel.InvalidUri:
-						showPassiveNotification(qsTr("This QR code does not contain a contact."), Kirigami.Units.veryLongDuration * 4)
+					var processTrust = true
+
+					// Try to add a contact.
+					if (!root.isOnlyForTrustDecisions) {
+						switch (RosterModel.addContactByUri(result)) {
+						case RosterModel.AddingContact:
+							showPassiveNotification(qsTr("Contact added - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+							break
+						case RosterModel.ContactExists:
+							processTrust = false
+							break
+						case RosterModel.InvalidUri:
+							processTrust = false
+							showPassiveNotification(qsTr("This QR code does not contain a contact"), Kirigami.Units.veryLongDuration * 4)
+						}
+					}
+
+					// Try to authenticate or distrust keys.
+					if (processTrust) {
+						var expectedJid = ""
+						if (root.isOnlyForTrustDecisions) {
+							expectedJid = root.isForOwnDevices ? AccountManager.jid : root.contactJid
+						}
+						switch (Kaidan.makeTrustDecisionsByUri(result, expectedJid)) {
+						case Kaidan.MakingTrustDecisions:
+							if (root.isForOwnDevices) {
+								showPassiveNotification(qsTr("Trust decisions made for other own device - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+							} else {
+								showPassiveNotification(qsTr("Trust decisions made for contact - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+							}
+
+							break
+						case Kaidan.JidUnexpected:
+							if (root.isOnlyForTrustDecisions) {
+								if (root.isForOwnDevices) {
+									showPassiveNotification(qsTr("This QR code is not for your other device"), Kirigami.Units.veryLongDuration * 4)
+								} else {
+									showPassiveNotification(qsTr("This QR code is not for your contact"), Kirigami.Units.veryLongDuration * 4)
+								}
+							}
+							break
+						case Kaidan.InvalidUri:
+							if (root.isOnlyForTrustDecisions) {
+								showPassiveNotification(qsTr("This QR code is not for trust decisions"), Kirigami.Units.veryLongDuration * 4)
+							}
+						}
 					}
 
 					isBusy = false
@@ -170,7 +225,7 @@ ExplanationTogglePage {
 					}
 
 					Controls.Label {
-						text: "<i>" + qsTr("Adding contact…") + "</i>"
+						text: "<i>" + root.isOnlyForTrustDecisions ? qsTr("Making trust decisions…") : qsTr("Adding contact…") + "</i>"
 						color: Kirigami.Theme.textColor
 					}
 				}
@@ -187,7 +242,6 @@ ExplanationTogglePage {
 		}
 
 		QrCode {
-			jid: AccountManager.jid
 			Layout.preferredWidth: applicationWindow().wideScreen ? parent.width * 0.48 : parent.width
 			Layout.preferredHeight: applicationWindow().wideScreen ? parent.height : Layout.preferredWidth
 		}

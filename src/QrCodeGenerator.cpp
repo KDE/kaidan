@@ -41,6 +41,7 @@
 #include <ZXing/MultiFormatWriter.h>
 
 #include "AccountManager.h"
+#include "MessageModel.h"
 #include "Kaidan.h"
 #include "qxmpp-exts/QXmppUri.h"
 
@@ -67,10 +68,44 @@ QImage QrCodeGenerator::generateLoginUriQrCode(int edgePixelCount)
 	return generateQrCode(edgePixelCount, uri.toString());
 }
 
-QImage QrCodeGenerator::generateBareJidQrCode(int edgePixelCount, const QString &bareJid)
+QImage QrCodeGenerator::generateOwnTrustMessageQrCode(int edgePixelCount)
 {
+	return generateTrustMessageQrCode(edgePixelCount, AccountManager::instance()->jid());
+}
+
+QImage QrCodeGenerator::generateContactTrustMessageQrCode(int edgePixelCount, const QString &contactJid)
+{
+	return generateTrustMessageQrCode(edgePixelCount, contactJid);
+}
+
+QImage QrCodeGenerator::generateTrustMessageQrCode(int edgePixelCount, const QString &jid)
+{
+	const auto keys = MessageModel::instance()->keys().value(jid);
+	QList<QString> authenticatedKeys;
+	QList<QString> distrustedKeys;
+
+	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
+		const auto key = itr.key().toHex();
+		const auto trustLevel = itr.value();
+
+		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
+			authenticatedKeys.append(key);
+		} else if (trustLevel == QXmpp::TrustLevel::ManuallyDistrusted) {
+			distrustedKeys.append(key);
+		}
+	}
+
 	QXmppUri uri;
-	uri.setJid(bareJid);
+	uri.setJid(jid);
+
+	// Create a Trust Message URI only if there are keys for it.
+	if (!authenticatedKeys.isEmpty() || !distrustedKeys.isEmpty()) {
+		uri.setAction(QXmppUri::TrustMessage);
+		// TODO: Find solution to pass enum to "uri.setEncryption()" instead of string (see QXmppGlobal::encryptionToString())
+		uri.setEncryption(QStringLiteral("urn:xmpp:omemo:2"));
+		uri.setTrustedKeysIds(authenticatedKeys);
+		uri.setDistrustedKeysIds(distrustedKeys);
+	}
 
 	return generateQrCode(edgePixelCount, uri.toString());
 }

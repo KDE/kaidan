@@ -68,6 +68,17 @@ class Kaidan : public QObject
 
 public:
 	/**
+	 * Result for making trust decisions by an XMPP URI specifying how the URI
+	 * is used
+	 */
+	enum TrustDecisionByUriResult {
+		MakingTrustDecisions,   ///< The trust decisions are being made.
+		JidUnexpected,          ///< The URI's JID is not the expected one.
+		InvalidUri              ///< The URI cannot be used for trust decisions.
+	};
+	Q_ENUM(TrustDecisionByUriResult)
+
+	/**
 	 * State which specifies in which way a password is shown on the account transfer page
 	 */
 	enum PasswordVisibility {
@@ -196,6 +207,19 @@ public:
 	 * @return the state which specifies how the XMPP login URI was used
 	 */
 	Q_INVOKABLE quint8 logInByUri(const QString &uri);
+
+	/**
+	 * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
+	 * (e.g., from a scanned QR code).
+	 *
+	 * Only if the URI's JID matches the expectedJid or no expectedJid is
+	 * passed, the trust decision is made.
+	 *
+	 * @param uri string which can be an XMPP Trust Message URI
+	 * @param expectedJid JID of the key owner whose keys are expected to be
+	 *        authenticated or none to allow all JIDs
+	 */
+	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
 
 signals:
 	/**

@@ -48,6 +48,8 @@
 #include <QXmppResultSet.h>
 #include <QXmppVersionIq.h>
 
+#include "qxmpp-exts/QXmppUri.h"
+
 // Kaidan
 #include "AccountManager.h"
 #include "AudioDeviceModel.h"
@@ -96,6 +98,7 @@ Q_DECLARE_METATYPE(QXmppPresence)
 Q_DECLARE_METATYPE(QXmppStanza::Error)
 Q_DECLARE_METATYPE(QXmppResultSetReply);
 Q_DECLARE_METATYPE(QXmpp::TrustLevel);
+Q_DECLARE_METATYPE(QXmppUri)
 Q_DECLARE_METATYPE(QXmppVCardIq)
 Q_DECLARE_METATYPE(QXmppVersionIq)
 
@@ -269,6 +272,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<VideoEncoderSettings>();
 	qRegisterMetaType<CredentialsValidator*>();
 	qRegisterMetaType<QXmppVersionIq>();
+	qRegisterMetaType<QXmppUri>();
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();

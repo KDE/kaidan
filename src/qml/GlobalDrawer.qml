@@ -86,7 +86,7 @@ Kirigami.GlobalDrawer {
 
 	actions: [
 		Kirigami.Action {
-			text: qsTr("Scan QR codes")
+			text: qsTr("Add contact by QR code")
 			icon.name: "view-barcode-qr"
 			onTriggered: pageStack.layers.push(qrCodePage)
 		},

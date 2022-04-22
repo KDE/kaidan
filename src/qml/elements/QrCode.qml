@@ -28,29 +28,52 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
 /**
- * This is a QR code generated for a specified JID.
+ * This is a QR code generated for a specified JID or the own JID.
  *
- * If a JID is provided, a QR code with a general XMPP URI for sharing with contacts is generated.
- * Otherwise a QR code with a login XMPP URI for logging in on another device is generated.
+ * If "isForLogin" is true, a QR code with a login XMPP URI for logging in on
+ * another device is generated.
+
+ * Otherwise, a QR code with a Trust Message URI is generated.
+ * The Trust Message URI contains key IDs that other clients can use to make
+ * trust decisions but they can also just add that contact.
+ * If a JID is provided, that JID is used for the URI.
+ * Otherwise, the own JID is used.
  */
 Kirigami.Icon {
-	id: qrCode
-
 	source: {
-		if (width > 0)
-			return jid ? qrCodeGenerator.generateBareJidQrCode(width, jid) : qrCodeGenerator.generateLoginUriQrCode(width)
+		if (width > 0) {
+			if (isForLogin) {
+				return qrCodeGenerator.generateLoginUriQrCode(width)
+			} else if (jid) {
+				return qrCodeGenerator.generateContactTrustMessageQrCode(width, jid)
+			} else {
+				return qrCodeGenerator.generateOwnTrustMessageQrCode(width)
+			}
+		}
+
 		return ""
 	}
 
+	property bool isForLogin: false
 	property string jid
 
 	QrCodeGenerator {
 		id: qrCodeGenerator
+	}
+
+	Connections {
+		target: MessageModel
+
+		// Update the currently displayed QR code.
+		function onKeysChanged() {
+			widthChanged()
+		}
 	}
 }
