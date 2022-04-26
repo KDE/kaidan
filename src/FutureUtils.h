@@ -38,7 +38,7 @@ void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
 	auto *watcher = new QFutureWatcher<T>(context);
 	QObject::connect(watcher, &QFutureWatcherBase::finished,
-	                 context, [watcher, handler = std::move(handler)]() {
+	                 context, [watcher, handler = std::move(handler)]() mutable {
 		if constexpr (std::is_same_v<T, void> || std::is_invocable<Handler>::value) {
 			handler();
 		}
@@ -58,7 +58,7 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 
 	auto *watcher = new QFutureWatcher<Result>(context);
 	QObject::connect(watcher, &QFutureWatcherBase::finished,
-	                 context, [watcher, handler = std::move(handler)] {
+	                 context, [watcher, handler = std::move(handler)]() mutable {
 		if constexpr (std::is_same_v<Result, void> || std::is_invocable<Handler>::value) {
 			handler();
 		}
@@ -68,7 +68,7 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 		watcher->deleteLater();
 	});
 
-	QMetaObject::invokeMethod(runner, [watcher, function = std::move(function)] {
+	QMetaObject::invokeMethod(runner, [watcher, function = std::move(function)]() mutable {
 		watcher->setFuture(function());
 	});
 }
