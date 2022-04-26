@@ -59,7 +59,12 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 	auto *watcher = new QFutureWatcher<Result>(context);
 	QObject::connect(watcher, &QFutureWatcherBase::finished,
 	                 context, [watcher, handler = std::move(handler)] {
-		handler(watcher->result());
+		if constexpr (std::is_same_v<Result, void> || std::is_invocable<Handler>::value) {
+			handler();
+		}
+		if constexpr (!std::is_same_v<Result, void> && !std::is_invocable<Handler>::value) {
+			handler(watcher->result());
+		}
 		watcher->deleteLater();
 	});
 
