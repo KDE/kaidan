@@ -30,8 +30,10 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
-#include <QtConcurrent/QtConcurrentRun>
+// Kaidan
+#include "FutureUtils.h"
 
 class QThreadPool;
 class QSqlQuery;
@@ -54,11 +56,11 @@ public:
 	template<typename Functor>
 	auto run(Functor function)
 	{
-		return QtConcurrent::run(threadPool(), function);
+		return runAsync(dbWorker(), function);
 	}
 
 private:
-	QThreadPool *threadPool() const;
+	QObject *dbWorker() const;
 
 	Database *m_database;
 };

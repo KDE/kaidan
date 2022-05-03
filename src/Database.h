@@ -63,6 +63,7 @@ public:
 	void commitTransaction();
 
 private:
+	QObject *dbWorker() const;
 	QSqlDatabase currentDatabase();
 	QSqlQuery createQuery();
 
@@ -72,8 +73,6 @@ private:
 	void transaction();
 	/// Commits the transaction if every transaction has been finished.
 	void commit();
-
-	QThreadPool *threadPool();
 
 	/**
 	 * @return true if the database has to be converted using @c convertDatabase()

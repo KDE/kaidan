@@ -68,7 +68,7 @@ void DatabaseComponent::commit()
 	m_database->commit();
 }
 
-QThreadPool *DatabaseComponent::threadPool() const
+QObject *DatabaseComponent::dbWorker() const
 {
-	return m_database->threadPool();
+	return m_database->dbWorker();
 }

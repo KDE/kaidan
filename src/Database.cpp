@@ -136,7 +136,8 @@ enum DatabaseVersion {
 
 struct DatabasePrivate
 {
-	QThreadPool pool;
+	QThread dbThread;
+	QObject *dbWorker = new QObject();
 	QMutex tableCreationMutex;
 	int version = DbNotLoaded;
 	int transactions = 0;
@@ -147,8 +148,12 @@ Database::Database(QObject *parent)
 	: QObject(parent),
 	  d(new DatabasePrivate)
 {
-	d->pool.setMaxThreadCount(1);
-	d->pool.setExpiryTimeout(-1);
+	// start thread and set thread name
+	d->dbThread.setObjectName(QStringLiteral("DB (SQLite)"));
+	d->dbThread.start();
+	// worker
+	d->dbWorker->moveToThread(&d->dbThread);
+	connect(&d->dbThread, &QThread::finished, d->dbWorker, &QObject::deleteLater);
 
 #ifdef DB_UNIT_TEST
 	QFile file(TEST_DB_FILENAME);
@@ -160,6 +165,9 @@ Database::Database(QObject *parent)
 
 Database::~Database()
 {
+	// wait for finished
+	d->dbThread.quit();
+	d->dbThread.wait();
 }
 
 void Database::createTables()
@@ -179,14 +187,14 @@ void Database::createTables()
 
 void Database::startTransaction()
 {
-	QtConcurrent::run(&d->pool, [this] {
+	QMetaObject::invokeMethod(d->dbWorker, [this] {
 		transaction();
 	});
 }
 
 void Database::commitTransaction()
 {
-	QtConcurrent::run(&d->pool, [this] {
+	QMetaObject::invokeMethod(d->dbWorker, [this] {
 		commit();
 	});
 }
@@ -225,6 +233,11 @@ void Database::commit()
 			           << db.lastError().text();
 		}
 	}
+}
+
+QObject *Database::dbWorker() const
+{
+	return d->dbWorker;
 }
 
 QSqlDatabase Database::currentDatabase()
@@ -298,11 +311,6 @@ int &Database::activeTransactions()
 {
 	thread_local static int activeTransactions = 0;
 	return activeTransactions;
-}
-
-QThreadPool *Database::threadPool()
-{
-	return &d->pool;
 }
 
 bool Database::needToConvert()
