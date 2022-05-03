@@ -30,25 +30,17 @@
 
 #pragma once
 
-// Qt
-#include <QObject>
 // QXmpp
-#include <QXmppGlobal.h>
-#include <QXmppMamManager.h>
 #include <QXmppMessageReceiptManager.h>
 // Kaidan
 #include "Message.h"
-#include "Enums.h"
 
 class ClientWorker;
-class Kaidan;
-
-class QMimeType;
-
-class QXmppMessage;
-class QXmppDiscoveryIq;
 class QXmppCarbonManager;
-class QXmppVersionIq;
+class QXmppDiscoveryIq;
+class QXmppMamManager;
+class QXmppMessage;
+class QXmppResultSetReply;
 
 /**
  * @class MessageHandler Handler for incoming and outgoing messages.

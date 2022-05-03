@@ -34,6 +34,7 @@
 // QXmpp
 #include <QXmppCarbonManager.h>
 #include <QXmppDiscoveryManager.h>
+#include <QXmppMamManager.h>
 #include <QXmppRosterManager.h>
 #include <QXmppUtils.h>
 // Kaidan
@@ -162,8 +163,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 				QXmppUtils::jidToBareJid(msg.from()), msg.state());
 	}
 
-	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty())
+	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty()) {
 		return;
+	}
 
 	Message message;
 	message.setFrom(QXmppUtils::jidToBareJid(msg.from()));
