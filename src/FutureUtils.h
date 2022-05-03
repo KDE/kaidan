@@ -77,3 +77,23 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 		watcher->setFuture(function());
 	});
 }
+
+// Runs a function on targetObject's thread and returns the result via QFuture.
+template<typename Function>
+auto runAsync(QObject *targetObject, Function function)
+{
+	using ValueType = std::invoke_result_t<Function>;
+
+	QFutureInterface<ValueType> interface;
+	QMetaObject::invokeMethod(targetObject, [interface, function = std::move(function)]() mutable {
+		interface.reportStarted();
+		if constexpr (std::is_same_v<ValueType, void>) {
+			function();
+		}
+		if constexpr (!std::is_same_v<ValueType, void>) {
+			interface.reportResult(function());
+		}
+		interface.reportFinished();
+	});
+	return interface.future();
+}
