@@ -33,6 +33,8 @@
 #include <QGuiApplication>
 #include <QSettings>
 // QXmpp
+#include <QXmppCarbonManager.h>
+#include <QXmppMamManager.h>
 #include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"
@@ -78,16 +80,20 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	  m_caches(caches),
 	  m_client(new QXmppClient(this)),
 	  m_logger(new LogHandler(m_client, enableLogging, this)),
-	  m_enableLogging(enableLogging),
-	  m_registrationManager(new RegistrationManager(this, m_client, this)),
-	  m_vCardManager(new VCardManager(this, m_client, m_caches->avatarStorage, this)),
-	  m_rosterManager(new RosterManager(m_client, m_caches->avatarStorage, m_vCardManager, this)),
-	  m_messageHandler(new MessageHandler(this, m_client, this)),
-	  m_discoveryManager(new DiscoveryManager(m_client, this)),
-	  m_uploadManager(new UploadManager(m_client, m_rosterManager, this)),
-	  m_downloadManager(new DownloadManager(caches->transferCache, this)),
-	  m_versionManager(new VersionManager(m_client, this))
+	  m_enableLogging(enableLogging)
 {
+	m_client->addExtension(new QXmppCarbonManager);
+	m_client->addExtension(new QXmppMamManager);
+
+	m_registrationManager = new RegistrationManager(this, m_client, this);
+	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
+	m_rosterManager = new RosterManager(m_client, m_caches->avatarStorage, m_vCardManager, this);
+	m_messageHandler = new MessageHandler(this, m_client, this);
+	m_discoveryManager = new DiscoveryManager(m_client, this);
+	m_uploadManager = new UploadManager(m_client, m_rosterManager, this);
+	m_downloadManager = new DownloadManager(caches->transferCache, this);
+	m_versionManager = new VersionManager(m_client, this);
+
 	connect(m_client, &QXmppClient::connected, this, &ClientWorker::onConnected);
 	connect(m_client, &QXmppClient::disconnected, this, &ClientWorker::onDisconnected);
 

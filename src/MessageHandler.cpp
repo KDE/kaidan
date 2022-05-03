@@ -55,8 +55,8 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
 	  m_client(client),
-	  m_carbonManager(new QXmppCarbonManager),
-	  m_mamManager(new QXmppMamManager)
+	  m_carbonManager(client->findExtension<QXmppCarbonManager>()),
+	  m_mamManager(client->findExtension<QXmppMamManager>())
 {
 	connect(client, &QXmppClient::messageReceived, this, [=](const QXmppMessage &msg) {
 		handleMessage(msg, MessageOrigin::Stream);
@@ -95,8 +95,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	connect(this, &MessageHandler::retrieveBacklogMessagesRequested, this, &MessageHandler::retrieveBacklogMessages);
 
 	client->addExtension(&m_receiptManager);
-	client->addExtension(m_carbonManager);
-	client->addExtension(m_mamManager);
 
 	// carbons discovery
 	auto *discoveryManager = client->findExtension<QXmppDiscoveryManager>();

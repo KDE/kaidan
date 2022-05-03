@@ -299,14 +299,14 @@ private:
 	LogHandler *m_logger;
 	bool m_enableLogging;
 
-	RegistrationManager *const m_registrationManager;
-	VCardManager *const m_vCardManager;
-	RosterManager *const m_rosterManager;
-	MessageHandler *const m_messageHandler;
-	DiscoveryManager *const m_discoveryManager;
-	UploadManager *const m_uploadManager;
-	DownloadManager *const m_downloadManager;
-	VersionManager *const m_versionManager;
+	RegistrationManager *m_registrationManager;
+	VCardManager *m_vCardManager;
+	RosterManager *m_rosterManager;
+	MessageHandler *m_messageHandler;
+	DiscoveryManager *m_discoveryManager;
+	UploadManager *m_uploadManager;
+	DownloadManager *m_downloadManager;
+	VersionManager *m_versionManager;
 
 	QList<std::function<void ()>> m_pendingTasks;
 	uint m_activeTasks = 0;
