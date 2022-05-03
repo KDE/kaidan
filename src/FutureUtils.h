@@ -33,6 +33,11 @@
 #include <QFuture>
 #include <QFutureWatcher>
 
+template<typename ValueType>
+auto qFutureValueType(QFuture<ValueType>) -> ValueType;
+template<typename Future>
+using QFutureValueType = decltype(qFutureValueType(Future()));
+
 template<typename T, typename Handler>
 void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
@@ -53,8 +58,8 @@ void await(const QFuture<T> &future, QObject *context, Handler handler)
 template<typename Runner, typename Functor, typename Handler>
 void await(Runner *runner, Functor function, QObject *context, Handler handler)
 {
-	// executor() must return a QFuture<T>, executor().result() gives T
-	using Result = decltype(function().result());
+	// function() returns QFuture<T>, we get T by using QFutureValueType
+	using Result = QFutureValueType<std::invoke_result_t<Functor>>;
 
 	auto *watcher = new QFutureWatcher<Result>(context);
 	QObject::connect(watcher, &QFutureWatcherBase::finished,
