@@ -75,7 +75,7 @@ public slots:
 	/**
 	 * Sends the corrected version of a message.
 	 */
-	void sendCorrectedMessage(const Message &msg);
+	void sendCorrectedMessage(Message msg);
 
 	/**
 	 * Handles service discovery info and enables carbons if feature was found.
@@ -99,7 +99,7 @@ private slots:
 	 */
 	void handlePendingMessages(const QVector<Message> &messages);
 
-	void sendPendingMessage(const Message &message);
+	void sendPendingMessage(Message message);
 
 	void handleArchiveMessage(const QString &queryId, const QXmppMessage &message);
 	void handleArchiveResults(const QString &queryId,

@@ -40,6 +40,7 @@
 // Kaidan
 #include "AccountManager.h"
 #include "ClientWorker.h"
+#include "FutureUtils.h"
 #include "Globals.h"
 #include "Kaidan.h"
 #include "Database.h"
@@ -235,7 +236,7 @@ void MessageHandler::sendMessage(const QString& toJid,
 	}
 
 	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
-	sendPendingMessage(msg);
+	sendPendingMessage(std::move(msg));
 }
 
 void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::State state)
@@ -243,24 +244,28 @@ void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::Sta
 	QXmppMessage message;
 	message.setTo(toJid);
 	message.setState(state);
-	m_client->sendPacket(message);
+	m_client->send(std::move(message));
 }
 
-void MessageHandler::sendCorrectedMessage(const Message &msg)
+void MessageHandler::sendCorrectedMessage(Message msg)
 {
-	auto deliveryState = Enums::DeliveryState::Sent;
-	QString errorText;
-	if (!m_client->sendPacket(msg)) {
-		// TODO store in the database only error codes, assign text messages right in the QML
-		emit Kaidan::instance()->passiveNotificationRequested(
-			tr("Message correction was not successful."));
-		errorText = "Message correction was not successful.";
-		deliveryState = Enums::DeliveryState::Error;
-	}
+	const auto messageId = msg.id();
+	await(m_client->send(std::move(msg)), this, [messageId](QXmpp::SendResult result) {
+		if (std::holds_alternative<QXmpp::SendError>(result)) {
+			// TODO store in the database only error codes, assign text messages right in the QML
+			emit Kaidan::instance()->passiveNotificationRequested(
+						tr("Message correction was not successful"));
 
-	MessageDb::instance()->updateMessage(msg.id(), [=](Message &localMessage) {
-		localMessage.setDeliveryState(deliveryState);
-		localMessage.setErrorText(errorText);
+			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
+				message.setDeliveryState(DeliveryState::Error);
+				message.setErrorText(QStringLiteral("Message correction was not successful"));
+			});
+		} else {
+			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
+				message.setDeliveryState(DeliveryState::Sent);
+				message.setErrorText({});
+			});
+		}
 	});
 }
 
@@ -296,42 +301,37 @@ void MessageHandler::handleDisonnected()
 	m_runnningCatchUpQueryId.clear();
 }
 
-void MessageHandler::sendPendingMessage(const Message &message)
+void MessageHandler::sendPendingMessage(Message message)
 {
 	if (m_client->state() == QXmppClient::ConnectedState) {
-		bool success;
 		// if the message is a pending edition of the existing in the history message
 		// I need to send it with the most recent stamp
 		// for that I'm gonna copy that message and update in the copy just the stamp
 		if (message.isEdited()) {
-			Message msg = message;
-			msg.setStamp(QDateTime::currentDateTimeUtc());
-			success = m_client->sendPacket(msg);
-		} else {
-			success = m_client->sendPacket(message);
+			message.setStamp(QDateTime::currentDateTimeUtc());
 		}
 
-		if (success) {
-			MessageDb::instance()->updateMessage(message.id(), [](Message &msg) {
-				msg.setDeliveryState(Enums::DeliveryState::Sent);
-				msg.setErrorText({});
-			});
-		}
-		// TODO this "true" from sendPacket doesn't yet mean the message was successfully sent
+		const auto messageId = message.id();
+		await(m_client->send(std::move(message)), this, [messageId](QXmpp::SendResult result) {
+			if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
+				qWarning() << "[client] [MessageHandler] Could not send message:"
+					<< error->text;
 
-		else {
-			qWarning() << "[client] [MessageHandler] Could not send message, as a result of"
-				<< "QXmppClient::sendPacket returned false.";
-
-			// The error message of the message is saved untranslated. To make
-			// translation work in the UI, the tr() call of the passive
-			// notification must contain exactly the same string.
-			emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
-			MessageDb::instance()->updateMessage(message.id(), [](Message &msg) {
-				msg.setDeliveryState(Enums::DeliveryState::Error);
-				msg.setErrorText(QStringLiteral("Message could not be sent."));
-			});
-		}
+				// The error message of the message is saved untranslated. To make
+				// translation work in the UI, the tr() call of the passive
+				// notification must contain exactly the same string.
+				emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
+				MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+					msg.setDeliveryState(Enums::DeliveryState::Error);
+					msg.setErrorText(QStringLiteral("Message could not be sent."));
+				});
+			} else {
+				MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+					msg.setDeliveryState(Enums::DeliveryState::Sent);
+					msg.setErrorText({});
+				});
+			}
+		});
 	}
 }
 
@@ -377,8 +377,8 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 
 void MessageHandler::handlePendingMessages(const QVector<Message> &messages)
 {
-	for (const Message &message : qAsConst(messages)) {
-		sendPendingMessage(message);
+	for (Message message : messages) {
+		sendPendingMessage(std::move(message));
 	}
 }
 
