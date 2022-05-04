@@ -32,6 +32,7 @@
 // Qt
 #include <QUrl>
 // QXmpp
+#include <QXmppE2eeMetadata.h>
 #include <QXmppMamManager.h>
 #include <QXmppRosterManager.h>
 #include <QXmppUtils.h>
@@ -151,6 +152,12 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.setTo(QXmppUtils::jidToBareJid(msg.to()));
 	message.setIsOwn(QXmppUtils::jidToBareJid(msg.from()) == m_client->configuration().jidBare());
 	message.setId(msg.id());
+
+	if (auto e2eeMetadata = msg.e2eeMetadata()) {
+		message.setEncryption(Encryption::Enum(e2eeMetadata->encryption()));
+		message.setSenderKey(e2eeMetadata->senderKey());
+	}
+
 	// don't use file sharing fallback bodys
 	if (msg.body() != msg.outOfBandUrl())
 		message.setBody(msg.body());
@@ -200,6 +207,8 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.setBody(body);
 	msg.setId(QXmppUtils::generateStanzaUuid());
 	msg.setOriginId(msg.id());
+	// MessageModel::activeEncryption() is thread-safe.
+	msg.setEncryption(MessageModel::instance()->activeEncryption());
 	msg.setReceiptRequested(true);
 	msg.setIsOwn(true);
 	msg.setMediaType(MessageType::MessageText); // text message without media
@@ -224,13 +233,13 @@ void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::Sta
 	QXmppMessage message;
 	message.setTo(toJid);
 	message.setState(state);
-	m_client->send(std::move(message));
+	send(std::move(message));
 }
 
 void MessageHandler::sendCorrectedMessage(Message msg)
 {
 	const auto messageId = msg.id();
-	await(m_client->send(std::move(msg)), this, [messageId](QXmpp::SendResult result) {
+	await(send(std::move(msg)), this, [messageId](QXmpp::SendResult result) {
 		if (std::holds_alternative<QXmpp::SendError>(result)) {
 			// TODO store in the database only error codes, assign text messages right in the QML
 			emit Kaidan::instance()->passiveNotificationRequested(
@@ -283,7 +292,7 @@ void MessageHandler::sendPendingMessage(Message message)
 		}
 
 		const auto messageId = message.id();
-		await(m_client->send(std::move(message)), this, [messageId](QXmpp::SendResult result) {
+		await(send(std::move(message)), this, [messageId](QXmpp::SendResult result) {
 			if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
 				qWarning() << "[client] [MessageHandler] Could not send message:"
 					<< error->text;
@@ -448,4 +457,14 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 
 	const auto id = m_mamManager->retrieveArchivedMessages({}, {}, jid, {}, stamp, queryLimit);
 	m_runningBacklogQueryIds.insert(id, BacklogQueryState { jid, stamp });
+}
+
+QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)
+{
+	switch (MessageModel::instance()->activeEncryption()) {
+	case Encryption::NoEncryption:
+		return m_client->sendUnencrypted(std::move(message));
+	default:
+		return m_client->send(std::move(message));
+	}
 }

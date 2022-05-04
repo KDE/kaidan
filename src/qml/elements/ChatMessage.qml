@@ -47,6 +47,8 @@ RowLayout {
 	property string senderJid
 	property string senderName
 	property bool isOwn: true
+	property int encryption
+	property bool isTrusted
 	property string messageBody
 	property date dateTime
 	property int deliveryState: Enums.DeliveryState.Delivered
@@ -254,6 +256,31 @@ RowLayout {
 						return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 					}
 				}
+			}
+
+			// warning for different encryption corner cases
+			CenteredAdaptiveText {
+				text: {
+					if (root.encryption === Encryption.NoEncryption) {
+						if (MessageModel.isOmemoEncryptionEnabled) {
+							// Encryption is set for the current chat but this message is
+							// unencrypted.
+							return qsTr("Insecure")
+						}
+					} else if (MessageModel.encryption !== Encryption.NoEncryption && !root.isTrusted){
+						// Encryption is set for the current chat but the key of this message's
+						// sender is not trusted.
+						return qsTr("Untrusted")
+					}
+
+					return ""
+				}
+
+				visible: text.length
+				color: Kirigami.Theme.negativeTextColor
+				font.italic: true
+				scaleFactor: 0.9
+				Layout.bottomMargin: 10
 			}
 
 			Controls.Label {

@@ -68,6 +68,7 @@
 #include "Message.h"
 #include "MessageModel.h"
 #include "MessageHandler.h"
+#include "OmemoManager.h"
 #include "QmlUtils.h"
 #include "QrCodeGenerator.h"
 #include "QrCodeScannerFilter.h"
@@ -94,6 +95,7 @@ Q_DECLARE_METATYPE(QXmppDiscoveryIq);
 Q_DECLARE_METATYPE(QXmppPresence)
 Q_DECLARE_METATYPE(QXmppStanza::Error)
 Q_DECLARE_METATYPE(QXmppResultSetReply);
+Q_DECLARE_METATYPE(QXmpp::TrustLevel);
 Q_DECLARE_METATYPE(QXmppVCardIq)
 Q_DECLARE_METATYPE(QXmppVersionIq)
 
@@ -246,6 +248,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<VCardManager*>();
 	qRegisterMetaType<VersionManager*>();
 	qRegisterMetaType<RegistrationManager*>();
+	qRegisterMetaType<OmemoManager *>();
 	qRegisterMetaType<AvatarFileStorage*>();
 	qRegisterMetaType<QXmppPresence>();
 	qRegisterMetaType<TransferJob*>();
@@ -295,6 +298,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppResultSetReply>();
 	qRegisterMetaType<QXmppMessage>();
 	qRegisterMetaType<QXmppDiscoveryIq>();
+	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
 
 	// Qt-Translator
 	QTranslator qtTranslator;

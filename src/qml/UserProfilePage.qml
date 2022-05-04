@@ -199,6 +199,22 @@ Kirigami.Page {
 				}
 			}
 
+			Controls.Switch {
+				id: omemoEncryptionSwitch
+				text: qsTr("Secure conversation (OMEMO 2)")
+				enabled: MessageModel.usableOmemoDevices.length
+				checked: MessageModel.isOmemoEncryptionEnabled
+				onClicked: {
+					if (MessageModel.encryption === Encryption.Omemo2) {
+						MessageModel.encryption = Encryption.NoEncryption
+					} else {
+						MessageModel.encryption = Encryption.Omemo2
+					}
+				}
+
+				Layout.fillWidth: true
+			}
+
 			Repeater {
 				model: VCardModel {
 					jid: root.jid

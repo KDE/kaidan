@@ -33,41 +33,45 @@
 #include "AvatarFileStorage.h"
 #include "Kaidan.h"
 #include "MessageModel.h"
+#include "OmemoManager.h"
 #include "RosterModel.h"
 #include "VCardManager.h"
 // QXmpp
 #include <QXmppRosterManager.h>
 
-RosterManager::RosterManager(QXmppClient *client,
-                             AvatarFileStorage *avatarStorage,
-                             VCardManager *vCardManager,
+RosterManager::RosterManager(ClientWorker *clientWorker,
+                             QXmppClient *client,
                              QObject *parent)
 	: QObject(parent),
+	  m_clientWorker(clientWorker),
 	  m_client(client),
-	  m_avatarStorage(avatarStorage),
-	  m_vCardManager(vCardManager),
+	  m_avatarStorage(clientWorker->caches()->avatarStorage),
+	  m_vCardManager(clientWorker->vCardManager()),
 	  m_manager(client->findExtension<QXmppRosterManager>())
 {
 	connect(m_manager, &QXmppRosterManager::rosterReceived,
 	        this, &RosterManager::populateRoster);
 
 	connect(m_manager, &QXmppRosterManager::itemAdded,
-		this, [this, vCardManager] (const QString &jid) {
+		this, [this](const QString &jid) {
 		emit RosterModel::instance()->addItemRequested(RosterItem(m_manager->getRosterEntry(jid)));
-		vCardManager->requestVCard(jid);
+		m_vCardManager->requestVCard(jid);
 	});
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
 		this, [this] (const QString &jid) {
 		emit RosterModel::instance()->updateItemRequested(jid, [=] (RosterItem &item) {
-			item.setName(m_manager->getRosterEntry(jid).name());
+			const auto updatedItem = m_manager->getRosterEntry(jid);
+			item.setName(updatedItem.name());
+			item.setSubscription(updatedItem.subscriptionType());
 		});
 	});
 
-	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [client](const QString &jid) {
+	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [=](const QString &jid) {
 		const auto accountJid = client->configuration().jidBare();
 		emit MessageModel::instance()->removeMessagesRequested(accountJid, jid);
 		emit RosterModel::instance()->removeItemsRequested(accountJid, jid);
+		m_clientWorker->omemoManager()->removeContactDevices(jid);
 	});
 
 	connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived,

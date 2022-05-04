@@ -104,6 +104,7 @@ private slots:
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
 private:
+	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 	bool parseMediaUri(Message &message, const QString &uri, bool isBodyPart);
 
 	struct BacklogQueryState {

@@ -35,17 +35,21 @@
 // QXmpp
 #include <QXmppCarbonManagerV2.h>
 #include <QXmppMamManager.h>
+#include <QXmppPubSubManager.h>
 #include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"
+#include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
 #include "DownloadManager.h"
 #include "Enums.h"
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "LogHandler.h"
 #include "MessageHandler.h"
 #include "MessageModel.h"
+#include "OmemoManager.h"
 #include "PresenceCache.h"
 #include "RegistrationManager.h"
 #include "RosterManager.h"
@@ -81,11 +85,14 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 {
 	m_client->addNewExtension<QXmppCarbonManagerV2>();
 	m_client->addExtension(new QXmppMamManager);
+	m_client->addExtension(new QXmppPubSubManager);
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
-	m_rosterManager = new RosterManager(m_client, m_caches->avatarStorage, m_vCardManager, this);
+	m_rosterManager = new RosterManager(this, m_client, this);
 	m_messageHandler = new MessageHandler(this, m_client, this);
+	m_atmManager = new AtmManager(m_client, this);
+	m_omemoManager = new OmemoManager(m_client, this);
 	m_discoveryManager = new DiscoveryManager(m_client, this);
 	m_uploadManager = new UploadManager(m_client, m_rosterManager, this);
 	m_downloadManager = new DownloadManager(caches->transferCache, this);
@@ -148,19 +155,21 @@ void ClientWorker::finishTask()
 
 void ClientWorker::logIn()
 {
-	if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
-		// Store the latest online state which is restored when opening Kaidan again after closing.
-		m_caches->settings->setAuthOnline(true);
+	await(m_omemoManager->load(), this, [this]() {
+		if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
+			// Store the latest online state which is restored when opening Kaidan again after closing.
+			m_caches->settings->setAuthOnline(true);
 
-		QXmppConfiguration config;
-		config.setResource(AccountManager::instance()->jidResource());
-		config.setPassword(AccountManager::instance()->password());
-		config.setAutoAcceptSubscriptions(false);
+			QXmppConfiguration config;
+			config.setResource(AccountManager::instance()->jidResource());
+			config.setPassword(AccountManager::instance()->password());
+			config.setAutoAcceptSubscriptions(false);
 
-		connectToServer(config);
-	}
+			connectToServer(config);
+		}
 
-	m_isFirstLoginAfterStart = false;
+		m_isFirstLoginAfterStart = false;
+	});
 }
 
 void ClientWorker::connectToRegister()
@@ -231,7 +240,9 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 		if (AccountManager::instance()->hasNewCredentials())
 			AccountManager::instance()->setHasNewCredentials(false);
 
-		m_client->disconnectFromServer();
+		await(m_omemoManager->unsubscribeFromDeviceLists(), this, [=]() {
+			m_client->disconnectFromServer();
+		});
 	}
 }
 
@@ -255,6 +266,7 @@ void ClientWorker::deleteAccountFromClient()
 	// Otherwise, disconnect first and delete the account afterwards.
 	if (!m_client->isAuthenticated()) {
 		AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
+		m_omemoManager->resetOwnDevice();
 		m_isAccountToBeDeletedFromClient = false;
 	} else {
 		m_isAccountToBeDeletedFromClient = true;
@@ -318,6 +330,8 @@ void ClientWorker::onConnected()
 	m_client->configuration().setAutoReconnectionEnabled(true);
 
 	MessageModel::instance()->sendPendingMessages();
+
+	m_omemoManager->setUp();
 }
 
 void ClientWorker::onDisconnected()

@@ -39,10 +39,12 @@
 #include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "MessageHandler.h"
 #include "Notifications.h"
+#include "OmemoManager.h"
 #include "QmlUtils.h"
 #include "RosterModel.h"
 
@@ -73,6 +75,14 @@ MessageModel::MessageModel(QObject *parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
+
+	connect(this, &MessageModel::keysRetrieved, this, &MessageModel::handleKeysRetrieved);
+
+	connect(this, &MessageModel::encryptionChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
+	connect(this, &MessageModel::usableOmemoDevicesChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
+	connect(this, &MessageModel::distrustedOmemoDevicesRetrieved, this, &MessageModel::handleDistrustedOmemoDevicesRetrieved);
+	connect(this, &MessageModel::usableOmemoDevicesRetrieved, this, &MessageModel::handleUsableOmemoDevicesRetrieved);
+	connect(this, &MessageModel::authenticatableOmemoDevicesRetrieved, this, &MessageModel::handleAuthenticatableOmemoDevicesRetrieved);
 
 	// Timer to set state to paused
 	m_composingTimer->setSingleShot(true);
@@ -145,6 +155,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[Id] = "id";
 	roles[Sender] = "sender";
 	roles[Recipient] = "recipient";
+	roles[Encryption] = "encryption";
+	roles[IsTrusted] = "isTrusted";
 	roles[Body] = "body";
 	roles[IsOwn] = "isOwn";
 	roles[MediaType] = "mediaType";
@@ -181,6 +193,16 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return msg.from();
 	case Recipient:
 		return msg.to();
+	case Encryption:
+		return msg.encryption();
+	case IsTrusted: {
+		if (msg.isOwn() && msg.senderKey().isEmpty()) {
+			return true;
+		}
+
+		const auto trustLevel = m_keys.value(msg.from()).value(msg.senderKey());
+		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
+	}
 	case Body:
 		return msg.body();
 	case IsOwn:
@@ -294,6 +316,10 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	// Send active state to new chat partner
 	sendChatState(QXmppMessage::State::Active);
 
+	runOnThread(Kaidan::instance()->client()->omemoManager(), [accountJid, chatJid] {
+		Kaidan::instance()->client()->omemoManager()->initializeChat(accountJid, chatJid);
+	});
+
 	m_currentAccountJid = accountJid;
 	m_currentChatJid = chatJid;
 	emit currentAccountJidChanged(accountJid);
@@ -307,10 +333,37 @@ bool MessageModel::isChatCurrentChat(const QString &accountJid, const QString &c
 	return accountJid == m_currentAccountJid && chatJid == m_currentChatJid;
 }
 
+QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> MessageModel::keys()
+{
+	return m_keys;
+}
+
+Encryption::Enum MessageModel::activeEncryption()
+{
+	QMutexLocker locker(&m_mutex);
+	return isOmemoEncryptionEnabled() ? Encryption::Omemo2 : Encryption::NoEncryption;
+}
+
+bool MessageModel::isOmemoEncryptionEnabled() const
+{
+	return encryption() == Encryption::Omemo2 && !usableOmemoDevices().isEmpty();
+}
+
+Encryption::Enum MessageModel::encryption() const
+{
+	return RosterModel::instance()->itemEncryption(m_currentAccountJid, m_currentChatJid)
+			.value_or(Encryption::NoEncryption);
+}
+
+void MessageModel::setEncryption(Encryption::Enum encryption)
+{
+	RosterModel::instance()->setItemEncryption(m_currentAccountJid, m_currentChatJid, encryption);
+	emit encryptionChanged();
+}
+
 void MessageModel::sendMessage(const QString &body, bool isSpoiler, const QString &spoilerHint)
 {
-	emit Kaidan::instance()->client()->messageHandler()->sendMessageRequested(
-				currentChatJid(), body, isSpoiler, spoilerHint);
+	emit Kaidan::instance()->client()->messageHandler()->sendMessageRequested(m_currentChatJid, body, isSpoiler, spoilerHint);
 
 	m_composingTimer->stop();
 	m_stateTimeoutTimer->stop();
@@ -641,6 +694,36 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 	}
 }
 
+QList<QString> MessageModel::ownDistrustedOmemoDevices() const
+{
+	return m_ownDistrustedOmemoDevices;
+}
+
+QList<QString> MessageModel::ownUsableOmemoDevices() const
+{
+	return m_ownUsableOmemoDevices;
+}
+
+QList<QString> MessageModel::ownAuthenticatableOmemoDevices() const
+{
+	return m_ownAuthenticatableOmemoDevices;
+}
+
+QList<QString> MessageModel::distrustedOmemoDevices() const
+{
+	return m_distrustedOmemoDevices;
+}
+
+QList<QString> MessageModel::usableOmemoDevices() const
+{
+	return m_usableOmemoDevices;
+}
+
+QList<QString> MessageModel::authenticatableOmemoDevices() const
+{
+	return m_authenticatableOmemoDevices;
+}
+
 bool MessageModel::mamLoading() const
 {
 	return m_mamLoading;
@@ -651,5 +734,50 @@ void MessageModel::setMamLoading(bool mamLoading)
 	if (m_mamLoading != mamLoading) {
 		m_mamLoading = mamLoading;
 		emit mamLoadingChanged();
+	}
+}
+
+void MessageModel::handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys)
+{
+	m_keys = keys;
+	emit keysChanged();
+
+	// The messages need to be updated in order to reflect the most recent trust
+	// levels.
+	if (!m_messages.isEmpty()) {
+		emit dataChanged(index(0), index(m_messages.size() - 1), { IsTrusted });
+	}
+}
+
+void MessageModel::handleDistrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
+{
+	if (jid == m_currentAccountJid) {
+		m_ownDistrustedOmemoDevices = deviceLabels;
+		emit ownDistrustedOmemoDevicesChanged();
+	} else if (jid == m_currentChatJid) {
+		m_distrustedOmemoDevices = deviceLabels;
+		emit distrustedOmemoDevicesChanged();
+	}
+}
+
+void MessageModel::handleUsableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
+{
+	if (jid == m_currentAccountJid) {
+		m_ownUsableOmemoDevices = deviceLabels;
+		emit ownUsableOmemoDevicesChanged();
+	} else if (jid == m_currentChatJid) {
+		m_usableOmemoDevices = deviceLabels;
+		emit usableOmemoDevicesChanged();
+	}
+}
+
+void MessageModel::handleAuthenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
+{
+	if (jid == m_currentAccountJid) {
+		m_ownAuthenticatableOmemoDevices = deviceLabels;
+		emit ownAuthenticatableOmemoDevicesChanged();
+	} else if (jid == m_currentChatJid) {
+		m_authenticatableOmemoDevices = deviceLabels;
+		emit authenticatableOmemoDevicesChanged();
 	}
 }

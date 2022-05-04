@@ -58,6 +58,8 @@ set(KAIDAN_SOURCES
 	src/Settings.cpp
 	src/AccountManager.cpp
 	src/VCardCache.cpp
+	src/AtmManager.cpp
+	src/OmemoManager.cpp
 
 	# needed to trigger moc generation / to be displayed in IDEs
 	src/Encryption.h

@@ -30,63 +30,51 @@
 
 #pragma once
 
-// Qt
+#include <QFuture>
 #include <QObject>
-// QXmpp
-class QXmppClient;
-class QXmppRosterManager;
-// Kaidan
-class AvatarFileStorage;
-class ClientWorker;
-class VCardManager;
 
-class RosterManager : public QObject
+#include "QXmppTrustLevel.h"
+
+class QXmppClient;
+class QXmppOmemoManager;
+class QXmppOmemoStorage;
+
+class OmemoManager : public QObject
 {
 	Q_OBJECT
 
 public:
-	RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
+	OmemoManager(QXmppClient *client, QObject *parent = nullptr);
+	~OmemoManager();
 
-signals:
-	/**
-	 * Requests to send subscription request answer (whether it was accepted
-	 * or declined by the user)
-	 */
-	void answerSubscriptionRequestRequested(const QString &jid, bool accepted);
+	QFuture<void> load();
+	QFuture<void> setUp();
 
-	/**
-	 * Add a contact to your roster
-	 *
-	 * @param nick A simple nick name for the new contact, which should be
-	 *             used to display in the roster.
-	 * @param msg message presented to the added contact
-	 */
-	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &msg = {});
+	QFuture<void> retrieveKeys(const QList<QString> &jids);
 
-	/**
-	 * Remove a contact from your roster
-	 *
-	 * Only the JID is needed.
-	 */
-	void removeContactRequested(const QString &jid);
+	QFuture<void> requestDeviceLists(const QList<QString> &jids);
+	QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
+	QFuture<void> unsubscribeFromDeviceLists();
+	void resetOwnDevice();
 
-	/**
-	 * Change a contact's name
-	 */
-	void renameContactRequested(const QString &jid, const QString &newContactName);
-
-public slots:
-	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
-	void removeContact(const QString &jid);
-	void renameContact(const QString &jid, const QString &newContactName);
-
-private slots:
-	void populateRoster();
+	QFuture<void> initializeChat(const QString &accountJid, const QString &chatJid);
+	void removeContactDevices(const QString &jid);
 
 private:
-	ClientWorker *m_clientWorker;
-	QXmppClient *m_client;
-	AvatarFileStorage *m_avatarStorage;
-	VCardManager *m_vCardManager;
-	QXmppRosterManager *m_manager;
+	/**
+	 * Enables session building for new devices even before sending a message.
+	 */
+	void enableSessionBuildingForNewDevices();
+
+	QFuture<void> retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> keys = {});
+
+	void retrieveDevicesForRequestedJids(const QString &jid);
+	void retrieveDevices(const QList<QString> &jids);
+	void emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices);
+
+	std::unique_ptr<QXmppOmemoStorage> m_omemoStorage;
+	QXmppOmemoManager *const m_manager;
+
+	bool m_isLoaded = false;
+	QList<QString> m_lastRequestedDeviceJids;
 };

@@ -30,63 +30,33 @@
 
 #pragma once
 
+// std
+#include <memory>
 // Qt
 #include <QObject>
-// QXmpp
-class QXmppClient;
-class QXmppRosterManager;
-// Kaidan
-class AvatarFileStorage;
-class ClientWorker;
-class VCardManager;
 
-class RosterManager : public QObject
+class QXmppClient;
+class QXmppAtmManager;
+class QXmppAtmTrustStorage;
+class QXmppUri;
+
+class AtmManager : public QObject
 {
 	Q_OBJECT
 
 public:
-	RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
-
-signals:
-	/**
-	 * Requests to send subscription request answer (whether it was accepted
-	 * or declined by the user)
-	 */
-	void answerSubscriptionRequestRequested(const QString &jid, bool accepted);
+	AtmManager(QXmppClient *client, QObject *parent = nullptr);
+	~AtmManager();
 
 	/**
-	 * Add a contact to your roster
+	 * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
+	 * (e.g., from a scanned QR code).
 	 *
-	 * @param nick A simple nick name for the new contact, which should be
-	 *             used to display in the roster.
-	 * @param msg message presented to the added contact
+	 * @param uri Trust Message URI
 	 */
-	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &msg = {});
-
-	/**
-	 * Remove a contact from your roster
-	 *
-	 * Only the JID is needed.
-	 */
-	void removeContactRequested(const QString &jid);
-
-	/**
-	 * Change a contact's name
-	 */
-	void renameContactRequested(const QString &jid, const QString &newContactName);
-
-public slots:
-	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
-	void removeContact(const QString &jid);
-	void renameContact(const QString &jid, const QString &newContactName);
-
-private slots:
-	void populateRoster();
+	void makeTrustDecisions(const QXmppUri &uri);
 
 private:
-	ClientWorker *m_clientWorker;
-	QXmppClient *m_client;
-	AvatarFileStorage *m_avatarStorage;
-	VCardManager *m_vCardManager;
-	QXmppRosterManager *m_manager;
+	std::unique_ptr<QXmppAtmTrustStorage> m_trustStorage;
+	QXmppAtmManager *const m_manager;
 };
