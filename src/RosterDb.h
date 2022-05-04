@@ -68,7 +68,7 @@ public:
 	 * @param jid JID of the roster item being removed (optional)
 	 */
 	QFuture<void> removeItems(const QString &accountJid, const QString &jid = {});
-	QFuture<void> setItemName(const QString &jid, const QString &name);
+	QFuture<void> replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
 	QFuture<QVector<RosterItem>> fetchItems(const QString &accountId);
 
 private:

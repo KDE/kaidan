@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 13
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(13)
+#define DATABASE_LATEST_VERSION 14
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(14)
 
 #define SQL_BOOL "BOOL"
 #define SQL_INTEGER "INTEGER"
@@ -366,6 +366,8 @@ void Database::createNewDatabase()
 			DB_TABLE_ROSTER,
 			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(lastExchanged, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
 			SQL_LAST_ATTRIBUTE(lastMessage, SQL_TEXT)
@@ -389,6 +391,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
 			SQL_ATTRIBUTE(message, SQL_TEXT)
 			SQL_ATTRIBUTE(id, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
 			SQL_ATTRIBUTE(isSent, SQL_BOOL)
 			SQL_ATTRIBUTE(isDelivered, SQL_BOOL)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
@@ -561,4 +565,15 @@ void Database::convertDatabaseToV13()
 	execQuery(query, "ALTER TABLE Messages ADD stanzaId " SQL_TEXT);
 	execQuery(query, "ALTER TABLE Messages ADD originId " SQL_TEXT);
 	d->version = 13;
+}
+
+void Database::convertDatabaseToV14()
+{
+	DATABASE_CONVERT_TO_VERSION(13);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD subscription " SQL_INTEGER);
+	execQuery(query, "ALTER TABLE Roster ADD encryption " SQL_INTEGER);
+	execQuery(query, "ALTER TABLE Messages ADD encryption " SQL_INTEGER);
+	execQuery(query, "ALTER TABLE Messages ADD senderKey " SQL_BLOB);
+	d->version = 14;
 }

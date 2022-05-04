@@ -33,6 +33,8 @@
 #include <QDateTime>
 #include "QXmppRosterIq.h"
 
+#include "Encryption.h"
+
 /**
  * Item containing one contact / conversation.
  */
@@ -47,6 +49,12 @@ public:
 
 	QString name() const;
 	void setName(const QString &name);
+
+	QXmppRosterIq::Item::SubscriptionType subscription() const;
+	void setSubscription(QXmppRosterIq::Item::SubscriptionType subscription);
+
+	Encryption::Enum encryption() const;
+	void setEncryption(Encryption::Enum encryption);
 
 	int unreadMessages() const;
 	void setUnreadMessages(int unreadMessages);
@@ -77,6 +85,16 @@ private:
 	 * Name of the contact.
 	 */
 	QString m_name;
+
+	/**
+	 * Type of this roster item's presence subscription.
+	 */
+	QXmppRosterIq::Item::SubscriptionType m_subscription;
+
+	/**
+	 * End-to-end encryption used for this roster item.
+	 */
+	Encryption::Enum m_encryption = Encryption::Omemo2;
 
 	/**
 	 * Number of messages unread by the user.

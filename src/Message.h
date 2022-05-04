@@ -35,6 +35,7 @@
 // QXmpp
 #include <QXmppMessage.h>
 // Kaidan
+#include "Encryption.h"
 #include "Enums.h"
 
 class QMimeType;
@@ -57,6 +58,12 @@ public:
 	 */
 	bool operator==(const Message &m) const;
 	bool operator!=(const Message &m) const;
+
+	Encryption::Enum encryption() const;
+	void setEncryption(Encryption::Enum encryption);
+
+	QByteArray senderKey() const;
+	void setSenderKey(const QByteArray &senderKey);
 
 	MessageType mediaType() const;
 	void setMediaType(MessageType mediaType);
@@ -92,6 +99,16 @@ public:
 	QString previewText() const;
 
 private:
+	/**
+	 * End-to-end encryption used for this message.
+	 */
+	Encryption::Enum m_encryption = Encryption::NoEncryption;
+
+	/**
+	 * ID of this message's sender's public long-term end-to-end encryption key.
+	 */
+	QByteArray m_senderKey;
+
 	/**
 	 * Media type of the message, e.g. a text or image.
 	 */

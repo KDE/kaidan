@@ -67,12 +67,16 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	QSqlRecord rec = query.record();
 	int idxJid = rec.indexOf("jid");
 	int idxName = rec.indexOf("name");
+	int idxSubscription = rec.indexOf("subscription");
+	int idxEncryption = rec.indexOf("encryption");
 	int idxUnreadMessages = rec.indexOf("unreadMessages");
 
 	while (query.next()) {
 		RosterItem item;
 		item.setJid(query.value(idxJid).toString());
 		item.setName(query.value(idxName).toString());
+		item.setSubscription(QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt()));
+		item.setEncryption(Encryption::Enum(query.value(idxEncryption).toInt()));
 		item.setUnreadMessages(query.value(idxUnreadMessages).toInt());
 
 		items << std::move(item);
@@ -86,6 +90,10 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("jid", newItem.jid()));
 	if (oldItem.name() != newItem.name())
 		rec.append(createSqlField("name", newItem.name()));
+	if (oldItem.subscription() != newItem.subscription())
+		rec.append(createSqlField("subscription", newItem.subscription()));
+	if (oldItem.encryption() != newItem.encryption())
+		rec.append(createSqlField("encryption", newItem.encryption()));
 	if (oldItem.unreadMessages() != newItem.unreadMessages())
 		rec.append(createSqlField(
 			"unreadMessages",
@@ -115,6 +123,8 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 		for (const auto &item : items) {
 			query.addBindValue(item.jid());
 			query.addBindValue(item.name());
+			query.addBindValue(item.subscription());
+			query.addBindValue(item.encryption());
 			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
 			query.addBindValue(item.unreadMessages());
 			query.addBindValue(QString()); // lastMessage
@@ -178,11 +188,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 			// existing or not.
 			if (newJids.remove(oldItem.jid())) {
 				// item is also included in newJids -> update
-
-				// name is (currently) the only attribute that is defined by the
-				// XMPP roster and so could cause a change
-				if (oldItem.name() != items[oldItem.jid()].name())
-					setItemName(oldItem.jid(), items[oldItem.jid()].name());
+				replaceItem(oldItem, items[oldItem.jid()]);
 			} else {
 				// item is not included in newJids -> delete
 				removeItems({}, oldItem.jid());
@@ -206,25 +212,21 @@ QFuture<void> RosterDb::removeItems(const QString &, const QString &)
 	});
 }
 
-QFuture<void> RosterDb::setItemName(const QString &jid, const QString &name)
+QFuture<void> RosterDb::replaceItem(const RosterItem &oldItem, const RosterItem &newItem)
 {
-	return run([this, jid, name]() {
-		auto query = createQuery();
-		auto &driver = sqlDriver();
+	return run([this, oldItem, newItem]() {
+		QSqlRecord record;
 
-		QSqlRecord rec;
-		rec.append(createSqlField("name", name));
+		if (oldItem.name() != newItem.name()) {
+			record.append(createSqlField("name", newItem.name()));
+		}
+		if (oldItem.subscription() != newItem.subscription()) {
+			record.append(createSqlField("subscription", newItem.subscription()));
+		}
 
-		execQuery(
-			query,
-			driver.sqlStatement(
-				QSqlDriver::UpdateStatement,
-				DB_TABLE_ROSTER,
-				rec,
-				false
-			) +
-			simpleWhereStatement(&driver, "jid", jid)
-		);
+		if (!record.isEmpty()) {
+			updateItemByRecord(oldItem.jid(), record);
+		}
 	});
 }
 

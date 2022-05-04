@@ -73,6 +73,8 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 	int idxTo = rec.indexOf("recipient");
 	int idxStamp = rec.indexOf("timestamp");
 	int idxId = rec.indexOf("id");
+	int idxEncryption = rec.indexOf("encryption");
+	int idxSenderKey = rec.indexOf("senderKey");
 	int idxBody = rec.indexOf("message");
 	int idxDeliveryState = rec.indexOf("deliveryState");
 	int idxMediaType = rec.indexOf("type");
@@ -98,6 +100,8 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 			Qt::ISODate
 		));
 		msg.setId(query.value(idxId).toString());
+		msg.setEncryption(Encryption::Enum(query.value(idxEncryption).toInt()));
+		msg.setSenderKey(query.value(idxSenderKey).toByteArray());
 		msg.setBody(query.value(idxBody).toString());
 		msg.setDeliveryState(static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt()));
 		msg.setMediaType(static_cast<MessageType>(query.value(idxMediaType).toInt()));
@@ -140,6 +144,10 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		else
 			rec.append(createSqlField("id", newMsg.id()));
 	}
+	if (oldMsg.encryption() != newMsg.encryption())
+		rec.append(createSqlField("encryption", newMsg.encryption()));
+	if (oldMsg.senderKey() != newMsg.senderKey())
+		rec.append(createSqlField("senderKey", newMsg.senderKey()));
 	if (oldMsg.body() != newMsg.body())
 		rec.append(createSqlField("message", newMsg.body()));
 	if (oldMsg.deliveryState() != newMsg.deliveryState())
@@ -273,34 +281,47 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		// to speed up the whole process emit signal first and do the actual insert after that
 		emit messageAdded(msg, origin);
 
-		QSqlRecord record = sqlRecord(DB_TABLE_MESSAGES);
-		record.setValue("author", msg.from());
-		record.setValue("recipient", msg.to());
-		record.setValue("timestamp", msg.stamp().toString(Qt::ISODate));
-		record.setValue("message", msg.body());
-		record.setValue("id", msg.id().isEmpty() ? " " : msg.id());
-		record.setValue("deliveryState", int(msg.deliveryState()));
-		record.setValue("type", int(msg.mediaType()));
-		record.setValue("edited", msg.isEdited());
-		record.setValue("isSpoiler", msg.isSpoiler());
-		record.setValue("spoilerHint", msg.spoilerHint());
-		record.setValue("mediaUrl", msg.outOfBandUrl());
-		record.setValue("mediaContentType", msg.mediaContentType());
-		record.setValue("mediaLocation", msg.mediaLocation());
-		record.setValue("mediaSize", msg.mediaSize());
-		record.setValue("mediaLastModified", msg.mediaLastModified().toMSecsSinceEpoch());
-		record.setValue("errorText", msg.errorText());
-		record.setValue("replaceId", msg.replaceId());
-		record.setValue("originId", msg.originId());
-		record.setValue("stanzaId", msg.stanzaId());
+		// "execQuery()" with "sqlDriver().sqlStatement()" cannot be used here
+		// because the binary data of "msg.senderKey()" is not appropriately
+		// inserted into the database.
 
 		auto query = createQuery();
-		execQuery(query, sqlDriver().sqlStatement(
-				QSqlDriver::InsertStatement,
-				DB_TABLE_MESSAGES,
-				record,
-				false
-		));
+		prepareQuery(
+			query,
+			"INSERT INTO Messages (author, recipient, timestamp, message, id, encryption, "
+			"senderKey, deliveryState, type, edited, isSpoiler, spoilerHint, mediaUrl, "
+			"mediaContentType, mediaLocation, mediaSize, mediaLastModified, errorText, replaceId, "
+			"originId, stanzaId) "
+			"VALUES (:author, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
+			":deliveryState, :type, :edited, :isSpoiler, :spoilerHint, :mediaUrl, "
+			":mediaContentType, :mediaLocation, :mediaSize, :mediaLastModified, :errorText, "
+			":replaceId, :originId, :stanzaId)"
+		);
+
+		bindValues(query, {
+			{ u":author", msg.from() },
+			{ u":recipient", msg.to() },
+			{ u":timestamp", msg.stamp().toString(Qt::ISODate) },
+			{ u":message", msg.body() },
+			{ u":id", msg.id().isEmpty() ? " " : msg.id() },
+			{ u":encryption", msg.encryption() },
+			{ u":senderKey", msg.senderKey() },
+			{ u":deliveryState", int(msg.deliveryState()) },
+			{ u":type", int(msg.mediaType()) },
+			{ u":edited", msg.isEdited() },
+			{ u":isSpoiler", msg.isSpoiler() },
+			{ u":spoilerHint", msg.spoilerHint() },
+			{ u":mediaUrl", msg.outOfBandUrl() },
+			{ u":mediaContentType", msg.mediaContentType() },
+			{ u":mediaLocation", msg.mediaLocation() },
+			{ u":mediaSize", msg.mediaSize() },
+			{ u":mediaLastModified", msg.mediaLastModified().toMSecsSinceEpoch() },
+			{ u":errorText", msg.errorText() },
+			{ u":replaceId", msg.replaceId() },
+			{ u":originId", msg.originId() },
+			{ u":stanzaId", msg.stanzaId() },
+		});
+		execQuery(query);
 	});
 }
 

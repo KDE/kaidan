@@ -113,6 +113,26 @@ bool Message::operator!=(const Message &m) const
 	return !operator==(m);
 }
 
+Encryption::Enum Message::encryption() const
+{
+	return m_encryption;
+}
+
+void Message::setEncryption(Encryption::Enum encryption)
+{
+	m_encryption = encryption;
+}
+
+QByteArray Message::senderKey() const
+{
+	return m_senderKey;
+}
+
+void Message::setSenderKey(const QByteArray &senderKey)
+{
+	m_senderKey = senderKey;
+}
+
 MessageType Message::mediaType() const
 {
 	return m_mediaType;

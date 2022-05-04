@@ -31,7 +31,7 @@
 #include "RosterItem.h"
 
 RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime)
-	: m_jid(item.bareJid()), m_name(item.name()), m_lastExchanged(dateTime)
+	: m_jid(item.bareJid()), m_name(item.name()), m_subscription(item.subscriptionType()), m_lastExchanged(dateTime)
 {
 }
 
@@ -53,6 +53,26 @@ QString RosterItem::name() const
 void RosterItem::setName(const QString &name)
 {
 	m_name = name;
+}
+
+QXmppRosterIq::Item::SubscriptionType RosterItem::subscription() const
+{
+	return m_subscription;
+}
+
+void RosterItem::setSubscription(QXmppRosterIq::Item::SubscriptionType subscription)
+{
+	m_subscription = subscription;
+}
+
+Encryption::Enum RosterItem::encryption() const
+{
+	return m_encryption;
+}
+
+void RosterItem::setEncryption(Encryption::Enum encryption)
+{
+	m_encryption = encryption;
 }
 
 int RosterItem::unreadMessages() const
@@ -96,7 +116,8 @@ bool RosterItem::operator==(const RosterItem &other) const
 	       m_name == other.name() &&
 	       m_lastMessage == other.lastMessage() &&
 	       m_lastExchanged == other.lastExchanged() &&
-	       m_unreadMessages == other.unreadMessages();
+	       m_unreadMessages == other.unreadMessages() &&
+	       m_encryption == other.encryption();
 }
 
 bool RosterItem::operator!=(const RosterItem &other) const
