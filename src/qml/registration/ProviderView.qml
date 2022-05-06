@@ -178,11 +178,13 @@ FieldView {
 		}
 
 		CenteredAdaptiveHighlightedButton {
+			visible: !customProviderSelected
 			text: qsTr("Open website")
 			onClicked: Qt.openUrlExternally(website)
 		}
 
 		CenteredAdaptiveButton {
+			visible: !customProviderSelected
 			text: qsTr("Copy website address")
 			onClicked: Utils.copyToClipboard(website)
 		}
