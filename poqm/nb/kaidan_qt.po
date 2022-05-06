@@ -1,5 +1,6 @@
 # Translation of kaidan_qt to Norwegian Bokmål
 #
+# Karl Ove Hufthammer <karl@huftis.org>, 2022.
 msgid ""
 msgstr ""
 "Language-Team: Norwegian Bokmål <l10n-no@lister.huftis.org>\n"
@@ -13,6 +14,10 @@ msgstr ""
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: qtrich\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"PO-Revision-Date: 2022-05-01 00:15+0200\n"
+"Project-Id-Version: \n"
+"X-Generator: Lokalize 22.04.0\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -39,17 +44,17 @@ msgstr "Nedlasting mislyktes: %1"
 #: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "Tilkoblet"
 
 #: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Kobler til …"
 
 #: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "Frakoblet"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:165
@@ -111,37 +116,31 @@ msgid "Two pass"
 msgstr "Dobbelt-arbeidet"
 
 #: src/MediaUtils.cpp:252
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Lyd"
 
 #: src/MediaUtils.cpp:254
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokument"
 
 #: src/MediaUtils.cpp:256
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr "Posisjon"
+msgstr "Plassering"
 
 #: src/MediaUtils.cpp:258
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Bilde"
 
 #: src/MediaUtils.cpp:260
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
 #: src/MediaUtils.cpp:264
-#, fuzzy
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fil"
@@ -223,7 +222,6 @@ msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: src/Message.cpp:210
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avsløring"
@@ -255,7 +253,6 @@ msgid "Delivered"
 msgstr "Levert"
 
 #: src/MessageModel.cpp:233
-#, fuzzy
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Feil"
@@ -296,7 +293,6 @@ msgid "Away for longer"
 msgstr "Lengre tids fravær"
 
 #: src/PresenceCache.cpp:73
-#, fuzzy
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Frakoblet"
@@ -403,7 +399,6 @@ msgid "Copy password"
 msgstr "Kopier passord"
 
 #: src/qml/ChatPage.qml:78
-#, fuzzy
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Søk"
@@ -492,7 +487,6 @@ msgid "Compose message"
 msgstr "Forfatt melding"
 
 #: src/qml/elements/ConfirmationPage.qml:48
-#, fuzzy
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Avbryt"
@@ -515,7 +509,7 @@ msgstr ""
 #: src/qml/elements/fields/PasswordField.qml:40
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -641,7 +635,6 @@ msgid "Rename contact"
 msgstr "Gi kontakten nytt navn"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
-#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
 msgstr "Avbryt"
@@ -657,13 +650,11 @@ msgid "Caption"
 msgstr "Bildetekst"
 
 #: src/qml/elements/SendMediaSheet.qml:118
-#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: src/qml/elements/SendMediaSheet.qml:132
-#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Send"
