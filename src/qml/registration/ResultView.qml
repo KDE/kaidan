@@ -44,7 +44,7 @@ View {
 
 	property alias registrationButton: registrationButton
 
-	property string jid: username && server ? username + "@" + server : ""
+	property string jid: username && provider ? username + "@" + provider : ""
 
 	ColumnLayout {
 		parent: contentArea
