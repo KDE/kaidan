@@ -1,10 +1,16 @@
+# Shinjo Park <kde@peremen.name>, 2022.
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-05-16 01:40+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: ko\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:269
@@ -14,39 +20,40 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
+"서버에서 계정을 삭제할 수 없습니다. 앱에서도 계정을 삭제하지 않았습니다: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr ""
+msgstr "파일을 저장할 수 없음: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr ""
+msgstr "다운로드 실패: %1"
 
 #: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "온라인"
 
 #: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr ""
+msgstr "연결 중..."
 
 #: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "오프라인"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:165
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr ""
+msgstr "연결한 후 링크를 열 것입니다."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -54,233 +61,233 @@ msgstr ""
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "매우 낮음"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "낮음"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "일반"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "높음"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "매우 높음"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr ""
+msgstr "고정 품질"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr ""
+msgstr "고정 비트 전송률"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr ""
+msgstr "평균 비트 전송률"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr ""
+msgstr "2단계"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "오디오"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "문서"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "위치"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "그림"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "비디오"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "파일"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr ""
+msgstr "사진 찍기"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr ""
+msgstr "동영상 녹화"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr ""
+msgstr "음성 녹음"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr ""
+msgstr "위치 전송"
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr ""
+msgstr "파일 선택"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr ""
+msgstr "그림 선택"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr ""
+msgstr "비디오 선택"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr ""
+msgstr "오디오 파일 선택"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr ""
+msgstr "문서 선택"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "모든 파일"
 
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "그림"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "비디오"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "오디오 파일"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "문서"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1(%2)"
 
 #: src/Message.cpp:210
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "스포일러"
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr ""
+msgstr "메시지 수정에 실패했습니다."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "메시지를 전송할 수 없었습니다."
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "대기 중"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "보냄"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "배달됨"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "오류"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "읽은 상태로 표시"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "사용 가능"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "대화 가능"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "자리 비움"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "방해하지 않음"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr ""
+msgstr "장기 부재 중"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "오프라인"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "사용자 정의 공급자"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -288,58 +295,58 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "무제한"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1일"
 
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr ""
+msgstr "간단하고 사용자 친화적인 XMPP 클라이언트"
 
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr ""
+msgstr "라이선스:"
 
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr ""
+msgstr "문제 보고"
 
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr ""
+msgstr "온라인으로 소스 코드 찾아보기"
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
-msgstr ""
+msgstr "다른 장치로 계정 전송"
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr ""
+msgstr "QR 코드 숨기기"
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
-msgstr ""
+msgstr "QR 코드로 표시"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
-msgstr ""
+msgstr "텍스트 숨기기"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
-msgstr ""
+msgstr "텍스트로 표시"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -351,174 +358,180 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"다른 장치에서 로그인하려면 QR 코드를 스캔하거나 자격 증명을 텍스트로 입력하십"
+"시오.\n"
+"\n"
+"주의:\n"
+"다른 사람에게 QR 코드를 보여 주지 마십시오. 계정에 무제한으로 접근할 수 있습"
+"니다!"
 
 #: src/qml/AccountTransferPage.qml:107
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr ""
+msgstr "대화 주소:"
 
 #: src/qml/AccountTransferPage.qml:116
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "대화 주소 복사"
 
 #: src/qml/AccountTransferPage.qml:126
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr ""
+msgstr "암호:"
 
 #: src/qml/AccountTransferPage.qml:136
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr ""
+msgstr "암호 복사"
 
 #: src/qml/ChatPage.qml:78
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr ""
+msgstr "검색"
 
 #: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
-msgstr ""
+msgstr "알림 음소거 해제"
 
 #: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Mute notifications"
-msgstr ""
+msgstr "알림 음소거"
 
 #: src/qml/ChatPage.qml:123
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr ""
+msgstr "프로필 보기"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr ""
+msgstr "스포일러 메시지 보내기"
 
 #: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr ""
+msgstr "스포일러"
 
 #: src/qml/elements/ChatMessage.qml:200
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr ""
+msgstr "다운로드"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr ""
+msgstr "메시지 복사"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr ""
+msgstr "메시지 편집"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr ""
+msgstr "다운로드 URL 복사"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr ""
+msgstr "메시지 인용"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr ""
+msgstr "메시지 검색 표시줄 닫기"
 
 #: src/qml/elements/ChatPageSearchView.qml:89
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr ""
+msgstr "위로 검색"
 
 #: src/qml/elements/ChatPageSearchView.qml:100
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr ""
+msgstr "아래로 검색"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr ""
+msgstr "스포일러 힌트"
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr ""
+msgstr "스포일러 힌트 필드 닫기"
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr ""
+msgstr "메시지 작성"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr ""
+msgstr "대화 주소"
 
 #: src/qml/elements/fields/JidField.qml:40
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr ""
+msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr ""
+msgstr "대화 주소는 <b>username@server</b> 형식이어야 합니다"
 
 #: src/qml/elements/fields/PasswordField.qml:40
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "올바른 암호를 입력하십시오"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr ""
+msgstr "초기화 중…"
 
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr ""
+msgstr "사용할 수 없음"
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
-msgstr ""
+msgstr "일시 정지됨 %1"
 
 #: src/qml/elements/NewMedia.qml:254
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
-msgstr ""
+msgstr "녹음 중… %1"
 
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr ""
+msgstr "카메라 형식 '%1'은(는) 지원하지 않습니다."
 
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr ""
+msgstr "사용 가능한 카메라가 없습니다."
 
 #: src/qml/elements/QrCodeScanner.qml:101
 msgctxt "QrCodeScanner|"
@@ -526,108 +539,110 @@ msgid ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 msgstr ""
+"카메라가 사용 중입니다.\n"
+"카메라를 사용 중인 다른 프로그램을 닫으십시오."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
-msgstr ""
+msgstr "새 대화 상대 추가"
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
-msgstr ""
+msgstr "대화 상대의 온라인 정보 접근 요청을 보낼 것입니다."
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
-msgstr ""
+msgstr "Jabber ID:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
-msgstr ""
+msgstr "user@example.org"
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr ""
+msgstr "별명:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
-msgstr ""
+msgstr "추가 메시지:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
-msgstr ""
+msgstr "대화 상대에게 자기 소개를 남기십시오."
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
-msgstr ""
+msgstr "대화 상대 삭제"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
 #, qt-format
 msgctxt "RosterRemoveContactSheet|"
 msgid ""
 "Do you really want to delete the contact <b>%1</b> from your contact list?"
-msgstr ""
+msgstr "<b>%1</b> 님을 대화 상대 목록에서 삭제하시겠습니까?"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
-msgstr ""
+msgstr "대화 상대 이름 바꾸기"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
-msgstr ""
+msgstr "이름 바꾸기"
 
 #: src/qml/elements/SendMediaSheet.qml:105
 msgctxt "SendMediaSheet|"
 msgid "Caption"
-msgstr ""
+msgstr "캡션"
 
 #: src/qml/elements/SendMediaSheet.qml:118
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr ""
+msgstr "보내기"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:43
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
-msgstr ""
+msgstr "구독 요청"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
 #, qt-format
@@ -636,111 +651,113 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
+"<b>%1</b> 님의 구독 요청을 받았습니다. 요청을 수락하면 온라인 상태를 볼 수 있"
+"게 됩니다."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr ""
+msgstr "거절"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:73
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
-msgstr ""
+msgstr "수락"
 
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
-msgstr ""
+msgstr "메시지를 주고 받으려면 대화 선택"
 
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "QR 코드 스캔"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
-msgstr ""
+msgstr "친구 초대"
 
 #: src/qml/GlobalDrawer.qml:98
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "클립보드에 초대 링크 복사됨"
 
 #: src/qml/GlobalDrawer.qml:102
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
-msgstr ""
+msgstr "장치 전환"
 
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr ""
+msgstr "정보"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
 msgid "Log in"
-msgstr ""
+msgstr "로그인"
 
 #: src/qml/LoginPage.qml:49
 msgctxt "LoginPage|"
 msgid "Log in to your XMPP account"
-msgstr ""
+msgstr "XMPP 계정에 로그인"
 
 #: src/qml/LoginPage.qml:75
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr ""
+msgstr "연결 설정"
 
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "연결 중..."
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr ""
+msgstr "QR 코드 스캔"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "설명 보기"
 
 #: src/qml/QrCodeOnboardingPage.qml:56
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
-msgstr ""
+msgstr "QR 코드 없이 진행"
 
 #: src/qml/QrCodeOnboardingPage.qml:62
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
-msgstr ""
+msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
 
 #: src/qml/QrCodeOnboardingPage.qml:103
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "연결 중..."
 
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr ""
+msgstr "QR 코드가 올바른 로그인 QR 코드가 아닙니다."
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "QR 코드 스캔"
 
 #: src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "설명 보기"
 
 #: src/qml/QrCodePage.qml:69
 msgctxt "QrCodePage|"
@@ -765,12 +782,12 @@ msgstr ""
 #: src/qml/QrCodePage.qml:173
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "대화 상대 추가…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
-msgstr ""
+msgstr "자동으로 등록"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:106
 msgctxt "AutomaticRegistrationPage|"
@@ -798,17 +815,17 @@ msgstr ""
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "표시 이름"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr ""
+msgstr "서버에 요청 중…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
-msgstr ""
+msgstr "수동으로 등록"
 
 #: src/qml/registration/ManualRegistrationPage.qml:195
 msgctxt "ManualRegistrationPage|"
@@ -864,12 +881,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr ""
+msgstr "공급자"
 
 #: src/qml/registration/ProviderView.qml:101
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr ""
+msgstr "연결 설정"
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -879,12 +896,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "아니요"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "예"
 
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
@@ -894,12 +911,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "언어"
 
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr ""
+msgstr "접속한 시간:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -914,7 +931,7 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr ""
+msgstr "웹 사이트 열기"
 
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
@@ -924,12 +941,12 @@ msgstr ""
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "등록"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr ""
+msgstr "등록"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
@@ -944,17 +961,17 @@ msgstr ""
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "CAPTCHA 입력이 잘못됨"
 
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "필요한 정보가 없음: "
 
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "등록 실패:"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -978,7 +995,7 @@ msgstr ""
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr ""
+msgstr "사용자 이름"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
@@ -1016,7 +1033,7 @@ msgstr ""
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Register a new account"
-msgstr ""
+msgstr "새 계정 등록"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:52
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1026,27 +1043,27 @@ msgstr ""
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "연결 중..."
 
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr ""
+msgstr "오프라인"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
 msgid "Contacts"
-msgstr ""
+msgstr "대화 상대"
 
 #: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
-msgstr ""
+msgstr "새 대화 상대 추가"
 
 #: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
-msgstr ""
+msgstr "대화 상대 검색"
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
@@ -1080,17 +1097,17 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr ""
+msgstr "암호 변경"
 
 #: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr ""
+msgstr "현재 암호:"
 
 #: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr ""
+msgstr "새 암호:"
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
@@ -1117,38 +1134,38 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr ""
+msgstr "변경"
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr ""
+msgstr "암호가 변경됨"
 
 #: src/qml/settings/ChangePassword.qml:148
 #, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr ""
+msgstr "암호를 변경할 수 없음: %1"
 
 #: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr ""
+msgstr "연결 설정"
 
 #: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr ""
+msgstr "변경"
 
 #: src/qml/settings/ConnectionSettings.qml:84
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1163,7 +1180,7 @@ msgstr ""
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr ""
+msgstr "호스트 이름:"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
@@ -1173,7 +1190,7 @@ msgstr ""
 #: src/qml/settings/CustomConnectionSettings.qml:77
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
-msgstr ""
+msgstr "포트:"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:43
 msgctxt "DisablePasswordDisplay|"
@@ -1215,7 +1232,7 @@ msgstr ""
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr ""
+msgstr "암호 표시하지 않기"
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1233,109 +1250,109 @@ msgstr ""
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
-msgstr ""
+msgstr "삭제"
 
 #: src/qml/settings/MultimediaSettings.qml:44
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "멀티미디어 설정"
 
 #: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr ""
+msgstr "설정"
 
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr ""
+msgstr "이미지 캡처"
 
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
-msgstr ""
+msgstr "오디오 녹음"
 
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
-msgstr ""
+msgstr "동영상 녹화"
 
 #: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr ""
+msgstr "카메라"
 
 #: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr ""
+msgstr "오디오 입력"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr ""
+msgstr "컨테이너"
 
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr ""
+msgstr "그림"
 
 #: src/qml/settings/MultimediaSettings.qml:231
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr ""
+msgstr "오디오"
 
 #: src/qml/settings/MultimediaSettings.qml:237
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr ""
+msgstr "비디오"
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr ""
+msgstr "코덱"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr ""
+msgstr "해상도"
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
 msgctxt "MultimediaSettings|"
 msgid "Quality"
-msgstr ""
+msgstr "품질"
 
 #: src/qml/settings/MultimediaSettings.qml:374
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
-msgstr ""
+msgstr "샘플링 레이트"
 
 #: src/qml/settings/MultimediaSettings.qml:484
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
-msgstr ""
+msgstr "초당 프레임 수"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Ready"
-msgstr ""
+msgstr "준비"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
-msgstr ""
+msgstr "초기화 중…"
 
 #: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr ""
+msgstr "사용할 수 없음"
 
 #: src/qml/settings/MultimediaSettings.qml:587
 msgctxt "MultimediaSettings|"
@@ -1345,12 +1362,12 @@ msgstr ""
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
 msgid "Paused"
-msgstr ""
+msgstr "일시 정지됨"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr ""
+msgstr "암호 삭제"
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1389,156 +1406,156 @@ msgstr ""
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr ""
+msgstr "암호 바꾸기"
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
 "devices."
-msgstr ""
+msgstr "계정 암호를 변경합니다. 다른 장치에도 변경된 암호를 입력해야 합니다."
 
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "멀티미디어 설정"
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
-msgstr ""
+msgstr "사진, 동영상, 오디오 녹음 설정"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr ""
+msgstr "연결 설정"
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
-msgstr ""
+msgstr "연결할 호스트 이름과 포트 설정"
 
 #: src/qml/settings/SettingsContent.qml:67
 msgctxt "SettingsContent|"
 msgid "Account security"
-msgstr ""
+msgstr "계정 보안"
 
 #: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
-msgstr ""
+msgstr "다른 장치에서 로그인할 때 이 장치 사용을 허용할지 여부 설정"
 
 #: src/qml/settings/SettingsContent.qml:73
 msgctxt "SettingsContent|"
 msgid "Remove account from Kaidan"
-msgstr ""
+msgstr "Kaidan에서 계정 삭제"
 
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
-msgstr ""
+msgstr "이 앱에서 계정 삭제"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr ""
+msgstr "계정 삭제"
 
 #: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
-msgstr ""
+msgstr "서버에서 계정 삭제"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 #: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr ""
+msgstr "모든 장치에서 자유롭게 대화하십시오!"
 
 #: src/qml/StartPage.qml:84
 msgctxt "StartPage|"
 msgid "Let's start"
-msgstr ""
+msgstr "시작하기"
 
 #: src/qml/UserProfilePage.qml:42
 msgctxt "UserProfilePage|"
 msgid "Profile"
-msgstr ""
+msgstr "프로필"
 
 #: src/qml/UserProfilePage.qml:77
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
-msgstr ""
+msgstr "대화 상대 이름 바꾸기"
 
 #: src/qml/UserProfilePage.qml:87
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr ""
+msgstr "QR 코드 표시"
 
 #: src/qml/UserProfilePage.qml:93
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
-msgstr ""
+msgstr "대화 상대 삭제"
 
 #: src/qml/UserProfilePage.qml:230
 msgctxt "UserProfilePage|"
 msgid "Online devices"
-msgstr ""
+msgstr "온라인 장치"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "사용자 이름이나 암호가 잘못되었습니다."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
+msgstr "서버에 연결할 수 없습니다. 인터넷 연결을 확인하십시오."
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr ""
+msgstr "보안 연결을 시도하는 중 오류가 발생했습니다."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr ""
+msgstr "서버에서 보안 연결을 지원하지 않습니다."
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
-msgstr ""
+msgstr "서버에 연결할 수 없습니다. 인터넷 연결이나 서버 이름을 확인하십시오."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "서버가 오프라인이거나 방화벽에서 차단되었습니다."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr ""
+msgstr "서버에서 인증 프로토콜을 지원하지 않습니다."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "연결을 새로 고칠 수 없습니다."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -1546,87 +1563,88 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"인터넷 접근이 허용되지 않았습니다. 시스템의 인터넷 접근 설정을 확인하십시오."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "이 서버에서 등록을 지원하지 않습니다."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 님이 온라인"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 님이 입력 중…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1 님이 입력을 일시 정지함"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "QR 코드 생성 실패: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr ""
+msgstr "연결되지 않아서 대화 상대를 추가할 수 없었습니다."
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr ""
+msgstr "연결되지 않아서 대화 상대를 삭제할 수 없었습니다."
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
+msgstr "연결되지 않아서 대화 상대의 이름을 변경할 수 없었습니다."
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr ""
+msgstr "연결되지 않아서 파일을 전송할 수 없었습니다."
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "메시지를 전송할 수 없었습니다."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "별명"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "정보"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr ""
+msgstr "이메일"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "생일"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr ""
+msgstr "웹 사이트"
