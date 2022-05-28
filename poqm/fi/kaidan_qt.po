@@ -1,26 +1,16 @@
-# Translation of kaidan_qt.po to Catalan (Valencian)
-# Copyright (C) 2019-2022 This_file_is_part_of_KDE
-# This file is distributed under the license LGPL version 2.1 or
-# version 3 or later versions approved by the membership of KDE e.V.
-# or the same license as the source of its messages in English.
-#
-# Joan CiberSheep <cibersheep@gmail.com>, 2019.
-# Txaume <txaumevw@gmail.com>, 2019.
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-03-31 09:06+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
-"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
-"Language: ca@valencia\n"
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2022-04-20 21:12+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
-"X-Language: ca-valencia\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:269
@@ -30,41 +20,41 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
-"eliminat d'esta aplicació: %1"
+"Tiliäsi ei voitu poistaa palvelimelta, joten sitä ei poistettu myöskään "
+"tästä sovelluksesta: %1"
 
 #: src/DownloadManager.cpp:129
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
-msgstr "No s'ha pogut guardar el fitxer: %1"
+msgstr "Ei voitu tallentaa tiedostoa: %1"
 
 #: src/DownloadManager.cpp:154
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
-msgstr "Ha fallat la baixada: %1"
+msgstr "Lataus epäonnistui: %1"
 
 #: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr "En línia"
+msgstr "Verkossa"
 
 #: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "S'està connectant…"
+msgstr "Yhdistetään…"
 
 #: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr "Fora de línia"
+msgstr "Ei verkossa"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:165
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr "L'enllaç s'obrirà després que vos hàgeu connectat."
+msgstr "Linkki avataan yhdistämisen jälkeen."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -72,152 +62,152 @@ msgstr "L'enllaç s'obrirà després que vos hàgeu connectat."
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr "Predeterminat"
+msgstr "Oletus"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr "Molt baixa"
+msgstr "Hyvin heikko"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr "Baixa"
+msgstr "Heikko"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr "Normal"
+msgstr "Tavanomainen"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr "Alta"
+msgstr "Hyvä"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr "Molt alta"
+msgstr "Erittäin hyvä"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr "Qualitat constant"
+msgstr "Tasainen laatu"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr "Velocitat de bits constant"
+msgstr "Tasainen bittinopeus"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr "Velocitat de bits mitjana"
+msgstr "Keskiarvoinen bittinopeus"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr "Dues passades"
+msgstr "Kaksivaiheinen"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Àudio"
+msgstr "Ääni"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr "Document"
+msgstr "Tiedosto"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr "Ubicació"
+msgstr "Sijainti"
 
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr "Imatge"
+msgstr "Kuva"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Video"
 
 #: src/MediaUtils.cpp:264
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr "Fitxer"
+msgstr "Tiedosto"
 
 #: src/MediaUtils.cpp:273
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr "Pren una fotografia"
+msgstr "Ota kuva"
 
 #: src/MediaUtils.cpp:275
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr "Grava un vídeo"
+msgstr "Nauhoita video"
 
 #: src/MediaUtils.cpp:277
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr "Grava una veu"
+msgstr "Nauhoita ääntä"
 
 #: src/MediaUtils.cpp:279
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr "Envia la ubicació"
+msgstr "Lähetä sijainti"
 
 #: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr "Trieu un fitxer"
+msgstr "Valitse tiedosto"
 
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr "Trieu una imatge"
+msgstr "Valitse kuva"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr "Trieu un vídeo"
+msgstr "Valitse video"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Trieu un fitxer d'àudio"
+msgstr "Valitse äänitiedosto"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr "Trieu un document"
+msgstr "Valitse tiedosto"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr "Tots els fitxers"
+msgstr "Kaikki tiedostot"
 
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr "Imatges"
+msgstr "Kuvat"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr "Vídeos"
+msgstr "Videot"
 
 #: src/MediaUtils.cpp:353
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr "Fitxers d'àudio"
+msgstr "Äänitiedostot"
 
 #: src/MediaUtils.cpp:355
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr "Documents"
+msgstr "Tiedostot"
 
 #: src/MediaUtils.cpp:380
 #, qt-format
@@ -228,77 +218,77 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:210
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "Espòiler"
+msgstr ""
 
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr "La correcció del missatge no ha anat be."
+msgstr "Viestin korjaaminen ei onnistunut."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "Viestiä ei voitu lähettää."
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr "Pendent"
+msgstr "Jonossa"
 
 #: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr "Enviat"
+msgstr "Lähetetty"
 
 #: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr "Lliurat"
+msgstr "Välitetty"
 
 #: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr "Error"
+msgstr "Virhe"
 
 #: src/Notifications.cpp:69
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr "Marca com a llegit"
+msgstr "Merkitse luetuksi"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr "Disponible"
+msgstr "Käytettävissä"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr "Lliure per a chat"
+msgstr "Vapaana juttelemaan"
 
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr "Absent"
+msgstr "Poissa"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr "No destorbar"
+msgstr "Älä häiritse"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "Absent des de fa estona"
+msgstr "Pidempään poissa"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr "Desconnectat"
+msgstr "Ei verkossa"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Proveïdor personalitzat"
+msgstr "Oma palveluntarjoaja"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -306,58 +296,58 @@ msgstr "Proveïdor personalitzat"
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr "Sense límit"
+msgstr "Ei rajoitettu"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr "%1 dies"
+msgstr "%1 päivää"
 
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Un client de Jabber/XMPP senzill i fàcil d'emprar"
+msgstr "Yksinkertainen ja käyttäjäystävällinen Jabber/XMPP-asiakas"
 
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr "Llicència:"
+msgstr "Lisenssi:"
 
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr "Informa de problemes"
+msgstr "Ilmoita ongelmista"
 
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr "Visualiseu el codi font en línia"
+msgstr "Näytä lähdekoodi verkossa"
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
-msgstr "Transfereix el compte a un atre dispositiu"
+msgstr "Siirrä tili toiseen laitteeseen"
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr "Oculta el codi QR"
+msgstr "Piilota QR-koodi"
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
-msgstr "Mostra com un codi QR"
+msgstr "Näytä QR-koodina"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
-msgstr "Oculta el text"
+msgstr "Piilota teksti"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
-msgstr "Mostra com a text"
+msgstr "Näytä tekstinä"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -369,181 +359,174 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Escanegeu el codi QR o introduïu les credencials com a text en un atre "
-"dispositiu per a iniciar-hi sessió.\n"
-"\n"
-"Atenció:\n"
-"No mostreu mai este codi QR a ningú més. Permetria un accés illimitat al "
-"vostre compte!"
 
 #: src/qml/AccountTransferPage.qml:107
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr "Adreça de chat:"
+msgstr "Keskusteluosoite:"
 
 #: src/qml/AccountTransferPage.qml:116
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr "Copia l'adreça de chat"
+msgstr "Kopioi keskusteluosoite"
 
 #: src/qml/AccountTransferPage.qml:126
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr "Contrasenya:"
+msgstr "Salasana:"
 
 #: src/qml/AccountTransferPage.qml:136
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr "Copia la contrasenya"
+msgstr "Kopioi salasana"
 
 #: src/qml/ChatPage.qml:78
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr "Busca"
+msgstr "Etsi"
 
 #: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
-msgstr "Deixa de silenciar les notificacions"
+msgstr "Lopeta ilmoitusten vaimennus"
 
 #: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Mute notifications"
-msgstr "Silencia les notificacions"
+msgstr "Vaimenna ilmoitukset"
 
-# Per a visualitzar el perfil d'un usuari
 #: src/qml/ChatPage.qml:123
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr "Visualisa el perfil"
+msgstr "Näytä profiili"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr "Envia un missatge d'espòiler"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr "Espòiler"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:200
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr "Baixa"
+msgstr "Lataa"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr "Copia el missatge"
+msgstr "Kopioi viesti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr "Edita el missatge"
+msgstr "Muokkaa viestiä"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr "Copia l'URL de baixada"
+msgstr "Kopioi latauksen verkko-osoite"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr "Cita el missatge"
+msgstr "Lainaa viestiä"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr "Tanca la barra de busca de missatges"
+msgstr "Sulje viestin hakupalkki"
 
 #: src/qml/elements/ChatPageSearchView.qml:89
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr "Busca amunt"
+msgstr "Etsi ylöspäin"
 
 #: src/qml/elements/ChatPageSearchView.qml:100
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr "Busca avall"
+msgstr "Etsi alaspäin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr "Consell d'espòiler"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr "Tanca el camp de consell d'espòiler"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr "Redacta un missatge"
+msgstr "Kirjoita viesti"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "Adreça de chat"
+msgstr "Keskustelun osoite"
 
 #: src/qml/elements/fields/JidField.qml:40
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr "usuari@exemple.cat"
+msgstr "kayttaja@esimerkki.fi"
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr "Cal que l'adreça de chat tinga la forma <b>nomusuari@servidor</b>"
+msgstr "Keskusteluosoite on muotoa <b>kayttaja@palvelin</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:40
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "Contrasenya"
+msgstr "Salasana"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr "Introduïu una contrasenya vàlida"
+msgstr "Anna kelvollinen salasana"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr "S'està inicialitzant…"
+msgstr "Valmistellaan…"
 
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr "No disponible"
+msgstr "Ei käytettävissä"
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
-msgstr "En pausa %1"
+msgstr "Keskeytetty %1"
 
 #: src/qml/elements/NewMedia.qml:254
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
-msgstr "Gravació… %1"
+msgstr "Nauhoitetaan… %1"
 
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr "El format de càmera «%1» no està implementat."
+msgstr "Kameran tiedostomuotoa ”%1” ei tueta."
 
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr "No hi ha cap càmera disponible."
+msgstr "Kameraa ei ole käytettävissä."
 
 #: src/qml/elements/QrCodeScanner.qml:101
 msgctxt "QrCodeScanner|"
@@ -551,59 +534,58 @@ msgid ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 msgstr ""
-"La càmera està ocupada.\n"
-"Intenteu tancar les atres aplicacions que estan utilisant la càmera."
+"Kamera on varattu.\n"
+"Yritä sulkea muut kameraa käyttävät sovellukset."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
-msgstr "Afig un contacte nou"
+msgstr "Lisää uusi yhteystieto"
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
-msgstr ""
-"Açò també enviarà una solicitut per accedir a la presència del contacte."
+msgstr "Tämä lähettää myös pyynnön nähdä yhteystiedon läsnäolotila."
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
-msgstr "ID del Jabber:"
+msgstr "Jabber-ID:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
-msgstr "usuari@exemple.cat"
+msgstr "kayttaja@esimerkki.fi"
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr "Sobrenom:"
+msgstr "Kutsumanimi:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
-msgstr "Missatge opcional:"
+msgstr "Vapaavalintainen viesti:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
-msgstr "Digueu a la contrapart del chat qui sou."
+msgstr "Kerro keskustelukumppanillesi, kuka olet."
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
-msgstr "Afig"
+msgstr "Lisää"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
-msgstr "Suprimix el contacte"
+msgstr "Poista yhteystieto"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
 #, qt-format
@@ -611,52 +593,52 @@ msgctxt "RosterRemoveContactSheet|"
 msgid ""
 "Do you really want to delete the contact <b>%1</b> from your contact list?"
 msgstr ""
-"Segur que voleu suprimir el contacte <b>%1</b> de la llista de contactes?"
+"Haluatko varmasti poistaa yhteystiedon <b>%1</b> yhteystietoluettelosta?"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
-msgstr "Suprimix"
+msgstr "Poista"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
-msgstr "Canvia el nom un contacte"
+msgstr "Muuta yhteystiedon nimeä"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
-msgstr "Canvia el nom"
+msgstr "Muuta nimeä"
 
 #: src/qml/elements/SendMediaSheet.qml:105
 msgctxt "SendMediaSheet|"
 msgid "Caption"
-msgstr "Llegenda"
+msgstr "Kuvateksti"
 
 #: src/qml/elements/SendMediaSheet.qml:118
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr "Envia"
+msgstr "Lähetä"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:43
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
-msgstr "Solicitut de subscripció"
+msgstr "Tilauspyyntö"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
 #, qt-format
@@ -665,152 +647,149 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
-"Heu rebut una solicitut de subscripció de <b>%1</b>. Si l'accepteu, el "
-"compte tindrà accés al vostre estat de presència."
+"<b>%1</b> lähetti sinulle tilauspyynnön. Jos hyväksyt sen, tili pääsee "
+"käsiksi läsnäolotilaasi."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr "Declina"
+msgstr "Hylkää"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:73
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
-msgstr "Accepta"
+msgstr "Hyväksy"
 
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
-msgstr "Seleccioneu un chat per a iniciar la missatgeria"
+msgstr "Aloita viestiminen valitsemalla keskustelu"
 
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Scan QR codes"
-msgstr "Escanegeu codis QR"
+msgstr "Lue QR-koodeja"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
-msgstr "Convideu a amics"
+msgstr "Kutsu kavereita"
 
 #: src/qml/GlobalDrawer.qml:98
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr "L'enllaç d'invitació s'ha copiat al porta-retalls"
+msgstr "Kutsulinkki kopioitu leikepöydälle"
 
 #: src/qml/GlobalDrawer.qml:102
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
-msgstr "Canvi de dispositiu"
+msgstr "Vaihda laitetta"
 
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr "Configuració"
+msgstr "Asetukset"
 
 #: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr "Quant a"
+msgstr "Tietoa"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
 msgid "Log in"
-msgstr "Inici de sessió"
+msgstr "Kirjaudu"
 
 #: src/qml/LoginPage.qml:49
 msgctxt "LoginPage|"
 msgid "Log in to your XMPP account"
-msgstr "Inici de sessió al vostre compte XMPP"
+msgstr "Kirjaudu XMPP-tilille"
 
 #: src/qml/LoginPage.qml:75
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Yhteysasetukset"
 
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr "S'està connectant…"
+msgstr "Yhdistetään…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "Escanegeu un codi QR"
+msgstr "Lue QR-koodi"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr "Mostra una explicació"
+msgstr "Näytä selitys"
 
 #: src/qml/QrCodeOnboardingPage.qml:56
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
-msgstr "Continua sense codi QR"
+msgstr "Jatka QR-kooditta"
 
 #: src/qml/QrCodeOnboardingPage.qml:62
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
-msgstr ""
-"Escanegeu el codi QR des del dispositiu existent per transferir el vostre "
-"compte."
+msgstr "Lue QR-koodi olemassa olevalta laitteelta siirrettäväksi tilillesi."
 
 #: src/qml/QrCodeOnboardingPage.qml:103
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr "S'està connectant…"
+msgstr "Yhdistetään…"
 
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr "Este codi QR no és un codi QR vàlid d'inici de sessió."
+msgstr "Tämä ei ole kelvollinen kirjautumisen QR-koodi."
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "Escanegeu codis QR"
+msgstr "Lue QR-koodeja"
 
 #: src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
 msgid "Show explanation"
-msgstr "Mostra una explicació"
+msgstr "Näytä selitys"
 
 #: src/qml/QrCodePage.qml:69
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "Pas 1: Escanegeu el codi QR del vostre <b>contacte</b>"
+msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
 
 #: src/qml/QrCodePage.qml:94
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
-"Pas 2: Permeteu que el vostre contacte escanegi el <b>el vostre</b> codi QR"
+msgstr "Vaihe 2: Anna yhteystiedon lukea <b>sinun</b> QR-koodisi"
 
 #: src/qml/QrCodePage.qml:126
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2!"
-msgstr "S'ha afegit el contacte - Continueu amb el pas 2!"
+msgstr "Yhteystieto lisätty – jatka vaiheeseen 2!"
 
 #: src/qml/QrCodePage.qml:131
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact."
-msgstr "Este codi QR no conté cap contacte."
+msgstr "Tämä QR-koodi ei sisällä yhteystietoa."
 
 #: src/qml/QrCodePage.qml:173
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr "Afig un contacte…"
+msgstr "Lisätään yhteystietoa…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
-msgstr "Registra automàticament"
+msgstr "Rekisteröidy automaattisesti"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:106
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr ""
-"El proveïdor actualment no permet el registre a través d'esta aplicació."
+"Palveluntarjoaja ei toistaiseksi tue rekisteröitymistä tästä sovelluksesta."
 
 #: src/qml/registration/CustomFormView.qml:39
 msgctxt "CustomFormView|"
@@ -819,9 +798,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
-"El servidor ha solicitat més informació.\n"
-"No tot pot ser necessari.\n"
-"Si es mostra un CAPTCHA, s'ha d'introduir el text mostrat."
+"Palvelin on pyytänyt lisätietoa.\n"
+"Kaikkea ei ehkä vaadita.\n"
+"Jos näytetään CAPTCHA, näytetty teksti tulee syöttää."
 
 #: src/qml/registration/DisplayNameView.qml:39
 msgctxt "DisplayNameView|"
@@ -832,62 +811,61 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
-"El nom a mostrar és lo que voran els vostres contactes.\n"
-"En cas que no vulgueu utilisar cap nom a mostrar, podeu deixar este camp "
-"buit.\n"
-"L'ús d'un nom a mostrar pot permetre que els contactes nous vos reconeguin "
-"més fàcil pero també podria reduir la privadesa!"
+"Näyttönimi on se, minkä yhteystietosi näkevät.\n"
+"Ellei näyttönimeä halua käyttää, kentän voi jättää tyhjäksi.\n"
+"Näyttönimeä käyttämällä uudet yhteystiedot tunnistavat sinut nopeammin, "
+"mutta tietoturvasi voi heiketä!"
 
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr "Nom a mostrar"
+msgstr "Näyttönimi"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr "Solicitant al servidor…"
+msgstr "Kysellään palvelimelta…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
-msgstr "Registra manualment"
+msgstr "Rekisteröidy itse"
 
 #: src/qml/registration/ManualRegistrationPage.qml:195
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr "El proveïdor necessita una contrasenya més forta."
+msgstr "Palveluntarjoaja vaatii vahvemman salasanan."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr "El proveïdor no permet el registre a través d'esta aplicació."
+msgstr "Palveluntarjoaja ei tue rekisteröitymistä tästä sovelluksesta."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr ""
-"El proveïdor actualment no permet el registre a través d'esta aplicació."
+"Palveluntarjoaja ei toistaiseksi tue rekisteröitymistä tästä sovelluksesta."
 
 #: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
-msgstr "Pero podeu utilisar el registre web del proveïdor."
+msgstr "Voit kuitenkin käyttää palveluntarjoajan verkkorekisteröitymistä."
 
 #: src/qml/registration/ManualRegistrationPage.qml:246
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
-msgstr "S'ha seleccionat un proveïdor nou aleatòriament."
+msgstr "Palveluntarjoaja valittiin satunnaisesti."
 
 #: src/qml/registration/ManualRegistrationPage.qml:261
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr "El nom d'usuari ya està agafat."
+msgstr "Käyttäjätunnus on jo käytössä."
 
 #: src/qml/registration/ManualRegistrationPage.qml:265
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr "S'ha generat un nom d'usuari aleatori nou."
+msgstr "Luotiin uusi, satunnainen käyttäjätunnus."
 
 #: src/qml/registration/PasswordView.qml:43
 msgctxt "PasswordView|"
@@ -897,10 +875,9 @@ msgid ""
 "one is used.\n"
 "Don't use passwords you're already using somewhere else!"
 msgstr ""
-"La contrasenya s'utilisa per a iniciar la sessió al vostre compte.\n"
-"Si no introduïu cap contrasenya, s'utilisa la generada aleatòriament i que "
-"ya es mostra.\n"
-"No utiliseu contrasenyes que ya utiliseu en un atre lloc!"
+"Salasanaa käytetään tilille kirjautumiseen.\n"
+"Jollei salasanaa anneta, käytetään jo luotua ja näytettyä satunnaista.\n"
+"Älä käytä muualla jo käyttämääsi salasanaa!"
 
 #: src/qml/registration/ProviderView.qml:46
 msgctxt "ProviderView|"
@@ -908,103 +885,103 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
-"El proveïdor és on es troba el teu compte.\n"
-"Els proveïdors seleccionables són triats a mà per la nostra comunitat!"
+"Palveluntarjoaja on paikka, jossa tilisi sijaitsee.\n"
+"Yhteisö on käsin valinnut valittavissa olevat palveluntarjoajat!"
 
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr "Proveïdor"
+msgstr "Palveluntarjoaja"
 
 #: src/qml/registration/ProviderView.qml:101
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Yhteysasetukset"
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr "Només registre web:"
+msgstr "Vain verkkorekisteröityminen:"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr "No"
+msgstr "Ei"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr "Sí"
+msgstr "Kyllä"
 
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr "Ubicacions dels servidors:"
+msgstr "Palvelinsijainnit:"
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr "Idiomes:"
+msgstr "Kielet:"
 
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr "En línia des de:"
+msgstr "Verkossa alkaen:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr "Permet compartir els multimèdia fins a:"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr "Almagasena multimèdia compartida fins a:"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr "Obri el lloc web"
+msgstr "Avaa verkkosivu"
 
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr "Copia l'adreça del lloc web"
+msgstr "Kopioi verkkosivun osoite"
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr "Registra"
+msgstr "Rekisteröidy"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr "Registra"
+msgstr "Rekisteröidy"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
-msgstr "Genera un compte automàticament"
+msgstr "Luo uusi tili automaattisesti"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:52
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
-msgstr "Crea un compte manualment"
+msgstr "Luo tili itse"
 
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr "L'entrada CAPTCHA ha estat errònia"
+msgstr "CAPTCHA-syöte oli väärin"
 
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr "Falta informació requerida: "
+msgstr "Vaadittuja tietoja puuttuu:"
 
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr "Ha fallat el registre:"
+msgstr "Rekisteröityminen epäonnistui:"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -1014,11 +991,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
-"La vostra adreça de chat s'utilisa per xatejar amb vós, com la vostra adreça "
-"de correu electrònic s'utilisa per intercanviar missatges de correu "
-"electrònic.\n"
+"Keskusteluosoitetta käytetään kanssasi keskustelemiseen kuten "
+"sähköpostiosoitetta sähköpostiviesteihin.\n"
 "\n"
-"La vostra adreça de chat serà:"
+"Keskusteluosoitteesi on:"
 
 #: src/qml/registration/UsernameView.qml:43
 msgctxt "UsernameView|"
@@ -1029,24 +1005,24 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
-"El vostre nom d'usuari s'utilisa per a iniciar la sessió al vostre compte i "
-"per xatejar amb vós.\n"
-"Si no introduïu un nom d'usuari, s'utilisarà el generat aleatòriament i ya "
-"mostrat.\n"
-"L'ús d'un nom d'usuari propi pot permetre que siga més reconeixible, pero "
-"també pot reduir la vostra privadesa!"
+"Käyttäjätunnusta käytetään tilille kirjautumiseen ja kanssasi "
+"keskustelemiseen.\n"
+"Ellei tunnusta anna, käytetään satunnaisesti luotua, jo näytettyä tunnusta.\n"
+"Oman tunnuksen käyttäminen tekee siitä helpomman tunnistaa, mikä voi myös "
+"heikentää tietoturvaasi!"
 
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr "Nom d'usuari"
+msgstr "Käyttäjätunnus"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
-"Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori."
+"Anna kelvollinen käyttäjätunnus tai luo satunnainen jättämällä kenttä "
+"tyhjäksi."
 
 #: src/qml/registration/WebRegistrationView.qml:42
 msgctxt "WebRegistrationView|"
@@ -1054,69 +1030,68 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
-"El proveïdor seleccionat només proporciona el registre web. Després de crear "
-"un compte a través de la pàgina web, podeu iniciar la sessió mitjançant "
-"Kaidan."
+"Valittu palveluntarjoaja tarjoaa vain verkkorekisteröitymisen. Luotuasi "
+"tilin verkkosivulla voit kirjautua Kaidanista."
 
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr "Obri la pàgina web de registre"
+msgstr "Avaa rekisteröintisivu"
 
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr "Copia l'adreça de la pàgina web de registre"
+msgstr "Kopioi rekisteröintisivun osoite"
 
 #: src/qml/registration/WebRegistrationView.qml:60
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr "Inicieu la sessió amb el compte nou"
+msgstr "Kirjaudu uudelle tilille"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
-msgstr "Configura"
+msgstr "Aseta"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Register a new account"
-msgstr "Registreu un compte nou"
+msgstr "Rekisteröi uusi tili"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:52
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
-msgstr "Utilisa un compte existent"
+msgstr "Käytä olemassa olevaa tiliä"
 
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr "S'està connectant…"
+msgstr "Yhdistetään…"
 
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr "Fora de línia"
+msgstr "Ei verkossa"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
 msgid "Contacts"
-msgstr "Contactes"
+msgstr "Yhteystiedot"
 
 #: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
-msgstr "Afig un contacte nou"
+msgstr "Lisää uusi yhteystieto"
 
 #: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
-msgstr "Busca contactes"
+msgstr "Etsi yhteystietoja"
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
 msgid "Account Security"
-msgstr "Seguretat del compte"
+msgstr "Tilin tietoturva"
 
 #: src/qml/settings/AccountSecurity.qml:42
 msgctxt "AccountSecurity|"
@@ -1124,13 +1099,12 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password."
 msgstr ""
-"Permet afegir dispositius addicionals utilisant el codi QR d'inici de sessió "
-"pero mai mostra la contrasenya."
+"Anna lisätä laitteita kirjautumisen QR-koodilla mutta älä näytä salasanaa."
 
 #: src/qml/settings/AccountSecurity.qml:44
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr "No mostres la contrasenya"
+msgstr "Älä näytä salasanaa"
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1138,118 +1112,115 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password."
 msgstr ""
-"No es permet afegir dispositius addicionals utilisant el codi QR d'inici de "
-"sessió ni mostrar la contrasenya."
+"Älä anna lisätä laitteita kirjautumisen QR-koodilla äläkä näytä salasanaa."
 
 #: src/qml/settings/AccountSecurity.qml:51
 msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
-msgstr "No exposis la contrasenya de cap manera"
+msgstr "Älä mitenkään paljasta salasanaa"
 
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr "Canvia la contrasenya"
+msgstr "Vaihda salasana"
 
 #: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr "Contrasenya actual:"
+msgstr "Nykyinen salasana:"
 
 #: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr "Contrasenya nova:"
+msgstr "Uusi salasana:"
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
-msgstr "Contrasenya nova (repetició):"
+msgstr "Uusi salasana (uudelleen):"
 
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
-msgstr "Les contrasenyes noves no coincidixen."
+msgstr "Uudet salasanat eivät täsmää."
 
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
-msgstr "La contrasenya actual no és vàlida."
+msgstr "Nykyinen salasana on virheellinen."
 
 #: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
 msgid ""
 "After changing your password, you will need to reenter it on all your other "
 "devices."
-msgstr ""
-"Després de canviar la contrasenya, cal tornar a introduir-la en tots els "
-"atres dispositius."
+msgstr "Vaihdettuasi salasanan se täytyy antaa uudelleen muilla laitteilla."
 
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr "Canvia"
+msgstr "Vaihda"
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr "La contrasenya s'ha canviat correctament"
+msgstr "Salasanan vaihto onnistui"
 
 #: src/qml/settings/ChangePassword.qml:148
 #, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr "No s'ha pogut canviar la contrasenya: %1"
+msgstr "Salasanan vaihtaminen epäonnistui: %1"
 
 #: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Yhteysasetukset"
 
 #: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr "Canvia"
+msgstr "Muuta"
 
 #: src/qml/settings/ConnectionSettings.qml:84
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Peru"
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
 msgid "Connection settings could not be changed"
-msgstr "No es pot canviar la configuració de la connexió"
+msgstr "Yhteysasetuksia ei voitu muuttaa"
 
 #: src/qml/settings/ConnectionSettings.qml:107
 msgctxt "ConnectionSettings|"
 msgid "Connection settings changed"
-msgstr "S'ha canviat la configuració de la connexió"
+msgstr "Yhteysasetukset ovat muuttuneet"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr "Nom del servidor:"
+msgstr "Palvelinnimi:"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr "El nom del servidor no pot contindre espais en blanc"
+msgstr "Palvelinnimi ei saa sisältää sanavälejä"
 
 #: src/qml/settings/CustomConnectionSettings.qml:77
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
-msgstr "Port:"
+msgstr "Portti:"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:43
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose your password in any way"
-msgstr "No exposa la vostra contrasenya de cap manera"
+msgstr "Älä mitenkään paljasta salasanaa"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:46
 msgctxt "DisablePasswordDisplay|"
@@ -1261,22 +1232,22 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device."
 msgstr ""
-"La vostra contrasenya ya no es mostrarà com a text pla ni s'inclourà al codi "
-"QR d'inici de sessió.\n"
-"No podreu utilisar l'inici de sessió a través del codi QR sense tornar a "
-"introduir la contrasenya perquè esta acció no es pot desfer!\n"
-"Considereu almagasenar la contrasenya en un atre lloc si voleu utilisar el "
-"vostre compte en un atre dispositiu."
+"Salasanaasi ei enää näytetä tekstinä eikä sisällytetä kirjautumisen QR-"
+"koodiisi.\n"
+"Koska tätä toimintoa ei voi kumota, QR-koodilla ei enää voi kirjautua "
+"antamatta salasanaa uudelleen!\n"
+"Harkitse salasanan tallentamista jonnekin, jos haluat käyttää tiliä toiselta "
+"laitteelta."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose password in any way"
-msgstr "No exposis la contrasenya de cap manera"
+msgstr "Älä mitenkään paljasta salasanaa"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
-msgstr "No mostres la contrasenya"
+msgstr "Älä näytä salasanaa"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1288,22 +1259,21 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device without the login QR code."
 msgstr ""
-"La vostra contrasenya ya no es mostrarà pero encara s'exposarà a través del "
-"codi QR d'inici de sessió.\n"
-"No podreu tornar a vore la vostra contrasenya perquè esta acció no es pot "
-"desfer!\n"
-"Considereu almagasenar la contrasenya en un atre lloc si voleu utilisar el "
-"vostre compte en un atre dispositiu sense el codi QR d'inici de sessió."
+"Salasanaa ei enää näytetä, mutta se paljastetaan yhä kirjautumisen QR-"
+"koodina.\n"
+"Koska tätä toimintoa ei voi kumota, et näe salasanaasi enää! Harkitse "
+"salasanan tallentamista muualle, jos haluat käyttää tiliäsi toiselta "
+"laitteelta ilman kirjautumisen QR-koodia."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr "No mostres la contrasenya"
+msgstr "Älä näytä salasanaa"
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
 msgid "Remove account from this app"
-msgstr "Elimina el compte d'esta aplicació"
+msgstr "Poista tili tästä sovelluksesta"
 
 #: src/qml/settings/LocalAccountRemoval.qml:45
 msgctxt "LocalAccountRemoval|"
@@ -1312,131 +1282,131 @@ msgid ""
 "Your password will be deleted, make sure it is stored in a password manager "
 "or you know it!"
 msgstr ""
-"El vostre compte s'eliminarà d'esta aplicació.\n"
-"Se suprimirà la vostra contrasenya, assegureu-vos que està almagasenada en "
-"un gestor de contrasenyes o la sabeu!"
+"Tili poistetaan tästä sovelluksesta.\n"
+"Salasana poistetaan: varmista, että se on tallessa salasanahallinnassa tai "
+"muistissasi!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
-msgstr "Elimina"
+msgstr "Poista"
 
 #: src/qml/settings/MultimediaSettings.qml:44
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr "Configuració multimèdia"
+msgstr "Multimedia-asetukset"
 
 #: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr "Configura"
+msgstr "Asetukset"
 
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr "Captura d'imatges"
+msgstr "Kuvakaappaus"
 
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
-msgstr "Gravació d'àudio"
+msgstr "Ääninauhoitus"
 
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
-msgstr "Gravació de vídeo"
+msgstr "Videonauhoitus"
 
 #: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr "Càmera"
+msgstr "Kamera"
 
 #: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr "Entrada de l'àudio"
+msgstr "Äänisisääntulo"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr "Contenidor"
+msgstr "Säilö"
 
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr "Imatge"
+msgstr "Kuva"
 
 #: src/qml/settings/MultimediaSettings.qml:231
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr "Àudio"
+msgstr "Ääni"
 
 #: src/qml/settings/MultimediaSettings.qml:237
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr "Vídeo"
+msgstr "Video"
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr "Còdec"
+msgstr "Koodekki"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr "Resolució"
+msgstr "Tarkkuus"
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
 msgctxt "MultimediaSettings|"
 msgid "Quality"
-msgstr "Qualitat"
+msgstr "Laatu"
 
 #: src/qml/settings/MultimediaSettings.qml:374
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
-msgstr "Freqüència de mostratge"
+msgstr "Näytteenottotaajuus"
 
 #: src/qml/settings/MultimediaSettings.qml:484
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
-msgstr "Velocitat dels fotogrames"
+msgstr "Kuvanopeus"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Ready"
-msgstr "Preparat"
+msgstr "Valmis"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
-msgstr "S'està inicialitzant…"
+msgstr "Valmistellaan…"
 
 #: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr "No disponible"
+msgstr "Ei käytettävissä"
 
 #: src/qml/settings/MultimediaSettings.qml:587
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr "Gravació…"
+msgstr "Nauhoitetaan…"
 
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
 msgid "Paused"
-msgstr "En pausa"
+msgstr "Keskeytetty"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr "Elimina una contrasenya"
+msgstr "Poista salasana"
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1448,26 +1418,21 @@ msgid ""
 "scanning without entering your password because it is also removed from the "
 "QR code."
 msgstr ""
-"Només podeu decidir no mostrar la vostra contrasenya de <b>%1</b> com a text "
-"o eliminar-la completament de la transferència del compte. Si elimineu la "
-"contrasenya completament, no podreu utilisar la transferència del compte "
-"mitjançant l'escaneig sense introduir la contrasenya perquè també s'ha "
-"eliminat del codi QR."
 
 #: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
 msgid "Do not show password as text"
-msgstr "No mostres la contrasenya com a text"
+msgstr "Älä näytä salasanaa tekstinä"
 
 #: src/qml/settings/PasswordRemovalPage.qml:56
 msgctxt "PasswordRemovalPage|"
 msgid "Remove completely"
-msgstr "Elimina completament"
+msgstr "Poista kokonaan"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:42
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
-msgstr "Suprimix completament el compte"
+msgstr "Poista tili kokonaan"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
 msgctxt "RemoteAccountDeletion|"
@@ -1476,24 +1441,23 @@ msgid ""
 "the server.\n"
 "You will not be able to use your account again!"
 msgstr ""
-"El vostre compte se suprimirà completament, cosa que significa d'esta "
-"aplicació i del servidor.\n"
-"No podreu tornar a utilisar el vostre compte!"
+"Tili poistetaan kokonaan: sekä tästä sovelluksesta että palvelimelta.\n"
+"Tiliä ei voi tämän jälkeen enää käyttää!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
-msgstr "Suprimix"
+msgstr "Poista"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr "Configuració"
+msgstr "Asetukset"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr "Canvia la contrasenya"
+msgstr "Vaihda salasana"
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
@@ -1501,121 +1465,117 @@ msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
 "devices."
 msgstr ""
-"Canvia la contrasenya del compte. Haureu de tornar a introduir-la en els "
-"atres dispositius."
+"Vaihtaa tilin salasanan. Se täytyy syöttää uudelleen muilla laitteilla."
 
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr "Configuració multimèdia"
+msgstr "Multimedia-asetukset"
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
-msgstr "Configura els paràmetres de gravació de foto, vídeo i àudio"
+msgstr "Valokuva-, video- ja ääninauhoitusasetukset"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr "Configuració de la connexió"
+msgstr "Yhteysasetukset"
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
-msgstr "Configura el nom del servidor i el port al qual connectar"
+msgstr "Aseta palvelinnimi ja -portti, johon yhdistetään"
 
 #: src/qml/settings/SettingsContent.qml:67
 msgctxt "SettingsContent|"
 msgid "Account security"
-msgstr "Seguretat del compte"
+msgstr "Tilin tietoturva"
 
 #: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
-msgstr ""
-"Configura si este dispositiu es pot utilisar per a iniciar la sessió en un "
-"atre dispositiu"
+msgstr "Aseta, voiko tätä laitetta käyttää toiselle kirjautumiseen"
 
 #: src/qml/settings/SettingsContent.qml:73
 msgctxt "SettingsContent|"
 msgid "Remove account from Kaidan"
-msgstr "Elimina el compte de Kaidan"
+msgstr "Poista tili Kaidanista"
 
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
-msgstr "Elimina el compte d'esta aplicació"
+msgstr "Poista tili tästä sovelluksesta"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr "Suprimix el compte"
+msgstr "Poista tili"
 
 #: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
-msgstr "Suprimix el compte del servidor"
+msgstr "Poista tili palvelimelta"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
 msgid "Settings"
-msgstr "Configuració"
+msgstr "Asetukset"
 
 #: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr "Gaudiu de la comunicació lliure a tots els dispositius!"
+msgstr "Nauti vapaasta viestinnästä joka laitteella!"
 
 #: src/qml/StartPage.qml:84
 msgctxt "StartPage|"
 msgid "Let's start"
-msgstr "Comencem"
+msgstr "Aloitetaan"
 
 #: src/qml/UserProfilePage.qml:42
 msgctxt "UserProfilePage|"
 msgid "Profile"
-msgstr "Perfil"
+msgstr "Profiili"
 
 #: src/qml/UserProfilePage.qml:77
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
-msgstr "Canvia el nom un contacte"
+msgstr "Muuta yhteystiedon nimeä"
 
 #: src/qml/UserProfilePage.qml:87
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr "Mostra el codi QR"
+msgstr "Näytä QR-koodi"
 
 #: src/qml/UserProfilePage.qml:93
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
-msgstr "Elimina el contacte"
+msgstr "Poista yhteystieto"
 
 #: src/qml/UserProfilePage.qml:230
 msgctxt "UserProfilePage|"
 msgid "Online devices"
-msgstr "Dispositius connectats"
+msgstr "Verkossa olevat laitteet"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "El nom d'usuari o la contrasenya són incorrectes."
+msgstr "Virheellinen käyttäjätunnus tai salasana."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
+msgstr "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys."
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "S'ha produït un error en provar de connectar de forma segura."
+msgstr "Virhe yritettäessä salattua yhteyttä."
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr "El servidor no és compatible amb les connexions segures."
+msgstr "Palvelin ei tue salattuja yhteyksiä."
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
@@ -1623,23 +1583,22 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
-"o el vostre nom de servidor."
+"Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys ja palvelimen nimi."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
+msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "El servidor no admet el protocol d'autenticació."
+msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr "No s'ha pogut actualitzar la connexió."
+msgstr "Yhteyttä ei voitu virkistää."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -1647,91 +1606,89 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
-"No es permet l'accés a Internet. Comproveu la configuració d'accés a "
-"Internet del sistema."
+"Internetyhteyttä ei ole sallittu. Tarkista järjestelmän "
+"internetyhteysasetukset."
 
 #: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr "Este servidor no permet el registre."
+msgstr "Palvelin ei tue rekisteröitymistä."
 
 #: src/QmlUtils.cpp:228
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr "%1 està en línia"
+msgstr "%1 on verkossa"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr "%1 està escrivint…"
+msgstr "%1 kirjoittaa…"
 
 #: src/QmlUtils.cpp:232
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr "%1 ha parat d'escriure…"
+msgstr "%1 keskeytti kirjoittamisen"
 
 #: src/QrCodeGenerator.cpp:89
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "No s'ha pogut generar el codi QR: %1"
+msgstr "QR-koodin luonti epäonnistui: %1"
 
 #: src/RosterManager.cpp:130
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
+msgstr "Yhteystietoa ei voitu lisätä, koska yhteyttä ei ole."
 
 #: src/RosterManager.cpp:144
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
+msgstr "Yhteystietoa ei voitu poistaa, koska yhteyttä ei ole."
 
 #: src/RosterManager.cpp:157
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
-"No s'ha pogut canviar el nom del contacte, com a resultat de no estar "
-"connectat."
+msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
 #: src/UploadManager.cpp:72
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
-msgstr "No s'ha pogut enviar el fitxer perquè no hi ha connexió."
+msgstr "Viestiä ei voitu lähettää, koska yhteyttä ei ole."
 
 #: src/UploadManager.cpp:141
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "Viestiä ei voitu lähettää."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr "Nom"
+msgstr "Nimi"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr "Sobrenom"
+msgstr "Kutsumanimi"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "Quant a"
+msgstr "Tietoa"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "Correu-e"
+msgstr "Sähköposti"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr "Aniversari"
+msgstr "Syntymäpäivä"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr "Lloc web"
+msgstr "Sivusto"
