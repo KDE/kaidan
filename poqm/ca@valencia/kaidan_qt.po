@@ -48,7 +48,7 @@ msgstr "Ha fallat la baixada: %1"
 #: src/Kaidan.cpp:99
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr "En llínea"
+msgstr "En línia"
 
 #: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
@@ -58,7 +58,7 @@ msgstr "S'està connectant…"
 #: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr "Fora de llínea"
+msgstr "Fora de línia"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:165
@@ -137,7 +137,7 @@ msgstr "Ubicació"
 #: src/MediaUtils.cpp:258
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr "Image"
+msgstr "Imatge"
 
 #: src/MediaUtils.cpp:260
 msgctxt "MediaUtils|"
@@ -177,7 +177,7 @@ msgstr "Trieu un fitxer"
 #: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr "Trieu una image"
+msgstr "Trieu una imatge"
 
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
@@ -202,7 +202,7 @@ msgstr "Tots els fitxers"
 #: src/MediaUtils.cpp:349
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr "Imàgens"
+msgstr "Imatges"
 
 #: src/MediaUtils.cpp:351
 msgctxt "MediaUtils|"
@@ -233,7 +233,7 @@ msgstr "Espòiler"
 #: src/MessageHandler.cpp:256
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful."
-msgstr "La correcció del missatge no ha anat be."
+msgstr "La correcció del missatge no ha anat bé."
 
 #: src/MessageHandler.cpp:329
 msgctxt "MessageHandler|"
@@ -298,7 +298,7 @@ msgstr "Desconnectat"
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr "Proveïdor personalisat"
+msgstr "Proveïdor personalitzat"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -332,12 +332,12 @@ msgstr "Informa de problemes"
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr "Visualiseu el codi font en llínea"
+msgstr "Visualitzeu el codi font en línia"
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
-msgstr "Transfereix el compte a un atre dispositiu"
+msgstr "Transferix el compte a un altre dispositiu"
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
@@ -369,11 +369,11 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Escanegeu el codi QR o introduïu les credencials com a text en un atre "
+"Escanegeu el codi QR o introduïu les credencials com a text en un altre "
 "dispositiu per a iniciar-hi sessió.\n"
 "\n"
 "Atenció:\n"
-"No mostreu mai este codi QR a ningú més. Permetria un accés illimitat al "
+"No mostreu mai este codi QR a ningú més. Permetria un accés il·llimitat al "
 "vostre compte!"
 
 #: src/qml/AccountTransferPage.qml:107
@@ -415,7 +415,7 @@ msgstr "Silencia les notificacions"
 #: src/qml/ChatPage.qml:123
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr "Visualisa el perfil"
+msgstr "Visualitza el perfil"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
@@ -485,7 +485,7 @@ msgstr "Redacta un missatge"
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
@@ -515,7 +515,7 @@ msgstr "Introduïu una contrasenya vàlida"
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr "S'està inicialisant…"
+msgstr "S'està inicialitzant…"
 
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
@@ -538,12 +538,12 @@ msgstr "Gravació… %1"
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr "El format de càmara «%1» no està implementat."
+msgstr "El format de càmera «%1» no està implementat."
 
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr "No hi ha cap càmara disponible."
+msgstr "No hi ha cap càmera disponible."
 
 #: src/qml/elements/QrCodeScanner.qml:101
 msgctxt "QrCodeScanner|"
@@ -551,8 +551,8 @@ msgid ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 msgstr ""
-"La càmara està ocupada.\n"
-"Intenteu tancar les atres aplicacions que estan utilisant la càmara."
+"La càmera està ocupada.\n"
+"Intenteu tancar les altres aplicacions que estan utilitzant la càmera."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
@@ -563,7 +563,7 @@ msgstr "Afig un contacte nou"
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr ""
-"Açò també enviarà una solicitut per accedir a la presència del contacte."
+"Això també enviarà una sol·licitud per accedir a la presència del contacte."
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
 msgctxt "RosterAddContactSheet|"
@@ -593,7 +593,7 @@ msgstr "Digueu a la contrapart del chat qui sou."
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
@@ -616,7 +616,7 @@ msgstr ""
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
@@ -631,7 +631,7 @@ msgstr "Canvia el nom d'un contacte"
 #: src/qml/elements/RosterRenameContactSheet.qml:62
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
@@ -646,7 +646,7 @@ msgstr "Llegenda"
 #: src/qml/elements/SendMediaSheet.qml:118
 msgctxt "SendMediaSheet|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
@@ -656,7 +656,7 @@ msgstr "Envia"
 #: src/qml/elements/SubRequestAcceptSheet.qml:43
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
-msgstr "Solicitut de subscripció"
+msgstr "Sol·licitud de subscripció"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:52
 #, qt-format
@@ -665,7 +665,7 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
-"Heu rebut una solicitut de subscripció de <b>%1</b>. Si l'accepteu, el "
+"Heu rebut una sol·licitud de subscripció de <b>%1</b>. Si l'accepteu, el "
 "compte tindrà accés al vostre estat de presència."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:64
@@ -763,7 +763,7 @@ msgstr "S'està connectant…"
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr "Este codi QR no és un codi QR vàlit d'inici de sessió."
+msgstr "Este codi QR no és un codi QR vàlid d'inici de sessió."
 
 #: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
 msgctxt "QrCodePage|"
@@ -819,7 +819,7 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
-"El servidor ha solicitat més informació.\n"
+"El servidor ha sol·licitat més informació.\n"
 "No tot pot ser necessari.\n"
 "Si es mostra un CAPTCHA, s'ha d'introduir el text mostrat."
 
@@ -833,10 +833,10 @@ msgid ""
 "could decrease your privacy!"
 msgstr ""
 "El nom a mostrar és el que voran els vostres contactes.\n"
-"En cas que no vulgueu utilisar cap nom a mostrar, podeu deixar este camp "
+"En cas que no vulgueu utilitzar cap nom a mostrar, podeu deixar este camp "
 "buit.\n"
 "L'ús d'un nom a mostrar pot permetre que els contactes nous vos reconeguin "
-"més fàcil pero també podria reduir la privadesa!"
+"més fàcil però també podria reduir la privadesa!"
 
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
@@ -846,7 +846,7 @@ msgstr "Nom a mostrar"
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr "Solicitant al servidor…"
+msgstr "Sol·licitant al servidor…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
 msgctxt "ManualRegistrationPage|"
@@ -872,7 +872,7 @@ msgstr ""
 #: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
-msgstr "Pero podeu utilisar el registre web del proveïdor."
+msgstr "Però podeu utilitzar el registre web del proveïdor."
 
 #: src/qml/registration/ManualRegistrationPage.qml:246
 msgctxt "ManualRegistrationPage|"
@@ -882,7 +882,7 @@ msgstr "S'ha seleccionat un proveïdor nou aleatòriament."
 #: src/qml/registration/ManualRegistrationPage.qml:261
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr "El nom d'usuari ya està agafat."
+msgstr "El nom d'usuari ja està agafat."
 
 #: src/qml/registration/ManualRegistrationPage.qml:265
 msgctxt "ManualRegistrationPage|"
@@ -897,10 +897,10 @@ msgid ""
 "one is used.\n"
 "Don't use passwords you're already using somewhere else!"
 msgstr ""
-"La contrasenya s'utilisa per a iniciar la sessió al vostre compte.\n"
-"Si no introduïu cap contrasenya, s'utilisa la generada aleatòriament i que "
-"ya es mostra.\n"
-"No utiliseu contrasenyes que ya utiliseu en un atre lloc!"
+"La contrasenya s'utilitza per a iniciar la sessió al vostre compte.\n"
+"Si no introduïu cap contrasenya, s'utilitza la generada aleatòriament i que "
+"ja es mostra.\n"
+"No utilitzeu contrasenyes que ja utilitzeu en un altre lloc!"
 
 #: src/qml/registration/ProviderView.qml:46
 msgctxt "ProviderView|"
@@ -949,7 +949,7 @@ msgstr "Idiomes:"
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr "En llínea des de:"
+msgstr "En línia des de:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -959,7 +959,7 @@ msgstr "Permet compartir els multimèdia fins a:"
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr "Almagasena multimèdia compartida fins a:"
+msgstr "Emmagatzema multimèdia compartida fins a:"
 
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
@@ -1014,8 +1014,8 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
-"La vostra adreça de chat s'utilisa per xatejar amb vós, com la vostra adreça "
-"de correu electrònic s'utilisa per intercanviar missatges de correu "
+"La vostra adreça de chat s'utilitza per xatejar amb vós, com la vostra "
+"adreça de correu electrònic s'utilitza per intercanviar missatges de correu "
 "electrònic.\n"
 "\n"
 "La vostra adreça de chat serà:"
@@ -1029,11 +1029,11 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
-"El vostre nom d'usuari s'utilisa per a iniciar la sessió al vostre compte i "
+"El vostre nom d'usuari s'utilitza per a iniciar la sessió al vostre compte i "
 "per xatejar amb vós.\n"
-"Si no introduïu un nom d'usuari, s'utilisarà el generat aleatòriament i ya "
+"Si no introduïu un nom d'usuari, s'utilitzarà el generat aleatòriament i ja "
 "mostrat.\n"
-"L'ús d'un nom d'usuari propi pot permetre que siga més reconeixible, pero "
+"L'ús d'un nom d'usuari propi pot permetre que siga més reconeixible, però "
 "també pot reduir la vostra privadesa!"
 
 #: src/qml/registration/UsernameView.qml:60
@@ -1046,7 +1046,7 @@ msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
-"Introduïu un nom d'usuari vàlit o deixeu el camp buit per a un d'aleatori."
+"Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori."
 
 #: src/qml/registration/WebRegistrationView.qml:42
 msgctxt "WebRegistrationView|"
@@ -1086,7 +1086,7 @@ msgstr "Registreu un compte nou"
 #: src/qml/RegistrationLoginDecisionPage.qml:52
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
-msgstr "Utilisa un compte existent"
+msgstr "Utilitza un compte existent"
 
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
@@ -1096,7 +1096,7 @@ msgstr "S'està connectant…"
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr "Fora de llínea"
+msgstr "Fora de línia"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
@@ -1124,8 +1124,8 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password."
 msgstr ""
-"Permet afegir dispositius adicionals utilisant el codi QR d'inici de sessió "
-"pero mai mostra la contrasenya."
+"Permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
+"sessió però mai mostra la contrasenya."
 
 #: src/qml/settings/AccountSecurity.qml:44
 msgctxt "AccountSecurity|"
@@ -1138,7 +1138,7 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password."
 msgstr ""
-"No es permet afegir dispositius adicionals utilisant el codi QR d'inici de "
+"No es permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió ni mostrar la contrasenya."
 
 #: src/qml/settings/AccountSecurity.qml:51
@@ -1183,12 +1183,12 @@ msgid ""
 "devices."
 msgstr ""
 "Després de canviar la contrasenya, cal tornar a introduir-la en tots els "
-"atres dispositius."
+"altres dispositius."
 
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
@@ -1219,7 +1219,7 @@ msgstr "Canvia"
 #: src/qml/settings/ConnectionSettings.qml:84
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr "Cancela"
+msgstr "Cancel·la"
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1261,12 +1261,12 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device."
 msgstr ""
-"La vostra contrasenya ya no es mostrarà com a text pla ni s'inclourà al codi "
+"La vostra contrasenya ja no es mostrarà com a text pla ni s'inclourà al codi "
 "QR d'inici de sessió.\n"
-"No podreu utilisar l'inici de sessió a través del codi QR sense tornar a "
+"No podreu utilitzar l'inici de sessió a través del codi QR sense tornar a "
 "introduir la contrasenya perquè esta acció no es pot desfer!\n"
-"Considereu almagasenar la contrasenya en un atre lloc si voleu utilisar el "
-"vostre compte en un atre dispositiu."
+"Considereu emmagatzemar la contrasenya en un altre lloc si voleu utilitzar "
+"el vostre compte en un altre dispositiu."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
@@ -1288,12 +1288,12 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device without the login QR code."
 msgstr ""
-"La vostra contrasenya ya no es mostrarà pero encara s'exposarà a través del "
+"La vostra contrasenya ja no es mostrarà però encara s'exposarà a través del "
 "codi QR d'inici de sessió.\n"
 "No podreu tornar a vore la vostra contrasenya perquè esta acció no es pot "
 "desfer!\n"
-"Considereu almagasenar la contrasenya en un atre lloc si voleu utilisar el "
-"vostre compte en un atre dispositiu sense el codi QR d'inici de sessió."
+"Considereu emmagatzemar la contrasenya en un altre lloc si voleu utilitzar "
+"el vostre compte en un altre dispositiu sense el codi QR d'inici de sessió."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1313,7 +1313,7 @@ msgid ""
 "or you know it!"
 msgstr ""
 "El vostre compte s'eliminarà d'esta aplicació.\n"
-"Se suprimirà la vostra contrasenya, assegureu-vos que està almagasenada en "
+"Se suprimirà la vostra contrasenya, assegureu-vos que està emmagatzemada en "
 "un gestor de contrasenyes o la sabeu!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
@@ -1334,7 +1334,7 @@ msgstr "Configura"
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr "Captura d'imàgens"
+msgstr "Captura d'imatges"
 
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
@@ -1349,7 +1349,7 @@ msgstr "Gravació de vídeo"
 #: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr "Càmara"
+msgstr "Càmera"
 
 #: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
@@ -1364,7 +1364,7 @@ msgstr "Contenidor"
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr "Image"
+msgstr "Imatge"
 
 #: src/qml/settings/MultimediaSettings.qml:231
 msgctxt "MultimediaSettings|"
@@ -1416,7 +1416,7 @@ msgstr "Preparat"
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
-msgstr "S'està inicialisant…"
+msgstr "S'està inicialitzant…"
 
 #: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
@@ -1450,7 +1450,7 @@ msgid ""
 msgstr ""
 "Només podeu decidir no mostrar la vostra contrasenya de <b>%1</b> com a text "
 "o eliminar-la completament de la transferència del compte. Si elimineu la "
-"contrasenya completament, no podreu utilisar la transferència del compte "
+"contrasenya completament, no podreu utilitzar la transferència del compte "
 "mitjançant l'escaneig sense introduir la contrasenya perquè també s'ha "
 "eliminat del codi QR."
 
@@ -1478,7 +1478,7 @@ msgid ""
 msgstr ""
 "El vostre compte se suprimirà completament, cosa que significa d'esta "
 "aplicació i del servidor.\n"
-"No podreu tornar a utilisar el vostre compte!"
+"No podreu tornar a utilitzar el vostre compte!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
@@ -1502,7 +1502,7 @@ msgid ""
 "devices."
 msgstr ""
 "Canvia la contrasenya del compte. Haureu de tornar a introduir-la en els "
-"atres dispositius."
+"altres dispositius."
 
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
@@ -1533,8 +1533,8 @@ msgstr "Seguretat del compte"
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
 msgstr ""
-"Configura si este dispositiu es pot utilisar per a iniciar la sessió en un "
-"atre dispositiu"
+"Configura si este dispositiu es pot utilitzar per a iniciar la sessió en un "
+"altre dispositiu"
 
 #: src/qml/settings/SettingsContent.qml:73
 msgctxt "SettingsContent|"
@@ -1629,7 +1629,7 @@ msgstr ""
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr "El servidor està fora de llínea o bloquejat per un tallafoc."
+msgstr "El servidor està fora de línia o bloquejat per un tallafoc."
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
@@ -1639,7 +1639,7 @@ msgstr "El servidor no admet el protocol d'autenticació."
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr "No s'ha pogut actualisar la connexió."
+msgstr "No s'ha pogut actualitzar la connexió."
 
 #: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
@@ -1659,7 +1659,7 @@ msgstr "Este servidor no permet el registre."
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr "%1 està en llínea"
+msgstr "%1 està en línia"
 
 #: src/QmlUtils.cpp:230
 #, qt-format
