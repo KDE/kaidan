@@ -1,9 +1,9 @@
 {
-  "template": "custom",
+  "builder": "custom",
   "build_dir": "./bin/ubuntu-touch/",
   "build": "../../utils/build-linux-click.sh",
   "kill": "kaidan",
-  "dependencies_build": [
+  "dependencies_host": [
     "ninja-build",
     "extra-cmake-modules"
   ],
