@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-03-31 09:06+0200\n"
+"PO-Revision-Date: 2022-06-19 08:52+0200\n"
 "Last-Translator: Martin Srebotnjak <miles@filmsi.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: src/ClientWorker.cpp:269
 #, qt-format
@@ -412,18 +412,14 @@ msgid "View profile"
 msgstr "Poglej profil"
 
 #: src/qml/ChatPage.qml:183
-#, fuzzy
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr "Pošlji sporočilo spoiler"
+msgstr "Pošlji sporočilo z razkritjem"
 
 #: src/qml/elements/ChatMessage.qml:143
-#, fuzzy
-#| msgctxt "Message|"
-#| msgid "Spoiler"
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr "Spoiler"
+msgstr "Razkritje"
 
 #: src/qml/elements/ChatMessage.qml:200
 msgctxt "ChatMessage|"
@@ -466,16 +462,14 @@ msgid "Search down"
 msgstr "Išči navzdol"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr "Namig za spoiler"
+msgstr "Namig o razkritju"
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr "Zapri polje namiga za spoiler"
+msgstr "Zapri polje namiga o razkritju"
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
 msgctxt "ChatPageSendingPane|"
