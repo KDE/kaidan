@@ -37,11 +37,11 @@
 #include <QXmppMamManager.h>
 #include <QXmppMessageReceiptManager.h>
 #include <QXmppOmemoManager.h>
-#include <QXmppOmemoMemoryStorage.h>
 
 #include "AccountManager.h"
 #include "FutureUtils.h"
 #include "MessageModel.h"
+#include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
 
@@ -50,9 +50,9 @@ using namespace std::chrono_literals;
 // interval to enable session building for new devices
 constexpr auto SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL = 500ms;
 
-OmemoManager::OmemoManager(QXmppClient *client, QObject *parent)
+OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *parent)
 	: QObject(parent),
-	  m_omemoStorage(new QXmppOmemoMemoryStorage),
+	  m_omemoStorage(new OmemoDb(database, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
 	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [=](const QMultiHash<QString, QByteArray> &modifiedKeys) {
@@ -82,14 +82,25 @@ OmemoManager::OmemoManager(QXmppClient *client, QObject *parent)
 
 OmemoManager::~OmemoManager() = default;
 
+void OmemoManager::setAccountJid(const QString &accountJid)
+{
+	m_omemoStorage->setAccountJid(accountJid);
+}
+
 QFuture<void> OmemoManager::load()
 {
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
-	auto future = m_manager->load();
-	await(future, this, [=](bool isLoaded) mutable {
-		m_isLoaded = isLoaded;
-		interface.reportFinished();
+	auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
+	await(future, this, [=]() mutable {
+		auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % QSysInfo::prettyProductName());
+		await(future, this, [=](bool) mutable {
+			auto future = m_manager->load();
+			await(future, this, [=](bool isLoaded) mutable {
+				m_isLoaded = isLoaded;
+				interface.reportFinished();
+			});
+		});
 	});
 
 	return interface.future();

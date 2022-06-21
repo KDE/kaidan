@@ -217,7 +217,7 @@ void Kaidan::initializeClientWorker(bool enableLogging)
 	m_cltThrd = new QThread();
 	m_cltThrd->setObjectName("XmppClient");
 
-	m_client = new ClientWorker(m_caches, enableLogging);
+	m_client = new ClientWorker(m_caches, m_database, enableLogging);
 	m_client->moveToThread(m_cltThrd);
 
 	connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);

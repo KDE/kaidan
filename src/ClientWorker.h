@@ -41,6 +41,7 @@
 class AccountManager;
 class AtmManager;
 class AvatarFileStorage;
+class Database;
 class DiscoveryManager;
 class DownloadManager;
 class LogHandler;
@@ -114,7 +115,7 @@ public:
 	 * @param enableLogging If logging of the XMPP stream should be done.
 	 * @param parent Optional QObject-based parent.
 	 */
-	ClientWorker(Caches *caches, bool enableLogging, QObject *parent = nullptr);
+	ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
 
 	RegistrationManager *registrationManager() const
 	{

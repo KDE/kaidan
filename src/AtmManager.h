@@ -35,18 +35,28 @@
 // Qt
 #include <QObject>
 
+class Database;
 class QXmppClient;
 class QXmppAtmManager;
-class QXmppAtmTrustStorage;
 class QXmppUri;
+class TrustDb;
 
 class AtmManager : public QObject
 {
 	Q_OBJECT
 
 public:
-	AtmManager(QXmppClient *client, QObject *parent = nullptr);
+	AtmManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
 	~AtmManager();
+
+
+	/**
+	 * Sets the JID of the current account used to store the corresponding data
+	 * for a specific account.
+	 *
+	 * @param accountJid bare JID of the current account
+	 */
+	void setAccountJid(const QString &accountJid);
 
 	/**
 	 * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
@@ -57,6 +67,6 @@ public:
 	void makeTrustDecisions(const QXmppUri &uri);
 
 private:
-	std::unique_ptr<QXmppAtmTrustStorage> m_trustStorage;
+	std::unique_ptr<TrustDb> m_trustStorage;
 	QXmppAtmManager *const m_manager;
 };

@@ -31,19 +31,25 @@
 #include "AtmManager.h"
 
 #include <QXmppAtmManager.h>
-#include <QXmppAtmTrustMemoryStorage.h>
 #include <QXmppClient.h>
 
 #include "qxmpp-exts/QXmppUri.h"
 
-AtmManager::AtmManager(QXmppClient *client, QObject *parent)
+#include "TrustDb.h"
+
+AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
 	: QObject(parent),
-	  m_trustStorage(new QXmppAtmTrustMemoryStorage),
+	  m_trustStorage(new TrustDb(database, {}, this)),
 	  m_manager(client->addNewExtension<QXmppAtmManager>(m_trustStorage.get()))
 {
 }
 
 AtmManager::~AtmManager() = default;
+
+void AtmManager::setAccountJid(const QString &accountJid)
+{
+	m_trustStorage->setAccountJid(accountJid);
+}
 
 void AtmManager::makeTrustDecisions(const QXmppUri &uri)
 {

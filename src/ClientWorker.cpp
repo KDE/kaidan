@@ -76,7 +76,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	rosterModel->setMessageModel(msgModel);
 }
 
-ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
+ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject* parent)
 	: QObject(parent),
 	  m_caches(caches),
 	  m_client(new QXmppClient(this)),
@@ -91,8 +91,8 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
 	m_rosterManager = new RosterManager(this, m_client, this);
 	m_messageHandler = new MessageHandler(this, m_client, this);
-	m_atmManager = new AtmManager(m_client, this);
-	m_omemoManager = new OmemoManager(m_client, this);
+	m_atmManager = new AtmManager(m_client, database, this);
+	m_omemoManager = new OmemoManager(m_client, database, this);
 	m_discoveryManager = new DiscoveryManager(m_client, this);
 	m_uploadManager = new UploadManager(m_client, m_rosterManager, this);
 	m_downloadManager = new DownloadManager(caches->transferCache, this);
@@ -155,6 +155,10 @@ void ClientWorker::finishTask()
 
 void ClientWorker::logIn()
 {
+	const auto jid = AccountManager::instance()->jid();
+	m_atmManager->setAccountJid(jid);
+	m_omemoManager->setAccountJid(jid);
+
 	await(m_omemoManager->load(), this, [this]() {
 		if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
 			// Store the latest online state which is restored when opening Kaidan again after closing.

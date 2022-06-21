@@ -35,17 +35,26 @@
 
 #include "QXmppTrustLevel.h"
 
+class Database;
+class OmemoDb;
 class QXmppClient;
 class QXmppOmemoManager;
-class QXmppOmemoStorage;
 
 class OmemoManager : public QObject
 {
 	Q_OBJECT
 
 public:
-	OmemoManager(QXmppClient *client, QObject *parent = nullptr);
+	OmemoManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
 	~OmemoManager();
+
+	/**
+	 * Sets the JID of the current account used to store the corresponding data for a specific
+	 * account.
+	 *
+	 * @param accountJid bare JID of the current account
+	 */
+	void setAccountJid(const QString &accountJid);
 
 	QFuture<void> load();
 	QFuture<void> setUp();
@@ -72,7 +81,7 @@ private:
 	void retrieveDevices(const QList<QString> &jids);
 	void emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices);
 
-	std::unique_ptr<QXmppOmemoStorage> m_omemoStorage;
+	std::unique_ptr<OmemoDb> m_omemoStorage;
 	QXmppOmemoManager *const m_manager;
 
 	bool m_isLoaded = false;
