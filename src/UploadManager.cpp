@@ -39,6 +39,7 @@
 // Kaidan
 #include "Kaidan.h"
 #include "MediaUtils.h"
+#include "MessageDb.h"
 #include "MessageModel.h"
 #include "RosterManager.h"
 #include "ServerFeaturesCache.h"
@@ -100,7 +101,7 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 
 	// cache message and upload
 	emit Kaidan::instance()->transferCache()->addJobRequested(msgId, upload->bytesTotal());
-	emit MessageModel::instance()->addMessageRequested(msg, MessageOrigin::UserInput);
+	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	m_messages[upload->id()] = std::move(msg);
 
 	connect(upload, &QXmppHttpUpload::bytesSentChanged, this, [=] () {
@@ -120,7 +121,7 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 	                     ? oobUrl
 	                     : originalMsg.body() + "\n" + oobUrl;
 
-	emit MessageModel::instance()->updateMessageRequested(originalMsg.id(), [=] (Message &msg) {
+	MessageDb::instance()->updateMessage(originalMsg.id(), [=] (Message &msg) {
 		msg.setOutOfBandUrl(oobUrl);
 	});
 
@@ -133,13 +134,13 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 
 	bool success = m_client->sendPacket(m);
 	if (success) {
-		emit MessageModel::instance()->updateMessageRequested(originalMsg.id(), [](Message &msg) {
+		MessageDb::instance()->updateMessage(originalMsg.id(), [](Message &msg) {
 			msg.setDeliveryState(Enums::DeliveryState::Sent);
 			msg.setErrorText({});
 		});
 	} else {
 		emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
-		emit MessageModel::instance()->updateMessageRequested(originalMsg.id(), [](Message &msg) {
+		MessageDb::instance()->updateMessage(originalMsg.id(), [](Message &msg) {
 			msg.setDeliveryState(Enums::DeliveryState::Error);
 			msg.setErrorText(QStringLiteral("Message could not be sent."));
 		});

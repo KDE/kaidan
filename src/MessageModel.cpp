@@ -114,11 +114,9 @@ MessageModel::MessageModel(QObject *parent)
 
 	// addMessage requests are forwarded to the MessageDb, are deduplicated there and
 	// added if MessageDb::messageAdded is emitted
-	connect(this, &MessageModel::addMessageRequested, MessageDb::instance(), &MessageDb::addMessage);
 	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
 
-	connect(this, &MessageModel::updateMessageRequested,
-	        this, &MessageModel::updateMessage);
+	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::updateMessage);
 	connect(this, &MessageModel::handleChatStateRequested,
 		this, &MessageModel::handleChatState);
 
@@ -459,8 +457,6 @@ void MessageModel::updateMessage(const QString &id,
 			break;
 		}
 	}
-
-	MessageDb::instance()->updateMessage(id, updateMsg);
 }
 
 void MessageModel::handleMessage(Message msg, MessageOrigin origin)

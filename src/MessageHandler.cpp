@@ -75,7 +75,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 
 	connect(&m_receiptManager, &QXmppMessageReceiptManager::messageDelivered,
 		this, [=](const QString &, const QString &id) {
-		emit MessageModel::instance()->updateMessageRequested(id, [](Message &msg) {
+		MessageDb::instance()->updateMessage(id, [](Message &msg) {
 			msg.setDeliveryState(Enums::DeliveryState::Delivered);
 			msg.setErrorText({});
 		});
@@ -150,7 +150,7 @@ void MessageHandler::handleLastMessageStampFetched(const QDateTime &stamp)
 void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin)
 {
 	if (msg.type() == QXmppMessage::Error) {
-		emit MessageModel::instance()->updateMessageRequested(msg.id(), [errorText { msg.error().text() }](Message &msg) {
+		MessageDb::instance()->updateMessage(msg.id(), [errorText { msg.error().text() }](Message &msg) {
 			msg.setDeliveryState(Enums::DeliveryState::Error);
 			msg.setErrorText(errorText);
 		});
@@ -197,11 +197,11 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	// save the message to the database
 	// in case of message correction, replace old message
 	if (msg.replaceId().isEmpty()) {
-		emit MessageModel::instance()->addMessageRequested(message, origin);
+		MessageDb::instance()->addMessage(message, origin);
 	} else {
 		message.setIsEdited(true);
 		message.setId(QString());
-		emit MessageModel::instance()->updateMessageRequested(msg.replaceId(), [=](Message &m) {
+		MessageDb::instance()->updateMessage(msg.replaceId(), [=](Message &m) {
 			// replace completely
 			m = message;
 		});
@@ -234,7 +234,7 @@ void MessageHandler::sendMessage(const QString& toJid,
 			break;
 	}
 
-	emit MessageModel::instance()->addMessageRequested(msg, MessageOrigin::UserInput);
+	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	sendPendingMessage(msg);
 }
 
@@ -258,7 +258,7 @@ void MessageHandler::sendCorrectedMessage(const Message &msg)
 		deliveryState = Enums::DeliveryState::Error;
 	}
 
-	emit MessageModel::instance()->updateMessageRequested(msg.id(), [=](Message &localMessage) {
+	MessageDb::instance()->updateMessage(msg.id(), [=](Message &localMessage) {
 		localMessage.setDeliveryState(deliveryState);
 		localMessage.setErrorText(errorText);
 	});
@@ -312,7 +312,7 @@ void MessageHandler::sendPendingMessage(const Message &message)
 		}
 
 		if (success) {
-			emit MessageModel::instance()->updateMessageRequested(message.id(), [](Message &msg) {
+			MessageDb::instance()->updateMessage(message.id(), [](Message &msg) {
 				msg.setDeliveryState(Enums::DeliveryState::Sent);
 				msg.setErrorText({});
 			});
@@ -327,7 +327,7 @@ void MessageHandler::sendPendingMessage(const Message &message)
 			// translation work in the UI, the tr() call of the passive
 			// notification must contain exactly the same string.
 			emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
-			emit MessageModel::instance()->updateMessageRequested(message.id(), [](Message &msg) {
+			MessageDb::instance()->updateMessage(message.id(), [](Message &msg) {
 				msg.setDeliveryState(Enums::DeliveryState::Error);
 				msg.setErrorText(QStringLiteral("Message could not be sent."));
 			});

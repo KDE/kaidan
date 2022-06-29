@@ -177,9 +177,6 @@ signals:
 	void currentChatJidChanged(const QString &currentChatJid);
 	void mamLoadingChanged();
 
-	void addMessageRequested(const Message &message, MessageOrigin origin);
-	void updateMessageRequested(const QString &id,
-	                            const std::function<void (Message &)> &updateMsg);
 	void pendingMessagesFetched(const QVector<Message> &messages);
 	void sendCorrectedMessageRequested(const Message &msg);
 	void chatStateChanged();

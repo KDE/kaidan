@@ -36,6 +36,7 @@
 #include <QStandardPaths>
 // Kaidan
 #include "Kaidan.h"
+#include "MessageDb.h"
 #include "MessageModel.h"
 #include "TransferCache.h"
 
@@ -71,7 +72,7 @@ void DownloadManager::startDownload(const QString &msgId, const QString &url)
 
 	connect(dl, &DownloadJob::finished, this, [=]() {
 		const QString &mediaLocation = dl->downloadLocation();
-		emit MessageModel::instance()->updateMessageRequested(msgId, [=](Message &msg) {
+		MessageDb::instance()->updateMessage(msgId, [=](Message &msg) {
 			msg.setMediaLocation(mediaLocation);
 		});
 

@@ -316,6 +316,8 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
                                        const std::function<void (Message &)> &updateMsg)
 {
 	return run([this, id, updateMsg]() {
+		emit messageUpdated(id, updateMsg);
+
 		// load current message item from db
 		auto query = createQuery();
 		execQuery(
