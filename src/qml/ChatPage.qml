@@ -67,6 +67,8 @@ ChatPageBase {
 
 	property alias sendMediaSheet: sendMediaSheet
 	property alias newMediaSheet: newMediaSheet
+	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
+	property alias messageReactionSenderSheet: messageReactionSenderSheet
 
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
@@ -174,6 +176,14 @@ ChatPageBase {
 		composition: sendingPane.composition
 	}
 
+	MessageReactionEmojiPicker {
+		id: messageReactionEmojiPicker
+	}
+
+	MessageReactionSenderSheet {
+		id: messageReactionSenderSheet
+	}
+
 	// View containing the messages
 	ListView {
 		id: messageListView
@@ -266,6 +276,8 @@ ChatPageBase {
 		}
 
 		delegate: ChatMessage {
+			reactionEmojiPicker: root.messageReactionEmojiPicker
+			reactionSenderSheet: root.messageReactionSenderSheet
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.sender
@@ -287,6 +299,7 @@ ChatPageBase {
 			deliveryStateName: model.deliveryStateName
 			deliveryStateIcon: model.deliveryStateIcon
 			files: model.files
+			reactions: model.reactions
 
 			onMessageEditRequested: {
 				messageToCorrect = id

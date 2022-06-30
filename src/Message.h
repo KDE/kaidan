@@ -135,6 +135,14 @@ private:
 	[[nodiscard]] QString fileId() const { return QString::number(id); }
 };
 
+struct MessageReaction
+{
+	QDateTime latestTimestamp;
+	QVector<QString> emojis;
+
+	bool operator==(const MessageReaction &other) const;
+};
+
 /**
  * @brief This class is used to load messages from the database and use them in
  * the @c MessageModel. The class inherits from @c QXmppMessage and most
@@ -168,6 +176,8 @@ public:
 	std::optional<qint64> fileGroupId;
 	QVector<File> files;
 	bool receiptRequested = false;
+	// JIDs of senders mapped to their reactions
+	QMap<QString, MessageReaction> reactions;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
 	// ID of this message's sender's public long-term end-to-end encryption key.

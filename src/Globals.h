@@ -64,6 +64,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_FILE_HASHES "file_hashes"
 #define DB_TABLE_FILE_HTTP_SOURCES "file_http_sources"
 #define DB_TABLE_FILE_ENCRYPTED_SOURCES "file_encrypted_sources"
+#define DB_TABLE_MESSAGE_REACTIONS "messageReactions"
 #define DB_TABLE_TRUST_SECURITY_POLICIES "trust_security_policies"
 #define DB_TABLE_TRUST_OWN_KEYS "trust_own_keys"
 #define DB_TABLE_TRUST_KEYS "trust_keys"

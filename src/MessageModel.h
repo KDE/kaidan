@@ -98,6 +98,7 @@ public:
 		DeliveryStateIcon,
 		DeliveryStateName,
 		Files,
+		Reactions
 	};
 	Q_ENUM(MessageRoles)
 
@@ -149,8 +150,11 @@ public:
 	Q_INVOKABLE void handleMessageRead(int readMessageIndex);
 	Q_INVOKABLE int firstUnreadContactMessageIndex();
 	void updateLastReadOwnMessageId();
-
 	Q_INVOKABLE void markMessageAsFirstUnread(int index);
+
+	Q_INVOKABLE void addMessageReaction(const QString &messageId, const QString &emoji);
+	Q_INVOKABLE void removeMessageReaction(const QString &messageId, const QString &emoji);
+
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
 
 	/**

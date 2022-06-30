@@ -59,6 +59,7 @@ Kirigami.ApplicationWindow {
 	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 1.5
 
 	readonly property int largeButtonWidth: Kirigami.Units.gridUnit * 25
+	readonly property int smallButtonWidth: Kirigami.Theme.defaultFont.pixelSize * 2.9
 
 	// This is an alias for use in settings ONLY
 	// it is only used on mobile, on desktop another item overrides the id "stack"

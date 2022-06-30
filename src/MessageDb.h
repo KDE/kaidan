@@ -174,6 +174,8 @@ private:
 	QVector<HttpSource> _fetchHttpSource(qint64 fileId);
 	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
+	void _fetchReactions(QVector<Message> &messages);
+
 	/**
 	 * Checks whether a message already exists in the database
 	 */

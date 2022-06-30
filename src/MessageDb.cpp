@@ -214,6 +214,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		execQuery(query);
 
 		auto messages = _fetchMessagesFromQuery(query);
+		_fetchReactions(messages);
 
 		emit messagesFetched(messages);
 		return messages;
@@ -249,6 +250,7 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilId(const QString &accoun
 		execQuery(query);
 
 		auto messages = _fetchMessagesFromQuery(query);
+		_fetchReactions(messages);
 
 		emit messagesFetched(messages);
 		return messages;
@@ -456,18 +458,65 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 		);
 
 		auto msgs = _fetchMessagesFromQuery(query);
+		_fetchReactions(msgs);
 
 		// update loaded item
 		if (!msgs.isEmpty()) {
-			Message msg = msgs.first();
-			updateMsg(msg);
+			const auto &oldMessage = msgs.first();
+			Message newMessage = oldMessage;
+			updateMsg(newMessage);
 
-			// replace old message with updated one, if message has changed
-			if (msgs.first() != msg) {
-				// create an SQL record with only the differences
-				if (auto rec = createUpdateRecord(msgs.first(), msg); rec.count()) {
+			// Replace the old message's values with the updated ones if the message has changed.
+			if (oldMessage != newMessage) {
+				const auto &oldReactions = oldMessage.reactions;
+				if (const auto &newReactions = newMessage.reactions; oldReactions != newReactions) {
+					// Remove old reactions.
+					for (auto itr = oldReactions.begin(); itr != oldReactions.end(); ++itr) {
+						const auto &senderJid = itr.key();
+						const auto reaction = itr.value();
+
+						for (const auto &emoji : reaction.emojis) {
+							if (!newReactions.value(senderJid).emojis.contains(emoji)) {
+								execQuery(
+									query,
+									"DELETE FROM " DB_TABLE_MESSAGE_REACTIONS " "
+									"WHERE messageSender = :messageSender AND messageRecipient = :messageRecipient AND messageId = :messageId AND senderJid = :senderJid AND emoji = :emoji",
+									{ { u":messageSender", oldMessage.from },
+									  { u":messageRecipient", oldMessage.to },
+									  { u":messageId", oldMessage.id },
+									  { u":senderJid", senderJid },
+									  { u":emoji", emoji } }
+								);
+							}
+						}
+					}
+
+					// Add new reactions.
+					for (auto itr = newReactions.begin(); itr != newReactions.end(); ++itr) {
+						const auto &senderJid = itr.key();
+						const auto reaction = itr.value();
+
+						for (const auto &emoji : reaction.emojis) {
+							if (!oldReactions.value(senderJid).emojis.contains(emoji)) {
+								execQuery(
+									query,
+									"INSERT INTO " DB_TABLE_MESSAGE_REACTIONS " "
+									"(messageSender, messageRecipient, messageId, senderJid, timestamp, emoji) "
+									"VALUES (:messageSender, :messageRecipient, :messageId, :senderJid, :timestamp, :emoji)",
+									{ { u":messageSender", oldMessage.from },
+									  { u":messageRecipient", oldMessage.to },
+									  { u":messageId", oldMessage.id },
+									  { u":senderJid", senderJid },
+									  { u":timestamp", reaction.latestTimestamp },
+									  { u":emoji", emoji }}
+								);
+							}
+						}
+					}
+				} else if (auto rec = createUpdateRecord(oldMessage, newMessage); rec.count()) {
 					auto &driver = sqlDriver();
 
+					// Create an SQL record with only the differences.
 					execQuery(
 						query,
 						driver.sqlStatement(
@@ -481,10 +530,10 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				}
 
 				// remove old files
-				auto oldFileIds = transform(msgs.first().files, [](const auto &file) {
+				auto oldFileIds = transform(oldMessage.files, [](const auto &file) {
 					return file.id;
 				});
-				auto newFileIds = transform(msg.files, [](const auto &file) {
+				auto newFileIds = transform(newMessage.files, [](const auto &file) {
 					return file.id;
 				});
 				auto removedFileIds = filter(std::move(oldFileIds), [&](auto id) {
@@ -494,7 +543,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				_removeFileHashes(removedFileIds);
 
 				// add new files, replace changed files
-				_setFiles(msg.files);
+				_setFiles(newMessage.files);
 			}
 		}
 	});
@@ -729,6 +778,34 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 		};
 	}
 	return sources;
+}
+
+void MessageDb::_fetchReactions(QVector<Message> &messages)
+{
+	enum { SenderJid, Timestamp, Emoji };
+	auto query = createQuery();
+
+	for (auto &message : messages) {
+		execQuery(
+			query,
+			"SELECT senderJid, timestamp, emoji FROM messageReactions "
+			"WHERE messageSender = :messageSender AND messageRecipient = :messageRecipient AND messageId = :messageId",
+			{ { u":messageSender", message.from }, { u":messageRecipient", message.to }, { u":messageId", message.id } }
+		);
+
+		// Iterate over all found emojis.
+		while (query.next()) {
+			auto &reaction = message.reactions[query.value(SenderJid).toString()];
+
+			// Use the timestamp of the current emoji as the latest timestamp if the emoji's
+			// timestamp is newer than the latest one.
+			if (const auto timestamp = query.value(Timestamp).toDateTime(); reaction.latestTimestamp < timestamp) {
+				reaction.latestTimestamp = timestamp;
+			}
+
+			reaction.emojis.append(query.value(Emoji).toString());
+		}
+	}
 }
 
 bool MessageDb::_checkMessageExists(const Message &message)

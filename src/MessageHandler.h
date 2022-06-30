@@ -85,6 +85,8 @@ public slots:
 	 */
 	void sendReadMarker(const QString &chatJid, const QString &messageId);
 
+	void sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
+
 signals:
 	void sendMessageRequested(const QString &toJid,
 				  const QString &body,
@@ -120,6 +122,8 @@ private:
 	 * @return whether the message is handled because it contains a read marker
 	 */
 	bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
+
+	bool handleReaction(const QXmppMessage &message, const QString &senderJid);
 
 	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 

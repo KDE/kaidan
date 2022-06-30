@@ -346,6 +346,14 @@
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0444.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.1</xmpp:version>
+        <xmpp:since>0.9</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0446.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.2</xmpp:version>

@@ -171,6 +171,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[DeliveryStateIcon] = "deliveryStateIcon";
 	roles[DeliveryStateName] = "deliveryStateName";
 	roles[Files] = "files";
+	roles[Reactions] = "reactions";
 	return roles;
 }
 
@@ -253,6 +254,27 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return {};
 	case Files:
 		return QVariant::fromValue(msg.files);
+	case Reactions:
+		// emojis mapped to the JIDs of their senders
+		QMap<QString, QVector<QString>> reactionsMap;
+
+		// Create an appropriate mapping for the user interface.
+		const auto &reactions = msg.reactions;
+		for (auto itr = reactions.begin(); itr != reactions.end(); ++itr) {
+			for (const auto &emoji : std::as_const(itr->emojis)) {
+				auto &senderJids = reactionsMap[emoji];
+				senderJids.append(itr.key());
+				std::sort(senderJids.begin(), senderJids.end());
+			}
+		}
+
+		// TODO: Find better way to create a QVariantMap to be returned
+		QVariantMap reactionsVariant;
+		for (auto itr = reactionsMap.begin(); itr != reactionsMap.end(); ++itr) {
+			reactionsVariant.insert(itr.key(), { QVariant::fromValue(itr.value()) });
+		}
+
+		return reactionsVariant;
 	}
 	return {};
 }
@@ -530,6 +552,60 @@ void MessageModel::markMessageAsFirstUnread(int index)
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
 			item.unreadMessages = unreadMessageCount;
 			item.lastReadContactMessageId = lastReadContactMessageId;
+		});
+	}
+}
+
+void MessageModel::addMessageReaction(const QString &messageId, const QString &emoji)
+{
+	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), [&](const Message &message) {
+		return message.id == messageId;
+	});
+
+	// Add a message reaction if the corresponding message could be found and the reaction is no
+	// duplicate.
+	if (itr != m_messages.end()) {
+		if (auto emojis = itr->reactions.value(m_currentAccountJid).emojis; !emojis.contains(emoji)) {
+			MessageDb::instance()->updateMessage(messageId, [this, emoji](Message &message) {
+				auto &reaction = message.reactions[m_currentAccountJid];
+				reaction.latestTimestamp = QDateTime::currentDateTimeUtc();
+				reaction.emojis.append(emoji);
+			});
+
+			emojis.append(emoji);
+			runOnThread(Kaidan::instance()->client()->messageHandler(), [this, messageId, emojis] {
+				Kaidan::instance()->client()->messageHandler()->sendMessageReaction(m_currentChatJid, messageId, emojis);
+			});
+		}
+	}
+}
+
+void MessageModel::removeMessageReaction(const QString &messageId, const QString &emoji)
+{
+	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), [&](const Message &message) {
+		return message.id == messageId;
+	});
+
+	if (itr != m_messages.end()) {
+		MessageDb::instance()->updateMessage(messageId, [this, emoji](Message &message) {
+			auto &reactions = message.reactions;
+
+			auto &reaction = reactions[m_currentAccountJid];
+			reaction.latestTimestamp = QDateTime::currentDateTimeUtc();
+
+			auto &emojis = reaction.emojis;
+			emojis.removeOne(emoji);
+
+			// Remove the reaction if it has no emojis anymore.
+			if (emojis.isEmpty()) {
+				reactions.remove(m_currentAccountJid);
+			}
+		});
+
+		auto emojis = itr->reactions[m_currentAccountJid].emojis;
+		emojis.removeOne(emoji);
+		runOnThread(Kaidan::instance()->client()->messageHandler(), [this, messageId, emojis] {
+			Kaidan::instance()->client()->messageHandler()->sendMessageReaction(m_currentChatJid, messageId, emojis);
 		});
 	}
 }

@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 21
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(21)
+#define DATABASE_LATEST_VERSION 22
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(22)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -455,6 +455,21 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(encrypted_data_id, SQL_INTEGER)
 			"PRIMARY KEY(file_id)"
+		)
+	);
+
+	// message reactions
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_MESSAGE_REACTIONS,
+			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, timestamp, emoji)"
 		)
 	);
 
@@ -1057,4 +1072,26 @@ void Database::convertDatabaseToV21()
 	QSqlQuery query(currentDatabase());
 	execQuery(query, "ALTER TABLE Roster ADD pinningPosition " SQL_INTEGER);
 	d->version = 21;
+}
+
+void Database::convertDatabaseToV22()
+{
+	DATABASE_CONVERT_TO_VERSION(21);
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_MESSAGE_REACTIONS,
+			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, timestamp, emoji)"
+		)
+	);
+
+	d->version = 22;
 }

@@ -41,6 +41,7 @@
 #include <QXmppHash.h>
 #include <QXmppHttpFileSource.h>
 #include <QXmppMamManager.h>
+#include <QXmppMessageReaction.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppRosterManager.h>
 #include <QXmppThumbnail.h>
@@ -163,6 +164,10 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	if (handleReadMarker(msg, senderJid, recipientJid, isOwnMessage)) {
+		return;
+	}
+
+	if (handleReaction(msg, senderJid)) {
 		return;
 	}
 
@@ -346,6 +351,20 @@ void MessageHandler::sendCorrectedMessage(Message msg)
 			});
 		}
 	});
+}
+
+void MessageHandler::sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis)
+{
+	QXmppMessageReaction reaction;
+	reaction.setMessageId(messageId);
+	reaction.setEmojis(emojis);
+
+	QXmppMessage message;
+	message.setTo(chatJid);
+	message.addHint(QXmppMessage::Store);
+	message.setReaction(reaction);
+
+	send(std::move(message));
 }
 
 void MessageHandler::handleConnected()
@@ -586,6 +605,46 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 				MessageModel::instance()->updateLastReadOwnMessageId();
 			});
 		}
+
+		return true;
+	}
+
+	return false;
+}
+
+bool MessageHandler::handleReaction(const QXmppMessage &message, const QString &senderJid)
+{
+	if (const auto receivedReaction = message.reaction()) {
+		MessageDb::instance()->updateMessage(message.reaction()->messageId(), [senderJid, receivedEmojis = receivedReaction->emojis(), receivedTimestamp = message.stamp()](Message &m) {
+			auto &reaction = m.reactions[senderJid];
+
+			// Process only newer reactions.
+			if (reaction.latestTimestamp.isNull() || reaction.latestTimestamp < receivedTimestamp) {
+				reaction.latestTimestamp = receivedTimestamp;
+				auto &emojis = reaction.emojis;
+
+				// Add new reactions.
+				for (const auto &receivedEmoji : std::as_const(receivedEmojis)) {
+					if (!emojis.contains(receivedEmoji)) {
+						emojis.append(receivedEmoji);
+					}
+				}
+
+				// Remove existing reactions.
+				for (auto itr = emojis.begin(); itr != emojis.end();) {
+					if (!receivedEmojis.contains(*itr)) {
+						emojis.erase(itr);
+					} else {
+						++itr;
+					}
+				}
+
+				// Remove an empty reaction.
+				if (emojis.isEmpty()) {
+					m.reactions.remove(senderJid);
+				}
+			}
+		});
 
 		return true;
 	}

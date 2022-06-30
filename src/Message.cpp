@@ -144,6 +144,8 @@ MessageType File::type() const
 	return MediaUtils::messageType(mimeType);
 }
 
+bool MessageReaction::operator==(const MessageReaction &other) const = default;
+
 bool Message::operator==(const Message &m) const = default;
 bool Message::operator!=(const Message &m) const = default;
 

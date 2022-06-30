@@ -37,10 +37,12 @@ import org.kde.kirigami 2.12 as Kirigami
 import im.kaidan.kaidan 1.0
 import MediaUtils 0.1
 
-ColumnLayout {
+Kirigami.SwipeListItem {
 	id: root
 
 	property Controls.Menu contextMenu
+	property MessageReactionEmojiPicker reactionEmojiPicker
+	property MessageReactionSenderSheet reactionSenderSheet
 
 	property int modelIndex
 	property string msgId
@@ -67,177 +69,125 @@ ColumnLayout {
 		return modelIndex < 1 ||
 			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
 	}
+	property var reactions
 
 	signal messageEditRequested(string id, string body)
 	signal quoteRequested(string body)
 
-	width: ListView.view.width
-	height: implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
+	height: messageArea.implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
+	alwaysVisibleActions: false
 
-	RowLayout {
-		// Own messages are on the right, others on the left side.
-		layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
-
-		// placeholder
-		Item {
-			Layout.preferredWidth: 5
-		}
-
-		Item {
-			visible: !isOwn
-			Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
-			Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
-			Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
-
-			Avatar {
-				id: avatar
-				visible: !isOwn && isGroupBegin
-				anchors.fill: parent
-				jid: root.senderJid
-				name: root.senderName
+	actions: [
+		// TODO: Move message to the left when action is displayed and message is too large or
+		// display all actions at the bottom / at the top of the message bubble
+		Kirigami.Action {
+			text: "Add message reaction"
+			icon.name: "smiley-add"
+			visible: !root.isOwn && !Object.keys(root.reactions).length
+			onTriggered: {
+				root.reactionEmojiPicker.messageId = root.msgId
+				root.reactionEmojiPicker.open()
 			}
 		}
+	]
 
-		// message bubble
-		Controls.Control {
-			id: bubble
+	ColumnLayout {
+		id: messageArea
+		spacing: -5
 
-			readonly property string paddingText: {
-				"⠀".repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
+		RowLayout {
+			// Own messages are on the right, others on the left side.
+			layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
+
+			// placeholder
+			Item {
+				Layout.preferredWidth: 5
 			}
 
-			topPadding: Kirigami.Units.largeSpacing
-			bottomPadding: Kirigami.Units.largeSpacing
-			leftPadding: Kirigami.Units.largeSpacing + background.tailSize
-			rightPadding: Kirigami.Units.largeSpacing
+			Item {
+				visible: !isOwn
+				Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+				Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
+				Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
 
-			background: MessageBackground {
-				message: root
-				showTail: !isOwn && isGroupBegin
-
-				MouseArea {
+				Avatar {
+					id: avatar
+					visible: !isOwn && isGroupBegin
 					anchors.fill: parent
-					acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-					onClicked: {
-						if (mouse.button === Qt.RightButton)
-							showContextMenu()
-					}
-
-					onPressAndHold: showContextMenu()
+					jid: root.senderJid
+					name: root.senderName
 				}
 			}
 
-			contentItem: ColumnLayout {
-				id: content
+			// message bubble
+			Controls.Control {
+				id: bubble
 
-				RowLayout {
-					id: spoilerHintRow
-					visible: isSpoiler
-
-					Controls.Label {
-						text: spoilerHint == "" ? qsTr("Spoiler") : spoilerHint
-						color: Kirigami.Theme.textColor
-						font.pixelSize: Kirigami.Units.gridUnit * 0.8
-						MouseArea {
-							anchors.fill: parent
-							acceptedButtons: Qt.LeftButton | Qt.RightButton
-							onClicked: {
-								if (mouse.button === Qt.LeftButton) {
-									isShowingSpoiler = !isShowingSpoiler
-								}
-							}
-						}
-					}
-
-					Item {
-						Layout.fillWidth: true
-						height: 1
-					}
-
-					Kirigami.Icon {
-						height: 28
-						width: 28
-						source: isShowingSpoiler ? "password-show-off" : "password-show-on"
-						color: Kirigami.Theme.textColor
-					}
-				}
-				Kirigami.Separator {
-					visible: isSpoiler
-					Layout.fillWidth: true
-					color: {
-						var bgColor = Kirigami.Theme.backgroundColor
-						var textColor = Kirigami.Theme.textColor
-						return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
-					}
+				readonly property string paddingText: {
+					"⠀".repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
 				}
 
-				ColumnLayout {
-					visible: isSpoiler && isShowingSpoiler || !isSpoiler
+				readonly property alias backgroundColor: bubbleBackground.color
 
-					Controls.ToolButton {
-						visible: {
-							switch (root.mediaType) {
-							case Enums.MessageType.MessageUnknown:
-							case Enums.MessageType.MessageText:
-							case Enums.MessageType.MessageGeoLocation:
-								break
-							case Enums.MessageType.MessageImage:
-							case Enums.MessageType.MessageAudio:
-							case Enums.MessageType.MessageVideo:
-							case Enums.MessageType.MessageFile:
-							case Enums.MessageType.MessageDocument:
-								return !transferWatcher.isLoading && root.mediaGetUrl !== ""
-										&& (root.mediaLocation === "" || !MediaUtilsInstance.localFileAvailable(media.mediaSource))
-							}
+				topPadding: Kirigami.Units.largeSpacing
+				bottomPadding: Kirigami.Units.largeSpacing
+				leftPadding: Kirigami.Units.largeSpacing + background.tailSize
+				rightPadding: Kirigami.Units.largeSpacing
 
-							return false
-						}
-						text: qsTr("Download")
+				background: MessageBackground {
+					id: bubbleBackground
+					message: root
+					showTail: !isOwn && isGroupBegin
+
+					MouseArea {
+						anchors.fill: parent
+						acceptedButtons: Qt.LeftButton | Qt.RightButton
+
 						onClicked: {
-							print("Downloading " + mediaGetUrl + "…")
-							Kaidan.client.downloadManager.startDownloadRequested(msgId, mediaGetUrl)
+							if (mouse.button === Qt.RightButton)
+								showContextMenu()
 						}
+
+						onPressAndHold: showContextMenu()
 					}
+				}
 
-					Repeater {
-						model: root.files
+				contentItem: ColumnLayout {
+					id: content
 
-						Layout.preferredWidth: 200
-						Layout.preferredHeight: 200
+					RowLayout {
+						id: spoilerHintRow
+						visible: isSpoiler
 
-						delegate: MediaPreviewOther {
-							required property var modelData
-
-							messageId: root.msgId
-
-							mediaSource: {
-								if (modelData.localFilePath) {
-									var local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
-									if (MediaUtilsInstance.localFileAvailable(local)) {
-										return local;
+						Controls.Label {
+							text: spoilerHint == "" ? qsTr("Spoiler") : spoilerHint
+							color: Kirigami.Theme.textColor
+							font.pixelSize: Kirigami.Units.gridUnit * 0.8
+							MouseArea {
+								anchors.fill: parent
+								acceptedButtons: Qt.LeftButton | Qt.RightButton
+								onClicked: {
+									if (mouse.button === Qt.LeftButton) {
+										isShowingSpoiler = !isShowingSpoiler
 									}
 								}
-								return "";
 							}
-							message: root
-							file: modelData
+						}
+
+						Item {
+							Layout.fillWidth: true
+							height: 1
+						}
+
+						Kirigami.Icon {
+							height: 28
+							width: 28
+							source: isShowingSpoiler ? "password-show-off" : "password-show-on"
+							color: Kirigami.Theme.textColor
 						}
 					}
-
-					// message body
-					Controls.Label {
-						id: bodyLabel
-						visible: messageBody
-						text: Utils.formatMessage(messageBody) + bubble.paddingText
-						textFormat: Text.StyledText
-						wrapMode: Text.Wrap
-						color: Kirigami.Theme.textColor
-						onLinkActivated: Qt.openUrlExternally(link)
-						Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
-					}
 					Kirigami.Separator {
-						visible: isSpoiler && isShowingSpoiler
+						visible: isSpoiler
 						Layout.fillWidth: true
 						color: {
 							var bgColor = Kirigami.Theme.backgroundColor
@@ -245,54 +195,160 @@ ColumnLayout {
 							return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 						}
 					}
-				}
 
-				// warning for different encryption corner cases
-				CenteredAdaptiveText {
-					text: {
-						if (root.encryption === Encryption.NoEncryption) {
-							if (MessageModel.isOmemoEncryptionEnabled) {
-								// Encryption is set for the current chat but this message is
-								// unencrypted.
-								return qsTr("Unencrypted")
+					ColumnLayout {
+						visible: isSpoiler && isShowingSpoiler || !isSpoiler
+
+						Controls.ToolButton {
+							visible: {
+								switch (root.mediaType) {
+								case Enums.MessageType.MessageUnknown:
+								case Enums.MessageType.MessageText:
+								case Enums.MessageType.MessageGeoLocation:
+									break
+								case Enums.MessageType.MessageImage:
+								case Enums.MessageType.MessageAudio:
+								case Enums.MessageType.MessageVideo:
+								case Enums.MessageType.MessageFile:
+								case Enums.MessageType.MessageDocument:
+									return !transferWatcher.isLoading && root.mediaGetUrl !== ""
+											&& (root.mediaLocation === "" || !MediaUtilsInstance.localFileAvailable(media.mediaSource))
+								}
+
+								return false
 							}
-						} else if (MessageModel.encryption !== Encryption.NoEncryption && !root.isTrusted){
-							// Encryption is set for the current chat but the key of this message's
-							// sender is not trusted.
-							return qsTr("Untrusted")
+							text: qsTr("Download")
+							onClicked: {
+								print("Downloading " + mediaGetUrl + "…")
+								Kaidan.client.downloadManager.startDownloadRequested(msgId, mediaGetUrl)
+							}
 						}
 
-						return ""
+						Repeater {
+							model: root.files
+
+							Layout.preferredWidth: 200
+							Layout.preferredHeight: 200
+
+							delegate: MediaPreviewOther {
+								required property var modelData
+
+								messageId: root.msgId
+
+								mediaSource: {
+									if (modelData.localFilePath) {
+										var local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
+										if (MediaUtilsInstance.localFileAvailable(local)) {
+											return local;
+										}
+									}
+									return "";
+								}
+								message: root
+								file: modelData
+							}
+						}
+
+						// message body
+						Controls.Label {
+							id: bodyLabel
+							visible: messageBody
+							text: Utils.formatMessage(messageBody) + bubble.paddingText
+							textFormat: Text.StyledText
+							wrapMode: Text.Wrap
+							color: Kirigami.Theme.textColor
+							onLinkActivated: Qt.openUrlExternally(link)
+							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+						}
+						Kirigami.Separator {
+							visible: isSpoiler && isShowingSpoiler
+							Layout.fillWidth: true
+							color: {
+								var bgColor = Kirigami.Theme.backgroundColor
+								var textColor = Kirigami.Theme.textColor
+								return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
+							}
+						}
 					}
 
-					visible: text.length
-					color: Kirigami.Theme.negativeTextColor
-					font.italic: true
-					scaleFactor: 0.9
-					Layout.bottomMargin: 10
-				}
+					// message reactions (emojis in reaction to this message)
+					Flow {
+						spacing: 4
+						Layout.rightMargin: isOwn ? 45 : 30
+						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
+						Layout.preferredWidth: (messageReactionAddition.width + spacing) * (Object.keys(root.reactions).length + 1)
 
-				Controls.Label {
-					visible: errorText
-					id: errorLabel
-					text: qsTr(errorText)
-					color: Kirigami.Theme.disabledTextColor
-					font.pixelSize: Kirigami.Units.gridUnit * 0.8
+						Repeater {
+							model: Object.keys(root.reactions)
+
+							MessageReactionDisplay {
+								messageId: root.msgId
+								emoji: modelData
+								isOwnMessage: root.isOwn
+								senderJids: root.reactions[modelData]
+								senderSheet: root.reactionSenderSheet
+								primaryColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+								accentColor: bubble.backgroundColor
+							}
+						}
+
+						MessageReactionAddition {
+							id: messageReactionAddition
+							visible: !root.isOwn && Object.keys(root.reactions).length
+							messageId: root.msgId
+							emojiPicker: root.reactionEmojiPicker
+							primaryColor: secondaryBackgroundColor
+							accentColor: bubble.backgroundColor
+						}
+					}
+
+					// warning for different encryption corner cases
+					CenteredAdaptiveText {
+						text: {
+							if (root.encryption === Encryption.NoEncryption) {
+								if (MessageModel.isOmemoEncryptionEnabled) {
+									// Encryption is set for the current chat but this message is
+									// unencrypted.
+									return qsTr("Unencrypted")
+								}
+							} else if (MessageModel.encryption !== Encryption.NoEncryption && !root.isTrusted){
+								// Encryption is set for the current chat but the key of this message's
+								// sender is not trusted.
+								return qsTr("Untrusted")
+							}
+
+							return ""
+						}
+
+						visible: text.length
+						color: Kirigami.Theme.negativeTextColor
+						font.italic: true
+						scaleFactor: 0.9
+						Layout.bottomMargin: 10
+					}
+
+					Controls.Label {
+						visible: errorText
+						id: errorLabel
+						text: qsTr(errorText)
+						color: Kirigami.Theme.disabledTextColor
+						font.pixelSize: Kirigami.Units.gridUnit * 0.8
+					}
 				}
+			}
+
+			// placeholder
+			Item {
+				Layout.fillWidth: true
 			}
 		}
 
-		// placeholder
-		Item {
-			Layout.fillWidth: true
+		// Read marker text for own message
+		Text {
+			visible: isLastRead
+			text: qsTr("%1 has read up to this point").arg(chatName)
+			Layout.leftMargin: 10
 		}
-	}
-
-	// Read marker text for own message
-	Text {
-		visible: isLastRead
-		text: qsTr("%1 has read up to this point").arg(chatName)
-		Layout.leftMargin: 10
 	}
 
 	/**
