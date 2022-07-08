@@ -33,13 +33,13 @@ msgstr ""
 "No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
 "eliminat d'esta aplicació: %1"
 
-#: src/DownloadManager.cpp:129
+#: src/DownloadManager.cpp:130
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "No s'ha pogut guardar el fitxer: %1"
 
-#: src/DownloadManager.cpp:154
+#: src/DownloadManager.cpp:155
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -240,22 +240,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendent"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviat"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Lliurat"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
@@ -1696,12 +1696,12 @@ msgstr ""
 "No s'ha pogut canviar el nom del contacte, com a resultat de no estar "
 "connectat."
 
-#: src/UploadManager.cpp:72
+#: src/UploadManager.cpp:73
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "No s'ha pogut enviar el fitxer perquè no hi ha connexió."
 
-#: src/UploadManager.cpp:141
+#: src/UploadManager.cpp:142
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."

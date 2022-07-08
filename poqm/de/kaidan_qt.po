@@ -23,13 +23,13 @@ msgstr ""
 "Ihr Konto konnte nicht vom Server gelöscht werden. Daher wurde es auch nicht "
 "aus dieser App entfernt: %1"
 
-#: src/DownloadManager.cpp:129
+#: src/DownloadManager.cpp:130
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Die Datei „%1“ lässt sich nicht speichern."
 
-#: src/DownloadManager.cpp:154
+#: src/DownloadManager.cpp:155
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -237,22 +237,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Versendet"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Ausgeliefert"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fehler"
@@ -1796,13 +1796,13 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Konnte den Kontakt nicht umbenennen, da keine Verbindung besteht."
 
-#: src/UploadManager.cpp:72
+#: src/UploadManager.cpp:73
 #, fuzzy
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "Konnte Datei nicht senden, da Sie nicht verbunden sind."
 
-#: src/UploadManager.cpp:141
+#: src/UploadManager.cpp:142
 #, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."

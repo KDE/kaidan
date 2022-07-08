@@ -22,13 +22,13 @@ msgid ""
 msgstr ""
 "서버에서 계정을 삭제할 수 없습니다. 앱에서도 계정을 삭제하지 않았습니다: %1"
 
-#: src/DownloadManager.cpp:129
+#: src/DownloadManager.cpp:130
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "파일을 저장할 수 없음: %1"
 
-#: src/DownloadManager.cpp:154
+#: src/DownloadManager.cpp:155
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -229,22 +229,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
@@ -1609,12 +1609,12 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대의 이름을 변경할 수 없었습니다."
 
-#: src/UploadManager.cpp:72
+#: src/UploadManager.cpp:73
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "연결되지 않아서 파일을 전송할 수 없었습니다."
 
-#: src/UploadManager.cpp:141
+#: src/UploadManager.cpp:142
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."

@@ -23,13 +23,13 @@ msgstr ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 
-#: src/DownloadManager.cpp:129
+#: src/DownloadManager.cpp:130
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Could not save file: %1"
 
-#: src/DownloadManager.cpp:154
+#: src/DownloadManager.cpp:155
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -230,22 +230,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pending"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Sent"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Delivered"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
@@ -1671,12 +1671,12 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Could not rename contact, as a result of not being connected."
 
-#: src/UploadManager.cpp:72
+#: src/UploadManager.cpp:73
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "Could not send file, as a result of not being connected."
 
-#: src/UploadManager.cpp:141
+#: src/UploadManager.cpp:142
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."

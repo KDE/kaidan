@@ -24,13 +24,13 @@ msgstr ""
 "Uw account kon niet van de server worden verwijderd. Het is daarom ook niet "
 "uit deze toepassing verwijderd: %1"
 
-#: src/DownloadManager.cpp:129
+#: src/DownloadManager.cpp:130
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Kon bestand niet opslaan: %1"
 
-#: src/DownloadManager.cpp:154
+#: src/DownloadManager.cpp:155
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -231,22 +231,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In behandeling"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Verzonden"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Afgeleverd"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
@@ -1681,12 +1681,12 @@ msgstr ""
 "De naam van het contact kon niet worden veranderd, doordat er geen "
 "verbinding beschikbaar is."
 
-#: src/UploadManager.cpp:72
+#: src/UploadManager.cpp:73
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "Kon bestand niet verzenden omdat er geen verbinding is."
 
-#: src/UploadManager.cpp:141
+#: src/UploadManager.cpp:142
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "Bericht kon niet worden verzonden."
