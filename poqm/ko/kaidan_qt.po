@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-05-16 01:40+0200\n"
+"PO-Revision-Date: 2022-07-13 15:58+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -762,22 +762,22 @@ msgstr "설명 보기"
 #: src/qml/QrCodePage.qml:69
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
 #: src/qml/QrCodePage.qml:94
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "2단계: <b>내</b> QR 코드를 대화 상대가 스캔"
 
 #: src/qml/QrCodePage.qml:126
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2!"
-msgstr ""
+msgstr "대화 상대가 추가됨 - 2단계로 진행하십시오!"
 
 #: src/qml/QrCodePage.qml:131
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact."
-msgstr ""
+msgstr "이 QR 코드에 대화 상대 정보가 없습니다."
 
 #: src/qml/QrCodePage.qml:173
 msgctxt "QrCodePage|"
@@ -792,7 +792,7 @@ msgstr "자동으로 등록"
 #: src/qml/registration/AutomaticRegistrationPage.qml:106
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr ""
+msgstr "공급자가 현재 이 앱을 통한 등록을 지원하지 않습니다."
 
 #: src/qml/registration/CustomFormView.qml:39
 msgctxt "CustomFormView|"
@@ -801,6 +801,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"서버에서 더 많은 정보를 요청했습니다.\n"
+"일부 정보는 선택 사항일 수도 있습니다.\n"
+"CAPTCHA 정보가 표시되었다면 표시된 문자열을 입력하십시오."
 
 #: src/qml/registration/DisplayNameView.qml:39
 msgctxt "DisplayNameView|"
@@ -811,6 +814,10 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"내 표시 이름은 대화 상대가 볼 이름입니다.\n"
+"표시 이름을 사용하지 않으려면 이 입력란을 비워 두십시오.\n"
+"표시 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 수 있지만 프라이"
+"버시 위험이 될 수도 있습니다!"
 
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
@@ -830,37 +837,37 @@ msgstr "수동으로 등록"
 #: src/qml/registration/ManualRegistrationPage.qml:195
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "공급자에게는 더 강력한 암호가 필요합니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr ""
+msgstr "공급자가 이 앱을 통한 등록을 지원하지 않습니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr ""
+msgstr "공급자가 현재 이 앱을 통한 등록을 지원하지 않습니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
-msgstr ""
+msgstr "공급자의 웹 등록을 사용할 수 있습니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:246
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
-msgstr ""
+msgstr "새 공급자가 무작위적으로 선택되었습니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:261
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "사용자 이름이 이미 사용 중입니다."
 
 #: src/qml/registration/ManualRegistrationPage.qml:265
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "새 무작위 사용자 이름이 생성되었습니다."
 
 #: src/qml/registration/PasswordView.qml:43
 msgctxt "PasswordView|"
@@ -870,6 +877,9 @@ msgid ""
 "one is used.\n"
 "Don't use passwords you're already using somewhere else!"
 msgstr ""
+"계정에 로그인할 때 사용할 암호입니다.\n"
+"암호를 입력하지 않으면 미리 표시된 무작위 생성된 암호를 사용합니다.\n"
+"다른 곳에서 사용 중인 암호를 사용하지 마십시오!"
 
 #: src/qml/registration/ProviderView.qml:46
 msgctxt "ProviderView|"
@@ -877,6 +887,8 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"계정이 있는 공급자입니다.\n"
+"선택 가능한 공급자는 우리 커뮤니티에서 직접 선쟁했습니다!"
 
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
@@ -891,7 +903,7 @@ msgstr "연결 설정"
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr ""
+msgstr "웹 등록만:"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
@@ -906,7 +918,7 @@ msgstr "예"
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr ""
+msgstr "서버 위치:"
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
@@ -921,12 +933,12 @@ msgstr "접속한 시간:"
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr ""
+msgstr "미디어 공유 최대 크기:"
 
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr ""
+msgstr "공유된 미디어 저장 최대 크기:"
 
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
@@ -936,7 +948,7 @@ msgstr "웹 사이트 열기"
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr ""
+msgstr "웹 사이트 주소 복사"
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
@@ -951,12 +963,12 @@ msgstr "등록"
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
-msgstr ""
+msgstr "자동으로 계정 생성"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:52
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
-msgstr ""
+msgstr "수동으로 계정 생성"
 
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
@@ -981,6 +993,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"나와 채팅할 때 사용할 수 있는 채팅 주소입니다. 이메일을 보낼 때 사용하는 이메"
+"일 주소와 유사합니다.\n"
+"\n"
+"채팅 주소는 다음과 같습니다:"
 
 #: src/qml/registration/UsernameView.qml:43
 msgctxt "UsernameView|"
@@ -991,6 +1007,10 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"사용자 이름은 계정에 로그인하고 채팅할 때 사용됩니다.\n"
+"사용자 이름을 입력하지 않으면 미리 표시된 무작위 생성된 이름을 사용합니다.\n"
+"사용자 정의 사용자 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 수 "
+"있지만 프라이버시 위험이 될 수도 있습니다!"
 
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
@@ -1001,7 +1021,7 @@ msgstr "사용자 이름"
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
-msgstr ""
+msgstr "올바른 사용자 이름을 입력하거나 비워 두면 무작위 이름을 사용합니다."
 
 #: src/qml/registration/WebRegistrationView.qml:42
 msgctxt "WebRegistrationView|"
@@ -1009,26 +1029,28 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"선택한 공급자는 웹 등록만 지원합니다. 웹 페이지에서 등록한 후에는 Kaidan으로 "
+"로그인할 수 있습니다."
 
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr ""
+msgstr "등록 웹 페이지 열기"
 
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr ""
+msgstr "등록 웹 페이지 주소 복사"
 
 #: src/qml/registration/WebRegistrationView.qml:60
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr ""
+msgstr "새 계정으로 로그인"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
-msgstr ""
+msgstr "설정"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1038,7 +1060,7 @@ msgstr "새 계정 등록"
 #: src/qml/RegistrationLoginDecisionPage.qml:52
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
-msgstr ""
+msgstr "기존 계정 사용"
 
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
@@ -1068,7 +1090,7 @@ msgstr "대화 상대 검색"
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
 msgid "Account Security"
-msgstr ""
+msgstr "계정 보안"
 
 #: src/qml/settings/AccountSecurity.qml:42
 msgctxt "AccountSecurity|"
@@ -1076,23 +1098,24 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password."
 msgstr ""
+"암호를 표시하지 않고 로그인 QR 코드를 통해서 장치를 추가할 수 있습니다."
 
 #: src/qml/settings/AccountSecurity.qml:44
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr ""
+msgstr "암호 표시하지 않기"
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password."
-msgstr ""
+msgstr "로그인 QR 코드나 암호 표시를 통한 새 장치 추가를 허용하지 않습니다."
 
 #: src/qml/settings/AccountSecurity.qml:51
 msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "암호를 노출하지 않음"
 
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
@@ -1112,24 +1135,24 @@ msgstr "새 암호:"
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
-msgstr ""
+msgstr "새 암호(확인):"
 
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
-msgstr ""
+msgstr "새 암호가 일치하지 않습니다."
 
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
-msgstr ""
+msgstr "현재 암호가 잘못되었습니다."
 
 #: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
 msgid ""
 "After changing your password, you will need to reenter it on all your other "
 "devices."
-msgstr ""
+msgstr "암호를 변경한 후에는 다른 장치에도 변경한 암호를 입력해야 합니다."
 
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
@@ -1170,12 +1193,12 @@ msgstr "취소"
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
 msgid "Connection settings could not be changed"
-msgstr ""
+msgstr "연결 설정을 변경할 수 없음"
 
 #: src/qml/settings/ConnectionSettings.qml:107
 msgctxt "ConnectionSettings|"
 msgid "Connection settings changed"
-msgstr ""
+msgstr "연결 설정이 변경됨"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -1185,7 +1208,7 @@ msgstr "호스트 이름:"
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr ""
+msgstr "호스트 이름에 공백이 포함되면 안 됨"
 
 #: src/qml/settings/CustomConnectionSettings.qml:77
 msgctxt "CustomConnectionSettings|"
@@ -1195,7 +1218,7 @@ msgstr "포트:"
 #: src/qml/settings/DisablePasswordDisplay.qml:43
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose your password in any way"
-msgstr ""
+msgstr "암호를 노출하지 않음"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:46
 msgctxt "DisablePasswordDisplay|"
@@ -1207,16 +1230,20 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device."
 msgstr ""
+"암호를 일반 텍스트나 로그인 QR 코드에 포함시키지 않습니다.\n"
+"이 작업은 실행 취소할 수 없으므로 암호를 입력하지 않고 QR 코드로 로그인할 수 "
+"없습니다!\n"
+"다른 장치에서 계정을 사용해야 한다면 다른 곳에 암호를 저장하기를 추천합니다."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "암호를 노출하지 않음"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
-msgstr ""
+msgstr "암호를 표시하지 않음"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1228,6 +1255,10 @@ msgid ""
 "Consider storing the password somewhere else if you want to use your account "
 "on another device without the login QR code."
 msgstr ""
+"암호를 표시하지는 않지만 로그인 QR 코드의 일부로 포함시킵니다.\n"
+"이 작업은 실행 취소할 수 없으므로 더 이상 암호를 볼 수 없습니다!\n"
+"로그인 QR 코드 없이 다른 장치에서 계정을 사용해야 한다면 다른 곳에 암호를 저"
+"장하기를 추천합니다."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1237,7 +1268,7 @@ msgstr "암호 표시하지 않기"
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
 msgid "Remove account from this app"
-msgstr ""
+msgstr "이 앱에서 계정 삭제"
 
 #: src/qml/settings/LocalAccountRemoval.qml:45
 msgctxt "LocalAccountRemoval|"
@@ -1246,6 +1277,8 @@ msgid ""
 "Your password will be deleted, make sure it is stored in a password manager "
 "or you know it!"
 msgstr ""
+"이 앱에서 계정을 삭제합니다.\n"
+"암호를 삭제할 것이므로 암호 관리자에 저장하거나 기억해 두십시오!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
@@ -1357,7 +1390,7 @@ msgstr "사용할 수 없음"
 #: src/qml/settings/MultimediaSettings.qml:587
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr ""
+msgstr "녹음 중…"
 
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
@@ -1379,21 +1412,24 @@ msgid ""
 "scanning without entering your password because it is also removed from the "
 "QR code."
 msgstr ""
+"<b>%1</b>의 암호를 더 이상 텍스트로 표시하지 않거나 계정 전송에서 완전히 삭제"
+"할 수 있습니다. 암호를 완전히 삭제하면 QR 코드에서도 암호가 삭제되므로 스캔"
+"을 통해서 계정을 전송할 때 암호를 입력해야 합니다."
 
 #: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
 msgid "Do not show password as text"
-msgstr ""
+msgstr "암호를 텍스트로 표시하지 않기"
 
 #: src/qml/settings/PasswordRemovalPage.qml:56
 msgctxt "PasswordRemovalPage|"
 msgid "Remove completely"
-msgstr ""
+msgstr "완전히 삭제"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:42
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
-msgstr ""
+msgstr "완전히 계정 삭제"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
 msgctxt "RemoteAccountDeletion|"
@@ -1402,6 +1438,8 @@ msgid ""
 "the server.\n"
 "You will not be able to use your account again!"
 msgstr ""
+"계정이 이 앱과 서버에서 완전히 삭제됩니다.\n"
+"계정을 다시 사용할 수 없습니다!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
