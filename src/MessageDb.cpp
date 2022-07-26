@@ -135,7 +135,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.stamp() != newMsg.stamp())
 		rec.append(createSqlField(
 		        "timestamp",
-		        newMsg.stamp().toString(Qt::ISODate)
+		        newMsg.stamp().toString(Qt::ISODateWithMs)
 		));
 	if (oldMsg.id() != newMsg.id()) {
 		// TODO: remove as soon as 'NOT NULL' was removed from id column
@@ -301,7 +301,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		bindValues(query, {
 			{ u":author", msg.from() },
 			{ u":recipient", msg.to() },
-			{ u":timestamp", msg.stamp().toString(Qt::ISODate) },
+			{ u":timestamp", msg.stamp().toString(Qt::ISODateWithMs) },
 			{ u":message", msg.body() },
 			{ u":id", msg.id().isEmpty() ? " " : msg.id() },
 			{ u":encryption", msg.encryption() },
