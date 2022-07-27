@@ -88,8 +88,7 @@ UserListItem {
 	// right: unread message counter
 	MessageCounter {
 		id: counter
-		visible: unreadMessages > 0
-		counter: unreadMessages
+		count: unreadMessages
 		muted: Kaidan.notificationsMuted(jid)
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
