@@ -347,8 +347,8 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	if (message.isOwn()) {
 		// if we sent a message (with another device), reset counter
 		newUnreadMessages = 0;
-	} else if (MessageModel::instance()->currentChatJid() != contactJid) {
-		// increase counter, if chat isn't open and message is new
+	} else {
+		// increase counter if message is new
 		switch (origin) {
 		case MessageOrigin::Stream:
 		case MessageOrigin::UserInput:
