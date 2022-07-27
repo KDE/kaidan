@@ -41,7 +41,7 @@ Rectangle {
 	visible: count > 0
 
 	Text {
-		text: count
+		text: count < 99 ? count : "99"
 		color: Kirigami.Theme.backgroundColor
 		anchors.centerIn: parent
 	}
