@@ -32,6 +32,7 @@
         <location rdf:resource='https://invent.kde.org/network/kaidan.git'/>
       </GitRepository>
     </repository>
+    <implements rdf:resource='https://xmpp.org/rfcs/rfc5122.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc6120.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc6121.html'/>
     <implements>
@@ -81,9 +82,31 @@
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0092.html'/>
+        <xmpp:status>partial</xmpp:status>
+        <xmpp:version>1.1</xmpp:version>
+        <xmpp:note>Disabling not supported</xmpp:note>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0115.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.6</xmpp:version>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0153.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>1.0</xmpp:version>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0163.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.2</xmpp:version>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -104,7 +127,7 @@
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0203.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.1</xmpp:version>
+        <xmpp:version>2.0</xmpp:version>
       </xmpp:SupportedXep>
     </implements>
     <implements>
