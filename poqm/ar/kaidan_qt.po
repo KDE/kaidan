@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-03-28 19:15+0400\n"
+"PO-Revision-Date: 2022-08-11 19:36+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
 "Language: ar\n"
@@ -432,12 +432,9 @@ msgid "Download"
 msgstr "تنزيل"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Copy Message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr "نسخ الرسالة"
+msgstr "انسخ الرِّسالة"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:56
 msgctxt "ChatMessageContextMenu|"
@@ -509,9 +506,6 @@ msgid "Chat address"
 msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user@example.org"
@@ -522,12 +516,9 @@ msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:40
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "كلمة المرور:"
+msgstr "كلمة السّر"
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -858,7 +849,7 @@ msgstr ""
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "اسم العرض"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
@@ -928,12 +919,9 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr ""
+msgstr "الموفّر"
 
 #: src/qml/registration/ProviderView.qml:101
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings"
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "إعدادات الاتّصال"
@@ -946,12 +934,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "لا"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "نعم"
 
 #: src/qml/registration/ProviderView.qml:150
 #, fuzzy
@@ -964,15 +952,12 @@ msgstr "أرسل موقع جغرافي"
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "اللغات:"
 
 #: src/qml/registration/ProviderView.qml:162
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Online"
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr "متصل"
+msgstr "متصل منذ:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -990,7 +975,7 @@ msgstr ""
 #| msgid "Website"
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr "الموقع الإلكتروني"
+msgstr "افتح موقع %1"
 
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
@@ -1000,12 +985,12 @@ msgstr ""
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "سجّل"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr ""
+msgstr "سجّل"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
@@ -1028,9 +1013,10 @@ msgid "Required information is missing: "
 msgstr ""
 
 #: src/qml/registration/RegistrationPage.qml:98
+#, fuzzy
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "فشل التسجيل"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -1057,7 +1043,7 @@ msgstr ""
 #| msgid "Rename"
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr "غيّر الاسم"
+msgstr "اسم المستخدم"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
@@ -1214,12 +1200,9 @@ msgid "Change"
 msgstr "غيّر"
 
 #: src/qml/settings/ChangePassword.qml:142
-#, fuzzy
-#| msgctxt "RegistrationManager|"
-#| msgid "Password changed successfully."
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr "تم تغيير كلمة المرور بنجاح."
+msgstr "كلمة السر غيّرت بنجاح"
 
 #: src/qml/settings/ChangePassword.qml:148
 #, fuzzy, qt-format
@@ -1375,12 +1358,12 @@ msgstr "كاميرا"
 #| msgid "Audio files"
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr "ملفات صوت"
+msgstr "مدخل الصوت:"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr ""
+msgstr "وعاء"
 
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
@@ -1400,15 +1383,17 @@ msgstr "فيديو"
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr ""
+msgstr "فك الترميز"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
+#, fuzzy
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr ""
+msgstr "الميز"
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
@@ -1573,7 +1558,7 @@ msgstr ""
 #| msgid "Delete contact"
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr "إزالة جهة اتصال"
+msgstr "احذف الحساب..."
 
 #: src/qml/settings/SettingsContent.qml:80
 #, fuzzy
