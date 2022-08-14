@@ -9,7 +9,7 @@
   ],
   "libraries": {
     "qxmpp": {
-      "template": "cmake",
+      "builder": "cmake",
       "src_dir": "3rdparty/qxmpp",
       "make_jobs": 2,
       "build_args": [
@@ -22,7 +22,7 @@
       "postbuild": "make install"
     },
     "zxing-cpp": {
-      "template": "cmake",
+      "builder": "cmake",
       "src_dir": "3rdparty/zxing-cpp",
       "make_jobs": 2,
       "build_args": [
