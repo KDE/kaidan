@@ -38,6 +38,15 @@ auto qFutureValueType(QFuture<ValueType>) -> ValueType;
 template<typename Future>
 using QFutureValueType = decltype(qFutureValueType(Future()));
 
+template<typename T>
+QFuture<T> makeReadyFuture(T &&value)
+{
+	QFutureInterface<T> interface(QFutureInterfaceBase::Started);
+	interface.reportResult(std::move(value));
+	interface.reportFinished();
+	return interface.future();
+}
+
 template<typename T, typename Handler>
 void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
