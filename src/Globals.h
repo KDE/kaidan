@@ -54,9 +54,6 @@
 
 constexpr auto MESSAGE_MAX_CHARS = 1e4;
 
-// XML namespaces
-#define NS_CARBONS "urn:xmpp:carbons:2"
-
 // SQL
 #define DB_FILE_BASE_NAME "messages"
 #define DB_TABLE_INFO "dbinfo"
