@@ -33,7 +33,7 @@
 #include <QGuiApplication>
 #include <QSettings>
 // QXmpp
-#include <QXmppCarbonManager.h>
+#include <QXmppCarbonManagerV2.h>
 #include <QXmppMamManager.h>
 #include <QXmppUtils.h>
 // Kaidan
@@ -42,15 +42,12 @@
 #include "DiscoveryManager.h"
 #include "DownloadManager.h"
 #include "Enums.h"
-#include "Globals.h"
 #include "Kaidan.h"
 #include "LogHandler.h"
-#include "MessageDb.h"
 #include "MessageHandler.h"
 #include "MessageModel.h"
 #include "PresenceCache.h"
 #include "RegistrationManager.h"
-#include "RosterDb.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
@@ -82,7 +79,7 @@ ClientWorker::ClientWorker(Caches *caches, bool enableLogging, QObject* parent)
 	  m_logger(new LogHandler(m_client, enableLogging, this)),
 	  m_enableLogging(enableLogging)
 {
-	m_client->addExtension(new QXmppCarbonManager);
+	m_client->addNewExtension<QXmppCarbonManagerV2>();
 	m_client->addExtension(new QXmppMamManager);
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);

@@ -36,8 +36,6 @@
 #include "Message.h"
 
 class ClientWorker;
-class QXmppCarbonManager;
-class QXmppDiscoveryIq;
 class QXmppMamManager;
 class QXmppMessage;
 class QXmppResultSetReply;
@@ -76,11 +74,6 @@ public slots:
 	 * Sends the corrected version of a message.
 	 */
 	void sendCorrectedMessage(Message msg);
-
-	/**
-	 * Handles service discovery info and enables carbons if feature was found.
-	 */
-	void handleDiscoInfo(const QXmppDiscoveryIq &);
 
 signals:
 	void sendMessageRequested(const QString &toJid,
@@ -121,7 +114,6 @@ private:
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;
 	QXmppMessageReceiptManager m_receiptManager;
-	QXmppCarbonManager *m_carbonManager;
 	QXmppMamManager *m_mamManager;
 
 	QDateTime m_lastMessageStamp;

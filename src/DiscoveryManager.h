@@ -57,11 +57,6 @@ public:
 	 */
 	void handleItems(const QXmppDiscoveryIq&);
 
-	/**
-	 * Handles incoming results of disco info requests
-	 */
-	void handleInfo(const QXmppDiscoveryIq&);
-
 private:
 	QXmppClient *m_client;
 	QXmppDiscoveryManager *m_manager;

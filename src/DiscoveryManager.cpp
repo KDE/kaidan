@@ -52,8 +52,6 @@ DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
 #endif
 
 	connect(client, &QXmppClient::connected, this, &DiscoveryManager::handleConnection);
-	connect(m_manager, &QXmppDiscoveryManager::infoReceived,
-	        this, &DiscoveryManager::handleInfo);
 	connect(m_manager, &QXmppDiscoveryManager::itemsReceived,
 	        this, &DiscoveryManager::handleItems);
 }
@@ -65,13 +63,9 @@ DiscoveryManager::~DiscoveryManager()
 void DiscoveryManager::handleConnection()
 {
 	// request disco info & items from the server
+	// results are used by the QXmppUploadRequestManager
 	m_manager->requestInfo(m_client->configuration().domain());
 	m_manager->requestItems(m_client->configuration().domain());
-}
-
-void DiscoveryManager::handleInfo(const QXmppDiscoveryIq&)
-{
-	// TODO: enable carbons and discovery http file upload
 }
 
 void DiscoveryManager::handleItems(const QXmppDiscoveryIq &iq)

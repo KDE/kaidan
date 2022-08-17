@@ -32,8 +32,6 @@
 // Qt
 #include <QUrl>
 // QXmpp
-#include <QXmppCarbonManager.h>
-#include <QXmppDiscoveryManager.h>
 #include <QXmppMamManager.h>
 #include <QXmppRosterManager.h>
 #include <QXmppUtils.h>
@@ -41,7 +39,6 @@
 #include "AccountManager.h"
 #include "ClientWorker.h"
 #include "FutureUtils.h"
-#include "Globals.h"
 #include "Kaidan.h"
 #include "Database.h"
 #include "Message.h"
@@ -56,7 +53,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
 	  m_client(client),
-	  m_carbonManager(client->findExtension<QXmppCarbonManager>()),
 	  m_mamManager(client->findExtension<QXmppMamManager>())
 {
 	connect(client, &QXmppClient::messageReceived, this, [=](const QXmppMessage &msg) {
@@ -83,27 +79,12 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 		});
 	});
 
-	// messages sent to our account (forwarded from another client)
-	connect(m_carbonManager, &QXmppCarbonManager::messageReceived,
-	        client, &QXmppClient::messageReceived);
-	// messages sent from our account (but another client)
-	connect(m_carbonManager, &QXmppCarbonManager::messageSent,
-	        client, &QXmppClient::messageReceived);
-
 	connect(m_mamManager, &QXmppMamManager::archivedMessageReceived, this, &MessageHandler::handleArchiveMessage);
 	connect(m_mamManager, &QXmppMamManager::resultsRecieved, this, &MessageHandler::handleArchiveResults);
 
 	connect(this, &MessageHandler::retrieveBacklogMessagesRequested, this, &MessageHandler::retrieveBacklogMessages);
 
 	client->addExtension(&m_receiptManager);
-
-	// carbons discovery
-	auto *discoveryManager = client->findExtension<QXmppDiscoveryManager>();
-	if (!discoveryManager)
-		return;
-
-	connect(discoveryManager, &QXmppDiscoveryManager::infoReceived,
-	        this, &MessageHandler::handleDiscoInfo);
 
 	connect(MessageModel::instance(), &MessageModel::pendingMessagesFetched,
 			this, &MessageHandler::handlePendingMessages);
@@ -114,7 +95,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 
 MessageHandler::~MessageHandler()
 {
-	delete m_carbonManager;
 	delete m_mamManager;
 }
 
@@ -267,15 +247,6 @@ void MessageHandler::sendCorrectedMessage(Message msg)
 			});
 		}
 	});
-}
-
-void MessageHandler::handleDiscoInfo(const QXmppDiscoveryIq &info)
-{
-	if (info.from() != m_client->configuration().domain())
-		return;
-	// enable carbons, if feature found
-	if (info.features().contains(NS_CARBONS))
-		m_carbonManager->setCarbonsEnabled(true);
 }
 
 void MessageHandler::handleConnected()
