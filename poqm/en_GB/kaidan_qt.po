@@ -220,12 +220,15 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageHandler.cpp:256
+#: src/MessageHandler.cpp:257
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message correction was not successful."
 msgctxt "MessageHandler|"
-msgid "Message correction was not successful."
+msgid "Message correction was not successful"
 msgstr "Message correction was not successful."
 
-#: src/MessageHandler.cpp:329
+#: src/MessageHandler.cpp:323
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
