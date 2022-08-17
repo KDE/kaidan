@@ -106,3 +106,35 @@ auto runAsync(QObject *targetObject, Function function)
 	});
 	return interface.future();
 }
+
+// Runs a function on an object's thread (alias for QMetaObject::invokeMethod())
+template<typename Function>
+auto runOnThread(QObject *targetObject, Function function)
+{
+	QMetaObject::invokeMethod(targetObject, std::move(function));
+}
+
+// Runs a function on an object's thread and runs a callback on the caller's thread.
+template<typename Function, typename Handler>
+auto runOnThread(QObject *targetObject, Function function, QObject *caller, Handler handler)
+{
+	using ValueType = std::invoke_result_t<Function>;
+
+	QMetaObject::invokeMethod(targetObject, [function = std::move(function), caller, handler = std::move(handler)]() mutable {
+		if constexpr (std::is_same_v<ValueType, void>) {
+			function();
+			QMetaObject::invokeMethod(
+						caller,
+						[handler = std::move(handler)]() mutable {
+				handler();
+			});
+		} else {
+			auto result = function();
+			QMetaObject::invokeMethod(
+						caller,
+						[result = std::move(result), handler = std::move(handler)]() mutable {
+				handler(std::move(result));
+			});
+		}
+	});
+}
