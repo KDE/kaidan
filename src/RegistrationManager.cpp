@@ -122,14 +122,13 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 
 	// If there is no registration data form, try to use an out-of-band URL.
 	if (newDataForm.fields().isEmpty()) {
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 5, 0)
 		// If there is a standardized out-of-band URL, use that.
 		if (!iq.outOfBandUrl().isEmpty()) {
 			emit Kaidan::instance()->registrationOutOfBandUrlReceived(iq.outOfBandUrl());
 			setRegisterOnConnectEnabled(false);
 			return;
 		}
-#endif
+
 		// Try to find an out-of-band URL within the instructions element.
 		// Most servers include a text with a link to the website.
 		const auto words = iq.instructions().split(u' ');
@@ -210,12 +209,6 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 		}
 		break;
 	default:
-#if QXMPP_VERSION == QT_VERSION_CHECK(1, 2, 0)
-		// Workaround: Catch an error which is wrongly emitted by QXmpp
-		// v1.2.0 although the registration was successful.
-		if (error.text().isEmpty())
-			return;
-#endif
 		break;
 	}
 

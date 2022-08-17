@@ -89,9 +89,6 @@
 Q_DECLARE_METATYPE(Qt::ApplicationState)
 
 Q_DECLARE_METATYPE(QXmppClient::State)
-#if QXMPP_VERSION < QT_VERSION_CHECK(1, 4, 0)
-Q_DECLARE_METATYPE(QXmppMessage)
-#endif
 Q_DECLARE_METATYPE(QXmppMessage::State)
 Q_DECLARE_METATYPE(QXmppDiscoveryIq);
 Q_DECLARE_METATYPE(QXmppPresence)
