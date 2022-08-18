@@ -142,7 +142,7 @@ void ProviderListItem::setRegistrationWebPage(const QUrl &registrationWebPage)
 
 QVector<QString> ProviderListItem::languages() const
 {
-	return d->websites.keys().toVector();
+	return { d->websites.keyBegin(), d->websites.keyEnd() };
 }
 
 QVector<QString> ProviderListItem::countries() const
