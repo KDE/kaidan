@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: pt_BR\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -223,7 +223,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageHandler.cpp:257
+#: src/MessageHandler.cpp:237
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -231,7 +231,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível a correção da mensagem."
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
@@ -1721,19 +1721,19 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Geração do código QR falhou: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr ""
 "Não foi possível adicionar contato, devido a não estar conectado à Internet."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr ""
 "Não foi possível excluir contato, devido a não estar conectado à Internet."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""

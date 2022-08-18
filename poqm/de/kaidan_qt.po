@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.07.70\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, fuzzy, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -226,13 +226,13 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageHandler.cpp:257
+#: src/MessageHandler.cpp:237
 #, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Nachrichtenkorrektur war nicht erfolgreich."
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nachricht kann nicht versendet werden."
@@ -1778,19 +1778,19 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generierung des QR-Codes fehlgeschlagen: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Konnte den Kontakt nicht hinzufügen, da Sie nicht verbunden sind."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Konnte den Kontakt nicht entfernen, da Sie nicht verbunden sind."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."

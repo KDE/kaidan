@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -222,7 +222,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Ukryta wiadomość"
 
-#: src/MessageHandler.cpp:257
+#: src/MessageHandler.cpp:237
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -230,7 +230,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się."
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."
@@ -1700,17 +1700,17 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr ""
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Nie można dodać styku, w wyniku nie podłączenia."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Nie można usunąć styku, ponieważ nie jest on połączony."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""

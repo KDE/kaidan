@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-03-31 09:06+0200\n"
+"PO-Revision-Date: 2022-08-17 10:46+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -230,15 +230,12 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/MessageHandler.cpp:257
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful."
+#: src/MessageHandler.cpp:237
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "La correcció del missatge no ha anat bé."
+msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
@@ -1682,17 +1679,17 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "No s'ha pogut generar el codi QR: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-04-01 00:18+0200\n"
+"PO-Revision-Date: 2022-08-17 12:47+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,9 +12,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.03.80\n"
+"X-Generator: Lokalize 22.07.90\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -221,15 +221,12 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espóiler"
 
-#: src/MessageHandler.cpp:257
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful."
+#: src/MessageHandler.cpp:237
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "Falló la corrección del mensaje."
+msgstr "La corrección del mensaje ha fallado"
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No se pudo enviar el mensaje."
@@ -1670,17 +1667,17 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Ha fallado la generación del código QR: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "No se ha podido añadir el contacto porque no está conectado."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "No se ha podido eliminar el contacto porque no está conectado."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
