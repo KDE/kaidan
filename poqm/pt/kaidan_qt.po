@@ -17,7 +17,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-POFile-SpellExtra: Spoiler XMPP QR spoiler CAPTCHA Kaidan áudios\n"
 
-#: src/ClientWorker.cpp:275
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -224,12 +224,12 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageHandler.cpp:257
+#: src/MessageHandler.cpp:237
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível corrigir a mensagem"
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
@@ -1669,17 +1669,17 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "A geração do código QR foi mal-sucedida: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Não foi possível adicionar o contacto, por não estar ligado."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Não foi possível remover o contacto, por não estar ligado."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Não foi possível mudar o nome do contacto, por não estar ligado."
