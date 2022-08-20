@@ -19,7 +19,7 @@ msgstr ""
 "X-Text-Markup: qtrich\n"
 "X-Generator: Lokalize 22.04.0\n"
 
-#: src/ClientWorker.cpp:269
+#: src/ClientWorker.cpp:272
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -221,18 +221,17 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:210
+#: src/Message.cpp:230
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/MessageHandler.cpp:256
-#, fuzzy
+#: src/MessageHandler.cpp:237
 msgctxt "MessageHandler|"
-msgid "Message correction was not successful."
-msgstr "Meldingstilkobling mislyktes."
+msgid "Message correction was not successful"
+msgstr ""
 
-#: src/MessageHandler.cpp:329
+#: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
@@ -1675,19 +1674,19 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Kunne ikke generere QR-kode: %1"
 
-#: src/RosterManager.cpp:130
+#: src/RosterManager.cpp:122
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Kunne ikke legge til kontakt, som følge av manglende tilkobling."
 
-#: src/RosterManager.cpp:144
+#: src/RosterManager.cpp:136
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Kunne ikke fjerne kontakt, som følge av manglende tilkobling."
 
-#: src/RosterManager.cpp:157
+#: src/RosterManager.cpp:149
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Kunne ikke gi kontakten nytt navn, fordi den ikke er tilkoblet."
