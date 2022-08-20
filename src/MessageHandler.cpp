@@ -158,9 +158,16 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		message.setSenderKey(e2eeMetadata->senderKey());
 	}
 
-	// don't use file sharing fallback bodys
-	if (msg.body() != msg.outOfBandUrl())
-		message.setBody(msg.body());
+	if (auto encryptionName = msg.encryptionName();
+			!encryptionName.isEmpty() && message.encryption() == Encryption::NoEncryption) {
+		message.setBody(tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName));
+	} else {
+		// Do not use the file sharing fallback body.
+		if (msg.body() != msg.outOfBandUrl()) {
+			message.setBody(msg.body());
+		}
+	}
+
 	message.setMediaType(MessageType::MessageText); // default to text message without media
 	message.setIsSpoiler(msg.isSpoiler());
 	message.setSpoilerHint(msg.spoilerHint());
