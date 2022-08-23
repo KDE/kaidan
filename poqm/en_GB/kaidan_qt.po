@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-04-02 17:52+0100\n"
+"PO-Revision-Date: 2022-08-22 17:01+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #: src/ClientWorker.cpp:272
 #, qt-format
@@ -221,12 +221,9 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/MessageHandler.cpp:237
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful."
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "Message correction was not successful."
+msgstr "Message correction was not successful"
 
 #: src/MessageHandler.cpp:294
 msgctxt "MessageHandler|"
