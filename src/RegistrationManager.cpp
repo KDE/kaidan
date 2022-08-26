@@ -294,6 +294,11 @@ void RegistrationManager::cleanUpLastForm()
 	delete m_dataFormModel;
 
 	// Remove content IDs from the last form.
-	for (const auto &cid : qAsConst(m_contentIdsToRemove))
-		BitsOfBinaryImageProvider::instance()->removeImage(cid);
+	for (auto itr = m_contentIdsToRemove.begin(); itr != m_contentIdsToRemove.end();) {
+		if (BitsOfBinaryImageProvider::instance()->removeImage(*itr)) {
+			itr = m_contentIdsToRemove.erase(itr);
+		} else {
+			++itr;
+		}
+	}
 }
