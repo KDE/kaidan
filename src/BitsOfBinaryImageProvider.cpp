@@ -96,7 +96,12 @@ bool BitsOfBinaryImageProvider::removeImage(const QXmppBitsOfBinaryContentId &ci
 {
 	QMutexLocker locker(&m_cacheMutex);
 
-	return m_cache.end() != std::remove_if(m_cache.begin(), m_cache.end(), [&] (const QXmppBitsOfBinaryData &item) {
+	auto endItr = std::remove_if(m_cache.begin(), m_cache.end(), [&](const QXmppBitsOfBinaryData &item) {
 		return item.cid() == cid;
 	});
+	// check whether anything was removed
+	bool success = endItr != m_cache.end();
+	// resize container
+	m_cache.erase(endItr);
+	return success;
 }
