@@ -102,6 +102,6 @@ bool BitsOfBinaryImageProvider::removeImage(const QXmppBitsOfBinaryContentId &ci
 	// check whether anything was removed
 	bool success = endItr != m_cache.end();
 	// resize container
-	m_cache.erase(endItr);
+	m_cache.erase(endItr, m_cache.end());
 	return success;
 }
