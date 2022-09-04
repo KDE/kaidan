@@ -349,6 +349,8 @@ ChatPageBase {
 			msgId: model.id
 			senderJid: model.sender
 			senderName: chatName
+			encryption: model.encryption
+			isTrusted: model.isTrusted
 			contextMenu: messageContextMenu
 			isOwn: model.isOwn
 			messageBody: model.body

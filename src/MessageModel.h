@@ -32,9 +32,12 @@
 
 // Qt
 #include <QAbstractListModel>
+#include <QMutex>
 // QXmpp
 #include <QXmppMessage.h>
 // Kaidan
+#include "Encryption.h"
+#include "Kaidan.h"
 #include "Message.h"
 
 class QTimer;
@@ -64,6 +67,14 @@ class MessageModel : public QAbstractListModel
 
 	Q_PROPERTY(QString currentAccountJid READ currentAccountJid NOTIFY currentAccountJidChanged)
 	Q_PROPERTY(QString currentChatJid READ currentChatJid NOTIFY currentChatJidChanged)
+	Q_PROPERTY(bool isOmemoEncryptionEnabled READ isOmemoEncryptionEnabled NOTIFY isOmemoEncryptionEnabledChanged)
+	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
+	Q_PROPERTY(QList<QString> ownDistrustedOmemoDevices READ ownDistrustedOmemoDevices NOTIFY ownDistrustedOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> ownUsableOmemoDevices READ ownUsableOmemoDevices NOTIFY ownUsableOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> ownAuthenticatableOmemoDevices READ ownAuthenticatableOmemoDevices NOTIFY ownAuthenticatableOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> distrustedOmemoDevices READ distrustedOmemoDevices NOTIFY distrustedOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> authenticatableOmemoDevices READ authenticatableOmemoDevices NOTIFY authenticatableOmemoDevicesChanged)
 	Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
 	Q_PROPERTY(bool mamLoading READ mamLoading NOTIFY mamLoadingChanged)
 
@@ -74,6 +85,8 @@ public:
 		Id,
 		Sender,
 		Recipient,
+		Encryption,
+		IsTrusted,
 		Body,
 		IsOwn,
 		MediaType,
@@ -119,6 +132,22 @@ public:
 	 * @return true if the chat is currently open, otherwise false
 	 */
 	bool isChatCurrentChat(const QString &accountJid, const QString &chatJid) const;
+
+	QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> keys();
+
+	Encryption::Enum activeEncryption();
+	bool isOmemoEncryptionEnabled() const;
+
+	Encryption::Enum encryption() const;
+	void setEncryption(Encryption::Enum encryption);
+
+	QList<QString> ownDistrustedOmemoDevices() const;
+	QList<QString> ownUsableOmemoDevices() const;
+	QList<QString> ownAuthenticatableOmemoDevices() const;
+
+	QList<QString> distrustedOmemoDevices() const;
+	QList<QString> usableOmemoDevices() const;
+	QList<QString> authenticatableOmemoDevices() const;
 
 	Q_INVOKABLE void sendMessage(const QString &body, bool isSpoiler, const QString &spoilerHint);
 
@@ -175,8 +204,48 @@ public:
 signals:
 	void currentAccountJidChanged(const QString &accountJid);
 	void currentChatJidChanged(const QString &currentChatJid);
+
+	void isOmemoEncryptionEnabledChanged();
+	void encryptionChanged();
+
+	void ownDistrustedOmemoDevicesChanged();
+	void ownUsableOmemoDevicesChanged();
+	void ownAuthenticatableOmemoDevicesChanged();
+
+	void distrustedOmemoDevicesChanged();
+	void usableOmemoDevicesChanged();
+	void authenticatableOmemoDevicesChanged();
+
 	void mamLoadingChanged();
 
+	void keysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
+	void keysChanged();
+
+	/**
+	 * Emitted when there are OMEMO devices with distrusted keys.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	void distrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	/**
+	 * Emitted when there are OMEMO devices usable for end-to-end encryption.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	void usableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	/**
+	 * Emitted when there are OMEMO devices with keys that can be authenticated.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	void authenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	void addMessageRequested(const Message &message, MessageOrigin origin);
 	void pendingMessagesFetched(const QVector<Message> &messages);
 	void sendCorrectedMessageRequested(const Message &msg);
 	void chatStateChanged();
@@ -193,6 +262,12 @@ signals:
 	void removeMessagesRequested(const QString &accountJid, const QString &chatJid = {});
 
 private slots:
+	void handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
+
+	void handleDistrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+	void handleUsableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+	void handleAuthenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
 	void handleMessagesFetched(const QVector<Message> &m_messages);
 	void handleMamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete);
 
@@ -229,6 +304,8 @@ private:
 	 */
 	void showMessageNotification(const Message &message, MessageOrigin origin) const;
 
+	QMutex m_mutex;
+
 	QVector<Message> m_messages;
 	QString m_currentAccountJid;
 	QString m_currentChatJid;
@@ -244,6 +321,15 @@ private:
 	QTimer *m_inactiveTimer;
 	QTimer *m_chatPartnerChatStateTimeout;
 	QMap<QString, QXmppMessage::State> m_chatStateCache;
+
+	QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> m_keys;
+
+	QList<QString> m_ownDistrustedOmemoDevices;
+	QList<QString> m_ownUsableOmemoDevices;
+	QList<QString> m_ownAuthenticatableOmemoDevices;
+	QList<QString> m_distrustedOmemoDevices;
+	QList<QString> m_usableOmemoDevices;
+	QList<QString> m_authenticatableOmemoDevices;
 
 	static MessageModel *s_instance;
 };

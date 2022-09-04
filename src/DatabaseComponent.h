@@ -54,7 +54,7 @@ public:
 	void commit();
 
 	template<typename Functor>
-	auto run(Functor function)
+	auto run(Functor function) const
 	{
 		return runAsync(dbWorker(), function);
 	}

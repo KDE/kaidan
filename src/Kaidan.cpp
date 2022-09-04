@@ -40,14 +40,13 @@
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
 #include "AccountManager.h"
+#include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "CredentialsValidator.h"
 #include "Database.h"
 #include "Globals.h"
 #include "MessageDb.h"
-#include "Notifications.h"
 #include "RosterDb.h"
-#include "RosterManager.h"
 #include "Settings.h"
 
 Kaidan *Kaidan::s_instance;
@@ -191,12 +190,34 @@ quint8 Kaidan::logInByUri(const QString &uri)
 	return quint8(LoginByUriState::Connecting);
 }
 
+Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid)
+{
+	if (QXmppUri::isXmppUri(uri)) {
+		auto parsedUri = QXmppUri(uri);
+
+		if (expectedJid.isEmpty() || parsedUri.jid() == expectedJid) {
+			if (parsedUri.action() != QXmppUri::TrustMessage || parsedUri.encryption().isEmpty() || (parsedUri.trustedKeysIds().isEmpty() && parsedUri.distrustedKeysIds().isEmpty())) {
+				return InvalidUri;
+			}
+
+			runOnThread(m_client->atmManager(), [uri = std::move(parsedUri)]() {
+				Kaidan::instance()->client()->atmManager()->makeTrustDecisions(uri);
+			});
+			return MakingTrustDecisions;
+		} else {
+			return JidUnexpected;
+		}
+	}
+
+	return InvalidUri;
+}
+
 void Kaidan::initializeClientWorker(bool enableLogging)
 {
 	m_cltThrd = new QThread();
 	m_cltThrd->setObjectName("XmppClient");
 
-	m_client = new ClientWorker(m_caches, enableLogging);
+	m_client = new ClientWorker(m_caches, m_database, enableLogging);
 	m_client->moveToThread(m_cltThrd);
 
 	connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);

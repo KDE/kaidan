@@ -28,52 +28,42 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+#include "AtmManager.h"
 
-import im.kaidan.kaidan 1.0
+#include <QXmppAtmManager.h>
+#include <QXmppClient.h>
 
-/**
- * This is a QR code generated for a specified JID or the own JID.
- *
- * If "isForLogin" is true, a QR code with a login XMPP URI for logging in on
- * another device is generated.
+#include "qxmpp-exts/QXmppUri.h"
 
- * Otherwise, a QR code with a Trust Message URI is generated.
- * The Trust Message URI contains key IDs that other clients can use to make
- * trust decisions but they can also just add that contact.
- * If a JID is provided, that JID is used for the URI.
- * Otherwise, the own JID is used.
- */
-Kirigami.Icon {
-	source: {
-		if (width > 0) {
-			if (isForLogin) {
-				return qrCodeGenerator.generateLoginUriQrCode(width)
-			} else if (jid) {
-				return qrCodeGenerator.generateContactTrustMessageQrCode(width, jid)
-			} else {
-				return qrCodeGenerator.generateOwnTrustMessageQrCode(width)
-			}
-		}
+#include "TrustDb.h"
 
-		return ""
+AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
+	: QObject(parent),
+	  m_trustStorage(new TrustDb(database, {}, this)),
+	  m_manager(client->addNewExtension<QXmppAtmManager>(m_trustStorage.get()))
+{
+}
+
+AtmManager::~AtmManager() = default;
+
+void AtmManager::setAccountJid(const QString &accountJid)
+{
+	m_trustStorage->setAccountJid(accountJid);
+}
+
+void AtmManager::makeTrustDecisions(const QXmppUri &uri)
+{
+	QList<QByteArray> keyIdsForAuthentication;
+	const auto trustedKeysIds = uri.trustedKeysIds();
+	for (const auto &keyId : trustedKeysIds) {
+		keyIdsForAuthentication.append(QByteArray::fromHex(keyId.toUtf8()));
 	}
 
-	property bool isForLogin: false
-	property string jid
-
-	QrCodeGenerator {
-		id: qrCodeGenerator
+	QList<QByteArray> keyIdsForDistrusting;
+	const auto distrustedKeysIds = uri.distrustedKeysIds();
+	for (const auto &keyId : distrustedKeysIds) {
+		keyIdsForDistrusting.append(QByteArray::fromHex(keyId.toUtf8()));
 	}
 
-	Connections {
-		target: MessageModel
-
-		// Update the currently displayed QR code.
-		function onKeysChanged() {
-			widthChanged()
-		}
-	}
+	m_manager->makeTrustDecisions(uri.encryption(), uri.jid(), keyIdsForAuthentication, keyIdsForDistrusting);
 }

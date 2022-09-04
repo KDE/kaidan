@@ -97,6 +97,7 @@ ExplainedContentPage {
 			width: Math.min(largeButtonWidth, parent.width, parent.height)
 			height: width
 			anchors.centerIn: parent
+			isForLogin: true
 		}
 
 		Kirigami.FormLayout {

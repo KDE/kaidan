@@ -165,6 +165,29 @@ QString RosterModel::itemName(const QString &, const QString &jid) const
 	return {};
 }
 
+bool RosterModel::isPresenceSubscribedByItem(const QString &, const QString &jid) const
+{
+	if (auto item = findItem(jid)) {
+		return item->subscription() == QXmppRosterIq::Item::From || item->subscription() == QXmppRosterIq::Item::Both ;
+	}
+	return false;
+}
+
+std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, const QString &jid) const
+{
+	if (auto item = findItem(jid)) {
+		return item->encryption();
+	}
+	return {};
+}
+
+void RosterModel::setItemEncryption(const QString &, const QString &jid, Encryption::Enum encryption)
+{
+	emit updateItemRequested(jid, [=](RosterItem &item) {
+		item.setEncryption(encryption);
+	});
+}
+
 RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &uriString)
 {
 	if (QXmppUri::isXmppUri(uriString)) {
@@ -259,6 +282,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.setLastMessage(oldItem->lastMessage());
 			item.setLastExchanged(oldItem->lastExchanged());
 			item.setUnreadMessages(oldItem->unreadMessages());
+			item.setEncryption(oldItem->encryption());
 		}
 
 		newItems << item;

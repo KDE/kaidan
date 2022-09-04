@@ -56,12 +56,38 @@ public:
 	Q_INVOKABLE static QImage generateLoginUriQrCode(int edgePixelCount);
 
 	/**
-	 * Gerenates a QR code encoding an XMPP URI containing a given bare JID.
+	 * Gerenates a QR code encoding the Trust Message URI of the currently used
+	 * account.
+	 *
+	 * If no keys for the Trust Message URI can be found, an XMPP URI containing
+	 * only the own bare JID is used.
 	 *
 	 * @param edgePixelCount number of pixels as the width and height of the QR code
-	 * @param bareJid bare JID being encoded in an XMPP URI
 	 */
-	Q_INVOKABLE static QImage generateBareJidQrCode(int edgePixelCount, const QString &bareJid);
+	Q_INVOKABLE static QImage generateOwnTrustMessageQrCode(int edgePixelCount);
+
+	/**
+	 * Gerenates a QR code encoding the Trust Message URI of a contact.
+	 *
+	 * If no keys for the Trust Message URI can be found, an XMPP URI containing
+	 * only the contact's bare JID is used.
+	 *
+	 * @param edgePixelCount number of pixels as the width and height of the QR code
+	 * @param contactJid bare JID of the contact
+	 */
+	Q_INVOKABLE static QImage generateContactTrustMessageQrCode(int edgePixelCount, const QString &contactJid);
+
+private:
+	/**
+	 * Gerenates a QR code encoding a Trust Message URI.
+	 *
+	 * If no keys for the Trust Message URI can be found, an XMPP URI containing
+	 * only the bare JID is used.
+	 *
+	 * @param edgePixelCount number of pixels as the width and height of the QR code
+	 * @param jid bare JID of the key owner
+	 */
+	Q_INVOKABLE static QImage generateTrustMessageQrCode(int edgePixelCount, const QString &jid);
 
 	/**
 	 * Gerenates a QR code.
@@ -71,7 +97,6 @@ public:
 	 */
 	Q_INVOKABLE static QImage generateQrCode(int edgePixelCount, const QString &text);
 
-private:
 	/**
 	 * Generates an image with black and white pixels from a given matrix of bits representing a QR code.
 	 *

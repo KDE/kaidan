@@ -160,6 +160,13 @@
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0334.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.3</xmpp:version>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0352.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.2</xmpp:version>
@@ -182,9 +189,9 @@
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0380.html'/>
-        <xmpp:status>partial</xmpp:status>
+        <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.4</xmpp:version>
-        <xmpp:note>On message receiving, only fallback body displayed</xmpp:note>
+        <xmpp:note></xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -197,7 +204,7 @@
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0384.html'/>
-        <xmpp:status>planned</xmpp:status>
+        <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.8</xmpp:version>
       </xmpp:SupportedXep>
     </implements>
@@ -225,21 +232,28 @@
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0420.html'/>
-        <xmpp:status>planned</xmpp:status>
+        <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.4</xmpp:version>
       </xmpp:SupportedXep>
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0428.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.1</xmpp:version>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0434.html'/>
-        <xmpp:status>planned</xmpp:status>
+        <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.6</xmpp:version>
       </xmpp:SupportedXep>
     </implements>
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0450.html'/>
-        <xmpp:status>planned</xmpp:status>
+        <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.4</xmpp:version>
       </xmpp:SupportedXep>
     </implements>

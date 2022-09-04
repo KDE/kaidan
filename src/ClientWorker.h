@@ -39,12 +39,15 @@
 #include "Globals.h"
 
 class AccountManager;
+class AtmManager;
 class AvatarFileStorage;
+class Database;
 class DiscoveryManager;
 class DownloadManager;
 class LogHandler;
 class MessageHandler;
 class MessageModel;
+class OmemoManager;
 class PresenceCache;
 class RegistrationManager;
 class RosterManager;
@@ -71,6 +74,8 @@ class ClientWorker : public QObject
 	Q_PROPERTY(UploadManager* uploadManager READ uploadManager CONSTANT)
 	Q_PROPERTY(DownloadManager* downloadManager READ downloadManager CONSTANT)
 	Q_PROPERTY(VersionManager* versionManager READ versionManager CONSTANT)
+	Q_PROPERTY(AtmManager* atmManager READ atmManager CONSTANT)
+	Q_PROPERTY(OmemoManager* omemoManager READ omemoManager CONSTANT)
 
 public:
 	/**
@@ -110,7 +115,7 @@ public:
 	 * @param enableLogging If logging of the XMPP stream should be done.
 	 * @param parent Optional QObject-based parent.
 	 */
-	ClientWorker(Caches *caches, bool enableLogging, QObject *parent = nullptr);
+	ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent = nullptr);
 
 	RegistrationManager *registrationManager() const
 	{
@@ -150,6 +155,16 @@ public:
 	VersionManager *versionManager() const
 	{
 		return m_versionManager;
+	}
+
+	AtmManager *atmManager() const
+	{
+		return m_atmManager;
+	}
+
+	OmemoManager *omemoManager() const
+	{
+		return m_omemoManager;
 	}
 
 	Caches *caches() const
@@ -302,6 +317,8 @@ private:
 	RegistrationManager *m_registrationManager;
 	VCardManager *m_vCardManager;
 	RosterManager *m_rosterManager;
+	AtmManager *m_atmManager;
+	OmemoManager *m_omemoManager;
 	MessageHandler *m_messageHandler;
 	DiscoveryManager *m_discoveryManager;
 	UploadManager *m_uploadManager;

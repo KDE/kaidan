@@ -34,6 +34,7 @@
 #include <optional>
 // Qt
 #include <QAbstractListModel>
+#include <QFuture>
 #include <QVector>
 // Kaidan
 #include "RosterItem.h"
@@ -97,6 +98,19 @@ public:
 	 * an empty string if no roster item with the given JID could be found
 	 */
 	Q_INVOKABLE QString itemName(const QString &accountJid, const QString &jid) const;
+
+	/**
+	 * Returns whether an account's presence is subscribed by a roster item.
+	 *
+	 * @param accountJid JID of the account whose roster item's presence subcription is requested
+	 * @param jid JID of the roster item
+	 *
+	 * @return whether the presence is subscribed by the item
+	 */
+	bool isPresenceSubscribedByItem(const QString &accountJid, const QString &jid) const;
+
+	std::optional<Encryption::Enum> itemEncryption(const QString &accountJid, const QString &jid) const;
+	void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);
 
 	/**
 	 * Adds a contact (bare JID) by a given XMPP URI (e.g., from a scanned QR

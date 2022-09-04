@@ -62,15 +62,17 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 14
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(14)
+#define DATABASE_LATEST_VERSION 16
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(16)
 
 #define SQL_BOOL "BOOL"
+#define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
 #define SQL_INTEGER "INTEGER"
 #define SQL_INTEGER_NOT_NULL "INTEGER NOT NULL"
 #define SQL_TEXT "TEXT"
 #define SQL_TEXT_NOT_NULL "TEXT NOT NULL"
 #define SQL_BLOB "BLOB"
+#define SQL_BLOB_NOT_NULL "BLOB NOT NULL"
 
 #define SQL_CREATE_TABLE(tableName, contents) \
 	"CREATE TABLE '" tableName "' (" contents ")"
@@ -416,6 +418,105 @@ void Database::createNewDatabase()
 		)
 	);
 
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_SECURITY_POLICIES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(security_policy, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account, encryption)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_OWN_KEYS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(account, encryption)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_KEYS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(trust_level, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_KEYS_UNPROCESSED,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(sender_key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(trust, SQL_BOOL_NOT_NULL)
+			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+		)
+	);
+
+	// OMEMO data
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_OWN_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(private_key, SQL_BLOB)
+			SQL_ATTRIBUTE(public_key, SQL_BLOB)
+			SQL_ATTRIBUTE(latest_signed_pre_key_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(latest_pre_key_id, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB)
+			SQL_ATTRIBUTE(session, SQL_BLOB)
+			SQL_ATTRIBUTE(unresponded_stanzas_sent, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(unresponded_stanzas_received, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(removal_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, user_jid, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(account, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(creation_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, id)"
+		)
+	);
+
 	d->version = DATABASE_LATEST_VERSION;
 }
 
@@ -576,4 +677,116 @@ void Database::convertDatabaseToV14()
 	execQuery(query, "ALTER TABLE Messages ADD encryption " SQL_INTEGER);
 	execQuery(query, "ALTER TABLE Messages ADD senderKey " SQL_BLOB);
 	d->version = 14;
+}
+
+void Database::convertDatabaseToV15()
+{
+	DATABASE_CONVERT_TO_VERSION(14);
+	QSqlQuery query(currentDatabase());
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_SECURITY_POLICIES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(security_policy, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account, encryption)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_OWN_KEYS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(account, encryption)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_KEYS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(trust_level, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_TRUST_KEYS_UNPROCESSED,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(sender_key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(trust, SQL_BOOL_NOT_NULL)
+			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+		)
+	);
+	d->version = 15;
+}
+
+void Database::convertDatabaseToV16()
+{
+	DATABASE_CONVERT_TO_VERSION(15);
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_OWN_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(private_key, SQL_BLOB)
+			SQL_ATTRIBUTE(public_key, SQL_BLOB)
+			SQL_ATTRIBUTE(latest_signed_pre_key_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(latest_pre_key_id, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_DEVICES,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(label, SQL_TEXT)
+			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(session, SQL_BLOB)
+			SQL_ATTRIBUTE(unresponded_stanzas_sent, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(unresponded_stanzas_received, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(removal_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, user_jid, id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
+			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(creation_timestamp, SQL_INTEGER)
+			"PRIMARY KEY(id)"
+		)
+	);
+
+	d->version = 16;
 }
