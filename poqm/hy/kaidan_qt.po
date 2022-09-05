@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:272
+#: src/ClientWorker.cpp:288
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -30,7 +30,7 @@ msgctxt "DownloadJob|"
 msgid "Download failed: %1"
 msgstr "Ներբեռնումը ձախողվել է: %1"
 
-#: src/Kaidan.cpp:99
+#: src/Kaidan.cpp:98
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -38,7 +38,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Կապը հաստատված է"
 
-#: src/Kaidan.cpp:101
+#: src/Kaidan.cpp:100
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -46,7 +46,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Kaidan.cpp:103
+#: src/Kaidan.cpp:102
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -55,7 +55,7 @@ msgid "Offline"
 msgstr "Կապը բացակայում է"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:165
+#: src/Kaidan.cpp:164
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
@@ -224,7 +224,13 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
 
-#: src/MessageHandler.cpp:237
+#: src/MessageHandler.cpp:163
+#, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr ""
+
+#: src/MessageHandler.cpp:253
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -232,27 +238,27 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Հաղորդագրության ուղղումը ձախողվել է։"
 
-#: src/MessageHandler.cpp:294
+#: src/MessageHandler.cpp:310
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageModel.cpp:225
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ընթացքում է"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Ուղարկված"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Առաքված"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ձախողված"
@@ -261,6 +267,11 @@ msgstr "Ձախողված"
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Համարել կարդացած"
+
+#: src/OmemoManager.cpp:119
+msgctxt "OmemoManager|"
+msgid "Secure conversations are not possible because OMEMO could not be set up"
+msgstr ""
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -378,22 +389,22 @@ msgstr ""
 "Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
 "մուտք գործել Ձեր հաշիվ։"
 
-#: src/qml/AccountTransferPage.qml:107
+#: src/qml/AccountTransferPage.qml:108
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
 msgstr "Զրույցի հասցե:"
 
-#: src/qml/AccountTransferPage.qml:116
+#: src/qml/AccountTransferPage.qml:117
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/AccountTransferPage.qml:126
+#: src/qml/AccountTransferPage.qml:127
 msgctxt "AccountTransferPage|"
 msgid "Password:"
 msgstr "Գաղտնաբառ:"
 
-#: src/qml/AccountTransferPage.qml:136
+#: src/qml/AccountTransferPage.qml:137
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Պատճենել գաղտնաբառը"
@@ -423,15 +434,25 @@ msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Ուղարկել գաղտնի հաղորդագրություն"
 
-#: src/qml/elements/ChatMessage.qml:143
+#: src/qml/elements/ChatMessage.qml:145
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
 
-#: src/qml/elements/ChatMessage.qml:200
+#: src/qml/elements/ChatMessage.qml:202
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Ներբեռնել"
+
+#: src/qml/elements/ChatMessage.qml:268
+msgctxt "ChatMessage|"
+msgid "Unencrypted"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:273
+msgctxt "ChatMessage|"
+msgid "Untrusted"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -701,12 +722,9 @@ msgid "Please select a chat to start messaging"
 msgstr "Ընտրեք զրույց և սկսեք շփվել"
 
 #: src/qml/GlobalDrawer.qml:89
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "GlobalDrawer|"
-msgid "Scan QR codes"
-msgstr "Սկանավորել QR կոդ"
+msgid "Add contact by QR code"
+msgstr ""
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -783,7 +801,7 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
 
-#: src/qml/QrCodePage.qml:45 src/qml/QrCodePage.qml:47
+#: src/qml/QrCodePage.qml:52 src/qml/QrCodePage.qml:54
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -791,7 +809,7 @@ msgctxt "QrCodePage|"
 msgid "Scan QR codes"
 msgstr "Սկանավորել QR կոդ"
 
-#: src/qml/QrCodePage.qml:47
+#: src/qml/QrCodePage.qml:54
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Show explanation"
@@ -799,30 +817,79 @@ msgctxt "QrCodePage|"
 msgid "Show explanation"
 msgstr "Ցույց տալ բացատրությունը"
 
-#: src/qml/QrCodePage.qml:69
+#: src/qml/QrCodePage.qml:78
+msgctxt "QrCodePage|"
+msgid "Step 1: Scan your <b>other device's</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:80
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:94
+#: src/qml/QrCodePage.qml:108
+msgctxt "QrCodePage|"
+msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:110
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:126
+#: src/qml/QrCodePage.qml:147
 msgctxt "QrCodePage|"
-msgid "Contact added - Continue with step 2!"
+msgid "Contact added - Continue with step 2"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:131
+#: src/qml/QrCodePage.qml:154
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "This QR code is not a valid login QR code."
 msgctxt "QrCodePage|"
-msgid "This QR code does not contain a contact."
+msgid "This QR code does not contain a contact"
 msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
 
-#: src/qml/QrCodePage.qml:173
+#: src/qml/QrCodePage.qml:167
+msgctxt "QrCodePage|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:169
+msgctxt "QrCodePage|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:176
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodePage|"
+msgid "This QR code is not for your other device"
+msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
+
+#: src/qml/QrCodePage.qml:178
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodePage|"
+msgid "This QR code is not for your contact"
+msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
+
+#: src/qml/QrCodePage.qml:184
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodePage|"
+msgid "This QR code is not for trust decisions"
+msgstr "Այս QR կոդը անվավեր է մուտքի համար։"
+
+#: src/qml/QrCodePage.qml:228
+msgctxt "QrCodePage|"
+msgid "Making trust decisions…"
+msgstr ""
+
+#: src/qml/QrCodePage.qml:228
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add new contact"
@@ -1623,7 +1690,79 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Ջնջել կոնտակտը"
 
-#: src/qml/UserProfilePage.qml:230
+#: src/qml/UserProfilePage.qml:209
+msgctxt "UserProfilePage|"
+msgid "Encryption (OMEMO 2)"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:229
+msgctxt "UserProfilePage|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:239 src/qml/UserProfilePage.qml:245
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan the QR code from your existing device to transfer your account."
+msgctxt "UserProfilePage|"
+msgid "Scan the QR codes of your devices to encrypt for them"
+msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
+
+#: src/qml/UserProfilePage.qml:241
+msgctxt "UserProfilePage|"
+msgid "Your other devices don't use OMEMO 2"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:248
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan the QR code from your existing device to transfer your account."
+msgctxt "UserProfilePage|"
+msgid "Scan the QR codes of your devices for maximum secure encryption"
+msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
+
+#: src/qml/UserProfilePage.qml:260
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "UserProfilePage|"
+msgid "Scan own QR codes"
+msgstr "Սկանավորել QR կոդ"
+
+#: src/qml/UserProfilePage.qml:269
+msgctxt "UserProfilePage|"
+msgid "Scan the QR code of your contact to enable encryption"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:272
+msgctxt "UserProfilePage|"
+msgid "Your contact doesn't use OMEMO 2"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:275
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan the QR code from your existing device to transfer your account."
+msgctxt "UserProfilePage|"
+msgid "Scan the QR codes of your contact's devices to encrypt for them"
+msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
+
+#: src/qml/UserProfilePage.qml:278
+msgctxt "UserProfilePage|"
+msgid "Scan the QR code of your contact for maximum secure encryption"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:291
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "UserProfilePage|"
+msgid "Scan contact's QR code"
+msgstr "Սկանավորել QR կոդ"
+
+#: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Հասանելի սարքեր"
@@ -1704,23 +1843,23 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1-ը դադարեց հավաքել"
 
-#: src/QrCodeGenerator.cpp:89
+#: src/QrCodeGenerator.cpp:124
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR կոդի ստեղծումը ձախողվել է: %1"
 
-#: src/RosterManager.cpp:122
+#: src/RosterManager.cpp:126
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Չհաջողվեց ստեղծել կոնտակտը, քանի որ կապը բացակայում է։"
 
-#: src/RosterManager.cpp:136
+#: src/RosterManager.cpp:140
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Չհաջողվեց ջնջել կոնտակտը, քանի որ կապը բացակայում է։"
 
-#: src/RosterManager.cpp:149
+#: src/RosterManager.cpp:153
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Չհաջողվեց վերանվանել կոնտակտը, քանի որ կապը բացակայում է։"
