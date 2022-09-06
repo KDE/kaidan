@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-08-17 12:47+0200\n"
+"PO-Revision-Date: 2022-09-05 12:40+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.07.90\n"
+"X-Generator: Lokalize 22.08.0\n"
 
 #: src/ClientWorker.cpp:288
 #, qt-format
@@ -436,7 +436,7 @@ msgstr "Descargar"
 #: src/qml/elements/ChatMessage.qml:268
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Sin cifrar"
 
 #: src/qml/elements/ChatMessage.qml:273
 msgctxt "ChatMessage|"
@@ -697,7 +697,7 @@ msgstr "Seleccione un chat para empezar a enviar mensajes"
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Añadir contacto por código QR"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -785,12 +785,9 @@ msgid "Show explanation"
 msgstr "Mostrar explicación"
 
 #: src/qml/QrCodePage.qml:78
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "Paso 1: Escanee el código QR <b>del contacto</b>"
+msgstr "Paso 1: Escanee el código QR <b>del otro dispositivo</b>"
 
 #: src/qml/QrCodePage.qml:80
 msgctxt "QrCodePage|"
@@ -798,12 +795,11 @@ msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Paso 1: Escanee el código QR <b>del contacto</b>"
 
 #: src/qml/QrCodePage.qml:108
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "Paso 1: Escanee el código QR <b>del contacto</b>"
+msgstr ""
+"Paso 1: Escanee el código QR <b>de este dispositivo</b> con el otro "
+"dispositivo"
 
 #: src/qml/QrCodePage.qml:110
 msgctxt "QrCodePage|"
@@ -811,12 +807,9 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Paso 2: Permita que el contacto escanee <b>su</b> código QR"
 
 #: src/qml/QrCodePage.qml:147
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2!"
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2"
-msgstr "Contacto añadido. Continúe con el paso 2."
+msgstr "Contacto añadido - Continúe con el paso 2"
 
 #: src/qml/QrCodePage.qml:154
 #, fuzzy

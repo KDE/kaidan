@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-08-23 22:13+0400\n"
+"PO-Revision-Date: 2022-09-05 20:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
-"Language-Team: Arabic <kde-l10n-ar@kde.org>\n"
+"Language-Team: ar\n"
 "Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -13,7 +13,7 @@ msgstr ""
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Language: ar\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 21.07.70\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/ClientWorker.cpp:288
 #, qt-format
@@ -95,22 +95,22 @@ msgstr "عالي جداً"
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr ""
+msgstr "جودة ثابتة"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr ""
+msgstr "معدل بت ثابت"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr ""
+msgstr "متوسط معدل البت"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr ""
+msgstr "تمرير ثنائي"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
@@ -175,17 +175,17 @@ msgstr "اختر صورة"
 #: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr ""
+msgstr "اختر فيديو"
 
 #: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr ""
+msgstr "اختر ملف صوت"
 
 #: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr ""
+msgstr "اختر مستند"
 
 #: src/MediaUtils.cpp:347
 msgctxt "MediaUtils|"
@@ -216,25 +216,23 @@ msgstr "المستندات"
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:230
-#, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr "مثبط الرفع"
+msgstr "مخفي"
 
 #: src/MessageHandler.cpp:163
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "هذه الرّسالة معمّاة ب%1 لكن لا يمكن فك تعميتها"
 
 #: src/MessageHandler.cpp:253
-#, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "تعديل الرسالة لم يتم بنجاح."
+msgstr "لم تنجح عملية تصحيح الرسالة"
 
 #: src/MessageHandler.cpp:310
 msgctxt "MessageHandler|"
@@ -292,10 +290,9 @@ msgid "Do not disturb"
 msgstr "نمط عدم الإزعاج"
 
 #: src/PresenceCache.cpp:71
-#, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr "غائب لفترة قد تطول"
+msgstr "غائب لفترة أطول"
 
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
@@ -305,7 +302,7 @@ msgstr "غير متّصل"
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "مزود مخصص"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -334,7 +331,7 @@ msgstr "الرخصة:"
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr ""
+msgstr "أبلغ عن مشكلة"
 
 #: src/qml/AboutDialog.qml:108
 msgctxt "AboutDialog|"
@@ -344,33 +341,27 @@ msgstr "عرض الشفرة المصدرية على الويب"
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
-msgstr ""
+msgstr "انقل الحساب إلى جهاز أخر"
 
 #: src/qml/AccountTransferPage.qml:48
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr "أظهر باركود"
+msgstr "أخف رمز الباركود"
 
 #: src/qml/AccountTransferPage.qml:48
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
-msgstr "أظهر باركود"
+msgstr "أظهر رمز الباركود"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
-msgstr ""
+msgstr "أخف النص"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
-msgstr ""
+msgstr "اعرض كنص"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -386,12 +377,12 @@ msgstr ""
 #: src/qml/AccountTransferPage.qml:108
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr ""
+msgstr "عنوان الدردشة:"
 
 #: src/qml/AccountTransferPage.qml:117
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "انسخ عنوان الدردشة"
 
 #: src/qml/AccountTransferPage.qml:127
 msgctxt "AccountTransferPage|"
@@ -411,31 +402,27 @@ msgstr "ابحث"
 #: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
-msgstr ""
+msgstr "ألغ كتم الإشعارات"
 
 #: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
 msgctxt "ChatPage|"
 msgid "Mute notifications"
-msgstr ""
+msgstr "اكتم الإشعارات"
 
 #: src/qml/ChatPage.qml:123
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Profile"
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr "الملف الشخصي"
+msgstr "شاهد الملف الشخصي"
 
 #: src/qml/ChatPage.qml:183
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr ""
+msgstr "أرسل رسالة مخفية"
 
 #: src/qml/elements/ChatMessage.qml:145
-#, fuzzy
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr "مثبط الرفع"
+msgstr "مخفي"
 
 #: src/qml/elements/ChatMessage.qml:202
 msgctxt "ChatMessage|"
@@ -445,12 +432,12 @@ msgstr "تنزيل"
 #: src/qml/elements/ChatMessage.qml:268
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "غير مشفّرة"
 
 #: src/qml/elements/ChatMessage.qml:273
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "غير موثوقة"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -465,56 +452,42 @@ msgstr "حرر الرسالة"
 #: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr ""
+msgstr "انسخ رابط التنزيل"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:68
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Edit message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr "حرر الرسالة"
+msgstr "اقتبس رسالة"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr "تحرير رسالة"
+msgstr "أغلق شريط البحث الرسائل"
 
 #: src/qml/elements/ChatPageSearchView.qml:89
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr "ابحث"
+msgstr "ابحث للأعلى"
 
 #: src/qml/elements/ChatPageSearchView.qml:100
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr "ابحث"
+msgstr "ابحث للأسفل"
 
 #: src/qml/elements/ChatPageSendingPane.qml:67
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr "مثبط الرفع"
+msgstr "تلميحة المخفي"
 
 #: src/qml/elements/ChatPageSendingPane.qml:74
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr ""
+msgstr "أغلق حقل تلميحة المخفي"
 
 #: src/qml/elements/ChatPageSendingPane.qml:112
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr "تحرير رسالة"
+msgstr "اكتب رسالة"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -524,7 +497,7 @@ msgstr "ألغِ"
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr ""
+msgstr "عنوان الدردشة"
 
 #: src/qml/elements/fields/JidField.qml:40
 msgctxt "JidField|"
@@ -534,7 +507,7 @@ msgstr "user@example.org"
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr ""
+msgstr "عنوان الدردشة يجب أن يكون على شكل <b>username@server</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:40
 msgctxt "PasswordField|"
@@ -544,7 +517,7 @@ msgstr "كلمة السّر"
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "من فضلك أدخل كلمة السر صالحة"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -617,7 +590,6 @@ msgid "Optional message:"
 msgstr "رسالة اختيارية:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
-#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "عرف شريكك في المحادثة عن نفسك."
@@ -763,12 +735,9 @@ msgid "Connecting…"
 msgstr "جارٍ الاتصال…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "أظهر باركود"
+msgstr "امسح باركود"
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -796,12 +765,9 @@ msgid "This QR code is not a valid login QR code."
 msgstr ""
 
 #: src/qml/QrCodePage.qml:52 src/qml/QrCodePage.qml:54
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "أظهر باركود"
+msgstr "امسح شفرات باركود"
 
 #: src/qml/QrCodePage.qml:54
 msgctxt "QrCodePage|"
@@ -869,12 +835,9 @@ msgid "Making trust decisions…"
 msgstr ""
 
 #: src/qml/QrCodePage.qml:228
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr "أضف جهة اتصال جديدة"
+msgstr "يضيف جهة اتصال جديدة…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
@@ -915,12 +878,9 @@ msgid "Requesting the server…"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
-msgstr "سجّل حساب جديد"
+msgstr "سجّل يدويا"
 
 #: src/qml/registration/ManualRegistrationPage.qml:195
 msgctxt "ManualRegistrationPage|"
@@ -928,10 +888,9 @@ msgid "The provider requires a stronger password."
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
-#, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr "الخادم لا يدعم الاتصالات الآمنة."
+msgstr "المزود لا يدعم التسجيل بواسطة هذا التطبيق."
 
 #: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
@@ -1000,12 +959,9 @@ msgid "Yes"
 msgstr "نعم"
 
 #: src/qml/registration/ProviderView.qml:150
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr "أرسل موقع جغرافي"
+msgstr "مواقع الخادم:"
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
@@ -1035,7 +991,7 @@ msgstr "افتح موقع"
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr ""
+msgstr "انسخ عنوان الموقع"
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
@@ -1050,12 +1006,12 @@ msgstr "سجّل"
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
-msgstr ""
+msgstr "ولّد الحساب آليا"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:52
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
-msgstr ""
+msgstr "أنشئ الحساب يدوياً"
 
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
@@ -1112,7 +1068,7 @@ msgstr ""
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr ""
+msgstr "افتح صفحة ويب التسجيل"
 
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
@@ -1120,17 +1076,14 @@ msgid "Copy registration web page address"
 msgstr ""
 
 #: src/qml/registration/WebRegistrationView.qml:60
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in to your XMPP account"
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr "تسجيل الدخول إلى حسابك XMPP"
+msgstr "لج باستخدام حسابك الجديد"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
-msgstr ""
+msgstr "أعدّ"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1138,12 +1091,9 @@ msgid "Register a new account"
 msgstr "سجّل حساب جديد"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:52
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
-msgstr "سجّل حساب جديد"
+msgstr "استخدم حساب موجود"
 
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
@@ -1173,7 +1123,7 @@ msgstr "ابحث عن متراسلين"
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
 msgid "Account Security"
-msgstr ""
+msgstr "أمن الحساب"
 
 #: src/qml/settings/AccountSecurity.qml:42
 msgctxt "AccountSecurity|"
@@ -1183,12 +1133,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:44
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr "كلمة المرور الجديدة:"
+msgstr "لا تظهر كلمة المرور"
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1200,7 +1147,7 @@ msgstr ""
 #: src/qml/settings/AccountSecurity.qml:51
 msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "لا تعرض كلمة السر بأي طريقة"
 
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
@@ -1256,10 +1203,10 @@ msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
 #: src/qml/settings/ChangePassword.qml:148
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr "تعذر تغيير كلمة المرور: 1%"
+msgstr "فشل في تغيير كلمة السر: %1"
 
 #: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
@@ -1277,20 +1224,14 @@ msgid "Cancel"
 msgstr "ألغِ"
 
 #: src/qml/settings/ConnectionSettings.qml:98
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings"
 msgctxt "ConnectionSettings|"
 msgid "Connection settings could not be changed"
-msgstr "إعدادات الاتّصال"
+msgstr "لا يمكن تعديل إعدادات الاتّصال"
 
 #: src/qml/settings/ConnectionSettings.qml:107
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings"
 msgctxt "ConnectionSettings|"
 msgid "Connection settings changed"
-msgstr "إعدادات الاتّصال"
+msgstr "تغيرت إعدادات الاتّصال"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -1345,12 +1286,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr "كلمة المرور الجديدة:"
+msgstr "لا تظهر كلمة المرور"
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1381,12 +1319,9 @@ msgid "Configure"
 msgstr "اضبط"
 
 #: src/qml/settings/MultimediaSettings.qml:66
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr "خذ صورة"
+msgstr "التقاط الصور"
 
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
@@ -1486,12 +1421,9 @@ msgid "Paused"
 msgstr "أوقِفَ مؤقتا"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr "انسخ كلمة المرور"
+msgstr "احذف كلمة المرور"
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1507,23 +1439,17 @@ msgstr ""
 #: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
 msgid "Do not show password as text"
-msgstr ""
+msgstr "لا تظهر كلمة السر كنص"
 
 #: src/qml/settings/PasswordRemovalPage.qml:56
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "PasswordRemovalPage|"
 msgid "Remove completely"
-msgstr "أزل المتراسل"
+msgstr "احذف بالكلية"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:42
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete contact"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account completely"
-msgstr "إزالة جهة اتصال"
+msgstr "احذف الحساب بالكامل"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:45
 msgctxt "RemoteAccountDeletion|"
@@ -1549,14 +1475,11 @@ msgid "Change password"
 msgstr "غيّر كلمة السر"
 
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
 "devices."
-msgstr ""
-"تغيير كلمة مرور حساباتك. يجب عليك إعادة إدخال كلمة المرور إلى جميع الأجهزة "
-"الأخرى."
+msgstr "تغيير كلمة سر حسابك. يجب عليك إعادة إدخالها في جميع أجهزتك الأخرى."
 
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
@@ -1581,7 +1504,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:67
 msgctxt "SettingsContent|"
 msgid "Account security"
-msgstr ""
+msgstr "أمن الحساب"
 
 #: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
@@ -1596,7 +1519,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
-msgstr ""
+msgstr "أزل الحساب من هذا التطبيق"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
@@ -1604,12 +1527,9 @@ msgid "Delete account"
 msgstr "احذف الحساب"
 
 #: src/qml/settings/SettingsContent.qml:80
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Could not connect to the server."
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
-msgstr "تعذر الإتصال بالخادم."
+msgstr "احذف الحساب من الخادم"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
@@ -1624,7 +1544,7 @@ msgstr ""
 #: src/qml/StartPage.qml:84
 msgctxt "StartPage|"
 msgid "Let's start"
-msgstr ""
+msgstr "دعنا نبدأ"
 
 #: src/qml/UserProfilePage.qml:42
 msgctxt "UserProfilePage|"
@@ -1674,12 +1594,9 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:260
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
-msgstr "أظهر باركود"
+msgstr "امسح شفرات باركود الخاصة بك"
 
 #: src/qml/UserProfilePage.qml:269
 msgctxt "UserProfilePage|"
@@ -1702,38 +1619,31 @@ msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:291
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
-msgstr "أظهر باركود"
+msgstr "امسح شفرة باركود المتراسل"
 
 #: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
 msgid "Online devices"
-msgstr ""
+msgstr "الأجهزة المتصلة"
 
 #: src/QmlUtils.cpp:72
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "اسم المستخدم أو كلمة المرور غير صالحة."
+msgstr "اسم المستخدم أو كلمة السر غير صالحة."
 
 #: src/QmlUtils.cpp:74
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "لا يمكن الاتصال بالخادم. يرجى التحقق من اتصالك بالإنترنت."
 
 #: src/QmlUtils.cpp:76
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "خطأ أثناء محاولة الاتصال الآمن."
+msgstr "خطأ في أثناء محاولة الاتصال الآمن."
 
 #: src/QmlUtils.cpp:78
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "الخادم لا يدعم الاتصالات الآمنة."
@@ -1751,10 +1661,9 @@ msgid "The server is offline or blocked by a firewall."
 msgstr ""
 
 #: src/QmlUtils.cpp:84
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "بروتوكول المصادقة غير مدعوم من الخادم."
+msgstr "ميفاق المصادقة غير مدعوم من الخادم."
 
 #: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"

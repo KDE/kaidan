@@ -8,18 +8,19 @@
 # Txaume <txaumevw@gmail.com>, 2019.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
 # Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-08-17 10:46+0200\n"
-"Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
+"PO-Revision-Date: 2022-09-05 14:36+0200\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@yahoo.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.08.0\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -234,7 +235,7 @@ msgstr "Espòiler"
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "Este missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
 #: src/MessageHandler.cpp:253
 msgctxt "MessageHandler|"
@@ -275,6 +276,7 @@ msgstr "Marca com a llegit"
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
+"No són possibles les converses segures perquè no s'ha pogut establir OMEMO"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -446,12 +448,12 @@ msgstr "Baixa"
 #: src/qml/elements/ChatMessage.qml:268
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Sense encriptar"
 
 #: src/qml/elements/ChatMessage.qml:273
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "No fiable"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -707,7 +709,7 @@ msgstr "Seleccioneu un xat per a iniciar la missatgeria"
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Afig un contacte a partir del codi QR"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -797,12 +799,9 @@ msgid "Show explanation"
 msgstr "Mostra una explicació"
 
 #: src/qml/QrCodePage.qml:78
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "Pas 1: Escanegeu el codi QR del vostre <b>contacte</b>"
+msgstr "Pas 1: Escanegeu el codi QR del <b>dispositiu de l'altre</b>"
 
 #: src/qml/QrCodePage.qml:80
 msgctxt "QrCodePage|"
@@ -810,12 +809,11 @@ msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Pas 1: Escanegeu el codi QR del vostre <b>contacte</b>"
 
 #: src/qml/QrCodePage.qml:108
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "Pas 1: Escanegeu el codi QR del vostre <b>contacte</b>"
+msgstr ""
+"Pas 1: Escanegeu amb el dispositiu de l'altre el codi QR <b>d'este "
+"dispositiu</b>"
 
 #: src/qml/QrCodePage.qml:110
 msgctxt "QrCodePage|"
@@ -824,62 +822,47 @@ msgstr ""
 "Pas 2: Permeteu que el vostre contacte escanege el <b>el vostre</b> codi QR"
 
 #: src/qml/QrCodePage.qml:147
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2!"
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2"
-msgstr "S'ha afegit el contacte - Continueu amb el pas 2!"
+msgstr "S'ha afegit el contacte - Continueu amb el pas 2"
 
 #: src/qml/QrCodePage.qml:154
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
-msgstr "Este codi QR no conté cap contacte."
+msgstr "Este codi QR no conté cap contacte"
 
 #: src/qml/QrCodePage.qml:167
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"S'han pres les decisions de confiança per a un altre dispositiu propi - "
+"Continueu amb el pas 2"
 
 #: src/qml/QrCodePage.qml:169
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2!"
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "S'ha afegit el contacte - Continueu amb el pas 2!"
+msgstr ""
+"S'han fet les decisions de confiança per al contacte - Continueu amb el pas 2"
 
 #: src/qml/QrCodePage.qml:176
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "This QR code is not a valid login QR code."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your other device"
-msgstr "Este codi QR no és un codi QR vàlid d'inici de sessió."
+msgstr "Este codi QR no és per a l'altre dispositiu vostre"
 
 #: src/qml/QrCodePage.qml:178
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
-msgstr "Este codi QR no conté cap contacte."
+msgstr "Este codi QR no és per al vostre contacte."
 
 #: src/qml/QrCodePage.qml:184
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
-msgstr "Este codi QR no conté cap contacte."
+msgstr "Este codi QR no és per a les decisions de confiança"
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "S'estan prenent les decisions de confiança…"
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
@@ -1679,7 +1662,7 @@ msgstr "Elimina el contacte"
 #: src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
-msgstr ""
+msgstr "Encriptació (OMEMO 2)"
 
 #: src/qml/UserProfilePage.qml:229
 msgctxt "UserProfilePage|"
@@ -1687,72 +1670,59 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"L'encriptació d'extrem a extrem amb OMEMO 2 garantix que ningú més que vós i "
+"els vostres companys de xat puguen llegir o modificar les dades que "
+"intercanvieu."
 
 #: src/qml/UserProfilePage.qml:239 src/qml/UserProfilePage.qml:245
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
-msgstr ""
-"Escanegeu el codi QR des del dispositiu existent per transferir el vostre "
-"compte."
+msgstr "Escanegeu els codis QR dels vostres dispositius per a encriptar-los"
 
 #: src/qml/UserProfilePage.qml:241
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
-msgstr ""
+msgstr "Els altres dispositius vostres no empren OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:248
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
-"Escanegeu el codi QR des del dispositiu existent per transferir el vostre "
-"compte."
+"Escanegeu els codis QR dels vostres dispositius per a un encriptació segur "
+"màxim"
 
 #: src/qml/UserProfilePage.qml:260
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Scan QR codes"
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
-msgstr "Escanegeu codis QR"
+msgstr "Escanegeu els codis QR propis"
 
 #: src/qml/UserProfilePage.qml:269
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
-msgstr ""
+msgstr "Escanegeu el codi QR del contacte per a activar l'encriptació"
 
 #: src/qml/UserProfilePage.qml:272
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
-msgstr ""
+msgstr "El vostre contacte no utilitza OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:275
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
-"Escanegeu el codi QR des del dispositiu existent per transferir el vostre "
-"compte."
+"Escanegeu els codis QR dels dispositius del vostre contacte per a encriptar-"
+"los"
 
 #: src/qml/UserProfilePage.qml:278
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
+"Escanegeu el codi QR del vostre contacte per a un encriptació segur màxim"
 
 #: src/qml/UserProfilePage.qml:291
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
-msgstr "Escanegeu un codi QR"
+msgstr "Escanegeu el codi QR del contacte"
 
 #: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
