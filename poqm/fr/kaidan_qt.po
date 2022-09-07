@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-08-17 20:09+0200\n"
+"PO-Revision-Date: 2022-09-06 07:39+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.3\n"
+"X-Generator: Lokalize 22.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:288
@@ -224,7 +224,7 @@ msgstr "Message inapproprié"
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "Ce message est chiffré avec %1 mais ne peut pas être déchiffré."
 
 #: src/MessageHandler.cpp:253
 msgctxt "MessageHandler|"
@@ -265,6 +265,8 @@ msgstr "Marquer comme lu"
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
+"Les communications sécurisées sont impossibles car le logiciel OMEMO ne peut "
+"être configuré."
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -434,12 +436,12 @@ msgstr "Télécharger"
 #: src/qml/elements/ChatMessage.qml:268
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Non chiffré"
 
 #: src/qml/elements/ChatMessage.qml:273
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "Non fiable"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -698,7 +700,7 @@ msgstr "Veuillez sélectionner un salon pour démarrer l'échange de messages"
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Ajouter un contact grâce à un code « QR »"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -1679,7 +1681,7 @@ msgstr "Supprimer un contact"
 #: src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
-msgstr ""
+msgstr "Chiffrement (OMEMO 2)"
 
 #: src/qml/UserProfilePage.qml:229
 msgctxt "UserProfilePage|"
@@ -1701,7 +1703,7 @@ msgstr ""
 #: src/qml/UserProfilePage.qml:241
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
-msgstr ""
+msgstr "Votre autres périphériques n'utilisent pas « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:248
 #, fuzzy
@@ -1725,11 +1727,12 @@ msgstr "Lire un code « QR »"
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr ""
+"Lire votre code « QR » de votre contact pour l'activation du chiffrement."
 
 #: src/qml/UserProfilePage.qml:272
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
-msgstr ""
+msgstr "Votre contact n'utilise pas « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:275
 #, fuzzy
@@ -1745,6 +1748,8 @@ msgstr ""
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
+"Lire votre code « QR » de votre contact pour un chiffrement avec un maximum "
+"de sécurité."
 
 #: src/qml/UserProfilePage.qml:291
 #, fuzzy
