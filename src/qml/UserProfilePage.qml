@@ -200,94 +200,13 @@ Kirigami.Page {
 				}
 			}
 
-			Controls.Switch {
-				id: omemoEncryptionSwitch
-				text: qsTr("Encryption (OMEMO 2)")
-				enabled: MessageModel.usableOmemoDevices.length
-				checked: MessageModel.isOmemoEncryptionEnabled
-				onClicked: {
-					// The switch is toggled by setting the user's preference on using encryption.
-					// Note that 'checked' has already the value after the button is clicked.
-					if (checked) {
-						MessageModel.encryption = Encryption.Omemo2
-					} else {
-						MessageModel.encryption = Encryption.NoEncryption
-					}
-				}
-
-				Layout.fillWidth: true
+			Item {
+				height: Kirigami.Units.largeSpacing
 			}
 
-			ColumnLayout {
-				Layout.maximumWidth: largeButtonWidth
-
-				Text {
-					text: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-					color: Kirigami.Theme.disabledTextColor
-					wrapMode: Text.WordWrap
-					Layout.fillWidth: true
-				}
-
-				Text {
-					text: {
-						if (!MessageModel.ownUsableOmemoDevices.length) {
-							if (MessageModel.ownDistrustedOmemoDevices.length) {
-								return qsTr("Scan the QR codes of your devices to encrypt for them")
-							} else if (ownResourcesWatcher.resourcesCount > 1) {
-								return qsTr("Your other devices don't use OMEMO 2")
-							}
-						} else if (MessageModel.ownAuthenticatableOmemoDevices.length) {
-							if (MessageModel.ownAuthenticatableOmemoDevices.length === MessageModel.ownDistrustedOmemoDevices.length) {
-								return qsTr("Scan the QR codes of your devices to encrypt for them")
-							}
-
-							return qsTr("Scan the QR codes of your devices for maximum secure encryption")
-						}
-
-						return ""
-					}
-
-					visible: text
-					wrapMode: Text.WordWrap
-					Layout.fillWidth: true
-				}
-
-				CenteredAdaptiveButton {
-					text: qsTr("Scan own QR codes")
-					visible: MessageModel.ownAuthenticatableOmemoDevices.length
-					onClicked: pageStack.layers.push(qrCodePage, { isForOwnDevices: true })
-				}
-
-				Text {
-					text: {
-						if (!MessageModel.usableOmemoDevices.length) {
-							if (MessageModel.distrustedOmemoDevices.length) {
-								return qsTr("Scan the QR code of your contact to enable encryption")
-							}
-
-							return qsTr("Your contact doesn't use OMEMO 2")
-						} else if (MessageModel.authenticatableOmemoDevices.length) {
-							if (MessageModel.authenticatableOmemoDevices.length === MessageModel.distrustedOmemoDevices.length) {
-								return qsTr("Scan the QR codes of your contact's devices to encrypt for them")
-							}
-
-							return qsTr("Scan the QR code of your contact for maximum secure encryption")
-						}
-
-						return ""
-					}
-
-					visible: text
-					wrapMode: Text.WordWrap
-					Layout.fillWidth: true
-				}
-
-				CenteredAdaptiveButton {
-					id: contactDeviceQrCodeScannerButton
-					text: qsTr("Scan contact's QR code")
-					visible: MessageModel.authenticatableOmemoDevices.length
-					onClicked: pageStack.layers.push(qrCodePage, { contactJid: root.jid })
-				}
+			Kirigami.Heading {
+				level: 2
+				text: qsTr("Profile")
 			}
 
 			Repeater {
@@ -314,6 +233,116 @@ Kirigami.Page {
 						height: 3
 					}
 				}
+			}
+
+			Item {
+				height: Kirigami.Units.largeSpacing
+			}
+
+			RowLayout {
+				Kirigami.Heading {
+					level: 2
+					text: qsTr("Encryption (OMEMO 2)")
+				}
+
+				Controls.Switch {
+					id: omemoEncryptionSwitch
+					enabled: MessageModel.usableOmemoDevices.length
+					checked: MessageModel.isOmemoEncryptionEnabled
+					onClicked: {
+						// The switch is toggled by setting the user's preference on using encryption.
+						// Note that 'checked' has already the value after the button is clicked.
+						if (checked) {
+							MessageModel.encryption = Encryption.Omemo2
+						} else {
+							MessageModel.encryption = Encryption.NoEncryption
+						}
+					}
+
+					Layout.fillWidth: true
+				}
+			}
+
+			ColumnLayout {
+				Layout.maximumWidth: largeButtonWidth
+				spacing: Kirigami.Units.largeSpacing
+
+				Controls.Label {
+					text: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
+					color: Kirigami.Theme.disabledTextColor
+					wrapMode: Text.WordWrap
+					Layout.fillWidth: true
+				}
+
+				ColumnLayout {
+					Controls.Label {
+						id: ownOmemoDevicesExplanation
+						text: {
+							if (!MessageModel.ownUsableOmemoDevices.length) {
+								if (MessageModel.ownDistrustedOmemoDevices.length) {
+									return qsTr("Scan the QR codes of your devices to encrypt for them")
+								} else if (ownResourcesWatcher.resourcesCount > 1) {
+									return qsTr("Your other devices don't use OMEMO 2")
+								}
+							} else if (MessageModel.ownAuthenticatableOmemoDevices.length) {
+								if (MessageModel.ownAuthenticatableOmemoDevices.length === MessageModel.ownDistrustedOmemoDevices.length) {
+									return qsTr("Scan the QR codes of your devices to encrypt for them")
+								}
+
+								return qsTr("Scan the QR codes of your devices for maximum secure encryption")
+							}
+
+							return ""
+						}
+
+						visible: text
+						wrapMode: Text.WordWrap
+					}
+
+					CenteredAdaptiveButton {
+						text: qsTr("Scan own QR codes")
+						icon.name: "view-barcode-qr"
+						visible: MessageModel.ownAuthenticatableOmemoDevices.length
+						onClicked: pageStack.layers.push(qrCodePage, { isForOwnDevices: true })
+					}
+				}
+
+				ColumnLayout {
+					Controls.Label {
+						id: contactOmemoDevicesExplanation
+						text: {
+							if (!MessageModel.usableOmemoDevices.length) {
+								if (MessageModel.distrustedOmemoDevices.length) {
+									return qsTr("Scan the QR code of your contact to enable encryption")
+								}
+
+								return qsTr("Your contact doesn't use OMEMO 2")
+							} else if (MessageModel.authenticatableOmemoDevices.length) {
+								if (MessageModel.authenticatableOmemoDevices.length === MessageModel.distrustedOmemoDevices.length) {
+									return qsTr("Scan the QR codes of your contact's devices to encrypt for them")
+								}
+
+								return qsTr("Scan the QR code of your contact for maximum secure encryption")
+							}
+
+							return ""
+						}
+
+						visible: text
+						wrapMode: Text.WordWrap
+					}
+
+					CenteredAdaptiveButton {
+						text: qsTr("Scan contact's QR code")
+						icon.name: "view-barcode-qr"
+						visible: MessageModel.authenticatableOmemoDevices.length
+						onClicked: pageStack.layers.push(qrCodePage, { contactJid: root.jid })
+					}
+				}
+			}
+
+			Item {
+				height: Kirigami.Units.largeSpacing
 			}
 
 			Kirigami.Heading {
