@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-05 12:40+0200\n"
+"PO-Revision-Date: 2022-09-09 12:36+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -225,7 +225,7 @@ msgstr "Espóiler"
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "Este mensaje está cifrado con %1, pero no se puede descifrar"
 
 #: src/MessageHandler.cpp:253
 msgctxt "MessageHandler|"
@@ -266,6 +266,8 @@ msgstr "Marcar como leído"
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
+"Las conversaciones seguras no son posibles porque no se puede configurar "
+"OMEMO"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -812,12 +814,9 @@ msgid "Contact added - Continue with step 2"
 msgstr "Contacto añadido - Continúe con el paso 2"
 
 #: src/qml/QrCodePage.qml:154
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
-msgstr "Este código QR no contiene un contacto."
+msgstr "Este código QR no contiene un contacto"
 
 #: src/qml/QrCodePage.qml:167
 msgctxt "QrCodePage|"
@@ -1660,7 +1659,7 @@ msgstr "Eliminar contacto"
 #: src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
-msgstr ""
+msgstr "Cifrado (OMEMO 2)"
 
 #: src/qml/UserProfilePage.qml:229
 msgctxt "UserProfilePage|"
@@ -1691,12 +1690,9 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Escanee el código QR desde su dispositivo para transferir su cuenta."
 
 #: src/qml/UserProfilePage.qml:260
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Scan QR codes"
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
-msgstr "Escanear códigos QR"
+msgstr "Escanear códigos QR propios"
 
 #: src/qml/UserProfilePage.qml:269
 msgctxt "UserProfilePage|"
@@ -1722,12 +1718,9 @@ msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:291
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
-msgstr "Escanear código QR"
+msgstr "Escanear código QR del contacto"
 
 #: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
