@@ -37,6 +37,7 @@
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "RosterDb.h"
+#include "RosterItemWatcher.h"
 #include "RosterManager.h"
 
 #include "qxmpp-exts/QXmppUri.h"
@@ -222,6 +223,9 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 	m_items = items;
 	std::sort(m_items.begin(), m_items.end());
 	endResetModel();
+	for (const auto &item : std::as_const(m_items)) {
+		RosterItemNotifier::instance().notifyWatchers(item.jid(), item);
+	}
 }
 
 void RosterModel::addItem(const RosterItem &item)
@@ -238,6 +242,7 @@ void RosterModel::removeItem(const QString &jid)
 			beginRemoveRows(QModelIndex(), i, i);
 			itr.remove();
 			endRemoveRows();
+			RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
 			return;
 		}
 		i++;
@@ -261,6 +266,7 @@ void RosterModel::updateItem(const QString &jid,
 
 			// item was changed: refresh all roles
 			emit dataChanged(index(i), index(i), {});
+			RosterItemNotifier::instance().notifyWatchers(jid, item);
 
 			// check, if the position of the new item may be different
 			updateItemPosition(i);
@@ -308,6 +314,7 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 			beginRemoveRows(QModelIndex(), i, i);
 			m_items.remove(i);
 			endRemoveRows();
+			RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
 			return;
 		}
 	}
@@ -374,6 +381,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
 	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid(), *itr);
 
 	// move row to correct position
 	updateItemPosition(i);
@@ -384,6 +392,7 @@ void RosterModel::insertItem(int index, const RosterItem &item)
 	beginInsertRows(QModelIndex(), index, index);
 	m_items.insert(index, item);
 	endInsertRows();
+	RosterItemNotifier::instance().notifyWatchers(item.jid(), item);
 }
 
 int RosterModel::updateItemPosition(int currentPosition)
