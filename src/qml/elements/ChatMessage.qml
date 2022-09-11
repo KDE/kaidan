@@ -46,6 +46,7 @@ ColumnLayout {
 	property string msgId
 	property string senderJid
 	property string senderName
+	property string chatName
 	property bool isOwn: true
 	property int encryption
 	property bool isTrusted
@@ -315,7 +316,7 @@ ColumnLayout {
 
 	Text {
 		visible: isLastRead
-		text: qsTr("%1 has read up to this point").arg(senderName)
+		text: qsTr("%1 has read up to this point").arg(chatName)
 		Layout.leftMargin: 10
 	}
 
