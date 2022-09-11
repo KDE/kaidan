@@ -3,85 +3,317 @@ add_compile_definitions(
 	QT_DISABLE_DEPRECATED_BEFORE=0x050F00
 )
 
-# set Kaidans sources (used in main cmake file)
 set(KAIDAN_SOURCES
-	src/main.cpp
-	src/Kaidan.cpp
-	src/ClientWorker.cpp
-	src/AvatarFileStorage.cpp
-	src/Database.cpp
-	src/DatabaseComponent.cpp
-	src/RosterItem.cpp
-	src/RosterItemWatcher.cpp
-	src/RosterModel.cpp
-	src/RosterFilterProxyModel.cpp
-	src/RosterDb.cpp
-	src/RosterManager.cpp
-	src/RegistrationManager.cpp
-	src/Message.cpp
-	src/MessageModel.cpp
-	src/MessageDb.cpp
-	src/MessageHandler.cpp
-	src/Notifications.cpp
-	src/PresenceCache.cpp
-	src/UserDevicesModel.cpp
-	src/DiscoveryManager.cpp
-	src/VCardManager.cpp
-	src/VCardModel.cpp
-	src/LogHandler.cpp
-	src/StatusBar.cpp
-	src/UploadManager.cpp
-	src/EmojiModel.cpp
-	src/TransferCache.cpp
-	src/DownloadManager.cpp
-	src/ServerFeaturesCache.cpp
-	src/QmlUtils.cpp
-	src/SqlUtils.cpp
-	src/TrustDb.cpp
-	src/OmemoDb.cpp
-	src/VersionManager.cpp
-	src/QrCodeDecoder.cpp
-	src/QrCodeGenerator.cpp
-	src/QrCodeScannerFilter.cpp
-	src/QrCodeVideoFrame.cpp
-	src/CameraModel.cpp
-	src/AudioDeviceModel.cpp
-	src/MediaSettings.cpp
-	src/CameraImageCapture.cpp
-	src/MediaUtils.cpp
-	src/MediaRecorder.cpp
-	src/CredentialsGenerator.cpp
-	src/CredentialsValidator.cpp
-	src/BitsOfBinaryImageProvider.cpp
-	src/DataFormModel.cpp
-	src/RegistrationDataFormFilterModel.cpp
-	src/RegistrationDataFormModel.cpp
-	src/ProviderListModel.cpp
-	src/ProviderListItem.cpp
-	src/Settings.cpp
-	src/AccountManager.cpp
-	src/VCardCache.cpp
-	src/AtmManager.cpp
-	src/OmemoManager.cpp
+	main.cpp
+	Kaidan.cpp
+	ClientWorker.cpp
+	AvatarFileStorage.cpp
+	Database.cpp
+	DatabaseComponent.cpp
+	RosterItem.cpp
+	RosterItemWatcher.cpp
+	RosterModel.cpp
+	RosterFilterProxyModel.cpp
+	RosterDb.cpp
+	RosterManager.cpp
+	RegistrationManager.cpp
+	Message.cpp
+	MessageModel.cpp
+	MessageDb.cpp
+	MessageHandler.cpp
+	Notifications.cpp
+	PresenceCache.cpp
+	UserDevicesModel.cpp
+	DiscoveryManager.cpp
+	VCardManager.cpp
+	VCardModel.cpp
+	LogHandler.cpp
+	StatusBar.cpp
+	UploadManager.cpp
+	EmojiModel.cpp
+	TransferCache.cpp
+	DownloadManager.cpp
+	ServerFeaturesCache.cpp
+	QmlUtils.cpp
+	SqlUtils.cpp
+	TrustDb.cpp
+	OmemoDb.cpp
+	VersionManager.cpp
+	QrCodeDecoder.cpp
+	QrCodeGenerator.cpp
+	QrCodeScannerFilter.cpp
+	QrCodeVideoFrame.cpp
+	CameraModel.cpp
+	AudioDeviceModel.cpp
+	MediaSettings.cpp
+	CameraImageCapture.cpp
+	MediaUtils.cpp
+	MediaRecorder.cpp
+	CredentialsGenerator.cpp
+	CredentialsValidator.cpp
+	BitsOfBinaryImageProvider.cpp
+	DataFormModel.cpp
+	RegistrationDataFormFilterModel.cpp
+	RegistrationDataFormModel.cpp
+	ProviderListModel.cpp
+	ProviderListItem.cpp
+	Settings.cpp
+	AccountManager.cpp
+	VCardCache.cpp
+	AtmManager.cpp
+	OmemoManager.cpp
 
 	# needed to trigger moc generation / to be displayed in IDEs
-	src/Encryption.h
-	src/Enums.h
-	src/Globals.h
-	src/GuiStyle.h
+	Encryption.h
+	Enums.h
+	Globals.h
+	GuiStyle.h
 
 	# kaidan QXmpp extensions (need to be merged into QXmpp upstream)
-	src/qxmpp-exts/QXmppUploadManager.cpp
-	src/qxmpp-exts/QXmppColorGenerator.cpp
-	src/qxmpp-exts/QXmppUri.cpp
+	qxmpp-exts/QXmppUploadManager.cpp
+	qxmpp-exts/QXmppColorGenerator.cpp
+	qxmpp-exts/QXmppUri.cpp
 
 	# hsluv-c required for color generation
-	src/hsluv-c/hsluv.c
+	hsluv-c/hsluv.c
 )
 
 if(NOT ANDROID AND NOT IOS)
 	set(KAIDAN_SOURCES ${KAIDAN_SOURCES}
-		src/singleapp/singleapplication.cpp
-		src/singleapp/singleapplication_p.cpp
+		singleapp/singleapplication.cpp
+		singleapp/singleapplication_p.cpp
 	)
 endif()
+
+#
+# Sources / Resources
+#
+
+# Include bundled icons on Ubuntu Touch, Android, Windows, macOS and iOS
+if(BUNDLE_ICONS OR UBUNTU_TOUCH OR ANDROID)
+	set(KAIDAN_ICONS_QRC ${CMAKE_SOURCE_DIR}/kirigami-icons.qrc)
+endif()
+
+# Bundled knotifications configuration files on platforms that require it
+if(ANDROID)
+	set(KAIDAN_NOTIFICATIONS_QRC "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
+endif()
+
+# Bundle images on Android, Windows, macOS and iOS
+if(ANDROID OR WIN32 OR APPLE)
+	set(KAIDAN_IMAGES_QRC "${CMAKE_SOURCE_DIR}/data/images/images.qrc")
+endif()
+
+# Set app icon
+include(ECMAddAppIcon)
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/misc/app-icons/*kaidan.png")
+message(STATUS ${ICONS_SRCS})
+ecm_add_app_icon(KAIDAN_ICNS ICONS ${ICONS_SRCS})
+message(STATUS ${KAIDAN_ICNS})
+
+if(QUICK_COMPILER)
+	qtquick_compiler_add_resources(KAIDAN_QML_QRC qml/qml.qrc)
+else()
+	qt5_add_resources(KAIDAN_QML_QRC qml/qml.qrc)
+endif()
+
+# misc resources (e.g. qtquickcontrols2.conf)
+qt5_add_resources(KAIDAN_MISC_QRC ${CMAKE_SOURCE_DIR}/misc/misc.qrc)
+
+add_executable(${PROJECT_NAME}
+	WIN32
+	${KAIDAN_ICNS}
+	${KAIDAN_SOURCES}
+	${KAIDAN_QML_QRC}
+	${KAIDAN_MISC_QRC}
+	${KAIDAN_ICONS_QRC}          # only set if enabled
+	${KAIDAN_IMAGES_QRC}         #
+	${KAIDAN_NOTIFICATIONS_QRC}  #
+	"${CMAKE_SOURCE_DIR}/data/data.qrc"
+)
+
+ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
+
+target_link_libraries(${PROJECT_NAME}
+	Qt5::Core
+	Qt5::Sql
+	Qt5::Qml
+	Qt5::Quick
+	Qt5::Svg
+	Qt5::Network
+	Qt5::Xml
+	Qt5::Multimedia
+	Qt5::Positioning
+	Qt5::Location
+	Qt5::QuickControls2
+	QXmpp::QXmpp QXmpp::Omemo
+	${__Qt5Widgets_LIBRARIES}
+	${__KF5Notifications_LIBRARIES}
+)
+
+if(TARGET ZXing::ZXing)
+        target_link_libraries(${PROJECT_NAME} ZXing::ZXing)
+elseif(TARGET ZXing::Core)
+        target_link_libraries(${PROJECT_NAME} ZXing::Core)
+endif()
+
+if(ANDROID OR IOS)
+	target_link_libraries(${PROJECT_NAME} Qt5::QuickControls2 KF5::Kirigami2)
+endif()
+
+if(ANDROID)
+	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL SQLite::SQLite3)
+endif()
+
+if(ANDROID)
+	target_link_libraries(${PROJECT_NAME} Qt5::AndroidExtras)
+endif()
+
+if(STATIC_BUILD)
+	add_definitions(-DQXMPP_BUILD)
+
+	find_package(Perl REQUIRED)
+
+	set(STATIC_DEPENDENCIES_CMAKE_FILE "${CMAKE_BINARY_DIR}/QtStaticDependencies.cmake")
+	if(EXISTS ${STATIC_DEPENDENCIES_CMAKE_FILE})
+		file(REMOVE ${STATIC_DEPENDENCIES_CMAKE_FILE})
+	endif()
+
+	get_target_property(QT_LIBDIR Qt5::Core LOCATION)
+	get_filename_component(QT_LIBDIR ${QT_LIBDIR} DIRECTORY)
+
+	macro(CONVERT_PRL_LIBS_TO_CMAKE _qt_component)
+		if(TARGET Qt5::${_qt_component})
+			get_target_property(_lib_location Qt5::${_qt_component} LOCATION)
+			execute_process(COMMAND ${PERL_EXECUTABLE} ${CMAKE_SOURCE_DIR}/utils/convert-prl-libs-to-cmake.pl
+				--lib ${_lib_location}
+				--libdir ${QT_LIBDIR}
+				--out ${STATIC_DEPENDENCIES_CMAKE_FILE}
+				--component ${_qt_component}
+				--compiler ${CMAKE_CXX_COMPILER_ID}
+			)
+		endif()
+	endmacro()
+
+	link_directories(${_qt5_install_prefix}/../)
+
+	foreach(qt_module Gui Quick QuickControls2 Network Qml Svg Sql QSQLiteDriverPlugin
+             QJpegPlugin QGifPlugin QSvgPlugin QSvgIconPlugin QICOPlugin QGenericEnginePlugin
+	         QLocalClientConnectionFactory QTcpServerConnectionFactory)
+		CONVERT_PRL_LIBS_TO_CMAKE(${qt_module})
+	endforeach()
+
+	if(IOS)
+		foreach(qt_module QIOSIntegrationPlugin QMacHeifPlugin QMacJp2Plugin
+			QICNSPlugin QTgaPlugin QTiffPlugin QWbmpPlugin QWebpPlugin)
+			CONVERT_PRL_LIBS_TO_CMAKE(${qt_module})
+		endforeach()
+	endif()
+
+	if(NOT EXISTS ${STATIC_DEPENDENCIES_CMAKE_FILE})
+		message(FATAL_ERROR "Unable to find ${STATIC_DEPENDENCIES_CMAKE_FILE}")
+	endif()
+	include(${STATIC_DEPENDENCIES_CMAKE_FILE})
+
+	set(QT_QML_PATH ${_qt5Quick_install_prefix})
+
+	find_library(KIRIGAMI_PLUGIN kirigamiplugin PATHS ${Kirigami2_INSTALL_PREFIX}/${KDE_INSTALL_QMLDIR}/org/kde/kirigami.2)
+	find_library(QUICK_PLUGIN qtquick2plugin PATHS ${QT_QML_PATH}/qml/QtQuick.2)
+	find_library(LABS_PLATFORM_PLUGIN qtlabsplatformplugin PATHS ${QT_QML_PATH}/qml/Qt/labs/platform)
+	find_library(GRAPHEFFECTS_PLUGIN qtgraphicaleffectsplugin PATHS ${QT_QML_PATH}/qml/QtGraphicalEffects)
+	find_library(GRAPHEFFECTS_PRIVATE_PLUGIN qtgraphicaleffectsprivate PATHS ${QT_QML_PATH}/qml/QtGraphicalEffects/private)
+	find_library(QQC2_PLUGIN qtquickcontrols2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2)
+	find_library(QQC2_MATERIAL_PLUGIN qtquickcontrols2materialstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Material)
+	find_library(QQC2_UNIVERSAL_PLUGIN qtquickcontrols2universalstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Universal)
+	find_library(QLAYOUTS_PLUGIN qquicklayoutsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Layouts)
+	find_library(QWINDOW_PLUGIN windowplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Window.2)
+	find_library(QSHAPES_PLUGIN qmlshapesplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Shapes)
+	find_library(QUICKSHAPES Qt5QuickShapes PATHS ${QT_LIBDIR})
+	find_library(QTEMPLATES_PLUGIN qtquicktemplates2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Templates.2)
+	find_library(QMODELS_PLUGIN modelsplugin PATHS ${QT_QML_PATH}/qml/QtQml/Models.2)
+	target_link_libraries(${PROJECT_NAME}
+		${plugin_libs}
+		Qt5::QSQLiteDriverPlugin
+		Qt5::QJpegPlugin
+		Qt5::QGifPlugin
+		Qt5::QSvgPlugin
+		Qt5::QSvgIconPlugin
+		Qt5::QICOPlugin
+		Qt5::QGenericEnginePlugin
+		Qt5::QLocalClientConnectionFactory
+		Qt5::QTcpServerConnectionFactory
+		${KIRIGAMI_PLUGIN}
+		${QUICK_PLUGIN}
+		${LABS_PLATFORM_PLUGIN}
+		${GRAPHEFFECTS_PLUGIN}
+		${GRAPHEFFECTS_PRIVATE_PLUGIN}
+		${QQC2_PLUGIN}
+		${QQC2_MATERIAL_PLUGIN}
+		${QQC2_UNIVERSAL_PLUGIN}
+		${QLAYOUTS_PLUGIN}
+		${QWINDOW_PLUGIN}
+		${QSHAPES_PLUGIN}
+		${QUICKSHAPES}
+		${QTEMPLATES_PLUGIN}
+		${QMODELS_PLUGIN}
+		${__Qt5Widgets_LIBRARIES}
+	)
+
+	if(IOS)
+		target_link_libraries(${PROJECT_NAME}
+			Qt5::QIOSIntegrationPlugin
+			Qt5::QMacHeifPlugin
+			Qt5::QMacJp2Plugin
+			Qt5::QICNSPlugin
+			Qt5::QTgaPlugin
+			Qt5::QTiffPlugin
+			Qt5::QWbmpPlugin
+			Qt5::QWebpPlugin
+		)
+	endif()
+endif()
+
+# Set a custom plist file for the app bundle
+if(APPLE)
+	if(IOS)
+		set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/misc/ios/Info.plist)
+	else()
+		set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/misc/macos/Info.plist)
+	endif()
+endif()
+
+# iOS-specific linker flags
+if(IOS)
+	set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-Wl,-e,_qt_main_wrapper -u _qt_registerPlatformPlugin")
+endif()
+
+#
+# Global C++ variables
+#
+
+if(UBUNTU_TOUCH)
+	set(KAIDAN_COMPILE_DEFINITIONS UBUNTU_TOUCH=True)
+elseif(APPIMAGE)
+	set(KAIDAN_COMPILE_DEFINITIONS
+		APPIMAGE=True
+		TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}"
+	)
+endif()
+
+if(STATIC_BUILD)
+	set(KAIDAN_COMPILE_DEFINITIONS
+		STATIC_BUILD=True
+		${KAIDAN_COMPILE_DEFINITIONS}
+	)
+endif()
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE
+	DEBUG_SOURCE_PATH="${CMAKE_SOURCE_DIR}"
+	VERSION_STRING="${VERSION_STRING}"
+	APPLICATION_ID="${APPLICATION_ID}"
+	APPLICATION_NAME="${APPLICATION_NAME}"
+	APPLICATION_DISPLAY_NAME="${APPLICATION_DISPLAY_NAME}"
+	APPLICATION_DESCRIPTION="${APPLICATION_DESCRIPTION}"
+
+	${KAIDAN_COMPILE_DEFINITIONS}
+)
