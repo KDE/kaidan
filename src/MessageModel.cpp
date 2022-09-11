@@ -127,8 +127,11 @@ MessageModel::MessageModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
 
 	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::updateMessage);
+
+	connect(this, &MessageModel::updateLastReadOwnMessageIdRequested, this, &MessageModel::updateLastReadOwnMessageId);
+
 	connect(this, &MessageModel::handleChatStateRequested,
-		this, &MessageModel::handleChatState);
+	        this, &MessageModel::handleChatState);
 
 	connect(this, &MessageModel::removeMessagesRequested, this, &MessageModel::removeMessages);
 	connect(this, &MessageModel::removeMessagesRequested, MessageDb::instance(), &MessageDb::removeMessages);
@@ -162,6 +165,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[MediaType] = "mediaType";
 	roles[IsEdited] = "isEdited";
 	roles[DeliveryState] = "deliveryState";
+	roles[IsLastRead] = "isLastRead";
 	roles[MediaUrl] = "mediaUrl";
 	roles[MediaSize] = "mediaSize";
 	roles[MediaContentType] = "mediaContentType";
@@ -211,6 +215,18 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return QVariant::fromValue(msg.mediaType());
 	case IsEdited:
 		return msg.isEdited();
+	case IsLastRead:
+		// A read marker text is only displayed if the message is the last read message and no
+		// message is received by the contact after it.
+		if (msg.id() == m_lastReadOwnMessageId) {
+			for (auto i = index.row(); i >= 0; --i) {
+				if (m_messages.at(i).from() != m_currentAccountJid) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
 	case DeliveryState:
 		return QVariant::fromValue(msg.deliveryState());
 	case MediaUrl:
@@ -302,6 +318,8 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid)
 		return;
 
+	m_lastReadOwnMessageId = RosterModel::instance()->lastReadOwnMessageId(accountJid, chatJid);
+
 	// Send gone state to old chat partner
 	sendChatState(QXmppMessage::State::Gone);
 
@@ -370,6 +388,46 @@ void MessageModel::sendMessage(const QString &body, bool isSpoiler, const QStrin
 
 	// Reset composing chat state after message is sent
 	sendChatState(QXmppMessage::State::Active);
+}
+
+void MessageModel::sendReadMarker(int readMessageIndex)
+{
+	// Check the index validity.
+	if (readMessageIndex < 0 || readMessageIndex >= m_messages.size()) {
+		return;
+	}
+
+	m_lastReadContactMessageId = RosterModel::instance()->lastReadContactMessageId(m_currentAccountJid, m_currentChatJid);
+
+	// Skip messages that are read but older than the last read message.
+	for (int i = 0; i != m_messages.size(); ++i) {
+		if (m_messages.at(i).id() == m_lastReadContactMessageId && i <= readMessageIndex) {
+			return;
+		}
+	}
+
+	const auto &readMessage = m_messages.at(readMessageIndex);
+	const auto readMessageId = readMessage.id();
+	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
+
+	if (m_lastReadContactMessageId != readMessageId && !readMessage.isOwn() && isApplicationActive) {
+		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
+			item.setLastReadContactMessageId(readMessageId);
+
+			// If the read message is the latest one, reset the counter for unread messages.
+			// Otherwise, decrease it by 1.
+			if (readMessageIndex == 0) {
+				item.setUnreadMessages(0);
+			} else {
+				item.setUnreadMessages(item.unreadMessages() - 1);
+			}
+		});
+		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp());
+
+		if (readMessage.isMarkable()) {
+			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
+		}
+	}
 }
 
 bool MessageModel::canCorrectMessage(int index) const
@@ -457,6 +515,8 @@ void MessageModel::insertMessage(int idx, const Message &msg)
 	beginInsertRows(QModelIndex(), idx, idx);
 	m_messages.insert(idx, msg);
 	endInsertRows();
+
+	updateLastReadOwnMessageId(m_currentAccountJid, m_currentChatJid);
 }
 
 void MessageModel::addMessage(const Message &msg)
@@ -470,7 +530,6 @@ void MessageModel::addMessage(const Message &msg)
 		}
 		i++;
 	}
-
 	// add message to the end of the list
 	insertMessage(i, msg);
 }
@@ -508,6 +567,41 @@ void MessageModel::updateMessage(const QString &id,
 			showMessageNotification(msg, MessageOrigin::Stream);
 
 			break;
+		}
+	}
+}
+
+void MessageModel::updateLastReadOwnMessageId(const QString &accountJid, const QString &chatJid)
+{
+	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
+	m_lastReadOwnMessageId = RosterModel::instance()->lastReadOwnMessageId(accountJid, chatJid);
+
+	int formerLastReadOwnMessageIndex = -1;
+	int lastReadOwnMessageIndex = -1;
+
+	// The message that was the former last read message and the message that is the last read
+	// message now need to be updated for the user interface in order to reflect the most recent
+	// state.
+	for (int i = 0; i != m_messages.size(); ++i) {
+		const auto &message = m_messages.at(i);
+		if (message.id() == formerLastReadOwnMessageId) {
+			formerLastReadOwnMessageIndex = i;
+
+			const auto modelIndex = index(formerLastReadOwnMessageIndex);
+			emit dataChanged(modelIndex, modelIndex, { IsLastRead });
+
+			if (lastReadOwnMessageIndex != -1) {
+				break;
+			}
+		} else if (message.id() == m_lastReadOwnMessageId) {
+			lastReadOwnMessageIndex = i;
+
+			const auto modelIndex = index(lastReadOwnMessageIndex);
+			emit dataChanged(modelIndex, modelIndex, { IsLastRead });
+
+			if (formerLastReadOwnMessageIndex != -1) {
+				break;
+			}
 		}
 	}
 }
@@ -689,7 +783,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 
 		if (!userMuted && !chatActive) {
 			const auto chatName = RosterModel::instance()->itemName(accountJid, chatJid);
-			Notifications::sendMessageNotification(accountJid, chatJid, chatName, message.body());
+			Notifications::instance()->sendMessageNotification(accountJid, chatJid, chatName, message.id(), message.stamp(), message.body());
 		}
 	}
 }

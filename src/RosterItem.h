@@ -65,6 +65,12 @@ public:
 	QString lastMessage() const;
 	void setLastMessage(const QString &lastMessage);
 
+	QString lastReadOwnMessageId() const;
+	void setLastReadOwnMessageId(const QString &lastReadMessageOwnId);
+
+	QString lastReadContactMessageId() const;
+	void setLastReadContactMessageId(const QString &lastReadMessageContactId);
+
 	QString displayName() const;
 
 	bool operator==(const RosterItem &other) const;
@@ -111,6 +117,16 @@ private:
 	 * Last message of the conversation.
 	 */
 	QString m_lastMessage;
+
+	/**
+	 * Last message i.e read by the receiver.
+	 */
+	QString m_lastReadOwnMessageId;
+
+	/**
+	 * Last message i.e read by the user.
+	 */
+	 QString m_lastReadContactMessageId;
 };
 
 Q_DECLARE_METATYPE(RosterItem);

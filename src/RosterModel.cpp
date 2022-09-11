@@ -90,16 +90,6 @@ RosterModel::RosterModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &RosterModel::handleMessageAdded);
 }
 
-void RosterModel::setMessageModel(MessageModel *model)
-{
-	connect(model, &MessageModel::currentChatJidChanged, this, [=] (const QString &currentChatJid) {
-		// reset unread message counter
-		emit updateItemRequested(currentChatJid, [] (RosterItem &item) {
-			item.setUnreadMessages(0);
-		});
-	});
-}
-
 bool RosterModel::isEmpty() const
 {
 	return m_items.isEmpty();
@@ -211,6 +201,20 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &u
 	return AddContactByUriResult::InvalidUri;
 }
 
+QString RosterModel::lastReadOwnMessageId(const QString &, const QString &jid) const
+{
+	if (auto item = findItem(jid))
+		return item->lastReadOwnMessageId();
+	return {};
+}
+
+QString RosterModel::lastReadContactMessageId(const QString &, const QString &jid) const
+{
+	if (auto item = findItem(jid))
+		return item->lastReadContactMessageId();
+	return {};
+}
+
 void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 {
 	beginResetModel();
@@ -282,6 +286,8 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.setLastMessage(oldItem->lastMessage());
 			item.setLastExchanged(oldItem->lastExchanged());
 			item.setUnreadMessages(oldItem->unreadMessages());
+			item.setLastReadOwnMessageId(oldItem->lastReadOwnMessageId());
+			item.setLastReadContactMessageId(oldItem->lastReadContactMessageId());
 			item.setEncryption(oldItem->encryption());
 		}
 

@@ -105,6 +105,26 @@ void RosterItem::setLastMessage(const QString &lastMessage)
 	m_lastMessage = lastMessage;
 }
 
+QString RosterItem::lastReadOwnMessageId() const
+{
+	return m_lastReadOwnMessageId;
+}
+
+void RosterItem::setLastReadOwnMessageId(const QString &lastReadOwnMessageId)
+{
+	m_lastReadOwnMessageId = lastReadOwnMessageId;
+}
+
+QString RosterItem::lastReadContactMessageId() const
+{
+	return m_lastReadContactMessageId;
+}
+
+void RosterItem::setLastReadContactMessageId(const QString &lastReadContactMessageId)
+{
+	m_lastReadContactMessageId = lastReadContactMessageId;
+}
+
 QString RosterItem::displayName() const
 {
 	return m_name.isEmpty() ? m_jid : m_name;
@@ -115,6 +135,8 @@ bool RosterItem::operator==(const RosterItem &other) const
 	return m_jid == other.jid() &&
 	       m_name == other.name() &&
 	       m_lastMessage == other.lastMessage() &&
+	       m_lastReadOwnMessageId == other.lastReadOwnMessageId() &&
+	       m_lastReadContactMessageId == other.lastReadContactMessageId() &&
 	       m_lastExchanged == other.lastExchanged() &&
 	       m_unreadMessages == other.unreadMessages() &&
 	       m_encryption == other.encryption();

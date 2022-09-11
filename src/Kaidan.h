@@ -38,6 +38,7 @@
 class QSize;
 class Database;
 class DataFormModel;
+class Notifications;
 class RosterDb;
 class MessageDb;
 class QXmppClient;
@@ -395,6 +396,7 @@ private:
 	 */
 	void initializeClientWorker(bool enableLogging = true);
 
+	Notifications *m_notifications;
 	Database *m_database;
 	MessageDb *m_msgDb;
 	RosterDb *m_rosterDb;

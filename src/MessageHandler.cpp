@@ -46,6 +46,8 @@
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
+#include "Notifications.h"
+#include "RosterModel.h"
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
@@ -60,6 +62,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 		handleMessage(msg, MessageOrigin::Stream);
 	});
 	connect(this, &MessageHandler::sendMessageRequested, this, &MessageHandler::sendMessage);
+	connect(this, &MessageHandler::sendReadMarkerRequested, this, &MessageHandler::sendReadMarker);
 	connect(MessageModel::instance(), &MessageModel::sendCorrectedMessageRequested,
 	        this, &MessageHandler::sendCorrectedMessage);
 	connect(MessageModel::instance(), &MessageModel::sendChatStateRequested,
@@ -138,9 +141,17 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
+	const auto senderJid = QXmppUtils::jidToBareJid(msg.from());
+	const auto recipientJid = QXmppUtils::jidToBareJid(msg.to());
+	const auto isOwnMessage = senderJid == m_client->configuration().jidBare();
+
 	if (msg.state() != QXmppMessage::State::None) {
 		emit MessageModel::instance()->handleChatStateRequested(
-				QXmppUtils::jidToBareJid(msg.from()), msg.state());
+				senderJid, msg.state());
+	}
+
+	if (handleReadMarker(msg, senderJid, recipientJid, isOwnMessage)) {
+		return;
 	}
 
 	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty()) {
@@ -148,9 +159,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	Message message;
-	message.setFrom(QXmppUtils::jidToBareJid(msg.from()));
-	message.setTo(QXmppUtils::jidToBareJid(msg.to()));
-	message.setIsOwn(QXmppUtils::jidToBareJid(msg.from()) == m_client->configuration().jidBare());
+	message.setFrom(senderJid);
+	message.setTo(recipientJid);
+	message.setIsOwn(isOwnMessage);
 	message.setId(msg.id());
 
 	if (auto e2eeMetadata = msg.e2eeMetadata()) {
@@ -174,6 +185,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.setOutOfBandUrl(msg.outOfBandUrl());
 	message.setStanzaId(msg.stanzaId());
 	message.setOriginId(msg.originId());
+	message.setMarkable(msg.isMarkable());
 
 	// check if message contains a link and also check out of band url
 	if (!parseMediaUri(message, msg.outOfBandUrl(), false)) {
@@ -220,6 +232,7 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.setIsOwn(true);
 	msg.setMediaType(MessageType::MessageText); // text message without media
 	msg.setDeliveryState(Enums::DeliveryState::Pending);
+	msg.setMarkable(true);
 	msg.setStamp(QDateTime::currentDateTimeUtc());
 	msg.setIsSpoiler(isSpoiler);
 	msg.setSpoilerHint(spoilerHint);
@@ -362,6 +375,16 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 	return false;
 }
 
+void MessageHandler::sendReadMarker(const QString &chatJid, const QString &messageId)
+{
+	Message message;
+	message.setTo(chatJid);
+	message.setMarker(QXmppMessage::Displayed);
+	message.setMarkerId(messageId);
+
+	sendPendingMessage(message);
+}
+
 void MessageHandler::handlePendingMessages(const QVector<Message> &messages)
 {
 	for (Message message : messages) {
@@ -464,6 +487,42 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 
 	const auto id = m_mamManager->retrieveArchivedMessages({}, {}, jid, {}, stamp, queryLimit);
 	m_runningBacklogQueryIds.insert(id, BacklogQueryState { jid, stamp });
+}
+
+bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage)
+{
+	if (message.marker() == QXmppMessage::Displayed) {
+		const auto markedId = message.markedId();
+		if (isOwnMessage) {
+			const auto lastReadContactMessageId = RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid);
+
+			// Retrieve the count of messages between "lastReadContactMessageId" and "markedId" to
+			// decrease the corresponding counter by 1 (if IDs could not be found) or by the actual
+			// count of read messages.
+			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, lastReadContactMessageId, markedId);
+			await(future, this, [=](int count) {
+				emit RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
+					item.setUnreadMessages(count == 0 ? item.unreadMessages() - 1 : item.unreadMessages() - count + 1);
+					item.setLastReadContactMessageId(markedId);
+				});
+			});
+
+			auto futureTimestamp = MessageDb::instance()->messageTimestamp(recipientJid, senderJid, markedId);
+			await(futureTimestamp, this, [=](QDateTime timestamp) {
+				emit Notifications::instance()->closeMessageNotificationsRequested(senderJid, recipientJid, timestamp);
+			});
+		} else {
+			emit RosterModel::instance()->updateItemRequested(senderJid, [=](RosterItem &item) {
+				item.setLastReadOwnMessageId(markedId);
+			});
+
+			emit MessageModel::instance()->updateLastReadOwnMessageIdRequested(recipientJid, senderJid);
+		}
+
+		return true;
+	}
+
+	return false;
 }
 
 QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)

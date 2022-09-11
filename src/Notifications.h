@@ -30,11 +30,33 @@
 
 #pragma once
 
+#include <QDateTime>
+#include <QObject>
+#include <QUuid>
+
+class KNotification;
+class QDateTime;
 class QString;
 
-class Notifications
+class Notifications : public QObject
 {
+	Q_OBJECT
+
 public:
+	struct NotificationWrapper
+	{
+		QUuid id;
+		QString accountJid;
+		QString chatJid;
+		QDateTime timestamp;
+		bool isResendingEnabled = true;
+		KNotification *notification;
+	};
+
+	static Notifications *instance();
+
+	explicit Notifications(QObject *parent = nullptr);
+
 	/**
 	 * Sends a system notification for a chat message.
 	 *
@@ -43,5 +65,19 @@ public:
 	 * @param chatName name of the message's chat
 	 * @param message message to show
 	 */
-	static void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &chatName, const QString &message);
+	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &chatName, const QString &messageId, const QDateTime &timestamp, const QString &messageBody);
+
+	void closeMessageNotifications(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId = {});
+
+	/**
+	 * Emitted to close all chat message notifications of the same age or older than a timestamp.
+	 */
+	Q_SIGNAL void closeMessageNotificationsRequested(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId = {});
+
+private:
+	void disableResending(bool isPersistentNotification, const QUuid &notificationId);
+
+	QVector<NotificationWrapper> m_openNotifications;
+
+	static Notifications *s_instance;
 };

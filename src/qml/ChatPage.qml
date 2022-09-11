@@ -340,6 +340,26 @@ ChatPageBase {
 		// Connect to the database,
 		model: MessageModel
 
+		visibleArea.onYPositionChanged: sendReadMarker()
+
+		Connections {
+			target: Qt.application
+
+			function onStateChanged(state) {
+				// Send a read marker once the application becomes active if a message has been received while the application was not active.
+				if (state === Qt.ApplicationActive) {
+					messageListView.sendReadMarker()
+				}
+			}
+		}
+
+		/**
+		 * Sends a read marker for the latest visible / read message.
+		 */
+		function sendReadMarker() {
+			MessageModel.sendReadMarker(indexAt(0, (contentY + height + 15)) + 1)
+		}
+
 		ChatMessageContextMenu {
 			id: messageContextMenu
 		}
@@ -356,6 +376,7 @@ ChatPageBase {
 			messageBody: model.body
 			dateTime: new Date(model.timestamp)
 			deliveryState: model.deliveryState
+			isLastRead: model.isLastRead
 			mediaType: model.mediaType
 			mediaGetUrl: model.mediaUrl
 			mediaLocation: model.mediaLocation

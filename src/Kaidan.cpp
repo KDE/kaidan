@@ -46,6 +46,7 @@
 #include "Database.h"
 #include "Globals.h"
 #include "MessageDb.h"
+#include "Notifications.h"
 #include "RosterDb.h"
 #include "Settings.h"
 
@@ -56,6 +57,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
+
+	m_notifications = new Notifications(this);
 
 	// database
 	m_database = new Database(this);

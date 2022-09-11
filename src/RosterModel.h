@@ -71,8 +71,6 @@ public:
 
 	RosterModel(QObject *parent = nullptr);
 
-	void setMessageModel(MessageModel *model);
-
 	Q_REQUIRED_RESULT bool isEmpty() const;
 	Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 	Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
@@ -119,6 +117,9 @@ public:
 	 * @param uriString XMPP URI string that contains only a JID
 	 */
 	Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &uriString);
+
+	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
+	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
 
 signals:
 	void addItemRequested(const RosterItem &item);

@@ -92,6 +92,7 @@ public:
 		MediaType,
 		IsEdited,
 		DeliveryState,
+		IsLastRead,
 		MediaUrl,
 		MediaSize,
 		MediaContentType,
@@ -150,6 +151,7 @@ public:
 	QList<QString> authenticatableOmemoDevices() const;
 
 	Q_INVOKABLE void sendMessage(const QString &body, bool isSpoiler, const QString &spoilerHint);
+	Q_INVOKABLE void sendReadMarker(int readMessageIndex);
 
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
 
@@ -245,7 +247,7 @@ signals:
 	 */
 	void authenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
 
-	void addMessageRequested(const Message &message, MessageOrigin origin);
+	void updateLastReadOwnMessageIdRequested(const QString &accountJid, const QString &chatJid);
 	void pendingMessagesFetched(const QVector<Message> &messages);
 	void sendCorrectedMessageRequested(const Message &msg);
 	void chatStateChanged();
@@ -274,6 +276,7 @@ private slots:
 	void addMessage(const Message &msg);
 	void updateMessage(const QString &id,
 	                   const std::function<void (Message &)> &updateMsg);
+	void updateLastReadOwnMessageId(const QString &accountJid, const QString &chatJid);
 
 	void handleMessage(Message msg, MessageOrigin origin);
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
@@ -309,6 +312,8 @@ private:
 	QVector<Message> m_messages;
 	QString m_currentAccountJid;
 	QString m_currentChatJid;
+	QString m_lastReadOwnMessageId;
+	QString m_lastReadContactMessageId;
 	bool m_fetchedAllFromDb = false;
 	bool m_fetchedAllFromMam = false;
 	bool m_mamLoading = false;

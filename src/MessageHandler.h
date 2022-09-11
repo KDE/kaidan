@@ -81,11 +81,21 @@ signals:
 				  bool isSpoiler,
 				  const QString &spoilerHint);
 
+	void sendReadMarkerRequested(const QString &chatJid, const QString &messageId);
+
 	void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
 
 private slots:
 	void handleConnected();
 	void handleDisonnected();
+
+	/**
+	 * Sends a chat marker for a read message.
+	 *
+	 * @param chatJid bare JID of the chat that contains the read message
+	 * @param messageId ID of the read message
+	 */
+	void sendReadMarker(const QString &chatJid, const QString &messageId);
 
 	/**
 	 * Handles pending messages found in the database.
@@ -104,8 +114,16 @@ private slots:
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
 private:
-	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
+	/**
+	 * Handles a message that may contain a read marker.
+	 *
+	 * @return whether the message is handled because it contains a read marker
+	 */
+	bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
+
 	bool parseMediaUri(Message &message, const QString &uri, bool isBodyPart);
+
+	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
 	struct BacklogQueryState {
 		QString chatJid;

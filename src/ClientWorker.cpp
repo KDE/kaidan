@@ -73,7 +73,6 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  presCache(new PresenceCache(parent)),
 	  transferCache(new TransferCache(parent))
 {
-	rosterModel->setMessageModel(msgModel);
 }
 
 ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject* parent)
