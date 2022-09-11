@@ -86,18 +86,6 @@ public:
 	Q_INVOKABLE bool hasItem(const QString &jid) const;
 
 	/**
-	 * Retrieves the name of a roster item or its JID's local part.
-	 *
-	 * @param accountJid JID of the account whose roster item is retrieved
-	 * @param jid JID of the roster item
-	 *
-	 * @return the name of the roster item, or
-	 * the local part of its JID if the found roster item has no name, or
-	 * an empty string if no roster item with the given JID could be found
-	 */
-	Q_INVOKABLE QString itemName(const QString &accountJid, const QString &jid) const;
-
-	/**
 	 * Returns whether an account's presence is subscribed by a roster item.
 	 *
 	 * @param accountJid JID of the account whose roster item's presence subcription is requested
@@ -169,17 +157,6 @@ private:
 	void insertItem(int index, const RosterItem &item);
 	int updateItemPosition(int currentIndex);
 	int positionToInsert(const RosterItem &item);
-
-	/**
-	 * Determines a suitable roster item's name.
-	 *
-	 * @param jid JID of the roster item
-	 * @param name name of the roster item which can be empty
-	 *
-	 * @return the passed item name if it is not empty, otherwise the local
-	 * part of the passed JID
-	 */
-	QString determineItemName(const QString &jid, const QString &name) const;
 
 	QVector<RosterItem> m_items;
 
