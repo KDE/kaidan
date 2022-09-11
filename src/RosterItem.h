@@ -31,7 +31,7 @@
 #pragma once
 
 #include <QDateTime>
-#include "QXmppRosterIq.h"
+#include <QXmppRosterIq.h>
 
 #include "Encryption.h"
 
@@ -40,6 +40,11 @@
  */
 class RosterItem
 {
+	Q_GADGET
+	Q_PROPERTY(QString jid READ jid CONSTANT)
+	Q_PROPERTY(QString name READ name CONSTANT)
+	Q_PROPERTY(QString displayName READ displayName CONSTANT)
+
 public:
 	RosterItem() = default;
 	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
@@ -129,4 +134,4 @@ private:
 	 QString m_lastReadContactMessageId;
 };
 
-Q_DECLARE_METATYPE(RosterItem);
+Q_DECLARE_METATYPE(RosterItem)
