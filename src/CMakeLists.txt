@@ -12,6 +12,7 @@ set(KAIDAN_SOURCES
 	src/Database.cpp
 	src/DatabaseComponent.cpp
 	src/RosterItem.cpp
+	src/RosterItemWatcher.cpp
 	src/RosterModel.cpp
 	src/RosterFilterProxyModel.cpp
 	src/RosterDb.cpp

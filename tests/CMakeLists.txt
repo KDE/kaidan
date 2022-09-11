@@ -14,6 +14,15 @@ ecm_add_test(
 )
 
 ecm_add_test(
+	RosterItemWatcherTest.cpp
+	../src/RosterItemWatcher.cpp
+	../src/RosterItem.cpp
+	TEST_NAME RosterItemWatcherTest
+	LINK_LIBRARIES Qt::Test Qt::Gui QXmpp::QXmpp
+)
+target_compile_definitions(RosterItemWatcherTest PUBLIC UNIT_TEST)
+
+ecm_add_test(
 	UserPresenceWatcherTest.cpp
 	../src/PresenceCache.cpp
 	TEST_NAME UserPresenceWatcherTest

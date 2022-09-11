@@ -121,6 +121,11 @@ public:
 	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
 
+	/**
+	 * Searches for the roster item with a given JID.
+	 */
+	std::optional<RosterItem> findItem(const QString &jid) const;
+
 signals:
 	void addItemRequested(const RosterItem &item);
 	void removeItemRequested(const QString &jid);
@@ -161,11 +166,6 @@ private slots:
 	void handleMessageAdded(const Message &message, MessageOrigin origin);
 
 private:
-	/**
-	 * Searches for the roster item with a given JID.
-	 */
-	std::optional<const RosterItem> findItem(const QString &jid) const;
-
 	void insertItem(int index, const RosterItem &item);
 	int updateItemPosition(int currentIndex);
 	int positionToInsert(const RosterItem &item);

@@ -138,11 +138,12 @@ bool RosterModel::hasItem(const QString &jid) const
 	return findItem(jid).has_value();
 }
 
-std::optional<const RosterItem> RosterModel::findItem(const QString &jid) const
+std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
 {
-	for (const auto &item : qAsConst(m_items)) {
-		if (item.jid() == jid)
+	for (const auto &item : std::as_const(m_items)) {
+		if (item.jid() == jid) {
 			return item;
+		}
 	}
 
 	return std::nullopt;
