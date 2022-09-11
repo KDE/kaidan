@@ -29,6 +29,7 @@
  */
 
 #include "RosterItem.h"
+#include <QXmppUtils.h>
 
 RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime)
 	: m_jid(item.bareJid()), m_name(item.name()), m_subscription(item.subscriptionType()), m_lastExchanged(dateTime)
@@ -127,7 +128,7 @@ void RosterItem::setLastReadContactMessageId(const QString &lastReadContactMessa
 
 QString RosterItem::displayName() const
 {
-	return m_name.isEmpty() ? m_jid : m_name;
+	return m_name.isEmpty() ? QXmppUtils::jidToUser(m_jid) : m_name;
 }
 
 bool RosterItem::operator==(const RosterItem &other) const
