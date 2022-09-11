@@ -76,6 +76,7 @@
 #include "QrCodeScannerFilter.h"
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationManager.h"
+#include "RosterItemWatcher.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "RosterFilterProxyModel.h"
@@ -241,6 +242,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 	// register qMetaTypes
 	qRegisterMetaType<RosterItem>();
+	qRegisterMetaType<RosterItemWatcher *>();
 	qRegisterMetaType<RosterModel*>();
 	qRegisterMetaType<RosterManager*>();
 	qRegisterMetaType<Message>();
@@ -422,6 +424,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
 	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
 	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
+	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");

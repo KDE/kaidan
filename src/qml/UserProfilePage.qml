@@ -45,8 +45,8 @@ Kirigami.Page {
 	bottomPadding: 0
 	leftPadding: 0
 
-	property string jid
-	property string name
+	required property string jid
+	required property RosterItemWatcher chatItemWatcher
 
 	Timer {
 		id: pageTimer
@@ -109,11 +109,7 @@ Kirigami.Page {
 	RosterRenameContactSheet {
 		id: renameSheet
 		jid: root.jid
-		enteredName: {
-			if (name === jid)
-				return "";
-			return name;
-		}
+		enteredName: chatItemWatcher.item.name
 	}
 
 	Kirigami.OverlaySheet {
@@ -163,13 +159,13 @@ Kirigami.Page {
 					Layout.preferredHeight: Kirigami.Units.gridUnit * 10
 					Layout.preferredWidth: Kirigami.Units.gridUnit * 10
 					jid: root.jid
-					name: root.name
+					name: chatItemWatcher.item.displayName
 				}
 
 				ColumnLayout {
 					Kirigami.Heading {
 						Layout.fillWidth: true
-						text: root.name
+						text: chatItemWatcher.item.displayName
 						textFormat: Text.PlainText
 						maximumLineCount: 2
 						elide: Text.ElideRight

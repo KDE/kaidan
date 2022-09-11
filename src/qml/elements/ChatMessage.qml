@@ -315,7 +315,7 @@ ColumnLayout {
 
 	Text {
 		visible: isLastRead
-		text: qsTr("%1 has read up to this point").arg(chatName)
+		text: qsTr("%1 has read up to this point").arg(senderName)
 		Layout.leftMargin: 10
 	}
 

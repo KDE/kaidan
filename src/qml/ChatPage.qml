@@ -63,13 +63,12 @@ ChatPageBase {
 		}
 	}
 
-	property string chatName: RosterModel.itemName(MessageModel.currentAccountJid, MessageModel.currentChatJid)
 	property alias mediaDrawer: mediaDrawer
 	property bool isWritingSpoiler
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 
-	title: chatName
+	title: chatItemWatcher.item.displayName
 	keyboardNavigationEnabled: true
 	contextualActions: [
 		// Action to toggle the message search bar
@@ -121,7 +120,12 @@ ChatPageBase {
 			visible: true
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("View profile")
-			onTriggered: pageStack.push(userProfilePage, {jid: MessageModel.currentChatJid, name: chatName})
+			onTriggered: {
+				pageStack.push(userProfilePage, {
+					jid: MessageModel.currentChatJid,
+					chatItemWatcher: chatItemWatcher
+				});
+			}
 		},
 		Kirigami.Action {
 			readonly property int type: Enums.MessageType.MessageImage
@@ -188,6 +192,11 @@ ChatPageBase {
 	// Message search bar
 	header: ChatPageSearchView {
 		id: searchBar
+	}
+
+	RosterItemWatcher {
+		id: chatItemWatcher
+		jid: MessageModel.currentChatJid
 	}
 
 	SendMediaSheet {
@@ -368,7 +377,7 @@ ChatPageBase {
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.sender
-			senderName: chatName
+			senderName: chatItemWatcher.item.displayName
 			encryption: model.encryption
 			isTrusted: model.isTrusted
 			contextMenu: messageContextMenu
@@ -420,7 +429,7 @@ ChatPageBase {
 				height: !text ? 20 : 0
 				topPadding: text ? 10 : 0
 
-				text: Utils.chatStateDescription(root.chatName, MessageModel.chatState)
+				text: Utils.chatStateDescription(chatItemWatcher.item.displayName, MessageModel.chatState)
 				elide: Qt.ElideMiddle
 			}
 		}
