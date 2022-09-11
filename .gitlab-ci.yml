@@ -12,7 +12,7 @@ clazy:
 
 qmllint:
   stage: test
-  image: kaidan/neon-bionic
+  image: kaidan/debian-unstable
   script: qmllint $(find . -name "*.qml")
   variables:
     QT_SELECT: 5
