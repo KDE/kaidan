@@ -1,9 +1,10 @@
-add_compile_definitions(
-	QXMPP_DISABLE_DEPRECATED_BEFORE=0x010400
-	QT_DISABLE_DEPRECATED_BEFORE=0x050F00
-)
+#
+# Sources / Resources
+#
 
-set(KAIDAN_SOURCES
+add_executable(${PROJECT_NAME} WIN32)
+
+target_sources(${PROJECT_NAME} PRIVATE
 	main.cpp
 	Kaidan.cpp
 	ClientWorker.cpp
@@ -76,32 +77,31 @@ set(KAIDAN_SOURCES
 
 	# hsluv-c required for color generation
 	hsluv-c/hsluv.c
+
+	${CMAKE_SOURCE_DIR}/data/data.qrc
+	${CMAKE_SOURCE_DIR}/misc/misc.qrc
 )
 
 if(NOT ANDROID AND NOT IOS)
-	set(KAIDAN_SOURCES ${KAIDAN_SOURCES}
+	target_sources(${PROJECT_NAME} PRIVATE
 		singleapp/singleapplication.cpp
 		singleapp/singleapplication_p.cpp
 	)
 endif()
 
-#
-# Sources / Resources
-#
-
 # Include bundled icons on Ubuntu Touch, Android, Windows, macOS and iOS
 if(BUNDLE_ICONS OR UBUNTU_TOUCH OR ANDROID)
-	set(KAIDAN_ICONS_QRC ${CMAKE_SOURCE_DIR}/kirigami-icons.qrc)
+	target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/kirigami-icons.qrc")
 endif()
 
 # Bundled knotifications configuration files on platforms that require it
 if(ANDROID)
-	set(KAIDAN_NOTIFICATIONS_QRC "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
+	target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
 endif()
 
 # Bundle images on Android, Windows, macOS and iOS
 if(ANDROID OR WIN32 OR APPLE)
-	set(KAIDAN_IMAGES_QRC "${CMAKE_SOURCE_DIR}/data/images/images.qrc")
+	target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/data/images/images.qrc")
 endif()
 
 # Set app icon
@@ -110,27 +110,15 @@ file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/misc/app-icons/*kaidan.png")
 message(STATUS ${ICONS_SRCS})
 ecm_add_app_icon(KAIDAN_ICNS ICONS ${ICONS_SRCS})
 message(STATUS ${KAIDAN_ICNS})
+target_sources(${PROJECT_NAME} PRIVATE ${KAIDAN_ICNS})
 
+# QML files
 if(QUICK_COMPILER)
-	qtquick_compiler_add_resources(KAIDAN_QML_QRC qml/qml.qrc)
+	qtquick_compiler_add_resources(COMPILED_QML_QRC qml/qml.qrc)
+	target_sources(${PROJECT_NAME} PRIVATE ${COMPILED_QML_QRC})
 else()
-	qt5_add_resources(KAIDAN_QML_QRC qml/qml.qrc)
+	target_sources(${PROJECT_NAME} PRIVATE qml/qml.qrc)
 endif()
-
-# misc resources (e.g. qtquickcontrols2.conf)
-qt5_add_resources(KAIDAN_MISC_QRC ${CMAKE_SOURCE_DIR}/misc/misc.qrc)
-
-add_executable(${PROJECT_NAME}
-	WIN32
-	${KAIDAN_ICNS}
-	${KAIDAN_SOURCES}
-	${KAIDAN_QML_QRC}
-	${KAIDAN_MISC_QRC}
-	${KAIDAN_ICONS_QRC}          # only set if enabled
-	${KAIDAN_IMAGES_QRC}         #
-	${KAIDAN_NOTIFICATIONS_QRC}  #
-	"${CMAKE_SOURCE_DIR}/data/data.qrc"
-)
 
 ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
@@ -162,11 +150,7 @@ if(ANDROID OR IOS)
 endif()
 
 if(ANDROID)
-	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL SQLite::SQLite3)
-endif()
-
-if(ANDROID)
-	target_link_libraries(${PROJECT_NAME} Qt5::AndroidExtras)
+	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL SQLite::SQLite3 Qt5::AndroidExtras)
 endif()
 
 if(STATIC_BUILD)
@@ -288,32 +272,31 @@ if(IOS)
 endif()
 
 #
-# Global C++ variables
+# Global C++ definitions
 #
 
 if(UBUNTU_TOUCH)
-	set(KAIDAN_COMPILE_DEFINITIONS UBUNTU_TOUCH=True)
+	target_compile_definitions(${PROJECT_NAME} PRIVATE UBUNTU_TOUCH=True)
 elseif(APPIMAGE)
-	set(KAIDAN_COMPILE_DEFINITIONS
+	target_compile_definitions(${PROJECT_NAME} PRIVATE
 		APPIMAGE=True
 		TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}"
 	)
 endif()
 
 if(STATIC_BUILD)
-	set(KAIDAN_COMPILE_DEFINITIONS
+	target_compile_definitions(${PROJECT_NAME} PRIVATE
 		STATIC_BUILD=True
-		${KAIDAN_COMPILE_DEFINITIONS}
 	)
 endif()
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
+	QXMPP_DISABLE_DEPRECATED_BEFORE=0x010400
+	QT_DISABLE_DEPRECATED_BEFORE=0x050F00
 	DEBUG_SOURCE_PATH="${CMAKE_SOURCE_DIR}"
 	VERSION_STRING="${VERSION_STRING}"
 	APPLICATION_ID="${APPLICATION_ID}"
 	APPLICATION_NAME="${APPLICATION_NAME}"
 	APPLICATION_DISPLAY_NAME="${APPLICATION_DISPLAY_NAME}"
 	APPLICATION_DESCRIPTION="${APPLICATION_DESCRIPTION}"
-
-	${KAIDAN_COMPILE_DEFINITIONS}
 )
