@@ -782,8 +782,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 				QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 		if (!userMuted && !chatActive) {
-			const auto chatName = RosterModel::instance()->itemName(accountJid, chatJid);
-			Notifications::instance()->sendMessageNotification(accountJid, chatJid, chatName, message.id(), message.stamp(), message.body());
+			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id(), message.stamp(), message.body());
 		}
 	}
 }

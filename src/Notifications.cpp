@@ -67,11 +67,14 @@ Notifications::Notifications(QObject *parent)
 
 #ifdef HAVE_KNOTIFICATIONS
 
-void Notifications::sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &chatName, const QString &messageId, const QDateTime &timestamp, const QString &messageBody)
+void Notifications::sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QDateTime &timestamp, const QString &messageBody)
 {
 #ifdef DESKTOP_LINUX_ALIKE_OS
 	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains("GNOME", Qt::CaseInsensitive);
 #endif
+
+	auto rosterItem = RosterModel::instance()->findItem(chatJid);
+	auto chatName = rosterItem ? rosterItem->displayName() : QString();
 
 	auto *notification = new KNotification("new-message");
 	notification->setTitle(chatName);
@@ -135,7 +138,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 				// work.
 				// Thus, 'sendMessageNotification()' is called again.
 				if (isPersistentNotification && itr->isResendingEnabled && m_openNotifications.size() <= 3) {
-					sendMessageNotification(accountJid, chatJid, chatName, messageId, timestamp, messageBody);
+					sendMessageNotification(accountJid, chatJid, messageId, timestamp, messageBody);
 				}
 
 				m_openNotifications.erase(itr);
@@ -173,7 +176,7 @@ void Notifications::disableResending(bool isPersistentNotification, const QUuid 
 
 }
 #else
-void Notifications::sendMessageNotification(const QString&, const QString&, const QString&, const QString&, const QDateTime&, const QString&)
+void Notifications::sendMessageNotification(const QString&, const QString&, const QString&, const QDateTime&, const QString&)
 {
 }
 

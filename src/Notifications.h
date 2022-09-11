@@ -62,10 +62,9 @@ public:
 	 *
 	 * @param accountJid JID of the message's account
 	 * @param chatJid JID of the message's chat
-	 * @param chatName name of the message's chat
 	 * @param message message to show
 	 */
-	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &chatName, const QString &messageId, const QDateTime &timestamp, const QString &messageBody);
+	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QDateTime &timestamp, const QString &messageBody);
 
 	void closeMessageNotifications(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId = {});
 
