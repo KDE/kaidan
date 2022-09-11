@@ -73,8 +73,10 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains("GNOME", Qt::CaseInsensitive);
 #endif
 
+	// Use bare JID for users that are not present in our roster, so foreign users can't choose a
+	// name that looks like a known contact.
 	auto rosterItem = RosterModel::instance()->findItem(chatJid);
-	auto chatName = rosterItem ? rosterItem->displayName() : QString();
+	auto chatName = rosterItem ? rosterItem->displayName() : chatJid;
 
 	auto *notification = new KNotification("new-message");
 	notification->setTitle(chatName);
