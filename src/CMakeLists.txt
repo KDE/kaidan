@@ -123,17 +123,17 @@ endif()
 ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
 target_link_libraries(${PROJECT_NAME}
-	Qt5::Core
-	Qt5::Sql
-	Qt5::Qml
-	Qt5::Quick
-	Qt5::Svg
-	Qt5::Network
-	Qt5::Xml
-	Qt5::Multimedia
-	Qt5::Positioning
-	Qt5::Location
-	Qt5::QuickControls2
+	Qt::Core
+	Qt::Sql
+	Qt::Qml
+	Qt::Quick
+	Qt::Svg
+	Qt::Network
+	Qt::Xml
+	Qt::Multimedia
+	Qt::Positioning
+	Qt::Location
+	Qt::QuickControls2
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}
