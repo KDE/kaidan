@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 16
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(16)
+#define DATABASE_LATEST_VERSION 17
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(17)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -372,7 +372,9 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(lastExchanged, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
-			SQL_LAST_ATTRIBUTE(lastMessage, SQL_TEXT)
+			SQL_ATTRIBUTE(lastMessage, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_LAST_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
 		)
 	);
 
@@ -398,6 +400,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(isSent, SQL_BOOL)
 			SQL_ATTRIBUTE(isDelivered, SQL_BOOL)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
 			SQL_ATTRIBUTE(type, SQL_INTEGER)
 			SQL_ATTRIBUTE(mediaUrl, SQL_TEXT)
 			SQL_ATTRIBUTE(mediaSize, SQL_INTEGER)
@@ -789,4 +792,14 @@ void Database::convertDatabaseToV16()
 	);
 
 	d->version = 16;
+}
+
+void Database::convertDatabaseToV17()
+{
+	DATABASE_CONVERT_TO_VERSION(16);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD lastReadOwnMessageId " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Roster ADD lastReadContactMessageId " SQL_TEXT);
+	execQuery(query, "ALTER TABLE Messages ADD isMarkable " SQL_BOOL);
+	d->version = 17;
 }

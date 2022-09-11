@@ -98,6 +98,30 @@ public:
 	Q_SIGNAL void lastMessageStampFetched(const QDateTime &stamp);
 
 	/**
+	 * Returns the timestamp of a message.
+	 *
+	 * @param senderJid JID of the message's sender
+	 * @param recipientJid JID of the message's recipient
+	 * @param messageId ID of the message
+	 *
+	 * @return the message's timestamp
+	 */
+	QFuture<QDateTime> messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId);
+
+	/**
+	 * Returns the count of messages chronologically between (including) two given messages specified by their
+	 * IDs.
+	 *
+	 * @param senderJid JID of the messages' sender
+	 * @param recipientJid JID of the messages' recipient
+	 * @param messageIdBegin ID of the message to start the counting
+	 * @param messageIdEnd ID of the message to end the counting
+	 *
+	 * @return the message count
+	 */
+	QFuture<int> messageCount(const QString &senderJid, const QString &recipientJid, const QString &messageIdBegin, const QString &messageIdEnd);
+
+	/**
 	 * Adds a message to the database.
 	 */
 	QFuture<void> addMessage(const Message &msg, MessageOrigin origin);

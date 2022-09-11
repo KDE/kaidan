@@ -77,6 +77,7 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 	int idxSenderKey = rec.indexOf("senderKey");
 	int idxBody = rec.indexOf("message");
 	int idxDeliveryState = rec.indexOf("deliveryState");
+	int idxIsMarkable = rec.indexOf("isMarkable");
 	int idxMediaType = rec.indexOf("type");
 	int idxOutOfBandUrl = rec.indexOf("mediaUrl");
 	int idxMediaContentType = rec.indexOf("mediaContentType");
@@ -104,6 +105,7 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 		msg.setSenderKey(query.value(idxSenderKey).toByteArray());
 		msg.setBody(query.value(idxBody).toString());
 		msg.setDeliveryState(static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt()));
+		msg.setMarkable(query.value(idxIsMarkable).toBool());
 		msg.setMediaType(static_cast<MessageType>(query.value(idxMediaType).toInt()));
 		msg.setOutOfBandUrl(query.value(idxOutOfBandUrl).toString());
 		msg.setMediaContentType(query.value(idxMediaContentType).toString());
@@ -152,6 +154,8 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("message", newMsg.body()));
 	if (oldMsg.deliveryState() != newMsg.deliveryState())
 		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState())));
+	if (oldMsg.isMarkable() != newMsg.isMarkable())
+		rec.append(createSqlField("isMarkable", newMsg.isMarkable()));
 	if (oldMsg.errorText() != newMsg.errorText())
 		rec.append(createSqlField("errorText", newMsg.errorText()));
 	if (oldMsg.mediaType() != newMsg.mediaType())
@@ -259,6 +263,50 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 	});
 }
 
+QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId)
+{
+	return run([=]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE author = ? AND recipient = ? AND id = ? LIMIT 1",
+			{ senderJid, recipientJid, messageId }
+		);
+
+		if (query.first()) {
+			return QDateTime::fromString(
+				query.value(0).toString(),
+				Qt::ISODateWithMs
+			);
+		}
+
+		return QDateTime();
+	});
+}
+
+QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &recipientJid, const QString &messageIdBegin, const QString &messageIdEnd)
+{
+	return run([=]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT COUNT(*) FROM " DB_TABLE_MESSAGES" DESC WHERE author = ? AND recipient = ? AND "
+			"datetime(timestamp) BETWEEN "
+			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
+			"author = ? AND recipient = ? AND id = ? LIMIT 1)) AND "
+			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
+			"author = ? AND recipient = ? AND id = ? LIMIT 1))",
+			{ senderJid, recipientJid, senderJid, recipientJid, messageIdBegin, senderJid, recipientJid, messageIdEnd }
+		);
+
+		if (query.first()) {
+			return query.value(0).toInt();
+		}
+
+		return 0;
+	});
+}
+
 QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 {
 	return run([this, msg, origin]() {
@@ -289,11 +337,11 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		prepareQuery(
 			query,
 			"INSERT INTO Messages (author, recipient, timestamp, message, id, encryption, "
-			"senderKey, deliveryState, type, edited, isSpoiler, spoilerHint, mediaUrl, "
+			"senderKey, deliveryState, isMarkable, type, edited, isSpoiler, spoilerHint, mediaUrl, "
 			"mediaContentType, mediaLocation, mediaSize, mediaLastModified, errorText, replaceId, "
 			"originId, stanzaId) "
 			"VALUES (:author, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
-			":deliveryState, :type, :edited, :isSpoiler, :spoilerHint, :mediaUrl, "
+			":deliveryState, :isMarkable, :type, :edited, :isSpoiler, :spoilerHint, :mediaUrl, "
 			":mediaContentType, :mediaLocation, :mediaSize, :mediaLastModified, :errorText, "
 			":replaceId, :originId, :stanzaId)"
 		);
@@ -307,6 +355,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":encryption", msg.encryption() },
 			{ u":senderKey", msg.senderKey() },
 			{ u":deliveryState", int(msg.deliveryState()) },
+			{ u":isMarkable", msg.isMarkable() },
 			{ u":type", int(msg.mediaType()) },
 			{ u":edited", msg.isEdited() },
 			{ u":isSpoiler", msg.isSpoiler() },

@@ -70,6 +70,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxSubscription = rec.indexOf("subscription");
 	int idxEncryption = rec.indexOf("encryption");
 	int idxUnreadMessages = rec.indexOf("unreadMessages");
+	int idxLastReadOwnMessageId = rec.indexOf("lastReadOwnMessageId");
+	int idxLastReadContactMessageId = rec.indexOf("lastReadContactMessageId");
 
 	while (query.next()) {
 		RosterItem item;
@@ -78,6 +80,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.setSubscription(QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt()));
 		item.setEncryption(Encryption::Enum(query.value(idxEncryption).toInt()));
 		item.setUnreadMessages(query.value(idxUnreadMessages).toInt());
+		item.setLastReadOwnMessageId(query.value(idxLastReadOwnMessageId).toString());
+		item.setLastReadContactMessageId(query.value(idxLastReadContactMessageId).toString());
 
 		items << std::move(item);
 	}
@@ -99,6 +103,10 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 			"unreadMessages",
 			newItem.unreadMessages()
 		));
+	if (oldItem.lastReadOwnMessageId() != newItem.lastReadOwnMessageId())
+		rec.append(createSqlField("lastReadOwnMessageId", newItem.lastReadOwnMessageId()));
+	if(oldItem.lastReadContactMessageId() != newItem.lastReadContactMessageId())
+		rec.append(createSqlField("lastReadContactMessageId", newItem.lastReadContactMessageId()));
 	return rec;
 }
 
@@ -128,6 +136,8 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
 			query.addBindValue(item.unreadMessages());
 			query.addBindValue(QString()); // lastMessage
+			query.addBindValue(QString()); // lastReadOwnMessageId
+			query.addBindValue(QString()); // lastReadContactMessageId
 			execQuery(query);
 		}
 
