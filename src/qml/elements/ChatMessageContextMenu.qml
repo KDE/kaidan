@@ -79,4 +79,14 @@ Controls.Menu {
 			Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
 		}
 	}
+
+	Controls.MenuItem {
+		text: qsTr("Mark as first unread")
+		visible: !root.message.isOwn
+		onTriggered: {
+			MessageModel.markMessageAsFirstUnread(message.modelIndex);
+			MessageModel.setCurrentChat("", "")
+			openChatView()
+		}
+	}
 }

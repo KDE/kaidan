@@ -401,24 +401,52 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 		}
 	}
 
-	const auto &readMessage = m_messages.at(readMessageIndex);
-	const auto readMessageId = readMessage.id;
+	Message readContactMessage;
+	int readContactMessageIndex;
+
+	// Search for the last read contact message if it is at the top of the chat page list view but
+	// readMessageIndex is of an own message.
+	if (const auto &readMessage = m_messages.at(readMessageIndex); readMessage.isOwn) {
+		auto isContactMessageRead = false;
+
+		for (int i = readMessageIndex + 1; i != m_messages.size(); ++i) {
+			if (const auto &message = m_messages.at(i); !message.isOwn) {
+				readContactMessageIndex = i;
+				readContactMessage = message;
+				isContactMessageRead = true;
+				break;
+			}
+		}
+
+		// Skip the remaining processing if no contact message is read.
+		if (!isContactMessageRead) {
+			return;
+		}
+	} else {
+		readContactMessageIndex = readMessageIndex;
+		readContactMessage = readMessage;
+	}
+
+	const auto readMessageId = readContactMessage.id;
 	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
-	if (lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
+	if (lastReadContactMessageId != readMessageId && isApplicationActive) {
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, this](RosterItem &item) {
 			item.lastReadContactMessageId = readMessageId;
 
 			// If the read message is the latest one, reset the counter for unread messages.
-			// Otherwise, decrease it by readMessageCount.
-			if (readMessageIndex == 0) {
+			// Otherwise, decrease it by the number of contact messages between the read contact
+			// message and the last read contact message.
+			// If lastReadContactMessageId is empty, which can be the case when there is no contact
+			// message fetched via MAM, nothing is done.
+			if (readContactMessageIndex == 0) {
 				item.unreadMessages = 0;
-			} else {
+			} else if (!lastReadContactMessageId.isEmpty()) {
 				int readMessageCount = 1;
-				for (int i = readMessageIndex + 1; i < m_messages.size(); ++i) {
-					if (m_messages.at(i).id == lastReadContactMessageId) {
+				for (int i = readContactMessageIndex + 1; i < m_messages.size(); ++i) {
+					if (const auto &message = m_messages.at(i); message.id == lastReadContactMessageId) {
 						break;
-					} else {
+					} else if (!message.isOwn) {
 						++readMessageCount;
 					}
 				}
@@ -426,9 +454,10 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 				item.unreadMessages = item.unreadMessages - readMessageCount;
 			}
 		});
-		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp);
 
-		if (readMessage.isMarkable) {
+		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readContactMessage.stamp);
+
+		if (readContactMessage.isMarkable) {
 			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
 		}
 	}
@@ -454,6 +483,49 @@ int MessageModel::firstUnreadContactMessageIndex()
 	}
 
 	return lastReadContactMessageIndex;
+}
+
+void MessageModel::markMessageAsFirstUnread(int index)
+{
+	int unreadMessageCount = 1;
+	QString lastReadContactMessageId;
+
+	// Determine the count of unread contact messages before the marked one.
+	for (int i = 0; i != index; ++i) {
+		if (!m_messages.at(i).isOwn) {
+			++unreadMessageCount;
+		}
+	}
+
+	// Search for the first contact message after the marked one.
+	if (index < m_messages.size() - 1) {
+		for (int i = index + 1; i != m_messages.size(); ++i) {
+			const auto &message = m_messages.at(i);
+			if (!message.isOwn) {
+				lastReadContactMessageId = message.id;
+				break;
+			}
+		}
+	}
+
+	// Find the last read contact message in the databse in order to update the last read contact
+	// message ID.
+	// That is needed if a message is marked as the first unread message while the previous message
+	// of the contact is not fetched from the database and thus not in m_messages.
+	if (lastReadContactMessageId.isEmpty()) {
+		auto future = MessageDb::instance()->firstContactMessageId(m_currentAccountJid, m_currentChatJid, unreadMessageCount);
+		await(future, this, [=, currentChatJid = m_currentChatJid](QString firstContactMessageId) {
+			emit RosterModel::instance()->updateItemRequested(currentChatJid, [=](RosterItem &item) {
+				item.unreadMessages = unreadMessageCount;
+				item.lastReadContactMessageId = firstContactMessageId;
+			});
+		});
+	} else  {
+		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
+			item.unreadMessages = unreadMessageCount;
+			item.lastReadContactMessageId = lastReadContactMessageId;
+		});
+	}
 }
 
 bool MessageModel::canCorrectMessage(int index) const

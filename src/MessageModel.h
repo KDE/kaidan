@@ -149,6 +149,7 @@ public:
 	Q_INVOKABLE void handleMessageRead(int readMessageIndex);
 	Q_INVOKABLE int firstUnreadContactMessageIndex();
 
+	Q_INVOKABLE void markMessageAsFirstUnread(int index);
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
 
 	/**

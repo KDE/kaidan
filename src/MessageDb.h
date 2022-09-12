@@ -121,6 +121,8 @@ public:
 	 */
 	QFuture<QDateTime> messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId);
 
+	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
+
 	/**
 	 * Returns the count of messages chronologically between (including) two given messages
 	 * specified by their IDs.

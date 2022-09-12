@@ -315,6 +315,24 @@ QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const Q
 	});
 }
 
+QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, const QString &chatJid, int index)
+{
+	return run([=, this]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT id FROM " DB_TABLE_MESSAGES " WHERE author = ? AND recipient = ? ORDER BY timestamp DESC LIMIT ?, 1",
+			{ chatJid, accountJid, index }
+		);
+
+		if (query.first()) {
+			return query.value(0).toString();
+		}
+
+		return QString();
+	});
+}
+
 QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &recipientJid, const QString &messageIdBegin, const QString &messageIdEnd)
 {
 	return run([=, this]() {
