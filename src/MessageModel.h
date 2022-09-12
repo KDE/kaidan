@@ -32,7 +32,6 @@
 
 // Qt
 #include <QAbstractListModel>
-#include <QMutex>
 // QXmpp
 #include <QXmppMessage.h>
 // Kaidan
@@ -300,8 +299,6 @@ private:
 	 * @param message message for which a notification might be shown
 	 */
 	void showMessageNotification(const Message &message, MessageOrigin origin) const;
-
-	QMutex m_mutex;
 
 	QVector<Message> m_messages;
 	QString m_currentAccountJid;

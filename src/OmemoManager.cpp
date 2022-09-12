@@ -162,6 +162,27 @@ QFuture<void> OmemoManager::retrieveKeys(const QList<QString> &jids)
 	return interface.future();
 }
 
+QFuture<bool> OmemoManager::hasUsableDevices(const QList<QString> &jids)
+{
+	QFutureInterface<bool> interface(QFutureInterfaceBase::Started);
+
+	auto future = m_manager->devices(jids);
+	await(future, this, [=](QVector<QXmppOmemoDevice> devices) mutable {
+		for (const auto &device : std::as_const(devices)) {
+			const auto trustLevel = device.trustLevel();
+
+			if (!(QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted).testFlag(trustLevel)) {
+				reportFinishedResult(interface, true);
+				return;
+			}
+		}
+
+		reportFinishedResult(interface, false);
+	});
+
+	return interface.future();
+}
+
 QFuture<void> OmemoManager::requestDeviceLists(const QList<QString> &jids)
 {
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);

@@ -339,7 +339,6 @@ QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> MessageModel::keys()
 
 Encryption::Enum MessageModel::activeEncryption()
 {
-	QMutexLocker locker(&m_mutex);
 	return isOmemoEncryptionEnabled() ? Encryption::Omemo2 : Encryption::NoEncryption;
 }
 

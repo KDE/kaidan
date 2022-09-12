@@ -33,31 +33,32 @@
 #include <QUrl>
 #include <QRandomGenerator>
 // QXmpp
+#include "QXmppBitsOfBinaryContentId.h"
+#include "QXmppBitsOfBinaryDataList.h"
 #include <QXmppE2eeMetadata.h>
-#include <QXmppMamManager.h>
-#include <QXmppRosterManager.h>
-#include <QXmppUtils.h>
+#include "QXmppEncryptedFileSource.h"
 #include <QXmppFileMetadata.h>
 #include <QXmppHash.h>
-#include <QXmppThumbnail.h>
+#include "QXmppHttpFileSource.h"
+#include <QXmppMamManager.h>
 #include <QXmppOutOfBandUrl.h>
+#include <QXmppRosterManager.h>
+#include <QXmppThumbnail.h>
+#include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"
+#include "Algorithms.h"
 #include "ClientWorker.h"
+#include "Database.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
-#include "Database.h"
 #include "Message.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "Notifications.h"
-#include "QXmppBitsOfBinaryContentId.h"
-#include "QXmppBitsOfBinaryDataList.h"
-#include "QXmppEncryptedFileSource.h"
-#include "QXmppHttpFileSource.h"
+#include "OmemoManager.h"
 #include "RosterModel.h"
-#include "Algorithms.h"
 
 namespace ranges = std::ranges;
 
@@ -590,10 +591,59 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 
 QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)
 {
-	switch (MessageModel::instance()->activeEncryption()) {
-	case Encryption::NoEncryption:
-		return m_client->sendUnencrypted(std::move(message));
-	default:
-		return m_client->send(std::move(message));
-	}
+	QFutureInterface<QXmpp::SendResult> interface(QFutureInterfaceBase::Started);
+
+	const auto recipientJid = message.to();
+
+	auto sendEncrypted = [=, this]() mutable {
+		await(m_client->send(std::move(message)), this, [=](QXmpp::SendResult result) mutable {
+			reportFinishedResult(interface, result);
+		});
+	};
+
+	auto sendUnencrypted = [=, this]() mutable {
+		await(m_client->sendUnencrypted(std::move(message)), this, [=](QXmpp::SendResult result) mutable {
+			reportFinishedResult(interface, result);
+		});
+	};
+
+	// If the message is sent for the current chat, its information is used to determine whether to
+	// send encrypted.
+	// Otherwise, that information is retrieved from the database.
+	runOnThread(MessageModel::instance(), [accountJid = AccountManager::instance()->jid(), recipientJid]() {
+		return MessageModel::instance()->isChatCurrentChat(accountJid, recipientJid);
+	}, this, [=, this](bool isChatCurrentChat) mutable {
+		if (isChatCurrentChat) {
+			runOnThread(MessageModel::instance(), []() {
+				return MessageModel::instance()->isOmemoEncryptionEnabled();
+			}, this, [=](bool isOmemoEncryptionEnabled) mutable {
+				if (isOmemoEncryptionEnabled) {
+					sendEncrypted();
+				} else {
+					sendUnencrypted();
+				}
+			});
+		} else {
+			runOnThread(RosterModel::instance(), [accountJid = AccountManager::instance()->jid(), recipientJid]() {
+				return RosterModel::instance()->itemEncryption(accountJid, recipientJid).value_or(Encryption::NoEncryption);
+			}, this, [=, this](Encryption::Enum activeEncryption) mutable {
+				if (activeEncryption == Encryption::Omemo2) {
+					auto future = m_clientWorker->omemoManager()->hasUsableDevices({ recipientJid });
+					await(future, this, [=](bool hasUsableDevices) mutable {
+						const auto isOmemoEncryptionEnabled = activeEncryption == Encryption::Omemo2 && hasUsableDevices;
+
+						if (isOmemoEncryptionEnabled) {
+							sendEncrypted();
+						} else {
+							sendUnencrypted();
+						}
+					});
+				} else {
+					sendUnencrypted();
+				}
+			});
+		}
+	});
+
+	return interface.future();
 }

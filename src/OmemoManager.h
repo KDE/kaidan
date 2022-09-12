@@ -60,6 +60,7 @@ public:
 	QFuture<void> setUp();
 
 	QFuture<void> retrieveKeys(const QList<QString> &jids);
+	QFuture<bool> hasUsableDevices(const QList<QString> &jids);
 
 	QFuture<void> requestDeviceLists(const QList<QString> &jids);
 	QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
