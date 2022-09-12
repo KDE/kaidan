@@ -274,39 +274,6 @@ ChatPageBase {
 		}
 	}
 
-	// button for jumping to the latest message
-	Controls.RoundButton {
-		visible: width > 0
-		width: messageListView.atYEnd ? 0 : 50
-		height: messageListView.atYEnd ? 0 : 50
-		anchors.right: parent.right
-		anchors.bottom: parent.bottom
-		anchors.bottomMargin: {
-			return Kirigami.Settings.isMobile
-				? sendingPane.height
-				: sendingPane.height + 5
-		}
-		anchors.rightMargin: {
-			if (root.flickable.Controls.ScrollBar.vertical) {
-				return Kirigami.Settings.isMobile
-					? root.flickable.Controls.ScrollBar.vertical.implicitWidth + 35
-					: root.flickable.Controls.ScrollBar.vertical.implicitWidth + 5
-			}
-
-			return Kirigami.Settings.isMobile ? 35 : 5
-		}
-		icon.name: "go-down"
-		onClicked: messageListView.positionViewAtIndex(0, ListView.Center)
-
-		Behavior on width {
-			SmoothedAnimation {}
-		}
-
-		Behavior on height {
-			SmoothedAnimation {}
-		}
-	}
-
 	// View containing the messages
 	ListView {
 		id: messageListView
@@ -446,6 +413,45 @@ ChatPageBase {
 				NumberAnimation {
 					duration: Kirigami.Units.shortDuration
 				}
+			}
+		}
+
+		// button for jumping to the latest message
+		Controls.RoundButton {
+			visible: width > 0
+			width: parent.atYEnd ? 0 : 50
+			height: parent.atYEnd ? 0 : 50
+			anchors.right: parent.right
+			anchors.bottom: parent.bottom
+			anchors.bottomMargin: 7
+			anchors.rightMargin: {
+				if (root.flickable.Controls.ScrollBar.vertical) {
+					return Kirigami.Settings.isMobile
+						? root.flickable.Controls.ScrollBar.vertical.implicitWidth + 15
+						: root.flickable.Controls.ScrollBar.vertical.implicitWidth + 5
+				}
+
+				return Kirigami.Settings.isMobile ? 15 : 5
+			}
+			icon.name: "go-down"
+			onClicked: parent.positionViewAtIndex(0, ListView.Center)
+
+			Behavior on width {
+				SmoothedAnimation {}
+			}
+
+			Behavior on height {
+				SmoothedAnimation {}
+			}
+
+			MessageCounter {
+				id: unreadMessageCounter
+				count: chatItemWatcher.item.unreadMessageCount
+				width: 22
+				height: width
+				anchors.horizontalCenter: parent.horizontalCenter
+				anchors.verticalCenter: parent.top
+				anchors.verticalCenterOffset: -2
 			}
 		}
 	}

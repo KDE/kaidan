@@ -44,6 +44,7 @@ class RosterItem
 	Q_PROPERTY(QString jid READ jid CONSTANT)
 	Q_PROPERTY(QString name READ name CONSTANT)
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
+	Q_PROPERTY(int unreadMessageCount READ unreadMessages CONSTANT)
 
 public:
 	RosterItem() = default;
