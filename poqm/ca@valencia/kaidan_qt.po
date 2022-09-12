@@ -24,7 +24,7 @@ msgstr ""
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:288
+#: src/ClientWorker.cpp:287
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -46,23 +46,23 @@ msgctxt "DownloadJob|"
 msgid "Download failed: %1"
 msgstr "Ha fallat la baixada: %1"
 
-#: src/Kaidan.cpp:98
+#: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línia"
 
-#: src/Kaidan.cpp:100
+#: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Kaidan.cpp:102
+#: src/Kaidan.cpp:105
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Fora de línia"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:164
+#: src/Kaidan.cpp:167
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "L'enllaç s'obrirà després que vos hàgeu connectat."
@@ -231,43 +231,43 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/MessageHandler.cpp:163
+#: src/MessageHandler.cpp:174
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:253
+#: src/MessageHandler.cpp:266
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:310
+#: src/MessageHandler.cpp:323
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:263
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendent"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:265
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviat"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:267
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Lliurat"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:269
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "S'ha produït un error"
 
-#: src/Notifications.cpp:69
+#: src/Notifications.cpp:94
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marca com a llegit"
@@ -409,51 +409,57 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Copia la contrasenya"
 
-#: src/qml/ChatPage.qml:78
+#: src/qml/ChatPage.qml:77
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Busca"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Deixa de silenciar les notificacions"
 
-#: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Silencia les notificacions"
 
 # Per a visualitzar el perfil d'un usuari
-#: src/qml/ChatPage.qml:123
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Visualitza el perfil"
 
-#: src/qml/ChatPage.qml:183
+#: src/qml/ChatPage.qml:187
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Envia un missatge d'espòiler"
 
-#: src/qml/elements/ChatMessage.qml:145
+#: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:202
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Baixa"
 
-#: src/qml/elements/ChatMessage.qml:268
+#: src/qml/elements/ChatMessage.qml:272
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
-#: src/qml/elements/ChatMessage.qml:273
+#: src/qml/elements/ChatMessage.qml:277
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "No fiable"
+
+#: src/qml/elements/ChatMessage.qml:319
+#, qt-format
+msgctxt "ChatMessage|"
+msgid "%1 has read up to this point"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -842,7 +848,8 @@ msgstr ""
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
-"S'han fet les decisions de confiança per al contacte - Continueu amb el pas 2"
+"S'han pres les decisions de confiança per al contacte - Continueu amb el pas "
+"2"
 
 #: src/qml/QrCodePage.qml:176
 msgctxt "QrCodePage|"
@@ -1082,9 +1089,9 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
-"La vostra adreça de xat s'utilitza per xatejar amb vós, com la vostra adreça "
-"de correu electrònic s'utilitza per intercanviar missatges de correu "
-"electrònic.\n"
+"La vostra adreça de xat s'utilitza per a xatejar amb vós, com la vostra "
+"adreça de correu electrònic s'utilitza per a intercanviar missatges de "
+"correu electrònic.\n"
 "\n"
 "La vostra adreça de xat serà:"
 
@@ -1098,7 +1105,7 @@ msgid ""
 "decrease your privacy!"
 msgstr ""
 "El vostre nom d'usuari s'utilitza per a iniciar la sessió al vostre compte i "
-"per xatejar amb vós.\n"
+"per a xatejar amb vós.\n"
 "Si no introduïu un nom d'usuari, s'utilitzarà el generat aleatòriament i ja "
 "mostrat.\n"
 "L'ús d'un nom d'usuari propi pot permetre que siga més reconeixible, però "
@@ -1659,12 +1666,12 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Elimina el contacte"
 
-#: src/qml/UserProfilePage.qml:209
+#: src/qml/UserProfilePage.qml:205
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr "Encriptació (OMEMO 2)"
 
-#: src/qml/UserProfilePage.qml:229
+#: src/qml/UserProfilePage.qml:225
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1674,57 +1681,57 @@ msgstr ""
 "els vostres companys de xat puguen llegir o modificar les dades que "
 "intercanvieu."
 
-#: src/qml/UserProfilePage.qml:239 src/qml/UserProfilePage.qml:245
+#: src/qml/UserProfilePage.qml:235 src/qml/UserProfilePage.qml:241
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanegeu els codis QR dels vostres dispositius per a encriptar-los"
 
-#: src/qml/UserProfilePage.qml:241
+#: src/qml/UserProfilePage.qml:237
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Els altres dispositius vostres no empren OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:248
+#: src/qml/UserProfilePage.qml:244
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
-"Escanegeu els codis QR dels vostres dispositius per a un encriptació segur "
-"màxim"
+"Escanegeu els codis QR dels vostres dispositius per a una encriptació segura "
+"màxima"
 
-#: src/qml/UserProfilePage.qml:260
+#: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Escanegeu els codis QR propis"
 
-#: src/qml/UserProfilePage.qml:269
+#: src/qml/UserProfilePage.qml:265
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr "Escanegeu el codi QR del contacte per a activar l'encriptació"
 
-#: src/qml/UserProfilePage.qml:272
+#: src/qml/UserProfilePage.qml:268
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr "El vostre contacte no utilitza OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:275
+#: src/qml/UserProfilePage.qml:271
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
 "Escanegeu els codis QR dels dispositius del vostre contacte per a encriptar-"
 "los"
 
-#: src/qml/UserProfilePage.qml:278
+#: src/qml/UserProfilePage.qml:274
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
-"Escanegeu el codi QR del vostre contacte per a un encriptació segur màxim"
+"Escanegeu el codi QR del vostre contacte per a una encriptació segura màxima"
 
-#: src/qml/UserProfilePage.qml:291
+#: src/qml/UserProfilePage.qml:287
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Escanegeu el codi QR del contacte"
 
-#: src/qml/UserProfilePage.qml:325
+#: src/qml/UserProfilePage.qml:321
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositius connectats"

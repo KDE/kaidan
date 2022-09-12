@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.04.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:288
+#: src/ClientWorker.cpp:287
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -35,23 +35,23 @@ msgctxt "DownloadJob|"
 msgid "Download failed: %1"
 msgstr "Scaricamento non riuscito: %1"
 
-#: src/Kaidan.cpp:98
+#: src/Kaidan.cpp:101
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "In linea"
 
-#: src/Kaidan.cpp:100
+#: src/Kaidan.cpp:103
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/Kaidan.cpp:102
+#: src/Kaidan.cpp:105
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Non in linea"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:164
+#: src/Kaidan.cpp:167
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Il collegamento sarà aperto dopo la connessione."
@@ -220,43 +220,43 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageHandler.cpp:163
+#: src/MessageHandler.cpp:174
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:253
+#: src/MessageHandler.cpp:266
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correzione del messaggio non è riuscita"
 
-#: src/MessageHandler.cpp:310
+#: src/MessageHandler.cpp:323
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:263
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In attesa"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:265
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Inviato"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:267
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Consegnato"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:269
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errore"
 
-#: src/Notifications.cpp:69
+#: src/Notifications.cpp:94
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marca come letto"
@@ -397,49 +397,55 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Copia password"
 
-#: src/qml/ChatPage.qml:78
+#: src/qml/ChatPage.qml:77
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Rimuovi il silenzio alle notifiche"
 
-#: src/qml/ChatPage.qml:98 src/qml/ChatPage.qml:113
+#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Silenzia le notifiche"
 
-#: src/qml/ChatPage.qml:123
+#: src/qml/ChatPage.qml:122
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Visualizza il profilo"
 
-#: src/qml/ChatPage.qml:183
+#: src/qml/ChatPage.qml:187
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Invia un messaggio spoiler"
 
-#: src/qml/elements/ChatMessage.qml:145
+#: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:202
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Scarica"
 
-#: src/qml/elements/ChatMessage.qml:268
+#: src/qml/elements/ChatMessage.qml:272
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:273
+#: src/qml/elements/ChatMessage.qml:277
 msgctxt "ChatMessage|"
 msgid "Untrusted"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:319
+#, qt-format
+msgctxt "ChatMessage|"
+msgid "%1 has read up to this point"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
@@ -1669,19 +1675,19 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Rimuovi contatto"
 
-#: src/qml/UserProfilePage.qml:209
+#: src/qml/UserProfilePage.qml:205
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:229
+#: src/qml/UserProfilePage.qml:225
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:239 src/qml/UserProfilePage.qml:245
+#: src/qml/UserProfilePage.qml:235 src/qml/UserProfilePage.qml:241
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1691,12 +1697,12 @@ msgstr ""
 "Esegui la scansione del codice QR dal tuo dispositivo esistente per "
 "trasferire il tuo account."
 
-#: src/qml/UserProfilePage.qml:241
+#: src/qml/UserProfilePage.qml:237
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:248
+#: src/qml/UserProfilePage.qml:244
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1706,7 +1712,7 @@ msgstr ""
 "Esegui la scansione del codice QR dal tuo dispositivo esistente per "
 "trasferire il tuo account."
 
-#: src/qml/UserProfilePage.qml:260
+#: src/qml/UserProfilePage.qml:256
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Scan QR codes"
@@ -1714,17 +1720,17 @@ msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Scansione codice QR"
 
-#: src/qml/UserProfilePage.qml:269
+#: src/qml/UserProfilePage.qml:265
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:272
+#: src/qml/UserProfilePage.qml:268
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:275
+#: src/qml/UserProfilePage.qml:271
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1734,12 +1740,12 @@ msgstr ""
 "Esegui la scansione del codice QR dal tuo dispositivo esistente per "
 "trasferire il tuo account."
 
-#: src/qml/UserProfilePage.qml:278
+#: src/qml/UserProfilePage.qml:274
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:291
+#: src/qml/UserProfilePage.qml:287
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1747,7 +1753,7 @@ msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Scansione codice QR"
 
-#: src/qml/UserProfilePage.qml:325
+#: src/qml/UserProfilePage.qml:321
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositivi in linea"
