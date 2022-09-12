@@ -377,7 +377,7 @@ ChatPageBase {
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.sender
-			senderName: model.isOwn ? string() : chatItemWatcher.item.displayName
+			senderName: model.isOwn ? "" : chatItemWatcher.item.displayName
 			chatName: chatItemWatcher.item.displayName
 			encryption: model.encryption
 			isTrusted: model.isTrusted
