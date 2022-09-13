@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-09-11 08:42+0200\n"
+"PO-Revision-Date: 2022-09-11 21:19+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -831,6 +831,8 @@ msgstr "Ce code « QR » ne contient aucun contact."
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"Décisions de confiance effectuées pour un autre périphérique - Veuillez "
+"continuer avec l'état 2"
 
 #: src/qml/QrCodePage.qml:169
 msgctxt "QrCodePage|"
@@ -1680,14 +1682,9 @@ msgstr ""
 "peuvent lire ou modifier des données que vous échangez."
 
 #: src/qml/UserProfilePage.qml:235 src/qml/UserProfilePage.qml:241
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
-msgstr ""
-"Lire le code « QR » à partir de votre périphérique existant pour le "
-"transfert de votre compte."
+msgstr "Lire les codes « QR » de vos périphériques pour les chiffrer"
 
 #: src/qml/UserProfilePage.qml:237
 msgctxt "UserProfilePage|"
@@ -1695,22 +1692,16 @@ msgid "Your other devices don't use OMEMO 2"
 msgstr "Votre autres périphériques n'utilisent pas « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:244
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
-"Lire le code « QR » à partir de votre périphérique existant pour le "
-"transfert de votre compte."
+"Lire les codes « QR » de vos périphériques pour un chiffrement au niveau "
+"maximum de sécurité."
 
 #: src/qml/UserProfilePage.qml:256
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Scan QR codes"
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
-msgstr "Lire un code « QR »"
+msgstr "Lire vos propres codes « QR »"
 
 #: src/qml/UserProfilePage.qml:265
 msgctxt "UserProfilePage|"
@@ -1724,14 +1715,10 @@ msgid "Your contact doesn't use OMEMO 2"
 msgstr "Votre contact n'utilise pas « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:271
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
-"Lire le code « QR » à partir de votre périphérique existant pour le "
-"transfert de votre compte."
+"Lire les codes « QR » de vos périphériques de contact pour les chiffrer."
 
 #: src/qml/UserProfilePage.qml:274
 msgctxt "UserProfilePage|"
@@ -1741,12 +1728,9 @@ msgstr ""
 "de sécurité."
 
 #: src/qml/UserProfilePage.qml:287
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
-msgstr "Lire un code « QR »"
+msgstr "Lire le code « QR » du contact"
 
 #: src/qml/UserProfilePage.qml:321
 msgctxt "UserProfilePage|"
