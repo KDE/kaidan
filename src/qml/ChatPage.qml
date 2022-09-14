@@ -108,33 +108,17 @@ ChatPageBase {
 		Kirigami.Action {
 			visible: true
 			icon.name: {
-				Kaidan.notificationsMuted(MessageModel.currentChatJid)
+				mutedWatcher.muted
 					? "audio-volume-high-symbolic"
 					: "audio-volume-muted-symbolic"
 			}
 			text: {
-				Kaidan.notificationsMuted(MessageModel.currentChatJid)
+				mutedWatcher.muted
 					? qsTr("Unmute notifications")
 					: qsTr("Mute notifications")
 			}
 			onTriggered: {
-				Kaidan.setNotificationsMuted(
-					MessageModel.currentChatJid,
-					!Kaidan.notificationsMuted(MessageModel.currentChatJid)
-				)
-			}
-
-			Connections {
-				target: Kaidan
-
-				function onNotificationsMuted(jid) {
-					text = Kaidan.notificationsMuted(MessageModel.currentChatJid)
-							? qsTr("Unmute notifications")
-							: qsTr("Mute notifications")
-					icon.name = Kaidan.notificationsMuted(MessageModel.currentChatJid)
-							    ? "audio-volume-high-symbolic"
-								: "audio-volume-muted-symbolic"
-				}
+				mutedWatcher.muted = !mutedWatcher.muted
 			}
 		},
 		Kirigami.Action {
@@ -159,6 +143,11 @@ ChatPageBase {
 	// Message search bar
 	header: ChatPageSearchView {
 		id: searchBar
+	}
+
+	NotificationsMutedWatcher {
+		id: mutedWatcher
+		jid: MessageModel.currentChatJid
 	}
 
 	RosterItemWatcher {

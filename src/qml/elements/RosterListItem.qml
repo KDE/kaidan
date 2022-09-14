@@ -82,26 +82,20 @@ UserListItem {
 		source: "audio-volume-muted-symbolic"
 		width: 22
 		height: 22
-		visible: Kaidan.notificationsMuted(jid)
+		visible: mutedWatcher.muted
+	}
+
+	NotificationsMutedWatcher {
+		id: mutedWatcher
+		jid: root.jid
 	}
 
 	// right: unread message counter
 	MessageCounter {
 		id: counter
 		count: unreadMessages
-		muted: Kaidan.notificationsMuted(jid)
+		muted: mutedWatcher.muted
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
-	}
-
-	Connections {
-		target: Kaidan
-
-		function onNotificationsMutedChanged(jid) {
-			if (jid === root.jid) {
-				counter.muted = Kaidan.notificationsMuted(jid)
-				mutedIcon.visible = Kaidan.notificationsMuted(jid)
-			}
-		}
 	}
 }

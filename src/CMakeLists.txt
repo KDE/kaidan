@@ -64,6 +64,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	AtmManager.cpp
 	OmemoManager.cpp
 	RecentPicturesModel.cpp
+	NotificationsMutedWatcher.cpp
 
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h

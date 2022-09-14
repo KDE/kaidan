@@ -386,7 +386,7 @@ public slots:
 	 * @param muted true if notifications should be muted
 	 * @param jid JID of the entity for that notifications should be muted or unmuted
 	 */
-	void setNotificationsMuted(const QString& jid, bool muted);
+	void setNotificationsMuted(const QString &jid, bool muted);
 
 private:
 	/**
