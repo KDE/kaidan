@@ -59,6 +59,13 @@ It defines their filename suffixes after a separating `-` while their file exten
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
 
+## Notifications
+
+Notifications are triggered by `src/Notifications` via KNotifications.
+The configuration file `misc/kaidan.notifyrc` is used by KNotifications.
+It is automatically installed when you install Kaidan.
+Remember to install Kaidan again if you modified that file in order to see any changes.
+
 ## Features
 
 If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.
