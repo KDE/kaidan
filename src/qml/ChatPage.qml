@@ -69,7 +69,27 @@ ChatPageBase {
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 
-	title: chatItemWatcher.item.displayName
+	titleDelegate: Controls.ToolButton {
+		contentItem: RowLayout {
+			Avatar {
+				Layout.leftMargin: Kirigami.Units.largeSpacing
+				Layout.preferredHeight: parent.height
+				Layout.preferredWidth: parent.height
+				jid: chatItemWatcher.item.jid
+				name: chatItemWatcher.item.displayName
+			}
+			Kirigami.Heading {
+				Layout.leftMargin: Kirigami.Units.largeSpacing
+				text: chatItemWatcher.item.displayName
+			}
+		}
+		onClicked: {
+			pageStack.push(userProfilePage, {
+				jid: MessageModel.currentChatJid,
+				chatItemWatcher: chatItemWatcher
+			});
+		}
+	}
 	keyboardNavigationEnabled: true
 	contextualActions: [
 		// Action to toggle the message search bar
@@ -118,7 +138,7 @@ ChatPageBase {
 			}
 		},
 		Kirigami.Action {
-			visible: true
+			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("View profile")
 			onTriggered: {
