@@ -136,7 +136,7 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Positioning
 	Qt::Location
 	Qt::QuickControls2
-	KF5::KIOWidgets
+	KF5::KIOFileWidgets
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}

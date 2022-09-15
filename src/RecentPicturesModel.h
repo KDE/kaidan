@@ -30,9 +30,9 @@
 
 #pragma once
 
-#include <KDirModel>
+#include <KDirSortFilterProxyModel>
 
-class RecentPicturesModel : public KDirModel
+class RecentPicturesModel : public KDirSortFilterProxyModel
 {
 	Q_OBJECT
 
@@ -46,5 +46,7 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
     QVariant data(const QModelIndex &index, int role) const override;
+
+    bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 

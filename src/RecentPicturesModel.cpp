@@ -31,12 +31,15 @@
 #include "RecentPicturesModel.h"
 
 #include <KDirLister>
+#include <KDirModel>
 
 RecentPicturesModel::RecentPicturesModel(QObject *parent)
-    : KDirModel{parent}
+    : KDirSortFilterProxyModel{parent}
 {
-	dirLister()->setMimeFilter({QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
-	openUrl(QStringLiteral("recentlyused:/files/"));
+	auto *dirModel = new KDirModel(this);
+	setSourceModel(dirModel);
+	dirModel->dirLister()->setMimeFilter({QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
+	dirModel->openUrl(QStringLiteral("recentlyused:/files/"));
 }
 
 QHash<int, QByteArray> RecentPicturesModel::roleNames() const {
@@ -47,8 +50,16 @@ QHash<int, QByteArray> RecentPicturesModel::roleNames() const {
 
 QVariant RecentPicturesModel::data(const QModelIndex &index, int role) const {
 	if (role == Role::FilePath) {
-		return KDirModel::data(index, KDirModel::FileItemRole).value<KFileItem>().url();
+		return KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole).value<KFileItem>().url();
 	}
 
-	return KDirModel::data(index, role);
+	return KDirSortFilterProxyModel::data(index, role);
+}
+
+bool RecentPicturesModel::subSortLessThan(const QModelIndex &left, const QModelIndex &right) const
+{
+	auto leftFile = left.data(KDirModel::FileItemRole).value<KFileItem>();
+	auto rightFile = right.data(KDirModel::FileItemRole).value<KFileItem>();
+
+	return leftFile.time(KFileItem::ModificationTime) > rightFile.time(KFileItem::ModificationTime);
 }
