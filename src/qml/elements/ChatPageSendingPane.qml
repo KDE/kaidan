@@ -242,6 +242,7 @@ Controls.Pane {
 										source: model.filePath
 										height: 125
 										width: 150
+										sourceSize: "125x150"
 										fillMode: Image.PreserveAspectFit
 										asynchronous: true
 									}
