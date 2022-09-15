@@ -461,8 +461,14 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 	if (msgs.length() < DB_QUERY_LIMIT_MESSAGES)
 		m_fetchedAllFromDb = true;
 
-	if (msgs.empty())
+	if (msgs.empty()) {
+		// If nothing can be retrieved from the DB, directly try MAM instead.
+		if (m_fetchedAllFromDb) {
+			fetchMore({});
+		}
+
 		return;
+	}
 
 	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.length() - 1);
 	for (auto msg : msgs) {
