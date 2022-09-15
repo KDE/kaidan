@@ -37,15 +37,14 @@ import im.kaidan.kaidan 1.0
 
 Kirigami.OverlaySheet {
 	property string from;
-	property string message;
 
 	header: Kirigami.Heading {
 		text: qsTr("Subscription Request")
-		Layout.fillWidth: true
 	}
 
+	contentItem: ColumnLayout {
+		Layout.preferredWidth: 400
 
-	ColumnLayout {
 		spacing: 10
 
 		Controls.Label {
@@ -63,7 +62,7 @@ Kirigami.OverlaySheet {
 				Layout.fillWidth: true
 				text: qsTr("Decline")
 				onClicked: {
-					Kaidan.client.rosterManager.subscriptionRequestAnswered(from, false)
+					Kaidan.client.rosterManager.answerSubscriptionRequestRequested(from, false)
 					close()
 				}
 			}
@@ -72,7 +71,7 @@ Kirigami.OverlaySheet {
 				Layout.fillWidth: true
 				text: qsTr("Accept")
 				onClicked: {
-					Kaidan.client.rosterManager.subscriptionRequestAnswered(from, true)
+					Kaidan.client.rosterManager.answerSubscriptionRequestRequested(from, true)
 					close()
 				}
 			}

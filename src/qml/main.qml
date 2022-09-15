@@ -198,7 +198,6 @@ Kirigami.ApplicationWindow {
 			Kaidan.client.vCardManager.vCardRequested(from)
 
 			subReqAcceptSheet.from = from
-			subReqAcceptSheet.message = message
 
 			subReqAcceptSheet.open()
 		}
