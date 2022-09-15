@@ -89,6 +89,7 @@
 #include "VCardModel.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
+#include "RecentPicturesModel.h"
 
 Q_DECLARE_METATYPE(Qt::ApplicationState)
 
@@ -425,6 +426,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
 	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
 	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
+	qmlRegisterType<RecentPicturesModel>(APPLICATION_ID, 1, 0, "RecentPicturesModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");

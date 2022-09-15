@@ -159,21 +159,162 @@ Controls.Pane {
 				}
 			}
 
-			// file sharing button
+			// Voice message button
 			ClickableIcon {
-				source: "document-send-symbolic"
-				visible: Kaidan.serverFeaturesCache.httpUploadSupported
+				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
+				visible: messageArea.text === ""
+
+				opacity: visible ? 1 : 0
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 
 				onClicked: {
-					if (Kirigami.Settings.isMobile)
-						chatPage.mediaDrawer.open()
-					else
-						chatPage.openFileDialog(MediaUtilsInstance.namedFilter(Enums.MessageType.MessageFile), MediaUtilsInstance.label(Enums.MessageType.MessageFile))
+					sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
 				}
 			}
 
+			// file sharing button
+			ClickableIcon {
+				source: "document-send-symbolic"
+				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""
+				opacity: visible ? 1 : 0
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
+				property bool checked: false
+				onClicked: {
+					if (!checked) {
+						mediaPopup.open()
+						checked = true
+					} else {
+						mediaPopup.close()
+						checked = false
+					}
+				}
+			}
+
+			Controls.Popup {
+				id: mediaPopup
+				x:  root.width - width - 40
+				y: - height - root.padding - 20
+				padding: 1
+
+				width: 470
+				height: 300
+				ColumnLayout {
+					anchors.fill: parent
+					Kirigami.AbstractApplicationHeader {
+						Layout.fillWidth: true
+						leftPadding: Kirigami.Units.largeSpacing
+						Kirigami.Heading {
+							text: qsTr("Attachments")
+						}
+
+					}
+					Controls.ScrollView {
+						Layout.fillWidth: true
+						Layout.fillHeight: true
+
+						RowLayout {
+							Repeater {
+								Layout.fillHeight: true
+								Layout.fillWidth: true
+								model: RecentPicturesModel {}
+
+								delegate: Item {
+									Layout.margins: Kirigami.Units.smallSpacing
+
+									Layout.fillWidth: true
+									Layout.preferredHeight: 125
+									Layout.preferredWidth: 150
+
+									MouseArea {
+										anchors.fill: parent
+										onClicked: {
+											chatPage.sendMediaSheet.sendFile(MessageModel.currentChatJid, model.filePath)
+											mediaPopup.close()
+										}
+									}
+
+									Image {
+										source: model.filePath
+										height: 125
+										width: 150
+										fillMode: Image.PreserveAspectFit
+										asynchronous: true
+									}
+								}
+							}
+						}
+					}
+
+					RowLayout {
+						Layout.fillWidth: true
+						RowLayout {
+							Layout.margins: 5
+							Layout.fillWidth: true
+
+							IconTopButton {
+								Layout.fillWidth: true
+								implicitWidth: parent.width / 4
+								buttonIcon: "camera-photo-symbolic"
+								title: qsTr("Take picture")
+								tooltipText: qsTr("Take a picture using your camera")
+
+								onClicked: {
+									chatPage.sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageImage)
+									mediaPopup.close()
+								}
+							}
+							IconTopButton {
+								Layout.fillWidth: true
+								implicitWidth: parent.width / 4
+								buttonIcon: "camera-video-symbolic"
+								title: qsTr("Record Video")
+								tooltipText: qsTr("Record a video using your camera")
+
+								onClicked: {
+									chatPage.sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageVideo)
+									mediaPopup.close()
+								}
+							}
+							IconTopButton {
+								Layout.fillWidth: true
+								implicitWidth: parent.width / 4
+								buttonIcon: "folder-documents-symbolic"
+								title: qsTr("Document")
+								tooltipText: qsTr("Attatch document from device")
+
+								onClicked: {
+									chatPage.openFileDialog(MediaUtilsInstance.namedFilter(Enums.MessageType.MessageFile), MediaUtilsInstance.label(Enums.MessageType.MessageFile))
+									mediaPopup.close()
+								}
+							}
+							IconTopButton {
+								Layout.fillWidth: true
+								implicitWidth: parent.width / 4
+								buttonIcon: "mark-location-symbolic"
+								title: qsTr("Location")
+								tooltipText: qsTr("Send your location")
+
+								onClicked: {
+									sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageGeoLocation)
+									mediaPopup.close()
+								}
+							}
+						}
+					}
+				}
+			}
 			ClickableIcon {
 				id: sendButton
+				visible: messageArea.text !== ""
+				opacity: visible ? 1 : 0
+				Behavior on opacity {
+					NumberAnimation {}
+				}
 				source: {
 					if (messageArea.state === "compose")
 						return "mail-send-symbolic"

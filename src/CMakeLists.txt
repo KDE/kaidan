@@ -63,6 +63,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	VCardCache.cpp
 	AtmManager.cpp
 	OmemoManager.cpp
+	RecentPicturesModel.cpp
 
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h
@@ -134,6 +135,7 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Positioning
 	Qt::Location
 	Qt::QuickControls2
+	KF5::KIOWidgets
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}

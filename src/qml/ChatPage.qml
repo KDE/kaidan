@@ -63,7 +63,8 @@ ChatPageBase {
 		}
 	}
 
-	property alias mediaDrawer: mediaDrawer
+	property alias sendMediaSheet: sendMediaSheet
+
 	property bool isWritingSpoiler
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
@@ -128,60 +129,6 @@ ChatPageBase {
 			}
 		},
 		Kirigami.Action {
-			readonly property int type: Enums.MessageType.MessageImage
-
-			text: MediaUtilsInstance.newMediaLabel(type)
-			enabled: root.cameraAvailable
-
-			icon {
-				name: MediaUtilsInstance.newMediaIconName(type)
-			}
-
-			onTriggered: {
-				sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, type)
-			}
-		},
-		Kirigami.Action {
-			readonly property int type: Enums.MessageType.MessageAudio
-
-			text: MediaUtilsInstance.newMediaLabel(type)
-
-			icon {
-				name: MediaUtilsInstance.newMediaIconName(type)
-			}
-
-			onTriggered: {
-				sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, type)
-			}
-		},
-		Kirigami.Action {
-			readonly property int type: Enums.MessageType.MessageVideo
-
-			text: MediaUtilsInstance.newMediaLabel(type)
-			enabled: root.cameraAvailable
-
-			icon {
-				name: MediaUtilsInstance.newMediaIconName(type)
-			}
-
-			onTriggered: {
-				sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, type)
-			}
-		},
-		Kirigami.Action {
-			readonly property int type: Enums.MessageType.MessageGeoLocation
-
-			text: MediaUtilsInstance.newMediaLabel(type)
-
-			icon {
-				name: MediaUtilsInstance.newMediaIconName(type)
-			}
-
-			onTriggered: {
-				sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, type)
-			}
-		},
-		Kirigami.Action {
 			visible: !isWritingSpoiler
 			icon.name: "password-show-off"
 			text: qsTr("Send a spoiler message")
@@ -218,60 +165,6 @@ ChatPageBase {
 		if (title !== undefined)
 			fileChooserLoader.item.title = title
 		fileChooserLoader.item.open()
-		mediaDrawer.close()
-	}
-
-	Kirigami.OverlayDrawer {
-		id: mediaDrawer
-
-		edge: Qt.BottomEdge
-		height: Kirigami.Units.gridUnit * 8
-
-		contentItem: ListView {
-			id: content
-
-			orientation: Qt.Horizontal
-
-			Layout.fillHeight: true
-			Layout.fillWidth: true
-
-			model: [
-				Enums.MessageType.MessageFile,
-				Enums.MessageType.MessageImage,
-				Enums.MessageType.MessageAudio,
-				Enums.MessageType.MessageVideo,
-				Enums.MessageType.MessageDocument
-			]
-
-			delegate: Controls.ToolButton {
-				height: ListView.view.height
-				width: height
-				text: MediaUtilsInstance.label(model.modelData)
-				icon {
-					name: MediaUtilsInstance.iconName(model.modelData)
-					height: Kirigami.Units.gridUnit * 5
-					width: height
-				}
-				display: Controls.AbstractButton.TextUnderIcon
-
-				onClicked: {
-					switch (model.modelData) {
-					case Enums.MessageType.MessageFile:
-					case Enums.MessageType.MessageImage:
-					case Enums.MessageType.MessageAudio:
-					case Enums.MessageType.MessageVideo:
-					case Enums.MessageType.MessageDocument:
-						openFileDialog(MediaUtilsInstance.namedFilter(model.modelData),
-									   MediaUtilsInstance.label(model.modelData))
-						break
-					case Enums.MessageType.MessageText:
-					case Enums.MessageType.MessageGeoLocation:
-					case Enums.MessageType.MessageUnknown:
-						break
-					}
-				}
-			}
-		}
 	}
 
 	// View containing the messages
