@@ -73,13 +73,12 @@ Kirigami.AbstractListItem {
 			Layout.preferredHeight: parent.height - Kirigami.Units.gridUnit * 0.8
 			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
 
-			ShadowedAvatar {
+			Avatar {
 				id: avatar
 				anchors.fill: parent
 				jid: root.jid
 				name: root.name
 				width: height
-				isBorderVisible: root.hovered || root.isSelected
 			}
 		}
 	}

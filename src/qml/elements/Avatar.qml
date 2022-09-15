@@ -29,31 +29,13 @@
  */
 
 import QtQuick 2.14
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Item {
+Kirigami.Avatar {
 	property string jid
-	property string name
-	property double radius: width * 0.5
+	source: jid ? Kaidan.avatarStorage.getAvatarUrl(jid) : ""
 
-	RoundedImage {
-		id: imageAvatar
-		visible: source != ""
-		source: parent.jid ? Kaidan.avatarStorage.getAvatarUrl(parent.jid) : ""
-		fillMode: Image.PreserveAspectFit
-		mipmap: true
-		height: width
-		radius: parent.radius
-		anchors.fill: parent
-	}
-
-	TextAvatar {
-		visible: !imageAvatar.visible
-		jid: parent.jid
-		name: parent.name
-		radius: parent.radius
-		anchors.fill: parent
-	}
+	color: Qt.lighter(Utils.getUserColor(jid ? jid : name))
 }
