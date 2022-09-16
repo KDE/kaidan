@@ -75,13 +75,13 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 
 	while (query.next()) {
 		RosterItem item;
-		item.setJid(query.value(idxJid).toString());
-		item.setName(query.value(idxName).toString());
-		item.setSubscription(QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt()));
-		item.setEncryption(Encryption::Enum(query.value(idxEncryption).toInt()));
-		item.setUnreadMessages(query.value(idxUnreadMessages).toInt());
-		item.setLastReadOwnMessageId(query.value(idxLastReadOwnMessageId).toString());
-		item.setLastReadContactMessageId(query.value(idxLastReadContactMessageId).toString());
+		item.jid = query.value(idxJid).toString();
+		item.name = query.value(idxName).toString();
+		item.subscription = QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt());
+		item.encryption = Encryption::Enum(query.value(idxEncryption).toInt());
+		item.unreadMessages = query.value(idxUnreadMessages).toInt();
+		item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
+		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
 
 		items << std::move(item);
 	}
@@ -90,23 +90,23 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterItem &newItem)
 {
 	QSqlRecord rec;
-	if (oldItem.jid() != newItem.jid())
-		rec.append(createSqlField("jid", newItem.jid()));
-	if (oldItem.name() != newItem.name())
-		rec.append(createSqlField("name", newItem.name()));
-	if (oldItem.subscription() != newItem.subscription())
-		rec.append(createSqlField("subscription", newItem.subscription()));
-	if (oldItem.encryption() != newItem.encryption())
-		rec.append(createSqlField("encryption", newItem.encryption()));
-	if (oldItem.unreadMessages() != newItem.unreadMessages())
+	if (oldItem.jid != newItem.jid)
+		rec.append(createSqlField("jid", newItem.jid));
+	if (oldItem.name != newItem.name)
+		rec.append(createSqlField("name", newItem.name));
+	if (oldItem.subscription != newItem.subscription)
+		rec.append(createSqlField("subscription", newItem.subscription));
+	if (oldItem.encryption != newItem.encryption)
+		rec.append(createSqlField("encryption", newItem.encryption));
+	if (oldItem.unreadMessages != newItem.unreadMessages)
 		rec.append(createSqlField(
 			"unreadMessages",
-			newItem.unreadMessages()
+			newItem.unreadMessages
 		));
-	if (oldItem.lastReadOwnMessageId() != newItem.lastReadOwnMessageId())
-		rec.append(createSqlField("lastReadOwnMessageId", newItem.lastReadOwnMessageId()));
-	if(oldItem.lastReadContactMessageId() != newItem.lastReadContactMessageId())
-		rec.append(createSqlField("lastReadContactMessageId", newItem.lastReadContactMessageId()));
+	if (oldItem.lastReadOwnMessageId != newItem.lastReadOwnMessageId)
+		rec.append(createSqlField("lastReadOwnMessageId", newItem.lastReadOwnMessageId));
+	if(oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)
+		rec.append(createSqlField("lastReadContactMessageId", newItem.lastReadContactMessageId));
 	return rec;
 }
 
@@ -129,12 +129,12 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 		));
 
 		for (const auto &item : items) {
-			query.addBindValue(item.jid());
-			query.addBindValue(item.name());
-			query.addBindValue(item.subscription());
-			query.addBindValue(item.encryption());
+			query.addBindValue(item.jid);
+			query.addBindValue(item.name);
+			query.addBindValue(item.subscription);
+			query.addBindValue(item.encryption);
 			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
-			query.addBindValue(item.unreadMessages());
+			query.addBindValue(item.unreadMessages);
 			query.addBindValue(QString()); // lastMessage
 			query.addBindValue(QString()); // lastReadOwnMessageId
 			query.addBindValue(QString()); // lastReadContactMessageId
@@ -196,12 +196,12 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 			//
 			// By calling remove(), we also find out whether the JID is already
 			// existing or not.
-			if (newJids.remove(oldItem.jid())) {
+			if (newJids.remove(oldItem.jid)) {
 				// item is also included in newJids -> update
-				replaceItem(oldItem, items[oldItem.jid()]);
+				replaceItem(oldItem, items[oldItem.jid]);
 			} else {
 				// item is not included in newJids -> delete
-				removeItems({}, oldItem.jid());
+				removeItems({}, oldItem.jid);
 			}
 		}
 
@@ -227,15 +227,15 @@ QFuture<void> RosterDb::replaceItem(const RosterItem &oldItem, const RosterItem 
 	return run([this, oldItem, newItem]() {
 		QSqlRecord record;
 
-		if (oldItem.name() != newItem.name()) {
-			record.append(createSqlField("name", newItem.name()));
+		if (oldItem.name != newItem.name) {
+			record.append(createSqlField("name", newItem.name));
 		}
-		if (oldItem.subscription() != newItem.subscription()) {
-			record.append(createSqlField("subscription", newItem.subscription()));
+		if (oldItem.subscription != newItem.subscription) {
+			record.append(createSqlField("subscription", newItem.subscription));
 		}
 
 		if (!record.isEmpty()) {
-			updateItemByRecord(oldItem.jid(), record);
+			updateItemByRecord(oldItem.jid, record);
 		}
 	});
 }
@@ -250,9 +250,9 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 		parseItemsFromQuery(query, items);
 
 		for (auto &item : items) {
-			Message lastMessage = MessageDb::instance()->_fetchLastMessage(accountId, item.jid());
-			item.setLastExchanged(lastMessage.stamp);
-			item.setLastMessage(lastMessage.previewText());
+			Message lastMessage = MessageDb::instance()->_fetchLastMessage(accountId, item.jid);
+			item.lastExchanged = lastMessage.stamp;
+			item.lastMessage = lastMessage.previewText();
 		}
 
 		return items;

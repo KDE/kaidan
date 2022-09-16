@@ -117,7 +117,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 		closeMessageNotifications(accountJid, chatJid, timestamp, notificationId);
 
 		emit RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
-			item.setUnreadMessages(item.unreadMessages() - 1);
+			item.unreadMessages = item.unreadMessages - 1;
 		});
 		emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(chatJid, messageId);
 	});

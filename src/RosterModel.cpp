@@ -120,15 +120,15 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 
 	switch (role) {
 	case JidRole:
-		return m_items.at(index.row()).jid();
+		return m_items.at(index.row()).jid;
 	case NameRole:
-		return m_items.at(index.row()).name();
+		return m_items.at(index.row()).name;
 	case LastExchangedRole:
-		return m_items.at(index.row()).lastExchanged();
+		return m_items.at(index.row()).lastExchanged;
 	case UnreadMessagesRole:
-		return m_items.at(index.row()).unreadMessages();
+		return m_items.at(index.row()).unreadMessages;
 	case LastMessageRole:
-		return m_items.at(index.row()).lastMessage();
+		return m_items.at(index.row()).lastMessage;
 	}
 	return {};
 }
@@ -141,7 +141,7 @@ bool RosterModel::hasItem(const QString &jid) const
 std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
 {
 	for (const auto &item : std::as_const(m_items)) {
-		if (item.jid() == jid) {
+		if (item.jid == jid) {
 			return item;
 		}
 	}
@@ -152,7 +152,7 @@ std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
 bool RosterModel::isPresenceSubscribedByItem(const QString &, const QString &jid) const
 {
 	if (auto item = findItem(jid)) {
-		return item->subscription() == QXmppRosterIq::Item::From || item->subscription() == QXmppRosterIq::Item::Both ;
+		return item->subscription == QXmppRosterIq::Item::From || item->subscription == QXmppRosterIq::Item::Both ;
 	}
 	return false;
 }
@@ -160,7 +160,7 @@ bool RosterModel::isPresenceSubscribedByItem(const QString &, const QString &jid
 std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, const QString &jid) const
 {
 	if (auto item = findItem(jid)) {
-		return item->encryption();
+		return item->encryption;
 	}
 	return {};
 }
@@ -168,7 +168,7 @@ std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, con
 void RosterModel::setItemEncryption(const QString &, const QString &jid, Encryption::Enum encryption)
 {
 	emit updateItemRequested(jid, [=](RosterItem &item) {
-		item.setEncryption(encryption);
+		item.encryption = encryption;
 	});
 }
 
@@ -198,14 +198,14 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &u
 QString RosterModel::lastReadOwnMessageId(const QString &, const QString &jid) const
 {
 	if (auto item = findItem(jid))
-		return item->lastReadOwnMessageId();
+		return item->lastReadOwnMessageId;
 	return {};
 }
 
 QString RosterModel::lastReadContactMessageId(const QString &, const QString &jid) const
 {
 	if (auto item = findItem(jid))
-		return item->lastReadContactMessageId();
+		return item->lastReadContactMessageId;
 	return {};
 }
 
@@ -216,7 +216,7 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 	std::sort(m_items.begin(), m_items.end());
 	endResetModel();
 	for (const auto &item : std::as_const(m_items)) {
-		RosterItemNotifier::instance().notifyWatchers(item.jid(), item);
+		RosterItemNotifier::instance().notifyWatchers(item.jid, item);
 	}
 }
 
@@ -230,7 +230,7 @@ void RosterModel::removeItem(const QString &jid)
 	QMutableVectorIterator<RosterItem> itr(m_items);
 	int i = 0;
 	while (itr.hasNext()) {
-		if (itr.next().jid() == jid) {
+		if (itr.next().jid == jid) {
 			beginRemoveRows(QModelIndex(), i, i);
 			itr.remove();
 			endRemoveRows();
@@ -245,7 +245,7 @@ void RosterModel::updateItem(const QString &jid,
                              const std::function<void (RosterItem &)> &updateItem)
 {
 	for (int i = 0; i < m_items.length(); i++) {
-		if (m_items.at(i).jid() == jid) {
+		if (m_items.at(i).jid == jid) {
 			// update item
 			RosterItem item = m_items.at(i);
 			updateItem(item);
@@ -276,18 +276,18 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			m_items.begin(),
 			m_items.end(),
 			[&] (const RosterItem &oldItem) {
-				return oldItem.jid() == item.jid();
+				return oldItem.jid == item.jid;
 			}
 		);
 
 		// use the old item's values, if found
 		if (oldItem != m_items.end()) {
-			item.setLastMessage(oldItem->lastMessage());
-			item.setLastExchanged(oldItem->lastExchanged());
-			item.setUnreadMessages(oldItem->unreadMessages());
-			item.setLastReadOwnMessageId(oldItem->lastReadOwnMessageId());
-			item.setLastReadContactMessageId(oldItem->lastReadContactMessageId());
-			item.setEncryption(oldItem->encryption());
+			item.lastMessage = oldItem->lastMessage;
+			item.lastExchanged = oldItem->lastExchanged;
+			item.unreadMessages = oldItem->unreadMessages;
+			item.lastReadOwnMessageId = oldItem->lastReadOwnMessageId;
+			item.lastReadContactMessageId = oldItem->lastReadContactMessageId;
+			item.encryption = oldItem->encryption;
 		}
 
 		newItems << item;
@@ -302,7 +302,7 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 	for (int i = 0; i < m_items.size(); i++) {
 		RosterItem &item = m_items[i];
 
-		if (AccountManager::instance()->jid() == accountJid && (item.jid().isEmpty() || item.jid() == jid)) {
+		if (AccountManager::instance()->jid() == accountJid && (item.jid.isEmpty() || item.jid == jid)) {
 			beginRemoveRows(QModelIndex(), i, i);
 			m_items.remove(i);
 			endRemoveRows();
@@ -316,7 +316,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 {
 	const auto contactJid = message.isOwn ? message.to : message.from;
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
-		return item.jid() == contactJid;
+		return item.jid == contactJid;
 	});
 
 	// contact not found
@@ -325,7 +325,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// only set new message if it's newer
 	// allow setting old message if the current message is empty
-	if (!itr->lastMessage().isEmpty() && itr->lastExchanged() >= message.stamp)
+	if (!itr->lastMessage.isEmpty() && itr->lastExchanged >= message.stamp)
 		return;
 
 	QVector<int> changedRoles = {
@@ -333,12 +333,12 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	};
 
 	// last exchanged
-	itr->setLastExchanged(message.stamp);
+	itr->lastExchanged = message.stamp;
 
 	// last message
 	const auto lastMessage = message.previewText();
-	if (itr->lastMessage() != lastMessage) {
-		itr->setLastMessage(lastMessage);
+	if (itr->lastMessage != lastMessage) {
+		itr->lastMessage = lastMessage;
 		changedRoles << int(LastMessageRole);
 	}
 
@@ -353,7 +353,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		case MessageOrigin::Stream:
 		case MessageOrigin::UserInput:
 		case MessageOrigin::MamCatchUp:
-			newUnreadMessages = itr->unreadMessages() + 1;
+			newUnreadMessages = itr->unreadMessages + 1;
 		case MessageOrigin::MamBacklog:
 		case MessageOrigin::MamInitial:
 			break;
@@ -361,11 +361,11 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	}
 
 	if (newUnreadMessages.has_value()) {
-		itr->setUnreadMessages(*newUnreadMessages);
+		itr->unreadMessages = *newUnreadMessages;
 		changedRoles << int(UnreadMessagesRole);
 
 		RosterDb::instance()->updateItem(contactJid, [=](RosterItem &item) {
-			item.setUnreadMessages(*newUnreadMessages);
+			item.unreadMessages = *newUnreadMessages;
 		});
 	}
 
@@ -373,7 +373,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
 	emit dataChanged(modelIndex, modelIndex, changedRoles);
-	RosterItemNotifier::instance().notifyWatchers(itr->jid(), *itr);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 
 	// move row to correct position
 	updateItemPosition(i);
@@ -384,7 +384,7 @@ void RosterModel::insertItem(int index, const RosterItem &item)
 	beginInsertRows(QModelIndex(), index, index);
 	m_items.insert(index, item);
 	endInsertRows();
-	RosterItemNotifier::instance().notifyWatchers(item.jid(), item);
+	RosterItemNotifier::instance().notifyWatchers(item.jid, item);
 }
 
 int RosterModel::updateItemPosition(int currentPosition)
@@ -403,7 +403,7 @@ int RosterModel::updateItemPosition(int currentPosition)
 int RosterModel::positionToInsert(const RosterItem &item)
 {
 	// prepend the item, if no timestamp is set
-	if (item.lastExchanged().isNull())
+	if (item.lastExchanged.isNull())
 		return 0;
 
 	for (int i = 0; i < m_items.size(); i++) {

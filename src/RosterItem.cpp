@@ -32,115 +32,25 @@
 #include <QXmppUtils.h>
 
 RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime)
-	: m_jid(item.bareJid()), m_name(item.name()), m_subscription(item.subscriptionType()), m_lastExchanged(dateTime)
+	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastExchanged(dateTime)
 {
-}
-
-QString RosterItem::jid() const
-{
-	return m_jid;
-}
-
-void RosterItem::setJid(const QString &jid)
-{
-	m_jid = jid;
-}
-
-QString RosterItem::name() const
-{
-	return m_name;
-}
-
-void RosterItem::setName(const QString &name)
-{
-	m_name = name;
-}
-
-QXmppRosterIq::Item::SubscriptionType RosterItem::subscription() const
-{
-	return m_subscription;
-}
-
-void RosterItem::setSubscription(QXmppRosterIq::Item::SubscriptionType subscription)
-{
-	m_subscription = subscription;
-}
-
-Encryption::Enum RosterItem::encryption() const
-{
-	return m_encryption;
-}
-
-void RosterItem::setEncryption(Encryption::Enum encryption)
-{
-	m_encryption = encryption;
-}
-
-int RosterItem::unreadMessages() const
-{
-	return m_unreadMessages;
-}
-
-void RosterItem::setUnreadMessages(int unreadMessages)
-{
-	m_unreadMessages = unreadMessages;
-}
-
-QDateTime RosterItem::lastExchanged() const
-{
-	return m_lastExchanged;
-}
-
-void RosterItem::setLastExchanged(const QDateTime &lastExchanged)
-{
-	m_lastExchanged = lastExchanged;
-}
-
-QString RosterItem::lastMessage() const
-{
-	return m_lastMessage;
-}
-
-void RosterItem::setLastMessage(const QString &lastMessage)
-{
-	m_lastMessage = lastMessage;
-}
-
-QString RosterItem::lastReadOwnMessageId() const
-{
-	return m_lastReadOwnMessageId;
-}
-
-void RosterItem::setLastReadOwnMessageId(const QString &lastReadOwnMessageId)
-{
-	m_lastReadOwnMessageId = lastReadOwnMessageId;
-}
-
-QString RosterItem::lastReadContactMessageId() const
-{
-	return m_lastReadContactMessageId;
-}
-
-void RosterItem::setLastReadContactMessageId(const QString &lastReadContactMessageId)
-{
-	m_lastReadContactMessageId = lastReadContactMessageId;
 }
 
 QString RosterItem::displayName() const
 {
-	return m_name.isEmpty() ? QXmppUtils::jidToUser(m_jid) : m_name;
+	return name.isEmpty() ? QXmppUtils::jidToUser(jid) : name;
 }
 
 bool RosterItem::operator==(const RosterItem &other) const
 {
-	return m_jid == other.jid() &&
-	       m_name == other.name() &&
-	       m_lastMessage == other.lastMessage() &&
-	       m_lastReadOwnMessageId == other.lastReadOwnMessageId() &&
-	       m_lastReadContactMessageId == other.lastReadContactMessageId() &&
-	       m_lastExchanged == other.lastExchanged() &&
-	       m_unreadMessages == other.unreadMessages() &&
-	       m_encryption == other.encryption();
+	return jid == other.jid &&
+	       name == other.name &&
+	       lastMessage == other.lastMessage &&
+	       lastReadOwnMessageId == other.lastReadOwnMessageId &&
+	       lastReadContactMessageId == other.lastReadContactMessageId &&
+	       lastExchanged == other.lastExchanged &&
+	       unreadMessages == other.unreadMessages &&
+	       encryption == other.encryption;
 }
 
 bool RosterItem::operator!=(const RosterItem &other) const
@@ -150,28 +60,28 @@ bool RosterItem::operator!=(const RosterItem &other) const
 
 bool RosterItem::operator<(const RosterItem &other) const
 {
-	if (lastExchanged() != other.lastExchanged())
-		return lastExchanged() > other.lastExchanged();
+	if (lastExchanged != other.lastExchanged)
+		return lastExchanged > other.lastExchanged;
 	return displayName().toUpper() < other.displayName().toUpper();
 }
 
 bool RosterItem::operator>(const RosterItem &other) const
 {
-	if (lastExchanged() != other.lastExchanged())
-		return lastExchanged() < other.lastExchanged();
+	if (lastExchanged != other.lastExchanged)
+		return lastExchanged < other.lastExchanged;
 	return displayName().toUpper() > other.displayName().toUpper();
 }
 
 bool RosterItem::operator<=(const RosterItem &other) const
 {
-	if (lastExchanged() != other.lastExchanged())
-		return lastExchanged() >= other.lastExchanged();
+	if (lastExchanged != other.lastExchanged)
+		return lastExchanged >= other.lastExchanged;
 	return displayName().toUpper() <= other.displayName().toUpper();
 }
 
 bool RosterItem::operator>=(const RosterItem &other) const
 {
-	if (lastExchanged() != other.lastExchanged())
-		return lastExchanged() <= other.lastExchanged();
+	if (lastExchanged != other.lastExchanged)
+		return lastExchanged <= other.lastExchanged;
 	return displayName().toUpper() >= other.displayName().toUpper();
 }

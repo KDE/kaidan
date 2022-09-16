@@ -528,8 +528,8 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, lastReadContactMessageId, markedId);
 			await(future, this, [=](int count) {
 				emit RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
-					item.setUnreadMessages(count == 0 ? item.unreadMessages() - 1 : item.unreadMessages() - count + 1);
-					item.setLastReadContactMessageId(markedId);
+					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
+					item.lastReadContactMessageId = markedId;
 				});
 			});
 
@@ -539,7 +539,7 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			});
 		} else {
 			emit RosterModel::instance()->updateItemRequested(senderJid, [=](RosterItem &item) {
-				item.setLastReadOwnMessageId(markedId);
+				item.lastReadOwnMessageId = markedId;
 			});
 
 			emit MessageModel::instance()->updateLastReadOwnMessageIdRequested(recipientJid, senderJid);

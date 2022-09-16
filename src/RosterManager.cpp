@@ -62,8 +62,8 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		this, [this] (const QString &jid) {
 		emit RosterModel::instance()->updateItemRequested(jid, [=] (RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
-			item.setName(updatedItem.name());
-			item.setSubscription(updatedItem.subscriptionType());
+			item.name = updatedItem.name();
+			item.subscription= updatedItem.subscriptionType();
 		});
 	});
 

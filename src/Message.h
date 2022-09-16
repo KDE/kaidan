@@ -51,6 +51,7 @@ struct Message
 {
 	Q_DECLARE_TR_FUNCTIONS(Message)
 
+public:
 	/**
 	 * Compares another @c Message with this. Only attributes that are saved in the
 	 * database are checked.

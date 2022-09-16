@@ -412,14 +412,14 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 
 	if (m_lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
-			item.setLastReadContactMessageId(readMessageId);
+			item.lastReadContactMessageId = readMessageId;
 
 			// If the read message is the latest one, reset the counter for unread messages.
 			// Otherwise, decrease it by 1.
 			if (readMessageIndex == 0) {
-				item.setUnreadMessages(0);
+				item.unreadMessages = 0;
 			} else {
-				item.setUnreadMessages(item.unreadMessages() - 1);
+				item.unreadMessages = item.unreadMessages - 1;
 			}
 		});
 		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp);

@@ -38,44 +38,17 @@
 /**
  * Item containing one contact / conversation.
  */
-class RosterItem
+struct RosterItem
 {
 	Q_GADGET
-	Q_PROPERTY(QString jid READ jid CONSTANT)
-	Q_PROPERTY(QString name READ name CONSTANT)
-	Q_PROPERTY(QString displayName READ displayName CONSTANT)
-	Q_PROPERTY(int unreadMessageCount READ unreadMessages CONSTANT)
-
 public:
+	Q_PROPERTY(QString jid MEMBER jid)
+	Q_PROPERTY(QString name MEMBER name)
+	Q_PROPERTY(QString displayName READ displayName CONSTANT)
+	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
+
 	RosterItem() = default;
 	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
-
-	QString jid() const;
-	void setJid(const QString &jid);
-
-	QString name() const;
-	void setName(const QString &name);
-
-	QXmppRosterIq::Item::SubscriptionType subscription() const;
-	void setSubscription(QXmppRosterIq::Item::SubscriptionType subscription);
-
-	Encryption::Enum encryption() const;
-	void setEncryption(Encryption::Enum encryption);
-
-	int unreadMessages() const;
-	void setUnreadMessages(int unreadMessages);
-
-	QDateTime lastExchanged() const;
-	void setLastExchanged(const QDateTime &lastExchanged);
-
-	QString lastMessage() const;
-	void setLastMessage(const QString &lastMessage);
-
-	QString lastReadOwnMessageId() const;
-	void setLastReadOwnMessageId(const QString &lastReadMessageOwnId);
-
-	QString lastReadContactMessageId() const;
-	void setLastReadContactMessageId(const QString &lastReadMessageContactId);
 
 	QString displayName() const;
 
@@ -87,52 +60,33 @@ public:
 	bool operator<=(const RosterItem &other) const;
 	bool operator>=(const RosterItem &other) const;
 
-private:
-	/**
-	 * JID of the contact.
-	 */
-	QString m_jid;
+	// JID of the contact.
+	QString jid;
 
-	/**
-	 * Name of the contact.
-	 */
-	QString m_name;
+	// Name of the contact.
+	QString name;
 
-	/**
-	 * Type of this roster item's presence subscription.
-	 */
-	QXmppRosterIq::Item::SubscriptionType m_subscription;
+	// Type of this roster item's presence subscription.
+	QXmppRosterIq::Item::SubscriptionType subscription;
 
-	/**
-	 * End-to-end encryption used for this roster item.
-	 */
-	Encryption::Enum m_encryption = Encryption::Omemo2;
+	// End-to-end encryption used for this roster item.
+	Encryption::Enum encryption = Encryption::Omemo2;
 
-	/**
-	 * Number of messages unread by the user.
-	 */
-	int m_unreadMessages = 0;
+	// Number of messages unread by the user.
+	int unreadMessages = 0;
 
-	/**
-	 * Last activity of the conversation, e.g. an incoming message.
-	 * This is used to sort the contacts on the roster page.
-	 */
-	QDateTime m_lastExchanged = QDateTime::currentDateTimeUtc();
+	// Last activity of the conversation, e.g. an incoming message.
+	// This is used to sort the contacts on the roster page.
+	QDateTime lastExchanged = QDateTime::currentDateTimeUtc();
 
-	/**
-	 * Last message of the conversation.
-	 */
-	QString m_lastMessage;
+	// Last message of the conversation.
+	QString lastMessage;
 
-	/**
-	 * Last message i.e read by the receiver.
-	 */
-	QString m_lastReadOwnMessageId;
+	// Last message i.e read by the receiver.
+	QString lastReadOwnMessageId;
 
-	/**
-	 * Last message i.e read by the user.
-	 */
-	 QString m_lastReadContactMessageId;
+	// Last message i.e read by the user.
+	QString lastReadContactMessageId;
 };
 
 Q_DECLARE_METATYPE(RosterItem)
