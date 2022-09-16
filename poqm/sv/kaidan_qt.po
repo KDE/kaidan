@@ -400,27 +400,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopiera lösenord"
 
-#: src/qml/ChatPage.qml:77
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Tysta inte underrättelser"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:118
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Tysta underrättelser"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Visa profil"
 
-#: src/qml/ChatPage.qml:187
+#: src/qml/ChatPage.qml:138
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Skicka ett spoilermeddelande"
@@ -500,6 +500,66 @@ msgstr "Stäng spoilertipsfält"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Skriv meddelande"
+
+#: src/qml/elements/ChatPageSendingPane.qml:212
+msgctxt "ChatPageSendingPane|"
+msgid "Attachments"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:263
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ChatPageSendingPane|"
+msgid "Take picture"
+msgstr "Ta en bild"
+
+#: src/qml/elements/ChatPageSendingPane.qml:264
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:275
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
+msgctxt "ChatPageSendingPane|"
+msgid "Record Video"
+msgstr "Spela in video"
+
+#: src/qml/elements/ChatPageSendingPane.qml:276
+msgctxt "ChatPageSendingPane|"
+msgid "Record a video using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:287
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Document"
+msgctxt "ChatPageSendingPane|"
+msgid "Document"
+msgstr "Dokument"
+
+#: src/qml/elements/ChatPageSendingPane.qml:288
+msgctxt "ChatPageSendingPane|"
+msgid "Attatch document from device"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:299
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ChatPageSendingPane|"
+msgid "Location"
+msgstr "Plats"
+
+#: src/qml/elements/ChatPageSendingPane.qml:300
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "ChatPageSendingPane|"
+msgid "Send your location"
+msgstr "Skicka plats"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -670,12 +730,12 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Skicka"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:43
+#: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "Prenumerationsbegäran"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#: src/qml/elements/SubRequestAcceptSheet.qml:51
 #, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
@@ -685,12 +745,12 @@ msgstr ""
 "Du har tagit emot en prenumerationsbegäran av <b>%1</b>. Om du accepterar "
 "den, kommer kontot att få tillgång till din närvarostatus."
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:64
+#: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "Neka"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:73
+#: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Acceptera"

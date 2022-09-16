@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-09-12 01:47+0000\n"
+"PO-Revision-Date: 2022-09-16 01:49+0000\n"
 "Last-Translator: transxx.py program <null@kde.org>\n"
 "Language-Team: KDE Test Language <kde-i18n-doc@kde.org>\n"
 "Language: x-test\n"
@@ -397,27 +397,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "xxCopy passwordxx"
 
-#: src/qml/ChatPage.qml:77
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "xxSearchxx"
 
-#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "xxUnmute notificationsxx"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:118
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "xxMute notificationsxx"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "xxView profilexx"
 
-#: src/qml/ChatPage.qml:187
+#: src/qml/ChatPage.qml:138
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "xxSend a spoiler messagexx"
@@ -497,6 +497,51 @@ msgstr "xxClose spoiler hint fieldxx"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "xxCompose messagexx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:212
+msgctxt "ChatPageSendingPane|"
+msgid "Attachments"
+msgstr "xxAttachmentsxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:263
+msgctxt "ChatPageSendingPane|"
+msgid "Take picture"
+msgstr "xxTake picturexx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:264
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr "xxTake a picture using your cameraxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:275
+msgctxt "ChatPageSendingPane|"
+msgid "Record Video"
+msgstr "xxRecord Videoxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:276
+msgctxt "ChatPageSendingPane|"
+msgid "Record a video using your camera"
+msgstr "xxRecord a video using your cameraxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:287
+msgctxt "ChatPageSendingPane|"
+msgid "Document"
+msgstr "xxDocumentxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:288
+msgctxt "ChatPageSendingPane|"
+msgid "Attatch document from device"
+msgstr "xxAttatch document from devicexx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:299
+msgctxt "ChatPageSendingPane|"
+msgid "Location"
+msgstr "xxLocationxx"
+
+#: src/qml/elements/ChatPageSendingPane.qml:300
+msgctxt "ChatPageSendingPane|"
+msgid "Send your location"
+msgstr "xxSend your locationxx"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -670,12 +715,12 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "xxSendxx"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:43
+#: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "xxSubscription Requestxx"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#: src/qml/elements/SubRequestAcceptSheet.qml:51
 #, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
@@ -685,12 +730,12 @@ msgstr ""
 "xxYou received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status.xx"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:64
+#: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "xxDeclinexx"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:73
+#: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "xxAcceptxx"

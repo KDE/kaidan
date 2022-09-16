@@ -400,27 +400,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Копіювати пароль"
 
-#: src/qml/ChatPage.qml:77
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Увімкнути звук у сповіщеннях"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:118
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Вимкнути звук у сповіщеннях"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Переглянути профіль"
 
-#: src/qml/ChatPage.qml:187
+#: src/qml/ChatPage.qml:138
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Надіслати повідомлення-спойлер"
@@ -500,6 +500,66 @@ msgstr "Закрити поле підказки до спойлера"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Створити повідомлення"
+
+#: src/qml/elements/ChatPageSendingPane.qml:212
+msgctxt "ChatPageSendingPane|"
+msgid "Attachments"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:263
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ChatPageSendingPane|"
+msgid "Take picture"
+msgstr "Зробити знімок"
+
+#: src/qml/elements/ChatPageSendingPane.qml:264
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:275
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
+msgctxt "ChatPageSendingPane|"
+msgid "Record Video"
+msgstr "Записати відео"
+
+#: src/qml/elements/ChatPageSendingPane.qml:276
+msgctxt "ChatPageSendingPane|"
+msgid "Record a video using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:287
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Document"
+msgctxt "ChatPageSendingPane|"
+msgid "Document"
+msgstr "Документ"
+
+#: src/qml/elements/ChatPageSendingPane.qml:288
+msgctxt "ChatPageSendingPane|"
+msgid "Attatch document from device"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:299
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ChatPageSendingPane|"
+msgid "Location"
+msgstr "Місце"
+
+#: src/qml/elements/ChatPageSendingPane.qml:300
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "ChatPageSendingPane|"
+msgid "Send your location"
+msgstr "Надіслати адресу"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -675,12 +735,12 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Надіслати"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:43
+#: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "Запит щодо підписки"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#: src/qml/elements/SubRequestAcceptSheet.qml:51
 #, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
@@ -691,12 +751,12 @@ msgstr ""
 "відповідний обліковий запис матиме доступ до вашого стану присутності у "
 "системі."
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:64
+#: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "Відхилити"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:73
+#: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Прийняти"

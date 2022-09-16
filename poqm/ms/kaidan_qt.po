@@ -408,27 +408,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Salin kata laluan"
 
-#: src/qml/ChatPage.qml:77
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:96 src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:117
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Buang bisu pemberitahuan"
 
-#: src/qml/ChatPage.qml:97 src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:118
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Bisukan pemberitahuan"
 
-#: src/qml/ChatPage.qml:122
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Lihat profil"
 
-#: src/qml/ChatPage.qml:187
+#: src/qml/ChatPage.qml:138
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Hantar mesej beberan"
@@ -517,6 +517,66 @@ msgstr "Tutup medan tip beberan"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Karang mesej"
+
+#: src/qml/elements/ChatPageSendingPane.qml:212
+msgctxt "ChatPageSendingPane|"
+msgid "Attachments"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:263
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Take picture"
+msgctxt "ChatPageSendingPane|"
+msgid "Take picture"
+msgstr "Ambil gambar"
+
+#: src/qml/elements/ChatPageSendingPane.qml:264
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:275
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
+msgctxt "ChatPageSendingPane|"
+msgid "Record Video"
+msgstr "Rakam video"
+
+#: src/qml/elements/ChatPageSendingPane.qml:276
+msgctxt "ChatPageSendingPane|"
+msgid "Record a video using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:287
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Document"
+msgctxt "ChatPageSendingPane|"
+msgid "Document"
+msgstr "Dokumen"
+
+#: src/qml/elements/ChatPageSendingPane.qml:288
+msgctxt "ChatPageSendingPane|"
+msgid "Attatch document from device"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:299
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "ChatPageSendingPane|"
+msgid "Location"
+msgstr "Lokasi"
+
+#: src/qml/elements/ChatPageSendingPane.qml:300
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
+msgctxt "ChatPageSendingPane|"
+msgid "Send your location"
+msgstr "Hantar kedudukan"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -698,12 +758,12 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Hantar"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:43
+#: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "Permintaan Langganan"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:52
+#: src/qml/elements/SubRequestAcceptSheet.qml:51
 #, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
@@ -713,12 +773,12 @@ msgstr ""
 "Anda mendapat permintaan langganan daripada <b>%1</b>. Jika anda terima, "
 "akaun tersebut boleh mencapai status kehadiran anda."
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:64
+#: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "Tolak"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:73
+#: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Terima"
