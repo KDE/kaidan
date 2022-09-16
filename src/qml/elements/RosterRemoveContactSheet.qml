@@ -38,10 +38,15 @@ import im.kaidan.kaidan 1.0
 Kirigami.OverlaySheet {
 	property string jid
 
-	header: Kirigami.Heading {
-		text: qsTr("Delete contact")
-
-		Layout.fillWidth: true
+	header: RowLayout {
+		Layout.margins: 10
+		Kirigami.Icon {
+			source: "albumfolder-user-trash"
+		}
+		Kirigami.Heading {
+			text: qsTr("Remove contact")
+			Layout.fillWidth: true
+		}
 	}
 
 	onSheetOpenChanged: {

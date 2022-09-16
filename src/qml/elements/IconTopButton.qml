@@ -15,6 +15,7 @@ QQC2.Button {
 
 	required property string buttonIcon
 	required property string title
+	property string subtitle
 	property string tooltipText
 
 	implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
@@ -46,7 +47,15 @@ QQC2.Button {
 			elide: Text.ElideRight
 			wrapMode: Text.Wrap
 		}
-
+		// Subtitle
+		QQC2.Label {
+		   Layout.fillWidth: true
+		   visible: root.subtitle
+		   text: root.subtitle
+		   elide: Text.ElideRight
+		   wrapMode: Text.Wrap
+		   opacity: 0.6
+		}
 	}
 	QQC2.ToolTip {
 		text: root.tooltipText ? root.tooltipText : ""

@@ -104,7 +104,6 @@ Kirigami.ApplicationWindow {
 	Component {id: settingsPage; SettingsPage {}}
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
 	Component {id: qrCodePage; QrCodePage {}}
-	Component {id: userProfilePage; UserProfilePage {}}
 
 	onWidthChanged: showRosterPageForNarrowWindow()
 

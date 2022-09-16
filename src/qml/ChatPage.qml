@@ -93,11 +93,13 @@ ChatPageBase {
 				text: chatItemWatcher.item.displayName
 			}
 		}
+		UserProfileSheet  {
+			jid: MessageModel.currentChatJid
+			chatItem: chatItemWatcher
+			id: userProfileSheet
+		}
 		onClicked: {
-			pageStack.push(userProfilePage, {
-				jid: MessageModel.currentChatJid,
-				chatItemWatcher: chatItemWatcher
-			});
+			userProfileSheet.open()
 		}
 	}
 	keyboardNavigationEnabled: true

@@ -39,9 +39,15 @@ Kirigami.OverlaySheet {
 	property string jid
 	property alias enteredName: nameField.text
 
-	header: Kirigami.Heading {
-		text: qsTr("Rename contact")
-		Layout.fillWidth: true
+	header: RowLayout {
+		Layout.margins: 10
+		Kirigami.Icon {
+			source: "document-edit-symbolic"
+		}
+		Kirigami.Heading {
+			text: qsTr("Rename contact")
+			Layout.fillWidth: true
+		}
 	}
 
 	ColumnLayout {
