@@ -52,6 +52,32 @@
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
 
+QXmppMessage toQXmppMessage(const Message &msg)
+{
+	QXmppE2eeMetadata e2ee;
+	e2ee.setSenderKey(msg.senderKey);
+
+	QXmppMessage q;
+	q.setId(msg.id);
+	q.setTo(msg.to);
+	q.setFrom(msg.from);
+	q.setBody(msg.body);
+	q.setStamp(msg.stamp);
+	q.setIsSpoiler(msg.isSpoiler);
+	q.setSpoilerHint(msg.spoilerHint);
+	q.setMarkable(msg.isMarkable);
+	q.setMarker(msg.marker);
+	q.setMarkerId(msg.markerId);
+	q.setOutOfBandUrl(msg.outOfBandUrl);
+	q.setReplaceId(msg.replaceId);
+	q.setOriginId(msg.originId);
+	q.setStanzaId(msg.stanzaId);
+	q.setReceiptRequested(msg.receiptRequested);
+	q.setE2eeMetadata(e2ee);
+
+	return q;
+}
+
 MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
@@ -78,8 +104,8 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	connect(&m_receiptManager, &QXmppMessageReceiptManager::messageDelivered,
 		this, [=](const QString &, const QString &id) {
 		MessageDb::instance()->updateMessage(id, [](Message &msg) {
-			msg.setDeliveryState(Enums::DeliveryState::Delivered);
-			msg.setErrorText({});
+			msg.deliveryState = Enums::DeliveryState::Delivered;
+			msg.errorText.clear();
 		});
 	});
 
@@ -135,8 +161,8 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 {
 	if (msg.type() == QXmppMessage::Error) {
 		MessageDb::instance()->updateMessage(msg.id(), [errorText { msg.error().text() }](Message &msg) {
-			msg.setDeliveryState(Enums::DeliveryState::Error);
-			msg.setErrorText(errorText);
+			msg.deliveryState = Enums::DeliveryState::Error;
+			msg.errorText = errorText;
 		});
 		return;
 	}
@@ -159,37 +185,37 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	Message message;
-	message.setFrom(senderJid);
-	message.setTo(recipientJid);
-	message.setIsOwn(isOwnMessage);
-	message.setId(msg.id());
+	message.from = senderJid;
+	message.to = recipientJid;
+	message.isOwn = isOwnMessage;
+	message.id = msg.id();
 
 	if (auto e2eeMetadata = msg.e2eeMetadata()) {
-		message.setEncryption(Encryption::Enum(e2eeMetadata->encryption()));
-		message.setSenderKey(e2eeMetadata->senderKey());
+		message.encryption = Encryption::Enum(e2eeMetadata->encryption());
+		message.senderKey = e2eeMetadata->senderKey();
 	}
 
 	if (auto encryptionName = msg.encryptionName();
-			!encryptionName.isEmpty() && message.encryption() == Encryption::NoEncryption) {
-		message.setBody(tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName));
+			!encryptionName.isEmpty() && message.encryption == Encryption::NoEncryption) {
+		message.body = tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName);
 	} else {
 		// Do not use the file sharing fallback body.
 		if (msg.body() != msg.outOfBandUrl()) {
-			message.setBody(msg.body());
+			message.body = msg.body();
 		}
 	}
 
-	message.setMediaType(MessageType::MessageText); // default to text message without media
-	message.setIsSpoiler(msg.isSpoiler());
-	message.setSpoilerHint(msg.spoilerHint());
-	message.setOutOfBandUrl(msg.outOfBandUrl());
-	message.setStanzaId(msg.stanzaId());
-	message.setOriginId(msg.originId());
-	message.setMarkable(msg.isMarkable());
+	message.mediaType = MessageType::MessageText; // default to text message without media
+	message.isSpoiler = msg.isSpoiler();
+	message.spoilerHint = msg.spoilerHint();
+	message.outOfBandUrl = msg.outOfBandUrl();
+	message.stanzaId = msg.stanzaId();
+	message.originId = msg.originId();
+	message.isMarkable = msg.isMarkable();
 
 	// check if message contains a link and also check out of band url
 	if (!parseMediaUri(message, msg.outOfBandUrl(), false)) {
-		const QStringList bodyWords = message.body().split(u' ');
+		const QStringList bodyWords = message.body.split(u' ');
 		for (const QString &word : bodyWords) {
 			if (parseMediaUri(message, word, true))
 				break;
@@ -197,17 +223,17 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	// get possible delay (timestamp)
-	message.setStamp((msg.stamp().isNull() || !msg.stamp().isValid())
+	message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
 	                 ? QDateTime::currentDateTimeUtc()
-	                 : msg.stamp().toUTC());
+	                 : msg.stamp().toUTC();
 
 	// save the message to the database
 	// in case of message correction, replace old message
 	if (msg.replaceId().isEmpty()) {
 		MessageDb::instance()->addMessage(message, origin);
 	} else {
-		message.setIsEdited(true);
-		message.setId(QString());
+		message.isEdited = true;
+		message.id.clear();
 		MessageDb::instance()->updateMessage(msg.replaceId(), [=](Message &m) {
 			// replace completely
 			m = message;
@@ -221,21 +247,21 @@ void MessageHandler::sendMessage(const QString& toJid,
                                  const QString& spoilerHint)
 {
 	Message msg;
-	msg.setFrom(AccountManager::instance()->jid());
-	msg.setTo(toJid);
-	msg.setBody(body);
-	msg.setId(QXmppUtils::generateStanzaUuid());
-	msg.setOriginId(msg.id());
+	msg.from = AccountManager::instance()->jid();
+	msg.to = toJid;
+	msg.body = body;
+	msg.id = QXmppUtils::generateStanzaUuid();
+	msg.originId = msg.id;
 	// MessageModel::activeEncryption() is thread-safe.
-	msg.setEncryption(MessageModel::instance()->activeEncryption());
-	msg.setReceiptRequested(true);
-	msg.setIsOwn(true);
-	msg.setMediaType(MessageType::MessageText); // text message without media
-	msg.setDeliveryState(Enums::DeliveryState::Pending);
-	msg.setMarkable(true);
-	msg.setStamp(QDateTime::currentDateTimeUtc());
-	msg.setIsSpoiler(isSpoiler);
-	msg.setSpoilerHint(spoilerHint);
+	msg.encryption = MessageModel::instance()->activeEncryption();
+	msg.receiptRequested = true;
+	msg.isOwn = true;
+	msg.mediaType = MessageType::MessageText; // text message without media
+	msg.deliveryState = Enums::DeliveryState::Pending;
+	msg.isMarkable = true;
+	msg.stamp = QDateTime::currentDateTimeUtc();
+	msg.isSpoiler = isSpoiler;
+	msg.spoilerHint = spoilerHint;
 
 	// process links from the body
 	const QStringList words = body.split(u' ');
@@ -258,21 +284,21 @@ void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::Sta
 
 void MessageHandler::sendCorrectedMessage(Message msg)
 {
-	const auto messageId = msg.id();
-	await(send(std::move(msg)), this, [messageId](QXmpp::SendResult result) {
+	const auto messageId = msg.id;
+	await(send(toQXmppMessage(msg)), this, [messageId](QXmpp::SendResult result) {
 		if (std::holds_alternative<QXmpp::SendError>(result)) {
 			// TODO store in the database only error codes, assign text messages right in the QML
 			emit Kaidan::instance()->passiveNotificationRequested(
 						tr("Message correction was not successful"));
 
 			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
-				message.setDeliveryState(DeliveryState::Error);
-				message.setErrorText(QStringLiteral("Message correction was not successful"));
+				message.deliveryState = DeliveryState::Error;
+				message.errorText = QStringLiteral("Message correction was not successful");
 			});
 		} else {
 			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
-				message.setDeliveryState(DeliveryState::Sent);
-				message.setErrorText({});
+				message.deliveryState = DeliveryState::Sent;
+				message.errorText.clear();
 			});
 		}
 	});
@@ -307,12 +333,12 @@ void MessageHandler::sendPendingMessage(Message message)
 		// if the message is a pending edition of the existing in the history message
 		// I need to send it with the most recent stamp
 		// for that I'm gonna copy that message and update in the copy just the stamp
-		if (message.isEdited()) {
-			message.setStamp(QDateTime::currentDateTimeUtc());
+		if (message.isEdited) {
+			message.stamp = QDateTime::currentDateTimeUtc();
 		}
 
-		const auto messageId = message.id();
-		await(send(std::move(message)), this, [messageId](QXmpp::SendResult result) {
+		const auto messageId = message.id;
+		await(send(toQXmppMessage(message)), this, [messageId](QXmpp::SendResult result) {
 			if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
 				qWarning() << "[client] [MessageHandler] Could not send message:"
 					<< error->text;
@@ -322,13 +348,13 @@ void MessageHandler::sendPendingMessage(Message message)
 				// notification must contain exactly the same string.
 				emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
 				MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-					msg.setDeliveryState(Enums::DeliveryState::Error);
-					msg.setErrorText(QStringLiteral("Message could not be sent."));
+					msg.deliveryState = Enums::DeliveryState::Error;
+					msg.errorText = QStringLiteral("Message could not be sent.");
 				});
 			} else {
 				MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-					msg.setDeliveryState(Enums::DeliveryState::Sent);
-					msg.setErrorText({});
+					msg.deliveryState = Enums::DeliveryState::Sent;
+					msg.errorText.clear();
 				});
 			}
 		});
@@ -360,15 +386,15 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 			break;
 		[[fallthrough]];
 	case MessageType::MessageGeoLocation:
-		message.setMediaLocation(url.toEncoded());
+		message.mediaLocation = url.toEncoded();
 		[[fallthrough]];
 	case MessageType::MessageImage:
 	case MessageType::MessageAudio:
 	case MessageType::MessageVideo:
 	case MessageType::MessageDocument:
-		message.setMediaType(messageType);
-		message.setMediaContentType(mimeType.name());
-		message.setOutOfBandUrl(url.toEncoded());
+		message.mediaType = messageType;
+		message.mediaContentType = mimeType.name();
+		message.outOfBandUrl = url.toEncoded();
 		return true;
 	}
 
@@ -378,9 +404,9 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 void MessageHandler::sendReadMarker(const QString &chatJid, const QString &messageId)
 {
 	Message message;
-	message.setTo(chatJid);
-	message.setMarker(QXmppMessage::Displayed);
-	message.setMarkerId(messageId);
+	message.to = chatJid;
+	message.marker = QXmppMessage::Displayed;
+	message.markerId = messageId;
 
 	sendPendingMessage(message);
 }

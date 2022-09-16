@@ -41,7 +41,7 @@
 
 class Kaidan;
 class MessageModel;
-class Message;
+struct Message;
 enum class MessageOrigin : quint8;
 
 class RosterModel : public QAbstractListModel

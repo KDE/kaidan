@@ -186,41 +186,41 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		qWarning() << "Could not get data from message model." << index << role;
 		return {};
 	}
-	Message msg = m_messages.at(index.row());
+	const Message &msg = m_messages.at(index.row());
 
 	switch (role) {
 	case Timestamp:
-		return msg.stamp();
+		return msg.stamp;
 	case Id:
-		return msg.id();
+		return msg.id;
 	case Sender:
-		return msg.from();
+		return msg.from;
 	case Recipient:
-		return msg.to();
+		return msg.to;
 	case Encryption:
-		return msg.encryption();
+		return msg.encryption;
 	case IsTrusted: {
-		if (msg.isOwn() && msg.senderKey().isEmpty()) {
+		if (msg.isOwn && msg.senderKey.isEmpty()) {
 			return true;
 		}
 
-		const auto trustLevel = m_keys.value(msg.from()).value(msg.senderKey());
+		const auto trustLevel = m_keys.value(msg.from).value(msg.senderKey);
 		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
 	}
 	case Body:
-		return msg.body();
+		return msg.body;
 	case IsOwn:
-		return msg.isOwn();
+		return msg.isOwn;
 	case MediaType:
-		return QVariant::fromValue(msg.mediaType());
+		return QVariant::fromValue(msg.mediaType);
 	case IsEdited:
-		return msg.isEdited();
+		return msg.isEdited;
 	case IsLastRead:
 		// A read marker text is only displayed if the message is the last read message and no
 		// message is received by the contact after it.
-		if (msg.id() == m_lastReadOwnMessageId) {
+		if (msg.id == m_lastReadOwnMessageId) {
 			for (auto i = index.row(); i >= 0; --i) {
-				if (m_messages.at(i).from() != m_currentAccountJid) {
+				if (m_messages.at(i).from != m_currentAccountJid) {
 					return false;
 				}
 			}
@@ -228,25 +228,25 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		}
 		return false;
 	case DeliveryState:
-		return QVariant::fromValue(msg.deliveryState());
+		return QVariant::fromValue(msg.deliveryState);
 	case MediaUrl:
-		return msg.outOfBandUrl();
+		return msg.outOfBandUrl;
 	case MediaLocation:
-		return msg.mediaLocation();
+		return msg.mediaLocation;
 	case MediaContentType:
-		return msg.mediaContentType();
+		return msg.mediaContentType;
 	case MediaSize:
-		return msg.mediaLastModified();
+		return msg.mediaLastModified;
 	case MediaLastModified:
-		return msg.mediaLastModified();
+		return msg.mediaLastModified;
 	case IsSpoiler:
-		return msg.isSpoiler();
+		return msg.isSpoiler;
 	case SpoilerHint:
-		return msg.spoilerHint();
+		return msg.spoilerHint;
 	case ErrorText:
-		return msg.errorText();
+		return msg.errorText;
 	case DeliveryStateIcon:
-		switch (msg.deliveryState()) {
+		switch (msg.deliveryState) {
 		case DeliveryState::Pending:
 			return QmlUtils::getResourcePath("images/dots.svg");
 		case DeliveryState::Sent:
@@ -258,7 +258,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		}
 		return {};
 	case DeliveryStateName:
-		switch (msg.deliveryState()) {
+		switch (msg.deliveryState) {
 		case DeliveryState::Pending:
 			return tr("Pending");
 		case DeliveryState::Sent:
@@ -287,7 +287,7 @@ void MessageModel::fetchMore(const QModelIndex &)
 		const auto lastStamp = [this]() -> QDateTime {
 			const auto stamp1 = m_mamBacklogLastStamp.isNull() ? QDateTime::currentDateTimeUtc() : m_mamBacklogLastStamp;
 			if (!m_messages.empty()) {
-				return std::min(stamp1, m_messages.constLast().stamp());
+				return std::min(stamp1, m_messages.constLast().stamp);
 			}
 			return stamp1;
 		};
@@ -401,16 +401,16 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 
 	// Skip messages that are read but older than the last read message.
 	for (int i = 0; i != m_messages.size(); ++i) {
-		if (m_messages.at(i).id() == m_lastReadContactMessageId && i <= readMessageIndex) {
+		if (m_messages.at(i).id == m_lastReadContactMessageId && i <= readMessageIndex) {
 			return;
 		}
 	}
 
 	const auto &readMessage = m_messages.at(readMessageIndex);
-	const auto readMessageId = readMessage.id();
+	const auto readMessageId = readMessage.id;
 	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
-	if (m_lastReadContactMessageId != readMessageId && !readMessage.isOwn() && isApplicationActive) {
+	if (m_lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
 			item.setLastReadContactMessageId(readMessageId);
 
@@ -422,9 +422,9 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 				item.setUnreadMessages(item.unreadMessages() - 1);
 			}
 		});
-		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp());
+		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp);
 
-		if (readMessage.isMarkable()) {
+		if (readMessage.isMarkable) {
 			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
 		}
 	}
@@ -438,18 +438,18 @@ bool MessageModel::canCorrectMessage(int index) const
 
 	// message needs to be sent by us and needs to be no error message
 	const auto &msg = m_messages.at(index);
-	if (!msg.isOwn() || msg.deliveryState() == Enums::DeliveryState::Error)
+	if (!msg.isOwn || msg.deliveryState == Enums::DeliveryState::Error)
 		return false;
 
 	// check time limit
 	const auto timeThreshold =
 		QDateTime::currentDateTimeUtc().addDays(-MAX_CORRECTION_MESSAGE_DAYS_DEPTH);
-	if (msg.stamp() < timeThreshold)
+	if (msg.stamp < timeThreshold)
 		return false;
 
 	// check messages count limit
 	for (int i = 0, count = 0; i < index; i++) {
-		if (m_messages.at(i).isOwn() && ++count == MAX_CORRECTION_MESSAGE_COUNT_DEPTH)
+		if (m_messages.at(i).isOwn && ++count == MAX_CORRECTION_MESSAGE_COUNT_DEPTH)
 			return false;
 	}
 
@@ -472,7 +472,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 
 	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.length() - 1);
 	for (auto msg : msgs) {
-		msg.setIsOwn(AccountManager::instance()->jid() == msg.from());
+		msg.isOwn = AccountManager::instance()->jid() == msg.from;
 		processMessage(msg);
 		m_messages << msg;
 	}
@@ -530,7 +530,7 @@ void MessageModel::addMessage(const Message &msg)
 	// index where to add the new message
 	int i = 0;
 	for (const auto &message : qAsConst(m_messages)) {
-		if (msg.stamp() > message.stamp()) {
+		if (msg.stamp > message.stamp) {
 			insertMessage(i, msg);
 			return;
 		}
@@ -544,7 +544,7 @@ void MessageModel::updateMessage(const QString &id,
                                  const std::function<void(Message &)> &updateMsg)
 {
 	for (int i = 0; i < m_messages.length(); i++) {
-		if (m_messages.at(i).id() == id) {
+		if (m_messages.at(i).id == id) {
 			// update message
 			Message msg = m_messages.at(i);
 			updateMsg(msg);
@@ -554,7 +554,7 @@ void MessageModel::updateMessage(const QString &id,
 				return;
 
 			// check, if the position of the new message may be different
-			if (msg.stamp() == m_messages.at(i).stamp()) {
+			if (msg.stamp == m_messages.at(i).stamp) {
 				beginRemoveRows(QModelIndex(), i, i);
 				m_messages.removeAt(i);
 				endRemoveRows();
@@ -590,7 +590,7 @@ void MessageModel::updateLastReadOwnMessageId(const QString &accountJid, const Q
 	// state.
 	for (int i = 0; i != m_messages.size(); ++i) {
 		const auto &message = m_messages.at(i);
-		if (message.id() == formerLastReadOwnMessageId) {
+		if (message.id == formerLastReadOwnMessageId) {
 			formerLastReadOwnMessageIndex = i;
 
 			const auto modelIndex = index(formerLastReadOwnMessageIndex);
@@ -599,7 +599,7 @@ void MessageModel::updateLastReadOwnMessageId(const QString &accountJid, const Q
 			if (lastReadOwnMessageIndex != -1) {
 				break;
 			}
-		} else if (message.id() == m_lastReadOwnMessageId) {
+		} else if (message.id == m_lastReadOwnMessageId) {
 			lastReadOwnMessageIndex = i;
 
 			const auto modelIndex = index(lastReadOwnMessageIndex);
@@ -618,7 +618,7 @@ void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 
 	showMessageNotification(msg, origin);
 
-	if (msg.from() == m_currentChatJid || msg.to() == m_currentChatJid) {
+	if (msg.from == m_currentChatJid || msg.to == m_currentChatJid) {
 		addMessage(std::move(msg));
 	}
 }
@@ -631,7 +631,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, cons
 		indexOfFoundMessage = 0;
 
 	for (; indexOfFoundMessage < m_messages.size(); indexOfFoundMessage++) {
-		if (m_messages.at(indexOfFoundMessage).body().contains(searchString, Qt::CaseInsensitive))
+		if (m_messages.at(indexOfFoundMessage).body.contains(searchString, Qt::CaseInsensitive))
 			return indexOfFoundMessage;
 	}
 
@@ -646,7 +646,7 @@ int MessageModel::searchForMessageFromOldToNew(const QString &searchString, cons
 		indexOfFoundMessage = m_messages.size() - 1;
 
 	for (; indexOfFoundMessage >= 0; indexOfFoundMessage--) {
-		if (m_messages.at(indexOfFoundMessage).body().contains(searchString, Qt::CaseInsensitive))
+		if (m_messages.at(indexOfFoundMessage).body.contains(searchString, Qt::CaseInsensitive))
 			break;
 	}
 
@@ -655,10 +655,10 @@ int MessageModel::searchForMessageFromOldToNew(const QString &searchString, cons
 
 void MessageModel::processMessage(Message &msg)
 {
-	if (msg.body().size() > MESSAGE_MAX_CHARS) {
-		auto body = msg.body();
+	if (msg.body.size() > MESSAGE_MAX_CHARS) {
+		auto body = msg.body;
 		body.truncate(MESSAGE_MAX_CHARS);
-		msg.setBody(body);
+		msg.body = body;
 	}
 }
 
@@ -710,32 +710,32 @@ void MessageModel::correctMessage(const QString &msgId, const QString &message)
 	sendChatState(QXmppMessage::State::Active);
 
 	const auto hasCorrectId = [&msgId](const Message& msg) {
-		return msg.id() == msgId;
+		return msg.id == msgId;
 	};
 	auto itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
 
 	if (itr != m_messages.end()) {
 		Message &msg = *itr;
-		msg.setBody(message);
-		if (msg.deliveryState() != Enums::DeliveryState::Pending) {
-			msg.setId(QXmppUtils::generateStanzaUuid());
+		msg.body = message;
+		if (msg.deliveryState != Enums::DeliveryState::Pending) {
+			msg.id = QXmppUtils::generateStanzaUuid();
 			// Set replaceId only on first correction, so it's always the original id
 			// (`id` is the id of the current edit, `replaceId` is the original id)
-			if (!msg.isEdited()) {
-				msg.setIsEdited(true);
-				msg.setReplaceId(msgId);
+			if (!msg.isEdited) {
+				msg.isEdited = true;
+				msg.replaceId = msgId;
 			}
-			msg.setDeliveryState(Enums::DeliveryState::Pending);
+			msg.deliveryState = Enums::DeliveryState::Pending;
 
 			if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
 				// the trick with the time is important for the servers
 				// this way they can tell which version of the message is the latest
 				Message copy = msg;
-				copy.setStamp(QDateTime::currentDateTimeUtc());
+				copy.stamp = QDateTime::currentDateTimeUtc();
 				emit sendCorrectedMessageRequested(copy);
 			}
-		} else if (!msg.isEdited()) {
-			msg.setStamp(QDateTime::currentDateTimeUtc());
+		} else if (!msg.isEdited) {
+			msg.stamp = QDateTime::currentDateTimeUtc();
 		}
 
 		QModelIndex index = createIndex(std::distance(m_messages.begin(), itr), 0);
@@ -778,9 +778,9 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 		break;
 	}
 
-	if (!message.isOwn()) {
+	if (!message.isOwn) {
 		const auto accountJid = AccountManager::instance()->jid();
-		const auto chatJid = message.from();
+		const auto chatJid = message.from;
 
 		bool userMuted = Kaidan::instance()->notificationsMuted(chatJid);
 		bool chatActive =
@@ -788,7 +788,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 				QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 		if (!userMuted && !chatActive) {
-			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id(), message.stamp(), message.body());
+			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, message.stamp, message.body);
 		}
 	}
 }

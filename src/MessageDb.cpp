@@ -94,34 +94,35 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 
 	while (query.next()) {
 		Message msg;
-		msg.setFrom(query.value(idxFrom).toString());
-		msg.setTo(query.value(idxTo).toString());
-		msg.setStamp(QDateTime::fromString(
+		msg.from = query.value(idxFrom).toString();
+		msg.to = query.value(idxTo).toString();
+		msg.stamp = QDateTime::fromString(
 			query.value(idxStamp).toString(),
 			Qt::ISODate
-		));
-		msg.setId(query.value(idxId).toString());
-		msg.setEncryption(Encryption::Enum(query.value(idxEncryption).toInt()));
-		msg.setSenderKey(query.value(idxSenderKey).toByteArray());
-		msg.setBody(query.value(idxBody).toString());
-		msg.setDeliveryState(static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt()));
-		msg.setMarkable(query.value(idxIsMarkable).toBool());
-		msg.setMediaType(static_cast<MessageType>(query.value(idxMediaType).toInt()));
-		msg.setOutOfBandUrl(query.value(idxOutOfBandUrl).toString());
-		msg.setMediaContentType(query.value(idxMediaContentType).toString());
-		msg.setMediaLocation(query.value(idxMediaLocation).toString());
-		msg.setMediaSize(query.value(idxMediaSize).toLongLong());
-		msg.setMediaLastModified(QDateTime::fromMSecsSinceEpoch(
+		);
+		msg.id = query.value(idxId).toString();
+		msg.encryption = Encryption::Enum(query.value(idxEncryption).toInt());
+		msg.senderKey = query.value(idxSenderKey).toByteArray();
+		msg.body = query.value(idxBody).toString();
+		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
+		msg.isMarkable = query.value(idxIsMarkable).toBool();
+		msg.mediaType = static_cast<MessageType>(query.value(idxMediaType).toInt());
+		msg.outOfBandUrl = query.value(idxOutOfBandUrl).toString();
+		msg.mediaContentType = query.value(idxMediaContentType).toString();
+		msg.mediaLocation = query.value(idxMediaLocation).toString();
+		msg.mediaSize = query.value(idxMediaSize).toLongLong();
+		msg.mediaLastModified = QDateTime::fromMSecsSinceEpoch(
 			query.value(idxMediaLastModified).toLongLong()
-		));
-		msg.setIsEdited(query.value(idxIsEdited).toBool());
-		msg.setSpoilerHint(query.value(idxSpoilerHint).toString());
-		msg.setErrorText(query.value(idxErrorText).toString());
-		msg.setIsSpoiler(query.value(idxIsSpoiler).toBool());
-		msg.setReplaceId(query.value(idxReplaceId).toString());
-		msg.setOriginId(query.value(idxOriginId).toString());
-		msg.setStanzaId(query.value(idxStanza).toString());
-		msg.setReceiptRequested(true);	//this is useful with resending pending messages
+		);
+		msg.isEdited = query.value(idxIsEdited).toBool();
+		msg.spoilerHint = query.value(idxSpoilerHint).toString();
+		msg.errorText = query.value(idxErrorText).toString();
+		msg.isSpoiler = query.value(idxIsSpoiler).toBool();
+		msg.replaceId = query.value(idxReplaceId).toString();
+		msg.originId = query.value(idxOriginId).toString();
+		msg.stanzaId = query.value(idxStanza).toString();
+		// this is useful with resending pending messages
+		msg.receiptRequested = true;
 		msgs << msg;
 	}
 }
@@ -130,67 +131,67 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 {
 	QSqlRecord rec;
 
-	if (oldMsg.from() != newMsg.from())
-		rec.append(createSqlField("author", newMsg.from()));
-	if (oldMsg.to() != newMsg.to())
-		rec.append(createSqlField("recipient", newMsg.to()));
-	if (oldMsg.stamp() != newMsg.stamp())
+	if (oldMsg.from != newMsg.from)
+		rec.append(createSqlField("author", newMsg.from));
+	if (oldMsg.to != newMsg.to)
+		rec.append(createSqlField("recipient", newMsg.to));
+	if (oldMsg.stamp != newMsg.stamp)
 		rec.append(createSqlField(
 		        "timestamp",
-		        newMsg.stamp().toString(Qt::ISODateWithMs)
+		        newMsg.stamp.toString(Qt::ISODateWithMs)
 		));
-	if (oldMsg.id() != newMsg.id()) {
+	if (oldMsg.id != newMsg.id) {
 		// TODO: remove as soon as 'NOT NULL' was removed from id column
-		if (newMsg.id().isEmpty())
+		if (newMsg.id.isEmpty())
 			rec.append(createSqlField("id", QStringLiteral(" ")));
 		else
-			rec.append(createSqlField("id", newMsg.id()));
+			rec.append(createSqlField("id", newMsg.id));
 	}
-	if (oldMsg.encryption() != newMsg.encryption())
-		rec.append(createSqlField("encryption", newMsg.encryption()));
-	if (oldMsg.senderKey() != newMsg.senderKey())
-		rec.append(createSqlField("senderKey", newMsg.senderKey()));
-	if (oldMsg.body() != newMsg.body())
-		rec.append(createSqlField("message", newMsg.body()));
-	if (oldMsg.deliveryState() != newMsg.deliveryState())
-		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState())));
-	if (oldMsg.isMarkable() != newMsg.isMarkable())
-		rec.append(createSqlField("isMarkable", newMsg.isMarkable()));
-	if (oldMsg.errorText() != newMsg.errorText())
-		rec.append(createSqlField("errorText", newMsg.errorText()));
-	if (oldMsg.mediaType() != newMsg.mediaType())
-		rec.append(createSqlField("type", int(newMsg.mediaType())));
-	if (oldMsg.outOfBandUrl() != newMsg.outOfBandUrl())
-		rec.append(createSqlField("mediaUrl", newMsg.outOfBandUrl()));
-	if (oldMsg.mediaContentType() != newMsg.mediaContentType())
+	if (oldMsg.encryption != newMsg.encryption)
+		rec.append(createSqlField("encryption", newMsg.encryption));
+	if (oldMsg.senderKey != newMsg.senderKey)
+		rec.append(createSqlField("senderKey", newMsg.senderKey));
+	if (oldMsg.body != newMsg.body)
+		rec.append(createSqlField("message", newMsg.body));
+	if (oldMsg.deliveryState != newMsg.deliveryState)
+		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
+	if (oldMsg.isMarkable != newMsg.isMarkable)
+		rec.append(createSqlField("isMarkable", newMsg.isMarkable));
+	if (oldMsg.errorText != newMsg.errorText)
+		rec.append(createSqlField("errorText", newMsg.errorText));
+	if (oldMsg.mediaType != newMsg.mediaType)
+		rec.append(createSqlField("type", int(newMsg.mediaType)));
+	if (oldMsg.outOfBandUrl != newMsg.outOfBandUrl)
+		rec.append(createSqlField("mediaUrl", newMsg.outOfBandUrl));
+	if (oldMsg.mediaContentType != newMsg.mediaContentType)
 		rec.append(createSqlField(
 		        "mediaContentType",
-		        newMsg.mediaContentType()
+		        newMsg.mediaContentType
 		));
-	if (oldMsg.mediaLocation() != newMsg.mediaLocation())
+	if (oldMsg.mediaLocation != newMsg.mediaLocation)
 		rec.append(createSqlField(
 		         "mediaLocation",
-		         newMsg.mediaLocation()
+		         newMsg.mediaLocation
 		));
-	if (oldMsg.mediaSize() != newMsg.mediaSize())
-		rec.append(createSqlField("mediaSize", newMsg.mediaSize()));
-	if (oldMsg.mediaLastModified() != newMsg.mediaLastModified())
+	if (oldMsg.mediaSize != newMsg.mediaSize)
+		rec.append(createSqlField("mediaSize", newMsg.mediaSize));
+	if (oldMsg.mediaLastModified != newMsg.mediaLastModified)
 		rec.append(createSqlField(
 			"mediaLastModified",
-			newMsg.mediaLastModified().toMSecsSinceEpoch()
+			newMsg.mediaLastModified.toMSecsSinceEpoch()
 		));
-	if (oldMsg.isEdited() != newMsg.isEdited())
-		rec.append(createSqlField("edited", newMsg.isEdited()));
-	if (oldMsg.spoilerHint() != newMsg.spoilerHint())
-		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint()));
-	if (oldMsg.isSpoiler() != newMsg.isSpoiler())
-		rec.append(createSqlField("isSpoiler", newMsg.isSpoiler()));
-	if (oldMsg.replaceId() != newMsg.replaceId())
-		rec.append(createSqlField("replaceId", newMsg.replaceId()));
-	if (oldMsg.originId() != newMsg.originId())
-		rec.append(createSqlField("originId", newMsg.originId()));
-	if (oldMsg.stanzaId() != newMsg.stanzaId())
-		rec.append(createSqlField("stanzaId", newMsg.stanzaId()));
+	if (oldMsg.isEdited != newMsg.isEdited)
+		rec.append(createSqlField("edited", newMsg.isEdited));
+	if (oldMsg.spoilerHint != newMsg.spoilerHint)
+		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
+	if (oldMsg.isSpoiler != newMsg.isSpoiler)
+		rec.append(createSqlField("isSpoiler", newMsg.isSpoiler));
+	if (oldMsg.replaceId != newMsg.replaceId)
+		rec.append(createSqlField("replaceId", newMsg.replaceId));
+	if (oldMsg.originId != newMsg.originId)
+		rec.append(createSqlField("originId", newMsg.originId));
+	if (oldMsg.stanzaId != newMsg.stanzaId)
+		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
 
 	return rec;
 }
@@ -347,28 +348,28 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		);
 
 		bindValues(query, {
-			{ u":author", msg.from() },
-			{ u":recipient", msg.to() },
-			{ u":timestamp", msg.stamp().toString(Qt::ISODateWithMs) },
-			{ u":message", msg.body() },
-			{ u":id", msg.id().isEmpty() ? " " : msg.id() },
-			{ u":encryption", msg.encryption() },
-			{ u":senderKey", msg.senderKey() },
-			{ u":deliveryState", int(msg.deliveryState()) },
-			{ u":isMarkable", msg.isMarkable() },
-			{ u":type", int(msg.mediaType()) },
-			{ u":edited", msg.isEdited() },
-			{ u":isSpoiler", msg.isSpoiler() },
-			{ u":spoilerHint", msg.spoilerHint() },
-			{ u":mediaUrl", msg.outOfBandUrl() },
-			{ u":mediaContentType", msg.mediaContentType() },
-			{ u":mediaLocation", msg.mediaLocation() },
-			{ u":mediaSize", msg.mediaSize() },
-			{ u":mediaLastModified", msg.mediaLastModified().toMSecsSinceEpoch() },
-			{ u":errorText", msg.errorText() },
-			{ u":replaceId", msg.replaceId() },
-			{ u":originId", msg.originId() },
-			{ u":stanzaId", msg.stanzaId() },
+			{ u":author", msg.from },
+			{ u":recipient", msg.to },
+			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
+			{ u":message", msg.body },
+			{ u":id", msg.id.isEmpty() ? " " : msg.id },
+			{ u":encryption", msg.encryption },
+			{ u":senderKey", msg.senderKey },
+			{ u":deliveryState", int(msg.deliveryState) },
+			{ u":isMarkable", msg.isMarkable },
+			{ u":type", int(msg.mediaType) },
+			{ u":edited", msg.isEdited },
+			{ u":isSpoiler", msg.isSpoiler },
+			{ u":spoilerHint", msg.spoilerHint },
+			{ u":mediaUrl", msg.outOfBandUrl },
+			{ u":mediaContentType", msg.mediaContentType },
+			{ u":mediaLocation", msg.mediaLocation },
+			{ u":mediaSize", msg.mediaSize },
+			{ u":mediaLastModified", msg.mediaLastModified.toMSecsSinceEpoch() },
+			{ u":errorText", msg.errorText },
+			{ u":replaceId", msg.replaceId },
+			{ u":originId", msg.originId },
+			{ u":stanzaId", msg.stanzaId },
 		});
 		execQuery(query);
 	});
@@ -428,25 +429,25 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 bool MessageDb::_checkMessageExists(const Message &message)
 {
 	std::vector<QueryBindValue> bindValues = {
-		{ u":to", message.to() },
-		{ u":from", message.from() },
+		{ u":to", message.to },
+		{ u":from", message.from },
 	};
 
 	// Check which IDs to check
 	QStringList idChecks;
-	if (!message.stanzaId().isEmpty()) {
+	if (!message.stanzaId.isEmpty()) {
 		idChecks << QStringLiteral("stanzaId = :stanzaId");
-		bindValues.push_back({ u":stanzaId", message.stanzaId() });
+		bindValues.push_back({ u":stanzaId", message.stanzaId });
 	}
 	// only check origin IDs if the message was possibly sent by us (since
 	// Kaidan uses random suffixes in the resource, we can't check the resource)
-	if (message.isOwn() && !message.originId().isEmpty()) {
+	if (message.isOwn && !message.originId.isEmpty()) {
 		idChecks << QStringLiteral("originId = :originId");
-		bindValues.push_back({ u":originId", message.stanzaId() });
+		bindValues.push_back({ u":originId", message.stanzaId });
 	}
-	if (!message.id().isEmpty()) {
+	if (!message.id.isEmpty()) {
 		idChecks << QStringLiteral("id = :id");
-		bindValues.push_back({ u":id", message.stanzaId() });
+		bindValues.push_back({ u":id", message.stanzaId });
 	}
 
 	if (idChecks.isEmpty()) {

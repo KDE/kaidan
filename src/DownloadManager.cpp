@@ -50,9 +50,7 @@ DownloadManager::DownloadManager(TransferCache *transferCache, QObject *parent)
 	connect(this, &DownloadManager::abortDownloadRequested, this, &DownloadManager::abortDownload);
 }
 
-DownloadManager::~DownloadManager()
-{
-}
+DownloadManager::~DownloadManager() = default;
 
 void DownloadManager::startDownload(const QString &msgId, const QString &url)
 {
@@ -73,7 +71,7 @@ void DownloadManager::startDownload(const QString &msgId, const QString &url)
 	connect(dl, &DownloadJob::finished, this, [=]() {
 		const QString &mediaLocation = dl->downloadLocation();
 		MessageDb::instance()->updateMessage(msgId, [=](Message &msg) {
-			msg.setMediaLocation(mediaLocation);
+			msg.mediaLocation = mediaLocation;
 		});
 
 		abortDownload(msgId);

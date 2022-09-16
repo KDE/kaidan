@@ -314,7 +314,7 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)
 {
-	const auto contactJid = message.isOwn() ? message.to() : message.from();
+	const auto contactJid = message.isOwn ? message.to : message.from;
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
 		return item.jid() == contactJid;
 	});
@@ -325,7 +325,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// only set new message if it's newer
 	// allow setting old message if the current message is empty
-	if (!itr->lastMessage().isEmpty() && itr->lastExchanged() >= message.stamp())
+	if (!itr->lastMessage().isEmpty() && itr->lastExchanged() >= message.stamp)
 		return;
 
 	QVector<int> changedRoles = {
@@ -333,7 +333,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	};
 
 	// last exchanged
-	itr->setLastExchanged(message.stamp());
+	itr->setLastExchanged(message.stamp);
 
 	// last message
 	const auto lastMessage = message.previewText();
@@ -344,7 +344,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// unread messages counter
 	std::optional<int> newUnreadMessages;
-	if (message.isOwn()) {
+	if (message.isOwn) {
 		// if we sent a message (with another device), reset counter
 		newUnreadMessages = 0;
 	} else {

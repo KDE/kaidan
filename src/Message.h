@@ -47,11 +47,10 @@ using namespace Enums;
  * the @c MessageModel. The class inherits from @c QXmppMessage and most
  * properties are shared.
  */
-class Message : public QXmppMessage
+struct Message
 {
 	Q_DECLARE_TR_FUNCTIONS(Message)
 
-public:
 	/**
 	 * Compares another @c Message with this. Only attributes that are saved in the
 	 * database are checked.
@@ -59,100 +58,47 @@ public:
 	bool operator==(const Message &m) const;
 	bool operator!=(const Message &m) const;
 
-	Encryption::Enum encryption() const;
-	void setEncryption(Encryption::Enum encryption);
+	QString id;
+	QString to;
+	QString from;
+	QString body;
+	QDateTime stamp;
+	bool isSpoiler;
+	QString spoilerHint;
+	bool isMarkable;
+	QXmppMessage::Marker marker;
+	QString markerId;
+	QString outOfBandUrl;
+	QString replaceId;
+	QString originId;
+	QString stanzaId;
+	bool receiptRequested = false;
+	// End-to-end encryption used for this message.
+	Encryption::Enum encryption = Encryption::NoEncryption;
+	// ID of this message's sender's public long-term end-to-end encryption key.
+	QByteArray senderKey;
+	// Media type of the message, e.g. a text or image.
+	MessageType mediaType = MessageType::MessageText;
+	// True if the message is an own one.
+	bool isOwn = true;
+	// True if the orginal message was edited.
+	bool isEdited = false;
+	// Delivery state of the message, like if it was sent successfully or if it was already delivered
+	DeliveryState deliveryState = DeliveryState::Delivered;
+	// Location of the media on the local storage.
+	QString mediaLocation;
+	// Media content type, e.g. "image/jpeg".
+	QString mediaContentType;
+	// Size of the file in bytes.
+	qint64 mediaSize = 0;
+	// Timestamp of the last modification date of the file locally on disk.
+	QDateTime mediaLastModified;
+	// Text description of an error if it ever happened to the message
+	QString errorText;
 
-	QByteArray senderKey() const;
-	void setSenderKey(const QByteArray &senderKey);
-
-	MessageType mediaType() const;
-	void setMediaType(MessageType mediaType);
-
-	bool isOwn() const;
-	void setIsOwn(bool isOwn);
-
-	bool isEdited() const;
-	void setIsEdited(bool isEdited);
-
-	DeliveryState deliveryState() const;
-	void setDeliveryState(DeliveryState state);
-
-	QString mediaLocation() const;
-	void setMediaLocation(const QString &mediaLocation);
-
-	QString mediaContentType() const;
-	void setMediaContentType(const QString &mediaContentType);
-
-	QDateTime mediaLastModified() const;
-	void setMediaLastModified(const QDateTime &mediaLastModified);
-
-	qint64 mediaSize() const;
-	void setMediaSize(const qint64 &mediaSize);
-
-	QString errorText() const;
-	void setErrorText(const QString &errText);
-
-	/**
-	 * Preview of the message in pure text form (used in the contact list for the
-	 * last message for example)
-	 */
+	// Preview of the message in pure text form (used in the contact list for the
+	// last message for example)
 	QString previewText() const;
-
-private:
-	/**
-	 * End-to-end encryption used for this message.
-	 */
-	Encryption::Enum m_encryption = Encryption::NoEncryption;
-
-	/**
-	 * ID of this message's sender's public long-term end-to-end encryption key.
-	 */
-	QByteArray m_senderKey;
-
-	/**
-	 * Media type of the message, e.g. a text or image.
-	 */
-	MessageType m_mediaType = MessageType::MessageText;
-
-	/**
-	 * True if the message is an own one.
-	 */
-	bool m_isOwn = true;
-
-	/**
-	 * True if the orginal message was edited.
-	 */
-	bool m_isEdited = false;
-
-	/**
-	 * Delivery state of the message, like if it was sent successfully or if it was already delivered
-	 */
-	DeliveryState m_deliveryState = DeliveryState::Delivered;
-
-	/**
-	 * Location of the media on the local storage.
-	 */
-	QString m_mediaLocation;
-
-	/**
-	 * Media content type, e.g. "image/jpeg".
-	 */
-	QString m_mediaContentType;
-
-	/**
-	 * Size of the file in bytes.
-	 */
-	qint64 m_mediaSize = 0;
-
-	/**
-	 * Timestamp of the last modification date of the file locally on disk.
-	 */
-	QDateTime m_mediaLastModified;
-
-	/**
-	 * Text description of an error if it ever happened to the message
-	 */
-	QString m_errorText;
 };
 
 Q_DECLARE_METATYPE(Message)
