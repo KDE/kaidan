@@ -204,12 +204,16 @@ Kirigami.ApplicationWindow {
 	}
 
 	Component.onCompleted: {
-		// Restore the latest application window size if they are stored.
+		// Restore the latest application window state if it is stored.
 		if (!Kirigami.Settings.isMobile) {
-			var latestSize = Kaidan.applicationWindowSize()
+			var latestPosition = Kaidan.settings.windowPosition
+			root.x = latestPosition.x
+			root.y = latestPosition.y
+
+			var latestSize = Kaidan.windowSize()
 			if (latestSize.width > 0) {
-				width = latestSize.width
-				height = latestSize.height
+				root.width = latestSize.width
+				root.height = latestSize.height
 			}
 		}
 
@@ -223,9 +227,10 @@ Kirigami.ApplicationWindow {
 	}
 
 	Component.onDestruction: {
-		// Store the application window size for restoring the latest size
-		// on the next start.
-		if (!Kirigami.Settings.isMobile)
-			Kaidan.storeApplicationWindowSize(Qt.size(width, height))
+		// Store the application window state for restoring the latest state on the next start.
+		if (!Kirigami.Settings.isMobile) {
+			Kaidan.settings.windowPosition = Qt.point(x, y)
+			Kaidan.storeWindowSize(Qt.size(width, height))
+		}
 	}
 }

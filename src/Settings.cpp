@@ -166,14 +166,25 @@ void Settings::setFavoriteEmojis(const QStringList &emoji)
 	emit favoriteEmojisChanged();
 }
 
+QPoint Settings::windowPosition() const
+{
+	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION)).toPoint();
+}
+
+void Settings::setWindowPosition(const QPoint &windowPosition)
+{
+	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION), windowPosition);
+	emit windowPositionChanged();
+}
+
 QSize Settings::windowSize() const
 {
 	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE)).toSize();
 }
 
-void Settings::setWindowSize(QSize size)
+void Settings::setWindowSize(const QSize &windowSize)
 {
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), size);
+	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize);
 	emit windowSizeChanged();
 }
 

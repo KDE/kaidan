@@ -32,6 +32,7 @@
 #define SETTINGS_H
 
 #include <QObject>
+#include <QPoint>
 #include <QSettings>
 #include <QSize>
 
@@ -46,6 +47,7 @@ class Settings : public QObject
 
 	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
 	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
+	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 
 public:
 	explicit Settings(QObject *parent = nullptr);
@@ -100,8 +102,11 @@ public:
 	QStringList favoriteEmojis() const;
 	void setFavoriteEmojis(const QStringList &emoji);
 
-    QSize windowSize() const;
-    void setWindowSize(QSize size);
+	QPoint windowPosition() const;
+	void setWindowPosition(const QPoint &windowPosition);
+
+	QSize windowSize() const;
+	void setWindowSize(const QSize &windowSize);
 
 	void remove(const QStringList &keys);
 
@@ -116,6 +121,7 @@ signals:
 	void qrCodePageExplanationVisibleChanged();
 	void notificationsMutedChanged(const QString &bareJid);
 	void favoriteEmojisChanged();
+	void windowPositionChanged();
 	void windowSizeChanged();
 
 private:

@@ -43,6 +43,7 @@
 #define KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY "auth/passwordVisibility"
 #define KAIDAN_SETTINGS_NOTIFICATIONS_MUTED "muted/"
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"
+#define KAIDAN_SETTINGS_WINDOW_POSITION "window/position"
 #define KAIDAN_SETTINGS_WINDOW_SIZE "window/size"
 #define KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE "helpVisibility/qrCodePage"
 
