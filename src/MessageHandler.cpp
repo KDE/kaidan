@@ -171,6 +171,11 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
+	// Close a notification for messages to which the user replied via another own resource.
+	if (isOwnMessage) {
+		emit Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
+	}
+
 	Message message;
 	message.from = senderJid;
 	message.to = recipientJid;
