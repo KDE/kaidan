@@ -40,6 +40,7 @@
 #include "MessageHandler.h"
 #include "RosterModel.h"
 
+#include <QStringBuilder>
 #include <QUuid>
 
 // Q_OS_BSD4 includes all BSD variants and also Q_OS_DARWIN
@@ -48,6 +49,13 @@
 	!defined(Q_OS_ANDROID) && !defined(Q_OS_DARWIN)
 #define DESKTOP_LINUX_ALIKE_OS
 #endif
+
+using namespace std::chrono_literals;
+
+// Event ID corresponding to the section entry in the "kaidan.notifyrc" configuration file
+constexpr QStringView NEW_MESSAGE_EVENT_ID = u"new-message";
+
+constexpr int MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT = 6;
 
 Notifications *Notifications::s_instance = nullptr;
 
@@ -62,25 +70,98 @@ Notifications::Notifications(QObject *parent)
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
-	connect(this, &Notifications::closeMessageNotificationsRequested, this, &Notifications::closeMessageNotifications);
+	connect(this, &Notifications::closeMessageNotificationRequested, this, &Notifications::closeMessageNotification);
 }
 
 #ifdef HAVE_KNOTIFICATIONS
-
-void Notifications::sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QDateTime &timestamp, const QString &messageBody)
+void Notifications::sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &messageBody)
 {
 #ifdef DESKTOP_LINUX_ALIKE_OS
 	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains("GNOME", Qt::CaseInsensitive);
 #endif
 
+	KNotification *notification = nullptr;
+	QUuid notificationId;
+
+	auto notificationWrapperItr = std::find_if(m_openNotifications.begin(), m_openNotifications.end(), [&accountJid, &chatJid](const auto &notificationWrapper) {
+		return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
+	});
+
+	// Update an existing notification or create a new one.
+	if (notificationWrapperItr != m_openNotifications.end()) {
+		auto &messages = notificationWrapperItr->messages;
+		messages.append(messageBody);
+
+		// Initialize variables by known values.
+		notificationId = notificationWrapperItr->id;
+		notificationWrapperItr->latestMessageId = messageId;
+
+		QList<QString> notificationTextLines;
+
+		// Append the message's body to the text of existing notifications.
+		// If the text of the existing notifications and messageBody contain together more than
+		// MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT of lines, keep only the last
+		// MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT - 1 of them and replace the first one by an
+		// ellipse.
+		//
+		// The loop exits in the following cases:
+		// 1. The message of the current iteration has lines that would result in more
+		// lines than MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT when prepended to
+		// notificationTextLines.
+		// 2. notificationTextLines would have more lines than
+		// MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT when the next message was being prepended.
+		for (auto messageItr = messages.end() - 1; messageItr != messages.begin() - 1; --messageItr) {
+			auto messageNotificationTextLines = (*messageItr).split(u'\n');
+			const auto overflowingMessageLineCount = messageNotificationTextLines.size() + notificationTextLines.size() - MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT;
+
+			if (overflowingMessageLineCount > 0) {
+				messageNotificationTextLines = messageNotificationTextLines.mid(overflowingMessageLineCount + 1);
+				messageNotificationTextLines.prepend(QStringLiteral("…"));
+
+				*messageItr = messageNotificationTextLines.join(u'\n');
+				messages.erase(messages.begin(), messageItr);
+
+				notificationTextLines = messageNotificationTextLines << notificationTextLines;
+				break;
+			} else {
+				notificationTextLines = messageNotificationTextLines << notificationTextLines;
+
+				if (notificationTextLines.size() ==  MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT && messageItr - 1 != messages.begin() - 1) {
+					notificationTextLines[0] = QStringLiteral("…");
+					messages.erase(messages.begin(), messageItr);
+					break;
+				}
+			}
+		}
+
+		notification = new KNotification(NEW_MESSAGE_EVENT_ID.toString());
+		notification->setText(notificationTextLines.join(u'\n'));
+
+		notificationWrapperItr->isDeletionEnabled = false;
+		notificationWrapperItr->notification->close();
+		notificationWrapperItr->notification = notification;
+	} else {
+		notification = new KNotification(NEW_MESSAGE_EVENT_ID.toString());
+		notificationId = QUuid::createUuid();
+		notification->setText(messageBody);
+
+		NotificationWrapper notificationWrapper {
+			.id = notificationId,
+			.accountJid = accountJid,
+			.chatJid = chatJid,
+			.latestMessageId = messageId,
+			.messages = { messageBody },
+			.notification = notification
+		};
+		m_openNotifications.append(notificationWrapper);
+	}
+
 	// Use bare JID for users that are not present in our roster, so foreign users can't choose a
 	// name that looks like a known contact.
 	auto rosterItem = RosterModel::instance()->findItem(chatJid);
 	auto chatName = rosterItem ? rosterItem->displayName() : chatJid;
-
-	auto *notification = new KNotification("new-message");
 	notification->setTitle(chatName);
-	notification->setText(messageBody);
+
 #ifdef DESKTOP_LINUX_ALIKE_OS
 	if (IS_USING_GNOME) {
 		notification->setFlags(KNotification::Persistent);
@@ -91,60 +172,31 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 #endif
 	notification->setDefaultAction("Open");
 	notification->setActions({
-	    QObject::tr("Mark as read")
+		QObject::tr("Mark as read")
 	});
 
-	const auto notificationId = QUuid::createUuid();
-	const auto isPersistentNotification = notification->flags().testFlag(KNotification::Persistent);
-
-	NotificationWrapper notificationWrapper {
-		.id = notificationId,
-		.accountJid = accountJid,
-		.chatJid = chatJid,
-		.timestamp = timestamp,
-		.notification = notification
-	};
-	m_openNotifications.append(notificationWrapper);
-
-	QObject::connect(notification, &KNotification::defaultActivated, this, [=, this] {
-		disableResending(isPersistentNotification, notificationId);
-
+	QObject::connect(notification, &KNotification::defaultActivated, this, [=] {
 		emit Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		emit Kaidan::instance()->raiseWindowRequested();
 	});
-	QObject::connect(notification, &KNotification::action1Activated, this, [=, this] {
-		disableResending(isPersistentNotification, notificationId);
-		closeMessageNotifications(accountJid, chatJid, timestamp, notificationId);
-
-		emit RosterModel::instance()->updateItemRequested(chatJid, [](RosterItem &item) {
-			item.unreadMessages = item.unreadMessages - 1;
+	QObject::connect(notification, &KNotification::action1Activated, this, [=] {
+		emit RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
+			item.lastReadContactMessageId = messageId;
+			item.unreadMessages = 0;
 		});
 		emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(chatJid, messageId);
 	});
 
 	QObject::connect(notification, &KNotification::closed, this, [=, this]() {
-		for (auto itr = m_openNotifications.begin(); itr != m_openNotifications.end(); ++itr) {
-			if (itr->id == notificationId) {
-				// Send a message notification again if the notification is persistent but
-				// nevertheless closed by the operating system.
-				// That can be the case if the operating system closes all other notifications for
-				// Kaidan after closing one.
-				// It makes sense for the case when the corresponding chat is opened but not for
-				// other actions.
-				// That behavior was observed with GNOME after closing one notification when Kaidan
-				// was not hidden.
-				// There will never be more than 3 open notifications because otherwise it could
-				// result in an indefinite loop of closing and opening notifications.
-				//
-				// Using 'notification->ref()' together with 'notification->sendEvent()' does not
-				// work.
-				// Thus, 'sendMessageNotification()' is called again.
-				if (isPersistentNotification && itr->isResendingEnabled && m_openNotifications.size() <= 3) {
-					sendMessageNotification(accountJid, chatJid, messageId, timestamp, messageBody);
-				}
+		auto notificationWrapperItr = std::find_if(m_openNotifications.begin(), m_openNotifications.end(), [accountJid, chatJid](const NotificationWrapper &notificationWrapper) {
+			return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
+		});
 
-				m_openNotifications.erase(itr);
-				break;
+		if (notificationWrapperItr != m_openNotifications.end()) {
+			if (notificationWrapperItr->isDeletionEnabled) {
+				m_openNotifications.erase(notificationWrapperItr);
+			} else {
+				notificationWrapperItr->isDeletionEnabled = true;
 			}
 		}
 	});
@@ -152,41 +204,22 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	notification->sendEvent();
 }
 
-void Notifications::closeMessageNotifications(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId)
+void Notifications::closeMessageNotification(const QString &accountJid, const QString &chatJid)
 {
-	for (auto &notificationWrapper : m_openNotifications) {
-		if (notificationWrapper.id != excludedNotificationId &&
-			notificationWrapper.accountJid == accountJid &&
-			notificationWrapper.chatJid == chatJid &&
-			notificationWrapper.timestamp <= timestamp) {
-			notificationWrapper.isResendingEnabled = false;
-			notificationWrapper.notification->close();
-		}
-	}
-}
+	auto notificationWrapperItr = std::find_if(m_openNotifications.begin(), m_openNotifications.end(), [accountJid, chatJid](const NotificationWrapper &notificationWrapper) {
+		return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
+	});
 
-void Notifications::disableResending(bool isPersistentNotification, const QUuid &notificationId)
-{
-	if (isPersistentNotification) {
-		for (auto &notificationWrapper : m_openNotifications) {
-			if (notificationWrapper.id == notificationId) {
-				notificationWrapper.isResendingEnabled = false;
-				break;
-			}
-		}
+	if (notificationWrapperItr != m_openNotifications.end()) {
+		m_openNotifications.erase(notificationWrapperItr);
 	}
-
 }
 #else
-void Notifications::sendMessageNotification(const QString&, const QString&, const QString&, const QDateTime&, const QString&)
+void Notifications::sendMessageNotification(const QString &, const QString &, const QString &, const QString &)
 {
 }
 
-void Notifications::closeMessageNotifications(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId)
-{
-}
-
-void Notifications::disableResending(bool isPersistentNotification, const QUuid &notificationId)
+void Notifications::closeMessageNotification(const QString &, const QString &)
 {
 }
 #endif // HAVE_KNOTIFICATIONS

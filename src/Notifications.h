@@ -48,9 +48,10 @@ public:
 		QUuid id;
 		QString accountJid;
 		QString chatJid;
-		QDateTime timestamp;
-		bool isResendingEnabled = true;
-		KNotification *notification;
+		QString latestMessageId;
+		QVector<QString> messages;
+		bool isDeletionEnabled = true;
+		KNotification *notification = nullptr;
 	};
 
 	static Notifications *instance();
@@ -62,20 +63,19 @@ public:
 	 *
 	 * @param accountJid JID of the message's account
 	 * @param chatJid JID of the message's chat
-	 * @param message message to show
+	 * @param messageId ID of the message
+	 * @param messageBody body of the message to display as the notification's text
 	 */
-	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QDateTime &timestamp, const QString &messageBody);
+	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &messageBody);
 
-	void closeMessageNotifications(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId = {});
+	void closeMessageNotification(const QString &accountJid, const QString &chatJid);
 
 	/**
 	 * Emitted to close all chat message notifications of the same age or older than a timestamp.
 	 */
-	Q_SIGNAL void closeMessageNotificationsRequested(const QString &accountJid, const QString &chatJid, const QDateTime &timestamp, const QUuid &excludedNotificationId = {});
+	Q_SIGNAL void closeMessageNotificationRequested(const QString &accountJid, const QString &chatJid);
 
 private:
-	void disableResending(bool isPersistentNotification, const QUuid &notificationId);
-
 	QVector<NotificationWrapper> m_openNotifications;
 
 	static Notifications *s_instance;

@@ -571,10 +571,7 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 				});
 			});
 
-			auto futureTimestamp = MessageDb::instance()->messageTimestamp(recipientJid, senderJid, markedId);
-			await(futureTimestamp, this, [senderJid, recipientJid](QDateTime timestamp) {
-				emit Notifications::instance()->closeMessageNotificationsRequested(senderJid, recipientJid, timestamp);
-			});
+			emit Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
 		} else {
 			emit RosterModel::instance()->updateItemRequested(senderJid, [markedId](RosterItem &item) {
 				item.lastReadOwnMessageId = markedId;

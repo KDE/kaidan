@@ -455,7 +455,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 			}
 		});
 
-		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readContactMessage.stamp);
+		Notifications::instance()->closeMessageNotification(m_currentAccountJid, m_currentChatJid);
 
 		if (readContactMessage.isMarkable) {
 			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
@@ -902,7 +902,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 				QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 		if (!userMuted && !chatActive) {
-			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, message.stamp, message.body);
+			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, message.body);
 		}
 	}
 }
