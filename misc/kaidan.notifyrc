@@ -131,3 +131,8 @@ Comment[x-test]=xxYou have received a new messagexx
 Comment[zh_CN]=您收到了一条新消息
 Comment[zh_TW]=您接收到一則新訊息
 Action=Sound|Popup
+
+[Event/new-subsequent-message]
+Name=New Subsequent Message
+Comment=New message received in quick succession to a previous one from the same chat
+Action=Popup

@@ -48,6 +48,7 @@ public:
 		QUuid id;
 		QString accountJid;
 		QString chatJid;
+		QDateTime initalTimestamp;
 		QString latestMessageId;
 		QVector<QString> messages;
 		bool isDeletionEnabled = true;

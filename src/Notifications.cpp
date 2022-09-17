@@ -52,9 +52,11 @@
 
 using namespace std::chrono_literals;
 
-// Event ID corresponding to the section entry in the "kaidan.notifyrc" configuration file
+// Event IDs corresponding to the section entries in the "kaidan.notifyrc" configuration file
 constexpr QStringView NEW_MESSAGE_EVENT_ID = u"new-message";
+constexpr QStringView NEW_SUBSEQUENT_MESSAGE_EVENT_ID = u"new-subsequent-message";
 
+constexpr auto SUBSEQUENT_MESSAGE_INTERVAL = 5s;
 constexpr int MAXIMUM_NOTIFICATION_TEXT_LINE_COUNT = 6;
 
 Notifications *Notifications::s_instance = nullptr;
@@ -134,7 +136,16 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 			}
 		}
 
-		notification = new KNotification(NEW_MESSAGE_EVENT_ID.toString());
+		// Do not disturb the user when messages are received in quick succession by only playing a
+		// notification sound for the first message.
+		const auto initalTimestamp = notificationWrapperItr->initalTimestamp.toSecsSinceEpoch() * 1s;
+		const auto currentTimestamp = QDateTime::currentSecsSinceEpoch() * 1s;
+		if (currentTimestamp - initalTimestamp > SUBSEQUENT_MESSAGE_INTERVAL) {
+			notification = new KNotification(NEW_MESSAGE_EVENT_ID.toString());
+		} else {
+			notification = new KNotification(NEW_SUBSEQUENT_MESSAGE_EVENT_ID.toString());
+		}
+
 		notification->setText(notificationTextLines.join(u'\n'));
 
 		notificationWrapperItr->isDeletionEnabled = false;
@@ -149,6 +160,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 			.id = notificationId,
 			.accountJid = accountJid,
 			.chatJid = chatJid,
+			.initalTimestamp = QDateTime::currentDateTimeUtc(),
 			.latestMessageId = messageId,
 			.messages = { messageBody },
 			.notification = notification
