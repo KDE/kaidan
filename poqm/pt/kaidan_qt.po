@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-09-12 10:37+0100\n"
+"PO-Revision-Date: 2022-09-16 15:59+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -508,62 +508,47 @@ msgstr "Compor a mensagem"
 #: src/qml/elements/ChatPageSendingPane.qml:212
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
-
-#: src/qml/elements/ChatPageSendingPane.qml:263
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
-msgctxt "ChatPageSendingPane|"
-msgid "Take picture"
-msgstr "Tirar uma fotografia"
+msgstr "Anexos"
 
 #: src/qml/elements/ChatPageSendingPane.qml:264
 msgctxt "ChatPageSendingPane|"
-msgid "Take a picture using your camera"
-msgstr ""
+msgid "Take picture"
+msgstr "Tirar uma Fotografia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:275
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
+#: src/qml/elements/ChatPageSendingPane.qml:265
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr "Tirar uma fotografia com a sua câmara"
+
+#: src/qml/elements/ChatPageSendingPane.qml:276
 msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
 msgstr "Gravar um vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:276
+#: src/qml/elements/ChatPageSendingPane.qml:277
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "Gravar um vídeo com a sua câmara"
 
-#: src/qml/elements/ChatPageSendingPane.qml:287
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Document"
+#: src/qml/elements/ChatPageSendingPane.qml:288
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
 msgstr "Documento"
 
-#: src/qml/elements/ChatPageSendingPane.qml:288
+#: src/qml/elements/ChatPageSendingPane.qml:289
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
-
-#: src/qml/elements/ChatPageSendingPane.qml:299
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
-msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Local"
+msgstr "Anexar um documento do dispositivo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:300
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
+msgctxt "ChatPageSendingPane|"
+msgid "Location"
+msgstr "Localização"
+
+#: src/qml/elements/ChatPageSendingPane.qml:301
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr "Enviar a localização"
+msgstr "Enviar a sua localização"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
