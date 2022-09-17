@@ -262,8 +262,19 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 void MessageModel::fetchMore(const QModelIndex &)
 {
 	if (!m_fetchedAllFromDb) {
-		MessageDb::instance()->fetchMessages(
-				AccountManager::instance()->jid(), m_currentChatJid, m_messages.size());
+		if (m_messages.isEmpty()) {
+			const auto lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
+			if (lastReadContactMessageId.isEmpty()) {
+				MessageDb::instance()->fetchMessages(
+						AccountManager::instance()->jid(), m_currentChatJid, 0);
+			} else {
+				MessageDb::instance()->fetchMessagesUntilId(
+						AccountManager::instance()->jid(), m_currentChatJid, 0, lastReadContactMessageId);
+			}
+		} else {
+			MessageDb::instance()->fetchMessages(
+					AccountManager::instance()->jid(), m_currentChatJid, m_messages.size());
+		}
 	} else if (!m_fetchedAllFromMam) {
 		// use earliest timestamp
 		const auto lastStamp = [this]() -> QDateTime {
@@ -274,8 +285,12 @@ void MessageModel::fetchMore(const QModelIndex &)
 			return stamp1;
 		};
 
-		emit Kaidan::instance()->client()->messageHandler()->retrieveBacklogMessagesRequested(m_currentChatJid, lastStamp());
-		setMamLoading(true);
+		// Skip unneeded steps when 'canFetchMore()' has not been called before calling
+		// 'fetchMore()'.
+		if (!m_mamLoading) {
+			emit Kaidan::instance()->client()->messageHandler()->retrieveBacklogMessagesRequested(m_currentChatJid, lastStamp());
+			setMamLoading(true);
+		}
 	}
 	// already fetched everything from DB and MAM
 }
@@ -370,7 +385,7 @@ void MessageModel::resetComposingChatState()
 	sendChatState(QXmppMessage::State::Active);
 }
 
-void MessageModel::sendReadMarker(int readMessageIndex)
+void MessageModel::handleMessageRead(int readMessageIndex)
 {
 	// Check the index validity.
 	if (readMessageIndex < 0 || readMessageIndex >= m_messages.size()) {
@@ -391,15 +406,24 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 	if (lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
-		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
+		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, this](RosterItem &item) {
 			item.lastReadContactMessageId = readMessageId;
 
 			// If the read message is the latest one, reset the counter for unread messages.
-			// Otherwise, decrease it by 1.
+			// Otherwise, decrease it by readMessageCount.
 			if (readMessageIndex == 0) {
 				item.unreadMessages = 0;
 			} else {
-				item.unreadMessages = item.unreadMessages - 1;
+				int readMessageCount = 1;
+				for (int i = readMessageIndex + 1; i < m_messages.size(); ++i) {
+					if (m_messages.at(i).id == lastReadContactMessageId) {
+						break;
+					} else {
+						++readMessageCount;
+					}
+				}
+
+				item.unreadMessages = item.unreadMessages - readMessageCount;
 			}
 		});
 		Notifications::instance()->closeMessageNotifications(m_currentAccountJid, m_currentChatJid, readMessage.stamp);
@@ -408,6 +432,28 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
 		}
 	}
+}
+
+int MessageModel::firstUnreadContactMessageIndex()
+{
+	const auto lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
+	int lastReadContactMessageIndex = -1;
+	for (auto i = 0; i < m_messages.size(); ++i) {
+		const auto &message = m_messages.at(i);
+		if (!message.isOwn && message.id == lastReadContactMessageId) {
+			lastReadContactMessageIndex = i;
+		}
+	}
+
+	if (lastReadContactMessageIndex > 0) {
+		for (auto i = lastReadContactMessageIndex - 1; i >= 0; --i) {
+			if (!m_messages.at(i).isOwn) {
+				return i;
+			}
+		}
+	}
+
+	return lastReadContactMessageIndex;
 }
 
 bool MessageModel::canCorrectMessage(int index) const
@@ -445,6 +491,8 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		// If nothing can be retrieved from the DB, directly try MAM instead.
 		if (m_fetchedAllFromDb) {
 			fetchMore({});
+		} else {
+			emit messageFetchingFinished();
 		}
 
 		return;
@@ -461,6 +509,8 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		m_messages << msg;
 	}
 	endInsertRows();
+
+	emit messageFetchingFinished();
 }
 
 void MessageModel::handleMamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete)
@@ -477,6 +527,19 @@ void MessageModel::handleMamBacklogRetrieved(const QString &accountJid, const QS
 		if (complete) {
 			m_fetchedAllFromMam = true;
 		}
+
+		if (m_rosterItemWatcher.item().lastReadContactMessageId.isEmpty()) {
+			for (const auto &message : std::as_const(m_messages)) {
+				if (!message.isOwn) {
+					emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, messageId = message.id](RosterItem &item) {
+						item.lastReadContactMessageId = messageId;
+					});
+					break;
+				}
+			}
+		}
+
+		emit messageFetchingFinished();
 	}
 }
 

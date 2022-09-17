@@ -63,14 +63,32 @@ public:
 	                                     const Message &newMsg);
 
 	/**
-	 * @brief Fetches more entries from the database and emits messagesFetched() with
-	 * the results.
+	 * Fetches more entries from the database and emits messagesFetched() with the results.
 	 *
-	 * @param user1 Messages are from or to this JID.
-	 * @param user2 Messages are from or to this JID.
-	 * @param index Number of entries to be skipped, used for paging.
+	 * @param accountJid bare JID of the user's account
+	 * @param chatJid bare Jid of the chat
+	 * @param index number of entries to be skipped, used for paging
+	 *
+	 * @return the fetched messages
 	 */
-	QFuture<QVector<Message>> fetchMessages(const QString &user1, const QString &user2, int index);
+	QFuture<QVector<Message>> fetchMessages(const QString &accountJid, const QString &chatJid, int index);
+
+	/**
+	 * Fetches more entries from the database and emits messagesFetched() with the results.
+	 *
+	 * Entries are fetched until a message with messageId is found.
+	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
+	 * If no message with messageId could be found, only DB_QUERY_LIMIT_MESSAGES are returned.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 * @param chatJid bare Jid of the chat
+	 * @param index number of entries to be skipped, used for paging
+	 * @param limitingId ID of the message until messages are fetched
+	 *
+	 * @return the fetched messages
+	 */
+	QFuture<QVector<Message>> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId);
+
 	Q_SIGNAL void messagesFetched(const QVector<Message> &messages);
 
 	/**
@@ -104,8 +122,8 @@ public:
 	QFuture<QDateTime> messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId);
 
 	/**
-	 * Returns the count of messages chronologically between (including) two given messages specified by their
-	 * IDs.
+	 * Returns the count of messages chronologically between (including) two given messages
+	 * specified by their IDs.
 	 *
 	 * @param senderJid JID of the messages' sender
 	 * @param recipientJid JID of the messages' recipient

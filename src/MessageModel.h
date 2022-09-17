@@ -145,7 +145,9 @@ public:
 	QList<QString> authenticatableOmemoDevices() const;
 
 	Q_INVOKABLE void resetComposingChatState();
-	Q_INVOKABLE void sendReadMarker(int readMessageIndex);
+
+	Q_INVOKABLE void handleMessageRead(int readMessageIndex);
+	Q_INVOKABLE int firstUnreadContactMessageIndex();
 
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
 
@@ -213,6 +215,7 @@ signals:
 	void authenticatableOmemoDevicesChanged();
 
 	void mamLoadingChanged();
+	void messageFetchingFinished();
 
 	void keysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
 	void keysChanged();

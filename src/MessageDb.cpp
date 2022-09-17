@@ -193,23 +193,58 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	return rec;
 }
 
-QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const QString &user2, int index)
+QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, const QString &chatJid, int index)
 {
-	return run([this, user1, user2, index]() {
+	return run([this, accountJid, chatJid, index]() {
 		auto query = createQuery();
 		prepareQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
-			"WHERE (sender = :user1 AND recipient = :user2) OR "
-			      "(sender = :user2 AND recipient = :user1) "
+			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
+				  "(sender = :chatJid AND recipient = :accountJid) "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, :limit"
 		);
 		bindValues(query, {
-			{ u":user1", user1 },
-			{ u":user2", user2 },
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
 			{ u":index", index },
 			{ u":limit", DB_QUERY_LIMIT_MESSAGES },
+		});
+		execQuery(query);
+
+		auto messages = _fetchMessagesFromQuery(query);
+
+		emit messagesFetched(messages);
+		return messages;
+	});
+}
+
+QFuture<QVector<Message> > MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId)
+{
+	return run([this, accountJid, chatJid, index, limitingId]() {
+		auto query = createQuery();
+		prepareQuery(
+			query,
+			"SELECT * FROM Messages "
+			"WHERE (author = :accountJid AND recipient = :chatJid) OR "
+			"(author = :chatJid AND recipient = :accountJid) "
+			"ORDER BY timestamp DESC "
+			"LIMIT :index, ("
+			"SELECT COUNT() FROM Messages "
+			"WHERE timestamp >= "
+			"(SELECT timestamp FROM Messages "
+			"WHERE author = :chatJid AND recipient = :accountJid AND id = :id) AND "
+			"((author = :accountJid AND recipient = :chatJid) OR "
+			"(author = :chatJid AND recipient = :accountJid)) "
+			") + :limit"
+		);
+		bindValues(query, {
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+			{ u":index", index },
+			{ u":limit", DB_QUERY_LIMIT_MESSAGES },
+			{ u":id", limitingId },
 		});
 		execQuery(query);
 

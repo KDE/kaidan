@@ -70,6 +70,7 @@ ChatPageBase {
 
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
+	property bool viewPositioned: false
 
 	titleDelegate: Controls.ToolButton {
 		contentItem: RowLayout {
@@ -215,7 +216,30 @@ ChatPageBase {
 		// Connect to the database,
 		model: MessageModel
 
-		visibleArea.onYPositionChanged: sendReadMarker()
+		visibleArea.onYPositionChanged: handleMessageRead()
+
+		Connections {
+			target: MessageModel
+
+			function onMessageFetchingFinished() {
+				var unreadMessageCount = chatItemWatcher.item.unreadMessageCount
+
+				if (unreadMessageCount) {
+					var firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
+
+					if (firstUnreadContactMessageIndex > 0) {
+						messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
+					}
+
+					root.viewPositioned = true
+
+					// Trigger sending read markers manually as the view is ready.
+					messageListView.handleMessageRead()
+				} else {
+					root.viewPositioned = true
+				}
+			}
+		}
 
 		Connections {
 			target: Qt.application
@@ -223,7 +247,7 @@ ChatPageBase {
 			function onStateChanged(state) {
 				// Send a read marker once the application becomes active if a message has been received while the application was not active.
 				if (state === Qt.ApplicationActive) {
-					messageListView.sendReadMarker()
+					messageListView.handleMessageRead()
 				}
 			}
 		}
@@ -231,8 +255,10 @@ ChatPageBase {
 		/**
 		 * Sends a read marker for the latest visible / read message.
 		 */
-		function sendReadMarker() {
-			MessageModel.sendReadMarker(indexAt(0, (contentY + height + 15)) + 1)
+		function handleMessageRead() {
+			if (viewPositioned) {
+				MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
+			}
 		}
 
 		ChatMessageContextMenu {
