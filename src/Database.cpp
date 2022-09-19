@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 19
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(19)
+#define DATABASE_LATEST_VERSION 20
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(20)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -374,7 +374,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
 			SQL_ATTRIBUTE(lastMessage, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
-			SQL_LAST_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_LAST_ATTRIBUTE(readMarkerPending, SQL_BOOL)
 		)
 	);
 
@@ -1039,4 +1040,12 @@ void Database::convertDatabaseToV19()
 	execQuery(query, "DROP TABLE messages_tmp");
 
 	d->version = 19;
+}
+
+void Database::convertDatabaseToV20()
+{
+	DATABASE_CONVERT_TO_VERSION(19);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD readMarkerPending " SQL_BOOL);
+	d->version = 20;
 }

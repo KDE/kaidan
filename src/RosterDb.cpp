@@ -72,6 +72,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxUnreadMessages = rec.indexOf("unreadMessages");
 	int idxLastReadOwnMessageId = rec.indexOf("lastReadOwnMessageId");
 	int idxLastReadContactMessageId = rec.indexOf("lastReadContactMessageId");
+	int idxReadMarkerPending = rec.indexOf("readMarkerPending");
 
 	while (query.next()) {
 		RosterItem item;
@@ -82,6 +83,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.unreadMessages = query.value(idxUnreadMessages).toInt();
 		item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
 		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
+		item.readMarkerPending = query.value(idxReadMarkerPending).toBool();
 
 		items << std::move(item);
 	}
@@ -105,8 +107,10 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		));
 	if (oldItem.lastReadOwnMessageId != newItem.lastReadOwnMessageId)
 		rec.append(createSqlField("lastReadOwnMessageId", newItem.lastReadOwnMessageId));
-	if(oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)
+	if (oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)
 		rec.append(createSqlField("lastReadContactMessageId", newItem.lastReadContactMessageId));
+	if (oldItem.readMarkerPending != newItem.readMarkerPending)
+		rec.append(createSqlField("readMarkerPending", newItem.readMarkerPending));
 	return rec;
 }
 
@@ -138,6 +142,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(QString()); // lastMessage
 			query.addBindValue(QString()); // lastReadOwnMessageId
 			query.addBindValue(QString()); // lastReadContactMessageId
+			query.addBindValue(item.readMarkerPending);
 			execQuery(query);
 		}
 

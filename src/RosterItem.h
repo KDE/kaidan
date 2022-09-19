@@ -87,6 +87,9 @@ public:
 
 	// Last message i.e read by the user.
 	QString lastReadContactMessageId;
+
+	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
+	bool readMarkerPending = false;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

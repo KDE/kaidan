@@ -36,6 +36,7 @@
 #endif
 
 // Kaidan
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageHandler.h"
 #include "RosterModel.h"
@@ -196,7 +197,9 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 			item.lastReadContactMessageId = messageId;
 			item.unreadMessages = 0;
 		});
-		emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(chatJid, messageId);
+		runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
+			Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
+		});
 	});
 
 	QObject::connect(notification, &KNotification::closed, this, [=, this]() {

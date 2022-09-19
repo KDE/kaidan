@@ -77,20 +77,6 @@ public slots:
 	 */
 	void sendCorrectedMessage(Message msg);
 
-signals:
-	void sendMessageRequested(const QString &toJid,
-				  const QString &body,
-				  bool isSpoiler,
-				  const QString &spoilerHint);
-
-	void sendReadMarkerRequested(const QString &chatJid, const QString &messageId);
-
-	void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
-
-private slots:
-	void handleConnected();
-	void handleDisonnected();
-
 	/**
 	 * Sends a chat marker for a read message.
 	 *
@@ -98,6 +84,18 @@ private slots:
 	 * @param messageId ID of the read message
 	 */
 	void sendReadMarker(const QString &chatJid, const QString &messageId);
+
+signals:
+	void sendMessageRequested(const QString &toJid,
+				  const QString &body,
+				  bool isSpoiler,
+				  const QString &spoilerHint);
+
+	void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
+
+private slots:
+	void handleConnected();
+	void handleDisonnected();
 
 	/**
 	 * Handles pending messages found in the database.

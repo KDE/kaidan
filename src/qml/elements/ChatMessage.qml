@@ -288,8 +288,7 @@ ColumnLayout {
 		}
 	}
 
-	// View the chat marker
-
+	// Read marker text for own message
 	Text {
 		visible: isLastRead
 		text: qsTr("%1 has read up to this point").arg(chatName)

@@ -75,7 +75,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 		handleMessage(msg, MessageOrigin::Stream);
 	});
 	connect(this, &MessageHandler::sendMessageRequested, this, &MessageHandler::sendMessage);
-	connect(this, &MessageHandler::sendReadMarkerRequested, this, &MessageHandler::sendReadMarker);
 	connect(MessageModel::instance(), &MessageModel::sendCorrectedMessageRequested,
 	        this, &MessageHandler::sendCorrectedMessage);
 	connect(MessageModel::instance(), &MessageModel::sendChatStateRequested,
@@ -446,12 +445,12 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 
 void MessageHandler::sendReadMarker(const QString &chatJid, const QString &messageId)
 {
-	Message message;
-	message.to = chatJid;
-	message.marker = QXmppMessage::Displayed;
-	message.markerId = messageId;
+	QXmppMessage message;
+	message.setTo(chatJid);
+	message.setMarker(QXmppMessage::Displayed);
+	message.setMarkerId(messageId);
 
-	sendPendingMessage(message);
+	send(std::move(message));
 }
 
 void MessageHandler::handlePendingMessages(const QVector<Message> &messages)
@@ -573,6 +572,7 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 				emit RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
 					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
 					item.lastReadContactMessageId = markedId;
+					item.readMarkerPending = false;
 				});
 			});
 

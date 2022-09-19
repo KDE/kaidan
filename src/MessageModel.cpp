@@ -429,8 +429,22 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 	if (lastReadContactMessageId != readMessageId && isApplicationActive) {
+		Notifications::instance()->closeMessageNotification(m_currentAccountJid, m_currentChatJid);
+
+		bool readMarkerPending = true;
+		if (readContactMessage.isMarkable) {
+			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = m_currentChatJid, readMessageId]() {
+					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, readMessageId);
+				});
+
+				readMarkerPending = false;
+			}
+		}
+
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, this](RosterItem &item) {
 			item.lastReadContactMessageId = readMessageId;
+			item.readMarkerPending = readMarkerPending;
 
 			// If the read message is the latest one, reset the counter for unread messages.
 			// Otherwise, decrease it by the number of contact messages between the read contact
@@ -452,12 +466,6 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 				item.unreadMessages = item.unreadMessages - readMessageCount;
 			}
 		});
-
-		Notifications::instance()->closeMessageNotification(m_currentAccountJid, m_currentChatJid);
-
-		if (readContactMessage.isMarkable) {
-			emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(m_currentChatJid, readMessageId);
-		}
 	}
 }
 

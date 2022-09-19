@@ -347,6 +347,11 @@ void ClientWorker::onConnected()
 
 	MessageModel::instance()->sendPendingMessages();
 
+	// Send read markers that could not be sent yet because the client was offline.
+	runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
+		RosterModel::instance()->sendPendingReadMarkers(jid);
+	});
+
 	m_omemoManager->setUp();
 }
 

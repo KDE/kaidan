@@ -110,6 +110,13 @@ public:
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
 
 	/**
+	 * Sends read markers for all roster items that have unsent (pending) ones.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 */
+	void sendPendingReadMarkers(const QString &accountJid);
+
+	/**
 	 * Searches for the roster item with a given JID.
 	 */
 	std::optional<RosterItem> findItem(const QString &jid) const;

@@ -35,6 +35,7 @@
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
+#include "MessageHandler.h"
 #include "MessageModel.h"
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
@@ -207,6 +208,24 @@ QString RosterModel::lastReadContactMessageId(const QString &, const QString &ji
 	if (auto item = findItem(jid))
 		return item->lastReadContactMessageId;
 	return {};
+}
+
+void RosterModel::sendPendingReadMarkers(const QString &)
+{
+	for (const auto &item : m_items) {
+		if (const auto messageId = item.lastReadContactMessageId; item.readMarkerPending && !messageId.isEmpty()) {
+			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+				const auto chatJid = item.jid;
+				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
+					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
+				});
+
+				emit updateItemRequested(chatJid, [](RosterItem &item) {
+					item.readMarkerPending = false;
+				});
+			}
+		}
+	}
 }
 
 void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
