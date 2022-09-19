@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-10 11:04+0100\n"
+"PO-Revision-Date: 2022-09-18 12:15+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #: src/ClientWorker.cpp:287
 #, qt-format
@@ -447,7 +447,7 @@ msgstr "Untrusted"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1 has read up to this point"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:45
 msgctxt "ChatMessageContextMenu|"
@@ -502,12 +502,9 @@ msgstr "Compose message"
 #: src/qml/elements/ChatPageSendingPane.qml:212
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
+msgstr "Attachments"
 
 #: src/qml/elements/ChatPageSendingPane.qml:264
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Take picture"
@@ -515,25 +512,19 @@ msgstr "Take picture"
 #: src/qml/elements/ChatPageSendingPane.qml:265
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "Take a picture using your camera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:276
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
-msgstr "Record video"
+msgstr "Record Video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:277
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "Record a video using your camera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:288
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Document"
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
 msgstr "Document"
@@ -541,23 +532,17 @@ msgstr "Document"
 #: src/qml/elements/ChatPageSendingPane.qml:289
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
+msgstr "Attach document from device"
 
 #: src/qml/elements/ChatPageSendingPane.qml:300
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ChatPageSendingPane|"
 msgid "Location"
 msgstr "Location"
 
 #: src/qml/elements/ChatPageSendingPane.qml:301
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr "Send location"
+msgstr "Send your location"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
