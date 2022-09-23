@@ -34,13 +34,13 @@ msgstr ""
 "No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
 "eliminat d'aquesta aplicació: %1"
 
-#: src/DownloadManager.cpp:130
+#: src/DownloadManager.cpp:128
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "No s'ha pogut desar el fitxer: %1"
 
-#: src/DownloadManager.cpp:155
+#: src/DownloadManager.cpp:153
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -226,23 +226,23 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:230
+#: src/Message.cpp:78
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/MessageHandler.cpp:174
+#: src/MessageHandler.cpp:200
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:266
+#: src/MessageHandler.cpp:292
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:349
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."

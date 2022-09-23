@@ -23,13 +23,13 @@ msgstr ""
 "Il a été impossible de supprimer votre compte du serveur. Par conséquent, il "
 "n'a pas non plus été supprimé de cette application : %1"
 
-#: src/DownloadManager.cpp:130
+#: src/DownloadManager.cpp:128
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Impossible d'enregistrer un fichier : %1"
 
-#: src/DownloadManager.cpp:155
+#: src/DownloadManager.cpp:153
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -215,23 +215,23 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:230
+#: src/Message.cpp:78
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
 
-#: src/MessageHandler.cpp:174
+#: src/MessageHandler.cpp:200
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Ce message est chiffré avec %1 mais ne peut pas être déchiffré."
 
-#: src/MessageHandler.cpp:266
+#: src/MessageHandler.cpp:292
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correction du message n'a pas été réalisé avec succès."
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:349
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il a été impossible d'envoyer le message."

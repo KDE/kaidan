@@ -25,13 +25,13 @@ msgstr ""
 "Не вдалося вилучити ваш обліковий запис із сервера. Як наслідок, його також "
 "не було вилучено з цієї програми: %1"
 
-#: src/DownloadManager.cpp:130
+#: src/DownloadManager.cpp:128
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Не вдалося зберегти файл %1"
 
-#: src/DownloadManager.cpp:155
+#: src/DownloadManager.cpp:153
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -217,24 +217,24 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:230
+#: src/Message.cpp:78
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/MessageHandler.cpp:174
+#: src/MessageHandler.cpp:200
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageHandler.cpp:266
+#: src/MessageHandler.cpp:292
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageHandler.cpp:323
+#: src/MessageHandler.cpp:349
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
