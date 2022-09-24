@@ -32,7 +32,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	StatusBar.cpp
 	UploadManager.cpp
 	EmojiModel.cpp
-	TransferCache.cpp
+	FileProgressCache.cpp
 	DownloadManager.cpp
 	ServerFeaturesCache.cpp
 	QmlUtils.cpp

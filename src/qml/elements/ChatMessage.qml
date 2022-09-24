@@ -58,14 +58,6 @@ ColumnLayout {
 	property string mediaGetUrl
 	property string mediaLocation
 	property bool edited
-	property bool isLoading: Kaidan.transferCache.hasUpload(msgId)
-	property TransferJob upload: {
-		if (mediaType !== Enums.MessageType.MessageText && isLoading) {
-			return Kaidan.transferCache.jobByMessageId(model.id)
-		}
-
-		return null
-	}
 	property bool isSpoiler
 	property string spoilerHint
 	property bool isShowingSpoiler: false
@@ -83,6 +75,11 @@ ColumnLayout {
 
 	width: ListView.view.width
 	height: implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
+
+	FileProgressWatcher {
+		id: transferWatcher
+		messageId: msgId
+	}
 
 	RowLayout {
 		// Own messages are on the right, others on the left side.
@@ -197,7 +194,7 @@ ColumnLayout {
 							case Enums.MessageType.MessageVideo:
 							case Enums.MessageType.MessageFile:
 							case Enums.MessageType.MessageDocument:
-								return !root.isLoading && root.mediaGetUrl !== ""
+								return !transferWatcher.isLoading && root.mediaGetUrl !== ""
 										&& (root.mediaLocation === "" || !MediaUtilsInstance.localFileAvailable(media.mediaSource))
 							}
 
@@ -297,8 +294,8 @@ ColumnLayout {
 
 				// progress bar for upload/download status
 				Controls.ProgressBar {
-					visible: isLoading
-					value: upload ? upload.progress : 0
+					visible: transferWatcher.isLoading
+					value: transferWatcher.progress
 
 					Layout.fillWidth: true
 					Layout.maximumWidth: Kirigami.Units.gridUnit * 14
@@ -329,14 +326,6 @@ ColumnLayout {
 		if (contextMenu) {
 			contextMenu.message = this
 			contextMenu.popup()
-		}
-	}
-
-	Connections {
-		target: Kaidan.transferCache
-
-		function onJobsChanged() {
-			isLoading = Kaidan.transferCache.hasUpload(msgId)
 		}
 	}
 }

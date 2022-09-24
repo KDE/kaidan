@@ -37,13 +37,12 @@
 #include <QXmppUtils.h>
 #include "qxmpp-exts/QXmppUploadManager.h"
 // Kaidan
+#include "FileProgressCache.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
-#include "MessageModel.h"
 #include "RosterManager.h"
 #include "ServerFeaturesCache.h"
-#include "TransferCache.h"
 
 UploadManager::UploadManager(QXmppClient *client, RosterManager* rosterManager,
                              QObject* parent)
@@ -100,13 +99,16 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 	msg.mediaLocation = file.filePath();
 
 	// cache message and upload
-	emit Kaidan::instance()->transferCache()->addJobRequested(msgId, upload->bytesTotal());
+	FileProgressCache::instance()
+		.reportProgress(msgId, FileProgress { 0, quint64(upload->bytesTotal()), 0.0F });
 	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	m_messages[upload->id()] = std::move(msg);
 
 	connect(upload, &QXmppHttpUpload::bytesSentChanged, this, [=] () {
-		emit Kaidan::instance()->transferCache()->setJobBytesSentRequested(
-					msgId, upload->bytesSent());
+		auto sent = quint64(upload->bytesSent());
+		auto total = quint64(upload->bytesTotal());
+		FileProgressCache::instance()
+			.reportProgress(msgId, FileProgress { sent, total, float(sent) / float(total) });
 	});
 }
 
@@ -146,7 +148,7 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 		});
 	}
 
-	emit Kaidan::instance()->transferCache()->removeJobRequested(originalMsg.id);
+	FileProgressCache::instance().reportProgress(originalMsg.id, std::nullopt);
 	m_messages.erase(upload->id());
 }
 
@@ -155,5 +157,5 @@ void UploadManager::handleUploadFailed(const QXmppHttpUpload *upload)
 	qDebug() << "[client] [UploadManager] A file upload has failed.";
 	const QString &msgId = m_messages[upload->id()].id;
 	m_messages.erase(upload->id());
-	emit Kaidan::instance()->transferCache()->removeJobRequested(msgId);
+	FileProgressCache::instance().reportProgress(msgId, std::nullopt);
 }

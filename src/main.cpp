@@ -63,6 +63,7 @@
 #include "EmojiModel.h"
 #include "Encryption.h"
 #include "Enums.h"
+#include "FileProgressCache.h"
 #include "GuiStyle.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
@@ -83,7 +84,6 @@
 #include "ServerFeaturesCache.h"
 #include "ProviderListModel.h"
 #include "StatusBar.h"
-#include "TransferCache.h"
 #include "UploadManager.h"
 #include "UserDevicesModel.h"
 #include "VCardModel.h"
@@ -258,7 +258,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<OmemoManager *>();
 	qRegisterMetaType<AvatarFileStorage*>();
 	qRegisterMetaType<QXmppPresence>();
-	qRegisterMetaType<TransferJob*>();
 	qRegisterMetaType<QmlUtils*>();
 	qRegisterMetaType<QVector<Message>>();
 	qRegisterMetaType<QVector<RosterItem>>();
@@ -424,6 +423,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<QrCodeGenerator>(APPLICATION_ID, 1, 0, "QrCodeGenerator");
 	qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
 	qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
+	qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
 	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
 	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
 	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
@@ -432,7 +432,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");
-	qmlRegisterUncreatableType<TransferJob>(APPLICATION_ID, 1, 0, "TransferJob", "TransferJob type usable");
 	qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", "QMimeType type usable");
 	qmlRegisterUncreatableType<CameraInfo>(APPLICATION_ID, 1, 0, "CameraInfo", "CameraInfo type usable");
 	qmlRegisterUncreatableType<AudioDeviceInfo>(APPLICATION_ID, 1, 0, "AudioDeviceInfo", "AudioDeviceInfo type usable");
@@ -447,7 +446,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<RegistrationManager>(APPLICATION_ID, 1, 0, "RegistrationManager", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", "Cannot create object; only enums defined");
 	qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", "Cannot create object; only enums defined!");
-	qmlRegisterUncreatableType<TransferCache>(APPLICATION_ID, 1, 0, "TransferCache", "TransferCache type usable");
 	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", "ServerFeaturesCache type usable");
 	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", "Cannot create object; only enums defined!");
 

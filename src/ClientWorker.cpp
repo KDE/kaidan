@@ -55,7 +55,6 @@
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
-#include "TransferCache.h"
 #include "UploadManager.h"
 #include "VCardCache.h"
 #include "VCardManager.h"
@@ -70,8 +69,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  rosterModel(new RosterModel(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
 	  serverFeaturesCache(new ServerFeaturesCache(parent)),
-	  presCache(new PresenceCache(parent)),
-	  transferCache(new TransferCache(parent))
+	  presCache(new PresenceCache(parent))
 {
 }
 

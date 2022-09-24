@@ -35,10 +35,9 @@
 #include <QNetworkReply>
 #include <QStandardPaths>
 // Kaidan
+#include "FileProgressCache.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
-#include "MessageModel.h"
-#include "TransferCache.h"
 
 DownloadManager::DownloadManager(TransferCache *transferCache, QObject *parent)
 	: QObject(parent),
@@ -89,7 +88,7 @@ void DownloadManager::abortDownload(const QString &msgId)
 	job->deleteLater();
 	m_downloads.remove(msgId);
 
-	emit m_transferCache->removeJobRequested(msgId);
+	FileProgressCache::instance().reportProgress(msgId, std::nullopt);
 }
 
 DownloadJob::DownloadJob(const QString &msgId,
@@ -133,13 +132,18 @@ void DownloadJob::startDownload()
 	QNetworkRequest request(m_source);
 	QNetworkReply *reply = m_netMngr->get(request);
 
-	emit m_transferCache->addJobRequested(m_msgId, 0);
+	FileProgressCache::instance().reportProgress(m_msgId, FileProgress());
 
 	connect(reply, &QNetworkReply::downloadProgress, this, [this](qint64 bytesReceived, qint64 bytesTotal) {
-		emit m_transferCache->setJobProgressRequested(m_msgId, bytesReceived, bytesTotal);
+		FileProgress progress {
+			quint64(bytesReceived),
+			quint64(bytesTotal),
+			float(bytesReceived) / float(bytesTotal)
+		};
+		FileProgressCache::instance().reportProgress(m_msgId, progress);
 	});
 	connect(reply, &QNetworkReply::finished, this, [=]() {
-		emit m_transferCache->removeJobRequested(m_msgId);
+		FileProgressCache::instance().reportProgress(m_msgId, std::nullopt);
 		emit finished();
 	});
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
@@ -147,7 +151,7 @@ void DownloadJob::startDownload()
 #else
 	connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [=]() {
 #endif
-		emit m_transferCache->removeJobRequested(m_msgId);
+		FileProgressCache::instance().reportProgress(m_msgId, std::nullopt);
 		qWarning() << "Couldn't download file:" << reply->errorString();
 		emit Kaidan::instance()->passiveNotificationRequested(
 			tr("Download failed: %1").arg(reply->errorString()));
