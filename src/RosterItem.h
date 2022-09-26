@@ -67,7 +67,7 @@ public:
 	QString name;
 
 	// Type of this roster item's presence subscription.
-	QXmppRosterIq::Item::SubscriptionType subscription;
+	QXmppRosterIq::Item::SubscriptionType subscription = QXmppRosterIq::Item::NotSet;
 
 	// End-to-end encryption used for this roster item.
 	Encryption::Enum encryption = Encryption::Omemo2;
