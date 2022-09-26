@@ -33,6 +33,8 @@
 // Qt
 #include <QCoreApplication>
 #include <QUrl>
+#include <QImage>
+#include <QMimeType>
 // QXmpp
 #include <QXmppMessage.h>
 #include <QXmppHash.h>
@@ -49,12 +51,20 @@ struct FileHash
 	qint64 dataId;
 	QXmpp::HashAlgorithm hashType;
 	QByteArray hashValue;
+
+	QXmppHash toQXmpp() const;
+
+	bool operator==(const FileHash &other) const;
 };
 
 struct HttpSource
 {
 	qint64 fileId;
 	QUrl url;
+
+	QXmppHttpFileSource toQXmpp() const;
+
+	bool operator==(const HttpSource &other) const;
 };
 
 struct EncryptedSource
@@ -66,23 +76,63 @@ struct EncryptedSource
 	QByteArray iv;
 	std::optional<qint64> encryptedDataId;
 	QVector<FileHash> encryptedHashes;
+
+	QXmppEncryptedFileSource toQXmpp() const;
+
+	bool operator==(const EncryptedSource &other) const;
 };
 
 struct File
 {
-	qint64 id;
-	qint64 fileGroupId;
-	QString name;
-	QString description;
-	QString mimeType;
-	qint64 size;
+	Q_GADGET
+	Q_PROPERTY(QString fileId READ fileId CONSTANT)
+	Q_PROPERTY(qint64 fileGroupId MEMBER fileGroupId)
+	Q_PROPERTY(QString name READ _name CONSTANT)
+	Q_PROPERTY(QString description READ _description CONSTANT)
+	Q_PROPERTY(QString mimeTypeName READ mimeTypeName CONSTANT)
+	Q_PROPERTY(QString mimeTypeIcon READ mimeTypeIcon CONSTANT)
+	Q_PROPERTY(qint64 size READ _size CONSTANT)
+	Q_PROPERTY(QDateTime lastModified MEMBER lastModified)
+	Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
+	Q_PROPERTY(QString localFilePath MEMBER localFilePath)
+	Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
+	Q_PROPERTY(QImage thumbnail READ thumbnailImage CONSTANT)
+	Q_PROPERTY(QImage thumbnailSquare READ thumbnailSquareImage CONSTANT)
+	Q_PROPERTY(QUrl downloadUrl READ downloadUrl CONSTANT)
+	Q_PROPERTY(Enums::MessageType type READ type CONSTANT)
+
+public:
+	qint64 id = 0;
+	qint64 fileGroupId = 0;
+	std::optional<QString> name;
+	std::optional<QString> description;
+	QMimeType mimeType;
+	std::optional<qint64> size;
 	QDateTime lastModified;
-	QXmppFileShare::Disposition disposition;
+	QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
 	QString localFilePath;
-	QByteArray thumbnail;
 	QVector<FileHash> hashes;
+	QByteArray thumbnail;
 	QVector<HttpSource> httpSources;
 	QVector<EncryptedSource> encryptedSources;
+
+	[[nodiscard]] QXmppFileShare toQXmpp() const;
+
+	bool operator==(const File &other) const;
+
+private:
+	[[nodiscard]] QString _name() const { return name.value_or(QString()); }
+	[[nodiscard]] QString _description() const { return description.value_or(QString()); }
+	[[nodiscard]] QString mimeTypeName() const { return mimeType.name(); }
+	[[nodiscard]] QString mimeTypeIcon() const { return mimeType.iconName(); }
+	[[nodiscard]] qint64 _size() const { return size.value_or(-1); }
+	[[nodiscard]] bool displayInline() const { return disposition == QXmppFileShare::Inline; }
+	[[nodiscard]] bool hasThumbnail() const { return !thumbnail.isEmpty(); }
+	[[nodiscard]] QImage thumbnailImage() const { return QImage::fromData(thumbnail); }
+	[[nodiscard]] QImage thumbnailSquareImage() const;
+	[[nodiscard]] QUrl downloadUrl() const;
+	[[nodiscard]] Enums::MessageType type() const;
+	[[nodiscard]] QString fileId() const { return QString::number(id); }
 };
 
 /**
@@ -134,7 +184,6 @@ public:
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
 	QString previewText() const;
-	MessageType type() const;
 };
 
 Q_DECLARE_METATYPE(Message)

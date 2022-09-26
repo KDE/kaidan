@@ -59,6 +59,10 @@ class VCardCache;
 class VCardManager;
 class VersionManager;
 class Settings;
+class QNetworkAccessManager;
+class QXmppFileSharingManager;
+class QXmppHttpFileSharingProvider;
+class QXmppEncryptedHttpFileSharingProvider;
 
 /**
  * The ClientWorker is used as a QObject-based worker on the ClientThread.
@@ -170,6 +174,26 @@ public:
 	Caches *caches() const
 	{
 		return m_caches;
+	}
+
+	QXmppFileSharingManager *fileSharingManager() const
+	{
+		return m_fileSharingManager;
+	}
+
+	std::shared_ptr<QXmppHttpFileSharingProvider> httpFileSharingProvider() const
+	{
+		return m_httpProvider;
+	}
+
+	std::shared_ptr<QXmppEncryptedHttpFileSharingProvider> encryptedHttpFileSharingProvider() const
+	{
+		return m_encryptedProvider;
+	}
+
+	QXmppClient *xmppClient() const
+	{
+		return m_client;
 	}
 
 	/**
@@ -313,6 +337,7 @@ private:
 	QXmppClient *m_client;
 	LogHandler *m_logger;
 	bool m_enableLogging;
+	QNetworkAccessManager *m_networkManager;
 
 	RegistrationManager *m_registrationManager;
 	VCardManager *m_vCardManager;
@@ -325,6 +350,9 @@ private:
 	DownloadManager *m_downloadManager;
 	VersionManager *m_versionManager;
 
+	QXmppFileSharingManager *m_fileSharingManager;
+	std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
+	std::shared_ptr<QXmppEncryptedHttpFileSharingProvider> m_encryptedProvider;
 	QList<std::function<void ()>> m_pendingTasks;
 	uint m_activeTasks = 0;
 

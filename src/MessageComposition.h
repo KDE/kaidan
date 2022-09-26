@@ -2,7 +2,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include <QObject>
+#include <QAbstractListModel>
+
+#include "Message.h"
+
+class FileSelectionModel;
+class QFileDialog;
 
 class MessageComposition : public QObject
 {
@@ -12,9 +17,11 @@ class MessageComposition : public QObject
 	Q_PROPERTY(QString body READ body WRITE setBody NOTIFY bodyChanged)
 	Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
 	Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
+	Q_PROPERTY(FileSelectionModel *fileSelectionModel MEMBER m_fileSelectionModel CONSTANT)
 
 public:
 	MessageComposition();
+	~MessageComposition() override = default;
 
 	[[nodiscard]] QString account() const { return m_account; }
 	void setAccount(const QString &account);
@@ -41,4 +48,43 @@ private:
 	QString m_body;
 	bool m_spoiler = false;
 	QString m_spoilerHint;
+
+	FileSelectionModel *m_fileSelectionModel;
+};
+
+class FileSelectionModel : public QAbstractListModel
+{
+	Q_OBJECT
+public:
+	enum Roles {
+		Filename = Qt::UserRole + 1,
+		Thumbnail,
+		Description,
+		FileSize,
+	};
+
+	explicit FileSelectionModel(QObject *parent = nullptr);
+	~FileSelectionModel() override;
+
+	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+	[[nodiscard]] int rowCount(const QModelIndex &parent) const override;
+	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+
+	Q_INVOKABLE void selectFile();
+	Q_INVOKABLE void addFile(const QUrl &localFilePath);
+	Q_INVOKABLE void removeFile(int index);
+	Q_INVOKABLE void clear();
+	bool setData(const QModelIndex &index, const QVariant &value, int role) override;
+
+	const QVector<File> &files() const;
+	bool hasFiles() const {
+		return !m_files.empty();
+	}
+
+	Q_SIGNAL void selectFileFinished();
+
+private:
+	void generateThumbnail(const File &file);
+
+	QVector<File> m_files;
 };

@@ -46,7 +46,7 @@ public:
 	}
 
 private:
-	std::unordered_multimap<QString, AbstractWatcher<Key, Value> *> m_itemWatchers;
+	std::unordered_multimap<Key, AbstractWatcher<Key, Value> *> m_itemWatchers;
 };
 
 template<typename Key, typename Value>

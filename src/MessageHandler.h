@@ -40,6 +40,8 @@ class QXmppMamManager;
 class QXmppMessage;
 class QXmppResultSetReply;
 
+QXmppMessage toQXmppMessage(const Message &msg);
+
 /**
  * @class MessageHandler Handler for incoming and outgoing messages.
  */
@@ -50,6 +52,8 @@ class MessageHandler : public QObject
 public:
 	MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 	~MessageHandler();
+
+	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
 public slots:
 	void handleRosterReceived();
@@ -121,9 +125,7 @@ private:
 	 */
 	bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
 
-	bool parseMediaUri(Message &message, const QString &uri, bool isBodyPart);
-
-	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
+	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
 	struct BacklogQueryState {
 		QString chatJid;

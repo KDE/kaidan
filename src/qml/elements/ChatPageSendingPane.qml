@@ -177,7 +177,7 @@ Controls.Pane {
 				}
 
 				onClicked: {
-					sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
+					chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
 				}
 			}
 
@@ -240,7 +240,7 @@ Controls.Pane {
 									MouseArea {
 										anchors.fill: parent
 										onClicked: {
-											chatPage.sendMediaSheet.sendFile(MessageModel.currentChatJid, model.filePath)
+											chatPage.sendMediaSheet.openWithExistingFile(model.filePath)
 											mediaPopup.close()
 										}
 									}
@@ -272,7 +272,7 @@ Controls.Pane {
 								tooltipText: qsTr("Take a picture using your camera")
 
 								onClicked: {
-									chatPage.sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageImage)
+									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageImage)
 									mediaPopup.close()
 								}
 							}
@@ -284,7 +284,7 @@ Controls.Pane {
 								tooltipText: qsTr("Record a video using your camera")
 
 								onClicked: {
-									chatPage.sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageVideo)
+									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageVideo)
 									mediaPopup.close()
 								}
 							}
@@ -296,7 +296,7 @@ Controls.Pane {
 								tooltipText: qsTr("Attatch document from device")
 
 								onClicked: {
-									chatPage.openFileDialog(MediaUtilsInstance.namedFilter(Enums.MessageType.MessageFile), MediaUtilsInstance.label(Enums.MessageType.MessageFile))
+									chatPage.sendMediaSheet.selectFile()
 									mediaPopup.close()
 								}
 							}
@@ -308,7 +308,7 @@ Controls.Pane {
 								tooltipText: qsTr("Send your location")
 
 								onClicked: {
-									sendMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageGeoLocation)
+									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageGeoLocation)
 									mediaPopup.close()
 								}
 							}

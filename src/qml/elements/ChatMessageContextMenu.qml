@@ -40,6 +40,7 @@ Controls.Menu {
 	id: root
 
 	property ChatMessage message: null
+	property var file: null
 
 	Controls.MenuItem {
 		text: qsTr("Copy message")
@@ -60,8 +61,8 @@ Controls.Menu {
 
 	Controls.MenuItem {
 		text: qsTr("Copy download URL")
-		visible: root.message && root.message.mediaGetUrl
-		onTriggered: Utils.copyToClipboard(root.message.mediaGetUrl)
+		visible: root.file && root.file.downloadUrl
+		onTriggered: Utils.copyToClipboard(root.file.downloadUrl)
 	}
 
 	Controls.MenuItem {

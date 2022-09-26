@@ -134,10 +134,8 @@ public:
 	 */
 	Q_INVOKABLE static QString fileNameFromUrl(const QUrl &url);
 
-	/**
-	 * Returns the file size from a URL
-	 */
-	Q_INVOKABLE static QString fileSizeFromUrl(const QUrl &url);
+	// Returns a pretty formatted, localized file size
+	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
 	/**
 	 * Styles/formats a message for displaying

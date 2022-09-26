@@ -19,6 +19,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	RosterManager.cpp
 	RegistrationManager.cpp
 	Message.cpp
+	Message.h
 	MessageModel.cpp
 	MessageDb.cpp
 	MessageHandler.cpp
@@ -67,12 +68,15 @@ target_sources(${PROJECT_NAME} PRIVATE
 	NotificationsMutedWatcher.cpp
 	MessageComposition.cpp
 	MessageComposition.h
+	FileSharingController.cpp
+	FileSharingController.h
 
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h
 	Enums.h
 	Globals.h
 	GuiStyle.h
+	Algorithms.h
 
 	# kaidan QXmpp extensions (need to be merged into QXmpp upstream)
 	qxmpp-exts/QXmppUploadManager.cpp
@@ -138,6 +142,7 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Positioning
 	Qt::Location
 	Qt::QuickControls2
+	KF5::CoreAddons
 	KF5::KIOFileWidgets
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}

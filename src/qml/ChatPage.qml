@@ -45,9 +45,10 @@ ChatPageBase {
 	DropArea {
 		anchors.fill: parent
 		onDropped: (drop) => {
-			if (drop.urls.length > 0) {
-				sendMediaSheet.sendFile(MessageModel.currentChatJid, drop.urls[0])
+			for (const url of drop.urls) {
+				sendMediaSheet.addFile(url)
 			}
+			sendMediaSheet.ensureOpen()
 		}
 	}
 
@@ -58,12 +59,14 @@ ChatPageBase {
 			var imageUrl = Utils.pasteImage();
 			// check if there was an image to be pasted from the clipboard
 			if (imageUrl.toString().length > 0) {
-				sendMediaSheet.sendFile(MessageModel.currentChatJid, imageUrl)
+				sendMediaSheet.addFile(imageUrl)
+				sendMediaSheet.ensureOpen()
 			}
 		}
 	}
 
 	property alias sendMediaSheet: sendMediaSheet
+	property alias newMediaSheet: newMediaSheet
 
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
@@ -161,6 +164,13 @@ ChatPageBase {
 
 	SendMediaSheet {
 		id: sendMediaSheet
+		composition: sendingPane.composition
+		chatPage: parent
+	}
+
+	NewMediaSheet {
+		id: newMediaSheet
+		composition: sendingPane.composition
 	}
 
 	Loader {
@@ -260,9 +270,6 @@ ChatPageBase {
 			dateTime: new Date(model.timestamp)
 			deliveryState: model.deliveryState
 			isLastRead: model.isLastRead
-			mediaType: model.mediaType
-			mediaGetUrl: model.mediaUrl
-			mediaLocation: model.mediaLocation
 			edited: model.isEdited
 			isSpoiler: model.isSpoiler
 			isShowingSpoiler: false
@@ -270,6 +277,7 @@ ChatPageBase {
 			errorText: model.errorText
 			deliveryStateName: model.deliveryStateName
 			deliveryStateIcon: model.deliveryStateIcon
+			files: model.files
 
 			onMessageEditRequested: {
 				messageToCorrect = id

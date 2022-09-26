@@ -29,11 +29,21 @@
  */
 
 #include "MediaUtils.h"
+#include "Globals.h"
+#include "FutureUtils.h"
 
 #include <QFileInfo>
 #include <QRegularExpression>
 #include <QTime>
 #include <QUrl>
+#include <QBuffer>
+#include <QMimeType>
+#include <QImage>
+#include <QPixmap>
+
+// KDE
+#include <KIO/PreviewJob>
+#include <KFileItem>
 
 static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent);
 
@@ -115,7 +125,8 @@ static QString filter(const QList<QMimeType> &mimeTypes)
 	return filters.join(QLatin1Char(' '));
 }
 
-static QString prettyFormat(int durationMsecs, QTime *outTime = nullptr) {
+static QString prettyFormat(int durationMsecs, QTime *outTime = nullptr)
+{
 	const QTime time(QTime(0, 0, 0).addMSecs(durationMsecs));
 	QString format;
 
@@ -171,19 +182,7 @@ bool MediaUtils::localFileAvailable(const QString &filePath)
 		return false;
 	}
 
-	const QUrl url(filePath);
-	return url.isValid() && url.isLocalFile()
-		       ? localFileAvailable(url)
-		       : QFile::exists(filePath);
-}
-
-bool MediaUtils::localFileAvailable(const QUrl &url)
-{
-	if (url.isValid() && url.isLocalFile()) {
-		return localFileAvailable(url.toLocalFile());
-	}
-
-	return false;
+	return QFile::exists(filePath);
 }
 
 QUrl MediaUtils::fromLocalFile(const QString &filePath)
@@ -477,4 +476,79 @@ Enums::MessageType MediaUtils::messageType(const QMimeType &mimeType)
 	}
 
 	return Enums::MessageType::MessageFile;
+}
+
+QByteArray MediaUtils::encodeImageThumbnail(const QPixmap &pixmap)
+{
+	QByteArray output;
+	QBuffer buffer(&output);
+	pixmap.save(&buffer, "PNG");
+	return output;
+}
+
+QByteArray MediaUtils::encodeImageThumbnail(const QImage &image)
+{
+	QByteArray output;
+	QBuffer buffer(&output);
+	image.save(&buffer, "PNG");
+	return output;
+}
+
+QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> MediaUtils::generateMetadata(std::unique_ptr<QIODevice> f)
+{
+	using Result = QXmppFileSharingManager::MetadataGeneratorResult;
+	using Thumnbnail = QXmppFileSharingManager::MetadataThumbnail;
+
+	thread_local static auto allPlugins = KIO::PreviewJob::availablePlugins();
+
+	auto result = std::make_shared<Result>();
+
+	auto *file = dynamic_cast<QFile *>(f.get());
+	if (!file) {
+		// other io devices can't be handled
+		return makeReadyFuture<std::shared_ptr<Result>>(std::move(result));
+	}
+
+	QFutureInterface<std::shared_ptr<Result>> interface;
+
+	// create job
+	auto *job = new KIO::PreviewJob(
+		{ KFileItem(QUrl::fromLocalFile(file->fileName())) },
+		QSize(THUMBNAIL_PIXEL_SIZE, THUMBNAIL_PIXEL_SIZE),
+		&allPlugins
+	);
+	job->setAutoDelete(true);
+
+	connect(job, &KIO::PreviewJob::gotPreview, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
+		QByteArray thumbnailData;
+		QBuffer thumbnailBuffer(&thumbnailData);
+		image.save(&thumbnailBuffer, "JPG", JPEG_EXPORT_QUALITY);
+
+		// Don't fill the ram just to find the dimensions of an image
+		if (file->size() < THUMBNAIL_GENERATION_MAX_FILE_SIZE) {
+			QImage image(file->fileName());
+
+			if (!image.isNull()) {
+				result->dimensions = image.size();
+			}
+		}
+
+		result->dataDevice = std::move(f);
+		result->thumbnails.push_back(Thumnbnail {
+			.width = uint32_t(image.size().width()),
+			.height = uint32_t(image.size().height()),
+			.data = thumbnailData,
+			.mimeType = QMimeDatabase().mimeTypeForData(thumbnailData)
+		});
+
+		interface.reportResult(result);
+		interface.reportFinished();
+	});
+
+	connect(job, &KIO::PreviewJob::failed, [interface, result]() mutable {
+		interface.reportResult(result);
+		interface.reportFinished();
+	});
+
+	return interface.future();
 }

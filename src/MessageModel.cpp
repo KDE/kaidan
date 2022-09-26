@@ -47,6 +47,7 @@
 #include "OmemoManager.h"
 #include "QmlUtils.h"
 #include "RosterModel.h"
+#include "FileSharingController.h"
 
 using namespace std::chrono_literals;
 
@@ -162,7 +163,6 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[IsTrusted] = "isTrusted";
 	roles[Body] = "body";
 	roles[IsOwn] = "isOwn";
-	roles[MediaType] = "mediaType";
 	roles[IsEdited] = "isEdited";
 	roles[DeliveryState] = "deliveryState";
 	roles[IsLastRead] = "isLastRead";
@@ -171,6 +171,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[ErrorText] = "errorText";
 	roles[DeliveryStateIcon] = "deliveryStateIcon";
 	roles[DeliveryStateName] = "deliveryStateName";
+	roles[Files] = "files";
 	return roles;
 }
 
@@ -205,8 +206,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return msg.body;
 	case IsOwn:
 		return msg.isOwn;
-	case MediaType:
-		return QVariant::fromValue(msg.type());
 	case IsEdited:
 		return msg.isEdited;
 	case IsLastRead:
@@ -253,6 +252,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return tr("Error");
 		}
 		return {};
+	case Files:
+		return QVariant::fromValue(msg.files);
 	}
 	return {};
 }

@@ -16,12 +16,12 @@ struct FileProgress
 	float progress = 0;
 };
 
-using FileProgressNotifier = AbstractNotifier<QString, std::optional<FileProgress>>;
+using FileProgressNotifier = AbstractNotifier<qint64, std::optional<FileProgress>>;
 
-class FileProgressWatcher : public QObject, public AbstractWatcher<QString, std::optional<FileProgress>>
+class FileProgressWatcher : public QObject, public AbstractWatcher<qint64, std::optional<FileProgress>>
 {
 	Q_OBJECT
-	Q_PROPERTY(QString messageId READ messageId WRITE setMessageId NOTIFY messageIdChanged)
+	Q_PROPERTY(QString fileId READ fileId WRITE setFileId NOTIFY fileIdChanged)
 	Q_PROPERTY(bool isLoading READ isLoading NOTIFY progressChanged)
 	Q_PROPERTY(quint64 bytesSent READ bytesSent NOTIFY progressChanged)
 	Q_PROPERTY(quint64 bytesTotal READ bytesTotal NOTIFY progressChanged)
@@ -31,9 +31,10 @@ public:
 	explicit FileProgressWatcher(QObject *parent = nullptr);
 	~FileProgressWatcher() override;
 
-	[[nodiscard]] QString messageId() const;
-	void setMessageId(QString);
-	Q_SIGNAL void messageIdChanged();
+	// This is a QString because QML can't handle qint64 (converted to double)
+	[[nodiscard]] QString fileId() const;
+	void setFileId(const QString &fileId);
+	Q_SIGNAL void fileIdChanged();
 
 	[[nodiscard]] bool isLoading() const { return m_loading; }
 	[[nodiscard]] quint64 bytesSent() const { return m_progress.bytesSent; }
@@ -55,12 +56,12 @@ public:
 
 	static FileProgressCache &instance();
 
-	std::optional<FileProgress> progress(const QString &messageId);
-	void reportProgress(const QString &messageId, std::optional<FileProgress> progress);
+	std::optional<FileProgress> progress(qint64 fileId);
+	void reportProgress(qint64 fileId, std::optional<FileProgress> progress);
 
 private:
 	FileProgressCache();
 
 	std::mutex m_mutex;
-	std::unordered_map<QString, FileProgress> m_files;
+	std::unordered_map<qint64, FileProgress> m_files;
 };

@@ -116,5 +116,9 @@ constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
 
 // JPEG export quality used when saving images lossy (e.g. when saving images from clipboard)
 constexpr auto JPEG_EXPORT_QUALITY = 85;
+// Maximum file size for reading files just to generate an image thumbnail.
+constexpr auto THUMBNAIL_GENERATION_MAX_FILE_SIZE = 10 * 1024 * 1024;
+// Width and height of generated file thumbnails.
+constexpr auto THUMBNAIL_PIXEL_SIZE = 50;
 
 #endif // GLOBALS_H

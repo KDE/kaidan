@@ -42,56 +42,54 @@ import org.kde.kirigami 2.12 as Kirigami
 import im.kaidan.kaidan 1.0
 import MediaUtils 0.1
 
-MediaPreview {
+Rectangle {
 	id: root
-	Layout.preferredHeight: Kirigami.Units.gridUnit * 3.85
-	Layout.preferredWidth: layout.implicitWidth + layout.anchors.margins * 2
-	Layout.maximumWidth: message ? messageSize : -1
+
+	required property url mediaSource
+	property int messageSize: Kirigami.Units.gridUnit * 14
+	required property QtObject message
+	required property var file
+	required property string messageId
+
+	property bool fileAvailable: file.localFilePath && MediaUtilsInstance.localFileAvailable(file.localFilePath)
+
 	color: "transparent"
 
-	// rounded box
-	Rectangle {
-		id: box
-		color: {
-			if(openButton.containsMouse) {
-				if (messageBubble)
-					Qt.darker(messageBubble.color, 1.08)
-				else
-					Qt.darker(rightMessageBubbleColor, 1.08)
-			} else {
-				if (messageBubble)
-					Qt.darker(messageBubble.color, 1.05)
-				else
-					Qt.darker(rightMessageBubbleColor, 1.05)
-			}
-		}
+	Layout.fillHeight: false
+	Layout.fillWidth: true
+	Layout.alignment: Qt.AlignLeft
+	Layout.topMargin: -6
+	Layout.leftMargin: Layout.topMargin
+	Layout.rightMargin: Layout.topMargin
+	implicitHeight: Kirigami.Units.gridUnit * 3.85
+	implicitWidth: layout.implicitWidth + layout.anchors.margins * 2
+	Layout.maximumWidth: message ? messageSize : -1
 
-		radius: roundedCornersRadius
-
+	// content
+	ColumnLayout {
 		anchors {
 			fill: parent
+			margins: layout.spacing
 		}
-
-		// content
 		RowLayout {
 			id: layout
 			spacing: Kirigami.Units.gridUnit * 0.4
 
-			anchors {
-				fill: parent
-				margins: layout.spacing
-			}
 
 			// left: file icon
-			Item {
+			Rectangle {
+				id: fallbackCircle
+
+				visible: !file.hasThumbnail
 				Layout.fillHeight: true
 				Layout.preferredWidth: height
+				Layout.alignment: Qt.AlignLeft
+				radius: height / 2
+				color: Qt.lighter(Kirigami.Theme.focusColor, 1.05)
 
 				Kirigami.Icon {
-					source: MediaUtilsInstance.iconName(root.mediaSource)
-					isMask: root.showOpenButton
-							? !(openButton.pressed || openButton.containsMouse)
-							: true
+					source: root.fileAvailable ? file.mimeTypeIcon : "download"
+					isMask: !openButton.pressed && !openButton.containsMouse
 					smooth: true
 					height: 24 // we always want the 24x24 icon
 					width: height
@@ -101,28 +99,46 @@ MediaPreview {
 					}
 				}
 			}
+			Kirigami.Icon {
+				id: thumbnailIcon
+				visible: file.hasThumbnail
+				Layout.fillHeight: true
+				Layout.preferredWidth: height
+				Layout.alignment: Qt.AlignLeft
+				source: file.thumbnailSquare
+
+				layer.enabled: true
+				layer.effect: OpacityMask {
+					maskSource: Item {
+						width: thumbnailIcon.paintedWidth
+						height: thumbnailIcon.paintedHeight
+
+						Rectangle {
+							anchors.centerIn: parent
+							width: Math.min(thumbnailIcon.width, thumbnailIcon.height)
+							height: width
+							radius: roundedCornersRadius
+						}
+					}
+				}
+
+				Kirigami.Icon {
+					source: "download"
+					anchors.fill: thumbnailIcon
+					visible: !root.fileAvailable
+				}
+			}
 
 			// right: file description
 			ColumnLayout {
 				Layout.fillHeight: true
 				Layout.fillWidth: true
-				spacing: 0
+				spacing: Kirigami.Units.smallSpacing
 
 				// file name
 				Controls.Label {
-					id: fileNameLabel
 					Layout.fillWidth: true
-					text: Utils.fileNameFromUrl(root.mediaSource)
-					textFormat: Text.PlainText
-					elide: Text.ElideRight
-					maximumLineCount: 1
-				}
-
-				// mime type
-				Controls.Label {
-					id: fileMimeTypeLabel
-					Layout.fillWidth: true
-					text: MediaUtilsInstance.mimeTypeName(root.mediaSource)
+					text: file.name
 					textFormat: Text.PlainText
 					elide: Text.ElideRight
 					maximumLineCount: 1
@@ -130,32 +146,56 @@ MediaPreview {
 
 				// file size
 				Controls.Label {
-					id: fileSizeLabel
 					Layout.fillWidth: true
-					text: Utils.fileSizeFromUrl(root.mediaSource)
+					text: Utils.formattedDataSize(file.size)
 					textFormat: Text.PlainText
 					elide: Text.ElideRight
 					maximumLineCount: 1
+					color: Kirigami.Theme.disabledTextColor
 				}
 			}
+		}
+
+		// progress bar for upload/download status
+		Controls.ProgressBar {
+			visible: transferWatcher.isLoading
+			value: transferWatcher.progress
+
+			Layout.fillWidth: true
+			Layout.maximumWidth: Kirigami.Units.gridUnit * 14
+		}
+
+		FileProgressWatcher {
+			id: transferWatcher
+			fileId: file.fileId
 		}
 	}
 
 	MouseArea {
 		id: openButton
-		enabled: root.showOpenButton
 		hoverEnabled: true
+		acceptedButtons: Qt.LeftButton | Qt.RightButton
 
 		anchors {
 			fill: parent
 		}
 
-		onClicked: Qt.openUrlExternally(root.mediaSource)
-	}
+		onClicked: (event) => {
+			if (event.button === Qt.LeftButton) {
+				if (root.fileAvailable) {
+					Qt.openUrlExternally("file://" + file.localFilePath)
+				} else if (file.downloadUrl) {
+					Kaidan.fileSharingController.downloadFile(root.messageId, root.file)
+				}
+			} else if (event.button === Qt.RightButton) {
+				root.message.contextMenu.file = root.file
+				root.message.contextMenu.message = root.message
+				root.message.contextMenu.popup()
+			}
+		}
 
-	Controls.ToolTip {
-		delay: Kirigami.Units.longDuration
-		parent: openButton
-		text: root.mediaSource
+		Controls.ToolTip.visible: file.description && openButton.containsMouse
+		Controls.ToolTip.delay: Kirigami.Units.longDuration
+		Controls.ToolTip.text: file.description
 	}
 }

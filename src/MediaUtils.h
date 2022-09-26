@@ -33,6 +33,9 @@
 #include <QGeoCoordinate>
 #include <QMimeDatabase>
 #include <QObject>
+#include <QFuture>
+
+#include <QXmppFileSharingManager.h>
 
 #include "Enums.h"
 
@@ -49,7 +52,6 @@ public:
 	Q_INVOKABLE static bool isGeoLocation(const QString &content);
 	Q_INVOKABLE static QGeoCoordinate locationCoordinate(const QString &content);
 	Q_INVOKABLE static bool localFileAvailable(const QString &filePath);
-	Q_INVOKABLE static bool localFileAvailable(const QUrl &url);
 	Q_INVOKABLE static QUrl fromLocalFile(const QString &filePath);
 	Q_INVOKABLE static QMimeType mimeType(const QString &filePath);
 	Q_INVOKABLE static QMimeType mimeType(const QUrl &url);
@@ -75,6 +77,16 @@ public:
 
 	Q_INVOKABLE inline static QString mimeTypeName(const QUrl &url)
 	{ return mimeType(url).name(); }
+
+	static QByteArray encodeImageThumbnail(const QPixmap &pixmap);
+	static QByteArray encodeImageThumbnail(const QImage &image);
+
+	static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice>);
+
+	static const QMimeDatabase &mimeDatabase()
+	{
+		return s_mimeDB;
+	}
 
 private:
 	static const QMimeDatabase s_mimeDB;

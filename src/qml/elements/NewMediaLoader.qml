@@ -58,7 +58,6 @@ Loader {
 		case Enums.MessageType.MessageGeoLocation:
 			return mediaSheet
 		}
-
 	}
 	visible: enabled
 	sourceComponent: {
@@ -97,7 +96,6 @@ Loader {
 
 		NewMedia {
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 
@@ -112,7 +110,6 @@ Loader {
 
 		NewMediaLocation {
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 

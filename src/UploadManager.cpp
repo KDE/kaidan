@@ -95,16 +95,12 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 //	msg.mediaLocation = file.filePath();
 
 	// cache message and upload
-	FileProgressCache::instance()
-		.reportProgress(msgId, FileProgress { 0, quint64(upload->bytesTotal()), 0.0F });
 	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	m_messages[upload->id()] = std::move(msg);
 
 	connect(upload, &QXmppHttpUpload::bytesSentChanged, this, [upload, msgId] {
 		auto sent = quint64(upload->bytesSent());
 		auto total = quint64(upload->bytesTotal());
-		FileProgressCache::instance()
-			.reportProgress(msgId, FileProgress { sent, total, float(sent) / float(total) });
 	});
 }
 
@@ -144,7 +140,6 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 		});
 	}
 
-	FileProgressCache::instance().reportProgress(originalMsg.id, std::nullopt);
 	m_messages.erase(upload->id());
 }
 
@@ -153,5 +148,4 @@ void UploadManager::handleUploadFailed(const QXmppHttpUpload *upload)
 	qDebug() << "[client] [UploadManager] A file upload has failed.";
 	const QString &msgId = m_messages[upload->id()].id;
 	m_messages.erase(upload->id());
-	FileProgressCache::instance().reportProgress(msgId, std::nullopt);
 }

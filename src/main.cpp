@@ -47,6 +47,8 @@
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
 #include <QXmppVersionIq.h>
+#include <QXmppUpload.h>
+#include <QXmppDownload.h>
 
 #include "qxmpp-exts/QXmppUri.h"
 
@@ -64,6 +66,7 @@
 #include "Encryption.h"
 #include "Enums.h"
 #include "FileProgressCache.h"
+#include "FileSharingController.h"
 #include "GuiStyle.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
@@ -256,9 +259,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<VCardManager*>();
 	qRegisterMetaType<VersionManager*>();
 	qRegisterMetaType<RegistrationManager*>();
+	qRegisterMetaType<FileSharingController *>();
 	qRegisterMetaType<OmemoManager *>();
 	qRegisterMetaType<AvatarFileStorage*>();
-	qRegisterMetaType<QXmppPresence>();
 	qRegisterMetaType<QmlUtils*>();
 	qRegisterMetaType<QVector<Message>>();
 	qRegisterMetaType<QVector<RosterItem>>();
@@ -305,8 +308,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
 	qRegisterMetaType<QXmppMessage>();
+	qRegisterMetaType<QXmppPresence>();
 	qRegisterMetaType<QXmppDiscoveryIq>();
 	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
+	qRegisterMetaType<QXmppUpload::Result>();
+	qRegisterMetaType<QXmppDownload::Result>();
 
 	// Qt-Translator
 	QTranslator qtTranslator;
@@ -408,6 +414,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
 	qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
 	qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
+	qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
 	qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
 	qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
 	qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
@@ -450,6 +457,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", "ServerFeaturesCache type usable");
 	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", "Cannot create object; only enums defined!");
+	qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", "Not creatable from QML");
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", "Can't create object; only enums defined!");
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", "Can't create object; only enums defined!");

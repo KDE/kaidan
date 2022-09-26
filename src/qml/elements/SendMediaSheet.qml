@@ -40,152 +40,156 @@ Kirigami.OverlaySheet {
 	id: root
 
 	property string targetJid
-	property url source
-	property int sourceType
-	property bool newMedia: false
+	required property MessageComposition composition
+	required property QtObject chatPage
 
 	signal rejected()
 	signal accepted()
 
 	showCloseButton: false
 
-	contentItem: ColumnLayout {
-		// message type preview
-		Loader {
-			id: loader
+	header: Kirigami.Heading {
+		text: qsTr("Send files")
+	}
 
-			enabled: (root.newMedia || root.source != '') && sourceComponent !== null
-			visible: enabled
-			sourceComponent: root.newMedia ? newMediaComponent : mediaPreviewComponent
+	// First open the file choose to select a file, then open the sheet
+	function selectFile() {
+		root.composition.fileSelectionModel.selectFile()
+	}
 
-			Layout.fillHeight: item ? item.Layout.fillHeight : false
-			Layout.fillWidth: item ? item.Layout.fillWidth : false
-			Layout.preferredHeight: item ? item.Layout.preferredHeight : -1
-			Layout.preferredWidth: item ? item.Layout.preferredWidth : -1
-			Layout.minimumHeight: item ? item.Layout.minimumHeight : -1
-			Layout.minimumWidth: item ? item.Layout.minimumWidth : -1
-			Layout.maximumHeight: item ? item.Layout.maximumHeight : -1
-			Layout.maximumWidth: item ? item.Layout.maximumWidth : -1
-			Layout.alignment: item ? item.Layout.alignment : Qt.AlignCenter
-			Layout.margins: item ? item.Layout.margins : 0
-			Layout.leftMargin: item ? item.Layout.leftMargin : 0
-			Layout.topMargin: item ? item.Layout.topMargin : 0
-			Layout.rightMargin: item ? item.Layout.rightMargin : 0
-			Layout.bottomMargin: item ? item.Layout.bottomMargin : 0
+	// Open the sheet containing an already known file
+	function openWithExistingFile(localPath) {
+		root.composition.fileSelectionModel.addFile(localPath)
+		root.ensureOpen()
+	}
 
-			Component {
-				id: newMediaComponent
+	// Add a known file to the already open sheet
+	function addFile(localPath) {
+		root.composition.fileSelectionModel.addFile(localPath)
+	}
 
-				NewMediaLoader {
-					mediaSourceType: root.sourceType
-					mediaSheet: root
-				}
-			}
-
-			Component {
-				id: mediaPreviewComponent
-
-				MediaPreviewLoader {
-					mediaSource: root.source
-					mediaSourceType: root.sourceType
-					mediaSheet: root
-				}
-			}
-		}
-
-		// TODO: - Maybe add option to change file name
-		//       - Enabled/Disable image compression
-
-		// caption/description text field
-		// disabled for now; most other clients (currently) don't support this
-		Controls.TextField {
-			id: descField
-
-			visible: false
-			placeholderText: qsTr("Caption")
-			selectByMouse: true
-
-			Layout.fillWidth: true
-			Layout.topMargin: Kirigami.Units.largeSpacing
-		}
-
-		// buttons for send/cancel
-		RowLayout {
-			Layout.topMargin: Kirigami.Units.largeSpacing
-			Layout.fillWidth: true
-
-			Button {
-				text: qsTr("Cancel")
-
-				Layout.fillWidth: true
-
-				onClicked: {
-					close()
-					root.rejected()
-				}
-			}
-
-			Button {
-				id: sendButton
-
-				enabled: root.source != ''
-				text: qsTr("Send")
-
-				Layout.fillWidth: true
-
-				onClicked: {
-					switch (root.sourceType) {
-					case Enums.MessageType.MessageUnknown:
-					case Enums.MessageType.MessageText:
-						break
-					case Enums.MessageType.MessageImage:
-					case Enums.MessageType.MessageAudio:
-					case Enums.MessageType.MessageVideo:
-					case Enums.MessageType.MessageFile:
-					case Enums.MessageType.MessageDocument:
-						Kaidan.client.uploadManager.sendFileRequested(root.targetJid, root.source, descField.text)
-						break
-					case Enums.MessageType.MessageGeoLocation:
-						Kaidan.client.messageHandler.sendMessageRequested(root.targetJid, root.source, false, '')
-						break
-					}
-
-					close()
-					root.accepted()
-				}
-			}
-		}
-
-		Keys.onPressed: {
-			if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-				sendButton.clicked()
-			}
+	// Open the sheet if it is not already open
+	function ensureOpen() {
+		if (!root.sheetOpen) {
+			root.open()
 		}
 	}
 
 	onSheetOpenChanged: {
 		if (!sheetOpen) {
-			targetJid = ''
-			source = ''
-			sourceType = Enums.MessageType.MessageUnknown
-			newMedia = false
-			descField.clear()
+			root.composition.fileSelectionModel.clear()
 		}
 	}
 
-	function sendMessageType(jid, type) {
-		targetJid = jid
-		sourceType = type
-		open()
+	Item {
+		Connections {
+			target: root.composition.fileSelectionModel
+
+			function onSelectFileFinished() {
+				if (!root.sheetOpen) {
+				   root.open()
+				}
+			}
+		}
 	}
 
-	function sendNewMessageType(jid, type) {
-		newMedia = true
-		sendMessageType(jid, type)
-	}
+	ColumnLayout {
+		Kirigami.PlaceholderMessage {
+			Layout.alignment: Qt.AlignHCenter
+			Layout.topMargin: Kirigami.Units.gridUnit * 10
+			Layout.bottomMargin: Kirigami.Units.gridUnit * 10
+			text: qsTr("Select some files to send them")
+			visible: fileList.count === 0
+		}
 
-	function sendFile(jid, url) {
-		source = url
-		sendMessageType(jid, MediaUtilsInstance.messageType(url))
+		// List of selected files
+		Repeater {
+			id: fileList
+			model: root.composition.fileSelectionModel
+
+			delegate: Kirigami.AbstractListItem {
+				id: delegateRoot
+
+				contentItem: RowLayout {
+					// Icon
+					Kirigami.Icon {
+						Layout.preferredWidth: Kirigami.Units.iconSizes.huge
+						Layout.preferredHeight: Kirigami.Units.iconSizes.huge
+						source: model.thumbnail
+					}
+
+					// spacer
+					Item {
+					}
+
+					// File name and description
+					ColumnLayout {
+						Layout.fillWidth: true
+
+						RowLayout {
+							Kirigami.Heading {
+								Layout.fillWidth: true
+
+								level: 3
+								text: model.fileName
+							}
+
+							Controls.Label {
+								text: model.fileSize
+							}
+						}
+
+						Controls.TextField {
+							Layout.fillWidth: true
+
+							text: model.description
+							placeholderText: qsTr("Enter description…")
+
+							onTextChanged: model.description = text
+						}
+					}
+
+					Controls.ToolButton {
+						icon.name: "list-remove"
+						text: qsTr("Remove file")
+						display: Controls.AbstractButton.IconOnly
+						onClicked: root.composition.fileSelectionModel.removeFile(model.index)
+					}
+				}
+			}
+		}
+
+		Controls.TextField {
+			id: messageText
+
+			Layout.fillWidth: true
+			Layout.topMargin: Kirigami.Units.largeSpacing
+
+			placeholderText: qsTr("Compose message")
+			onFocusChanged: root.composition.body = messageText.text
+		}
+
+		// Button row
+		RowLayout {
+			Controls.ToolButton {
+				text: qsTr("Add")
+				icon.name: "list-add"
+
+				onClicked: root.composition.fileSelectionModel.selectFile()
+			}
+
+			Item {
+				Layout.fillWidth: true
+			}
+
+			Controls.ToolButton {
+				text: qsTr("Send")
+				icon.name: "document-send"
+				onClicked: {
+					root.composition.send()
+					close()
+				}
+			}
+		}
 	}
 }

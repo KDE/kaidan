@@ -42,6 +42,7 @@ class Notifications;
 class RosterDb;
 class MessageDb;
 class QXmppClient;
+class FileSharingController;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -57,6 +58,7 @@ class Kaidan : public QObject
 	Q_OBJECT
 
 	Q_PROPERTY(ClientWorker* client READ client CONSTANT)
+	Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
 	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
 	Q_PROPERTY(PresenceCache* presenceCache READ presenceCache CONSTANT)
 	Q_PROPERTY(TransferCache* transferCache READ transferCache CONSTANT)
@@ -170,6 +172,7 @@ public:
 	PasswordVisibility passwordVisibility() const;
 
 	ClientWorker *client() const { return m_client; }
+	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }
 	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
 	PresenceCache *presenceCache() const { return m_caches->presCache; }
 	TransferCache *transferCache() const { return m_caches->transferCache; }
@@ -403,6 +406,7 @@ private:
 	QThread *m_cltThrd;
 	ClientWorker::Caches *m_caches;
 	ClientWorker *m_client;
+	std::unique_ptr<FileSharingController> m_fileSharingController;
 
 	QString m_openUriCache;
 	Enums::ConnectionState m_connectionState = Enums::ConnectionState::StateDisconnected;

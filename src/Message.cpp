@@ -28,11 +28,118 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "Algorithms.h"
+#include "MediaUtils.h"
 #include "Message.h"
+#include "QXmppBitsOfBinaryContentId.h"
+#include "QXmppBitsOfBinaryData.h"
+#include "QXmppFileMetadata.h"
+#include "QXmppThumbnail.h"
 
 #include <QStringBuilder>
 
-#include "MediaUtils.h"
+#include <QXmppHttpFileSource.h>
+#include <QXmppEncryptedFileSource.h>
+
+QXmppHash FileHash::toQXmpp() const
+{
+	QXmppHash hash;
+	hash.setAlgorithm(hashType);
+	hash.setHash(hashValue);
+	return hash;
+}
+
+bool FileHash::operator==(const FileHash &other) const = default;
+
+QXmppHttpFileSource HttpSource::toQXmpp() const
+{
+	QXmppHttpFileSource source;
+	source.setUrl(url);
+	return source;
+}
+
+bool HttpSource::operator==(const HttpSource &other) const = default;
+
+QXmppEncryptedFileSource EncryptedSource::toQXmpp() const
+{
+	QXmppHttpFileSource encryptedHttpSource;
+	encryptedHttpSource.setUrl(url);
+
+	QXmppEncryptedFileSource source;
+	source.setHttpSources({encryptedHttpSource});
+	source.setCipher(cipher);
+	source.setIv(iv);
+	source.setKey(key);
+	source.setHashes(transform(encryptedHashes, [](const auto &fileHash) {
+		return fileHash.toQXmpp();
+	}));
+	return source;
+}
+
+bool EncryptedSource::operator==(const EncryptedSource &other) const = default;
+
+QXmppFileShare File::toQXmpp() const
+{
+	QXmppFileMetadata metadata;
+	metadata.setFilename(name);
+	metadata.setDescription(description);
+	metadata.setMediaType(mimeType);
+	metadata.setHashes(transform(hashes, [](const FileHash &fileHash) {
+		return fileHash.toQXmpp();
+	}));
+	metadata.setLastModified(lastModified);
+	metadata.setMediaType(mimeType);
+	metadata.setSize(size);
+
+	QXmppThumbnail thumb;
+	thumb.setMediaType(QMimeDatabase().mimeTypeForData(thumbnail));
+	thumb.setUri(QXmppBitsOfBinaryData::fromByteArray(thumbnail).cid().toCidUrl());
+	metadata.setThumbnails({thumb});
+
+	QXmppFileShare fs;
+	fs.setDisposition(disposition);
+	fs.setMetadata(metadata);
+	fs.setHttpSources(transform(httpSources, [](const HttpSource &fileSource) {
+		return fileSource.toQXmpp();
+	}));
+	fs.setEncryptedSourecs(transform(encryptedSources, [](const EncryptedSource &fileSource) {
+		return fileSource.toQXmpp();
+	}));
+	return fs;
+}
+
+bool File::operator==(const File &other) const = default;
+
+QImage File::thumbnailSquareImage() const
+{
+	auto image = QImage::fromData(thumbnail);
+	auto length = std::min(image.width(), image.height());
+	QImage croppedImage(QSize(length, length), image.format());
+
+	auto delX = (image.width() - length) / 2;
+	auto delY = (image.height() - length) / 2;
+
+	for (int x = 0; x < length; x++) {
+		for (int y = 0; y < length; y++) {
+			croppedImage.setPixel(x, y, image.pixel(x + delX, y + delY));
+		}
+	}
+	return croppedImage;
+}
+
+QUrl File::downloadUrl() const
+{
+	if (!httpSources.isEmpty()) {
+		return httpSources.front().url;
+	}
+	// don't use encrypted source urls (can't be opened externally)
+	return {};
+}
+
+MessageType File::type() const
+{
+	return MediaUtils::messageType(mimeType);
+}
 
 bool Message::operator==(const Message &m) const = default;
 bool Message::operator!=(const Message &m) const = default;
@@ -46,18 +153,16 @@ QString Message::previewText() const
 		return spoilerHint;
 	}
 
-	if (type() == Enums::MessageType::MessageText) {
+	if (files.empty()) {
 		return body;
 	}
-	auto text = MediaUtils::mediaTypeName(type());
+
+	// Use first file for detection (could be improved with more complex logic)
+	auto mediaType = MediaUtils::messageType(files.front().mimeType);
+	auto text = MediaUtils::mediaTypeName(mediaType);
 
 	if (!body.isEmpty()) {
 		return text % QStringLiteral(": ") % body;
 	}
 	return text;
-}
-
-MessageType Message::type() const
-{
-	return MessageType::MessageText;
 }

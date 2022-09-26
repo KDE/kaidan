@@ -100,7 +100,6 @@ Loader {
 		MediaPreviewImage {
 			mediaSource: root.mediaSource
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 		}
@@ -112,7 +111,6 @@ Loader {
 		MediaPreviewAudio {
 			mediaSource: root.mediaSource
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 		}
@@ -124,7 +122,6 @@ Loader {
 		MediaPreviewVideo {
 			mediaSource: root.mediaSource
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 		}
@@ -135,10 +132,6 @@ Loader {
 
 		MediaPreviewOther {
 			mediaSource: root.mediaSource
-			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
-			message: root.message
-			mediaSheet: root.mediaSheet
 		}
 	}
 
@@ -148,7 +141,6 @@ Loader {
 		MediaPreviewLocation {
 			mediaSource: root.mediaSource
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 		}

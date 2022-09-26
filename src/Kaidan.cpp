@@ -49,6 +49,7 @@
 #include "Notifications.h"
 #include "RosterDb.h"
 #include "Settings.h"
+#include "FileSharingController.h"
 
 Kaidan *Kaidan::s_instance;
 
@@ -72,6 +73,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 
 	initializeClientWorker(enableLogging);
+
+	m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
 
 	// Log out of the server when the application window is closed.
 	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {

@@ -89,7 +89,6 @@ public:
 		IsTrusted,
 		Body,
 		IsOwn,
-		MediaType,
 		IsEdited,
 		DeliveryState,
 		IsLastRead,
@@ -97,7 +96,8 @@ public:
 		SpoilerHint,
 		ErrorText,
 		DeliveryStateIcon,
-		DeliveryStateName
+		DeliveryStateName,
+		Files,
 	};
 	Q_ENUM(MessageRoles)
 

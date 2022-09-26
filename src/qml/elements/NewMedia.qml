@@ -264,7 +264,6 @@ MediaPreview {
 
 			mediaSource: recorder.actualLocation
 			mediaSourceType: root.mediaSourceType
-			showOpenButton: root.showOpenButton
 			message: root.message
 			mediaSheet: root.mediaSheet
 
@@ -284,7 +283,7 @@ MediaPreview {
 					right: parent.right
 				}
 
-				Controls.ToolButton {
+				Controls.Button {
 					icon.name: 'dialog-cancel'
 
 					onClicked: {
@@ -296,7 +295,7 @@ MediaPreview {
 					Layout.fillWidth: true
 				}
 
-				Controls.ToolButton {
+				Controls.Button {
 					icon.name: 'emblem-ok-symbolic'
 
 					onClicked: {

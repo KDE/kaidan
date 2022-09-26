@@ -31,11 +31,16 @@
 #include "MessageHandler.h"
 // Qt
 #include <QUrl>
+#include <QRandomGenerator>
 // QXmpp
 #include <QXmppE2eeMetadata.h>
 #include <QXmppMamManager.h>
 #include <QXmppRosterManager.h>
 #include <QXmppUtils.h>
+#include <QXmppFileMetadata.h>
+#include <QXmppHash.h>
+#include <QXmppThumbnail.h>
+#include <QXmppOutOfBandUrl.h>
 // Kaidan
 #include "AccountManager.h"
 #include "ClientWorker.h"
@@ -47,7 +52,14 @@
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "Notifications.h"
+#include "QXmppBitsOfBinaryContentId.h"
+#include "QXmppBitsOfBinaryDataList.h"
+#include "QXmppEncryptedFileSource.h"
+#include "QXmppHttpFileSource.h"
 #include "RosterModel.h"
+#include "Algorithms.h"
+
+namespace ranges = std::ranges;
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
@@ -73,6 +85,28 @@ QXmppMessage toQXmppMessage(const Message &msg)
 	q.setStanzaId(msg.stanzaId);
 	q.setReceiptRequested(msg.receiptRequested);
 	q.setE2eeMetadata(e2ee);
+
+	// attached files
+	q.setSharedFiles(transform(msg.files, [](const File &file) {
+		return file.toQXmpp();
+	}));
+
+	// attach data for thumbnails
+	q.setBitsOfBinaryData(transform(msg.files, [](const File &file) {
+		return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
+	}));
+
+	// compat for clients without Stateless File Sharing
+	q.setOutOfBandUrls(transformFilter(msg.files, [](const File &file) -> std::optional<QXmppOutOfBandUrl> {
+		if (file.httpSources.empty()) {
+			return {};
+		}
+
+		QXmppOutOfBandUrl data;
+		data.setUrl(file.httpSources.front().url.toString());
+		data.setDescription(file.description.value_or(QString()));
+		return data;
+	}));
 
 	return q;
 }
@@ -194,6 +228,78 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		message.senderKey = e2eeMetadata->senderKey();
 	}
 
+	if (const auto sharedFiles = msg.sharedFiles(); !sharedFiles.empty()) {
+		message.fileGroupId = QRandomGenerator::system()->generate64();
+		message.files = transform(sharedFiles, [msg, fgid = message.fileGroupId](const QXmppFileShare &file) {
+			auto fileId = qint64(QRandomGenerator::system()->generate64());
+			return File {
+				.id = fileId,
+				.fileGroupId = fgid.value(),
+				.name = file.metadata().filename(),
+				.description = file.metadata().description().value_or(QString()),
+				.mimeType = file.metadata().mediaType().value_or(QMimeType()),
+				.size = file.metadata().size(),
+				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
+				.disposition = file.disposition(),
+				.localFilePath = {},
+				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
+					return FileHash {
+						.dataId = fileId,
+						.hashType = hash.algorithm(),
+						.hashValue = hash.hash()
+					};
+				}),
+				.thumbnail = [&]() {
+					const auto &bobData = msg.bitsOfBinaryData();
+					if (!file.metadata().thumbnails().empty()) {
+						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
+						const auto *thumbnailData = ranges::find_if(bobData, [&](auto bobBlob) {
+							return bobBlob.cid() == cid;
+						});
+
+						if (thumbnailData != bobData.cend()) {
+							return thumbnailData->data();
+						}
+					}
+					return QByteArray();
+				}(),
+				.httpSources = transform(file.httpSources(), [&](const auto &source) {
+					return HttpSource { fileId, source.url() };
+				}),
+				.encryptedSources = transformFilter(file.encryptedSources(), [&](const QXmppEncryptedFileSource &source) -> std::optional<EncryptedSource> {
+					if (source.httpSources().empty()) {
+						return {};
+					}
+					std::optional<qint64> encryptedDataId;
+					if (!source.hashes().empty()) {
+						encryptedDataId = QRandomGenerator::system()->generate64();
+					}
+					return EncryptedSource {
+						fileId,
+						source.httpSources().front().url(),
+						source.cipher(),
+						source.key(),
+						source.iv(),
+						encryptedDataId,
+						transform(source.hashes(), [&](const QXmppHash &h) {
+							return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
+						})
+					};
+				}),
+			};
+		});
+	} else if (auto urls = msg.outOfBandUrls(); !urls.isEmpty()) {
+		const qint64 fileGroupId = QRandomGenerator::system()->generate64();
+		message.files = transformFilter(urls, [&](auto &file) {
+			return MessageHandler::parseOobUrl(file, fileGroupId);
+		});
+
+		// don't set file group id if there are no files
+		if (!message.files.empty()) {
+			message.fileGroupId = fileGroupId;
+		}
+	}
+
 	if (auto encryptionName = msg.encryptionName();
 			!encryptionName.isEmpty() && message.encryption == Encryption::NoEncryption) {
 		message.body = tr("This message is encrypted with %1 but could not be decrypted").arg(encryptionName);
@@ -206,19 +312,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 
 	message.isSpoiler = msg.isSpoiler();
 	message.spoilerHint = msg.spoilerHint();
-//	message.outOfBandUrl = msg.outOfBandUrl();
 	message.stanzaId = msg.stanzaId();
 	message.originId = msg.originId();
 	message.isMarkable = msg.isMarkable();
-
-	// check if message contains a link and also check out of band url
-	if (!parseMediaUri(message, msg.outOfBandUrl(), false)) {
-		const QStringList bodyWords = message.body.split(u' ');
-		for (const QString &word : bodyWords) {
-			if (parseMediaUri(message, word, true))
-				break;
-		}
-	}
 
 	// get possible delay (timestamp)
 	message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
@@ -259,13 +355,6 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.stamp = QDateTime::currentDateTimeUtc();
 	msg.isSpoiler = isSpoiler;
 	msg.spoilerHint = spoilerHint;
-
-	// process links from the body
-	const QStringList words = body.split(u' ');
-	for (const auto &word : words) {
-		if (parseMediaUri(msg, word, true))
-			break;
-	}
 
 	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	sendPendingMessage(std::move(msg));
@@ -358,45 +447,42 @@ void MessageHandler::sendPendingMessage(Message message)
 	}
 }
 
-bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool isBodyPart)
+std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId)
 {
-	if (!MediaUtils::isHttp(uri) && !MediaUtils::isGeoLocation(uri)) {
-		return false;
+	if (!MediaUtils::isHttp(url.url())) {
+		return {};
 	}
 
-	// check message type by file name in link
-	// This is hacky, but needed without SIMS or an additional HTTP request.
-	// Also, this can be useful when a user manually posts an HTTP url.
-	const QUrl url(uri);
-	const QMimeType mimeType = MediaUtils::mimeType(url);
-	const MessageType messageType = MediaUtils::messageType(mimeType);
+	// TODO: consider doing a HEAD request to fill in the remaining metadata
 
-	switch (messageType) {
-	case MessageType::MessageText:
-	case MessageType::MessageUnknown:
-		break;
-	case MessageType::MessageFile:
-		// Random files could be anything and could also include any website. We
-		// want to avoid random links to be recognized as 'file'. Intentionally
-		// sent files should be displayed of course.
-		if (isBodyPart)
-			break;
-		[[fallthrough]];
-	case MessageType::MessageGeoLocation:
-//		message.mediaLocation = url.toEncoded();
-		[[fallthrough]];
-	case MessageType::MessageImage:
-	case MessageType::MessageAudio:
-	case MessageType::MessageVideo:
-	case MessageType::MessageDocument:
-//		message.outOfBandUrl = url.toEncoded();
-//		message.mediaType = messageType;
-//		message.mediaContentType = mimeType.name();
-//		message.outOfBandUrl = url.toEncoded();
-		return true;
-	}
+	const auto name = QUrl(url.url()).fileName();
+	const auto id = static_cast<qint64>(QRandomGenerator::system()->generate64());
+	return File {
+		.id = id,
+		.fileGroupId = fileGroupId,
+		.name = name,
+		.description = url.description(),
+		.mimeType = [&name] {
+			const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
+			if (possibleMimeTypes.empty()) {
+				return MediaUtils::mimeDatabase().mimeTypeForName("application/octet-stream");
+			}
 
-	return false;
+			return possibleMimeTypes.front();
+		}(),
+		.size = {},
+		.lastModified = {},
+		.localFilePath = {},
+		.hashes = {},
+		.thumbnail = {},
+		.httpSources = {
+			HttpSource {
+				.fileId = id,
+				.url = url.url()
+			}
+		},
+		.encryptedSources = {}
+	};
 }
 
 void MessageHandler::sendReadMarker(const QString &chatJid, const QString &messageId)

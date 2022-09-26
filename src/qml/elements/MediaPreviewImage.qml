@@ -39,13 +39,11 @@ import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.12 as Kirigami
 
 MediaPreview {
-	id: root
-
 	Layout.preferredHeight: message ? messageSize : Kirigami.Units.gridUnit * 18
 	Layout.preferredWidth: Kirigami.Units.gridUnit * 32
 	Layout.maximumWidth: message ? messageSize : -1
 
-	RoundedImage {
+	Image {
 		id: image
 
 		fillMode: Image.PreserveAspectFit

@@ -5,8 +5,24 @@
 #include "MessageComposition.h"
 #include "MessageHandler.h"
 #include "Kaidan.h"
+#include "FileSharingController.h"
+#include "Algorithms.h"
+#include "AccountManager.h"
+#include "MessageModel.h"
+#include "MediaUtils.h"
+
+#include <QMimeDatabase>
+#include <QFileDialog>
+
+#include <KIO/PreviewJob>
+#include <KFileItem>
+
+namespace ranges = std::ranges;
+
+constexpr auto THUMBNAIL_SIZE = 200;
 
 MessageComposition::MessageComposition()
+	: m_fileSelectionModel(new FileSelectionModel(this))
 {
 }
 
@@ -54,6 +70,187 @@ void MessageComposition::send()
 {
 	Q_ASSERT(!m_account.isNull());
 	Q_ASSERT(!m_to.isNull());
-	emit Kaidan::instance()->client()->messageHandler()->sendMessageRequested(m_to, m_body, m_spoiler, m_spoilerHint);
+
+	if (m_fileSelectionModel->hasFiles()) {
+		Message message;
+		message.to = m_to;
+		message.from = AccountManager::instance()->jid();
+		message.body = m_body;
+		message.files = m_fileSelectionModel->files();
+
+		bool encrypt = MessageModel::instance()->activeEncryption() != Encryption::NoEncryption;
+		Kaidan::instance()->fileSharingController()->sendMessage(std::move(message), encrypt);
+		m_fileSelectionModel->clear();
+	} else {
+		emit Kaidan::instance()
+			->client()
+			->messageHandler()
+			->sendMessageRequested(m_to, m_body, m_spoiler, m_spoilerHint);
+	}
+
 	setSpoiler(false);
+}
+
+FileSelectionModel::FileSelectionModel(QObject *parent)
+	: QAbstractListModel(parent)
+{
+}
+
+FileSelectionModel::~FileSelectionModel() = default;
+
+QHash<int, QByteArray> FileSelectionModel::roleNames() const
+{
+	static const QHash<int, QByteArray> roles {
+		{ Filename, QByteArrayLiteral("fileName") },
+		{ Thumbnail, QByteArrayLiteral("thumbnail") },
+		{ Description, QByteArrayLiteral("description") },
+		{ FileSize, QByteArrayLiteral("fileSize") }
+	};
+	return roles;
+}
+
+int FileSelectionModel::rowCount(const QModelIndex &parent) const
+{
+	if (parent.isValid()) {
+		return 0;
+	}
+	return m_files.size();
+}
+
+QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
+{
+	if (!hasIndex(index.row(), index.column(), index.parent())) {
+		return {};
+	}
+
+	const auto &file = m_files.at(index.row());
+	switch (role) {
+	case Filename:
+		return QUrl::fromLocalFile(file.localFilePath).fileName();
+	case Description:
+		if (file.description) {
+			return *file.description;
+		}
+		return QString();
+	case Thumbnail:
+		if (!file.thumbnail.isNull()) {
+			return QImage::fromData(file.thumbnail);
+		}
+		return file.mimeType.iconName();
+	case FileSize:
+		if (file.size) {
+			return QLocale::system().formattedDataSize(*file.size);
+		}
+		return tr("Unknown size");
+	}
+	return {};
+}
+
+void FileSelectionModel::selectFile()
+{
+	auto *dialog = new QFileDialog();
+	dialog->QObject::setParent(this);
+	dialog->setFileMode(QFileDialog::ExistingFiles);
+
+	connect(dialog, &QFileDialog::filesSelected, this, [this, dialog]() {
+		Q_EMIT selectFileFinished();
+
+		const auto files = dialog->selectedFiles();
+		for (const auto &file : files) {
+			addFile(QUrl::fromLocalFile(file));
+		}
+	});
+	connect(dialog, &QDialog::finished, this, [dialog](auto) {
+		dialog->deleteLater();
+	});
+
+	dialog->open();
+}
+
+void FileSelectionModel::addFile(const QUrl &localFilePath)
+{
+	auto localPath = localFilePath.toLocalFile();
+
+	bool alreadyAdded = containsIf(m_files, [=](const auto &file) {
+		return file.localFilePath == localPath;
+	});
+
+	if (alreadyAdded) {
+		return;
+	}
+
+	Q_ASSERT(localFilePath.isLocalFile());
+	File file;
+	file.localFilePath = localPath;
+	file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
+	file.size = QFileInfo(localPath).size();
+
+	generateThumbnail(file);
+
+	beginInsertRows({}, m_files.size(), m_files.size());
+	m_files.push_back(std::move(file));
+	endInsertRows();
+}
+
+void FileSelectionModel::removeFile(int index)
+{
+	beginRemoveRows({}, index, index);
+	m_files.erase(m_files.begin() + index);
+	endRemoveRows();
+}
+
+void FileSelectionModel::clear()
+{
+	beginResetModel();
+	m_files.clear();
+	endResetModel();
+}
+
+bool FileSelectionModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+	auto &file = m_files[index.row()];
+
+	switch (role) {
+	case Description:
+		file.description = value.toString();
+		break;
+	default:
+		return false;
+	}
+
+	return true;
+}
+
+void FileSelectionModel::generateThumbnail(const File &file)
+{
+	static auto allPlugins = KIO::PreviewJob::availablePlugins();
+	KFileItemList items {
+		KFileItem {
+			QUrl::fromLocalFile(file.localFilePath),
+			QMimeDatabase().mimeTypeForFile(file.localFilePath).name(),
+		}
+	};
+	auto *job = new KIO::PreviewJob(items, QSize(THUMBNAIL_SIZE, THUMBNAIL_SIZE), &allPlugins);
+	job->setAutoDelete(true);
+
+	connect(job, &KIO::PreviewJob::gotPreview, this, [this](const KFileItem &item, const QPixmap &preview) {
+		auto *file = std::ranges::find_if(m_files, [&](const auto &file) {
+			return file.localFilePath == item.localPath();
+		});
+
+		if (file != m_files.cend()) {
+			file->thumbnail = MediaUtils::encodeImageThumbnail(preview);
+			int i = std::distance(m_files.begin(), file);
+			Q_EMIT dataChanged(index(i), index(i), { Thumbnail });
+		}
+	});
+	connect(job, &KIO::PreviewJob::failed, this, [](const KFileItem &item) {
+		qDebug() << "Could not generate a thumbnail for" << item.url();
+	});
+	job->start();
+}
+
+const QVector<File> &FileSelectionModel::files() const
+{
+	return m_files;
 }

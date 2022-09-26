@@ -151,10 +151,13 @@ QString QmlUtils::fileNameFromUrl(const QUrl &url)
 	return QUrl(url).fileName();
 }
 
-QString QmlUtils::fileSizeFromUrl(const QUrl &url)
+QString QmlUtils::formattedDataSize(qint64 fileSize)
 {
-	return QLocale::system().formattedDataSize(
-	            QFileInfo(QUrl(url).toLocalFile()).size());
+	if (fileSize < 0) {
+		return tr("Unknown size");
+	}
+
+	return QLocale::system().formattedDataSize(fileSize);
 }
 
 QString QmlUtils::formatMessage(const QString &message)

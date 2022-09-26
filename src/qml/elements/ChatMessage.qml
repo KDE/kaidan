@@ -54,9 +54,6 @@ ColumnLayout {
 	property date dateTime
 	property int deliveryState: Enums.DeliveryState.Delivered
 	property bool isLastRead
-	property int mediaType
-	property string mediaGetUrl
-	property string mediaLocation
 	property bool edited
 	property bool isSpoiler
 	property string spoilerHint
@@ -65,6 +62,7 @@ ColumnLayout {
 	property alias bodyLabel: bodyLabel
 	property string deliveryStateName
 	property url deliveryStateIcon
+	property var files;
 	property bool isGroupBegin: {
 		return modelIndex < 1 ||
 			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
@@ -75,11 +73,6 @@ ColumnLayout {
 
 	width: ListView.view.width
 	height: implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
-
-	FileProgressWatcher {
-		id: transferWatcher
-		messageId: msgId
-	}
 
 	RowLayout {
 		// Own messages are on the right, others on the left side.
@@ -207,32 +200,29 @@ ColumnLayout {
 						}
 					}
 
-					MediaPreviewLoader {
-						id: media
+					Repeater {
+						model: root.files
 
-						mediaSource: {
-							switch (root.mediaType) {
-							case Enums.MessageType.MessageUnknown:
-							case Enums.MessageType.MessageText:
-								break
-							case Enums.MessageType.MessageGeoLocation:
-								return root.mediaLocation
-							case Enums.MessageType.MessageImage:
-							case Enums.MessageType.MessageAudio:
-							case Enums.MessageType.MessageVideo:
-							case Enums.MessageType.MessageFile:
-							case Enums.MessageType.MessageDocument:
-								const localFile = root.mediaLocation !== ''
-												? MediaUtilsInstance.fromLocalFile(root.mediaLocation)
-												: ''
-								return MediaUtilsInstance.localFileAvailable(localFile) ? localFile : root.mediaGetUrl
+						Layout.preferredWidth: 200
+						Layout.preferredHeight: 200
+
+						delegate: MediaPreviewOther {
+							required property var modelData
+
+							messageId: root.msgId
+
+							mediaSource: {
+								if (modelData.localFilePath) {
+									var local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
+									if (MediaUtilsInstance.localFileAvailable(local)) {
+										return local;
+									}
+								}
+								return "";
 							}
-
-							return ''
+							message: root
+							file: modelData
 						}
-						mediaSourceType: root.mediaType
-						showOpenButton: true
-						message: root
 					}
 
 					// message body
@@ -244,9 +234,7 @@ ColumnLayout {
 						wrapMode: Text.Wrap
 						color: Kirigami.Theme.textColor
 						onLinkActivated: Qt.openUrlExternally(link)
-						Layout.maximumWidth: media.enabled
-											? media.width
-											: root.width - Kirigami.Units.gridUnit * 6
+						Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
 					}
 					Kirigami.Separator {
 						visible: isSpoiler && isShowingSpoiler
@@ -291,15 +279,6 @@ ColumnLayout {
 					color: Kirigami.Theme.disabledTextColor
 					font.pixelSize: Kirigami.Units.gridUnit * 0.8
 				}
-
-				// progress bar for upload/download status
-				Controls.ProgressBar {
-					visible: transferWatcher.isLoading
-					value: transferWatcher.progress
-
-					Layout.fillWidth: true
-					Layout.maximumWidth: Kirigami.Units.gridUnit * 14
-				}
 			}
 		}
 
@@ -324,6 +303,7 @@ ColumnLayout {
 	 */
 	function showContextMenu() {
 		if (contextMenu) {
+			contextMenu.file = null
 			contextMenu.message = this
 			contextMenu.popup()
 		}

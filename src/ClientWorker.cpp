@@ -32,11 +32,17 @@
 // Qt
 #include <QGuiApplication>
 #include <QSettings>
+#include <QNetworkAccessManager>
 // QXmpp
 #include <QXmppCarbonManagerV2.h>
 #include <QXmppMamManager.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppUtils.h>
+#include <QXmppFileSharingManager.h>
+#include <QXmppHttpFileSharingProvider.h>
+#include <QXmppEncryptedHttpFileSharingProvider.h>
+#include <QXmppHttpUploadManager.h>
+#include <QXmppUploadRequestManager.h>
 // Kaidan
 #include "AccountManager.h"
 #include "AtmManager.h"
@@ -60,6 +66,7 @@
 #include "VCardManager.h"
 #include "VersionManager.h"
 #include "Settings.h"
+#include "MediaUtils.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
 	: settings(new Settings(parent)),
@@ -78,11 +85,14 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	  m_caches(caches),
 	  m_client(new QXmppClient(this)),
 	  m_logger(new LogHandler(m_client, enableLogging, this)),
-	  m_enableLogging(enableLogging)
+	  m_enableLogging(enableLogging),
+	  m_networkManager(new QNetworkAccessManager(this))
 {
 	m_client->addNewExtension<QXmppCarbonManagerV2>();
 	m_client->addExtension(new QXmppMamManager);
 	m_client->addExtension(new QXmppPubSubManager);
+	m_client->addNewExtension<QXmppUploadRequestManager>();
+	m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
@@ -94,6 +104,14 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_uploadManager = new UploadManager(m_client, m_rosterManager, this);
 	m_downloadManager = new DownloadManager(caches->transferCache, this);
 	m_versionManager = new VersionManager(m_client, this);
+
+	// file sharing manager
+	m_fileSharingManager = new QXmppFileSharingManager();
+	m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
+	m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(m_client, m_networkManager);
+	m_encryptedProvider = std::make_shared<QXmppEncryptedHttpFileSharingProvider>(m_client, m_networkManager);
+	m_fileSharingManager->registerProvider(m_httpProvider);
+	m_fileSharingManager->registerProvider(m_encryptedProvider);
 
 	connect(m_client, &QXmppClient::connected, this, &ClientWorker::onConnected);
 	connect(m_client, &QXmppClient::disconnected, this, &ClientWorker::onDisconnected);

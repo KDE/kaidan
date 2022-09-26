@@ -28,33 +28,33 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * This element is used in the @see SendMediaSheet to display information about a selected file to
- * the user. It shows the file name, file size and a little file icon.
- */
+#pragma once
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
-import org.kde.kirigami 2.12 as Kirigami
+#include <QObject>
+#include <QFuture>
 
-import im.kaidan.kaidan 1.0
+#include <QXmppUpload.h>
 
-Rectangle {
-	id: root
+#include <memory>
 
-	property url mediaSource
-	property int mediaSourceType: Enums.MessageType.MessageUnknown
-	property int messageSize: Kirigami.Units.gridUnit * 14
-	property QtObject message
-	property QtObject mediaSheet
+struct File;
+class QXmppFileSharingManager;
+class QXmppHttpFileSharingProvider;
+class Message;
+class QXmppClient;
 
-	color: message ? 'transparent' : Kirigami.Theme.backgroundColor
+class FileSharingController : public QObject
+{
+	Q_OBJECT
+public:
+	using UploadResult = std::tuple<qint64, QXmppUpload::Result>;
 
-	Layout.fillHeight: false
-	Layout.fillWidth: message ? false : true
-	Layout.alignment: Qt.AlignCenter
-	Layout.topMargin: -6
-	Layout.leftMargin: Layout.topMargin
-	Layout.rightMargin: Layout.topMargin
-}
+	explicit FileSharingController(QXmppClient *client);
+
+	void sendMessage(Message &&message, bool encrypt);
+
+	QFuture<UploadResult> sendFile(const File &file, bool encrypt);
+	Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
+
+	Q_SIGNAL void errorOccured(qint64, QXmppError);
+};

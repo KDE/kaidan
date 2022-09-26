@@ -13,16 +13,17 @@ FileProgressWatcher::FileProgressWatcher(QObject *parent)
 
 FileProgressWatcher::~FileProgressWatcher() = default;
 
-QString FileProgressWatcher::messageId() const
+QString FileProgressWatcher::fileId() const
 {
-	return m_key.value_or(QString());
+	return QString::number(m_key.value_or(0));
 }
 
-void FileProgressWatcher::setMessageId(QString mId)
+void FileProgressWatcher::setFileId(const QString &fileId)
 {
-	if (!m_key || (m_key && *m_key != mId)) {
-		setKey(std::move(mId));
-		emit messageIdChanged();
+	qint64 fId = fileId.toLongLong();
+	if (!m_key || (m_key && *m_key != fId)) {
+		setKey(std::move(fId));
+		emit fileIdChanged();
 
 		auto progress = FileProgressCache::instance().progress(*m_key);
 		m_loading = progress.has_value();
@@ -52,25 +53,25 @@ FileProgressCache &FileProgressCache::instance()
 	return cache;
 }
 
-std::optional<FileProgress> FileProgressCache::progress(const QString &messageId)
+std::optional<FileProgress> FileProgressCache::progress(qint64 fileId)
 {
 	std::scoped_lock locker(m_mutex);
-	if (auto itr = m_files.find(messageId); itr != m_files.end()) {
+	if (auto itr = m_files.find(fileId); itr != m_files.end()) {
 		return itr->second;
 	}
 	return {};
 }
 
-void FileProgressCache::reportProgress(const QString &messageId, std::optional<FileProgress> progress)
+void FileProgressCache::reportProgress(qint64 fileId, std::optional<FileProgress> progress)
 {
 	std::scoped_lock locker(m_mutex);
 	if (progress) {
-		m_files.insert_or_assign(messageId, *progress);
+		m_files.insert_or_assign(fileId, *progress);
 	} else {
-		m_files.erase(messageId);
+		m_files.erase(fileId);
 	}
 	// watchers live on main thread
-	QMetaObject::invokeMethod(QCoreApplication::instance(), [messageId, progress] {
-		FileProgressNotifier::instance().notifyWatchers(messageId, progress);
+	QMetaObject::invokeMethod(QCoreApplication::instance(), [fileId, progress] {
+		FileProgressNotifier::instance().notifyWatchers(fileId, progress);
 	});
 }
