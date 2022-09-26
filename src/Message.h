@@ -64,10 +64,10 @@ public:
 	QString from;
 	QString body;
 	QDateTime stamp;
-	bool isSpoiler;
+	bool isSpoiler = false;
 	QString spoilerHint;
-	bool isMarkable;
-	QXmppMessage::Marker marker;
+	bool isMarkable = false;
+	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
 	QString markerId;
 	QString outOfBandUrl;
 	QString replaceId;
