@@ -150,7 +150,7 @@ public:
 	QList<QString> usableOmemoDevices() const;
 	QList<QString> authenticatableOmemoDevices() const;
 
-	Q_INVOKABLE void sendMessage(const QString &body, bool isSpoiler, const QString &spoilerHint);
+	Q_INVOKABLE void resetComposingChatState();
 	Q_INVOKABLE void sendReadMarker(int readMessageIndex);
 
 	Q_INVOKABLE bool canCorrectMessage(int index) const;

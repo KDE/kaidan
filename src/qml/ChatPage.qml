@@ -65,7 +65,6 @@ ChatPageBase {
 
 	property alias sendMediaSheet: sendMediaSheet
 
-	property bool isWritingSpoiler
 	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 
@@ -133,10 +132,10 @@ ChatPageBase {
 			}
 		},
 		Kirigami.Action {
-			visible: !isWritingSpoiler
+			visible: !sendingPane.composition.isSpoiler
 			icon.name: "password-show-off"
 			text: qsTr("Send a spoiler message")
-			onTriggered: isWritingSpoiler = true
+			onTriggered: sendingPane.composition.isSpoiler = true
 		}
 	]
 

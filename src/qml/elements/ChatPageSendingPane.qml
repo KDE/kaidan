@@ -52,13 +52,20 @@ Controls.Pane {
 	property QtObject chatPage
 	property alias messageArea: messageArea
 	property int lastMessageLength: 0
+	readonly property MessageComposition composition: MessageComposition {
+		id: composition
+		account: AccountManager.jid
+		to: MessageModel.currentChatJid
+		body: messageArea.text
+		spoilerHint: spoilerHintField.text
+	}
 
 	ColumnLayout {
 		anchors.fill: parent
 		spacing: 0
 
 		RowLayout {
-			visible: chatPage.isWritingSpoiler
+			visible: composition.isSpoiler
 			spacing: 0
 
 			Controls.TextArea {
@@ -77,14 +84,14 @@ Controls.Pane {
 				flat: true
 
 				onClicked: {
-					chatPage.isWritingSpoiler = false
+					composition.isSpoiler = false
 					spoilerHintField.text = ""
 				}
 			}
 		}
 
 		Kirigami.Separator {
-			visible: chatPage.isWritingSpoiler
+			visible: composition.isSpoiler
 			Layout.fillWidth: true
 			Layout.topMargin: root.padding
 			Layout.bottomMargin: Layout.topMargin
@@ -348,11 +355,7 @@ Controls.Pane {
 
 		// Send the message.
 		if (messageArea.state === "compose") {
-			MessageModel.sendMessage(
-				messageArea.text,
-				chatPage.isWritingSpoiler,
-				spoilerHintField.text
-			)
+			composition.send()
 		} else if (messageArea.state === "edit") {
 			MessageModel.correctMessage(chatPage.messageToCorrect, messageArea.text)
 		}
@@ -407,7 +410,6 @@ Controls.Pane {
 	function clearMessageArea() {
 		messageArea.text = ""
 		spoilerHintField.text = ""
-		chatPage.isWritingSpoiler = false
 		chatPage.messageToCorrect = ''
 		messageArea.state = "compose"
 	}

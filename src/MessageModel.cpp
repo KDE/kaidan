@@ -379,10 +379,8 @@ void MessageModel::setEncryption(Encryption::Enum encryption)
 	emit encryptionChanged();
 }
 
-void MessageModel::sendMessage(const QString &body, bool isSpoiler, const QString &spoilerHint)
+void MessageModel::resetComposingChatState()
 {
-	emit Kaidan::instance()->client()->messageHandler()->sendMessageRequested(m_currentChatJid, body, isSpoiler, spoilerHint);
-
 	m_composingTimer->stop();
 	m_stateTimeoutTimer->stop();
 

@@ -69,6 +69,7 @@
 #include "MediaUtils.h"
 #include "MediaRecorder.h"
 #include "Message.h"
+#include "MessageComposition.h"
 #include "MessageModel.h"
 #include "MessageHandler.h"
 #include "OmemoManager.h"
@@ -406,6 +407,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
 	qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
 	qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
+	qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
 	qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
 	qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
 	qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
