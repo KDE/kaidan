@@ -359,6 +359,7 @@ Controls.Pane {
 		} else if (messageArea.state === "edit") {
 			MessageModel.correctMessage(chatPage.messageToCorrect, messageArea.text)
 		}
+		MessageModel.resetComposingChatState();
 
 		clearMessageArea()
 

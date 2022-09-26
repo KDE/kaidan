@@ -702,11 +702,6 @@ void MessageModel::sendChatState(ChatState::State state)
 
 void MessageModel::correctMessage(const QString &msgId, const QString &message)
 {
-	// Reset composing chat state
-	m_composingTimer->stop();
-	m_stateTimeoutTimer->stop();
-	sendChatState(QXmppMessage::State::Active);
-
 	const auto hasCorrectId = [&msgId](const Message& msg) {
 		return msg.id == msgId;
 	};
