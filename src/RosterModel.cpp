@@ -109,6 +109,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[LastExchangedRole] = "lastExchanged";
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
+	roles[PinnedRole] = "pinned";
 	return roles;
 }
 
@@ -130,6 +131,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).unreadMessages;
 	case LastMessageRole:
 		return m_items.at(index.row()).lastMessage;
+	case PinnedRole:
+		return m_items.at(index.row()).pinningPosition >= 0;
 	}
 	return {};
 }
@@ -307,6 +310,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.lastReadOwnMessageId = oldItem->lastReadOwnMessageId;
 			item.lastReadContactMessageId = oldItem->lastReadContactMessageId;
 			item.encryption = oldItem->encryption;
+			item.pinningPosition = oldItem->pinningPosition;
 		}
 
 		newItems << item;
@@ -314,6 +318,33 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 
 	// replace all items
 	handleItemsFetched(newItems);
+}
+
+void RosterModel::pinItem(const QString &, const QString &jid)
+{
+	emit updateItemRequested(jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
+		item.pinningPosition = highestPinningPosition + 1;
+	});
+}
+
+void RosterModel::unpinItem(const QString &, const QString &jid)
+{
+	if (const auto itemBeingUnpinned = findItem(jid)) {
+		for (const auto &item : std::as_const(m_items))	{
+			// Decrease the pinning position of the pinned items with higher pinning positions than
+			// the pinning position of the item being pinned.
+			if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
+				emit updateItemRequested(jid, [pinningPosition = item.pinningPosition](RosterItem &item) {
+					item.pinningPosition = pinningPosition - 1;
+				});
+			}
+		}
+
+		// Reset the pinning position of the item being unpinned.
+		emit updateItemRequested(jid, [](RosterItem &item) {
+			item.pinningPosition = -1;
+		});
+	}
 }
 
 void RosterModel::removeItems(const QString &accountJid, const QString &jid)
@@ -406,28 +437,41 @@ void RosterModel::insertItem(int index, const RosterItem &item)
 	RosterItemNotifier::instance().notifyWatchers(item.jid, item);
 }
 
-int RosterModel::updateItemPosition(int currentPosition)
+void RosterModel::updateItemPosition(int currentPosition)
 {
-	const int newPosition = positionToInsert(m_items.at(currentPosition));
+	int newPosition = positionToInsert(m_items.at(currentPosition), currentPosition);
 	if (currentPosition == newPosition)
-		return currentPosition;
+		return;
 
 	beginMoveRows(QModelIndex(), currentPosition, currentPosition, QModelIndex(), newPosition);
-	m_items.move(currentPosition, newPosition);
-	endMoveRows();
 
-	return newPosition;
+	// Cover both cases:
+	// 1. Moving to a higher index
+	// 2. Moving to a lower index
+	if (currentPosition < newPosition) {
+		m_items.move(currentPosition, newPosition - 1);
+	} else {
+		m_items.move(currentPosition, newPosition);
+	}
+
+	endMoveRows();
 }
 
-int RosterModel::positionToInsert(const RosterItem &item)
+int RosterModel::positionToInsert(const RosterItem &item, int skippedIndex)
 {
-	// prepend the item, if no timestamp is set
-	if (item.lastExchanged.isNull())
-		return 0;
-
 	for (int i = 0; i < m_items.size(); i++) {
-		if (item <= m_items.at(i))
-			return i;
+		// In some cases, it is needed to skip the item that is being positioned.
+		// Especially, when the item is at the beginning or at the end of the list, it must not
+		// be compared to itself in order to find the correct position.
+		if (skippedIndex != i) {
+			if (item <= m_items.at(i)) {
+				if (i == skippedIndex + 1) {
+					return skippedIndex;
+				}
+
+				return i;
+			}
+		}
 	}
 
 	// append

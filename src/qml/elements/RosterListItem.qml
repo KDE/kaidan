@@ -41,6 +41,8 @@ UserListItem {
 
 	property string lastMessage
 	property int unreadMessages
+	property bool pinned
+	property Controls.Menu contextMenu
 
 	isSelected: {
 		return !Kirigami.Settings.isMobile &&
@@ -90,6 +92,14 @@ UserListItem {
 		jid: root.jid
 	}
 
+	// right: icon for pinned chat
+	Kirigami.Icon {
+		source: "window-pin-symbolic"
+		width: 16
+		height: 16
+		visible: pinned
+	}
+
 	// right: unread message counter
 	MessageCounter {
 		id: counter
@@ -97,5 +107,26 @@ UserListItem {
 		muted: mutedWatcher.muted
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
+	}
+
+	MouseArea {
+		parent: root
+		anchors.fill: parent
+		acceptedButtons: Qt.RightButton
+
+		onClicked: {
+			if (mouse.button === Qt.RightButton) {
+				showContextMenu()
+			}
+		}
+
+		onPressAndHold: showContextMenu()
+	}
+
+	function showContextMenu() {
+		if (contextMenu) {
+			contextMenu.item = this
+			contextMenu.popup()
+		}
 	}
 }

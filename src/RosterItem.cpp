@@ -46,28 +46,44 @@ bool RosterItem::operator!=(const RosterItem &other) const = default;
 
 bool RosterItem::operator<(const RosterItem &other) const
 {
-	if (lastExchanged != other.lastExchanged)
-		return lastExchanged > other.lastExchanged;
-	return displayName().toUpper() < other.displayName().toUpper();
+	if (pinningPosition == -1 && other.pinningPosition == -1) {
+		if (lastExchanged != other.lastExchanged) {
+			return lastExchanged > other.lastExchanged;
+		}
+		return displayName().toUpper() < other.displayName().toUpper();
+	}
+	return pinningPosition > other.pinningPosition;
 }
 
 bool RosterItem::operator>(const RosterItem &other) const
 {
-	if (lastExchanged != other.lastExchanged)
-		return lastExchanged < other.lastExchanged;
-	return displayName().toUpper() > other.displayName().toUpper();
+	if (pinningPosition == -1 && other.pinningPosition == -1) {
+		if (lastExchanged != other.lastExchanged) {
+			return lastExchanged < other.lastExchanged;
+		}
+		return displayName().toUpper() > other.displayName().toUpper();
+	}
+	return pinningPosition < other.pinningPosition;
 }
 
 bool RosterItem::operator<=(const RosterItem &other) const
 {
-	if (lastExchanged != other.lastExchanged)
-		return lastExchanged >= other.lastExchanged;
-	return displayName().toUpper() <= other.displayName().toUpper();
+	if (pinningPosition == -1 && other.pinningPosition == -1) {
+		if (lastExchanged != other.lastExchanged) {
+			return lastExchanged >= other.lastExchanged;
+		}
+		return displayName().toUpper() <= other.displayName().toUpper();
+	}
+	return pinningPosition >= other.pinningPosition;
 }
 
 bool RosterItem::operator>=(const RosterItem &other) const
 {
-	if (lastExchanged != other.lastExchanged)
-		return lastExchanged <= other.lastExchanged;
-	return displayName().toUpper() >= other.displayName().toUpper();
+	if (pinningPosition == -1 && other.pinningPosition == -1) {
+		if (lastExchanged != other.lastExchanged) {
+			return lastExchanged <= other.lastExchanged;
+		}
+		return displayName().toUpper() >= other.displayName().toUpper();
+	}
+	return pinningPosition <= other.pinningPosition;
 }

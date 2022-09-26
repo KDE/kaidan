@@ -105,13 +105,19 @@ Kirigami.ScrollablePage {
 			sourceModel: RosterModel
 		}
 
+		RosterListItemContextMenu {
+			id: itemContextMenu
+		}
+
 		delegate: RosterListItem {
 			id: rosterItem
 			accountJid: AccountManager.jid
+			contextMenu: itemContextMenu
 			jid: model.jid
 			name: model.name ? model.name : model.jid
 			lastMessage: model.lastMessage
 			unreadMessages: model.unreadMessages
+			pinned: model.pinned
 
 			onClicked: {
 				// Open the chatPage only if it is not yet open.

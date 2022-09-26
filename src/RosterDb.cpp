@@ -73,6 +73,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxLastReadOwnMessageId = rec.indexOf("lastReadOwnMessageId");
 	int idxLastReadContactMessageId = rec.indexOf("lastReadContactMessageId");
 	int idxReadMarkerPending = rec.indexOf("readMarkerPending");
+	int idxPinningPosition = rec.indexOf("pinningPosition");
 
 	while (query.next()) {
 		RosterItem item;
@@ -84,6 +85,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
 		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
 		item.readMarkerPending = query.value(idxReadMarkerPending).toBool();
+		item.pinningPosition = query.value(idxPinningPosition).toInt();
 
 		items << std::move(item);
 	}
@@ -111,6 +113,8 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("lastReadContactMessageId", newItem.lastReadContactMessageId));
 	if (oldItem.readMarkerPending != newItem.readMarkerPending)
 		rec.append(createSqlField("readMarkerPending", newItem.readMarkerPending));
+	if(oldItem.pinningPosition != newItem.pinningPosition)
+		rec.append(createSqlField("pinningPosition", newItem.pinningPosition));
 	return rec;
 }
 
@@ -143,6 +147,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(QString()); // lastReadOwnMessageId
 			query.addBindValue(QString()); // lastReadContactMessageId
 			query.addBindValue(item.readMarkerPending);
+			query.addBindValue(item.pinningPosition);
 			execQuery(query);
 		}
 

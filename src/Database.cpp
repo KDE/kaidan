@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 20
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(20)
+#define DATABASE_LATEST_VERSION 21
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(21)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -375,7 +375,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(lastMessage, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
-			SQL_LAST_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)
 		)
 	);
 
@@ -1048,4 +1049,12 @@ void Database::convertDatabaseToV20()
 	QSqlQuery query(currentDatabase());
 	execQuery(query, "ALTER TABLE Roster ADD readMarkerPending " SQL_BOOL);
 	d->version = 20;
+}
+
+void Database::convertDatabaseToV21()
+{
+	DATABASE_CONVERT_TO_VERSION(20);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD pinningPosition " SQL_INTEGER);
+	d->version = 21;
 }

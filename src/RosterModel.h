@@ -55,6 +55,7 @@ public:
 		LastExchangedRole,
 		UnreadMessagesRole,
 		LastMessageRole,
+		PinnedRole,
 	};
 
 	/**
@@ -121,6 +122,9 @@ public:
 	 */
 	std::optional<RosterItem> findItem(const QString &jid) const;
 
+	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
+	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
+
 signals:
 	void addItemRequested(const RosterItem &item);
 	void removeItemRequested(const QString &jid);
@@ -162,8 +166,8 @@ private slots:
 
 private:
 	void insertItem(int index, const RosterItem &item);
-	int updateItemPosition(int currentIndex);
-	int positionToInsert(const RosterItem &item);
+	void updateItemPosition(int currentIndex);
+	int positionToInsert(const RosterItem &item, int skippedIndex = -1);
 
 	QVector<RosterItem> m_items;
 

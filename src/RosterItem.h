@@ -90,6 +90,12 @@ public:
 
 	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
 	bool readMarkerPending = false;
+
+	// Position within the pinned items.
+	// The higher the number, the higher the item is at the top of the pinned items.
+	// The first pinned item has the position 0.
+	// -1 is used for unpinned items.
+	int pinningPosition = -1;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

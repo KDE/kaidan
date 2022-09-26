@@ -104,7 +104,7 @@ void RosterManager::populateRoster()
 	// create a new list of contacts
 	QHash<QString, RosterItem> items;
 	const QStringList bareJids = m_manager->getRosterBareJids();
-	const auto initialTime = QDateTime::fromMSecsSinceEpoch(0);
+	const auto initialTime = QDateTime::currentDateTimeUtc();
 	for (const auto &jid : bareJids) {
 		items.insert(jid, RosterItem(m_manager->getRosterEntry(jid), initialTime));
 
