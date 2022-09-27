@@ -31,15 +31,78 @@
 #pragma once
 
 #include <algorithm>
+#include <optional>
 
 #include <QVector>
 
 template<typename T, typename Converter>
-auto transform(T &input, Converter convert)
+auto transform(const T &input, Converter convert)
 {
 	using Output = std::decay_t<decltype(convert(input.front()))>;
 	QVector<Output> output;
 	output.reserve(input.size());
 	std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+	return output;
+}
+
+template<typename T, typename Condition>
+auto filter(T &&input, Condition condition)
+{
+	auto it = std::remove_if(input.begin(), input.end(), [condition = std::move(condition)](const auto &item) {
+		return !condition(item);
+	});
+
+	input.erase(it, input.end());
+
+	return input;
+}
+
+template<typename T, typename ConditionalConverter>
+auto transformFilter(const T &input, ConditionalConverter conditionalConverter)
+{
+	using Output = std::decay_t<decltype(convert(input.front()))>;
+	QVector<Output> output;
+
+	for (const auto &item : input) {
+		if (auto result = conditionalConverter(item)) {
+			output.push_back(std::move(*result));
+		}
+	}
+
+	return output;
+}
+
+template <typename T, typename Func>
+auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T> {
+	if (option) {
+		return func(*option);
+	} else {
+		return {};
+	}
+}
+
+template <typename T, typename Func>
+auto sum(const QVector<T> &input)
+{
+	using Output = std::decay_t<decltype(convert(input.front()))>;
+	Output output;
+
+	for (const auto &list : input) {
+		output += list;
+	}
+
+	return output;
+}
+
+template<typename T, typename Converter>
+auto transformSum(const T &input, Converter convert)
+{
+	using Output = std::decay_t<decltype(convert(input.front()))>;
+	Output output;
+
+	for (const auto &item : input) {
+		output += convert(item);
+	}
+
 	return output;
 }
