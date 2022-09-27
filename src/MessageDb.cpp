@@ -65,11 +65,13 @@ MessageDb *MessageDb::instance()
 	return s_instance;
 }
 
-void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
+QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 {
+	QVector<Message> messages;
+
 	// get indexes of attributes
 	QSqlRecord rec = query.record();
-	int idxFrom = rec.indexOf("author");
+	int idxFrom = rec.indexOf("sender");
 	int idxTo = rec.indexOf("recipient");
 	int idxStamp = rec.indexOf("timestamp");
 	int idxId = rec.indexOf("id");
@@ -78,13 +80,9 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 	int idxBody = rec.indexOf("message");
 	int idxDeliveryState = rec.indexOf("deliveryState");
 	int idxIsMarkable = rec.indexOf("isMarkable");
-	int idxMediaType = rec.indexOf("type");
 	int idxOutOfBandUrl = rec.indexOf("mediaUrl");
-	int idxMediaContentType = rec.indexOf("mediaContentType");
 	int idxMediaLocation = rec.indexOf("mediaLocation");
-	int idxMediaSize = rec.indexOf("mediaSize");
-	int idxMediaLastModified = rec.indexOf("mediaLastModified");
-	int idxIsEdited = rec.indexOf("edited");
+	int idxIsEdited = rec.indexOf("isEdited");
 	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxIsSpoiler = rec.indexOf("isSpoiler");
 	int idxErrorText = rec.indexOf("errorText");
@@ -106,14 +104,8 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 		msg.body = query.value(idxBody).toString();
 		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
 		msg.isMarkable = query.value(idxIsMarkable).toBool();
-		msg.mediaType = static_cast<MessageType>(query.value(idxMediaType).toInt());
 		msg.outOfBandUrl = query.value(idxOutOfBandUrl).toString();
-		msg.mediaContentType = query.value(idxMediaContentType).toString();
 		msg.mediaLocation = query.value(idxMediaLocation).toString();
-		msg.mediaSize = query.value(idxMediaSize).toLongLong();
-		msg.mediaLastModified = QDateTime::fromMSecsSinceEpoch(
-			query.value(idxMediaLastModified).toLongLong()
-		);
 		msg.isEdited = query.value(idxIsEdited).toBool();
 		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.errorText = query.value(idxErrorText).toString();
@@ -123,8 +115,10 @@ void MessageDb::parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs)
 		msg.stanzaId = query.value(idxStanza).toString();
 		// this is useful with resending pending messages
 		msg.receiptRequested = true;
-		msgs << msg;
+
+		messages << std::move(msg);
 	}
+	return messages;
 }
 
 QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &newMsg)
@@ -132,7 +126,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	QSqlRecord rec;
 
 	if (oldMsg.from != newMsg.from)
-		rec.append(createSqlField("author", newMsg.from));
+		rec.append(createSqlField("sender", newMsg.from));
 	if (oldMsg.to != newMsg.to)
 		rec.append(createSqlField("recipient", newMsg.to));
 	if (oldMsg.stamp != newMsg.stamp)
@@ -141,11 +135,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		        newMsg.stamp.toString(Qt::ISODateWithMs)
 		));
 	if (oldMsg.id != newMsg.id) {
-		// TODO: remove as soon as 'NOT NULL' was removed from id column
-		if (newMsg.id.isEmpty())
-			rec.append(createSqlField("id", QStringLiteral(" ")));
-		else
-			rec.append(createSqlField("id", newMsg.id));
+		rec.append(createSqlField("id", newMsg.id));
 	}
 	if (oldMsg.encryption != newMsg.encryption)
 		rec.append(createSqlField("encryption", newMsg.encryption));
@@ -159,29 +149,15 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("isMarkable", newMsg.isMarkable));
 	if (oldMsg.errorText != newMsg.errorText)
 		rec.append(createSqlField("errorText", newMsg.errorText));
-	if (oldMsg.mediaType != newMsg.mediaType)
-		rec.append(createSqlField("type", int(newMsg.mediaType)));
 	if (oldMsg.outOfBandUrl != newMsg.outOfBandUrl)
 		rec.append(createSqlField("mediaUrl", newMsg.outOfBandUrl));
-	if (oldMsg.mediaContentType != newMsg.mediaContentType)
-		rec.append(createSqlField(
-		        "mediaContentType",
-		        newMsg.mediaContentType
-		));
 	if (oldMsg.mediaLocation != newMsg.mediaLocation)
 		rec.append(createSqlField(
-		         "mediaLocation",
-		         newMsg.mediaLocation
-		));
-	if (oldMsg.mediaSize != newMsg.mediaSize)
-		rec.append(createSqlField("mediaSize", newMsg.mediaSize));
-	if (oldMsg.mediaLastModified != newMsg.mediaLastModified)
-		rec.append(createSqlField(
-			"mediaLastModified",
-			newMsg.mediaLastModified.toMSecsSinceEpoch()
+			"mediaLocation",
+			newMsg.mediaLocation
 		));
 	if (oldMsg.isEdited != newMsg.isEdited)
-		rec.append(createSqlField("edited", newMsg.isEdited));
+		rec.append(createSqlField("isEdited", newMsg.isEdited));
 	if (oldMsg.spoilerHint != newMsg.spoilerHint)
 		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
 	if (oldMsg.isSpoiler != newMsg.isSpoiler)
@@ -203,8 +179,8 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 		prepareQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
-			"WHERE (author = :user1 AND recipient = :user2) OR "
-			      "(author = :user2 AND recipient = :user1) "
+			"WHERE (sender = :user1 AND recipient = :user2) OR "
+			      "(sender = :user2 AND recipient = :user1) "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, :limit"
 		);
@@ -216,8 +192,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &user1, const Q
 		});
 		execQuery(query);
 
-		QVector<Message> messages;
-		parseMessagesFromQuery(query, messages);
+		auto messages = _fetchMessagesFromQuery(query);
 
 		emit messagesFetched(messages);
 		return messages;
@@ -230,15 +205,14 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 	execQuery(
 		query,
 		"SELECT * FROM " DB_TABLE_MESSAGES " "
-		"WHERE (author = :user1 AND recipient = :user2) OR "
-		      "(author = :user2 AND recipient = :user1) "
+		"WHERE (sender = :user1 AND recipient = :user2) OR "
+		      "(sender = :user2 AND recipient = :user1) "
 		"ORDER BY timestamp DESC "
 		"LIMIT 1",
 		{ { u":user1", user1 }, { u":user2", user2 } }
 	);
 
-	QVector<Message> messages;
-	parseMessagesFromQuery(query, messages);
+	auto messages = _fetchMessagesFromQuery(query);
 
 	if (!messages.isEmpty())
 		return messages.first();
@@ -249,7 +223,7 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 {
 	return run([this]() {
 		auto query = createQuery();
-		execQuery(query, "SELECT timestamp FROM Messages ORDER BY timestamp DESC LIMIT 1");
+		execQuery(query, "SELECT timestamp FROM messages ORDER BY timestamp DESC LIMIT 1");
 
 		QDateTime stamp;
 		while (query.next()) {
@@ -270,7 +244,7 @@ QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const Q
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE author = ? AND recipient = ? AND id = ? LIMIT 1",
+			"SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE sender = ? AND recipient = ? AND id = ? LIMIT 1",
 			{ senderJid, recipientJid, messageId }
 		);
 
@@ -291,12 +265,12 @@ QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &re
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT COUNT(*) FROM " DB_TABLE_MESSAGES" DESC WHERE author = ? AND recipient = ? AND "
+			"SELECT COUNT(*) FROM " DB_TABLE_MESSAGES" DESC WHERE sender = ? AND recipient = ? AND "
 			"datetime(timestamp) BETWEEN "
 			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
-			"author = ? AND recipient = ? AND id = ? LIMIT 1)) AND "
+			"sender = ? AND recipient = ? AND id = ? LIMIT 1)) AND "
 			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
-			"author = ? AND recipient = ? AND id = ? LIMIT 1))",
+			"sender = ? AND recipient = ? AND id = ? LIMIT 1))",
 			{ senderJid, recipientJid, senderJid, recipientJid, messageIdBegin, senderJid, recipientJid, messageIdEnd }
 		);
 
@@ -337,18 +311,16 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"INSERT INTO Messages (author, recipient, timestamp, message, id, encryption, "
-			"senderKey, deliveryState, isMarkable, type, edited, isSpoiler, spoilerHint, mediaUrl, "
-			"mediaContentType, mediaLocation, mediaSize, mediaLastModified, errorText, replaceId, "
-			"originId, stanzaId) "
-			"VALUES (:author, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
-			":deliveryState, :isMarkable, :type, :edited, :isSpoiler, :spoilerHint, :mediaUrl, "
-			":mediaContentType, :mediaLocation, :mediaSize, :mediaLastModified, :errorText, "
-			":replaceId, :originId, :stanzaId)"
+			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
+			"senderKey, deliveryState, isMarkable, isEdited, isSpoiler, spoilerHint, "
+			"errorText, replaceId, originId, stanzaId, mediaUrl, mediaLocation) "
+			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
+			":deliveryState, :isMarkable, :isEdited, :isSpoiler, :spoilerHint, :errorText, "
+			":replaceId, :originId, :stanzaId, :mediaUrl, :mediaLocation)"
 		);
 
 		bindValues(query, {
-			{ u":author", msg.from },
+			{ u":sender", msg.from },
 			{ u":recipient", msg.to },
 			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
 			{ u":message", msg.body },
@@ -357,15 +329,11 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
 			{ u":isMarkable", msg.isMarkable },
-			{ u":type", int(msg.mediaType) },
-			{ u":edited", msg.isEdited },
+			{ u":isEdited", msg.isEdited },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },
 			{ u":mediaUrl", msg.outOfBandUrl },
-			{ u":mediaContentType", msg.mediaContentType },
 			{ u":mediaLocation", msg.mediaLocation },
-			{ u":mediaSize", msg.mediaSize },
-			{ u":mediaLastModified", msg.mediaLastModified.toMSecsSinceEpoch() },
 			{ u":errorText", msg.errorText },
 			{ u":replaceId", msg.replaceId },
 			{ u":originId", msg.originId },
@@ -397,8 +365,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 			{ id }
 		);
 
-		QVector<Message> msgs;
-		parseMessagesFromQuery(query, msgs);
+		auto msgs = _fetchMessagesFromQuery(query);
 
 		// update loaded item
 		if (!msgs.isEmpty()) {
@@ -459,7 +426,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
 	const QString idConditionSql = idChecks.join(u" OR ");
 	const QString querySql =
 		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES " "
-		               "WHERE (author = :from AND recipient = :to AND (") %
+		               "WHERE (sender = :from AND recipient = :to AND (") %
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
@@ -480,7 +447,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 		execQuery(
 			query,
 			"SELECT * FROM " DB_TABLE_MESSAGES " "
-			"WHERE (author = :user AND deliveryState = :deliveryState) "
+			"WHERE (sender = :user AND deliveryState = :deliveryState) "
 			"ORDER BY timestamp ASC",
 			{
 				{ u":user", userJid },
@@ -488,11 +455,9 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 			}
 		);
 
-		QVector<Message> messages;
-		parseMessagesFromQuery(query, messages);
+		auto messages = _fetchMessagesFromQuery(query);
 
 		emit pendingMessagesFetched(messages);
 		return messages;
 	});
 }
-

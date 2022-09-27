@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 17
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(17)
+#define DATABASE_LATEST_VERSION 18
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(18)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -265,8 +265,8 @@ void Database::loadDatabaseInfo()
 	auto db = currentDatabase();
 	const auto tables = db.tables();
 	if (!tables.contains(DB_TABLE_INFO)) {
-		if (tables.contains(DB_TABLE_MESSAGES) &&
-			tables.contains(DB_TABLE_ROSTER)) {
+		if (tables.contains("Messages") &&
+			tables.contains("Roster")) {
 			// old Kaidan v0.1/v0.2 table
 			d->version = DbOldVersion;
 		} else {
@@ -379,48 +379,35 @@ void Database::createNewDatabase()
 	);
 
 	// MESSAGES
-	// TODO: the next time we change the messages table, we need to do:
-	//  * rename author to sender, edited to isEdited
-	//  * delete author_resource, recipient_resource
-	//  * remove 'NOT NULL' from id
-	//  * remove columns isSent, isDelivered
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_MESSAGES,
-			SQL_ATTRIBUTE(author, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(author_resource, SQL_TEXT)
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(recipient_resource, SQL_TEXT)
 			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
 			SQL_ATTRIBUTE(message, SQL_TEXT)
-			SQL_ATTRIBUTE(id, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
-			SQL_ATTRIBUTE(isSent, SQL_BOOL)
-			SQL_ATTRIBUTE(isDelivered, SQL_BOOL)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
 			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-			SQL_ATTRIBUTE(type, SQL_INTEGER)
 			SQL_ATTRIBUTE(mediaUrl, SQL_TEXT)
-			SQL_ATTRIBUTE(mediaSize, SQL_INTEGER)
-			SQL_ATTRIBUTE(mediaContentType, SQL_TEXT)
-			SQL_ATTRIBUTE(mediaLastModified, SQL_INTEGER)
 			SQL_ATTRIBUTE(mediaLocation, SQL_TEXT)
-			SQL_ATTRIBUTE(mediaThumb, SQL_BLOB)
-			SQL_ATTRIBUTE(mediaHashes, SQL_TEXT)
-			SQL_ATTRIBUTE(edited, SQL_BOOL)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
 			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
 			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
 			SQL_ATTRIBUTE(errorText, SQL_TEXT)
 			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-			"FOREIGN KEY(author) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
 	);
 
+	// trust management
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -802,4 +789,81 @@ void Database::convertDatabaseToV17()
 	execQuery(query, "ALTER TABLE Roster ADD lastReadContactMessageId " SQL_TEXT);
 	execQuery(query, "ALTER TABLE Messages ADD isMarkable " SQL_BOOL);
 	d->version = 17;
+}
+
+void Database::convertDatabaseToV18()
+{
+	DATABASE_CONVERT_TO_VERSION(17)
+	QSqlQuery query(currentDatabase());
+
+	// manually convert messages table
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages_tmp",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(mediaUrl, SQL_TEXT)
+			SQL_ATTRIBUTE(mediaLocation, SQL_TEXT)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messages_tmp SELECT author, recipient, timestamp, message, id, encryption, "
+		"senderKey, deliveryState, isMarkable, mediaUrl, mediaLocation, edited, spoilerHint, "
+		"isSpoiler, errorText, replaceId, originId, stanzaId FROM Messages"
+	);
+
+	execQuery(query, "DROP TABLE Messages");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(mediaUrl, SQL_TEXT)
+			SQL_ATTRIBUTE(mediaLocation, SQL_TEXT)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
+	execQuery(query, "DROP TABLE messages_tmp");
+
+	d->version = 18;
 }

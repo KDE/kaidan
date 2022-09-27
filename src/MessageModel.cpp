@@ -167,11 +167,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[DeliveryState] = "deliveryState";
 	roles[IsLastRead] = "isLastRead";
 	roles[MediaUrl] = "mediaUrl";
-	roles[MediaSize] = "mediaSize";
-	roles[MediaContentType] = "mediaContentType";
-	roles[MediaLastModified] = "mediaLastModifed";
 	roles[MediaLocation] = "mediaLocation";
-	roles[MediaThumb] = "mediaThumb";
 	roles[IsSpoiler] = "isSpoiler";
 	roles[SpoilerHint] = "spoilerHint";
 	roles[ErrorText] = "errorText";
@@ -212,7 +208,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case IsOwn:
 		return msg.isOwn;
 	case MediaType:
-		return QVariant::fromValue(msg.mediaType);
+		return QVariant::fromValue(msg.type());
 	case IsEdited:
 		return msg.isEdited;
 	case IsLastRead:
@@ -233,12 +229,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return msg.outOfBandUrl;
 	case MediaLocation:
 		return msg.mediaLocation;
-	case MediaContentType:
-		return msg.mediaContentType;
-	case MediaSize:
-		return msg.mediaLastModified;
-	case MediaLastModified:
-		return msg.mediaLastModified;
 	case IsSpoiler:
 		return msg.isSpoiler;
 	case SpoilerHint:
@@ -268,10 +258,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		case DeliveryState::Error:
 			return tr("Error");
 		}
-		return {};
-
-	// TODO: add (only useful as soon as we have got SIMS)
-	case MediaThumb:
 		return {};
 	}
 	return {};

@@ -54,11 +54,6 @@ public:
 	static MessageDb *instance();
 
 	/**
-	 * Parses a list of messages from a SELECT query.
-	 */
-	static void parseMessagesFromQuery(QSqlQuery &query, QVector<Message> &msgs);
-
-	/**
 	 * Creates an @c QSqlRecord for updating an old message to a new message.
 	 *
 	 * @param oldMsg Full message as it is currently saved
@@ -144,6 +139,8 @@ public:
 	Q_SIGNAL void messageUpdated(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 private:
+	QVector<Message> _fetchMessagesFromQuery(QSqlQuery &query);
+
 	/**
 	 * Checks whether a message already exists in the database
 	 */

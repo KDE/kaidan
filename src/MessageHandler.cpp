@@ -205,7 +205,6 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		}
 	}
 
-	message.mediaType = MessageType::MessageText; // default to text message without media
 	message.isSpoiler = msg.isSpoiler();
 	message.spoilerHint = msg.spoilerHint();
 	message.outOfBandUrl = msg.outOfBandUrl();
@@ -256,7 +255,6 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.encryption = MessageModel::instance()->activeEncryption();
 	msg.receiptRequested = true;
 	msg.isOwn = true;
-	msg.mediaType = MessageType::MessageText; // text message without media
 	msg.deliveryState = Enums::DeliveryState::Pending;
 	msg.isMarkable = true;
 	msg.stamp = QDateTime::currentDateTimeUtc();
@@ -392,8 +390,6 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 	case MessageType::MessageAudio:
 	case MessageType::MessageVideo:
 	case MessageType::MessageDocument:
-		message.mediaType = messageType;
-		message.mediaContentType = mimeType.name();
 		message.outOfBandUrl = url.toEncoded();
 		return true;
 	}

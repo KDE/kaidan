@@ -53,14 +53,10 @@ bool Message::operator==(const Message &m) const
 		&& m.receiptRequested == receiptRequested
 		&& m.encryption == encryption
 		&& m.senderKey == senderKey
-		&& m.mediaType == mediaType
 		&& m.isOwn == isOwn
 		&& m.isEdited == isEdited
 		&& m.deliveryState == deliveryState
 		&& m.mediaLocation == mediaLocation
-		&& m.mediaContentType == mediaContentType
-		&& m.mediaLastModified == mediaLastModified
-		&& m.mediaSize == mediaSize
 		&& m.isSpoiler == isSpoiler
 		&& m.spoilerHint == spoilerHint
 		&& m.errorText == errorText;
@@ -80,13 +76,18 @@ QString Message::previewText() const
 		return spoilerHint;
 	}
 
-	if (mediaType == Enums::MessageType::MessageText) {
+	if (type() == Enums::MessageType::MessageText) {
 		return body;
 	}
-	auto text = MediaUtils::mediaTypeName(mediaType);
+	auto text = MediaUtils::mediaTypeName(type());
 
 	if (!body.isEmpty()) {
 		return text % QStringLiteral(": ") % body;
 	}
 	return text;
+}
+
+MessageType Message::type() const
+{
+	return MessageType::MessageText;
 }

@@ -91,11 +91,7 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 	msg.id = msgId;
 	msg.isOwn = true;
 	msg.body = body;
-	msg.mediaType = messageType;
 	msg.stamp = QDateTime::currentDateTimeUtc();
-	msg.mediaSize = file.size();
-	msg.mediaContentType = mimeType.name();
-	msg.mediaLastModified = file.lastModified();
 	msg.mediaLocation = file.filePath();
 
 	// cache message and upload
