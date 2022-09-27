@@ -35,6 +35,8 @@
     <implements rdf:resource='https://xmpp.org/rfcs/rfc5122.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc6120.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc6121.html'/>
+    <implements rdf:resource='https://xmpp.org/rfcs/rfc7590.html'/>
+    <implements rdf:resource='https://xmpp.org/rfcs/rfc7622.html'/>
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0004.html'/>
@@ -117,8 +119,8 @@
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0115.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:since>TODO</xmpp:since>
         <xmpp:version>1.6</xmpp:version>
+        <xmpp:since>TODO</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -214,6 +216,7 @@
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0313.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>0.6</xmpp:version>
+        <xmpp:since>0.8</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
     <implements>
