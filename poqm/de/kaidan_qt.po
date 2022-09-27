@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.07.70\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:287
+#: src/ClientWorker.cpp:285
 #, fuzzy, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -23,13 +23,13 @@ msgstr ""
 "Ihr Konto konnte nicht vom Server gelöscht werden. Daher wurde es auch nicht "
 "aus dieser App entfernt: %1"
 
-#: src/DownloadManager.cpp:128
+#: src/DownloadManager.cpp:127
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Could not save file: %1"
 msgstr "Die Datei „%1“ lässt sich nicht speichern."
 
-#: src/DownloadManager.cpp:153
+#: src/DownloadManager.cpp:157
 #, qt-format
 msgctxt "DownloadJob|"
 msgid "Download failed: %1"
@@ -413,56 +413,56 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Passwort kopieren"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:97
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Suchen"
 
-#: src/qml/ChatPage.qml:117
+#: src/qml/ChatPage.qml:116
 #, fuzzy
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Benachrichtigungen aktivieren"
 
-#: src/qml/ChatPage.qml:118
+#: src/qml/ChatPage.qml:117
 #, fuzzy
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Benachrichtigungen stummschalten"
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:126
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Profil ansehen"
 
-#: src/qml/ChatPage.qml:138
+#: src/qml/ChatPage.qml:137
 #, fuzzy
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Versteckte Nachricht senden"
 
-#: src/qml/elements/ChatMessage.qml:149
+#: src/qml/elements/ChatMessage.qml:146
 #, fuzzy
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Versteckte Nachricht"
 
-#: src/qml/elements/ChatMessage.qml:206
+#: src/qml/elements/ChatMessage.qml:203
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Herunterladen"
 
-#: src/qml/elements/ChatMessage.qml:272
+#: src/qml/elements/ChatMessage.qml:269
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:277
+#: src/qml/elements/ChatMessage.qml:274
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:319
+#: src/qml/elements/ChatMessage.qml:316
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -513,29 +513,29 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Weiter unten suchen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:67
+#: src/qml/elements/ChatPageSendingPane.qml:74
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
 msgstr "Spoiler Hinweis"
 
-#: src/qml/elements/ChatPageSendingPane.qml:74
+#: src/qml/elements/ChatPageSendingPane.qml:81
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
 msgstr "Spoiler-Feld ausblenden"
 
-#: src/qml/elements/ChatPageSendingPane.qml:112
+#: src/qml/elements/ChatPageSendingPane.qml:119
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Nachricht erstellen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:212
+#: src/qml/elements/ChatPageSendingPane.qml:219
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:264
+#: src/qml/elements/ChatPageSendingPane.qml:271
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -543,12 +543,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Bild aufnehmen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:265
+#: src/qml/elements/ChatPageSendingPane.qml:272
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:276
+#: src/qml/elements/ChatPageSendingPane.qml:283
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -556,12 +556,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
 msgstr "Video aufnehmen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:277
+#: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:288
+#: src/qml/elements/ChatPageSendingPane.qml:295
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Document"
@@ -569,12 +569,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Document"
 msgstr "Dokument"
 
-#: src/qml/elements/ChatPageSendingPane.qml:289
+#: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:300
+#: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -582,7 +582,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Location"
 msgstr "Ort"
 
-#: src/qml/elements/ChatPageSendingPane.qml:301
+#: src/qml/elements/ChatPageSendingPane.qml:308
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2000,13 +2000,13 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Konnte den Kontakt nicht umbenennen, da keine Verbindung besteht."
 
-#: src/UploadManager.cpp:73
+#: src/UploadManager.cpp:72
 #, fuzzy
 msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "Konnte Datei nicht senden, da Sie nicht verbunden sind."
 
-#: src/UploadManager.cpp:142
+#: src/UploadManager.cpp:144
 #, fuzzy
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
