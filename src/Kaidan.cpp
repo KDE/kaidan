@@ -74,7 +74,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	initializeClientWorker(enableLogging);
 
 	// Log out of the server when the application window is closed.
-	connect(qGuiApp, &QGuiApplication::lastWindowClosed, this, [this]() {
+	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
 		emit logOutRequested(true);
 	});
 }
