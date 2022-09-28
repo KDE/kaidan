@@ -69,7 +69,7 @@ RosterModel::RosterModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::messageAdded,
 	        this, &RosterModel::handleMessageAdded);
 
-	connect(AccountManager::instance(), &AccountManager::jidChanged, this, [=]() {
+	connect(AccountManager::instance(), &AccountManager::jidChanged, this, [this] {
 		beginResetModel();
 		m_items.clear();
 		endResetModel();
@@ -79,7 +79,7 @@ RosterModel::RosterModel(QObject *parent)
 		});
 	});
 
-	connect(this, &RosterModel::removeItemsRequested, this, [=](const QString &accountJid, const QString &chatJid) {
+	connect(this, &RosterModel::removeItemsRequested, this, [this](const QString &accountJid, const QString &chatJid) {
 		RosterDb::instance()->removeItems(accountJid, chatJid);
 		removeItems(accountJid, chatJid);
 
@@ -167,7 +167,7 @@ std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, con
 
 void RosterModel::setItemEncryption(const QString &, const QString &jid, Encryption::Enum encryption)
 {
-	emit updateItemRequested(jid, [=](RosterItem &item) {
+	emit updateItemRequested(jid, [encryption](RosterItem &item) {
 		item.encryption = encryption;
 	});
 }
@@ -364,8 +364,8 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		itr->unreadMessages = *newUnreadMessages;
 		changedRoles << int(UnreadMessagesRole);
 
-		RosterDb::instance()->updateItem(contactJid, [=](RosterItem &item) {
-			item.unreadMessages = *newUnreadMessages;
+		RosterDb::instance()->updateItem(contactJid, [newCount = *newUnreadMessages](RosterItem &item) {
+			item.unreadMessages = newCount;
 		});
 	}
 

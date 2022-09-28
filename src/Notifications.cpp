@@ -106,23 +106,23 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	};
 	m_openNotifications.append(notificationWrapper);
 
-	QObject::connect(notification, &KNotification::defaultActivated, this, [=] {
+	QObject::connect(notification, &KNotification::defaultActivated, this, [=, this] {
 		disableResending(isPersistentNotification, notificationId);
 
 		emit Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		emit Kaidan::instance()->raiseWindowRequested();
 	});
-	QObject::connect(notification, &KNotification::action1Activated, this, [=] {
+	QObject::connect(notification, &KNotification::action1Activated, this, [=, this] {
 		disableResending(isPersistentNotification, notificationId);
 		closeMessageNotifications(accountJid, chatJid, timestamp, notificationId);
 
-		emit RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
+		emit RosterModel::instance()->updateItemRequested(chatJid, [](RosterItem &item) {
 			item.unreadMessages = item.unreadMessages - 1;
 		});
 		emit Kaidan::instance()->client()->messageHandler()->sendReadMarkerRequested(chatJid, messageId);
 	});
 
-	QObject::connect(notification, &KNotification::closed, this, [=]() {
+	QObject::connect(notification, &KNotification::closed, this, [=, this]() {
 		for (auto itr = m_openNotifications.begin(); itr != m_openNotifications.end(); ++itr) {
 			if (itr->id == notificationId) {
 				// Send a message notification again if the notification is persistent but

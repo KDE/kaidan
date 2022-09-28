@@ -63,7 +63,7 @@ QImage BitsOfBinaryImageProvider::requestImage(const QString &id, QSize *size, c
 {
 	QMutexLocker locker(&m_cacheMutex);
 
-	const auto item = std::find_if(m_cache.begin(), m_cache.end(), [=] (const QXmppBitsOfBinaryData &item) {
+	const auto item = std::find_if(m_cache.begin(), m_cache.end(), [&](const QXmppBitsOfBinaryData &item) {
 		return item.cid().toCidUrl() == id;
 	});
 

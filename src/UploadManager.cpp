@@ -55,7 +55,7 @@ UploadManager::UploadManager(QXmppClient *client, RosterManager* rosterManager,
 
 	connect(this, &UploadManager::sendFileRequested, this, &UploadManager::sendFile);
 
-	connect(m_manager, &QXmppUploadManager::serviceFoundChanged, this, [=]() {
+	connect(m_manager, &QXmppUploadManager::serviceFoundChanged, this, [this] {
 		Kaidan::instance()->serverFeaturesCache()->setHttpUploadSupported(m_manager->serviceFound());
 	});
 	connect(m_manager, &QXmppUploadManager::uploadSucceeded,
@@ -104,7 +104,7 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
 	m_messages[upload->id()] = std::move(msg);
 
-	connect(upload, &QXmppHttpUpload::bytesSentChanged, this, [=] () {
+	connect(upload, &QXmppHttpUpload::bytesSentChanged, this, [upload, msgId] {
 		auto sent = quint64(upload->bytesSent());
 		auto total = quint64(upload->bytesTotal());
 		FileProgressCache::instance()
@@ -123,7 +123,7 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 	                     ? oobUrl
 	                     : originalMsg.body + "\n" + oobUrl;
 
-	MessageDb::instance()->updateMessage(originalMsg.id, [=] (Message &msg) {
+	MessageDb::instance()->updateMessage(originalMsg.id, [oobUrl](Message &msg) {
 		msg.outOfBandUrl = oobUrl;
 	});
 

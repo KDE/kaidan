@@ -214,14 +214,14 @@ void QXmppHttpUpload::startUpload()
 #endif
 
     // delete file object after upload
-    connect(m_putReply, &QNetworkReply::finished, this, [=] () {
+    connect(m_putReply, &QNetworkReply::finished, this, [this, file] {
         file->deleteLater();
         m_started = false;
     });
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-    connect(m_putReply, &QNetworkReply::errorOccurred, this, [=] () {
+    connect(m_putReply, &QNetworkReply::errorOccurred, this, [this, file] {
 #else
-    connect(m_putReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [=] () {
+    connect(m_putReply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [this, file] {
 #endif
         file->deleteLater();
         m_started = false;

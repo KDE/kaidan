@@ -100,7 +100,7 @@ void RegistrationManager::sendRegistrationForm()
 void RegistrationManager::changePassword(const QString &newPassword)
 {
 	m_clientWorker->startTask(
-		[=] () {
+		[this, newPassword] {
 			m_manager->changePassword(newPassword);
 		}
 	);

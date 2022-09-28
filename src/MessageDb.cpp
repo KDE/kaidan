@@ -266,7 +266,7 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 
 QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId)
 {
-	return run([=]() {
+	return run([=, this]() {
 		auto query = createQuery();
 		execQuery(
 			query,
@@ -287,7 +287,7 @@ QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const Q
 
 QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &recipientJid, const QString &messageIdBegin, const QString &messageIdEnd)
 {
-	return run([=]() {
+	return run([=, this]() {
 		auto query = createQuery();
 		execQuery(
 			query,

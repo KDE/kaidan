@@ -241,7 +241,7 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 		if (AccountManager::instance()->hasNewCredentials())
 			AccountManager::instance()->setHasNewCredentials(false);
 
-		await(m_omemoManager->unsubscribeFromDeviceLists(), this, [=]() {
+		await(m_omemoManager->unsubscribeFromDeviceLists(), this, [this] {
 			m_client->disconnectFromServer();
 		});
 	}

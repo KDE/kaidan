@@ -108,7 +108,7 @@ void VCardManager::handlePresenceReceived(const QXmppPresence &presence)
 void VCardManager::changeNickname(const QString &nickname)
 {
 	m_clientWorker->startTask(
-		[=] () {
+		[this, nickname] {
 			m_nicknameToBeSetAfterReceivingCurrentVCard = nickname;
 			requestClientVCard();
 		}

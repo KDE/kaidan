@@ -55,25 +55,25 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	  m_omemoStorage(new OmemoDb(database, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
-	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [=](const QMultiHash<QString, QByteArray> &modifiedKeys) {
+	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
 		retrieveKeys(modifiedKeys.keys());
 	});
 
-	connect(m_manager, &QXmppOmemoManager::deviceAdded, this, [=](const QString &jid, uint32_t) {
+	connect(m_manager, &QXmppOmemoManager::deviceAdded, this, [this](const QString &jid, uint32_t) {
 		retrieveDevicesForRequestedJids(jid);
 	});
 
-	connect(m_manager, &QXmppOmemoManager::deviceChanged, this, [=](const QString &jid, uint32_t) {
+	connect(m_manager, &QXmppOmemoManager::deviceChanged, this, [this](const QString &jid, uint32_t) {
 		retrieveDevicesForRequestedJids(jid);
 	});
 
-	connect(m_manager, &QXmppOmemoManager::deviceRemoved, this, [=](const QString &jid, uint32_t) {
+	connect(m_manager, &QXmppOmemoManager::deviceRemoved, this, [this](const QString &jid, uint32_t) {
 		retrieveDevicesForRequestedJids(jid);
 	});
 
 	connect(m_manager, &QXmppOmemoManager::devicesRemoved, this, &OmemoManager::retrieveDevicesForRequestedJids);
 
-	connect(m_manager, &QXmppOmemoManager::allDevicesRemoved, this, [=]() {
+	connect(m_manager, &QXmppOmemoManager::allDevicesRemoved, this, [this] {
 		for (const auto &jid : std::as_const(m_lastRequestedDeviceJids)) {
 			emitDeviceSignals(jid, {}, {}, {});
 		}
@@ -92,11 +92,11 @@ QFuture<void> OmemoManager::load()
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
-	await(future, this, [=]() mutable {
+	await(future, this, [this, interface]() mutable {
 		auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % QSysInfo::prettyProductName());
-		await(future, this, [=](bool) mutable {
+		await(future, this, [this, interface](bool) mutable {
 			auto future = m_manager->load();
-			await(future, this, [=](bool isLoaded) mutable {
+			await(future, this, [this, interface](bool isLoaded) mutable {
 				m_isLoaded = isLoaded;
 				interface.reportFinished();
 			});
@@ -114,7 +114,7 @@ QFuture<void> OmemoManager::setUp()
 		enableSessionBuildingForNewDevices();
 	} else {
 		auto future = m_manager->setUp();
-		await(future, this, [=](bool isSetUp) mutable {
+		await(future, this, [this, interface](bool isSetUp) mutable {
 			if (!isSetUp) {
 				emit Kaidan::instance()->passiveNotificationRequested(tr("Secure conversations are not possible because OMEMO could not be set up"));
 				interface.reportFinished();
@@ -133,7 +133,7 @@ QFuture<void> OmemoManager::setUp()
 				// Retrieve the own key before opening the first chat.
 				// It can be used when presenting the own QR code.
 				auto future = retrieveOwnKey();
-				await(future, this, [=]() mutable {
+				await(future, this, [interface]() mutable {
 					interface.reportFinished();
 				});
 			}
@@ -148,9 +148,9 @@ QFuture<void> OmemoManager::retrieveKeys(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->keys(jids, ~ QXmpp::TrustLevels { QXmpp::TrustLevel::Undecided });
-	await(future, this, [=](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
+	await(future, this, [this, interface](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
 		auto future = retrieveOwnKey(std::move(keys));
-		await(future, this, [=]() mutable {
+		await(future, this, [interface]() mutable {
 			interface.reportFinished();
 		});
 	});
@@ -163,7 +163,7 @@ QFuture<void> OmemoManager::requestDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->requestDeviceLists(jids);
-	await(future, this, [=]() mutable {
+	await(future, this, [interface]() mutable {
 		interface.reportFinished();
 	});
 
@@ -175,7 +175,7 @@ QFuture<void> OmemoManager::subscribeToDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->subscribeToDeviceLists(jids);
-	await(future, this, [=]() mutable {
+	await(future, this, [interface]() mutable {
 		interface.reportFinished();
 	});
 
@@ -187,7 +187,7 @@ QFuture<void> OmemoManager::unsubscribeFromDeviceLists()
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->unsubscribeFromDeviceLists();
-	await(future, this, [=]() mutable {
+	await(future, this, [interface]() mutable {
 		interface.reportFinished();
 	});
 
@@ -213,7 +213,7 @@ QFuture<void> OmemoManager::initializeChat(const QString &accountJid, const QStr
 
 	auto initializeSessionsKeysAndDevices = [this, interface, jids]() mutable {
 		auto future = m_manager->buildMissingSessions(jids);
-		await(future, this, [=]() mutable {
+		await(future, this, [this, interface, jids]() mutable {
 			retrieveKeys(jids);
 			retrieveDevices(jids);
 			interface.reportFinished();
@@ -235,7 +235,7 @@ QFuture<void> OmemoManager::initializeChat(const QString &accountJid, const QStr
 				RosterModel::instance()->isPresenceSubscribedByItem(accountJid, chatJid),
 				PresenceCache::instance()->resourcesCount(chatJid)
 			};
-		}, this, [=](std::tuple<bool, int> result) mutable {
+		}, this, [=, this](std::tuple<bool, int> result) mutable {
 			auto [isPresenceSubscribed, resourcesCount] = result;
 			if (isPresenceSubscribed) {
 				if (resourcesCount == 0) {
@@ -283,7 +283,7 @@ void OmemoManager::retrieveDevicesForRequestedJids(const QString &jid)
 void OmemoManager::retrieveDevices(const QList<QString> &jids)
 {
 	auto future = m_manager->devices(jids);
-	await(future, this, [=](QVector<QXmppOmemoDevice> devices) {
+	await(future, this, [this, jids](QVector<QXmppOmemoDevice> devices) {
 		using JidLabelMap = QMultiHash<QString, QString>;
 		JidLabelMap distrustedDevices;
 		JidLabelMap usableDevices;

@@ -734,7 +734,7 @@ void MessageModel::correctMessage(const QString &msgId, const QString &message)
 		QModelIndex index = createIndex(std::distance(m_messages.begin(), itr), 0);
 		emit dataChanged(index, index);
 
-		MessageDb::instance()->updateMessage(msgId, [=](Message &localMessage) {
+		MessageDb::instance()->updateMessage(msgId, [msg](Message &localMessage) {
 			localMessage = msg;
 		});
 	}

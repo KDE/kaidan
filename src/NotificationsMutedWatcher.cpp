@@ -47,7 +47,7 @@ void NotificationsMutedWatcher::setJid(const QString &jid)
 	m_jid = jid;
 	m_muted = Kaidan::instance()->notificationsMuted(jid);
 
-	connect(Kaidan::instance(), &Kaidan::notificationsMutedChanged, this, [=](const QString &jid) {
+	connect(Kaidan::instance(), &Kaidan::notificationsMutedChanged, this, [this](const QString &jid) {
 		if (jid == m_jid) {
 			m_muted = Kaidan::instance()->notificationsMuted(jid);
 			Q_EMIT mutedChanged();

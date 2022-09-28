@@ -70,7 +70,7 @@ void FileProgressCache::reportProgress(const QString &messageId, std::optional<F
 		m_files.erase(messageId);
 	}
 	// watchers live on main thread
-	QMetaObject::invokeMethod(QCoreApplication::instance(), [=]() {
+	QMetaObject::invokeMethod(QCoreApplication::instance(), [messageId, progress] {
 		FileProgressNotifier::instance().notifyWatchers(messageId, progress);
 	});
 }

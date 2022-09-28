@@ -58,7 +58,7 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
-	connect(cache, &VCardCache::vCardChanged, this, [=](const QString &jid) {
+	connect(cache, &VCardCache::vCardChanged, this, [this](const QString &jid) {
 		if (m_jid == jid) {
 			emit displayNameChanged();
 		}

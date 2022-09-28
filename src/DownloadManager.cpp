@@ -67,15 +67,15 @@ void DownloadManager::startDownload(const QString &msgId, const QString &url)
 	auto *dl = new DownloadJob(msgId, QUrl(url), dirPath, m_netMngr, m_transferCache);
 	m_downloads[msgId] = dl;
 
-	connect(dl, &DownloadJob::finished, this, [=]() {
+	connect(dl, &DownloadJob::finished, this, [this, dl, msgId] {
 		const QString &mediaLocation = dl->downloadLocation();
-		MessageDb::instance()->updateMessage(msgId, [=](Message &msg) {
+		MessageDb::instance()->updateMessage(msgId, [mediaLocation](Message &msg) {
 			msg.mediaLocation = mediaLocation;
 		});
 
 		abortDownload(msgId);
 	});
-	connect(dl, &DownloadJob::failed, this, [=]() {
+	connect(dl, &DownloadJob::failed, this, [this, msgId] {
 		abortDownload(msgId);
 	});
 
@@ -142,14 +142,14 @@ void DownloadJob::startDownload()
 		};
 		FileProgressCache::instance().reportProgress(m_msgId, progress);
 	});
-	connect(reply, &QNetworkReply::finished, this, [=]() {
+	connect(reply, &QNetworkReply::finished, this, [this] {
 		FileProgressCache::instance().reportProgress(m_msgId, std::nullopt);
 		emit finished();
 	});
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
-	connect(reply, &QNetworkReply::errorOccurred, this, [=]() {
+	connect(reply, &QNetworkReply::errorOccurred, this, [this, reply] {
 #else
-	connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [=]() {
+	connect(reply, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, [this, reply] {
 #endif
 		FileProgressCache::instance().reportProgress(m_msgId, std::nullopt);
 		qWarning() << "Couldn't download file:" << reply->errorString();
@@ -157,7 +157,7 @@ void DownloadJob::startDownload()
 			tr("Download failed: %1").arg(reply->errorString()));
 		emit finished();
 	});
-	connect(reply, &QNetworkReply::readyRead, this, [=]() {
+	connect(reply, &QNetworkReply::readyRead, this, [this, reply] {
 		m_file.write(reply->readAll());
 	});
 }

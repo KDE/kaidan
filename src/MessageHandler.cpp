@@ -84,7 +84,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	  m_client(client),
 	  m_mamManager(client->findExtension<QXmppMamManager>())
 {
-	connect(client, &QXmppClient::messageReceived, this, [=](const QXmppMessage &msg) {
+	connect(client, &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
 		handleMessage(msg, MessageOrigin::Stream);
 	});
 	connect(this, &MessageHandler::sendMessageRequested, this, &MessageHandler::sendMessage);
@@ -102,7 +102,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	        this, &MessageHandler::handleLastMessageStampFetched);
 
 	connect(&m_receiptManager, &QXmppMessageReceiptManager::messageDelivered,
-		this, [=](const QString &, const QString &id) {
+		this, [this](const QString &, const QString &id) {
 		MessageDb::instance()->updateMessage(id, [](Message &msg) {
 			msg.deliveryState = Enums::DeliveryState::Delivered;
 			msg.errorText.clear();
@@ -234,7 +234,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	} else {
 		message.isEdited = true;
 		message.id.clear();
-		MessageDb::instance()->updateMessage(msg.replaceId(), [=](Message &m) {
+		MessageDb::instance()->updateMessage(msg.replaceId(), [message](Message &m) {
 			// replace completely
 			m = message;
 		});
@@ -291,12 +291,12 @@ void MessageHandler::sendCorrectedMessage(Message msg)
 			emit Kaidan::instance()->passiveNotificationRequested(
 						tr("Message correction was not successful"));
 
-			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
+			MessageDb::instance()->updateMessage(messageId, [](Message &message) {
 				message.deliveryState = DeliveryState::Error;
 				message.errorText = QStringLiteral("Message correction was not successful");
 			});
 		} else {
-			MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
+			MessageDb::instance()->updateMessage(messageId, [](Message &message) {
 				message.deliveryState = DeliveryState::Sent;
 				message.errorText.clear();
 			});
@@ -317,7 +317,7 @@ void MessageHandler::handleDisonnected()
 	// clear all running backlog queries
 	std::for_each(m_runningBacklogQueryIds.constKeyValueBegin(),
 				  m_runningBacklogQueryIds.constKeyValueEnd(),
-				  [=](const std::pair<QString, BacklogQueryState> &pair) {
+				  [this](const std::pair<QString, BacklogQueryState> &pair) {
 		emit MessageModel::instance()->mamBacklogRetrieved(
 				m_client->configuration().jidBare(), pair.second.chatJid, pair.second.lastTimestamp, false);
 	});
@@ -526,7 +526,7 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			// decrease the corresponding counter by 1 (if IDs could not be found) or by the actual
 			// count of read messages.
 			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, lastReadContactMessageId, markedId);
-			await(future, this, [=](int count) {
+			await(future, this, [recipientJid, markedId](int count) {
 				emit RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
 					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
 					item.lastReadContactMessageId = markedId;
@@ -534,11 +534,11 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			});
 
 			auto futureTimestamp = MessageDb::instance()->messageTimestamp(recipientJid, senderJid, markedId);
-			await(futureTimestamp, this, [=](QDateTime timestamp) {
+			await(futureTimestamp, this, [this, senderJid, recipientJid](QDateTime timestamp) {
 				emit Notifications::instance()->closeMessageNotificationsRequested(senderJid, recipientJid, timestamp);
 			});
 		} else {
-			emit RosterModel::instance()->updateItemRequested(senderJid, [=](RosterItem &item) {
+			emit RosterModel::instance()->updateItemRequested(senderJid, [markedId](RosterItem &item) {
 				item.lastReadOwnMessageId = markedId;
 			});
 

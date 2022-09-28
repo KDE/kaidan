@@ -243,7 +243,7 @@ auto TrustDb::addKeys(const QString &encryption,
 
 auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QFuture<void>
 {
-	return run([=] {
+	return run([this, encryption, keyIds] {
 		auto query = createQuery();
 		prepareQuery(query,
 			"DELETE FROM trust_keys WHERE account = :1 AND encryption = :2 AND "
@@ -258,7 +258,7 @@ auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &key
 
 auto TrustDb::removeKeys(const QString &encryption, const QString &keyOwnerJid) -> QFuture<void>
 {
-	return run([=] {
+	return run([this, encryption, keyOwnerJid] {
 		auto query = createQuery();
 		prepareQuery(query,
 			"DELETE FROM trust_keys WHERE account = :1 AND encryption = :2 AND "
@@ -270,7 +270,7 @@ auto TrustDb::removeKeys(const QString &encryption, const QString &keyOwnerJid) 
 
 auto TrustDb::removeKeys(const QString &encryption) -> QFuture<void>
 {
-	return run([=] {
+	return run([this, encryption] {
 		auto query = createQuery();
 		prepareQuery(
 			query, "DELETE FROM trust_keys WHERE account = :1 AND encryption = :2");
@@ -283,7 +283,7 @@ auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, Trus
 	-> QFuture<bool>
 {
 	Q_ASSERT(int(trustLevels) > 0);
-	return run([=] {
+	return run([this, encryption, keyOwnerJid, trustLevels] {
 		auto query = createQuery();
 		execQuery(query,
 			u"SELECT COUNT(*) FROM trust_keys "
@@ -483,7 +483,7 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 	const QList<QByteArray> &senderKeyIds) -> QFuture<void>
 {
-	return run([=] {
+	return run([this, encryption, senderKeyIds] {
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
@@ -511,7 +511,7 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 	-> QFuture<QHash<bool, QMultiHash<QString, QByteArray>>>
 {
 	if (senderKeyIds.isEmpty()) {
-		return run([=] {
+		return run([this, encryption] {
 			QHash<bool, QMultiHash<QString, QByteArray>> result;
 
 			auto query = createQuery();
@@ -529,7 +529,7 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 			return result;
 		});
 	}
-	return run([=] {
+	return run([this, encryption, senderKeyIds] {
 		enum { KeyId, OwnerJid, Trust };
 		QHash<bool, QMultiHash<QString, QByteArray>> result;
 
@@ -553,7 +553,7 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 
 auto TrustDb::resetAll(const QString &encryption) -> QFuture<void>
 {
-	return run([=] {
+	return run([this, encryption] {
 		_resetSecurityPolicy(encryption);
 		_resetOwnKey(encryption);
 

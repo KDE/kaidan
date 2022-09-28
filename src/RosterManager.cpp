@@ -60,15 +60,15 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
 		this, [this] (const QString &jid) {
-		emit RosterModel::instance()->updateItemRequested(jid, [=] (RosterItem &item) {
+		emit RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
 			item.name = updatedItem.name();
 			item.subscription= updatedItem.subscriptionType();
 		});
 	});
 
-	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [=](const QString &jid) {
-		const auto accountJid = client->configuration().jidBare();
+	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
+		const auto accountJid = m_client->configuration().jidBare();
 		emit MessageModel::instance()->removeMessagesRequested(accountJid, jid);
 		emit RosterModel::instance()->removeItemsRequested(accountJid, jid);
 		m_clientWorker->omemoManager()->removeContactDevices(jid);
@@ -79,7 +79,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		emit RosterModel::instance()->subscriptionRequestReceived(subscriberBareJid, presence.statusText());
 	});
 	connect(this, &RosterManager::answerSubscriptionRequestRequested,
-	        this, [=] (QString jid, bool accepted) {
+	        this, [this](QString jid, bool accepted) {
 		if (accepted) {
 			m_manager->acceptSubscription(jid);
 
