@@ -68,7 +68,6 @@ QXmppMessage toQXmppMessage(const Message &msg)
 	q.setMarkable(msg.isMarkable);
 	q.setMarker(msg.marker);
 	q.setMarkerId(msg.markerId);
-	q.setOutOfBandUrl(msg.outOfBandUrl);
 	q.setReplaceId(msg.replaceId);
 	q.setOriginId(msg.originId);
 	q.setStanzaId(msg.stanzaId);
@@ -207,7 +206,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 
 	message.isSpoiler = msg.isSpoiler();
 	message.spoilerHint = msg.spoilerHint();
-	message.outOfBandUrl = msg.outOfBandUrl();
+//	message.outOfBandUrl = msg.outOfBandUrl();
 	message.stanzaId = msg.stanzaId();
 	message.originId = msg.originId();
 	message.isMarkable = msg.isMarkable();
@@ -384,13 +383,16 @@ bool MessageHandler::parseMediaUri(Message &message, const QString &uri, bool is
 			break;
 		[[fallthrough]];
 	case MessageType::MessageGeoLocation:
-		message.mediaLocation = url.toEncoded();
+//		message.mediaLocation = url.toEncoded();
 		[[fallthrough]];
 	case MessageType::MessageImage:
 	case MessageType::MessageAudio:
 	case MessageType::MessageVideo:
 	case MessageType::MessageDocument:
-		message.outOfBandUrl = url.toEncoded();
+//		message.outOfBandUrl = url.toEncoded();
+//		message.mediaType = messageType;
+//		message.mediaContentType = mimeType.name();
+//		message.outOfBandUrl = url.toEncoded();
 		return true;
 	}
 

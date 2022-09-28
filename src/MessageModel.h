@@ -93,8 +93,6 @@ public:
 		IsEdited,
 		DeliveryState,
 		IsLastRead,
-		MediaUrl,
-		MediaLocation,
 		IsSpoiler,
 		SpoilerHint,
 		ErrorText,

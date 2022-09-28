@@ -139,7 +139,20 @@ public:
 	Q_SIGNAL void messageUpdated(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 private:
+	// Setters do INSERT OR REPLACE INTO
+	void _setFiles(const QVector<File> &files);
+	void _setFileHashes(const QVector<FileHash> &fileHashes);
+	void _setHttpSources(const QVector<HttpSource> &sources);
+	void _setEncryptedSources(const QVector<EncryptedSource> &sources);
+	void _removeFiles(const QVector<qint64> &fileIds);
+	void _removeFileHashes(const QVector<qint64> &fileIds);
+	void _removeHttpSources(const QVector<qint64> &fileIds);
+	void _removeEncryptedSources(const QVector<qint64> &fileIds);
 	QVector<Message> _fetchMessagesFromQuery(QSqlQuery &query);
+	QVector<File> _fetchFiles(qint64 fileGroupId);
+	QVector<FileHash> _fetchFileHashes(qint64 dataId);
+	QVector<HttpSource> _fetchHttpSource(qint64 fileId);
+	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
 	/**
 	 * Checks whether a message already exists in the database

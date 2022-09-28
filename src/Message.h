@@ -35,6 +35,7 @@
 #include <QUrl>
 // QXmpp
 #include <QXmppMessage.h>
+#include <QXmppHash.h>
 // Kaidan
 #include "Encryption.h"
 #include "Enums.h"
@@ -42,6 +43,47 @@
 class QMimeType;
 
 using namespace Enums;
+
+struct FileHash
+{
+	qint64 dataId;
+	QXmpp::HashAlgorithm hashType;
+	QByteArray hashValue;
+};
+
+struct HttpSource
+{
+	qint64 fileId;
+	QUrl url;
+};
+
+struct EncryptedSource
+{
+	qint64 fileId;
+	QUrl url;
+	QXmpp::Cipher cipher;
+	QByteArray key;
+	QByteArray iv;
+	std::optional<qint64> encryptedDataId;
+	QVector<FileHash> encryptedHashes;
+};
+
+struct File
+{
+	qint64 id;
+	qint64 fileGroupId;
+	QString name;
+	QString description;
+	QString mimeType;
+	qint64 size;
+	QDateTime lastModified;
+	QXmppFileShare::Disposition disposition;
+	QString localFilePath;
+	QByteArray thumbnail;
+	QVector<FileHash> hashes;
+	QVector<HttpSource> httpSources;
+	QVector<EncryptedSource> encryptedSources;
+};
 
 /**
  * @brief This class is used to load messages from the database and use them in
@@ -70,10 +112,11 @@ public:
 	bool isMarkable = false;
 	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
 	QString markerId;
-	QString outOfBandUrl;
 	QString replaceId;
 	QString originId;
 	QString stanzaId;
+	std::optional<qint64> fileGroupId;
+	QVector<File> files;
 	bool receiptRequested = false;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
@@ -85,8 +128,6 @@ public:
 	bool isEdited = false;
 	// Delivery state of the message, like if it was sent successfully or if it was already delivered
 	DeliveryState deliveryState = DeliveryState::Delivered;
-	// Location of the media on the local storage.
-	QString mediaLocation;
 	// Text description of an error if it ever happened to the message
 	QString errorText;
 

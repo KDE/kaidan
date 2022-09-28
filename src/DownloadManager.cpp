@@ -70,7 +70,7 @@ void DownloadManager::startDownload(const QString &msgId, const QString &url)
 	connect(dl, &DownloadJob::finished, this, [this, dl, msgId] {
 		const QString &mediaLocation = dl->downloadLocation();
 		MessageDb::instance()->updateMessage(msgId, [mediaLocation](Message &msg) {
-			msg.mediaLocation = mediaLocation;
+//			msg.mediaLocation = mediaLocation;
 		});
 
 		abortDownload(msgId);

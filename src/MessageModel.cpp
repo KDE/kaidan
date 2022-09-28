@@ -166,8 +166,6 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[IsEdited] = "isEdited";
 	roles[DeliveryState] = "deliveryState";
 	roles[IsLastRead] = "isLastRead";
-	roles[MediaUrl] = "mediaUrl";
-	roles[MediaLocation] = "mediaLocation";
 	roles[IsSpoiler] = "isSpoiler";
 	roles[SpoilerHint] = "spoilerHint";
 	roles[ErrorText] = "errorText";
@@ -225,10 +223,6 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return false;
 	case DeliveryState:
 		return QVariant::fromValue(msg.deliveryState);
-	case MediaUrl:
-		return msg.outOfBandUrl;
-	case MediaLocation:
-		return msg.mediaLocation;
 	case IsSpoiler:
 		return msg.isSpoiler;
 	case SpoilerHint:

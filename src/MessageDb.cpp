@@ -37,7 +37,10 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 #include <QStringBuilder>
+#include <QMimeDatabase>
+#include <QBuffer>
 // Kaidan
+#include "Algorithms.h"
 #include "Database.h"
 #include "Globals.h"
 #include "SqlUtils.h"
@@ -45,6 +48,25 @@
 using namespace SqlUtils;
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
+
+template<typename T>
+QVariant optionalToVariant(std::optional<T> value)
+{
+	if (value) {
+		return QVariant(*value);
+	}
+	return {};
+}
+
+template<typename T>
+std::optional<T> variantToOptional(QVariant value)
+{
+	// ## Qt6 ## Does isNull() also work with Qt 6?
+	if (!value.isNull() && value.canConvert<T>()) {
+		return value.value<T>();
+	}
+	return {};
+}
 
 MessageDb *MessageDb::s_instance = nullptr;
 
@@ -80,8 +102,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxBody = rec.indexOf("message");
 	int idxDeliveryState = rec.indexOf("deliveryState");
 	int idxIsMarkable = rec.indexOf("isMarkable");
-	int idxOutOfBandUrl = rec.indexOf("mediaUrl");
-	int idxMediaLocation = rec.indexOf("mediaLocation");
 	int idxIsEdited = rec.indexOf("isEdited");
 	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxIsSpoiler = rec.indexOf("isSpoiler");
@@ -89,6 +109,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxReplaceId = rec.indexOf("replaceId");
 	int idxOriginId = rec.indexOf("originId");
 	int idxStanza = rec.indexOf("stanzaId");
+	int idxFileGroupId = rec.indexOf("file_group_id");
 
 	while (query.next()) {
 		Message msg;
@@ -104,8 +125,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.body = query.value(idxBody).toString();
 		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
 		msg.isMarkable = query.value(idxIsMarkable).toBool();
-		msg.outOfBandUrl = query.value(idxOutOfBandUrl).toString();
-		msg.mediaLocation = query.value(idxMediaLocation).toString();
 		msg.isEdited = query.value(idxIsEdited).toBool();
 		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.errorText = query.value(idxErrorText).toString();
@@ -113,8 +132,14 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.replaceId = query.value(idxReplaceId).toString();
 		msg.originId = query.value(idxOriginId).toString();
 		msg.stanzaId = query.value(idxStanza).toString();
+		msg.fileGroupId = variantToOptional<qint64>(query.value(idxFileGroupId));
 		// this is useful with resending pending messages
 		msg.receiptRequested = true;
+
+		// fetch referenced files
+		if (msg.fileGroupId) {
+			msg.files = _fetchFiles(*msg.fileGroupId);
+		}
 
 		messages << std::move(msg);
 	}
@@ -149,13 +174,6 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("isMarkable", newMsg.isMarkable));
 	if (oldMsg.errorText != newMsg.errorText)
 		rec.append(createSqlField("errorText", newMsg.errorText));
-	if (oldMsg.outOfBandUrl != newMsg.outOfBandUrl)
-		rec.append(createSqlField("mediaUrl", newMsg.outOfBandUrl));
-	if (oldMsg.mediaLocation != newMsg.mediaLocation)
-		rec.append(createSqlField(
-			"mediaLocation",
-			newMsg.mediaLocation
-		));
 	if (oldMsg.isEdited != newMsg.isEdited)
 		rec.append(createSqlField("isEdited", newMsg.isEdited));
 	if (oldMsg.spoilerHint != newMsg.spoilerHint)
@@ -168,6 +186,9 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("originId", newMsg.originId));
 	if (oldMsg.stanzaId != newMsg.stanzaId)
 		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
+	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
+		rec.append(createSqlField("file_group_id", optionalToVariant(newMsg.fileGroupId)));
+	}
 
 	return rec;
 }
@@ -313,10 +334,10 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			query,
 			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
 			"senderKey, deliveryState, isMarkable, isEdited, isSpoiler, spoilerHint, "
-			"errorText, replaceId, originId, stanzaId, mediaUrl, mediaLocation) "
+			"errorText, replaceId, originId, stanzaId, file_group_id) "
 			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
 			":deliveryState, :isMarkable, :isEdited, :isSpoiler, :spoilerHint, :errorText, "
-			":replaceId, :originId, :stanzaId, :mediaUrl, :mediaLocation)"
+			":replaceId, :originId, :stanzaId, :file_group_id)"
 		);
 
 		bindValues(query, {
@@ -332,14 +353,15 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":isEdited", msg.isEdited },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },
-			{ u":mediaUrl", msg.outOfBandUrl },
-			{ u":mediaLocation", msg.mediaLocation },
 			{ u":errorText", msg.errorText },
 			{ u":replaceId", msg.replaceId },
 			{ u":originId", msg.originId },
 			{ u":stanzaId", msg.stanzaId },
+			{ u":file_group_id", optionalToVariant(msg.fileGroupId) }
 		});
 		execQuery(query);
+
+		_setFiles(msg.files);
 	});
 }
 
@@ -347,6 +369,21 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 {
 	return run([this]() {
 		auto query = createQuery();
+
+		// remove files
+		{
+			execQuery(query, "SELECT file_group_id FROM messages WHERE file_group_id IS NOT NULL");
+
+			QVector<qint64> fileIds;
+			while (query.next()) {
+				fileIds.append(query.value(0).toLongLong());
+			}
+			if (!fileIds.isEmpty()) {
+				_removeFiles(fileIds);
+				_removeFileHashes(fileIds);
+			}
+		}
+
 		execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
 	});
 }
@@ -375,22 +412,270 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 			// replace old message with updated one, if message has changed
 			if (msgs.first() != msg) {
 				// create an SQL record with only the differences
-				QSqlRecord rec = createUpdateRecord(msgs.first(), msg);
-				auto &driver = sqlDriver();
+				if (auto rec = createUpdateRecord(msgs.first(), msg); rec.count()) {
+					auto &driver = sqlDriver();
 
-				execQuery(
-					query,
-					driver.sqlStatement(
-						QSqlDriver::UpdateStatement,
-						DB_TABLE_MESSAGES,
-						rec,
-						false
-					) +
-					simpleWhereStatement(&driver, "id", id)
-				);
+					execQuery(
+						query,
+						driver.sqlStatement(
+							QSqlDriver::UpdateStatement,
+							DB_TABLE_MESSAGES,
+							rec,
+							false
+						) +
+						simpleWhereStatement(&driver, "id", id)
+					);
+				}
+
+				// remove old files
+				auto oldFileIds = transform(msgs.first().files, [](const auto &file) {
+					return file.id;
+				});
+				auto newFileIds = transform(msg.files, [](const auto &file) {
+					return file.id;
+				});
+				auto removedFileIds = filter(std::move(oldFileIds), [&](auto id) {
+					return !newFileIds.contains(id);
+				});
+				_removeFiles(removedFileIds);
+				_removeFileHashes(removedFileIds);
+
+				// add new files, replace changed files
+				_setFiles(msg.files);
 			}
 		}
 	});
+}
+
+void MessageDb::_setFiles(const QVector<File> &files)
+{
+	thread_local static auto query = [this]() {
+		auto query = createQuery();
+		prepareQuery(query, "INSERT OR REPLACE INTO files VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		return query;
+	}();
+
+	for (const auto &file : files) {
+		bindValues(query, {
+			file.id,
+			file.fileGroupId,
+			optionalToVariant(file.name),
+			optionalToVariant(file.description),
+			file.mimeType.name(),
+			optionalToVariant(file.size),
+			serialize(file.lastModified),
+			int(file.disposition),
+			file.thumbnail,
+			file.localFilePath });
+		execQuery(query);
+
+		_setFileHashes(file.hashes);
+		_setHttpSources(file.httpSources);
+		_setEncryptedSources(file.encryptedSources);
+	}
+}
+
+void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
+{
+	thread_local static auto query = [this]() {
+		auto query = createQuery();
+		prepareQuery(query, "INSERT OR REPLACE INTO file_hashes VALUES (?, ?, ?)");
+		return query;
+	}();
+
+	for (const auto &hash : fileHashes) {
+		bindValues(query, {
+			hash.dataId,
+			int(hash.hashType),
+			hash.hashValue });
+		execQuery(query);
+	}
+}
+
+void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
+{
+	thread_local static auto query = [this]() {
+		auto query = createQuery();
+		prepareQuery(query, "INSERT OR REPLACE INTO file_http_sources VALUES (?, ?)");
+		return query;
+	}();
+
+	for (const auto &source : sources) {
+		bindValues(query, { source.fileId, source.url.toEncoded() });
+		execQuery(query);
+	}
+}
+
+void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
+{
+	thread_local static auto query = [this]() {
+		auto query = createQuery();
+		prepareQuery(query, "INSERT OR REPLACE INTO file_encrypted_sources VALUES (?, ?, ?, ?, ?, ?)");
+		return query;
+	}();
+
+	for (const auto &source : sources) {
+		bindValues(query, { source.fileId, source.url.toEncoded(), int(source.cipher), source.key, source.iv, optionalToVariant(source.encryptedDataId) });
+		execQuery(query);
+
+		_setFileHashes(source.encryptedHashes);
+	}
+}
+
+void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
+{
+	auto query = createQuery();
+	prepareQuery(query, "DELETE FROM files WHERE id = ?");
+	for (auto id : fileIds) {
+		bindValues(query, { QVariant(id) });
+		execQuery(query);
+	}
+}
+
+void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
+{
+	auto query = createQuery();
+	prepareQuery(query, "DELETE FROM file_hashes WHERE data_id = ?");
+	for (auto id : fileIds) {
+		bindValues(query, { QVariant(id) });
+		execQuery(query);
+	}
+}
+
+void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
+{
+	auto query = createQuery();
+	prepareQuery(query, "DELETE FROM file_http_sources WHERE file_id = ?");
+	for (auto id : fileIds) {
+		bindValues(query, { QVariant(id) });
+		execQuery(query);
+	}
+}
+
+void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
+{
+	auto query = createQuery();
+	prepareQuery(query, "DELETE FROM file_encrypted_sources WHERE file_id = ?");
+	for (auto id : fileIds) {
+		bindValues(query, { QVariant(id) });
+		execQuery(query);
+	}
+}
+
+QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
+{
+	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath };
+	thread_local static auto query = [this]() {
+		auto q = createQuery();
+		prepareQuery(q, "SELECT id, name, description, mime_type, size, last_modified, disposition, "
+		                "thumbnail, local_file_path FROM files "
+		                "WHERE file_group_id = :file_group_id");
+		return q;
+	}();
+
+	bindValues(query, { QueryBindValue { u":file_group_id", QVariant(fileGroupId) } });
+	execQuery(query);
+
+	QVector<File> files;
+	while (query.next()) {
+		auto id = query.value(Id).toLongLong();
+		files << File {
+			query.value(Id).toLongLong(),
+			fileGroupId,
+			variantToOptional<QString>(query.value(Name)),
+			variantToOptional<QString>(query.value(Description)),
+			QMimeDatabase().mimeTypeForName(query.value(MimeType).toString()),
+			variantToOptional<long long>(query.value(Size)),
+			parseDateTime(query, LastModified),
+			QXmppFileShare::Disposition(query.value(Disposition).toInt()),
+			query.value(LocalFilePath).toString(),
+			_fetchFileHashes(id),
+			query.value(Thumbnail).toByteArray(),
+			_fetchHttpSource(id),
+			_fetchEncryptedSource(id),
+		};
+	}
+	return files;
+}
+
+QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
+{
+	enum { HashType, HashValue };
+	thread_local static auto query = [this]() {
+		auto q = createQuery();
+		prepareQuery(q, "SELECT hash_type, hash_value FROM file_hashes WHERE data_id = ?");
+		return q;
+	}();
+
+	bindValues(query, { QVariant(fileId) });
+	execQuery(query);
+
+	QVector<FileHash> hashes;
+	while (query.next()) {
+		hashes << FileHash {
+			fileId,
+			QXmpp::HashAlgorithm(query.value(HashType).toInt()),
+			query.value(HashValue).toByteArray()
+		};
+	}
+	return hashes;
+}
+
+QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
+{
+	enum { Url };
+	thread_local static auto query = [this]() {
+		auto q = createQuery();
+		prepareQuery(q, "SELECT url FROM file_http_sources WHERE file_id = ?");
+		return q;
+	}();
+
+	bindValues(query, { QVariant(fileId) });
+	execQuery(query);
+
+	QVector<HttpSource> sources;
+	while (query.next()) {
+		sources << HttpSource {
+			fileId,
+			QUrl::fromEncoded(query.value(Url).toByteArray())
+		};
+	}
+	return sources;
+}
+
+QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
+{
+	enum { Url, Cipher, Key, Iv, EncryptedDataId };
+	thread_local static auto query = [this]() {
+		auto q = createQuery();
+		prepareQuery(q, "SELECT url, cipher, key, iv, encrypted_data_id FROM file_encrypted_sources WHERE file_id = ?");
+		return q;
+	}();
+
+	bindValues(query, { QVariant(fileId) });
+	execQuery(query);
+
+	auto parseHashes = [this](QSqlQuery &query) -> QVector<FileHash> {
+		auto dataId = query.value(EncryptedDataId);
+		if (dataId.isNull()) {
+			return {};
+		}
+		return _fetchFileHashes(dataId.toLongLong());
+	};
+
+	QVector<EncryptedSource> sources;
+	while (query.next()) {
+		sources << EncryptedSource {
+			fileId,
+			QUrl::fromEncoded(query.value(Url).toByteArray()),
+			QXmpp::Cipher(query.value(Cipher).toInt()),
+			query.value(Key).toByteArray(),
+			query.value(Iv).toByteArray(),
+			variantToOptional<qint64>(query.value(EncryptedDataId)),
+			parseHashes(query),
+		};
+	}
+	return sources;
 }
 
 bool MessageDb::_checkMessageExists(const Message &message)

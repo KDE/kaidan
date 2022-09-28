@@ -92,7 +92,7 @@ void UploadManager::sendFile(const QString &jid, const QUrl &fileUrl, const QStr
 	msg.isOwn = true;
 	msg.body = body;
 	msg.stamp = QDateTime::currentDateTimeUtc();
-	msg.mediaLocation = file.filePath();
+//	msg.mediaLocation = file.filePath();
 
 	// cache message and upload
 	FileProgressCache::instance()
@@ -120,7 +120,7 @@ void UploadManager::handleUploadSucceeded(const QXmppHttpUpload *upload)
 	                     : originalMsg.body + "\n" + oobUrl;
 
 	MessageDb::instance()->updateMessage(originalMsg.id, [oobUrl](Message &msg) {
-		msg.outOfBandUrl = oobUrl;
+//		msg.outOfBandUrl = oobUrl;
 	});
 
 	// send message

@@ -120,6 +120,7 @@ private:
 	void convertDatabaseToV16();
 	void convertDatabaseToV17();
 	void convertDatabaseToV18();
+	void convertDatabaseToV19();
 
 	std::unique_ptr<DatabasePrivate> d;
 };

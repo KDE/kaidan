@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 18
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(18)
+#define DATABASE_LATEST_VERSION 19
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(19)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -392,8 +392,6 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
 			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
-			SQL_ATTRIBUTE(mediaUrl, SQL_TEXT)
-			SQL_ATTRIBUTE(mediaLocation, SQL_TEXT)
 			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
 			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
 			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
@@ -404,6 +402,57 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
 			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	// file sharing
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILES,
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(description, SQL_TEXT)
+			SQL_ATTRIBUTE(mime_type, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(size, SQL_INTEGER)
+			SQL_ATTRIBUTE(last_modified, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(thumbnail, SQL_BLOB)
+			SQL_ATTRIBUTE(local_file_path, SQL_TEXT)
+			"PRIMARY KEY(id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_HASHES,
+			SQL_ATTRIBUTE(data_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hash_type, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hash_value, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(data_id, hash_type)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_HTTP_SOURCES,
+			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(file_id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_ENCRYPTED_SOURCES,
+			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(cipher, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(key, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(encrypted_data_id, SQL_INTEGER)
+			"PRIMARY KEY(file_id)"
 		)
 	);
 
@@ -866,4 +915,128 @@ void Database::convertDatabaseToV18()
 	execQuery(query, "DROP TABLE messages_tmp");
 
 	d->version = 18;
+}
+
+void Database::convertDatabaseToV19()
+{
+	DATABASE_CONVERT_TO_VERSION(18)
+	QSqlQuery query(currentDatabase());
+
+	// file sharing
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILES,
+			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(description, SQL_TEXT)
+			SQL_ATTRIBUTE(mime_type, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(size, SQL_INTEGER)
+			SQL_ATTRIBUTE(last_modified, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(thumbnail, SQL_BLOB)
+			SQL_ATTRIBUTE(local_file_path, SQL_TEXT)
+			"PRIMARY KEY(id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_HASHES,
+			SQL_ATTRIBUTE(data_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hash_type, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hash_value, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(data_id, hash_type)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_HTTP_SOURCES,
+			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(file_id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_FILE_ENCRYPTED_SOURCES,
+			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(cipher, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(key, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(encrypted_data_id, SQL_INTEGER)
+			"PRIMARY KEY(file_id)"
+		)
+	);
+
+	// manually convert messages table
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages_tmp",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		"senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
+		"replaceId, originId, stanzaId, file_group_id FROM messages"
+	);
+
+	execQuery(query, "DROP TABLE messages");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
+	execQuery(query, "DROP TABLE messages_tmp");
+
+	d->version = 19;
 }
