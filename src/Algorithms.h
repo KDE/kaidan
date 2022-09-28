@@ -38,11 +38,24 @@
 template<typename T, typename Converter>
 auto transform(const T &input, Converter convert)
 {
-	using Output = std::decay_t<decltype(convert(input.front()))>;
+	using Output = std::decay_t<decltype(convert(*input.begin()))>;
 	QVector<Output> output;
 	output.reserve(input.size());
 	std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
 	return output;
+}
+
+template<typename T, typename Converter>
+auto transformMap(const T &input, Converter convert)
+{
+	using Key = std::decay_t<decltype(convert(input.front()).first)>;
+	using Value = std::decay_t<decltype(convert(input.front()).second)>;
+	std::unordered_map<Key, Value> hash;
+	for (const auto &item : input) {
+		auto [key, value] = convert(item);
+		hash.insert_or_assign(std::move(key), std::move(value));
+	}
+	return hash;
 }
 
 template<typename T, typename Condition>
@@ -60,7 +73,7 @@ auto filter(T &&input, Condition condition)
 template<typename T, typename ConditionalConverter>
 auto transformFilter(const T &input, ConditionalConverter conditionalConverter)
 {
-	using Output = std::decay_t<decltype(convert(input.front()))>;
+	using Output = typename std::decay_t<decltype(conditionalConverter(input.front()))>::value_type;
 	QVector<Output> output;
 
 	for (const auto &item : input) {
@@ -97,7 +110,7 @@ auto sum(const QVector<T> &input)
 template<typename T, typename Converter>
 auto transformSum(const T &input, Converter convert)
 {
-	using Output = std::decay_t<decltype(convert(input.front()))>;
+	using Output = std::decay_t<decltype(convert(*input.begin()))>;
 	Output output;
 
 	for (const auto &item : input) {
@@ -105,4 +118,16 @@ auto transformSum(const T &input, Converter convert)
 	}
 
 	return output;
+}
+
+template<typename T, typename V>
+bool contains(const T &input, const T &value)
+{
+	return std::find(input.begin(), input.end(), value) != input.end();
+}
+
+template<typename T, typename Condition>
+bool containsIf(const T &input, Condition condition)
+{
+	return std::find_if(input.begin(), input.end(), condition) != input.end();
 }
