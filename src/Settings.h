@@ -42,84 +42,84 @@ constexpr quint16 PORT_AUTODETECT = 0;
 
 class Settings : public QObject
 {
-    Q_OBJECT
+	Q_OBJECT
 
 	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
-    Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
+	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
 
 public:
-    explicit Settings(QObject *parent = nullptr);
+	explicit Settings(QObject *parent = nullptr);
 
-    ///
-    /// Avoid using this in favour of adding methods here,
-    /// but it is useful if you need to manually manage config groups
-    ///
-    QSettings &raw();
+	///
+	/// Avoid using this in favour of adding methods here,
+	/// but it is useful if you need to manually manage config groups
+	///
+	QSettings &raw();
 
-    bool authOnline() const;
-    void setAuthOnline(bool online);
+	bool authOnline() const;
+	void setAuthOnline(bool online);
 
-    QString authJid() const;
-    void setAuthJid(const QString &jid);
+	QString authJid() const;
+	void setAuthJid(const QString &jid);
 
-    QString authJidResourcePrefix() const;
-    void setAuthJidResourcePrefix(const QString &prefix);
+	QString authJidResourcePrefix() const;
+	void setAuthJidResourcePrefix(const QString &prefix);
 
-    QString authPassword() const;
-    void setAuthPassword(const QString &password);
+	QString authPassword() const;
+	void setAuthPassword(const QString &password);
 
-    QString authHost() const;
-    void setAuthHost(const QString &host);
-    void resetAuthHost();
+	QString authHost() const;
+	void setAuthHost(const QString &host);
+	void resetAuthHost();
 
-    quint16 authPort() const;
-    void setAuthPort(quint16 port);
-    void resetAuthPort();
-    bool isDefaultAuthPort();
+	quint16 authPort() const;
+	void setAuthPort(quint16 port);
+	void resetAuthPort();
+	bool isDefaultAuthPort();
 
-    Kaidan::PasswordVisibility authPasswordVisibility() const;
-    void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
+	Kaidan::PasswordVisibility authPasswordVisibility() const;
+	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
 
-    /**
-     * Retrieves the visibility of the QrCodePage's explanation from the settings file.
-     *
-     * @return true if the explanation is set to be visible, otherwise false
-     */
-    bool qrCodePageExplanationVisible() const;
+	/**
+	 * Retrieves the visibility of the QrCodePage's explanation from the settings file.
+	 *
+	 * @return true if the explanation is set to be visible, otherwise false
+	 */
+	bool qrCodePageExplanationVisible() const;
 
-    /**
-     * Stores the visibility of the QrCodePage's explanation in the settings file.
-     *
-     * @param isVisible true if the explanation should be visible in the future, otherwise false
-     */
-    void setQrCodePageExplanationVisible(bool isVisible);
+	/**
+	 * Stores the visibility of the QrCodePage's explanation in the settings file.
+	 *
+	 * @param isVisible true if the explanation should be visible in the future, otherwise false
+	 */
+	void setQrCodePageExplanationVisible(bool isVisible);
 
-    bool notificationsMuted(const QString &bareJid) const;
-    void setNotificationsMuted(const QString &bareJid, bool muted);
+	bool notificationsMuted(const QString &bareJid) const;
+	void setNotificationsMuted(const QString &bareJid, bool muted);
 
-    QStringList favoriteEmojis() const;
-    void setFavoriteEmojis(const QStringList &emoji);
+	QStringList favoriteEmojis() const;
+	void setFavoriteEmojis(const QStringList &emoji);
 
     QSize windowSize() const;
     void setWindowSize(QSize size);
 
-    void remove(const QStringList &keys);
+	void remove(const QStringList &keys);
 
 signals:
-    void authOnlineChanged();
-    void authJidChanged();
-    void authJidResourcePrefixChanged();
-    void authPasswordChanged();
-    void authHostChanged();
-    void authPortChanged();
-    void authPasswordVisibilityChanged();
-    void qrCodePageExplanationVisibleChanged();
-    void notificationsMutedChanged(const QString &bareJid);
-    void favoriteEmojisChanged();
-    void windowSizeChanged();
+	void authOnlineChanged();
+	void authJidChanged();
+	void authJidResourcePrefixChanged();
+	void authPasswordChanged();
+	void authHostChanged();
+	void authPortChanged();
+	void authPasswordVisibilityChanged();
+	void qrCodePageExplanationVisibleChanged();
+	void notificationsMutedChanged(const QString &bareJid);
+	void favoriteEmojisChanged();
+	void windowSizeChanged();
 
 private:
-    QSettings m_settings;
+	QSettings m_settings;
 };
 
 #endif // SETTINGS_H
