@@ -87,6 +87,13 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 	});
 }
 
+template<typename T>
+void reportFinishedResult(QFutureInterface<T> &interface, const T &result)
+{
+	interface.reportResult(result);
+	interface.reportFinished();
+}
+
 // Runs a function on targetObject's thread and returns the result via QFuture.
 template<typename Function>
 auto runAsync(QObject *targetObject, Function function)
