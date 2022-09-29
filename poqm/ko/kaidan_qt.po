@@ -214,7 +214,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/Message.cpp:78
+#: src/Message.cpp:74
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
@@ -225,7 +225,7 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:292
+#: src/MessageHandler.cpp:290
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -233,27 +233,27 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "메시지 수정에 실패했습니다."
 
-#: src/MessageHandler.cpp:349
+#: src/MessageHandler.cpp:347
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:263
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:265
+#: src/MessageModel.cpp:255
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:267
+#: src/MessageModel.cpp:257
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:269
+#: src/MessageModel.cpp:259
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
@@ -1878,7 +1878,7 @@ msgctxt "UploadManager|"
 msgid "Could not send file, as a result of not being connected."
 msgstr "연결되지 않아서 파일을 전송할 수 없었습니다."
 
-#: src/UploadManager.cpp:144
+#: src/UploadManager.cpp:140
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."

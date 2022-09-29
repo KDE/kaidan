@@ -218,7 +218,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:78
+#: src/Message.cpp:74
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -229,7 +229,7 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:292
+#: src/MessageHandler.cpp:290
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -237,27 +237,27 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível a correção da mensagem."
 
-#: src/MessageHandler.cpp:349
+#: src/MessageHandler.cpp:347
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageModel.cpp:263
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Aguardando"
 
-#: src/MessageModel.cpp:265
+#: src/MessageModel.cpp:255
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/MessageModel.cpp:267
+#: src/MessageModel.cpp:257
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregue"
 
-#: src/MessageModel.cpp:269
+#: src/MessageModel.cpp:259
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
@@ -1954,7 +1954,7 @@ msgid "Could not send file, as a result of not being connected."
 msgstr ""
 "Não foi possível enviar o arquivo, devido a não estar conectado à Internet."
 
-#: src/UploadManager.cpp:144
+#: src/UploadManager.cpp:140
 msgctxt "UploadManager|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
