@@ -43,7 +43,6 @@ class AtmManager;
 class AvatarFileStorage;
 class Database;
 class DiscoveryManager;
-class DownloadManager;
 class LogHandler;
 class MessageHandler;
 class MessageModel;
@@ -54,7 +53,6 @@ class RosterManager;
 class RosterModel;
 class ServerFeaturesCache;
 class TransferCache;
-class UploadManager;
 class VCardCache;
 class VCardManager;
 class VersionManager;
@@ -75,8 +73,6 @@ class ClientWorker : public QObject
 	Q_PROPERTY(RosterManager* rosterManager READ rosterManager CONSTANT)
 	Q_PROPERTY(MessageHandler* messageHandler READ messageHandler CONSTANT)
 	Q_PROPERTY(DiscoveryManager* discoveryManager READ discoveryManager CONSTANT)
-	Q_PROPERTY(UploadManager* uploadManager READ uploadManager CONSTANT)
-	Q_PROPERTY(DownloadManager* downloadManager READ downloadManager CONSTANT)
 	Q_PROPERTY(VersionManager* versionManager READ versionManager CONSTANT)
 	Q_PROPERTY(AtmManager* atmManager READ atmManager CONSTANT)
 	Q_PROPERTY(OmemoManager* omemoManager READ omemoManager CONSTANT)
@@ -144,16 +140,6 @@ public:
 	DiscoveryManager *discoveryManager() const
 	{
 		return m_discoveryManager;
-	}
-
-	UploadManager *uploadManager() const
-	{
-		return m_uploadManager;
-	}
-
-	DownloadManager *downloadManager() const
-	{
-		return m_downloadManager;
 	}
 
 	VersionManager *versionManager() const
@@ -346,8 +332,6 @@ private:
 	OmemoManager *m_omemoManager;
 	MessageHandler *m_messageHandler;
 	DiscoveryManager *m_discoveryManager;
-	UploadManager *m_uploadManager;
-	DownloadManager *m_downloadManager;
 	VersionManager *m_versionManager;
 
 	QXmppFileSharingManager *m_fileSharingManager;

@@ -31,10 +31,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	VCardModel.cpp
 	LogHandler.cpp
 	StatusBar.cpp
-	UploadManager.cpp
 	EmojiModel.cpp
 	FileProgressCache.cpp
-	DownloadManager.cpp
 	ServerFeaturesCache.cpp
 	QmlUtils.cpp
 	SqlUtils.cpp
@@ -79,7 +77,6 @@ target_sources(${PROJECT_NAME} PRIVATE
 	Algorithms.h
 
 	# kaidan QXmpp extensions (need to be merged into QXmpp upstream)
-	qxmpp-exts/QXmppUploadManager.cpp
 	qxmpp-exts/QXmppColorGenerator.cpp
 	qxmpp-exts/QXmppUri.cpp
 

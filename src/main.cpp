@@ -88,7 +88,6 @@
 #include "ServerFeaturesCache.h"
 #include "ProviderListModel.h"
 #include "StatusBar.h"
-#include "UploadManager.h"
 #include "UserDevicesModel.h"
 #include "VCardModel.h"
 #include "VCardManager.h"
@@ -255,7 +254,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MessageModel*>();
 	qRegisterMetaType<MessageHandler*>();
 	qRegisterMetaType<DiscoveryManager*>();
-	qRegisterMetaType<UploadManager*>();
 	qRegisterMetaType<VCardManager*>();
 	qRegisterMetaType<VersionManager*>();
 	qRegisterMetaType<RegistrationManager*>();

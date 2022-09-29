@@ -48,7 +48,6 @@
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
-#include "DownloadManager.h"
 #include "Enums.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
@@ -61,7 +60,6 @@
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
-#include "UploadManager.h"
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
@@ -101,8 +99,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_atmManager = new AtmManager(m_client, database, this);
 	m_omemoManager = new OmemoManager(m_client, database, this);
 	m_discoveryManager = new DiscoveryManager(m_client, this);
-	m_uploadManager = new UploadManager(m_client, m_rosterManager, this);
-	m_downloadManager = new DownloadManager(caches->transferCache, this);
 	m_versionManager = new VersionManager(m_client, this);
 
 	// file sharing manager
