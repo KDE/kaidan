@@ -829,7 +829,7 @@ void Database::convertDatabaseToV18()
 		query,
 		"INSERT INTO messages_tmp SELECT author, recipient, timestamp, message, id, encryption, "
 		"senderKey, deliveryState, isMarkable, mediaUrl, mediaLocation, edited, spoilerHint, "
-		"isSpoiler, errorText, replaceId, originId, stanzaId FROM Messages"
+		"isSpoiler, errorText, replaceId, originId, stanzaId, NULL FROM Messages"
 	);
 
 	execQuery(query, "DROP TABLE Messages");
