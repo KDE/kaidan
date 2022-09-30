@@ -456,6 +456,10 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 
 	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.length() - 1);
 	for (auto msg : msgs) {
+		// Skip messages that were not fetched for this chat
+		if (msg.from != m_currentChatJid && msg.to != m_currentChatJid) {
+			continue;
+		}
 		msg.isOwn = AccountManager::instance()->jid() == msg.from;
 		processMessage(msg);
 		m_messages << msg;
