@@ -41,22 +41,8 @@ QString RosterItem::displayName() const
 	return name.isEmpty() ? QXmppUtils::jidToUser(jid) : name;
 }
 
-bool RosterItem::operator==(const RosterItem &other) const
-{
-	return jid == other.jid &&
-	       name == other.name &&
-	       lastMessage == other.lastMessage &&
-	       lastReadOwnMessageId == other.lastReadOwnMessageId &&
-	       lastReadContactMessageId == other.lastReadContactMessageId &&
-	       lastExchanged == other.lastExchanged &&
-	       unreadMessages == other.unreadMessages &&
-	       encryption == other.encryption;
-}
-
-bool RosterItem::operator!=(const RosterItem &other) const
-{
-	return !operator==(other);
-}
+bool RosterItem::operator==(const RosterItem &other) const = default;
+bool RosterItem::operator!=(const RosterItem &other) const = default;
 
 bool RosterItem::operator<(const RosterItem &other) const
 {

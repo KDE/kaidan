@@ -34,38 +34,8 @@
 
 #include "MediaUtils.h"
 
-bool Message::operator==(const Message &m) const
-{
-	return m.id == id
-		&& m.to == to
-		&& m.from == from
-		&& m.body == body
-		&& m.stamp == stamp
-		&& m.isSpoiler == isSpoiler
-		&& m.spoilerHint == spoilerHint
-		&& m.isMarkable == isMarkable
-		&& m.marker == marker
-		&& m.markerId == markerId
-		&& m.outOfBandUrl == outOfBandUrl
-		&& m.replaceId == replaceId
-		&& m.originId == originId
-		&& m.stanzaId == stanzaId
-		&& m.receiptRequested == receiptRequested
-		&& m.encryption == encryption
-		&& m.senderKey == senderKey
-		&& m.isOwn == isOwn
-		&& m.isEdited == isEdited
-		&& m.deliveryState == deliveryState
-		&& m.mediaLocation == mediaLocation
-		&& m.isSpoiler == isSpoiler
-		&& m.spoilerHint == spoilerHint
-		&& m.errorText == errorText;
-}
-
-bool Message::operator!=(const Message &m) const
-{
-	return !operator==(m);
-}
+bool Message::operator==(const Message &m) const = default;
+bool Message::operator!=(const Message &m) const = default;
 
 QString Message::previewText() const
 {
