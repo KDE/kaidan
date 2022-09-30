@@ -55,6 +55,7 @@ public:
 
 	QFuture<UploadResult> sendFile(const File &file, bool encrypt);
 	Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
+	Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);
 
 	Q_SIGNAL void errorOccured(qint64, QXmppError);
 };

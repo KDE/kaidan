@@ -385,3 +385,21 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 		});
 	});
 }
+
+void FileSharingController::deleteFile(const QString &messageId, const File &file)
+{
+	MessageDb::instance()->updateMessage(messageId, [fileId = file.id](Message &message) {
+		auto *it = ranges::find_if(message.files, [fileId](const auto &file) {
+			return file.id == fileId;
+		});
+		if (it != message.files.cend()) {
+			it->localFilePath.clear();
+		}
+	});
+
+	// don't delete files not downloaded by us
+	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + APPLICATION_DISPLAY_NAME;
+	if (file.localFilePath.startsWith(downloadsFolder)) {
+		QFile::remove(file.localFilePath);
+	}
+}

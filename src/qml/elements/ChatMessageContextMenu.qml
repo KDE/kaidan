@@ -71,4 +71,12 @@ Controls.Menu {
 			root.message.quoteRequested(root.message.messageBody)
 		}
 	}
+
+	Controls.MenuItem {
+		text: qsTr("Delete file")
+		visible: root.file && root.file.localFilePath
+		onTriggered: {
+			Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
+		}
+	}
 }
