@@ -70,6 +70,9 @@ ChatPageBase {
 
 	titleDelegate: Controls.ToolButton {
 		contentItem: RowLayout {
+			// weirdly having an id here, although unused, fixes the layout
+			id: layout
+
 			Avatar {
 				Layout.leftMargin: Kirigami.Units.largeSpacing
 				Layout.preferredHeight: parent.height
@@ -78,7 +81,9 @@ ChatPageBase {
 				name: chatItemWatcher.item.displayName
 			}
 			Kirigami.Heading {
+				Layout.fillWidth: true
 				Layout.leftMargin: Kirigami.Units.largeSpacing
+				Layout.rightMargin: Kirigami.Units.largeSpacing
 				text: chatItemWatcher.item.displayName
 			}
 		}
