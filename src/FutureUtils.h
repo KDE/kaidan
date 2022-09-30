@@ -138,3 +138,27 @@ auto runOnThread(QObject *targetObject, Function function, QObject *caller, Hand
 		}
 	});
 }
+
+// Creates a future with the results from all given futures.
+template <typename T>
+QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
+{
+	auto results = std::make_shared<QVector<T>>();
+	results->reserve(futures.size());
+
+	int futureCount = futures.size();
+
+	QFutureInterface<QVector<T>> interface;
+
+	for (auto future : futures) {
+		await(future, context, [=](auto result) mutable {
+			results->push_back(result);
+			if (results->size() == futureCount) {
+				interface.reportResult(*results);
+				interface.reportFinished();
+			}
+		});
+	}
+
+	return interface.future();
+}
