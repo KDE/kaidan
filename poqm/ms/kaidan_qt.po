@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: ja\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:285
+#: src/ClientWorker.cpp:299
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -17,19 +17,23 @@ msgstr ""
 "Akaun anda tidak boleh dipadam daripada pelayan. Oleh itu, ia juga tidak "
 "dibuang daripada aplikasi ini: %1"
 
-#: src/DownloadManager.cpp:127
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Could not save file: %1"
-msgstr "Tidak dapat menyimpan fail: %1"
-
-#: src/DownloadManager.cpp:157
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Download failed: %1"
+#: src/FileSharingController.cpp:205
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Download failed: %1"
+msgctxt "FileSharingController|"
+msgid "Upload failed: %1"
 msgstr "Muat turun gagal: %1"
 
-#: src/Kaidan.cpp:101
+#: src/FileSharingController.cpp:369
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Could not save file: %1"
+msgctxt "FileSharingController|"
+msgid "Couldn't download file: %1"
+msgstr "Tidak dapat menyimpan fail: %1"
+
+#: src/Kaidan.cpp:104
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -37,7 +41,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Dalam talian"
 
-#: src/Kaidan.cpp:103
+#: src/Kaidan.cpp:106
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -45,7 +49,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Menyambung…"
 
-#: src/Kaidan.cpp:105
+#: src/Kaidan.cpp:108
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -54,7 +58,7 @@ msgid "Offline"
 msgstr "Luar talian"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:167
+#: src/Kaidan.cpp:170
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Pautan akan dibuka selepas anda disambungkan."
@@ -112,124 +116,129 @@ msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
 msgstr "Dua tapis"
 
-#: src/MediaUtils.cpp:252
+#: src/MediaUtils.cpp:251
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:254
+#: src/MediaUtils.cpp:253
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokumen"
 
-#: src/MediaUtils.cpp:256
+#: src/MediaUtils.cpp:255
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Lokasi"
 
-#: src/MediaUtils.cpp:258
+#: src/MediaUtils.cpp:257
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Imej"
 
-#: src/MediaUtils.cpp:260
+#: src/MediaUtils.cpp:259
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:264
+#: src/MediaUtils.cpp:263
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fail"
 
-#: src/MediaUtils.cpp:273
+#: src/MediaUtils.cpp:272
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Ambil gambar"
 
-#: src/MediaUtils.cpp:275
+#: src/MediaUtils.cpp:274
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Rakam video"
 
-#: src/MediaUtils.cpp:277
+#: src/MediaUtils.cpp:276
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Rakam suara"
 
-#: src/MediaUtils.cpp:279
+#: src/MediaUtils.cpp:278
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Hantar kedudukan"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Pilih fail"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Pilih imej"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Pilih video"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Pilih fail audio"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Pilih dokumen"
 
-#: src/MediaUtils.cpp:347
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Semua fail"
 
-#: src/MediaUtils.cpp:349
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Imej"
 
-#: src/MediaUtils.cpp:351
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:353
+#: src/MediaUtils.cpp:352
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fail audio"
 
-#: src/MediaUtils.cpp:355
+#: src/MediaUtils.cpp:354
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumen"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:379
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:74
+#: src/Message.cpp:151
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Beberan"
 
-#: src/MessageHandler.cpp:200
+#: src/MessageComposition.cpp:144
+msgctxt "FileSelectionModel|"
+msgid "Unknown size"
+msgstr ""
+
+#: src/MessageHandler.cpp:305
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:290
+#: src/MessageHandler.cpp:378
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -237,27 +246,27 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Pembetulan mesej tidak berjaya."
 
-#: src/MessageHandler.cpp:347
+#: src/MessageHandler.cpp:435
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Mesej gagal dihantar."
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Menghantar"
 
-#: src/MessageModel.cpp:255
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Dihantar"
 
-#: src/MessageModel.cpp:257
+#: src/MessageModel.cpp:250
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Diterima"
 
-#: src/MessageModel.cpp:259
+#: src/MessageModel.cpp:252
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ralat"
@@ -408,76 +417,84 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Salin kata laluan"
 
-#: src/qml/ChatPage.qml:97
+#: src/qml/ChatPage.qml:105
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:116
+#: src/qml/ChatPage.qml:124
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Buang bisu pemberitahuan"
 
-#: src/qml/ChatPage.qml:117
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Bisukan pemberitahuan"
 
-#: src/qml/ChatPage.qml:126
+#: src/qml/ChatPage.qml:134
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Lihat profil"
 
-#: src/qml/ChatPage.qml:137
+#: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Hantar mesej beberan"
 
-#: src/qml/elements/ChatMessage.qml:146
+#: src/qml/elements/ChatMessage.qml:139
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Beberan"
 
-#: src/qml/elements/ChatMessage.qml:203
+#: src/qml/elements/ChatMessage.qml:196
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Muat Turun"
 
-#: src/qml/elements/ChatMessage.qml:269
+#: src/qml/elements/ChatMessage.qml:257
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:274
+#: src/qml/elements/ChatMessage.qml:262
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:316
+#: src/qml/elements/ChatMessage.qml:295
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:45
+#: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Salin mesej"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:56
+#: src/qml/elements/ChatMessageContextMenu.qml:57
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Sunting mesej"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:62
+#: src/qml/elements/ChatMessageContextMenu.qml:63
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "Salin URL muat turun"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:68
+#: src/qml/elements/ChatMessageContextMenu.qml:69
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Petik mesej"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:76
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Select a file"
+msgctxt "ChatMessageContextMenu|"
+msgid "Delete file"
+msgstr "Pilih fail"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 #, fuzzy
@@ -639,6 +656,22 @@ msgctxt "NewMedia|"
 msgid "Recording… %1"
 msgstr "Merakam… %1"
 
+#: src/qml/elements/NewMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "NewMediaSheet|"
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/qml/elements/NewMediaSheet.qml:115
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send"
+msgctxt "NewMediaSheet|"
+msgid "Send"
+msgstr "Hantar"
+
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
 msgctxt "QrCodeScanner|"
@@ -743,17 +776,49 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Namakan semula"
 
-#: src/qml/elements/SendMediaSheet.qml:105
+#: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
-msgid "Caption"
-msgstr "Kapsyen"
+msgid "Send files"
+msgstr "Fail audio"
 
-#: src/qml/elements/SendMediaSheet.qml:118
+#: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
-msgid "Cancel"
-msgstr "Batal"
+msgid "Select some files to send them"
+msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:132
+#: src/qml/elements/SendMediaSheet.qml:146
+msgctxt "SendMediaSheet|"
+msgid "Enter description…"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:154
+#, fuzzy
+#| msgctxt "LocalAccountRemoval|"
+#| msgid "Remove"
+msgctxt "SendMediaSheet|"
+msgid "Remove file"
+msgstr "Buang"
+
+#: src/qml/elements/SendMediaSheet.qml:168
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose message"
+msgctxt "SendMediaSheet|"
+msgid "Compose message"
+msgstr "Karang mesej"
+
+#: src/qml/elements/SendMediaSheet.qml:175
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add"
+msgctxt "SendMediaSheet|"
+msgid "Add"
+msgstr "Tambah"
+
+#: src/qml/elements/SendMediaSheet.qml:186
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Hantar"
@@ -1905,19 +1970,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Pelayan ini tidak menyokong pendaftaran."
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:157
+msgctxt "QmlUtils|"
+msgid "Unknown size"
+msgstr ""
+
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 berada dalam talian"
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 sedang menaip…"
 
-#: src/QmlUtils.cpp:232
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -1945,16 +2015,6 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "Tidak boleh menamakan semula kenalan, kerana anda tidak bersambung ke "
 "internet."
-
-#: src/UploadManager.cpp:72
-msgctxt "UploadManager|"
-msgid "Could not send file, as a result of not being connected."
-msgstr "Tidak dapat menghantar fail, kerana anda tidak disambung ke internet."
-
-#: src/UploadManager.cpp:140
-msgctxt "UploadManager|"
-msgid "Message could not be sent."
-msgstr "Mesej tidak dapat dihantar."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
@@ -1985,6 +2045,23 @@ msgstr "Hari lahir"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Laman web"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Caption"
+#~ msgstr "Kapsyen"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Batal"
+
+#~ msgctxt "UploadManager|"
+#~ msgid "Could not send file, as a result of not being connected."
+#~ msgstr ""
+#~ "Tidak dapat menghantar fail, kerana anda tidak disambung ke internet."
+
+#~ msgctxt "UploadManager|"
+#~ msgid "Message could not be sent."
+#~ msgstr "Mesej tidak dapat dihantar."
 
 #~ msgctxt "AboutPage|"
 #~ msgid "About"
@@ -2154,10 +2231,6 @@ msgstr "Laman web"
 #~ msgctxt "ChatPage|"
 #~ msgid "Other file"
 #~ msgstr "Fail lain"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Select a file"
-#~ msgstr "Pilih fail"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Spoiler hint"

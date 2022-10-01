@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:285
+#: src/ClientWorker.cpp:299
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -15,19 +15,23 @@ msgid ""
 "not removed from this app: %1"
 msgstr ""
 
-#: src/DownloadManager.cpp:127
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Could not save file: %1"
-msgstr ""
-
-#: src/DownloadManager.cpp:157
-#, qt-format
-msgctxt "DownloadJob|"
-msgid "Download failed: %1"
+#: src/FileSharingController.cpp:205
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Download failed: %1"
+msgctxt "FileSharingController|"
+msgid "Upload failed: %1"
 msgstr "ההורדה נכשלה: %1"
 
-#: src/Kaidan.cpp:101
+#: src/FileSharingController.cpp:369
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Download failed: %1"
+msgctxt "FileSharingController|"
+msgid "Couldn't download file: %1"
+msgstr "ההורדה נכשלה: %1"
+
+#: src/Kaidan.cpp:104
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -35,7 +39,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "מחובר/ת"
 
-#: src/Kaidan.cpp:103
+#: src/Kaidan.cpp:106
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -43,7 +47,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "בהתחברות…"
 
-#: src/Kaidan.cpp:105
+#: src/Kaidan.cpp:108
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -52,7 +56,7 @@ msgid "Offline"
 msgstr "לא מחובר/ת"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:167
+#: src/Kaidan.cpp:170
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr ""
@@ -110,152 +114,157 @@ msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
 msgstr ""
 
-#: src/MediaUtils.cpp:252
+#: src/MediaUtils.cpp:251
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "שמע"
 
-#: src/MediaUtils.cpp:254
+#: src/MediaUtils.cpp:253
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr ""
 
-#: src/MediaUtils.cpp:256
+#: src/MediaUtils.cpp:255
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr ""
 
-#: src/MediaUtils.cpp:258
+#: src/MediaUtils.cpp:257
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "תמונה"
 
-#: src/MediaUtils.cpp:260
+#: src/MediaUtils.cpp:259
 #, fuzzy
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "סרטון"
 
-#: src/MediaUtils.cpp:264
+#: src/MediaUtils.cpp:263
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr ""
 
-#: src/MediaUtils.cpp:273
+#: src/MediaUtils.cpp:272
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "צילום תמונה"
 
-#: src/MediaUtils.cpp:275
+#: src/MediaUtils.cpp:274
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "הקלטת סרטון"
 
-#: src/MediaUtils.cpp:277
+#: src/MediaUtils.cpp:276
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "הקלטת קול"
 
-#: src/MediaUtils.cpp:279
+#: src/MediaUtils.cpp:278
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "שליחת מיקום"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "בחירת קובץ"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "בחירת תמונה"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "בחירת סרטון"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "בחירת קובץ שמע"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "בחירת מסמך"
 
-#: src/MediaUtils.cpp:347
+#: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "כל הקבצים"
 
-#: src/MediaUtils.cpp:349
+#: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "תמונות"
 
-#: src/MediaUtils.cpp:351
+#: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "סרטונים"
 
-#: src/MediaUtils.cpp:353
+#: src/MediaUtils.cpp:352
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "קובצי שמע"
 
-#: src/MediaUtils.cpp:355
+#: src/MediaUtils.cpp:354
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "מסמכים"
 
-#: src/MediaUtils.cpp:380
+#: src/MediaUtils.cpp:379
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:74
+#: src/Message.cpp:151
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/MessageHandler.cpp:200
+#: src/MessageComposition.cpp:144
+msgctxt "FileSelectionModel|"
+msgid "Unknown size"
+msgstr ""
+
+#: src/MessageHandler.cpp:305
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:290
+#: src/MessageHandler.cpp:378
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:347
+#: src/MessageHandler.cpp:435
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "לא היה ניתן לשלוח את ההודעה."
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "בהמתנה"
 
-#: src/MessageModel.cpp:255
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr ""
 
-#: src/MessageModel.cpp:257
+#: src/MessageModel.cpp:250
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr ""
 
-#: src/MessageModel.cpp:259
+#: src/MessageModel.cpp:252
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "שגיאה"
@@ -404,12 +413,12 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "שינוי הססמה"
 
-#: src/qml/ChatPage.qml:97
+#: src/qml/ChatPage.qml:105
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "חיפוש"
 
-#: src/qml/ChatPage.qml:116
+#: src/qml/ChatPage.qml:124
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -417,69 +426,77 @@ msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "השתקת ההתרעות"
 
-#: src/qml/ChatPage.qml:117
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "השתקת ההתרעות"
 
-#: src/qml/ChatPage.qml:126
+#: src/qml/ChatPage.qml:134
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr ""
 
-#: src/qml/ChatPage.qml:137
+#: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:146
+#: src/qml/elements/ChatMessage.qml:139
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:203
+#: src/qml/elements/ChatMessage.qml:196
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "הורדה"
 
-#: src/qml/elements/ChatMessage.qml:269
+#: src/qml/elements/ChatMessage.qml:257
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:274
+#: src/qml/elements/ChatMessage.qml:262
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:316
+#: src/qml/elements/ChatMessage.qml:295
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:45
+#: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "העתקת ההודעה"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:56
+#: src/qml/elements/ChatMessageContextMenu.qml:57
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "עריכת ההודעה"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:62
+#: src/qml/elements/ChatMessageContextMenu.qml:63
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:68
+#: src/qml/elements/ChatMessageContextMenu.qml:69
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Copy message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "העתקת ההודעה"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:76
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete"
+msgctxt "ChatMessageContextMenu|"
+msgid "Delete file"
+msgstr "מחיקה"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 #, fuzzy
@@ -639,6 +656,19 @@ msgctxt "NewMedia|"
 msgid "Recording… %1"
 msgstr ""
 
+#: src/qml/elements/NewMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "NewMediaSheet|"
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/qml/elements/NewMediaSheet.qml:115
+msgctxt "NewMediaSheet|"
+msgid "Send"
+msgstr ""
+
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
 msgctxt "QrCodeScanner|"
@@ -749,18 +779,44 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "שינוי שם"
 
-#: src/qml/elements/SendMediaSheet.qml:105
+#: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
-msgid "Caption"
+msgid "Send files"
+msgstr "קובצי שמע"
+
+#: src/qml/elements/SendMediaSheet.qml:101
+msgctxt "SendMediaSheet|"
+msgid "Select some files to send them"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:118
+#: src/qml/elements/SendMediaSheet.qml:146
+msgctxt "SendMediaSheet|"
+msgid "Enter description…"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:154
+#, fuzzy
+#| msgctxt "LocalAccountRemoval|"
+#| msgid "Remove"
+msgctxt "SendMediaSheet|"
+msgid "Remove file"
+msgstr "הסרה"
+
+#: src/qml/elements/SendMediaSheet.qml:168
 #, fuzzy
 msgctxt "SendMediaSheet|"
-msgid "Cancel"
-msgstr "ביטול"
+msgid "Compose message"
+msgstr "חיבור הודעה"
 
-#: src/qml/elements/SendMediaSheet.qml:132
+#: src/qml/elements/SendMediaSheet.qml:175
+msgctxt "SendMediaSheet|"
+msgid "Add"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:186
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr ""
@@ -1860,19 +1916,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr ""
 
-#: src/QmlUtils.cpp:228
+#: src/QmlUtils.cpp:157
+msgctxt "QmlUtils|"
+msgid "Unknown size"
+msgstr ""
+
+#: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr ""
 
-#: src/QmlUtils.cpp:230
+#: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr ""
 
-#: src/QmlUtils.cpp:232
+#: src/QmlUtils.cpp:235
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -1898,17 +1959,6 @@ msgstr ""
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
-
-#: src/UploadManager.cpp:72
-msgctxt "UploadManager|"
-msgid "Could not send file, as a result of not being connected."
-msgstr ""
-
-#: src/UploadManager.cpp:140
-#, fuzzy
-msgctxt "UploadManager|"
-msgid "Message could not be sent."
-msgstr "לא היה ניתן לשלוח את ההודעה."
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
@@ -1940,6 +1990,16 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "אתר אינטרנט"
+
+#, fuzzy
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Cancel"
+#~ msgstr "ביטול"
+
+#, fuzzy
+#~ msgctxt "UploadManager|"
+#~ msgid "Message could not be sent."
+#~ msgstr "לא היה ניתן לשלוח את ההודעה."
 
 #~ msgctxt "ChangePassword|"
 #~ msgid "You need to be connected to change your password."
