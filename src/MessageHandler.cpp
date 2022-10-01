@@ -135,7 +135,7 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	        this, &MessageHandler::handleLastMessageStampFetched);
 
 	connect(&m_receiptManager, &QXmppMessageReceiptManager::messageDelivered,
-		this, [this](const QString &, const QString &id) {
+		this, [](const QString &, const QString &id) {
 		MessageDb::instance()->updateMessage(id, [](Message &msg) {
 			msg.deliveryState = Enums::DeliveryState::Delivered;
 			msg.errorText.clear();
@@ -618,7 +618,7 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			});
 
 			auto futureTimestamp = MessageDb::instance()->messageTimestamp(recipientJid, senderJid, markedId);
-			await(futureTimestamp, this, [this, senderJid, recipientJid](QDateTime timestamp) {
+			await(futureTimestamp, this, [senderJid, recipientJid](QDateTime timestamp) {
 				emit Notifications::instance()->closeMessageNotificationsRequested(senderJid, recipientJid, timestamp);
 			});
 		} else {
