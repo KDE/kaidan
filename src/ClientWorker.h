@@ -58,6 +58,7 @@ class QNetworkAccessManager;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
 class QXmppEncryptedHttpFileSharingProvider;
+class PresenceCache;
 
 /**
  * The ClientWorker is used as a QObject-based worker on the ClientThread.
@@ -103,6 +104,7 @@ public:
 		RosterModel *rosterModel;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
+		PresenceCache *presenceCache;
 	};
 
 	/**

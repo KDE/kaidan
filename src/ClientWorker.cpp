@@ -73,7 +73,8 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
-	  serverFeaturesCache(new ServerFeaturesCache(parent))
+	  serverFeaturesCache(new ServerFeaturesCache(parent)),
+	  presenceCache(new PresenceCache(parent))
 {
 }
 
