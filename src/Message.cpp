@@ -33,7 +33,10 @@
 #include "Message.h"
 #include "QXmppBitsOfBinaryContentId.h"
 #include "QXmppBitsOfBinaryData.h"
+#include "QXmppBitsOfBinaryDataList.h"
+#include "QXmppE2eeMetadata.h"
 #include "QXmppFileMetadata.h"
+#include "QXmppOutOfBandUrl.h"
 #include "QXmppThumbnail.h"
 
 #include <QStringBuilder>
@@ -143,6 +146,53 @@ MessageType File::type() const
 
 bool Message::operator==(const Message &m) const = default;
 bool Message::operator!=(const Message &m) const = default;
+
+QXmppMessage Message::toQXmpp() const
+{
+	QXmppE2eeMetadata e2ee;
+	e2ee.setSenderKey(senderKey);
+
+	QXmppMessage msg;
+	msg.setId(id);
+	msg.setTo(to);
+	msg.setFrom(from);
+	msg.setBody(body);
+	msg.setStamp(stamp);
+	msg.setIsSpoiler(isSpoiler);
+	msg.setSpoilerHint(spoilerHint);
+	msg.setMarkable(isMarkable);
+	msg.setMarker(marker);
+	msg.setMarkerId(markerId);
+	msg.setReplaceId(replaceId);
+	msg.setOriginId(originId);
+	msg.setStanzaId(stanzaId);
+	msg.setReceiptRequested(receiptRequested);
+	msg.setE2eeMetadata(e2ee);
+
+	// attached files
+	msg.setSharedFiles(transform(files, [](const File &file) {
+		return file.toQXmpp();
+	}));
+
+	// attach data for thumbnails
+	msg.setBitsOfBinaryData(transform(files, [](const File &file) {
+		return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
+	}));
+
+	// compat for clients without Stateless File Sharing
+	msg.setOutOfBandUrls(transformFilter(files, [](const File &file) -> std::optional<QXmppOutOfBandUrl> {
+		if (file.httpSources.empty()) {
+			return {};
+		}
+
+		QXmppOutOfBandUrl data;
+		data.setUrl(file.httpSources.front().url.toString());
+		data.setDescription(file.description.value_or(QString()));
+		return data;
+	}));
+
+	return msg;
+}
 
 QString Message::previewText() const
 {

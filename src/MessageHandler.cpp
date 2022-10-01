@@ -64,53 +64,6 @@ namespace ranges = std::ranges;
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
 
-QXmppMessage toQXmppMessage(const Message &msg)
-{
-	QXmppE2eeMetadata e2ee;
-	e2ee.setSenderKey(msg.senderKey);
-
-	QXmppMessage q;
-	q.setId(msg.id);
-	q.setTo(msg.to);
-	q.setFrom(msg.from);
-	q.setBody(msg.body);
-	q.setStamp(msg.stamp);
-	q.setIsSpoiler(msg.isSpoiler);
-	q.setSpoilerHint(msg.spoilerHint);
-	q.setMarkable(msg.isMarkable);
-	q.setMarker(msg.marker);
-	q.setMarkerId(msg.markerId);
-	q.setReplaceId(msg.replaceId);
-	q.setOriginId(msg.originId);
-	q.setStanzaId(msg.stanzaId);
-	q.setReceiptRequested(msg.receiptRequested);
-	q.setE2eeMetadata(e2ee);
-
-	// attached files
-	q.setSharedFiles(transform(msg.files, [](const File &file) {
-		return file.toQXmpp();
-	}));
-
-	// attach data for thumbnails
-	q.setBitsOfBinaryData(transform(msg.files, [](const File &file) {
-		return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
-	}));
-
-	// compat for clients without Stateless File Sharing
-	q.setOutOfBandUrls(transformFilter(msg.files, [](const File &file) -> std::optional<QXmppOutOfBandUrl> {
-		if (file.httpSources.empty()) {
-			return {};
-		}
-
-		QXmppOutOfBandUrl data;
-		data.setUrl(file.httpSources.front().url.toString());
-		data.setDescription(file.description.value_or(QString()));
-		return data;
-	}));
-
-	return q;
-}
-
 MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
@@ -371,7 +324,7 @@ void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::Sta
 void MessageHandler::sendCorrectedMessage(Message msg)
 {
 	const auto messageId = msg.id;
-	await(send(toQXmppMessage(msg)), this, [messageId](QXmpp::SendResult result) {
+	await(send(msg.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
 		if (std::holds_alternative<QXmpp::SendError>(result)) {
 			// TODO store in the database only error codes, assign text messages right in the QML
 			emit Kaidan::instance()->passiveNotificationRequested(
@@ -424,7 +377,7 @@ void MessageHandler::sendPendingMessage(Message message)
 		}
 
 		const auto messageId = message.id;
-		await(send(toQXmppMessage(message)), this, [messageId](QXmpp::SendResult result) {
+		await(send(message.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
 			if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
 				qWarning() << "[client] [MessageHandler] Could not send message:"
 					<< error->text;

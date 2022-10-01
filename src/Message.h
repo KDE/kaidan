@@ -181,6 +181,8 @@ public:
 	// Text description of an error if it ever happened to the message
 	QString errorText;
 
+	[[nodiscard]] QXmppMessage toQXmpp() const;
+
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
 	QString previewText() const;

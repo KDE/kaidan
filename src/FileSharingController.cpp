@@ -57,15 +57,12 @@
 #include <KFileUtils>
 
 #include "Kaidan.h"
-#include "ClientWorker.h"
 #include "FutureUtils.h"
 #include "FileProgressCache.h"
-#include "Message.h"
 #include "MessageDb.h"
 #include "MessageHandler.h"
 #include "Algorithms.h"
 #include "ServerFeaturesCache.h"
-
 
 namespace ranges = std::ranges;
 
@@ -260,7 +257,7 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 			message.files = files;
 		});
 
-		runOnThread(Kaidan::instance()->client(), [msg = toQXmppMessage(message)]() mutable {
+		runOnThread(Kaidan::instance()->client(), [msg = message.toQXmpp()]() mutable {
 			Kaidan::instance()->client()->messageHandler()->send(std::move(msg));
 		});
 	});

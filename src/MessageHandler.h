@@ -40,8 +40,6 @@ class QXmppMamManager;
 class QXmppMessage;
 class QXmppResultSetReply;
 
-QXmppMessage toQXmppMessage(const Message &msg);
-
 /**
  * @class MessageHandler Handler for incoming and outgoing messages.
  */
