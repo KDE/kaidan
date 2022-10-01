@@ -38,9 +38,9 @@
 #include <memory>
 
 struct File;
+struct Message;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
-class Message;
 class QXmppClient;
 
 class FileSharingController : public QObject

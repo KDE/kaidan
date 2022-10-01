@@ -32,7 +32,7 @@
 
 #include "DatabaseComponent.h"
 
-class RosterItem;
+struct RosterItem;
 
 class RosterDb : public DatabaseComponent
 {
