@@ -385,13 +385,6 @@ public slots:
 	void setNotificationsMuted(const QString &jid, bool muted);
 
 private:
-	/**
-	 * Initializes the client worker and the corresponding thread.
-	 *
-	 * @param enableLogging true to enable logging, otherwise false
-	 */
-	void initializeClientWorker(bool enableLogging = true);
-
 	Notifications *m_notifications;
 	Database *m_database;
 	MessageDb *m_msgDb;

@@ -72,8 +72,22 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	// of the Q_PROPERTY for the avatar storage (so all avatars are updated in QML)
 	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 
-	initializeClientWorker(enableLogging);
+	// create xmpp thread
+	m_cltThrd = new QThread();
+	m_cltThrd->setObjectName("XmppClient");
 
+	m_client = new ClientWorker(m_caches, m_database, enableLogging);
+	m_client->moveToThread(m_cltThrd);
+
+	connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
+
+	connect(m_client, &ClientWorker::loggedInWithNewCredentials, this, &Kaidan::openChatViewRequested);
+	connect(m_client, &ClientWorker::connectionStateChanged, this, &Kaidan::setConnectionState);
+	connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
+
+	m_cltThrd->start();
+
+	// create controllers
 	m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
 
 	// Log out of the server when the application window is closed.
@@ -216,23 +230,6 @@ Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &
 	}
 
 	return InvalidUri;
-}
-
-void Kaidan::initializeClientWorker(bool enableLogging)
-{
-	m_cltThrd = new QThread();
-	m_cltThrd->setObjectName("XmppClient");
-
-	m_client = new ClientWorker(m_caches, m_database, enableLogging);
-	m_client->moveToThread(m_cltThrd);
-
-	connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
-
-	connect(m_client, &ClientWorker::loggedInWithNewCredentials, this, &Kaidan::openChatViewRequested);
-	connect(m_client, &ClientWorker::connectionStateChanged, this, &Kaidan::setConnectionState);
-	connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
-
-	m_cltThrd->start();
 }
 
 #ifdef NDEBUG
