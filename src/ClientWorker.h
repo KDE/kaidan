@@ -36,7 +36,6 @@
 #include <QXmppClient.h>
 // Kaidan
 #include "Enums.h"
-#include "Globals.h"
 
 class AccountManager;
 class AtmManager;
@@ -47,7 +46,6 @@ class LogHandler;
 class MessageHandler;
 class MessageModel;
 class OmemoManager;
-class PresenceCache;
 class RegistrationManager;
 class RosterManager;
 class RosterModel;
@@ -105,7 +103,6 @@ public:
 		RosterModel *rosterModel;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
-		PresenceCache *presCache;
 	};
 
 	/**

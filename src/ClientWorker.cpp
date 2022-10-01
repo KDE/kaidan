@@ -73,8 +73,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
-	  serverFeaturesCache(new ServerFeaturesCache(parent)),
-	  presCache(new PresenceCache(parent))
+	  serverFeaturesCache(new ServerFeaturesCache(parent))
 {
 }
 
@@ -120,8 +119,9 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	connect(Kaidan::instance(), &Kaidan::logOutRequested, this, &ClientWorker::logOut);
 
 	// presence
-	connect(m_client, &QXmppClient::presenceReceived, caches->presCache, &PresenceCache::updatePresence);
-	connect(m_client, &QXmppClient::disconnected, caches->presCache, &PresenceCache::clear);
+	auto *presenceCache = PresenceCache::instance();
+	connect(m_client, &QXmppClient::presenceReceived, presenceCache, &PresenceCache::updatePresence);
+	connect(m_client, &QXmppClient::disconnected, presenceCache, &PresenceCache::clear);
 
 	// Reduce the network traffic when the application window is not active.
 	connect(qGuiApp, &QGuiApplication::applicationStateChanged, this, [this](Qt::ApplicationState state) {

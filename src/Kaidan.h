@@ -30,8 +30,6 @@
 
 #pragma once
 
-// Qt
-#include <QObject>
 // Kaidan
 #include "ClientWorker.h"
 
@@ -41,7 +39,6 @@ class DataFormModel;
 class Notifications;
 class RosterDb;
 class MessageDb;
-class QXmppClient;
 class FileSharingController;
 
 /**
@@ -60,7 +57,6 @@ class Kaidan : public QObject
 	Q_PROPERTY(ClientWorker* client READ client CONSTANT)
 	Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
 	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
-	Q_PROPERTY(PresenceCache* presenceCache READ presenceCache CONSTANT)
 	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
 	Q_PROPERTY(Settings* settings READ settings CONSTANT)
 	Q_PROPERTY(quint8 connectionState READ connectionState NOTIFY connectionStateChanged)
@@ -173,7 +169,6 @@ public:
 	ClientWorker *client() const { return m_client; }
 	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }
 	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
-	PresenceCache *presenceCache() const { return m_caches->presCache; }
 	ServerFeaturesCache *serverFeaturesCache() const { return m_caches->serverFeaturesCache; }
 	VCardCache *vCardCache() const { return m_caches->vCardCache; }
 	Settings *settings() const { return m_caches->settings; }
