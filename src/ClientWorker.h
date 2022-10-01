@@ -52,7 +52,6 @@ class RegistrationManager;
 class RosterManager;
 class RosterModel;
 class ServerFeaturesCache;
-class TransferCache;
 class VCardCache;
 class VCardManager;
 class VersionManager;
@@ -107,7 +106,6 @@ public:
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
 		PresenceCache *presCache;
-		TransferCache* transferCache;
 	};
 
 	/**
