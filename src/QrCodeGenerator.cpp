@@ -43,6 +43,7 @@
 #include "AccountManager.h"
 #include "MessageModel.h"
 #include "Kaidan.h"
+#include "Settings.h"
 #include "qxmpp-exts/QXmppUri.h"
 
 #include <stdexcept>
@@ -62,7 +63,7 @@ QImage QrCodeGenerator::generateLoginUriQrCode(int edgePixelCount)
 	uri.setJid(AccountManager::instance()->jid());
 	uri.setAction(QXmppUri::Login);
 
-	if (Kaidan::instance()->passwordVisibility() != Kaidan::PasswordInvisible)
+	if (Kaidan::instance()->settings()->authPasswordVisibility() != Kaidan::PasswordInvisible)
 		uri.setPassword(AccountManager::instance()->password());
 
 	return generateQrCode(edgePixelCount, uri.toString());
