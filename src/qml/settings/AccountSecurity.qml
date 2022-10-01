@@ -42,14 +42,14 @@ BinaryDecisionPage {
 	topDescription: qsTr("Allow to add additional devices using the login QR code but never show the password.")
 	topAction: Kirigami.Action {
 		text: qsTr("Don't show password")
-		enabled: Kaidan.passwordVisibility === Kaidan.PasswordVisible
+		enabled: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
 		onTriggered: stack.push("DisablePlainTextPasswordDisplay.qml")
 	}
 
 	bottomDescription: qsTr("Neither allow to add additional devices using the login QR code nor show the password.")
 	bottomAction: Kirigami.Action {
 		text: qsTr("Don't expose password in any way")
-		enabled: Kaidan.passwordVisibility !== Kaidan.PasswordInvisible
+		enabled: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		onTriggered: stack.push("DisablePasswordDisplay.qml")
 	}
 }

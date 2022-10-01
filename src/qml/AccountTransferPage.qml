@@ -125,7 +125,7 @@ ExplainedContentPage {
 
 			RowLayout {
 				Kirigami.FormData.label: qsTr("Password:")
-				visible: Kaidan.passwordVisibility === Kaidan.PasswordVisible
+				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
 				Layout.fillWidth: true
 
 				Controls.Label {

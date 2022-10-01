@@ -62,7 +62,6 @@ class Kaidan : public QObject
 	Q_PROPERTY(quint8 connectionState READ connectionState NOTIFY connectionStateChanged)
 	Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
 	Q_PROPERTY(quint8 connectionError READ connectionError NOTIFY connectionErrorChanged)
-	Q_PROPERTY(PasswordVisibility passwordVisibility READ passwordVisibility WRITE setPasswordVisibility NOTIFY passwordVisibilityChanged)
 
 public:
 	/**
@@ -155,16 +154,6 @@ public:
 	 * Returns the last connection error.
 	 */
 	quint8 connectionError() const { return quint8(m_connectionError); }
-
-	/**
-	 * Sets the visibility of the password on the account transfer page.
-	 */
-	void setPasswordVisibility(PasswordVisibility passwordVisibility);
-
-	/**
-	 * Returns the visibility of the password on the account transfer page.
-	 */
-	PasswordVisibility passwordVisibility() const;
 
 	ClientWorker *client() const { return m_client; }
 	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }

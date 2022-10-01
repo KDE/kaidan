@@ -48,13 +48,13 @@ BinaryDecisionPage {
 
 	topAction: Kirigami.Action {
 		text: qsTr("Do not show password as text")
-		enabled: Kaidan.passwordVisibility !== Kaidan.PasswordVisibleQrOnly
+		enabled: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisibleQrOnly
 		onTriggered: pageStack.layers.push(passwordRemovalFromPlainTextConfirmationPage)
 	}
 
 	bottomAction: Kirigami.Action {
 		text: qsTr("Remove completely")
-		enabled: Kaidan.passwordVisibility !== Kaidan.PasswordInvisible
+		enabled: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		onTriggered: pageStack.layers.push(passwordRemovalFromPlainTextAndQrCodeConfirmationPage).popPasswordRemovalPageOnClosing = true
 	}
 }

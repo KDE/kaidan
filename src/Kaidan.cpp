@@ -161,17 +161,6 @@ void Kaidan::setNotificationsMuted(const QString &jid, bool muted)
 	emit notificationsMutedChanged(jid);
 }
 
-void Kaidan::setPasswordVisibility(PasswordVisibility passwordVisibility)
-{
-	m_caches->settings->setAuthPasswordVisibility(passwordVisibility);
-	emit passwordVisibilityChanged();
-}
-
-Kaidan::PasswordVisibility Kaidan::passwordVisibility() const
-{
-	return m_caches->settings->authPasswordVisibility();
-}
-
 void Kaidan::addOpenUri(const QString &uri)
 {
 	if (!QXmppUri::isXmppUri(uri))

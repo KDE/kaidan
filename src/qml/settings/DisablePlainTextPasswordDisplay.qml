@@ -50,7 +50,7 @@ ConfirmationPage {
 	topAction: Kirigami.Action {
 		text: qsTr("Don't show password")
 		onTriggered: {
-			Kaidan.passwordVisibility = Kaidan.PasswordVisibleQrOnly
+			Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
 			stack.pop()
 			stack.pop()
 		}

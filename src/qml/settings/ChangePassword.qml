@@ -62,7 +62,7 @@ Kirigami.Page {
 				echoMode: TextInput.Password
 				selectByMouse: true
 				Kirigami.FormData.label: qsTr("Current password:")
-				visible: Kaidan.passwordVisibility === Kaidan.PasswordInvisible
+				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordInvisible
 			}
 			Controls.TextField {
 				id: password1
