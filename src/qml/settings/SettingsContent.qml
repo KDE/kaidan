@@ -39,7 +39,7 @@ import im.kaidan.kaidan 1.0
  *
  * It is used on a new layer on mobile and inside of a Sheet on desktop.
  */
-Column {
+ColumnLayout {
 	property string title: qsTr("Settings")
 	spacing: 0
 	height: applicationWindow().height * 0.9
@@ -80,5 +80,8 @@ Column {
 		description: qsTr("Delete account from the server")
 		icon: "edit-delete-symbolic"
 		onClicked: stack.push("RemoteAccountDeletion.qml")
+	}
+	Item {
+		Layout.fillHeight: true
 	}
 }
