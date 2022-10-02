@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -22,35 +22,35 @@ msgstr ""
 "xxYour account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1xx"
 
-#: src/FileSharingController.cpp:205
+#: src/FileSharingController.cpp:202
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "xxUpload failed: %1xx"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:366
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "xxCouldn't download file: %1xx"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "xxOnlinexx"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "xxConnecting…xx"
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "xxOfflinexx"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "xxThe link will be opened after you have connected.xx"
@@ -214,7 +214,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "xx%1 (%2)xx"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "xxSpoilerxx"
@@ -224,18 +224,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "xxUnknown sizexx"
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "xxThis message is encrypted with %1 but could not be decryptedxx"
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "xxMessage correction was not successfulxx"
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "xxMessage could not be sent.xx"
@@ -1871,7 +1871,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "xx%1 paused typingxx"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "서버에서 계정을 삭제할 수 없습니다. 앱에서도 계정을 삭제하지 않았습니다: %1"
 
-#: src/FileSharingController.cpp:205
+#: src/FileSharingController.cpp:202
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -30,7 +30,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "다운로드 실패: %1"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:366
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -38,23 +38,23 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "파일을 저장할 수 없음: %1"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "온라인"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "오프라인"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "연결한 후 링크를 열 것입니다."
@@ -218,7 +218,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1(%2)"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
@@ -228,13 +228,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -242,7 +242,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "메시지 수정에 실패했습니다."
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."
@@ -1922,7 +1922,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 님이 입력을 일시 정지함"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

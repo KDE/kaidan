@@ -7,7 +7,7 @@ msgstr ""
 "X-Language: hu\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -15,35 +15,35 @@ msgid ""
 "not removed from this app: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:205
+#: src/FileSharingController.cpp:202
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:366
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr ""
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr ""
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr ""
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr ""
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr ""
@@ -207,7 +207,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr ""
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 #, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
@@ -218,18 +218,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr ""
@@ -1921,7 +1921,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr ""
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

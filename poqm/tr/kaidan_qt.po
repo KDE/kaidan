@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-12 18:10+0300\n"
+"PO-Revision-Date: 2022-10-01 05:07+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,9 +11,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.0\n"
+"X-Generator: Lokalize 22.08.1\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -23,39 +23,35 @@ msgstr ""
 "Hesabınız sunucudan silinemedi. Bundan dolayı bu uygulamadan da "
 "kaldırılamadı: %1"
 
-#: src/FileSharingController.cpp:205
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#: src/FileSharingController.cpp:202
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr "İndirme başarısız: %1"
+msgstr "Karşıya yükleme başarısız: %1"
 
-#: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#: src/FileSharingController.cpp:366
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "Dosya kaydedilemedi: %1"
+msgstr "Dosya indirilemedi: %1"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Çevrimdışı"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
@@ -219,7 +215,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Tatkaçıran"
@@ -227,20 +223,20 @@ msgstr "Tatkaçıran"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Bilinmeyen boyut"
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti, %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
@@ -478,12 +474,9 @@ msgid "Quote message"
 msgstr "İletiyi alıntıla"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Sil"
+msgstr "Dosyayı sil"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -613,17 +606,11 @@ msgid "Recording… %1"
 msgstr "Kayıt yapılıyor… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "İptal"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Gönder"
@@ -733,43 +720,31 @@ msgid "Rename"
 msgstr "Yeniden adlandır"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Ses dosyaları"
+msgstr "Dosyalar gönder"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Gönderilecek dosyalar seçin"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Açıklama girin…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Kaldır"
+msgstr "Dosyayı kaldır"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "İleti oluştur"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Ekle"
@@ -1872,7 +1847,7 @@ msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Bilinmeyen boyut"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
@@ -1892,7 +1867,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 yazmayı duraklattı"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

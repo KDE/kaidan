@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -23,7 +23,7 @@ msgstr ""
 "Tiliäsi ei voitu poistaa palvelimelta, joten sitä ei poistettu myöskään "
 "tästä sovelluksesta: %1"
 
-#: src/FileSharingController.cpp:205
+#: src/FileSharingController.cpp:202
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -31,7 +31,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Lataus epäonnistui: %1"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:366
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -39,23 +39,23 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Ei voitu tallentaa tiedostoa: %1"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Verkossa"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Ei verkossa"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Linkki avataan yhdistämisen jälkeen."
@@ -219,7 +219,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr ""
@@ -229,13 +229,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -243,7 +243,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Viestin korjaaminen ei onnistunut."
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
@@ -1928,7 +1928,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 keskeytti kirjoittamisen"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

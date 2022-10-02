@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-16 19:49+0200\n"
+"PO-Revision-Date: 2022-10-01 22:06+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 22.08.1\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -24,39 +24,35 @@ msgstr ""
 "No se ha podido borrar la cuenta del servidor. Por ello, tampoco se ha "
 "eliminado de esta aplicación: %1"
 
-#: src/FileSharingController.cpp:205
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#: src/FileSharingController.cpp:202
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr "La descarga ha fallado: %1"
+msgstr "El envío ha fallado: %1"
 
-#: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#: src/FileSharingController.cpp:366
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "No se ha podido guardar el archivo: %1"
+msgstr "No se ha podido descargar el archivo: %1"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línea"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Conectando..."
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Sin conexión"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "El enlace se abrirá cuando se haya conectado."
@@ -220,7 +216,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espóiler"
@@ -228,20 +224,20 @@ msgstr "Espóiler"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tamaño desconocido"
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este mensaje está cifrado con %1, pero no se puede descifrar"
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La corrección del mensaje ha fallado"
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No se pudo enviar el mensaje."
@@ -481,12 +477,9 @@ msgid "Quote message"
 msgstr "Citar mensaje"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Elegir un archivo"
+msgstr "Borrar archivo"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -616,17 +609,11 @@ msgid "Recording… %1"
 msgstr "Grabando... %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Enviar"
@@ -736,43 +723,31 @@ msgid "Rename"
 msgstr "Cambiar nombre"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Archivos de sonido"
+msgstr "Enviar archivos"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Seleccione algunos archivos para enviarlos"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Introduzca la descripción..."
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Eliminar"
+msgstr "Eliminar archivo"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Crear mensaje"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Añadir"
@@ -1895,7 +1870,7 @@ msgstr "Este servidor no admite registro."
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tamaño desconocido"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
@@ -1915,7 +1890,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha dejado de escribir"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

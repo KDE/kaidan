@@ -8,7 +8,7 @@ msgstr ""
 "X-Language: hy\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:299
+#: src/ClientWorker.cpp:300
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -18,7 +18,7 @@ msgstr ""
 "Չհաջողվեց ջնջել Ձեր հաշիվը սերվերից։ Հետևաբար, այն նաև չի ջնջվել այս "
 "հավելվածից: %1"
 
-#: src/FileSharingController.cpp:205
+#: src/FileSharingController.cpp:202
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -26,7 +26,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Ներբեռնումը ձախողվել է: %1"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:366
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -34,7 +34,7 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Չհաջողվեց պահպանել հետևյալ ֆայլը: %1"
 
-#: src/Kaidan.cpp:104
+#: src/Kaidan.cpp:118
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -42,7 +42,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Կապը հաստատված է"
 
-#: src/Kaidan.cpp:106
+#: src/Kaidan.cpp:120
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -50,7 +50,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:122
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -59,7 +59,7 @@ msgid "Offline"
 msgstr "Կապը բացակայում է"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:170
+#: src/Kaidan.cpp:173
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
@@ -223,7 +223,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:151
+#: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
@@ -233,13 +233,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:305
+#: src/MessageHandler.cpp:258
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:378
+#: src/MessageHandler.cpp:331
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -247,7 +247,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Հաղորդագրության ուղղումը ձախողվել է։"
 
-#: src/MessageHandler.cpp:435
+#: src/MessageHandler.cpp:388
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
@@ -1979,7 +1979,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1-ը դադարեց հավաքել"
 
-#: src/QrCodeGenerator.cpp:124
+#: src/QrCodeGenerator.cpp:125
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
