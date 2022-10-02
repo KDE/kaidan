@@ -41,18 +41,17 @@
 #include <array>
 
 #include <QXmppError.h>
+#include <QXmppFileMetadata.h>
 #include <QXmppFileSharingManager.h>
 #include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHash.h>
-#include <QXmppEncryptedHttpFileSharingProvider.h>
+#include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppHttpFileSource.h>
-#include <QXmppUpload.h>
 #include <QXmppUtils.h>
 #include <QXmppMessage.h>
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppOutOfBandUrl.h>
-#include "QXmppDownload.h"
-#include "QXmppUploadRequestManager.h"
+#include <QXmppUploadRequestManager.h>
 
 #include <KFileUtils>
 
@@ -186,7 +185,7 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 		// Check if any of the uploads failed
 		bool failed = ranges::any_of(uploadResults, [](const auto &result) {
 			auto &[id, uploadResult] = result;
-			return !std::holds_alternative<QXmppUpload::FileResult>(uploadResult);
+			return !std::holds_alternative<QXmppFileUpload::FileResult>(uploadResult);
 		});
 
 		// upload error handling
@@ -207,7 +206,7 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 		// extract the file shares from the list of upload results
 		auto fileResultsMap = transformMap(uploadResults, [](const auto &result) {
 			auto &[fileId, uploadResult] = result;
-			return std::pair { fileId, std::get<QXmppUpload::FileResult>(uploadResult) };
+			return std::pair { fileId, std::get<QXmppFileUpload::FileResult>(uploadResult) };
 		});
 
 		for (auto &file : message.files) {
@@ -275,7 +274,7 @@ auto FileSharingController::sendFile(const File &file, bool encrypt)
 				? std::static_pointer_cast<QXmppFileSharingProvider>(client->encryptedHttpFileSharingProvider())
 				: std::static_pointer_cast<QXmppFileSharingProvider>(client->httpFileSharingProvider());
 
-		auto upload = client->fileSharingManager()->sendFile(
+		auto upload = client->fileSharingManager()->uploadFile(
 					provider,
 					file.localFilePath,
 					file.description);
@@ -283,15 +282,17 @@ auto FileSharingController::sendFile(const File &file, bool encrypt)
 		FileProgressCache::instance()
 			.reportProgress(file.id, FileProgress { 0, quint64(upload->bytesTotal()), 0.0F });
 
-		std::weak_ptr<QXmppUpload> uploadPtr = upload;
-		connect(upload.get(), &QXmppUpload::progressChanged, this, [id = file.id, uploadPtr] {
+		std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
+		connect(upload.get(), &QXmppFileUpload::progressChanged, this, [id = file.id, uploadPtr] {
 			if (auto upload = uploadPtr.lock()) {
 				FileProgressCache::instance()
 					.reportProgress(id, FileProgress { upload->bytesTransferred(), quint64(upload->bytesTotal()), upload->progress() });
 			}
 		});
 
-		connect(upload.get(), &QXmppUpload::finished, this, [this, id = file.id, interface](auto &&result) mutable {
+		connect(upload.get(), &QXmppFileUpload::finished, this, [this, upload, id = file.id, interface]() mutable {
+			auto result = upload->result();
+
 			FileProgressCache::instance().reportProgress(id, std::nullopt);
 
 			if (std::holds_alternative<QXmppError>(result)) {
@@ -300,6 +301,8 @@ auto FileSharingController::sendFile(const File &file, bool encrypt)
 
 			interface.reportResult({id, result});
 			interface.reportFinished();
+			// reduce ref count
+			upload.reset();
 		});
 	});
 
@@ -349,22 +352,23 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 
 		auto download = client->fileSharingManager()->downloadFile(fileShare, std::move(output));
 
-		std::weak_ptr<QXmppDownload> downloadPtr = download;
-		connect(download.get(), &QXmppDownload::progressChanged, this, [=]() {
+		std::weak_ptr<QXmppFileDownload> downloadPtr = download;
+		connect(download.get(), &QXmppFileDownload::progressChanged, this, [=]() {
 			if (auto download = downloadPtr.lock()) {
 				FileProgressCache::instance()
 					.reportProgress(fileId, FileProgress { download->bytesTransferred(), quint64(download->bytesTotal()), download->progress() });
 			}
 		});
 
-		connect(download.get(), &QXmppDownload::finished, this, [=](auto result) {
+		connect(download.get(), &QXmppFileDownload::finished, this, [=]() mutable {
+			auto result = download->result();
 			if (std::holds_alternative<QXmppError>(result)) {
 				auto errorText = std::get<QXmppError>(result).description;
 
 				qDebug() << "[FileSharingController] Couldn't download file:" << errorText;
 				Kaidan::instance()->passiveNotificationRequested(
 					tr("Couldn't download file: %1").arg(errorText));
-			} else if (std::holds_alternative<QXmpp::Success>(result)) {
+			} else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
 				MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
 					auto *file = ranges::find_if(message.files, [=](const auto &file) {
 						return file.id == fileId;
@@ -379,6 +383,8 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 			}
 
 			FileProgressCache::instance().reportProgress(fileId, {});
+			// reduce ref count
+			download.reset();
 		});
 	});
 }

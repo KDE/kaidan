@@ -57,7 +57,7 @@ class Settings;
 class QNetworkAccessManager;
 class QXmppFileSharingManager;
 class QXmppHttpFileSharingProvider;
-class QXmppEncryptedHttpFileSharingProvider;
+class QXmppEncryptedFileSharingProvider;
 class PresenceCache;
 
 /**
@@ -169,7 +169,7 @@ public:
 		return m_httpProvider;
 	}
 
-	std::shared_ptr<QXmppEncryptedHttpFileSharingProvider> encryptedHttpFileSharingProvider() const
+	std::shared_ptr<QXmppEncryptedFileSharingProvider> encryptedHttpFileSharingProvider() const
 	{
 		return m_encryptedProvider;
 	}
@@ -333,7 +333,7 @@ private:
 
 	QXmppFileSharingManager *m_fileSharingManager;
 	std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
-	std::shared_ptr<QXmppEncryptedHttpFileSharingProvider> m_encryptedProvider;
+	std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
 	QList<std::function<void ()>> m_pendingTasks;
 	uint m_activeTasks = 0;
 

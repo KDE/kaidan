@@ -47,8 +47,6 @@
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
 #include <QXmppVersionIq.h>
-#include <QXmppUpload.h>
-#include <QXmppDownload.h>
 
 #include "qxmpp-exts/QXmppUri.h"
 
@@ -309,8 +307,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppPresence>();
 	qRegisterMetaType<QXmppDiscoveryIq>();
 	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
-	qRegisterMetaType<QXmppUpload::Result>();
-	qRegisterMetaType<QXmppDownload::Result>();
 
 	// Qt-Translator
 	QTranslator qtTranslator;

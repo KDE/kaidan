@@ -40,7 +40,7 @@
 #include <QXmppUtils.h>
 #include <QXmppFileSharingManager.h>
 #include <QXmppHttpFileSharingProvider.h>
-#include <QXmppEncryptedHttpFileSharingProvider.h>
+#include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
 #include <QXmppUploadRequestManager.h>
 // Kaidan
@@ -90,7 +90,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_client->addExtension(new QXmppMamManager);
 	m_client->addExtension(new QXmppPubSubManager);
 	m_client->addNewExtension<QXmppUploadRequestManager>();
-	m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
+	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
@@ -102,10 +102,10 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_versionManager = new VersionManager(m_client, this);
 
 	// file sharing manager
-	m_fileSharingManager = new QXmppFileSharingManager();
+	m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
 	m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
-	m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(m_client, m_networkManager);
-	m_encryptedProvider = std::make_shared<QXmppEncryptedHttpFileSharingProvider>(m_client, m_networkManager);
+	m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(uploadManager, m_networkManager);
+	m_encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
 	m_fileSharingManager->registerProvider(m_httpProvider);
 	m_fileSharingManager->registerProvider(m_encryptedProvider);
 

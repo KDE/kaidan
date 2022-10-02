@@ -33,7 +33,7 @@
 #include <QObject>
 #include <QFuture>
 
-#include <QXmppUpload.h>
+#include <QXmppFileSharingManager.h>
 
 #include <memory>
 
@@ -47,7 +47,7 @@ class FileSharingController : public QObject
 {
 	Q_OBJECT
 public:
-	using UploadResult = std::tuple<qint64, QXmppUpload::Result>;
+	using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
 	explicit FileSharingController(QXmppClient *client);
 

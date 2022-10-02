@@ -149,7 +149,6 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
 void FileSelectionModel::selectFile()
 {
 	auto *dialog = new QFileDialog();
-	dialog->QObject::setParent(this);
 	dialog->setFileMode(QFileDialog::ExistingFiles);
 
 	connect(dialog, &QFileDialog::filesSelected, this, [this, dialog]() {
