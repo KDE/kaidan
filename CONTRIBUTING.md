@@ -52,6 +52,16 @@ Feel free to ask if anything is unclear.
 
 Reviews have to be done by at least one maintainer not involved as the MR's author or co-author.
 
+## Configuration and Database Files
+
+Kaidan uses a configuration file to store settings such as the last window size.
+On Linux, that configuration file is located at `.config/kaidan/kaidan.conf`.
+
+Kaidan's database is an SQLite file.
+It stores, for example, contacts and messages.
+On Linux, you can find it at `.local/kaidan/messages.sqlite3`.
+To open it, you need an SQLite application (e.g., `sqlitebrowser`, use `sudo apt install sqlitebrowser` to install it on Debian-based systems)
+
 ## Testing
 
 The environment variable `KAIDAN_PROFILE` can be set to run Kaidan with custom configuration and database files.
