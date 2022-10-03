@@ -210,7 +210,7 @@ Kirigami.ApplicationWindow {
 			root.x = latestPosition.x
 			root.y = latestPosition.y
 
-			var latestSize = Kaidan.windowSize()
+			var latestSize = Kaidan.settings.windowSize
 			if (latestSize.width > 0) {
 				root.width = latestSize.width
 				root.height = latestSize.height
@@ -230,7 +230,7 @@ Kirigami.ApplicationWindow {
 		// Store the application window state for restoring the latest state on the next start.
 		if (!Kirigami.Settings.isMobile) {
 			Kaidan.settings.windowPosition = Qt.point(x, y)
-			Kaidan.storeWindowSize(Qt.size(width, height))
+			Kaidan.settings.windowSize = Qt.size(width, height)
 		}
 	}
 }

@@ -101,16 +101,6 @@ Kaidan::~Kaidan()
 	s_instance = nullptr;
 }
 
-QSize Kaidan::windowSize() const
-{
-	return m_caches->settings->windowSize();
-}
-
-void Kaidan::storeWindowSize(const QSize &windowSize) const
-{
-	m_caches->settings->setWindowSize(windowSize);
-}
-
 QString Kaidan::connectionStateText() const
 {
 	switch (m_connectionState) {

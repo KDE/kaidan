@@ -97,21 +97,6 @@ public:
 	~Kaidan();
 
 	/**
-	 * Returns the application's window size stored in the settings file.
-	 *
-	 * @return the application's window size
-	 */
-	Q_INVOKABLE QSize windowSize() const;
-
-	/**
-	 * Stores the application's window size in the settings file to be restored on the next
-	 * application start.
-	 *
-	 * @param windowSize size of the application window
-	 */
-	Q_INVOKABLE void storeWindowSize(const QSize &windowSize) const;
-
-	/**
 	 * Connects to the XMPP server and logs in to it.
 	 *
 	 * The username and password are retrieved from the settings file.

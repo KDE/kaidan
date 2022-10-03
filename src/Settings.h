@@ -48,6 +48,7 @@ class Settings : public QObject
 	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
 	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
+	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
 
 public:
 	explicit Settings(QObject *parent = nullptr);
