@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-09-17 07:06+0200\n"
+"PO-Revision-Date: 2022-10-02 06:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -28,21 +28,17 @@ msgstr ""
 "Brisanje vašega računa s strežnika ni uspelo. Zato prav tako ni bil "
 "odstranjen iz te aplikacije: %1"
 
-#: src/FileSharingController.cpp:202
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#: src/FileSharingController.cpp:201
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Prenos spodletel: %1"
 
-#: src/FileSharingController.cpp:366
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#: src/FileSharingController.cpp:370
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "Ni bilo mogoče shraniti datoteke: %1"
+msgstr "Ni bilo mogoče pridobiti datoteke: %1"
 
 #: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
@@ -232,7 +228,7 @@ msgstr "Spoiler"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Neznana velikost"
 
 #: src/MessageHandler.cpp:258
 #, qt-format
@@ -483,12 +479,9 @@ msgid "Quote message"
 msgstr "Citiraj sporočilo"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Izbriši"
+msgstr "Izbriši datoteko"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -618,17 +611,11 @@ msgid "Recording… %1"
 msgstr "Snemanje ... %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Pošlji"
@@ -736,43 +723,31 @@ msgid "Rename"
 msgstr "Preimenuj"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Zvočne datoteke"
+msgstr "Pošlji datoteke"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Izberi nekatere datoteke za pošiljanje"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Vnesite opis…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Odstrani"
+msgstr "Odstrani datoteko"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Sestavi sporočilo"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Dodaj"
@@ -1876,7 +1851,7 @@ msgstr "Ta strežnik ne podpira registracije."
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Neznana velikost"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
