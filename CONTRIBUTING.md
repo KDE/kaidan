@@ -52,6 +52,10 @@ Feel free to ask if anything is unclear.
 
 Reviews have to be done by at least one maintainer not involved as the MR's author or co-author.
 
+## Features
+
+If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.
+
 ## Configuration and Database Files
 
 Kaidan uses a configuration file to store settings such as the last window size.
@@ -71,14 +75,16 @@ E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-t
 
 ## Notifications
 
-Notifications are triggered by `src/Notifications` via KNotifications.
+Notifications are triggered by `src/Notifications` via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
 The configuration file `misc/kaidan.notifyrc` is used by KNotifications.
 It is automatically installed when you install Kaidan.
 Remember to install Kaidan again if you modified that file in order to see any changes.
 
-## Features
+## User Interface
 
-If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.
+Kaidan depends on the user interface framework [Kirigami](https://api.kde.org/frameworks/kirigami/html/index.html).
+Please use its visual components within Kaidan instead of creating own ones as far as it makes sense.
+You can have a look at the components Kirigami provides by opening the [Kirigami Gallery](https://invent.kde.org/sdk/kirigami-gallery) (use `sudo apt install kirigami-gallery` to install it and `kirigami2gallery` to run it on Debian-based systems).
 
 ## Graphics
 
