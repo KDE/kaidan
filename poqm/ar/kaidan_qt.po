@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-05 20:47+0400\n"
+"PO-Revision-Date: 2022-10-03 17:20+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -24,20 +24,16 @@ msgid ""
 msgstr ""
 
 #: src/FileSharingController.cpp:201
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "فشل التنزيل: %1"
 
 #: src/FileSharingController.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "تعذر حفظ الملف: %1"
+msgstr "تعذر تنزيل الملف: %1"
 
 #: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
@@ -230,7 +226,7 @@ msgstr "مخفي"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "حجم مجهول"
 
 #: src/MessageHandler.cpp:258
 #, qt-format
@@ -452,7 +448,7 @@ msgstr "غير موثوقة"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "قرأ %1 لهذه النقطة"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
@@ -475,12 +471,9 @@ msgid "Quote message"
 msgstr "اقتبس رسالة"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "اختر ملفا"
+msgstr "احذف ملف"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -515,12 +508,9 @@ msgstr "اكتب رسالة"
 #: src/qml/elements/ChatPageSendingPane.qml:219
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
+msgstr "المرفقات"
 
 #: src/qml/elements/ChatPageSendingPane.qml:271
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "خذ صورة"
@@ -528,12 +518,9 @@ msgstr "خذ صورة"
 #: src/qml/elements/ChatPageSendingPane.qml:272
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "خذ صورة باستخدام كاميرتك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
 msgstr "سجّل فيديو"
@@ -541,12 +528,9 @@ msgstr "سجّل فيديو"
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "سجّل فيديو باستخدام كاميرتك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Document"
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
 msgstr "مستند"
@@ -554,23 +538,17 @@ msgstr "مستند"
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
+msgstr "أرفق مستند من الجهاز"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ChatPageSendingPane|"
 msgid "Location"
-msgstr "المكان"
+msgstr "الموقع"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr "أرسل موقع جغرافي"
+msgstr "أرسل موقعك الجغرافي"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -625,17 +603,11 @@ msgid "Recording… %1"
 msgstr "يسجّل... %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "ألغِ"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "ارسل"
@@ -644,12 +616,12 @@ msgstr "ارسل"
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr ""
+msgstr "تنسيق الكاميرا '%1' غير مدعوم."
 
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr ""
+msgstr "لا تتوفر كاميرا"
 
 #: src/qml/elements/QrCodeScanner.qml:101
 msgctxt "QrCodeScanner|"
@@ -741,43 +713,31 @@ msgid "Rename"
 msgstr "غيّر الاسم"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "ملفات صوت"
+msgstr "أرسل ملفّات"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "حدد بعض الملفات لإرسالها"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "أدخل وصف…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "أزل"
+msgstr "أزِل ملف"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "اكتب رسالة"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "أضف"
@@ -833,7 +793,7 @@ msgstr "تم نسخ رابط الدعوة إلى الحافظة"
 #: src/qml/GlobalDrawer.qml:102
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
-msgstr ""
+msgstr "بدّل جهاز"
 
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
@@ -873,12 +833,12 @@ msgstr "امسح باركود"
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "أظهر شرح"
 
 #: src/qml/QrCodeOnboardingPage.qml:56
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
-msgstr ""
+msgstr "تابع بدون شفرة باركود"
 
 #: src/qml/QrCodeOnboardingPage.qml:62
 msgctxt "QrCodeOnboardingPage|"
@@ -903,7 +863,7 @@ msgstr "امسح شفرات باركود"
 #: src/qml/QrCodePage.qml:54
 msgctxt "QrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "أظهر شرح"
 
 #: src/qml/QrCodePage.qml:78
 msgctxt "QrCodePage|"
@@ -1067,7 +1027,7 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr "الموفّر"
+msgstr "المزود"
 
 #: src/qml/registration/ProviderView.qml:101
 msgctxt "ProviderView|"
@@ -1077,7 +1037,7 @@ msgstr "إعدادات الاتّصال"
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr ""
+msgstr "تسجيل الويب فقط:"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
@@ -1152,7 +1112,7 @@ msgstr ""
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "معلومات مطلوبة مفقودة: "
 
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
@@ -1204,7 +1164,7 @@ msgstr "افتح صفحة ويب التسجيل"
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr ""
+msgstr "انسخ عنوان صفحة ويب التسجيل"
 
 #: src/qml/registration/WebRegistrationView.qml:60
 msgctxt "WebRegistrationView|"
@@ -1398,7 +1358,7 @@ msgstr ""
 #: src/qml/settings/DisablePasswordDisplay.qml:51
 msgctxt "DisablePasswordDisplay|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "لا تعرض كلمة السر بأي طريقة"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1424,7 +1384,7 @@ msgstr "لا تظهر كلمة المرور"
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
 msgid "Remove account from this app"
-msgstr ""
+msgstr "أزل الحساب من هذا التطبيق"
 
 #: src/qml/settings/LocalAccountRemoval.qml:45
 msgctxt "LocalAccountRemoval|"
@@ -1816,7 +1776,7 @@ msgstr ""
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "حجم مجهول"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
