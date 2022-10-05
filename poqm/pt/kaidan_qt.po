@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-09-16 15:59+0100\n"
+"PO-Revision-Date: 2022-10-04 09:53+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -28,20 +28,16 @@ msgstr ""
 "não foi apagada desta aplicação: %1"
 
 #: src/FileSharingController.cpp:201
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr "A transferência falhou: %1"
+msgstr "O envio falhou: %1"
 
 #: src/FileSharingController.cpp:370
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "Não foi possível gravar o ficheiro: %1"
+msgstr "Não foi possível obter o ficheiro: %1"
 
 #: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
@@ -231,7 +227,7 @@ msgstr "Spoiler"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tamanho desconhecido"
 
 #: src/MessageHandler.cpp:258
 #, qt-format
@@ -485,12 +481,9 @@ msgid "Quote message"
 msgstr "Citar a mensagem"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Apagar"
+msgstr "Apagar o ficheiro"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -621,17 +614,11 @@ msgid "Recording… %1"
 msgstr "A gravar… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Enviar"
@@ -740,43 +727,31 @@ msgid "Rename"
 msgstr "Mudar o Nome"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Ficheiros de áudio"
+msgstr "Enviar ficheiros"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Seleccione alguns ficheiros para enviar"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Indique uma descrição…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Remover"
+msgstr "Remover o ficheiro"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Compor a mensagem"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Adicionar"
@@ -1744,7 +1719,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Vamos começar"
 
-#: src/qml/UserProfilePage.qml:42
+#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Perfil"
@@ -1764,12 +1739,12 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Remover o contacto"
 
-#: src/qml/UserProfilePage.qml:205
+#: src/qml/UserProfilePage.qml:245
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr "Encriptação (OMEMO 2)"
 
-#: src/qml/UserProfilePage.qml:225
+#: src/qml/UserProfilePage.qml:271
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1779,60 +1754,60 @@ msgstr ""
 "você e os seus colaboradores na conversa possam ler ou modificar os dados "
 "que trocar."
 
-#: src/qml/UserProfilePage.qml:235 src/qml/UserProfilePage.qml:241
+#: src/qml/UserProfilePage.qml:283 src/qml/UserProfilePage.qml:289
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
 "mesmos"
 
-#: src/qml/UserProfilePage.qml:237
+#: src/qml/UserProfilePage.qml:285
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Os seus outros dispositivos não usam o OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:244
+#: src/qml/UserProfilePage.qml:292
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
 "segura possível"
 
-#: src/qml/UserProfilePage.qml:256
+#: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Analisar os próprios códigos QR"
 
-#: src/qml/UserProfilePage.qml:265
+#: src/qml/UserProfilePage.qml:316
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr "Analisar o código QR do seu contacto para activar a encriptação"
 
-#: src/qml/UserProfilePage.qml:268
+#: src/qml/UserProfilePage.qml:319
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr "O seu contacto não usa o OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:271
+#: src/qml/UserProfilePage.qml:322
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
 "Analise os códigos QR dos dispositivos do seu contacto para usar a "
 "encriptação nos mesmos"
 
-#: src/qml/UserProfilePage.qml:274
+#: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 "Analise o código QR do seu contacto para obter a encriptação mais segura "
 "possível"
 
-#: src/qml/UserProfilePage.qml:287
+#: src/qml/UserProfilePage.qml:336
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Analisar o código QR do contacto"
 
-#: src/qml/UserProfilePage.qml:321
+#: src/qml/UserProfilePage.qml:350
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositivos ligados"
@@ -1900,7 +1875,7 @@ msgstr "Este servidor não suporta qualquer registo."
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tamanho desconhecido"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
@@ -1970,19 +1945,3 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Caption"
-#~ msgstr "Legenda"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgctxt "UploadManager|"
-#~ msgid "Could not send file, as a result of not being connected."
-#~ msgstr "Não foi possível enviar o ficheiro, por não estar ligado."
-
-#~ msgctxt "UploadManager|"
-#~ msgid "Message could not be sent."
-#~ msgstr "Não foi possível enviar a mensagem."

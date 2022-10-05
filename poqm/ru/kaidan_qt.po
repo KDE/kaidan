@@ -1808,7 +1808,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Начнём"
 
-#: src/qml/UserProfilePage.qml:42
+#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Профиль"
@@ -1828,19 +1828,19 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Удалить контакт"
 
-#: src/qml/UserProfilePage.qml:205
+#: src/qml/UserProfilePage.qml:245
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:225
+#: src/qml/UserProfilePage.qml:271
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:235 src/qml/UserProfilePage.qml:241
+#: src/qml/UserProfilePage.qml:283 src/qml/UserProfilePage.qml:289
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1848,12 +1848,12 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
-#: src/qml/UserProfilePage.qml:237
+#: src/qml/UserProfilePage.qml:285
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:244
+#: src/qml/UserProfilePage.qml:292
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1861,7 +1861,7 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
-#: src/qml/UserProfilePage.qml:256
+#: src/qml/UserProfilePage.qml:303
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1869,17 +1869,17 @@ msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Cканировать QR-код"
 
-#: src/qml/UserProfilePage.qml:265
+#: src/qml/UserProfilePage.qml:316
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:268
+#: src/qml/UserProfilePage.qml:319
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:271
+#: src/qml/UserProfilePage.qml:322
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1887,12 +1887,12 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr "Чтобы перенести учётную запись, сканируйте код c другого устройства."
 
-#: src/qml/UserProfilePage.qml:274
+#: src/qml/UserProfilePage.qml:325
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:287
+#: src/qml/UserProfilePage.qml:336
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1900,7 +1900,7 @@ msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Cканировать QR-код"
 
-#: src/qml/UserProfilePage.qml:321
+#: src/qml/UserProfilePage.qml:350
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Устройства в сети"
