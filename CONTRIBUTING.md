@@ -54,7 +54,7 @@ Reviews have to be done by at least one maintainer not involved as the MR's auth
 
 ## Features
 
-If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/kaidan.doap) accordingly.
+If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/doap.xml) accordingly.
 
 ## Configuration and Database Files
 
