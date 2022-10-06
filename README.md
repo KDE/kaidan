@@ -32,8 +32,8 @@ Kaidan does *not* have all basic features yet and has still some stability
 issues. Do not expect it to be as good as the currently dominating instant
 messaging clients.
 
-If you are interested in the technical features Kaidan supports, you can have a
-look at our [overview of XEPs and RFCs][xeps-rfcs].
+If you are interested in the technical features, you can have a
+look at Kaidan's [overview page][overview] including XEPs and RFCs.
 
 ## Using and Building Kaidan
 
@@ -76,7 +76,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [qtquick]: https://wiki.qt.io/Qt_Quick
 [qxmpp]: https://github.com/qxmpp-project/qxmpp
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
-[xeps-rfcs]: https://invent.kde.org/network/kaidan/-/wikis/xeps-rfcs
+[overview]: https://xmpp.org/software/clients/kaidan/
 [xmpp]: https://xmpp.org
 [zxing-cpp]: https://github.com/nu-book/zxing-cpp
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
