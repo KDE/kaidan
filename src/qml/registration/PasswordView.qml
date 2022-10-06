@@ -16,7 +16,7 @@ import "../elements/fields"
  * This view is used for entering a password.
  */
 FieldView {
-	descriptionText: qsTr("Your password is used to log in to your account.\nIf you don't enter a password, the randomly generated and already displayed one is used.\nDon't use passwords you're already using somewhere else!")
+	descriptionText: qsTr("You can provide a password for your account. If you don't, a password will be generated that you can find later in the app.")
 	imageSource: "password"
 
 	property string text: field.text.length > 0 ? field.text : field.generatedPassword
