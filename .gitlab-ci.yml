@@ -17,6 +17,13 @@ qmllint:
   variables:
     QT_SELECT: 5
 
+xmllint:
+  stage: test
+  image: kaidan/debian-unstable
+  script:
+    - apt update && apt install -y libxml2-utils
+    - xmllint --noout $(find . -type f -name *.xml* -or -name *.xml.in)
+
 build:
   stage: test
   image: kaidan/debian-unstable
