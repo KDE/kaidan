@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-03-27 18:20-0700\n"
-"Last-Translator: Japanese KDE translation team <kde-jp@kde.org>\n"
-"Language-Team: Japanese <kde-jp@kde.org>\n"
-"Language: ja\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: \n"
+"Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Accelerator-Marker: &\n"
-"X-Text-Markup: qtrich\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Poedit 3.1.1\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -36,20 +36,17 @@ msgstr ""
 #: src/Kaidan.cpp:118
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "ონლაინ"
 
 #: src/Kaidan.cpp:120
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr "接続"
+msgstr "დაკავშირება…"
 
 #: src/Kaidan.cpp:122
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "გათიშული"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:173
@@ -63,158 +60,158 @@ msgstr ""
 #: src/MediaRecorder.cpp:1244
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr ""
+msgstr "ნაგულისხმები"
 
 #: src/MediaSettings.cpp:161
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "ძალიან დაბალი"
 
 #: src/MediaSettings.cpp:163
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "დაბალი"
 
 #: src/MediaSettings.cpp:165
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "ჩვეულებრივი"
 
 #: src/MediaSettings.cpp:167
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "მაღალი"
 
 #: src/MediaSettings.cpp:169
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "ძალიან მაღალი"
 
 #: src/MediaSettings.cpp:180
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr ""
+msgstr "მუდმივი ხარისხი"
 
 #: src/MediaSettings.cpp:182
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr ""
+msgstr "მუდმივი ბიტური სიჩქარე"
 
 #: src/MediaSettings.cpp:184
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr ""
+msgstr "საშუალო ბიტური სიჩქარე"
 
 #: src/MediaSettings.cpp:186
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr ""
+msgstr "ორი გავლა"
 
 #: src/MediaUtils.cpp:251
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "აუდიო"
 
 #: src/MediaUtils.cpp:253
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "დოკუმენტი"
 
 #: src/MediaUtils.cpp:255
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "დებარეობა"
 
 #: src/MediaUtils.cpp:257
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "გამოსახულება"
 
 #: src/MediaUtils.cpp:259
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "ვიდეო"
 
 #: src/MediaUtils.cpp:263
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "ფაილი"
 
 #: src/MediaUtils.cpp:272
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr ""
+msgstr "სურათის გადაღება"
 
 #: src/MediaUtils.cpp:274
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr ""
+msgstr "ვიდეოს ჩაწერა"
 
 #: src/MediaUtils.cpp:276
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr ""
+msgstr "ხმის ჩაწერა"
 
 #: src/MediaUtils.cpp:278
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr ""
+msgstr "მდებარეობის გაგზავნა"
 
 #: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr ""
+msgstr "ფაილის არჩევა"
 
 #: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr ""
+msgstr "გამოსახულების არჩევა"
 
 #: src/MediaUtils.cpp:320
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr ""
+msgstr "ვიდეოს არჩევა"
 
 #: src/MediaUtils.cpp:322
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr ""
+msgstr "აუდო ფაილის არჩევა"
 
 #: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr ""
+msgstr "დოკუმენტის არჩევა"
 
 #: src/MediaUtils.cpp:346
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "ყველა ფაილი"
 
 #: src/MediaUtils.cpp:348
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "ასლები"
 
 #: src/MediaUtils.cpp:350
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "ვიდეო"
 
 #: src/MediaUtils.cpp:352
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "აუდიო ფაილები"
 
 #: src/MediaUtils.cpp:354
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "დოკუმენტები"
 
 #: src/MediaUtils.cpp:379
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:201
 msgctxt "Message|"
@@ -224,7 +221,7 @@ msgstr ""
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "უცნობი ზომა"
 
 #: src/MessageHandler.cpp:258
 #, qt-format
@@ -245,27 +242,27 @@ msgstr ""
 #: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "დარჩენილი"
 
 #: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "გაგზავნილია"
 
 #: src/MessageModel.cpp:250
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "მოწოდებულია"
 
 #: src/MessageModel.cpp:252
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "შეცდომა"
 
 #: src/Notifications.cpp:94
 msgctxt "QObject|"
 msgid "Mark as read"
-msgstr ""
+msgstr "მონიშნე როგორც წაკითხული"
 
 #: src/OmemoManager.cpp:119
 msgctxt "OmemoManager|"
@@ -275,7 +272,7 @@ msgstr ""
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "ხელმისაწვდომია"
 
 #: src/PresenceCache.cpp:65
 msgctxt "QObject|"
@@ -285,12 +282,12 @@ msgstr ""
 #: src/PresenceCache.cpp:67
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "გასული"
 
 #: src/PresenceCache.cpp:69
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "არ შემაწუხო"
 
 #: src/PresenceCache.cpp:71
 msgctxt "QObject|"
@@ -300,7 +297,7 @@ msgstr ""
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "გათიშული"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
@@ -313,39 +310,33 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "შეუზღუდავი"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 დღე"
 
 #: src/qml/AboutDialog.qml:78
-#, fuzzy
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "シンプルで使いやすいJabber / XMPPクライアント"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:86
-#, fuzzy
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr "ライセンス:"
+msgstr "ლიცენზია:"
 
 #: src/qml/AboutDialog.qml:103
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr "問題を報告"
+msgstr ""
 
 #: src/qml/AboutDialog.qml:108
-#, fuzzy
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr "ソースコードをオンラインで見る"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:46
 msgctxt "AccountTransferPage|"
@@ -353,12 +344,9 @@ msgid "Transfer account to another device"
 msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
-msgstr "QRコードを隠す"
+msgstr ""
 
 #: src/qml/AccountTransferPage.qml:48
 msgctxt "AccountTransferPage|"
@@ -366,15 +354,14 @@ msgid "Show as QR code"
 msgstr ""
 
 #: src/qml/AccountTransferPage.qml:52
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
-msgstr "テキストを隠す"
+msgstr "ტექსტის დამალვა"
 
 #: src/qml/AccountTransferPage.qml:52
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
-msgstr ""
+msgstr "ტექსტის სახით ჩვენება"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -388,35 +375,29 @@ msgid ""
 msgstr ""
 
 #: src/qml/AccountTransferPage.qml:108
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr "チャットアドレス："
+msgstr "ჩატის მისამართი:"
 
 #: src/qml/AccountTransferPage.qml:117
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr "チャットアドレス："
+msgstr "ჩატის მისამართის კოპირება"
 
 #: src/qml/AccountTransferPage.qml:127
-#, fuzzy
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr "パスワード："
+msgstr "პაროლი:"
 
 #: src/qml/AccountTransferPage.qml:137
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr "君の合言葉："
+msgstr "პაროლის კოპირება"
 
 #: src/qml/ChatPage.qml:105
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr ""
+msgstr "ძებნა"
 
 #: src/qml/ChatPage.qml:124
 msgctxt "ChatPage|"
@@ -431,7 +412,7 @@ msgstr ""
 #: src/qml/ChatPage.qml:134
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr ""
+msgstr "პროფილის ნახვა"
 
 #: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
@@ -446,17 +427,17 @@ msgstr ""
 #: src/qml/elements/ChatMessage.qml:196
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr ""
+msgstr "ჩამოტვირთვა"
 
 #: src/qml/elements/ChatMessage.qml:257
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "დაუშიფრავი"
 
 #: src/qml/elements/ChatMessage.qml:262
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "არასანდო"
 
 #: src/qml/elements/ChatMessage.qml:295
 #, qt-format
@@ -465,17 +446,14 @@ msgid "%1 has read up to this point"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:46
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr "メッセージを書く"
+msgstr "შეტყობინების კოპირება"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:57
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr ""
+msgstr "შეტყობინების შეცვლა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:63
 msgctxt "ChatMessageContextMenu|"
@@ -483,28 +461,19 @@ msgid "Copy download URL"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:69
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr "メッセージを書く"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "削除"
+msgstr "Ფაილის წაშლა"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr "メッセージを書く"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:89
 msgctxt "ChatPageSearchView|"
@@ -527,15 +496,14 @@ msgid "Close spoiler hint field"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr "メッセージを書く"
+msgstr "შეტყობინების შედგენა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:219
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
+msgstr "დანართი"
 
 #: src/qml/elements/ChatPageSendingPane.qml:271
 msgctxt "ChatPageSendingPane|"
@@ -560,7 +528,7 @@ msgstr ""
 #: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
-msgstr ""
+msgstr "დოკუმენტი"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
@@ -570,7 +538,7 @@ msgstr ""
 #: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Location"
-msgstr ""
+msgstr "დებარეობა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -578,24 +546,19 @@ msgid "Send your location"
 msgstr ""
 
 #: src/qml/elements/ConfirmationPage.qml:48
-#, fuzzy
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:39
-#, fuzzy
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "チャットアドレス："
+msgstr ""
 
 #: src/qml/elements/fields/JidField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "user@example.org"
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr "user＠example.jp"
+msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
@@ -603,12 +566,9 @@ msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Password"
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr "合言葉"
+msgstr ""
 
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
@@ -623,7 +583,7 @@ msgstr ""
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr ""
+msgstr "მიუწვდომელია"
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
@@ -638,16 +598,14 @@ msgid "Recording… %1"
 msgstr ""
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
 msgctxt "NewMediaSheet|"
 msgid "Send"
-msgstr "送る"
+msgstr "გაგზავნა"
 
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
@@ -670,7 +628,7 @@ msgstr ""
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
-msgstr ""
+msgstr "ახალი კონტაქტის დამატება"
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
 msgctxt "RosterAddContactSheet|"
@@ -678,31 +636,24 @@ msgid "This will also send a request to access the presence of the contact."
 msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:60
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Jabber-ID:"
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
-msgstr "君のJabber-ID："
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
-#, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
-msgstr "user＠example.jp"
+msgstr "user@example.org"
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr ""
+msgstr "მეტსახელი:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
-msgstr "メッセージを書く"
+msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
@@ -710,25 +661,19 @@ msgid "Tell your chat partner who you are."
 msgstr ""
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Cancel"
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
-msgstr "削除"
+msgstr "კონტაქტის წაშლა"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
 #, qt-format
@@ -738,41 +683,34 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Cancel"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
-msgstr "削除"
+msgstr "წაშლა"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
-msgstr ""
+msgstr "კონტაქტის სახელის გადარქმევა"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
-#, fuzzy
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
-msgstr ""
+msgstr "გადარქმევა"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr ""
+msgstr "ფაილების გაგზავნა"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
@@ -787,24 +725,22 @@ msgstr ""
 #: src/qml/elements/SendMediaSheet.qml:154
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr ""
+msgstr "ფაილის წაშლა"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
-msgstr "メッセージを書く"
+msgstr "შეტყობინების შედგენა"
 
 #: src/qml/elements/SendMediaSheet.qml:175
 msgctxt "SendMediaSheet|"
 msgid "Add"
-msgstr ""
+msgstr "დამატება"
 
 #: src/qml/elements/SendMediaSheet.qml:186
-#, fuzzy
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr "送る"
+msgstr "გაგზავნა"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
@@ -822,12 +758,12 @@ msgstr ""
 #: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr ""
+msgstr "უარყოფა"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
-msgstr ""
+msgstr "დასტური"
 
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
@@ -857,17 +793,17 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr ""
+msgstr "შესახებ"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
 msgid "Log in"
-msgstr ""
+msgstr "შესვლა"
 
 #: src/qml/LoginPage.qml:49
 msgctxt "LoginPage|"
@@ -875,28 +811,19 @@ msgid "Log in to your XMPP account"
 msgstr ""
 
 #: src/qml/LoginPage.qml:75
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr "接続"
+msgstr ""
 
 #: src/qml/LoginPage.qml:114
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr "接続"
+msgstr "დაკავშირება…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr "QRコードを隠す"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -914,12 +841,9 @@ msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:103
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr "接続"
+msgstr "დაკავშირება…"
 
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
@@ -927,12 +851,9 @@ msgid "This QR code is not a valid login QR code."
 msgstr ""
 
 #: src/qml/QrCodePage.qml:52 src/qml/QrCodePage.qml:54
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
-msgstr "QRコードを隠す"
+msgstr ""
 
 #: src/qml/QrCodePage.qml:54
 msgctxt "QrCodePage|"
@@ -1035,7 +956,7 @@ msgstr ""
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "საჩვენებელი სახელი"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
@@ -1101,15 +1022,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr ""
+msgstr "სერვისის მომწოდებელი"
 
 #: src/qml/registration/ProviderView.qml:101
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr "接続"
+msgstr ""
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -1119,12 +1037,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "არა"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "დიახ"
 
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
@@ -1134,7 +1052,7 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "ენები:"
 
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
@@ -1152,28 +1070,24 @@ msgid "Stores shared media up to:"
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:182
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr "ウェブサイト"
+msgstr "ვებგვერდის გახსნა"
 
 #: src/qml/registration/ProviderView.qml:188
-#, fuzzy
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr "チャットアドレス："
+msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "რესგისტრაცია"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr ""
+msgstr "რესგისტრაცია"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
@@ -1222,7 +1136,7 @@ msgstr ""
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr ""
+msgstr "მოხმარებელი"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
@@ -1255,7 +1169,7 @@ msgstr ""
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
-msgstr ""
+msgstr "მორგება"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1268,27 +1182,24 @@ msgid "Use an existing account"
 msgstr ""
 
 #: src/qml/RosterPage.qml:41
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr "接続"
+msgstr "დაკავშირება…"
 
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr ""
+msgstr "გათიშული"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
 msgid "Contacts"
-msgstr ""
+msgstr "კონტაქტები"
 
 #: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
-msgstr ""
+msgstr "ახალი კონტაქტის დამატება"
 
 #: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
@@ -1296,10 +1207,9 @@ msgid "Search contacts"
 msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:39
-#, fuzzy
 msgctxt "AccountSecurity|"
 msgid "Account Security"
-msgstr "アカウントのセキュリティ"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:42
 msgctxt "AccountSecurity|"
@@ -1309,12 +1219,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:44
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr "パスワードの表示を無効にする"
+msgstr ""
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1329,26 +1236,19 @@ msgid "Don't expose password in any way"
 msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Password"
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr "合言葉"
+msgstr "პაროლის შეცვლა"
 
 #: src/qml/settings/ChangePassword.qml:64
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr "君の合言葉："
+msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:71
-#, fuzzy
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr "パスワード："
+msgstr "ახალი პაროლი:"
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
@@ -1358,7 +1258,7 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
 msgid "New passwords do not match."
-msgstr ""
+msgstr "ახალი პაროლები არ ემთხვევა."
 
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
@@ -1373,20 +1273,19 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/ChangePassword.qml:111
-#, fuzzy
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr ""
+msgstr "შეცვლა"
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
 msgid "Password changed successfully"
-msgstr ""
+msgstr "პაროლი წარმატებით შეიცვალა"
 
 #: src/qml/settings/ChangePassword.qml:148
 #, qt-format
@@ -1395,23 +1294,19 @@ msgid "Failed to change password: %1"
 msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:40
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr "接続"
+msgstr ""
 
 #: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr ""
+msgstr "შეცვლა"
 
 #: src/qml/settings/ConnectionSettings.qml:84
-#, fuzzy
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr "キャンセル"
+msgstr "გაუქმება"
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1426,7 +1321,7 @@ msgstr ""
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr ""
+msgstr "ჰოსტის სახელი:"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
@@ -1460,12 +1355,9 @@ msgid "Don't expose password in any way"
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
-msgstr "パスワードの表示を無効にする"
+msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1479,12 +1371,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Disable showing the password"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr "パスワードの表示を無効にする"
+msgstr ""
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1502,98 +1391,98 @@ msgstr ""
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
-msgstr ""
+msgstr "წაშლა"
 
 #: src/qml/settings/MultimediaSettings.qml:44
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "მულტიმედიის მართვა"
 
 #: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr ""
+msgstr "მორგება"
 
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
 msgid "Image Capture"
-msgstr ""
+msgstr "სურათის გადაღება"
 
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
-msgstr ""
+msgstr "აუდიო ჩანაწერა"
 
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
-msgstr ""
+msgstr "ვიდეოს ჩაწერა"
 
 #: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr ""
+msgstr "კამერა"
 
 #: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr ""
+msgstr "აუდიო შეტანა"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr ""
+msgstr "კონტეინერი"
 
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr ""
+msgstr "გამოსახულება"
 
 #: src/qml/settings/MultimediaSettings.qml:231
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr ""
+msgstr "აუდიო"
 
 #: src/qml/settings/MultimediaSettings.qml:237
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr ""
+msgstr "ვიდეო"
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr ""
+msgstr "კოდეკი"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr ""
+msgstr "გარჩევადობა"
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
 msgctxt "MultimediaSettings|"
 msgid "Quality"
-msgstr ""
+msgstr "ხარისხი"
 
 #: src/qml/settings/MultimediaSettings.qml:374
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
-msgstr ""
+msgstr "სემპლების სიჩქარე"
 
 #: src/qml/settings/MultimediaSettings.qml:484
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
-msgstr ""
+msgstr "კადრების სიხშირე"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Ready"
-msgstr ""
+msgstr "მზადაა"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
@@ -1604,28 +1493,22 @@ msgstr ""
 #: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr ""
+msgstr "მიუწვდომელია"
 
 #: src/qml/settings/MultimediaSettings.qml:587
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr "接続"
+msgstr "ჩაწერა…"
 
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
 msgid "Paused"
-msgstr ""
+msgstr "შეჩერებულია"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Password:"
 msgctxt "PasswordRemovalPage|"
 msgid "Remove password"
-msgstr "君の合言葉："
+msgstr ""
 
 #: src/qml/settings/PasswordRemovalPage.qml:47
 #, qt-format
@@ -1662,23 +1545,19 @@ msgid ""
 msgstr ""
 
 #: src/qml/settings/RemoteAccountDeletion.qml:50
-#, fuzzy
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
-msgstr "削除"
+msgstr "წაშლა"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Password"
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr "合言葉"
+msgstr "პაროლის შეცვლა"
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
@@ -1690,7 +1569,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "მულტიმედიის მართვა"
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
@@ -1698,12 +1577,9 @@ msgid "Configure photo, video and audio recording settings"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:61
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr "接続"
+msgstr "შეერთების მორგება"
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
@@ -1711,10 +1587,9 @@ msgid "Configure the hostname and port to connect to"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:67
-#, fuzzy
 msgctxt "SettingsContent|"
 msgid "Account security"
-msgstr "アカウントのセキュリティ"
+msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
@@ -1734,7 +1609,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr ""
+msgstr "ანგარიშის წაშლა"
 
 #: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
@@ -1744,7 +1619,7 @@ msgstr ""
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
 msgid "Settings"
-msgstr ""
+msgstr "მორგება"
 
 #: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
@@ -1759,7 +1634,7 @@ msgstr ""
 #: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:209
 msgctxt "UserProfilePage|"
 msgid "Profile"
-msgstr ""
+msgstr "პროფილი"
 
 #: src/qml/UserProfilePage.qml:77
 msgctxt "UserProfilePage|"
@@ -1767,17 +1642,14 @@ msgid "Rename contact"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:87
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr "QRコードを隠す"
+msgstr "QR კოდის ჩვენება"
 
 #: src/qml/UserProfilePage.qml:93
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
-msgstr ""
+msgstr "კონტაქტის წაშლა"
 
 #: src/qml/UserProfilePage.qml:245
 msgctxt "UserProfilePage|"
@@ -1807,12 +1679,9 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:303
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
-msgstr "QRコードを隠す"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:316
 msgctxt "UserProfilePage|"
@@ -1835,12 +1704,9 @@ msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
 #: src/qml/UserProfilePage.qml:336
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
-msgstr "QRコードを隠す"
+msgstr ""
 
 #: src/qml/UserProfilePage.qml:350
 msgctxt "UserProfilePage|"
@@ -1850,7 +1716,7 @@ msgstr ""
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "მომხმარებელი ან პაროლი არასწორია."
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
@@ -1904,7 +1770,7 @@ msgstr ""
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "უცნობი ზომა"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
@@ -1948,35 +1814,29 @@ msgstr ""
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "სახელი"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "მეტსახელი"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "შესახებ"
 
 #: src/VCardModel.cpp:99
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Email"
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "電子メール"
+msgstr "ელფოტა"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "დაბადების დღე"
 
 #: src/VCardModel.cpp:105
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr "ウェブサイト"
+msgstr "ვებსაიტი"
