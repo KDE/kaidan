@@ -55,6 +55,10 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	  m_omemoStorage(new OmemoDb(database, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
+	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this]() {
+		retrieveOwnKey();
+	});
+
 	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
 		retrieveKeys(modifiedKeys.keys());
 	});

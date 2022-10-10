@@ -133,5 +133,8 @@ Kirigami.GlobalDrawer {
 	onOpened: {
 		// Request the user's current vCard which contains the user's nickname.
 		Kaidan.client.vCardManager.clientVCardRequested()
+
+		// Retrieve the user's own OMEMO key to be used while adding a contact via QR code.
+		Kaidan.client.omemoManager.retrieveOwnKeyRequested()
 	}
 }
