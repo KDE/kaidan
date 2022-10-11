@@ -31,26 +31,26 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Ezin izan da %1 fitxategia gorde"
 
-#: src/Kaidan.cpp:118
+#: src/Kaidan.cpp:108
 #, fuzzy
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Lineaz kanpo"
 
-#: src/Kaidan.cpp:120
+#: src/Kaidan.cpp:110
 #, fuzzy
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Konektatzen…"
 
-#: src/Kaidan.cpp:122
+#: src/Kaidan.cpp:112
 #, fuzzy
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Lineaz kanpo"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:173
+#: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Esteka konektatu ondoren irekiko da."
@@ -272,7 +272,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr ""
 
-#: src/OmemoManager.cpp:119
+#: src/OmemoManager.cpp:123
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""

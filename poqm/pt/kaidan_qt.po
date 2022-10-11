@@ -39,23 +39,23 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Não foi possível obter o ficheiro: %1"
 
-#: src/Kaidan.cpp:118
+#: src/Kaidan.cpp:108
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Ligado"
 
-#: src/Kaidan.cpp:120
+#: src/Kaidan.cpp:110
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "A ligar…"
 
-#: src/Kaidan.cpp:122
+#: src/Kaidan.cpp:112
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
 
 #. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
-#: src/Kaidan.cpp:173
+#: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "A ligação será aberta depois de ter estabelecido a ligação."
@@ -271,7 +271,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marcar como lida"
 
-#: src/OmemoManager.cpp:119
+#: src/OmemoManager.cpp:123
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
