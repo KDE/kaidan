@@ -73,6 +73,12 @@ It defines their filename suffixes after a separating `-` while their file exten
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
 
+## Mobile Devices
+
+Kaidan can be run on desktop devices as well as on mobile devices with touchscreens.
+A user interface optimized for mobile devices can be applied via the environment variable `QT_QUICK_CONTROLS_MOBILE`.
+You can run Kaidan with `QT_QUICK_CONTROLS_MOBILE=true kaidan` in order to get its mobile view.
+
 ## Notifications
 
 Notifications are triggered by `src/Notifications` via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
