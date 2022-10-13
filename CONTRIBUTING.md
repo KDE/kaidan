@@ -73,6 +73,13 @@ It defines their filename suffixes after a separating `-` while their file exten
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
 
+## Styles
+
+A style influences Kaidan's look.
+It can be set via the environment variable `QT_QUICK_CONTROLS_STYLE`.
+Kaidan's default style is `org.kde.desktop`.
+You can run Kaidan using Android's `Material` style with `QT_QUICK_CONTROLS_STYLE=Material kaidan`.
+
 ## Mobile Devices
 
 Kaidan can be run on desktop devices as well as on mobile devices with touchscreens.
