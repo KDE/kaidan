@@ -173,23 +173,6 @@ ChatPageBase {
 		composition: sendingPane.composition
 	}
 
-	Loader {
-		id: fileChooserLoader
-	}
-
-	function openFileDialog(nameFilter, title) {
-		fileChooserLoader.source = "qrc:/qml/elements/FileChooser.qml"
-		fileChooserLoader.item.selectedNameFilter = nameFilter
-		fileChooserLoader.item.accepted.connect(
-			function() {
-				sendMediaSheet.sendFile(MessageModel.currentChatJid, fileChooserLoader.item.fileUrl)
-			}
-		)
-		if (title !== undefined)
-			fileChooserLoader.item.title = title
-		fileChooserLoader.item.open()
-	}
-
 	// View containing the messages
 	ListView {
 		id: messageListView
