@@ -38,6 +38,7 @@
 #include "Encryption.h"
 #include "Kaidan.h"
 #include "Message.h"
+#include "RosterItemWatcher.h"
 
 class QTimer;
 class Kaidan;
@@ -303,8 +304,8 @@ private:
 	QVector<Message> m_messages;
 	QString m_currentAccountJid;
 	QString m_currentChatJid;
+	RosterItemWatcher m_rosterItemWatcher;
 	QString m_lastReadOwnMessageId;
-	QString m_lastReadContactMessageId;
 	bool m_fetchedAllFromDb = false;
 	bool m_fetchedAllFromMam = false;
 	bool m_mamLoading = false;

@@ -48,6 +48,7 @@
 #include "QmlUtils.h"
 #include "RosterModel.h"
 #include "FileSharingController.h"
+#include "RosterItemWatcher.h"
 
 using namespace std::chrono_literals;
 
@@ -299,7 +300,8 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid)
 		return;
 
-	m_lastReadOwnMessageId = RosterModel::instance()->lastReadOwnMessageId(accountJid, chatJid);
+	m_rosterItemWatcher.setJid(chatJid);
+	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
 
 	// Send gone state to old chat partner
 	sendChatState(QXmppMessage::State::Gone);
@@ -375,11 +377,11 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 		return;
 	}
 
-	m_lastReadContactMessageId = RosterModel::instance()->lastReadContactMessageId(m_currentAccountJid, m_currentChatJid);
+	const auto &lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
 
 	// Skip messages that are read but older than the last read message.
 	for (int i = 0; i != m_messages.size(); ++i) {
-		if (m_messages.at(i).id == m_lastReadContactMessageId && i <= readMessageIndex) {
+		if (m_messages.at(i).id == lastReadContactMessageId && i <= readMessageIndex) {
 			return;
 		}
 	}
@@ -388,7 +390,7 @@ void MessageModel::sendReadMarker(int readMessageIndex)
 	const auto readMessageId = readMessage.id;
 	const auto isApplicationActive = QGuiApplication::applicationState() == Qt::ApplicationActive;
 
-	if (m_lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
+	if (lastReadContactMessageId != readMessageId && !readMessage.isOwn && isApplicationActive) {
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=](RosterItem &item) {
 			item.lastReadContactMessageId = readMessageId;
 
@@ -562,7 +564,7 @@ void MessageModel::updateMessage(const QString &id,
 void MessageModel::updateLastReadOwnMessageId(const QString &accountJid, const QString &chatJid)
 {
 	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
-	m_lastReadOwnMessageId = RosterModel::instance()->lastReadOwnMessageId(accountJid, chatJid);
+	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
 
 	int formerLastReadOwnMessageIndex = -1;
 	int lastReadOwnMessageIndex = -1;
