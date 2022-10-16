@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-04-20 21:12+0300\n"
+"PO-Revision-Date: 2022-08-22 21:44+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 20.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -222,7 +222,7 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:201
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "Vihje"
 
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
@@ -248,22 +248,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageModel.cpp:246
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Jonossa"
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: src/MessageModel.cpp:250
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Välitetty"
 
-#: src/MessageModel.cpp:252
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Virhe"
@@ -382,6 +382,12 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"Lue QR-koodi tai anna tunnistustiedot tekstinä toiselta laitteelta sille "
+"kirjautumiseksi.\n"
+"\n"
+"Varoitus:\n"
+"Älä koskaan näytä tätä QR-koodia muille. Se antaa rajoittamattoman pääsyn "
+"tiliisi!"
 
 #: src/qml/AccountTransferPage.qml:108
 msgctxt "AccountTransferPage|"
@@ -426,12 +432,12 @@ msgstr "Näytä profiili"
 #: src/qml/ChatPage.qml:145
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
-msgstr ""
+msgstr "Lähetä vihjeviesti"
 
 #: src/qml/elements/ChatMessage.qml:139
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr ""
+msgstr "Vihje"
 
 #: src/qml/elements/ChatMessage.qml:196
 msgctxt "ChatMessage|"
@@ -500,12 +506,12 @@ msgstr "Etsi alaspäin"
 #: src/qml/elements/ChatPageSendingPane.qml:74
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
-msgstr ""
+msgstr "Vihje"
 
 #: src/qml/elements/ChatPageSendingPane.qml:81
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr ""
+msgstr "Sulje vihjekenttä"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
 msgctxt "ChatPageSendingPane|"
@@ -1150,12 +1156,12 @@ msgstr "Verkossa alkaen:"
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr ""
+msgstr "Sallii median jaon tähän asti:"
 
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr ""
+msgstr "Tallentaa jaetun median tähän asti:"
 
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
@@ -1637,6 +1643,10 @@ msgid ""
 "scanning without entering your password because it is also removed from the "
 "QR code."
 msgstr ""
+"Voit päättää olla näyttämättä tilin <b>%1</b> salasanaasi enää tekstinä tai "
+"poistaa sen kokonaan tilisiirrosta. Jos salasanan poistaa kokonaan, "
+"tilisiirtoa ei voi käyttää vain lukemalla QR-koodin mutta antamatta "
+"salasanaa, koska se poistetaan myös koodista."
 
 #: src/qml/settings/PasswordRemovalPage.qml:50
 msgctxt "PasswordRemovalPage|"
