@@ -227,16 +227,16 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilId(const QString &accoun
 		prepareQuery(
 			query,
 			"SELECT * FROM Messages "
-			"WHERE (author = :accountJid AND recipient = :chatJid) OR "
-			"(author = :chatJid AND recipient = :accountJid) "
+			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
+			"(sender = :chatJid AND recipient = :accountJid) "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, ("
 			"SELECT COUNT() FROM Messages "
 			"WHERE timestamp >= "
 			"(SELECT timestamp FROM Messages "
-			"WHERE author = :chatJid AND recipient = :accountJid AND id = :id) AND "
-			"((author = :accountJid AND recipient = :chatJid) OR "
-			"(author = :chatJid AND recipient = :accountJid)) "
+			"WHERE sender = :chatJid AND recipient = :accountJid AND id = :id) AND "
+			"((sender = :accountJid AND recipient = :chatJid) OR "
+			"(sender = :chatJid AND recipient = :accountJid)) "
 			") + :limit"
 		);
 		bindValues(query, {
@@ -321,7 +321,7 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT id FROM " DB_TABLE_MESSAGES " WHERE author = ? AND recipient = ? ORDER BY timestamp DESC LIMIT ?, 1",
+			"SELECT id FROM " DB_TABLE_MESSAGES " WHERE sender = ? AND recipient = ? ORDER BY timestamp DESC LIMIT ?, 1",
 			{ chatJid, accountJid, index }
 		);
 
