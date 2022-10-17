@@ -582,7 +582,9 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 				item.lastReadOwnMessageId = markedId;
 			});
 
-			emit MessageModel::instance()->updateLastReadOwnMessageIdRequested(recipientJid, senderJid);
+			runOnThread(MessageModel::instance(), []() {
+				MessageModel::instance()->updateLastReadOwnMessageId();
+			});
 		}
 
 		return true;

@@ -130,8 +130,6 @@ MessageModel::MessageModel(QObject *parent)
 
 	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::updateMessage);
 
-	connect(this, &MessageModel::updateLastReadOwnMessageIdRequested, this, &MessageModel::updateLastReadOwnMessageId);
-
 	connect(this, &MessageModel::handleChatStateRequested,
 	        this, &MessageModel::handleChatState);
 
@@ -641,7 +639,7 @@ void MessageModel::insertMessage(int idx, const Message &msg)
 	m_messages.insert(idx, msg);
 	endInsertRows();
 
-	updateLastReadOwnMessageId(m_currentAccountJid, m_currentChatJid);
+	updateLastReadOwnMessageId();
 }
 
 void MessageModel::addMessage(const Message &msg)
@@ -696,7 +694,7 @@ void MessageModel::updateMessage(const QString &id,
 	}
 }
 
-void MessageModel::updateLastReadOwnMessageId(const QString &accountJid, const QString &chatJid)
+void MessageModel::updateLastReadOwnMessageId()
 {
 	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
 	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;

@@ -148,6 +148,7 @@ public:
 
 	Q_INVOKABLE void handleMessageRead(int readMessageIndex);
 	Q_INVOKABLE int firstUnreadContactMessageIndex();
+	void updateLastReadOwnMessageId();
 
 	Q_INVOKABLE void markMessageAsFirstUnread(int index);
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
@@ -245,7 +246,6 @@ signals:
 	 */
 	void authenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
 
-	void updateLastReadOwnMessageIdRequested(const QString &accountJid, const QString &chatJid);
 	void pendingMessagesFetched(const QVector<Message> &messages);
 	void sendCorrectedMessageRequested(const Message &msg);
 	void chatStateChanged();
@@ -274,7 +274,6 @@ private slots:
 	void addMessage(const Message &msg);
 	void updateMessage(const QString &id,
 	                   const std::function<void (Message &)> &updateMsg);
-	void updateLastReadOwnMessageId(const QString &accountJid, const QString &chatJid);
 
 	void handleMessage(Message msg, MessageOrigin origin);
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
