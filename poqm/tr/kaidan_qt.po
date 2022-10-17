@@ -402,27 +402,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Parolayı kopyala"
 
-#: src/qml/ChatPage.qml:105
+#: src/qml/ChatPage.qml:106
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Ara"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Bildirimlerin sesini aç"
 
-#: src/qml/ChatPage.qml:125
+#: src/qml/ChatPage.qml:126
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Bildirimlerin sesini kapat"
 
-#: src/qml/ChatPage.qml:134
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Profili görüntüle"
 
-#: src/qml/ChatPage.qml:145
+#: src/qml/ChatPage.qml:146
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Bir tatkaçıran ileti gönder"
@@ -477,6 +477,14 @@ msgstr "İletiyi alıntıla"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Dosyayı sil"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:84
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Mark as read"
+msgctxt "ChatMessageContextMenu|"
+msgid "Mark as first unread"
+msgstr "Okundu olarak imle"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"

@@ -418,27 +418,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Պատճենել գաղտնաբառը"
 
-#: src/qml/ChatPage.qml:105
+#: src/qml/ChatPage.qml:106
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Որոնել"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Միացնել ծանուցումները"
 
-#: src/qml/ChatPage.qml:125
+#: src/qml/ChatPage.qml:126
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Անջատել ծանուցումները"
 
-#: src/qml/ChatPage.qml:134
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Զննել պրոֆիլը"
 
-#: src/qml/ChatPage.qml:145
+#: src/qml/ChatPage.qml:146
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Ուղարկել գաղտնի հաղորդագրություն"
@@ -496,6 +496,14 @@ msgstr "Մեջբերում կատարել"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Ջնջել"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:84
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Mark as read"
+msgctxt "ChatMessageContextMenu|"
+msgid "Mark as first unread"
+msgstr "Համարել կարդացած"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 #, fuzzy

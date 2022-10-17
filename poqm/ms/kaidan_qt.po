@@ -417,27 +417,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Salin kata laluan"
 
-#: src/qml/ChatPage.qml:105
+#: src/qml/ChatPage.qml:106
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cari"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Buang bisu pemberitahuan"
 
-#: src/qml/ChatPage.qml:125
+#: src/qml/ChatPage.qml:126
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Bisukan pemberitahuan"
 
-#: src/qml/ChatPage.qml:134
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Lihat profil"
 
-#: src/qml/ChatPage.qml:145
+#: src/qml/ChatPage.qml:146
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Hantar mesej beberan"
@@ -495,6 +495,14 @@ msgstr "Petik mesej"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Pilih fail"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:84
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Mark as read"
+msgctxt "ChatMessageContextMenu|"
+msgid "Mark as first unread"
+msgstr "Tanda sebagai telah dibaca"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 #, fuzzy
