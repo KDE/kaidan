@@ -184,7 +184,7 @@ public:
 	/**
 	 * Sends pending messages again after searching them in the database.
 	 */
-	Q_INVOKABLE void sendPendingMessages();
+	void sendPendingMessages();
 
 	/**
 	  * Returns the current chat state
