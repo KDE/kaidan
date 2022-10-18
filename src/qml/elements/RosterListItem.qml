@@ -31,7 +31,6 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-import QtGraphicalEffects 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -65,7 +64,6 @@ UserListItem {
 			level: 4
 			Layout.fillWidth: true
 			Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
-			color: Kirigami.Theme.textColor
 		}
 
 		// last message or error status message if available, otherwise not visible
@@ -78,7 +76,6 @@ UserListItem {
 			text: Utils.removeNewLinesFromString(lastMessage)
 			textFormat: Text.PlainText
 			font.weight: Font.Light
-			color: Kirigami.Theme.textColor
 		}
 	}
 
@@ -90,7 +87,7 @@ UserListItem {
 		targets: [nameText, lastMessageText]
 		property: "color"
 		to: root.isSelected ? Kirigami.Theme.textColor : Kirigami.Theme.highlightedTextColor
-		duration: 150
+		duration: Kirigami.Units.shortDuration
 		running: false
 	}
 

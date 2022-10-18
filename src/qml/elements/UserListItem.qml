@@ -49,11 +49,24 @@ Kirigami.AbstractListItem {
 	leftPadding: 0
 	bottomPadding: 0
 	height: 65
-	backgroundColor: isSelected ? Kirigami.Theme.highlightColor : Kirigami.Theme.backgroundColor
+
+	onIsSelectedChanged: {
+		backgroundColorAnimation.restart()
+	}
 
 	RowLayout {
 		id: content
 		spacing: Kirigami.Units.gridUnit * 0.5
+
+		// fading background colors
+		ColorAnimation {
+			id: backgroundColorAnimation
+			targets: [root]
+			property: "backgroundColor"
+			to: root.isSelected ? Kirigami.Theme.backgroundColor : Kirigami.Theme.highlightColor
+			duration: Kirigami.Units.shortDuration
+			running: false
+		}
 
 		// left border: presence
 		Rectangle {
@@ -71,7 +84,7 @@ Kirigami.AbstractListItem {
 		// left: avatar
 		Item {
 			Layout.preferredHeight: parent.height - Kirigami.Units.gridUnit * 0.8
-			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
+			Layout.preferredWidth: Layout.preferredHeight
 
 			Avatar {
 				id: avatar
