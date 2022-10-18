@@ -31,13 +31,13 @@
 #include "Algorithms.h"
 #include "MediaUtils.h"
 #include "Message.h"
-#include "QXmppBitsOfBinaryContentId.h"
-#include "QXmppBitsOfBinaryData.h"
-#include "QXmppBitsOfBinaryDataList.h"
-#include "QXmppE2eeMetadata.h"
-#include "QXmppFileMetadata.h"
-#include "QXmppOutOfBandUrl.h"
-#include "QXmppThumbnail.h"
+#include <QXmppBitsOfBinaryContentId.h>
+#include <QXmppBitsOfBinaryData.h>
+#include <QXmppBitsOfBinaryDataList.h>
+#include <QXmppE2eeMetadata.h>
+#include <QXmppFileMetadata.h>
+#include <QXmppOutOfBandUrl.h>
+#include <QXmppThumbnail.h>
 
 #include <QStringBuilder>
 

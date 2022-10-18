@@ -33,7 +33,7 @@
 #include <QFuture>
 #include <QObject>
 
-#include "QXmppTrustLevel.h"
+#include <QXmppTrustLevel.h>
 
 class Database;
 class OmemoDb;

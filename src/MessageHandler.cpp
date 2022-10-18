@@ -33,13 +33,13 @@
 #include <QUrl>
 #include <QRandomGenerator>
 // QXmpp
-#include "QXmppBitsOfBinaryContentId.h"
-#include "QXmppBitsOfBinaryDataList.h"
+#include <QXmppBitsOfBinaryContentId.h>
+#include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
-#include "QXmppEncryptedFileSource.h"
+#include <QXmppEncryptedFileSource.h>
 #include <QXmppFileMetadata.h>
 #include <QXmppHash.h>
-#include "QXmppHttpFileSource.h"
+#include <QXmppHttpFileSource.h>
 #include <QXmppMamManager.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppRosterManager.h>
