@@ -82,7 +82,7 @@ Controls.Menu {
 
 	Controls.MenuItem {
 		text: qsTr("Mark as first unread")
-		visible: !root.message.isOwn
+		visible: root.message && !root.message.isOwn
 		onTriggered: {
 			MessageModel.markMessageAsFirstUnread(message.modelIndex);
 			MessageModel.setCurrentChat("", "")
