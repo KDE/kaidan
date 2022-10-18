@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-01 05:07+0300\n"
+"PO-Revision-Date: 2022-10-17 12:36+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -225,43 +225,43 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:264
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti, %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:337
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:394
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:245
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Beklemede"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Gönderildi"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Teslim edildi"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Hata"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:187
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Okundu olarak imle"
@@ -479,12 +479,9 @@ msgid "Delete file"
 msgstr "Dosyayı sil"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Okundu olarak imle"
+msgstr "İlk okunmayan olarak imle"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"

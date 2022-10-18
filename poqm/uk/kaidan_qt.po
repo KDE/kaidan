@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-01 09:07+0300\n"
+"PO-Revision-Date: 2022-10-17 13:33+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -227,44 +227,44 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:264
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:337
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:394
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:245
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Очікування"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Надіслані"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Помилка"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:187
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
@@ -482,12 +482,9 @@ msgid "Delete file"
 msgstr "Вилучити файл"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Позначити як прочитане"
+msgstr "Позначити як перше непрочитане"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"

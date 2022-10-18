@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-10-04 09:53+0100\n"
+"PO-Revision-Date: 2022-10-17 09:57+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -229,44 +229,44 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:264
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está encriptada com o %1 mas não é possível descodificá-la"
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:337
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível corrigir a mensagem"
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:394
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:245
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregue"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:187
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marcar como lida"
@@ -486,12 +486,9 @@ msgid "Delete file"
 msgstr "Apagar o ficheiro"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Marcar como lida"
+msgstr "Marcar como primeira não-lida"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"

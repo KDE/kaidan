@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-01 23:48+0200\n"
+"PO-Revision-Date: 2022-10-17 11:53+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -226,43 +226,43 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:264
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:337
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Het corrigeren van het bericht is mislukt"
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:394
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:245
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In behandeling"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Verzonden"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Afgeleverd"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:187
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Markeren als gelezen"
@@ -481,12 +481,9 @@ msgid "Delete file"
 msgstr "Bestand verwijderen"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Markeren als gelezen"
+msgstr "Markeren als eerste ongelezen"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"

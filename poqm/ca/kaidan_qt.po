@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-10-01 18:14+0200\n"
+"PO-Revision-Date: 2022-10-17 10:28+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -236,43 +236,43 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:264
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:337
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:394
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:245
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendent"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviat"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Lliurat"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:187
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marca com a llegit"
@@ -492,12 +492,9 @@ msgid "Delete file"
 msgstr "Suprimeix el fitxer"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Marca com a llegit"
+msgstr "Marca com a primer sense llegir"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -1960,19 +1957,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Caption"
-#~ msgstr "Llegenda"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgctxt "UploadManager|"
-#~ msgid "Could not send file, as a result of not being connected."
-#~ msgstr "No s'ha pogut enviar el fitxer perquè no hi ha connexió."
-
-#~ msgctxt "UploadManager|"
-#~ msgid "Message could not be sent."
-#~ msgstr "No s'ha pogut enviar el missatge."
