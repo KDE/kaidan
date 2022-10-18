@@ -83,8 +83,8 @@ Kirigami.AbstractListItem {
 
 		// left: avatar
 		Item {
-			Layout.preferredHeight: parent.height - Kirigami.Units.gridUnit * 0.8
-			Layout.preferredWidth: Layout.preferredHeight
+			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
+			Layout.preferredHeight: Layout.preferredWidth
 
 			Avatar {
 				id: avatar
