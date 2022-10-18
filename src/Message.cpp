@@ -149,9 +149,6 @@ bool Message::operator!=(const Message &m) const = default;
 
 QXmppMessage Message::toQXmpp() const
 {
-	QXmppE2eeMetadata e2ee;
-	e2ee.setSenderKey(senderKey);
-
 	QXmppMessage msg;
 	msg.setId(id);
 	msg.setTo(to);
@@ -167,7 +164,6 @@ QXmppMessage Message::toQXmpp() const
 	msg.setOriginId(originId);
 	msg.setStanzaId(stanzaId);
 	msg.setReceiptRequested(receiptRequested);
-	msg.setE2eeMetadata(e2ee);
 
 	// attached files
 	msg.setSharedFiles(transform(files, [](const File &file) {
