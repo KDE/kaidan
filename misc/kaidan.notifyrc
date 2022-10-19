@@ -67,10 +67,46 @@ Name[zh_TW]=Kaidan
 
 [Event/new-message]
 Name=New Message
+Name[ca]=Missatge nou
+Name[ka]=ახალი შეტყობინება
+Name[nl]=Nieuw bericht
+Name[pl]=Nowa wiadomość
+Name[pt]=Nova Mensagem
+Name[sl]=Novo sporočilo
+Name[tr]=Yeni İleti
+Name[uk]=Нове повідомлення
+Name[x-test]=xxNew Messagexx
 Comment=New message received
+Comment[ca]=S'ha rebut un missatge nou
+Comment[ka]=მიღებულია ახალი შეტყობინება
+Comment[nl]=Nieuw bericht ontvangen
+Comment[pl]=Otrzymano nową wiadomość
+Comment[pt]=Nova mensagem recebida
+Comment[sl]=Novo sporočilo sprejeto
+Comment[tr]=Yeni ileti alındı
+Comment[uk]=Отримано нове повідомлення
+Comment[x-test]=xxNew message receivedxx
 Action=Sound|Popup
 
 [Event/new-subsequent-message]
 Name=New Subsequent Message
+Name[ca]=Missatge posterior nou
+Name[ka]=ახალი შემდგომი შეტყობინება
+Name[nl]=Nieuw volgend bericht
+Name[pl]=Nowa kolejna wiadomość
+Name[pt]=Nova Mensagem Subsequente
+Name[sl]=Novo nadaljno sporočilo
+Name[tr]=Yeni İzleyen İleti
+Name[uk]=Нове послідовне повідомлення
+Name[x-test]=xxNew Subsequent Messagexx
 Comment=New message received in quick succession to a previous one from the same chat
+Comment[ca]=S'ha rebut un missatge nou en ràpida successió a un anterior del mateix xat
+Comment[ka]=იგივე საუბარში წინა შეტყობინებას ახალი მალევე მოჰყვა
+Comment[nl]=Nieuw bericht ontvangen in snelle opvolging van een eerdere uit dezelfde chat
+Comment[pl]=Otrzymano nową wiadomość w krótkim odstępie czasu względem poprzedniej w tej samej rozmowie
+Comment[pt]=Nova mensagem recebida em sucessão rápida a uma anterior da mesma conversa
+Comment[sl]=Novo sporočilo prejeto v hitrem nadaljevanju za prejšnje iz istega klepeta
+Comment[tr]=Aynı sohbetteki bir önceki iletiye yanıt olarak hızlıca bir ileti alındı
+Comment[uk]=Отримано нове повідомлення одразу після попереднього з того самого спілкування
+Comment[x-test]=xxNew message received in quick succession to a previous one from the same chatxx
 Action=Popup
