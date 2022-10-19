@@ -290,7 +290,7 @@ void RosterModel::updateItem(const QString &jid,
 void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 {
 	QVector<RosterItem> newItems;
-	for (auto item : qAsConst(items)) {
+	for (auto item : items) {
 		// find old item
 		auto oldItem = std::find_if(
 			m_items.begin(),
