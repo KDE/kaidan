@@ -87,8 +87,6 @@ RosterModel::RosterModel(QObject *parent)
 		if (accountJid == MessageModel::instance()->currentAccountJid() && chatJid == MessageModel::instance()->currentChatJid())
 			emit Kaidan::instance()->openChatViewRequested();
 	});
-
-	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &RosterModel::handleMessageAdded);
 }
 
 bool RosterModel::isEmpty() const
