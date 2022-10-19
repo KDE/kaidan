@@ -13,12 +13,13 @@ import im.kaidan.kaidan 1.0
 /**
  * This is a button for opening an emoji picker to add emojis in reaction to a message.
  */
-MessageReaction {
+MessageReactionButton {
 	id: root
 
+	property string messageId
 	property MessageReactionEmojiPicker emojiPicker
 
-	width: smallButtonWidth
+	primaryColor: secondaryBackgroundColor
 	contentItem: Kirigami.Icon {
 		source: "smiley-add"
 	}

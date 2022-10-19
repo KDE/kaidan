@@ -42,8 +42,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 28
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(28)
+#define DATABASE_LATEST_VERSION 29
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(29)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -465,9 +465,10 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
 			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
-			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, timestamp, emoji)"
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"
 		)
 	);
 
@@ -1360,4 +1361,54 @@ void Database::convertDatabaseToV28()
 	QSqlQuery query(currentDatabase());
 	execQuery(query, "ALTER TABLE " DB_TABLE_ROSTER " ADD notificationsMuted " SQL_BOOL);
 	d->version = 28;
+}
+
+void Database::convertDatabaseToV29()
+{
+	DATABASE_CONVERT_TO_VERSION(28);
+	QSqlQuery query(currentDatabase());
+
+	// Add the column "deliveryState" and remove the column "timestamp" from the primary key.
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messageReactions_tmp",
+			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messageReactions_tmp SELECT messageSender, messageRecipient, messageId, "
+		"senderJid, emoji, timestamp, NULL FROM messageReactions"
+	);
+
+	execQuery(query, "DROP TABLE messageReactions");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messageReactions",
+			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messageReactions SELECT * FROM messageReactions_tmp");
+	execQuery(query, "DROP TABLE messageReactions_tmp");
+
+	d->version = 29;
 }

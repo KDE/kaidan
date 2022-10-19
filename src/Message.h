@@ -111,12 +111,45 @@ private:
 	[[nodiscard]] QString fileId() const { return QString::number(id); }
 };
 
+class MessageReactionDeliveryState
+{
+	Q_GADGET
+
+public:
+	enum Enum {
+		PendingAddition,
+		PendingRemovalAfterSent,
+		PendingRemovalAfterDelivered,
+		ErrorOnAddition,
+		ErrorOnRemovalAfterSent,
+		ErrorOnRemovalAfterDelivered,
+		Sent,
+		Delivered,
+	};
+	Q_ENUM(Enum)
+};
+
 struct MessageReaction
 {
-	QDateTime latestTimestamp;
-	QVector<QString> emojis;
+	Q_GADGET
+	Q_PROPERTY(QString emoji MEMBER emoji)
+	Q_PROPERTY(MessageReactionDeliveryState::Enum deliveryState MEMBER deliveryState)
+
+public:
+	QString emoji;
+	MessageReactionDeliveryState::Enum deliveryState = MessageReactionDeliveryState::Delivered;
 
 	bool operator==(const MessageReaction &other) const = default;
+};
+
+Q_DECLARE_METATYPE(MessageReaction)
+
+struct MessageReactionSender
+{
+	QDateTime latestTimestamp;
+	QVector<MessageReaction> reactions;
+
+	bool operator==(const MessageReactionSender &other) const = default;
 };
 
 /**
@@ -151,8 +184,8 @@ public:
 	std::optional<qint64> fileGroupId;
 	QVector<File> files;
 	bool receiptRequested = false;
-	// JIDs of senders mapped to their reactions
-	QMap<QString, MessageReaction> reactions;
+	// JIDs of senders mapped to the senders
+	QMap<QString, MessageReactionSender> reactionSenders;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
 	// ID of this message's sender's public long-term end-to-end encryption key.

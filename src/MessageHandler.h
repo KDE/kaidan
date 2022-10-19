@@ -62,7 +62,7 @@ public:
 	 */
 	void sendReadMarker(const QString &chatJid, const QString &messageId);
 
-	void sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
+	QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
 
 signals:
 	void sendMessageRequested(const QString &toJid,

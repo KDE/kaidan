@@ -565,15 +565,15 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 
 			// Replace the old message's values with the updated ones if the message has changed.
 			if (oldMessage != newMessage) {
-				const auto &oldReactions = oldMessage.reactions;
-				if (const auto &newReactions = newMessage.reactions; oldReactions != newReactions) {
+				const auto &oldReactionSenders = oldMessage.reactionSenders;
+				if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
 					// Remove old reactions.
-					for (auto itr = oldReactions.begin(); itr != oldReactions.end(); ++itr) {
+					for (auto itr = oldReactionSenders.begin(); itr != oldReactionSenders.end(); ++itr) {
 						const auto &senderJid = itr.key();
-						const auto reaction = itr.value();
+						const auto &reactionSender = itr.value();
 
-						for (const auto &emoji : reaction.emojis) {
-							if (!newReactions.value(senderJid).emojis.contains(emoji)) {
+						for (const auto &reaction : reactionSender.reactions) {
+							if (!newReactionSenders.value(senderJid).reactions.contains(reaction)) {
 								execQuery(
 									query,
 									"DELETE FROM " DB_TABLE_MESSAGE_REACTIONS " "
@@ -582,30 +582,31 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 									  { u":messageRecipient", oldMessage.to },
 									  { u":messageId", oldMessage.id },
 									  { u":senderJid", senderJid },
-									  { u":emoji", emoji } }
+									  { u":emoji", reaction.emoji } }
 								);
 							}
 						}
 					}
 
 					// Add new reactions.
-					for (auto itr = newReactions.begin(); itr != newReactions.end(); ++itr) {
+					for (auto itr = newReactionSenders.begin(); itr != newReactionSenders.end(); ++itr) {
 						const auto &senderJid = itr.key();
-						const auto reaction = itr.value();
+						const auto &reactionSender = itr.value();
 
-						for (const auto &emoji : reaction.emojis) {
-							if (!oldReactions.value(senderJid).emojis.contains(emoji)) {
+						for (const auto &reaction : reactionSender.reactions) {
+							if (!oldReactionSenders.value(senderJid).reactions.contains(reaction)) {
 								execQuery(
 									query,
 									"INSERT INTO " DB_TABLE_MESSAGE_REACTIONS " "
-									"(messageSender, messageRecipient, messageId, senderJid, timestamp, emoji) "
-									"VALUES (:messageSender, :messageRecipient, :messageId, :senderJid, :timestamp, :emoji)",
+									"(messageSender, messageRecipient, messageId, senderJid, timestamp, deliveryState, emoji) "
+									"VALUES (:messageSender, :messageRecipient, :messageId, :senderJid, :timestamp, :deliveryState, :emoji)",
 									{ { u":messageSender", oldMessage.from },
 									  { u":messageRecipient", oldMessage.to },
 									  { u":messageId", oldMessage.id },
 									  { u":senderJid", senderJid },
-									  { u":timestamp", reaction.latestTimestamp },
-									  { u":emoji", emoji }}
+									  { u":timestamp", reactionSender.latestTimestamp },
+									  { u":deliveryState", int(reaction.deliveryState) },
+									  { u":emoji", reaction.emoji } }
 								);
 							}
 						}
@@ -1017,28 +1018,32 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 
 void MessageDb::_fetchReactions(QVector<Message> &messages)
 {
-	enum { SenderJid, Timestamp, Emoji };
+	enum { SenderJid, Timestamp, DeliveryState, Emoji };
 	auto query = createQuery();
 
 	for (auto &message : messages) {
 		execQuery(
 			query,
-			"SELECT senderJid, timestamp, emoji FROM messageReactions "
+			"SELECT senderJid, timestamp, deliveryState, emoji FROM messageReactions "
 			"WHERE messageSender = :messageSender AND messageRecipient = :messageRecipient AND messageId = :messageId",
 			{ { u":messageSender", message.from }, { u":messageRecipient", message.to }, { u":messageId", message.id } }
 		);
 
 		// Iterate over all found emojis.
 		while (query.next()) {
-			auto &reaction = message.reactions[query.value(SenderJid).toString()];
+			auto &reactionSender = message.reactionSenders[query.value(SenderJid).toString()];
 
 			// Use the timestamp of the current emoji as the latest timestamp if the emoji's
 			// timestamp is newer than the latest one.
-			if (const auto timestamp = query.value(Timestamp).toDateTime(); reaction.latestTimestamp < timestamp) {
-				reaction.latestTimestamp = timestamp;
+			if (const auto timestamp = query.value(Timestamp).toDateTime(); reactionSender.latestTimestamp < timestamp) {
+				reactionSender.latestTimestamp = timestamp;
 			}
 
-			reaction.emojis.append(query.value(Emoji).toString());
+			MessageReaction reaction;
+			reaction.deliveryState = MessageReactionDeliveryState::Enum(query.value(DeliveryState).toInt());
+			reaction.emoji = query.value(Emoji).toString();
+
+			reactionSender.reactions.append(reaction);
 		}
 	}
 }
@@ -1109,5 +1114,67 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 
 		emit pendingMessagesFetched(messages);
 		return messages;
+	});
+}
+
+QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPendingReactions(const QString &accountJid)
+{
+	return run([this, accountJid]() {
+		enum { MessageSender, MessageId };
+		auto pendingReactionQuery = createQuery();
+
+		execQuery(
+			pendingReactionQuery,
+			"SELECT DISTINCT messageSender, messageId FROM messageReactions "
+			"WHERE senderJid = :senderJid AND "
+			"deliveryState = :deliveryState1 OR deliveryState = :deliveryState2 OR deliveryState = :deliveryState3",
+			{
+				{ u":senderJid", accountJid },
+				{ u":deliveryState1", int(MessageReactionDeliveryState::PendingAddition) },
+				{ u":deliveryState2", int(MessageReactionDeliveryState::PendingRemovalAfterSent) },
+				{ u":deliveryState3", int(MessageReactionDeliveryState::PendingRemovalAfterDelivered) },
+			}
+		);
+
+		// messageSender mapped to messageId mapped to MessageReactionSender
+		QMap<QString, QMap<QString, MessageReactionSender>> reactions;
+
+		// Iterate over all IDs of messages with pending reactions.
+		while (pendingReactionQuery.next()) {
+			enum { Timestamp, DeliveryState, Emoji };
+			const auto messageSender = pendingReactionQuery.value(MessageSender).toString();
+			const auto messageId = pendingReactionQuery.value(MessageId).toString();
+			auto reactionQuery = createQuery();
+
+			execQuery(
+				reactionQuery,
+				"SELECT timestamp, deliveryState, emoji FROM messageReactions "
+				"WHERE messageSender = :messageSender AND messageId = :messageId AND senderJid = :senderJid",
+				{
+					{ u":messageSender", messageSender },
+					{ u":messageId", messageId },
+					{ u":senderJid", accountJid },
+				}
+			);
+
+			// Iterate over all reactions of messages with pending reactions.
+			while (reactionQuery.next()) {
+				auto &reactionSender = reactions[messageSender][messageId];
+
+				// Use the timestamp of the current emoji as the latest timestamp if the emoji's
+				// timestamp is newer than the latest one.
+				if (const auto timestamp = reactionQuery.value(Timestamp).toDateTime(); reactionSender.latestTimestamp < timestamp) {
+					reactionSender.latestTimestamp = timestamp;
+				}
+
+				MessageReaction reaction;
+				reaction.emoji = reactionQuery.value(Emoji).toString();
+				reaction.deliveryState = MessageReactionDeliveryState::Enum(reactionQuery.value(DeliveryState).toInt());
+
+				reactionSender.reactions.append(reaction);
+			}
+		}
+
+		return reactions;
 	});
 }

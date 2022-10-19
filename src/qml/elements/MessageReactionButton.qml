@@ -16,13 +16,12 @@ import im.kaidan.kaidan 1.0
 Controls.Button {
 	id: root
 
-	property string messageId
 	property color primaryColor
 	property color accentColor
 
 	height: Kirigami.Theme.defaultFont.pixelSize * 2.1
+	width: smallButtonWidth
 	hoverEnabled: true
-
 	background: Rectangle {
 		radius: roundedCornersRadius
 		color: {

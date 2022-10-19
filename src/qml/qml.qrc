@@ -1,8 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
-
-SPDX-License-Identifier: CC0-1.0
--->
 <RCC>
     <qresource prefix="/qml">
         <file>AccountTransferPage.qml</file>
@@ -57,11 +52,12 @@ SPDX-License-Identifier: CC0-1.0
         <file>elements/MediaPreviewVideo.qml</file>
         <file>elements/MessageBackground.qml</file>
         <file>elements/MessageCounter.qml</file>
-        <file>elements/MessageReaction.qml</file>
-        <file>elements/MessageReactionAddition.qml</file>
-        <file>elements/MessageReactionDisplay.qml</file>
+        <file>elements/MessageReactionAdditionButton.qml</file>
+        <file>elements/MessageReactionButton.qml</file>
+        <file>elements/MessageReactionDetailsButton.qml</file>
+        <file>elements/MessageReactionDetailsSheet.qml</file>
+        <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionEmojiPicker.qml</file>
-        <file>elements/MessageReactionSenderSheet.qml</file>
         <file>elements/NewMedia.qml</file>
         <file>elements/NewMediaLoader.qml</file>
         <file>elements/NewMediaLocation.qml</file>

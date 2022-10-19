@@ -126,6 +126,16 @@ public:
 	Q_SIGNAL void pendingMessagesFetched(const QVector<Message> &messages);
 
 	/**
+	 * Fetches message reactions marked as pending.
+	 *
+	 * @param accountJid JID of the account whose message reactions are fetched
+	 *
+	 * @return the IDs of the messages mapped to their reactions (JIDs of senders mapped to the
+	 *         senders)
+	 */
+	QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> fetchPendingReactions(const QString &accountJid);
+
+	/**
 	 * Fetches the last message and returns it.
 	 */
 	Message _fetchLastMessage(const QString &user1, const QString &user2);

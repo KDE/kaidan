@@ -25,7 +25,7 @@ Kirigami.SwipeListItem {
 
 	property Controls.Menu contextMenu
 	property MessageReactionEmojiPicker reactionEmojiPicker
-	property MessageReactionSenderSheet reactionSenderSheet
+	property MessageReactionDetailsSheet reactionDetailsSheet
 
 	property int modelIndex
 	property string msgId
@@ -48,7 +48,9 @@ Kirigami.SwipeListItem {
 	property string errorText: ""
 	property alias bodyLabel: bodyLabel
 	property var files;
-	property var reactions
+	property var displayedReactions
+	property var detailedReactions
+	property var ownDetailedReactions
 
 	property bool isGroupBegin: {
 		return modelIndex < 1 ||
@@ -67,8 +69,7 @@ Kirigami.SwipeListItem {
 		Kirigami.Action {
 			text: "Add message reaction"
 			icon.name: "smiley-add"
-			// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
-			visible: !root.isOwn && !Object.keys(root.reactions).length && Kaidan.connectionState === Enums.StateConnected
+			visible: !root.isOwn && !root.displayedReactions.length
 			onTriggered: {
 				root.reactionEmojiPicker.messageId = root.msgId
 				root.reactionEmojiPicker.open()
@@ -258,40 +259,57 @@ Kirigami.SwipeListItem {
 
 					// message reactions (emojis in reaction to this message)
 					Flow {
-						visible: Object.keys(root.reactions).length
+						visible: root.displayedReactions.length
 						spacing: 4
 						Layout.bottomMargin: 15
 						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
 						Layout.preferredWidth: {
-							if (messageReactionAddition.visible) {
-								return (messageReactionAddition.width + spacing) * (Object.keys(root.reactions).length + 1)
+							if (messageReactionAdditionButton.visible) {
+								return (messageReactionAdditionButton.width + spacing) * (root.displayedReactions.length + 2)
 							} else {
-								return (messageReactionAddition.width + spacing) * Object.keys(root.reactions).length
+								return (messageReactionAdditionButton.width + spacing) * (root.displayedReactions.length + 1)
 							}
 						}
 
 						Repeater {
-							model: Object.keys(root.reactions)
+							model: root.displayedReactions
 
-							MessageReactionDisplay {
-								messageId: root.msgId
-								emoji: modelData
-								isOwnMessage: root.isOwn
-								senderJids: root.reactions[modelData]
-								senderSheet: root.reactionSenderSheet
-								primaryColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+							MessageReactionDisplayButton {
 								accentColor: bubble.backgroundColor
+								ownReactionIncluded: modelData.ownReactionIncluded
+								deliveryState: modelData.deliveryState
+								isOwnMessage: root.isOwn
+								text: modelData.count === 1 ? modelData.emoji : modelData.emoji + " " + modelData.count
+								width: smallButtonWidth + (text.length < 3 ? 0 : (text.length - 2) * Kirigami.Theme.defaultFont.pixelSize * 0.6)
+								hoverEnabled: !isOwnMessage
+								onClicked: {
+									if (!isOwnMessage && ownReactionIncluded) {
+										if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
+											deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
+											MessageModel.addMessageReaction(root.msgId, modelData.emoji)
+										} else {
+											MessageModel.removeMessageReaction(root.msgId, modelData.emoji)
+										}
+									}
+								}
 							}
 						}
 
-						MessageReactionAddition {
-							id: messageReactionAddition
-							// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
-							visible: !root.isOwn && Object.keys(root.reactions).length && Kaidan.connectionState === Enums.StateConnected
+						MessageReactionAdditionButton {
+							id: messageReactionAdditionButton
+							visible: !root.isOwn
 							messageId: root.msgId
 							emojiPicker: root.reactionEmojiPicker
-							primaryColor: secondaryBackgroundColor
 							accentColor: bubble.backgroundColor
+						}
+
+						MessageReactionDetailsButton {
+							messageId: root.msgId
+							accentColor: bubble.backgroundColor
+							isOwnMessage: root.isOwn
+							detailedReactions: root.detailedReactions
+							ownDetailedReactions: root.ownDetailedReactions
+							detailsSheet: root.reactionDetailsSheet
 						}
 					}
 
