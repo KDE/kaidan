@@ -215,7 +215,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:201
+#: src/Message.cpp:197
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Tatkaçıran"
@@ -225,18 +225,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/MessageHandler.cpp:264
+#: src/MessageHandler.cpp:263
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti, %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageHandler.cpp:337
+#: src/MessageHandler.cpp:336
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageHandler.cpp:394
+#: src/MessageHandler.cpp:393
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
@@ -261,7 +261,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Hata"
 
-#: src/Notifications.cpp:187
+#: src/Notifications.cpp:188
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Okundu olarak imle"
@@ -447,7 +447,7 @@ msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Güvenilmeyen"
 
-#: src/qml/elements/ChatMessage.qml:295
+#: src/qml/elements/ChatMessage.qml:294
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -684,6 +684,16 @@ msgstr "İptal"
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ekle"
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Unpin"
+msgstr ""
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Pin"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"

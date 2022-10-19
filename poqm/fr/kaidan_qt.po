@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-10-05 14:40+0200\n"
+"PO-Revision-Date: 2022-10-18 07:14+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -215,7 +215,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:201
+#: src/Message.cpp:197
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
@@ -225,18 +225,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Taille inconnue"
 
-#: src/MessageHandler.cpp:264
+#: src/MessageHandler.cpp:263
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Ce message est chiffré avec %1 mais ne peut pas être déchiffré."
 
-#: src/MessageHandler.cpp:337
+#: src/MessageHandler.cpp:336
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correction du message n'a pas été réalisé avec succès."
 
-#: src/MessageHandler.cpp:394
+#: src/MessageHandler.cpp:393
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il a été impossible d'envoyer le message."
@@ -261,7 +261,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/Notifications.cpp:187
+#: src/Notifications.cpp:188
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marquer comme lu"
@@ -448,7 +448,7 @@ msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Non fiable"
 
-#: src/qml/elements/ChatMessage.qml:295
+#: src/qml/elements/ChatMessage.qml:294
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -480,12 +480,9 @@ msgid "Delete file"
 msgstr "Supprimer un fichier"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Marquer comme lu"
+msgstr "Marquer comme premier non lu"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -691,6 +688,16 @@ msgstr "Annuler"
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ajouter"
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Unpin"
+msgstr ""
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Pin"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"

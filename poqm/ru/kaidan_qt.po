@@ -223,7 +223,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:201
+#: src/Message.cpp:197
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
@@ -233,13 +233,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:264
+#: src/MessageHandler.cpp:263
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:337
+#: src/MessageHandler.cpp:336
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -247,7 +247,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Не удалось изменить сообщение."
 
-#: src/MessageHandler.cpp:394
+#: src/MessageHandler.cpp:393
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
@@ -272,7 +272,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/Notifications.cpp:187
+#: src/Notifications.cpp:188
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Отметить как прочитанное"
@@ -463,7 +463,7 @@ msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:295
+#: src/qml/elements/ChatMessage.qml:294
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -745,6 +745,16 @@ msgstr "Отмена"
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Добавить"
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Unpin"
+msgstr ""
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Pin"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
