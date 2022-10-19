@@ -65,7 +65,7 @@ auto TrustDb::securityPolicy(const QString &encryption) -> QFuture<SecurityPolic
 	return run([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
-			"SELECT security_policy FROM trust_security_policies WHERE account = :1 "
+			"SELECT securityPolicy FROM trustSecurityPolicies WHERE account = :1 "
 			"AND encryption = :2",
 			{m_accountJid, encryption});
 
@@ -84,7 +84,7 @@ auto TrustDb::setSecurityPolicy(const QString &encryption, SecurityPolicy securi
 	return run([this, encryption, securityPolicy] {
 		auto query = createQuery();
 		execQuery(query,
-			"INSERT OR REPLACE INTO trust_security_policies "
+			"INSERT OR REPLACE INTO trustSecurityPolicies "
 			"VALUES (:1, :2, :3)",
 			{m_accountJid, encryption, int(securityPolicy)});
 	});
@@ -100,7 +100,7 @@ auto TrustDb::ownKey(const QString &encryption) -> QFuture<QByteArray>
 	return run([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
-			"SELECT key_id FROM trust_own_keys WHERE account = :1 AND "
+			"SELECT keyId FROM trustOwnKeys WHERE account = :1 AND "
 			"encryption = :2",
 			{m_accountJid, encryption});
 
@@ -116,7 +116,7 @@ auto TrustDb::setOwnKey(const QString &encryption, const QByteArray &keyId) -> Q
 	return run([this, encryption, keyId] {
 		auto query = createQuery();
 		execQuery(query,
-			"INSERT OR REPLACE INTO trust_own_keys VALUES (:1, :2, :3)",
+			"INSERT OR REPLACE INTO trustOwnKeys VALUES (:1, :2, :3)",
 			{m_accountJid, encryption, keyId});
 	});
 }
@@ -135,13 +135,13 @@ auto TrustDb::keys(const QString &encryption, TrustLevels trustLevels)
 			// causes possible sql injection, but the output from trustFlagsListString() is safe
 			// binding the value is not possible as it would be inserted as a string (we need a condition)
 			prepareQuery(query,
-				u"SELECT key_id, owner_jid, trust_level FROM trust_keys "
+				u"SELECT keyId, ownerJid, trustLevel FROM trustKeys "
 				"WHERE account = :1 AND encryption = :2 "
-				"AND trust_level IN (" %
+				"AND trustLevel IN (" %
 					trustFlagsToString(trustLevels) % u")");
 		} else {
 			prepareQuery(query,
-				"SELECT key_id, owner_jid, trust_level FROM trust_keys WHERE "
+				"SELECT keyId, ownerJid, trustLevel FROM trustKeys WHERE "
 				"account = :1 AND encryption = :2");
 		}
 
@@ -188,14 +188,14 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
 			// binding the value is not possible as it would be inserted as a string (we need a condition)
 			const auto trustFlagsCondition = trustFlagsToString(trustLevels);
 			prepareQuery(query,
-				u"SELECT key_id, trust_level FROM trust_keys "
-				"WHERE account = :1 AND encryption = :2 AND owner_jid = :3 AND "
-				"trust_level IN (" %
+				u"SELECT keyId, trustLevel FROM trustKeys "
+				"WHERE account = :1 AND encryption = :2 AND ownerJid = :3 AND "
+				"trustLevel IN (" %
 					trustFlagsCondition % u")");
 		} else {
 			prepareQuery(query,
-				"SELECT key_id, trust_level FROM trust_keys WHERE account = :1 AND "
-				"encryption = :2 AND owner_jid = :3");
+				"SELECT keyId, trustLevel FROM trustKeys WHERE account = :1 AND "
+				"encryption = :2 AND ownerJid = :3");
 		}
 
 		// parsing function
@@ -246,8 +246,8 @@ auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &key
 	return run([this, encryption, keyIds] {
 		auto query = createQuery();
 		prepareQuery(query,
-			"DELETE FROM trust_keys WHERE account = :1 AND encryption = :2 AND "
-			"key_id = :3");
+			"DELETE FROM trustKeys WHERE account = :1 AND encryption = :2 AND "
+			"keyId = :3");
 
 		for (const auto &keyId : keyIds) {
 			bindValues(query, {m_accountJid, encryption, keyId});
@@ -261,8 +261,8 @@ auto TrustDb::removeKeys(const QString &encryption, const QString &keyOwnerJid) 
 	return run([this, encryption, keyOwnerJid] {
 		auto query = createQuery();
 		prepareQuery(query,
-			"DELETE FROM trust_keys WHERE account = :1 AND encryption = :2 AND "
-			"owner_jid = :3");
+			"DELETE FROM trustKeys WHERE account = :1 AND encryption = :2 AND "
+			"ownerJid = :3");
 		bindValues(query, {m_accountJid, encryption, keyOwnerJid});
 		execQuery(query);
 	});
@@ -272,8 +272,7 @@ auto TrustDb::removeKeys(const QString &encryption) -> QFuture<void>
 {
 	return run([this, encryption] {
 		auto query = createQuery();
-		prepareQuery(
-			query, "DELETE FROM trust_keys WHERE account = :1 AND encryption = :2");
+		prepareQuery(query, "DELETE FROM trustKeys WHERE account = :1 AND encryption = :2");
 		bindValues(query, {m_accountJid, encryption});
 		execQuery(query);
 	});
@@ -286,9 +285,9 @@ auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, Trus
 	return run([this, encryption, keyOwnerJid, trustLevels] {
 		auto query = createQuery();
 		execQuery(query,
-			u"SELECT COUNT(*) FROM trust_keys "
-			u"WHERE account = :1 AND encryption = :2 AND owner_jid = :3 AND "
-			u"trust_level IN (" %
+			u"SELECT COUNT(*) FROM trustKeys "
+			u"WHERE account = :1 AND encryption = :2 AND ownerJid = :3 AND "
+			u"trustLevel IN (" %
 				trustFlagsToString(trustLevels) % u")",
 			{m_accountJid, encryption, keyOwnerJid});
 		if (query.next()) {
@@ -304,8 +303,8 @@ auto TrustDb::trustLevel(const QString &encryption, const QString &keyOwnerJid, 
 	return run([this, encryption, keyOwnerJid, keyId] {
 		auto query = createQuery();
 		execQuery(query,
-			"SELECT trust_level FROM trust_keys "
-			"WHERE account = :1 AND encryption = :2 AND owner_jid = :3 AND key_id = "
+			"SELECT trustLevel FROM trustKeys "
+			"WHERE account = :1 AND encryption = :2 AND ownerJid = :3 AND keyId = "
 			":4",
 			{m_accountJid, encryption, keyOwnerJid, keyId});
 		if (query.next()) {
@@ -326,9 +325,9 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 		auto query = createQuery();
 		enum { RowId, TrustLevel_ };
 		prepareQuery(query,
-			"SELECT rowid, trust_level FROM trust_keys "
+			"SELECT rowid, trustLevel FROM trustKeys "
 			"WHERE account = :account AND encryption = :encryption AND "
-			"owner_jid = :jid AND key_id = :key_id");
+			"ownerJid = :jid AND keyId = :keyId");
 
 		TrustChanges result;
 		auto &changes = result[encryption];
@@ -342,7 +341,7 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 					{u":account", account},
 					{u":encryption", encryption},
 					{u":jid", ownerJid},
-					{u":key_id", keyId},
+					{u":keyId", keyId},
 				});
 			execQuery(query);
 
@@ -375,10 +374,10 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 		enum { RowId, KeyId };
 		auto query = createQuery();
 		prepareQuery(query,
-			"SELECT rowid, key_id FROM trust_keys "
-			"WHERE account = :account AND encryption = :encryption AND owner_jid = "
+			"SELECT rowid, keyId FROM trustKeys "
+			"WHERE account = :account AND encryption = :encryption AND ownerJid = "
 			":jid "
-			"AND trust_level = :old_trust");
+			"AND trustLevel = :old_trust");
 
 		for (const auto &jid : keyOwnerJids) {
 			bindValues(query,
@@ -429,8 +428,8 @@ auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption,
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
-			"INSERT OR REPLACE INTO trust_keys_unprocessed "
-			"(account, encryption, key_id, owner_jid, sender_key_id, trust) "
+			"INSERT OR REPLACE INTO trustKeysUnprocessed "
+			"(account, encryption, keyId, ownerJid, senderKeyId, trust) "
 			"VALUES (:1, :2, :3, :4, :5, :6)");
 		for (const auto &key : keys) {
 			bindValues(query,
@@ -470,8 +469,8 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
-			"DELETE FROM trust_keys_unprocessed WHERE account = :1 AND encryption = :2 "
-			"AND key_id = :3 AND trust = :4");
+			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2 "
+			"AND keyId = :3 AND trust = :4");
 		for (const auto &selector : selectors) {
 			bindValues(query, {m_accountJid, selector.encryption, selector.keyId, selector.trust});
 			execQuery(query);
@@ -487,8 +486,8 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
-			"DELETE FROM trust_keys_unprocessed WHERE account = :1 AND encryption = :2 "
-			"AND sender_key_id = :3");
+			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2 "
+			"AND senderKeyId = :3");
 		for (const auto &keyId : senderKeyIds) {
 			bindValues(query, {m_accountJid, encryption, keyId});
 			execQuery(query);
@@ -502,7 +501,7 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption) ->
 	return run([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
-			"DELETE FROM trust_keys_unprocessed WHERE account = :1 AND encryption = :2",
+			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2",
 			{m_accountJid, encryption});
 	});
 }
@@ -516,7 +515,7 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 
 			auto query = createQuery();
 			prepareQuery(query,
-				"SELECT key_id, owner_jid, trust FROM trust_keys_unprocessed WHERE "
+				"SELECT keyId, ownerJid, trust FROM trustKeysUnprocessed WHERE "
 				"account = :1 AND encryption = :2");
 			bindValues(query, {m_accountJid, encryption});
 			execQuery(query);
@@ -535,8 +534,8 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 
 		auto query = createQuery();
 		prepareQuery(query,
-			"SELECT key_id, owner_jid, trust FROM trust_keys_unprocessed WHERE account = :1 "
-			"AND encryption = :2 AND sender_key_id = :3");
+			"SELECT keyId, ownerJid, trust FROM trustKeysUnprocessed WHERE account = :1 "
+			"AND encryption = :2 AND senderKeyId = :3");
 
 		for (const auto &senderKeyId : senderKeyIds) {
 			bindValues(query, {m_accountJid, encryption, senderKeyId});
@@ -559,10 +558,10 @@ auto TrustDb::resetAll(const QString &encryption) -> QFuture<void>
 
 		auto query = createQuery();
 		execQuery(query,
-			"DELETE FROM trust_keys WHERE account = :1 AND encryption = :2",
+			"DELETE FROM trustKeys WHERE account = :1 AND encryption = :2",
 			{m_accountJid, encryption});
 		execQuery(query,
-			"DELETE FROM trust_keys_unprocessed WHERE account = :1 AND encryption = :2",
+			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2",
 			{m_accountJid, encryption});
 	});
 }
@@ -571,10 +570,10 @@ auto TrustDb::resetAll() -> QFuture<void>
 {
 	return run([this] {
 		auto query = createQuery();
-		execQuery(query, "DELETE FROM trust_security_policies WHERE account = :1", {m_accountJid});
-		execQuery(query, "DELETE FROM trust_own_keys WHERE account = :1", {m_accountJid});
-		execQuery(query, "DELETE FROM trust_keys WHERE account = :1", {m_accountJid});
-		execQuery(query, "DELETE FROM trust_keys_unprocessed WHERE account = :1", {m_accountJid});
+		execQuery(query, "DELETE FROM trustSecurityPolicies WHERE account = :1", {m_accountJid});
+		execQuery(query, "DELETE FROM trustOwnKeys WHERE account = :1", {m_accountJid});
+		execQuery(query, "DELETE FROM trustKeys WHERE account = :1", {m_accountJid});
+		execQuery(query, "DELETE FROM trustKeysUnprocessed WHERE account = :1", {m_accountJid});
 	});
 }
 
@@ -584,9 +583,9 @@ auto TrustDb::insertKeys(std::vector<Key> &&keys) -> QFuture<void>
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
-			"INSERT OR REPLACE INTO trust_keys (account, encryption, key_id, "
-			"owner_jid, "
-			"trust_level) VALUES (:1, :2, :3, :4, :5)");
+			"INSERT OR REPLACE INTO trustKeys (account, encryption, keyId, "
+			"ownerJid, "
+			"trustLevel) VALUES (:1, :2, :3, :4, :5)");
 
 		for (const auto &key : keys) {
 			bindValues(query,
@@ -601,23 +600,21 @@ void TrustDb::_resetSecurityPolicy(const QString &encryption)
 {
 	auto query = createQuery();
 	execQuery(query,
-		"DELETE FROM trust_security_policies WHERE account = :1 AND encryption = :2",
+		"DELETE FROM trustSecurityPolicies WHERE account = :1 AND encryption = :2",
 		{m_accountJid, encryption});
 }
 
 void TrustDb::_resetOwnKey(const QString &encryption)
 {
 	auto query = createQuery();
-	execQuery(query,
-		"DELETE FROM trust_own_keys WHERE account = :1 AND encryption = :2",
-		{m_accountJid, encryption});
+	execQuery(query, "DELETE FROM trustOwnKeys WHERE account = :1 AND encryption = :2", {m_accountJid, encryption});
 }
 
 void TrustDb::_setTrustLevel(TrustLevel trustLevel, qint64 rowId)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "UPDATE trust_keys SET trust_level = ? WHERE rowid = ?");
+		prepareQuery(query, "UPDATE trustKeys SET trustLevel = ? WHERE rowid = ?");
 		return query;
 	}();
 

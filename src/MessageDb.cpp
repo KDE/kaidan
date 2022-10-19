@@ -109,7 +109,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxReplaceId = rec.indexOf("replaceId");
 	int idxOriginId = rec.indexOf("originId");
 	int idxStanza = rec.indexOf("stanzaId");
-	int idxFileGroupId = rec.indexOf("file_group_id");
+	int idxFileGroupId = rec.indexOf("fileGroupId");
 
 	while (query.next()) {
 		Message msg;
@@ -187,7 +187,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.stanzaId != newMsg.stanzaId)
 		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
 	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
-		rec.append(createSqlField("file_group_id", optionalToVariant(newMsg.fileGroupId)));
+		rec.append(createSqlField("fileGroupId", optionalToVariant(newMsg.fileGroupId)));
 	}
 
 	return rec;
@@ -389,10 +389,10 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			query,
 			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
 			"senderKey, deliveryState, isMarkable, isEdited, isSpoiler, spoilerHint, "
-			"errorText, replaceId, originId, stanzaId, file_group_id) "
+			"errorText, replaceId, originId, stanzaId, fileGroupId) "
 			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
 			":deliveryState, :isMarkable, :isEdited, :isSpoiler, :spoilerHint, :errorText, "
-			":replaceId, :originId, :stanzaId, :file_group_id)"
+			":replaceId, :originId, :stanzaId, :fileGroupId)"
 		);
 
 		bindValues(query, {
@@ -412,7 +412,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":replaceId", msg.replaceId },
 			{ u":originId", msg.originId },
 			{ u":stanzaId", msg.stanzaId },
-			{ u":file_group_id", optionalToVariant(msg.fileGroupId) }
+			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) }
 		});
 		execQuery(query);
 
@@ -427,7 +427,7 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 
 		// remove files
 		{
-			execQuery(query, "SELECT file_group_id FROM messages WHERE file_group_id IS NOT NULL");
+			execQuery(query, "SELECT fileGroupId FROM messages WHERE fileGroupId IS NOT NULL");
 
 			QVector<qint64> fileIds;
 			while (query.next()) {
@@ -581,7 +581,7 @@ void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO file_hashes VALUES (?, ?, ?)");
+		prepareQuery(query, "INSERT OR REPLACE INTO fileHashes VALUES (?, ?, ?)");
 		return query;
 	}();
 
@@ -598,7 +598,7 @@ void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO file_http_sources VALUES (?, ?)");
+		prepareQuery(query, "INSERT OR REPLACE INTO fileHttpSources VALUES (?, ?)");
 		return query;
 	}();
 
@@ -612,7 +612,7 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO file_encrypted_sources VALUES (?, ?, ?, ?, ?, ?)");
+		prepareQuery(query, "INSERT OR REPLACE INTO fileEncryptedSources VALUES (?, ?, ?, ?, ?, ?)");
 		return query;
 	}();
 
@@ -637,7 +637,7 @@ void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM file_hashes WHERE data_id = ?");
+	prepareQuery(query, "DELETE FROM fileHashes WHERE dataId = ?");
 	for (auto id : fileIds) {
 		bindValues(query, { QVariant(id) });
 		execQuery(query);
@@ -647,7 +647,7 @@ void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM file_http_sources WHERE file_id = ?");
+	prepareQuery(query, "DELETE FROM fileHttpSources WHERE fileId = ?");
 	for (auto id : fileIds) {
 		bindValues(query, { QVariant(id) });
 		execQuery(query);
@@ -657,7 +657,7 @@ void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM file_encrypted_sources WHERE file_id = ?");
+	prepareQuery(query, "DELETE FROM fileEncryptedSources WHERE fileId = ?");
 	for (auto id : fileIds) {
 		bindValues(query, { QVariant(id) });
 		execQuery(query);
@@ -669,13 +669,14 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT id, name, description, mime_type, size, last_modified, disposition, "
-		                "thumbnail, local_file_path FROM files "
-		                "WHERE file_group_id = :file_group_id");
+		prepareQuery(q,
+			"SELECT id, name, description, mimeType, size, lastModified, disposition, "
+			"thumbnail, localFilePath FROM files "
+			"WHERE fileGroupId = :fileGroupId");
 		return q;
 	}();
 
-	bindValues(query, { QueryBindValue { u":file_group_id", QVariant(fileGroupId) } });
+	bindValues(query, {QueryBindValue {u":fileGroupId", QVariant(fileGroupId)}});
 	execQuery(query);
 
 	QVector<File> files;
@@ -705,7 +706,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 	enum { HashType, HashValue };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT hash_type, hash_value FROM file_hashes WHERE data_id = ?");
+		prepareQuery(q, "SELECT hashType, hashValue FROM fileHashes WHERE dataId = ?");
 		return q;
 	}();
 
@@ -728,7 +729,7 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 	enum { Url };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT url FROM file_http_sources WHERE file_id = ?");
+		prepareQuery(q, "SELECT url FROM fileHttpSources WHERE fileId = ?");
 		return q;
 	}();
 
@@ -750,7 +751,9 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 	enum { Url, Cipher, Key, Iv, EncryptedDataId };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT url, cipher, key, iv, encrypted_data_id FROM file_encrypted_sources WHERE file_id = ?");
+		prepareQuery(q,
+			"SELECT url, cipher, key, iv, encryptedDataId FROM fileEncryptedSources "
+			"WHERE fileId = ?");
 		return q;
 	}();
 

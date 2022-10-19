@@ -141,9 +141,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(item.name);
 			query.addBindValue(item.subscription);
 			query.addBindValue(item.encryption);
-			query.addBindValue(QLatin1String("")); // lastExchanged (NOT NULL)
 			query.addBindValue(item.unreadMessages);
-			query.addBindValue(QString()); // lastMessage
 			query.addBindValue(QString()); // lastReadOwnMessageId
 			query.addBindValue(QString()); // lastReadContactMessageId
 			query.addBindValue(item.readMarkerPending);
@@ -161,7 +159,7 @@ QFuture<void> RosterDb::updateItem(const QString &jid,
 	return run([this, jid, updateItem]() {
 		// load current roster item from db
 		auto query = createQuery();
-		execQuery(query, "SELECT * FROM Roster WHERE jid = ? LIMIT 1", { jid });
+		execQuery(query, "SELECT * FROM roster WHERE jid = ? LIMIT 1", {jid});
 
 		QVector<RosterItem> items;
 		parseItemsFromQuery(query, items);
@@ -190,7 +188,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 	return run([this, items]() {
 		// load current items
 		auto query = createQuery();
-		execQuery(query, "SELECT * FROM Roster");
+		execQuery(query, "SELECT * FROM roster");
 
 		QVector<RosterItem> currentItems;
 		parseItemsFromQuery(query, currentItems);
@@ -228,7 +226,7 @@ QFuture<void> RosterDb::removeItems(const QString &, const QString &)
 {
 	return run([this]() {
 		auto query = createQuery();
-		execQuery(query, "DELETE FROM Roster");
+		execQuery(query, "DELETE FROM roster");
 	});
 }
 
@@ -254,7 +252,7 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 {
 	return run([this, accountId]() {
 		auto query = createQuery();
-		execQuery(query, "SELECT * FROM Roster");
+		execQuery(query, "SELECT * FROM roster");
 
 		QVector<RosterItem> items;
 		parseItemsFromQuery(query, items);

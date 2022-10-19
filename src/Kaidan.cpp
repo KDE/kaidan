@@ -247,6 +247,11 @@ QString configFileBaseName()
 	return u"" APPLICATION_NAME % applicationProfileSuffix();
 }
 
+QStringList oldDatabaseFilenames()
+{
+	return {u"messages" % applicationProfileSuffix() % u".sqlite3"};
+}
+
 QString databaseFilename()
 {
 	return u"" DB_FILE_BASE_NAME % applicationProfileSuffix() % u".sqlite3";

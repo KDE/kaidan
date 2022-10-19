@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 22
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(22)
+#define DATABASE_LATEST_VERSION 23
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(23)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -100,17 +100,34 @@ public:
 		}
 
 #ifdef DB_UNIT_TEST
-		const QString fileName = TEST_DB_FILENAME;
+		const QString databaseFilePath = TEST_DB_FILENAME;
 #else
-		const auto writeDir = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
-		if (!writeDir.mkpath(QLatin1String("."))) {
-			qFatal("Failed to create writable directory at %s", qPrintable(writeDir.absolutePath()));
+		// Check if there is a writable location for app data.
+		const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+		if (!appDataPath.isEmpty()) {
+			qFatal("Failed to find writable location for database file.");
 		}
-		// Ensure that we have a writable location on all devices.
-		const auto fileName = writeDir.absoluteFilePath(databaseFilename());
+
+		const auto appDataDir = QDir(appDataPath);
+		if (!appDataDir.mkpath(QLatin1String("."))) {
+			qFatal("Failed to create writable directory at %s",
+				qPrintable(appDataDir.absolutePath()));
+		}
+
+		// Create the absoulte database file path while ensuring that there is a writable
+		// location on all systems.
+		const auto databaseFilePath = appDataDir.absoluteFilePath(databaseFilename());
+
+		// Rename old database files to the current name.
+		// There should only be one old file at once.
+		// Thus, only the first entry of "foundOldDatabaseFilenames" is renamed.
+		if (const auto oldDbFiles = appDataDir.entryList(oldDatabaseFilenames(), QDir::Files);
+			!oldDbFiles.isEmpty()) {
+			QFile::rename(appDataDir.absoluteFilePath(oldDbFiles.first()), databaseFilePath);
+		}
 #endif
-		// open() will create the SQLite database if it doesn't exist.
-		database.setDatabaseName(fileName);
+		// open() creates the database file if it doesn't exist.
+		database.setDatabaseName(databaseFilePath);
 		if (!database.open()) {
 			qFatal("Cannot open database: %s", qPrintable(database.lastError().text()));
 		}
@@ -360,8 +377,7 @@ void Database::createNewDatabase()
 		)
 	);
 
-	// ROSTER
-	// TODO: remove lastExchanged and lastMessage
+	// roster
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -370,9 +386,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(name, SQL_TEXT)
 			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
-			SQL_ATTRIBUTE(lastExchanged, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
-			SQL_ATTRIBUTE(lastMessage, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
@@ -380,7 +394,7 @@ void Database::createNewDatabase()
 		)
 	);
 
-	// MESSAGES
+	// messages
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -401,7 +415,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
-			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
 			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
@@ -413,15 +427,15 @@ void Database::createNewDatabase()
 		SQL_CREATE_TABLE(
 			DB_TABLE_FILES,
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
-			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(name, SQL_TEXT)
 			SQL_ATTRIBUTE(description, SQL_TEXT)
-			SQL_ATTRIBUTE(mime_type, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(mimeType, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(size, SQL_INTEGER)
-			SQL_ATTRIBUTE(last_modified, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(lastModified, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(thumbnail, SQL_BLOB)
-			SQL_ATTRIBUTE(local_file_path, SQL_TEXT)
+			SQL_ATTRIBUTE(localFilePath, SQL_TEXT)
 			"PRIMARY KEY(id)"
 		)
 	);
@@ -429,32 +443,32 @@ void Database::createNewDatabase()
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_FILE_HASHES,
-			SQL_ATTRIBUTE(data_id, SQL_INTEGER_NOT_NULL)
-			SQL_ATTRIBUTE(hash_type, SQL_INTEGER_NOT_NULL)
-			SQL_ATTRIBUTE(hash_value, SQL_BLOB_NOT_NULL)
-			"PRIMARY KEY(data_id, hash_type)"
+			SQL_ATTRIBUTE(dataId, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hashType, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(hashValue, SQL_BLOB_NOT_NULL)
+			"PRIMARY KEY(dataId, hashType)"
 		)
 	);
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_FILE_HTTP_SOURCES,
-			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(fileId, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
-			"PRIMARY KEY(file_id)"
+			"PRIMARY KEY(fileId)"
 		)
 	);
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_FILE_ENCRYPTED_SOURCES,
-			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(fileId, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(cipher, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(key, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
-			SQL_ATTRIBUTE(encrypted_data_id, SQL_INTEGER)
-			"PRIMARY KEY(file_id)"
+			SQL_ATTRIBUTE(encryptedDataId, SQL_INTEGER)
+			"PRIMARY KEY(fileId)"
 		)
 	);
 
@@ -480,7 +494,7 @@ void Database::createNewDatabase()
 			DB_TABLE_TRUST_SECURITY_POLICIES,
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(security_policy, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(securityPolicy, SQL_INTEGER_NOT_NULL)
 			"PRIMARY KEY(account, encryption)"
 		)
 	);
@@ -490,7 +504,7 @@ void Database::createNewDatabase()
 			DB_TABLE_TRUST_OWN_KEYS,
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(keyId, SQL_BLOB_NOT_NULL)
 			"PRIMARY KEY(account, encryption)"
 		)
 	);
@@ -500,10 +514,10 @@ void Database::createNewDatabase()
 			DB_TABLE_TRUST_KEYS,
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
-			SQL_ATTRIBUTE(trust_level, SQL_INTEGER_NOT_NULL)
-			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+			SQL_ATTRIBUTE(ownerJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(keyId, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(trustLevel, SQL_INTEGER_NOT_NULL)
+			"PRIMARY KEY(account, encryption, keyId, ownerJid)"
 		)
 	);
 	execQuery(
@@ -512,11 +526,11 @@ void Database::createNewDatabase()
 			DB_TABLE_TRUST_KEYS_UNPROCESSED,
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(sender_key_id, SQL_BLOB_NOT_NULL)
-			SQL_ATTRIBUTE(owner_jid, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(senderKeyId, SQL_BLOB_NOT_NULL)
+			SQL_ATTRIBUTE(ownerJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(keyId, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(trust, SQL_BOOL_NOT_NULL)
-			"PRIMARY KEY(account, encryption, key_id, owner_jid)"
+			"PRIMARY KEY(account, encryption, keyId, ownerJid)"
 		)
 	);
 
@@ -528,10 +542,10 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(label, SQL_TEXT)
-			SQL_ATTRIBUTE(private_key, SQL_BLOB)
-			SQL_ATTRIBUTE(public_key, SQL_BLOB)
-			SQL_ATTRIBUTE(latest_signed_pre_key_id, SQL_INTEGER_NOT_NULL)
-			SQL_ATTRIBUTE(latest_pre_key_id, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(privateKey, SQL_BLOB)
+			SQL_ATTRIBUTE(publicKey, SQL_BLOB)
+			SQL_ATTRIBUTE(latestSignedPreKeyId, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(latestPreKeyId, SQL_INTEGER_NOT_NULL)
 			"PRIMARY KEY(account)"
 		)
 	);
@@ -540,15 +554,15 @@ void Database::createNewDatabase()
 		SQL_CREATE_TABLE(
 			DB_TABLE_OMEMO_DEVICES,
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(userJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(label, SQL_TEXT)
-			SQL_ATTRIBUTE(key_id, SQL_BLOB)
+			SQL_ATTRIBUTE(keyId, SQL_BLOB)
 			SQL_ATTRIBUTE(session, SQL_BLOB)
-			SQL_ATTRIBUTE(unresponded_stanzas_sent, SQL_INTEGER " DEFAULT 0")
-			SQL_ATTRIBUTE(unresponded_stanzas_received, SQL_INTEGER " DEFAULT 0")
-			SQL_ATTRIBUTE(removal_timestamp, SQL_INTEGER)
-			"PRIMARY KEY(account, user_jid, id)"
+			SQL_ATTRIBUTE(unrespondedStanzasSent, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(unrespondedStanzasReceived, SQL_INTEGER " DEFAULT 0")
+			SQL_ATTRIBUTE(removalTimestamp, SQL_INTEGER)
+			"PRIMARY KEY(account, userJid, id)"
 		)
 	);
 	execQuery(
@@ -568,7 +582,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
-			SQL_ATTRIBUTE(creation_timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(creationTimestamp, SQL_INTEGER)
 			"PRIMARY KEY(account, id)"
 		)
 	);
@@ -742,7 +756,7 @@ void Database::convertDatabaseToV15()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_TRUST_SECURITY_POLICIES,
+			"trust_keys_unprocessed",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(security_policy, SQL_INTEGER_NOT_NULL)
@@ -752,7 +766,7 @@ void Database::convertDatabaseToV15()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_TRUST_OWN_KEYS,
+			"trust_own_keys",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
@@ -762,7 +776,7 @@ void Database::convertDatabaseToV15()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_TRUST_KEYS,
+			"trust_keys",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
@@ -774,7 +788,7 @@ void Database::convertDatabaseToV15()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_TRUST_KEYS_UNPROCESSED,
+			"trust_keys_unprocessed",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(key_id, SQL_BLOB_NOT_NULL)
@@ -795,7 +809,7 @@ void Database::convertDatabaseToV16()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_OMEMO_OWN_DEVICES,
+			"omemo_devices_own",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(label, SQL_TEXT)
@@ -809,7 +823,7 @@ void Database::convertDatabaseToV16()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_OMEMO_DEVICES,
+			"omemo_devices",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(user_jid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
@@ -825,7 +839,7 @@ void Database::convertDatabaseToV16()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_OMEMO_PRE_KEY_PAIRS,
+			"omemo_pre_key_pairs",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
@@ -835,7 +849,7 @@ void Database::convertDatabaseToV16()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS,
+			"omemo_pre_key_pairs_signed",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(id, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
@@ -943,7 +957,7 @@ void Database::convertDatabaseToV19()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_FILES,
+			"files",
 			SQL_ATTRIBUTE(id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(name, SQL_TEXT)
@@ -960,7 +974,7 @@ void Database::convertDatabaseToV19()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_FILE_HASHES,
+			"file_hashes",
 			SQL_ATTRIBUTE(data_id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(hash_type, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(hash_value, SQL_BLOB_NOT_NULL)
@@ -970,7 +984,7 @@ void Database::convertDatabaseToV19()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_FILE_HTTP_SOURCES,
+			"file_http_sources",
 			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
 			"PRIMARY KEY(file_id)"
@@ -979,7 +993,7 @@ void Database::convertDatabaseToV19()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_FILE_ENCRYPTED_SOURCES,
+			"file_encrypted_sources",
 			SQL_ATTRIBUTE(file_id, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(url, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(cipher, SQL_INTEGER_NOT_NULL)
@@ -1094,4 +1108,113 @@ void Database::convertDatabaseToV22()
 	);
 
 	d->version = 22;
+}
+
+void Database::convertDatabaseToV23()
+{
+	DATABASE_CONVERT_TO_VERSION(22)
+	QSqlQuery query(currentDatabase());
+
+	// Rename the table "Roster" to "roster".
+	// Remove the unused columns "lastExchanged" and "lastMessage".
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster_tmp",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
+		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition "
+		" FROM Roster"
+	);
+
+	execQuery(query, "DROP TABLE Roster");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+		)
+	);
+
+	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
+	execQuery(query, "DROP TABLE roster_tmp");
+
+	// Use camelCase for all tables.
+
+	execQuery(query, "ALTER TABLE messages RENAME COLUMN file_group_id TO fileGroupId");
+
+	execQuery(query, "ALTER TABLE files RENAME COLUMN file_group_id TO fileGroupId");
+	execQuery(query, "ALTER TABLE files RENAME COLUMN mime_type TO mimeType");
+	execQuery(query, "ALTER TABLE files RENAME COLUMN last_modified TO lastModified");
+	execQuery(query, "ALTER TABLE files RENAME COLUMN local_file_path TO localFilePath");
+
+	execQuery(query, "ALTER TABLE file_hashes RENAME TO fileHashes");
+	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN data_id TO dataId");
+	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN hash_type TO hashType");
+	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN hash_value TO hashValue");
+
+	execQuery(query, "ALTER TABLE file_http_sources RENAME TO fileHttpSources");
+	execQuery(query, "ALTER TABLE fileHttpSources RENAME COLUMN file_id TO fileId");
+
+	execQuery(query, "ALTER TABLE file_encrypted_sources RENAME TO fileEncryptedSources");
+	execQuery(query, "ALTER TABLE fileEncryptedSources RENAME COLUMN file_id TO fileId");
+	execQuery(query, "ALTER TABLE fileEncryptedSources RENAME COLUMN encrypted_data_id TO encryptedDataId");
+
+	execQuery(query, "ALTER TABLE trust_security_policies RENAME TO trustSecurityPolicies");
+	execQuery(query, "ALTER TABLE trustSecurityPolicies RENAME COLUMN security_policy TO securityPolicy");
+
+	execQuery(query, "ALTER TABLE trust_own_keys RENAME TO trustOwnKeys");
+	execQuery(query, "ALTER TABLE trustOwnKeys RENAME COLUMN key_id TO keyId");
+
+	execQuery(query, "ALTER TABLE trust_keys RENAME TO trustKeys");
+	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN owner_jid TO ownerJid");
+	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN key_id TO keyId");
+	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN trust_level TO trustLevel");
+
+	execQuery(query, "ALTER TABLE trust_keys_unprocessed RENAME TO trustKeysUnprocessed");
+	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN sender_key_id TO senderKeyId");
+	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN owner_jid TO ownerJid");
+	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN key_id TO keyId");
+
+	execQuery(query, "ALTER TABLE omemo_devices_own RENAME TO omemoDevicesOwn");
+	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN private_key TO privateKey");
+	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN public_key TO publicKey");
+	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_signed_pre_key_id TO latestSignedPreKeyId");
+	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_pre_key_id TO latestPreKeyId");
+
+	execQuery(query, "ALTER TABLE omemo_devices RENAME TO omemoDevices");
+	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN user_jid TO userJid");
+	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN key_id TO keyId");
+	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_sent TO unrespondedStanzasSent");
+	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_received TO unrespondedStanzasReceived");
+	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN removal_timestamp TO removalTimestamp");
+
+	execQuery(query, "ALTER TABLE omemo_pre_key_pairs RENAME TO omemoPreKeyPairs");
+
+	execQuery(query, "ALTER TABLE omemo_pre_key_pairs_signed RENAME TO omemoPreKeyPairsSigned");
+	execQuery(query, "ALTER TABLE omemoPreKeyPairsSigned RENAME COLUMN creation_timestamp TO creationTimestamp");
+
+	d->version = 23;
 }

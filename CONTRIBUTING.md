@@ -63,7 +63,7 @@ On Linux, that configuration file is located at `.config/kaidan/kaidan.conf`.
 
 Kaidan's database is an SQLite file.
 It stores, for example, contacts and messages.
-On Linux, you can find it at `.local/kaidan/messages.sqlite3`.
+On Linux, you can find it at `.local/kaidan/kaidan.sqlite3`.
 To open it, you need an SQLite application (e.g., `sqlitebrowser`, use `sudo apt install sqlitebrowser` to install it on Debian-based systems)
 
 ## Testing

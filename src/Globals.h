@@ -56,23 +56,23 @@
 constexpr auto MESSAGE_MAX_CHARS = 1e4;
 
 // SQL
-#define DB_FILE_BASE_NAME "messages"
+#define DB_FILE_BASE_NAME "kaidan"
 #define DB_TABLE_INFO "dbinfo"
-#define DB_TABLE_ROSTER "Roster"
+#define DB_TABLE_ROSTER "roster"
 #define DB_TABLE_MESSAGES "messages"
 #define DB_TABLE_FILES "files"
-#define DB_TABLE_FILE_HASHES "file_hashes"
-#define DB_TABLE_FILE_HTTP_SOURCES "file_http_sources"
-#define DB_TABLE_FILE_ENCRYPTED_SOURCES "file_encrypted_sources"
+#define DB_TABLE_FILE_HASHES "fileHashes"
+#define DB_TABLE_FILE_HTTP_SOURCES "fileHttpSources"
+#define DB_TABLE_FILE_ENCRYPTED_SOURCES "fileEncryptedSources"
 #define DB_TABLE_MESSAGE_REACTIONS "messageReactions"
-#define DB_TABLE_TRUST_SECURITY_POLICIES "trust_security_policies"
-#define DB_TABLE_TRUST_OWN_KEYS "trust_own_keys"
-#define DB_TABLE_TRUST_KEYS "trust_keys"
-#define DB_TABLE_TRUST_KEYS_UNPROCESSED "trust_keys_unprocessed"
-#define DB_TABLE_OMEMO_DEVICES "omemo_devices"
-#define DB_TABLE_OMEMO_OWN_DEVICES "omemo_devices_own"
-#define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemo_pre_key_pairs"
-#define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemo_pre_key_pairs_signed"
+#define DB_TABLE_TRUST_SECURITY_POLICIES "trustSecurityPolicies"
+#define DB_TABLE_TRUST_OWN_KEYS "trustOwnKeys"
+#define DB_TABLE_TRUST_KEYS "trustKeys"
+#define DB_TABLE_TRUST_KEYS_UNPROCESSED "trustKeysUnprocessed"
+#define DB_TABLE_OMEMO_DEVICES "omemoDevices"
+#define DB_TABLE_OMEMO_OWN_DEVICES "omemoDevicesOwn"
+#define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemoPreKeyPairs"
+#define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemoPreKeyPairsSigned"
 #define DB_QUERY_LIMIT_MESSAGES 20
 
 //

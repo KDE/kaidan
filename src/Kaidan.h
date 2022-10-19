@@ -383,6 +383,13 @@ private:
 QString configFileBaseName();
 
 /**
+ * Returns the old names of the database file.
+ *
+ * @return the old database file names
+ */
+QStringList oldDatabaseFilenames();
+
+/**
  * Returns the name of the database file.
  *
  * @return the database file name

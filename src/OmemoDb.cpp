@@ -10,10 +10,10 @@
 
 using namespace SqlUtils;
 
-constexpr std::initializer_list<QStringView> OMEMO_TABLES = {u"omemo_devices_own",
-	u"omemo_devices",
-	u"omemo_pre_key_pairs",
-	u"omemo_pre_key_pairs_signed"};
+constexpr std::initializer_list<QStringView> OMEMO_TABLES = {u"omemoDevicesOwn",
+	u"omemoDevices",
+	u"omemoPreKeyPairs",
+	u"omemoPreKeyPairsSigned"};
 
 OmemoDb::OmemoDb(Database *db, QString accountJid, QObject *parent)
 	: DatabaseComponent(db, parent), m_accountJid(std::move(accountJid))
@@ -49,9 +49,9 @@ auto OmemoDb::setOwnDevice(const std::optional<OwnDevice> &device) -> QFuture<vo
 		return run([this, device = *device] {
 			auto query = createQuery();
 			prepareQuery(query,
-				"INSERT OR REPLACE INTO omemo_devices_own "
-				"(account, id, label, private_key, public_key, "
-				"latest_signed_pre_key_id, latest_pre_key_id) "
+				"INSERT OR REPLACE INTO omemoDevicesOwn "
+				"(account, id, label, privateKey, publicKey, "
+				"latestSignedPreKeyId, latestPreKeyId) "
 				"VALUES (?, ?, ?, ?, ?, ?, ?)");
 			bindValues(query,
 				{accountJid(),
@@ -67,7 +67,7 @@ auto OmemoDb::setOwnDevice(const std::optional<OwnDevice> &device) -> QFuture<vo
 	// remove old own device
 	return run([this] {
 		auto query = createQuery();
-		execQuery(query, "DELETE FROM omemo_devices_own WHERE account = ?", {accountJid()});
+		execQuery(query, "DELETE FROM omemoDevicesOwn WHERE account = ?", {accountJid()});
 	});
 }
 
@@ -75,8 +75,8 @@ auto OmemoDb::_ownDevice() -> std::optional<OwnDevice>
 {
 	auto query = createQuery();
 	execQuery(query,
-		"SELECT id, label, private_key, public_key, latest_signed_pre_key_id, "
-		"latest_pre_key_id FROM omemo_devices_own WHERE account = ?",
+		"SELECT id, label, privateKey, publicKey, latestSignedPreKeyId, "
+		"latestPreKeyId FROM omemoDevicesOwn WHERE account = ?",
 		{accountJid()});
 
 	enum { Id, Label, PrivateKey, PublicKey, LatestSignedPreKeyId, LatestPreKeyId };
@@ -101,8 +101,8 @@ auto OmemoDb::addSignedPreKeyPair(uint32_t keyId, const SignedPreKeyPair &keyPai
 	return run([this, keyId, keyPair] {
 		auto query = createQuery();
 		execQuery(query,
-			"INSERT OR REPLACE INTO omemo_pre_key_pairs_signed (account, id, data, "
-			"creation_timestamp) "
+			"INSERT OR REPLACE INTO omemoPreKeyPairsSigned (account, id, data, "
+			"creationTimestamp) "
 			"VALUES (?, ?, ?, ?)",
 			{accountJid(), keyId, keyPair.data, serialize(keyPair.creationDate)});
 	});
@@ -113,7 +113,7 @@ auto OmemoDb::removeSignedPreKeyPair(uint32_t keyId) -> QFuture<void>
 	return run([this, keyId] {
 		auto query = createQuery();
 		execQuery(query,
-			"DELETE FROM omemo_pre_key_pairs_signed WHERE account = ? AND id = ?",
+			"DELETE FROM omemoPreKeyPairsSigned WHERE account = ? AND id = ?",
 			{accountJid(), keyId});
 	});
 }
@@ -122,7 +122,7 @@ auto OmemoDb::_signedPreKeyPairs() -> QHash<uint32_t, SignedPreKeyPair>
 {
 	auto query = createQuery();
 	execQuery(query,
-		"SELECT id, data, creation_timestamp FROM omemo_pre_key_pairs_signed "
+		"SELECT id, data, creationTimestamp FROM omemoPreKeyPairsSigned "
 		"WHERE account = ?",
 		{accountJid()});
 
@@ -146,7 +146,7 @@ auto OmemoDb::addPreKeyPairs(const QHash<uint32_t, QByteArray> &keyPairs) -> QFu
 	return run([this, keyPairs] {
 		auto query = createQuery();
 		prepareQuery(query,
-			"INSERT OR REPLACE INTO omemo_pre_key_pairs (account, id, data) "
+			"INSERT OR REPLACE INTO omemoPreKeyPairs (account, id, data) "
 			"VALUES (?, ?, ?)");
 
 		for (auto itr = keyPairs.begin(); itr != keyPairs.end(); itr++) {
@@ -161,8 +161,7 @@ auto OmemoDb::removePreKeyPair(uint32_t keyId) -> QFuture<void>
 	return run([this, keyId] {
 		auto query = createQuery();
 		execQuery(query,
-			QStringLiteral(
-				"DELETE FROM omemo_pre_key_pairs WHERE account = ? AND id = ?"),
+			QStringLiteral("DELETE FROM omemoPreKeyPairs WHERE account = ? AND id = ?"),
 			{accountJid(), keyId});
 	});
 }
@@ -170,9 +169,7 @@ auto OmemoDb::removePreKeyPair(uint32_t keyId) -> QFuture<void>
 auto OmemoDb::_preKeyPairs() -> QHash<uint32_t, QByteArray>
 {
 	auto query = createQuery();
-	execQuery(query,
-		QStringLiteral("SELECT id, data FROM omemo_pre_key_pairs WHERE account = ?"),
-		{accountJid()});
+	execQuery(query, QStringLiteral("SELECT id, data FROM omemoPreKeyPairs WHERE account = ?"), {accountJid()});
 
 	enum { Id, Data };
 	QHash<uint32_t, QByteArray> output;
@@ -187,9 +184,9 @@ auto OmemoDb::addDevice(const QString &jid, uint32_t deviceId, const Device &dev
 	return run([this, jid, deviceId, dev] {
 		auto query = createQuery();
 		execQuery(query,
-			"INSERT OR REPLACE INTO omemo_devices (account, user_jid, id, "
-			"label, key_id, session, unresponded_stanzas_sent, "
-			"unresponded_stanzas_received, removal_timestamp) "
+			"INSERT OR REPLACE INTO omemoDevices (account, userJid, id, "
+			"label, keyId, session, unrespondedStanzasSent, "
+			"unrespondedStanzasReceived, removalTimestamp) "
 			"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
 			{accountJid(),
 				jid,
@@ -208,7 +205,7 @@ auto OmemoDb::removeDevice(const QString &jid, uint32_t deviceId) -> QFuture<voi
 	return run([this, jid, deviceId] {
 		auto query = createQuery();
 		execQuery(query,
-			QStringLiteral("DELETE FROM omemo_devices WHERE account = ? AND user_jid = "
+			QStringLiteral("DELETE FROM omemoDevices WHERE account = ? AND userJid = "
 				       "? AND id = ?"),
 			{accountJid(), jid, deviceId});
 	});
@@ -220,7 +217,7 @@ auto OmemoDb::removeDevices(const QString &jid) -> QFuture<void>
 		auto query = createQuery();
 		execQuery(query,
 			QStringLiteral(
-				"DELETE FROM omemo_devices WHERE account = ? AND user_jid = ?"),
+				"DELETE FROM omemoDevices WHERE account = ? AND userJid = ?"),
 			{accountJid(), jid});
 	});
 }
@@ -229,9 +226,9 @@ auto OmemoDb::_devices() -> QHash<QString, QHash<uint32_t, Device>>
 {
 	auto query = createQuery();
 	execQuery(query,
-		"SELECT user_jid, id, label, key_id, session, unresponded_stanzas_sent, "
-		"unresponded_stanzas_received, removal_timestamp "
-		"FROM omemo_devices "
+		"SELECT userJid, id, label, keyId, session, unrespondedStanzasSent, "
+		"unrespondedStanzasReceived, removalTimestamp "
+		"FROM omemoDevices "
 		"WHERE account = ?",
 		{accountJid()});
 
