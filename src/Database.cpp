@@ -104,7 +104,7 @@ public:
 #else
 		// Check if there is a writable location for app data.
 		const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-		if (!appDataPath.isEmpty()) {
+		if (appDataPath.isEmpty()) {
 			qFatal("Failed to find writable location for database file.");
 		}
 
@@ -114,16 +114,16 @@ public:
 				qPrintable(appDataDir.absolutePath()));
 		}
 
-		// Create the absoulte database file path while ensuring that there is a writable
+		// Create the absolute database file path while ensuring that there is a writable
 		// location on all systems.
 		const auto databaseFilePath = appDataDir.absoluteFilePath(databaseFilename());
 
 		// Rename old database files to the current name.
 		// There should only be one old file at once.
-		// Thus, only the first entry of "foundOldDatabaseFilenames" is renamed.
-		if (const auto oldDbFiles = appDataDir.entryList(oldDatabaseFilenames(), QDir::Files);
-			!oldDbFiles.isEmpty()) {
-			QFile::rename(appDataDir.absoluteFilePath(oldDbFiles.first()), databaseFilePath);
+		// Thus, only the first entry of "oldDbFilenames" is renamed.
+		if (const auto oldDbFilenames = appDataDir.entryList(oldDatabaseFilenames(), QDir::Files);
+			!oldDbFilenames.isEmpty()) {
+			QFile::rename(appDataDir.absoluteFilePath(oldDbFilenames.first()), databaseFilePath);
 		}
 #endif
 		// open() creates the database file if it doesn't exist.
