@@ -33,9 +33,6 @@
 #include <QStringBuilder>
 #include <QTimer>
 
-#include <QXmppAtmManager.h>
-#include <QXmppMamManager.h>
-#include <QXmppMessageReceiptManager.h>
 #include <QXmppOmemoManager.h>
 
 #include "AccountManager.h"

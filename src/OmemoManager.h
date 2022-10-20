@@ -31,7 +31,6 @@
 #pragma once
 
 #include <QFuture>
-#include <QObject>
 
 #include <QXmppTrustLevel.h>
 
