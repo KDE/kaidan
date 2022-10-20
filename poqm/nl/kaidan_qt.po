@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-17 11:53+0200\n"
+"PO-Revision-Date: 2022-10-19 16:13+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -216,7 +216,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:197
+#: src/Message.cpp:199
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -226,38 +226,38 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Onbekende grootte"
 
-#: src/MessageHandler.cpp:263
+#: src/MessageHandler.cpp:268
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageHandler.cpp:336
+#: src/MessageHandler.cpp:341
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Het corrigeren van het bericht is mislukt"
 
-#: src/MessageHandler.cpp:393
+#: src/MessageHandler.cpp:412
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageModel.cpp:245
+#: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In behandeling"
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Verzonden"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:250
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Afgeleverd"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:252
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
@@ -404,52 +404,52 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Wachtwoord kopiëren"
 
-#: src/qml/ChatPage.qml:106
+#: src/qml/ChatPage.qml:108
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Zoeken"
 
-#: src/qml/ChatPage.qml:125
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Meldingen inschakelen"
 
-#: src/qml/ChatPage.qml:126
+#: src/qml/ChatPage.qml:128
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Meldingen uitschakelen"
 
-#: src/qml/ChatPage.qml:135
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Profiel bekijken"
 
-#: src/qml/ChatPage.qml:146
+#: src/qml/ChatPage.qml:148
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Bericht met spoileralert versturen"
 
-#: src/qml/elements/ChatMessage.qml:139
+#: src/qml/elements/ChatMessage.qml:163
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:196
+#: src/qml/elements/ChatMessage.qml:220
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Downloaden"
 
-#: src/qml/elements/ChatMessage.qml:257
+#: src/qml/elements/ChatMessage.qml:312
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Niet-versleuteld"
 
-#: src/qml/elements/ChatMessage.qml:262
+#: src/qml/elements/ChatMessage.qml:317
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Niet-vertrouwd"
 
-#: src/qml/elements/ChatMessage.qml:294
+#: src/qml/elements/ChatMessage.qml:349
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -590,6 +590,25 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Voer een geldig wachtwoord in"
 
+#: src/qml/elements/MessageReactionSenderSheet.qml:51
+#, qt-format
+msgctxt "MessageReactionSenderSheet|"
+msgid "Senders of %1"
+msgstr ""
+
+#: src/qml/elements/MessageReactionSenderSheet.qml:57
+msgctxt "MessageReactionSenderSheet|"
+msgid "Add own reaction"
+msgstr ""
+
+#: src/qml/elements/MessageReactionSenderSheet.qml:66
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Remove contact"
+msgctxt "MessageReactionSenderSheet|"
+msgid "Remove own reaction"
+msgstr "Contactpersoon verwijderen"
+
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
@@ -690,12 +709,12 @@ msgstr "Voeg toe"
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "Pin losmaken"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "Pin"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
