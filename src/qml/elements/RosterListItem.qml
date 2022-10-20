@@ -38,10 +38,11 @@ import im.kaidan.kaidan 1.0
 UserListItem {
 	id: root
 
+	property ListView listView
+	property Controls.Menu contextMenu
 	property string lastMessage
 	property int unreadMessages
 	property bool pinned
-	property Controls.Menu contextMenu
 
 	isSelected: {
 		return !Kirigami.Settings.isMobile &&
@@ -120,6 +121,14 @@ UserListItem {
 		muted: mutedWatcher.muted
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
 		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
+	}
+
+	// right: icon for reordering
+	Kirigami.ListItemDragHandle {
+		visible: pinned
+		listItem: root
+		listView: root.listView
+		onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
 	}
 
 	MouseArea {

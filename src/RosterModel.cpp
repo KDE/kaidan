@@ -348,6 +348,47 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 	}
 }
 
+void RosterModel::reorderPinnedItem(const QString &, const QString &jid, int oldIndex, int newIndex)
+{
+	const auto itemBeingReordered = m_items[oldIndex];
+	const auto pinningPositionDifference = oldIndex - newIndex;
+
+	const auto oldPinningPosition = itemBeingReordered.pinningPosition;
+	const auto newPinningPosition = oldPinningPosition + pinningPositionDifference;
+
+	// Do not reorder anything if the item would go out of the range of the pinned items.
+	// That happens when the item is dragged below unpinned items.
+	if (newPinningPosition < 0) {
+		return;
+	}
+
+	// Update the pinning position of the pinned items in between the old and the new pinning
+	// position of the item being reordered.
+	// "items" must be copied since its elements are changed via "updateItemRequested()".
+	const auto items = m_items;
+	for (const auto &item : items)	{
+		if (item.pinningPosition != -1 && item.jid != itemBeingReordered.jid) {
+			const auto pinningPosition = item.pinningPosition;
+			const auto itemMovedUpwards = pinningPositionDifference > 0;
+
+			if (itemMovedUpwards && pinningPosition > oldPinningPosition && pinningPosition <= newPinningPosition) {
+				emit updateItemRequested(item.jid, [](RosterItem &item) {
+					--item.pinningPosition;
+				});
+			} else if (!itemMovedUpwards && pinningPosition < oldPinningPosition && pinningPosition >= newPinningPosition) {
+				emit updateItemRequested(item.jid, [](RosterItem &item) {
+					++item.pinningPosition;
+				});
+			}
+		}
+	}
+
+	// Update the pinning position of the reordered item.
+	emit updateItemRequested(jid, [newPinningPosition](RosterItem &item) {
+		item.pinningPosition = newPinningPosition;
+	});
+}
+
 void RosterModel::setChatStateSendingEnabled(const QString &, const QString &jid, bool chatStateSendingEnabled)
 {
 	emit updateItemRequested(jid, [=](RosterItem &item) {

@@ -99,6 +99,8 @@ Kirigami.ScrollablePage {
 	}
 
 	ListView {
+		id: rosterListView
+
 		width: root.width
 		model: RosterFilterProxyModel {
 			id: filterModel
@@ -109,21 +111,41 @@ Kirigami.ScrollablePage {
 			id: itemContextMenu
 		}
 
-		delegate: RosterListItem {
-			id: rosterItem
-			accountJid: AccountManager.jid
-			contextMenu: itemContextMenu
-			jid: model.jid
-			name: model.name ? model.name : model.jid
-			lastMessage: model.lastMessage
-			unreadMessages: model.unreadMessages
-			pinned: model.pinned
+		Component {
+			id: delegateComponent
 
-			onClicked: {
-				// Open the chatPage only if it is not yet open.
-				if (!isSelected || !wideScreen) {
-					openChatPage(accountJid, jid)
+			RosterListItem {
+				listView: rosterListView
+				contextMenu: itemContextMenu
+				accountJid: AccountManager.jid
+				jid: model ? model.jid : ""
+				name: model ? (model.name ? model.name : model.jid) : ""
+				lastMessage: model ? model.lastMessage : ""
+				unreadMessages: model ? model.unreadMessages : 0
+				pinned: model ? model.pinned : false
+
+				onClicked: {
+					// Open the chatPage only if it is not yet open.
+					if (!isSelected || !wideScreen) {
+						openChatPage(accountJid, jid)
+					}
 				}
+			}
+		}
+
+		// TODO: Remove the DelegateRecycler if possible
+		// Without the DelegateRecycler, the reordering of pinned items does not work.
+		// But it is not clear why the DelegateRecycler is needed for that purpose because the
+		// ListView would manage the recycling by itself if enabled/needed.
+		delegate: Kirigami.DelegateRecycler {
+			width: rosterListView.width
+			sourceComponent: delegateComponent
+		}
+
+		moveDisplaced: Transition {
+			YAnimator {
+				duration: Kirigami.Units.longDuration
+				easing.type: Easing.InOutQuad
 			}
 		}
 
