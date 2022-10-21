@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-10-19 09:56+0200\n"
+"PO-Revision-Date: 2022-10-20 12:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -605,20 +605,17 @@ msgstr "Introduïu una contrasenya vàlida"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "Remitents de %1"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "Afig una reacció pròpia"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr "Elimina el contacte"
+msgstr "Elimina la reacció pròpia"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -1864,7 +1861,8 @@ msgstr "El nom d'usuari o la contrasenya són incorrectes."
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet."
+"No s'ha pogut connectar amb el servidor. Comproveu la vostra connexió amb "
+"Internet."
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
@@ -1882,8 +1880,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"No s'ha pogut connectar al servidor. Comproveu la vostra connexió a Internet "
-"o el vostre nom de servidor."
+"No s'ha pogut connectar amb el servidor. Comproveu la vostra connexió amb "
+"Internet o el vostre nom de servidor."
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
