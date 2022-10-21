@@ -163,7 +163,6 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 
 	message.id = QXmppUtils::generateStanzaUuid();
 	message.stamp = QDateTime::currentDateTimeUtc();
-	message.isMarkable = true;
 	message.deliveryState = DeliveryState::Pending;
 
 	if (!message.fileGroupId) {

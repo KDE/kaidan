@@ -101,7 +101,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxSenderKey = rec.indexOf("senderKey");
 	int idxBody = rec.indexOf("message");
 	int idxDeliveryState = rec.indexOf("deliveryState");
-	int idxIsMarkable = rec.indexOf("isMarkable");
 	int idxIsEdited = rec.indexOf("isEdited");
 	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxIsSpoiler = rec.indexOf("isSpoiler");
@@ -124,7 +123,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.senderKey = query.value(idxSenderKey).toByteArray();
 		msg.body = query.value(idxBody).toString();
 		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
-		msg.isMarkable = query.value(idxIsMarkable).toBool();
 		msg.isEdited = query.value(idxIsEdited).toBool();
 		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.errorText = query.value(idxErrorText).toString();
@@ -170,8 +168,6 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("message", newMsg.body));
 	if (oldMsg.deliveryState != newMsg.deliveryState)
 		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
-	if (oldMsg.isMarkable != newMsg.isMarkable)
-		rec.append(createSqlField("isMarkable", newMsg.isMarkable));
 	if (oldMsg.errorText != newMsg.errorText)
 		rec.append(createSqlField("errorText", newMsg.errorText));
 	if (oldMsg.isEdited != newMsg.isEdited)
@@ -388,11 +384,11 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		prepareQuery(
 			query,
 			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
-			"senderKey, deliveryState, isMarkable, isEdited, isSpoiler, spoilerHint, "
-			"errorText, replaceId, originId, stanzaId, fileGroupId) "
+			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
+			"originId, stanzaId, fileGroupId) "
 			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
-			":deliveryState, :isMarkable, :isEdited, :isSpoiler, :spoilerHint, :errorText, "
-			":replaceId, :originId, :stanzaId, :fileGroupId)"
+			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
+			":originId, :stanzaId, :fileGroupId)"
 		);
 
 		bindValues(query, {
@@ -404,7 +400,6 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
-			{ u":isMarkable", msg.isMarkable },
 			{ u":isEdited", msg.isEdited },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },

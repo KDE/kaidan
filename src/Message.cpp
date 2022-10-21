@@ -159,7 +159,7 @@ QXmppMessage Message::toQXmpp() const
 	msg.setStamp(stamp);
 	msg.setIsSpoiler(isSpoiler);
 	msg.setSpoilerHint(spoilerHint);
-	msg.setMarkable(isMarkable);
+	msg.setMarkable(true);
 	msg.setMarker(marker);
 	msg.setMarkerId(markerId);
 	msg.setReplaceId(replaceId);

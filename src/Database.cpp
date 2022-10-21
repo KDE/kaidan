@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 24
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(24)
+#define DATABASE_LATEST_VERSION 25
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(25)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -409,7 +409,6 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
-			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
 			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
 			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
 			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
@@ -1228,4 +1227,75 @@ void Database::convertDatabaseToV24()
 	execQuery(query, "ALTER TABLE Roster ADD chatStateSendingEnabled " SQL_BOOL);
 	execQuery(query, "ALTER TABLE Roster ADD readMarkerSendingEnabled " SQL_BOOL);
 	d->version = 24;
+}
+
+void Database::convertDatabaseToV25()
+{
+	DATABASE_CONVERT_TO_VERSION(24);
+	QSqlQuery query(currentDatabase());
+
+	// Remove the column "isMarkable".
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages_tmp",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		"senderKey, deliveryState, isEdited, spoilerHint, isSpoiler, errorText, replaceId, "
+		"originId, stanzaId, fileGroupId FROM messages"
+	);
+
+	execQuery(query, "DROP TABLE messages");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
+			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
+	execQuery(query, "DROP TABLE messages_tmp");
+
+	d->version = 25;
 }

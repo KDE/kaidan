@@ -277,7 +277,6 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.spoilerHint = msg.spoilerHint();
 	message.stanzaId = msg.stanzaId();
 	message.originId = msg.originId();
-	message.isMarkable = msg.isMarkable();
 
 	// get possible delay (timestamp)
 	message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
@@ -314,7 +313,6 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.receiptRequested = true;
 	msg.isOwn = true;
 	msg.deliveryState = Enums::DeliveryState::Pending;
-	msg.isMarkable = true;
 	msg.stamp = QDateTime::currentDateTimeUtc();
 	msg.isSpoiler = isSpoiler;
 	msg.spoilerHint = spoilerHint;

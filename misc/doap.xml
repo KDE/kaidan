@@ -232,7 +232,7 @@
         <xmpp:status>partial</xmpp:status>
         <xmpp:version>0.4</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
-        <xmpp:note>Only used for read markers (i.e., for "displayed" messages)</xmpp:note>
+        <xmpp:note>Only used for read markers (i.e., for "displayed" messages); Read markers are always sent even if message is not marked as "markable" in order to synchronize read status between supporting clients</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>

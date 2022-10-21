@@ -457,16 +457,14 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 		Notifications::instance()->closeMessageNotification(m_currentAccountJid, m_currentChatJid);
 
 		bool readMarkerPending = true;
-		if (readContactMessage.isMarkable) {
-			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-				if (m_rosterItemWatcher.item().readMarkerSendingEnabled) {
-					runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = m_currentChatJid, readMessageId]() {
-						Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, readMessageId);
-					});
-				}
-
-				readMarkerPending = false;
+		if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+			if (m_rosterItemWatcher.item().readMarkerSendingEnabled) {
+				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = m_currentChatJid, readMessageId]() {
+					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, readMessageId);
+				});
 			}
+
+			readMarkerPending = false;
 		}
 
 		emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, this](RosterItem &item) {

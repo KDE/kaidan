@@ -167,7 +167,6 @@ public:
 	QDateTime stamp;
 	bool isSpoiler = false;
 	QString spoilerHint;
-	bool isMarkable = false;
 	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
 	QString markerId;
 	QString replaceId;
