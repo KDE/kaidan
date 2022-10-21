@@ -363,6 +363,13 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		case MessageOrigin::MamCatchUp:
 		case MessageOrigin::Stream:
 			if (_checkMessageExists(msg)) {
+				// Mark messages sent to oneself as delivered.
+				if (msg.isOwn) {
+					updateMessage(msg.id, [](Message &msg) {
+						msg.deliveryState = Enums::DeliveryState::Delivered;
+					});
+				}
+
 				// message deduplicated (messageAdded() signal is not emitted)
 				return;
 			}
@@ -823,11 +830,11 @@ bool MessageDb::_checkMessageExists(const Message &message)
 	// Kaidan uses random suffixes in the resource, we can't check the resource)
 	if (message.isOwn && !message.originId.isEmpty()) {
 		idChecks << QStringLiteral("originId = :originId");
-		bindValues.push_back({ u":originId", message.stanzaId });
+		bindValues.push_back({ u":originId", message.originId });
 	}
 	if (!message.id.isEmpty()) {
 		idChecks << QStringLiteral("id = :id");
-		bindValues.push_back({ u":id", message.stanzaId });
+		bindValues.push_back({ u":id", message.id });
 	}
 
 	if (idChecks.isEmpty()) {
