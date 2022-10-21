@@ -1018,7 +1018,7 @@ QList<QString> MessageModel::distrustedOmemoDevices() const
 
 QList<QString> MessageModel::usableOmemoDevices() const
 {
-	return m_usableOmemoDevices;
+	return m_currentAccountJid == m_currentChatJid ? m_ownUsableOmemoDevices : m_usableOmemoDevices;
 }
 
 QList<QString> MessageModel::authenticatableOmemoDevices() const
