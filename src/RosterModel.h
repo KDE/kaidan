@@ -125,6 +125,9 @@ public:
 	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
 
+	Q_INVOKABLE void setChatStateSendingEnabled(const QString &accountJid, const QString &jid, bool chatStateSendingEnabled);
+	Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &accountJid, const QString &jid, bool readMarkerSendingEnabled);
+
 signals:
 	void addItemRequested(const RosterItem &item);
 	void removeItemRequested(const QString &jid);

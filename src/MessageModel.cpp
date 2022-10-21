@@ -335,11 +335,16 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid)
 		return;
 
-	m_rosterItemWatcher.setJid(chatJid);
-	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
-
 	// Send gone state to old chat partner
 	sendChatState(QXmppMessage::State::Gone);
+
+	// Setting of the following attributes must be done before sending chat states for the new chat.
+	// Otherwise, the chat states are sent to the former chat.
+	m_currentAccountJid = accountJid;
+	m_currentChatJid = chatJid;
+
+	m_rosterItemWatcher.setJid(chatJid);
+	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
 
 	// Reset chat states
 	m_ownChatState = QXmppMessage::State::None;
@@ -356,8 +361,6 @@ void MessageModel::setCurrentChat(const QString &accountJid, const QString &chat
 		Kaidan::instance()->client()->omemoManager()->initializeChat(accountJid, chatJid);
 	});
 
-	m_currentAccountJid = accountJid;
-	m_currentChatJid = chatJid;
 	emit currentAccountJidChanged(accountJid);
 	emit currentChatJidChanged(chatJid);
 
@@ -456,9 +459,11 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 		bool readMarkerPending = true;
 		if (readContactMessage.isMarkable) {
 			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = m_currentChatJid, readMessageId]() {
-					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, readMessageId);
-				});
+				if (m_rosterItemWatcher.item().readMarkerSendingEnabled) {
+					runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = m_currentChatJid, readMessageId]() {
+						Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, readMessageId);
+					});
+				}
 
 				readMarkerPending = false;
 			}
@@ -875,8 +880,12 @@ QXmppMessage::State MessageModel::chatState() const
 
 void MessageModel::sendChatState(QXmppMessage::State state)
 {
+	if (!m_rosterItemWatcher.item().chatStateSendingEnabled) {
+		return;
+	}
+
 	// Handle some special cases
-	switch(QXmppMessage::State(state)) {
+	switch (QXmppMessage::State(state)) {
 	case QXmppMessage::State::Composing:
 		// Restart timer if new character was typed in
 		m_composingTimer->start();

@@ -197,9 +197,12 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 			item.lastReadContactMessageId = messageId;
 			item.unreadMessages = 0;
 		});
-		runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
-			Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
-		});
+
+		if (const auto item = RosterModel::instance()->findItem(chatJid); item && item->readMarkerSendingEnabled) {
+			runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
+				Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
+			});
+		}
 	});
 
 	QObject::connect(notification, &KNotification::closed, this, [=, this]() {

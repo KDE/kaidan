@@ -74,6 +74,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxLastReadContactMessageId = rec.indexOf("lastReadContactMessageId");
 	int idxReadMarkerPending = rec.indexOf("readMarkerPending");
 	int idxPinningPosition = rec.indexOf("pinningPosition");
+	int idxChateStateSendingEnabled = rec.indexOf("chatStateSendingEnabled");
+	int idxReadMarkerSendingEnabled = rec.indexOf("readMarkerSendingEnabled");
 
 	while (query.next()) {
 		RosterItem item;
@@ -86,6 +88,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
 		item.readMarkerPending = query.value(idxReadMarkerPending).toBool();
 		item.pinningPosition = query.value(idxPinningPosition).toInt();
+		item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
+		item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
 
 		items << std::move(item);
 	}
@@ -115,6 +119,10 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("readMarkerPending", newItem.readMarkerPending));
 	if(oldItem.pinningPosition != newItem.pinningPosition)
 		rec.append(createSqlField("pinningPosition", newItem.pinningPosition));
+	if (oldItem.chatStateSendingEnabled != newItem.chatStateSendingEnabled)
+		rec.append(createSqlField("chatStateSendingEnabled", newItem.chatStateSendingEnabled));
+	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
+		rec.append(createSqlField("readMarkerSendingEnabled", newItem.readMarkerSendingEnabled));
 	return rec;
 }
 
@@ -146,6 +154,8 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(QString()); // lastReadContactMessageId
 			query.addBindValue(item.readMarkerPending);
 			query.addBindValue(item.pinningPosition);
+			query.addBindValue(item.chatStateSendingEnabled);
+			query.addBindValue(item.readMarkerSendingEnabled);
 			execQuery(query);
 		}
 

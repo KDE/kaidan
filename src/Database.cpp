@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 23
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(23)
+#define DATABASE_LATEST_VERSION 24
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(24)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -390,7 +390,9 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
-			SQL_LAST_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
 		)
 	);
 
@@ -1217,4 +1219,13 @@ void Database::convertDatabaseToV23()
 	execQuery(query, "ALTER TABLE omemoPreKeyPairsSigned RENAME COLUMN creation_timestamp TO creationTimestamp");
 
 	d->version = 23;
+}
+
+void Database::convertDatabaseToV24()
+{
+	DATABASE_CONVERT_TO_VERSION(23);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD chatStateSendingEnabled " SQL_BOOL);
+	execQuery(query, "ALTER TABLE Roster ADD readMarkerSendingEnabled " SQL_BOOL);
+	d->version = 24;
 }

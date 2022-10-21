@@ -239,6 +239,39 @@ Kirigami.Page {
 				height: Kirigami.Units.largeSpacing
 			}
 
+			Kirigami.Heading {
+				level: 2
+				text: qsTr("Privacy")
+			}
+
+			RowLayout {
+				Controls.Label {
+					text: qsTr("Send typing notifications")
+				}
+
+				Controls.Switch {
+					checked: chatItemWatcher.item.chatStateSendingEnabled
+					onClicked: RosterModel.setChatStateSendingEnabled(MessageModel.currentAccountJid, MessageModel.currentChatJid, checked)
+					Layout.fillWidth: true
+				}
+			}
+
+			RowLayout {
+				Controls.Label {
+					text: qsTr("Send read notifications")
+				}
+
+				Controls.Switch {
+					checked: chatItemWatcher.item.readMarkerSendingEnabled
+					onClicked: RosterModel.setReadMarkerSendingEnabled(MessageModel.currentAccountJid, MessageModel.currentChatJid, checked)
+					Layout.fillWidth: true
+				}
+			}
+
+			Item {
+				height: Kirigami.Units.largeSpacing
+			}
+
 			RowLayout {
 				Kirigami.Heading {
 					level: 2

@@ -46,6 +46,8 @@ public:
 	Q_PROPERTY(QString name MEMBER name)
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
+	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
+	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
 
 	RosterItem() = default;
 	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
@@ -96,6 +98,12 @@ public:
 	// The first pinned item has the position 0.
 	// -1 is used for unpinned items.
 	int pinningPosition = -1;
+
+	// Whether chat states are sent to this roster item.
+	bool chatStateSendingEnabled = true;
+
+	// Whether read markers are sent to this roster item.
+	bool readMarkerSendingEnabled = true;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

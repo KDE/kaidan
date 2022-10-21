@@ -217,9 +217,12 @@ void RosterModel::sendPendingReadMarkers(const QString &)
 		if (const auto messageId = item.lastReadContactMessageId; item.readMarkerPending && !messageId.isEmpty()) {
 			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
 				const auto chatJid = item.jid;
-				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
-					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
-				});
+
+				if (item.readMarkerSendingEnabled) {
+					runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
+						Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
+					});
+				}
 
 				emit updateItemRequested(chatJid, [](RosterItem &item) {
 					item.readMarkerPending = false;
@@ -309,6 +312,8 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.lastReadContactMessageId = oldItem->lastReadContactMessageId;
 			item.encryption = oldItem->encryption;
 			item.pinningPosition = oldItem->pinningPosition;
+			item.chatStateSendingEnabled = oldItem->chatStateSendingEnabled;
+			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
 		}
 
 		newItems << item;
@@ -343,6 +348,20 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 			item.pinningPosition = -1;
 		});
 	}
+}
+
+void RosterModel::setChatStateSendingEnabled(const QString &, const QString &jid, bool chatStateSendingEnabled)
+{
+	emit updateItemRequested(jid, [=](RosterItem &item) {
+		item.chatStateSendingEnabled = chatStateSendingEnabled;
+	});
+}
+
+void RosterModel::setReadMarkerSendingEnabled(const QString &, const QString &jid, bool readMarkerSendingEnabled)
+{
+	emit updateItemRequested(jid, [=](RosterItem &item) {
+		item.readMarkerSendingEnabled = readMarkerSendingEnabled;
+	});
 }
 
 void RosterModel::removeItems(const QString &accountJid, const QString &jid)
