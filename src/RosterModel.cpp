@@ -472,6 +472,8 @@ int RosterModel::positionToInsert(const RosterItem &item, int skippedIndex)
 		}
 	}
 
-	// append
-	return m_items.size();
+	// If the item to be positioned is the last item but cannot be positioned somewhere else, its
+	// position is not changed.
+	// In all other cases, the item is being appended to the list.
+	return skippedIndex == m_items.size() - 1 ? skippedIndex : m_items.size();
 }
