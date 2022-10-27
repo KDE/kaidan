@@ -167,7 +167,8 @@ private slots:
 private:
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);
-	int positionToInsert(const RosterItem &item, int skippedIndex = -1);
+	int positionToAdd(const RosterItem &item);
+	int positionToMove(int currentIndex);
 
 	QVector<RosterItem> m_items;
 

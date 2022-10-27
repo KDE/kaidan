@@ -242,7 +242,7 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 
 void RosterModel::addItem(const RosterItem &item)
 {
-	insertItem(positionToInsert(item), item);
+	insertItem(positionToAdd(item), item);
 }
 
 void RosterModel::removeItem(const QString &jid)
@@ -435,36 +435,52 @@ void RosterModel::insertItem(int index, const RosterItem &item)
 	RosterItemNotifier::instance().notifyWatchers(item.jid, item);
 }
 
-void RosterModel::updateItemPosition(int currentPosition)
+void RosterModel::updateItemPosition(int currentIndex)
 {
-	int newPosition = positionToInsert(m_items.at(currentPosition), currentPosition);
-	if (currentPosition == newPosition)
-		return;
+	int newIndex = positionToMove(currentIndex);
 
-	beginMoveRows(QModelIndex(), currentPosition, currentPosition, QModelIndex(), newPosition);
+	if (currentIndex == newIndex) {
+		return;
+	}
+
+	beginMoveRows(QModelIndex(), currentIndex, currentIndex, QModelIndex(), newIndex);
 
 	// Cover both cases:
 	// 1. Moving to a higher index
 	// 2. Moving to a lower index
-	if (currentPosition < newPosition) {
-		m_items.move(currentPosition, newPosition - 1);
+	if (currentIndex < newIndex) {
+		m_items.move(currentIndex, newIndex - 1);
 	} else {
-		m_items.move(currentPosition, newPosition);
+		m_items.move(currentIndex, newIndex);
 	}
 
 	endMoveRows();
 }
 
-int RosterModel::positionToInsert(const RosterItem &item, int skippedIndex)
+int RosterModel::positionToAdd(const RosterItem &item)
 {
+	for (int i = 0; i < m_items.size(); i++) {
+		if (item <= m_items.at(i)) {
+			return i;
+		}
+	}
+
+	// If the item to be positioned is greater than all other items, it is appended to the list.
+	return m_items.size();
+}
+
+int RosterModel::positionToMove(int currentIndex)
+{
+	const auto &item = m_items.at(currentIndex);
+
 	for (int i = 0; i < m_items.size(); i++) {
 		// In some cases, it is needed to skip the item that is being positioned.
 		// Especially, when the item is at the beginning or at the end of the list, it must not
 		// be compared to itself in order to find the correct position.
-		if (skippedIndex != i) {
+		if (currentIndex != i) {
 			if (item <= m_items.at(i)) {
-				if (i == skippedIndex + 1) {
-					return skippedIndex;
+				if (i == currentIndex + 1) {
+					return currentIndex;
 				}
 
 				return i;
@@ -474,6 +490,6 @@ int RosterModel::positionToInsert(const RosterItem &item, int skippedIndex)
 
 	// If the item to be positioned is the last item but cannot be positioned somewhere else, its
 	// position is not changed.
-	// In all other cases, the item is being appended to the list.
-	return skippedIndex == m_items.size() - 1 ? skippedIndex : m_items.size();
+	// In all other cases, the item is appended to the list.
+	return currentIndex == m_items.size() - 1 ? currentIndex : m_items.size();
 }
