@@ -347,6 +347,7 @@ Kirigami.SwipeListItem {
 		Text {
 			visible: isLastRead
 			text: qsTr("%1 has read up to this point").arg(chatName)
+			Layout.topMargin: 10
 			Layout.leftMargin: 10
 		}
 	}
