@@ -276,7 +276,13 @@ Kirigami.SwipeListItem {
 						spacing: 4
 						Layout.rightMargin: isOwn ? 45 : 30
 						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
-						Layout.preferredWidth: (messageReactionAddition.width + spacing) * (Object.keys(root.reactions).length + 1)
+						Layout.preferredWidth: {
+							if (messageReactionAddition.visible) {
+								return (messageReactionAddition.width + spacing) * (Object.keys(root.reactions).length + 1)
+							} else {
+								return (messageReactionAddition.width + spacing) * Object.keys(root.reactions).length
+							}
+						}
 
 						Repeater {
 							model: Object.keys(root.reactions)
