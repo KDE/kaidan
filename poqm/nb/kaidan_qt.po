@@ -221,7 +221,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:201
+#: src/Message.cpp:199
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avsløring"
@@ -231,18 +231,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:268
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:332
+#: src/MessageHandler.cpp:341
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:389
+#: src/MessageHandler.cpp:412
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
@@ -267,12 +267,12 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Feil"
 
-#: src/Notifications.cpp:94
+#: src/Notifications.cpp:188
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marker som lest"
 
-#: src/OmemoManager.cpp:123
+#: src/OmemoManager.cpp:120
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
@@ -413,52 +413,52 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopier passord"
 
-#: src/qml/ChatPage.qml:105
+#: src/qml/ChatPage.qml:108
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Søk"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Opphev forstumming av merknader"
 
-#: src/qml/ChatPage.qml:125
+#: src/qml/ChatPage.qml:128
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Forstum merknader"
 
-#: src/qml/ChatPage.qml:134
+#: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Vis profil"
 
-#: src/qml/ChatPage.qml:145
+#: src/qml/ChatPage.qml:148
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Send en avsløringsmelding"
 
-#: src/qml/elements/ChatMessage.qml:139
+#: src/qml/elements/ChatMessage.qml:163
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/qml/elements/ChatMessage.qml:196
+#: src/qml/elements/ChatMessage.qml:220
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Last ned"
 
-#: src/qml/elements/ChatMessage.qml:257
+#: src/qml/elements/ChatMessage.qml:312
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:262
+#: src/qml/elements/ChatMessage.qml:317
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:295
+#: src/qml/elements/ChatMessage.qml:349
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -487,6 +487,11 @@ msgstr "Siter melding"
 #: src/qml/elements/ChatMessageContextMenu.qml:76
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:84
+msgctxt "ChatMessageContextMenu|"
+msgid "Mark as first unread"
 msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:69
@@ -597,6 +602,22 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
+#: src/qml/elements/MessageReactionSenderSheet.qml:51
+#, qt-format
+msgctxt "MessageReactionSenderSheet|"
+msgid "Senders of %1"
+msgstr ""
+
+#: src/qml/elements/MessageReactionSenderSheet.qml:57
+msgctxt "MessageReactionSenderSheet|"
+msgid "Add own reaction"
+msgstr ""
+
+#: src/qml/elements/MessageReactionSenderSheet.qml:66
+msgctxt "MessageReactionSenderSheet|"
+msgid "Remove own reaction"
+msgstr ""
+
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
@@ -697,6 +718,16 @@ msgstr "Avbryt"
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Legg til"
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Unpin"
+msgstr ""
+
+#: src/qml/elements/RosterListItemContextMenu.qml:45
+msgctxt "RosterListItemContextMenu|"
+msgid "Pin"
+msgstr ""
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
