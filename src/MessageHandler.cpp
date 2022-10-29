@@ -191,77 +191,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		message.senderKey = e2eeMetadata->senderKey();
 	}
 
-	if (const auto sharedFiles = msg.sharedFiles(); !sharedFiles.empty()) {
-		message.fileGroupId = QRandomGenerator::system()->generate64();
-		message.files = transform(sharedFiles, [msg, fgid = message.fileGroupId](const QXmppFileShare &file) {
-			auto fileId = qint64(QRandomGenerator::system()->generate64());
-			return File {
-				.id = fileId,
-				.fileGroupId = fgid.value(),
-				.name = file.metadata().filename(),
-				.description = file.metadata().description().value_or(QString()),
-				.mimeType = file.metadata().mediaType().value_or(QMimeType()),
-				.size = file.metadata().size(),
-				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
-				.disposition = file.disposition(),
-				.localFilePath = {},
-				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
-					return FileHash {
-						.dataId = fileId,
-						.hashType = hash.algorithm(),
-						.hashValue = hash.hash()
-					};
-				}),
-				.thumbnail = [&]() {
-					const auto &bobData = msg.bitsOfBinaryData();
-					if (!file.metadata().thumbnails().empty()) {
-						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
-						const auto *thumbnailData = ranges::find_if(bobData, [&](auto bobBlob) {
-							return bobBlob.cid() == cid;
-						});
-
-						if (thumbnailData != bobData.cend()) {
-							return thumbnailData->data();
-						}
-					}
-					return QByteArray();
-				}(),
-				.httpSources = transform(file.httpSources(), [&](const auto &source) {
-					return HttpSource { fileId, source.url() };
-				}),
-				.encryptedSources = transformFilter(file.encryptedSources(), [&](const QXmppEncryptedFileSource &source) -> std::optional<EncryptedSource> {
-					if (source.httpSources().empty()) {
-						return {};
-					}
-					std::optional<qint64> encryptedDataId;
-					if (!source.hashes().empty()) {
-						encryptedDataId = QRandomGenerator::system()->generate64();
-					}
-					return EncryptedSource {
-						fileId,
-						source.httpSources().front().url(),
-						source.cipher(),
-						source.key(),
-						source.iv(),
-						encryptedDataId,
-						transform(source.hashes(), [&](const QXmppHash &h) {
-							return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
-						})
-					};
-				}),
-			};
-		});
-	} else if (auto urls = msg.outOfBandUrls(); !urls.isEmpty()) {
-		const qint64 fileGroupId = QRandomGenerator::system()->generate64();
-		message.files = transformFilter(urls, [&](auto &file) {
-			return MessageHandler::parseOobUrl(file, fileGroupId);
-		});
-
-		// don't set file group id if there are no files
-		if (!message.files.empty()) {
-			message.fileGroupId = fileGroupId;
-		}
-	}
+	parseSharedFiles(msg, message);
 
 	if (auto encryptionName = msg.encryptionName();
 			!encryptionName.isEmpty() && message.encryption == Encryption::NoEncryption) {
@@ -648,6 +578,81 @@ bool MessageHandler::handleReaction(const QXmppMessage &message, const QString &
 	}
 
 	return false;
+}
+
+void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &messageToEdit)
+{
+	if (const auto sharedFiles = message.sharedFiles(); !sharedFiles.empty()) {
+		messageToEdit.fileGroupId = QRandomGenerator::system()->generate64();
+		messageToEdit.files = transform(sharedFiles, [message, fgid = messageToEdit.fileGroupId](const QXmppFileShare &file) {
+			auto fileId = qint64(QRandomGenerator::system()->generate64());
+			return File {
+				.id = fileId,
+				.fileGroupId = fgid.value(),
+				.name = file.metadata().filename(),
+				.description = file.metadata().description().value_or(QString()),
+				.mimeType = file.metadata().mediaType().value_or(QMimeType()),
+				.size = file.metadata().size(),
+				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
+				.disposition = file.disposition(),
+				.localFilePath = {},
+				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
+					return FileHash {
+						.dataId = fileId,
+						.hashType = hash.algorithm(),
+						.hashValue = hash.hash()
+					};
+				}),
+				.thumbnail = [&]() {
+					const auto &bobData = message.bitsOfBinaryData();
+					if (!file.metadata().thumbnails().empty()) {
+						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
+						const auto *thumbnailData = ranges::find_if(bobData, [&](auto bobBlob) {
+							return bobBlob.cid() == cid;
+						});
+
+						if (thumbnailData != bobData.cend()) {
+							return thumbnailData->data();
+						}
+					}
+					return QByteArray();
+				}(),
+				.httpSources = transform(file.httpSources(), [&](const auto &source) {
+					return HttpSource { fileId, source.url() };
+				}),
+				.encryptedSources = transformFilter(file.encryptedSources(), [&](const QXmppEncryptedFileSource &source) -> std::optional<EncryptedSource> {
+					if (source.httpSources().empty()) {
+						return {};
+					}
+					std::optional<qint64> encryptedDataId;
+					if (!source.hashes().empty()) {
+						encryptedDataId = QRandomGenerator::system()->generate64();
+					}
+					return EncryptedSource {
+						fileId,
+						source.httpSources().front().url(),
+						source.cipher(),
+						source.key(),
+						source.iv(),
+						encryptedDataId,
+						transform(source.hashes(), [&](const QXmppHash &h) {
+							return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
+						})
+					};
+				}),
+			};
+		});
+	} else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {
+		const qint64 fileGroupId = QRandomGenerator::system()->generate64();
+		messageToEdit.files = transformFilter(urls, [&](auto &file) {
+			return MessageHandler::parseOobUrl(file, fileGroupId);
+		});
+
+		// don't set file group id if there are no files
+		if (!messageToEdit.files.empty()) {
+			messageToEdit.fileGroupId = fileGroupId;
+		}
+	}
 }
 
 QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)

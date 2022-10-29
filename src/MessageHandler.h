@@ -125,6 +125,7 @@ private:
 
 	bool handleReaction(const QXmppMessage &message, const QString &senderJid);
 
+	static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
 	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
 	struct BacklogQueryState {
