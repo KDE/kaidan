@@ -152,7 +152,7 @@ Kirigami.Page {
 
 			RowLayout {
 				Layout.alignment: Qt.AlignTop
-				Layout.fillWidth: true
+				Layout.maximumWidth: largeButtonWidth
 				spacing: 20
 
 				Avatar {
@@ -188,7 +188,7 @@ Kirigami.Page {
 
 						Controls.Label {
 							Layout.alignment: Qt.AlignVCenter
-							text: userPresence.availabilityText
+							text: chatItemWatcher.item.sendingPresence ? userPresence.availabilityText : qsTr("Contact sends no status")
 							color: userPresence.availabilityColor
 							textFormat: Text.PlainText
 						}
@@ -196,6 +196,13 @@ Kirigami.Page {
 						Item {
 							Layout.fillWidth: true
 						}
+					}
+
+					Button {
+						visible: !chatItemWatcher.item.sendingPresence
+						text: qsTr("Request status")
+						onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(MessageModel.currentChatJid)
+						Layout.fillWidth: true
 					}
 				}
 			}
@@ -242,6 +249,24 @@ Kirigami.Page {
 			Kirigami.Heading {
 				level: 2
 				text: qsTr("Privacy")
+			}
+
+			RowLayout {
+				Controls.Label {
+					text: qsTr("Send status")
+				}
+
+				Controls.Switch {
+					checked: chatItemWatcher.item.receivingPresence
+					onClicked: {
+						if (checked) {
+							Kaidan.client.rosterManager.acceptSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+						} else {
+							Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+						}
+					}
+					Layout.fillWidth: true
+				}
 			}
 
 			RowLayout {

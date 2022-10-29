@@ -45,6 +45,8 @@ public:
 	Q_PROPERTY(QString jid MEMBER jid)
 	Q_PROPERTY(QString name MEMBER name)
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
+	Q_PROPERTY(bool sendingPresence READ isSendingPresence CONSTANT)
+	Q_PROPERTY(bool receivingPresence READ isReceivingPresence CONSTANT)
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
 	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
@@ -53,6 +55,9 @@ public:
 	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
 
 	QString displayName() const;
+
+	bool isSendingPresence() const;
+	bool isReceivingPresence() const;
 
 	bool operator==(const RosterItem &other) const;
 	bool operator!=(const RosterItem &other) const;

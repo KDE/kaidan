@@ -51,6 +51,10 @@ public:
 	void removeContact(const QString &jid);
 	void renameContact(const QString &jid, const QString &newContactName);
 
+	void subscribeToPresence(const QString &contactJid);
+	void acceptSubscriptionToPresence(const QString &contactJid);
+	void refuseSubscriptionToPresence(const QString &contactJid);
+
 signals:
 	/**
 	 * Requests to send subscription request answer (whether it was accepted
@@ -78,6 +82,10 @@ signals:
 	 * Change a contact's name
 	 */
 	void renameContactRequested(const QString &jid, const QString &newContactName);
+
+	void subscribeToPresenceRequested(const QString &contactJid);
+	void acceptSubscriptionToPresenceRequested(const QString &contactJid);
+	void refuseSubscriptionToPresenceRequested(const QString &contactJid);
 
 private:
 	void populateRoster();

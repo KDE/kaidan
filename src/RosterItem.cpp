@@ -41,6 +41,16 @@ QString RosterItem::displayName() const
 	return name.isEmpty() ? QXmppUtils::jidToUser(jid) : name;
 }
 
+bool RosterItem::isSendingPresence() const
+{
+	return subscription == QXmppRosterIq::Item::To || subscription == QXmppRosterIq::Item::Both;
+}
+
+bool RosterItem::isReceivingPresence() const
+{
+	return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
+}
+
 bool RosterItem::operator==(const RosterItem &other) const = default;
 bool RosterItem::operator!=(const RosterItem &other) const = default;
 

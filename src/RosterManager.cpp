@@ -31,6 +31,7 @@
 #include "RosterManager.h"
 // Kaidan
 #include "AvatarFileStorage.h"
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageModel.h"
 #include "OmemoManager.h"
@@ -96,6 +97,10 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	connect(this, &RosterManager::addContactRequested, this, &RosterManager::addContact);
 	connect(this, &RosterManager::removeContactRequested, this, &RosterManager::removeContact);
 	connect(this, &RosterManager::renameContactRequested, this, &RosterManager::renameContact);
+
+	connect(this, &RosterManager::subscribeToPresenceRequested, this, &RosterManager::subscribeToPresence);
+	connect(this, &RosterManager::acceptSubscriptionToPresenceRequested, this, &RosterManager::acceptSubscriptionToPresence);
+	connect(this, &RosterManager::refuseSubscriptionToPresenceRequested, this, &RosterManager::refuseSubscriptionToPresence);
 }
 
 void RosterManager::populateRoster()
@@ -154,5 +159,28 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
 		);
 		qWarning() << "[client] [RosterManager] Could not rename contact, as a result of "
 		              "not being connected.";
+	}
+}
+
+void RosterManager::subscribeToPresence(const QString &contactJid)
+{
+	await(m_manager->subscribeTo(contactJid), this, [contactJid](QXmpp::SendResult result) {
+		if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
+			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %s failed because of a connection problem: %s").arg(contactJid, error->text));
+		}
+	});
+}
+
+void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
+{
+	if (!m_manager->acceptSubscription(contactJid)) {
+		emit Kaidan::instance()->passiveNotificationRequested(tr("Allowing %s to see your status failed").arg(contactJid));
+	}
+}
+
+void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
+{
+	if (!m_manager->refuseSubscription(contactJid)) {
+		emit Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %s to see your status failed").arg(contactJid));
 	}
 }
