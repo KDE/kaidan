@@ -47,6 +47,10 @@ class RosterManager : public QObject
 public:
 	RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 
+	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
+	void removeContact(const QString &jid);
+	void renameContact(const QString &jid, const QString &newContactName);
+
 signals:
 	/**
 	 * Requests to send subscription request answer (whether it was accepted
@@ -75,15 +79,9 @@ signals:
 	 */
 	void renameContactRequested(const QString &jid, const QString &newContactName);
 
-public slots:
-	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
-	void removeContact(const QString &jid);
-	void renameContact(const QString &jid, const QString &newContactName);
-
-private slots:
+private:
 	void populateRoster();
 
-private:
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;
 	AvatarFileStorage *m_avatarStorage;
