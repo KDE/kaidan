@@ -34,13 +34,13 @@ msgstr ""
 "No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
 "eliminat d'aquesta aplicació: %1"
 
-#: src/FileSharingController.cpp:201
+#: src/FileSharingController.cpp:200
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
 
-#: src/FileSharingController.cpp:370
+#: src/FileSharingController.cpp:369
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -236,18 +236,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/MessageHandler.cpp:268
+#: src/MessageHandler.cpp:198
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:341
+#: src/MessageHandler.cpp:269
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:412
+#: src/MessageHandler.cpp:340
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
@@ -450,17 +450,17 @@ msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Baixa"
 
-#: src/qml/elements/ChatMessage.qml:312
+#: src/qml/elements/ChatMessage.qml:318
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
-#: src/qml/elements/ChatMessage.qml:317
+#: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "No fiable"
 
-#: src/qml/elements/ChatMessage.qml:349
+#: src/qml/elements/ChatMessage.qml:355
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1761,7 +1761,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Comencem"
 
-#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:209
+#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:216
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Perfil"
@@ -1781,12 +1781,48 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Elimina el contacte"
 
-#: src/qml/UserProfilePage.qml:245
+#: src/qml/UserProfilePage.qml:191
+msgctxt "UserProfilePage|"
+msgid "Contact sends no status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:203
+msgctxt "UserProfilePage|"
+msgid "Request status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:251
+msgctxt "UserProfilePage|"
+msgid "Privacy"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:256
+msgctxt "UserProfilePage|"
+msgid "Send status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:274
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfilePage|"
+msgid "Send typing notifications"
+msgstr "Deixa de silenciar les notificacions"
+
+#: src/qml/UserProfilePage.qml:286
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfilePage|"
+msgid "Send read notifications"
+msgstr "Deixa de silenciar les notificacions"
+
+#: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr "Encriptatge (OMEMO 2)"
 
-#: src/qml/UserProfilePage.qml:271
+#: src/qml/UserProfilePage.qml:329
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1796,56 +1832,56 @@ msgstr ""
 "vós i els vostres companys de xat puguin llegir o modificar les dades que "
 "intercanvieu."
 
-#: src/qml/UserProfilePage.qml:283 src/qml/UserProfilePage.qml:289
+#: src/qml/UserProfilePage.qml:341 src/qml/UserProfilePage.qml:347
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanegeu els codis QR dels vostres dispositius per encriptar-los"
 
-#: src/qml/UserProfilePage.qml:285
+#: src/qml/UserProfilePage.qml:343
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Els altres dispositius vostres no empren OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:292
+#: src/qml/UserProfilePage.qml:350
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Escanegeu els codis QR dels vostres dispositius per a un encriptatge segur "
 "màxim"
 
-#: src/qml/UserProfilePage.qml:303
+#: src/qml/UserProfilePage.qml:361
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Escanegeu els codis QR propis"
 
-#: src/qml/UserProfilePage.qml:316
+#: src/qml/UserProfilePage.qml:374
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr "Escanegeu el codi QR del contacte per activar l'encriptatge"
 
-#: src/qml/UserProfilePage.qml:319
+#: src/qml/UserProfilePage.qml:377
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr "El vostre contacte no empra OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:322
+#: src/qml/UserProfilePage.qml:380
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
 "Escanegeu els codis QR dels dispositius del vostre contacte per encriptar-los"
 
-#: src/qml/UserProfilePage.qml:325
+#: src/qml/UserProfilePage.qml:383
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 "Escanegeu el codi QR del vostre contacte per a un encriptatge segur màxim"
 
-#: src/qml/UserProfilePage.qml:336
+#: src/qml/UserProfilePage.qml:394
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Escanegeu el codi QR del contacte"
 
-#: src/qml/UserProfilePage.qml:350
+#: src/qml/UserProfilePage.qml:408
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositius connectats"
@@ -1938,21 +1974,37 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Ha fallat en generar el codi QR: %1"
 
-#: src/RosterManager.cpp:126
+#: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:140
+#: src/RosterManager.cpp:145
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:153
+#: src/RosterManager.cpp:158
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "No s'ha pogut reanomenar el contacte, com a resultat de no estar connectat."
+
+#: src/RosterManager.cpp:169
+msgctxt "RosterManager|"
+msgid ""
+"Requesting to see the status of %s failed because of a connection problem: %s"
+msgstr ""
+
+#: src/RosterManager.cpp:177
+msgctxt "RosterManager|"
+msgid "Allowing %s to see your status failed"
+msgstr ""
+
+#: src/RosterManager.cpp:184
+msgctxt "RosterManager|"
+msgid "Disallowing %s to see your status failed"
+msgstr ""
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"

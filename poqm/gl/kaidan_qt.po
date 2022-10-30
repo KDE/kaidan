@@ -17,7 +17,7 @@ msgstr ""
 "A túa conta non se pode eliminar do servidor. Así, tampouco foi eliminada "
 "desta app: %1"
 
-#: src/FileSharingController.cpp:201
+#: src/FileSharingController.cpp:200
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -25,7 +25,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Fallou a descarga: %1"
 
-#: src/FileSharingController.cpp:370
+#: src/FileSharingController.cpp:369
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -232,13 +232,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:268
+#: src/MessageHandler.cpp:198
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:341
+#: src/MessageHandler.cpp:269
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -246,7 +246,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Non se puido correxir a mensaxe."
 
-#: src/MessageHandler.cpp:412
+#: src/MessageHandler.cpp:340
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Non se puido enviar a mensaxe."
@@ -452,17 +452,17 @@ msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Descargar"
 
-#: src/qml/elements/ChatMessage.qml:312
+#: src/qml/elements/ChatMessage.qml:318
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:317
+#: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:349
+#: src/qml/elements/ChatMessage.qml:355
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1846,7 +1846,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Comecemos"
 
-#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:209
+#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:216
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Perfil"
@@ -1866,19 +1866,55 @@ msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Eliminar contacto"
 
-#: src/qml/UserProfilePage.qml:245
+#: src/qml/UserProfilePage.qml:191
+msgctxt "UserProfilePage|"
+msgid "Contact sends no status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:203
+msgctxt "UserProfilePage|"
+msgid "Request status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:251
+msgctxt "UserProfilePage|"
+msgid "Privacy"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:256
+msgctxt "UserProfilePage|"
+msgid "Send status"
+msgstr ""
+
+#: src/qml/UserProfilePage.qml:274
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfilePage|"
+msgid "Send typing notifications"
+msgstr "Restaurar notificacións"
+
+#: src/qml/UserProfilePage.qml:286
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfilePage|"
+msgid "Send read notifications"
+msgstr "Restaurar notificacións"
+
+#: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:271
+#: src/qml/UserProfilePage.qml:329
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:283 src/qml/UserProfilePage.qml:289
+#: src/qml/UserProfilePage.qml:341 src/qml/UserProfilePage.qml:347
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1886,12 +1922,12 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfilePage.qml:285
+#: src/qml/UserProfilePage.qml:343
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:292
+#: src/qml/UserProfilePage.qml:350
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1899,7 +1935,7 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfilePage.qml:303
+#: src/qml/UserProfilePage.qml:361
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1907,17 +1943,17 @@ msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Escanear código QR"
 
-#: src/qml/UserProfilePage.qml:316
+#: src/qml/UserProfilePage.qml:374
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:319
+#: src/qml/UserProfilePage.qml:377
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:322
+#: src/qml/UserProfilePage.qml:380
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -1925,12 +1961,12 @@ msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfilePage.qml:325
+#: src/qml/UserProfilePage.qml:383
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 
-#: src/qml/UserProfilePage.qml:336
+#: src/qml/UserProfilePage.qml:394
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -1938,7 +1974,7 @@ msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Escanear código QR"
 
-#: src/qml/UserProfilePage.qml:350
+#: src/qml/UserProfilePage.qml:408
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositivos en liña"
@@ -2031,20 +2067,36 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Fallou a creación do código QR: %1"
 
-#: src/RosterManager.cpp:126
+#: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Non se engadiu o contacto, xa que non está conectada."
 
-#: src/RosterManager.cpp:140
+#: src/RosterManager.cpp:145
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Non se eliminou o contacto, xa que non está conectada."
 
-#: src/RosterManager.cpp:153
+#: src/RosterManager.cpp:158
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Non se cambiou o nome do contacto, porque non está conectado."
+
+#: src/RosterManager.cpp:169
+msgctxt "RosterManager|"
+msgid ""
+"Requesting to see the status of %s failed because of a connection problem: %s"
+msgstr ""
+
+#: src/RosterManager.cpp:177
+msgctxt "RosterManager|"
+msgid "Allowing %s to see your status failed"
+msgstr ""
+
+#: src/RosterManager.cpp:184
+msgctxt "RosterManager|"
+msgid "Disallowing %s to see your status failed"
+msgstr ""
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
