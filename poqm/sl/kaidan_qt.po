@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-20 07:05+0200\n"
+"PO-Revision-Date: 2022-10-31 07:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1758,38 +1758,32 @@ msgstr "Odstrani stik"
 #: src/qml/UserProfilePage.qml:191
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
-msgstr ""
+msgstr "Stik ne pošilja nobenega stanja"
 
 #: src/qml/UserProfilePage.qml:203
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Zahtevam stanje"
 
 #: src/qml/UserProfilePage.qml:251
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Zasebnost"
 
 #: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Pošlji stanje"
 
 #: src/qml/UserProfilePage.qml:274
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "Vklopi obvestila"
+msgstr "Pošiljaj obvestila o tipkanju"
 
 #: src/qml/UserProfilePage.qml:286
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "Vklopi obvestila"
+msgstr "Pošiljaj obvestila o branju"
 
 #: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
@@ -1964,16 +1958,17 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
+"Zahtevek za vpogled v stanje %s ni uspelo zaradi težav pri povezavi: %s"
 
 #: src/RosterManager.cpp:177
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "Dovoljenje za %s, da vidi vaše stanje ni uspelo"
 
 #: src/RosterManager.cpp:184
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "Preklic dovoljenja za %s, da vidi vaše stanje ni uspelo"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"

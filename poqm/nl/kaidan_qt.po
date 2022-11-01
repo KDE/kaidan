@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-20 10:19+0200\n"
+"PO-Revision-Date: 2022-10-30 13:10+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1766,38 +1766,32 @@ msgstr "Contactpersoon verwijderen"
 #: src/qml/UserProfilePage.qml:191
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
-msgstr ""
+msgstr "Contactpersoon stuurt geen status"
 
 #: src/qml/UserProfilePage.qml:203
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Verzoeken om status"
 
 #: src/qml/UserProfilePage.qml:251
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Privacy"
 
 #: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Status verzenden"
 
 #: src/qml/UserProfilePage.qml:274
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "Meldingen inschakelen"
+msgstr "Meldingen over typen verzenden"
 
 #: src/qml/UserProfilePage.qml:286
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "Meldingen inschakelen"
+msgstr "Meldingen over lezen verzenden"
 
 #: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
@@ -1978,16 +1972,18 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
+"Verzoek doen om de status van %s te zien is mislukt vanwege een probleem met "
+"de verbinding: %s"
 
 #: src/RosterManager.cpp:177
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "%s toestaan om uw status te zien is mislukt"
 
 #: src/RosterManager.cpp:184
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "%s niet toestaan om uw status te zien is mislukt"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"

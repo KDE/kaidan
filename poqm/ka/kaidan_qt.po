@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -234,12 +234,12 @@ msgstr ""
 #: src/MessageHandler.cpp:269
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr ""
+msgstr "შეტყობინების ჩასწორება წარუმატებელია"
 
 #: src/MessageHandler.cpp:340
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "შეტყობინების გაგზავნა შეუძლებელია."
 
 #: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
@@ -304,7 +304,7 @@ msgstr "გათიშული"
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "მორგებული მომწოდებელი"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -323,7 +323,7 @@ msgstr "%1 დღე"
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr ""
+msgstr "მარტივი, მეგობრული კლიენტი Jabber/XMPP-სთვის"
 
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
@@ -460,7 +460,7 @@ msgstr "შეტყობინების შეცვლა"
 #: src/qml/elements/ChatMessageContextMenu.qml:63
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr ""
+msgstr "გადმოწერის ბმულის კოპირება"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:69
 msgctxt "ChatMessageContextMenu|"
@@ -480,7 +480,7 @@ msgstr "მონიშნე, როგორც პირველი წა�
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr ""
+msgstr "შეტყობინების ძებნის პანელის დახურვა"
 
 #: src/qml/elements/ChatPageSearchView.qml:89
 msgctxt "ChatPageSearchView|"
@@ -520,7 +520,7 @@ msgstr "სურათის გადაღება"
 #: src/qml/elements/ChatPageSendingPane.qml:272
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "კამერით სურათის გადაღება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
 msgctxt "ChatPageSendingPane|"
@@ -530,7 +530,7 @@ msgstr "ვიდეოს ჩაწერა"
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "კამერით ვიდეოს გადაღება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
@@ -540,7 +540,7 @@ msgstr "დოკუმენტი"
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
+msgstr "მოწყობილობიდან დოკუმენტის მიბმა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
@@ -580,7 +580,7 @@ msgstr "პაროლი"
 #: src/qml/elements/fields/PasswordField.qml:41
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "შეიყვანეთ სწორი პაროლი"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:51
 #, qt-format
@@ -591,7 +591,7 @@ msgstr ""
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "საკუთარი რეაქციის დამატება"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
 msgctxt "MessageReactionSenderSheet|"
@@ -639,7 +639,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
-msgstr ""
+msgstr "კამერა მიუწვდომელია."
 
 #: src/qml/elements/QrCodeScanner.qml:101
 msgctxt "QrCodeScanner|"
@@ -647,6 +647,8 @@ msgid ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 msgstr ""
+"კამერა დაკავებულია.\n"
+"სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ."
 
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
@@ -994,7 +996,7 @@ msgstr "საჩვენებელი სახელი"
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr ""
+msgstr "სერვერის გამოთხოვა…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:45
 msgctxt "ManualRegistrationPage|"
@@ -1065,7 +1067,7 @@ msgstr "შეერთების მორგება"
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr ""
+msgstr "მხოლოდ ვებ-რეგისტრაცია:"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
@@ -1080,7 +1082,7 @@ msgstr "დიახ"
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr ""
+msgstr "სერვერის მდებარეობები:"
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
@@ -1090,7 +1092,7 @@ msgstr "ენები:"
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr ""
+msgstr "ონლაინ დრო:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -1110,7 +1112,7 @@ msgstr "ვებგვერდის გახსნა"
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr ""
+msgstr "ვეგბვერდის მისამართის კოპირება"
 
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
@@ -1125,27 +1127,27 @@ msgstr "რესგისტრაცია"
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
-msgstr ""
+msgstr "ანგარიშის ავტომატური გენერაცია"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:52
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
-msgstr ""
+msgstr "ანგარიშის ხელით შექმნა"
 
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "შეყვანილი CAPTCHA არასწორია"
 
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "აუცილებელი ინფორმაცია ნაპოვნი არაა:"
 
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "რეგისტრაციის შეცდომა:"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -1187,17 +1189,17 @@ msgstr ""
 #: src/qml/registration/WebRegistrationView.qml:49
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr ""
+msgstr "რეგისტრაციის ვებგვერდის გახსნა"
 
 #: src/qml/registration/WebRegistrationView.qml:54
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr ""
+msgstr "რეგისტრაციის ვებგვერდის მისამართის კოპირება"
 
 #: src/qml/registration/WebRegistrationView.qml:60
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr ""
+msgstr "შედით თქვენი ახალი ანგარიშით"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:41
 msgctxt "RegistrationLoginDecisionPage|"
@@ -1207,12 +1209,12 @@ msgstr "მორგება"
 #: src/qml/RegistrationLoginDecisionPage.qml:47
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Register a new account"
-msgstr ""
+msgstr "ახალი ანგარიშის რეგისტრაცია"
 
 #: src/qml/RegistrationLoginDecisionPage.qml:52
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
-msgstr ""
+msgstr "არსებული ანგარიშის გამოყენება"
 
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
@@ -1254,7 +1256,7 @@ msgstr ""
 #: src/qml/settings/AccountSecurity.qml:44
 msgctxt "AccountSecurity|"
 msgid "Don't show password"
-msgstr ""
+msgstr "არ მაჩვენო პაროლი"
 
 #: src/qml/settings/AccountSecurity.qml:49
 msgctxt "AccountSecurity|"
@@ -1286,7 +1288,7 @@ msgstr "ახალი პაროლი:"
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
 msgid "New password (repeat):"
-msgstr ""
+msgstr "ახალი პაროლი (გაიმეორეთ):"
 
 #: src/qml/settings/ChangePassword.qml:84
 msgctxt "ChangePassword|"
@@ -1296,7 +1298,7 @@ msgstr "ახალი პაროლები არ ემთხვევა
 #: src/qml/settings/ChangePassword.qml:93
 msgctxt "ChangePassword|"
 msgid "Current password is invalid."
-msgstr ""
+msgstr "მიმდინარე პაროლი არასწორია"
 
 #: src/qml/settings/ChangePassword.qml:100
 msgctxt "ChangePassword|"
@@ -1390,7 +1392,7 @@ msgstr ""
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:43
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show your password"
-msgstr ""
+msgstr "არ მაჩვენო პაროლი"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:46
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1406,7 +1408,7 @@ msgstr ""
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:51
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Don't show password"
-msgstr ""
+msgstr "არ მაჩვენო პაროლი"
 
 #: src/qml/settings/LocalAccountRemoval.qml:42
 msgctxt "LocalAccountRemoval|"
@@ -1692,33 +1694,27 @@ msgstr ""
 #: src/qml/UserProfilePage.qml:203
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "სტატუსის გამოთხოვა"
 
 #: src/qml/UserProfilePage.qml:251
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "პირადი ინფორმაცია"
 
 #: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "სტატუსის გაგზავნა"
 
 #: src/qml/UserProfilePage.qml:274
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "გაფრთხილებების დადუმების მოხსნა"
+msgstr "კრეფის შეტყობინების გაგზავნა"
 
 #: src/qml/UserProfilePage.qml:286
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "გაფრთხილებების დადუმების მოხსნა"
+msgstr "წაკითხულობის შეტყობინების გაგზავნა"
 
 #: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
