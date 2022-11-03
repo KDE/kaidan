@@ -107,10 +107,7 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 	if (oldItem.encryption != newItem.encryption)
 		rec.append(createSqlField("encryption", newItem.encryption));
 	if (oldItem.unreadMessages != newItem.unreadMessages)
-		rec.append(createSqlField(
-			"unreadMessages",
-			newItem.unreadMessages
-		));
+		rec.append(createSqlField("unreadMessages", newItem.unreadMessages));
 	if (oldItem.lastReadOwnMessageId != newItem.lastReadOwnMessageId)
 		rec.append(createSqlField("lastReadOwnMessageId", newItem.lastReadOwnMessageId));
 	if (oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)

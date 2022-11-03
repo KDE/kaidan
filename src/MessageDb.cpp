@@ -217,6 +217,49 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 	});
 }
 
+QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
+{
+	return run([this, accountJid, chatJid, index]() {
+		auto query = createQuery();
+		prepareQuery(
+			query,
+			R"(
+				SELECT * FROM Messages
+				WHERE
+					(sender = :accountJid AND recipient = :chatJid) OR
+					(sender = :chatJid AND recipient = :accountJid)
+				ORDER BY timestamp DESC
+				LIMIT
+					:index,
+					:limit + (
+						SELECT COUNT() FROM Messages
+						WHERE
+							timestamp >= (
+								SELECT timestamp FROM Messages
+								WHERE sender = :chatJid AND recipient = :accountJid)
+							AND (
+								(sender = :accountJid AND recipient = :chatJid) OR
+								(sender = :chatJid AND recipient = :accountJid)
+							)
+					)
+			)"
+		);
+		bindValues(query, {
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+			{ u":index", index },
+			{ u":limit", DB_QUERY_LIMIT_MESSAGES },
+		});
+		execQuery(query);
+
+		auto messages = _fetchMessagesFromQuery(query);
+		_fetchReactions(messages);
+
+		emit messagesFetched(messages);
+		return messages;
+	});
+}
+
 QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId)
 {
 	return run([this, accountJid, chatJid, index, limitingId]() {

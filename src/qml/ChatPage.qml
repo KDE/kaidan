@@ -232,21 +232,26 @@ ChatPageBase {
 			target: MessageModel
 
 			function onMessageFetchingFinished() {
-				var unreadMessageCount = chatItemWatcher.item.unreadMessageCount
+				// Skip the case when messages are fetched after the initial fetching because this
+				// function positioned the view at firstUnreadContactMessageIndex and that is close
+				// to the end of the loaded messages.
+				if (!root.viewPositioned) {
+					var unreadMessageCount = chatItemWatcher.item.unreadMessageCount
 
-				if (unreadMessageCount) {
-					var firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
+					if (unreadMessageCount) {
+						var firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
 
-					if (firstUnreadContactMessageIndex > 0) {
-						messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
+						if (firstUnreadContactMessageIndex > 0) {
+							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
+						}
+
+						root.viewPositioned = true
+
+						// Trigger sending read markers manually as the view is ready.
+						messageListView.handleMessageRead()
+					} else {
+						root.viewPositioned = true
 					}
-
-					root.viewPositioned = true
-
-					// Trigger sending read markers manually as the view is ready.
-					messageListView.handleMessageRead()
-				} else {
-					root.viewPositioned = true
 				}
 			}
 
@@ -274,7 +279,7 @@ ChatPageBase {
 		 * Sends a read marker for the latest visible / read message.
 		 */
 		function handleMessageRead() {
-			if (viewPositioned) {
+			if (root.viewPositioned) {
 				MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
 			}
 		}

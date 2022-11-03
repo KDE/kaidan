@@ -283,13 +283,24 @@ void MessageModel::fetchMore(const QModelIndex &)
 {
 	if (!m_fetchedAllFromDb) {
 		if (m_messages.isEmpty()) {
-			const auto lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
-			if (lastReadContactMessageId.isEmpty()) {
+			// If there are unread messages, all messages until the first unread message are
+			// fetched.
+			// Otherwise, the messages are fetched by their regular limit.
+			if (m_rosterItemWatcher.item().unreadMessages > 0) {
+				const auto lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
+
+				// lastReadContactMessageId can be empty if there is no contact message stored or
+				// the oldest stored contact message is marked as first unread.
+				if (lastReadContactMessageId.isEmpty()) {
+					MessageDb::instance()->fetchMessagesUntilFirstContactMessage(
+							AccountManager::instance()->jid(), m_currentChatJid, 0);
+				} else {
+					MessageDb::instance()->fetchMessagesUntilId(
+							AccountManager::instance()->jid(), m_currentChatJid, 0, lastReadContactMessageId);
+				}
+			} else {
 				MessageDb::instance()->fetchMessages(
 						AccountManager::instance()->jid(), m_currentChatJid, 0);
-			} else {
-				MessageDb::instance()->fetchMessagesUntilId(
-						AccountManager::instance()->jid(), m_currentChatJid, 0, lastReadContactMessageId);
 			}
 		} else {
 			MessageDb::instance()->fetchMessages(
@@ -471,14 +482,15 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 			item.lastReadContactMessageId = readMessageId;
 			item.readMarkerPending = readMarkerPending;
 
-			// If the read message is the latest one, reset the counter for unread messages.
+			// If the read message is the latest one or lastReadContactMessageId is empty, reset the
+			// counter for unread messages.
+			// lastReadContactMessageId can be empty if there is no contact message stored or the
+			// oldest stored contact message is marked as first unread.
 			// Otherwise, decrease it by the number of contact messages between the read contact
 			// message and the last read contact message.
-			// If lastReadContactMessageId is empty, which can be the case when there is no contact
-			// message fetched via MAM, nothing is done.
-			if (readContactMessageIndex == 0) {
+			if (readContactMessageIndex == 0 || lastReadContactMessageId.isEmpty()) {
 				item.unreadMessages = 0;
-			} else if (!lastReadContactMessageId.isEmpty()) {
+			} else {
 				int readMessageCount = 1;
 				for (int i = readContactMessageIndex + 1; i < m_messages.size(); ++i) {
 					if (const auto &message = m_messages.at(i); message.id == lastReadContactMessageId) {
@@ -500,7 +512,11 @@ int MessageModel::firstUnreadContactMessageIndex()
 	int lastReadContactMessageIndex = -1;
 	for (auto i = 0; i < m_messages.size(); ++i) {
 		const auto &message = m_messages.at(i);
-		if (!message.isOwn && message.id == lastReadContactMessageId) {
+		const auto &messageId = message.id;
+
+		// lastReadContactMessageId can be empty if there is no contact message stored or the oldest
+		// stored contact message is marked as first unread.
+		if (!message.isOwn && (messageId == lastReadContactMessageId || lastReadContactMessageId.isEmpty())) {
 			lastReadContactMessageIndex = i;
 		}
 	}
@@ -539,7 +555,7 @@ void MessageModel::markMessageAsFirstUnread(int index)
 		}
 	}
 
-	// Find the last read contact message in the databse in order to update the last read contact
+	// Find the last read contact message in the database in order to update the last read contact
 	// message ID.
 	// That is needed if a message is marked as the first unread message while the previous message
 	// of the contact is not fetched from the database and thus not in m_messages.
