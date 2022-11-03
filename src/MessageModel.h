@@ -118,6 +118,7 @@ public:
 	QString currentAccountJid();
 	QString currentChatJid();
 	Q_INVOKABLE void setCurrentChat(const QString &accountJid, const QString &chatJid);
+	Q_INVOKABLE void resetCurrentChat();
 
 	/**
 	 * Determines whether a chat is the currently open chat.
@@ -290,6 +291,8 @@ private slots:
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
 
 private:
+	void resetCurrentChat(const QString &accountJid, const QString &chatJid);
+
 	/**
 	 * Removes all messages of an account or an account's chat.
 	 *

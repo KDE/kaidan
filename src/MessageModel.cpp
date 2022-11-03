@@ -343,39 +343,22 @@ QString MessageModel::currentChatJid()
 
 void MessageModel::setCurrentChat(const QString &accountJid, const QString &chatJid)
 {
-	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid)
+	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid) {
 		return;
+	}
 
-	// Send gone state to old chat partner
-	sendChatState(QXmppMessage::State::Gone);
+	resetCurrentChat(accountJid, chatJid);
 
-	// Setting of the following attributes must be done before sending chat states for the new chat.
-	// Otherwise, the chat states are sent to the former chat.
-	m_currentAccountJid = accountJid;
-	m_currentChatJid = chatJid;
-
-	m_rosterItemWatcher.setJid(chatJid);
-	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
-
-	// Reset chat states
-	m_ownChatState = QXmppMessage::State::None;
-	m_chatPartnerChatState = m_chatStateCache.value(chatJid, QXmppMessage::State::Gone);
-	m_composingTimer->stop();
-	m_stateTimeoutTimer->stop();
-	m_inactiveTimer->stop();
-	m_chatPartnerChatStateTimeout->stop();
-
-	// Send active state to new chat partner
+	// Send "active" state for the current chat.
 	sendChatState(QXmppMessage::State::Active);
 
 	runOnThread(Kaidan::instance()->client()->omemoManager(), [accountJid, chatJid] {
 		Kaidan::instance()->client()->omemoManager()->initializeChat(accountJid, chatJid);
 	});
+}
 
-	emit currentAccountJidChanged(accountJid);
-	emit currentChatJidChanged(chatJid);
-
-	removeAllMessages();
+void MessageModel::resetCurrentChat() {
+	resetCurrentChat({}, {});
 }
 
 bool MessageModel::isChatCurrentChat(const QString &accountJid, const QString &chatJid) const
@@ -714,6 +697,34 @@ void MessageModel::handleMamBacklogRetrieved(const QString &accountJid, const QS
 
 		emit messageFetchingFinished();
 	}
+}
+
+void MessageModel::resetCurrentChat(const QString &accountJid, const QString &chatJid)
+{
+	// Send "gone" state for the previous chat.
+	if (!m_currentAccountJid.isEmpty() && !m_currentChatJid.isEmpty()) {
+		sendChatState(QXmppMessage::State::Gone);
+	}
+
+	// Setting of the following attributes must be done before sending chat states for the new chat.
+	// Otherwise, the chat states would be sent for the previous chat.
+	m_currentAccountJid = accountJid;
+	m_currentChatJid = chatJid;
+	emit currentAccountJidChanged(accountJid);
+	emit currentChatJidChanged(chatJid);
+
+	m_rosterItemWatcher.setJid(chatJid);
+	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
+
+	// Reset the chat states of the previous chat.
+	m_ownChatState = QXmppMessage::State::None;
+	m_chatPartnerChatState = m_chatStateCache.value(chatJid, QXmppMessage::State::Gone);
+	m_composingTimer->stop();
+	m_stateTimeoutTimer->stop();
+	m_inactiveTimer->stop();
+	m_chatPartnerChatStateTimeout->stop();
+
+	removeAllMessages();
 }
 
 void MessageModel::removeMessages(const QString &accountJid, const QString &chatJid)

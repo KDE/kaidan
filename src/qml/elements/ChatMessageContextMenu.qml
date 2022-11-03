@@ -85,7 +85,7 @@ Controls.Menu {
 		visible: root.message && !root.message.isOwn
 		onTriggered: {
 			MessageModel.markMessageAsFirstUnread(message.modelIndex);
-			MessageModel.setCurrentChat("", "")
+			MessageModel.resetCurrentChat()
 			openChatView()
 		}
 	}
