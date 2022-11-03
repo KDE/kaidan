@@ -113,6 +113,10 @@ public:
 	/**
 	 * Sends read markers for all roster items that have unsent (pending) ones.
 	 *
+	 * This method must only be called while being logged in.
+	 * Otherwise, the pending states of the read markers would be reset even if the pending read
+	 * markers could not be sent.
+	 *
 	 * @param accountJid bare JID of the user's account
 	 */
 	void sendPendingReadMarkers(const QString &accountJid);

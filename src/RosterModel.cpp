@@ -213,21 +213,19 @@ QString RosterModel::lastReadContactMessageId(const QString &, const QString &ji
 
 void RosterModel::sendPendingReadMarkers(const QString &)
 {
-	for (const auto &item : m_items) {
+	for (const auto &item : std::as_const(m_items)) {
 		if (const auto messageId = item.lastReadContactMessageId; item.readMarkerPending && !messageId.isEmpty()) {
-			if (Enums::ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-				const auto chatJid = item.jid;
+			const auto chatJid = item.jid;
 
-				if (item.readMarkerSendingEnabled) {
-					runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
-						Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
-					});
-				}
-
-				emit updateItemRequested(chatJid, [](RosterItem &item) {
-					item.readMarkerPending = false;
+			if (item.readMarkerSendingEnabled) {
+				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
+					Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
 				});
 			}
+
+			emit updateItemRequested(chatJid, [](RosterItem &item) {
+				item.readMarkerPending = false;
+			});
 		}
 	}
 }
