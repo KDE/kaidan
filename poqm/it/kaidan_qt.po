@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-22 15:36+0200\n"
+"PO-Revision-Date: 2022-11-03 12:35+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -1776,38 +1776,32 @@ msgstr "Rimuovi contatto"
 #: src/qml/UserProfilePage.qml:191
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
-msgstr ""
+msgstr "Il contatto non invia alcuno stato"
 
 #: src/qml/UserProfilePage.qml:203
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Stato della richiesta"
 
 #: src/qml/UserProfilePage.qml:251
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Riservatezza"
 
 #: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Invia lo stato"
 
 #: src/qml/UserProfilePage.qml:274
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "Rimuovi il silenzio alle notifiche"
+msgstr "Invia le notifiche di digitazione"
 
 #: src/qml/UserProfilePage.qml:286
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "Rimuovi il silenzio alle notifiche"
+msgstr "Invia le notifiche di lettura"
 
 #: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
@@ -1990,16 +1984,18 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
+"Richiesta di vedere lo stato di %s non riuscita a causa di un problema di "
+"connessione: %s"
 
 #: src/RosterManager.cpp:177
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "Impossibile consentire a %s di vedere il tuo stato"
 
 #: src/RosterManager.cpp:184
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "Impossibile impedire a %s di vedere il tuo stato"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
