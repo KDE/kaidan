@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-18 17:17+0200\n"
-"Last-Translator: Grzegorz Koryga <rehork@tutamail.com>\n"
+"PO-Revision-Date: 2022-12-10 11:20+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -597,20 +597,17 @@ msgstr "Wprowadź prawidłowe hasło"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "Wysyłający %1"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "Dodaj własną reakcję"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr "Usuń kontakt"
+msgstr "Usuń własną reakcję"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -712,12 +709,12 @@ msgstr "Dodaj"
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "Odepnij"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "Pin"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
@@ -1501,7 +1498,7 @@ msgstr "Ustawienia multimediów"
 #: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr "Konfiguruj"
+msgstr "Ustawienia"
 
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
@@ -1764,38 +1761,32 @@ msgstr "Usuń kontakt"
 #: src/qml/UserProfilePage.qml:191
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
-msgstr ""
+msgstr "Kontakt nie wysyła stanu"
 
 #: src/qml/UserProfilePage.qml:203
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Zażądaj stanu"
 
 #: src/qml/UserProfilePage.qml:251
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Prywatność"
 
 #: src/qml/UserProfilePage.qml:256
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Wyślij stan"
 
 #: src/qml/UserProfilePage.qml:274
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "Usuń wyciszenie powiadomień"
+msgstr "Powiadamiaj o pisaniu"
 
 #: src/qml/UserProfilePage.qml:286
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "Usuń wyciszenie powiadomień"
+msgstr "Wyślij powiadomienie o przeczytaniu"
 
 #: src/qml/UserProfilePage.qml:303
 msgctxt "UserProfilePage|"
@@ -1970,16 +1961,18 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
+"Nie udało się zażądać zobaczenia stanu %s ze względu na kłopoty z "
+"połączeniem: %s"
 
 #: src/RosterManager.cpp:177
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "Zezwól %s na zobaczenie, że twój stan się nie udał"
 
 #: src/RosterManager.cpp:184
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "Odmów %s zobaczenia, że twój stan się nie udał"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
