@@ -48,6 +48,17 @@ class MessageDb : public DatabaseComponent
 	Q_OBJECT
 
 public:
+	/**
+	 * @struct The MessageResult is used inside the MessageDb class to retrieve
+	 * the messages as QVector as well as the queryIndex.
+	 * @brief The default constructor sets queryIndex to -1 which defines that
+	 * the MessageResult is empty.
+	 */
+	struct MessageResult {
+		QVector<Message> messages;
+		int queryIndex = -1;
+	};
+
 	explicit MessageDb(Database *db, QObject *parent = nullptr);
 	~MessageDb();
 
@@ -90,6 +101,25 @@ public:
 	QFuture<QVector<Message>> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId);
 
 	Q_SIGNAL void messagesFetched(const QVector<Message> &messages);
+
+	/**
+	 * Fetches more entries from the database and emits messagesFetched() with the results.
+	 *
+	 * Entries are fetched until a message with queryString is found.
+	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
+	 * If no message with queryString could be found, no messages are returned.
+	 *
+	 * The returned query index is -1 if no message with queryString could be found,
+	 * otherwise index - 1.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 * @param chatJid bare Jid of the chat
+	 * @param index number of entries to be skipped, used for paging
+	 * @param queryString string to be queried
+	 *
+	 * @return the fetched messages and the found message index - 1
+	 */
+	QFuture<MessageResult> fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString);
 
 	/**
 	 * @brief Fetches messages that are marked as pending.

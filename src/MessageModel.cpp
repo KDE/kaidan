@@ -827,34 +827,41 @@ void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 	}
 }
 
-int MessageModel::searchForMessageFromNewToOld(const QString &searchString, const int startIndex) const
+int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int startIndex)
 {
-	int indexOfFoundMessage = startIndex;
+	int foundIndex = startIndex;
 
-	if (indexOfFoundMessage >= m_messages.size())
-		indexOfFoundMessage = 0;
+	if (foundIndex < m_messages.size()) {
+		for (; foundIndex < m_messages.size(); foundIndex++) {
+			if (m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive)) {
+				return foundIndex;
+			}
+		}
 
-	for (; indexOfFoundMessage < m_messages.size(); indexOfFoundMessage++) {
-		if (m_messages.at(indexOfFoundMessage).body.contains(searchString, Qt::CaseInsensitive))
-			return indexOfFoundMessage;
+		await(
+			MessageDb::instance()->fetchMessagesUntilQueryString(AccountManager::instance()->jid(), m_currentChatJid, foundIndex, searchString),
+			this,
+			[this](auto result) {
+				emit messageSearchFinished(result.queryIndex);
+			}
+		);
 	}
 
 	return -1;
 }
 
-int MessageModel::searchForMessageFromOldToNew(const QString &searchString, const int startIndex) const
+int MessageModel::searchForMessageFromOldToNew(const QString &searchString, int startIndex)
 {
-	int indexOfFoundMessage = startIndex;
+	int foundIndex = startIndex;
 
-	if (indexOfFoundMessage < 0)
-		indexOfFoundMessage = m_messages.size() - 1;
-
-	for (; indexOfFoundMessage >= 0; indexOfFoundMessage--) {
-		if (m_messages.at(indexOfFoundMessage).body.contains(searchString, Qt::CaseInsensitive))
-			break;
+	if (foundIndex >= 0) {
+		for (; foundIndex >= 0; foundIndex--) {
+			if (m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive))
+				break;
+		}
 	}
 
-	return indexOfFoundMessage;
+	return foundIndex;
 }
 
 void MessageModel::processMessage(Message &msg)

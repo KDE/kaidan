@@ -217,7 +217,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 	});
 }
 
-QFuture<QVector<Message> > MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId)
+QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId)
 {
 	return run([this, accountJid, chatJid, index, limitingId]() {
 		auto query = createQuery();
@@ -250,6 +250,74 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilId(const QString &accoun
 
 		emit messagesFetched(messages);
 		return messages;
+	});
+}
+
+QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString)
+{
+	return run([this, accountJid, chatJid, index, queryString]() -> MessageResult {
+		auto query = createQuery();
+
+		prepareQuery(
+			query,
+			"SELECT COUNT() FROM Messages "
+			"WHERE timestamp >= "
+			"(SELECT timestamp FROM Messages "
+			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) AND "
+			"message LIKE :queryString AND "
+			"timestamp <= "
+			"(SELECT timestamp FROM Messages "
+			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) "
+			"ORDER BY timestamp DESC LIMIT :index, 1) "
+			"ORDER BY timestamp DESC LIMIT 1) AND "
+			"((sender = :accountJid AND recipient = :chatJid) OR "
+			"(sender = :chatJid AND recipient = :accountJid))"
+		);
+		bindValues(query, {
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+			{ u":index", index },
+			// '%' is intended here as a placeholder inside the query for SQL statement "LIKE".
+			{ u":queryString", "%" + queryString + "%" },
+		});
+		execQuery(query);
+
+		query.first();
+		const auto queryStringMessageIndex = query.value(0).toInt();
+		const auto messagesUntilQueryStringCount = queryStringMessageIndex - index;
+
+		// Skip further processing if no message with queryString could be found.
+		if (messagesUntilQueryStringCount <= 0) {
+			return {};
+		}
+
+		prepareQuery(
+			query,
+			"SELECT * FROM Messages "
+			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
+			"(sender = :chatJid AND recipient = :accountJid) "
+			"ORDER BY timestamp DESC "
+			"LIMIT :index, :limit"
+		);
+		bindValues(query, {
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+			{ u":index", index },
+			{ u":limit", messagesUntilQueryStringCount + DB_QUERY_LIMIT_MESSAGES },
+		});
+		execQuery(query);
+
+		MessageResult result {
+			_fetchMessagesFromQuery(query),
+			// Database index starts at 1, but message model index starts at 0.
+			queryStringMessageIndex - 1
+		};
+
+		_fetchReactions(result.messages);
+
+		emit messagesFetched(result.messages);
+
+		return result;
 	});
 }
 

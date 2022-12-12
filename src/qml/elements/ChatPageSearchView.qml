@@ -43,6 +43,7 @@ Item {
 	clip: true
 	visible: height != 0
 	property bool active: false
+	property alias searchFieldBusyIndicator: searchField.searchFieldBusyIndicator
 
 	Behavior on height {
 		SmoothedAnimation {
@@ -84,6 +85,21 @@ Item {
 			Keys.onDownPressed: searchFromCurrentIndex(false)
 			Keys.onEscapePressed: close()
 			autoAccept: false
+
+			property alias searchFieldBusyIndicator: searchFieldBusyIndicator
+
+			Controls.BusyIndicator {
+				id: searchFieldBusyIndicator
+
+				anchors {
+					right: parent.right
+					rightMargin: height / 2
+					top: parent.top
+					bottom: parent.bottom
+				}
+
+				running: false
+			}
 		}
 
 		Controls.Button {
@@ -162,21 +178,30 @@ Item {
 		var searchedString = searchField.text
 
 		if (searchedString.length > 0) {
+			searchFieldBusyIndicator.running = true
+
 			if (searchUpwards) {
 				if (startIndex === 0) {
-					newIndex = MessageModel.searchForMessageFromNewToOld(searchedString)
+					messageListView.currentIndex = MessageModel.searchForMessageFromNewToOld(searchedString)
 				} else {
 					newIndex = MessageModel.searchForMessageFromNewToOld(searchedString, startIndex)
-					if (newIndex === -1)
-						newIndex = MessageModel.searchForMessageFromNewToOld(searchedString, 0)
+					if (newIndex !== -1) {
+						messageListView.currentIndex = newIndex
+					}
+				}
+
+				if (messageListView.currentIndex !== -1) {
+					searchFieldBusyIndicator.running = false
 				}
 			} else {
 				newIndex = MessageModel.searchForMessageFromOldToNew(searchedString, startIndex)
-				if (newIndex === -1)
-					newIndex = MessageModel.searchForMessageFromOldToNew(searchedString)
+
+				if (newIndex !== -1) {
+					messageListView.currentIndex = newIndex
+				}
+
+				searchFieldBusyIndicator.running = false
 			}
 		}
-
-		messageListView.currentIndex = newIndex
 	}
 }

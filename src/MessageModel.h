@@ -172,7 +172,7 @@ public:
 	 *
 	 * @return index of the first found message containing the given string or -1 if no message containing the given string could be found
 	 */
-	Q_INVOKABLE int searchForMessageFromNewToOld(const QString &searchString, const int startIndex = 0) const;
+	Q_INVOKABLE int searchForMessageFromNewToOld(const QString &searchString, int startIndex = 0);
 
 	/**
 	 * Searches from the oldest to the most recent message to find a given substring (case insensitive).
@@ -184,7 +184,7 @@ public:
 	 *
 	 * @return index of the first found message containing the given string or -1 if no message containing the given string could be found
 	 */
-	Q_INVOKABLE int searchForMessageFromOldToNew(const QString &searchString, const int startIndex = -1) const;
+	Q_INVOKABLE int searchForMessageFromOldToNew(const QString &searchString, int startIndex = -1);
 
 	/**
 	 * Sends pending messages again after searching them in the database.
@@ -264,6 +264,11 @@ signals:
 	 * @param chatJid JID of the chat whose messages are being removed (optional)
 	 */
 	void removeMessagesRequested(const QString &accountJid, const QString &chatJid = {});
+
+	/**
+	 * @see MessageDb::messageSearchFinished
+	 */
+	void messageSearchFinished(int queryStringMessageIndex);
 
 private slots:
 	void handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);

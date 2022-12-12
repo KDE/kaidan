@@ -249,6 +249,14 @@ ChatPageBase {
 					root.viewPositioned = true
 				}
 			}
+
+			function onMessageSearchFinished(queryStringMessageIndex) {
+				if (queryStringMessageIndex !== -1) {
+					messageListView.currentIndex = queryStringMessageIndex
+				}
+
+				searchBar.searchFieldBusyIndicator.running = false
+			}
 		}
 
 		Connections {
