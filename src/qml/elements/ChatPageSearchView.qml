@@ -83,6 +83,7 @@ Item {
 			Keys.onUpPressed: searchFromCurrentIndex(true)
 			Keys.onDownPressed: searchFromCurrentIndex(false)
 			Keys.onEscapePressed: close()
+			autoAccept: false
 		}
 
 		Controls.Button {
