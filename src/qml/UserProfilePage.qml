@@ -47,6 +47,7 @@ Kirigami.Page {
 
 	required property string jid
 	required property RosterItemWatcher chatItemWatcher
+	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
 
 	Timer {
 		id: pageTimer
@@ -341,6 +342,8 @@ Kirigami.Page {
 									return qsTr("Scan the QR codes of your devices to encrypt for them")
 								} else if (ownResourcesWatcher.resourcesCount > 1) {
 									return qsTr("Your other devices don't use OMEMO 2")
+								} else if (root.isChatWithOneself) {
+									return qsTr("You have no other devices supporting OMEMO 2")
 								}
 							} else if (MessageModel.ownAuthenticatableOmemoDevices.length) {
 								if (MessageModel.ownAuthenticatableOmemoDevices.length === MessageModel.ownDistrustedOmemoDevices.length) {
@@ -369,6 +372,10 @@ Kirigami.Page {
 					Controls.Label {
 						id: contactOmemoDevicesExplanation
 						text: {
+							if(root.isChatWithOneself) {
+								return ""
+							}
+
 							if (!MessageModel.usableOmemoDevices.length) {
 								if (MessageModel.distrustedOmemoDevices.length) {
 									return qsTr("Scan the QR code of your contact to enable encryption")
