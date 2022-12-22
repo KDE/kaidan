@@ -5,6 +5,7 @@
 #include <QtTest>
 
 #include "../src/PublicGroupChat.h"
+#include "../src/PublicGroupChatSearchManager.h"
 
 class GroupChatTest : public QObject
 {
@@ -121,6 +122,46 @@ private Q_SLOTS:
 		QVERIFY(groupChat1 != groupChat2);
 		QVERIFY(PublicGroupChat::toJson(groupChats) == QJsonArray({object1, object2}));
 		QVERIFY(groupChats == (PublicGroupChats {PublicGroupChat {object1}, PublicGroupChat {object2}}));
+	}
+
+	void test_GroupChatSearchManager()
+	{
+		PublicGroupChatSearchManager manager;
+		QSignalSpy spyIsRunning(&manager, &PublicGroupChatSearchManager::isRunningChanged);
+		QSignalSpy spyError(&manager, &PublicGroupChatSearchManager::error);
+		QSignalSpy spyReceived(&manager, &PublicGroupChatSearchManager::groupChatsReceived);
+		auto clearSpies = [&]() {
+			spyIsRunning.clear();
+			spyError.clear();
+			spyReceived.clear();
+		};
+
+		QVERIFY(manager.cachedGroupChats().isEmpty());
+
+		// requestAll and cancel after 1 second
+		manager.requestAll();
+		QTimer::singleShot(1000, &manager, &PublicGroupChatSearchManager::cancel);
+
+		QVERIFY(spyIsRunning.wait(2000));
+		QVERIFY(spyError.isEmpty());
+		QVERIFY(spyReceived.isEmpty());
+		QCOMPARE(spyIsRunning.count(), 2);
+		QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
+		QCOMPARE(spyIsRunning.constLast().constFirst().toBool(), false);
+		QVERIFY(manager.cachedGroupChats().isEmpty());
+
+		clearSpies();
+
+		// Really requestAll
+		manager.requestAll();
+
+		QVERIFY(spyIsRunning.wait(30000));
+		QVERIFY(spyError.isEmpty());
+		QCOMPARE(spyReceived.count(), 1);
+		QCOMPARE(spyIsRunning.count(), 2);
+		QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
+		QCOMPARE(spyIsRunning.constLast().constFirst().toBool(), false);
+		QVERIFY(!manager.cachedGroupChats().isEmpty());
 	}
 };
 

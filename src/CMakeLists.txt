@@ -72,6 +72,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	JsonUtils.h
 	PublicGroupChat.cpp
 	PublicGroupChat.h
+	PublicGroupChatSearchManager.cpp
+	PublicGroupChatSearchManager.h
 
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h
