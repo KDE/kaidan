@@ -70,6 +70,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 	FileSharingController.h
 
 	JsonUtils.h
+	PublicGroupChat.cpp
+	PublicGroupChat.h
+
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h
 	Enums.h
