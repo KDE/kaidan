@@ -335,8 +335,8 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 			// Decrease the pinning position of the pinned items with higher pinning positions than
 			// the pinning position of the item being pinned.
 			if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
-				emit updateItemRequested(jid, [pinningPosition = item.pinningPosition](RosterItem &item) {
-					item.pinningPosition = pinningPosition - 1;
+				emit updateItemRequested(item.jid, [](RosterItem &item) {
+					item.pinningPosition -= 1;
 				});
 			}
 		}
