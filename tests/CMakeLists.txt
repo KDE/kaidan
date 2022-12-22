@@ -55,6 +55,7 @@ ecm_add_test(
 	PublicGroupChatTest.cpp
 	../src/PublicGroupChat.cpp
 	../src/PublicGroupChatModel.cpp
+	../src/PublicGroupChatProxyModel.cpp
 	../src/PublicGroupChatSearchManager.cpp
 	TEST_NAME PublicGroupChatTest
 	LINK_LIBRARIES Qt::Test Qt::Network
