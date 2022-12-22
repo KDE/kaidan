@@ -5,7 +5,7 @@
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.14 as Kirigami
 
 import im.kaidan.kaidan 1.0
 import PublicGroupChats 1.0 as PublicGroupChats
@@ -18,125 +18,22 @@ Kirigami.OverlaySheet {
 	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
 		text: qsTr("Search public group chat (%1)")
-				.arg(groupChatsManager.isRunning
-					? qsTr("Loading...")
-					: "%1/%2".arg(groupChatsProxy.count).arg(groupChatsModel.count))
+				.arg("%1/%2".arg(groupChatsProxy.count).arg(groupChatsModel.count))
 
-		Layout.fillWidth: true
+		wrapMode: Text.WordWrap
 	}
 
 	ColumnLayout {
 		enabled: !groupChatsManager.isRunning
 
-		RowLayout {
-			Controls.TextField {
-				id: filterField
+		Controls.TextField {
+			id: filterField
 
-				selectByMouse: true
-				placeholderText: qsTr("Filter by %1...").arg(filterByMenuGroup.checkedAction.text.toLowerCase())
+			selectByMouse: true
+			placeholderText: qsTr("Search…")
 
-				onTextChanged: {
-					groupChatsProxy.setFilterWildcard(text);
-				}
-
-				Layout.fillWidth: true
-			}
-
-			Controls.ToolButton {
-				id: filterButton
-
-				text: "⋮"
-
-				onClicked: {
-					filterMenu.open();
-				}
-
-				Controls.Menu {
-					id: filterMenu
-
-					// Ensure Popup above the sheet
-					z: root.rootItem.z + 1
-
-					Controls.Menu {
-						id: filterByMenu
-
-						title: qsTr("Filter by")
-						// Ensure Popup above the sheet
-						z: root.rootItem.z + 1
-
-						Controls.ActionGroup {
-							id: filterByMenuGroup
-
-							readonly property string role: checkedAction ? checkedAction.role : PublicGroupChats.Model.CustomRole.Name
-						}
-
-						Controls.Action {
-							readonly property int role: PublicGroupChats.Model.CustomRole.GlobalSearch
-
-							text: qsTr("All")
-							checkable: true
-							checked: true
-							shortcut: "Ctrl+A"
-
-							Controls.ActionGroup.group: filterByMenuGroup
-						}
-
-						Controls.Action {
-							readonly property int role: PublicGroupChats.Model.CustomRole.Name
-
-							text: qsTr("Name")
-							checkable: true
-							shortcut: "Ctrl+N"
-
-							Controls.ActionGroup.group: filterByMenuGroup
-						}
-
-						Controls.Action {
-							readonly property int role: PublicGroupChats.Model.CustomRole.Description
-
-							text: qsTr("Description")
-							checkable: true
-							shortcut: "Ctrl+D"
-
-							Controls.ActionGroup.group: filterByMenuGroup
-						}
-
-						Controls.Action {
-							readonly property int role: PublicGroupChats.Model.CustomRole.Address
-
-							text: qsTr("Address")
-							checkable: true
-							shortcut: "Ctrl+D"
-
-							Controls.ActionGroup.group: filterByMenuGroup
-						}
-					}
-
-					Controls.Menu {
-						id: filterByLanguage
-
-						title: qsTr("Language")
-						// Ensure Popup above the sheet
-						z: root.rootItem.z + 1
-
-						Controls.ButtonGroup {
-							id: filterByLanguageGroup
-
-							readonly property string language: checkedButton ? checkedButton.text : ""
-						}
-
-						Repeater {
-							model: groupChatsModel.languages
-							delegate: Controls.MenuItem {
-								text: model.modelData
-								checkable: true
-								checked: text === ""
-
-								Controls.ButtonGroup.group: filterByLanguageGroup
-							}
-						}
-					}
-				}
+			onTextChanged: {
+				groupChatsProxy.setFilterWildcard(text);
 			}
 
 			Layout.fillWidth: true
@@ -149,78 +46,86 @@ Kirigami.OverlaySheet {
 			model: PublicGroupChats.ProxyModel {
 				id: groupChatsProxy
 
-				languageFilter: filterByLanguageGroup.language
 				filterCaseSensitivity: Qt.CaseInsensitive
-				filterRole: filterByMenuGroup.role
+				filterRole: PublicGroupChats.Model.CustomRole.GlobalSearch
 				sortCaseSensitivity: Qt.CaseInsensitive
-				sortRole: PublicGroupChats.Model.CustomRole.Name
+				sortRole: PublicGroupChats.Model.CustomRole.Users
 				sourceModel: PublicGroupChats.Model {
 					id: groupChatsModel
 
 					groupChats: groupChatsManager.cachedGroupChats
 				}
+
+				Component.onCompleted: {
+					sort(0, Qt.DescendingOrder);
+				}
+			}
+
+			Controls.ScrollBar.vertical: Controls.ScrollBar {
 			}
 
 			delegate: Controls.SwipeDelegate {
-				width: ListView.view.width
+				width: ListView.view.width - ListView.view.Controls.ScrollBar.vertical.width
+
 				contentItem: RowLayout {
 					spacing: 12
 
-					Rectangle {
-						width: 48
-						height: width
-						color: "lightGray"
-
-						border {
-							width: 2
-							color: "black"
+					ColumnLayout {
+						Avatar {
+							width: 48
+							height: width
+							jid: model.address
+							name: model.name
+							iconSource: "group"
 						}
 
-						Text {
-							text: model.name.charAt(0).toUpperCase()
-							horizontalAlignment: Text.AlignHCenter
-							verticalAlignment: Text.AlignVCenter
+						RowLayout {
+							Kirigami.Icon {
+								source: "group"
 
-							font {
-								bold: true
-								pixelSize: 30
+								Layout.preferredWidth: Kirigami.Units.iconSizes.small
+								Layout.preferredHeight: Layout.preferredWidth
 							}
 
-							anchors {
-								fill: parent
+							Controls.Label {
+								text: model.users.toString()
+
+								font {
+									bold: true
+								}
 							}
 						}
-
-						Layout.alignment: Qt.AlignTop
 					}
 
 					ColumnLayout {
 						RowLayout {
-							Text {
+							Controls.Label {
 								text: model.name
 								wrapMode: Text.Wrap
 
 								font {
 									bold: true
 								}
+
+								Layout.fillWidth: true
 							}
 
-							Text {
+							Controls.Label {
 								text: model.languages.join(" ")
 								color: "gray"
-							}
 
-							Layout.fillWidth: true
+								Layout.alignment: Qt.AlignTop
+							}
 						}
 
-						Text {
+						Controls.Label {
 							text: model.description
 							wrapMode: Text.Wrap
 
 							Layout.fillWidth: true
 						}
 
-						Text {
+						Controls.Label {
 							text: model.address
 							wrapMode: Text.Wrap
 							color: "gray"
@@ -239,20 +144,41 @@ Kirigami.OverlaySheet {
 				id: groupChatsManager
 			}
 
+			Item {
+				anchors.centerIn: parent
+
+				// background of loadingArea
+				Rectangle {
+					anchors.fill: loadingArea
+					anchors.margins: -8
+					radius: roundedCornersRadius
+					color: Kirigami.Theme.backgroundColor
+					opacity: 0.9
+					visible: loadingArea.visible
+				}
+
+				ColumnLayout {
+					id: loadingArea
+					anchors.centerIn: parent
+					visible: groupChatsManager.isRunning
+
+					Controls.BusyIndicator {
+						Layout.alignment: Qt.AlignHCenter
+					}
+
+					Controls.Label {
+						text: "<i>" + qsTr("Loading…") + "</i>"
+						color: Kirigami.Theme.textColor
+					}
+				}
+			}
+
 			Layout.fillWidth: true
 			Layout.minimumHeight: 300
 		}
-
-		Layout.fillWidth: true
 	}
 
 	Component.onCompleted: {
 		groupChatsManager.requestAll();
-	}
-
-	onSheetOpenChanged: {
-		if (!sheetOpen) {
-			filterMenu.close();
-		}
 	}
 }
