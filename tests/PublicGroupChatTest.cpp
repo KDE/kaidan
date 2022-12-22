@@ -5,6 +5,7 @@
 #include <QtTest>
 
 #include "../src/PublicGroupChat.h"
+#include "../src/PublicGroupChatModel.h"
 #include "../src/PublicGroupChatSearchManager.h"
 
 class GroupChatTest : public QObject
@@ -124,9 +125,10 @@ private Q_SLOTS:
 		QVERIFY(groupChats == (PublicGroupChats {PublicGroupChat {object1}, PublicGroupChat {object2}}));
 	}
 
-	void test_GroupChatSearchManager()
+	void test_GroupChatSearchManager_GroupChatModel()
 	{
 		PublicGroupChatSearchManager manager;
+		PublicGroupChatModel model;
 		QSignalSpy spyIsRunning(&manager, &PublicGroupChatSearchManager::isRunningChanged);
 		QSignalSpy spyError(&manager, &PublicGroupChatSearchManager::error);
 		QSignalSpy spyReceived(&manager, &PublicGroupChatSearchManager::groupChatsReceived);
@@ -136,7 +138,10 @@ private Q_SLOTS:
 			spyReceived.clear();
 		};
 
+		connect(&manager, &PublicGroupChatSearchManager::groupChatsReceived, &model, &PublicGroupChatModel::setGroupChats);
+
 		QVERIFY(manager.cachedGroupChats().isEmpty());
+		QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
 
 		// requestAll and cancel after 1 second
 		manager.requestAll();
@@ -149,6 +154,7 @@ private Q_SLOTS:
 		QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
 		QCOMPARE(spyIsRunning.constLast().constFirst().toBool(), false);
 		QVERIFY(manager.cachedGroupChats().isEmpty());
+		QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
 
 		clearSpies();
 
@@ -162,6 +168,15 @@ private Q_SLOTS:
 		QCOMPARE(spyIsRunning.constFirst().constFirst().toBool(), true);
 		QCOMPARE(spyIsRunning.constLast().constFirst().toBool(), false);
 		QVERIFY(!manager.cachedGroupChats().isEmpty());
+		QVERIFY(model.rowCount() == manager.cachedGroupChats().count());
+
+		// Check first group chat
+		const PublicGroupChat &groupChat = model.groupChats().constFirst();
+		const QModelIndex index = model.index(0);
+
+		QVERIFY(!groupChat.name().isEmpty());
+		QCOMPARE(groupChat.name(), index.data(Qt::DisplayRole));
+		QCOMPARE(groupChat.description(), index.data(Qt::ToolTipRole));
 	}
 };
 

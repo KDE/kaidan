@@ -54,6 +54,7 @@ target_compile_definitions(OmemoDbTest PUBLIC DB_UNIT_TEST)
 ecm_add_test(
 	PublicGroupChatTest.cpp
 	../src/PublicGroupChat.cpp
+	../src/PublicGroupChatModel.cpp
 	../src/PublicGroupChatSearchManager.cpp
 	TEST_NAME PublicGroupChatTest
 	LINK_LIBRARIES Qt::Test Qt::Network
