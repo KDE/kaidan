@@ -45,6 +45,23 @@ auto transform(const T &input, Converter convert)
 	return output;
 }
 
+template<typename TargetContainer, typename SourceContainer, typename Converter>
+TargetContainer transform(const SourceContainer &input, Converter convert)
+{
+	TargetContainer output;
+	output.reserve(input.size());
+	std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+	return output;
+}
+
+template<typename TargetContainer, typename SourceContainer, typename Converter>
+TargetContainer transformNoReserve(const SourceContainer &input, Converter convert)
+{
+	TargetContainer output;
+	std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
+	return output;
+}
+
 template<typename T, typename Converter>
 auto transformMap(const T &input, Converter convert)
 {
