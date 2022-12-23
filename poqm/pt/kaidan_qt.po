@@ -1750,62 +1750,62 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Vamos começar"
 
-#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:216
+#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:217
 msgctxt "UserProfilePage|"
 msgid "Profile"
 msgstr "Perfil"
 
-#: src/qml/UserProfilePage.qml:77
+#: src/qml/UserProfilePage.qml:78
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
 msgstr "Mudar o nome do contacto"
 
-#: src/qml/UserProfilePage.qml:87
+#: src/qml/UserProfilePage.qml:88
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
 msgstr "Mostrar o código QR"
 
-#: src/qml/UserProfilePage.qml:93
+#: src/qml/UserProfilePage.qml:94
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
 msgstr "Remover o contacto"
 
-#: src/qml/UserProfilePage.qml:191
+#: src/qml/UserProfilePage.qml:192
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
 msgstr "O contacto não envia o estado"
 
-#: src/qml/UserProfilePage.qml:203
+#: src/qml/UserProfilePage.qml:204
 msgctxt "UserProfilePage|"
 msgid "Request status"
 msgstr "Pedir o estado"
 
-#: src/qml/UserProfilePage.qml:251
+#: src/qml/UserProfilePage.qml:252
 msgctxt "UserProfilePage|"
 msgid "Privacy"
 msgstr "Privacidade"
 
-#: src/qml/UserProfilePage.qml:256
+#: src/qml/UserProfilePage.qml:257
 msgctxt "UserProfilePage|"
 msgid "Send status"
 msgstr "Enviar o estado"
 
-#: src/qml/UserProfilePage.qml:274
+#: src/qml/UserProfilePage.qml:275
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
 msgstr "Enviar as notificações de escrita"
 
-#: src/qml/UserProfilePage.qml:286
+#: src/qml/UserProfilePage.qml:287
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
 msgstr "Enviar as notificações de leitura"
 
-#: src/qml/UserProfilePage.qml:303
+#: src/qml/UserProfilePage.qml:304
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
 msgstr "Encriptação (OMEMO 2)"
 
-#: src/qml/UserProfilePage.qml:329
+#: src/qml/UserProfilePage.qml:330
 msgctxt "UserProfilePage|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1815,60 +1815,68 @@ msgstr ""
 "você e os seus colaboradores na conversa possam ler ou modificar os dados "
 "que trocar."
 
-#: src/qml/UserProfilePage.qml:341 src/qml/UserProfilePage.qml:347
+#: src/qml/UserProfilePage.qml:342 src/qml/UserProfilePage.qml:350
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
 "mesmos"
 
-#: src/qml/UserProfilePage.qml:343
+#: src/qml/UserProfilePage.qml:344
 msgctxt "UserProfilePage|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Os seus outros dispositivos não usam o OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:350
+#: src/qml/UserProfilePage.qml:346
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "UserProfilePage|"
+msgid "You have no other devices supporting OMEMO 2"
+msgstr "Os seus outros dispositivos não usam o OMEMO 2"
+
+#: src/qml/UserProfilePage.qml:353
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
 "segura possível"
 
-#: src/qml/UserProfilePage.qml:361
+#: src/qml/UserProfilePage.qml:364
 msgctxt "UserProfilePage|"
 msgid "Scan own QR codes"
 msgstr "Analisar os próprios códigos QR"
 
-#: src/qml/UserProfilePage.qml:374
+#: src/qml/UserProfilePage.qml:381
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact to enable encryption"
 msgstr "Analisar o código QR do seu contacto para activar a encriptação"
 
-#: src/qml/UserProfilePage.qml:377
+#: src/qml/UserProfilePage.qml:384
 msgctxt "UserProfilePage|"
 msgid "Your contact doesn't use OMEMO 2"
 msgstr "O seu contacto não usa o OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:380
+#: src/qml/UserProfilePage.qml:387
 msgctxt "UserProfilePage|"
 msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgstr ""
 "Analise os códigos QR dos dispositivos do seu contacto para usar a "
 "encriptação nos mesmos"
 
-#: src/qml/UserProfilePage.qml:383
+#: src/qml/UserProfilePage.qml:390
 msgctxt "UserProfilePage|"
 msgid "Scan the QR code of your contact for maximum secure encryption"
 msgstr ""
 "Analise o código QR do seu contacto para obter a encriptação mais segura "
 "possível"
 
-#: src/qml/UserProfilePage.qml:394
+#: src/qml/UserProfilePage.qml:401
 msgctxt "UserProfilePage|"
 msgid "Scan contact's QR code"
 msgstr "Analisar o código QR do contacto"
 
-#: src/qml/UserProfilePage.qml:408
+#: src/qml/UserProfilePage.qml:415
 msgctxt "UserProfilePage|"
 msgid "Online devices"
 msgstr "Dispositivos ligados"
