@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-10-31 07:36+0100\n"
+"PO-Revision-Date: 2022-12-24 06:26+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 22.08.3\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -1811,12 +1811,9 @@ msgid "Your other devices don't use OMEMO 2"
 msgstr "Vaše druge naprave ne uporabljajo OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:346
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfilePage|"
 msgid "You have no other devices supporting OMEMO 2"
-msgstr "Vaše druge naprave ne uporabljajo OMEMO 2"
+msgstr "Nimate drugih naprav, ki uporabljajo OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:353
 msgctxt "UserProfilePage|"

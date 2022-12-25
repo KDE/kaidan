@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-11-01 15:56+0100\n"
+"PO-Revision-Date: 2022-12-23 18:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -1838,12 +1838,9 @@ msgid "Your other devices don't use OMEMO 2"
 msgstr "Votre autres périphériques n'utilisent pas « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:346
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfilePage|"
 msgid "You have no other devices supporting OMEMO 2"
-msgstr "Votre autres périphériques n'utilisent pas « OMEMO 2 »."
+msgstr "Vous ne possédez aucun périphérique prenant en charge « OMEMO 2 »."
 
 #: src/qml/UserProfilePage.qml:353
 msgctxt "UserProfilePage|"

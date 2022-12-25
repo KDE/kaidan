@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-30 10:44+0100\n"
+"PO-Revision-Date: 2022-12-24 20:58+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.2\n"
+"X-Generator: Lokalize 22.12.0\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -1825,12 +1825,9 @@ msgid "Your other devices don't use OMEMO 2"
 msgstr "Sus otros dispositivos no usan OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:346
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfilePage|"
 msgid "You have no other devices supporting OMEMO 2"
-msgstr "Sus otros dispositivos no usan OMEMO 2"
+msgstr "No tiene otros dispositivos compatibles con OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:353
 msgctxt "UserProfilePage|"
