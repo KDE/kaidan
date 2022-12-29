@@ -194,13 +194,13 @@ ChatPageBase {
 		highlight: Component {
 			id: highlightBar
 			Rectangle {
-				height: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.height + Kirigami.Units.smallSpacing * 2
+				height: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.implicitHeight
 				width: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.width + Kirigami.Units.smallSpacing * 2
 				color: Kirigami.Theme.hoverColor
 
 				// This is used to make the highlight bar a little bit bigger than the highlighted message.
 				// It works only together with "messageListView.highlightFollowsCurrentItem: false".
-				y: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.y - Kirigami.Units.smallSpacing
+				y: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.y
 				x: messageListView.currentIndex === -1 ? 0 : messageListView.currentItem.x
 				Behavior on y {
 					SmoothedAnimation {
