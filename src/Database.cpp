@@ -757,7 +757,7 @@ void Database::convertDatabaseToV15()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			"trust_keys_unprocessed",
+			"trust_security_policies",
 			SQL_ATTRIBUTE(account, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(encryption, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(security_policy, SQL_INTEGER_NOT_NULL)
