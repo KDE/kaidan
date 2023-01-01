@@ -2,16 +2,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-09-18 12:15+0100\n"
+"PO-Revision-Date: 2022-12-31 16:15+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-i18n-doc@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.1\n"
+"X-Generator: Lokalize 21.12.3\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -24,20 +24,16 @@ msgstr ""
 "not removed from this app: %1"
 
 #: src/FileSharingController.cpp:200
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr "Download failed: %1"
+msgstr "Upload failed: %1"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "Could not save file: %1"
+msgstr "Could not download file: %1"
 
 #: src/Kaidan.cpp:108
 msgctxt "Kaidan|"
@@ -227,7 +223,7 @@ msgstr "Spoiler"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Unknown size"
 
 #: src/MessageHandler.cpp:198
 #, qt-format
@@ -479,20 +475,14 @@ msgid "Quote message"
 msgstr "Quote message"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Delete"
+msgstr "Delete file"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Mark as read"
+msgstr "Mark as first unread"
 
 #: src/qml/elements/ChatPageSearchView.qml:69
 msgctxt "ChatPageSearchView|"
@@ -603,20 +593,17 @@ msgstr "Please enter a valid password"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "Senders of %1"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "Add own reaction"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr "Remove contact"
+msgstr "Remove own reaction"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -641,17 +628,11 @@ msgid "Recording… %1"
 msgstr "Recording… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Cancel"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Send"
@@ -724,12 +705,12 @@ msgstr "Add"
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "Unpin"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "Pin"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
@@ -770,43 +751,31 @@ msgid "Rename"
 msgstr "Rename"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Audio files"
+msgstr "Send files"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Select some files to send them"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Enter description…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Remove"
+msgstr "Remove file"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Compose message"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Add"
@@ -1787,38 +1756,32 @@ msgstr "Remove contact"
 #: src/qml/UserProfilePage.qml:192
 msgctxt "UserProfilePage|"
 msgid "Contact sends no status"
-msgstr ""
+msgstr "Contact sends no status"
 
 #: src/qml/UserProfilePage.qml:204
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Request status"
 
 #: src/qml/UserProfilePage.qml:252
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Privacy"
 
 #: src/qml/UserProfilePage.qml:257
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Send status"
 
 #: src/qml/UserProfilePage.qml:275
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr "Unmute notifications"
+msgstr "Send typing notifications"
 
 #: src/qml/UserProfilePage.qml:287
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr "Unmute notifications"
+msgstr "Send read notifications"
 
 #: src/qml/UserProfilePage.qml:304
 msgctxt "UserProfilePage|"
@@ -1845,12 +1808,9 @@ msgid "Your other devices don't use OMEMO 2"
 msgstr "Your other devices don't use OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:346
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfilePage|"
 msgid "You have no other devices supporting OMEMO 2"
-msgstr "Your other devices don't use OMEMO 2"
+msgstr "You have no other devices supporting OMEMO 2"
 
 #: src/qml/UserProfilePage.qml:353
 msgctxt "UserProfilePage|"
@@ -1953,7 +1913,7 @@ msgstr "This server does not support registration."
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Unknown size"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
@@ -1999,16 +1959,17 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
+"Requesting to see the status of %s failed because of a connection problem: %s"
 
 #: src/RosterManager.cpp:177
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "Allowing %s to see your status failed"
 
 #: src/RosterManager.cpp:184
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "Disallowing %s to see your status failed"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
