@@ -69,6 +69,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 	FileSharingController.cpp
 	FileSharingController.h
 
+	JsonUtils.h
 	# needed to trigger moc generation / to be displayed in IDEs
 	Encryption.h
 	Enums.h
