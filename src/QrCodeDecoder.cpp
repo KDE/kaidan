@@ -90,7 +90,11 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 	// If a QR code could be found and decoded, emit a signal with the decoded string.
 	// Otherwise, emit a signal for failed decoding.
 	if (result.isValid())
+#if ZXING_VERSION < QT_VERSION_CHECK(2, 0, 0)
 		emit decodingSucceeded(QString::fromStdString(TextUtfEncoding::ToUtf8(result.text())));
+#else
+		emit decodingSucceeded(QString::fromStdString(result.text()));
+#endif
 	else
 		emit decodingFailed();
 }
