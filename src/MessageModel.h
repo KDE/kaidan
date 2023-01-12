@@ -266,7 +266,9 @@ signals:
 	void removeMessagesRequested(const QString &accountJid, const QString &chatJid = {});
 
 	/**
-	 * @see MessageDb::messageSearchFinished
+	 * Emitted when fetching messages for a query string is completed.
+	 *
+	 * @param queryStringMessageIndex message index of found query string
 	 */
 	void messageSearchFinished(int queryStringMessageIndex);
 
