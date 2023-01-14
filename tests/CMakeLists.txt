@@ -50,3 +50,13 @@ ecm_add_test(
 	LINK_LIBRARIES Qt::Test Qt::Gui Qt::Sql QXmpp::QXmpp QXmpp::Omemo
 )
 target_compile_definitions(OmemoDbTest PUBLIC DB_UNIT_TEST)
+
+# Manual tests
+
+add_executable(PublicGroupChatSearch
+	manual/public-group-chat-search.cpp
+)
+target_link_libraries(PublicGroupChatSearch
+	PRIVATE
+		Qt::Core Qt::Network
+)
