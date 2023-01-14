@@ -52,6 +52,14 @@ Kirigami.ScrollablePage {
 		jid: ""
 	}
 
+	SearchPublicGroupChatSheet {
+		id: searchPublicGroupChatSheet
+
+		onOpenGroupChatRequested: (groupChat) => {
+			// groupChat was requested to be opened
+		}
+	}
+
 	mainAction: Kirigami.Action {
 		text: qsTr("Add new contact")
 		icon.name: "contact-new"
@@ -61,6 +69,19 @@ Kirigami.ScrollablePage {
 			else
 				addContactSheet.open()
 		}
+	}
+
+	leftAction: Kirigami.Action {
+		id: searchPublicGroupChatAction
+		text: qsTr("Search public group chat")
+		icon.name: "system-search-symbolic"
+		onTriggered: {
+			if (searchPublicGroupChatSheet.sheetOpen)
+				searchPublicGroupChatSheet.close()
+			else
+				searchPublicGroupChatSheet.open()
+		}
+		shortcut: "Ctrl+R"
 	}
 
 	rightAction: Kirigami.Action {

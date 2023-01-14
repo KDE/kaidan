@@ -74,6 +74,9 @@
 #include "MessageModel.h"
 #include "MessageHandler.h"
 #include "OmemoManager.h"
+#include "PublicGroupChatModel.h"
+#include "PublicGroupChatProxyModel.h"
+#include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
 #include "QrCodeGenerator.h"
 #include "QrCodeScannerFilter.h"
@@ -284,6 +287,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppStanza::Error>();
 	qRegisterMetaType<MessageType>();
 	qRegisterMetaType<Enums::ConnectionState>();
+	qRegisterMetaType<PublicGroupChatModel::CustomRole>();
 	qRegisterMetaType<ClientWorker::ConnectionError>();
 	qRegisterMetaType<Enums::MessageType>();
 	qRegisterMetaType<Presence::Availability>();
@@ -432,6 +436,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
 	qmlRegisterType<RecentPicturesModel>(APPLICATION_ID, 1, 0, "RecentPicturesModel");
 	qmlRegisterType<NotificationsMutedWatcher>(APPLICATION_ID, 1, 0, "NotificationsMutedWatcher");
+	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
+	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
+	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");
@@ -452,6 +459,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", "ServerFeaturesCache type usable");
 	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", "Not creatable from QML");
+	qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", "Used by PublicGroupChatModel");
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", "Can't create object; only enums defined!");
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", "Can't create object; only enums defined!");
