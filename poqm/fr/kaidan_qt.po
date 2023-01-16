@@ -1,16 +1,17 @@
 # Xavier Besnard <xavier.besnard@neuf.fr>, 2022.
+# Xavier BESNARD <xavier.besnard]neuf.fr>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
 "PO-Revision-Date: 2022-12-23 18:55+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
-"Language-Team: French <kde-francophone@kde.org>\n"
+"Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -754,6 +755,28 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Renommer"
 
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#, qt-format
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search public group chat (%1)"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search…"
+msgstr "Rechercher"
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#, fuzzy
+#| msgctxt "MultimediaSettings|"
+#| msgid "Recording…"
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Loading…"
+msgstr "Enregistrement en cours..."
+
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
 msgid "Send files"
@@ -1291,12 +1314,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contacts"
 
-#: src/qml/RosterPage.qml:56
+#: src/qml/RosterPage.qml:64
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Ajouter un nouveau contact"
 
-#: src/qml/RosterPage.qml:68
+#: src/qml/RosterPage.qml:76
+msgctxt "RosterPage|"
+msgid "Search public group chat"
+msgstr ""
+
+#: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Rechercher des contacts"

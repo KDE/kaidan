@@ -802,6 +802,23 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr ""
 
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#, qt-format
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search public group chat (%1)"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search…"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#, fuzzy
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Loading…"
+msgstr "Konektatzen…"
+
 #: src/qml/elements/SendMediaSheet.qml:52
 #, fuzzy
 #| msgctxt "ChatPage|"
@@ -1313,12 +1330,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontaktuak"
 
-#: src/qml/RosterPage.qml:56
+#: src/qml/RosterPage.qml:64
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Kontaktu berria gehitu"
 
-#: src/qml/RosterPage.qml:68
+#: src/qml/RosterPage.qml:76
+msgctxt "RosterPage|"
+msgid "Search public group chat"
+msgstr ""
+
+#: src/qml/RosterPage.qml:89
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
