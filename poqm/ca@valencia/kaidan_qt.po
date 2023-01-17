@@ -7,12 +7,12 @@
 # Joan CiberSheep <cibersheep@gmail.com>, 2019.
 # Txaume <txaumevw@gmail.com>, 2019.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-12-23 14:09+0100\n"
+"PO-Revision-Date: 2023-01-16 13:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -767,23 +767,17 @@ msgstr "Canvia el nom"
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Busca un xat de grup públic (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Busca"
+msgstr "Busca…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Gravació…"
+msgstr "S'està carregant…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -893,7 +887,7 @@ msgstr "Inici de sessió al vostre compte XMPP"
 #: src/qml/LoginPage.qml:75
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Configureu la connexió"
 
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
@@ -1132,7 +1126,7 @@ msgstr "Proveïdor"
 #: src/qml/registration/ProviderView.qml:101
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Configureu la connexió"
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -1324,7 +1318,7 @@ msgstr "Afig un contacte nou"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Busca un xat de grup públic ()"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
@@ -1427,7 +1421,7 @@ msgstr "No s'ha pogut canviar la contrasenya: %1"
 #: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr "Configuració de la connexió"
+msgstr "Configureu la connexió"
 
 #: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
@@ -1735,7 +1729,7 @@ msgstr "Configura els paràmetres de gravació de foto, vídeo i àudio"
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr "Configuració de la connexió"
+msgstr "Configureu la connexió"
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"

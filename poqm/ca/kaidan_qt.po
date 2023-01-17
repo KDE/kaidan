@@ -7,12 +7,12 @@
 # Joan CiberSheep <cibersheep@gmail.com>, 2019.
 # Txaume <txaumevw@gmail.com>, 2019.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
-# Josep M. Ferrer <txemaq@gmail.com>, 2022.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2022-12-23 14:09+0100\n"
+"PO-Revision-Date: 2023-01-16 13:24+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -767,23 +767,17 @@ msgstr "Reanomena"
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Cerca un xat de grup públic (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Cerca"
+msgstr "Cerca…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Enregistrament…"
+msgstr "S'està carregant…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1323,7 +1317,7 @@ msgstr "Afegeix un contacte nou"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Cerca un xat de grup públic ()"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
