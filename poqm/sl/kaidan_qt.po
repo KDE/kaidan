@@ -1,11 +1,11 @@
 #
-# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022, 2023.
 # Martin Srebotnjak <miles@filmsi.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-12-24 06:26+0100\n"
+"PO-Revision-Date: 2023-01-17 08:17+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -757,23 +757,17 @@ msgstr "Preimenuj"
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Išči po javnem skupinskem klepetu (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Iskanje"
+msgstr "Išči…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Zajemanje…"
+msgstr "Nalaganje…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1300,7 +1294,7 @@ msgstr "Dodaj nov stik"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Išči po javnem skupinskem klepetu"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"

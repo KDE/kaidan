@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2022-12-23 18:55+0100\n"
-"Last-Translator: Xavier Besnard <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2023-01-17 13:03+0100\n"
+"Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -759,23 +759,17 @@ msgstr "Renommer"
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Rechercher un salon de discussions publiques de groupe (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Rechercher"
+msgstr "Rechercher..."
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Enregistrement en cours..."
+msgstr "Chargement en cours..."
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1322,7 +1316,7 @@ msgstr "Ajouter un nouveau contact"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Rechercher un salon de discussions publiques de groupe"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"

@@ -54,7 +54,7 @@ msgstr "გათიშული"
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr ""
+msgstr "ბმული გაიხსნება, როცა მიუერთდებით."
 
 #: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
 #: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
@@ -229,7 +229,7 @@ msgstr "უცნობი ზომა"
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "შეტყობინება %1-ითაა დაშიფრული, მაგრამ გაშიფვრა შეუძლებელია"
 
 #: src/MessageHandler.cpp:269
 msgctxt "MessageHandler|"
@@ -445,7 +445,7 @@ msgstr "არასანდო"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1-მა ამ წერტილამდე წაიკითხა"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
@@ -586,7 +586,7 @@ msgstr "შეიყვანეთ სწორი პაროლი"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "%1-ის გამგზავნები"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
@@ -634,7 +634,7 @@ msgstr "გაგზავნა"
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr ""
+msgstr "კამერის ფორმატი '%1' მხარდაჭერილი არაა."
 
 #: src/qml/elements/QrCodeScanner.qml:98
 msgctxt "QrCodeScanner|"
@@ -683,7 +683,7 @@ msgstr "არასავალდებულო შეტყობინე�
 #: src/qml/elements/RosterAddContactSheet.qml:89
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
-msgstr ""
+msgstr "უთხარით ჩატის პარტნიორს, ვინ ბრძანდებით."
 
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
@@ -749,20 +749,14 @@ msgid "Search public group chat (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "ძებნა"
+msgstr "ძებნა…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "ჩაწერა…"
+msgstr "ჩატვირთვა…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -825,12 +819,12 @@ msgstr "დასტური"
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
-msgstr ""
+msgstr "საუბრის დასაწყებად აირჩიეთ ჩატი"
 
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "კონტაქტის QR კოდით დამატება"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -840,7 +834,7 @@ msgstr "მოიწვიეთ მეგობრები"
 #: src/qml/GlobalDrawer.qml:98
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "მოსაწვევი ბმული ბუფერში დაკოპირდა"
 
 #: src/qml/GlobalDrawer.qml:102
 msgctxt "GlobalDrawer|"
@@ -890,7 +884,7 @@ msgstr "ახნის ჩვენება"
 #: src/qml/QrCodeOnboardingPage.qml:56
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
-msgstr ""
+msgstr "QR კოდის გარეშე გაგრძელება"
 
 #: src/qml/QrCodeOnboardingPage.qml:62
 msgctxt "QrCodeOnboardingPage|"
@@ -960,22 +954,22 @@ msgstr ""
 #: src/qml/QrCodePage.qml:176
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "QR კოდი თქვენი მოწყობილობისთვის არაა"
 
 #: src/qml/QrCodePage.qml:178
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "QR კოდი თქვენი კონტაქტისთვის არაა"
 
 #: src/qml/QrCodePage.qml:184
 msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
-msgstr ""
+msgstr "QR კოდის ნდობის გადაწყვეტილებებისთვის არაა"
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "ნდობის გადაწყვეტილებების მიღება..."
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
@@ -1261,7 +1255,7 @@ msgstr "ახალი კონტაქტის დამატება"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "საჯარო ჯგუფური ჩატის მოძებნა"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
@@ -1746,7 +1740,7 @@ msgstr "წაკითხულობის შეტყობინები�
 #: src/qml/UserProfilePage.qml:304
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
-msgstr ""
+msgstr "დაშიფვრა (OMEMO 2)"
 
 #: src/qml/UserProfilePage.qml:330
 msgctxt "UserProfilePage|"
