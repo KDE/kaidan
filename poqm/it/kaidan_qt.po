@@ -1,8 +1,8 @@
-# Vincenzo Reale <smart2128vr@gmail.com>, 2022.
+# Vincenzo Reale <smart2128vr@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-24 01:20+0100\n"
+"PO-Revision-Date: 2023-01-17 11:51+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -755,23 +755,17 @@ msgstr "Rinomina"
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Cerca chat di gruppo pubblica (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Cerca"
+msgstr "Cerca…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Registrazione… "
+msgstr "Caricamento…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1314,7 +1308,7 @@ msgstr "Aggiungi un nuovo contatto"
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Cerca chat di gruppo pubblica"
 
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
