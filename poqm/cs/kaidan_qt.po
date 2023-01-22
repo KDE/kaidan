@@ -1,16 +1,16 @@
-# Vit Pelcak <vit@pelcak.org>, 2022.
+# Vit Pelcak <vit@pelcak.org>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-04-06 12:04+0200\n"
-"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
+"PO-Revision-Date: 2023-01-13 15:41+0100\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 22.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -25,13 +25,13 @@ msgstr ""
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "Odeslání se nezdařilo: %1"
 
 #: src/FileSharingController.cpp:369
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr ""
+msgstr "Soubor nelze stáhnout: %1"
 
 #: src/Kaidan.cpp:108
 msgctxt "Kaidan|"
@@ -221,18 +221,18 @@ msgstr ""
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Neznámá velikost"
 
 #: src/MessageHandler.cpp:198
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "Tato zpráva je šifrovaná pomocí %1 ale nelze ji dešifrovat"
 
 #: src/MessageHandler.cpp:269
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr ""
+msgstr "Oprava zprávy nebyla úspěšná"
 
 #: src/MessageHandler.cpp:340
 msgctxt "MessageHandler|"
@@ -297,7 +297,7 @@ msgstr ""
 #: src/PresenceCache.cpp:73
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "Odpojen"
 
 #: src/ProviderListModel.cpp:50
 msgctxt "ProviderListModel|"
@@ -310,13 +310,13 @@ msgstr ""
 #: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "Bez omezení"
 
 #: src/ProviderListModel.cpp:130
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 dny"
 
 #: src/qml/AboutDialog.qml:78
 msgctxt "AboutDialog|"
@@ -326,7 +326,7 @@ msgstr ""
 #: src/qml/AboutDialog.qml:86
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr ""
+msgstr "Licence:"
 
 #: src/qml/AboutDialog.qml:103
 msgctxt "AboutDialog|"
@@ -387,17 +387,17 @@ msgstr ""
 #: src/qml/AccountTransferPage.qml:127
 msgctxt "AccountTransferPage|"
 msgid "Password:"
-msgstr ""
+msgstr "Heslo:"
 
 #: src/qml/AccountTransferPage.qml:137
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
-msgstr ""
+msgstr "Kopírovat heslo"
 
 #: src/qml/ChatPage.qml:108
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr ""
+msgstr "Hledat"
 
 #: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
@@ -412,7 +412,7 @@ msgstr ""
 #: src/qml/ChatPage.qml:137
 msgctxt "ChatPage|"
 msgid "View profile"
-msgstr ""
+msgstr "Prohlížet profil"
 
 #: src/qml/ChatPage.qml:148
 msgctxt "ChatPage|"
@@ -427,17 +427,17 @@ msgstr ""
 #: src/qml/elements/ChatMessage.qml:220
 msgctxt "ChatMessage|"
 msgid "Download"
-msgstr ""
+msgstr "Stáhnout"
 
 #: src/qml/elements/ChatMessage.qml:318
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Nezašifrováno"
 
 #: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "Nedůvěryhodný"
 
 #: src/qml/elements/ChatMessage.qml:355
 #, qt-format
@@ -448,12 +448,12 @@ msgstr ""
 #: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr ""
+msgstr "Kopírovat zprávu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:57
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr ""
+msgstr "Upravit zprávu"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:63
 msgctxt "ChatMessageContextMenu|"
@@ -468,12 +468,12 @@ msgstr ""
 #: src/qml/elements/ChatMessageContextMenu.qml:76
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr ""
+msgstr "Smazat soubor"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr ""
+msgstr "Označit jako první nepřečtené"
 
 #: src/qml/elements/ChatPageSearchView.qml:70
 msgctxt "ChatPageSearchView|"
@@ -503,57 +503,57 @@ msgstr ""
 #: src/qml/elements/ChatPageSendingPane.qml:119
 msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
-msgstr ""
+msgstr "Napsat zprávu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:219
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
+msgstr "Přílohy"
 
 #: src/qml/elements/ChatPageSendingPane.qml:271
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
-msgstr ""
+msgstr "Sejmout snímek"
 
 #: src/qml/elements/ChatPageSendingPane.qml:272
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "Sejměte snímek pomocí vaší kamery"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
 msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
-msgstr ""
+msgstr "Nahrávat video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "Nahrajte video pomocí vaší kamery"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
+msgstr "Přiložit dokument z tohoto zařízení"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr ""
+msgstr "Poslat vaši polohu"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/elements/fields/JidField.qml:39
 msgctxt "JidField|"
@@ -563,7 +563,7 @@ msgstr ""
 #: src/qml/elements/fields/JidField.qml:40
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr ""
+msgstr "uzivatel@priklad.cz"
 
 #: src/qml/elements/fields/JidField.qml:42
 msgctxt "JidField|"
@@ -584,49 +584,49 @@ msgstr ""
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "Odesilatelé %1"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "Přidat svoji reakci"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr ""
+msgstr "Odstranit vlastní reakci"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr ""
+msgstr "Probíhá inicializace..."
 
 #: src/qml/elements/NewMedia.qml:229
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr ""
+msgstr "Nedostupný"
 
 #: src/qml/elements/NewMedia.qml:239
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
-msgstr ""
+msgstr "Pozastaveno %1"
 
 #: src/qml/elements/NewMedia.qml:254
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
-msgstr ""
+msgstr "Nahrávání… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/elements/NewMediaSheet.qml:115
 msgctxt "NewMediaSheet|"
 msgid "Send"
-msgstr ""
+msgstr "Odeslat"
 
 #: src/qml/elements/QrCodeScanner.qml:71
 #, qt-format
@@ -649,7 +649,7 @@ msgstr ""
 #: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
-msgstr ""
+msgstr "Přidat nový kontakt"
 
 #: src/qml/elements/RosterAddContactSheet.qml:51
 msgctxt "RosterAddContactSheet|"
@@ -659,17 +659,17 @@ msgstr ""
 #: src/qml/elements/RosterAddContactSheet.qml:60
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
-msgstr ""
+msgstr "Jabber ID:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:65
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
-msgstr ""
+msgstr "uzivatel@priklad.cz"
 
 #: src/qml/elements/RosterAddContactSheet.qml:72
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
-msgstr ""
+msgstr "Přezdívka:"
 
 #: src/qml/elements/RosterAddContactSheet.qml:81
 msgctxt "RosterAddContactSheet|"
@@ -684,27 +684,27 @@ msgstr ""
 #: src/qml/elements/RosterAddContactSheet.qml:98
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/elements/RosterAddContactSheet.qml:108
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "Odepnout kartu"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "Připnout"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:42
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete contact"
-msgstr ""
+msgstr "Smazat kontakt"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:48
 #, qt-format
@@ -716,27 +716,27 @@ msgstr ""
 #: src/qml/elements/RosterRemoveContactSheet.qml:67
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:73
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:43
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
-msgstr ""
+msgstr "Přejmenovat kontakt"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:62
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/elements/RosterRenameContactSheet.qml:69
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
-msgstr ""
+msgstr "Přejmenovat"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:20
 #, qt-format
@@ -750,17 +750,14 @@ msgid "Search…"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Navazuji spojení…"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr ""
+msgstr "Odeslat soubory"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
@@ -770,27 +767,27 @@ msgstr ""
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Zadejte popis..."
 
 #: src/qml/elements/SendMediaSheet.qml:154
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr ""
+msgstr "Odstranit soubor"
 
 #: src/qml/elements/SendMediaSheet.qml:168
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
-msgstr ""
+msgstr "Napsat zprávu"
 
 #: src/qml/elements/SendMediaSheet.qml:175
 msgctxt "SendMediaSheet|"
 msgid "Add"
-msgstr ""
+msgstr "Přidat"
 
 #: src/qml/elements/SendMediaSheet.qml:186
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr ""
+msgstr "Odeslat"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:42
 msgctxt "SubRequestAcceptSheet|"
@@ -808,12 +805,12 @@ msgstr ""
 #: src/qml/elements/SubRequestAcceptSheet.qml:63
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
-msgstr ""
+msgstr "Odmítnout"
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:72
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
-msgstr ""
+msgstr "Přijmout"
 
 #: src/qml/EmptyChatPage.qml:54
 msgctxt "EmptyChatPage|"
@@ -823,7 +820,7 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Přidat kontakt QR kódem"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -843,17 +840,17 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:110
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "About"
-msgstr ""
+msgstr "O aplikaci"
 
 #: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
 msgctxt "LoginPage|"
 msgid "Log in"
-msgstr ""
+msgstr "Přihlásit"
 
 #: src/qml/LoginPage.qml:49
 msgctxt "LoginPage|"
@@ -863,12 +860,12 @@ msgstr ""
 #: src/qml/LoginPage.qml:75
 msgctxt "LoginPage|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/LoginPage.qml:114
 msgctxt "LoginPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
 msgctxt "QrCodeOnboardingPage|"
@@ -893,7 +890,7 @@ msgstr ""
 #: src/qml/QrCodeOnboardingPage.qml:103
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/qml/QrCodeOnboardingPage.qml:121
 msgctxt "QrCodeOnboardingPage|"
@@ -938,7 +935,7 @@ msgstr ""
 #: src/qml/QrCodePage.qml:154
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "QR kód neobsahuje žádné kontakty"
 
 #: src/qml/QrCodePage.qml:167
 msgctxt "QrCodePage|"
@@ -973,7 +970,7 @@ msgstr ""
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "Přidávám kontakt…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:49
 msgctxt "AutomaticRegistrationPage|"
@@ -1006,7 +1003,7 @@ msgstr ""
 #: src/qml/registration/DisplayNameView.qml:47
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "Zobrazované jméno"
 
 #: src/qml/registration/LoadingView.qml:41
 msgctxt "LoadingView|"
@@ -1072,12 +1069,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:64
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr ""
+msgstr "Poskytovatel"
 
 #: src/qml/registration/ProviderView.qml:101
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/registration/ProviderView.qml:144
 msgctxt "ProviderView|"
@@ -1087,12 +1084,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 #: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "Ano"
 
 #: src/qml/registration/ProviderView.qml:150
 msgctxt "ProviderView|"
@@ -1102,12 +1099,12 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "Jazyky:"
 
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr ""
+msgstr "Připojen(a) od:"
 
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
@@ -1122,7 +1119,7 @@ msgstr ""
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr ""
+msgstr "Otevřít webovou stránku"
 
 #: src/qml/registration/ProviderView.qml:188
 msgctxt "ProviderView|"
@@ -1132,12 +1129,12 @@ msgstr ""
 #: src/qml/registration/RegistrationButton.qml:37
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "Registrovat"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:41
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
-msgstr ""
+msgstr "Registrovat"
 
 #: src/qml/registration/RegistrationDecisionPage.qml:47
 msgctxt "RegistrationDecisionPage|"
@@ -1162,7 +1159,7 @@ msgstr ""
 #: src/qml/registration/RegistrationPage.qml:98
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "Registrace selhala:"
 
 #: src/qml/registration/ResultView.qml:42
 msgctxt "ResultView|"
@@ -1186,7 +1183,7 @@ msgstr ""
 #: src/qml/registration/UsernameView.qml:60
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 #: src/qml/registration/UsernameView.qml:67
 msgctxt "UsernameView|"
@@ -1234,22 +1231,22 @@ msgstr ""
 #: src/qml/RosterPage.qml:41
 msgctxt "RosterPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/qml/RosterPage.qml:42
 msgctxt "RosterPage|"
 msgid "Offline"
-msgstr ""
+msgstr "Odpojen"
 
 #: src/qml/RosterPage.qml:43
 msgctxt "RosterPage|"
 msgid "Contacts"
-msgstr ""
+msgstr "Kontakty"
 
 #: src/qml/RosterPage.qml:64
 msgctxt "RosterPage|"
 msgid "Add new contact"
-msgstr ""
+msgstr "Přidat nový kontakt"
 
 #: src/qml/RosterPage.qml:76
 msgctxt "RosterPage|"
@@ -1259,7 +1256,7 @@ msgstr ""
 #: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
 msgid "Search contacts"
-msgstr ""
+msgstr "Hledat kontakty"
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
@@ -1293,17 +1290,17 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
-msgstr ""
+msgstr "Změnit heslo"
 
 #: src/qml/settings/ChangePassword.qml:64
 msgctxt "ChangePassword|"
 msgid "Current password:"
-msgstr ""
+msgstr "Současné heslo:"
 
 #: src/qml/settings/ChangePassword.qml:71
 msgctxt "ChangePassword|"
 msgid "New password:"
-msgstr ""
+msgstr "Nové heslo:"
 
 #: src/qml/settings/ChangePassword.qml:77
 msgctxt "ChangePassword|"
@@ -1330,12 +1327,12 @@ msgstr ""
 #: src/qml/settings/ChangePassword.qml:111
 msgctxt "ChangePassword|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/settings/ChangePassword.qml:117
 msgctxt "ChangePassword|"
 msgid "Change"
-msgstr ""
+msgstr "Změnit"
 
 #: src/qml/settings/ChangePassword.qml:142
 msgctxt "ChangePassword|"
@@ -1346,22 +1343,22 @@ msgstr ""
 #, qt-format
 msgctxt "ChangePassword|"
 msgid "Failed to change password: %1"
-msgstr ""
+msgstr "Změna hesla selhala: %1"
 
 #: src/qml/settings/ConnectionSettings.qml:40
 msgctxt "ConnectionSettings|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/settings/ConnectionSettings.qml:70
 msgctxt "ConnectionSettings|"
 msgid "Change"
-msgstr ""
+msgstr "Změnit"
 
 #: src/qml/settings/ConnectionSettings.qml:84
 msgctxt "ConnectionSettings|"
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/qml/settings/ConnectionSettings.qml:98
 msgctxt "ConnectionSettings|"
@@ -1376,7 +1373,7 @@ msgstr ""
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr ""
+msgstr "Název počítače:"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
@@ -1386,7 +1383,7 @@ msgstr ""
 #: src/qml/settings/CustomConnectionSettings.qml:77
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:43
 msgctxt "DisablePasswordDisplay|"
@@ -1446,17 +1443,17 @@ msgstr ""
 #: src/qml/settings/LocalAccountRemoval.qml:50
 msgctxt "LocalAccountRemoval|"
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: src/qml/settings/MultimediaSettings.qml:44
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "Nastavení multimédií"
 
 #: src/qml/settings/MultimediaSettings.qml:56
 msgctxt "MultimediaSettings|"
 msgid "Configure"
-msgstr ""
+msgstr "Nastavit"
 
 #: src/qml/settings/MultimediaSettings.qml:66
 msgctxt "MultimediaSettings|"
@@ -1466,99 +1463,99 @@ msgstr ""
 #: src/qml/settings/MultimediaSettings.qml:71
 msgctxt "MultimediaSettings|"
 msgid "Audio Recording"
-msgstr ""
+msgstr "Nahrávání zvuku"
 
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Video Recording"
-msgstr ""
+msgstr "Nahrávání videa"
 
 #: src/qml/settings/MultimediaSettings.qml:128
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr ""
+msgstr "Kamera"
 
 #: src/qml/settings/MultimediaSettings.qml:157
 msgctxt "MultimediaSettings|"
 msgid "Audio input"
-msgstr ""
+msgstr "Zvukový vstup"
 
 #: src/qml/settings/MultimediaSettings.qml:187
 msgctxt "MultimediaSettings|"
 msgid "Container"
-msgstr ""
+msgstr "Kontejner"
 
 #: src/qml/settings/MultimediaSettings.qml:226
 msgctxt "MultimediaSettings|"
 msgid "Image"
-msgstr ""
+msgstr "Obrázek"
 
 #: src/qml/settings/MultimediaSettings.qml:231
 msgctxt "MultimediaSettings|"
 msgid "Audio"
-msgstr ""
+msgstr "Zvuk"
 
 #: src/qml/settings/MultimediaSettings.qml:237
 msgctxt "MultimediaSettings|"
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: src/qml/settings/MultimediaSettings.qml:264
 #: src/qml/settings/MultimediaSettings.qml:348
 #: src/qml/settings/MultimediaSettings.qml:432
 msgctxt "MultimediaSettings|"
 msgid "Codec"
-msgstr ""
+msgstr "Kodek"
 
 #: src/qml/settings/MultimediaSettings.qml:290
 #: src/qml/settings/MultimediaSettings.qml:458
 msgctxt "MultimediaSettings|"
 msgid "Resolution"
-msgstr ""
+msgstr "Rozlišení"
 
 #: src/qml/settings/MultimediaSettings.qml:316
 #: src/qml/settings/MultimediaSettings.qml:400
 #: src/qml/settings/MultimediaSettings.qml:510
 msgctxt "MultimediaSettings|"
 msgid "Quality"
-msgstr ""
+msgstr "Kvalita"
 
 #: src/qml/settings/MultimediaSettings.qml:374
 msgctxt "MultimediaSettings|"
 msgid "Sample Rate"
-msgstr ""
+msgstr "Vzorkovací frekvence"
 
 #: src/qml/settings/MultimediaSettings.qml:484
 msgctxt "MultimediaSettings|"
 msgid "Frame Rate"
-msgstr ""
+msgstr "Snímkovací frekvence"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Ready"
-msgstr ""
+msgstr "Připraven"
 
 #: src/qml/settings/MultimediaSettings.qml:574
 #: src/qml/settings/MultimediaSettings.qml:583
 msgctxt "MultimediaSettings|"
 msgid "Initializing…"
-msgstr ""
+msgstr "Probíhá inicializace..."
 
 #: src/qml/settings/MultimediaSettings.qml:579
 msgctxt "MultimediaSettings|"
 msgid "Unavailable"
-msgstr ""
+msgstr "Nedostupný"
 
 #: src/qml/settings/MultimediaSettings.qml:587
 msgctxt "MultimediaSettings|"
 msgid "Recording…"
-msgstr ""
+msgstr "Nahrávání..."
 
 #: src/qml/settings/MultimediaSettings.qml:589
 msgctxt "MultimediaSettings|"
 msgid "Paused"
-msgstr ""
+msgstr "Pozastaveno"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
@@ -1602,17 +1599,17 @@ msgstr ""
 #: src/qml/settings/RemoteAccountDeletion.qml:50
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
 msgid "Change password"
-msgstr ""
+msgstr "Změnit heslo"
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
@@ -1624,7 +1621,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "Nastavení multimédií"
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
@@ -1634,7 +1631,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
@@ -1664,7 +1661,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Delete account"
-msgstr ""
+msgstr "Smazat účet"
 
 #: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
@@ -1684,27 +1681,27 @@ msgstr ""
 #: src/qml/StartPage.qml:84
 msgctxt "StartPage|"
 msgid "Let's start"
-msgstr ""
+msgstr "Začněme"
 
 #: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:217
 msgctxt "UserProfilePage|"
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: src/qml/UserProfilePage.qml:78
 msgctxt "UserProfilePage|"
 msgid "Rename contact"
-msgstr ""
+msgstr "Přejmenovat kontakt"
 
 #: src/qml/UserProfilePage.qml:88
 msgctxt "UserProfilePage|"
 msgid "Show QR code"
-msgstr ""
+msgstr "Zobrazit QR kód"
 
 #: src/qml/UserProfilePage.qml:94
 msgctxt "UserProfilePage|"
 msgid "Remove contact"
-msgstr ""
+msgstr "Odstranit kontakt"
 
 #: src/qml/UserProfilePage.qml:192
 msgctxt "UserProfilePage|"
@@ -1714,32 +1711,32 @@ msgstr ""
 #: src/qml/UserProfilePage.qml:204
 msgctxt "UserProfilePage|"
 msgid "Request status"
-msgstr ""
+msgstr "Vyžádat stav"
 
 #: src/qml/UserProfilePage.qml:252
 msgctxt "UserProfilePage|"
 msgid "Privacy"
-msgstr ""
+msgstr "Soukromí"
 
 #: src/qml/UserProfilePage.qml:257
 msgctxt "UserProfilePage|"
 msgid "Send status"
-msgstr ""
+msgstr "Odeslat stav"
 
 #: src/qml/UserProfilePage.qml:275
 msgctxt "UserProfilePage|"
 msgid "Send typing notifications"
-msgstr ""
+msgstr "Posílat oznamování o psaní"
 
 #: src/qml/UserProfilePage.qml:287
 msgctxt "UserProfilePage|"
 msgid "Send read notifications"
-msgstr ""
+msgstr "Posílat oznamování o čtení"
 
 #: src/qml/UserProfilePage.qml:304
 msgctxt "UserProfilePage|"
 msgid "Encryption (OMEMO 2)"
-msgstr ""
+msgstr "Šifrování (OMEMO 2)"
 
 #: src/qml/UserProfilePage.qml:330
 msgctxt "UserProfilePage|"
@@ -1860,19 +1857,19 @@ msgstr ""
 #: src/QmlUtils.cpp:157
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Neznámá velikost"
 
 #: src/QmlUtils.cpp:231
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 je online"
 
 #: src/QmlUtils.cpp:233
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 píše..."
 
 #: src/QmlUtils.cpp:235
 #, qt-format
@@ -1920,29 +1917,29 @@ msgstr ""
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "Jméno"
 
 #: src/VCardModel.cpp:93
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "Přezdívka"
 
 #: src/VCardModel.cpp:96
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "O aplikaci"
 
 #: src/VCardModel.cpp:99
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 #: src/VCardModel.cpp:102
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "Narozeniny"
 
 #: src/VCardModel.cpp:105
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr ""
+msgstr "Webová stránka"

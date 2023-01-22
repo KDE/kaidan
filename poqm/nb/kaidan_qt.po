@@ -494,17 +494,17 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:69
+#: src/qml/elements/ChatPageSearchView.qml:70
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:89
+#: src/qml/elements/ChatPageSearchView.qml:106
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:100
+#: src/qml/elements/ChatPageSearchView.qml:117
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr ""
@@ -765,6 +765,22 @@ msgstr "Avbryt"
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Gi nytt navn"
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#, qt-format
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search public group chat (%1)"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search…"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Loading…"
+msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1262,12 +1278,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: src/qml/RosterPage.qml:56
+#: src/qml/RosterPage.qml:64
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Legg til ny kontakt"
 
-#: src/qml/RosterPage.qml:68
+#: src/qml/RosterPage.qml:76
+msgctxt "RosterPage|"
+msgid "Search public group chat"
+msgstr ""
+
+#: src/qml/RosterPage.qml:89
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Søk i kontakter"
