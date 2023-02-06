@@ -99,6 +99,18 @@ Kaidan depends on the user interface framework [Kirigami](https://api.kde.org/fr
 Please use its visual components within Kaidan instead of creating own ones as far as it makes sense.
 You can have a look at the components Kirigami provides by opening the [Kirigami Gallery](https://invent.kde.org/sdk/kirigami-gallery) (use `sudo apt install kirigami-gallery` to install it and `kirigami2gallery` to run it on Debian-based systems).
 
+## Icons
+
+For using an icon as a user interface element such as `Kirigami.Icon`, you need to set the actual icon as its `source` property.
+All icons used by Kaidan must be referenced in `kirigami-icons.qrc`.
+Kaidan's default icon theme is [Breeze](https://invent.kde.org/frameworks/breeze-icons).
+
+Instead of using new icons, search and use icons that are already used for similar purposes.
+If your purpose needs a new icon that is not yet used by Kaidan, add it to `kirigami-icons.qrc` by including the icon's path within Breeze's directory.
+
+The system Kaidan is run on can apply a different icon theme than Kaidan's default.
+For good compatibility with various icon themes, it is often better to use the `-symbolic.svg` variant of an icon.
+
 ## Graphics
 
 The preferred format for graphics in Kaidan is *SVG*.
