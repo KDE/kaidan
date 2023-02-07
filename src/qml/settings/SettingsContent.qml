@@ -52,6 +52,12 @@ ColumnLayout {
 		icon: "system-lock-screen-symbolic"
 	}
 	SettingsItem {
+		name: qsTr("Account Settings")
+		description: qsTr("Changes your account's settings.")
+		onClicked: stack.push("AccountSettings.qml")
+		icon: "avatar-default-symbolic"
+	}
+	SettingsItem {
 		name: qsTr("Multimedia Settings")
 		description: qsTr("Configure photo, video and audio recording settings")
 		onClicked: stack.push("MultimediaSettings.qml")

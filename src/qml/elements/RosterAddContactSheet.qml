@@ -37,6 +37,7 @@ import im.kaidan.kaidan 1.0
 
 Kirigami.OverlaySheet {
 	property string jid: ""
+	property string nickname: ""
 
 	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
@@ -75,6 +76,7 @@ Kirigami.OverlaySheet {
 			id: nickField
 			selectByMouse: true
 			Layout.fillWidth: true
+			text: nickname
 		}
 
 		Controls.Label {
@@ -119,6 +121,8 @@ Kirigami.OverlaySheet {
 					)
 					clearInput()
 					close()
+
+					Kaidan.openChatPageRequested(AccountManager.jid, jidField.text)
 				}
 				Layout.fillWidth: true
 			}

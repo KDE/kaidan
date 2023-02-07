@@ -247,6 +247,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif // APPIMAGE
 
 	// register qMetaTypes
+	qRegisterMetaType<ProviderListItem>();
 	qRegisterMetaType<RosterItem>();
 	qRegisterMetaType<RosterItemWatcher *>();
 	qRegisterMetaType<RosterModel*>();
@@ -279,6 +280,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<CredentialsValidator*>();
 	qRegisterMetaType<QXmppVersionIq>();
 	qRegisterMetaType<QXmppUri>();
+	qRegisterMetaType<QMap<QString, QUrl>>();
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();

@@ -415,33 +415,8 @@ Kirigami.Page {
 				text: qsTr("Online devices")
 			}
 
-			Repeater {
-				model: UserDevicesModel {
-					jid: root.jid
-				}
-
-				delegate: ColumnLayout {
-					Controls.Label {
-						text: {
-							if (model.name) {
-								var result = model.name
-								if (model.version) {
-									result += " v" + model.version
-								}
-								if (model.os) {
-									result += " • " + model.os
-								}
-								return result
-							}
-
-							return model.resource
-						}
-						textFormat: Text.PlainText
-					}
-					Item {
-						height: 3
-					}
-				}
+			UserDeviceList {
+				userJid: root.jid
 			}
 
 			// placeholder for left, right and main action
