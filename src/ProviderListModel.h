@@ -67,8 +67,12 @@ public:
 	int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
+	Q_INVOKABLE QString chooseWebsite(const QMap<QString, QUrl> &websites) const;
+
 	// overloaded method for QML
 	Q_INVOKABLE QVariant data(int row, ProviderListModel::Role role) const;
+	Q_INVOKABLE ProviderListItem provider(const QString &jid) const;
+	Q_INVOKABLE ProviderListItem providerFromBareJid(const QString &jid) const;
 
 	Q_INVOKABLE int randomlyChooseIndex() const;
 
@@ -77,7 +81,6 @@ private:
 	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
 	QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
 	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
-	QString chooseWebsite(const QMap<QString, QUrl> &websites) const;
 
 	QString systemLanguageCode() const;
 	QString systemCountryCode() const;

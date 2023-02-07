@@ -31,6 +31,7 @@
 #pragma once
 
 #include <QSharedDataPointer>
+#include <QVariantList>
 
 class QUrl;
 class QJsonObject;
@@ -39,7 +40,13 @@ class ProviderListItemPrivate;
 
 class ProviderListItem
 {
+	Q_GADGET
 public:
+	Q_PROPERTY(QString jid READ jid CONSTANT)
+	Q_PROPERTY(QMap<QString, QUrl> websites READ websites CONSTANT)
+	Q_PROPERTY(QVector<QString> chatSupport READ chatSupport CONSTANT)
+	Q_PROPERTY(QVector<QString> groupChatSupport READ groupChatSupport CONSTANT)
+
 	static ProviderListItem fromJson(const QJsonObject &object);
 
 	ProviderListItem(bool isCustomProvider = false);
@@ -78,6 +85,12 @@ public:
 
 	int messageStorageDuration() const;
 	void setMessageStorageDuration(int messageStorageDuration);
+
+	QVector<QString> chatSupport() const;
+	void setChatSupport(std::unordered_map<QString, QVector<QString>> &&chatSupport);
+
+	QVector<QString> groupChatSupport() const;
+	void setGroupChatSupport(std::unordered_map<QString, QVector<QString>> &&groupChatSupport);
 
 	bool operator<(const ProviderListItem &other) const;
 	bool operator>(const ProviderListItem &other) const;

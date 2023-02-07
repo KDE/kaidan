@@ -35,10 +35,11 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QRandomGenerator>
+// QXmpp
+#include <QXmppUtils.h>
 // Kaidan
 #include "ProviderListItem.h"
 #include "Globals.h"
-#include "QmlUtils.h"
 
 constexpr QStringView DEFAULT_LANGUAGE_CODE = u"EN";
 constexpr QStringView DEFAULT_COUNTRY_CODE = u"US";
@@ -137,6 +138,20 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 QVariant ProviderListModel::data(int row, ProviderListModel::Role role) const
 {
 	return data(index(row), role);
+}
+
+ProviderListItem ProviderListModel::provider(const QString &jid) const
+{
+	auto item = std::ranges::find_if(m_items, [&jid](const auto &it) {
+		return it.jid() == jid;
+	});
+
+	return item == m_items.end() ? ProviderListItem(true) : *item;
+}
+
+ProviderListItem ProviderListModel::providerFromBareJid(const QString &jid) const
+{
+	return provider(QXmppUtils::jidToDomain(jid));
 }
 
 int ProviderListModel::randomlyChooseIndex() const
