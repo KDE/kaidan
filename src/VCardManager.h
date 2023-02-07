@@ -31,6 +31,7 @@
 #pragma once
 
 #include <QObject>
+#include <QImage>
 
 class AvatarFileStorage;
 class ClientWorker;
@@ -86,6 +87,15 @@ public:
 	 */
 	bool executePendingNicknameChange();
 
+	/**
+	 * Executes a pending avatar change if the avatar could not be changed on the
+	 * server before because the client was disconnected.
+	 *
+	 * @return true if the pending avatar change is executed on the second login with
+	 * the same credentials or later, otherwise false
+	 */
+	bool executePendingAvatarChange();
+
 signals:
 	/**
 	 * Emitted when any vCard is received.
@@ -97,6 +107,7 @@ signals:
 	void vCardRequested(const QString &jid);
 	void clientVCardRequested();
 	void changeNicknameRequested(const QString &nickname);
+	void changeAvatarRequested(const QImage &avatar);
 
 private slots:
 	/**
@@ -105,16 +116,22 @@ private slots:
 	 * @param nickname name that is shown to contacts after the update
 	 */
 	void changeNickname(const QString &nickname);
+	void changeAvatar(const QImage &avatar);
 
 private:
 	/**
 	 * Changes the nickname which was cached to be set after receiving the current vCard.
 	 */
 	void changeNicknameAfterReceivingCurrentVCard();
+	/**
+	 * Changes the avatar which was cached to be set after receiving the current vCard.
+	 */
+	void changeAvatarAfterReceivingCurrentVCard();
 
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;
 	QXmppVCardManager *m_manager;
 	AvatarFileStorage *m_avatarStorage;
 	QString m_nicknameToBeSetAfterReceivingCurrentVCard;
+	QImage m_avatarToBeSetAfterReceivingCurrentVCard;
 };

@@ -30,6 +30,8 @@
 
 #include "VCardManager.h"
 
+// Qt
+#include <QBuffer>
 // QXmpp
 #include <QXmppUtils.h>
 #include <QXmppVCardManager.h>
@@ -48,6 +50,7 @@ VCardManager::VCardManager(ClientWorker *clientWorker, QXmppClient *client, Avat
 	connect(this, &VCardManager::vCardRequested, this, &VCardManager::requestVCard);
 	connect(this, &VCardManager::clientVCardRequested, this, &VCardManager::requestClientVCard);
 	connect(this, &VCardManager::changeNicknameRequested, this, &VCardManager::changeNickname);
+	connect(this, &VCardManager::changeAvatarRequested, this, &VCardManager::changeAvatar);
 
 	// Currently we're not requesting the own VCard on every connection because it is probably
 	// way too resource intensive on mobile connections with many reconnects.
@@ -82,10 +85,19 @@ void VCardManager::requestClientVCard()
 
 void VCardManager::handleClientVCardReceived()
 {
-	if (!m_nicknameToBeSetAfterReceivingCurrentVCard.isEmpty())
+	if (!m_nicknameToBeSetAfterReceivingCurrentVCard.isEmpty()) {
 		changeNicknameAfterReceivingCurrentVCard();
+	}
 
-	m_clientWorker->caches()->vCardCache->setVCard(m_client->configuration().jidBare(), m_manager->clientVCard());
+	if (!m_avatarToBeSetAfterReceivingCurrentVCard.isNull()) {
+		changeAvatarAfterReceivingCurrentVCard();
+	}
+
+	const auto &ownJid { m_client->configuration().jidBare() };
+	auto clientVCard { m_manager->clientVCard() };
+	clientVCard.setFrom(ownJid);
+
+	m_clientWorker->caches()->vCardCache->setVCard(ownJid, clientVCard);
 }
 
 void VCardManager::handlePresenceReceived(const QXmppPresence &presence)
@@ -115,6 +127,17 @@ void VCardManager::changeNickname(const QString &nickname)
 	);
 }
 
+void VCardManager::changeAvatar(const QImage &avatar)
+{
+	m_clientWorker->startTask(
+		[this, avatar] {
+			// TODO what's the maximum image size that should be saved?
+			m_avatarToBeSetAfterReceivingCurrentVCard = avatar.scaledToWidth(512);
+			requestClientVCard();
+		}
+	);
+}
+
 void VCardManager::changeNicknameAfterReceivingCurrentVCard()
 {
 	QXmppVCardIq vCardIq = m_manager->clientVCard();
@@ -122,4 +145,23 @@ void VCardManager::changeNicknameAfterReceivingCurrentVCard()
 	m_manager->setClientVCard(vCardIq);
 	m_nicknameToBeSetAfterReceivingCurrentVCard.clear();
 	m_clientWorker->finishTask();
+}
+
+void VCardManager::changeAvatarAfterReceivingCurrentVCard()
+{
+	QXmppVCardIq vCardIq = m_manager->clientVCard();
+
+	QByteArray ba;
+	QBuffer buffer(&ba);
+	buffer.open(QIODevice::WriteOnly);
+	m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
+
+	vCardIq.setPhoto(ba);
+
+	m_manager->setClientVCard(vCardIq);
+
+	m_avatarToBeSetAfterReceivingCurrentVCard = QImage();
+	m_clientWorker->finishTask();
+
+	emit Kaidan::instance()->avatarChangeSucceeded();
 }

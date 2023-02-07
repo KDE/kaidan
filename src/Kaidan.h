@@ -311,6 +311,11 @@ signals:
 	void passwordChangeFailed(const QString &errorMessage);
 
 	/**
+	 * Emitted when changing of the user's avatar finished succfessully.
+	 */
+	void avatarChangeSucceeded();
+
+	/**
 	 * Emitted, when a contact was muted/unmuted.
 	 */
 	void notificationsMutedChanged(const QString& jid);
