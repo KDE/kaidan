@@ -93,11 +93,11 @@ QFuture<void> OmemoManager::load()
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
-	await(future, this, [this, interface]() mutable {
+	future.then(this, [this, interface]() mutable {
 		auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % QSysInfo::prettyProductName());
-		await(future, this, [this, interface](bool) mutable {
+		future.then(this, [this, interface](bool) mutable {
 			auto future = m_manager->load();
-			await(future, this, [this, interface](bool isLoaded) mutable {
+			future.then(this, [this, interface](bool isLoaded) mutable {
 				m_isLoaded = isLoaded;
 				interface.reportFinished();
 			});
@@ -115,7 +115,7 @@ QFuture<void> OmemoManager::setUp()
 		enableSessionBuildingForNewDevices();
 	} else {
 		auto future = m_manager->setUp();
-		await(future, this, [this, interface](bool isSetUp) mutable {
+		future.then(this, [this, interface](bool isSetUp) mutable {
 			if (!isSetUp) {
 				emit Kaidan::instance()->passiveNotificationRequested(tr("Secure conversations are not possible because OMEMO could not be set up"));
 				interface.reportFinished();
@@ -149,7 +149,7 @@ QFuture<void> OmemoManager::retrieveKeys(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->keys(jids, ~ QXmpp::TrustLevels { QXmpp::TrustLevel::Undecided });
-	await(future, this, [this, interface](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
+	future.then(this, [this, interface](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
 		auto future = retrieveOwnKey(std::move(keys));
 		await(future, this, [interface]() mutable {
 			interface.reportFinished();
@@ -164,7 +164,7 @@ QFuture<bool> OmemoManager::hasUsableDevices(const QList<QString> &jids)
 	QFutureInterface<bool> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->devices(jids);
-	await(future, this, [=](QVector<QXmppOmemoDevice> devices) mutable {
+	future.then(this, [=](QVector<QXmppOmemoDevice> devices) mutable {
 		for (const auto &device : std::as_const(devices)) {
 			const auto trustLevel = device.trustLevel();
 
@@ -185,7 +185,7 @@ QFuture<void> OmemoManager::requestDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->requestDeviceLists(jids);
-	await(future, this, [interface]() mutable {
+	future.then(this, [interface](auto &&) mutable {
 		interface.reportFinished();
 	});
 
@@ -197,7 +197,7 @@ QFuture<void> OmemoManager::subscribeToDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->subscribeToDeviceLists(jids);
-	await(future, this, [interface]() mutable {
+	future.then(this, [interface](auto &&) mutable {
 		interface.reportFinished();
 	});
 
@@ -209,7 +209,7 @@ QFuture<void> OmemoManager::unsubscribeFromDeviceLists()
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->unsubscribeFromDeviceLists();
-	await(future, this, [interface]() mutable {
+	future.then(this, [interface](auto &&) mutable {
 		interface.reportFinished();
 	});
 
@@ -235,7 +235,7 @@ QFuture<void> OmemoManager::initializeChat(const QString &accountJid, const QStr
 
 	auto initializeSessionsKeysAndDevices = [this, interface, jids]() mutable {
 		auto future = m_manager->buildMissingSessions(jids);
-		await(future, this, [this, interface, jids]() mutable {
+		future.then(this, [this, interface, jids]() mutable {
 			retrieveKeys(jids);
 			retrieveDevices(jids);
 			interface.reportFinished();
@@ -286,7 +286,7 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->ownKey();
-	await(future, this, [interface, keys = std::move(keys)](QByteArray key) mutable {
+	future.then(this, [interface, keys = std::move(keys)](QByteArray key) mutable {
 		keys.insert(AccountManager::instance()->jid(), { { key, QXmpp::TrustLevel::Authenticated } });
 		emit MessageModel::instance()->keysRetrieved(keys);
 		interface.reportFinished();
@@ -305,7 +305,7 @@ void OmemoManager::retrieveDevicesForRequestedJids(const QString &jid)
 void OmemoManager::retrieveDevices(const QList<QString> &jids)
 {
 	auto future = m_manager->devices(jids);
-	await(future, this, [this, jids](QVector<QXmppOmemoDevice> devices) {
+	future.then(this, [this, jids](QVector<QXmppOmemoDevice> devices) {
 		using JidLabelMap = QMultiHash<QString, QString>;
 		JidLabelMap distrustedDevices;
 		JidLabelMap usableDevices;

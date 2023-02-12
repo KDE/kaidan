@@ -25,20 +25,20 @@ public:
 		m_accountJid = std::move(accountJid);
 	};
 
-	auto allData() -> QFuture<OmemoData> override;
-	auto resetAll() -> QFuture<void> override;
+	auto allData() -> QXmppTask<OmemoData> override;
+	auto resetAll() -> QXmppTask<void> override;
 
-	auto setOwnDevice(const std::optional<OwnDevice> &device) -> QFuture<void> override;
+	auto setOwnDevice(const std::optional<OwnDevice> &device) -> QXmppTask<void> override;
 
-	auto addSignedPreKeyPair(uint32_t keyId, const SignedPreKeyPair &keyPair) -> QFuture<void> override;
-	auto removeSignedPreKeyPair(uint32_t keyId) -> QFuture<void> override;
+	auto addSignedPreKeyPair(uint32_t keyId, const SignedPreKeyPair &keyPair) -> QXmppTask<void> override;
+	auto removeSignedPreKeyPair(uint32_t keyId) -> QXmppTask<void> override;
 
-	auto addPreKeyPairs(const QHash<uint32_t, QByteArray> &keyPairs) -> QFuture<void> override;
-	auto removePreKeyPair(uint32_t keyId) -> QFuture<void> override;
+	auto addPreKeyPairs(const QHash<uint32_t, QByteArray> &keyPairs) -> QXmppTask<void> override;
+	auto removePreKeyPair(uint32_t keyId) -> QXmppTask<void> override;
 
-	auto addDevice(const QString &jid, uint32_t deviceId, const Device &device) -> QFuture<void> override;
-	auto removeDevice(const QString &jid, uint32_t deviceId) -> QFuture<void> override;
-	auto removeDevices(const QString &jid) -> QFuture<void> override;
+	auto addDevice(const QString &jid, uint32_t deviceId, const Device &device) -> QXmppTask<void> override;
+	auto removeDevice(const QString &jid, uint32_t deviceId) -> QXmppTask<void> override;
+	auto removeDevices(const QString &jid) -> QXmppTask<void> override;
 
 private:
 	auto _ownDevice() -> std::optional<OwnDevice>;

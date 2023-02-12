@@ -39,57 +39,57 @@ public:
 		m_accountJid = std::move(newAccountJid);
 	}
 
-	auto securityPolicy(const QString &encryption) -> QFuture<SecurityPolicy> override;
-	auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QFuture<void> override;
-	auto resetSecurityPolicy(const QString &encryption) -> QFuture<void> override;
+	auto securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy> override;
+	auto setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void> override;
+	auto resetSecurityPolicy(const QString &encryption) -> QXmppTask<void> override;
 
-	auto ownKey(const QString &encryption) -> QFuture<QByteArray> override;
-	auto setOwnKey(const QString &encryption, const QByteArray &keyId) -> QFuture<void> override;
-	auto resetOwnKey(const QString &encryption) -> QFuture<void> override;
+	auto ownKey(const QString &encryption) -> QXmppTask<QByteArray> override;
+	auto setOwnKey(const QString &encryption, const QByteArray &keyId) -> QXmppTask<void> override;
+	auto resetOwnKey(const QString &encryption) -> QXmppTask<void> override;
 
-	auto keys(const QString &encryption, QXmpp::TrustLevels trustLevels = {}) -> QFuture<KeysByLevel> override;
+	auto keys(const QString &encryption, QXmpp::TrustLevels trustLevels = {}) -> QXmppTask<KeysByLevel> override;
 	auto keys(const QString &encryption,
 		const QList<QString> &keyOwnerJids,
-		QXmpp::TrustLevels trustLevels = {}) -> QFuture<KeysByOwner> override;
+		QXmpp::TrustLevels trustLevels = {}) -> QXmppTask<KeysByOwner> override;
 	auto addKeys(const QString &encryption,
 		const QString &keyOwnerJid,
 		const QList<QByteArray> &keyIds,
 		QXmpp::TrustLevel trustLevel = QXmpp::TrustLevel::AutomaticallyDistrusted)
-		-> QFuture<void> override;
-	auto removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QFuture<void> override;
-	auto removeKeys(const QString &encryption, const QString &keyOwnerJid) -> QFuture<void> override;
-	auto removeKeys(const QString &encryption) -> QFuture<void> override;
+		-> QXmppTask<void> override;
+	auto removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QXmppTask<void> override;
+	auto removeKeys(const QString &encryption, const QString &keyOwnerJid) -> QXmppTask<void> override;
+	auto removeKeys(const QString &encryption) -> QXmppTask<void> override;
 	auto hasKey(const QString &encryption, const QString &keyOwnerJid, QXmpp::TrustLevels trustLevels)
-		-> QFuture<bool> override;
+		-> QXmppTask<bool> override;
 
 	auto trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
-		-> QFuture<QXmpp::TrustLevel> override;
+		-> QXmppTask<QXmpp::TrustLevel> override;
 	auto setTrustLevel(const QString &encryption,
 		const QMultiHash<QString, QByteArray> &keyIds,
-		QXmpp::TrustLevel trustLevel) -> QFuture<TrustChanges> override;
+		QXmpp::TrustLevel trustLevel) -> QXmppTask<TrustChanges> override;
 	auto setTrustLevel(const QString &encryption,
 		const QList<QString> &keyOwnerJids,
 		QXmpp::TrustLevel oldTrustLevel,
-		QXmpp::TrustLevel newTrustLevel) -> QFuture<TrustChanges> override;
+		QXmpp::TrustLevel newTrustLevel) -> QXmppTask<TrustChanges> override;
 
 	// ATM
 	auto addKeysForPostponedTrustDecisions(const QString &encryption,
 		const QByteArray &senderKeyId,
-		const QList<QXmppTrustMessageKeyOwner> &keyOwners) -> QFuture<void> override;
+		const QList<QXmppTrustMessageKeyOwner> &keyOwners) -> QXmppTask<void> override;
 	auto removeKeysForPostponedTrustDecisions(const QString &encryption,
 		const QList<QByteArray> &keyIdsForAuthentication,
-		const QList<QByteArray> &keyIdsForDistrusting) -> QFuture<void> override;
+		const QList<QByteArray> &keyIdsForDistrusting) -> QXmppTask<void> override;
 	auto removeKeysForPostponedTrustDecisions(const QString &encryption,
-		const QList<QByteArray> &senderKeyIds) -> QFuture<void> override;
-	auto removeKeysForPostponedTrustDecisions(const QString &encryption) -> QFuture<void> override;
-	QFuture<QHash<bool, QMultiHash<QString, QByteArray>>> keysForPostponedTrustDecisions(const QString &encryption,
+		const QList<QByteArray> &senderKeyIds) -> QXmppTask<void> override;
+	auto removeKeysForPostponedTrustDecisions(const QString &encryption) -> QXmppTask<void> override;
+	QXmppTask<QHash<bool, QMultiHash<QString, QByteArray>>> keysForPostponedTrustDecisions(const QString &encryption,
 		const QList<QByteArray> &senderKeyIds = {}) override;
 
-	auto resetAll(const QString &encryption) -> QFuture<void> override;
-	auto resetAll() -> QFuture<void>;
+	auto resetAll(const QString &encryption) -> QXmppTask<void> override;
+	auto resetAll() -> QXmppTask<void>;
 
 private:
-	auto insertKeys(std::vector<Key> &&) -> QFuture<void>;
+	auto insertKeys(std::vector<Key> &&) -> QXmppTask<void>;
 	void _resetSecurityPolicy(const QString &encryption);
 	void _resetOwnKey(const QString &encryption);
 	void _setTrustLevel(QXmpp::TrustLevel trustLevel, qint64 rowId);

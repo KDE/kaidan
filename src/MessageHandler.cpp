@@ -263,7 +263,7 @@ void MessageHandler::sendCorrectedMessage(Message msg)
 {
 	const auto messageId = msg.id;
 	await(send(msg.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
-		if (std::holds_alternative<QXmpp::SendError>(result)) {
+		if (std::holds_alternative<QXmppError>(result)) {
 			// TODO store in the database only error codes, assign text messages right in the QML
 			emit Kaidan::instance()->passiveNotificationRequested(
 						tr("Message correction was not successful"));
@@ -330,9 +330,9 @@ void MessageHandler::sendPendingMessage(Message message)
 
 		const auto messageId = message.id;
 		await(send(message.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
-			if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
+			if (const auto error = std::get_if<QXmppError>(&result)) {
 				qWarning() << "[client] [MessageHandler] Could not send message:"
-					<< error->text;
+				           << error->description;
 
 				// The error message of the message is saved untranslated. To make
 				// translation work in the UI, the tr() call of the passive
@@ -662,13 +662,13 @@ QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)
 	const auto recipientJid = message.to();
 
 	auto sendEncrypted = [=, this]() mutable {
-		await(m_client->send(std::move(message)), this, [=](QXmpp::SendResult result) mutable {
+		m_client->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult result) mutable {
 			reportFinishedResult(interface, result);
 		});
 	};
 
 	auto sendUnencrypted = [=, this]() mutable {
-		await(m_client->sendUnencrypted(std::move(message)), this, [=](QXmpp::SendResult result) mutable {
+		m_client->send(std::move(message)).then(this, [=](QXmpp::SendResult result) mutable {
 			reportFinishedResult(interface, result);
 		});
 	};

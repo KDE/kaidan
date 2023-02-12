@@ -164,9 +164,9 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
 
 void RosterManager::subscribeToPresence(const QString &contactJid)
 {
-	await(m_manager->subscribeTo(contactJid), this, [contactJid](QXmpp::SendResult result) {
-		if (const auto error = std::get_if<QXmpp::SendError>(&result)) {
-			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %s failed because of a connection problem: %s").arg(contactJid, error->text));
+	m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
+		if (const auto error = std::get_if<QXmppError>(&result)) {
+			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %s failed because of a connection problem: %s").arg(contactJid, error->description));
 		}
 	});
 }

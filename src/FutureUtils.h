@@ -30,8 +30,12 @@
 
 #pragma once
 
+// Qt
 #include <QFuture>
 #include <QFutureWatcher>
+// QXmpp
+#include <QXmppTask.h>
+#include <QXmppPromise.h>
 
 template<typename ValueType>
 auto qFutureValueType(QFuture<ValueType>) -> ValueType;
@@ -168,4 +172,22 @@ QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
 	}
 
 	return interface.future();
+}
+
+template<typename T>
+static auto taskFromFuture(QFuture<T> &&future) -> QXmppTask<T>
+{
+	QXmppPromise<T> promise;
+	auto *watcher = new QFutureWatcher<T>();
+	QObject::connect(watcher, &QFutureWatcher<T>::finished, [promise = std::move(promise), watcher]() mutable {
+		if constexpr (std::is_void_v<T>) {
+			promise.finish();
+		} else {
+			promise.finish(watcher->result());
+		}
+		watcher->deleteLater();
+	});
+	watcher->setFuture(future);
+
+	return promise.task();
 }
