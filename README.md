@@ -47,6 +47,7 @@ Here are the general dependencies of Kaidan:
  * [Qt][qt-build-sources] (Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location) (>= 5.15.0)
  * [QXmpp][qxmpp] (with OMEMO) (>= cbf3209 (master))
  * [Kirigami 2][kirigami-repo] (>= 5.67.0)
+ * [KQuickImageEditor][kquickimageeditor] (>= 0.2.0)
  * [ECM (extra-cmake-modules)][ecm]
  * [ZXing-cpp][zxing-cpp] (>= 1.0.8)
  * [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
@@ -71,6 +72,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [kirigami-repo]: https://invent.kde.org/frameworks/kirigami
 [kirigami-website]: https://kde.org/products/kirigami/
 [knotifications]: https://api.kde.org/frameworks/knotifications/html/index.html
+[kquickimageeditor]: https://invent.kde.org/libraries/kquickimageeditor
 [qt]: https://www.qt.io/
 [qt-build-sources]: https://doc.qt.io/qt-5/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
