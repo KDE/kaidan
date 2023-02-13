@@ -301,7 +301,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#: src/ProviderListModel.cpp:50
+#: src/ProviderListModel.cpp:51
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Özel sağlayıcı"
@@ -309,12 +309,12 @@ msgstr "Özel sağlayıcı"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+#: src/ProviderListModel.cpp:119 src/ProviderListModel.cpp:129
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Sınırsız"
 
-#: src/ProviderListModel.cpp:130
+#: src/ProviderListModel.cpp:131
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -558,6 +558,28 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Konum gönder"
 
+#: src/qml/elements/ChatSupportSheet.qml:45
+msgctxt "ChatSupportSheet|"
+msgid "Support Group"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:45
+msgctxt "ChatSupportSheet|"
+msgid "Support"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:67
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Group Support %1"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:67
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Support %1"
+msgstr ""
+
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
@@ -656,47 +678,47 @@ msgstr ""
 "Kameranız meşgul.\n"
 "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:44
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:52
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Bu, aynı zamanda kişinin varlığına erişim isteği gönderecektir."
 
-#: src/qml/elements/RosterAddContactSheet.qml:60
+#: src/qml/elements/RosterAddContactSheet.qml:61
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber Kimliği:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:65
+#: src/qml/elements/RosterAddContactSheet.qml:66
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
 msgstr "kullanıcı@örnek.org"
 
-#: src/qml/elements/RosterAddContactSheet.qml:72
+#: src/qml/elements/RosterAddContactSheet.qml:73
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Takma ad:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:81
+#: src/qml/elements/RosterAddContactSheet.qml:83
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "İsteğe bağlı ileti:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:89
+#: src/qml/elements/RosterAddContactSheet.qml:91
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Sohbet arkadaşınıza kim olduğunuzu söyleyin."
 
-#: src/qml/elements/RosterAddContactSheet.qml:98
+#: src/qml/elements/RosterAddContactSheet.qml:100
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/qml/elements/RosterAddContactSheet.qml:108
+#: src/qml/elements/RosterAddContactSheet.qml:110
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ekle"
@@ -1333,6 +1355,118 @@ msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
 msgstr "Parolayı hiçbir biçimde açığa çıkarma"
 
+#: src/qml/settings/AccountSettings.qml:42
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountSettings|"
+msgid "Account settings"
+msgstr "Hesap güvenliği"
+
+#: src/qml/settings/AccountSettings.qml:234
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Profile"
+msgctxt "AccountSettings|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/qml/settings/AccountSettings.qml:269
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Online devices"
+msgctxt "AccountSettings|"
+msgid "Online devices"
+msgstr "Çevrimiçi aygıtlar"
+
+#: src/qml/settings/AccountSettings.qml:282
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Provider"
+msgctxt "AccountSettings|"
+msgid "Provider"
+msgstr "Sağlayıcı"
+
+#: src/qml/settings/AccountSettings.qml:299
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Open website"
+msgctxt "AccountSettings|"
+msgid "Visit website"
+msgstr "Web sitesini aç"
+
+#: src/qml/settings/AccountSettings.qml:308
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy download URL"
+msgctxt "AccountSettings|"
+msgid "Copy URL"
+msgstr "İndirme URL'sini kopyala"
+
+#: src/qml/settings/AccountSettings.qml:313
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Invitation link copied to clipboard"
+msgctxt "AccountSettings|"
+msgid "URL successfully copied to clipboard."
+msgstr "Davet bağlantısı panoya kopyalandı"
+
+#: src/qml/settings/AccountSettings.qml:323
+#: src/qml/settings/AccountSettings.qml:337
+msgctxt "AccountSettings|"
+msgid "Support"
+msgstr ""
+
+#: src/qml/settings/AccountSettings.qml:361
+msgctxt "AccountSettings|"
+msgid "Support Group"
+msgstr ""
+
+#: src/qml/settings/ChangeAvatar.qml:47
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change password"
+msgctxt "ChangeAvatar|"
+msgid "Change avatar"
+msgstr "Parolayı değiştir"
+
+#: src/qml/settings/ChangeAvatar.qml:63
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
+msgctxt "ChangeAvatar|"
+msgid "Choose avatar image"
+msgstr "Görsel seç"
+
+#: src/qml/settings/ChangeAvatar.qml:140
+msgctxt "ChangeAvatar|"
+msgid "Open…"
+msgstr ""
+
+#: src/qml/settings/ChangeAvatar.qml:149
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "ChangeAvatar|"
+msgid "Cancel"
+msgstr "İptal"
+
+#: src/qml/settings/ChangeAvatar.qml:158
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change"
+msgctxt "ChangeAvatar|"
+msgid "Change"
+msgstr "Değiştir"
+
+#: src/qml/settings/ChangeAvatar.qml:182
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Password changed successfully"
+msgctxt "ChangeAvatar|"
+msgid "Avatar changed successfully"
+msgstr "Parola başarıyla değiştirildi"
+
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
@@ -1689,53 +1823,66 @@ msgstr ""
 "gerekecektir."
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Hesap Güvenliği"
+
+#: src/qml/settings/SettingsContent.qml:56
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Çoklu Ortam ayarları"
 
-#: src/qml/settings/SettingsContent.qml:56
+#: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Fotoğraf, video ve ses kayıt ayarlarını yapılandır"
 
-#: src/qml/settings/SettingsContent.qml:61
+#: src/qml/settings/SettingsContent.qml:67
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
 msgstr "Bağlantı Ayarları"
 
-#: src/qml/settings/SettingsContent.qml:62
+#: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
 msgstr "Bağlanılacak makine adını ve kapıyı yapılandır"
 
-#: src/qml/settings/SettingsContent.qml:67
+#: src/qml/settings/SettingsContent.qml:73
 msgctxt "SettingsContent|"
 msgid "Account security"
 msgstr "Hesap güvenliği"
 
-#: src/qml/settings/SettingsContent.qml:68
+#: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
 msgstr ""
 "Bu aygıtın başka bir aygıtta oturum açarken kullanılıp kullanılamayacağını "
 "yapılandır"
 
-#: src/qml/settings/SettingsContent.qml:73
+#: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Remove account from Kaidan"
 msgstr "Hesabı Kaidan'dan kaldır"
 
-#: src/qml/settings/SettingsContent.qml:74
+#: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
 msgstr "Hesabı bu uygulamadan kaldır"
 
-#: src/qml/settings/SettingsContent.qml:79
+#: src/qml/settings/SettingsContent.qml:85
 msgctxt "SettingsContent|"
 msgid "Delete account"
 msgstr "Hesabı sil"
 
-#: src/qml/settings/SettingsContent.qml:80
+#: src/qml/settings/SettingsContent.qml:86
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Hesabı sunucudan sil"

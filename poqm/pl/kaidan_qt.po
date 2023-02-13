@@ -306,7 +306,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Niedostępny"
 
-#: src/ProviderListModel.cpp:50
+#: src/ProviderListModel.cpp:51
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Dostawca własny"
@@ -314,12 +314,12 @@ msgstr "Dostawca własny"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:118 src/ProviderListModel.cpp:128
+#: src/ProviderListModel.cpp:119 src/ProviderListModel.cpp:129
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Nieograniczona"
 
-#: src/ProviderListModel.cpp:130
+#: src/ProviderListModel.cpp:131
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -563,6 +563,28 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Wyślij swoje położenie"
 
+#: src/qml/elements/ChatSupportSheet.qml:45
+msgctxt "ChatSupportSheet|"
+msgid "Support Group"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:45
+msgctxt "ChatSupportSheet|"
+msgid "Support"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:67
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Group Support %1"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:67
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Support %1"
+msgstr ""
+
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
@@ -661,47 +683,47 @@ msgstr ""
 "Twoja kamera jest zajęta.\n"
 "Spróbuj zamknąć inne aplikacje korzystające z aparatu."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:44
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Dodaj nowy kontakt"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:52
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Kontakt zostanie również zapytany o dostęp do swojego stanu online."
 
-#: src/qml/elements/RosterAddContactSheet.qml:60
+#: src/qml/elements/RosterAddContactSheet.qml:61
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:65
+#: src/qml/elements/RosterAddContactSheet.qml:66
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
 msgstr "nick@example.org"
 
-#: src/qml/elements/RosterAddContactSheet.qml:72
+#: src/qml/elements/RosterAddContactSheet.qml:73
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Nick:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:81
+#: src/qml/elements/RosterAddContactSheet.qml:83
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Opcjonalna wiadomość:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:89
+#: src/qml/elements/RosterAddContactSheet.qml:91
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Powiedz swojemu rozmówcy, kim jesteś."
 
-#: src/qml/elements/RosterAddContactSheet.qml:98
+#: src/qml/elements/RosterAddContactSheet.qml:100
 msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/qml/elements/RosterAddContactSheet.qml:108
+#: src/qml/elements/RosterAddContactSheet.qml:110
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Dodaj"
@@ -1342,6 +1364,118 @@ msgctxt "AccountSecurity|"
 msgid "Don't expose password in any way"
 msgstr "Nie ujawniaj hasła w żaden sposób"
 
+#: src/qml/settings/AccountSettings.qml:42
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountSettings|"
+msgid "Account settings"
+msgstr "Bezpieczeństwo konta"
+
+#: src/qml/settings/AccountSettings.qml:234
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Profile"
+msgctxt "AccountSettings|"
+msgid "Profile"
+msgstr "Profil"
+
+#: src/qml/settings/AccountSettings.qml:269
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Online devices"
+msgctxt "AccountSettings|"
+msgid "Online devices"
+msgstr "Urządzenia dostępne w sieci"
+
+#: src/qml/settings/AccountSettings.qml:282
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Provider"
+msgctxt "AccountSettings|"
+msgid "Provider"
+msgstr "Dostawca"
+
+#: src/qml/settings/AccountSettings.qml:299
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Open website"
+msgctxt "AccountSettings|"
+msgid "Visit website"
+msgstr "Otwórz stronę sieciową"
+
+#: src/qml/settings/AccountSettings.qml:308
+#, fuzzy
+#| msgctxt "ChatMessageContextMenu|"
+#| msgid "Copy download URL"
+msgctxt "AccountSettings|"
+msgid "Copy URL"
+msgstr "Skopiuj adres URL"
+
+#: src/qml/settings/AccountSettings.qml:313
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Invitation link copied to clipboard"
+msgctxt "AccountSettings|"
+msgid "URL successfully copied to clipboard."
+msgstr "Link zaproszenia skopiowany do schowka"
+
+#: src/qml/settings/AccountSettings.qml:323
+#: src/qml/settings/AccountSettings.qml:337
+msgctxt "AccountSettings|"
+msgid "Support"
+msgstr ""
+
+#: src/qml/settings/AccountSettings.qml:361
+msgctxt "AccountSettings|"
+msgid "Support Group"
+msgstr ""
+
+#: src/qml/settings/ChangeAvatar.qml:47
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change password"
+msgctxt "ChangeAvatar|"
+msgid "Change avatar"
+msgstr "Zmień hasło"
+
+#: src/qml/settings/ChangeAvatar.qml:63
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
+msgctxt "ChangeAvatar|"
+msgid "Choose avatar image"
+msgstr "Wybierz obraz"
+
+#: src/qml/settings/ChangeAvatar.qml:140
+msgctxt "ChangeAvatar|"
+msgid "Open…"
+msgstr ""
+
+#: src/qml/settings/ChangeAvatar.qml:149
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "ChangeAvatar|"
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: src/qml/settings/ChangeAvatar.qml:158
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change"
+msgctxt "ChangeAvatar|"
+msgid "Change"
+msgstr "Zmień"
+
+#: src/qml/settings/ChangeAvatar.qml:182
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Password changed successfully"
+msgctxt "ChangeAvatar|"
+msgid "Avatar changed successfully"
+msgstr "Hasło zostało zmienione"
+
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
 msgid "Change password"
@@ -1699,53 +1833,66 @@ msgstr ""
 "na pozostałych urządzeniach."
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Bezpieczeństwo konta"
+
+#: src/qml/settings/SettingsContent.qml:56
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Ustawienia multimediów"
 
-#: src/qml/settings/SettingsContent.qml:56
+#: src/qml/settings/SettingsContent.qml:62
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Skonfiguruj ustawienia nagrywania: zdjęć, wideo i audio"
 
-#: src/qml/settings/SettingsContent.qml:61
+#: src/qml/settings/SettingsContent.qml:67
 msgctxt "SettingsContent|"
 msgid "Connection Settings"
 msgstr "Ustawienia połączenia"
 
-#: src/qml/settings/SettingsContent.qml:62
+#: src/qml/settings/SettingsContent.qml:68
 msgctxt "SettingsContent|"
 msgid "Configure the hostname and port to connect to"
 msgstr "Skonfiguruj nazwę hosta i port, z którym chcesz się połączyć"
 
-#: src/qml/settings/SettingsContent.qml:67
+#: src/qml/settings/SettingsContent.qml:73
 msgctxt "SettingsContent|"
 msgid "Account security"
 msgstr "Bezpieczeństwo konta"
 
-#: src/qml/settings/SettingsContent.qml:68
+#: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to log in on another device"
 msgstr ""
 "Skonfiguruj, czy to urządzenie może być używane do logowania na innym "
 "urządzeniu"
 
-#: src/qml/settings/SettingsContent.qml:73
+#: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
 msgid "Remove account from Kaidan"
 msgstr "Usuń konto z Kaidan"
 
-#: src/qml/settings/SettingsContent.qml:74
+#: src/qml/settings/SettingsContent.qml:80
 msgctxt "SettingsContent|"
 msgid "Remove account from this app"
 msgstr "Usuń konto z tej aplikacji"
 
-#: src/qml/settings/SettingsContent.qml:79
+#: src/qml/settings/SettingsContent.qml:85
 msgctxt "SettingsContent|"
 msgid "Delete account"
 msgstr "Usuń konto"
 
-#: src/qml/settings/SettingsContent.qml:80
+#: src/qml/settings/SettingsContent.qml:86
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Usuń konto z serwera"
