@@ -3,7 +3,7 @@
 This is a guideline for contributing to Kaidan.
 There is also a guide for a [basic setup](https://invent.kde.org/network/kaidan/-/wikis/setup) targeted at contributors which are unfamiliar with KDE Identity, GitLab or Git and want to start contributing quickly.
 
-If you would like to contribute to Kaidan, please create branches on your repository clone and submit merge requests for them.
+In order to contribute to Kaidan, please create branches on your forked repository and submit merge requests for them.
 Please do not create branches on Kaidan's main repository or push your commits directly to its *master* branch.
 
 ## Branches
@@ -25,16 +25,16 @@ Please stick to the following steps for opening, reviewing and accepting MRs.
 
 ### For Authors
 
-1. Create a new branch to work on it from the *master* branch.
+1. Create a new branch from the *master* branch to work on it.
 1. Write short commit messages starting with an upper case letter and the imperative.
 1. Split your commits logically.
 1. Do not mix unrelated changes in the same MR.
-1. Create a MR with the *master* branch as its target.
+1. Create an MR with the *master* branch as its target.
 1. Add `Draft: ` in front of the MR's title as long as you are working on the MR and remove it as soon as it is ready to be reviewed.
 1. A maintainer and possibly other reviewers will give you feedback.
 1. Improve your MR according to their feedback, push your commits and close open threads via the *Resolve thread* button.
 1. If necessary, modify, reorder or squash your commits and force-push (`git push -f`) the result to the MR's branch.
-1. If there are no open threads on your MR, a maintainer will merge your commits into the *master* branch.
+1. As soon as all threads on your MR are resolved, a maintainer will merge your commits into the *master* branch.
 
 Please do not merge your commits into the *master* branch by yourself.
 If maintainers approved your MR but have not yet merged it, that probably means that they are waiting for the approval of additional maintainers.
@@ -44,7 +44,7 @@ Feel free to ask if anything is unclear.
 
 1. Provide detailed descriptions of found issues to the author.
 1. Try to give the author concrete proposals for improving the code via the *Insert suggestion* button while commenting.
-1. If the proposals are too complicated, create and push a commit with your proposal to your own fork of Kaidan and open a MR with the author's MR branch as its target.
+1. If the proposals are too complicated, create and push a commit with your proposal to your own fork of Kaidan and open an MR with the author's MR branch as its target.
 1. In case you are a maintainer:
 	1. If you think that no additional review is needed, make editorial modifications (such as squashing the commits) and merge the result directly.
 	1. If you would like to get (more) feedback from other maintainers, approve the MR using the *Approve* button and mention other maintainers to review the MR.
@@ -135,4 +135,5 @@ Furthermore, the logo has to be updated on multiple other places:
 
 1. For this GitLab project by creating a [sysadmin request](https://go.kde.org/systickets) and providing a link to a PNG version in its description.
 1. In the [repository of Kaidan's website](https://invent.kde.org/websites/kaidan-im) by updating all instances of `favicon*` and `logo*`.
+1. On [Kaidan's Mastodon profile](https://fosstodon.org/@kaidan) by uploading a new avatar.
 1. In [Kaidan's support chat](xmpp:kaidan@muc.kaidan.im?join) by uploading a new avatar.
