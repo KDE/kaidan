@@ -39,7 +39,7 @@
 
 AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
 	: QObject(parent),
-	  m_trustStorage(new TrustDb(database, {}, this)),
+	  m_trustStorage(new TrustDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppAtmManager>(m_trustStorage.get()))
 {
 }

@@ -26,7 +26,7 @@ public:
 	using TrustChanges = QHash<QString, QMultiHash<QString, QByteArray>>;
 	using SecurityPolicy = QXmpp::TrustSecurityPolicy;
 
-	explicit TrustDb(Database *database, QString accountJid, QObject *parent = nullptr);
+	explicit TrustDb(Database *database, QObject *xmppContext, QString accountJid, QObject *parent = nullptr);
 	~TrustDb() override = default;
 
 	// Not thread-safe (but this shouldn't be a problem if it's only used from one place)
@@ -89,10 +89,17 @@ public:
 	auto resetAll() -> QXmppTask<void>;
 
 private:
+	template<typename Functor>
+	auto runTask(Functor function) const
+	{
+		return runAsyncTask(m_xmppContext, dbWorker(), function);
+	}
+
 	auto insertKeys(std::vector<Key> &&) -> QXmppTask<void>;
 	void _resetSecurityPolicy(const QString &encryption);
 	void _resetOwnKey(const QString &encryption);
 	void _setTrustLevel(QXmpp::TrustLevel trustLevel, qint64 rowId);
 
+	QObject *m_xmppContext;
 	QString m_accountJid;
 };

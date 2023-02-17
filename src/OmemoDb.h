@@ -14,7 +14,7 @@ public:
 	using PreKeyPairs = QHash<uint32_t, QByteArray>;
 	using Devices = QHash<QString, QHash<uint32_t, Device>>;
 
-	OmemoDb(Database *db, QString accountJid, QObject *parent = nullptr);
+	OmemoDb(Database *db, QObject *xmppContext, QString accountJid, QObject *parent = nullptr);
 
 	inline auto accountJid() const
 	{
@@ -41,10 +41,17 @@ public:
 	auto removeDevices(const QString &jid) -> QXmppTask<void> override;
 
 private:
+	template<typename Functor>
+	auto runTask(Functor function) const
+	{
+		return runAsyncTask(m_xmppContext, dbWorker(), function);
+	}
+
 	auto _ownDevice() -> std::optional<OwnDevice>;
 	auto _signedPreKeyPairs() -> SignedPreKeyPairs;
 	auto _preKeyPairs() -> PreKeyPairs;
 	auto _devices() -> Devices;
 
+	QObject *m_xmppContext;
 	QString m_accountJid;
 };

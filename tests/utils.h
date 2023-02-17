@@ -4,9 +4,13 @@
 
 #pragma once
 
+// std
+#include <memory>
+// Qt
 #include <QFuture>
 #include <QtTest>
-#include <memory>
+// QXmpp
+#include <QXmppTask.h>
 
 template<typename T>
 T wait(const QFuture<T> &future)
@@ -18,4 +22,10 @@ T wait(const QFuture<T> &future)
 	if constexpr (!std::is_same_v<T, void>) {
 		return future.result();
 	}
+}
+
+template<typename T>
+T wait(QObject *context, QXmppTask<T> task)
+{
+	return wait(task.toFuture(context));
 }

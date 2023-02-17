@@ -41,18 +41,18 @@ private:
 	Q_SLOT void testResetAll();
 
 	Database db;
-	OmemoDb storage = OmemoDb(&db, "user@example.org", this);
+	OmemoDb storage = OmemoDb(&db, this, "user@example.org", this);
 };
 
 void OmemoDbTest::testOwnDevice()
 {
-	QVERIFY(!wait(storage.allData()).ownDevice.has_value());
+	QVERIFY(!wait(this, storage.allData()).ownDevice.has_value());
 
 	Storage::OwnDevice ownDevice;
 	storage.setOwnDevice(ownDevice);
 
 	// Check the default values.
-	auto data = wait(storage.allData());
+	auto data = wait(this, storage.allData());
 	QVERIFY(data.ownDevice.has_value());
 	QCOMPARE(data.ownDevice.value(), ownDevice);
 
@@ -69,13 +69,13 @@ void OmemoDbTest::testOwnDevice()
 	storage.setOwnDevice(ownDevice);
 
 	// Check the set values.
-	QCOMPARE(wait(storage.allData()).ownDevice, ownDevice);
+	QCOMPARE(wait(this, storage.allData()).ownDevice, ownDevice);
 }
 
 void OmemoDbTest::testSignedPreKeyPairs()
 {
 	Storage::SignedPreKeyPairs signedPreKeyPairs;
-	QCOMPARE(wait(storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
+	QCOMPARE(wait(this, storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
 
 	// add values
 	auto pair1 = Storage::SignedPreKeyPair {
@@ -91,18 +91,18 @@ void OmemoDbTest::testSignedPreKeyPairs()
 	// check values have been added
 	storage.addSignedPreKeyPair(1, pair1);
 	storage.addSignedPreKeyPair(2, pair2);
-	QCOMPARE(wait(storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
+	QCOMPARE(wait(this, storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
 
 	// check values have been removed
 	signedPreKeyPairs.remove(1);
 	storage.removeSignedPreKeyPair(1);
-	QCOMPARE(wait(storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
+	QCOMPARE(wait(this, storage.allData()).signedPreKeyPairs, signedPreKeyPairs);
 }
 
 void OmemoDbTest::testPreKeyPairs()
 {
 	// empty check
-	auto data = wait(storage.allData());
+	auto data = wait(this, storage.allData());
 	QCOMPARE(data.preKeyPairs.size(), 0);
 	QCOMPARE(data.preKeyPairs, Storage::PreKeyPairs());
 
@@ -115,17 +115,17 @@ void OmemoDbTest::testPreKeyPairs()
 
 	storage.addPreKeyPairs({pairs[0], pairs[1]});
 	storage.addPreKeyPairs({pairs[2]});
-	QCOMPARE(wait(storage.allData()).preKeyPairs, preKeyPairs);
+	QCOMPARE(wait(this, storage.allData()).preKeyPairs, preKeyPairs);
 
 	preKeyPairs.remove(1);
 	storage.removePreKeyPair(1);
-	QCOMPARE(wait(storage.allData()).preKeyPairs, preKeyPairs);
+	QCOMPARE(wait(this, storage.allData()).preKeyPairs, preKeyPairs);
 }
 
 void OmemoDbTest::testDevices()
 {
 	// empty check
-	QCOMPARE(wait(storage.allData()).devices, Storage::Devices());
+	QCOMPARE(wait(this, storage.allData()).devices, Storage::Devices());
 
 	Storage::Device deviceAlice = {.label = "Desktop",
 		.keyId = QByteArray::fromBase64("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo="),
@@ -178,7 +178,7 @@ void OmemoDbTest::testDevices()
 	storage.addDevice("bob@example.com", 2, deviceBob2);
 
 	{
-		auto result = wait(storage.allData()).devices;
+		auto result = wait(this, storage.allData()).devices;
 		QCOMPARE(result.size(), 2);
 
 		auto resultDevicesAlice = result.value(("alice@example.org"));
@@ -257,7 +257,7 @@ void OmemoDbTest::testDevices()
 	storage.removeDevice(("bob@example.com"), 2);
 
 	{
-		auto result = wait(storage.allData()).devices;
+		auto result = wait(this, storage.allData()).devices;
 		QCOMPARE(result.size(), 2);
 
 		auto resultDevicesAlice = result.value(("alice@example.org"));
@@ -314,7 +314,7 @@ void OmemoDbTest::testDevices()
 	storage.removeDevice(("alice@example.org"), 1);
 
 	{
-		auto result = wait(storage.allData()).devices;
+		auto result = wait(this, storage.allData()).devices;
 		QCOMPARE(result.size(), 1);
 
 		auto resultDevicesBob = result.value(("bob@example.com"));
@@ -349,7 +349,7 @@ void OmemoDbTest::testDevices()
 	storage.removeDevices(("bob@example.com"));
 
 	{
-		auto result = wait(storage.allData()).devices;
+		auto result = wait(this, storage.allData()).devices;
 		QCOMPARE(result.size(), 1);
 
 		auto resultDevicesAlice = result.value(("alice@example.org"));
@@ -398,7 +398,7 @@ void OmemoDbTest::testResetAll()
 	storage.resetAll();
 
 	// check everything's empty
-	auto data = wait(storage.allData());
+	auto data = wait(this, storage.allData());
 	QCOMPARE(data.ownDevice, std::optional<Storage::OwnDevice>());
 	QCOMPARE(data.signedPreKeyPairs, Storage::SignedPreKeyPairs());
 	QCOMPARE(data.preKeyPairs, Storage::PreKeyPairs());

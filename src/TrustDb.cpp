@@ -55,14 +55,16 @@ QString trustFlagsToString(TrustLevels levels)
 	return levelStrings.join(u", ");
 }
 
-TrustDb::TrustDb(Database *database, QString accountJid, QObject *parent)
-	: DatabaseComponent(database, parent), m_accountJid(std::move(accountJid))
+TrustDb::TrustDb(Database *database, QObject *xmppContext, QString accountJid, QObject *parent)
+	: DatabaseComponent(database, parent),
+	  m_xmppContext(xmppContext),
+	  m_accountJid(std::move(accountJid))
 {
 }
 
 auto TrustDb::securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy>
 {
-	return taskFromFuture(run([this, encryption] {
+	return runTask([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
 			"SELECT securityPolicy FROM trustSecurityPolicies WHERE account = :1 "
@@ -76,28 +78,28 @@ auto TrustDb::securityPolicy(const QString &encryption) -> QXmppTask<SecurityPol
 			}
 		}
 		return NoSecurityPolicy;
-	}));
+	});
 }
 
 auto TrustDb::setSecurityPolicy(const QString &encryption, SecurityPolicy securityPolicy) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption, securityPolicy] {
+	return runTask([this, encryption, securityPolicy] {
 		auto query = createQuery();
 		execQuery(query,
 			"INSERT OR REPLACE INTO trustSecurityPolicies "
 			"VALUES (:1, :2, :3)",
 			{m_accountJid, encryption, int(securityPolicy)});
-	}));
+	});
 }
 
 auto TrustDb::resetSecurityPolicy(const QString &encryption) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption] { _resetSecurityPolicy(encryption); }));
+	return runTask([this, encryption] { _resetSecurityPolicy(encryption); });
 }
 
 auto TrustDb::ownKey(const QString &encryption) -> QXmppTask<QByteArray>
 {
-	return taskFromFuture(run([this, encryption] {
+	return runTask([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
 			"SELECT keyId FROM trustOwnKeys WHERE account = :1 AND "
@@ -108,28 +110,28 @@ auto TrustDb::ownKey(const QString &encryption) -> QXmppTask<QByteArray>
 			return query.value(0).toByteArray();
 		}
 		return QByteArray();
-	}));
+	});
 }
 
 auto TrustDb::setOwnKey(const QString &encryption, const QByteArray &keyId) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption, keyId] {
+	return runTask([this, encryption, keyId] {
 		auto query = createQuery();
 		execQuery(query,
 			"INSERT OR REPLACE INTO trustOwnKeys VALUES (:1, :2, :3)",
 			{m_accountJid, encryption, keyId});
-	}));
+	});
 }
 
 auto TrustDb::resetOwnKey(const QString &encryption) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption] { _resetOwnKey(encryption); }));
+	return runTask([this, encryption] { _resetOwnKey(encryption); });
 }
 
 auto TrustDb::keys(const QString &encryption, TrustLevels trustLevels)
     -> QXmppTask<QHash<TrustLevel, QMultiHash<QString, QByteArray>>>
 {
-	return taskFromFuture(run([this, encryption, trustLevels] {
+	return runTask([this, encryption, trustLevels] {
 		auto query = createQuery();
 		if (trustLevels != 0) {
 			// causes possible sql injection, but the output from trustFlagsListString() is safe
@@ -174,14 +176,14 @@ auto TrustDb::keys(const QString &encryption, TrustLevels trustLevels)
 			output[key.trustLevel].insert(key.ownerJid, key.keyId);
 		}
 		return output;
-	}));
+	});
 }
 
 auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids, TrustLevels trustLevels)
 	-> QXmppTask<QHash<QString, QHash<QByteArray, TrustLevel>>>
 {
 	Q_ASSERT(!keyOwnerJids.isEmpty());
-	return taskFromFuture(run([this, encryption, trustLevels, keyOwnerJids] {
+	return runTask([this, encryption, trustLevels, keyOwnerJids] {
 		auto query = createQuery();
 		if (trustLevels != 0) {
 			// causes possible sql injection, but the output from trustFlagsListString() is safe
@@ -224,7 +226,7 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
 			}
 		}
 		return output;
-	}));
+	});
 }
 
 auto TrustDb::addKeys(const QString &encryption,
@@ -243,7 +245,7 @@ auto TrustDb::addKeys(const QString &encryption,
 
 auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &keyIds) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption, keyIds] {
+	return runTask([this, encryption, keyIds] {
 		auto query = createQuery();
 		prepareQuery(query,
 			"DELETE FROM trustKeys WHERE account = :1 AND encryption = :2 AND "
@@ -253,36 +255,36 @@ auto TrustDb::removeKeys(const QString &encryption, const QList<QByteArray> &key
 			bindValues(query, {m_accountJid, encryption, keyId});
 			execQuery(query);
 		}
-	}));
+	});
 }
 
 auto TrustDb::removeKeys(const QString &encryption, const QString &keyOwnerJid) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption, keyOwnerJid] {
+	return runTask([this, encryption, keyOwnerJid] {
 		auto query = createQuery();
 		prepareQuery(query,
 			"DELETE FROM trustKeys WHERE account = :1 AND encryption = :2 AND "
 			"ownerJid = :3");
 		bindValues(query, {m_accountJid, encryption, keyOwnerJid});
 		execQuery(query);
-	}));
+	});
 }
 
 auto TrustDb::removeKeys(const QString &encryption) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption] {
+	return runTask([this, encryption] {
 		auto query = createQuery();
 		prepareQuery(query, "DELETE FROM trustKeys WHERE account = :1 AND encryption = :2");
 		bindValues(query, {m_accountJid, encryption});
 		execQuery(query);
-	}));
+	});
 }
 
 auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, TrustLevels trustLevels)
 	-> QXmppTask<bool>
 {
 	Q_ASSERT(int(trustLevels) > 0);
-	return taskFromFuture(run([this, encryption, keyOwnerJid, trustLevels] {
+	return runTask([this, encryption, keyOwnerJid, trustLevels] {
 		auto query = createQuery();
 		execQuery(query,
 			u"SELECT COUNT(*) FROM trustKeys "
@@ -294,13 +296,13 @@ auto TrustDb::hasKey(const QString &encryption, const QString &keyOwnerJid, Trus
 			return query.value(0).toInt() > 0;
 		}
 		return false;
-	}));
+	});
 }
 
 auto TrustDb::trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
 	-> QXmppTask<TrustLevel>
 {
-	return taskFromFuture(run([this, encryption, keyOwnerJid, keyId] {
+	return runTask([this, encryption, keyOwnerJid, keyId] {
 		auto query = createQuery();
 		execQuery(query,
 			"SELECT trustLevel FROM trustKeys "
@@ -314,14 +316,14 @@ auto TrustDb::trustLevel(const QString &encryption, const QString &keyOwnerJid, 
 			}
 		}
 		return TrustLevel::Undecided;
-	}));
+	});
 }
 
 auto TrustDb::setTrustLevel(const QString &encryption,
 	const QMultiHash<QString, QByteArray> &keyIds,
 	TrustLevel trustLevel) -> QXmppTask<TrustChanges>
 {
-	return taskFromFuture(run([this, encryption, keyIds, trustLevel, account = m_accountJid] {
+	return runTask([this, encryption, keyIds, trustLevel, account = m_accountJid] {
 		auto query = createQuery();
 		enum { RowId, TrustLevel_ };
 		prepareQuery(query,
@@ -358,7 +360,7 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 			}
 		}
 		return result;
-	}));
+	});
 }
 
 auto TrustDb::setTrustLevel(const QString &encryption,
@@ -366,7 +368,7 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 	TrustLevel oldTrustLevel,
 	TrustLevel newTrustLevel) -> QXmppTask<TrustChanges>
 {
-	return taskFromFuture(run([this, encryption, keyOwnerJids, oldTrustLevel, newTrustLevel, account = m_accountJid] {
+	return runTask([this, encryption, keyOwnerJids, oldTrustLevel, newTrustLevel, account = m_accountJid] {
 		TrustChanges result;
 		auto &changes = result[encryption];
 		std::vector<qint64> updateRowIds;
@@ -400,7 +402,7 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 		}
 
 		return result;
-	}));
+	});
 }
 
 auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption,
@@ -424,7 +426,7 @@ auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption,
 		}
 	}
 
-	return taskFromFuture(run([this, keys = std::move(keys)] {
+	return runTask([this, keys = std::move(keys)] {
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
@@ -437,7 +439,7 @@ auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption,
 			execQuery(query);
 		}
 		commit();
-	}));
+	});
 }
 
 auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
@@ -465,7 +467,7 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 		std::back_inserter(selectors),
 		[toSelector](const auto &keyId) { return toSelector(false, keyId); });
 
-	return taskFromFuture(run([this, selectors = std::move(selectors)] {
+	return runTask([this, selectors = std::move(selectors)] {
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
@@ -476,13 +478,13 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 			execQuery(query);
 		}
 		commit();
-	}));
+	});
 }
 
 auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 	const QList<QByteArray> &senderKeyIds) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption, senderKeyIds] {
+	return runTask([this, encryption, senderKeyIds] {
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
@@ -493,24 +495,24 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption,
 			execQuery(query);
 		}
 		commit();
-	}));
+	});
 }
 
 auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption] {
+	return runTask([this, encryption] {
 		auto query = createQuery();
 		execQuery(query,
 			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2",
 			{m_accountJid, encryption});
-	}));
+	});
 }
 
 auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QList<QByteArray> &senderKeyIds)
 	-> QXmppTask<QHash<bool, QMultiHash<QString, QByteArray>>>
 {
 	if (senderKeyIds.isEmpty()) {
-		return taskFromFuture(run([this, encryption] {
+		return runTask([this, encryption] {
 			QHash<bool, QMultiHash<QString, QByteArray>> result;
 
 			auto query = createQuery();
@@ -526,9 +528,9 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 			}
 
 			return result;
-		}));
+		});
 	}
-	return taskFromFuture(run([this, encryption, senderKeyIds] {
+	return runTask([this, encryption, senderKeyIds] {
 		enum { KeyId, OwnerJid, Trust };
 		QHash<bool, QMultiHash<QString, QByteArray>> result;
 
@@ -547,12 +549,12 @@ auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QL
 		}
 
 		return result;
-	}));
+	});
 }
 
 auto TrustDb::resetAll(const QString &encryption) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, encryption] {
+	return runTask([this, encryption] {
 		_resetSecurityPolicy(encryption);
 		_resetOwnKey(encryption);
 
@@ -563,23 +565,23 @@ auto TrustDb::resetAll(const QString &encryption) -> QXmppTask<void>
 		execQuery(query,
 			"DELETE FROM trustKeysUnprocessed WHERE account = :1 AND encryption = :2",
 			{m_accountJid, encryption});
-	}));
+	});
 }
 
 auto TrustDb::resetAll() -> QXmppTask<void>
 {
-	return taskFromFuture(run([this] {
+	return runTask([this] {
 		auto query = createQuery();
 		execQuery(query, "DELETE FROM trustSecurityPolicies WHERE account = :1", {m_accountJid});
 		execQuery(query, "DELETE FROM trustOwnKeys WHERE account = :1", {m_accountJid});
 		execQuery(query, "DELETE FROM trustKeys WHERE account = :1", {m_accountJid});
 		execQuery(query, "DELETE FROM trustKeysUnprocessed WHERE account = :1", {m_accountJid});
-	}));
+	});
 }
 
 auto TrustDb::insertKeys(std::vector<Key> &&keys) -> QXmppTask<void>
 {
-	return taskFromFuture(run([this, keys = std::move(keys)] {
+	return runTask([this, keys = std::move(keys)] {
 		transaction();
 		auto query = createQuery();
 		prepareQuery(query,
@@ -593,7 +595,7 @@ auto TrustDb::insertKeys(std::vector<Key> &&keys) -> QXmppTask<void>
 			execQuery(query);
 		}
 		commit();
-	}));
+	});
 }
 
 void TrustDb::_resetSecurityPolicy(const QString &encryption)

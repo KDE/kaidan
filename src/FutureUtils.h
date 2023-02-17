@@ -118,6 +118,31 @@ auto runAsync(QObject *targetObject, Function function)
 	return interface.future();
 }
 
+// Runs a function on targetObject's thread and reports the result on callerObject's thread.
+// This is useful / required because QXmppTasks are not thread-safe.
+template<typename Function>
+auto runAsyncTask(QObject *callerObject, QObject *targetObject, Function function)
+{
+	using ValueType = std::invoke_result_t<Function>;
+
+	QXmppPromise<ValueType> promise;
+	auto task = promise.task();
+	QMetaObject::invokeMethod(targetObject, [callerObject, promise = std::move(promise), function = std::move(function)]() mutable {
+		if constexpr (std::is_same_v<ValueType, void>) {
+			function();
+			QMetaObject::invokeMethod(callerObject, [promise = std::move(promise)]() mutable {
+				promise.finish();
+			});
+		} else {
+			auto value = function();
+			QMetaObject::invokeMethod(callerObject, [promise = std::move(promise), value = std::move(value)]() mutable {
+				promise.finish(std::move(value));
+			});
+		}
+	});
+	return task;
+}
+
 // Runs a function on an object's thread (alias for QMetaObject::invokeMethod())
 template<typename Function>
 auto runOnThread(QObject *targetObject, Function function)
@@ -172,22 +197,4 @@ QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
 	}
 
 	return interface.future();
-}
-
-template<typename T>
-static auto taskFromFuture(QFuture<T> &&future) -> QXmppTask<T>
-{
-	QXmppPromise<T> promise;
-	auto *watcher = new QFutureWatcher<T>();
-	QObject::connect(watcher, &QFutureWatcher<T>::finished, [promise = std::move(promise), watcher]() mutable {
-		if constexpr (std::is_void_v<T>) {
-			promise.finish();
-		} else {
-			promise.finish(watcher->result());
-		}
-		watcher->deleteLater();
-	});
-	watcher->setFuture(future);
-
-	return promise.task();
 }

@@ -59,8 +59,9 @@ public:
 		return runAsync(dbWorker(), function);
 	}
 
-private:
+protected:
 	QObject *dbWorker() const;
 
+private:
 	Database *m_database;
 };

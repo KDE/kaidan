@@ -49,7 +49,7 @@ constexpr auto SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL = 500ms;
 
 OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *parent)
 	: QObject(parent),
-	  m_omemoStorage(new OmemoDb(database, {}, this)),
+	  m_omemoStorage(new OmemoDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
 	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this]() {
