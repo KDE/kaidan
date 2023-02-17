@@ -111,6 +111,32 @@ If your purpose needs a new icon that is not yet used by Kaidan, add it to `kiri
 The system Kaidan is run on can apply a different icon theme than Kaidan's default.
 For good compatibility with various icon themes, it is often better to use the `-symbolic.svg` variant of an icon.
 
+## Builds and Dependencies
+
+On a daily basis, Kaidan is automatically built for various systems.
+Those *nightly builds* are based on Kaidan's *master* branch.
+Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
+For distributions supporting Flatpak, there is a [Flatpak configuration](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
+There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
+In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows, macOS and Android builds](https://binary-factory.kde.org/search/?q=kaidan).
+
+Dependencies are mainly managed by Kaidan's [CMakeLists](/CMakeLists.txt) file.
+When you add or remove dependencies, update the [README](/README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
+You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
+It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py), [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) and [zxing-cpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/zxing-cpp/zxing-cpp.py) as well.
+That way, Kaidan can be built correctly by KDE's automated process.
+As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
+
+## Releases
+
+Kaidan's releases are marked by [tags](https://invent.kde.org/network/kaidan/-/tags).
+For each release, its source code and the source code's signature is [uploaded](https://download.kde.org/unstable/kaidan/) by one of Kaidan's maintainers.
+
+## Translations
+
+Kaidan is translated via [KDE Localization](https://l10n.kde.org/stats/gui/trunk-kf5/package/kaidan/).
+In order to make translations possible, you need to use `qsTr("<text>")` (Example: `qsTr("Login")`) for QML `string`'s and `tr(<text>)` (Example: `tr("Online")`) for `QString`s in C++.
+
 ## Graphics
 
 The preferred format for graphics in Kaidan is *SVG*.
