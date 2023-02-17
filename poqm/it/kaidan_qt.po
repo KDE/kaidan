@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-01-17 11:51+0100\n"
+"PO-Revision-Date: 2023-02-13 19:22+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.1\n"
+"X-Generator: Lokalize 22.12.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:300
@@ -563,24 +563,24 @@ msgstr "Invia la tua posizione"
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support Group"
-msgstr ""
+msgstr "Supporto gruppo"
 
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support"
-msgstr ""
+msgstr "Supporto"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "Supporto gruppo %1"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
-msgstr ""
+msgstr "Supporta %1"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -1371,116 +1371,80 @@ msgid "Don't expose password in any way"
 msgstr "Non esporre la password in alcun modo"
 
 #: src/qml/settings/AccountSettings.qml:42
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "AccountSettings|"
 msgid "Account settings"
-msgstr "Sicurezza dell'account"
+msgstr "Impostazioni account"
 
 #: src/qml/settings/AccountSettings.qml:234
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Profile"
 msgctxt "AccountSettings|"
 msgid "Profile"
 msgstr "Profilo"
 
 #: src/qml/settings/AccountSettings.qml:269
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "AccountSettings|"
 msgid "Online devices"
 msgstr "Dispositivi in linea"
 
 #: src/qml/settings/AccountSettings.qml:282
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Provider"
 msgctxt "AccountSettings|"
 msgid "Provider"
 msgstr "Fornitore"
 
 #: src/qml/settings/AccountSettings.qml:299
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
 msgctxt "AccountSettings|"
 msgid "Visit website"
-msgstr "Apri il sito web"
+msgstr "Visita il sito web"
 
 #: src/qml/settings/AccountSettings.qml:308
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy download URL"
 msgctxt "AccountSettings|"
 msgid "Copy URL"
-msgstr "Copia URL di scaricamento"
+msgstr "Copia URL"
 
 #: src/qml/settings/AccountSettings.qml:313
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Invitation link copied to clipboard"
 msgctxt "AccountSettings|"
 msgid "URL successfully copied to clipboard."
-msgstr "Collegamento di invito copiato negli appunti"
+msgstr "URL copiato correttamente negli appunti."
 
 #: src/qml/settings/AccountSettings.qml:323
 #: src/qml/settings/AccountSettings.qml:337
 msgctxt "AccountSettings|"
 msgid "Support"
-msgstr ""
+msgstr "Supporto"
 
 #: src/qml/settings/AccountSettings.qml:361
 msgctxt "AccountSettings|"
 msgid "Support Group"
-msgstr ""
+msgstr "Supporto gruppo"
 
 #: src/qml/settings/ChangeAvatar.qml:47
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "ChangeAvatar|"
 msgid "Change avatar"
-msgstr "Cambia password"
+msgstr "Cambia avatar"
 
 #: src/qml/settings/ChangeAvatar.qml:63
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose image"
 msgctxt "ChangeAvatar|"
 msgid "Choose avatar image"
-msgstr "Scegli immagine"
+msgstr "Scegli l'immagine dell'avatar"
 
 #: src/qml/settings/ChangeAvatar.qml:140
 msgctxt "ChangeAvatar|"
 msgid "Open…"
-msgstr ""
+msgstr "Apri…"
 
 #: src/qml/settings/ChangeAvatar.qml:149
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChangeAvatar|"
 msgid "Cancel"
 msgstr "Annulla"
 
 #: src/qml/settings/ChangeAvatar.qml:158
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change"
 msgctxt "ChangeAvatar|"
 msgid "Change"
 msgstr "Cambia"
 
 #: src/qml/settings/ChangeAvatar.qml:182
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Password changed successfully"
 msgctxt "ChangeAvatar|"
 msgid "Avatar changed successfully"
-msgstr "Password modificata correttamente"
+msgstr "Avatar cambiato correttamente"
 
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
@@ -1842,17 +1806,14 @@ msgstr ""
 "dispositivi."
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "SettingsContent|"
 msgid "Account Settings"
-msgstr "Sicurezza account"
+msgstr "Impostazioni account"
 
 #: src/qml/settings/SettingsContent.qml:56
 msgctxt "SettingsContent|"
 msgid "Changes your account's settings."
-msgstr ""
+msgstr "Modifica le impostazioni del tuo account."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
