@@ -83,5 +83,3 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [zxing-cpp]: https://github.com/nu-book/zxing-cpp
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [kdesecurity]: https://kde.org/info/security/
-
-<a rel="me" href="https://fosstodon.org/@kaidan"/>
