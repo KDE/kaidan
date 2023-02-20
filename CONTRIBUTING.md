@@ -101,12 +101,17 @@ You can have a look at the components Kirigami provides by opening the [Kirigami
 
 ## Icons
 
-For using an icon as a user interface element such as `Kirigami.Icon`, you need to set the actual icon as its `source` property.
-All icons used by Kaidan must be referenced in `kirigami-icons.qrc`.
+For using an icon as a user interface element such as [`Kirigami.Icon`](https://api.kde.org/frameworks/kirigami/html/classIcon.html) or [`QtQuick.Controls.Button`](https://doc.qt.io/qt-5/qml-qtquick-controls2-button.html), you need to set the actual icon as its [`source`](https://api.kde.org/frameworks/kirigami/html/classIcon.html#ab04bfe8d23fdd9779421aadaaaa022f4) resp. [`name`](https://doc.qt.io/qt-5/qml-qtquick-controls2-abstractbutton.html#icon.name-prop) property.
+All icons used by Kaidan must be referenced in [`kirigami-icons.qrc`](https://invent.kde.org/melvo/kaidan/-/blob/master/kirigami-icons.qrc).
 Kaidan's default icon theme is [Breeze](https://invent.kde.org/frameworks/breeze-icons).
 
 Instead of using new icons, search and use icons that are already used for similar purposes.
-If your purpose needs a new icon that is not yet used by Kaidan, add it to `kirigami-icons.qrc` by including the icon's path within Breeze's directory.
+If your purpose needs a new icon that is not yet used by Kaidan, you can find one with [Cuttlefish](https://invent.kde.org/plasma/plasma-sdk/-/tree/master/cuttlefish) (use `sudo apt install plasma-sdk` to install it and `cuttlefish` to run it on Debian-based systems).
+Via corresponding buttons, you can check whether an icon is available for Breeze and if so, retrieve the icon's name to be used in Kaidan's code and the icon's path to be used in `kirigami-icons.qrc`.
+
+Always make sure that you use the right path within [Breeze's icon directory](https://invent.kde.org/frameworks/breeze-icons/-/tree/master/icons).
+Cuttlefish will open the chosen icon of your system's theme.
+If that is not Breeze, you need to find the corresponding icon in Breeze's icon directory and use that path.
 
 The system Kaidan is run on can apply a different icon theme than Kaidan's default.
 For good compatibility with various icon themes, it is often better to use the `-symbolic.svg` variant of an icon.
