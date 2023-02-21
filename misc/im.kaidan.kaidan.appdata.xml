@@ -57,7 +57,7 @@
   <developer_name xml:lang="it">Sviluppatori e collaboratori di Kaidan</developer_name>
   <developer_name xml:lang="ka">Kaidan -ის პროგრამისტები და შემომწირავები</developer_name>
   <developer_name xml:lang="ko">Kaidan 개발자와 기여자</developer_name>
-  <developer_name xml:lang="nl">Ontwikkelaars &amp; medewerkers van Kaidan </developer_name>
+  <developer_name xml:lang="nl">Ontwikkelaars &amp; medewerkers van Kaidan</developer_name>
   <developer_name xml:lang="nn">Kaiden-utviklarar og -bidragsytarar</developer_name>
   <developer_name xml:lang="pl">Programiści &amp; współtwórcy Kaidan</developer_name>
   <developer_name xml:lang="pt">Programadores &amp; Colaboradores do Kaidan</developer_name>
@@ -116,7 +116,25 @@
   <releases>
     <release type="stable" version="0.9.0-dev">
       <description>
-        <p>under development</p>
+        <p>This release adds the following features:</p>
+        <ul>
+          <li>New message bubble design based on Tok's code</li>
+          <li>Group messages from same author</li>
+          <li>Introduce machine-readable DOAP file describing Kaidan's XMPP compliance</li>
+          <li>New chat background picture</li>
+          <li>OMEMO 2 support with easy trust management</li>
+          <li>Read markers</li>
+          <li>The chat page title can be clicked to open the user's profile now</li>
+          <li>Support file sharing with multiple files per message, thumbnails and end-to-end encryption</li>
+          <li>Restore window position on start</li>
+          <li>Chat pinning</li>
+          <li>Emoji message reactions</li>
+          <li>The message search now also works with messages that are not displayed</li>
+          <li>Public group chat search (without group chat support yet)</li>
+          <li>Account settings with ability to change avatar and profile information</li>
+          <li>Redesign of user profiles as sheet instead of page</li>
+        </ul>
+        <p>We switched from Weblate to the KDE translation system</p>
       </description>
     </release>
     <release type="stable" version="0.8.0" date="2021-05-28T00:00:00Z">
