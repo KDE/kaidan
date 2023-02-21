@@ -31,6 +31,14 @@
   <name xml:lang="x-test">xxKaidanxx</name>
   <name xml:lang="zh-CN">Kaidan</name>
   <summary>User-friendly and modern chat app for every device</summary>
+  <summary xml:lang="ca">Aplicació de xat fàcil d'emprar i moderna per a tots els dispositius</summary>
+  <summary xml:lang="ca-valencia">Aplicació de xat fàcil d'emprar i moderna per a tots els dispositius</summary>
+  <summary xml:lang="es">Aplicación de chat moderna y fácil de usar para todos los dispositivos</summary>
+  <summary xml:lang="ka">მომხმარებლისთვის ადვილი და თანამედროვე ჩატის აპი ყველა მოწყობილობისთვის</summary>
+  <summary xml:lang="nl">Gebruikersvriendelijke en moderne chat-toepassing voor elk apparaat</summary>
+  <summary xml:lang="tr">Her tür aygıt için kullanıcı dostu ve çağdaş sohbet uygulaması</summary>
+  <summary xml:lang="uk">Зручна для користування та сучасна програма для спілкування на будь-якому пристрої</summary>
+  <summary xml:lang="x-test">xxUser-friendly and modern chat app for every devicexx</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <developer_name>Kaidan Developers &amp; Contributors</developer_name>
@@ -63,7 +71,21 @@
   <developer_name xml:lang="zh-CN">Kaidan 开发者及贡献者</developer_name>
   <description>
     <p>Kaidan is a user-friendly and modern chat app for every device. It uses the open communication protocol XMPP (Jabber). Unlike other chat apps, you are not dependent on one specific service provider.</p>
+    <p xml:lang="ca">El Kaidan és una aplicació de xat fàcil d'emprar i moderna per a tots els dispositius. Fa servir el protocol obert de comunicacions XMPP (Jabber). A diferència d'altres aplicacions de xat, no dependreu d'un proveïdor de serveis en concret.</p>
+    <p xml:lang="ca-valencia">Kaidan és una aplicació de xat fàcil d'emprar i moderna per a tots els dispositius. Utilitza el protocol obert de comunicacions XMPP (Jabber). A diferència d'altres aplicacions de xat, no dependreu d'un proveïdor de serveis en concret.</p>
+    <p xml:lang="es">Kaidan es una aplicación de chat moderna y fácil de usar para todos los dispositivos. Usa el protocolo de comunicación abierto XMPP (Jabber). A diferencia de otras aplicaciones de chat, no depende de un proveedor de servicios específico.</p>
+    <p xml:lang="nl">Kaidan is een gebruikersvriendelijke en moderne chat-toepassing voor elk apparaat. Het gebruikt het open communicatieprotocol XMPP (Jabber). Anders dan andere chat-toepassingen bent u niet afhankelijk van één specifieke serviceprovider.</p>
+    <p xml:lang="tr">Kaidan, her tür aygıt için kullanıcı dostu ve çağdaş teknolojilerle yaratılmış bir sohbet uygulamasıdır. Açık bir sohbet protokolü olan XMPP'yi (Jabber) kullanır. Diğer sohbet uygulamalarının aksine, belirli bir hizmet sağlayıcıya bağlı kalmazsınız.</p>
+    <p xml:lang="uk">Kaidan — зручна для користування та сучасна програма для спілкування на будь-якому пристрої. У ній використано відкрити протокол для спілкування XMPP (Jabber). На відміну від інших програм для спілкування, ви не залежатимете від одного певного надавача послуг зв'язку.</p>
+    <p xml:lang="x-test">xxKaidan is a user-friendly and modern chat app for every device. It uses the open communication protocol XMPP (Jabber). Unlike other chat apps, you are not dependent on one specific service provider.xx</p>
     <p>Kaidan does not have all basic features yet and has still some stability issues. But we do our best to improve it!</p>
+    <p xml:lang="ca">El Kaidan encara no té totes les característiques bàsiques i té alguns problemes d'estabilitat. Però fem tot el possible per a millorar-ho!</p>
+    <p xml:lang="ca-valencia">Kaidan encara no té totes les característiques bàsiques i té alguns problemes d'estabilitat. Però fem tot el possible per a millorar-ho!</p>
+    <p xml:lang="es">Kaidan aún no posee todas las funciones básicas y todavía tiene algunos problemas de estabilidad. ¡Pero hacemos todo lo posible para mejorarlo!</p>
+    <p xml:lang="nl">Kaidan heeft no niet alle basisfuncties en er zijn nog steeds enige stabiliteitsproblemen. Maar we doen ons best om het te verbeteren!</p>
+    <p xml:lang="tr">Kaidan henüz kimi temel özellikleri desteklemez ve kararlılık sorunları olabilir. Ancak onu iyileştirmek için elimizden gelenin en iyisini yapıyoruz!</p>
+    <p xml:lang="uk">У Kaidan поки немає усіх базових можливостей і є певні проблеми зі стабільністю. Але ми не припиняємо удосконалювати програму!</p>
+    <p xml:lang="x-test">xxKaidan does not have all basic features yet and has still some stability issues. But we do our best to improve it!xx</p>
   </description>
   <launchable type="desktop-id">im.kaidan.kaidan.desktop</launchable>
   <url type="homepage">https://kaidan.im</url>
@@ -80,6 +102,14 @@
   <screenshots>
     <screenshot>
       <caption>Chat on a desktop and mobile device</caption>
+      <caption xml:lang="ca">Xat en un escriptori i en un dispositiu mòbil</caption>
+      <caption xml:lang="ca-valencia">Xat en un escriptori i en un dispositiu mòbil</caption>
+      <caption xml:lang="es">Chat en un escritorio y en un dispositivo móvil</caption>
+      <caption xml:lang="ka">ჩატი კომპიუტერზე და მობილურზე</caption>
+      <caption xml:lang="nl">Chat op een bureaublad en op een mobiel apparaat</caption>
+      <caption xml:lang="tr">Masaüstü ve taşınabilir bir aygıtta sohbet</caption>
+      <caption xml:lang="uk">Спілкування на комп'ютері та на мобільному пристрої</caption>
+      <caption xml:lang="x-test">xxChat on a desktop and mobile devicexx</caption>
       <image type="source">https://www.kaidan.im/images/screenshot.png</image>
     </screenshot>
   </screenshots>
