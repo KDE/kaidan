@@ -405,27 +405,27 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Copiar contraseña"
 
-#: src/qml/ChatPage.qml:108
+#: src/qml/ChatPage.qml:110
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Buscar"
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:129
 msgctxt "ChatPage|"
 msgid "Unmute notifications"
 msgstr "Restaurar notificaciones"
 
-#: src/qml/ChatPage.qml:128
+#: src/qml/ChatPage.qml:130
 msgctxt "ChatPage|"
 msgid "Mute notifications"
 msgstr "Silenciar notificaciones"
 
-#: src/qml/ChatPage.qml:137
+#: src/qml/ChatPage.qml:139
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Ver perfil"
 
-#: src/qml/ChatPage.qml:148
+#: src/qml/ChatPage.qml:150
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Enviar un mensaje de espóiler"
@@ -737,12 +737,15 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Fijar"
 
-#: src/qml/elements/RosterRemoveContactSheet.qml:42
+#: src/qml/elements/RosterRemoveContactSheet.qml:47
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
-msgid "Delete contact"
-msgstr "Borrar contacto"
+msgid "Remove contact"
+msgstr "Eliminar contacto"
 
-#: src/qml/elements/RosterRemoveContactSheet.qml:48
+#: src/qml/elements/RosterRemoveContactSheet.qml:53
 #, qt-format
 msgctxt "RosterRemoveContactSheet|"
 msgid ""
@@ -750,27 +753,27 @@ msgid ""
 msgstr ""
 "¿Realmente desea borrar el contacto <b>%1</b> de su lista de contactos?"
 
-#: src/qml/elements/RosterRemoveContactSheet.qml:67
+#: src/qml/elements/RosterRemoveContactSheet.qml:72
 msgctxt "RosterRemoveContactSheet|"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/qml/elements/RosterRemoveContactSheet.qml:73
+#: src/qml/elements/RosterRemoveContactSheet.qml:78
 msgctxt "RosterRemoveContactSheet|"
 msgid "Delete"
 msgstr "Borrar"
 
-#: src/qml/elements/RosterRenameContactSheet.qml:43
+#: src/qml/elements/RosterRenameContactSheet.qml:48
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename contact"
 msgstr "Cambiar nombre de contacto"
 
-#: src/qml/elements/RosterRenameContactSheet.qml:62
+#: src/qml/elements/RosterRenameContactSheet.qml:68
 msgctxt "RosterRenameContactSheet|"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/qml/elements/RosterRenameContactSheet.qml:69
+#: src/qml/elements/RosterRenameContactSheet.qml:75
 msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Cambiar nombre"
@@ -1876,130 +1879,109 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Empezar"
 
-#: src/qml/UserProfilePage.qml:42 src/qml/UserProfilePage.qml:217
-msgctxt "UserProfilePage|"
-msgid "Profile"
-msgstr "Perfil"
-
-#: src/qml/UserProfilePage.qml:78
-msgctxt "UserProfilePage|"
+#: src/qml/UserProfileSheet.qml:127
+#, fuzzy
+#| msgctxt "RosterRenameContactSheet|"
+#| msgid "Rename contact"
+msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Cambiar nombre de contacto"
 
-#: src/qml/UserProfilePage.qml:88
-msgctxt "UserProfilePage|"
-msgid "Show QR code"
-msgstr "Mostrar código QR"
-
-#: src/qml/UserProfilePage.qml:94
-msgctxt "UserProfilePage|"
+#: src/qml/UserProfileSheet.qml:136
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Remove contact"
+msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Eliminar contacto"
 
-#: src/qml/UserProfilePage.qml:192
-msgctxt "UserProfilePage|"
-msgid "Contact sends no status"
-msgstr "El contacto no envía estado"
+#: src/qml/UserProfileSheet.qml:172
+msgctxt "UserProfileSheet|"
+msgid "Profile Information"
+msgstr ""
 
-#: src/qml/UserProfilePage.qml:204
-msgctxt "UserProfilePage|"
-msgid "Request status"
-msgstr "Solicitar estado"
+#: src/qml/UserProfileSheet.qml:180
+#, fuzzy
+#| msgctxt "QrCodeScanner|"
+#| msgid "There is no camera available."
+msgctxt "UserProfileSheet|"
+msgid "No information available"
+msgstr "No hay ninguna cámara disponible."
 
-#: src/qml/UserProfilePage.qml:252
-msgctxt "UserProfilePage|"
-msgid "Privacy"
-msgstr "Privacidad"
-
-#: src/qml/UserProfilePage.qml:257
-msgctxt "UserProfilePage|"
-msgid "Send status"
-msgstr "Enviar estado"
-
-#: src/qml/UserProfilePage.qml:275
-msgctxt "UserProfilePage|"
-msgid "Send typing notifications"
-msgstr "Enviar notificaciones de escritura"
-
-#: src/qml/UserProfilePage.qml:287
-msgctxt "UserProfilePage|"
-msgid "Send read notifications"
-msgstr "Enviar notificaciones de lectura"
-
-#: src/qml/UserProfilePage.qml:304
-msgctxt "UserProfilePage|"
-msgid "Encryption (OMEMO 2)"
+#: src/qml/UserProfileSheet.qml:219
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Encryption (OMEMO 2)"
+msgctxt "UserProfileSheet|"
+msgid "Encryption"
 msgstr "Cifrado (OMEMO 2)"
 
-#: src/qml/UserProfilePage.qml:330
-msgctxt "UserProfilePage|"
-msgid ""
-"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-"your chat partners can read or modify the data you exchange."
+#: src/qml/UserProfileSheet.qml:222
+msgctxt "UserProfileSheet|"
+msgid "Enable OMEMO 2 Encryption"
 msgstr ""
-"El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de charla puedan leer o modificar los datos que "
-"intercambie."
 
-#: src/qml/UserProfilePage.qml:342 src/qml/UserProfilePage.qml:350
-msgctxt "UserProfilePage|"
+#: src/qml/UserProfileSheet.qml:233
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Scan contact's QR code"
+msgctxt "UserProfileSheet|"
+msgid "Scan contact's QR code"
+msgstr "Escanear código QR del contacto"
+
+#: src/qml/UserProfileSheet.qml:234
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Scan the QR codes of your contact's devices to encrypt for them"
+msgctxt "UserProfileSheet|"
+msgid "Scan the QR codes of your contact's devices to verify the encryption"
+msgstr ""
+"Escanee el código QR de los dispositivos de su contacto para usar cifrado "
+"con ellos"
+
+#: src/qml/UserProfileSheet.qml:245
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Scan own QR codes"
+msgctxt "UserProfileSheet|"
+msgid "Scan own QR codes"
+msgstr "Escanear códigos QR propios"
+
+#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Scan the QR codes of your devices to encrypt for them"
+msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanee el código QR de sus dispositivos para usar cifrado con ellos"
 
-#: src/qml/UserProfilePage.qml:344
-msgctxt "UserProfilePage|"
+#: src/qml/UserProfileSheet.qml:251
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Sus otros dispositivos no usan OMEMO 2"
 
-#: src/qml/UserProfilePage.qml:346
-msgctxt "UserProfilePage|"
-msgid "You have no other devices supporting OMEMO 2"
-msgstr "No tiene otros dispositivos compatibles con OMEMO 2"
-
-#: src/qml/UserProfilePage.qml:353
-msgctxt "UserProfilePage|"
+#: src/qml/UserProfileSheet.qml:258
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Scan the QR codes of your devices for maximum secure encryption"
+msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Escanee el código QR de sus dispositivos para obtener el máximo cifrado "
 "seguro"
 
-#: src/qml/UserProfilePage.qml:364
-msgctxt "UserProfilePage|"
-msgid "Scan own QR codes"
-msgstr "Escanear códigos QR propios"
-
-#: src/qml/UserProfilePage.qml:381
-msgctxt "UserProfilePage|"
-msgid "Scan the QR code of your contact to enable encryption"
-msgstr "Escanee el código QR de su contacto para activar el cifrado"
-
-#: src/qml/UserProfilePage.qml:384
-msgctxt "UserProfilePage|"
-msgid "Your contact doesn't use OMEMO 2"
-msgstr "Su contacto no usa OMEMO 2"
-
-#: src/qml/UserProfilePage.qml:387
-msgctxt "UserProfilePage|"
-msgid "Scan the QR codes of your contact's devices to encrypt for them"
+#: src/qml/UserProfileSheet.qml:281
+msgctxt "UserProfileSheet|"
+msgid "Devices"
 msgstr ""
-"Escanee el código QR de los dispositivos de su contacto para usar cifrado "
-"con ellos"
 
-#: src/qml/UserProfilePage.qml:390
-msgctxt "UserProfilePage|"
-msgid "Scan the QR code of your contact for maximum secure encryption"
+#: src/qml/UserProfileSheet.qml:288
+msgctxt "UserProfileSheet|"
+msgid "No devices connected"
 msgstr ""
-"Escanee el código QR de su contacto para obtener el máximo cifrado seguro"
-
-#: src/qml/UserProfilePage.qml:401
-msgctxt "UserProfilePage|"
-msgid "Scan contact's QR code"
-msgstr "Escanear código QR del contacto"
-
-#: src/qml/UserProfilePage.qml:415
-msgctxt "UserProfilePage|"
-msgid "Online devices"
-msgstr "Dispositivos conectados"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
@@ -2152,6 +2134,76 @@ msgstr "Cumpleaños"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete contact"
+#~ msgstr "Borrar contacto"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Profile"
+#~ msgstr "Perfil"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Rename contact"
+#~ msgstr "Cambiar nombre de contacto"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Show QR code"
+#~ msgstr "Mostrar código QR"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Contact sends no status"
+#~ msgstr "El contacto no envía estado"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Request status"
+#~ msgstr "Solicitar estado"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Privacy"
+#~ msgstr "Privacidad"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Send status"
+#~ msgstr "Enviar estado"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Send typing notifications"
+#~ msgstr "Enviar notificaciones de escritura"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Send read notifications"
+#~ msgstr "Enviar notificaciones de lectura"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid ""
+#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#~ "your chat partners can read or modify the data you exchange."
+#~ msgstr ""
+#~ "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
+#~ "usted y sus compañeros de charla puedan leer o modificar los datos que "
+#~ "intercambie."
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "You have no other devices supporting OMEMO 2"
+#~ msgstr "No tiene otros dispositivos compatibles con OMEMO 2"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Scan the QR code of your contact to enable encryption"
+#~ msgstr "Escanee el código QR de su contacto para activar el cifrado"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Your contact doesn't use OMEMO 2"
+#~ msgstr "Su contacto no usa OMEMO 2"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Scan the QR code of your contact for maximum secure encryption"
+#~ msgstr ""
+#~ "Escanee el código QR de su contacto para obtener el máximo cifrado seguro"
+
+#~ msgctxt "UserProfilePage|"
+#~ msgid "Online devices"
+#~ msgstr "Dispositivos conectados"
 
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Caption"
