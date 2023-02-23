@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-13 12:50+0100\n"
+"PO-Revision-Date: 2023-02-22 16:57+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -724,9 +724,6 @@ msgid "Pin"
 msgstr "Připnout"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "Odstranit kontakt"
@@ -1795,17 +1792,11 @@ msgid "Let's start"
 msgstr "Začněme"
 
 #: src/qml/UserProfileSheet.qml:127
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Přejmenovat kontakt"
 
 #: src/qml/UserProfileSheet.qml:136
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Odstranit kontakt"
@@ -1813,33 +1804,27 @@ msgstr "Odstranit kontakt"
 #: src/qml/UserProfileSheet.qml:172
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "Informace o profilu"
 
 #: src/qml/UserProfileSheet.qml:180
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr ""
+msgstr "Informace nejsou dostupné"
 
 #: src/qml/UserProfileSheet.qml:219
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Encryption (OMEMO 2)"
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr "Šifrování (OMEMO 2)"
+msgstr "Šifrování"
 
 #: src/qml/UserProfileSheet.qml:222
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 Encryption"
-msgstr ""
+msgstr "Povolit šifrování OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:233
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
-msgstr "Přidat kontakt QR kódem"
+msgstr "Skenovat kód QR kontaktu"
 
 #: src/qml/UserProfileSheet.qml:234
 msgctxt "UserProfileSheet|"
@@ -1847,12 +1832,9 @@ msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
 
 #: src/qml/UserProfileSheet.qml:245
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
-msgstr "Skenovat kód QR"
+msgstr "Skenovat vlastní kódy QR"
 
 #: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
 msgctxt "UserProfileSheet|"
@@ -1872,12 +1854,12 @@ msgstr ""
 #: src/qml/UserProfileSheet.qml:281
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "Zařízení"
 
 #: src/qml/UserProfileSheet.qml:288
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "Nebyla připojena žádná zařízení"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
@@ -2022,43 +2004,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete contact"
-#~ msgstr "Smazat kontakt"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Profile"
-#~ msgstr "Profil"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Rename contact"
-#~ msgstr "Přejmenovat kontakt"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Show QR code"
-#~ msgstr "Zobrazit QR kód"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Request status"
-#~ msgstr "Vyžádat stav"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Soukromí"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Odeslat stav"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Posílat oznamování o psaní"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Posílat oznamování o čtení"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Online devices"
-#~ msgstr "Zařízení online"

@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-02-13 12:05+0100\n"
+"PO-Revision-Date: 2023-02-22 09:31+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -748,9 +748,6 @@ msgid "Pin"
 msgstr "Fixa"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "Elimina el contacte"
@@ -1895,17 +1892,11 @@ msgid "Let's start"
 msgstr "Comencem"
 
 #: src/qml/UserProfileSheet.qml:127
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Canvia el nom d'un contacte"
 
 #: src/qml/UserProfileSheet.qml:136
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Elimina el contacte"
@@ -1913,75 +1904,51 @@ msgstr "Elimina el contacte"
 #: src/qml/UserProfileSheet.qml:172
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "Informació del perfil"
 
 #: src/qml/UserProfileSheet.qml:180
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "No hi ha cap càmera disponible."
+msgstr "No hi ha cap informació disponible"
 
 #: src/qml/UserProfileSheet.qml:219
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Encryption (OMEMO 2)"
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr "Encriptació (OMEMO 2)"
+msgstr "Encriptació"
 
 #: src/qml/UserProfileSheet.qml:222
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 Encryption"
-msgstr ""
+msgstr "Activa l'encriptació OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:233
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan contact's QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Escanegeu el codi QR del contacte"
 
 #: src/qml/UserProfileSheet.qml:234
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
-"Escanegeu els codis QR dels dispositius del vostre contacte per a encriptar-"
-"los"
+"Escanegeu els codis QR dels dispositius del vostre contacte per a verificar "
+"l'encriptació"
 
 #: src/qml/UserProfileSheet.qml:245
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan own QR codes"
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Escanegeu els codis QR propis"
 
 #: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanegeu els codis QR dels vostres dispositius per a encriptar-los"
 
 #: src/qml/UserProfileSheet.qml:251
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Els altres dispositius vostres no empren OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:258
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
@@ -1991,12 +1958,12 @@ msgstr ""
 #: src/qml/UserProfileSheet.qml:281
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "Dispositius"
 
 #: src/qml/UserProfileSheet.qml:288
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "No hi ha cap dispositiu connectat"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
@@ -2151,74 +2118,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete contact"
-#~ msgstr "Suprimix el contacte"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Profile"
-#~ msgstr "Perfil"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Rename contact"
-#~ msgstr "Canvia el nom d'un contacte"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Show QR code"
-#~ msgstr "Mostra el codi QR"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Contact sends no status"
-#~ msgstr "El contacte envia sense estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Request status"
-#~ msgstr "Sol·licitud d'estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Privadesa"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Envia l'estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Envia notificacions d'escriptura"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Envia notificacions de lectura"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "L'encriptació d'extrem a extrem amb OMEMO 2 garantix que ningú més que "
-#~ "vós i els vostres companys de xat puguen llegir o modificar les dades que "
-#~ "intercanvieu."
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "You have no other devices supporting OMEMO 2"
-#~ msgstr "No hi ha altres dispositius que permeten OMEMO 2"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Scan the QR code of your contact to enable encryption"
-#~ msgstr "Escanegeu el codi QR del contacte per a activar l'encriptació"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Your contact doesn't use OMEMO 2"
-#~ msgstr "El vostre contacte no utilitza OMEMO 2"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Scan the QR code of your contact for maximum secure encryption"
-#~ msgstr ""
-#~ "Escanegeu el codi QR del vostre contacte per a una encriptació segura "
-#~ "màxima"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Online devices"
-#~ msgstr "Dispositius connectats"

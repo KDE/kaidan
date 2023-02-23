@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-13 12:24+0100\n"
+"PO-Revision-Date: 2023-02-22 20:44+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -738,9 +738,6 @@ msgid "Pin"
 msgstr "Fijar"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "Eliminar contacto"
@@ -1880,17 +1877,11 @@ msgid "Let's start"
 msgstr "Empezar"
 
 #: src/qml/UserProfileSheet.qml:127
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Cambiar nombre de contacto"
 
 #: src/qml/UserProfileSheet.qml:136
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Eliminar contacto"
@@ -1898,75 +1889,51 @@ msgstr "Eliminar contacto"
 #: src/qml/UserProfileSheet.qml:172
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "Información del perfil"
 
 #: src/qml/UserProfileSheet.qml:180
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "No hay ninguna cámara disponible."
+msgstr "No hay información disponible."
 
 #: src/qml/UserProfileSheet.qml:219
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Encryption (OMEMO 2)"
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr "Cifrado (OMEMO 2)"
+msgstr "Cifrado"
 
 #: src/qml/UserProfileSheet.qml:222
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 Encryption"
-msgstr ""
+msgstr "Activar cifrado OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:233
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan contact's QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Escanear código QR del contacto"
 
 #: src/qml/UserProfileSheet.qml:234
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
-"Escanee el código QR de los dispositivos de su contacto para usar cifrado "
-"con ellos"
+"Escanee el código QR de los dispositivos de su contacto para verificar el "
+"cifrado"
 
 #: src/qml/UserProfileSheet.qml:245
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan own QR codes"
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Escanear códigos QR propios"
 
 #: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanee el código QR de sus dispositivos para usar cifrado con ellos"
 
 #: src/qml/UserProfileSheet.qml:251
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
-msgstr "Sus otros dispositivos no usan OMEMO 2"
+msgstr "El resto de sus dispositivos no usan OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:258
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
@@ -1976,12 +1943,12 @@ msgstr ""
 #: src/qml/UserProfileSheet.qml:281
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #: src/qml/UserProfileSheet.qml:288
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "No hay dispositivos conectados"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
