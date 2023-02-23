@@ -63,12 +63,12 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 # if ZXING_VERSION >= QT_VERSION_CHECK(1, 1, 1)
 	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
 # else
-	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QR_CODE);
+	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
 # endif
 	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
 #else
 	const auto decodeHints =
-		DecodeHints().setTryRotate(true).setPossibleFormats({BarcodeFormat::QR_CODE});
+		DecodeHints().setTryRotate(true).setPossibleFormats({BarcodeFormat::QRCode});
 
 	// Create a binarized image by the luminance of the image.
 	HybridBinarizer binImage(std::make_shared<GenericLuminanceSource>(GenericLuminanceSource(

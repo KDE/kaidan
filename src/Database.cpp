@@ -649,7 +649,7 @@ void Database::convertDatabaseToV6()
 {
 	DATABASE_CONVERT_TO_VERSION(5);
 	QSqlQuery query(currentDatabase());
-	const std::initializer_list<QStringView> newColumns = {
+	const QStringView newColumns[] {
 		u"mediaSize " SQL_INTEGER,
 		u"mediaContentType " SQL_TEXT,
 		u"mediaLastModified " SQL_INTEGER,

@@ -117,7 +117,7 @@ QImage QrCodeGenerator::generateQrCode(int edgePixelCount, const QString &text)
 #if ZXING_VERSION >= QT_VERSION_CHECK(1, 1, 1)
 		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
 #else
-		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QR_CODE);
+		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
 #endif
 		const ZXing::BitMatrix &bitMatrix = writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
 		return toImage(bitMatrix);
