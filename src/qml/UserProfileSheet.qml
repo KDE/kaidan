@@ -52,6 +52,11 @@ Kirigami.OverlaySheet {
 			id: userPresence
 			jid: root.jid
 		}
+		UserResourcesWatcher {
+			id: ownResourcesWatcher
+			jid: AccountManager.jid
+		}
+
 		Layout.preferredWidth: 300
 
 		id: headerLayout
@@ -220,9 +225,12 @@ Kirigami.OverlaySheet {
 							}
 							MobileForm.FormSwitchDelegate {
 								text: qsTr("Enable OMEMO 2 Encryption")
+								enabled: MessageModel.usableOmemoDevices.length
+								checked: MessageModel.isOmemoEncryptionEnabled
 								onClicked: {
 									MessageModel.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 								}
+
 							}
 							MobileForm.FormButtonDelegate {
 								visible: MessageModel.authenticatableOmemoDevices.length
@@ -236,7 +244,7 @@ Kirigami.OverlaySheet {
 								onClicked: {
 									pageStack.layers.push(qrCodePage, {
 										"contactJid": root.jid
-									 })
+									})
 									root.close()
 								}
 
@@ -265,6 +273,53 @@ Kirigami.OverlaySheet {
 								onClicked: {
 									pageStack.layers.push(qrCodePage, { isForOwnDevices: true })
 									root.close()
+								}
+							}
+						}
+					}
+
+					MobileForm.FormCard {
+						Layout.fillWidth: true
+						Layout.topMargin: Kirigami.Units.largeSpacing
+
+						contentItem: ColumnLayout {
+							spacing: 0
+
+							MobileForm.FormCardHeader {
+								title: qsTr("Privacy")
+							}
+
+							MobileForm.FormSwitchDelegate {
+								text: qsTr("Send status")
+								checked: chatItemWatcher.item.receivingPresence
+								onClicked: {
+									if (checked) {
+										Kaidan.client.rosterManager.acceptSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+									} else {
+										Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+									}
+								}
+							}
+
+							MobileForm.FormSwitchDelegate {
+								text: qsTr("Send typing notifications")
+								checked: chatItemWatcher.item.chatStateSendingEnabled
+								onClicked: {
+									RosterModel.setChatStateSendingEnabled(
+										MessageModel.currentAccountJid,
+										MessageModel.currentChatJid,
+										checked)
+								}
+							}
+
+							MobileForm.FormSwitchDelegate {
+								text: qsTr("Send read notifications")
+								checked: chatItemWatcher.item.readMarkerSendingEnabled
+								onClicked: {
+									RosterModel.setReadMarkerSendingEnabled(
+										MessageModel.currentAccountJid,
+										MessageModel.currentChatJid,
+										checked)
 								}
 							}
 						}
