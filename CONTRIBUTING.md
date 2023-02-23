@@ -120,6 +120,7 @@ For good compatibility with various icon themes, it is often better to use the `
 
 On a daily basis, Kaidan is automatically built for various systems.
 Those *nightly builds* are based on Kaidan's *master* branch.
+
 Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
 For distributions supporting Flatpak, there is a [Flatpak configuration](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
 There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
@@ -127,7 +128,9 @@ In addition, there is a [KDE Craft configuration](https://invent.kde.org/packagi
 
 Dependencies are mainly managed by Kaidan's [CMakeLists](/CMakeLists.txt) file.
 When you add or remove dependencies, update the [README](/README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
+
 You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
+Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
 It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py), [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) and [zxing-cpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/zxing-cpp/zxing-cpp.py) as well.
 That way, Kaidan can be built correctly by KDE's automated process.
 As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
