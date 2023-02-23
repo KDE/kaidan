@@ -114,11 +114,7 @@ QImage QrCodeGenerator::generateTrustMessageQrCode(int edgePixelCount, const QSt
 QImage QrCodeGenerator::generateQrCode(int edgePixelCount, const QString &text)
 {
 	try {
-#if ZXING_VERSION >= QT_VERSION_CHECK(1, 1, 1)
 		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-#else
-		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-#endif
 		const ZXing::BitMatrix &bitMatrix = writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
 		return toImage(bitMatrix);
 	} catch (const std::invalid_argument &e) {

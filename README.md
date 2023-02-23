@@ -50,7 +50,7 @@ Here are the general dependencies of Kaidan:
  * [Kirigami Addons][kirigami-addons]
  * [KQuickImageEditor][kquickimageeditor] (>= 0.2.0)
  * [ECM (extra-cmake-modules)][ecm]
- * [ZXing-cpp][zxing-cpp] (>= 1.0.8)
+ * [ZXing-cpp][zxing-cpp] (>= 1.1.1)
  * [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
 
 ## Contributing
