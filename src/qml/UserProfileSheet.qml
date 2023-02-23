@@ -224,14 +224,15 @@ Kirigami.OverlaySheet {
 								title: qsTr("Encryption")
 							}
 							MobileForm.FormSwitchDelegate {
-								text: qsTr("Enable OMEMO 2 Encryption")
+								text: qsTr("Enable OMEMO 2 encryption")
+								description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 								enabled: MessageModel.usableOmemoDevices.length
 								checked: MessageModel.isOmemoEncryptionEnabled
 								onClicked: {
 									MessageModel.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 								}
-
 							}
+
 							MobileForm.FormButtonDelegate {
 								visible: MessageModel.authenticatableOmemoDevices.length
 
