@@ -33,10 +33,6 @@
 #include <QImage>
 #include <QRgb>
 
-#include <ZXing/ZXVersion.h>
-#define ZXING_VERSION \
-	QT_VERSION_CHECK(ZXING_VERSION_MAJOR, ZXING_VERSION_MINOR, ZXING_VERSION_PATCH)
-
 #include <ZXing/BarcodeFormat.h>
 #include <ZXing/MultiFormatWriter.h>
 

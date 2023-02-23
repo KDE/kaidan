@@ -39,10 +39,6 @@
 #include <ZXing/ReadBarcode.h>
 #include <ZXing/BarcodeFormat.h>
 #include <ZXing/DecodeHints.h>
-#include <ZXing/GenericLuminanceSource.h>
-#include <ZXing/HybridBinarizer.h>
-#include <ZXing/LuminanceSource.h>
-#include <ZXing/MultiFormatReader.h>
 #include <ZXing/Result.h>
 #include <ZXing/TextUtfEncoding.h>
 
