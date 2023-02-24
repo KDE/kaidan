@@ -1879,74 +1879,124 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Розпочнімо"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Перейменувати запис контакту"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Вилучити контакт"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr "Дані щодо профілю"
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Дані недоступні"
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr "Увімкнути шифрування OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"Міжвузлове шифрування за допомогою OMEMO 2 забезпечує неможливість читання "
+"даних та внесення до них змін під час обміну даними між вами і вашими "
+"співрозмовниками."
+
+#: src/qml/UserProfileSheet.qml:242
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Скануйте QR-код контакту"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Скануйте QR-коди пристроїв вашого контакту, щоб перевірити шифрування"
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Сканування власних QR-кодів"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Скануйте QR-коди ваших пристроїв, щоб увімкнути для них шифрування"
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "На вашому іншому пристрої не використано OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Скануйте QR-коди ваших пристроїв, щоб забезпечити максимально безпечне "
 "шифрування"
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "Конфіденційність"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "Надсилати стан"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Надсилати сповіщення щодо введення"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Надсилати сповіщення про прочитання"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr "Пристрої"
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "Немає з'єднаних пристроїв"
@@ -2034,7 +2084,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 призупинив або призупинила введення повідомлення"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2127,31 +2177,6 @@ msgstr "Сайт"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "Запитати про стан"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Конфіденційність"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Надсилати стан"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Надсилати сповіщення щодо введення"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Надсилати сповіщення про прочитання"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "Міжвузлове шифрування за допомогою OMEMO 2 забезпечує неможливість "
-#~ "читання даних та внесення до них змін під час обміну даними між вами і "
-#~ "вашими співрозмовниками."
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "You have no other devices supporting OMEMO 2"

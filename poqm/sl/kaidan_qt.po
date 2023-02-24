@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-22 09:34+0100\n"
+"PO-Revision-Date: 2023-02-23 09:01+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -1864,72 +1864,122 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Začnimo"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Preimenuj stik"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Odstrani stik"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr "Informacija o profilu"
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "Nobene informacije ni na voljo."
+msgstr "Nobene informacije ni na voljo"
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr "Omogoči šifriranje OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"Šifriranje od začetka do konca z OMEMO 2 zagotavlja, da nihče razen vašega "
+"partnerja v pogovoru ne more brati ali spreminjati podatkov, ki si jih "
+"izmenjujeta."
+
+#: src/qml/UserProfileSheet.qml:242
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Optično preberi kodo QR stika"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Optično preberite kodo QR naprav vašega stika, da overite šifriranje"
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Optično preberite lastne kode QR"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Optično preberite kodo QR vaših naprav, da šifrirate zanje"
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Vaše druge naprave ne uporabljajo OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Optično preberite kodo QR vaših naprav za kar najbolj varno šifriranje"
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "Zasebnost"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "Pošlji stanje"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Pošiljaj obvestila o tipkanju"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Pošiljaj obvestila o branju"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "Ni priključenih naprav"
@@ -2016,7 +2066,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 je prekinil tipkanje"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2107,31 +2157,6 @@ msgstr "Spletni naslov"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "Zahtevam stanje"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Zasebnost"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Pošlji stanje"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Pošiljaj obvestila o tipkanju"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Pošiljaj obvestila o branju"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "Šifriranje od začetka do konca z OMEMO 2 zagotavlja, da nihče razen "
-#~ "vašega partnerja v pogovoru ne more brati ali spreminjati podatkov, ki si "
-#~ "jih izmenjujeta."
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "You have no other devices supporting OMEMO 2"

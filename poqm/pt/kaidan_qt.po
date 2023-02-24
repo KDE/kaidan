@@ -1883,7 +1883,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Vamos começar"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename contact"
@@ -1891,7 +1891,7 @@ msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Modificar o nome do contacto"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
@@ -1899,12 +1899,12 @@ msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Remover o contacto"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
@@ -1912,7 +1912,7 @@ msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Não existe nenhuma câmara disponível."
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -1920,12 +1920,27 @@ msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Encriptação (OMEMO 2)"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"A encriptação ponto-a-ponto com o OMEMO 2 garante que mais ninguém a não ser "
+"você e os seus colaboradores na conversa possam ler ou modificar os dados "
+"que trocar."
+
+#: src/qml/UserProfileSheet.qml:242
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan contact's QR code"
@@ -1933,7 +1948,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Analisar o código QR do contacto"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your contact's devices to encrypt for them"
@@ -1943,7 +1958,7 @@ msgstr ""
 "Analise os códigos QR dos dispositivos do seu contacto para usar a "
 "encriptação nos mesmos"
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan own QR codes"
@@ -1951,7 +1966,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Analisar os próprios códigos QR"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -1961,7 +1976,7 @@ msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
 "mesmos"
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -1969,7 +1984,7 @@ msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Os seus outros dispositivos não usam o OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -1979,12 +1994,44 @@ msgstr ""
 "Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
 "segura possível"
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "Privacidade"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "Enviar o estado"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Enviar as notificações de escrita"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Enviar as notificações de leitura"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2072,7 +2119,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 parou de escrever"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2164,31 +2211,6 @@ msgstr "Página Web"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "Pedir o estado"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Privacidade"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Enviar o estado"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Enviar as notificações de escrita"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Enviar as notificações de leitura"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "A encriptação ponto-a-ponto com o OMEMO 2 garante que mais ninguém a não "
-#~ "ser você e os seus colaboradores na conversa possam ler ou modificar os "
-#~ "dados que trocar."
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "You have no other devices supporting OMEMO 2"

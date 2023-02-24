@@ -728,9 +728,6 @@ msgid "Pin"
 msgstr "მიმაგრება"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "კონტაქტის წაშლა"
@@ -1360,7 +1357,7 @@ msgstr "მხარდაჭერა"
 #: src/qml/settings/AccountSettings.qml:361
 msgctxt "AccountSettings|"
 msgid "Support Group"
-msgstr ""
+msgstr "მხარდაჭერის გუნდი"
 
 #: src/qml/settings/ChangeAvatar.qml:47
 msgctxt "ChangeAvatar|"
@@ -1798,93 +1795,114 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "დავიწყოთ"
 
-#: src/qml/UserProfileSheet.qml:127
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
+#: src/qml/UserProfileSheet.qml:132
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "კონტაქტის სახელის გადარქმევა"
 
-#: src/qml/UserProfileSheet.qml:136
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
+#: src/qml/UserProfileSheet.qml:141
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "კონტაქტის წაშლა"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "პროფილის ინფორმაცია"
 
-#: src/qml/UserProfileSheet.qml:180
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
+#: src/qml/UserProfileSheet.qml:185
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "კამერა მიუწვდომელია."
+msgstr "ინფორმაცია ხელმიუწვდომელია"
 
-#: src/qml/UserProfileSheet.qml:219
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Encryption (OMEMO 2)"
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr "დაშიფვრა (OMEMO 2)"
+msgstr "დაშიფვრა"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:233
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan contact's QR code"
+#: src/qml/UserProfileSheet.qml:228
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:242
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "კონტაქტის QR კოდის სკანირება"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:245
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan own QR codes"
+#: src/qml/UserProfileSheet.qml:254
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "საკუთარი QR კოდების სკანირება"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "პირადი ინფორმაცია"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "სტატუსის გაგზავნა"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "კრეფის შეტყობინების გაგზავნა"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "წაკითხულობის შეტყობინების გაგზავნა"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "მოწყობილობები"
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "მოწყობილობები მიერთებული არაა"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
@@ -1963,7 +1981,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1-მა შეწყვიტა კრეფა"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2053,22 +2071,6 @@ msgstr "ვებსაიტი"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "სტატუსის გამოთხოვა"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "პირადი ინფორმაცია"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "სტატუსის გაგზავნა"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "კრეფის შეტყობინების გაგზავნა"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "წაკითხულობის შეტყობინების გაგზავნა"
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Online devices"

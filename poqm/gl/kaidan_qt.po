@@ -2023,7 +2023,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Comecemos"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename contact"
@@ -2031,7 +2031,7 @@ msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Cambiar nome ao contacto"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
@@ -2039,12 +2039,12 @@ msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Eliminar contacto"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
@@ -2052,17 +2052,24 @@ msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Non hai cámara dispoñible."
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:242
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -2070,7 +2077,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Escanear código QR"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -2078,7 +2085,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -2086,7 +2093,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Escanear código QR"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -2094,12 +2101,12 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
@@ -2107,12 +2114,38 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Escanea o código QR desde o outro dispositivo para transferir a conta."
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:294
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Restaurar notificacións"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Unmute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Restaurar notificacións"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2199,7 +2232,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 parou de escribir"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2281,20 +2314,6 @@ msgstr "Sitio web"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Show QR code"
 #~ msgstr "Mostrar código QR"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Unmute notifications"
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Restaurar notificacións"
-
-#, fuzzy
-#~| msgctxt "ChatPage|"
-#~| msgid "Unmute notifications"
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Restaurar notificacións"
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Online devices"

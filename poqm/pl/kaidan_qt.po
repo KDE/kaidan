@@ -1915,7 +1915,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Zaczynajmy"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename contact"
@@ -1923,7 +1923,7 @@ msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Przemianuj kontakt"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
@@ -1931,12 +1931,12 @@ msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Usuń kontakt"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
@@ -1944,7 +1944,7 @@ msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Nie ma żadnej kamery."
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -1952,12 +1952,27 @@ msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Szyfrowanie (OMEMO 2)"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"Szyfrowanie typu od końca do końca od OMEMO 2 zapewnia, że nikt poza tobą  i "
+"twoimi partnerami na czacie nie może odczytywać ani zmieniać wymienianych  "
+"danych."
+
+#: src/qml/UserProfileSheet.qml:242
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan contact's QR code"
@@ -1965,7 +1980,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Zeskanuj kod QR kontaktu"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your contact's devices to encrypt for them"
@@ -1973,7 +1988,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Skanuj kody QR urządzeń swoich kontaktów, aby je zaszyfrować"
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan own QR codes"
@@ -1981,7 +1996,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Skanuj własne kody QR"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -1989,7 +2004,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Zeskanuj kody QR swoich urządzeń, aby je zaszyfrować"
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -1997,7 +2012,7 @@ msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Inne twoje urządzenia nie korzystają z OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -2006,12 +2021,44 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Skanuj kody QR swoich urządzeń, aby uzyskać najbezpieczniejsze szyfrowanie"
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "Prywatność"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "Wyślij stan"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Powiadamiaj o pisaniu"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Wyślij powiadomienie o przeczytaniu"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2096,7 +2143,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 wstrzymał pisanie"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2188,31 +2235,6 @@ msgstr "Strona sieciowa"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "Zażądaj stanu"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Prywatność"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Wyślij stan"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Powiadamiaj o pisaniu"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Wyślij powiadomienie o przeczytaniu"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "Szyfrowanie typu od końca do końca od OMEMO 2 zapewnia, że nikt poza "
-#~ "tobą  i twoimi partnerami na czacie nie może odczytywać ani zmieniać "
-#~ "wymienianych  danych."
 
 #, fuzzy
 #~| msgctxt "UserProfilePage|"

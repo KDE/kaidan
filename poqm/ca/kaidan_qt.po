@@ -1890,76 +1890,126 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Comencem"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Reanomena un contacte"
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Elimina el contacte"
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr "Informació del perfil"
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "No hi ha cap informació disponible"
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Encriptatge"
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr "Activa l'encriptatge OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"L'encriptatge d'extrem a extrem amb l'OMEMO 2 garanteix que ningú més que "
+"vós i els vostres companys de xat puguin llegir o modificar les dades que "
+"intercanvieu."
+
+#: src/qml/UserProfileSheet.qml:242
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Escanegeu el codi QR del contacte"
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
 "Escanegeu els codis QR dels dispositius del vostre contacte per a verificar "
 "l'encriptatge"
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Escanegeu els codis QR propis"
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Escanegeu els codis QR dels vostres dispositius per encriptar-los"
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Els altres dispositius vostres no empren OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Escanegeu els codis QR dels vostres dispositius per a un encriptatge segur "
 "màxim"
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Privacy"
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr "Privadesa"
+
+#: src/qml/UserProfileSheet.qml:294
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send status"
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr "Envia l'estat"
+
+#: src/qml/UserProfileSheet.qml:306
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send typing notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr "Envia notificacions d'escriptura"
+
+#: src/qml/UserProfileSheet.qml:317
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Send read notifications"
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr "Envia notificacions de lectura"
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr "Dispositius"
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "No hi ha cap dispositiu connectat"
@@ -2046,7 +2096,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 ha parat d'escriure…"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -2139,31 +2189,6 @@ msgstr "Lloc web"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Request status"
 #~ msgstr "Sol·licitud d'estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Privacy"
-#~ msgstr "Privadesa"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send status"
-#~ msgstr "Envia l'estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send typing notifications"
-#~ msgstr "Envia notificacions d'escriptura"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Send read notifications"
-#~ msgstr "Envia notificacions de lectura"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid ""
-#~ "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#~ "your chat partners can read or modify the data you exchange."
-#~ msgstr ""
-#~ "L'encriptatge d'extrem a extrem amb l'OMEMO 2 garanteix que ningú més que "
-#~ "vós i els vostres companys de xat puguin llegir o modificar les dades que "
-#~ "intercanvieu."
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "You have no other devices supporting OMEMO 2"
