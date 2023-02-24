@@ -5,11 +5,14 @@
 #include "PublicGroupChatSearchManager.h"
 
 #include <QDebug>
+#include <QDir>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QSaveFile>
+#include <QStandardPaths>
 #include <QTimer>
 #include <QUrlQuery>
 
@@ -164,4 +167,71 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
 		qCDebug(publicGroupChat_search, "Search request fast throttled");
 		m_throttler->start(NEXT_TIMEOUT);
 	}
+}
+
+QString PublicGroupChatSearchManager::saveFilePath() const
+{
+	// Don't bother to do checks, Database already do them.
+	const auto appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+	return QDir(appDataPath).absoluteFilePath(QStringLiteral("public-group-chats.json"));
+}
+
+bool PublicGroupChatSearchManager::saveGroupChats()
+{
+	QSaveFile file(saveFilePath());
+
+	if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+		qCWarning(publicGroupChat_search,
+			"Can not open file for writing: %ls, %ls",
+			qUtf16Printable(file.fileName()),
+			qUtf16Printable(file.errorString()));
+		file.cancelWriting();
+		return false;
+	}
+
+	const auto json = QJsonDocument(PublicGroupChat::toJson(m_groupChats)).toJson();
+
+	if (file.write(json) == -1) {
+		qCWarning(publicGroupChat_search,
+			"Can not save public group chats: %ls, %ls",
+			qUtf16Printable(file.fileName()),
+			qUtf16Printable(file.errorString()));
+		file.cancelWriting();
+		return false;
+	}
+
+	return file.commit();
+}
+
+bool PublicGroupChatSearchManager::readGroupChats()
+{
+	const auto filePath = saveFilePath();
+
+	if (!QFile::exists(filePath)) {
+		return false;
+	}
+
+	QFile file(filePath);
+
+	if (!file.open(QIODevice::ReadOnly)) {
+		qCWarning(publicGroupChat_search,
+			"Can not open file for reading: %ls, %ls",
+			qUtf16Printable(file.fileName()),
+			qUtf16Printable(file.errorString()));
+		return false;
+	}
+
+	QJsonParseError error;
+	const auto document = QJsonDocument::fromJson(file.readAll(), &error);
+
+	if (error.error != QJsonParseError::NoError) {
+		qCWarning(publicGroupChat_search,
+			"Can not parse json file: %ls, %ls",
+			qUtf16Printable(file.fileName()),
+			qUtf16Printable(error.errorString()));
+		return false;
+	}
+
+	m_groupChats = PublicGroupChat::fromJson(document.array());
+	return true;
 }

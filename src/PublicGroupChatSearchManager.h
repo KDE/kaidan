@@ -44,6 +44,9 @@ private:
 	void requestFrom(const QString &previousAddress = {});
 	void wakeUp();
 	void replyFinished(QNetworkReply *reply);
+	QString saveFilePath() const;
+	bool saveGroupChats();
+	bool readGroupChats();
 
 	QTimer *m_throttler = nullptr;
 	QNetworkAccessManager *m_manager = nullptr;
