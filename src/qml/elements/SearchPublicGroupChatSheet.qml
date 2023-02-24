@@ -25,7 +25,15 @@ Kirigami.OverlaySheet {
 
 		wrapMode: Text.WordWrap
 	}
-	onSheetOpenChanged: sheetOpen ? filterField.forceActiveFocus() : filterField.clear()
+
+	onSheetOpenChanged: {
+		if (sheetOpen) {
+			filterField.forceActiveFocus();
+			root.requestAll();
+		} else {
+			filterField.clear();
+		}
+	}
 
 	ColumnLayout {
 		enabled: !groupChatsManager.isRunning
@@ -242,9 +250,5 @@ Kirigami.OverlaySheet {
 			Layout.fillWidth: true
 			Layout.minimumHeight: 300
 		}
-	}
-
-	Component.onCompleted: {
-		root.requestAll();
 	}
 }
