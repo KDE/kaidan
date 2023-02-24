@@ -148,7 +148,13 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
 		}
 
 		qCWarning(publicGroupChat_search, "Search request error: %s", qUtf8Printable(reply->errorString()));
-		Q_EMIT error(reply->errorString());
+
+		if (readGroupChats()) {
+			Q_EMIT groupChatsReceived(m_groupChats);
+		} else {
+			Q_EMIT error(reply->errorString());
+		}
+
 		setIsRunning(false);
 		return;
 	}
@@ -161,6 +167,7 @@ void PublicGroupChatSearchManager::replyFinished(QNetworkReply *reply)
 	m_groupChats.append(newGroupChats);
 
 	if (newGroupChats.isEmpty()) {
+		saveGroupChats();
 		Q_EMIT groupChatsReceived(m_groupChats);
 		setIsRunning(false);
 	} else {
