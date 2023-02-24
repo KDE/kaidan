@@ -54,10 +54,6 @@ Kirigami.ScrollablePage {
 
 	SearchPublicGroupChatSheet {
 		id: searchPublicGroupChatSheet
-
-		onOpenGroupChatRequested: (groupChat) => {
-			// groupChat was requested to be opened
-		}
 	}
 
 	mainAction: Kirigami.Action {

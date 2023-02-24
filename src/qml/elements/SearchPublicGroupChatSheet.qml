@@ -12,9 +12,6 @@ import PublicGroupChats 1.0 as PublicGroupChats
 
 Kirigami.OverlaySheet {
 	id: root
-
-	signal openGroupChatRequested(var groupChat)
-
 	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
 		text: qsTr("Search public group chat (%1)")
@@ -135,9 +132,7 @@ Kirigami.OverlaySheet {
 					}
 				}
 
-				onClicked: {
-					root.openGroupChatRequested(model.groupChat);
-				}
+				onClicked: Qt.openUrlExternally(Utils.groupChatUri(model.groupChat))
 			}
 
 			PublicGroupChats.SearchManager {

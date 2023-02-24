@@ -153,13 +153,13 @@ void Kaidan::setNotificationsMuted(const QString &jid, bool muted)
 
 void Kaidan::addOpenUri(const QString &uri)
 {
-	if (!QXmppUri::isXmppUri(uri))
+	// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as long as Kaidan does not support that.
+	if (!QXmppUri::isXmppUri(uri) || QXmppUri(uri).action() == QXmppUri::Join)
 		return;
 
 	if (m_connectionState == ConnectionState::StateConnected) {
 		emit xmppUriReceived(uri);
 	} else {
-		//: The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 		emit passiveNotificationRequested(tr("The link will be opened after you have connected."));
 		m_openUriCache = uri;
 	}
