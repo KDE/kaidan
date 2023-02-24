@@ -12,6 +12,12 @@ import PublicGroupChats 1.0 as PublicGroupChats
 
 Kirigami.OverlaySheet {
 	id: root
+
+	function requestAll() {
+		errorLabel.text = "";
+		groupChatsManager.requestAll();
+	}
+
 	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
 		text: qsTr("Search public groups (%1)")
@@ -138,6 +144,10 @@ Kirigami.OverlaySheet {
 
 			PublicGroupChats.SearchManager {
 				id: groupChatsManager
+
+				onError: {
+					errorLabel.text = qsTr("The public groups could not be retrieved, try again.\n\n%1").arg(error);
+				}
 			}
 
 			Item {
@@ -169,12 +179,72 @@ Kirigami.OverlaySheet {
 				}
 			}
 
+			Item {
+				visible: errorLabel.text
+
+				anchors {
+					fill: parent
+				}
+
+				// background of errorArea
+				Rectangle {
+					radius: roundedCornersRadius
+					color: Kirigami.Theme.backgroundColor
+					opacity: 0.9
+
+					anchors {
+						fill: errorArea
+						margins: -8
+					}
+				}
+
+				ColumnLayout {
+					id: errorArea
+
+					anchors {
+						verticalCenter: parent.verticalCenter
+						left: parent.left
+						right: parent.right
+					}
+
+					RowLayout {
+						Kirigami.Icon {
+							source: "error"
+
+							Layout.preferredWidth: Kirigami.Units.iconSizes.medium
+							Layout.preferredHeight: Layout.preferredWidth
+						}
+
+						Controls.Label {
+							id: errorLabel
+
+							wrapMode: Controls.Label.WrapAtWordBoundaryOrAnywhere
+							color: Kirigami.Theme.textColor
+
+							Layout.fillWidth: true
+						}
+
+						Layout.fillWidth: true
+					}
+
+					Controls.Button {
+						text: qsTr("Retry");
+
+						onClicked: {
+							root.requestAll();
+						}
+
+						Layout.alignment: Qt.AlignCenter
+					}
+				}
+			}
+
 			Layout.fillWidth: true
 			Layout.minimumHeight: 300
 		}
 	}
 
 	Component.onCompleted: {
-		groupChatsManager.requestAll();
+		root.requestAll();
 	}
 }
