@@ -104,7 +104,7 @@ Item {
 
 		Controls.Button {
 			text: qsTr("Search up")
-			icon.name: "go-up"
+			icon.name: "go-up-symbolic"
 			display: Controls.Button.IconOnly
 			flat: true
 			onClicked: {
@@ -115,7 +115,7 @@ Item {
 
 		Controls.Button {
 			text: qsTr("Search down")
-			icon.name: "go-down"
+			icon.name: "go-down-symbolic"
 			display: Controls.Button.IconOnly
 			flat: true
 			onClicked: {

@@ -384,7 +384,7 @@ ChatPageBase {
 
 				return Kirigami.Settings.isMobile ? 15 : 5
 			}
-			icon.name: "go-down"
+			icon.name: "go-down-symbolic"
 			onClicked: parent.positionViewAtIndex(0, ListView.Center)
 
 			Behavior on width {

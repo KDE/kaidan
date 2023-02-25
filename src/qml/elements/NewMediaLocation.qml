@@ -178,7 +178,7 @@ MediaPreview {
 				icon {
 					name: checked
 						  ? MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageGeoLocation)
-						  : 'crosshairs'
+						  : 'find-location-symbolic'
 				}
 
 				anchors {

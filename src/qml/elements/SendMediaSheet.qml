@@ -150,7 +150,7 @@ Kirigami.OverlaySheet {
 					}
 
 					Controls.ToolButton {
-						icon.name: "list-remove"
+						icon.name: "list-remove-symbolic"
 						text: qsTr("Remove file")
 						display: Controls.AbstractButton.IconOnly
 						onClicked: root.composition.fileSelectionModel.removeFile(model.index)
@@ -173,7 +173,7 @@ Kirigami.OverlaySheet {
 		RowLayout {
 			Controls.ToolButton {
 				text: qsTr("Add")
-				icon.name: "list-add"
+				icon.name: "list-add-symbolic"
 
 				onClicked: root.composition.fileSelectionModel.selectFile()
 			}
@@ -184,7 +184,7 @@ Kirigami.OverlaySheet {
 
 			Controls.ToolButton {
 				text: qsTr("Send")
-				icon.name: "document-send"
+				icon.name: "mail-send-symbolic"
 				onClicked: {
 					root.composition.send()
 					close()

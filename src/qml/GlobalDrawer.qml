@@ -92,7 +92,7 @@ Kirigami.GlobalDrawer {
 		},
 		Kirigami.Action {
 			text: qsTr("Invite friends")
-			icon.name: "mail-invitation"
+			icon.name: "mail-message-new-symbolic"
 			onTriggered: {
 				Utils.copyToClipboard(Utils.invitationUrl(AccountManager.jid))
 				passiveNotification(qsTr("Invitation link copied to clipboard"))
@@ -108,7 +108,7 @@ Kirigami.GlobalDrawer {
 		},
 		Kirigami.Action {
 			text: qsTr("Settings")
-			icon.name: "settings-configure"
+			icon.name: "preferences-system-symbolic"
 			onTriggered: {
 				// open settings page
 				if (Kirigami.Settings.isMobile) {

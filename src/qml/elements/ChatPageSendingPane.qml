@@ -183,7 +183,7 @@ Controls.Pane {
 
 			// file sharing button
 			ClickableIcon {
-				source: "document-send-symbolic"
+				source: "mail-attachment-symbolic"
 				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""
 				opacity: visible ? 1 : 0
 				Behavior on opacity {
@@ -291,7 +291,7 @@ Controls.Pane {
 							IconTopButton {
 								Layout.fillWidth: true
 								implicitWidth: parent.width / 4
-								buttonIcon: "folder-documents-symbolic"
+								buttonIcon: "document-open-symbolic"
 								title: qsTr("Document")
 								tooltipText: qsTr("Attatch document from device")
 

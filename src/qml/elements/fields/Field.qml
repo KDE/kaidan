@@ -86,7 +86,7 @@ ColumnLayout {
 		Kirigami.Icon {
 			id: invalidIcon
 			visible: invalidHint.visible
-			source: "error"
+			source: "dialog-error-symbolic"
 			width: Kirigami.Units.iconSizes.smallMedium
 			height: width
 		}

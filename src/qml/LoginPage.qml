@@ -71,7 +71,7 @@ Kirigami.Page {
 
 				inputField.rightActions: [
 					Kirigami.Action {
-						icon.name: "settings-configure"
+						icon.name: "preferences-system-symbolic"
 						text: qsTr("Connection settings")
 						onTriggered: {
 							customConnectionSettings.visible = !customConnectionSettings.visible

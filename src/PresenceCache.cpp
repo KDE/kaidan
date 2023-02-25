@@ -46,7 +46,7 @@ QString Presence::availabilityToIcon(Availability type)
 	case Away:
 		return QStringLiteral("im-user-away");
 	case DND:
-		return QStringLiteral("im-kick-user");
+		return QStringLiteral("im-user-busy");
 	case XA:
 		return QStringLiteral("im-user-away");
 	case Offline:

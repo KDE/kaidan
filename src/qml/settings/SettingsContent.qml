@@ -67,7 +67,7 @@ ColumnLayout {
 		name: qsTr("Connection Settings")
 		description: qsTr("Configure the hostname and port to connect to")
 		onClicked: stack.push("ConnectionSettings.qml")
-		icon: "settings-configure"
+		icon: "preferences-system-symbolic"
 	}
 	SettingsItem {
 		name: qsTr("Account security")
