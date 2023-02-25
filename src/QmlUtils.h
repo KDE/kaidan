@@ -109,6 +109,13 @@ public:
 	}
 
 	/**
+	 * Returns an XMPP URI for opening a group chat.
+	 *
+	 * @param groupChatJid JID of the group chat
+	 */
+	Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
+
+	/**
 	 * Returns a string without new lines, unneeded spaces, etc.
 	 *
 	 * See QString::simplified for more information.

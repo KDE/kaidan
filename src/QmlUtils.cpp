@@ -40,6 +40,7 @@
 #include <QStringBuilder>
 // QXmpp
 #include "qxmpp-exts/QXmppColorGenerator.h"
+#include <qxmpp-exts/QXmppUri.h>
 
 static QmlUtils *s_instance;
 
@@ -133,6 +134,14 @@ QString QmlUtils::getResourcePath(const QString &name)
 QUrl QmlUtils::issueTrackingUrl()
 {
 	return {QStringLiteral(ISSUE_TRACKING_URL)};
+}
+
+QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
+{
+	QXmppUri uri;
+	uri.setJid(groupChatJid);
+	uri.setAction(QXmppUri::Join);
+	return { uri.toString() };
 }
 
 bool QmlUtils::isImageFile(const QUrl &fileUrl)
