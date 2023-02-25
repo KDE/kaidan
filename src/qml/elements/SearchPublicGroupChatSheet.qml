@@ -19,6 +19,7 @@ Kirigami.OverlaySheet {
 
 		wrapMode: Text.WordWrap
 	}
+	onSheetOpenChanged: sheetOpen ? filterField.forceActiveFocus() : filterField.clear()
 
 	ColumnLayout {
 		enabled: !groupChatsManager.isRunning
