@@ -131,8 +131,7 @@ Kirigami.OverlaySheet {
 
 	function clearInput() {
 		jid = "";
-		jidField.text = "";
-		nickField.text = "";
+		nickname = "";
 		msgField.text = "";
 	}
 }
