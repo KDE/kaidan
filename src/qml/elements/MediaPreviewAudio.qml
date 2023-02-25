@@ -156,8 +156,6 @@ MediaPreview {
 			}
 
 			Controls.ToolButton {
-				visible: root.showOpenButton
-
 				icon {
 					name: 'document-open-symbolic'
 				}
