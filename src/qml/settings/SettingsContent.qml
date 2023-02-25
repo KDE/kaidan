@@ -45,17 +45,17 @@ ColumnLayout {
 	height: applicationWindow().height * 0.9
 
 	SettingsItem {
+		name: qsTr("Account Settings")
+		description: qsTr("Changes your account's settings.")
+		onClicked: stack.push("AccountSettings.qml")
+		icon: "avatar-default-symbolic"
+	}
+	SettingsItem {
 		name: qsTr("Change password")
 		description: qsTr("Changes your account's password. You will need to re-enter it on your other devices.")
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		onClicked: stack.push("ChangePassword.qml")
 		icon: "system-lock-screen-symbolic"
-	}
-	SettingsItem {
-		name: qsTr("Account Settings")
-		description: qsTr("Changes your account's settings.")
-		onClicked: stack.push("AccountSettings.qml")
-		icon: "avatar-default-symbolic"
 	}
 	SettingsItem {
 		name: qsTr("Multimedia Settings")
