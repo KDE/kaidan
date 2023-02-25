@@ -1871,72 +1871,99 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "La oss begynne"
 
-#: src/qml/UserProfileSheet.qml:127
+#: src/qml/UserProfileSheet.qml:132
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:136
+#: src/qml/UserProfileSheet.qml:141
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:172
+#: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:180
+#: src/qml/UserProfileSheet.qml:185
 msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:219
+#: src/qml/UserProfileSheet.qml:224
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:222
+#: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 Encryption"
+msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:233
+#: src/qml/UserProfileSheet.qml:228
+msgctxt "UserProfileSheet|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:242
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:234
+#: src/qml/UserProfileSheet.qml:243
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:245
+#: src/qml/UserProfileSheet.qml:254
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:249 src/qml/UserProfileSheet.qml:255
+#: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:251
+#: src/qml/UserProfileSheet.qml:260
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:267
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:281
+#: src/qml/UserProfileSheet.qml:290
+msgctxt "UserProfileSheet|"
+msgid "Privacy"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:294
+msgctxt "UserProfileSheet|"
+msgid "Send status"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:306
+msgctxt "UserProfileSheet|"
+msgid "Send typing notifications"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:317
+msgctxt "UserProfileSheet|"
+msgid "Send read notifications"
+msgstr ""
+
+#: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:288
+#: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2029,7 +2056,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 tok en pause i skrivingen"
 
-#: src/QrCodeGenerator.cpp:125
+#: src/QrCodeGenerator.cpp:121
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-23 09:01+0100\n"
+"PO-Revision-Date: 2023-02-24 08:59+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Lokalize 22.12.2\n"
 
 #: src/ClientWorker.cpp:300
 #, qt-format
@@ -1890,26 +1890,18 @@ msgid "Encryption"
 msgstr "Šifriranje"
 
 #: src/qml/UserProfileSheet.qml:227
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr "Omogoči šifriranje OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:228
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "UserProfileSheet|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "Šifriranje od začetka do konca z OMEMO 2 zagotavlja, da nihče razen vašega "
-"partnerja v pogovoru ne more brati ali spreminjati podatkov, ki si jih "
+"partnerja v klepetu ne more brati ali spreminjati podatkov, ki si jih "
 "izmenjujeta."
 
 #: src/qml/UserProfileSheet.qml:242
@@ -1943,33 +1935,21 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Optično preberite kodo QR vaših naprav za kar najbolj varno šifriranje"
 
 #: src/qml/UserProfileSheet.qml:290
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Privacy"
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Zasebnost"
 
 #: src/qml/UserProfileSheet.qml:294
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send status"
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Pošlji stanje"
 
 #: src/qml/UserProfileSheet.qml:306
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send typing notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Pošiljaj obvestila o tipkanju"
 
 #: src/qml/UserProfileSheet.qml:317
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send read notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Pošiljaj obvestila o branju"

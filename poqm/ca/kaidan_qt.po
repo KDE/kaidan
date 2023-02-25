@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-02-22 09:31+0100\n"
+"PO-Revision-Date: 2023-02-24 14:49+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1916,19 +1916,11 @@ msgid "Encryption"
 msgstr "Encriptatge"
 
 #: src/qml/UserProfileSheet.qml:227
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr "Activa l'encriptatge OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:228
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "UserProfileSheet|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1973,33 +1965,21 @@ msgstr ""
 "màxim"
 
 #: src/qml/UserProfileSheet.qml:290
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Privacy"
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Privadesa"
 
 #: src/qml/UserProfileSheet.qml:294
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send status"
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Envia l'estat"
 
 #: src/qml/UserProfileSheet.qml:306
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send typing notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Envia notificacions d'escriptura"
 
 #: src/qml/UserProfileSheet.qml:317
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send read notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Envia notificacions de lectura"
@@ -2165,48 +2145,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete contact"
-#~ msgstr "Suprimeix el contacte"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Profile"
-#~ msgstr "Perfil"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Rename contact"
-#~ msgstr "Reanomena un contacte"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Show QR code"
-#~ msgstr "Mostra el codi QR"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Contact sends no status"
-#~ msgstr "El contacte envia sense estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Request status"
-#~ msgstr "Sol·licitud d'estat"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "You have no other devices supporting OMEMO 2"
-#~ msgstr "No hi ha altres dispositius que permetin OMEMO 2"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Scan the QR code of your contact to enable encryption"
-#~ msgstr "Escanegeu el codi QR del contacte per activar l'encriptatge"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Your contact doesn't use OMEMO 2"
-#~ msgstr "El vostre contacte no empra OMEMO 2"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Scan the QR code of your contact for maximum secure encryption"
-#~ msgstr ""
-#~ "Escanegeu el codi QR del vostre contacte per a un encriptatge segur màxim"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Online devices"
-#~ msgstr "Dispositius connectats"
