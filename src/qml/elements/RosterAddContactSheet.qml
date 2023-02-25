@@ -105,14 +105,14 @@ Kirigami.OverlaySheet {
 				Layout.fillWidth: true
 			}
 
+			CredentialsValidator {
+				id: credentialsValidator
+			}
+
 			Button {
 				id: addButton
 				text: qsTr("Add")
-				enabled: {
-					jidField.length >= 3 && // JID needs to be at least 3 chars longs
-					jidField.text.includes("@") && // JID has to contain '@'
-					jidField.text.slice(-1) !== "@" // last character is no '@'
-				}
+				enabled: credentialsValidator.isAccountJidValid(jidField.text)
 				onClicked: {
 					Kaidan.client.rosterManager.addContactRequested(
 							jidField.text.toLowerCase(),
