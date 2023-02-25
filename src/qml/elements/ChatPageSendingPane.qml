@@ -280,7 +280,7 @@ Controls.Pane {
 								Layout.fillWidth: true
 								implicitWidth: parent.width / 4
 								buttonIcon: "camera-video-symbolic"
-								title: qsTr("Record Video")
+								title: qsTr("Record video")
 								tooltipText: qsTr("Record a video using your camera")
 
 								onClicked: {
@@ -292,8 +292,8 @@ Controls.Pane {
 								Layout.fillWidth: true
 								implicitWidth: parent.width / 4
 								buttonIcon: "document-open-symbolic"
-								title: qsTr("Document")
-								tooltipText: qsTr("Attatch document from device")
+								title: qsTr("Share files")
+								tooltipText: qsTr("Share files from your device")
 
 								onClicked: {
 									chatPage.sendMediaSheet.selectFile()
@@ -304,7 +304,7 @@ Controls.Pane {
 								Layout.fillWidth: true
 								implicitWidth: parent.width / 4
 								buttonIcon: "mark-location-symbolic"
-								title: qsTr("Location")
+								title: qsTr("Share location")
 								tooltipText: qsTr("Send your location")
 
 								onClicked: {

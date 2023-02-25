@@ -49,7 +49,7 @@ Kirigami.OverlaySheet {
 	showCloseButton: false
 
 	header: Kirigami.Heading {
-		text: qsTr("Send files")
+		text: qsTr("Share files")
 	}
 
 	// First open the file choose to select a file, then open the sheet
@@ -98,7 +98,7 @@ Kirigami.OverlaySheet {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.topMargin: Kirigami.Units.gridUnit * 10
 			Layout.bottomMargin: Kirigami.Units.gridUnit * 10
-			text: qsTr("Select some files to send them")
+			text: qsTr("Choose files")
 			visible: fileList.count === 0
 		}
 

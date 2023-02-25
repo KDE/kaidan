@@ -69,7 +69,7 @@ Kirigami.ScrollablePage {
 
 	leftAction: Kirigami.Action {
 		id: searchPublicGroupChatAction
-		text: qsTr("Search public group chat")
+		text: qsTr("Search public groups")
 		icon.name: "system-search-symbolic"
 		onTriggered: {
 			if (searchPublicGroupChatSheet.sheetOpen)

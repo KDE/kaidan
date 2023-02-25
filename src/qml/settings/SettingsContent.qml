@@ -45,14 +45,14 @@ ColumnLayout {
 	height: applicationWindow().height * 0.9
 
 	SettingsItem {
-		name: qsTr("Account Settings")
-		description: qsTr("Changes your account's settings.")
+		name: qsTr("Account")
+		description: qsTr("Edit your profile")
 		onClicked: stack.push("AccountSettings.qml")
 		icon: "avatar-default-symbolic"
 	}
 	SettingsItem {
 		name: qsTr("Change password")
-		description: qsTr("Changes your account's password. You will need to re-enter it on your other devices.")
+		description: qsTr("Change your account's password")
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		onClicked: stack.push("ChangePassword.qml")
 		icon: "system-lock-screen-symbolic"
@@ -71,7 +71,7 @@ ColumnLayout {
 	}
 	SettingsItem {
 		name: qsTr("Account security")
-		description: qsTr("Configure whether this device can be used to log in on another device")
+		description: qsTr("Configure whether this device can be used to switch to another device")
 		icon: "security-high-symbolic"
 		onClicked: stack.push("AccountSecurity.qml")
 	}
@@ -83,7 +83,7 @@ ColumnLayout {
 	}
 	SettingsItem {
 		name: qsTr("Delete account")
-		description: qsTr("Delete account from the server")
+		description: qsTr("Delete account from server")
 		icon: "edit-delete-symbolic"
 		onClicked: stack.push("RemoteAccountDeletion.qml")
 	}

@@ -14,7 +14,7 @@ Kirigami.OverlaySheet {
 	id: root
 	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
-		text: qsTr("Search public group chat (%1)")
+		text: qsTr("Search public groups (%1)")
 				.arg("%1/%2".arg(groupChatsProxy.count).arg(groupChatsModel.count))
 
 		wrapMode: Text.WordWrap
