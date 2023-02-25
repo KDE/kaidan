@@ -77,7 +77,7 @@ Kirigami.ScrollablePage {
 			else
 				searchPublicGroupChatSheet.open()
 		}
-		shortcut: "Ctrl+R"
+		shortcut: "Ctrl+G"
 	}
 
 	rightAction: Kirigami.Action {
