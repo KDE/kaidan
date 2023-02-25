@@ -38,7 +38,7 @@ import im.kaidan.kaidan 1.0
 Kirigami.OverlaySheet {
 	id: root
 
-	property var chatSupportList
+	required property var chatSupportList
 	property bool isGroupChatSupportSheet: false
 
 	header: Kirigami.Heading {
