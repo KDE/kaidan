@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-02-22 21:24+0100\n"
+"PO-Revision-Date: 2023-02-24 20:55+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -1918,19 +1918,11 @@ msgid "Encryption"
 msgstr "Chiffrement"
 
 #: src/qml/UserProfileSheet.qml:227
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Enable OMEMO 2 Encryption"
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr "Activer le chiffrement « OMEMO 2 »"
 
 #: src/qml/UserProfileSheet.qml:228
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "UserProfileSheet|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1975,33 +1967,21 @@ msgstr ""
 "maximum de sécurité."
 
 #: src/qml/UserProfileSheet.qml:290
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Privacy"
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Confidentialité"
 
 #: src/qml/UserProfileSheet.qml:294
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send status"
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Envoyer un état"
 
 #: src/qml/UserProfileSheet.qml:306
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send typing notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Envoyer des notifications de saisie"
 
 #: src/qml/UserProfileSheet.qml:317
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send read notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Envoyer des notifications de lecture"
@@ -2100,7 +2080,7 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 a suspendu sa saisie"
 
-#: src/QrCodeGenerator.cpp:121
+#: src/QrCodeGenerator.cpp:117
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
