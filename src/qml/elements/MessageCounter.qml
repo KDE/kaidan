@@ -29,20 +29,24 @@
  */
 
 import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.12 as Kirigami
 
-Rectangle {
+Controls.Label {
 	property int count: 0
 	property bool muted: false
 
-	id: counterCircle
-	radius: counterCircle.height * 0.5
-	color: muted ? "lightgray" : Kirigami.Theme.positiveTextColor
-	visible: count > 0
+	text: count > 9999 ? "9999+" : count
+	color: Kirigami.Theme.backgroundColor
+	font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+	visible: count
+	leftPadding: font.pixelSize * 0.45
+	rightPadding: leftPadding
+	topPadding: leftPadding * 0.3
+	bottomPadding: topPadding
 
-	Text {
-		text: count < 99 ? count : "99"
-		color: Kirigami.Theme.backgroundColor
-		anchors.centerIn: parent
+	background: Rectangle {
+		radius: parent.height * 0.5
+		color: parent.muted ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.positiveTextColor
 	}
 }

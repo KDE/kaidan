@@ -93,23 +93,20 @@ UserListItem {
 	}
 
 	// right: icon for muted contact
+	// Its size depends on the font's pixel size to be as large as the message counter.
 	Kirigami.Icon {
 		id: mutedIcon
 		source: "audio-volume-muted-symbolic"
-		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
 		Layout.preferredHeight: Layout.preferredWidth
 		visible: mutedWatcher.muted
 	}
 
-	NotificationsMutedWatcher {
-		id: mutedWatcher
-		jid: root.jid
-	}
-
 	// right: icon for pinned chat
+	// Its size depends on the font's pixel size to be as large as the message counter.
 	Kirigami.Icon {
 		source: "window-pin-symbolic"
-		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
 		Layout.preferredHeight: Layout.preferredWidth
 		visible: pinned
 	}
@@ -119,8 +116,6 @@ UserListItem {
 		id: counter
 		count: unreadMessages
 		muted: mutedWatcher.muted
-		Layout.preferredHeight: Kirigami.Units.gridUnit * 1.25
-		Layout.preferredWidth: Kirigami.Units.gridUnit * 1.25
 	}
 
 	// right: icon for reordering
@@ -143,6 +138,11 @@ UserListItem {
 		}
 
 		onPressAndHold: showContextMenu()
+	}
+
+	NotificationsMutedWatcher {
+		id: mutedWatcher
+		jid: root.jid
 	}
 
 	function showContextMenu() {

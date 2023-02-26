@@ -394,8 +394,6 @@ ChatPageBase {
 			MessageCounter {
 				id: unreadMessageCounter
 				count: chatItemWatcher.item.unreadMessageCount
-				width: 22
-				height: width
 				anchors.horizontalCenter: parent.horizontalCenter
 				anchors.verticalCenter: parent.top
 				anchors.verticalCenterOffset: -2
