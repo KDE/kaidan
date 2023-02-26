@@ -82,8 +82,8 @@ UserListItem {
 	Kirigami.Icon {
 		id: mutedIcon
 		source: "audio-volume-muted-symbolic"
-		width: 22
-		height: 22
+		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredHeight: Layout.preferredWidth
 		visible: mutedWatcher.muted
 	}
 
@@ -95,8 +95,8 @@ UserListItem {
 	// right: icon for pinned chat
 	Kirigami.Icon {
 		source: "window-pin-symbolic"
-		width: 16
-		height: 16
+		Layout.preferredWidth: Kirigami.Units.iconSizes.smallMedium
+		Layout.preferredHeight: Layout.preferredWidth
 		visible: pinned
 	}
 
