@@ -174,6 +174,15 @@ void RosterModel::setItemEncryption(const QString &, const QString &jid, Encrypt
 	});
 }
 
+void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption)
+{
+	for (const auto &item : m_items) {
+		emit updateItemRequested(item.jid, [encryption](RosterItem &item) {
+			item.encryption = encryption;
+		});
+	}
+}
+
 RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &uriString)
 {
 	if (QXmppUri::isXmppUri(uriString)) {

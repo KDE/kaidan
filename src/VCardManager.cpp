@@ -64,9 +64,9 @@ VCardManager::VCardManager(ClientWorker *clientWorker, QXmppClient *client, Avat
 void VCardManager::requestVCard(const QString &jid)
 {
 	if (m_client->state() == QXmppClient::ConnectedState)
-		m_client->findExtension<QXmppVCardManager>()->requestVCard(jid);
+		m_manager->requestVCard(jid);
 	else
-		qWarning() << "[VCardManager] Could not fetch VCard: Not connected to a server";
+		qWarning() << "[VCardManager] Could not fetch vCard: Not connected to a server";
 }
 
 void VCardManager::handleVCardReceived(const QXmppVCardIq &iq)
@@ -80,16 +80,19 @@ void VCardManager::handleVCardReceived(const QXmppVCardIq &iq)
 
 void VCardManager::requestClientVCard()
 {
-	m_manager->requestClientVCard();
+	if (m_client->state() == QXmppClient::ConnectedState)
+		m_manager->requestClientVCard();
+	else
+		qWarning() << "[VCardManager] Could not fetch own vCard: Not connected to a server";
 }
 
 void VCardManager::handleClientVCardReceived()
 {
-	if (!m_nicknameToBeSetAfterReceivingCurrentVCard.isEmpty()) {
+	if (!m_nicknameToBeSetAfterReceivingCurrentVCard.isNull()) {
 		changeNicknameAfterReceivingCurrentVCard();
 	}
 
-	if (!m_avatarToBeSetAfterReceivingCurrentVCard.isNull()) {
+	if (!m_avatarToBeSetAfterReceivingCurrentVCard.isNull() || m_isAvatarToBeReset) {
 		changeAvatarAfterReceivingCurrentVCard();
 	}
 
@@ -132,7 +135,12 @@ void VCardManager::changeAvatar(const QImage &avatar)
 	m_clientWorker->startTask(
 		[this, avatar] {
 			// TODO what's the maximum image size that should be saved?
-			m_avatarToBeSetAfterReceivingCurrentVCard = avatar.scaledToWidth(512);
+			if (!avatar.isNull()) {
+				m_avatarToBeSetAfterReceivingCurrentVCard = avatar.scaledToWidth(512);
+			} else {
+				m_isAvatarToBeReset = true;
+			}
+
 			requestClientVCard();
 		}
 	);
@@ -151,16 +159,21 @@ void VCardManager::changeAvatarAfterReceivingCurrentVCard()
 {
 	QXmppVCardIq vCardIq = m_manager->clientVCard();
 
-	QByteArray ba;
-	QBuffer buffer(&ba);
-	buffer.open(QIODevice::WriteOnly);
-	m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
+	if (!m_isAvatarToBeReset) {
+		QByteArray ba;
+		QBuffer buffer(&ba);
+		buffer.open(QIODevice::WriteOnly);
+		m_avatarToBeSetAfterReceivingCurrentVCard.save(&buffer, "JPG");
 
-	vCardIq.setPhoto(ba);
+		vCardIq.setPhoto(ba);
+	} else {
+		m_isAvatarToBeReset = false;
+		vCardIq.setPhoto({});
+	}
 
 	m_manager->setClientVCard(vCardIq);
 
-	m_avatarToBeSetAfterReceivingCurrentVCard = QImage();
+	m_avatarToBeSetAfterReceivingCurrentVCard = {};
 	m_clientWorker->finishTask();
 
 	emit Kaidan::instance()->avatarChangeSucceeded();

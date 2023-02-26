@@ -37,6 +37,7 @@
 #include <QSettings>
 #include <QSize>
 
+#include "Encryption.h"
 #include "Kaidan.h"
 
 constexpr quint16 PORT_AUTODETECT = 0;
@@ -51,6 +52,7 @@ class Settings : public QObject
 	Q_OBJECT
 
 	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
+	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
 	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
@@ -88,6 +90,9 @@ public:
 	Kaidan::PasswordVisibility authPasswordVisibility() const;
 	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
 
+	Encryption::Enum encryption() const;
+	void setEncryption(Encryption::Enum encryption);
+
 	/**
 	 * Retrieves the visibility of the QrCodePage's explanation from the settings file.
 	 *
@@ -124,6 +129,7 @@ signals:
 	void authHostChanged();
 	void authPortChanged();
 	void authPasswordVisibilityChanged();
+	void encryptionChanged();
 	void qrCodePageExplanationVisibleChanged();
 	void notificationsMutedChanged(const QString &bareJid);
 	void favoriteEmojisChanged();

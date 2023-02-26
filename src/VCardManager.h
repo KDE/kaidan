@@ -107,7 +107,7 @@ signals:
 	void vCardRequested(const QString &jid);
 	void clientVCardRequested();
 	void changeNicknameRequested(const QString &nickname);
-	void changeAvatarRequested(const QImage &avatar);
+	void changeAvatarRequested(const QImage &avatar = {});
 
 private slots:
 	/**
@@ -116,7 +116,7 @@ private slots:
 	 * @param nickname name that is shown to contacts after the update
 	 */
 	void changeNickname(const QString &nickname);
-	void changeAvatar(const QImage &avatar);
+	void changeAvatar(const QImage &avatar = {});
 
 private:
 	/**
@@ -134,4 +134,5 @@ private:
 	AvatarFileStorage *m_avatarStorage;
 	QString m_nicknameToBeSetAfterReceivingCurrentVCard;
 	QImage m_avatarToBeSetAfterReceivingCurrentVCard;
+	bool m_isAvatarToBeReset = false;
 };

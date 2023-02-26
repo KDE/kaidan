@@ -37,7 +37,9 @@
 
 #include "AccountManager.h"
 #include "FutureUtils.h"
+#include "Kaidan.h"
 #include "MessageModel.h"
+#include "OmemoCache.h"
 #include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
@@ -54,6 +56,10 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 {
 	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this]() {
 		retrieveOwnKey();
+	});
+
+	connect(this, &OmemoManager::initializeChatRequested, this, [this](const QString &accountJid) {
+		initializeChat(accountJid, accountJid);
 	});
 
 	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
@@ -340,7 +346,7 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 
 void OmemoManager::emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices)
 {
-	emit MessageModel::instance()->distrustedOmemoDevicesRetrieved(jid, distrustedDevices);
-	emit MessageModel::instance()->usableOmemoDevicesRetrieved(jid, usableDevices);
-	emit MessageModel::instance()->authenticatableOmemoDevicesRetrieved(jid, authenticatableDevices);
+	emit OmemoCache::instance()->distrustedOmemoDevicesRetrieved(jid, distrustedDevices);
+	emit OmemoCache::instance()->usableOmemoDevicesRetrieved(jid, usableDevices);
+	emit OmemoCache::instance()->authenticatableOmemoDevicesRetrieved(jid, authenticatableDevices);
 }

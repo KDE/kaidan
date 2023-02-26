@@ -32,14 +32,32 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
 import "elements"
+import "details"
 import "settings"
 
 Kirigami.GlobalDrawer {
-	id: globalDrawer
+	id: root
+
+	Component {
+		id: qrCodePage
+
+		QrCodePage {}
+	}
+
+	AccountDetailsSheet {
+		id: accountDetailsSheet
+	}
+
+	Component {
+		id: accountDetailsPage
+
+		AccountDetailsPage {}
+	}
 
 	SearchPublicGroupChatSheet {
 		id: searchPublicGroupChatSheet
@@ -50,94 +68,161 @@ Kirigami.GlobalDrawer {
 	}
 
 	topContent: [
-		// This item is used to disable an account temporarily.
-		RowLayout {
-			spacing: -4
+		ColumnLayout {
+			spacing: Kirigami.Units.largeSpacing
+			Layout.margins: -3
 
-			property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
-			property bool connected: Kaidan.connectionState === Enums.StateConnected
+			MobileForm.FormCard {
+				Layout.fillWidth: true
 
-			Controls.Switch {
-				checked: !parent.disconnected
-				onClicked: parent.disconnected ? Kaidan.logIn() : Kaidan.logOut()
-			}
+				contentItem: ColumnLayout {
+					spacing: 0
 
-			Text {
-				text: AccountManager.displayName + " (" + Kaidan.connectionStateText + ")"
-				color: parent.connected ? "green" : "silver"
-			}
-		},
+					MobileForm.FormCardHeader {
+						title: qsTr("Accounts")
+					}
 
-		Controls.Label {
-			id: errorMessage
-			visible: Kaidan.connectionError
-			text: Kaidan.connectionError ? Utils.connectionErrorMessage(Kaidan.connectionError) : ""
-			font.bold: true
-			wrapMode: Text.WordWrap
-			padding: 10
-			Layout.leftMargin: 5
-			Layout.rightMargin: 5
-			Layout.fillWidth: true
+					Repeater {
+						model: [ AccountManager.jid ]
 
-			background: Rectangle {
-				color: Kirigami.Theme.negativeBackgroundColor
-				radius: roundedCornersRadius
-			}
-		}
-	]
+						delegate: ColumnLayout {
+							spacing: 0
 
-	actions: [
-		Kirigami.Action {
-			text: qsTr("Add contact by QR code")
-			icon.name: "view-barcode-qr"
-			onTriggered: pageStack.layers.push(qrCodePage)
-		},
-		Kirigami.Action {
-			id: searchPublicGroupChatAction
-			text: qsTr("Search public groups")
-			icon.name: "system-search-symbolic"
-			onTriggered: {
-				if (searchPublicGroupChatSheet.sheetOpen)
-					searchPublicGroupChatSheet.close()
-				else
-					searchPublicGroupChatSheet.open()
-			}
-			shortcut: "Ctrl+G"
-		},
-		Kirigami.Action {
-			text: qsTr("Invite friends")
-			icon.name: "mail-message-new-symbolic"
-			onTriggered: {
-				Utils.copyToClipboard(Utils.invitationUrl(AccountManager.jid))
-				passiveNotification(qsTr("Invitation link copied to clipboard"))
-			}
-		},
-		Kirigami.Action {
-			text: qsTr("Switch device")
-			icon.name: "send-to-symbolic"
+							MobileForm.FormTextDelegate {
+								id: accountArea
 
-			onTriggered: {
-				pageStack.layers.push("AccountTransferPage.qml")
-			}
-		},
-		Kirigami.Action {
-			text: qsTr("Settings")
-			icon.name: "preferences-system-symbolic"
-			onTriggered: {
-				// open settings page
-				if (Kirigami.Settings.isMobile) {
-					if (pageStack.layers.depth < 2)
-						pageStack.layers.push(settingsPage)
-				} else {
-					settingsSheet.open()
+								property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
+								property bool connected: Kaidan.connectionState === Enums.StateConnected
+
+								background: MobileForm.FormDelegateBackground { control: accountArea }
+								leftPadding: 15
+								leading: Avatar {
+									jid: AccountManager.jid
+									name: AccountManager.displayName
+								}
+								leadingPadding: 10
+								text: AccountManager.displayName
+								description: {
+									var color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
+									return "<font color='" + color + "'>" + Kaidan.connectionStateText + "</font>"
+								}
+								trailing: Controls.Switch {
+									checked: !accountArea.disconnected
+									onToggled: accountArea.disconnected ? Kaidan.logIn() : Kaidan.logOut()
+								}
+								onClicked: {
+									if (Kirigami.Settings.isMobile) {
+										if (pageStack.layers.depth < 2) {
+											pageStack.layers.push(accountDetailsPage)
+											root.close()
+										}
+									} else {
+										root.close()
+										accountDetailsSheet.open()
+									}
+								}
+							}
+
+							Controls.Label {
+								id: errorMessage
+								visible: Kaidan.connectionError
+								text: Kaidan.connectionError ? Utils.connectionErrorMessage(Kaidan.connectionError) : ""
+								font.bold: true
+								wrapMode: Text.WordWrap
+								padding: 10
+								Layout.margins: 10
+								Layout.fillWidth: true
+								background: Rectangle {
+									color: Kirigami.Theme.negativeBackgroundColor
+									radius: roundedCornersRadius
+								}
+							}
+						}
+					}
 				}
+			}
+
+			MobileForm.FormCard {
+				Layout.fillWidth: true
+
+				contentItem: ColumnLayout {
+					spacing: 0
+
+					MobileForm.FormCardHeader {
+						title: qsTr("Actions")
+					}
+
+					MobileForm.FormButtonDelegate {
+						text: qsTr("Add contact by QR code")
+						icon.name: "view-barcode-qr"
+						onClicked: {
+							root.close()
+							pageStack.layers.push(qrCodePage)
+						}
+					}
+
+					MobileForm.FormButtonDelegate {
+						id: publicGroupChatSearchButton
+						text: qsTr("Search public groups")
+						icon.name: "system-search-symbolic"
+						onClicked: {
+							root.close()
+							searchPublicGroupChatSheet.open()
+						}
+
+						Shortcut {
+							sequence: "Ctrl+G"
+							onActivated: publicGroupChatSearchButton.clicked()
+						}
+					}
+
+					MobileForm.FormButtonDelegate {
+						text: qsTr("Invite friends")
+						icon.name: "mail-message-new-symbolic"
+						onClicked: {
+							Utils.copyToClipboard(Utils.invitationUrl(AccountManager.jid))
+							passiveNotification(qsTr("Invitation link copied to clipboard"))
+						}
+					}
+
+					MobileForm.FormButtonDelegate {
+						text: qsTr("Switch device")
+						icon.name: "send-to-symbolic"
+						onClicked: {
+							root.close()
+							pageStack.layers.push("AccountTransferPage.qml")
+						}
+					}
+
+					MobileForm.FormButtonDelegate {
+						text: qsTr("Settings")
+						icon.name: "preferences-system-symbolic"
+						onClicked: {
+							root.close()
+
+							if (Kirigami.Settings.isMobile) {
+								if (pageStack.layers.depth < 2)
+									pageStack.layers.push(settingsPage)
+							} else {
+								settingsSheet.open()
+							}
+						}
+					}
+				}
+			}
+
+			// placeholder to keep topContent at the top
+			Item {
+				Layout.fillHeight: true
 			}
 		}
 	]
 
 	onOpened: {
-		// Request the user's current vCard which contains the user's nickname.
-		Kaidan.client.vCardManager.clientVCardRequested()
+		if (Kaidan.connectionState === Enums.StateConnected) {
+			// Request the user's current vCard which contains the user's nickname.
+			Kaidan.client.vCardManager.clientVCardRequested()
+		}
 
 		// Retrieve the user's own OMEMO key to be used while adding a contact via QR code.
 		// That is only done when no chat is already open.
@@ -145,6 +230,15 @@ Kirigami.GlobalDrawer {
 		// keys for that chat while only keeping the own key in the cache.
 		if (!MessageModel.currentChatJid.length) {
 			Kaidan.client.omemoManager.retrieveOwnKeyRequested()
+		}
+	}
+
+	Connections {
+		target: Kaidan
+
+		function onCredentialsNeeded() {
+			accountDetailsSheet.close()
+			close()
 		}
 	}
 }

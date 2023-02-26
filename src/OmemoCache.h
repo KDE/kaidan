@@ -28,33 +28,50 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.14
-import org.kde.kirigami 2.12 as Kirigami
+#pragma once
 
-import im.kaidan.kaidan 1.0
-
-import "../elements"
+#include <QObject>
 
 /**
- * This page is used for removing a password from the account transfer page.
- *
- * The password can be removed only from the plain text or from the plain text and the QR code.
+ * @class OmemoCache A cache for presence holders for certain JIDs
  */
-BinaryDecisionPage {
-	title: qsTr("Remove password")
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+class OmemoCache : public QObject
+{
+	Q_OBJECT
 
-	topDescription: qsTr("You can decide to only not show your password for <b>%1</b> as text anymore or to remove it completely from the account transfer. If you remove your password completely, you won't be able to use the account transfer via scanning without entering your password because it is also removed from the QR code.").arg(AccountManager.jid)
+public:
+	OmemoCache(QObject *parent = nullptr);
+	~OmemoCache();
 
-	topAction: Kirigami.Action {
-		text: qsTr("Do not show password as text")
-		enabled: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisibleQrOnly
-		onTriggered: pageStack.layers.push(passwordRemovalFromPlainTextConfirmationPage)
+	static OmemoCache *instance()
+	{
+		return s_instance;
 	}
 
-	bottomAction: Kirigami.Action {
-		text: qsTr("Remove completely")
-		enabled: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
-		onTriggered: pageStack.layers.push(passwordRemovalFromPlainTextAndQrCodeConfirmationPage).popPasswordRemovalPageOnClosing = true
-	}
-}
+	/**
+	 * Emitted when there are OMEMO devices with distrusted keys.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	Q_SIGNAL void distrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	/**
+	 * Emitted when there are OMEMO devices usable for end-to-end encryption.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	Q_SIGNAL void usableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	/**
+	 * Emitted when there are OMEMO devices with keys that can be authenticated.
+	 *
+	 * @param jid JID of the device's owner
+	 * @param deviceLabels human-readable strings used to identify the devices
+	 */
+	Q_SIGNAL void authenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+private:
+	static OmemoCache *s_instance;
+};

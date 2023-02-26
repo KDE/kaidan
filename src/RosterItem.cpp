@@ -29,10 +29,11 @@
  */
 
 #include "RosterItem.h"
+
 #include <QXmppUtils.h>
 
-RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime)
-	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastExchanged(dateTime)
+RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastExchanged)
+	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastExchanged(lastExchanged)
 {
 }
 

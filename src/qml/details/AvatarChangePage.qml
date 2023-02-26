@@ -1,32 +1,7 @@
-/*
- *  Kaidan - A user-friendly XMPP client for every device!
- *
- *  Copyright (C) 2016-2023 Kaidan developers and contributors
- *  (see the LICENSE file for a full list of copyright authors)
- *
- *  Kaidan is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  In addition, as a special exception, the author of Kaidan gives
- *  permission to link the code of its release with the OpenSSL
- *  project's "OpenSSL" library (or with modified versions of it that
- *  use the same license as the "OpenSSL" library), and distribute the
- *  linked executables. You must obey the GNU General Public License in
- *  all respects for all of the code used other than "OpenSSL". If you
- *  modify this file, you may extend this exception to your version of
- *  the file, but you are not obligated to do so.  If you do not wish to
- *  do so, delete this exception statement from your version.
- *
- *  Kaidan is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
- */
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
@@ -41,14 +16,9 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-SettingsPageBase {
-	id: rootView
-
-	implicitHeight: 600
-	implicitWidth: content.implicitWidth
-
-	title: qsTr("Change avatar")
-	topPadding: 0
+Kirigami.Page {
+	id: root
+	title: qsTr("Change profile image")
 
 	property string imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
 
@@ -62,7 +32,7 @@ SettingsPageBase {
 
 	QQD.FileDialog {
 		id: fileDialog
-		title: qsTr("Choose avatar image")
+		title: qsTr("Choose profile image")
 		folder: shortcuts.home
 
 		selectMultiple: false
@@ -107,7 +77,7 @@ SettingsPageBase {
 
 			KQuickImageEditor.ImageDocument {
 				id: imageDoc
-				path: rootView.imagePath
+				path: root.imagePath
 			}
 
 			KQuickImageEditor.SelectionTool {
@@ -134,32 +104,25 @@ SettingsPageBase {
 			}
 		}
 
-		RowLayout {
+		ColumnLayout {
 			Layout.fillWidth: true
-			Layout.alignment: Qt.AlignBottom
+			Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
+			Layout.maximumWidth: largeButtonWidth
 
-			Button {
-				text: qsTr("Open…")
-				Layout.fillWidth: true
-
-				onClicked: {
-					fileDialog.open()
-				}
+			CenteredAdaptiveButton {
+				text: qsTr("Open image…")
+				onClicked: fileDialog.open()
 			}
 
-			Button {
-				text: qsTr("Cancel")
-				Layout.fillWidth: true
-
-				onClicked: {
-					stack.pop()
-				}
+			CenteredAdaptiveButton {
+				text: qsTr("Remove current profile image")
+				visible: root.imagePath
+				onClicked: Kaidan.client.vCardManager.changeAvatarRequested()
 			}
 
-			Button {
-				text: qsTr("Change")
-				Layout.fillWidth: true
-
+			CenteredAdaptiveHighlightedButton {
+				text: qsTr("Save selection")
+				visible: root.imagePath
 				onClicked: {
 					imageDoc.crop(
 						selectionTool.selectionX / editImage.ratioX,
@@ -180,9 +143,8 @@ SettingsPageBase {
 
 		function onAvatarChangeSucceeded() {
 			busyIndicator.visible = false
-			// TODO show only if changing didn't succeed
-			passiveNotification(qsTr("Avatar changed successfully"))
-			stack.pop()
+			// TODO: Show error message if changing did not succeed
+			pageStack.layers.pop()
 		}
 	}
 }

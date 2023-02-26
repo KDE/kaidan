@@ -29,61 +29,19 @@
  */
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
-import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.OverlaySheet {
-	property string jid
-	property alias enteredName: nameField.text
-
-	header: RowLayout {
-		Layout.margins: 10
-		Kirigami.Icon {
-			source: "document-edit-symbolic"
-		}
-		Kirigami.Heading {
-			text: qsTr("Rename contact")
-			Layout.fillWidth: true
-		}
+DetailsSheet {
+	id: root
+	parent: applicationWindow().overlay
+	header: ContactDetailsHeader {
+		jid: root.jid
 	}
-
-	ColumnLayout {
-		width: 300
-
-		Controls.TextField {
-			id: nameField
-			selectByMouse: true
-			Layout.fillWidth: true
-			inputMethodHints: Qt.ImhPreferUppercase
-			onAccepted: renameButton.clicked()
+	mainComponent: Component {
+		ContactDetailsContent {
+			sheet: root
+			jid: root.jid
 		}
-
-		RowLayout {
-			Layout.topMargin: 10
-
-			Button {
-				text: qsTr("Cancel")
-				onClicked: close()
-				Layout.fillWidth: true
-			}
-
-			Button {
-				id: renameButton
-				text: qsTr("Rename")
-				Layout.fillWidth: true
-
-				onClicked: {
-					Kaidan.client.rosterManager.renameContactRequested(jid, enteredName)
-					close()
-				}
-			}
-		}
-	}
-
-	function forceActiveFocus() {
-		nameField.forceActiveFocus()
 	}
 }

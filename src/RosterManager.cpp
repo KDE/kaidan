@@ -35,6 +35,7 @@
 #include "MessageModel.h"
 #include "OmemoManager.h"
 #include "RosterModel.h"
+#include "Settings.h"
 #include "VCardManager.h"
 // QXmpp
 #include <QXmppRosterManager.h>
@@ -55,8 +56,13 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemAdded,
 		this, [this](const QString &jid) {
-		emit RosterModel::instance()->addItemRequested(RosterItem(m_manager->getRosterEntry(jid)));
-		m_vCardManager->requestVCard(jid);
+		RosterItem rosterItem { m_manager->getRosterEntry(jid) };
+		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
+		emit RosterModel::instance()->addItemRequested(rosterItem);
+
+		if (m_client->state() == QXmppClient::ConnectedState) {
+			m_vCardManager->requestVCard(jid);
+		}
 	});
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
@@ -111,10 +117,13 @@ void RosterManager::populateRoster()
 	const QStringList bareJids = m_manager->getRosterBareJids();
 	const auto initialTime = QDateTime::currentDateTimeUtc();
 	for (const auto &jid : bareJids) {
-		items.insert(jid, RosterItem(m_manager->getRosterEntry(jid), initialTime));
+		RosterItem rosterItem { m_manager->getRosterEntry(jid), initialTime };
+		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
+		items.insert(jid, rosterItem);
 
-		if (m_avatarStorage->getHashOfJid(jid).isEmpty())
+		if (m_avatarStorage->getHashOfJid(jid).isEmpty() && m_client->state() == QXmppClient::ConnectedState) {
 			m_vCardManager->requestVCard(jid);
+		}
 	}
 
 	// replace current contacts with new ones from server

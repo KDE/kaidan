@@ -1,65 +1,87 @@
 <RCC>
     <qresource prefix="/qml">
         <file>AccountTransferPage.qml</file>
-        <file>main.qml</file>
-        <file>StartPage.qml</file>
-        <file>RegistrationLoginDecisionPage.qml</file>
-        <file>RosterPage.qml</file>
-        <file>LoginPage.qml</file>
-        <file>ChatPageBase.qml</file>
         <file>ChatPage.qml</file>
+        <file>ChatPageBase.qml</file>
         <file>EmptyChatPage.qml</file>
         <file>GlobalDrawer.qml</file>
-        <file>QrCodePage.qml</file>
+        <file>LoginPage.qml</file>
         <file>QrCodeOnboardingPage.qml</file>
-        <file>elements/ChatMessageContextMenu.qml</file>
-        <file>elements/SubRequestAcceptSheet.qml</file>
-        <file>elements/RosterAddContactSheet.qml</file>
-        <file>elements/RosterRenameContactSheet.qml</file>
-        <file>elements/RosterRemoveContactSheet.qml</file>
-        <file>elements/RosterListItem.qml</file>
-        <file>elements/MessageCounter.qml</file>
-        <file>elements/MessageBackground.qml</file>
-        <file>elements/ChatMessage.qml</file>
-        <file>elements/ChatPageSearchView.qml</file>
-        <file>elements/ChatPageSendingPane.qml</file>
-        <file>elements/ClickableIcon.qml</file>
+        <file>QrCodePage.qml</file>
+        <file>RegistrationLoginDecisionPage.qml</file>
+        <file>RosterPage.qml</file>
+        <file>SettingsStack.qml</file>
+        <file>StartPage.qml</file>
+        <file>details/AccountDetailsContent.qml</file>
+        <file>details/AccountDetailsHeader.qml</file>
+        <file>details/AccountDetailsPage.qml</file>
+        <file>details/AccountDetailsSheet.qml</file>
+        <file>details/AvatarChangePage.qml</file>
+        <file>details/ContactDetailsContent.qml</file>
+        <file>details/ContactDetailsHeader.qml</file>
+        <file>details/ContactDetailsPage.qml</file>
+        <file>details/ContactDetailsSheet.qml</file>
+        <file>details/DetailsContent.qml</file>
+        <file>details/DetailsContentContainer.qml</file>
+        <file>details/DetailsHeader.qml</file>
+        <file>details/DetailsPage.qml</file>
+        <file>details/DetailsSheet.qml</file>
+        <file>elements/Avatar.qml</file>
+        <file>elements/BinaryDecisionPage.qml</file>
         <file>elements/Button.qml</file>
         <file>elements/CenteredAdaptiveButton.qml</file>
         <file>elements/CenteredAdaptiveHighlightedButton.qml</file>
         <file>elements/CenteredAdaptiveText.qml</file>
-        <file>elements/SendMediaSheet.qml</file>
-        <file>elements/BinaryDecisionPage.qml</file>
+        <file>elements/ChatMessage.qml</file>
+        <file>elements/ChatMessageContextMenu.qml</file>
+        <file>elements/ChatPageSearchView.qml</file>
+        <file>elements/ChatPageSendingPane.qml</file>
+        <file>elements/ChatSupportSheet.qml</file>
+        <file>elements/ClickableIcon.qml</file>
         <file>elements/ConfirmationPage.qml</file>
         <file>elements/DataForm.qml</file>
+        <file>elements/EmojiPicker.qml</file>
         <file>elements/ExplainedContentPage.qml</file>
         <file>elements/ExplanationTogglePage.qml</file>
-        <file>elements/QrCodeScanner.qml</file>
-        <file>elements/QrCode.qml</file>
-        <file>elements/UserListItem.qml</file>
-        <file>elements/MediaPreview.qml</file>
-        <file>elements/MediaPreviewImage.qml</file>
-        <file>elements/MediaPreviewAudio.qml</file>
-        <file>elements/MediaPreviewVideo.qml</file>
-        <file>elements/MediaPreviewOther.qml</file>
-        <file>elements/MediaPreviewLocation.qml</file>
-        <file>elements/MediaPreviewLoader.qml</file>
-        <file>elements/NewMedia.qml</file>
-        <file>elements/NewMediaLocation.qml</file>
-        <file>elements/NewMediaLoader.qml</file>
-        <file>elements/NewMediaSheet.qml</file>
-        <file>elements/EmojiPicker.qml</file>
-        <file>elements/Avatar.qml</file>
         <file>elements/IconTopButton.qml</file>
-        <file>elements/fields/Field.qml</file>
+        <file>elements/MediaPreview.qml</file>
+        <file>elements/MediaPreviewAudio.qml</file>
+        <file>elements/MediaPreviewImage.qml</file>
+        <file>elements/MediaPreviewLoader.qml</file>
+        <file>elements/MediaPreviewLocation.qml</file>
+        <file>elements/MediaPreviewOther.qml</file>
+        <file>elements/MediaPreviewVideo.qml</file>
+        <file>elements/MessageBackground.qml</file>
+        <file>elements/MessageCounter.qml</file>
+        <file>elements/MessageReaction.qml</file>
+        <file>elements/MessageReactionAddition.qml</file>
+        <file>elements/MessageReactionDisplay.qml</file>
+        <file>elements/MessageReactionEmojiPicker.qml</file>
+        <file>elements/MessageReactionSenderSheet.qml</file>
+        <file>elements/NewMedia.qml</file>
+        <file>elements/NewMediaLoader.qml</file>
+        <file>elements/NewMediaLocation.qml</file>
+        <file>elements/NewMediaSheet.qml</file>
+        <file>elements/QrCode.qml</file>
+        <file>elements/QrCodeScanner.qml</file>
+        <file>elements/RosterAddContactSheet.qml</file>
+        <file>elements/RosterListItem.qml</file>
+        <file>elements/RosterListItemContextMenu.qml</file>
+        <file>elements/SearchPublicGroupChatSheet.qml</file>
+        <file>elements/SendMediaSheet.qml</file>
+        <file>elements/SubRequestAcceptSheet.qml</file>
+        <file>elements/UserDeviceList.qml</file>
+        <file>elements/UserListItem.qml</file>
         <file>elements/fields/CredentialsField.qml</file>
+        <file>elements/fields/Field.qml</file>
         <file>elements/fields/JidField.qml</file>
         <file>elements/fields/PasswordField.qml</file>
         <file>elements/fields/RegistrationPasswordField.qml</file>
+        <file>main.qml</file>
         <file>registration/AutomaticRegistrationPage.qml</file>
         <file>registration/CustomFormView.qml</file>
-        <file>registration/CustomFormViewManualRegistration.qml</file>
         <file>registration/CustomFormViewAutomaticRegistration.qml</file>
+        <file>registration/CustomFormViewManualRegistration.qml</file>
         <file>registration/DisplayNameView.qml</file>
         <file>registration/FieldView.qml</file>
         <file>registration/LoadingView.qml</file>
@@ -71,39 +93,17 @@
         <file>registration/RegistrationDecisionPage.qml</file>
         <file>registration/RegistrationPage.qml</file>
         <file>registration/ResultView.qml</file>
-        <file>registration/ProviderView.qml</file>
         <file>registration/UsernameView.qml</file>
         <file>registration/View.qml</file>
         <file>registration/WebRegistrationView.qml</file>
+        <file>settings/AboutPage.qml</file>
+        <file>settings/CustomConnectionSettings.qml</file>
+        <file>settings/MultimediaSettings.qml</file>
+        <file>settings/PageWrapper.qml</file>
+        <file>settings/SettingsContent.qml</file>
         <file>settings/SettingsItem.qml</file>
         <file>settings/SettingsPage.qml</file>
-        <file>settings/SettingsSheet.qml</file>
-        <file>settings/SettingsContent.qml</file>
-        <file>settings/ChangePassword.qml</file>
-        <file>settings/MultimediaSettings.qml</file>
-        <file>settings/ConnectionSettings.qml</file>
-        <file>settings/CustomConnectionSettings.qml</file>
-        <file>settings/AccountSecurity.qml</file>
-        <file>settings/PasswordRemovalPage.qml</file>
-        <file>settings/DisablePlainTextPasswordDisplay.qml</file>
-        <file>settings/DisablePasswordDisplay.qml</file>
-        <file>settings/LocalAccountRemoval.qml</file>
-        <file>settings/RemoteAccountDeletion.qml</file>
         <file>settings/SettingsPageBase.qml</file>
-        <file>settings/PageWrapper.qml</file>
-        <file>SettingsStack.qml</file>
-        <file>settings/AboutPage.qml</file>
-        <file>elements/SearchPublicGroupChatSheet.qml</file>
-        <file>elements/RosterListItemContextMenu.qml</file>
-        <file>UserProfileSheet.qml</file>
-        <file>elements/MessageReactionSenderSheet.qml</file>
-        <file>elements/UserDeviceList.qml</file>
-        <file>elements/MessageReactionEmojiPicker.qml</file>
-        <file>elements/MessageReactionDisplay.qml</file>
-        <file>elements/MessageReactionAddition.qml</file>
-        <file>elements/MessageReaction.qml</file>
-        <file>elements/ChatSupportSheet.qml</file>
-        <file>settings/AccountSettings.qml</file>
-        <file>settings/ChangeAvatar.qml</file>
+        <file>settings/SettingsSheet.qml</file>
     </qresource>
 </RCC>

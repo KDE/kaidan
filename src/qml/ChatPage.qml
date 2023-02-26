@@ -38,6 +38,7 @@ import im.kaidan.kaidan 1.0
 import MediaUtils 0.1
 
 import "elements"
+import "details"
 
 ChatPageBase {
 	id: root
@@ -76,6 +77,8 @@ ChatPageBase {
 	property bool viewPositioned: false
 
 	titleDelegate: Controls.ToolButton {
+		visible: !Kirigami.Settings.isMobile
+
 		contentItem: RowLayout {
 			// weirdly having an id here, although unused, fixes the layout
 			id: layout
@@ -94,17 +97,17 @@ ChatPageBase {
 				text: chatItemWatcher.item.displayName
 			}
 		}
-		UserProfileSheet  {
-			jid: MessageModel.currentChatJid
-			chatItem: chatItemWatcher
-			id: userProfileSheet
-		}
-		onClicked: {
-			userProfileSheet.open()
-		}
+
+		onClicked: contactDetailsSheet.open()
 	}
 	keyboardNavigationEnabled: true
 	contextualActions: [
+		Kirigami.Action {
+			visible: Kirigami.Settings.isMobile
+			icon.name: "avatar-default-symbolic"
+			text: qsTr("Details…")
+			onTriggered: pageStack.layers.push(contactDetailsPage)
+		},
 		// Action to toggle the message search bar
 		Kirigami.Action {
 			id: searchAction
@@ -116,18 +119,6 @@ ChatPageBase {
 					searchBar.close()
 				else
 					searchBar.open()
-			}
-		},
-
-		Kirigami.Action {
-			visible: Kirigami.Settings.isMobile
-			icon.name: "avatar-default-symbolic"
-			text: qsTr("View profile")
-			onTriggered: {
-				pageStack.push(userProfilePage, {
-					jid: MessageModel.currentChatJid,
-					chatItemWatcher: chatItemWatcher
-				});
 			}
 		},
 		Kirigami.Action {
@@ -143,14 +134,22 @@ ChatPageBase {
 		id: searchBar
 	}
 
-	NotificationsMutedWatcher {
-		id: mutedWatcher
-		jid: MessageModel.currentChatJid
-	}
-
 	RosterItemWatcher {
 		id: chatItemWatcher
 		jid: MessageModel.currentChatJid
+	}
+
+	ContactDetailsSheet {
+		id: contactDetailsSheet
+		jid: MessageModel.currentChatJid
+	}
+
+	Component {
+		id: contactDetailsPage
+
+		ContactDetailsPage {
+			jid: MessageModel.currentChatJid
+		}
 	}
 
 	SendMediaSheet {

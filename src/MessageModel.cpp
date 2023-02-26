@@ -79,12 +79,12 @@ MessageModel::MessageModel(QObject *parent)
 	s_instance = this;
 
 	connect(this, &MessageModel::keysRetrieved, this, &MessageModel::handleKeysRetrieved);
-
 	connect(this, &MessageModel::encryptionChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
 	connect(this, &MessageModel::usableOmemoDevicesChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
-	connect(this, &MessageModel::distrustedOmemoDevicesRetrieved, this, &MessageModel::handleDistrustedOmemoDevicesRetrieved);
-	connect(this, &MessageModel::usableOmemoDevicesRetrieved, this, &MessageModel::handleUsableOmemoDevicesRetrieved);
-	connect(this, &MessageModel::authenticatableOmemoDevicesRetrieved, this, &MessageModel::handleAuthenticatableOmemoDevicesRetrieved);
+	connect(&m_rosterItemWatcher, &RosterItemWatcher::itemChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
+
+	connect(&m_accountOmemoWatcher, &OmemoWatcher::usableOmemoDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
+	connect(&m_contactOmemoWatcher, &OmemoWatcher::usableOmemoDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
 
 	// Timer to set state to paused
 	m_composingTimer->setSingleShot(true);
@@ -391,6 +391,11 @@ void MessageModel::setEncryption(Encryption::Enum encryption)
 {
 	RosterModel::instance()->setItemEncryption(m_currentAccountJid, m_currentChatJid, encryption);
 	emit encryptionChanged();
+}
+
+QList<QString> MessageModel::usableOmemoDevices() const
+{
+	   return m_currentAccountJid == m_currentChatJid ? m_accountOmemoWatcher.usableOmemoDevices() : m_contactOmemoWatcher.usableOmemoDevices();
 }
 
 void MessageModel::resetComposingChatState()
@@ -714,6 +719,8 @@ void MessageModel::resetCurrentChat(const QString &accountJid, const QString &ch
 	emit currentChatJidChanged(chatJid);
 
 	m_rosterItemWatcher.setJid(chatJid);
+	m_accountOmemoWatcher.setJid(accountJid);
+	m_contactOmemoWatcher.setJid(chatJid);
 	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
 
 	// Reset the chat states of the previous chat.
@@ -1030,36 +1037,6 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 	}
 }
 
-QList<QString> MessageModel::ownDistrustedOmemoDevices() const
-{
-	return m_ownDistrustedOmemoDevices;
-}
-
-QList<QString> MessageModel::ownUsableOmemoDevices() const
-{
-	return m_ownUsableOmemoDevices;
-}
-
-QList<QString> MessageModel::ownAuthenticatableOmemoDevices() const
-{
-	return m_ownAuthenticatableOmemoDevices;
-}
-
-QList<QString> MessageModel::distrustedOmemoDevices() const
-{
-	return m_distrustedOmemoDevices;
-}
-
-QList<QString> MessageModel::usableOmemoDevices() const
-{
-	return m_currentAccountJid == m_currentChatJid ? m_ownUsableOmemoDevices : m_usableOmemoDevices;
-}
-
-QList<QString> MessageModel::authenticatableOmemoDevices() const
-{
-	return m_authenticatableOmemoDevices;
-}
-
 bool MessageModel::mamLoading() const
 {
 	return m_mamLoading;
@@ -1082,38 +1059,5 @@ void MessageModel::handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QX
 	// levels.
 	if (!m_messages.isEmpty()) {
 		emit dataChanged(index(0), index(m_messages.size() - 1), { IsTrusted });
-	}
-}
-
-void MessageModel::handleDistrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
-{
-	if (jid == m_currentAccountJid) {
-		m_ownDistrustedOmemoDevices = deviceLabels;
-		emit ownDistrustedOmemoDevicesChanged();
-	} else if (jid == m_currentChatJid) {
-		m_distrustedOmemoDevices = deviceLabels;
-		emit distrustedOmemoDevicesChanged();
-	}
-}
-
-void MessageModel::handleUsableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
-{
-	if (jid == m_currentAccountJid) {
-		m_ownUsableOmemoDevices = deviceLabels;
-		emit ownUsableOmemoDevicesChanged();
-	} else if (jid == m_currentChatJid) {
-		m_usableOmemoDevices = deviceLabels;
-		emit usableOmemoDevicesChanged();
-	}
-}
-
-void MessageModel::handleAuthenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels)
-{
-	if (jid == m_currentAccountJid) {
-		m_ownAuthenticatableOmemoDevices = deviceLabels;
-		emit ownAuthenticatableOmemoDevicesChanged();
-	} else if (jid == m_currentChatJid) {
-		m_authenticatableOmemoDevices = deviceLabels;
-		emit authenticatableOmemoDevicesChanged();
 	}
 }

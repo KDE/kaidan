@@ -164,6 +164,20 @@ void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 	emit authPasswordVisibilityChanged();
 }
 
+Encryption::Enum Settings::encryption() const
+{
+	QMutexLocker locker(&m_mutex);
+	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), Encryption::Omemo2).value<Encryption::Enum>();
+}
+
+void Settings::setEncryption(Encryption::Enum encryption)
+{
+	QMutexLocker locker(&m_mutex);
+	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), encryption);
+	locker.unlock();
+	emit encryptionChanged();
+}
+
 bool Settings::qrCodePageExplanationVisible() const
 {
 	QMutexLocker locker(&m_mutex);

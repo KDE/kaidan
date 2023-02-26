@@ -375,8 +375,6 @@ def main():
 		),
 		CopyrightTarget(
 			files = [
-				"data/images/account-deletion-from-client.svg",
-				"data/images/account-deletion-from-client-and-server.svg",
 				"data/images/onboarding/account-transfer.svg",
 				"data/images/onboarding/automatic-registration.svg",
 				"data/images/onboarding/custom-form.svg",

@@ -98,6 +98,7 @@ public:
 
 	std::optional<Encryption::Enum> itemEncryption(const QString &accountJid, const QString &jid) const;
 	void setItemEncryption(const QString &accountJid, const QString &jid, Encryption::Enum encryption);
+	Q_INVOKABLE void setItemEncryption(const QString &accountJid, Encryption::Enum encryption);
 
 	/**
 	 * Adds a contact (bare JID) by a given XMPP URI (e.g., from a scanned QR

@@ -97,7 +97,6 @@ Kirigami.ApplicationWindow {
 	Component {id: emptyChatPage; EmptyChatPage {}}
 	Component {id: settingsPage; SettingsPage {}}
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
-	Component {id: qrCodePage; QrCodePage {}}
 
 	onWideScreenChanged: showRosterPageForNarrowWindow()
 

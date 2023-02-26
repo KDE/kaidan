@@ -70,6 +70,7 @@ public:
 	QFuture<void> initializeChat(const QString &accountJid, const QString &chatJid);
 	void removeContactDevices(const QString &jid);
 
+	Q_SIGNAL void initializeChatRequested(const QString &accountJid);
 	Q_SIGNAL void retrieveOwnKeyRequested();
 
 private:

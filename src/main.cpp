@@ -74,6 +74,7 @@
 #include "MessageModel.h"
 #include "MessageHandler.h"
 #include "OmemoManager.h"
+#include "OmemoWatcher.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchManager.h"
@@ -442,6 +443,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
 	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
+	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");

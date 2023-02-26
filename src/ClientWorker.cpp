@@ -55,6 +55,7 @@
 #include "LogHandler.h"
 #include "MessageHandler.h"
 #include "MessageModel.h"
+#include "OmemoCache.h"
 #include "OmemoManager.h"
 #include "PresenceCache.h"
 #include "RegistrationManager.h"
@@ -73,6 +74,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  accountManager(new AccountManager(settings, vCardCache, parent)),
 	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
+	  omemoCache(new OmemoCache(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
 	  serverFeaturesCache(new ServerFeaturesCache(parent)),
 	  presenceCache(new PresenceCache(parent))

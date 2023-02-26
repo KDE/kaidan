@@ -45,6 +45,7 @@ class DiscoveryManager;
 class LogHandler;
 class MessageHandler;
 class MessageModel;
+class OmemoCache;
 class OmemoManager;
 class RegistrationManager;
 class RosterManager;
@@ -102,6 +103,7 @@ public:
 		AccountManager *accountManager;
 		MessageModel *msgModel;
 		RosterModel *rosterModel;
+		OmemoCache *omemoCache;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
 		PresenceCache *presenceCache;

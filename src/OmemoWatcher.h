@@ -28,60 +28,45 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
-import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+#pragma once
 
-import im.kaidan.kaidan 1.0
+#include <QObject>
 
-Kirigami.OverlaySheet {
-	property string jid
+class OmemoWatcher : public QObject
+{
+	Q_OBJECT
 
-	header: RowLayout {
-		Layout.margins: 10
-		Kirigami.Icon {
-			source: "albumfolder-user-trash"
-		}
-		Kirigami.Heading {
-			text: qsTr("Remove contact")
-			Layout.fillWidth: true
-		}
-	}
+	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 
-	onSheetOpenChanged: {
-		infoLabel.text = qsTr("Do you really want to delete the contact "
-							  + "<b>%1</b> from your contact list?").arg(jid)
-	}
+	Q_PROPERTY(QList<QString> distrustedOmemoDevices READ distrustedOmemoDevices NOTIFY distrustedOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> authenticatableOmemoDevices READ authenticatableOmemoDevices NOTIFY authenticatableOmemoDevicesChanged)
 
-	ColumnLayout {
-		Controls.Label {
-			id: infoLabel
-			text: ""
-			textFormat: Text.StyledText
-			wrapMode: Text.WordWrap
+public:
+	OmemoWatcher() = default;
 
-			Layout.fillWidth: true
-		}
+	QString jid() const;
+	void setJid(const QString &jid);
+	Q_SIGNAL void jidChanged();
 
-		RowLayout {
-			Layout.topMargin: 10
-			Layout.fillWidth: true
+	QList<QString> distrustedOmemoDevices() const;
+	Q_SIGNAL void distrustedOmemoDevicesChanged();
 
-			Button {
-				text: qsTr("Cancel")
-				onClicked: close()
-				Layout.fillWidth: true
-			}
+	QList<QString> usableOmemoDevices() const;
+	Q_SIGNAL void usableOmemoDevicesChanged();
 
-			Button {
-				text: qsTr("Delete")
-				onClicked: {
-					Kaidan.client.rosterManager.removeContactRequested(jid)
-					close()
-				}
-				Layout.fillWidth: true
-			}
-		}
-	}
-}
+	QList<QString> authenticatableOmemoDevices() const;
+	Q_SIGNAL void authenticatableOmemoDevicesChanged();
+
+private:
+	void handleDistrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+	void handleUsableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+	void handleAuthenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+
+	QString m_jid;
+
+	QList<QString> m_distrustedOmemoDevices;
+	QList<QString> m_usableOmemoDevices;
+	QList<QString> m_authenticatableOmemoDevices;
+};
+
