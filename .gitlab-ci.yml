@@ -63,3 +63,6 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
   BUILD_SYSTEM: cmake
   BUILD_TYPE: Release
+
+include:
+  - https://invent.kde.org/sysadmin/ci-utilities/raw/master/gitlab-templates/flatpak.yml
