@@ -2,7 +2,7 @@
 #
 # Kaidan - A user-friendly XMPP client for every device!
 #
-# Copyright (C) 2016-2022 Kaidan developers and contributors
+# Copyright (C) 2016-2023 Kaidan developers and contributors
 # (see the LICENSE file for a full list of copyright authors)
 #
 # Kaidan is free software: you can redistribute it and/or modify
@@ -70,8 +70,11 @@ for searched_directory in SEARCHED_DIRECTORIES:
 
 		if node.is_file():
 			with open(node) as file:
-				old_content = file.read()
-				new_content = re.sub(COPYRIGHT_REGULAR_EXPRESSION, new_copyright_string, old_content)
+				try:
+					old_content = file.read()
+					new_content = re.sub(COPYRIGHT_REGULAR_EXPRESSION, new_copyright_string, old_content)
+				except UnicodeDecodeError:
+					continue
 
 			if new_content != old_content:
 				with open(node, "w") as file:
