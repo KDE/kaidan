@@ -217,6 +217,11 @@ QString configFileBaseName()
 	return QStringLiteral(APPLICATION_NAME);
 }
 
+QStringList oldDatabaseFilenames()
+{
+	return { QStringLiteral("messages.sqlite3") };
+}
+
 QString databaseFilename()
 {
 	return QStringLiteral(DB_FILE_BASE_NAME ".sqlite3");
