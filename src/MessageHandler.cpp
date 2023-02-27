@@ -110,11 +110,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	MessageDb::instance()->fetchLastMessageStamp();
 }
 
-MessageHandler::~MessageHandler()
-{
-	delete m_mamManager;
-}
-
 void MessageHandler::handleRosterReceived()
 {
 	// retrieve initial messages for each contact, if there is no last message locally

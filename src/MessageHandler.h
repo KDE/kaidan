@@ -49,7 +49,6 @@ class MessageHandler : public QObject
 
 public:
 	MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
-	~MessageHandler();
 
 	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
