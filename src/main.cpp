@@ -205,6 +205,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	QGuiApplication::setApplicationName(APPLICATION_NAME);
 	QGuiApplication::setApplicationDisplayName(APPLICATION_DISPLAY_NAME);
 	QGuiApplication::setApplicationVersion(VERSION_STRING);
+	QGuiApplication::setDesktopFileName(APPLICATION_ID);
 	// attributes
 	QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 	QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
