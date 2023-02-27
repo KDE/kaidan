@@ -128,11 +128,6 @@ private:
 	static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
 	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
-	struct BacklogQueryState {
-		QString chatJid;
-		QDateTime lastTimestamp;
-	};
-
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;
 	QXmppMessageReceiptManager m_receiptManager;
@@ -143,8 +138,6 @@ private:
 
 	// All messages after the intitial message
 	QVector<QString> m_runningInitialMessageQueryIds;
-	// Mapping of all running MAM backlog queries to their chat JIDs
-	QMap<QString, BacklogQueryState> m_runningBacklogQueryIds;
 	// query id of the MAM query for catching up all missing messages
 	QString m_runnningCatchUpQueryId;
 };

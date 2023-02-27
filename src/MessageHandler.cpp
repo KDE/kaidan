@@ -305,15 +305,6 @@ void MessageHandler::handleConnected()
 
 void MessageHandler::handleDisonnected()
 {
-	// clear all running backlog queries
-	std::for_each(m_runningBacklogQueryIds.constKeyValueBegin(),
-				  m_runningBacklogQueryIds.constKeyValueEnd(),
-				  [this](const std::pair<QString, BacklogQueryState> &pair) {
-		emit MessageModel::instance()->mamBacklogRetrieved(
-				m_client->configuration().jidBare(), pair.second.chatJid, pair.second.lastTimestamp, false);
-	});
-	m_runningBacklogQueryIds.clear();
-
 	m_runningInitialMessageQueryIds.clear();
 	m_runnningCatchUpQueryId.clear();
 }
@@ -415,19 +406,11 @@ void MessageHandler::handleArchiveMessage(const QString &queryId,
 	} else if (m_runningInitialMessageQueryIds.contains(queryId)) {
 		// TODO: request other message if this message is empty (e.g. no body)
 		handleMessage(message, MessageOrigin::MamInitial);
-	} else if (m_runningBacklogQueryIds.contains(queryId)) {
-		handleMessage(message, MessageOrigin::MamBacklog);
-		// update last stamp
-		auto &lastTimestamp = m_runningBacklogQueryIds[queryId].lastTimestamp;
-		if (lastTimestamp > message.stamp()) {
-			lastTimestamp = message.stamp();
-		}
 	}
 }
 
 void MessageHandler::handleArchiveResults(const QString &queryId,
-                                          const QXmppResultSetReply &,
-                                          bool complete)
+                                          const QXmppResultSetReply &, bool)
 {
 	if (queryId == m_runnningCatchUpQueryId) {
 		m_runnningCatchUpQueryId.clear();
@@ -445,11 +428,6 @@ void MessageHandler::handleArchiveResults(const QString &queryId,
 			m_lastMessageStamp = QDateTime::currentDateTimeUtc();
 		}
 		return;
-	}
-
-	if (m_runningBacklogQueryIds.contains(queryId)) {
-		const auto state = m_runningBacklogQueryIds.take(queryId);
-		emit MessageModel::instance()->mamBacklogRetrieved(m_client->configuration().jidBare(), state.chatJid, state.lastTimestamp, complete);
 	}
 }
 
@@ -496,12 +474,31 @@ void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
 
 void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime &stamp)
 {
+	// TODO: Return QFuture/QXmppTask here instead of emitting signal in MessageModel
+	using Mam = QXmppMamManager;
+
 	QXmppResultSetQuery queryLimit;
 	queryLimit.setBefore("");
 	queryLimit.setMax(MAM_BACKLOG_FETCH_COUNT);
 
-	const auto id = m_mamManager->retrieveArchivedMessages({}, {}, jid, {}, stamp, queryLimit);
-	m_runningBacklogQueryIds.insert(id, BacklogQueryState { jid, stamp });
+	m_mamManager->retrieveMessages({}, {}, jid, {}, stamp, queryLimit).then(this, [this, jid, stamp](auto result) {
+		const auto ownJid = m_client->configuration().jidBare();
+		if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
+			auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
+			auto lastTimestamp = ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
+
+			// TODO: Do batch processing (especially in the DB)
+			for (const auto &message : std::as_const(messages.messages)) {
+				handleMessage(message, MessageOrigin::MamBacklog);
+			}
+
+			emit MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, lastTimestamp, messages.result.complete());
+
+		} else if (auto err = std::get_if<QXmppError>(&result)) {
+			qDebug() << "[MAM]" << "Error requesting MAM backlog:" << err->description;
+			emit MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, stamp, false);
+		}
+	});
 }
 
 bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage)
