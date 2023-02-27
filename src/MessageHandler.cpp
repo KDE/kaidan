@@ -305,7 +305,6 @@ void MessageHandler::handleConnected()
 
 void MessageHandler::handleDisonnected()
 {
-	m_runningInitialMessageQueryIds.clear();
 	m_runnningCatchUpQueryId.clear();
 }
 
@@ -403,9 +402,6 @@ void MessageHandler::handleArchiveMessage(const QString &queryId,
 {
 	if (queryId == m_runnningCatchUpQueryId) {
 		handleMessage(message, MessageOrigin::MamCatchUp);
-	} else if (m_runningInitialMessageQueryIds.contains(queryId)) {
-		// TODO: request other message if this message is empty (e.g. no body)
-		handleMessage(message, MessageOrigin::MamInitial);
 	}
 }
 
@@ -417,22 +413,12 @@ void MessageHandler::handleArchiveResults(const QString &queryId,
 		Kaidan::instance()->database()->commitTransaction();
 		return;
 	}
-
-	if (m_runningInitialMessageQueryIds.contains(queryId)) {
-		m_runningInitialMessageQueryIds.removeOne(queryId);
-
-		if (m_runningInitialMessageQueryIds.isEmpty()) {
-			Kaidan::instance()->database()->commitTransaction();
-
-			// so this won't be triggered again on reconnect
-			m_lastMessageStamp = QDateTime::currentDateTimeUtc();
-		}
-		return;
-	}
 }
 
 void MessageHandler::retrieveInitialMessages()
 {
+	using Mam = QXmppMamManager;
+
 	QXmppResultSetQuery queryLimit;
 	// load only one message per user (the rest can be loaded when needed)
 	queryLimit.setMax(1);
@@ -444,21 +430,43 @@ void MessageHandler::retrieveInitialMessages()
 		return;
 	}
 
-	m_runningInitialMessageQueryIds.clear();
-	m_runningInitialMessageQueryIds.reserve(bareJids.size());
+	// start database transaction if no queries are running and we are going to request messages
+	if (!m_runningInitialMessageQueries && !bareJids.empty()) {
+		Kaidan::instance()->database()->startTransaction();
+	}
 
 	for (const auto &jid : bareJids) {
-		m_runningInitialMessageQueryIds.push_back(m_mamManager->retrieveArchivedMessages(
+		m_runningInitialMessageQueries++;
+
+		m_mamManager->retrieveMessages(
 			QString(),
 			QString(),
 			jid,
 			QDateTime(),
 			QDateTime(),
-			queryLimit
-		));
-	}
+			queryLimit).then(this, [this](auto result) {
+			m_runningInitialMessageQueries--;
 
-	Kaidan::instance()->database()->startTransaction();
+			// process received message
+			if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
+				auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
+
+				if (!messages.messages.empty()) {
+					// TODO: request other message if this message is empty (e.g. no body)
+					handleMessage(messages.messages.first(), MessageOrigin::MamInitial);
+				}
+			}
+			// do nothing on error
+
+			// commit database transaction when all queries have finished
+			if (!m_runningInitialMessageQueries) {
+				Kaidan::instance()->database()->commitTransaction();
+
+				// so this won't be triggered again on reconnect
+				m_lastMessageStamp = QDateTime::currentDateTimeUtc();
+			}
+		});
+	}
 }
 
 void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
@@ -485,7 +493,12 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 		const auto ownJid = m_client->configuration().jidBare();
 		if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
 			auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
-			auto lastTimestamp = ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
+			auto lastTimestamp = [&]() {
+				if (messages.messages.empty()) {
+					return stamp;
+				}
+				return ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
+			}();
 
 			// TODO: Do batch processing (especially in the DB)
 			for (const auto &message : std::as_const(messages.messages)) {

@@ -136,8 +136,7 @@ private:
 	QDateTime m_lastMessageStamp;
 	bool m_lastMessageLoaded = false;
 
-	// All messages after the intitial message
-	QVector<QString> m_runningInitialMessageQueryIds;
+	uint m_runningInitialMessageQueries = 0;
 	// query id of the MAM query for catching up all missing messages
 	QString m_runnningCatchUpQueryId;
 };
