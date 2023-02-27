@@ -105,11 +105,6 @@ private slots:
 
 	void sendPendingMessage(Message message);
 
-	void handleArchiveMessage(const QString &queryId, const QXmppMessage &message);
-	void handleArchiveResults(const QString &queryId,
-	                          const QXmppResultSetReply &resultSetReply,
-	                          bool complete);
-
 	void retrieveInitialMessages();
 	void retrieveCatchUpMessages(const QDateTime &stamp);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);

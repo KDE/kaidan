@@ -96,9 +96,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 		});
 	});
 
-	connect(m_mamManager, &QXmppMamManager::archivedMessageReceived, this, &MessageHandler::handleArchiveMessage);
-	connect(m_mamManager, &QXmppMamManager::resultsRecieved, this, &MessageHandler::handleArchiveResults);
-
 	connect(this, &MessageHandler::retrieveBacklogMessagesRequested, this, &MessageHandler::retrieveBacklogMessages);
 
 	client->addExtension(&m_receiptManager);
@@ -392,24 +389,6 @@ void MessageHandler::handlePendingMessages(const QVector<Message> &messages)
 	}
 }
 
-void MessageHandler::handleArchiveMessage(const QString &queryId,
-                                          const QXmppMessage &message)
-{
-	if (queryId == m_runnningCatchUpQueryId) {
-		handleMessage(message, MessageOrigin::MamCatchUp);
-	}
-}
-
-void MessageHandler::handleArchiveResults(const QString &queryId,
-                                          const QXmppResultSetReply &, bool)
-{
-	if (queryId == m_runnningCatchUpQueryId) {
-		m_runnningCatchUpQueryId.clear();
-		Kaidan::instance()->database()->commitTransaction();
-		return;
-	}
-}
-
 void MessageHandler::retrieveInitialMessages()
 {
 	using Mam = QXmppMamManager;
@@ -466,13 +445,27 @@ void MessageHandler::retrieveInitialMessages()
 
 void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
 {
+	using Mam = QXmppMamManager;
+
 	QXmppResultSetQuery queryLimit;
 	// no limit
 	queryLimit.setMax(-1);
 
-	m_runnningCatchUpQueryId = m_mamManager->retrieveArchivedMessages({}, {}, {}, stamp, {}, queryLimit);
+	m_mamManager->retrieveMessages({}, {}, {}, stamp, {}, queryLimit).then(this, [this](auto result) {
+		if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
+			auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
 
-	Kaidan::instance()->database()->startTransaction();
+			// process messages
+			Kaidan::instance()->database()->startTransaction();
+			for (const auto &message : std::as_const(messages.messages)) {
+				handleMessage(message, MessageOrigin::MamCatchUp);
+			}
+			Kaidan::instance()->database()->commitTransaction();
+		}
+		if (auto *err = std::get_if<QXmppError>(&result)) {
+			qDebug() << "[MAM] Error while fetching catch-up messages:" << err->description;
+		}
+	});
 }
 
 void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime &stamp)
@@ -495,10 +488,12 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 				return ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
 			}();
 
-			// TODO: Do batch processing (especially in the DB)
+			// TODO: Do real batch processing (especially in the DB)
+			Kaidan::instance()->database()->startTransaction();
 			for (const auto &message : std::as_const(messages.messages)) {
 				handleMessage(message, MessageOrigin::MamBacklog);
 			}
+			Kaidan::instance()->database()->commitTransaction();
 
 			emit MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, lastTimestamp, messages.result.complete());
 
