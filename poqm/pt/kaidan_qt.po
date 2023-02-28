@@ -55,7 +55,6 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
 
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -230,19 +229,19 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/MessageHandler.cpp:198
+#: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está encriptada com o %1 mas não é possível descodificá-la"
 
-#: src/MessageHandler.cpp:269
+#: src/MessageHandler.cpp:261
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível corrigir a mensagem"
 
-#: src/MessageHandler.cpp:340
+#: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
@@ -727,7 +726,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/qml/elements/RosterAddContactSheet.qml:110
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Adicionar"
@@ -783,18 +782,18 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Mudar o Nome"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
 msgstr "Procurar nas conversas em grupo públicas (%1)"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr "Procurar…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr "A carregar…"
@@ -1324,17 +1323,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contactos"
 
-#: src/qml/RosterPage.qml:64
+#: src/qml/RosterPage.qml:60
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Adicionar um novo contacto"
 
-#: src/qml/RosterPage.qml:76
+#: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
 msgid "Search public group chat"
 msgstr "Procurar na conversa em grupo pública"
 
-#: src/qml/RosterPage.qml:89
+#: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Procurar contactos"
@@ -1794,10 +1793,20 @@ msgstr "Configuração"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Configuração da Conta"
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr "Muda a configuração da sua conta."
+
+#: src/qml/settings/SettingsContent.qml:54
+msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Modificar a senha"
 
-#: src/qml/settings/SettingsContent.qml:49
+#: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
@@ -1805,16 +1814,6 @@ msgid ""
 msgstr ""
 "Modifica a senha da sua conta. Terá de a introduzir de novo nos seus outros "
 "dispositivos."
-
-#: src/qml/settings/SettingsContent.qml:55
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr "Configuração da Conta"
-
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Muda a configuração da sua conta."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -2036,29 +2035,29 @@ msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "O nome de utilizador ou a senha são inválidos."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Não é possível contactar o servidor. Por favor, verifique a sua ligação à "
 "Internet."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Erro ao tentar-se ligar de forma segura."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor não suporta ligações seguras."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2067,22 +2066,22 @@ msgstr ""
 "Não foi possível contactar o servidor. Verifique a sua ligação à Internet ou "
 "o nome do seu servidor."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desligado ou bloqueado por uma 'firewall'."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "O protocolo de autenticação não é compatível com o servidor."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Não foi possível actualizar a ligação."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2091,29 +2090,29 @@ msgstr ""
 "O acesso à Internet não é permitido. Por favor, verifique a configuração de "
 "acesso à Internet do seu sistema."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Este servidor não suporta qualquer registo."
 
-#: src/QmlUtils.cpp:157
+#: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está ligado"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está a escrever…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"

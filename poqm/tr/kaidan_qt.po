@@ -50,7 +50,6 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -225,18 +224,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/MessageHandler.cpp:198
+#: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti, %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageHandler.cpp:269
+#: src/MessageHandler.cpp:261
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "İleti düzeltmesi başarısız"
 
-#: src/MessageHandler.cpp:340
+#: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "İleti gönderilemedi."
@@ -718,7 +717,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/qml/elements/RosterAddContactSheet.qml:110
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ekle"
@@ -772,18 +771,18 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Yeniden adlandır"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
 msgstr "Genel grup sohbet ara (%1)"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr "Ara…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr "Yükleniyor…"
@@ -1307,17 +1306,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kişiler"
 
-#: src/qml/RosterPage.qml:64
+#: src/qml/RosterPage.qml:60
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
-#: src/qml/RosterPage.qml:76
+#: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
 msgid "Search public group chat"
 msgstr "Genel grup sohbet ara"
 
-#: src/qml/RosterPage.qml:89
+#: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Kişileri ara"
@@ -1774,10 +1773,20 @@ msgstr "Ayarlar"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Hesap Ayarları"
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr "Hesabınızın ayarlarını değiştirir."
+
+#: src/qml/settings/SettingsContent.qml:54
+msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Parolayı değiştir"
 
-#: src/qml/settings/SettingsContent.qml:49
+#: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
@@ -1785,16 +1794,6 @@ msgid ""
 msgstr ""
 "Hesabınızın parolasını değiştirir. Diğer aygıtlarınızda yeniden girmeniz "
 "gerekecektir."
-
-#: src/qml/settings/SettingsContent.qml:55
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr "Hesap Ayarları"
-
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Hesabınızın ayarlarını değiştirir."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1963,27 +1962,27 @@ msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "Bağlı aygıt yok"
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Geçersiz kullanıcı adı veya parola."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Sunucuya bağlanamadı. İnternet bağlantınızı denetleyin."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Güvenli olarak bağlanmaya çalışırken hata."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Sunucu, güvenli bağlantıları desteklemiyor."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -1991,22 +1990,22 @@ msgid ""
 msgstr ""
 "Sunucuya bağlanamadı. İnternet bağlantınızı veya sunucu adını denetleyin."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Sunucu çevrimdışı veya bir güvenlik duvarı tarafından engelleniyor."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Kimlik doğrulama protokolü, sunucu tarafından desteklenmiyor."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Bağlantı yenilenemedi."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2015,29 +2014,29 @@ msgstr ""
 "İnternet erişimine izin verilmiyor. Sisteminizin internet erişim "
 "yapılandırmasını denetleyin."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
-#: src/QmlUtils.cpp:157
+#: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 çevrimiçi"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 yazıyor…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"

@@ -52,7 +52,6 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -227,19 +226,19 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageHandler.cpp:198
+#: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageHandler.cpp:269
+#: src/MessageHandler.cpp:261
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageHandler.cpp:340
+#: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
@@ -724,7 +723,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Скасувати"
 
-#: src/qml/elements/RosterAddContactSheet.qml:110
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Додати"
@@ -778,18 +777,18 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Перейменувати"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
 msgstr "Шукати у загальнодоступних групових спілкуваннях (%1)"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr "Пошук…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -1320,17 +1319,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Контакти"
 
-#: src/qml/RosterPage.qml:64
+#: src/qml/RosterPage.qml:60
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Додати новий контакт"
 
-#: src/qml/RosterPage.qml:76
+#: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
 msgid "Search public group chat"
 msgstr "Шукати у загальнодоступних групових спілкуваннях"
 
-#: src/qml/RosterPage.qml:89
+#: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Шукати контакти"
@@ -1790,10 +1789,20 @@ msgstr "Параметри"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Параметри облікового запису"
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr "Змінює параметри вашого облікового запису."
+
+#: src/qml/settings/SettingsContent.qml:54
+msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: src/qml/settings/SettingsContent.qml:49
+#: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
@@ -1801,16 +1810,6 @@ msgid ""
 msgstr ""
 "Змінити пароль до вашого облікового запису. Вам доведеться повторно ввести "
 "цей пароль на усіх інших ваших пристроях для спілкування."
-
-#: src/qml/settings/SettingsContent.qml:55
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr "Параметри облікового запису"
-
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Змінює параметри вашого облікового запису."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1981,29 +1980,29 @@ msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "Немає з'єднаних пристроїв"
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2012,22 +2011,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2036,29 +2035,29 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/QmlUtils.cpp:157
+#: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"

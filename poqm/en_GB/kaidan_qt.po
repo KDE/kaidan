@@ -1,10 +1,10 @@
-# Steve Allewell <steve.allewell@gmail.com>, 2022.
+# Steve Allewell <steve.allewell@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-12-31 16:15+0000\n"
+"PO-Revision-Date: 2023-02-27 21:07+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,7 +50,6 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
 
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -225,18 +224,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Unknown size"
 
-#: src/MessageHandler.cpp:198
+#: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "This message is encrypted with %1 but could not be decrypted"
 
-#: src/MessageHandler.cpp:269
+#: src/MessageHandler.cpp:261
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Message correction was not successful"
 
-#: src/MessageHandler.cpp:340
+#: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
@@ -562,24 +561,24 @@ msgstr "Send your location"
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support Group"
-msgstr ""
+msgstr "Support Group"
 
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "Group Support %1"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
-msgstr ""
+msgstr "Support %1"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -719,7 +718,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/qml/elements/RosterAddContactSheet.qml:110
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Add"
@@ -735,9 +734,6 @@ msgid "Pin"
 msgstr "Pin"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "Remove contact"
@@ -775,27 +771,21 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Rename"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
-msgstr ""
+msgstr "Search public group chat (%1)"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Search"
+msgstr "Search…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Recording…"
+msgstr "Loading…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1314,17 +1304,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contacts"
 
-#: src/qml/RosterPage.qml:64
+#: src/qml/RosterPage.qml:60
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Add new contact"
 
-#: src/qml/RosterPage.qml:76
+#: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
 msgid "Search public group chat"
-msgstr ""
+msgstr "Search public group chat"
 
-#: src/qml/RosterPage.qml:89
+#: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Search contacts"
@@ -1363,116 +1353,80 @@ msgid "Don't expose password in any way"
 msgstr "Do not expose password in any way"
 
 #: src/qml/settings/AccountSettings.qml:42
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "AccountSettings|"
 msgid "Account settings"
-msgstr "Account security"
+msgstr "Account settings"
 
 #: src/qml/settings/AccountSettings.qml:234
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Profile"
 msgctxt "AccountSettings|"
 msgid "Profile"
 msgstr "Profile"
 
 #: src/qml/settings/AccountSettings.qml:269
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "AccountSettings|"
 msgid "Online devices"
 msgstr "Online devices"
 
 #: src/qml/settings/AccountSettings.qml:282
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Provider"
 msgctxt "AccountSettings|"
 msgid "Provider"
 msgstr "Provider"
 
 #: src/qml/settings/AccountSettings.qml:299
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
 msgctxt "AccountSettings|"
 msgid "Visit website"
-msgstr "Open website"
+msgstr "Visit website"
 
 #: src/qml/settings/AccountSettings.qml:308
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy download URL"
 msgctxt "AccountSettings|"
 msgid "Copy URL"
-msgstr "Copy download URL"
+msgstr "Copy URL"
 
 #: src/qml/settings/AccountSettings.qml:313
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Invitation link copied to clipboard"
 msgctxt "AccountSettings|"
 msgid "URL successfully copied to clipboard."
-msgstr "Invitation link copied to clipboard"
+msgstr "URL successfully copied to clipboard."
 
 #: src/qml/settings/AccountSettings.qml:323
 #: src/qml/settings/AccountSettings.qml:337
 msgctxt "AccountSettings|"
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 #: src/qml/settings/AccountSettings.qml:361
 msgctxt "AccountSettings|"
 msgid "Support Group"
-msgstr ""
+msgstr "Support Group"
 
 #: src/qml/settings/ChangeAvatar.qml:47
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "ChangeAvatar|"
 msgid "Change avatar"
-msgstr "Change password"
+msgstr "Change avatar"
 
 #: src/qml/settings/ChangeAvatar.qml:63
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose image"
 msgctxt "ChangeAvatar|"
 msgid "Choose avatar image"
-msgstr "Choose image"
+msgstr "Choose avatar image"
 
 #: src/qml/settings/ChangeAvatar.qml:140
 msgctxt "ChangeAvatar|"
 msgid "Open…"
-msgstr ""
+msgstr "Open…"
 
 #: src/qml/settings/ChangeAvatar.qml:149
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChangeAvatar|"
 msgid "Cancel"
 msgstr "Cancel"
 
 #: src/qml/settings/ChangeAvatar.qml:158
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change"
 msgctxt "ChangeAvatar|"
 msgid "Change"
 msgstr "Change"
 
 #: src/qml/settings/ChangeAvatar.qml:182
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Password changed successfully"
 msgctxt "ChangeAvatar|"
 msgid "Avatar changed successfully"
-msgstr "Password changed successfully"
+msgstr "Avatar changed successfully"
 
 #: src/qml/settings/ChangePassword.qml:40
 msgctxt "ChangePassword|"
@@ -1820,10 +1774,20 @@ msgstr "Settings"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr "Account Settings"
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr "Changes your account's settings."
+
+#: src/qml/settings/SettingsContent.qml:54
+msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Change password"
 
-#: src/qml/settings/SettingsContent.qml:49
+#: src/qml/settings/SettingsContent.qml:55
 msgctxt "SettingsContent|"
 msgid ""
 "Changes your account's password. You will need to re-enter it on your other "
@@ -1831,19 +1795,6 @@ msgid ""
 msgstr ""
 "Changes your account's password. You will need to re-enter it on your other "
 "devices."
-
-#: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr "Account Security"
-
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1911,17 +1862,11 @@ msgid "Let's start"
 msgstr "Let us start"
 
 #: src/qml/UserProfileSheet.qml:132
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Rename contact"
 
 #: src/qml/UserProfileSheet.qml:141
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Remove contact"
@@ -1929,35 +1874,24 @@ msgstr "Remove contact"
 #: src/qml/UserProfileSheet.qml:177
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "Profile Information"
 
 #: src/qml/UserProfileSheet.qml:185
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "There is no camera available."
+msgstr "No information available"
 
 #: src/qml/UserProfileSheet.qml:224
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Encryption (OMEMO 2)"
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr "Encryption (OMEMO 2)"
+msgstr "Encryption"
 
 #: src/qml/UserProfileSheet.qml:227
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
-msgstr ""
+msgstr "Enable OMEMO 2 encryption"
 
 #: src/qml/UserProfileSheet.qml:228
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "UserProfileSheet|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1967,81 +1901,51 @@ msgstr ""
 "your chat partners can read or modify the data you exchange."
 
 #: src/qml/UserProfileSheet.qml:242
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan contact's QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Scan contact's QR code"
 
 #: src/qml/UserProfileSheet.qml:243
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your contact's devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
-msgstr "Scan the QR codes of your contact's devices to encrypt for them"
+msgstr "Scan the QR codes of your contact's devices to verify the encryption"
 
 #: src/qml/UserProfileSheet.qml:254
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan own QR codes"
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Scan own QR codes"
 
 #: src/qml/UserProfileSheet.qml:258 src/qml/UserProfileSheet.qml:264
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Scan the QR codes of your devices to encrypt for them"
 
 #: src/qml/UserProfileSheet.qml:260
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your other devices don't use OMEMO 2"
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Your other devices don't use OMEMO 2"
 
 #: src/qml/UserProfileSheet.qml:267
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Scan the QR codes of your devices for maximum secure encryption"
 
 #: src/qml/UserProfileSheet.qml:290
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Privacy"
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Privacy"
 
 #: src/qml/UserProfileSheet.qml:294
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send status"
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Send status"
 
 #: src/qml/UserProfileSheet.qml:306
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send typing notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Send typing notifications"
 
 #: src/qml/UserProfileSheet.qml:317
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Send read notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Send read notifications"
@@ -2049,34 +1953,34 @@ msgstr "Send read notifications"
 #: src/qml/UserProfileSheet.qml:337
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "Devices"
 
 #: src/qml/UserProfileSheet.qml:344
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "No devices connected"
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Invalid username or password."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Cannot connect to the server. Please check your internet connection."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Error while trying to connect securely."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "The server doesn't support secure connections."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2085,22 +1989,22 @@ msgstr ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "The server is offline or blocked by a firewall."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Authentication protocol not supported by the server."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "The connection could not be refreshed."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2109,29 +2013,29 @@ msgstr ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "This server does not support registration."
 
-#: src/QmlUtils.cpp:157
+#: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Unknown size"
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 is online"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 is typing…"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
