@@ -56,7 +56,6 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#. The link is an XMPP-URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join' for joining a chat)
 #: src/Kaidan.cpp:163
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -231,18 +230,18 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:198
+#: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:269
+#: src/MessageHandler.cpp:261
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:340
+#: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
@@ -736,7 +735,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/elements/RosterAddContactSheet.qml:110
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Legg til"
@@ -788,18 +787,18 @@ msgctxt "RosterRenameContactSheet|"
 msgid "Rename"
 msgstr "Gi nytt navn"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:20
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public group chat (%1)"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:33
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:170
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr ""
@@ -1300,17 +1299,17 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: src/qml/RosterPage.qml:64
+#: src/qml/RosterPage.qml:60
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Legg til ny kontakt"
 
-#: src/qml/RosterPage.qml:76
+#: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
 msgid "Search public group chat"
 msgstr ""
 
-#: src/qml/RosterPage.qml:89
+#: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Søk i kontakter"
@@ -1780,12 +1779,22 @@ msgid "Settings"
 msgstr "Innstillinger"
 
 #: src/qml/settings/SettingsContent.qml:48
+msgctxt "SettingsContent|"
+msgid "Account Settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:49
+msgctxt "SettingsContent|"
+msgid "Changes your account's settings."
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:54
 #, fuzzy
 msgctxt "SettingsContent|"
 msgid "Change password"
 msgstr "Endre passord"
 
-#: src/qml/settings/SettingsContent.qml:49
+#: src/qml/settings/SettingsContent.qml:55
 #, fuzzy
 msgctxt "SettingsContent|"
 msgid ""
@@ -1794,16 +1803,6 @@ msgid ""
 msgstr ""
 "Endrer passord på kontoen din. Du vil måtte skrive det inn igjen på dine "
 "andre enheter."
-
-#: src/qml/settings/SettingsContent.qml:55
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr ""
-
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1968,31 +1967,31 @@ msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:73
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Ugyldig brukernavn eller passord."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:75
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:77
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Feil under forsøk på sikker tilkobling."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:79
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Tjeneren støtter ikke sikre tilkoblinger."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:81
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
@@ -2002,23 +2001,23 @@ msgstr ""
 "Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er "
 "oppe, og tjenernavnet ditt."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Tjeneren er nede eller blokkert av en brannmur."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:85
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
 
-#: src/QmlUtils.cpp:88
+#: src/QmlUtils.cpp:89
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
@@ -2026,23 +2025,23 @@ msgid ""
 "access configuration."
 msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Denne tjeneren støtter ikke registrering."
 
-#: src/QmlUtils.cpp:157
+#: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:231
+#: src/QmlUtils.cpp:240
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 er pålogget"
 
-#: src/QmlUtils.cpp:233
+#: src/QmlUtils.cpp:242
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
@@ -2050,7 +2049,7 @@ msgstr ""
 "Du kjenner blott blodets hvisken og benpipernes bøn fra %1 sitt ubevisste "
 "sjeleliv …"
 
-#: src/QmlUtils.cpp:235
+#: src/QmlUtils.cpp:244
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
