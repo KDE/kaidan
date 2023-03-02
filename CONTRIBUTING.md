@@ -86,6 +86,12 @@ Kaidan can be run on desktop devices as well as on mobile devices with touchscre
 A user interface optimized for mobile devices can be applied via the environment variable `QT_QUICK_CONTROLS_MOBILE`.
 You can run Kaidan with `QT_QUICK_CONTROLS_MOBILE=true kaidan` in order to get its mobile view.
 
+## Files
+
+If you add a new C++ file, please add it to `src/CMakeLists.txt`.
+QML files must be added to `src/qml/qml.qrc`.
+All entries must be sorted in alphabetical order.
+
 ## Notifications
 
 Notifications are triggered by `src/Notifications` via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
