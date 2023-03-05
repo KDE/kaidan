@@ -45,7 +45,7 @@ Repeater {
 		Controls.Label {
 			text: {
 				if (model.name) {
-					var result = model.name
+					let result = model.name
 
 					if (model.version) {
 						result += " v" + model.version

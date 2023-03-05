@@ -42,7 +42,7 @@ Kirigami.ScrollablePage {
 	// color of the message bubbles on the right side
 	readonly property color rightMessageBubbleColor: {
 		Kirigami.Theme.colorSet = Kirigami.Theme.View
-		var accentColor = Kirigami.Theme.highlightColor
+		const accentColor = Kirigami.Theme.highlightColor
 		return Qt.tint(Kirigami.Theme.backgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
 	}
 

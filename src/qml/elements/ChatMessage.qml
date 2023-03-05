@@ -190,8 +190,8 @@ Kirigami.SwipeListItem {
 						visible: isSpoiler
 						Layout.fillWidth: true
 						color: {
-							var bgColor = Kirigami.Theme.backgroundColor
-							var textColor = Kirigami.Theme.textColor
+							let bgColor = Kirigami.Theme.backgroundColor
+							let textColor = Kirigami.Theme.textColor
 							return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 						}
 					}
@@ -237,7 +237,7 @@ Kirigami.SwipeListItem {
 
 								mediaSource: {
 									if (modelData.localFilePath) {
-										var local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
+										let local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
 										if (MediaUtilsInstance.localFileAvailable(local)) {
 											return local;
 										}
@@ -264,8 +264,8 @@ Kirigami.SwipeListItem {
 							visible: isSpoiler && isShowingSpoiler
 							Layout.fillWidth: true
 							color: {
-								var bgColor = Kirigami.Theme.backgroundColor
-								var textColor = Kirigami.Theme.textColor
+								let bgColor = Kirigami.Theme.backgroundColor
+								let textColor = Kirigami.Theme.textColor
 								return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 							}
 						}

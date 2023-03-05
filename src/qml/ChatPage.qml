@@ -56,7 +56,7 @@ ChatPageBase {
 		sequence: "Ctrl+Shift+V"
 		context: Qt.WindowShortcut
 		onActivated: {
-			var imageUrl = Utils.pasteImage();
+			let imageUrl = Utils.pasteImage();
 			// check if there was an image to be pasted from the clipboard
 			if (imageUrl.toString().length > 0) {
 				sendMediaSheet.addFile(imageUrl)
@@ -223,10 +223,10 @@ ChatPageBase {
 				// function positioned the view at firstUnreadContactMessageIndex and that is close
 				// to the end of the loaded messages.
 				if (!root.viewPositioned) {
-					var unreadMessageCount = chatItemWatcher.item.unreadMessageCount
+					let unreadMessageCount = chatItemWatcher.item.unreadMessageCount
 
 					if (unreadMessageCount) {
-						var firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
+						let firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
 
 						if (firstUnreadContactMessageIndex > 0) {
 							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
@@ -309,10 +309,10 @@ ChatPageBase {
 			}
 
 			onQuoteRequested: {
-				var quotedText = ""
-				var lines = body.split("\n")
+				let quotedText = ""
+				const lines = body.split("\n")
 
-				for (var line in lines) {
+				for (let line in lines) {
 					quotedText += "> " + lines[line] + "\n"
 				}
 

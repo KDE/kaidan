@@ -174,8 +174,8 @@ Item {
 	 * @param startIndex index index of the first message to search for the entered text
 	 */
 	function search(searchUpwards, startIndex) {
-		var newIndex = -1
-		var searchedString = searchField.text
+		let newIndex = -1
+		const searchedString = searchField.text
 
 		if (searchedString.length > 0) {
 			searchFieldBusyIndicator.running = true

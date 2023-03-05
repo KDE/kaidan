@@ -138,7 +138,7 @@ ExplanationTogglePage {
 			filter.onScanningSucceeded: {
 				if (isAcceptingResult) {
 					isBusy = true
-					var processTrust = true
+					const processTrust = true
 
 					// Try to add a contact.
 					if (!root.isOnlyForTrustDecisions) {
@@ -157,7 +157,7 @@ ExplanationTogglePage {
 
 					// Try to authenticate or distrust keys.
 					if (processTrust) {
-						var expectedJid = ""
+						let expectedJid = ""
 						if (root.isOnlyForTrustDecisions) {
 							expectedJid = root.isForOwnDevices ? AccountManager.jid : root.contactJid
 						}

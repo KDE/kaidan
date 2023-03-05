@@ -60,7 +60,7 @@ View {
 			text: qsTr("Log in with your new account")
 			Layout.topMargin: height
 			onClicked: {
-				var page = pageStack.layers.push(loginPage)
+				let page = pageStack.layers.push(loginPage)
 				page.prefillJidDomain(serverView.text)
 			}
 		}

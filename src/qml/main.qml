@@ -142,7 +142,7 @@ Kirigami.ApplicationWindow {
 	 * @param countOfLayersToPop count of layers which are popped
 	 */
 	function popLayers(countOfLayersToPop) {
-		for (var i = 0; i < countOfLayersToPop; i++)
+		for (let i = 0; i < countOfLayersToPop; i++)
 			pageStack.layers.pop()
 	}
 
@@ -200,11 +200,11 @@ Kirigami.ApplicationWindow {
 	Component.onCompleted: {
 		// Restore the latest application window state if it is stored.
 		if (!Kirigami.Settings.isMobile) {
-			var latestPosition = Kaidan.settings.windowPosition
+			const latestPosition = Kaidan.settings.windowPosition
 			root.x = latestPosition.x
 			root.y = latestPosition.y
 
-			var latestSize = Kaidan.settings.windowSize
+			const latestSize = Kaidan.settings.windowSize
 			if (latestSize.width > 0) {
 				root.width = latestSize.width
 				root.height = latestSize.height

@@ -309,9 +309,9 @@ SettingsPageBase {
 
 			contentItem: ColumnLayout {
 				readonly property string providerUrl: {
-					var domain = root.jid.split('@')[1]
-					var provider = providerListModel.provider(domain)
-					var website = providerListModel.chooseWebsite(provider.websites)
+					const domain = root.jid.split('@')[1]
+					const provider = providerListModel.provider(domain)
+					const website = providerListModel.chooseWebsite(provider.websites)
 
 					return website ? website : "https://" + domain
 				}

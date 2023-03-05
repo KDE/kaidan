@@ -377,7 +377,7 @@ Controls.Pane {
 	 * Handles characters used for special actions.
 	 */
 	function handleShortcuts() {
-		var currentCharacter = messageArea.getText(messageArea.cursorPosition - 1, messageArea.cursorPosition)
+		const currentCharacter = messageArea.getText(messageArea.cursorPosition - 1, messageArea.cursorPosition)
 
 		if (emojiPicker.isSearchActive()) {
 			if (emojiPicker.searchedText === "" || currentCharacter === "" || currentCharacter === " ") {
@@ -395,7 +395,7 @@ Controls.Pane {
 		} else {
 			if (currentCharacter === ":") {
 				if (messageArea.cursorPosition !== 1) {
-					var predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
+					const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
 					if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
 						emojiPicker.openForSearch(currentCharacter)
 						emojiPicker.search()

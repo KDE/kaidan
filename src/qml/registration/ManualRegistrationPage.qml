@@ -125,7 +125,7 @@ RegistrationPage {
 			formModel = dataFormModel
 			formFilterModel.sourceModel = dataFormModel
 
-			var indexToInsert = loadingView.Controls.SwipeView.index
+			const indexToInsert = loadingView.Controls.SwipeView.index
 
 			// There are three cases here:
 			//
@@ -235,7 +235,7 @@ RegistrationPage {
 	 * If the provider does not support web registration and it is not a custom provider, another one is automatically selected.
 	 */
 	function handleInBandRegistrationNotSupported() {
-		var notificationText = providerView.customProviderSelected ? qsTr("The provider does not support registration via this app.") : qsTr("The provider does currently not support registration via this app.")
+		let notificationText = providerView.customProviderSelected ? qsTr("The provider does not support registration via this app.") : qsTr("The provider does currently not support registration via this app.")
 
 		if (providerView.registrationWebPage || providerView.outOfBandUrl) {
 			addWebRegistrationView()
@@ -258,7 +258,7 @@ RegistrationPage {
 	 * If a random username was used for registration, a new one is generated.
 	 */
 	function handleUsernameConflictError() {
-		var notificationText = qsTr("The username is already taken.")
+		const notificationText = qsTr("The username is already taken.")
 
 		if (usernameView.enteredText.length === 0) {
 			usernameView.regenerateUsername()
@@ -302,7 +302,7 @@ RegistrationPage {
 	 * Adds the dynamically loaded views used for the In-Band Registration to the swipe view.
 	 */
 	function addDynamicallyLoadedInBandRegistrationViews() {
-		var indexToInsert = providerView.Controls.SwipeView.index
+		let indexToInsert = providerView.Controls.SwipeView.index
 
 		addUsernameView(++indexToInsert)
 		addPasswordView(++indexToInsert)
@@ -314,7 +314,7 @@ RegistrationPage {
 	 * Removes the dynamically loaded views from the swipe view.
 	 */
 	function removeDynamicallyLoadedInBandRegistrationViews() {
-		for (var view of [usernameView, passwordView, customFormView, resultView]) {
+		for (const view of [usernameView, passwordView, customFormView, resultView]) {
 			swipeView.removeItem(view)
 		}
 	}
