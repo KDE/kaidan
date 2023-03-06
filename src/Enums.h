@@ -84,7 +84,8 @@ namespace Enums {
 		Pending,
 		Sent,
 		Delivered,
-		Error
+		Error,
+		Draft
 	};
 	Q_ENUM_NS(DeliveryState)
 

@@ -238,6 +238,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return QmlUtils::getResourcePath("images/check-mark.svg");
 		case DeliveryState::Error:
 			return QmlUtils::getResourcePath("images/cross.svg");
+		case DeliveryState::Draft:
+			Q_UNREACHABLE();
 		}
 		return {};
 	case DeliveryStateName:
@@ -250,6 +252,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return tr("Delivered");
 		case DeliveryState::Error:
 			return tr("Error");
+		case DeliveryState::Draft:
+			Q_UNREACHABLE();
 		}
 		return {};
 	case Files:
