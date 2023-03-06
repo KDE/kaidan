@@ -10,9 +10,11 @@
 #include "AccountManager.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
+#include "MessageDb.h"
 
-#include <QMimeDatabase>
 #include <QFileDialog>
+#include <QFutureWatcher>
+#include <QMimeDatabase>
 
 #include <KIO/PreviewJob>
 #include <KFileItem>
@@ -23,7 +25,16 @@ constexpr auto THUMBNAIL_SIZE = 200;
 
 MessageComposition::MessageComposition()
 	: m_fileSelectionModel(new FileSelectionModel(this))
+	, m_fetchDraftWatcher(new QFutureWatcher<Message>(this))
+	, m_removeDraftWatcher(new QFutureWatcher<QString>(this))
 {
+	connect(m_fetchDraftWatcher, &QFutureWatcher<Message>::finished, this, [this]() {
+		const auto msg = m_fetchDraftWatcher->result();
+		emit draftFetched(msg.body, msg.isSpoiler, msg.spoilerHint);
+	});
+	connect(m_removeDraftWatcher, &QFutureWatcher<QString>::finished, this, [this]() {
+		setDraftId({});
+	});
 }
 
 void MessageComposition::setAccount(const QString &account)
@@ -66,6 +77,18 @@ void MessageComposition::setSpoilerHint(const QString &spoilerHint)
 	}
 }
 
+void MessageComposition::setDraftId(const QString &id)
+{
+	if (m_draftId != id) {
+		m_draftId = id;
+		emit draftIdChanged();
+
+		if (!m_draftId.isEmpty()) {
+			m_fetchDraftWatcher->setFuture(MessageDb::instance()->fetchDraftMessage(id));
+		}
+	}
+}
+
 void MessageComposition::send()
 {
 	Q_ASSERT(!m_account.isNull());
@@ -89,6 +112,45 @@ void MessageComposition::send()
 	}
 
 	setSpoiler(false);
+
+	if (!m_draftId.isEmpty()) {
+		m_removeDraftWatcher->setFuture(MessageDb::instance()->removeDraftMessage(m_draftId));
+	}
+}
+
+Message MessageComposition::draft() const
+{
+	Message msg;
+	msg.id = m_draftId;
+	msg.deliveryState = DeliveryState::Draft;
+	msg.from = m_account;
+	msg.to = m_to;
+	msg.isSpoiler = m_spoiler;
+	msg.spoilerHint = m_spoilerHint;
+	msg.body = m_body;
+	return msg;
+}
+
+void MessageComposition::saveDraft()
+{
+	if (m_account.isEmpty() || m_to.isEmpty()) {
+		return;
+	}
+
+	const Message msg = draft();
+	const bool canSave = !msg.spoilerHint.isEmpty() || !msg.body.isEmpty();
+
+	if (msg.id.isEmpty()) {
+		if (canSave) {
+			MessageDb::instance()->addDraftMessage(msg);
+		}
+	} else {
+		if (canSave) {
+			MessageDb::instance()->updateDraftMessage(msg);
+		} else {
+			m_removeDraftWatcher->setFuture(MessageDb::instance()->removeDraftMessage(msg.id));
+		}
+	}
 }
 
 FileSelectionModel::FileSelectionModel(QObject *parent)
