@@ -121,6 +121,7 @@ Kirigami.ScrollablePage {
 				jid: model ? model.jid : ""
 				name: model ? (model.name ? model.name : model.jid) : ""
 				lastMessage: model ? model.lastMessage : ""
+				lastMessageIsDraft: model ? model.draftId : false
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
 
@@ -171,6 +172,13 @@ Kirigami.ScrollablePage {
 	 * @param chatJid JID of the chat for that the chat page is opened
 	 */
 	function openChatPage(accountJid, chatJid) {
+		for (var i = 0; i < pageStack.items.length; ++i) {
+			var page = pageStack.items[i];
+
+			if (page instanceof ChatPage) {
+				page.saveDraft();
+			}
+		}
 		MessageModel.setCurrentChat(accountJid, chatJid)
 		searchAction.checked = false
 

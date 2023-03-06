@@ -58,6 +58,13 @@ Controls.Pane {
 		to: MessageModel.currentChatJid
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
+		draftId: MessageModel.currentDraftMessageId
+
+		onDraftFetched: {
+			this.isSpoiler = isSpoiler;
+			spoilerHintField.text = spoilerHint;
+			messageArea.text = body;
+		}
 	}
 
 	ColumnLayout {

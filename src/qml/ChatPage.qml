@@ -404,4 +404,8 @@ ChatPageBase {
 		id: sendingPane
 		chatPage: root
 	}
+
+	function saveDraft() {
+		sendingPane.composition.saveDraft();
+	}
 }

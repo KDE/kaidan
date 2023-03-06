@@ -40,6 +40,7 @@ UserListItem {
 
 	property ListView listView
 	property Controls.Menu contextMenu
+	property bool lastMessageIsDraft
 	property string lastMessage
 	property int unreadMessages
 	property bool pinned
@@ -68,15 +69,31 @@ UserListItem {
 		}
 
 		// last message or error status message if available, otherwise not visible
-		Controls.Label {
-			id: lastMessageText
-			visible: text
+		RowLayout {
+			visible: lastMessageText.text
+
 			Layout.fillWidth: true
-			elide: Text.ElideRight
-			maximumLineCount: 1
-			text: Utils.removeNewLinesFromString(lastMessage)
-			textFormat: Text.PlainText
-			font.weight: Font.Light
+
+			Controls.Label {
+				id: draft
+				visible: lastMessageIsDraft
+				textFormat: Text.PlainText
+				text: qsTr("Draft:")
+				font {
+					weight: Font.Light
+					italic: true
+				}
+			}
+
+			Controls.Label {
+				id: lastMessageText
+				Layout.fillWidth: true
+				elide: Text.ElideRight
+				maximumLineCount: 1
+				text: Utils.removeNewLinesFromString(lastMessage)
+				textFormat: Text.PlainText
+				font.weight: Font.Light
+			}
 		}
 	}
 
