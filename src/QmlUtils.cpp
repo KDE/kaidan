@@ -269,3 +269,8 @@ QString QmlUtils::processMsgFormatting(const QStringList &list, bool isFirst)
 
 	return (isFirst ? QString() : " ") + list.first() + processMsgFormatting(list.mid(1), false);
 }
+
+QString QmlUtils::osmUserAgent()
+{
+	return u"" APPLICATION_NAME % QChar(u'/') % u"" VERSION_STRING;
+}

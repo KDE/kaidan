@@ -177,6 +177,8 @@ public:
 	 */
 	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
+	Q_INVOKABLE static QString osmUserAgent();
+
 private:
 	/**
 	 * Highlights links in a list of words

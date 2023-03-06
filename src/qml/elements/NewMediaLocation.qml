@@ -69,7 +69,15 @@ MediaPreview {
 			center: root.selectedGeoLocation
 
 			plugin: Location.Plugin {
-				preferred: ["osm", "mapboxgl"]
+				name: "osm"
+				Location.PluginParameter {
+					name: "osm.useragent"
+					value: Utils.osmUserAgent()
+				}
+				Location.PluginParameter {
+					name: "osm.mapping.providersrepository.address"
+					value: "https://autoconfig.kde.org/qtlocation/"
+				}
 			}
 
 			gesture {
