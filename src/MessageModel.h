@@ -66,6 +66,7 @@ class MessageModel : public QAbstractListModel
 
 	Q_PROPERTY(QString currentAccountJid READ currentAccountJid NOTIFY currentAccountJidChanged)
 	Q_PROPERTY(QString currentChatJid READ currentChatJid NOTIFY currentChatJidChanged)
+	Q_PROPERTY(QString currentDraftMessageId READ currentDraftMessageId NOTIFY currentDraftMessageIdChanged)
 	Q_PROPERTY(bool isOmemoEncryptionEnabled READ isOmemoEncryptionEnabled NOTIFY isOmemoEncryptionEnabledChanged)
 	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
 	Q_PROPERTY(QList<QString> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
@@ -113,6 +114,8 @@ public:
 	QString currentChatJid();
 	Q_INVOKABLE void setCurrentChat(const QString &accountJid, const QString &chatJid);
 	Q_INVOKABLE void resetCurrentChat();
+
+	QString currentDraftMessageId() const;
 
 	/**
 	 * Determines whether a chat is the currently open chat.
@@ -197,6 +200,7 @@ public:
 signals:
 	void currentAccountJidChanged(const QString &accountJid);
 	void currentChatJidChanged(const QString &currentChatJid);
+	void currentDraftMessageIdChanged(const QString &id);
 
 	void isOmemoEncryptionEnabledChanged();
 	void encryptionChanged();
