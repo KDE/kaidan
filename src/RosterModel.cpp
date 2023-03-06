@@ -69,6 +69,10 @@ RosterModel::RosterModel(QObject *parent)
 
 	connect(MessageDb::instance(), &MessageDb::messageAdded,
 	        this, &RosterModel::handleMessageAdded);
+	connect(MessageDb::instance(), &MessageDb::draftMessageAdded, this, &RosterModel::handleDraftMessageAdded);
+	connect(MessageDb::instance(), &MessageDb::draftMessageUpdated, this, &RosterModel::handleDraftMessageUpdated);
+	connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
+	connect(MessageDb::instance(), &MessageDb::draftMessageFetched, this, &RosterModel::handleDraftMessageFetched);
 
 	connect(AccountManager::instance(), &AccountManager::jidChanged, this, [this] {
 		beginResetModel();
@@ -108,6 +112,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
 	roles[PinnedRole] = "pinned";
+	roles[DraftIdRole] = "draftId";
 	return roles;
 }
 
@@ -131,6 +136,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).lastMessage;
 	case PinnedRole:
 		return m_items.at(index.row()).pinningPosition >= 0;
+	case DraftIdRole:
+		return m_items.at(index.row()).draftMessageId;
 	}
 	return {};
 }
@@ -220,6 +227,13 @@ QString RosterModel::lastReadContactMessageId(const QString &, const QString &ji
 	return {};
 }
 
+QString RosterModel::draftMessageId(const QString &, const QString &jid) const
+{
+	if (auto item = findItem(jid))
+		return item->draftMessageId;
+	return {};
+}
+
 void RosterModel::sendPendingReadMarkers(const QString &)
 {
 	for (const auto &item : std::as_const(m_items)) {
@@ -247,6 +261,10 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 	endResetModel();
 	for (const auto &item : std::as_const(m_items)) {
 		RosterItemNotifier::instance().notifyWatchers(item.jid, item);
+
+		if (!item.draftMessageId.isEmpty()) {
+			MessageDb::instance()->fetchDraftMessage(item.draftMessageId);
+		}
 	}
 }
 
@@ -321,6 +339,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.pinningPosition = oldItem->pinningPosition;
 			item.chatStateSendingEnabled = oldItem->chatStateSendingEnabled;
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
+			item.draftMessageId = oldItem->draftMessageId;
 		}
 
 		newItems << item;
@@ -450,9 +469,9 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	// last exchanged
 	itr->lastExchanged = message.stamp;
 
-	// last message
+	// last message, we only set it if there is no draft pending
 	const auto lastMessage = message.previewText();
-	if (itr->lastMessage != lastMessage) {
+	if (itr->draftMessageId.isEmpty() && itr->lastMessage != lastMessage) {
 		itr->lastMessage = lastMessage;
 		changedRoles << int(LastMessageRole);
 	}
@@ -492,6 +511,111 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// move row to correct position
 	updateItemPosition(i);
+}
+
+void RosterModel::handleDraftMessageAdded(const Message &message)
+{
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+		return item.jid == message.to;
+	});
+
+	// contact not found
+	if (itr == m_items.end())
+		return;
+
+	QVector<int> changedRoles = {
+		int(LastMessageRole),
+		int(DraftIdRole)
+	};
+
+	const auto lastMessage = message.previewText();
+	itr->draftMessageId = message.id;
+	itr->lastMessage = lastMessage;
+
+	RosterDb::instance()->updateItem(
+		itr->jid, [id = message.id, lastMessage](RosterItem &item) {
+		item.draftMessageId = id;
+		item.lastMessage = lastMessage;
+	});
+
+	// notify gui
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+}
+
+void RosterModel::handleDraftMessageUpdated(const Message &message)
+{
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+		return item.draftMessageId == message.id;
+	});
+
+	// contact not found
+	if (itr == m_items.end())
+		return;
+
+	QVector<int> changedRoles = {
+		int(LastMessageRole),
+		int(DraftIdRole)
+	};
+
+	const auto lastMessage = message.previewText();
+	itr->lastMessage = lastMessage;
+
+	RosterDb::instance()->updateItem(
+		itr->jid, [lastMessage](RosterItem &item) {
+		item.lastMessage = lastMessage;
+	});
+
+	// notify gui
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+}
+
+void RosterModel::handleDraftMessageRemoved(const QString &id)
+{
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&id](const RosterItem &item) {
+		return item.draftMessageId == id;
+	});
+
+	// contact not found
+	if (itr == m_items.end())
+		return;
+
+	const QString accountJid = MessageModel::instance()->currentAccountJid();
+	const Message last = MessageDb::instance()->_fetchLastMessage(accountJid, itr->jid);
+	const auto lastMessage = last.previewText();
+
+	QVector<int> changedRoles = {
+		int(LastExchangedRole),
+		int(LastMessageRole),
+		int(DraftIdRole)
+	};
+
+	itr->draftMessageId.clear();
+	itr->lastExchanged = last.stamp;
+	itr->lastMessage = lastMessage;
+
+	RosterDb::instance()->updateItem(
+		itr->jid, [lastExchange = last.stamp, lastMessage](RosterItem &item) {
+		item.draftMessageId.clear();
+		item.lastExchanged = lastExchange;
+		item.lastMessage = lastMessage;
+	});
+
+	// notify gui
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+}
+
+void RosterModel::handleDraftMessageFetched(const Message &msg)
+{
+	handleDraftMessageUpdated(msg);
 }
 
 void RosterModel::insertItem(int index, const RosterItem &item)

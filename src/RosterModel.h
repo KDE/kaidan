@@ -56,6 +56,7 @@ public:
 		UnreadMessagesRole,
 		LastMessageRole,
 		PinnedRole,
+		DraftIdRole,
 	};
 
 	/**
@@ -110,6 +111,7 @@ public:
 
 	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
+	QString draftMessageId(const QString &accountJid, const QString &jid) const;
 
 	/**
 	 * Sends read markers for all roster items that have unsent (pending) ones.
@@ -172,6 +174,10 @@ private slots:
 	void removeItems(const QString &accountJid, const QString &jid = {});
 
 	void handleMessageAdded(const Message &message, MessageOrigin origin);
+	void handleDraftMessageAdded(const Message &message);
+	void handleDraftMessageUpdated(const Message &message);
+	void handleDraftMessageRemoved(const QString &id);
+	void handleDraftMessageFetched(const Message &msg);
 
 private:
 	void insertItem(int index, const RosterItem &item);
