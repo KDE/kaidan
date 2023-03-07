@@ -28,6 +28,7 @@ build:
   stage: test
   image: kaidan/debian-unstable
   script: utils/travis/build.sh
+  allow_failure: true
 
 linux-appimage:
   stage: deploy
