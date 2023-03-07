@@ -157,6 +157,11 @@ In order to make translations possible, you need to use `qsTr("<text>")` (Exampl
 The preferred format for graphics in Kaidan is *SVG*.
 If SVG is not applicable like for screenshots, the graphic should have the format *PNG*.
 
+### Changes
+
+If you change a graphic, it might be necessary to run `utils/render-graphics.sh` in order to generate new PNG files from their original SVG files.
+Once the PNG files are created, the graphics need to be updated everywhere they are used (e.g., on Mastodon or in Kaidan's group chat).
+
 ### Optimization
 
 In any case, the new or modified graphic must be [optimized](https://invent.kde.org/network/kaidan/-/wikis/optimizing-graphics) before adding it to a commit.
@@ -177,4 +182,4 @@ Furthermore, the logo has to be updated on multiple other places:
 1. For this GitLab project by creating a [sysadmin request](https://go.kde.org/systickets) and providing a link to a PNG version in its description.
 1. In the [repository of Kaidan's website](https://invent.kde.org/websites/kaidan-im) by updating all instances of `favicon*` and `logo*`.
 1. On [Kaidan's Mastodon profile](https://fosstodon.org/@kaidan) by uploading a new avatar.
-1. In [Kaidan's support chat](xmpp:kaidan@muc.kaidan.im?join) by uploading a new avatar.
+1. In [Kaidan's group chat](xmpp:kaidan@muc.kaidan.im?join) by uploading a new avatar.
