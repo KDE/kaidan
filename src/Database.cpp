@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 25
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(25)
+#define DATABASE_LATEST_VERSION 26
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(26)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -390,7 +390,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
-			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
 			SQL_LAST_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
 		)
@@ -1298,4 +1298,62 @@ void Database::convertDatabaseToV25()
 	execQuery(query, "DROP TABLE messages_tmp");
 
 	d->version = 25;
+}
+
+void Database::convertDatabaseToV26()
+{
+	DATABASE_CONVERT_TO_VERSION(25)
+	QSqlQuery query(currentDatabase());
+
+	// Make the column "pinningPosition" NOT NULL and set existing rows to -1.
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster_tmp",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
+		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition, "
+		"chatStateSendingEnabled, readMarkerSendingEnabled FROM roster"
+	);
+
+	execQuery(query, "UPDATE roster_tmp SET pinningPosition = -1 WHERE pinningPosition IS NULL");
+	execQuery(query, "DROP TABLE roster");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_LAST_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+		)
+	);
+
+	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
+	execQuery(query, "DROP TABLE roster_tmp");
+
+	d->version = 26;
 }
