@@ -90,7 +90,8 @@ You can run Kaidan with `QT_QUICK_CONTROLS_MOBILE=true kaidan` in order to get i
 
 If you add a new C++ file, please add it to `src/CMakeLists.txt`.
 QML files must be added to `src/qml/qml.qrc`.
-All entries must be sorted in alphabetical order.
+You can add your file to the end of the listings without applying any order.
+Please do not change the order of existing files.
 
 ## Notifications
 
