@@ -206,6 +206,30 @@ public:
 	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
 	Q_SIGNAL void messageUpdated(const QString &id, const std::function<void (Message &)> &updateMsg);
 
+	/**
+	 * Adds a draft message to the database.
+	 */
+	QFuture<Message> addDraftMessage(const Message &msg);
+	Q_SIGNAL void draftMessageAdded(const Message &msg);
+
+	/**
+	 * Updates a draft message from the database.
+	 */
+	QFuture<Message> updateDraftMessage(const Message &msg);
+	Q_SIGNAL void draftMessageUpdated(const Message &msg);
+
+	/**
+	 * Removes a draft message from the database.
+	 */
+	QFuture<QString> removeDraftMessage(const QString &id);
+	Q_SIGNAL void draftMessageRemoved(const QString &id);
+
+	/**
+	 * Fetch a draft message from the database.
+	 */
+	QFuture<Message> fetchDraftMessage(const QString &id);
+	Q_SIGNAL void draftMessageFetched(const Message &msg);
+
 private:
 	// Setters do INSERT OR REPLACE INTO
 	void _setFiles(const QVector<File> &files);

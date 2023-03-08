@@ -39,6 +39,8 @@
 #include <QStringBuilder>
 #include <QMimeDatabase>
 #include <QBuffer>
+// QXmpp
+#include <QXmppUtils.h>
 // Kaidan
 #include "Algorithms.h"
 #include "Database.h"
@@ -195,7 +197,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"SELECT * FROM " DB_TABLE_MESSAGES " "
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
 				  "(sender = :chatJid AND recipient = :accountJid) "
 			"ORDER BY timestamp DESC "
@@ -224,7 +226,7 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 		prepareQuery(
 			query,
 			R"(
-				SELECT * FROM Messages
+				SELECT * FROM chatMessages
 				WHERE
 					(sender = :accountJid AND recipient = :chatJid) OR
 					(sender = :chatJid AND recipient = :accountJid)
@@ -232,10 +234,10 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 				LIMIT
 					:index,
 					:limit + (
-						SELECT COUNT() FROM Messages
+						SELECT COUNT() FROM chatMessages
 						WHERE
 							timestamp >= (
-								SELECT timestamp FROM Messages
+								SELECT timestamp FROM chatMessages
 								WHERE sender = :chatJid AND recipient = :accountJid)
 							AND (
 								(sender = :accountJid AND recipient = :chatJid) OR
@@ -266,14 +268,14 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"SELECT * FROM Messages "
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
 			"(sender = :chatJid AND recipient = :accountJid) "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, ("
-			"SELECT COUNT() FROM Messages "
+			"SELECT COUNT() FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE timestamp >= "
-			"(SELECT timestamp FROM Messages "
+			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE sender = :chatJid AND recipient = :accountJid AND id = :id) AND "
 			"((sender = :accountJid AND recipient = :chatJid) OR "
 			"(sender = :chatJid AND recipient = :accountJid)) "
@@ -303,13 +305,13 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 
 		prepareQuery(
 			query,
-			"SELECT COUNT() FROM Messages "
+			"SELECT COUNT() FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE timestamp >= "
-			"(SELECT timestamp FROM Messages "
+			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) AND "
 			"message LIKE :queryString AND "
 			"timestamp <= "
-			"(SELECT timestamp FROM Messages "
+			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) "
 			"ORDER BY timestamp DESC LIMIT :index, 1) "
 			"ORDER BY timestamp DESC LIMIT 1) AND "
@@ -336,7 +338,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 
 		prepareQuery(
 			query,
-			"SELECT * FROM Messages "
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE (sender = :accountJid AND recipient = :chatJid) OR "
 			"(sender = :chatJid AND recipient = :accountJid) "
 			"ORDER BY timestamp DESC "
@@ -369,7 +371,7 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 	auto query = createQuery();
 	execQuery(
 		query,
-		"SELECT * FROM " DB_TABLE_MESSAGES " "
+		"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
 		"WHERE (sender = :user1 AND recipient = :user2) OR "
 		      "(sender = :user2 AND recipient = :user1) "
 		"ORDER BY timestamp DESC "
@@ -388,7 +390,7 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 {
 	return run([this]() {
 		auto query = createQuery();
-		execQuery(query, "SELECT timestamp FROM messages ORDER BY timestamp DESC LIMIT 1");
+		execQuery(query, "SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " ORDER BY timestamp DESC LIMIT 1");
 
 		QDateTime stamp;
 		while (query.next()) {
@@ -409,7 +411,7 @@ QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const Q
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE sender = ? AND recipient = ? AND id = ? LIMIT 1",
+			"SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " DESC WHERE sender = ? AND recipient = ? AND id = ? LIMIT 1",
 			{ senderJid, recipientJid, messageId }
 		);
 
@@ -430,7 +432,7 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT id FROM " DB_TABLE_MESSAGES " WHERE sender = ? AND recipient = ? ORDER BY timestamp DESC LIMIT ?, 1",
+			"SELECT id FROM " DB_VIEW_CHAT_MESSAGES " WHERE sender = ? AND recipient = ? ORDER BY timestamp DESC LIMIT ?, 1",
 			{ chatJid, accountJid, index }
 		);
 
@@ -448,11 +450,11 @@ QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &re
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT COUNT(*) FROM " DB_TABLE_MESSAGES" DESC WHERE sender = ? AND recipient = ? AND "
+			"SELECT COUNT(*) FROM " DB_VIEW_CHAT_MESSAGES " DESC WHERE sender = ? AND recipient = ? AND "
 			"datetime(timestamp) BETWEEN "
-			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
+			"datetime((SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " DESC WHERE "
 			"sender = ? AND recipient = ? AND id = ? LIMIT 1)) AND "
-			"datetime((SELECT timestamp FROM " DB_TABLE_MESSAGES " DESC WHERE "
+			"datetime((SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " DESC WHERE "
 			"sender = ? AND recipient = ? AND id = ? LIMIT 1))",
 			{ senderJid, recipientJid, senderJid, recipientJid, messageIdBegin, senderJid, recipientJid, messageIdEnd }
 		);
@@ -467,6 +469,8 @@ QFuture<int> MessageDb::messageCount(const QString &senderJid, const QString &re
 
 QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 {
+	Q_ASSERT(msg.deliveryState != DeliveryState::Draft);
+
 	return run([this, msg, origin]() {
 		// deduplication
 		switch (origin) {
@@ -566,7 +570,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT * FROM " DB_TABLE_MESSAGES " WHERE id = ? LIMIT 1",
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " WHERE id = ? LIMIT 1",
 			{ id }
 		);
 
@@ -576,8 +580,10 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 		// update loaded item
 		if (!msgs.isEmpty()) {
 			const auto &oldMessage = msgs.first();
+			Q_ASSERT(oldMessage.deliveryState != DeliveryState::Draft);
 			Message newMessage = oldMessage;
 			updateMsg(newMessage);
+			Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
 
 			// Replace the old message's values with the updated ones if the message has changed.
 			if (oldMessage != newMessage) {
@@ -659,6 +665,141 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				_setFiles(newMessage.files);
 			}
 		}
+	});
+}
+
+QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
+{
+	Q_ASSERT(msg.deliveryState == DeliveryState::Draft);
+
+	auto copy = msg;
+
+	if (copy.id.isEmpty()) {
+		copy.id = QXmppUtils::generateStanzaUuid();
+	}
+
+	return run([this, msg = std::move(copy)]() {
+		// "execQuery()" with "sqlDriver().sqlStatement()" cannot be used here
+		// because the binary data of "msg.senderKey()" is not appropriately
+		// inserted into the database.
+
+		auto query = createQuery();
+		prepareQuery(
+			query,
+			"INSERT INTO " DB_TABLE_MESSAGES " (sender, recipient, timestamp, message, id, encryption, "
+			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
+			"originId, stanzaId, fileGroupId) "
+			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
+			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
+			":originId, :stanzaId, :fileGroupId)"
+		);
+
+		bindValues(query, {
+			{ u":sender", msg.from },
+			{ u":recipient", msg.to },
+			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
+			{ u":message", msg.body },
+			{ u":id", msg.id },
+			{ u":encryption", msg.encryption },
+			{ u":senderKey", msg.senderKey },
+			{ u":deliveryState", int(msg.deliveryState) },
+			{ u":isEdited", msg.isEdited },
+			{ u":isSpoiler", msg.isSpoiler },
+			{ u":spoilerHint", msg.spoilerHint },
+			{ u":errorText", msg.errorText },
+			{ u":replaceId", msg.replaceId },
+			{ u":originId", msg.originId },
+			{ u":stanzaId", msg.stanzaId },
+			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) }
+		});
+		execQuery(query);
+
+		emit draftMessageAdded(msg);
+
+		return msg;
+	});
+}
+
+QFuture<Message> MessageDb::updateDraftMessage(const Message &msg)
+{
+	Q_ASSERT(msg.deliveryState == DeliveryState::Draft);
+
+	return run([this, msg]() {
+		// load current message item from db
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE id = ? LIMIT 1",
+			{ msg.id }
+		);
+
+		auto msgs = _fetchMessagesFromQuery(query);
+
+		// update loaded item
+		if (msgs.count() == 1) {
+			const auto &oldMessage = msgs.constFirst();
+
+			// Replace the old message's values with the updated ones if the message has changed.
+			if (oldMessage != msg) {
+				if (auto rec = createUpdateRecord(oldMessage, msg); rec.count()) {
+					auto &driver = sqlDriver();
+
+					// Create an SQL record with only the differences.
+					execQuery(
+						query,
+						driver.sqlStatement(
+							QSqlDriver::UpdateStatement,
+							DB_TABLE_MESSAGES,
+							rec,
+							false
+						) +
+						simpleWhereStatement(&driver, "id", msg.id)
+					);
+
+					emit draftMessageUpdated(msg);
+
+					return msg;
+				}
+			}
+		}
+
+		return Message();
+	});
+}
+
+QFuture<QString> MessageDb::removeDraftMessage(const QString &id)
+{
+	return run([this, id]() {
+		auto query = createQuery();
+		prepareQuery(query, "DELETE FROM " DB_TABLE_MESSAGES " WHERE id = ? AND deliveryState = ?");
+		bindValues(query, { id, int(DeliveryState::Draft) });
+		execQuery(query);
+
+		emit draftMessageRemoved(id);
+
+		return id;
+	});
+}
+
+QFuture<Message> MessageDb::fetchDraftMessage(const QString &id)
+{
+	return run([this, id]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE id = ? LIMIT 1",
+			{ id }
+		);
+
+		auto msgs = _fetchMessagesFromQuery(query);
+
+		if (msgs.count() == 1) {
+			emit draftMessageFetched(msgs.constFirst());
+
+			return msgs.constFirst();
+		}
+
+		return Message();
 	});
 }
 
@@ -956,7 +1097,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
 
 	const QString idConditionSql = idChecks.join(u" OR ");
 	const QString querySql =
-		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES " "
+		QStringLiteral("SELECT COUNT(*) FROM " DB_VIEW_CHAT_MESSAGES " "
 		               "WHERE (sender = :from AND recipient = :to AND (") %
 		idConditionSql %
 		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
@@ -977,7 +1118,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &userJid
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT * FROM " DB_TABLE_MESSAGES " "
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE (sender = :user AND deliveryState = :deliveryState) "
 			"ORDER BY timestamp ASC",
 			{
