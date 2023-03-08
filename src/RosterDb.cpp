@@ -76,6 +76,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxPinningPosition = rec.indexOf("pinningPosition");
 	int idxChateStateSendingEnabled = rec.indexOf("chatStateSendingEnabled");
 	int idxReadMarkerSendingEnabled = rec.indexOf("readMarkerSendingEnabled");
+	int idxDraftMessageId = rec.indexOf("draftMessageId");
 
 	while (query.next()) {
 		RosterItem item;
@@ -90,6 +91,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.pinningPosition = query.value(idxPinningPosition).toInt();
 		item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
 		item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
+		item.draftMessageId = query.value(idxDraftMessageId).toString();
 
 		items << std::move(item);
 	}
@@ -120,6 +122,8 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("chatStateSendingEnabled", newItem.chatStateSendingEnabled));
 	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
 		rec.append(createSqlField("readMarkerSendingEnabled", newItem.readMarkerSendingEnabled));
+	if (oldItem.draftMessageId != newItem.draftMessageId)
+		rec.append(createSqlField("draftMessageId", newItem.draftMessageId));
 	return rec;
 }
 
@@ -153,6 +157,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(item.pinningPosition);
 			query.addBindValue(item.chatStateSendingEnabled);
 			query.addBindValue(item.readMarkerSendingEnabled);
+			query.addBindValue(QString()); // draftMessageId
 			execQuery(query);
 		}
 

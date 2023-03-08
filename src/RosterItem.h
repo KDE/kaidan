@@ -94,6 +94,9 @@ public:
 
 	// Last message i.e read by the user.
 	QString lastReadContactMessageId;
+	
+	// Draft message i.e written by the user but not yet sent.
+	QString draftMessageId;
 
 	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
 	bool readMarkerPending = false;

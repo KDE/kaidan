@@ -62,8 +62,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 26
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(26)
+#define DATABASE_LATEST_VERSION 27
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(27)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -392,7 +392,9 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
 			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
-			SQL_LAST_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(draftMessageId, SQL_TEXT)
+			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
 		)
 	);
 
@@ -587,6 +589,9 @@ void Database::createNewDatabase()
 			"PRIMARY KEY(account, id)"
 		)
 	);
+
+	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState != 4");
+	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState = 4");
 
 	d->version = DATABASE_LATEST_VERSION;
 }
@@ -1356,4 +1361,14 @@ void Database::convertDatabaseToV26()
 	execQuery(query, "DROP TABLE roster_tmp");
 
 	d->version = 26;
+}
+
+void Database::convertDatabaseToV27()
+{
+	DATABASE_CONVERT_TO_VERSION(26);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE " DB_TABLE_ROSTER " ADD draftMessageId " SQL_TEXT " REFERENCES " DB_TABLE_MESSAGES " (id)");
+	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState != 4");
+	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState = 4");
+	d->version = 27;
 }

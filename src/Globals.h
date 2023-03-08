@@ -61,6 +61,8 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_INFO "dbinfo"
 #define DB_TABLE_ROSTER "roster"
 #define DB_TABLE_MESSAGES "messages"
+#define DB_VIEW_CHAT_MESSAGES "chatMessages"
+#define DB_VIEW_DRAFT_MESSAGES "draftMessages"
 #define DB_TABLE_FILES "files"
 #define DB_TABLE_FILE_HASHES "fileHashes"
 #define DB_TABLE_FILE_HTTP_SOURCES "fileHttpSources"
