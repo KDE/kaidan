@@ -422,8 +422,8 @@ void MessageHandler::retrieveInitialMessages()
 			m_runningInitialMessageQueries--;
 
 			// process received message
-			if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
-				auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
+			if (std::holds_alternative<typename Mam::RetrievedMessages>(result)) {
+				auto messages = std::get<typename Mam::RetrievedMessages>(std::move(result));
 
 				if (!messages.messages.empty()) {
 					// TODO: request other message if this message is empty (e.g. no body)
@@ -452,8 +452,8 @@ void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
 	queryLimit.setMax(-1);
 
 	m_mamManager->retrieveMessages({}, {}, {}, stamp, {}, queryLimit).then(this, [this](auto result) {
-		if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
-			auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
+		if (std::holds_alternative<typename Mam::RetrievedMessages>(result)) {
+			auto messages = std::get<typename Mam::RetrievedMessages>(std::move(result));
 
 			// process messages
 			Kaidan::instance()->database()->startTransaction();
@@ -479,8 +479,8 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 
 	m_mamManager->retrieveMessages({}, {}, jid, {}, stamp, queryLimit).then(this, [this, jid, stamp](auto result) {
 		const auto ownJid = m_client->configuration().jidBare();
-		if (std::holds_alternative<Mam::RetrievedMessages>(result)) {
-			auto messages = std::get<Mam::RetrievedMessages>(std::move(result));
+		if (std::holds_alternative<typename Mam::RetrievedMessages>(result)) {
+			auto messages = std::get<typename Mam::RetrievedMessages>(std::move(result));
 			auto lastTimestamp = [&]() {
 				if (messages.messages.empty()) {
 					return stamp;

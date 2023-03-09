@@ -43,6 +43,7 @@
 #include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
 #include <QXmppUploadRequestManager.h>
+#include <QXmppPubSubItem.h>
 // Kaidan
 #include "AccountManager.h"
 #include "AtmManager.h"
