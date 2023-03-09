@@ -88,7 +88,7 @@ bool BitsOfBinaryImageProvider::addImage(const QXmppBitsOfBinaryData &data)
 		return false;
 	}
 
-	m_cache << data;
+	m_cache.push_back(data);
 	return true;
 }
 

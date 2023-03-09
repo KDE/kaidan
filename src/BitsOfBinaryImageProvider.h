@@ -83,5 +83,5 @@ public:
 private:
 	static BitsOfBinaryImageProvider *s_instance;
 	QMutex m_cacheMutex;
-	QVector<QXmppBitsOfBinaryData> m_cache;
+	std::vector<QXmppBitsOfBinaryData> m_cache;
 };
