@@ -30,6 +30,10 @@ build:
   script: utils/travis/build.sh
   allow_failure: true
 
+flatpak:
+  variables:
+    KDE_FLATPAK_APP_ID: im.kaidan.kaidan
+
 linux-appimage:
   stage: deploy
   image: kaidan/ubuntu-xenial
