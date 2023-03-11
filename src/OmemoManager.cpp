@@ -94,7 +94,9 @@ QFuture<void> OmemoManager::load()
 
 	auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
 	future.then(this, [this, interface]() mutable {
-		auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % QSysInfo::prettyProductName());
+		const auto productName = QSysInfo::prettyProductName();
+		const QString productNameWithoutVersion = productName.contains(" ") ? productName.section(" ", 0, -2) : productName;
+		auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % productNameWithoutVersion);
 		future.then(this, [this, interface](bool) mutable {
 			auto future = m_manager->load();
 			future.then(this, [this, interface](bool isLoaded) mutable {
