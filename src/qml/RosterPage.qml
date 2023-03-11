@@ -138,7 +138,7 @@ Kirigami.ScrollablePage {
 
 			onClicked: {
 				// Open the chatPage only if it is not yet open.
-				if (!isSelected) {
+				if (!isSelected || !wideScreen) {
 					openChatPage(accountJid, jid)
 				}
 			}

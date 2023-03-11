@@ -105,7 +105,7 @@ Kirigami.ApplicationWindow {
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
 	Component {id: qrCodePage; QrCodePage {}}
 
-	onWidthChanged: showRosterPageForNarrowWindow()
+	onWideScreenChanged: showRosterPageForNarrowWindow()
 
 	/**
 	 * Shows a passive notification for a long period.
@@ -138,7 +138,7 @@ Kirigami.ApplicationWindow {
 
 	// Show the rosterPage instead of the emptyChatPage if the window is narrow.
 	function showRosterPageForNarrowWindow() {
-		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && width < 760)
+		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && !wideScreen)
 			pageStack.goBack()
 	}
 
