@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-08-22 21:44+0300\n"
+"PO-Revision-Date: 2022-11-22 14:37+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -24,20 +24,16 @@ msgstr ""
 "tästä sovelluksesta: %1"
 
 #: src/FileSharingController.cpp:200
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
-msgstr "Lataus epäonnistui: %1"
+msgstr "Lähetys epäonnistui: %1"
 
 #: src/FileSharingController.cpp:369
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Could not save file: %1"
+#, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr "Ei voitu tallentaa tiedostoa: %1"
+msgstr "Ei voitu ladata tiedostoa: %1"
 
 #: src/Kaidan.cpp:108
 msgctxt "Kaidan|"
@@ -226,21 +222,18 @@ msgstr "Vihje"
 #: src/MessageComposition.cpp:144
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tuntematon koko"
 
 #: src/MessageHandler.cpp:190
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "Viesti on %1-salattu, mutta salausta ei voi purkaa"
 
 #: src/MessageHandler.cpp:261
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful."
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "Viestin korjaaminen ei onnistunut."
+msgstr "Viestin korjaaminen ei onnistunut"
 
 #: src/MessageHandler.cpp:322
 msgctxt "MessageHandler|"
@@ -276,6 +269,7 @@ msgstr "Merkitse luetuksi"
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
+"Salattu keskustelu ei ole mahdollista, koska OMEMO 2:ta ei ole asetettu"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -446,12 +440,12 @@ msgstr "Lataa"
 #: src/qml/elements/ChatMessage.qml:318
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Ei salattu"
 
 #: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Untrusted"
-msgstr ""
+msgstr "Ei luotettu"
 
 #: src/qml/elements/ChatMessage.qml:355
 #, qt-format
@@ -480,20 +474,14 @@ msgid "Quote message"
 msgstr "Lainaa viestiä"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:76
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr "Poista"
+msgstr "Poista tiedosto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "Merkitse luetuksi"
+msgstr "Merkitse ensimmäiseksi ei-luetuksi"
 
 #: src/qml/elements/ChatPageSearchView.qml:70
 msgctxt "ChatPageSearchView|"
@@ -528,12 +516,9 @@ msgstr "Kirjoita viesti"
 #: src/qml/elements/ChatPageSendingPane.qml:219
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
-msgstr ""
+msgstr "Liitteet"
 
 #: src/qml/elements/ChatPageSendingPane.qml:271
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Ota kuva"
@@ -541,12 +526,9 @@ msgstr "Ota kuva"
 #: src/qml/elements/ChatPageSendingPane.qml:272
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "Ota kameralla kuva"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record Video"
 msgstr "Nauhoita video"
@@ -554,12 +536,9 @@ msgstr "Nauhoita video"
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "Nauhoita kameralla video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Document"
 msgctxt "ChatPageSendingPane|"
 msgid "Document"
 msgstr "Tiedosto"
@@ -567,23 +546,17 @@ msgstr "Tiedosto"
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Attatch document from device"
-msgstr ""
+msgstr "Liitä laitteelta tiedosto"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ChatPageSendingPane|"
 msgid "Location"
 msgstr "Sijainti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr "Lähetä sijainti"
+msgstr "Lähetä sijaintisi"
 
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
@@ -646,15 +619,12 @@ msgstr ""
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "Lisää oma reaktiosi"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:66
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr "Poista yhteystieto"
+msgstr "Poista reaktiosi"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -679,17 +649,11 @@ msgid "Recording… %1"
 msgstr "Nauhoitetaan… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Peru"
 
 #: src/qml/elements/NewMediaSheet.qml:115
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send"
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Lähetä"
@@ -762,12 +726,12 @@ msgstr "Lisää"
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "Irrota"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "Kiinnitä"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
 #, fuzzy
@@ -833,43 +797,31 @@ msgid "Loading…"
 msgstr "Nauhoitetaan…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Audio files"
 msgctxt "SendMediaSheet|"
 msgid "Send files"
-msgstr "Äänitiedostot"
+msgstr "Lähetä tiedostoja"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
 msgid "Select some files to send them"
-msgstr ""
+msgstr "Valitse lähetettävät tiedostot"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "Kirjoita kuvaus…"
 
 #: src/qml/elements/SendMediaSheet.qml:154
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr "Poista"
+msgstr "Poista tiedosto"
 
 #: src/qml/elements/SendMediaSheet.qml:168
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Kirjoita viesti"
 
 #: src/qml/elements/SendMediaSheet.qml:175
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Lisää"
@@ -912,7 +864,7 @@ msgstr "Aloita viestiminen valitsemalla keskustelu"
 #: src/qml/GlobalDrawer.qml:89
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "Lisää yhteystieto QR-koodilla"
 
 #: src/qml/GlobalDrawer.qml:94
 msgctxt "GlobalDrawer|"
@@ -1000,12 +952,9 @@ msgid "Show explanation"
 msgstr "Näytä selitys"
 
 #: src/qml/QrCodePage.qml:78
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
+msgstr "Vaihe 1: Lue <b>toisen laitteesi</b> QR-koodi"
 
 #: src/qml/QrCodePage.qml:80
 msgctxt "QrCodePage|"
@@ -1013,12 +962,9 @@ msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
 
 #: src/qml/QrCodePage.qml:108
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr "Vaihe 1: Lue <b>yhteystietosi</b> QR-koodi"
+msgstr "Vaihe 1: Lue toisella laitteellasi <b>tämän laitteen</b> QR-koodi"
 
 #: src/qml/QrCodePage.qml:110
 msgctxt "QrCodePage|"
@@ -1026,62 +972,45 @@ msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Vaihe 2: Anna yhteystiedon lukea <b>sinun</b> QR-koodisi"
 
 #: src/qml/QrCodePage.qml:147
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2!"
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2"
-msgstr "Yhteystieto lisätty – jatka vaiheeseen 2!"
+msgstr "Yhteystieto lisätty – jatka toiseen vaiheeseen"
 
 #: src/qml/QrCodePage.qml:154
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
-msgstr "Tämä QR-koodi ei sisällä yhteystietoa."
+msgstr "Tämä QR-koodi ei sisällä yhteystietoa"
 
 #: src/qml/QrCodePage.qml:167
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"Luottamuspäätöksiä tehty toiselle laitteellesi – jatka toiseen vaiheeseen"
 
 #: src/qml/QrCodePage.qml:169
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2!"
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "Yhteystieto lisätty – jatka vaiheeseen 2!"
+msgstr "Luottamuspäätöksiä tehty – jatka toiseen vaiheeseen"
 
 #: src/qml/QrCodePage.qml:176
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "This QR code is not a valid login QR code."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your other device"
-msgstr "Tämä ei ole kelvollinen kirjautumisen QR-koodi."
+msgstr "Tämä QR-koodi ei ole toiselle laitteellesi"
 
 #: src/qml/QrCodePage.qml:178
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
-msgstr "Tämä QR-koodi ei sisällä yhteystietoa."
+msgstr "Tämä QR-koodi ei ole yhteystiedollesi"
 
 #: src/qml/QrCodePage.qml:184
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact."
 msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
-msgstr "Tämä QR-koodi ei sisällä yhteystietoa."
+msgstr "Tämä QR-koodi ei ole luottamuspäätöksiä varten"
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "Tehdään luottamuspäätöksiä…"
 
 #: src/qml/QrCodePage.qml:228
 msgctxt "QrCodePage|"
@@ -2161,7 +2090,7 @@ msgstr "Palvelin ei tue rekisteröitymistä."
 #: src/QmlUtils.cpp:166
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "Tuntematon koko"
 
 #: src/QmlUtils.cpp:240
 #, qt-format
