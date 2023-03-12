@@ -65,6 +65,7 @@ ChatPageBase {
 		}
 	}
 
+	property alias searchBar: searchBar
 	property alias sendMediaSheet: sendMediaSheet
 	property alias newMediaSheet: newMediaSheet
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
@@ -214,6 +215,16 @@ ChatPageBase {
 		model: MessageModel
 
 		visibleArea.onYPositionChanged: handleMessageRead()
+		onActiveFocusChanged: {
+			// This makes it possible on desktop devices to directly enter a message after opening
+			// the chat page.
+			// The workaround is needed because messageListView's focus is automatically forced
+			// after creation even when forcing sendingPane's focus within its
+			// Component.onCompleted.
+			if (activeFocus) {
+				sendingPane.forceActiveFocus()
+			}
+		}
 
 		Connections {
 			target: MessageModel

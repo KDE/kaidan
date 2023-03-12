@@ -125,6 +125,7 @@ Controls.Pane {
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
 				state: "compose"
+
 				onTextChanged: {
 					handleShortcuts()
 
@@ -149,8 +150,8 @@ Controls.Pane {
 				onStateChanged: {
 					if (state === "edit") {
 						// Move the cursor to the end of the text being corrected.
-						selectAll()
-						cursorPosition = selectionEnd
+						forceActiveFocus()
+						cursorPosition = text.length
 					}
 				}
 
@@ -162,6 +163,26 @@ Controls.Pane {
 							sendMessage()
 							event.accepted = true
 						}
+					}
+				}
+
+				Connections {
+					target: chatPage.searchBar
+
+					// Restore the active focus when searchBar is closed.
+					function onActiveChanged() {
+						if (!chatPage.searchBar.active) {
+							root.forceActiveFocus()
+						}
+					}
+				}
+
+				Connections {
+					target: chatPage.messageReactionEmojiPicker
+
+					// Restore the active focus when messageReactionEmojiPicker is closed.
+					function onClosed() {
+						root.forceActiveFocus()
 					}
 				}
 			}
@@ -337,11 +358,15 @@ Controls.Pane {
 		}
 	}
 
-	Component.onCompleted: {
-		// This makes it possible on desktop devices to directly enter a message after opening the chat page.
-		// It is not used on mobile devices because the soft keyboard would otherwise always pop up after opening the chat page.
-		if (!Kirigami.Settings.isMobile)
+	/**
+	 * Forces the active focus on desktop devices.
+	 *
+	 * The focus is not forced on mobile devices because the soft keyboard would otherwise pop up.
+	 */
+	function forceActiveFocus() {
+		if (!Kirigami.Settings.isMobile) {
 			messageArea.forceActiveFocus()
+		}
 	}
 
 	/**
