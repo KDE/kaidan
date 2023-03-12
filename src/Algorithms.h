@@ -32,6 +32,7 @@
 
 #include <algorithm>
 #include <optional>
+#include <unordered_map>
 
 #include <QVector>
 
