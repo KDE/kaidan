@@ -39,9 +39,6 @@ import "settings"
 
 Kirigami.GlobalDrawer {
 	id: globalDrawer
-	title: Utils.applicationDisplayName()
-	titleIcon: Utils.getResourcePath("images/kaidan.svg")
-	bannerImageSource: Utils.getResourcePath("images/global-drawer-banner.svg")
 
 	SettingsSheet {
 		id: settingsSheet

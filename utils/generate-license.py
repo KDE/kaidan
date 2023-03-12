@@ -374,13 +374,6 @@ def main():
 			},
 		),
 		CopyrightTarget(
-			files = ["data/images/global-drawer-banner.svg"],
-			licenseName = "CC-BY-SA-4.0",
-			authorList = {
-				"Mathis Brüchert <mbblp@protonmail.ch>": CopyrightAuthor(years = "2020")
-			}
-		),
-		CopyrightTarget(
 			files = [
 				"data/images/account-deletion-from-client.svg",
 				"data/images/account-deletion-from-client-and-server.svg",
