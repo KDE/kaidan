@@ -18,7 +18,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 22.12.2\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -533,8 +533,11 @@ msgid "Take a picture using your camera"
 msgstr "Zajemi sliko z vašo kamero"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Zajemi videoposnetek"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -543,19 +546,25 @@ msgid "Record a video using your camera"
 msgstr "Posnemi video z vašo kamero"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Dokument"
+msgid "Share files"
+msgstr "Pošlji datoteke"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Priloži dokument iz naprave"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Lokacija"
+msgid "Share location"
+msgstr "Pošlji lokacijo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -775,9 +784,11 @@ msgid "Rename"
 msgstr "Preimenuj"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Search public group chat (%1)"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr "Išči po javnem skupinskem klepetu (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -791,14 +802,20 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Pošlji datoteke"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr "Izberi nekatere datoteke za pošiljanje"
+msgid "Choose files"
+msgstr "Izberi datoteko"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -855,32 +872,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Prosimo, izberite klepet, da začnete s pogovarjanem"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Dodaj stik prek kode QR"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Povabi prijatelje"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Povezava za povabilo kopirana v odložišče"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Zamenjaj napravo"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "O programu"
@@ -1313,8 +1330,11 @@ msgid "Add new contact"
 msgstr "Dodaj nov stik"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public group chat"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
+msgid "Search public groups"
 msgstr "Išči po javnem skupinskem klepetu"
 
 #: src/qml/RosterPage.qml:85
@@ -1774,14 +1794,20 @@ msgid "Settings"
 msgstr "Nastavitve"
 
 #: src/qml/settings/SettingsContent.qml:48
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account Settings"
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Nastavitve računa"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Spremeni nastavitve vašega računa."
+msgid "Edit your profile"
+msgstr "Poglej profil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1789,13 +1815,12 @@ msgid "Change password"
 msgstr "Sprememba gesla"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
-"Spremeni geslo vašega računa. Ponovno ga boste morali vnesti na vaših drugih "
-"napravah."
+msgid "Change your account's password"
+msgstr "Spremeni nastavitve vašega računa."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1823,8 +1848,12 @@ msgid "Account security"
 msgstr "Varnost računa"
 
 #: src/qml/settings/SettingsContent.qml:74
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid ""
+#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
 "Prilagodite, ali je to napravo mogoče uporabiti za prijavo v drugo napravo"
 
@@ -1844,8 +1873,11 @@ msgid "Delete account"
 msgstr "Izbriši račun"
 
 #: src/qml/settings/SettingsContent.qml:86
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Izbriši račun iz strežnika"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2112,6 +2144,34 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Zajemi videoposnetek"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Priloži dokument iz naprave"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Lokacija"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Select some files to send them"
+#~ msgstr "Izberi nekatere datoteke za pošiljanje"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Spremeni geslo vašega računa. Ponovno ga boste morali vnesti na vaših "
+#~ "drugih napravah."
 
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Delete contact"

@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.2\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -530,8 +530,11 @@ msgid "Take a picture using your camera"
 msgstr "Scatta una foto utilizzando la fotocamera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Registra un video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -540,19 +543,25 @@ msgid "Record a video using your camera"
 msgstr "Registra un video utilizzando la fotocamera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Documento"
+msgid "Share files"
+msgstr "Invia file"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Allega documento dal dispositivo"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Posizione"
+msgid "Share location"
+msgstr "Invia la posizione"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -773,9 +782,11 @@ msgid "Rename"
 msgstr "Rinomina"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Search public group chat (%1)"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr "Cerca chat di gruppo pubblica (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -789,14 +800,20 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Invia file"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr "Seleziona alcuni file per inviarli"
+msgid "Choose files"
+msgstr "Scegli file"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -853,32 +870,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleziona una chat per iniziare a inviare messaggi"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Aggiungi contatto tramite codice QR"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Invita amici"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Collegamento di invito copiato negli appunti"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambia dispositivo"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Informazioni"
@@ -1327,8 +1344,11 @@ msgid "Add new contact"
 msgstr "Aggiungi un nuovo contatto"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public group chat"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
+msgid "Search public groups"
 msgstr "Cerca chat di gruppo pubblica"
 
 #: src/qml/RosterPage.qml:85
@@ -1791,14 +1811,20 @@ msgid "Settings"
 msgstr "Impostazioni"
 
 #: src/qml/settings/SettingsContent.qml:48
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account Settings"
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Impostazioni account"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Modifica le impostazioni del tuo account."
+msgid "Edit your profile"
+msgstr "Visualizza il profilo"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1806,13 +1832,12 @@ msgid "Change password"
 msgstr "Cambia password"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
-"Modifica la password del tuo account. Dovrai reinserirla sugli altri tuoi "
-"dispositivi."
+msgid "Change your account's password"
+msgstr "Modifica le impostazioni del tuo account."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1840,8 +1865,12 @@ msgid "Account security"
 msgstr "Sicurezza dell'account"
 
 #: src/qml/settings/SettingsContent.qml:74
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid ""
+#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
 "Configura se questo dispositivo può essere utilizzato per accedere a un "
 "altro dispositivo"
@@ -1862,8 +1891,11 @@ msgid "Delete account"
 msgstr "Elimina account"
 
 #: src/qml/settings/SettingsContent.qml:86
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Elimina l'account dal server"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2134,6 +2166,34 @@ msgstr "Data di nascita"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Registra un video"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Documento"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Allega documento dal dispositivo"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Posizione"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Select some files to send them"
+#~ msgstr "Seleziona alcuni file per inviarli"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Modifica la password del tuo account. Dovrai reinserirla sugli altri tuoi "
+#~ "dispositivi."
 
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Delete contact"

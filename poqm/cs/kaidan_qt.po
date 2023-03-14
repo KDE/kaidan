@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.2\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -520,8 +520,11 @@ msgid "Take a picture using your camera"
 msgstr "Sejměte snímek pomocí vaší kamery"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Nahrávat video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -530,19 +533,25 @@ msgid "Record a video using your camera"
 msgstr "Nahrajte video pomocí vaší kamery"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Dokument"
+msgid "Share files"
+msgstr "Odeslat soubory"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Přiložit dokument z tohoto zařízení"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Send your location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Umístění"
+msgid "Share location"
+msgstr "Poslat vaši polohu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -760,9 +769,11 @@ msgid "Rename"
 msgstr "Přejmenovat"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, qt-format
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Search public group chat (%1)"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr "Hledat veřejný skupinový rozhovor (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -776,14 +787,20 @@ msgid "Loading…"
 msgstr "Probíhá načítání…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Odeslat soubory"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr ""
+msgid "Choose files"
+msgstr "Vyberte soubor"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -838,32 +855,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Přidat kontakt QR kódem"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Nastavení"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "O aplikaci"
@@ -1270,8 +1287,11 @@ msgid "Add new contact"
 msgstr "Přidat nový kontakt"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public group chat"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
+msgid "Search public groups"
 msgstr "Hledat veřejný skupinový rozhovor"
 
 #: src/qml/RosterPage.qml:85
@@ -1704,14 +1724,20 @@ msgid "Settings"
 msgstr "Nastavení"
 
 #: src/qml/settings/SettingsContent.qml:48
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account Settings"
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Nastavení účtu"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr "Změní nastavení vašeho účtu."
+msgid "Edit your profile"
+msgstr "Prohlížet profil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1719,11 +1745,12 @@ msgid "Change password"
 msgstr "Změnit heslo"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
+msgid "Change your account's password"
+msgstr "Změní nastavení vašeho účtu."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1752,7 +1779,7 @@ msgstr "Zabezpečení účtu"
 
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:79
@@ -1771,9 +1798,12 @@ msgid "Delete account"
 msgstr "Smazat účet"
 
 #: src/qml/settings/SettingsContent.qml:86
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
-msgstr ""
+msgid "Delete account from server"
+msgstr "Smazat účet"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
@@ -2030,3 +2060,19 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Nahrávat video"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Přiložit dokument z tohoto zařízení"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Umístění"

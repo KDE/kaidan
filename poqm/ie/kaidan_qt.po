@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -553,8 +553,9 @@ msgid "Take a picture using your camera"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Registrar un video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -564,21 +565,22 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
 #, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "document"
+msgid "Share files"
+msgstr "Inviar files"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
-#, fuzzy
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Cargante un document ex «%s»"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "LOCALISATION"
+msgid "Share location"
+msgstr "In_viar a..."
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 #, fuzzy
@@ -811,7 +813,7 @@ msgstr "Renominar"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -831,15 +833,20 @@ msgid "Loading…"
 msgstr "Registration..."
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Inviar files"
 
 #: src/qml/elements/SendMediaSheet.qml:101
 #, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr "Selecte files ad inviar"
+msgid "Choose files"
+msgstr "Selecte un file"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 #, fuzzy
@@ -896,35 +903,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Invitar amics"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Copiar li ligament _magnet"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambiar"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Parametres"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Pri"
@@ -1361,9 +1368,10 @@ msgid "Add new contact"
 msgstr "Nov contacte"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
 msgctxt "RosterPage|"
-msgid "Search public group chat"
-msgstr ""
+msgid "Search public groups"
+msgstr "Serchar: "
 
 #: src/qml/RosterPage.qml:85
 #, fuzzy
@@ -1849,13 +1857,16 @@ msgstr "Parametres"
 #: src/qml/settings/SettingsContent.qml:48
 #, fuzzy
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Securitá del conto"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
+msgid "Edit your profile"
+msgstr "Vider li profil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1863,11 +1874,12 @@ msgid "Change password"
 msgstr "Cambiar li contrasigne"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Change password"
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
+msgid "Change your account's password"
+msgstr "Cambiar li contrasigne"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1898,7 +1910,7 @@ msgstr "Securitá del conto"
 
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:79
@@ -1922,7 +1934,7 @@ msgstr "Remover li conto"
 #: src/qml/settings/SettingsContent.qml:86
 #, fuzzy
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Server-Definition löschen"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2202,6 +2214,30 @@ msgstr "Aniversarie"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Registrar un video"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "document"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Cargante un document ex «%s»"
+
+#, fuzzy
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "LOCALISATION"
+
+#, fuzzy
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Select some files to send them"
+#~ msgstr "Selecte files ad inviar"
 
 #, fuzzy
 #~ msgctxt "RosterRemoveContactSheet|"

@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 20.08.1\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -532,8 +532,11 @@ msgid "Take a picture using your camera"
 msgstr "Ta en bild med användning av din kamera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Spela in video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -542,19 +545,25 @@ msgid "Record a video using your camera"
 msgstr "Spela in en video med användning av din kamera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Dokument"
+msgid "Share files"
+msgstr "Skicka filer"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Bifoga dokument från apparat"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Plats"
+msgid "Share location"
+msgstr "Skicka plats"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -782,7 +791,7 @@ msgstr "Byt namn"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -802,14 +811,20 @@ msgid "Loading…"
 msgstr "Spelar in…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Skicka filer"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr "Markera några filer för att skicka dem"
+msgid "Choose files"
+msgstr "Välj fil"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -866,32 +881,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Välj en chatt för att börja skicka meddelanden"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lägg till kontakt med QR-kod"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Bjud in vänner"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Inbjudningslänk kopierad till klippbordet"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Byt apparat"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Inställningar"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Om"
@@ -1327,9 +1342,12 @@ msgid "Add new contact"
 msgstr "Lägg till ny kontakt"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
-msgstr ""
+msgid "Search public groups"
+msgstr "Sök uppåt"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1830,13 +1848,16 @@ msgstr "Inställningar"
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Kontosäkerhet"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
+msgid "Edit your profile"
+msgstr "Visa profil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1844,13 +1865,12 @@ msgid "Change password"
 msgstr "Ändra lösenord"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Change password"
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
-"Ändrar lösenord på ditt konto. Du måste mata in det igen på dina andra "
-"apparater."
+msgid "Change your account's password"
+msgstr "Ändra lösenord"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1878,8 +1898,12 @@ msgid "Account security"
 msgstr "Kontosäkerhet"
 
 #: src/qml/settings/SettingsContent.qml:74
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid ""
+#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr "Anpassa om apparaten kan användas för att logga in på en annan apparat"
 
 #: src/qml/settings/SettingsContent.qml:79
@@ -1898,8 +1922,11 @@ msgid "Delete account"
 msgstr "Ta bort konto"
 
 #: src/qml/settings/SettingsContent.qml:86
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Ta bort konto från servern"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2206,6 +2233,34 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Spela in video"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Bifoga dokument från apparat"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Plats"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Select some files to send them"
+#~ msgstr "Markera några filer för att skicka dem"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Ändrar lösenord på ditt konto. Du måste mata in det igen på dina andra "
+#~ "apparater."
 
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Delete contact"

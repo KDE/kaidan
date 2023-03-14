@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 20.12.0\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -529,8 +529,11 @@ msgid "Take a picture using your camera"
 msgstr "Ota kameralla kuva"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Nauhoita video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -539,19 +542,25 @@ msgid "Record a video using your camera"
 msgstr "Nauhoita kameralla video"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Tiedosto"
+msgid "Share files"
+msgstr "Lähetä tiedostoja"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
-msgstr "Liitä laitteelta tiedosto"
+msgid "Share files from your device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Sijainti"
+msgid "Share location"
+msgstr "Lähetä sijainti"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -777,7 +786,7 @@ msgstr "Muuta nimeä"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -797,14 +806,20 @@ msgid "Loading…"
 msgstr "Nauhoitetaan…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Send files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Lähetä tiedostoja"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr "Valitse lähetettävät tiedostot"
+msgid "Choose files"
+msgstr "Valitse tiedosto"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -861,32 +876,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Aloita viestiminen valitsemalla keskustelu"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lisää yhteystieto QR-koodilla"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Kutsu kavereita"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Kutsulinkki kopioitu leikepöydälle"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Vaihda laitetta"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Tietoa"
@@ -1321,9 +1336,12 @@ msgid "Add new contact"
 msgstr "Lisää uusi yhteystieto"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
-msgstr ""
+msgid "Search public groups"
+msgstr "Etsi ylöspäin"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1817,13 +1835,16 @@ msgstr "Asetukset"
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Tilin tietoturva"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
+msgid "Edit your profile"
+msgstr "Näytä profiili"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1831,12 +1852,12 @@ msgid "Change password"
 msgstr "Vaihda salasana"
 
 #: src/qml/settings/SettingsContent.qml:55
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Change password"
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
-"Vaihtaa tilin salasanan. Se täytyy syöttää uudelleen muilla laitteilla."
+msgid "Change your account's password"
+msgstr "Vaihda salasana"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1864,8 +1885,12 @@ msgid "Account security"
 msgstr "Tilin tietoturva"
 
 #: src/qml/settings/SettingsContent.qml:74
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid ""
+#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr "Aseta, voiko tätä laitetta käyttää toiselle kirjautumiseen"
 
 #: src/qml/settings/SettingsContent.qml:79
@@ -1884,8 +1909,11 @@ msgid "Delete account"
 msgstr "Poista tili"
 
 #: src/qml/settings/SettingsContent.qml:86
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Poista tili palvelimelta"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2176,6 +2204,33 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Nauhoita video"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Tiedosto"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Attatch document from device"
+#~ msgstr "Liitä laitteelta tiedosto"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Sijainti"
+
+#~ msgctxt "SendMediaSheet|"
+#~ msgid "Select some files to send them"
+#~ msgstr "Valitse lähetettävät tiedostot"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Vaihtaa tilin salasanan. Se täytyy syöttää uudelleen muilla laitteilla."
 
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Delete contact"

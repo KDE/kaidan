@@ -9,11 +9,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.07.70\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, fuzzy, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -577,7 +577,7 @@ msgstr ""
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr "Video aufnehmen"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -588,23 +588,23 @@ msgstr ""
 #: src/qml/elements/ChatPageSendingPane.qml:295
 #, fuzzy
 #| msgctxt "MediaUtils|"
-#| msgid "Document"
+#| msgid "Audio files"
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
-msgstr "Dokument"
+msgid "Share files"
+msgstr "Audiodateien"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
+msgid "Share files from your device"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
 #, fuzzy
 #| msgctxt "MediaUtils|"
-#| msgid "Location"
+#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
-msgstr "Ort"
+msgid "Share location"
+msgstr "Ort senden"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 #, fuzzy
@@ -855,7 +855,7 @@ msgstr "Umbenennen"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -879,13 +879,16 @@ msgstr "Aufnahme läuft ..."
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr "Audiodateien"
 
 #: src/qml/elements/SendMediaSheet.qml:101
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
-msgstr ""
+msgid "Choose files"
+msgstr "Datei auswählen"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -953,7 +956,7 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Bitte wählen Sie einen Chat aus, um zu beginnen"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add Contact"
@@ -961,30 +964,30 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Kontakt hinzufügen"
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Freunde einladen"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Einladungslink wurde in die Zwischenablage kopiert"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Gerät wechseln"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Über"
@@ -1448,9 +1451,12 @@ msgid "Add new contact"
 msgstr "Neuen Kontakt hinzufügen"
 
 #: src/qml/RosterPage.qml:72
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search up"
 msgctxt "RosterPage|"
-msgid "Search public group chat"
-msgstr ""
+msgid "Search public groups"
+msgstr "Weiter oben suchen"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1965,13 +1971,16 @@ msgstr "Einstellungen"
 #: src/qml/settings/SettingsContent.qml:48
 #, fuzzy
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr "Konto-Sicherheit"
 
 #: src/qml/settings/SettingsContent.qml:49
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "View profile"
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
-msgstr ""
+msgid "Edit your profile"
+msgstr "Profil ansehen"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1980,13 +1989,11 @@ msgstr "Passwort ändern"
 
 #: src/qml/settings/SettingsContent.qml:55
 #, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Change password"
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
-msgstr ""
-"Ändert das Passwort Ihres Kontos. Sie werden das neue Passwort auf allen "
-"anderen Geräten neu eingeben müssen."
+msgid "Change your account's password"
+msgstr "Passwort ändern"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -2020,7 +2027,7 @@ msgstr "Konto-Sicherheit"
 #: src/qml/settings/SettingsContent.qml:74
 #, fuzzy
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
 "Einstellen ob dieses Gerät verwendet werden kann um dich auf weiteren "
 "Geräten anzumelden"
@@ -2045,7 +2052,7 @@ msgstr "Konto löschen"
 #: src/qml/settings/SettingsContent.qml:86
 #, fuzzy
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
+msgid "Delete account from server"
 msgstr "Konto auf dem Server löschen"
 
 #: src/qml/settings/SettingsPage.qml:35
@@ -2345,6 +2352,36 @@ msgstr "Geburtstag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
+
+#, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Record video"
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record Video"
+#~ msgstr "Video aufnehmen"
+
+#, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Document"
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#, fuzzy
+#~| msgctxt "MediaUtils|"
+#~| msgid "Location"
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Location"
+#~ msgstr "Ort"
+
+#, fuzzy
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Changes your account's password. You will need to re-enter it on your "
+#~ "other devices."
+#~ msgstr ""
+#~ "Ändert das Passwort Ihres Kontos. Sie werden das neue Passwort auf allen "
+#~ "anderen Geräten neu eingeben müssen."
 
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Delete contact"
