@@ -61,14 +61,21 @@ void LogHandler::enableLogging(bool enabled)
 
 void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
-	if (type == QXmppLogger::ReceivedMessage)
+	switch (type) {
+	case QXmppLogger::ReceivedMessage:
 		qDebug() << "[client] [incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
-	else if (type == QXmppLogger::SentMessage)
+		qDebug().noquote() << makeXmlPretty(text);
+		break;
+	case QXmppLogger::SentMessage:
 		qDebug() << "[client] [outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
-	else
-		return;
-
-	qDebug().noquote() << makeXmlPretty(text);
+		qDebug().noquote() << makeXmlPretty(text);
+		break;
+	case QXmppLogger::WarningMessage:
+		qDebug().noquote() << "[client] [warn]" << text;
+		break;
+	default:
+		break;
+	}
 }
 
 QString LogHandler::makeXmlPretty(QString xmlIn)
