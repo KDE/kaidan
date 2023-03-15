@@ -5,93 +5,151 @@
 add_executable(${PROJECT_NAME} WIN32)
 
 target_sources(${PROJECT_NAME} PRIVATE
-	main.cpp
-	Kaidan.cpp
-	ClientWorker.cpp
-	AvatarFileStorage.cpp
-	Database.cpp
-	DatabaseComponent.cpp
-	RosterItem.cpp
-	RosterItemWatcher.cpp
-	RosterModel.cpp
-	RosterFilterProxyModel.cpp
-	RosterDb.cpp
-	RosterManager.cpp
-	RegistrationManager.cpp
-	Message.cpp
-	Message.h
-	MessageModel.cpp
-	MessageDb.cpp
-	MessageHandler.cpp
-	Notifications.cpp
-	PresenceCache.cpp
-	UserDevicesModel.cpp
-	DiscoveryManager.cpp
-	VCardManager.cpp
-	VCardModel.cpp
-	LogHandler.cpp
-	StatusBar.cpp
-	EmojiModel.cpp
-	FileProgressCache.cpp
-	ServerFeaturesCache.cpp
-	QmlUtils.cpp
-	SqlUtils.cpp
-	TrustDb.cpp
-	OmemoDb.cpp
-	VersionManager.cpp
-	QrCodeDecoder.cpp
-	QrCodeGenerator.cpp
-	QrCodeScannerFilter.cpp
-	QrCodeVideoFrame.cpp
-	CameraModel.cpp
-	AudioDeviceModel.cpp
-	MediaSettings.cpp
-	CameraImageCapture.cpp
-	MediaUtils.cpp
-	MediaRecorder.cpp
-	CredentialsGenerator.cpp
-	CredentialsValidator.cpp
-	BitsOfBinaryImageProvider.cpp
-	DataFormModel.cpp
-	RegistrationDataFormFilterModel.cpp
-	RegistrationDataFormModel.cpp
-	ProviderListModel.cpp
-	ProviderListItem.cpp
-	Settings.cpp
+	AbstractNotifier.h
 	AccountManager.cpp
-	VCardCache.cpp
+	AccountManager.h
+	Algorithms.h
 	AtmManager.cpp
-	OmemoManager.cpp
-	RecentPicturesModel.cpp
-	NotificationsMutedWatcher.cpp
-	MessageComposition.cpp
-	MessageComposition.h
+	AtmManager.h
+	AudioDeviceModel.cpp
+	AudioDeviceModel.h
+	AvatarFileStorage.cpp
+	AvatarFileStorage.h
+	BitsOfBinaryImageProvider.cpp
+	BitsOfBinaryImageProvider.h
+	CameraImageCapture.cpp
+	CameraImageCapture.h
+	CameraModel.cpp
+	CameraModel.h
+	ClientWorker.cpp
+	ClientWorker.h
+	CredentialsGenerator.cpp
+	CredentialsGenerator.h
+	CredentialsValidator.cpp
+	CredentialsValidator.h
+	DatabaseComponent.cpp
+	DatabaseComponent.h
+	Database.cpp
+	Database.h
+	DataFormModel.cpp
+	DataFormModel.h
+	DiscoveryManager.cpp
+	DiscoveryManager.h
+	EmojiModel.cpp
+	EmojiModel.h
+	Encryption.h
+	Enums.h
+	FileProgressCache.cpp
+	FileProgressCache.h
 	FileSharingController.cpp
 	FileSharingController.h
-
+	FutureUtils.h
+	Globals.h
+	GuiStyle.h
+	# hsluv-c required for color generation
+	hsluv-c/hsluv.c
+	hsluv-c/hsluv.h
 	JsonUtils.h
+	Kaidan.cpp
+	Kaidan.h
+	LogHandler.cpp
+	LogHandler.h
+	main.cpp
+	MediaRecorder.cpp
+	MediaRecorder.h
+	MediaSettingModel.h
+	MediaSettings.cpp
+	MediaSettings.h
+	MediaUtils.cpp
+	MediaUtils.h
+	MessageComposition.cpp
+	MessageComposition.h
+	Message.cpp
+	MessageDb.cpp
+	MessageDb.h
+	Message.h
+	MessageHandler.cpp
+	MessageHandler.h
+	MessageModel.cpp
+	MessageModel.h
+	Notifications.cpp
+	Notifications.h
+	NotificationsMutedWatcher.cpp
+	NotificationsMutedWatcher.h
+	OmemoDb.cpp
+	OmemoDb.h
+	OmemoManager.cpp
+	OmemoManager.h
+	PresenceCache.cpp
+	PresenceCache.h
+	ProviderListItem.cpp
+	ProviderListItem.h
+	ProviderListModel.cpp
+	ProviderListModel.h
 	PublicGroupChat.cpp
 	PublicGroupChat.h
-	PublicGroupChatSearchManager.cpp
-	PublicGroupChatSearchManager.h
 	PublicGroupChatModel.cpp
 	PublicGroupChatModel.h
 	PublicGroupChatProxyModel.cpp
 	PublicGroupChatProxyModel.h
-
-	# needed to trigger moc generation / to be displayed in IDEs
-	Encryption.h
-	Enums.h
-	Globals.h
-	GuiStyle.h
-	Algorithms.h
-
+	PublicGroupChatSearchManager.cpp
+	PublicGroupChatSearchManager.h
+	QmlUtils.cpp
+	QmlUtils.h
+	QrCodeDecoder.cpp
+	QrCodeDecoder.h
+	QrCodeGenerator.cpp
+	QrCodeGenerator.h
+	QrCodeScannerFilter.cpp
+	QrCodeScannerFilter.h
+	QrCodeVideoFrame.cpp
+	QrCodeVideoFrame.h
 	# kaidan QXmpp extensions (need to be merged into QXmpp upstream)
 	qxmpp-exts/QXmppColorGenerator.cpp
+	qxmpp-exts/QXmppColorGenerator.h
 	qxmpp-exts/QXmppUri.cpp
-
-	# hsluv-c required for color generation
-	hsluv-c/hsluv.c
+	qxmpp-exts/QXmppUri.h
+	RecentPicturesModel.cpp
+	RecentPicturesModel.h
+	RegistrationDataFormFilterModel.cpp
+	RegistrationDataFormFilterModel.h
+	RegistrationDataFormModel.cpp
+	RegistrationDataFormModel.h
+	RegistrationManager.cpp
+	RegistrationManager.h
+	RosterDb.cpp
+	RosterDb.h
+	RosterFilterProxyModel.cpp
+	RosterFilterProxyModel.h
+	RosterItem.cpp
+	RosterItem.h
+	RosterItemWatcher.cpp
+	RosterItemWatcher.h
+	RosterManager.cpp
+	RosterManager.h
+	RosterModel.cpp
+	RosterModel.h
+	ServerFeaturesCache.cpp
+	ServerFeaturesCache.h
+	Settings.cpp
+	Settings.h
+	SqlUtils.cpp
+	SqlUtils.h
+	static_plugins.h
+	StatusBar.cpp
+	StatusBar.h
+	TrustDb.cpp
+	TrustDb.h
+	UserDevicesModel.cpp
+	UserDevicesModel.h
+	VCardCache.cpp
+	VCardCache.h
+	VCardManager.cpp
+	VCardManager.h
+	VCardModel.cpp
+	VCardModel.h
+	VersionManager.cpp
+	VersionManager.h
 
 	${CMAKE_SOURCE_DIR}/data/data.qrc
 	${CMAKE_SOURCE_DIR}/misc/misc.qrc
@@ -100,7 +158,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 if(NOT ANDROID AND NOT IOS)
 	target_sources(${PROJECT_NAME} PRIVATE
 		singleapp/singleapplication.cpp
+		singleapp/singleapplication.h
 		singleapp/singleapplication_p.cpp
+		singleapp/singleapplication_p.h
 	)
 endif()
 
