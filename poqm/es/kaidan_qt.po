@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-24 14:25+0100\n"
+"PO-Revision-Date: 2023-03-14 13:38+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/ClientWorker.cpp:301
 #, qt-format
@@ -266,7 +266,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marcar como leído"
 
-#: src/OmemoManager.cpp:120
+#: src/OmemoManager.cpp:122
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
@@ -531,9 +531,6 @@ msgid "Take a picture using your camera"
 msgstr "Hacer una foto usando la cámara"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Grabar vídeo"
@@ -544,25 +541,19 @@ msgid "Record a video using your camera"
 msgstr "Grabar un vídeo usando la cámara"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "Enviar archivos"
+msgstr "Compartir archivos"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
-msgstr ""
+msgstr "Compartir archivos de su dispositivo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr "Enviar ubicación"
+msgstr "Compartir ubicación"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -784,12 +775,10 @@ msgid "Rename"
 msgstr "Cambiar nombre"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public group chat (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
-msgstr "Buscar chat de grupo público (%1)"
+msgstr "Buscar grupos públicos (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
@@ -802,20 +791,14 @@ msgid "Loading…"
 msgstr "Cargando..."
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr "Enviar archivos"
+msgstr "Compartir archivos"
 
 #: src/qml/elements/SendMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr "Escoger archivo"
+msgstr "Escoger archivos"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -1339,12 +1322,9 @@ msgid "Add new contact"
 msgstr "Añadir nuevo contacto"
 
 #: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public group chat"
 msgctxt "RosterPage|"
 msgid "Search public groups"
-msgstr "Buscar chat de grupo público"
+msgstr "Buscar grupos públicos"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1805,20 +1785,14 @@ msgid "Settings"
 msgstr "Preferencias"
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "SettingsContent|"
 msgid "Account"
-msgstr "Preferencias de la cuenta"
+msgstr "Cuenta"
 
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "View profile"
 msgctxt "SettingsContent|"
 msgid "Edit your profile"
-msgstr "Ver perfil"
+msgstr "Editar su perfil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1826,12 +1800,9 @@ msgid "Change password"
 msgstr "Cambiar la contraseña"
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
 msgid "Change your account's password"
-msgstr "Cambia las preferencias de su cuenta"
+msgstr "Cambiar la contraseña de su cuenta"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1859,15 +1830,10 @@ msgid "Account security"
 msgstr "Seguridad de la cuenta"
 
 #: src/qml/settings/SettingsContent.qml:74
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid ""
-#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
-"Configurar si este dispositivo se puede usar para iniciar sesión en otro "
-"dispositivo"
+"Configurar si este dispositivo se puede usar para cambiar a otro dispositivo"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
@@ -1885,12 +1851,9 @@ msgid "Delete account"
 msgstr "Borrar la cuenta"
 
 #: src/qml/settings/SettingsContent.qml:86
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
 msgid "Delete account from server"
-msgstr "Borrar la cuenta en el servidor"
+msgstr "Borrar la cuenta del servidor"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"

@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-02-24 14:49+0100\n"
+"PO-Revision-Date: 2023-03-14 10:06+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -276,7 +276,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marca com a llegit"
 
-#: src/OmemoManager.cpp:120
+#: src/OmemoManager.cpp:122
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
@@ -541,9 +541,6 @@ msgid "Take a picture using your camera"
 msgstr "Pren una fotografia utilitzant la càmera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Grava un vídeo"
@@ -554,25 +551,19 @@ msgid "Record a video using your camera"
 msgstr "Grava un vídeo utilitzant la càmera"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "Envia fitxers"
+msgstr "Compartix fitxers"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
-msgstr ""
+msgstr "Compartix fitxers des del vostre dispositiu"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr "Envia la ubicació"
+msgstr "Compartix la ubicació"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -794,12 +785,10 @@ msgid "Rename"
 msgstr "Canvia el nom"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public group chat (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
-msgstr "Busca un xat de grup públic (%1)"
+msgstr "Busca grups públics (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
@@ -812,20 +801,14 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr "Envia fitxers"
+msgstr "Compartix fitxers"
 
 #: src/qml/elements/SendMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr "Seleccioneu un fitxer"
+msgstr "Seleccioneu els fitxers"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -1354,12 +1337,9 @@ msgid "Add new contact"
 msgstr "Afig un contacte nou"
 
 #: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public group chat"
 msgctxt "RosterPage|"
 msgid "Search public groups"
-msgstr "Busca un xat de grup públic ()"
+msgstr "Busca grups públics"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1820,21 +1800,14 @@ msgid "Settings"
 msgstr "Configuració"
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "SettingsContent|"
 msgid "Account"
-msgstr "Configureu el compte"
+msgstr "Compte"
 
-# Per a visualitzar el perfil d'un usuari
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "View profile"
 msgctxt "SettingsContent|"
 msgid "Edit your profile"
-msgstr "Visualitza el perfil"
+msgstr "Editeu el vostre perfil"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1842,12 +1815,9 @@ msgid "Change password"
 msgstr "Canvia la contrasenya"
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
 msgid "Change your account's password"
-msgstr "Canvia la configuració del vostre compte."
+msgstr "Canvieu la contrasenya del vostre compte"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1875,15 +1845,11 @@ msgid "Account security"
 msgstr "Seguretat del compte"
 
 #: src/qml/settings/SettingsContent.qml:74
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid ""
-#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
-"Configura si este dispositiu es pot utilitzar per a iniciar la sessió en un "
-"altre dispositiu"
+"Configura si este dispositiu es pot utilitzar per a canviar a un altre "
+"dispositiu"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
@@ -1901,9 +1867,6 @@ msgid "Delete account"
 msgstr "Suprimix el compte"
 
 #: src/qml/settings/SettingsContent.qml:86
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
 msgid "Delete account from server"
 msgstr "Suprimix el compte del servidor"
@@ -2180,31 +2143,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Record Video"
-#~ msgstr "Grava un vídeo"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Document"
-#~ msgstr "Document"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Attatch document from device"
-#~ msgstr "Adjunta un document des del dispositiu"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Location"
-#~ msgstr "Ubicació"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Select some files to send them"
-#~ msgstr "Seleccioneu alguns fitxers a enviar"
-
-#~ msgctxt "SettingsContent|"
-#~ msgid ""
-#~ "Changes your account's password. You will need to re-enter it on your "
-#~ "other devices."
-#~ msgstr ""
-#~ "Canvia la contrasenya del compte. Haureu de tornar a introduir-la en els "
-#~ "altres dispositius."

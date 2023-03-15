@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-02-24 11:11+0300\n"
+"PO-Revision-Date: 2023-03-14 14:51+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/ClientWorker.cpp:301
 #, qt-format
@@ -265,7 +265,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Okundu olarak imle"
 
-#: src/OmemoManager.cpp:120
+#: src/OmemoManager.cpp:122
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr "Güvenli konuşma olanaklı değil; çünkü OMEMO ayarlanamadı"
@@ -528,9 +528,6 @@ msgid "Take a picture using your camera"
 msgstr "Kameranızı kullanarak bir resim çekin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Video kaydet"
@@ -541,25 +538,19 @@ msgid "Record a video using your camera"
 msgstr "Kameranızı kullanarak bir video kaydedin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "Dosyalar gönder"
+msgstr "Dosyalar paylaş"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
-msgstr ""
+msgstr "Aygıtınızdan dosyalar paylaşın"
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr "Konum gönder"
+msgstr "Konum paylaş"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -781,12 +772,10 @@ msgid "Rename"
 msgstr "Yeniden adlandır"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public group chat (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
-msgstr "Genel grup sohbet ara (%1)"
+msgstr "Genel grupları ara (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
@@ -799,20 +788,14 @@ msgid "Loading…"
 msgstr "Yükleniyor…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr "Dosyalar gönder"
+msgstr "Dosyalar paylaş"
 
 #: src/qml/elements/SendMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr "Dosya seç"
+msgstr "Dosyalar seç"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -1329,12 +1312,9 @@ msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
 #: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public group chat"
 msgctxt "RosterPage|"
 msgid "Search public groups"
-msgstr "Genel grup sohbet ara"
+msgstr "Genel grupları ara"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1792,20 +1772,14 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "SettingsContent|"
 msgid "Account"
-msgstr "Hesap Ayarları"
+msgstr "Hesap"
 
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "View profile"
 msgctxt "SettingsContent|"
 msgid "Edit your profile"
-msgstr "Profili görüntüle"
+msgstr "Profilini düzenle"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1813,12 +1787,9 @@ msgid "Change password"
 msgstr "Parolayı değiştir"
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
 msgid "Change your account's password"
-msgstr "Hesabınızın ayarlarını değiştirir."
+msgstr "Hesabının parolasını değiştir"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1846,14 +1817,10 @@ msgid "Account security"
 msgstr "Hesap güvenliği"
 
 #: src/qml/settings/SettingsContent.qml:74
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid ""
-#| "Configure whether this device can be used to log in on another device"
 msgctxt "SettingsContent|"
 msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
-"Bu aygıtın başka bir aygıtta oturum açarken kullanılıp kullanılamayacağını "
+"Bu aygıtın başka bir aygıta geçmek için kullanılıp kullanılmayacağını "
 "yapılandır"
 
 #: src/qml/settings/SettingsContent.qml:79
@@ -1872,12 +1839,9 @@ msgid "Delete account"
 msgstr "Hesabı sil"
 
 #: src/qml/settings/SettingsContent.qml:86
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
 msgid "Delete account from server"
-msgstr "Hesabı sunucudan sil"
+msgstr "Sunucudan hesabı sil"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
