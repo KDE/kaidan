@@ -205,6 +205,20 @@ if(USE_KNOTIFICATIONS)
 	install(FILES misc/kaidan.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
 endif()
 
+# Dev editable important files, to be seen in the IDE tree view
+add_custom_target(Others
+    SOURCES
+		${CMAKE_SOURCE_DIR}/misc/im.kaidan.kaidan.desktop
+		${CMAKE_SOURCE_DIR}/misc/im.kaidan.kaidan.appdata.xml
+		${CMAKE_SOURCE_DIR}/misc/kaidan.notifyrc
+		${CMAKE_SOURCE_DIR}/misc/android/AndroidManifest.xml.in
+		${CMAKE_SOURCE_DIR}/misc/ios/Info.plist.in
+		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json.in
+		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/apparmor.json
+		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/kaidan.desktop
+		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json
+)
+
 #
 # Unit tests
 #
