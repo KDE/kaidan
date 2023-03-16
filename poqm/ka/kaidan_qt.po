@@ -522,9 +522,6 @@ msgid "Take a picture using your camera"
 msgstr "კამერით სურათის გადაღება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "ვიდეოს ჩაწერა"
@@ -535,12 +532,9 @@ msgid "Record a video using your camera"
 msgstr "კამერით ვიდეოს გადაღება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "ფაილების გაგზავნა"
+msgstr "ფაილების გაზიარება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
@@ -548,12 +542,9 @@ msgid "Share files from your device"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr "მდებარეობის გაგზავნა"
+msgstr "მდებარეობის გაზიარება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
 msgctxt "ChatPageSendingPane|"
@@ -773,12 +764,10 @@ msgid "Rename"
 msgstr "გადარქმევა"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public group chat (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
-msgstr "საჯარო ჯგუფური ჩატის მოძებნა (%1)"
+msgstr "საჯარო ჯგუფების ძებნა (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
 msgctxt "SearchPublicGroupChatSheet|"
@@ -791,20 +780,14 @@ msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr "ფაილების გაგზავნა"
+msgstr "ფაილების გაზიარება"
 
 #: src/qml/elements/SendMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr "ფაილის არჩევა"
+msgstr "აირჩიეთ ფაილები"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -1291,12 +1274,9 @@ msgid "Add new contact"
 msgstr "ახალი კონტაქტის დამატება"
 
 #: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public group chat"
 msgctxt "RosterPage|"
 msgid "Search public groups"
-msgstr "საჯარო ჯგუფური ჩატის მოძებნა"
+msgstr "საჯარო ჯგუფების ძებნა"
 
 #: src/qml/RosterPage.qml:85
 msgctxt "RosterPage|"
@@ -1728,20 +1708,14 @@ msgid "Settings"
 msgstr "მორგება"
 
 #: src/qml/settings/SettingsContent.qml:48
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "SettingsContent|"
 msgid "Account"
-msgstr "ანგარიშის მორგება"
+msgstr "ანგარიში"
 
 #: src/qml/settings/SettingsContent.qml:49
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "View profile"
 msgctxt "SettingsContent|"
 msgid "Edit your profile"
-msgstr "პროფილის ნახვა"
+msgstr "პროფილის ჩასწორება"
 
 #: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
@@ -1749,12 +1723,9 @@ msgid "Change password"
 msgstr "პაროლის შეცვლა"
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Changes your account's settings."
 msgctxt "SettingsContent|"
 msgid "Change your account's password"
-msgstr "შეცვალეთ თქვენი ანგარიშის პარამეტრები."
+msgstr "შეცვალეთ თქვენი ანგარიშის პაროლი"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1802,12 +1773,9 @@ msgid "Delete account"
 msgstr "ანგარიშის წაშლა"
 
 #: src/qml/settings/SettingsContent.qml:86
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
 msgid "Delete account from server"
-msgstr "ანგარიშის წაშლა სერვერიდან"
+msgstr "ანგარიშის სერვერიდან წაშლა"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
