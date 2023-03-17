@@ -41,12 +41,14 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-Kirigami.Page {
+SettingsPageBase {
 	id: rootView
+
+	implicitHeight: 600
+	implicitWidth: content.implicitWidth
 
 	title: qsTr("Change avatar")
 	topPadding: 0
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
 	property string imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
 
@@ -84,8 +86,8 @@ Kirigami.Page {
 	ColumnLayout {
 		id: content
 		visible: !busyIndicator.visible
-		anchors.fill: parent
 		spacing: 0
+		anchors.fill: parent
 
 		KQuickImageEditor.ImageItem {
 			id: editImage

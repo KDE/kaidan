@@ -37,16 +37,12 @@ import org.kde.kirigami 2.12 as Kirigami
 import im.kaidan.kaidan 1.0
 import "../elements"
 
-Kirigami.Page {
+SettingsPageBase {
 	id: root
 	title: qsTr("Account settings")
 
-	topPadding: 0
-	rightPadding: 0
-	bottomPadding: 0
-	leftPadding: 0
-
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+	implicitHeight: content.implicitHeight
+	implicitWidth: content.implicitWidth
 
 	readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chatSupport
 	readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).groupChatSupport
@@ -68,320 +64,312 @@ Kirigami.Page {
 		id: providerListModel
 	}
 
-	Controls.ScrollView {
-		anchors.fill: parent
-		clip: true
-		contentWidth: root.width
-		contentHeight: content.height
+	ColumnLayout {
+		id: content
 
-		ColumnLayout {
-			id: content
-			x: 20
-			y: 5
-			width: root.width - 40
+		anchors.centerIn: parent
 
-			Item {
-				Layout.preferredHeight: 10
+		Item {
+			Layout.preferredHeight: 10
+		}
+
+		RowLayout {
+			Layout.alignment: Qt.AlignTop
+			Layout.maximumWidth: largeButtonWidth
+			spacing: 20
+
+			Avatar {
+				Layout.preferredHeight: Kirigami.Units.gridUnit * 10
+				Layout.preferredWidth: Kirigami.Units.gridUnit * 10
+				jid: root.jid
+				name: root.displayName
+
+				MouseArea {
+					anchors.fill: parent
+					hoverEnabled: true
+					cursorShape: Qt.PointingHandCursor
+
+					onClicked: {
+						stack.push("ChangeAvatar.qml")
+					}
+
+					onEntered: {
+						avatarChangeHoverImage.visible = true
+						avatarHoverFadeInAnimation.start()
+					}
+
+					onExited: {
+						avatarHoverFadeOutAnimation.start()
+					}
+
+					Kirigami.Icon {
+						id: avatarChangeHoverImage
+						source: "camera-photo-symbolic"
+						color: Kirigami.Theme.backgroundColor
+						width: parent.width / 2
+						height: width
+
+						anchors.centerIn: parent
+
+						opacity: 0
+						visible: false
+
+						NumberAnimation on opacity {
+							id: avatarHoverFadeInAnimation
+							from: 0
+							to: 1
+							duration: 250
+						}
+
+						NumberAnimation on opacity {
+							id: avatarHoverFadeOutAnimation
+							from: 1
+							to: 0
+							duration: 250
+						}
+					}
+				}
 			}
 
-			RowLayout {
-				Layout.alignment: Qt.AlignTop
-				Layout.maximumWidth: largeButtonWidth
-				spacing: 20
+			ColumnLayout {
+				Kirigami.Heading {
+					id: displayNameHeader
 
-				Avatar {
-					Layout.preferredHeight: Kirigami.Units.gridUnit * 10
-					Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-					jid: root.jid
-					name: root.displayName
+					Layout.fillWidth: true
+					text: root.displayName
+					textFormat: Text.PlainText
+					maximumLineCount: 2
+					elide: Text.ElideRight
 
 					MouseArea {
 						anchors.fill: parent
-						hoverEnabled: true
+
 						cursorShape: Qt.PointingHandCursor
 
 						onClicked: {
-							stack.push("ChangeAvatar.qml")
-						}
-
-						onEntered: {
-							avatarChangeHoverImage.visible = true
-							avatarHoverFadeInAnimation.start()
-						}
-
-						onExited: {
-							avatarHoverFadeOutAnimation.start()
+							displayNameTextField.visible = true
+							displayNameTextField.forceActiveFocus()
 						}
 
 						Kirigami.Icon {
-							id: avatarChangeHoverImage
-							source: "camera-photo-symbolic"
-							color: Kirigami.Theme.backgroundColor
-							width: parent.width / 2
+							source: "edit-symbolic"
+							width: 15
 							height: width
 
-							anchors.centerIn: parent
-
-							opacity: 0
-							visible: false
-
-							NumberAnimation on opacity {
-								id: avatarHoverFadeInAnimation
-								from: 0
-								to: 1
-								duration: 250
-							}
-
-							NumberAnimation on opacity {
-								id: avatarHoverFadeOutAnimation
-								from: 1
-								to: 0
-								duration: 250
-							}
+							anchors.right: parent.right
+							anchors.leftMargin: 10
 						}
 					}
+
+					// TODO how to get update of current vCard using Entity Capabilities?
+					onTextChanged: Kaidan.client.vCardManager.vCardRequested(root.jid)
 				}
 
-				ColumnLayout {
-					Kirigami.Heading {
-						id: displayNameHeader
+				Controls.TextField {
+					id: displayNameTextField
+					text: displayNameHeader.text
 
-						Layout.fillWidth: true
-						text: root.displayName
-						textFormat: Text.PlainText
-						maximumLineCount: 2
-						elide: Text.ElideRight
+					Layout.bottomMargin: Kirigami.Settings.isMobile ? -10 : -6
 
-						MouseArea {
-							anchors.fill: parent
+					visible: false
+					z: 1
 
-							cursorShape: Qt.PointingHandCursor
-
-							onClicked: {
-								displayNameTextField.visible = true
-								displayNameTextField.forceActiveFocus()
-							}
-
-							Kirigami.Icon {
-								source: "edit-symbolic"
-								width: 15
-								height: width
-
-								anchors.right: parent.right
-								anchors.leftMargin: 10
-							}
+					onAccepted: {
+						if (text !== root.displayName) {
+							Kaidan.client.vCardManager.changeNicknameRequested(text)
 						}
 
-						// TODO how to get update of current vCard using Entity Capabilities?
-						onTextChanged: Kaidan.client.vCardManager.vCardRequested(root.jid)
+						visible = false
 					}
 
-					Controls.TextField {
-						id: displayNameTextField
-						text: displayNameHeader.text
+					onVisibleChanged: displayNameHeader.visible = !visible
+				}
 
-						Layout.bottomMargin: Kirigami.Settings.isMobile ? -10 : -6
+				Controls.Label {
+					text: root.jid
+					color: Kirigami.Theme.disabledTextColor
+					textFormat: Text.PlainText
+				}
 
-						visible: false
-						z: 1
+				RowLayout {
+					spacing: Kirigami.Units.smallSpacing
 
-						onAccepted: {
-							if (text !== root.displayName) {
-								Kaidan.client.vCardManager.changeNicknameRequested(text)
-							}
-
-							visible = false
-						}
-
-						onVisibleChanged: displayNameHeader.visible = !visible
+					Kirigami.Icon {
+						source: userPresence.availabilityIcon
+						width: 26
+						height: 26
 					}
 
 					Controls.Label {
-						text: root.jid
-						color: Kirigami.Theme.disabledTextColor
-						textFormat: Text.PlainText
-					}
-
-					RowLayout {
-						spacing: Kirigami.Units.smallSpacing
-
-						Kirigami.Icon {
-							source: userPresence.availabilityIcon
-							width: 26
-							height: 26
-						}
-
-						Controls.Label {
-							Layout.alignment: Qt.AlignVCenter
-							text: userPresence.availabilityText
-							color: userPresence.availabilityColor
-							textFormat: Text.PlainText
-						}
-
-						Item {
-							Layout.fillWidth: true
-						}
-					}
-				}
-			}
-
-			Item {
-				height: Kirigami.Units.largeSpacing
-			}
-
-			Kirigami.Heading {
-				level: 2
-				text: qsTr("Profile")
-			}
-
-			Repeater {
-				model: VCardModel {
-					jid: root.jid
-				}
-
-				delegate: ColumnLayout {
-					Layout.fillWidth: true
-
-					Controls.Label {
-						text: Utils.formatMessage(model.value)
-						onLinkActivated: Qt.openUrlExternally(link)
-						textFormat: Text.StyledText
-					}
-
-					Controls.Label {
-						text: model.key
-						color: Kirigami.Theme.disabledTextColor
+						Layout.alignment: Qt.AlignVCenter
+						text: userPresence.availabilityText
+						color: userPresence.availabilityColor
 						textFormat: Text.PlainText
 					}
 
 					Item {
-						height: 3
+						Layout.fillWidth: true
 					}
 				}
 			}
+		}
 
-			Item {
-				height: Kirigami.Units.largeSpacing
+		Item {
+			height: Kirigami.Units.largeSpacing
+		}
+
+		Kirigami.Heading {
+			level: 2
+			text: qsTr("Profile")
+		}
+
+		Repeater {
+			model: VCardModel {
+				jid: root.jid
 			}
 
-			Kirigami.Heading {
-				level: 2
-				text: qsTr("Online devices")
-			}
+			delegate: ColumnLayout {
+				Layout.fillWidth: true
 
-			UserDeviceList {
-				userJid: root.jid
-			}
-
-			Item {
-				height: Kirigami.Units.largeSpacing
-			}
-
-			Kirigami.Heading {
-				level: 2
-				text: qsTr("Provider")
-			}
-
-			ColumnLayout {
-				Layout.maximumWidth: largeButtonWidth
-
-				readonly property string providerUrl: {
-					var domain = root.jid.split('@')[1]
-					var provider = providerListModel.provider(domain)
-					var website = providerListModel.chooseWebsite(provider.websites)
-
-					return website ? website : "https://" + domain
+				Controls.Label {
+					text: Utils.formatMessage(model.value)
+					onLinkActivated: Qt.openUrlExternally(link)
+					textFormat: Text.StyledText
 				}
 
-				// TODO maybe add uploadLimits etc.
-
-				CenteredAdaptiveHighlightedButton {
-					text: qsTr("Visit website")
-					icon.name: "web-browser-symbolic"
-
-					onClicked: {
-						Qt.openUrlExternally(parent.providerUrl)
-					}
-				}
-
-				CenteredAdaptiveButton {
-					text: qsTr("Copy URL")
-					icon.name: "edit-copy-symbolic"
-
-					onClicked: {
-						Utils.copyToClipboard(parent.providerUrl)
-						passiveNotification(qsTr("URL successfully copied to clipboard."))
-					}
+				Controls.Label {
+					text: model.key
+					color: Kirigami.Theme.disabledTextColor
+					textFormat: Text.PlainText
 				}
 
 				Item {
-					height: Kirigami.Units.largeSpacing
+					height: 3
 				}
+			}
+		}
 
-				Kirigami.Heading {
-					level: 2
-					text: qsTr("Support")
-					visible: chatSupportButton.visible || groupChatSupportButton.visible
-				}
+		Item {
+			height: Kirigami.Units.largeSpacing
+		}
 
-				RosterAddContactSheet {
-					id: addContactSheet
-				}
+		Kirigami.Heading {
+			level: 2
+			text: qsTr("Online devices")
+		}
 
-				ChatSupportSheet {
-					id: chatSupportSheet
-				}
+		UserDeviceList {
+			userJid: root.jid
+		}
 
-				CenteredAdaptiveHighlightedButton {
-					id: chatSupportButton
-					text: qsTr("Support")
-					icon.name: "chat-symbolic"
-					visible: chatSupportList.length > 0
+		Item {
+			height: Kirigami.Units.largeSpacing
+		}
 
-					onClicked: {
-						if (chatSupportList.length === 1) {
-							if (!addContactSheet.sheetOpen) {
-								addContactSheet.jid = chatSupportList[0]
-								addContactSheet.nickname = chatSupportButton.text
-								addContactSheet.open()
-							}
-						} else {
-							chatSupportSheet.isGroupChatSupportSheet = false
-							chatSupportSheet.chatSupportList = chatSupportList
+		Kirigami.Heading {
+			level: 2
+			text: qsTr("Provider")
+		}
 
-							if (!chatSupportSheet.sheetOpen) {
-								chatSupportSheet.open()
-							}
-						}
-					}
-				}
+		ColumnLayout {
+			Layout.maximumWidth: largeButtonWidth
 
-				CenteredAdaptiveButton {
-					id: groupChatSupportButton
-					text: qsTr("Support Group")
-					icon.name: "chat-symbolic"
-					visible: groupChatSupportList.length > 0
+			readonly property string providerUrl: {
+				var domain = root.jid.split('@')[1]
+				var provider = providerListModel.provider(domain)
+				var website = providerListModel.chooseWebsite(provider.websites)
 
-					onClicked: {
-						if (groupChatSupportList.length === 1) {
-							Qt.openUrlExternally("xmpp:" + groupChatSupportList[0] + "?join")
-						} else {
-							chatSupportSheet.isGroupChatSupportSheet = true
-							chatSupportSheet.chatSupportList = groupChatSupportList
+				return website ? website : "https://" + domain
+			}
 
-							if (!chatSupportSheet.sheetOpen) {
-								chatSupportSheet.open()
-							}
-						}
-					}
+			// TODO maybe add uploadLimits etc.
+
+			CenteredAdaptiveHighlightedButton {
+				text: qsTr("Visit website")
+				icon.name: "web-browser-symbolic"
+
+				onClicked: {
+					Qt.openUrlExternally(parent.providerUrl)
 				}
 			}
 
-			// placeholder for left, right and main action
+			CenteredAdaptiveButton {
+				text: qsTr("Copy URL")
+				icon.name: "edit-copy-symbolic"
+
+				onClicked: {
+					Utils.copyToClipboard(parent.providerUrl)
+					passiveNotification(qsTr("URL successfully copied to clipboard."))
+				}
+			}
+
 			Item {
-				visible: Kirigami.Settings.isMobile
-				Layout.preferredHeight: 60
+				height: Kirigami.Units.largeSpacing
 			}
+
+			Kirigami.Heading {
+				level: 2
+				text: qsTr("Support")
+				visible: chatSupportButton.visible || groupChatSupportButton.visible
+			}
+
+			RosterAddContactSheet {
+				id: addContactSheet
+			}
+
+			ChatSupportSheet {
+				id: chatSupportSheet
+			}
+
+			CenteredAdaptiveHighlightedButton {
+				id: chatSupportButton
+				text: qsTr("Support")
+				icon.name: "chat-symbolic"
+				visible: chatSupportList.length > 0
+
+				onClicked: {
+					if (chatSupportList.length === 1) {
+						if (!addContactSheet.sheetOpen) {
+							addContactSheet.jid = chatSupportList[0]
+							addContactSheet.nickname = chatSupportButton.text
+							addContactSheet.open()
+						}
+					} else {
+						chatSupportSheet.isGroupChatSupportSheet = false
+						chatSupportSheet.chatSupportList = chatSupportList
+
+						if (!chatSupportSheet.sheetOpen) {
+							chatSupportSheet.open()
+						}
+					}
+				}
+			}
+
+			CenteredAdaptiveButton {
+				id: groupChatSupportButton
+				text: qsTr("Support Group")
+				icon.name: "chat-symbolic"
+				visible: groupChatSupportList.length > 0
+
+				onClicked: {
+					if (groupChatSupportList.length === 1) {
+						Qt.openUrlExternally("xmpp:" + groupChatSupportList[0] + "?join")
+					} else {
+						chatSupportSheet.isGroupChatSupportSheet = true
+						chatSupportSheet.chatSupportList = groupChatSupportList
+
+						if (!chatSupportSheet.sheetOpen) {
+							chatSupportSheet.open()
+						}
+					}
+				}
+			}
+		}
+
+		// placeholder for left, right and main action
+		Item {
+			visible: Kirigami.Settings.isMobile
+			Layout.preferredHeight: 60
 		}
 	}
 }
