@@ -4,7 +4,7 @@ stages:
 
 clazy:
   stage: test
-  image: kaidan/debian-unstable
+  image: ghcr.io/kaidanim/debian
   variables:
     CMAKE_CXX_COMPILER: clazy
   script: utils/travis/build.sh
@@ -12,23 +12,22 @@ clazy:
 
 qmllint:
   stage: test
-  image: kaidan/debian-unstable
+  image: ghcr.io/kaidanim/debian
   script: qmllint $(find . -name "*.qml")
   variables:
     QT_SELECT: 5
 
 xmllint:
   stage: test
-  image: kaidan/debian-unstable
+  image: ghcr.io/kaidanim/debian
   script:
     - apt update && apt install -y libxml2-utils
     - xmllint --noout $(find . -type f -name *.xml* -or -name *.xml.in)
 
 build:
   stage: test
-  image: kaidan/debian-unstable
+  image: ghcr.io/kaidanim/debian
   script: utils/travis/build.sh
-  allow_failure: true
 
 flatpak:
   variables:
