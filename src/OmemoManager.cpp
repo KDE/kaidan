@@ -218,9 +218,9 @@ QFuture<void> OmemoManager::unsubscribeFromDeviceLists()
 	return interface.future();
 }
 
-void OmemoManager::resetOwnDevice()
+QXmppTask<bool> OmemoManager::resetOwnDevice()
 {
-	m_manager->resetOwnDevice();
+	return m_manager->resetOwnDevice();
 }
 
 void OmemoManager::enableSessionBuildingForNewDevices()

@@ -32,6 +32,7 @@
 
 #include <QFuture>
 
+#include <QXmppTask.h>
 #include <QXmppTrustLevel.h>
 
 class Database;
@@ -64,7 +65,7 @@ public:
 	QFuture<void> requestDeviceLists(const QList<QString> &jids);
 	QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
 	QFuture<void> unsubscribeFromDeviceLists();
-	void resetOwnDevice();
+	QXmppTask<bool> resetOwnDevice();
 
 	QFuture<void> initializeChat(const QString &accountJid, const QString &chatJid);
 	void removeContactDevices(const QString &jid);

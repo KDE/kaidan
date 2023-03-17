@@ -283,11 +283,12 @@ void ClientWorker::deleteAccountFromClient()
 	// Otherwise, disconnect first and delete the account afterwards.
 	if (!m_client->isAuthenticated()) {
 		AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
-		m_omemoManager->resetOwnDevice();
 		m_isAccountToBeDeletedFromClient = false;
 	} else {
-		m_isAccountToBeDeletedFromClient = true;
-		logOut();
+		m_omemoManager->resetOwnDevice().then(this, [this](auto &&) {
+			m_isAccountToBeDeletedFromClient = true;
+			logOut();
+		});
 	}
 }
 
