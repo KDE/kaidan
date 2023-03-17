@@ -48,6 +48,7 @@ Kirigami.OverlaySheet {
 	parent: applicationWindow().overlay
 
 	header: RowLayout {
+		implicitWidth: 500
 		UserPresenceWatcher {
 			id: userPresence
 			jid: root.jid
@@ -57,7 +58,6 @@ Kirigami.OverlaySheet {
 			jid: AccountManager.jid
 		}
 
-		Layout.preferredWidth: 300
 
 		id: headerLayout
 		Avatar {
@@ -86,6 +86,8 @@ Kirigami.OverlaySheet {
 		}
 
 		ColumnLayout {
+			Layout.maximumWidth: 500
+
 			Layout.alignment: Qt.AlignLeft
 			Kirigami.Heading {
 				text: chatItem.item.displayName
@@ -147,6 +149,7 @@ Kirigami.OverlaySheet {
 	}
 
 	contentItem: Controls.Control {
+		implicitWidth: 500
 		id: control
 		leftPadding: 0
 		rightPadding: 0
