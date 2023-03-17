@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 # SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 #
@@ -49,7 +49,7 @@ render_svg() {
     echo "Created ${output_file_path}"
 }
 
-mkdir -p "${OUTPUT_DIRECTORY}" && \
-render_group_chat_avatar && \
-render_mastodon_avatar && \
+mkdir -p "${OUTPUT_DIRECTORY}"
+render_group_chat_avatar
+render_mastodon_avatar
 render_mastodon_header
