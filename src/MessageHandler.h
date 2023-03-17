@@ -96,7 +96,6 @@ signals:
 
 private slots:
 	void handleConnected();
-	void handleDisonnected();
 
 	/**
 	 * Handles pending messages found in the database.
@@ -131,6 +130,4 @@ private:
 	bool m_lastMessageLoaded = false;
 
 	uint m_runningInitialMessageQueries = 0;
-	// query id of the MAM query for catching up all missing messages
-	QString m_runnningCatchUpQueryId;
 };

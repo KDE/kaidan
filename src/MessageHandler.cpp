@@ -82,7 +82,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	        this, &MessageHandler::sendChatState);
 
 	connect(client, &QXmppClient::connected, this, &MessageHandler::handleConnected);
-	connect(client, &QXmppClient::disconnected, this, &MessageHandler::handleDisonnected);
 	connect(client->findExtension<QXmppRosterManager>(), &QXmppRosterManager::rosterReceived,
 	        this, &MessageHandler::handleRosterReceived);
 	connect(MessageDb::instance(), &MessageDb::lastMessageStampFetched,
@@ -293,11 +292,6 @@ void MessageHandler::handleConnected()
 	if (m_lastMessageLoaded && !m_lastMessageStamp.isNull()) {
 		retrieveCatchUpMessages(m_lastMessageStamp);
 	}
-}
-
-void MessageHandler::handleDisonnected()
-{
-	m_runnningCatchUpQueryId.clear();
 }
 
 void MessageHandler::sendPendingMessage(Message message)
