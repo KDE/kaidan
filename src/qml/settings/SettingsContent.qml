@@ -59,7 +59,7 @@ ColumnLayout {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Account")
 				description: qsTr("Edit your profile")
-				onClicked: stack.push("AccountSettings.qml")
+				onClicked: stack.push("qrc:/qml/settings/AccountSettings.qml")
 				icon.name: "avatar-default-symbolic"
 			}
 
