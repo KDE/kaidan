@@ -44,7 +44,8 @@ Kirigami.OverlaySheet {
 	required property RosterItemWatcher chatItem
 	Kirigami.Theme.inherit: false
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
-
+	leftPadding: 0
+	rightPadding: 0
 	parent: applicationWindow().overlay
 
 	header: RowLayout {

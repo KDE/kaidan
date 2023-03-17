@@ -41,7 +41,8 @@ Kirigami.OverlaySheet {
 	id: settingsSheet
 	Kirigami.Theme.inherit: false
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
-
+	leftPadding: 0
+	rightPadding: 0
 	header: RowLayout {
 		anchors.fill: parent
 		spacing: 1
