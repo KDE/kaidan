@@ -33,6 +33,7 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtQml 2.14
 import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 import "../elements"
@@ -66,307 +67,336 @@ SettingsPageBase {
 
 	ColumnLayout {
 		id: content
-
-		anchors.centerIn: parent
-
+		anchors.fill: parent
+		Layout.preferredWidth: 600
 		Item {
 			Layout.preferredHeight: 10
 		}
+		MobileForm.FormCard {
+			Layout.fillWidth: true
 
-		RowLayout {
-			Layout.alignment: Qt.AlignTop
-			Layout.maximumWidth: largeButtonWidth
-			spacing: 20
+			contentItem: ColumnLayout {
+				spacing: 0
 
-			Avatar {
-				Layout.preferredHeight: Kirigami.Units.gridUnit * 10
-				Layout.preferredWidth: Kirigami.Units.gridUnit * 10
-				jid: root.jid
-				name: root.displayName
+				MobileForm.AbstractFormDelegate {
+					background: Item{}
+					Layout.fillWidth: true
+					contentItem: RowLayout {
+						Layout.alignment: Qt.AlignTop
+						Layout.maximumWidth: largeButtonWidth
+						spacing: 20
 
-				MouseArea {
-					anchors.fill: parent
-					hoverEnabled: true
-					cursorShape: Qt.PointingHandCursor
+						Avatar {
+							MouseArea {
+								anchors.fill: parent
+								hoverEnabled: true
+								cursorShape: Qt.PointingHandCursor
+
+								onClicked: {
+									stack.push("ChangeAvatar.qml")
+								}
+
+								onEntered: {
+									avatarChangeHoverImage.visible = true
+									avatarHoverFadeInAnimation.start()
+								}
+
+								onExited: {
+									avatarHoverFadeOutAnimation.start()
+								}
+								Rectangle{
+									id: avatarChangeHoverImage
+
+									color: Kirigami.ColorUtils.linearInterpolation("black", "transparent", 0.5)
+									anchors.fill: parent
+									radius: parent.height/2
+									visible: false
+
+									NumberAnimation on opacity {
+										id: avatarHoverFadeInAnimation
+										from: 0
+										to: 1
+										duration: 250
+									}
+
+									NumberAnimation on opacity {
+										id: avatarHoverFadeOutAnimation
+										from: 1
+										to: 0
+										duration: 250
+									}
+									Kirigami.Icon {
+										source: "camera-photo-symbolic"
+										color: Kirigami.Theme.backgroundColor
+										width: parent.width / 2
+										height: width
+
+										anchors.centerIn: parent
+									}
+								}
+							}
+
+							Rectangle {
+								Rectangle {
+									color: userPresence.availabilityColor
+									radius: 50
+									height: 25
+									width: 25
+									x: (parent.width - width) / 2
+									y: (parent.height - height) / 2
+								}
+								color: Kirigami.Theme.backgroundColor
+								radius: 50
+								height: 35
+								width: 35
+								x: Kirigami.Units.gridUnit * 5
+								y: Kirigami.Units.gridUnit * 5
+								visible: userPresence.availability !== Presence.Offline
+							}
+							Layout.margins: 10
+							implicitHeight: Kirigami.Units.gridUnit * 7
+							implicitWidth: Kirigami.Units.gridUnit * 7
+							jid: root.jid
+							name: root.displayName
+						}
+
+
+						ColumnLayout {
+							RowLayout {
+								id: displayNameHeader
+								Layout.fillWidth: true
+								Kirigami.Heading {
+
+									Layout.fillWidth: true
+									text: root.displayName
+									textFormat: Text.PlainText
+									maximumLineCount: 2
+									elide: Text.ElideRight
+
+									// TODO how to get update of current vCard using Entity Capabilities?
+									onTextChanged: Kaidan.client.vCardManager.vCardRequested(root.jid)
+								}
+								Controls.ToolButton{
+									icon.name: "edit-symbolic"
+									onClicked: {
+										displayNameEditLayout.visible = true
+										displayNameTextField.forceActiveFocus()
+									}
+								}
+							}
+
+							RowLayout {
+								id: displayNameEditLayout
+								visible: false
+								onVisibleChanged: displayNameHeader.visible = !visible
+
+								Layout.fillWidth: true
+								Controls.TextField {
+									id: displayNameTextField
+									text: displayNameHeader.text
+									Layout.fillWidth: true
+
+									z: 1
+
+									onAccepted: {
+										if (text !== root.displayName) {
+											Kaidan.client.vCardManager.changeNicknameRequested(text)
+										}
+										parent.visible = false
+									}
+								}
+								Controls.ToolButton{
+									icon.name: "answer-correct"
+									onClicked: {
+										if (displayNameTextField.text !== root.displayName) {
+											Kaidan.client.vCardManager.changeNicknameRequested(displayNameTextField.text)
+										}
+										parent.visible = false
+									}
+								}
+							}
+
+							Controls.Label {
+								text: root.jid
+								color: Kirigami.Theme.disabledTextColor
+								textFormat: Text.PlainText
+							}
+						}
+					}
+				}
+			}
+		}
+
+		MobileForm.FormCard {
+			visible: infoRepeater.count !== 0
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				spacing: 0
+				MobileForm.FormCardHeader {
+					title: qsTr("Profile")
+				}
+				Repeater {
+					id: infoRepeater
+					model: VCardModel {
+						jid: root.jid
+					}
+
+					delegate: MobileForm.AbstractFormDelegate {
+						Layout.fillWidth: true
+						contentItem: ColumnLayout {
+							Controls.Label {
+								text: Utils.formatMessage(model.value)
+								onLinkActivated: Qt.openUrlExternally(link)
+								textFormat: Text.StyledText
+							}
+							Controls.Label {
+								text: model.key
+								color: Kirigami.Theme.disabledTextColor
+								textFormat: Text.PlainText
+								font: Kirigami.Theme.smallFont
+							}
+						}
+					}
+				}
+			}
+		}
+
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				spacing: 0
+				MobileForm.FormCardHeader {
+					title: qsTr("Online devices")
+				}
+
+				Repeater {
+					id: deviceRepeater
+					Layout.fillHeight: true
+
+					model: UserDevicesModel {
+						jid: root.jid
+					}
+					delegate: MobileForm.AbstractFormDelegate {
+						Layout.fillWidth: true
+						contentItem: ColumnLayout {
+							Controls.Label {
+								text: {
+									if (model.name) {
+										if (model.version) {
+											return model.name + " v" + model.version
+										}
+										return model.name
+									}
+									return model.resource
+								}
+							}
+							Controls.Label {
+								color: Kirigami.Theme.disabledTextColor
+								text: model.os
+								font: Kirigami.Theme.smallFont
+							}
+						}
+					}
+				}
+
+			}
+		}
+
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				readonly property string providerUrl: {
+					var domain = root.jid.split('@')[1]
+					var provider = providerListModel.provider(domain)
+					var website = providerListModel.chooseWebsite(provider.websites)
+
+					return website ? website : "https://" + domain
+				}
+
+				spacing: 0
+				MobileForm.FormCardHeader {
+					title: qsTr("Provider")
+				}
+
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Visit website")
+					description: qsTr("Open the website of your provider in a browser")
+					onClicked: {
+						Qt.openUrlExternally(parent.providerUrl)
+					}
+					icon.name: "internet-services"
+				}
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Copy URL")
+					description: qsTr("Coppy the providers web address to the clipboard")
+					onClicked: {
+						Utils.copyToClipboard(parent.providerUrl)
+						passiveNotification(qsTr("URL copied to clipboard."))
+					}
+					icon.name: "edit-copy"
+				}
+				MobileForm.FormCardHeader {
+					title: qsTr("Support")
+					visible: chatSupportButton.visible || groupChatSupportButton.visible
+
+				}
+				RosterAddContactSheet {
+					id: addContactSheet
+				}
+
+				ChatSupportSheet {
+					id: chatSupportSheet
+				}
+				MobileForm.FormButtonDelegate {
+					id: chatSupportButton
+					text: qsTr("Support")
+					icon.name: "help-contents"
+					description: qsTr("Start chat with your provider's support contact")
+
+					visible: chatSupportList.length > 0
+					onClicked: {
+						if (chatSupportList.length === 1) {
+							if (!addContactSheet.sheetOpen) {
+								addContactSheet.jid = chatSupportList[0]
+								addContactSheet.nickname = chatSupportButton.text
+								addContactSheet.open()
+							}
+						} else {
+							chatSupportSheet.isGroupChatSupportSheet = false
+							chatSupportSheet.chatSupportList = chatSupportList
+
+							if (!chatSupportSheet.sheetOpen) {
+								chatSupportSheet.open()
+							}
+						}
+					}
+				}
+				MobileForm.FormButtonDelegate {
+					id: groupChatSupportButton
+					text: qsTr("Support Group")
+					icon.name: "group"
+					description: qsTr("Join your provider's support group")
+					visible: groupChatSupportList.length > 0
 
 					onClicked: {
-						stack.push("ChangeAvatar.qml")
-					}
+						if (groupChatSupportList.length === 1) {
+							Qt.openUrlExternally("xmpp:" + groupChatSupportList[0] + "?join")
+						} else {
+							chatSupportSheet.isGroupChatSupportSheet = true
+							chatSupportSheet.chatSupportList = groupChatSupportList
 
-					onEntered: {
-						avatarChangeHoverImage.visible = true
-						avatarHoverFadeInAnimation.start()
-					}
-
-					onExited: {
-						avatarHoverFadeOutAnimation.start()
-					}
-
-					Kirigami.Icon {
-						id: avatarChangeHoverImage
-						source: "camera-photo-symbolic"
-						color: Kirigami.Theme.backgroundColor
-						width: parent.width / 2
-						height: width
-
-						anchors.centerIn: parent
-
-						opacity: 0
-						visible: false
-
-						NumberAnimation on opacity {
-							id: avatarHoverFadeInAnimation
-							from: 0
-							to: 1
-							duration: 250
-						}
-
-						NumberAnimation on opacity {
-							id: avatarHoverFadeOutAnimation
-							from: 1
-							to: 0
-							duration: 250
-						}
-					}
-				}
-			}
-
-			ColumnLayout {
-				Kirigami.Heading {
-					id: displayNameHeader
-
-					Layout.fillWidth: true
-					text: root.displayName
-					textFormat: Text.PlainText
-					maximumLineCount: 2
-					elide: Text.ElideRight
-
-					MouseArea {
-						anchors.fill: parent
-
-						cursorShape: Qt.PointingHandCursor
-
-						onClicked: {
-							displayNameTextField.visible = true
-							displayNameTextField.forceActiveFocus()
-						}
-
-						Kirigami.Icon {
-							source: "edit-symbolic"
-							width: 15
-							height: width
-
-							anchors.right: parent.right
-							anchors.leftMargin: 10
-						}
-					}
-
-					// TODO how to get update of current vCard using Entity Capabilities?
-					onTextChanged: Kaidan.client.vCardManager.vCardRequested(root.jid)
-				}
-
-				Controls.TextField {
-					id: displayNameTextField
-					text: displayNameHeader.text
-
-					Layout.bottomMargin: Kirigami.Settings.isMobile ? -10 : -6
-
-					visible: false
-					z: 1
-
-					onAccepted: {
-						if (text !== root.displayName) {
-							Kaidan.client.vCardManager.changeNicknameRequested(text)
-						}
-
-						visible = false
-					}
-
-					onVisibleChanged: displayNameHeader.visible = !visible
-				}
-
-				Controls.Label {
-					text: root.jid
-					color: Kirigami.Theme.disabledTextColor
-					textFormat: Text.PlainText
-				}
-
-				RowLayout {
-					spacing: Kirigami.Units.smallSpacing
-
-					Kirigami.Icon {
-						source: userPresence.availabilityIcon
-						width: 26
-						height: 26
-					}
-
-					Controls.Label {
-						Layout.alignment: Qt.AlignVCenter
-						text: userPresence.availabilityText
-						color: userPresence.availabilityColor
-						textFormat: Text.PlainText
-					}
-
-					Item {
-						Layout.fillWidth: true
-					}
-				}
-			}
-		}
-
-		Item {
-			height: Kirigami.Units.largeSpacing
-		}
-
-		Kirigami.Heading {
-			level: 2
-			text: qsTr("Profile")
-		}
-
-		Repeater {
-			model: VCardModel {
-				jid: root.jid
-			}
-
-			delegate: ColumnLayout {
-				Layout.fillWidth: true
-
-				Controls.Label {
-					text: Utils.formatMessage(model.value)
-					onLinkActivated: Qt.openUrlExternally(link)
-					textFormat: Text.StyledText
-				}
-
-				Controls.Label {
-					text: model.key
-					color: Kirigami.Theme.disabledTextColor
-					textFormat: Text.PlainText
-				}
-
-				Item {
-					height: 3
-				}
-			}
-		}
-
-		Item {
-			height: Kirigami.Units.largeSpacing
-		}
-
-		Kirigami.Heading {
-			level: 2
-			text: qsTr("Online devices")
-		}
-
-		UserDeviceList {
-			userJid: root.jid
-		}
-
-		Item {
-			height: Kirigami.Units.largeSpacing
-		}
-
-		Kirigami.Heading {
-			level: 2
-			text: qsTr("Provider")
-		}
-
-		ColumnLayout {
-			Layout.maximumWidth: largeButtonWidth
-
-			readonly property string providerUrl: {
-				var domain = root.jid.split('@')[1]
-				var provider = providerListModel.provider(domain)
-				var website = providerListModel.chooseWebsite(provider.websites)
-
-				return website ? website : "https://" + domain
-			}
-
-			// TODO maybe add uploadLimits etc.
-
-			CenteredAdaptiveHighlightedButton {
-				text: qsTr("Visit website")
-				icon.name: "web-browser-symbolic"
-
-				onClicked: {
-					Qt.openUrlExternally(parent.providerUrl)
-				}
-			}
-
-			CenteredAdaptiveButton {
-				text: qsTr("Copy URL")
-				icon.name: "edit-copy-symbolic"
-
-				onClicked: {
-					Utils.copyToClipboard(parent.providerUrl)
-					passiveNotification(qsTr("URL successfully copied to clipboard."))
-				}
-			}
-
-			Item {
-				height: Kirigami.Units.largeSpacing
-			}
-
-			Kirigami.Heading {
-				level: 2
-				text: qsTr("Support")
-				visible: chatSupportButton.visible || groupChatSupportButton.visible
-			}
-
-			RosterAddContactSheet {
-				id: addContactSheet
-			}
-
-			ChatSupportSheet {
-				id: chatSupportSheet
-			}
-
-			CenteredAdaptiveHighlightedButton {
-				id: chatSupportButton
-				text: qsTr("Support")
-				icon.name: "chat-symbolic"
-				visible: chatSupportList.length > 0
-
-				onClicked: {
-					if (chatSupportList.length === 1) {
-						if (!addContactSheet.sheetOpen) {
-							addContactSheet.jid = chatSupportList[0]
-							addContactSheet.nickname = chatSupportButton.text
-							addContactSheet.open()
-						}
-					} else {
-						chatSupportSheet.isGroupChatSupportSheet = false
-						chatSupportSheet.chatSupportList = chatSupportList
-
-						if (!chatSupportSheet.sheetOpen) {
-							chatSupportSheet.open()
-						}
-					}
-				}
-			}
-
-			CenteredAdaptiveButton {
-				id: groupChatSupportButton
-				text: qsTr("Support Group")
-				icon.name: "chat-symbolic"
-				visible: groupChatSupportList.length > 0
-
-				onClicked: {
-					if (groupChatSupportList.length === 1) {
-						Qt.openUrlExternally("xmpp:" + groupChatSupportList[0] + "?join")
-					} else {
-						chatSupportSheet.isGroupChatSupportSheet = true
-						chatSupportSheet.chatSupportList = groupChatSupportList
-
-						if (!chatSupportSheet.sheetOpen) {
-							chatSupportSheet.open()
+							if (!chatSupportSheet.sheetOpen) {
+								chatSupportSheet.open()
+							}
 						}
 					}
 				}
 			}
 		}
 
-		// placeholder for left, right and main action
 		Item {
 			visible: Kirigami.Settings.isMobile
 			Layout.preferredHeight: 60
