@@ -67,26 +67,6 @@
             "cleanup": ["/include", "/lib/cmake", "/lib/pkgconfig"]
         },
         {
-            "name": "zxing",
-            "config-opts": [
-                "-DBUILD_DEPENDENCIES=LOCAL",
-                "-DBUILD_SHARED_LIBS=ON",
-                "-DBUILD_UNIT_TESTS=OFF",
-                "-DBUILD_BLACKBOX_TESTS=OFF",
-                "-DBUILD_EXAMPLES=OFF"
-            ],
-            "buildsystem": "cmake-ninja",
-            "builddir": true,
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/zxing-cpp/zxing-cpp.git",
-                    "tag": "v1.4.0"
-                }
-            ],
-            "cleanup": ["/include", "/lib/cmake", "/mkspecs", "/etc/xdg/*categories"]
-        },
-        {
             "name": "kaidan",
             "buildsystem": "cmake-ninja",
             "config-opts": ["-DQUICK_COMPILER=0"],
