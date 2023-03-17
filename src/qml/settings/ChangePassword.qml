@@ -27,108 +27,199 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
-import im.kaidan.kaidan 1.0
-
 import "../elements"
+import im.kaidan.kaidan 1.0
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
-Kirigami.Page {
+SettingsPageBase {
 	title: qsTr("Change password")
-	topPadding: 0
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
-	Controls.BusyIndicator {
-		id: busyIndicator
-		visible: false
-		anchors.centerIn: parent
-		width: 60
-		height: 60
-	}
+	implicitHeight: layout.implicitHeight
+	implicitWidth: layout.implicitWidth
 
 	ColumnLayout {
-		id: content
-		visible: !busyIndicator.visible
+		id: layout
 		anchors.fill: parent
-		spacing: 0
 
-		Kirigami.FormLayout {
-			Layout.fillWidth: true
-			Controls.TextField {
-				id: oldPassword
-				echoMode: TextInput.Password
-				selectByMouse: true
-				Kirigami.FormData.label: qsTr("Current password:")
-				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordInvisible
-			}
-			Controls.TextField {
-				id: password1
-				echoMode: TextInput.Password
-				selectByMouse: true
-				Kirigami.FormData.label: qsTr("New password:")
-			}
-			Controls.TextField {
-				id: password2
-				echoMode: TextInput.Password
-				selectByMouse: true
-				Kirigami.FormData.label: qsTr("New password (repeat):")
-			}
-		}
+		Layout.preferredWidth: 600
+		visible: !busyIndicator.visible
 
-		Kirigami.InlineMessage {
-			type: Kirigami.MessageType.Warning
-			visible: password1.text !== password2.text
-			text: qsTr("New passwords do not match.")
-			showCloseButton: true
-			Layout.fillWidth: true
-		}
-
-		Kirigami.InlineMessage {
-			id: currentPasswordInvalidMessage
+		Controls.BusyIndicator {
+			id: busyIndicator
 			visible: false
-			type: Kirigami.MessageType.Warning
-			text: qsTr("Current password is invalid.")
-			showCloseButton: true
-			Layout.fillWidth: true
+			Layout.alignment: Qt.AlignCenter
+			width: 60
+			height: 60
 		}
 
-		Controls.Label {
+		MobileForm.FormCard {
 			Layout.fillWidth: true
-			text: qsTr("After changing your password, you will need to reenter "
-					 + "it on all your other devices.")
-			textFormat: Text.PlainText
-			wrapMode: Text.WordWrap
-		}
 
-		RowLayout {
-			Layout.fillWidth: true
-			Layout.alignment: Qt.AlignBottom
+			contentItem: ColumnLayout {
+				spacing: 0
 
-			Button {
-				text: qsTr("Cancel")
-				onClicked: stack.pop()
-				Layout.fillWidth: true
+				MobileForm.FormCardHeader {
+					title: qsTr("Information")
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "documentinfo"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("After changing your password, you will need to reenter it on all your other devices.")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
 			}
+		}
+		MobileForm.FormCard {
+			Layout.fillWidth: true
 
-			Button {
-				text: qsTr("Change")
-				Layout.fillWidth: true
-				enabled: password1.text === password2.text && password1.text !== ""
-				onClicked: {
-					if (oldPassword.visible) {
-						if (oldPassword.text !== AccountManager.password) {
-							currentPasswordInvalidMessage.visible = true
+			contentItem: ColumnLayout {
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordInvisible
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: qsTr("Current password:")
+						}
+
+						Controls.TextField {
+							id: oldPassword
+							Layout.fillWidth: true
+							echoMode: TextInput.Password
+							selectByMouse: true
+						}
+					}
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: qsTr("New password:")
+						}
+
+						Controls.TextField {
+							id: password1
+							Layout.fillWidth: true
+							echoMode: TextInput.Password
+							selectByMouse: true
+						}
+					}
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: qsTr("New password (repeat):")
+						}
+
+						Controls.TextField {
+							id: password2
+							Layout.fillWidth: true
+							echoMode: TextInput.Password
+							selectByMouse: true
+						}
+					}
+				}
+				Controls.Control {
+					padding: Kirigami.Units.smallSpacing
+					visible: password1.text !== password2.text
+					Layout.fillWidth: true
+
+					contentItem: Kirigami.InlineMessage {
+						visible: password1.text !== password2.text
+						type: Kirigami.MessageType.Warning
+						text: qsTr("New passwords do not match.")
+						showCloseButton: true
+					}
+				}
+				Controls.Control {
+					padding: Kirigami.Units.smallSpacing
+					visible: false
+					id: currentPasswordInvalidMessage
+					Layout.fillWidth: true
+
+					contentItem: Kirigami.InlineMessage {
+						type: Kirigami.MessageType.Warning
+						text: qsTr("Current password is invalid.")
+						showCloseButton: true
+					}
+				}
+			}
+		}
+
+		Item {
+			Layout.fillHeight: true
+		}
+
+		MobileForm.FormCard {
+			id: card
+			Layout.fillWidth: true
+
+			contentItem: RowLayout {
+				spacing: 0
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width / 2) - 1
+					onClicked: stack.pop()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "dialog-cancel"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Cancel")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+
+				Kirigami.Separator {
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					opacity: password1.text === password2.text ? 1:0.3
+					Layout.fillWidth: true
+
+					implicitWidth: (card.width / 2) - 1
+					onClicked: {
+						if (!enabled) {
 							return
 						}
 
-						currentPasswordInvalidMessage.visible = false
-					}
+						if (oldPassword.visible) {
+							if (oldPassword.text !== AccountManager.password) {
+								currentPasswordInvalidMessage.visible = true
+								return
+							}
 
-					Kaidan.client.registrationManager.changePasswordRequested(password1.text)
-					busyIndicator.visible = true
+							currentPasswordInvalidMessage.visible = false
+						}
+
+						Kaidan.client.registrationManager.changePasswordRequested(
+									password1.text)
+						busyIndicator.visible = true
+					}
+					enabled: password1.text === password2.text
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "checkbox"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Change")
+							wrapMode: Text.Wrap
+						}
+					}
 				}
 			}
 		}

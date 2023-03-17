@@ -33,56 +33,104 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 import im.kaidan.kaidan 1.0
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import "../elements"
 
-Kirigami.Page {
+SettingsPageBase {
 	title: qsTr("Connection settings")
-	topPadding: 0
 	Layout.maximumWidth: largeButtonWidth
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
-	Controls.BusyIndicator {
-		id: busyIndicator
-		visible: false
-		anchors.centerIn: parent
-		width: 60
-		height: 60
-	}
+	implicitHeight: layout.implicitHeight
+	implicitWidth: layout.implicitWidth
+
 
 	ColumnLayout {
-		id: content
+		Layout.preferredWidth: 600
+		id: layout
+
 		visible: !busyIndicator.visible
 		anchors.fill: parent
-		spacing: 0
-
-		CustomConnectionSettings {
-			id: customConnectionSettings
-			confirmationButton: changeButton
+		Controls.BusyIndicator {
+			id: busyIndicator
+			visible: false
+			anchors.centerIn: parent
+			width: 60
+			height: 60
 		}
-
-		ColumnLayout {
-			Layout.alignment:  Qt.AlignBottom
+		MobileForm.FormCard {
 			Layout.fillWidth: true
 
-			CenteredAdaptiveHighlightedButton {
-				id: changeButton
-				text: qsTr("Change")
-
-				onClicked: {
-					busyIndicator.visible = true
-
-					if (Kaidan.connectionState === Enums.StateDisconnected) {
-						logIn()
-					} else {
-						Kaidan.logOut()
-					}
+			contentItem: MobileForm.AbstractFormDelegate {
+				Layout.fillWidth: true
+				contentItem: CustomConnectionSettings {
+					id: customConnectionSettings
+					confirmationButton: changeButton
 				}
 			}
+		}
 
-			CenteredAdaptiveButton {
-				text: qsTr("Cancel")
-				onClicked: stack.pop()
+		Item {
+			Layout.fillHeight: true
+		}
+
+		MobileForm.FormCard {
+			id: card
+			Layout.fillWidth: true
+
+			contentItem: RowLayout {
+				spacing: 0
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width / 2) - 1
+					onClicked: stack.pop()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "dialog-cancel"
+							Layout.rightMargin: (root.icon.name !== "") ? Kirigami.Units.largeSpacing : 0
+							implicitWidth: (root.icon.name !== "") ? Kirigami.Units.iconSizes.small : 0
+							implicitHeight: (root.icon.name !== "") ? Kirigami.Units.iconSizes.small : 0
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Cancel")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+
+				Kirigami.Separator {
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					opacity: password1.text === password2.text ? 1 : 0.3
+					Layout.fillWidth: true
+
+					implicitWidth: (card.width / 2) - 1
+					onClicked: {
+						busyIndicator.visible = true
+
+						if (Kaidan.connectionState === Enums.StateDisconnected) {
+							logIn()
+						} else {
+							Kaidan.logOut()
+						}
+					}
+					enabled: password1.text === password2.text
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "checkbox"
+							Layout.rightMargin: (root.icon.name !== "") ? Kirigami.Units.largeSpacing : 0
+							implicitWidth: (root.icon.name !== "") ? Kirigami.Units.iconSizes.small : 0
+							implicitHeight: (root.icon.name !== "") ? Kirigami.Units.iconSizes.small : 0
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Change")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
 			}
 		}
 	}
@@ -115,5 +163,4 @@ Kirigami.Page {
 		AccountManager.port = customConnectionSettings.portField.value
 		Kaidan.logIn()
 	}
-
 }

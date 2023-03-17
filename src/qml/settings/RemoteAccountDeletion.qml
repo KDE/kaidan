@@ -29,29 +29,108 @@
  */
 
 import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
+import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
-
-import im.kaidan.kaidan 1.0
-
 import "../elements"
+import im.kaidan.kaidan 1.0
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
-/**
- * This page is used for confirming the deletion of an account from the client and server.
- */
-ConfirmationPage {
-	title: qsTr("Delete account completely")
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
+SettingsPageBase {
+	title: qsTr("Delete account")
+	implicitHeight: layout.implicitHeight
+	implicitWidth: layout.implicitWidth
+	ColumnLayout {
+		id: layout
 
-	topDescription: qsTr("Your account will be deleted completely, which means from this app and from the server.\nYou will not be able to use your account again!")
+		anchors.fill: parent
+		Layout.preferredWidth: 600
 
-	onCanceled: stack.pop()
+		MobileForm.FormCard {
+			Layout.fillWidth: true
 
-	topAction: Kirigami.Action {
-		text: qsTr("Delete")
-		onTriggered: {
-			Kaidan.deleteAccountFromClientAndServer()
-			settingsSheet.close()
-			stack.initialItem && stack.pop(stack.initialItem)
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Warning")
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					Layout.fillHeight: true
+
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							Layout.fillHeight: true
+
+							source: "dialog-warning"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							Layout.fillHeight: true
+
+							text: qsTr("Your account will be deleted completely, which means from this app and from the server. You will not be able to use your account again!")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+			}
+		}
+
+
+		Item {
+			Layout.fillHeight: true
+		}
+
+		MobileForm.FormCard {
+			id: card
+			Layout.fillWidth: true
+
+			contentItem: RowLayout {
+				spacing: 0
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width/2)-1
+					onClicked: stack.pop()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "dialog-cancel"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Cancel")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+
+				Kirigami.Separator{
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+
+					implicitWidth: (card.width/2)-1
+					onClicked:{
+						Kaidan.deleteAccountFromClientAndServer()
+						settingsSheet.close()
+						stack.initialItem && stack.pop(stack.initialItem)
+					}
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "checkbox"
+							Layout.rightMargin: Kirigami.Units.largeSpacing
+							width: Kirigami.Units.iconSizes.small
+							height: Kirigami.Units.iconSizes.small
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Delete Account")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+			}
 		}
 	}
 }

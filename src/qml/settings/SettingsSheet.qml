@@ -39,6 +39,8 @@ import org.kde.kirigami 2.12 as Kirigami
  */
 Kirigami.OverlaySheet {
 	id: settingsSheet
+	Kirigami.Theme.inherit: false
+	Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
 	header: RowLayout {
 		anchors.fill: parent
@@ -56,19 +58,15 @@ Kirigami.OverlaySheet {
 		}
 	}
 
-	contentItem: ColumnLayout {
-		Controls.StackView {
-			Layout.fillHeight: true
-			Layout.fillWidth: true
+	contentItem: Controls.StackView {
+		Layout.fillHeight: true
+		Layout.fillWidth: true
 
-			id: stack
-			Layout.preferredHeight: currentItem.height
-			initialItem: SettingsContent {}
-			clip: true
-		}
+		id: stack
+		implicitHeight: currentItem.implicitHeight
+		implicitWidth: 600
 
-		Layout.preferredWidth: Layout.maximumWidth
-		Layout.maximumWidth: 600
-		id: settingsPage
+		initialItem: SettingsContent {}
+		clip: true
 	}
 }

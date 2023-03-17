@@ -71,7 +71,7 @@ RowLayout {
 
 	ColumnLayout {
 		// Position this field on top even if hostField.invalidHintText is shown.
-		Layout.alignment: Qt.AlignTop
+		Layout.alignment: Qt.AlignCenter
 
 		Controls.Label {
 			text: qsTr("Port:")

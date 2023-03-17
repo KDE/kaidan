@@ -115,15 +115,6 @@ Kirigami.GlobalDrawer {
 					settingsSheet.open()
 				}
 			}
-		},
-		Kirigami.Action {
-			text: qsTr("About")
-			icon.name: "help-about-symbolic"
-			onTriggered: {
-				popLayersAboveLowest()
-				// open about sheet
-				aboutDialog.open()
-			}
 		}
 	]
 

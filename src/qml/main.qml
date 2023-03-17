@@ -63,7 +63,7 @@ Kirigami.ApplicationWindow {
 
 	// This is an alias for use in settings ONLY
 	// it is only used on mobile, on desktop another item overrides the id "stack"
-	property QtObject stack: pageStack.layers
+	property var stack: SettingsStack {}
 
 	StatusBar {
 		color: Material.Material.color(Material.Material.Green, Material.Material.Shade700)
@@ -80,12 +80,6 @@ Kirigami.ApplicationWindow {
 		id: contextDrawer
 	}
 
-	AboutDialog {
-		id: aboutDialog
-		focus: true
-		x: (parent.width - width) / 2
-		y: (parent.height - height) / 2
-	}
 
 	SubRequestAcceptSheet {
 		id: subReqAcceptSheet

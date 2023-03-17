@@ -1,7 +1,7 @@
 /*
  *  Kaidan - A user-friendly XMPP client for every device!
  *
- *  Copyright (C) 2016-2023 Kaidan developers and contributors
+ *  Copyright (C) 2016-2022 Kaidan developers and contributors
  *  (see the LICENSE file for a full list of copyright authors)
  *
  *  Kaidan is free software: you can redistribute it and/or modify
@@ -27,7 +27,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
@@ -37,13 +36,15 @@ import im.kaidan.kaidan 1.0
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 SettingsPageBase {
-	title: qsTr("Don't expose your password in any way")
+	title: qsTr("About Kaidan")
+
 	implicitHeight: layout.implicitHeight
 	implicitWidth: layout.implicitWidth
+
 	ColumnLayout {
 		id: layout
-
 		anchors.fill: parent
+
 		Layout.preferredWidth: 600
 
 		MobileForm.FormCard {
@@ -51,84 +52,96 @@ SettingsPageBase {
 
 			contentItem: ColumnLayout {
 				spacing: 0
-
-				MobileForm.FormCardHeader {
-					title: qsTr("Information")
-				}
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
 					contentItem: RowLayout {
-						Kirigami.Icon {
-							source: "documentinfo"
-							width: Kirigami.Units.iconSizes.small
-							height: Kirigami.Units.iconSizes.small
-						}
-						Controls.Label {
+						Image {
+							source: Utils.getResourcePath("images/kaidan.svg")
+							Layout.preferredWidth: Kirigami.Units.gridUnit * 5
+							Layout.preferredHeight: Kirigami.Units.gridUnit * 5
 							Layout.fillWidth: true
-							text: qsTr("Your password will neither be shown as plain text nor included in the login QR code anymore.\nYou won't be able to use the login via QR code without entering your password again because this action cannot be undone!\nConsider storing the password somewhere else if you want to use your account on another device.")
-							wrapMode: Text.Wrap
+							Layout.fillHeight: true
+							Layout.alignment: Qt.AlignCenter
+							fillMode: Image.PreserveAspectFit
+							mipmap: true
+							sourceSize: Qt.size(width, height)
+						}
+						ColumnLayout {
+							Kirigami.Heading {
+								text: Utils.applicationDisplayName() + " " + Utils.versionString()
+								textFormat: Text.PlainText
+								wrapMode: Text.WordWrap
+								Layout.fillWidth: true
+								horizontalAlignment: Qt.AlignLeft
+							}
+
+							Controls.Label {
+								text: "<i>" + qsTr("A simple, user-friendly Jabber/XMPP client") + "</i>"
+								textFormat: Text.StyledText
+								wrapMode: Text.WordWrap
+								Layout.fillWidth: true
+								horizontalAlignment: Qt.AlignLeft
+							}
 						}
 					}
+				}
+			}
+		}
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: "License"
+						}
+						Controls.Label {
+							font: Kirigami.Theme.smallFont
+							text: "GPLv3+ / CC BY-SA 4.0"
+							color: Kirigami.Theme.disabledTextColor
+							textFormat: Text.PlainText
+						}
+					}
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: "Copyright"
+						}
+						Controls.Label {
+							font: Kirigami.Theme.smallFont
+							text: "© 2016-2023 Kaidan developers and contributors"
+							color: Kirigami.Theme.disabledTextColor
+							textFormat: Text.PlainText
+						}
+					}
+				}
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Report problems")
+					description: qsTr("Report issues in Kaidan to the developers")
+					onClicked: Qt.openUrlExternally(Utils.issueTrackingUrl)
+					icon.name: "tools-report-bug"
+				}
+				MobileForm.FormButtonDelegate {
+					text: qsTr("View source code online")
+					description: qsTr("View Kaidan's source code and contribute to the project")
+					onClicked: Qt.openUrlExternally(Utils.applicationSourceCodeUrl())
+					icon.name: "kde"
+				}
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Visit Website")
+					description: "kaidan.im"
+					onClicked: Qt.openUrlExternally("https://www.kaidan.im")
+					icon.name: "globe"
 				}
 			}
 		}
 
 		Item {
 			Layout.fillHeight: true
-		}
-
-		MobileForm.FormCard {
-			id: card
-			Layout.fillWidth: true
-
-			contentItem: RowLayout {
-				spacing: 0
-				MobileForm.AbstractFormDelegate {
-					Layout.fillWidth: true
-					implicitWidth: (card.width/2)-1
-					onClicked: stack.pop()
-					contentItem: RowLayout {
-						Kirigami.Icon {
-							source: "dialog-cancel"
-							width: Kirigami.Units.iconSizes.small
-							height: Kirigami.Units.iconSizes.small
-						}
-						Controls.Label {
-							Layout.fillWidth: true
-							text: qsTr("Cancel")
-							wrapMode: Text.Wrap
-						}
-					}
-				}
-
-				Kirigami.Separator{
-					Layout.fillHeight: true
-				}
-				MobileForm.AbstractFormDelegate {
-					Layout.fillWidth: true
-
-					implicitWidth: (card.width/2)-1
-					onClicked:{
-						Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
-
-						stack.pop()
-						stack.pop()
-					}
-					contentItem: RowLayout {
-						Kirigami.Icon {
-							source: "checkbox"
-							Layout.rightMargin: Kirigami.Units.largeSpacing
-							width: Kirigami.Units.iconSizes.small
-							height: Kirigami.Units.iconSizes.small
-						}
-						Controls.Label {
-							Layout.fillWidth: true
-							text: qsTr("Don't expose password in any way")
-							wrapMode: Text.Wrap
-						}
-					}
-				}
-			}
 		}
 	}
 }

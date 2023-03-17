@@ -27,7 +27,6 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
@@ -36,576 +35,192 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
 import MediaUtils 0.1
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
-Kirigami.Page {
+SettingsPageBase {
 	id: root
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
-	title: qsTr("Multimedia Settings")
+	property string title: qsTr("Multimedia Settings")
 
+	implicitHeight: layout.implicitHeight
+	implicitWidth: layout.implicitWidth
 	MediaRecorder {
 		id: recorder
 	}
 
 	ColumnLayout {
-		id: mainLayout
+		id: layout
 
+		Layout.preferredWidth: 600
 		anchors.fill: parent
 
-		Controls.Label {
-			text: qsTr('Configure')
-
+		MobileForm.FormCard {
 			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Select Sources")
+				}
+
+				MobileForm.FormComboBoxDelegate {
+					id: camerasComboBox
+					text: qsTr('Camera')
+					displayMode: MobileForm.FormComboBoxDelegate.Dialog
+					dialog:Controls.Menu {
+						z:60000
+						width: parent.width
+
+						id: camerasMenu
+						Instantiator {
+							id: camerasInstanciator
+							model: recorder.cameraModel
+							onObjectAdded: camerasMenu.insertItem(index, object)
+							onObjectRemoved: camerasMenu.removeItem(object)
+							delegate: Controls.MenuItem {
+								required property string description
+								required property string camera
+								text: description
+								onClicked: {
+									recorder.mediaSettings.camera = camera
+								}
+							}
+						}
+					}
+
+					displayText: camerasInstanciator.model.currentCamera.description
+					Layout.fillWidth: true
+				}
+				MobileForm.FormComboBoxDelegate {
+					id: audioInputsComboBox
+					displayMode: MobileForm.FormComboBoxDelegate.Dialog
+
+					text: qsTr('Audio Input')
+					dialog:Controls.Menu {
+						z:60000
+						width: parent.width
+
+						id: audioInputsMenu
+						Instantiator {
+							id:audioInputsInstanciator
+							model: recorder.audioDeviceModel
+							onObjectAdded: audioInputsMenu.insertItem(index, object)
+							onObjectRemoved: audioInputsMenu.removeItem(object)
+							delegate: Controls.MenuItem {
+								required property string description
+								required property int index
+								text: description
+								onClicked: {
+									recorder.audioDeviceModel.currentIndex = index
+								}
+							}
+						}
+					}
+
+					displayText: audioInputsInstanciator.model.currentAudioDevice.description
+					Layout.fillWidth: true
+				}
+			}
 		}
-
-		Controls.ComboBox {
-			id: recorderTypesComboBox
-
-			model: ListModel {
-				ListElement {
-					label: qsTr('Image Capture')
-					type: MediaRecorder.Type.Image
-				}
-
-				ListElement {
-					label: qsTr('Audio Recording')
-					type: MediaRecorder.Type.Audio
-				}
-
-				ListElement {
-					label: qsTr('Video Recording')
-					type: MediaRecorder.Type.Video
-				}
-			}
-
-			currentIndex: {
-				switch (recorder.type) {
-				case MediaRecorder.Type.Invalid:
-					break
-				case MediaRecorder.Type.Image:
-					return 0
-				case MediaRecorder.Type.Audio:
-					return 1
-				case MediaRecorder.Type.Video:
-					return 2
-				}
-
-				return -1
-			}
-
-			textRole: 'label'
-			delegate: Controls.RadioDelegate {
-				text: model.label
-				width: recorderTypesComboBox.width
-				highlighted: recorderTypesComboBox.highlightedIndex === model.index
-				checked: recorderTypesComboBox.currentIndex === model.index
-			}
-
+		MobileForm.FormCard {
 			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
 
-			onActivated: {
-				recorder.type = model.get(index).type
-				_updateTabs()
-			}
+				MobileForm.FormCardHeader {
+					title: qsTr("Video Output")
+				}
+				Controls.ItemDelegate {
+					id: item
+					Layout.fillWidth: true
+					Layout.fillHeight: true
 
-			onCurrentIndexChanged: {
-				_updateTabs()
-			}
+					padding: 1
 
-			function _updateTabs() {
-				for (var i = 0; i < bar.contentChildren.length; ++i) {
-					if (bar.contentChildren[i].enabled) {
-						bar.currentIndex = i
-						return
+					hoverEnabled: true
+					background: MobileForm.FormDelegateBackground {
+						control: item
+					}
+
+					contentItem: Multimedia.VideoOutput {
+						id: output
+						source: recorder
+
+						autoOrientation: true
+
+						implicitWidth: contentRect.width < parent.width
+									   && contentRect.height
+									   < parent.height ? contentRect.width : parent.width
+						implicitHeight: contentRect.width < parent.width
+										&& contentRect.height
+										< parent.height ? contentRect.height : parent.height
 					}
 				}
 			}
 		}
-
-		Controls.Label {
-			id: cameraLabel
-
-			text: qsTr('Camera')
-			visible: recorder.type === MediaRecorder.Type.Image
-					 || recorder.type === MediaRecorder.Type.Video
-		}
-
-		Controls.ComboBox {
-			id: camerasComboBox
-
-			visible: cameraLabel.visible
-			model: recorder.cameraModel
-			currentIndex: model.currentIndex
-			displayText: model.currentCamera.description
-			delegate: Controls.RadioDelegate {
-				text: model.description
-				width: camerasComboBox.width
-				highlighted: camerasComboBox.highlightedIndex === model.index
-				checked: camerasComboBox.currentIndex === model.index
-			}
-
-			Layout.fillWidth: true
-
-			onActivated: {
-				recorder.mediaSettings.camera = model.camera(index)
-			}
-		}
-
-		Controls.Label {
-			id: audioInputLabel
-
-			text: qsTr('Audio input')
-			visible: recorder.type === MediaRecorder.Type.Audio
-
-			Layout.fillWidth: true
-		}
-
-		Controls.ComboBox {
-			id: audioInputsComboBox
-
-			visible: audioInputLabel.visible
-			model: recorder.audioDeviceModel
-			currentIndex: model.currentIndex
-			displayText: model.currentAudioDevice.description
-			delegate: Controls.RadioDelegate {
-				text: model.description
-				width: audioInputsComboBox.width
-				highlighted: audioInputsComboBox.highlightedIndex === model.index
-				checked: audioInputsComboBox.currentIndex === model.index
-			}
-
-			Layout.fillWidth: true
-
-			onActivated: {
-				recorder.mediaSettings.audioInputDevice = model.audioDevice(index)
-			}
-		}
-
-		Controls.Label {
-			id: containerLabel
-
-			text: qsTr('Container')
-			visible: recorder.type === MediaRecorder.Type.Audio
-					 || recorder.type === MediaRecorder.Type.Video
-
-			Layout.fillWidth: true
-		}
-
-		Controls.ComboBox {
-			id: containersComboBox
-
-			visible: containerLabel.visible
-			model: recorder.containerModel
-			currentIndex: model ? model.currentIndex : -1
-			displayText: model ? model.currentDescription : ''
-			delegate: Controls.RadioDelegate {
-				text: model.description
-				width: containersComboBox.width
-				highlighted: containersComboBox.highlightedIndex === model.index
-				checked: containersComboBox.currentIndex === model.index
-			}
-
-			Layout.fillWidth: true
-
-			onActivated: {
-				recorder.mediaSettings.container = model.value(index)
-			}
-		}
-
 		Item {
-			Layout.preferredHeight: parent.spacing * 2
-			Layout.fillWidth: true
-		}
-
-		Controls.TabBar {
-			id: bar
-
-			Layout.fillWidth: true
-
-			Controls.TabButton {
-				text: qsTr('Image')
-				enabled: recorder.type === MediaRecorder.Type.Image
-			}
-
-			Controls.TabButton {
-				text: qsTr('Audio')
-				enabled: recorder.type === MediaRecorder.Type.Audio
-						 || recorder.type === MediaRecorder.Type.Video
-			}
-
-			Controls.TabButton {
-				text: qsTr('Video')
-				enabled: recorder.type === MediaRecorder.Type.Video
-			}
-		}
-
-		Controls.ScrollView {
-			id: scrollView
-
-			Layout.fillWidth: true
-			Layout.leftMargin: 5
-			Layout.rightMargin: 5
-
-			Controls.SwipeView {
-				id: swipeView
-
-				implicitWidth: scrollView.width
-				currentIndex: bar.currentIndex
-				enabled: recorder.isReady
-				interactive: false
-				clip: true
-
-				ColumnLayout {
-					id: imageTab
-
-					enabled: bar.contentChildren[Controls.SwipeView.index].enabled
-
-					Controls.Label {
-						text: qsTr('Codec')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: imageCodecsComboBox
-
-						model: recorder.imageCodecModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: imageCodecsComboBox.width
-							highlighted: imageCodecsComboBox.highlightedIndex === model.index
-							checked: imageCodecsComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.imageEncoderSettings.codec = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Resolution')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: imageResolutionsComboBox
-
-						model: recorder.imageResolutionModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: imageResolutionsComboBox.width
-							highlighted: imageResolutionsComboBox.highlightedIndex === model.index
-							checked: imageResolutionsComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.imageEncoderSettings.resolution = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Quality')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: imageQualitiesComboBox
-
-						model: recorder.imageQualityModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: imageQualitiesComboBox.width
-							highlighted: imageQualitiesComboBox.highlightedIndex === model.index
-							checked: imageQualitiesComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.imageEncoderSettings.quality = model.value(index)
-						}
-					}
-				}
-
-				ColumnLayout {
-					id: audioTab
-
-					enabled: bar.contentChildren[Controls.SwipeView.index].enabled
-
-					Controls.Label {
-						text: qsTr('Codec')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: audioCodecsComboBox
-
-						model: recorder.audioCodecModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: audioCodecsComboBox.width
-							highlighted: audioCodecsComboBox.highlightedIndex === model.index
-							checked: audioCodecsComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.audioEncoderSettings.codec = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Sample Rate')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: audioSampleRatesComboBox
-
-						model: recorder.audioSampleRateModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: audioSampleRatesComboBox.width
-							highlighted: audioSampleRatesComboBox.highlightedIndex === model.index
-							checked: audioSampleRatesComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.audioEncoderSettings.sampleRate = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Quality')
-
-						Layout.fillHeight: true
-					}
-
-					Controls.ComboBox {
-						id: audioQualitiesComboBox
-
-						model: recorder.audioQualityModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: audioQualitiesComboBox.width
-							highlighted: audioQualitiesComboBox.highlightedIndex === model.index
-							checked: audioQualitiesComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.audioEncoderSettings.quality = model.value(index)
-						}
-					}
-				}
-
-				ColumnLayout {
-					id: videoTab
-
-					enabled: bar.contentChildren[Controls.SwipeView.index].enabled
-
-					Controls.Label {
-						text: qsTr('Codec')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: videoCodecsComboBox
-
-						model: recorder.videoCodecModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: videoCodecsComboBox.width
-							highlighted: videoCodecsComboBox.highlightedIndex === model.index
-							checked: videoCodecsComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.videoEncoderSettings.codec = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Resolution')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: videoResolutionsComboBox
-
-						model: recorder.videoResolutionModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: videoResolutionsComboBox.width
-							highlighted: videoResolutionsComboBox.highlightedIndex === model.index
-							checked: videoResolutionsComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.videoEncoderSettings.resolution = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Frame Rate')
-
-						Layout.fillWidth: true
-					}
-
-					Controls.ComboBox {
-						id: videoFrameRatesComboBox
-
-						model: recorder.videoFrameRateModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: videoFrameRatesComboBox.width
-							highlighted: videoFrameRatesComboBox.highlightedIndex === model.index
-							checked: videoFrameRatesComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.videoEncoderSettings.frameRate = model.value(index)
-						}
-					}
-
-					Controls.Label {
-						text: qsTr('Quality')
-
-						Layout.fillHeight: true
-					}
-
-					Controls.ComboBox {
-						id: videoQualitiesComboBox
-
-						model: recorder.videoQualityModel
-						currentIndex: model.currentIndex
-						displayText: model.currentDescription
-						delegate: Controls.RadioDelegate {
-							text: model.description
-							width: videoQualitiesComboBox.width
-							highlighted: videoQualitiesComboBox.highlightedIndex === model.index
-							checked: videoQualitiesComboBox.currentIndex === model.index
-						}
-
-						Layout.fillWidth: true
-
-						onActivated: {
-							recorder.videoEncoderSettings.quality = model.value(index)
-						}
-					}
-				}
-			}
-		}
-
-		Item {
-			Layout.fillWidth: true
 			Layout.fillHeight: true
-
-			Multimedia.VideoOutput {
-				source: recorder
-
-				width: sourceRect.width < parent.width && sourceRect.height < parent.height
-							   ? sourceRect.width
-							   : parent.width
-				height: sourceRect.width < parent.width && sourceRect.height < parent.height
-							   ? sourceRect.height
-							   : parent.height
-
-				anchors {
-					centerIn: parent
-				}
-			}
 		}
 
-		Controls.Label {
-			text: recorder.errorString
-			visible: text !== ''
-			color: 'red'
-
-			font {
-				bold: true
-			}
-
+		MobileForm.FormCard {
+			id: card
 			Layout.fillWidth: true
-		}
 
-		RowLayout {
-			Controls.Label {
-				text: {
-					if (recorder.type === MediaRecorder.Type.Image) {
-						return recorder.isReady ? qsTr('Ready') : qsTr('Initializing…')
-					}
-
-					switch (recorder.status) {
-					case MediaRecorder.Status.UnavailableStatus:
-						return qsTr('Unavailable')
-					case MediaRecorder.Status.UnloadedStatus:
-					case MediaRecorder.Status.LoadingStatus:
-					case MediaRecorder.Status.LoadedStatus:
-						return recorder.isReady ? qsTr('Ready') : qsTr('Initializing…')
-					case MediaRecorder.Status.StartingStatus:
-					case MediaRecorder.Status.RecordingStatus:
-					case MediaRecorder.Status.FinalizingStatus:
-						return qsTr('Recording…')
-					case MediaRecorder.Status.PausedStatus:
-						return qsTr('Paused')
+			contentItem: RowLayout {
+				spacing: 0
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width / 3) - 1
+					onClicked: recorder.resetSettingsToDefaults()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "kt-restore-defaults"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Reset to defaults")
+							wrapMode: Text.Wrap
+						}
 					}
 				}
-			}
 
-			Controls.DialogButtonBox {
-				standardButtons: Controls.DialogButtonBox.RestoreDefaults
-								 | Controls.DialogButtonBox.Reset
-								 | Controls.DialogButtonBox.Save
-
-				Layout.fillWidth: true
-
-				onClicked: {
-					if (button === standardButton(Controls.DialogButtonBox.RestoreDefaults)) {
-						recorder.resetSettingsToDefaults()
-					} else if (button === standardButton(Controls.DialogButtonBox.Reset)) {
-						recorder.resetUserSettings()
-					} else if (button === standardButton(Controls.DialogButtonBox.Save)) {
+				Kirigami.Separator {
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width / 3) - 1
+					onClicked: resetUserSettings()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "edit-reset"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Reset User Settings")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+				Kirigami.Separator {
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width / 3) - 1
+					onClicked: {
 						stack.pop()
 						recorder.saveUserSettings()
+					}
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "document-save"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Save")
+							wrapMode: Text.Wrap
+						}
 					}
 				}
 			}

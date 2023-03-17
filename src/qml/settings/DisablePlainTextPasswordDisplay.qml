@@ -29,30 +29,102 @@
  */
 
 import QtQuick 2.14
+import QtQuick.Controls 2.14 as Controls
+import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
-
-import im.kaidan.kaidan 1.0
-
 import "../elements"
+import im.kaidan.kaidan 1.0
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
-/**
- * This page is used for confirming the removal of the plain text password from
- * the account transfer page.
- */
-ConfirmationPage {
+SettingsPageBase {
 	title: qsTr("Don't show your password")
-	globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
 
-	topDescription: qsTr("Your password will not be shown anymore but still exposed via the login QR code.\nYou won't be able to see your password again because this action cannot be undone!\nConsider storing the password somewhere else if you want to use your account on another device without the login QR code.")
+	implicitHeight: layout.implicitHeight
+	implicitWidth: layout.implicitWidth
+	ColumnLayout {
+		id: layout
 
-	onCanceled: stack.pop()
+		anchors.fill: parent
+		Layout.preferredWidth: 600
 
-	topAction: Kirigami.Action {
-		text: qsTr("Don't show password")
-		onTriggered: {
-			Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
-			stack.pop()
-			stack.pop()
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Information")
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "documentinfo"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Your password will not be shown anymore but still exposed via the login QR code.\nYou won't be able to see your password again because this action cannot be undone!\nConsider storing the password somewhere else if you want to use your account on another device without the login QR code.")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+			}
+		}
+
+		Item {
+			Layout.fillHeight: true
+		}
+
+		MobileForm.FormCard {
+			id: card
+			Layout.fillWidth: true
+
+			contentItem: RowLayout {
+				spacing: 0
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					implicitWidth: (card.width/2)-1
+					onClicked: stack.pop()
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "dialog-cancel"
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Cancel")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+
+				Kirigami.Separator{
+					Layout.fillHeight: true
+				}
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+
+					implicitWidth: (card.width/2)-1
+					onClicked:{
+						Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
+						stack.pop()
+						stack.pop()
+					}
+					contentItem: RowLayout {
+						Kirigami.Icon {
+							source: "checkbox"
+							Layout.rightMargin: Kirigami.Units.largeSpacing
+							width: Kirigami.Units.iconSizes.small
+							height: Kirigami.Units.iconSizes.small
+						}
+						Controls.Label {
+							Layout.fillWidth: true
+							text: qsTr("Don't show password")
+							wrapMode: Text.Wrap
+						}
+					}
+				}
+			}
 		}
 	}
 }

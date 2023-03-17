@@ -27,12 +27,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 import im.kaidan.kaidan 1.0
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 /**
  * The settings page contains options to configure Kaidan.
@@ -41,53 +41,91 @@ import im.kaidan.kaidan 1.0
  */
 ColumnLayout {
 	property string title: qsTr("Settings")
-	spacing: 0
-	height: applicationWindow().height * 0.9
 
-	SettingsItem {
-		name: qsTr("Account")
-		description: qsTr("Edit your profile")
-		onClicked: stack.push("AccountSettings.qml")
-		icon: "avatar-default-symbolic"
-	}
-	SettingsItem {
-		name: qsTr("Change password")
-		description: qsTr("Change your account's password")
-		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
-		onClicked: stack.push("ChangePassword.qml")
-		icon: "system-lock-screen-symbolic"
-	}
-	SettingsItem {
-		name: qsTr("Multimedia Settings")
-		description: qsTr("Configure photo, video and audio recording settings")
-		onClicked: stack.push("MultimediaSettings.qml")
-		icon: "emblem-system-symbolic"
-	}
-	SettingsItem {
-		name: qsTr("Connection Settings")
-		description: qsTr("Configure the hostname and port to connect to")
-		onClicked: stack.push("ConnectionSettings.qml")
-		icon: "preferences-system-symbolic"
-	}
-	SettingsItem {
-		name: qsTr("Account security")
-		description: qsTr("Configure whether this device can be used to switch to another device")
-		icon: "security-high-symbolic"
-		onClicked: stack.push("AccountSecurity.qml")
-	}
-	SettingsItem {
-		name: qsTr("Remove account from Kaidan")
-		description: qsTr("Remove account from this app")
-		icon: "system-log-out"
-		onClicked: stack.push("LocalAccountRemoval.qml")
-	}
-	SettingsItem {
-		name: qsTr("Delete account")
-		description: qsTr("Delete account from server")
-		icon: "edit-delete-symbolic"
-		onClicked: stack.push("RemoteAccountDeletion.qml")
-	}
-	Item {
+	Layout.fillHeight: true
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
 		Layout.fillHeight: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Account Settings")
+			}
+
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Account")
+				description: qsTr("Edit your profile")
+				onClicked: stack.push("AccountSettings.qml")
+				icon.name: "avatar-default-symbolic"
+			}
+
+			MobileForm.FormButtonDelegate {
+				visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
+				text: qsTr("Change password")
+				description: qsTr("Change your account's password")
+				onClicked: stack.push("qrc:/qml/settings/ChangePassword.qml")
+				icon.name: "system-lock-screen-symbolic"
+			}
+
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Account security")
+				description: qsTr("Configure whether this device can be used to switch to another device")
+				icon.name: "security-high-symbolic"
+				onClicked: stack.push("qrc:/qml/settings/AccountSecurity.qml")
+			}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Log out")
+				description: qsTr("Log out account from this app")
+				icon.name: "system-log-out"
+				onClicked: stack.push("qrc:/qml/settings/LocalAccountRemoval.qml")
+			}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Delete account")
+				description: qsTr("Delete account from the server")
+				icon.name: "edit-delete-symbolic"
+				onClicked: stack.push("qrc:/qml/settings/RemoteAccountDeletion.qml")
+			}
+		}
+	}
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			spacing: 0
+			MobileForm.FormCardHeader {
+				title: qsTr("Application Settings")
+			}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Multimedia Settings")
+				description: qsTr("Configure photo, video and audio recording settings")
+				onClicked: stack.push("qrc:/qml/settings/MultimediaSettings.qml")
+				icon.name: "emblem-system-symbolic"
+			}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Connection Settings")
+				description: qsTr("Configure the hostname and port to connect to")
+				onClicked: stack.push("qrc:/qml/settings/ConnectionSettings.qml")
+				icon.name: "settings-configure"
+			}
+		}
+	}
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			spacing: 0
+			MobileForm.FormCardHeader {
+				title: qsTr("About")
+			}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("About Kaidan")
+				description: qsTr("Learn about the current Kaidan version, view the source code and contribute")
+				onClicked: stack.push("qrc:/qml/settings/AboutPage.qml")
+				icon.name: "help-about-symbolic"
+			}
+
+		}
 	}
 }
