@@ -46,6 +46,7 @@ QQC2.Button {
 			text: root.title
 			elide: Text.ElideRight
 			wrapMode: Text.Wrap
+			maximumLineCount: 1
 		}
 		// Subtitle
 		QQC2.Label {
