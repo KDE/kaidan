@@ -19,7 +19,7 @@ msgstr ""
 "X-Text-Markup: qtrich\n"
 "X-Generator: Lokalize 22.04.0\n"
 
-#: src/ClientWorker.cpp:300
+#: src/ClientWorker.cpp:301
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -271,7 +271,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marker som lest"
 
-#: src/OmemoManager.cpp:120
+#: src/OmemoManager.cpp:122
 msgctxt "OmemoManager|"
 msgid "Secure conversations are not possible because OMEMO could not be set up"
 msgstr ""
@@ -543,7 +543,7 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:283
 msgctxt "ChatPageSendingPane|"
-msgid "Record Video"
+msgid "Record video"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
@@ -553,17 +553,17 @@ msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
-msgid "Document"
+msgid "Share files"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:296
 msgctxt "ChatPageSendingPane|"
-msgid "Attatch document from device"
+msgid "Share files from your device"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
-msgid "Location"
+msgid "Share location"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:308
@@ -790,7 +790,7 @@ msgstr "Gi nytt navn"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:17
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Search public group chat (%1)"
+msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:31
@@ -805,12 +805,12 @@ msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
-msgid "Send files"
+msgid "Share files"
 msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:101
 msgctxt "SendMediaSheet|"
-msgid "Select some files to send them"
+msgid "Choose files"
 msgstr ""
 
 #: src/qml/elements/SendMediaSheet.qml:146
@@ -868,32 +868,32 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Velg en sludring for å begynne å sende meldinger"
 
-#: src/qml/GlobalDrawer.qml:89
+#: src/qml/GlobalDrawer.qml:86
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:94
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Inviter venner"
 
-#: src/qml/GlobalDrawer.qml:98
+#: src/qml/GlobalDrawer.qml:95
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Invitasjonslenke kopiert til utklippstavle"
 
-#: src/qml/GlobalDrawer.qml:102
+#: src/qml/GlobalDrawer.qml:99
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Bytt enhet"
 
-#: src/qml/GlobalDrawer.qml:110
+#: src/qml/GlobalDrawer.qml:107
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: src/qml/GlobalDrawer.qml:123
+#: src/qml/GlobalDrawer.qml:120
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Om"
@@ -1306,7 +1306,7 @@ msgstr "Legg til ny kontakt"
 
 #: src/qml/RosterPage.qml:72
 msgctxt "RosterPage|"
-msgid "Search public group chat"
+msgid "Search public groups"
 msgstr ""
 
 #: src/qml/RosterPage.qml:85
@@ -1780,12 +1780,12 @@ msgstr "Innstillinger"
 
 #: src/qml/settings/SettingsContent.qml:48
 msgctxt "SettingsContent|"
-msgid "Account Settings"
+msgid "Account"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:49
 msgctxt "SettingsContent|"
-msgid "Changes your account's settings."
+msgid "Edit your profile"
 msgstr ""
 
 #: src/qml/settings/SettingsContent.qml:54
@@ -1795,14 +1795,9 @@ msgid "Change password"
 msgstr "Endre passord"
 
 #: src/qml/settings/SettingsContent.qml:55
-#, fuzzy
 msgctxt "SettingsContent|"
-msgid ""
-"Changes your account's password. You will need to re-enter it on your other "
-"devices."
+msgid "Change your account's password"
 msgstr ""
-"Endrer passord på kontoen din. Du vil måtte skrive det inn igjen på dine "
-"andre enheter."
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
@@ -1831,9 +1826,8 @@ msgstr "Kontosikkerhet"
 
 #: src/qml/settings/SettingsContent.qml:74
 msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to log in on another device"
+msgid "Configure whether this device can be used to switch to another device"
 msgstr ""
-"Sett opp hvorvidt denne enheten kan brukes til å logge på en annen enhet"
 
 #: src/qml/settings/SettingsContent.qml:79
 msgctxt "SettingsContent|"
@@ -1852,8 +1846,8 @@ msgstr "Slett konto"
 
 #: src/qml/settings/SettingsContent.qml:86
 msgctxt "SettingsContent|"
-msgid "Delete account from the server"
-msgstr "Slett konto fra tjeneren"
+msgid "Delete account from server"
+msgstr ""
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
