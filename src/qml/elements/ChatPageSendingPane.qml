@@ -209,7 +209,6 @@ Controls.Pane {
 				padding: 1
 
 				width: 470
-				height: 300
 				ColumnLayout {
 					anchors.fill: parent
 					Kirigami.AbstractApplicationHeader {
@@ -224,8 +223,11 @@ Controls.Pane {
 						Layout.fillWidth: true
 						Layout.fillHeight: true
 
+						visible: thumbnails.count !== 0
+
 						RowLayout {
 							Repeater {
+								id: thumbnails
 								Layout.fillHeight: true
 								Layout.fillWidth: true
 								model: RecentPicturesModel {}
