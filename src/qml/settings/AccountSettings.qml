@@ -331,7 +331,7 @@ SettingsPageBase {
 				}
 				MobileForm.FormButtonDelegate {
 					text: qsTr("Copy URL")
-					description: qsTr("Coppy the providers web address to the clipboard")
+					description: qsTr("Copy the providers web address to the clipboard")
 					onClicked: {
 						Utils.copyToClipboard(parent.providerUrl)
 						passiveNotification(qsTr("URL copied to clipboard."))
