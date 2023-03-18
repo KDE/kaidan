@@ -40,6 +40,7 @@ RecentPicturesModel::RecentPicturesModel(QObject *parent)
 	setSourceModel(dirModel);
 	dirModel->dirLister()->setMimeFilter({QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
 	dirModel->openUrl(QStringLiteral("recentlyused:/files/"));
+	dirModel->dirLister()->setAutoErrorHandlingEnabled(false);
 }
 
 QHash<int, QByteArray> RecentPicturesModel::roleNames() const {
