@@ -7,12 +7,15 @@
 
 #include <QAbstractListModel>
 
+#include <QXmppVCardIq.h>
+
 class QXmppVCardIq;
 
 class VCardModel : public QAbstractListModel
 {
 	Q_OBJECT
 	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
+	Q_PROPERTY(bool unsetEntriesProcessed MEMBER m_unsetEntriesProcessed NOTIFY unsetEntriesProcessedChanged)
 
 public:
 	enum Roles {
@@ -20,22 +23,10 @@ public:
 		Value
 	};
 
-	class Item
-	{
-	public:
-		Item() = default;
-		Item(const QString &key, const QString &value);
-
-		QString key() const;
-		void setKey(const QString &key);
-
-		QString value() const;
-		void setValue(const QString &value);
-
-	private:
-		QString m_key;
-		QString m_value;
-
+	struct Item {
+		QString name;
+		std::function<QString(const QXmppVCardIq *)> value;
+		std::function<void(QXmppVCardIq *, const QString &)> setValue;
 	};
 
 	explicit VCardModel(QObject *parent = nullptr);
@@ -44,16 +35,22 @@ public:
 	int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+	bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 	QString jid() const;
 	void setJid(const QString &jid);
 
+	void generateEntries();
+
 signals:
 	void jidChanged();
+	void unsetEntriesProcessedChanged();
 
 private:
 	void handleVCardReceived(const QXmppVCardIq &vCard);
 
-	QVector<Item> m_vCard;
 	QString m_jid;
+	bool m_unsetEntriesProcessed = false;
+	QXmppVCardIq m_vCard;
+	QVector<Item> m_vCardMap;
 };

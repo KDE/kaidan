@@ -8,9 +8,11 @@
 #include "VCardModel.h"
 
 #include <QXmppVCardIq.h>
+#include <QXmppVCardManager.h>
 
 #include "Kaidan.h"
 #include "VCardManager.h"
+#include "FutureUtils.h"
 
 VCardModel::VCardModel(QObject *parent)
 	: QAbstractListModel(parent)
@@ -21,6 +23,11 @@ VCardModel::VCardModel(QObject *parent)
 		this,
 		&VCardModel::handleVCardReceived
 	);
+	connect(this, &VCardModel::unsetEntriesProcessedChanged, this, [this]() {
+		beginResetModel();
+		generateEntries();
+		endResetModel();
+	});
 }
 
 QHash<int, QByteArray> VCardModel::roleNames() const
@@ -39,7 +46,7 @@ int VCardModel::rowCount(const QModelIndex &parent) const
 	if (parent.isValid())
 		return 0;
 
-	return m_vCard.size();
+	return m_vCardMap.size();
 }
 
 QVariant VCardModel::data(const QModelIndex &index, int role) const
@@ -49,38 +56,44 @@ QVariant VCardModel::data(const QModelIndex &index, int role) const
 
 	switch(role) {
 	case Key:
-		return m_vCard.at(index.row()).key();
+		return m_vCardMap.at(index.row()).name;
 	case Value:
-		return m_vCard.at(index.row()).value();
+		return m_vCardMap.at(index.row()).value(&m_vCard);
 	}
 	return {};
+}
+
+bool VCardModel::setData(const QModelIndex &index, const QVariant &value, int role)
+{
+	int i = index.row();
+
+	if (role == Value) {
+		m_vCardMap.at(i).setValue(&m_vCard, value.toString());
+		Q_EMIT dataChanged(this->index(i), this->index(i), {Roles::Value});
+
+		auto *clientWorker = Kaidan::instance()->client();
+		runOnThread(clientWorker, [clientWorker, vCard = m_vCard]() {
+			clientWorker->startTask([=]() {
+				Kaidan::instance()
+				        ->client()
+				        ->xmppClient()
+				        ->findExtension<QXmppVCardManager>()
+				        ->setClientVCard(vCard);
+				clientWorker->finishTask();
+			});
+		});
+		return true;
+	}
+
+	return false;
 }
 
 void VCardModel::handleVCardReceived(const QXmppVCardIq &vCard)
 {
 	if (vCard.from() == m_jid) {
 		beginResetModel();
-
-		m_vCard.clear();
-
-		if (!vCard.fullName().isEmpty())
-			m_vCard << Item(tr("Name"), vCard.fullName());
-
-		if (!vCard.nickName().isEmpty())
-			m_vCard << Item(tr("Nickname"), vCard.nickName());
-
-		if (!vCard.description().isEmpty())
-			m_vCard << Item(tr("About"), vCard.description());
-
-		if (!vCard.email().isEmpty())
-			m_vCard << Item(tr("Email"), vCard.email());
-
-		if (!vCard.birthday().isNull() && vCard.birthday().isValid())
-			m_vCard << Item(tr("Birthday"), vCard.birthday().toString());
-
-		if (!vCard.url().isEmpty())
-			m_vCard << Item(tr("Website"), vCard.url());
-
+		m_vCard = vCard;
+		generateEntries();
 		endResetModel();
 	}
 }
@@ -100,27 +113,35 @@ void VCardModel::setJid(const QString &jid)
 	}
 }
 
-VCardModel::Item::Item(const QString &key, const QString &value)
-	: m_key(key), m_value(value)
+void VCardModel::generateEntries()
 {
+	m_vCardMap.clear();
+
+	auto fullName = Item { tr("Name"), &QXmppVCardIq::fullName,  &QXmppVCardIq::setFullName };
+	auto nickName = Item { tr("Nickname"), &QXmppVCardIq::nickName,  &QXmppVCardIq::setNickName };
+	auto description = Item { tr("About"), &QXmppVCardIq::description,  &QXmppVCardIq::setDescription };
+	auto email = Item { tr("Email"), &QXmppVCardIq::email, &QXmppVCardIq::setEmail };
+	auto birthday = Item { tr("Birthday"),
+	    [](const QXmppVCardIq *vCard) { return vCard->birthday().toString(); },
+	    [](QXmppVCardIq *vCard, const QString &d) { return vCard->setBirthday(QDate::fromString(d, Qt::ISODate)); }
+    };
+    auto url = Item { tr("Website"), &QXmppVCardIq::url, &QXmppVCardIq::setUrl };
+
+	if (m_unsetEntriesProcessed) {
+		m_vCardMap = { fullName, nickName, description, email, birthday, url };
+	} else {
+	    if (!m_vCard.fullName().isEmpty())
+	        m_vCardMap << fullName;
+	    if (!m_vCard.nickName().isEmpty())
+	        m_vCardMap << nickName;
+	    if (!m_vCard.description().isEmpty())
+	        m_vCardMap << description;
+	    if (!m_vCard.email().isEmpty())
+	        m_vCardMap << email;
+	    if (!m_vCard.birthday().isNull() && m_vCard.birthday().isValid())
+	        m_vCardMap << birthday;
+	    if (!m_vCard.url().isEmpty())
+	        m_vCardMap << url;
+	}
 }
 
-QString VCardModel::Item::key() const
-{
-	return m_key;
-}
-
-void VCardModel::Item::setKey(const QString &key)
-{
-	m_key = key;
-}
-
-QString VCardModel::Item::value() const
-{
-	return m_value;
-}
-
-void VCardModel::Item::setValue(const QString &value)
-{
-	m_value = value;
-}

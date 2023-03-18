@@ -4,6 +4,7 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
+import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
@@ -16,6 +17,35 @@ DetailsContent {
 
 	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
 
+	vCardRepeater {
+		model: VCardModel {
+			jid: root.jid
+		}
+		delegate: MobileForm.AbstractFormDelegate {
+			id: vCardDelegate
+			Layout.fillWidth: true
+			background: Item {}
+			contentItem: ColumnLayout {
+				Controls.Label {
+					text: Utils.formatMessage(model.value)
+					textFormat: Text.StyledText
+					wrapMode: Text.WordWrap
+					visible: !vCardDelegate.editMode
+					Layout.fillWidth: true
+					onLinkActivated: Qt.openUrlExternally(link)
+				}
+
+				Controls.Label {
+					text: model.key
+					color: Kirigami.Theme.disabledTextColor
+					font: Kirigami.Theme.smallFont
+					textFormat: Text.PlainText
+					wrapMode: Text.WordWrap
+					Layout.fillWidth: true
+				}
+			}
+		}
+	}
 	encryptionArea: ColumnLayout {
 		spacing: 0
 

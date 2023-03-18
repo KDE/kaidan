@@ -18,6 +18,113 @@ import "../settings"
 
 DetailsContent {
 	id: root
+
+	vCardArea: [
+		MobileForm.AbstractFormDelegate {
+			onClicked: vCardRepeater.model.unsetEntriesProcessed = !vCardRepeater.model.unsetEntriesProcessed
+			Layout.fillWidth: true
+			contentItem: RowLayout {
+				Item {
+					Layout.fillWidth: true
+				}
+
+				Kirigami.Icon {
+					source: vCardRepeater.model.unsetEntriesProcessed ? "go-up-symbolic" : "go-down-symbolic"
+				}
+
+				Controls.Label {
+					text: vCardRepeater.model.unsetEntriesProcessed ? qsTr("Less information") : qsTr("More information")
+				}
+
+				Item {
+					Layout.fillWidth: true
+				}
+			}
+		}
+	]
+
+	vCardRepeater {
+		model: VCardModel {
+			jid: root.jid
+		}
+		delegate: MobileForm.AbstractFormDelegate {
+			id: vCardDelegate
+
+			property bool editing: false
+
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				Controls.Label {
+					text: model.value ? model.value : qsTr("Empty")
+					color: model.value ? Kirigami.Theme.textColor : Kirigami.Theme.disabledTextColor
+					font.italic: model.value ? false : true
+					wrapMode: Text.WordWrap
+					visible: !vCardDelegate.editing
+					Layout.fillWidth: true
+				}
+
+				RowLayout {
+					visible: vCardDelegate.editing
+
+					Controls.TextField {
+						id: vCardValueField
+						text: model.value
+						Layout.fillWidth: true
+						onAccepted: vCardConfirmationButton.clicked()
+					}
+
+					Button {
+						id: vCardConfirmationButton
+						Controls.ToolTip.text: qsTr("Set value")
+						icon.name: "emblem-ok-symbolic"
+						visible: !vCardBusyIndicator.visible
+						flat: true
+						Layout.preferredWidth: Layout.preferredHeight
+						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
+						Layout.alignment: Qt.AlignBottom
+						onHoveredChanged: {
+							if (hovered) {
+								flat = false
+							} else {
+								flat = true
+							}
+						}
+						onClicked: {
+							vCardBusyIndicator.visible = true
+							model.value = vCardValueField.text
+							vCardDelegate.editing = false
+							vCardBusyIndicator.visible = false
+						}
+					}
+
+					Controls.BusyIndicator {
+						id: vCardBusyIndicator
+						visible: false
+						Layout.preferredWidth: vCardConfirmationButton.Layout.preferredWidth
+						Layout.preferredHeight: Layout.preferredWidth
+						Layout.alignment: vCardConfirmationButton.Layout.alignment
+					}
+				}
+
+				Controls.Label {
+					text: model.key
+					color: Kirigami.Theme.disabledTextColor
+					font: Kirigami.Theme.smallFont
+					textFormat: Text.PlainText
+					wrapMode: Text.WordWrap
+					Layout.fillWidth: true
+				}
+			}
+			onClicked: {
+				if (!editing) {
+					vCardValueField.forceActiveFocus()
+				}
+
+				editing = !editing
+			}
+		}
+	}
+
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
