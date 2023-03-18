@@ -50,7 +50,8 @@ QHash<int, QByteArray> RecentPicturesModel::roleNames() const {
 
 QVariant RecentPicturesModel::data(const QModelIndex &index, int role) const {
 	if (role == Role::FilePath) {
-		return KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole).value<KFileItem>().url();
+		auto fileItem = KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole).value<KFileItem>();
+		return fileItem.mostLocalUrl();
 	}
 
 	return KDirSortFilterProxyModel::data(index, role);
