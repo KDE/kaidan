@@ -187,6 +187,7 @@ Kirigami.OverlaySheet {
 							MobileForm.AbstractFormDelegate {
 								visible: infoRepeater.count == 0
 								Layout.fillWidth: true
+								background: Item {}
 								contentItem: Kirigami.PlaceholderMessage {
 									icon.name: "help-hint"
 									text: qsTr("No information available")
@@ -202,6 +203,7 @@ Kirigami.OverlaySheet {
 								}
 								delegate: MobileForm.AbstractFormDelegate {
 									Layout.fillWidth: true
+									background: Item {}
 									contentItem: ColumnLayout {
 										Controls.Label {
 											text: Utils.formatMessage(
@@ -366,6 +368,7 @@ Kirigami.OverlaySheet {
 							MobileForm.AbstractFormDelegate {
 								visible: deviceRepeater.count == 0
 								Layout.fillWidth: true
+								background: Item {}
 								contentItem: Kirigami.PlaceholderMessage {
 									icon.name: "network-offline"
 									text: qsTr("No devices connected")
@@ -381,6 +384,7 @@ Kirigami.OverlaySheet {
 								}
 								delegate: MobileForm.AbstractFormDelegate {
 									Layout.fillWidth: true
+									background: Item {}
 									contentItem: ColumnLayout {
 										Controls.Label {
 											text: {
