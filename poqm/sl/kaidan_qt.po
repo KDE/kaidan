@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-15 07:08+0100\n"
+"PO-Revision-Date: 2023-03-18 07:42+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -517,47 +517,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "Sestavi sporočilo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:219
+#: src/qml/elements/ChatPageSendingPane.qml:218
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr "Priloge"
 
-#: src/qml/elements/ChatPageSendingPane.qml:271
+#: src/qml/elements/ChatPageSendingPane.qml:273
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Zajemi sliko"
 
-#: src/qml/elements/ChatPageSendingPane.qml:272
+#: src/qml/elements/ChatPageSendingPane.qml:274
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Zajemi sliko z vašo kamero"
 
-#: src/qml/elements/ChatPageSendingPane.qml:283
+#: src/qml/elements/ChatPageSendingPane.qml:285
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Snemaj videoposnetek"
 
-#: src/qml/elements/ChatPageSendingPane.qml:284
+#: src/qml/elements/ChatPageSendingPane.qml:286
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Posnemi video z vašo kamero"
 
-#: src/qml/elements/ChatPageSendingPane.qml:295
+#: src/qml/elements/ChatPageSendingPane.qml:297
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Deli datoteke"
 
-#: src/qml/elements/ChatPageSendingPane.qml:296
+#: src/qml/elements/ChatPageSendingPane.qml:298
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Deli datoteke iz vaše naprave"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Deli lokacijo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:308
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Pošlji vašo lokacijo"
@@ -793,6 +793,9 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
+"Javnih skupin ni bilo mogoče pridobiti, poskusite ponovno.\n"
+"\n"
+"%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:184
 msgctxt "SearchPublicGroupChatSheet|"
@@ -802,7 +805,7 @@ msgstr "Nalaganje…"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:239
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
-msgstr ""
+msgstr "Ponovni poskus"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1334,33 +1337,24 @@ msgstr "Iskanje stikov"
 #: src/qml/settings/AboutPage.qml:39
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "O Kaidanu"
 
 #: src/qml/settings/AboutPage.qml:79
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "A simple, user-friendly Jabber/XMPP client"
 msgctxt "AboutPage|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Enostaven, uporabniku prijazen Jabber/XMPP odjemalec"
+msgstr "Enostaven, uporabniku prijazen odjemalec Jabber/XMPP"
 
 #: src/qml/settings/AboutPage.qml:123
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutPage|"
 msgid "Report problems"
-msgstr "Prijavi težave"
+msgstr "Prijavite težave"
 
 #: src/qml/settings/AboutPage.qml:124
 msgctxt "AboutPage|"
 msgid "Report issues in Kaidan to the developers"
-msgstr ""
+msgstr "Prijavite težave v Kaindanu razvijalcem"
 
 #: src/qml/settings/AboutPage.qml:129
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code online"
 msgstr "Prikaži izvorno kodo na spletu"
@@ -1368,15 +1362,12 @@ msgstr "Prikaži izvorno kodo na spletu"
 #: src/qml/settings/AboutPage.qml:130
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code and contribute to the project"
-msgstr ""
+msgstr "Poglejte izvorno Kodo Kaidana in prispevajte k projektu"
 
 #: src/qml/settings/AboutPage.qml:135
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit Website"
-msgstr "Obišči spletišče"
+msgstr "Obiščite spletišče"
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
@@ -1384,12 +1375,9 @@ msgid "Account Security"
 msgstr "Varnost računa"
 
 #: src/qml/settings/AccountSecurity.qml:55
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "AccountSecurity|"
 msgid "Information"
-msgstr "Informacija o profilu"
+msgstr "Informacije"
 
 #: src/qml/settings/AccountSecurity.qml:68
 msgctxt "AccountSecurity|"
@@ -1398,6 +1386,8 @@ msgid ""
 "password can be shown as text and in form of a QR code. You can change this "
 "here."
 msgstr ""
+"Konfigurirajte vidnost gesla za preklop naprav, privzeto bo vaše geslo vidno "
+"kot besedilo v obliki kode QR. Tu lahko to spremenite."
 
 #: src/qml/settings/AccountSecurity.qml:84
 msgctxt "AccountSecurity|"
@@ -1455,7 +1445,7 @@ msgstr "Obišči spletišče"
 #: src/qml/settings/AccountSettings.qml:326
 msgctxt "AccountSettings|"
 msgid "Open the website of your provider in a browser"
-msgstr ""
+msgstr "Odprite spletišče vašega ponudnika v brskalniku"
 
 #: src/qml/settings/AccountSettings.qml:333
 msgctxt "AccountSettings|"
@@ -1463,17 +1453,17 @@ msgid "Copy URL"
 msgstr "Kopiraj URL"
 
 #: src/qml/settings/AccountSettings.qml:334
-msgctxt "AccountSettings|"
-msgid "Coppy the providers web address to the clipboard"
-msgstr ""
-
-#: src/qml/settings/AccountSettings.qml:337
 #, fuzzy
 #| msgctxt "AccountSettings|"
-#| msgid "URL successfully copied to clipboard."
+#| msgid "Coppy the providers web address to the clipboard"
+msgctxt "AccountSettings|"
+msgid "Copy the providers web address to the clipboard"
+msgstr "Kopiraj spletni naslov ponudnika na odložišče"
+
+#: src/qml/settings/AccountSettings.qml:337
 msgctxt "AccountSettings|"
 msgid "URL copied to clipboard."
-msgstr "URL uspešno kopiran v odložišče."
+msgstr "URL prekopiran na odložišče."
 
 #: src/qml/settings/AccountSettings.qml:342
 #: src/qml/settings/AccountSettings.qml:355
@@ -1484,7 +1474,7 @@ msgstr "Podpora"
 #: src/qml/settings/AccountSettings.qml:357
 msgctxt "AccountSettings|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "Začnite klepet s stikom za podporo vašega ponudnika"
 
 #: src/qml/settings/AccountSettings.qml:379
 msgctxt "AccountSettings|"
@@ -1494,7 +1484,7 @@ msgstr "Podpora skupini"
 #: src/qml/settings/AccountSettings.qml:381
 msgctxt "AccountSettings|"
 msgid "Join your provider's support group"
-msgstr ""
+msgstr "Pridružite se podporni skupini vašega ponudnika"
 
 #: src/qml/settings/ChangeAvatar.qml:50
 msgctxt "ChangeAvatar|"
@@ -1532,12 +1522,9 @@ msgid "Change password"
 msgstr "Sprememba gesla"
 
 #: src/qml/settings/ChangePassword.qml:66
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "ChangePassword|"
 msgid "Information"
-msgstr "Informacija o profilu"
+msgstr "Informacije"
 
 #: src/qml/settings/ChangePassword.qml:76
 msgctxt "ChangePassword|"
@@ -1640,12 +1627,9 @@ msgid "Don't expose your password in any way"
 msgstr "Ne izpostavljajte gesla na noben način"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:56
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePasswordDisplay|"
 msgid "Information"
-msgstr "Informacija o profilu"
+msgstr "Informacije"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:68
 msgctxt "DisablePasswordDisplay|"
@@ -1665,9 +1649,6 @@ msgstr ""
 "vaš račun na drugi napravi."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:98
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePasswordDisplay|"
 msgid "Cancel"
 msgstr "Prekliči"
@@ -1683,12 +1664,9 @@ msgid "Don't show your password"
 msgstr "Ne prikaži gesla"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Information"
-msgstr "Informacija o profilu"
+msgstr "Informacije"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:67
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1708,9 +1686,6 @@ msgstr ""
 "vaš račun na drugi napravi brez prijavne QR kode."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:95
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Cancel"
 msgstr "Prekliči"
@@ -1721,52 +1696,33 @@ msgid "Don't show password"
 msgstr "Ne prikaži gesla"
 
 #: src/qml/settings/LocalAccountRemoval.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from Kaidan"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out from Kaidan"
-msgstr "Odstrani račun iz Kaidan"
+msgstr "Odjavi se iz Kaidana"
 
 #: src/qml/settings/LocalAccountRemoval.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "LocalAccountRemoval|"
 msgid "Information"
-msgstr "Informacija o profilu"
+msgstr "Informacije"
 
 #: src/qml/settings/LocalAccountRemoval.qml:70
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid ""
-#| "Your account will be removed from this app.\n"
-#| "Your password will be deleted, make sure it is stored in a password "
-#| "manager or you know it!"
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.Your password will be deleted, "
 "make sure it is stored in a password manager or you know it!"
 msgstr ""
-"Vaš račun bo odstranjen iz te aplikacije.\n"
-"Vaše geslo bo izbrisano! Prepričajte se, da je shranjeno v upravljalniku "
-"gesel ali da ga poznate!"
+"Vaš račun bo odstranjen iz te aplikacije. Vaše geslo bo izbrisano, "
+"zagotovite, da je shranjeno v upravljalniku gesel ali da ga poznate!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:104
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "LocalAccountRemoval|"
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/qml/settings/LocalAccountRemoval.qml:134
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out"
-msgstr "Prijava"
+msgstr "Odjava"
 
 #: src/qml/settings/MultimediaSettings.qml:43
 msgctxt "MultimediaSettings|"
@@ -1776,7 +1732,7 @@ msgstr "Nastavitve predstavnosti"
 #: src/qml/settings/MultimediaSettings.qml:63
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
-msgstr ""
+msgstr "Izbira virov"
 
 #: src/qml/settings/MultimediaSettings.qml:68
 msgctxt "MultimediaSettings|"
@@ -1784,9 +1740,6 @@ msgid "Camera"
 msgstr "Kamera"
 
 #: src/qml/settings/MultimediaSettings.qml:98
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio input"
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
 msgstr "Zvočni vhod"
@@ -1794,22 +1747,22 @@ msgstr "Zvočni vhod"
 #: src/qml/settings/MultimediaSettings.qml:131
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
-msgstr ""
+msgstr "Video izhod"
 
 #: src/qml/settings/MultimediaSettings.qml:181
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Ponastavi na privzete vrednosti"
 
 #: src/qml/settings/MultimediaSettings.qml:200
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
-msgstr ""
+msgstr "Ponastavi uporabniške nastavitve"
 
 #: src/qml/settings/MultimediaSettings.qml:221
 msgctxt "MultimediaSettings|"
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
@@ -1842,9 +1795,6 @@ msgid "Remove completely"
 msgstr "Popolnoma odstrani"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account"
 msgstr "Izbriši račun"
@@ -1852,35 +1802,23 @@ msgstr "Izbriši račun"
 #: src/qml/settings/RemoteAccountDeletion.qml:56
 msgctxt "RemoteAccountDeletion|"
 msgid "Warning"
-msgstr ""
+msgstr "Opozorilo"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:72
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid ""
-#| "Your account will be deleted completely, which means from this app and "
-#| "from the server.\n"
-#| "You will not be able to use your account again!"
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
 "the server. You will not be able to use your account again!"
 msgstr ""
-"Vaš račun bo popolnoma odstranjen, tako iz te aplikacije kot iz strežnika.\n"
+"Vaš račun bo popolnoma odstranjen, tako iz te aplikacije kot iz strežnika. "
 "Svojega računa ne boste več mogli uporabljati!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "RemoteAccountDeletion|"
 msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:128
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete Account"
 msgstr "Izbriši račun"
@@ -1891,9 +1829,6 @@ msgid "Settings"
 msgstr "Nastavitve"
 
 #: src/qml/settings/SettingsContent.qml:56
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "SettingsContent|"
 msgid "Account Settings"
 msgstr "Nastavitve računa"
@@ -1930,20 +1865,14 @@ msgstr ""
 "Konfigurirajte ali je to napravo mogoče uporabiti za preklop na drugo napravo"
 
 #: src/qml/settings/SettingsContent.qml:81
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "SettingsContent|"
 msgid "Log out"
-msgstr "Prijava"
+msgstr "Odjavi se"
 
 #: src/qml/settings/SettingsContent.qml:82
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from this app"
 msgctxt "SettingsContent|"
 msgid "Log out account from this app"
-msgstr "Odstrani račun iz te aplikacije"
+msgstr "Odjavi račun iz te aplikacije"
 
 #: src/qml/settings/SettingsContent.qml:87
 msgctxt "SettingsContent|"
@@ -1951,20 +1880,14 @@ msgid "Delete account"
 msgstr "Izbriši račun"
 
 #: src/qml/settings/SettingsContent.qml:88
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from server"
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Izbriši račun iz strežnika"
 
 #: src/qml/settings/SettingsContent.qml:99
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Connection Settings"
 msgctxt "SettingsContent|"
 msgid "Application Settings"
-msgstr "Nastavive povezave"
+msgstr "Nastavitve aplikacije"
 
 #: src/qml/settings/SettingsContent.qml:102
 msgctxt "SettingsContent|"
@@ -1987,9 +1910,6 @@ msgid "Configure the hostname and port to connect to"
 msgstr "Nastavite ime strežnika in vrata za povezavo"
 
 #: src/qml/settings/SettingsContent.qml:120
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "About"
 msgctxt "SettingsContent|"
 msgid "About"
 msgstr "O programu"
@@ -1997,13 +1917,14 @@ msgstr "O programu"
 #: src/qml/settings/SettingsContent.qml:123
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "O Kaidanu"
 
 #: src/qml/settings/SettingsContent.qml:124
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
+"Poučite se o trenutni različici Kaidana, poglejte izvorno kodo in prispevajte"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"

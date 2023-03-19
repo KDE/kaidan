@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-14 14:51+0300\n"
+"PO-Revision-Date: 2023-03-18 13:08+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -512,47 +512,47 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose message"
 msgstr "İleti oluştur"
 
-#: src/qml/elements/ChatPageSendingPane.qml:219
+#: src/qml/elements/ChatPageSendingPane.qml:218
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr "Ekler"
 
-#: src/qml/elements/ChatPageSendingPane.qml:271
+#: src/qml/elements/ChatPageSendingPane.qml:273
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Resim çek"
 
-#: src/qml/elements/ChatPageSendingPane.qml:272
+#: src/qml/elements/ChatPageSendingPane.qml:274
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Kameranızı kullanarak bir resim çekin"
 
-#: src/qml/elements/ChatPageSendingPane.qml:283
+#: src/qml/elements/ChatPageSendingPane.qml:285
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Video kaydet"
 
-#: src/qml/elements/ChatPageSendingPane.qml:284
+#: src/qml/elements/ChatPageSendingPane.qml:286
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Kameranızı kullanarak bir video kaydedin"
 
-#: src/qml/elements/ChatPageSendingPane.qml:295
+#: src/qml/elements/ChatPageSendingPane.qml:297
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Dosyalar paylaş"
 
-#: src/qml/elements/ChatPageSendingPane.qml:296
+#: src/qml/elements/ChatPageSendingPane.qml:298
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Aygıtınızdan dosyalar paylaşın"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:309
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Konum paylaş"
 
-#: src/qml/elements/ChatPageSendingPane.qml:308
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Konum gönder"
@@ -790,6 +790,9 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
+"Genel gruplar alınamadı, yeniden deneyin.\n"
+"\n"
+"%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:184
 msgctxt "SearchPublicGroupChatSheet|"
@@ -799,7 +802,7 @@ msgstr "Yükleniyor…"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:239
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
-msgstr ""
+msgstr "Yeniden Dene"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -1333,20 +1336,14 @@ msgstr "Kişileri ara"
 #: src/qml/settings/AboutPage.qml:39
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "Kaidan Hakkında"
 
 #: src/qml/settings/AboutPage.qml:79
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "A simple, user-friendly Jabber/XMPP client"
 msgctxt "AboutPage|"
 msgid "A simple, user-friendly Jabber/XMPP client"
 msgstr "Yalın, kullanıcı dostu bir Jabber/XMPP istemcisi"
 
 #: src/qml/settings/AboutPage.qml:123
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutPage|"
 msgid "Report problems"
 msgstr "Sorunları bildir"
@@ -1354,28 +1351,22 @@ msgstr "Sorunları bildir"
 #: src/qml/settings/AboutPage.qml:124
 msgctxt "AboutPage|"
 msgid "Report issues in Kaidan to the developers"
-msgstr ""
+msgstr "Kaidan'daki hataları geliştiricilere bildirin"
 
 #: src/qml/settings/AboutPage.qml:129
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code online"
-msgstr "Kaynak kodunu çevrimiçi görüntüle"
+msgstr "Çevrimiçi olarak kaynak kodunu görüntüle"
 
 #: src/qml/settings/AboutPage.qml:130
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code and contribute to the project"
-msgstr ""
+msgstr "Kaidan'ın kaynak kodunu görüntüleyin ve projeye katkıda bulunun"
 
 #: src/qml/settings/AboutPage.qml:135
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit Website"
-msgstr "Web sitesini aç"
+msgstr "Web Sayfasını Ziyaret Et"
 
 #: src/qml/settings/AccountSecurity.qml:39
 msgctxt "AccountSecurity|"
@@ -1383,12 +1374,9 @@ msgid "Account Security"
 msgstr "Hesap Güvenliği"
 
 #: src/qml/settings/AccountSecurity.qml:55
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "AccountSecurity|"
 msgid "Information"
-msgstr "Profil Bilgisi"
+msgstr "Bilgi"
 
 #: src/qml/settings/AccountSecurity.qml:68
 msgctxt "AccountSecurity|"
@@ -1397,6 +1385,9 @@ msgid ""
 "password can be shown as text and in form of a QR code. You can change this "
 "here."
 msgstr ""
+"Aygıt değiştirme için parola görünürlüğünü yapılandırın. Öntanımlı olarak, "
+"parolanız metin ve Kare Kod olarak gösterilebilir. Bunu, buradan "
+"değiştirebilirsiniz."
 
 #: src/qml/settings/AccountSecurity.qml:84
 msgctxt "AccountSecurity|"
@@ -1454,7 +1445,7 @@ msgstr "Web sitesini aç"
 #: src/qml/settings/AccountSettings.qml:326
 msgctxt "AccountSettings|"
 msgid "Open the website of your provider in a browser"
-msgstr ""
+msgstr "Sağlayıcınızın web sayfasını bir tarayıcıda açın"
 
 #: src/qml/settings/AccountSettings.qml:333
 msgctxt "AccountSettings|"
@@ -1462,17 +1453,17 @@ msgid "Copy URL"
 msgstr "URL'yi kopyala"
 
 #: src/qml/settings/AccountSettings.qml:334
-msgctxt "AccountSettings|"
-msgid "Coppy the providers web address to the clipboard"
-msgstr ""
-
-#: src/qml/settings/AccountSettings.qml:337
 #, fuzzy
 #| msgctxt "AccountSettings|"
-#| msgid "URL successfully copied to clipboard."
+#| msgid "Coppy the providers web address to the clipboard"
+msgctxt "AccountSettings|"
+msgid "Copy the providers web address to the clipboard"
+msgstr "Sağlayıcınızın web adresini panoya kopyalayın"
+
+#: src/qml/settings/AccountSettings.qml:337
 msgctxt "AccountSettings|"
 msgid "URL copied to clipboard."
-msgstr "URL başarıyla panoya kopyalandı."
+msgstr "URL panoya kopyalandı."
 
 #: src/qml/settings/AccountSettings.qml:342
 #: src/qml/settings/AccountSettings.qml:355
@@ -1483,7 +1474,7 @@ msgstr "Destek"
 #: src/qml/settings/AccountSettings.qml:357
 msgctxt "AccountSettings|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "Sağlayıcınızın destek sayfasıyla yazışmaya başlayın"
 
 #: src/qml/settings/AccountSettings.qml:379
 msgctxt "AccountSettings|"
@@ -1493,7 +1484,7 @@ msgstr "Destek Grubu"
 #: src/qml/settings/AccountSettings.qml:381
 msgctxt "AccountSettings|"
 msgid "Join your provider's support group"
-msgstr ""
+msgstr "Sağlayıcınızın destek grubuna katılın"
 
 #: src/qml/settings/ChangeAvatar.qml:50
 msgctxt "ChangeAvatar|"
@@ -1531,12 +1522,9 @@ msgid "Change password"
 msgstr "Parolayı değiştir"
 
 #: src/qml/settings/ChangePassword.qml:66
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "ChangePassword|"
 msgid "Information"
-msgstr "Profil Bilgisi"
+msgstr "Bilgi"
 
 #: src/qml/settings/ChangePassword.qml:76
 msgctxt "ChangePassword|"
@@ -1639,12 +1627,9 @@ msgid "Don't expose your password in any way"
 msgstr "Parolayı hiçbir biçimde açığa çıkarma"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:56
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePasswordDisplay|"
 msgid "Information"
-msgstr "Profil Bilgisi"
+msgstr "Bilgi"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:68
 msgctxt "DisablePasswordDisplay|"
@@ -1664,9 +1649,6 @@ msgstr ""
 "yerde depolamayı düşünün."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:98
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePasswordDisplay|"
 msgid "Cancel"
 msgstr "İptal"
@@ -1682,12 +1664,9 @@ msgid "Don't show your password"
 msgstr "Parolayı gösterme"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Information"
-msgstr "Profil Bilgisi"
+msgstr "Bilgi"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:67
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1706,9 +1685,6 @@ msgstr ""
 "istiyorsanız parolanızı başka bir yerde depolamayı düşünün."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:95
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Cancel"
 msgstr "İptal"
@@ -1719,52 +1695,33 @@ msgid "Don't show password"
 msgstr "Parolayı gösterme"
 
 #: src/qml/settings/LocalAccountRemoval.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from Kaidan"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out from Kaidan"
-msgstr "Hesabı Kaidan'dan kaldır"
+msgstr "Kaidan Oturumunu Kapat"
 
 #: src/qml/settings/LocalAccountRemoval.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "LocalAccountRemoval|"
 msgid "Information"
-msgstr "Profil Bilgisi"
+msgstr "Bilgi"
 
 #: src/qml/settings/LocalAccountRemoval.qml:70
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid ""
-#| "Your account will be removed from this app.\n"
-#| "Your password will be deleted, make sure it is stored in a password "
-#| "manager or you know it!"
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.Your password will be deleted, "
 "make sure it is stored in a password manager or you know it!"
 msgstr ""
-"Hesabınız bu uygulamadan kaldırılacak.\n"
-"Parolanız silinecektir; parolanızı bildiğinizden veya bir parola "
-"yöneticisinde saklaığıdınızdan emin olun!"
+"Hesabınız bu uygulamadan kaldırılacak. Parolanız silinecektir; parolanızı "
+"bildiğinizden veya bir parola yöneticisinde sakladığıdınızdan emin olun!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:104
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "LocalAccountRemoval|"
 msgid "Cancel"
 msgstr "İptal"
 
 #: src/qml/settings/LocalAccountRemoval.qml:134
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out"
-msgstr "Oturum aç"
+msgstr "Oturumu kapat"
 
 #: src/qml/settings/MultimediaSettings.qml:43
 msgctxt "MultimediaSettings|"
@@ -1774,7 +1731,7 @@ msgstr "Çoklu Ortam Ayarları"
 #: src/qml/settings/MultimediaSettings.qml:63
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
-msgstr ""
+msgstr "Kaynaklar Seç"
 
 #: src/qml/settings/MultimediaSettings.qml:68
 msgctxt "MultimediaSettings|"
@@ -1782,32 +1739,29 @@ msgid "Camera"
 msgstr "Kamera"
 
 #: src/qml/settings/MultimediaSettings.qml:98
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio input"
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
-msgstr "Ses girişi"
+msgstr "Ses Girişi"
 
 #: src/qml/settings/MultimediaSettings.qml:131
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
-msgstr ""
+msgstr "Video Çıkışı"
 
 #: src/qml/settings/MultimediaSettings.qml:181
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Öntanımlılara Sıfırla"
 
 #: src/qml/settings/MultimediaSettings.qml:200
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
-msgstr ""
+msgstr "Kullanıcı Ayarlarını Sıfırla"
 
 #: src/qml/settings/MultimediaSettings.qml:221
 msgctxt "MultimediaSettings|"
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
@@ -1840,9 +1794,6 @@ msgid "Remove completely"
 msgstr "Tümüyle kaldır"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account"
 msgstr "Hesabı sil"
@@ -1850,38 +1801,26 @@ msgstr "Hesabı sil"
 #: src/qml/settings/RemoteAccountDeletion.qml:56
 msgctxt "RemoteAccountDeletion|"
 msgid "Warning"
-msgstr ""
+msgstr "Uyarı"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:72
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid ""
-#| "Your account will be deleted completely, which means from this app and "
-#| "from the server.\n"
-#| "You will not be able to use your account again!"
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
 "the server. You will not be able to use your account again!"
 msgstr ""
-"Hesabınız tümüyle silinecektir; hem bu uygulamadan hem sunucudan.\n"
+"Hesabınız hem bu uygulamadan hem de sunucudan tümüyle silinecektir. "
 "Hesabınızı artık kullanamayacaksınız!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "RemoteAccountDeletion|"
 msgid "Cancel"
 msgstr "İptal"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:128
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete Account"
-msgstr "Hesabı sil"
+msgstr "Hesabı Sil"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
@@ -1889,12 +1828,9 @@ msgid "Settings"
 msgstr "Ayarlar"
 
 #: src/qml/settings/SettingsContent.qml:56
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "SettingsContent|"
 msgid "Account Settings"
-msgstr "Hesap ayarları"
+msgstr "Hesap Ayarları"
 
 #: src/qml/settings/SettingsContent.qml:60
 msgctxt "SettingsContent|"
@@ -1929,20 +1865,14 @@ msgstr ""
 "yapılandır"
 
 #: src/qml/settings/SettingsContent.qml:81
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "SettingsContent|"
 msgid "Log out"
-msgstr "Oturum aç"
+msgstr "Oturumu kapat"
 
 #: src/qml/settings/SettingsContent.qml:82
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from this app"
 msgctxt "SettingsContent|"
 msgid "Log out account from this app"
-msgstr "Hesabı bu uygulamadan kaldır"
+msgstr "Bu uygulamadaki hesap oturumunu kapatır"
 
 #: src/qml/settings/SettingsContent.qml:87
 msgctxt "SettingsContent|"
@@ -1950,20 +1880,14 @@ msgid "Delete account"
 msgstr "Hesabı sil"
 
 #: src/qml/settings/SettingsContent.qml:88
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from server"
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Sunucudan hesabı sil"
 
 #: src/qml/settings/SettingsContent.qml:99
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Connection Settings"
 msgctxt "SettingsContent|"
 msgid "Application Settings"
-msgstr "Bağlantı Ayarları"
+msgstr "Uygulama Ayarları"
 
 #: src/qml/settings/SettingsContent.qml:102
 msgctxt "SettingsContent|"
@@ -1986,9 +1910,6 @@ msgid "Configure the hostname and port to connect to"
 msgstr "Bağlanılacak makine adını ve kapıyı yapılandır"
 
 #: src/qml/settings/SettingsContent.qml:120
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "About"
 msgctxt "SettingsContent|"
 msgid "About"
 msgstr "Hakkında"
@@ -1996,13 +1917,15 @@ msgstr "Hakkında"
 #: src/qml/settings/SettingsContent.qml:123
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "Kaidan Hakkında"
 
 #: src/qml/settings/SettingsContent.qml:124
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
+"Geçerli Kaidan sürümü hakkında bilgi alın, kaynak kodunu görüntüleyin ve "
+"katkıda bulunun"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
