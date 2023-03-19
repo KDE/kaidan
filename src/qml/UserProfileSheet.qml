@@ -58,7 +58,10 @@ Kirigami.OverlaySheet {
 			id: ownResourcesWatcher
 			jid: AccountManager.jid
 		}
-
+		NotificationsMutedWatcher {
+			id: mutedWatcher
+			jid: root.jid
+		}
 
 		id: headerLayout
 		Avatar {
@@ -218,6 +221,26 @@ Kirigami.OverlaySheet {
 							}
 						}
 					}
+
+					MobileForm.FormCard {
+						Layout.fillWidth: true
+						Layout.topMargin: Kirigami.Units.largeSpacing
+
+						contentItem: ColumnLayout {
+							spacing: 0
+
+							MobileForm.FormCardHeader {
+								title: qsTr("Notifications")
+							}
+
+							MobileForm.FormSwitchDelegate {
+								text: qsTr("Mute notifications")
+								checked: mutedWatcher.muted
+								onClicked: mutedWatcher.muted = !mutedWatcher.muted
+							}
+						}
+					}
+
 					MobileForm.FormCard {
 						Layout.fillWidth: true
 						Layout.topMargin: Kirigami.Units.largeSpacing

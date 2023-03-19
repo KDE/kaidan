@@ -117,22 +117,7 @@ ChatPageBase {
 					searchBar.open()
 			}
 		},
-		Kirigami.Action {
-			visible: true
-			icon.name: {
-				mutedWatcher.muted
-					? "audio-volume-high-symbolic"
-					: "audio-volume-muted-symbolic"
-			}
-			text: {
-				mutedWatcher.muted
-					? qsTr("Unmute notifications")
-					: qsTr("Mute notifications")
-			}
-			onTriggered: {
-				mutedWatcher.muted = !mutedWatcher.muted
-			}
-		},
+
 		Kirigami.Action {
 			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"
