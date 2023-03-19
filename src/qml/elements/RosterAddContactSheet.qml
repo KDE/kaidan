@@ -35,26 +35,46 @@ import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
 	property string jid: ""
 	property string nickname: ""
-
+	padding: Kirigami.Units.mediumSpacing
 	parent: applicationWindow().overlay
-	header: Kirigami.Heading {
-		text: qsTr("Add new contact")
-		Layout.fillWidth: true
+	title: qsTr("Add new contact")
+	standardButtons: Kirigami.Dialog.Cancel
+	onRejected: {
+		clearInput()
+		close()
 	}
+	customFooterActions: [
+		Kirigami.Action {
+			text: qsTr("Add")
+			enabled: credentialsValidator.isAccountJidValid(jidField.text)
+			iconName: "list-add"
+			onTriggered: {
+				Kaidan.client.rosterManager.addContactRequested(
+						jidField.text.toLowerCase(),
+						nickField.text,
+						msgField.text
+				)
+				clearInput()
+				close()
 
+				Kaidan.openChatPageRequested(AccountManager.jid, jidField.text)
+			}
+		}
+	]
 	ColumnLayout {
-		Layout.fillWidth: true
 
-		Controls.Label {
-			text: qsTr("This will also send a request to access the " +
-			           "presence of the contact.")
-			textFormat: Text.PlainText
-			wrapMode: Text.WordWrap
+		Layout.fillWidth: true
+		Kirigami.InlineMessage {
+			visible: true
+			Layout.preferredWidth: 400
 			Layout.fillWidth: true
-			bottomPadding: 10
+			type: Kirigami.MessageType.Information
+
+			text:  qsTr("This will also send a request to access the " +
+						"presence of the contact.")
 		}
 
 		Controls.Label {
@@ -91,41 +111,6 @@ Kirigami.OverlaySheet {
 			placeholderText: qsTr("Tell your chat partner who you are.")
 			wrapMode: Controls.TextArea.Wrap
 			selectByMouse: true
-		}
-
-		RowLayout {
-			Layout.topMargin: 10
-
-			Button {
-				text: qsTr("Cancel")
-				onClicked: {
-					clearInput()
-					close()
-				}
-				Layout.fillWidth: true
-			}
-
-			CredentialsValidator {
-				id: credentialsValidator
-			}
-
-			Button {
-				id: addButton
-				text: qsTr("Add")
-				enabled: credentialsValidator.isAccountJidValid(jidField.text)
-				onClicked: {
-					Kaidan.client.rosterManager.addContactRequested(
-							jidField.text.toLowerCase(),
-							nickField.text,
-							msgField.text
-					)
-					clearInput()
-					close()
-
-					Kaidan.openChatPageRequested(AccountManager.jid, jidField.text)
-				}
-				Layout.fillWidth: true
-			}
 		}
 	}
 
