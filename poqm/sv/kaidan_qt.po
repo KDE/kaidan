@@ -407,22 +407,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Sök"
 
-#: src/qml/ChatPage.qml:129
-msgctxt "ChatPage|"
-msgid "Unmute notifications"
-msgstr "Tysta inte underrättelser"
-
-#: src/qml/ChatPage.qml:130
-msgctxt "ChatPage|"
-msgid "Mute notifications"
-msgstr "Tysta underrättelser"
-
-#: src/qml/ChatPage.qml:139
+#: src/qml/ChatPage.qml:124
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Visa profil"
 
-#: src/qml/ChatPage.qml:150
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Skicka ett spoilermeddelande"
@@ -2099,7 +2089,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Låt oss börja"
 
-#: src/qml/UserProfileSheet.qml:135
+#: src/qml/UserProfileSheet.qml:138
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename contact"
@@ -2107,7 +2097,7 @@ msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Byt namn på kontakt"
 
-#: src/qml/UserProfileSheet.qml:144
+#: src/qml/UserProfileSheet.qml:147
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
@@ -2115,12 +2105,12 @@ msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Ta bort kontakt"
 
-#: src/qml/UserProfileSheet.qml:181
+#: src/qml/UserProfileSheet.qml:184
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:189
+#: src/qml/UserProfileSheet.qml:193
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
@@ -2128,7 +2118,23 @@ msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Det finns ingen kamera tillgänglig."
 
-#: src/qml/UserProfileSheet.qml:228
+#: src/qml/UserProfileSheet.qml:235
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Notifications"
+msgstr "Tysta underrättelser"
+
+#: src/qml/UserProfileSheet.qml:239
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Mute notifications"
+msgstr "Tysta underrättelser"
+
+#: src/qml/UserProfileSheet.qml:253
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -2136,12 +2142,12 @@ msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Kryptering (OMEMO 2)"
 
-#: src/qml/UserProfileSheet.qml:231
+#: src/qml/UserProfileSheet.qml:256
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:232
+#: src/qml/UserProfileSheet.qml:257
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid ""
@@ -2155,7 +2161,7 @@ msgstr ""
 "Kryptering hela vägen med OMEMO 2 säkerställer att ingen annan än du och din "
 "chattpartner kan läsa eller ändra data som ni utbyter."
 
-#: src/qml/UserProfileSheet.qml:246
+#: src/qml/UserProfileSheet.qml:271
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan contact's QR code"
@@ -2163,7 +2169,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Läs av kontaktens QR-kod"
 
-#: src/qml/UserProfileSheet.qml:247
+#: src/qml/UserProfileSheet.qml:272
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your contact's devices to encrypt for them"
@@ -2171,7 +2177,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Läs av QR-koderna för din kontakts apparater för att kryptera för dem"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:283
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan own QR codes"
@@ -2179,7 +2185,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Läs av egna QR-koder"
 
-#: src/qml/UserProfileSheet.qml:262 src/qml/UserProfileSheet.qml:268
+#: src/qml/UserProfileSheet.qml:287 src/qml/UserProfileSheet.qml:293
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -2187,7 +2193,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Läs av QR-koderna för dina apparater för att kryptera för dem"
 
-#: src/qml/UserProfileSheet.qml:264
+#: src/qml/UserProfileSheet.qml:289
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -2195,7 +2201,7 @@ msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Dina andra apparater använder inte OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:271
+#: src/qml/UserProfileSheet.qml:296
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -2203,17 +2209,17 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr "Läs av QR-koderna för dina apparater för maximalt säker kryptering"
 
-#: src/qml/UserProfileSheet.qml:294
+#: src/qml/UserProfileSheet.qml:319
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:298
+#: src/qml/UserProfileSheet.qml:323
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:310
+#: src/qml/UserProfileSheet.qml:335
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2221,7 +2227,7 @@ msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Tysta inte underrättelser"
 
-#: src/qml/UserProfileSheet.qml:321
+#: src/qml/UserProfileSheet.qml:346
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -2229,12 +2235,12 @@ msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Tysta inte underrättelser"
 
-#: src/qml/UserProfileSheet.qml:341
+#: src/qml/UserProfileSheet.qml:366
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:348
+#: src/qml/UserProfileSheet.qml:374
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2388,6 +2394,10 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Tysta inte underrättelser"
 
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Remove account from this app"

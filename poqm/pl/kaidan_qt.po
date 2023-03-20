@@ -411,22 +411,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Poszukaj"
 
-#: src/qml/ChatPage.qml:129
-msgctxt "ChatPage|"
-msgid "Unmute notifications"
-msgstr "Usuń wyciszenie powiadomień"
-
-#: src/qml/ChatPage.qml:130
-msgctxt "ChatPage|"
-msgid "Mute notifications"
-msgstr "Wycisz powiadomienia"
-
-#: src/qml/ChatPage.qml:139
+#: src/qml/ChatPage.qml:124
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Zobacz profil"
 
-#: src/qml/ChatPage.qml:150
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Wyślij zwiniętą wiadomość"
@@ -2096,7 +2086,7 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Zaczynajmy"
 
-#: src/qml/UserProfileSheet.qml:135
+#: src/qml/UserProfileSheet.qml:138
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename contact"
@@ -2104,7 +2094,7 @@ msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Przemianuj kontakt"
 
-#: src/qml/UserProfileSheet.qml:144
+#: src/qml/UserProfileSheet.qml:147
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
@@ -2112,12 +2102,12 @@ msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Usuń kontakt"
 
-#: src/qml/UserProfileSheet.qml:181
+#: src/qml/UserProfileSheet.qml:184
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:189
+#: src/qml/UserProfileSheet.qml:193
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
@@ -2125,7 +2115,23 @@ msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Nie ma żadnej kamery."
 
-#: src/qml/UserProfileSheet.qml:228
+#: src/qml/UserProfileSheet.qml:235
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Notifications"
+msgstr "Wycisz powiadomienia"
+
+#: src/qml/UserProfileSheet.qml:239
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Mute notifications"
+msgstr "Wycisz powiadomienia"
+
+#: src/qml/UserProfileSheet.qml:253
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -2133,12 +2139,12 @@ msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Szyfrowanie (OMEMO 2)"
 
-#: src/qml/UserProfileSheet.qml:231
+#: src/qml/UserProfileSheet.qml:256
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:232
+#: src/qml/UserProfileSheet.qml:257
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid ""
@@ -2153,7 +2159,7 @@ msgstr ""
 "twoimi partnerami na czacie nie może odczytywać ani zmieniać wymienianych  "
 "danych."
 
-#: src/qml/UserProfileSheet.qml:246
+#: src/qml/UserProfileSheet.qml:271
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan contact's QR code"
@@ -2161,7 +2167,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Zeskanuj kod QR kontaktu"
 
-#: src/qml/UserProfileSheet.qml:247
+#: src/qml/UserProfileSheet.qml:272
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your contact's devices to encrypt for them"
@@ -2169,7 +2175,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr "Skanuj kody QR urządzeń swoich kontaktów, aby je zaszyfrować"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:283
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan own QR codes"
@@ -2177,7 +2183,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Skanuj własne kody QR"
 
-#: src/qml/UserProfileSheet.qml:262 src/qml/UserProfileSheet.qml:268
+#: src/qml/UserProfileSheet.qml:287 src/qml/UserProfileSheet.qml:293
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -2185,7 +2191,7 @@ msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Zeskanuj kody QR swoich urządzeń, aby je zaszyfrować"
 
-#: src/qml/UserProfileSheet.qml:264
+#: src/qml/UserProfileSheet.qml:289
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -2193,7 +2199,7 @@ msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Inne twoje urządzenia nie korzystają z OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:271
+#: src/qml/UserProfileSheet.qml:296
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -2202,7 +2208,7 @@ msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Skanuj kody QR swoich urządzeń, aby uzyskać najbezpieczniejsze szyfrowanie"
 
-#: src/qml/UserProfileSheet.qml:294
+#: src/qml/UserProfileSheet.qml:319
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Privacy"
@@ -2210,7 +2216,7 @@ msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Prywatność"
 
-#: src/qml/UserProfileSheet.qml:298
+#: src/qml/UserProfileSheet.qml:323
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Send status"
@@ -2218,7 +2224,7 @@ msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Wyślij stan"
 
-#: src/qml/UserProfileSheet.qml:310
+#: src/qml/UserProfileSheet.qml:335
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Send typing notifications"
@@ -2226,7 +2232,7 @@ msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Powiadamiaj o pisaniu"
 
-#: src/qml/UserProfileSheet.qml:321
+#: src/qml/UserProfileSheet.qml:346
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Send read notifications"
@@ -2234,12 +2240,12 @@ msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Wyślij powiadomienie o przeczytaniu"
 
-#: src/qml/UserProfileSheet.qml:341
+#: src/qml/UserProfileSheet.qml:366
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr ""
 
-#: src/qml/UserProfileSheet.qml:348
+#: src/qml/UserProfileSheet.qml:374
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr ""
@@ -2392,6 +2398,10 @@ msgstr "Urodziny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Usuń wyciszenie powiadomień"
 
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Remove account from this app"

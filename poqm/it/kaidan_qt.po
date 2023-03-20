@@ -408,22 +408,12 @@ msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Cerca"
 
-#: src/qml/ChatPage.qml:129
-msgctxt "ChatPage|"
-msgid "Unmute notifications"
-msgstr "Rimuovi il silenzio alle notifiche"
-
-#: src/qml/ChatPage.qml:130
-msgctxt "ChatPage|"
-msgid "Mute notifications"
-msgstr "Silenzia le notifiche"
-
-#: src/qml/ChatPage.qml:139
+#: src/qml/ChatPage.qml:124
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Visualizza il profilo"
 
-#: src/qml/ChatPage.qml:150
+#: src/qml/ChatPage.qml:135
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Invia un messaggio spoiler"
@@ -2071,37 +2061,53 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Iniziamo"
 
-#: src/qml/UserProfileSheet.qml:135
+#: src/qml/UserProfileSheet.qml:138
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Rinomina contatto"
 
-#: src/qml/UserProfileSheet.qml:144
+#: src/qml/UserProfileSheet.qml:147
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Rimuovi contatto"
 
-#: src/qml/UserProfileSheet.qml:181
+#: src/qml/UserProfileSheet.qml:184
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
 msgstr "Informazioni di profilo"
 
-#: src/qml/UserProfileSheet.qml:189
+#: src/qml/UserProfileSheet.qml:193
 msgctxt "UserProfileSheet|"
 msgid "No information available"
 msgstr "Nessuna informazione disponibile"
 
-#: src/qml/UserProfileSheet.qml:228
+#: src/qml/UserProfileSheet.qml:235
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Notifications"
+msgstr "Silenzia le notifiche"
+
+#: src/qml/UserProfileSheet.qml:239
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "UserProfileSheet|"
+msgid "Mute notifications"
+msgstr "Silenzia le notifiche"
+
+#: src/qml/UserProfileSheet.qml:253
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
 msgstr "Cifratura"
 
-#: src/qml/UserProfileSheet.qml:231
+#: src/qml/UserProfileSheet.qml:256
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
 msgstr "Abilita cifratura OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:232
+#: src/qml/UserProfileSheet.qml:257
 msgctxt "UserProfileSheet|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -2110,66 +2116,66 @@ msgstr ""
 "La cifratura end-to-end con OMEMO 2 garantisce che nessun altro oltre a te e "
 "ai partecipanti alla chat possa leggere o modificare i dati che scambi."
 
-#: src/qml/UserProfileSheet.qml:246
+#: src/qml/UserProfileSheet.qml:271
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
 msgstr "Scansione del codice QR dei contatti"
 
-#: src/qml/UserProfileSheet.qml:247
+#: src/qml/UserProfileSheet.qml:272
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
 msgstr ""
 "Esegui la scansione dei codici QR dei dispositivi dei tuoi contatti per "
 "verificare la cifratura"
 
-#: src/qml/UserProfileSheet.qml:258
+#: src/qml/UserProfileSheet.qml:283
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
 msgstr "Scansione dei tuoi codici QR"
 
-#: src/qml/UserProfileSheet.qml:262 src/qml/UserProfileSheet.qml:268
+#: src/qml/UserProfileSheet.qml:287 src/qml/UserProfileSheet.qml:293
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
 msgstr "Esegui la scansione dei codici QR dei tuoi dispositivi per cifrarli"
 
-#: src/qml/UserProfileSheet.qml:264
+#: src/qml/UserProfileSheet.qml:289
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
 msgstr "Gli altri tuoi dispositivi non utilizzano OMEMO 2"
 
-#: src/qml/UserProfileSheet.qml:271
+#: src/qml/UserProfileSheet.qml:296
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgstr ""
 "Esegui la scansione dei codici QR dei tuoi dispositivi per la cifratura "
 "sicura massima"
 
-#: src/qml/UserProfileSheet.qml:294
+#: src/qml/UserProfileSheet.qml:319
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
 msgstr "Riservatezza"
 
-#: src/qml/UserProfileSheet.qml:298
+#: src/qml/UserProfileSheet.qml:323
 msgctxt "UserProfileSheet|"
 msgid "Send status"
 msgstr "Invia lo stato"
 
-#: src/qml/UserProfileSheet.qml:310
+#: src/qml/UserProfileSheet.qml:335
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
 msgstr "Invia le notifiche di digitazione"
 
-#: src/qml/UserProfileSheet.qml:321
+#: src/qml/UserProfileSheet.qml:346
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
 msgstr "Invia le notifiche di lettura"
 
-#: src/qml/UserProfileSheet.qml:341
+#: src/qml/UserProfileSheet.qml:366
 msgctxt "UserProfileSheet|"
 msgid "Devices"
 msgstr "Dispositivi"
 
-#: src/qml/UserProfileSheet.qml:348
+#: src/qml/UserProfileSheet.qml:374
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
 msgstr "Nessun dispositivo connesso"
@@ -2324,6 +2330,10 @@ msgstr "Data di nascita"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Unmute notifications"
+#~ msgstr "Rimuovi il silenzio alle notifiche"
 
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Remove account from this app"
