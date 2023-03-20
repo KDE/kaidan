@@ -35,10 +35,15 @@ import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
+import "elements"
 import "settings"
 
 Kirigami.GlobalDrawer {
 	id: globalDrawer
+
+	SearchPublicGroupChatSheet {
+		id: searchPublicGroupChatSheet
+	}
 
 	SettingsSheet {
 		id: settingsSheet
@@ -86,6 +91,18 @@ Kirigami.GlobalDrawer {
 			text: qsTr("Add contact by QR code")
 			icon.name: "view-barcode-qr"
 			onTriggered: pageStack.layers.push(qrCodePage)
+		},
+		Kirigami.Action {
+			id: searchPublicGroupChatAction
+			text: qsTr("Search public groups")
+			icon.name: "system-search-symbolic"
+			onTriggered: {
+				if (searchPublicGroupChatSheet.sheetOpen)
+					searchPublicGroupChatSheet.close()
+				else
+					searchPublicGroupChatSheet.open()
+			}
+			shortcut: "Ctrl+G"
 		},
 		Kirigami.Action {
 			text: qsTr("Invite friends")
