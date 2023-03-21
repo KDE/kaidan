@@ -877,27 +877,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "من فضلك اختر محادثة للشروع في المراسلة"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "ابحث للأعلى"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "دعوة أصدقاء"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "تم نسخ رابط الدعوة إلى الحافظة"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "بدّل جهاز"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "الإعدادات"
@@ -1298,20 +1306,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "جهات الاتصال"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "أضف جهة اتصال جديدة"
 
-#: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "ابحث للأعلى"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "ابحث عن متراسلين"

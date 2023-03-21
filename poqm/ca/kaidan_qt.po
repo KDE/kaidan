@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-03-19 09:39+0100\n"
+"PO-Revision-Date: 2023-03-20 09:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -872,27 +872,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccioneu un xat per a iniciar la missatgeria"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Afegeix un contacte a partir del codi QR"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public groups"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Cerca grups públics"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Convideu a amics"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "L'enllaç d'invitació s'ha copiat al porta-retalls"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Configuració"
@@ -1332,17 +1340,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contactes"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Afegeix un contacte nou"
 
-#: src/qml/RosterPage.qml:72
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Cerca grups públics"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Cerca contactes"
@@ -1977,17 +1980,11 @@ msgid "No information available"
 msgstr "No hi ha cap informació disponible"
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "Silencia les notificacions"
+msgstr "Notificacions"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "Silencia les notificacions"

@@ -8,11 +8,11 @@
 # Txaume <txaumevw@gmail.com>, 2019.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
 # Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-03-14 10:06+0100\n"
+"PO-Revision-Date: 2023-03-20 09:39+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -793,6 +793,9 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
+"No s'han pogut recuperar els grups públics, torneu-ho a intentar.\n"
+"\n"
+"%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:184
 msgctxt "SearchPublicGroupChatSheet|"
@@ -802,7 +805,7 @@ msgstr "S'està carregant…"
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:239
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
-msgstr ""
+msgstr "Torna-ho a intentar"
 
 #: src/qml/elements/SendMediaSheet.qml:52
 msgctxt "SendMediaSheet|"
@@ -869,27 +872,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccioneu un xat per a iniciar la missatgeria"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Afig un contacte a partir del codi QR"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public groups"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Busca grups públics"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Convideu a amics"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "L'enllaç d'invitació s'ha copiat al porta-retalls"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Configuració"
@@ -1330,17 +1341,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contactes"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Afig un contacte nou"
 
-#: src/qml/RosterPage.qml:72
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Busca grups públics"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Busca contactes"
@@ -1348,33 +1354,24 @@ msgstr "Busca contactes"
 #: src/qml/settings/AboutPage.qml:39
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "Quant a Kaidan"
 
 #: src/qml/settings/AboutPage.qml:79
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "A simple, user-friendly Jabber/XMPP client"
 msgctxt "AboutPage|"
 msgid "A simple, user-friendly Jabber/XMPP client"
 msgstr "Un client de Jabber/XMPP senzill i fàcil d'emprar"
 
 #: src/qml/settings/AboutPage.qml:123
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutPage|"
 msgid "Report problems"
-msgstr "Informa de problemes"
+msgstr "Informeu de problemes"
 
 #: src/qml/settings/AboutPage.qml:124
 msgctxt "AboutPage|"
 msgid "Report issues in Kaidan to the developers"
-msgstr ""
+msgstr "Informeu de les incidències en Kaidan als desenvolupadors"
 
 #: src/qml/settings/AboutPage.qml:129
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code online"
 msgstr "Visualitzeu el codi font en línia"
@@ -1382,12 +1379,9 @@ msgstr "Visualitzeu el codi font en línia"
 #: src/qml/settings/AboutPage.qml:130
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code and contribute to the project"
-msgstr ""
+msgstr "Visualitzeu el codi font de Kaidan i col·laboreu amb el projecte"
 
 #: src/qml/settings/AboutPage.qml:135
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit Website"
 msgstr "Visiteu el lloc web"
@@ -1398,12 +1392,9 @@ msgid "Account Security"
 msgstr "Seguretat del compte"
 
 #: src/qml/settings/AccountSecurity.qml:55
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "AccountSecurity|"
 msgid "Information"
-msgstr "Informació del perfil"
+msgstr "Informació"
 
 #: src/qml/settings/AccountSecurity.qml:68
 msgctxt "AccountSecurity|"
@@ -1412,6 +1403,9 @@ msgid ""
 "password can be shown as text and in form of a QR code. You can change this "
 "here."
 msgstr ""
+"Configureu la visibilitat de la contrasenya per a canviar els dispositius, "
+"de manera predeterminada la contrasenya es pot mostrar com a text i en forma "
+"de codi QR. Podeu canviar açò ací."
 
 #: src/qml/settings/AccountSecurity.qml:84
 msgctxt "AccountSecurity|"
@@ -1469,7 +1463,7 @@ msgstr "Visiteu el lloc web"
 #: src/qml/settings/AccountSettings.qml:326
 msgctxt "AccountSettings|"
 msgid "Open the website of your provider in a browser"
-msgstr ""
+msgstr "Obri el lloc web del proveïdor en un navegador"
 
 #: src/qml/settings/AccountSettings.qml:333
 msgctxt "AccountSettings|"
@@ -1479,15 +1473,12 @@ msgstr "Copia l'URL"
 #: src/qml/settings/AccountSettings.qml:334
 msgctxt "AccountSettings|"
 msgid "Copy the providers web address to the clipboard"
-msgstr ""
+msgstr "Copia l'adreça web dels proveïdors al porta-retalls"
 
 #: src/qml/settings/AccountSettings.qml:337
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "URL successfully copied to clipboard."
 msgctxt "AccountSettings|"
 msgid "URL copied to clipboard."
-msgstr "L'URL s'ha copiat correctament al porta-retalls."
+msgstr "L'URL s'ha copiat al porta-retalls."
 
 #: src/qml/settings/AccountSettings.qml:342
 #: src/qml/settings/AccountSettings.qml:355
@@ -1498,7 +1489,7 @@ msgstr "Suport"
 #: src/qml/settings/AccountSettings.qml:357
 msgctxt "AccountSettings|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "Inicia un xat amb el contacte de suport del vostre proveïdor"
 
 #: src/qml/settings/AccountSettings.qml:379
 msgctxt "AccountSettings|"
@@ -1508,7 +1499,7 @@ msgstr "Grup de suport"
 #: src/qml/settings/AccountSettings.qml:381
 msgctxt "AccountSettings|"
 msgid "Join your provider's support group"
-msgstr ""
+msgstr "Uniu-vos al grup de suport del vostre proveïdor"
 
 #: src/qml/settings/ChangeAvatar.qml:50
 msgctxt "ChangeAvatar|"
@@ -1546,12 +1537,9 @@ msgid "Change password"
 msgstr "Canvia la contrasenya"
 
 #: src/qml/settings/ChangePassword.qml:66
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "ChangePassword|"
 msgid "Information"
-msgstr "Informació del perfil"
+msgstr "Informació"
 
 #: src/qml/settings/ChangePassword.qml:76
 msgctxt "ChangePassword|"
@@ -1654,12 +1642,9 @@ msgid "Don't expose your password in any way"
 msgstr "No exposa la vostra contrasenya de cap manera"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:56
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePasswordDisplay|"
 msgid "Information"
-msgstr "Informació del perfil"
+msgstr "Informació"
 
 #: src/qml/settings/DisablePasswordDisplay.qml:68
 msgctxt "DisablePasswordDisplay|"
@@ -1679,9 +1664,6 @@ msgstr ""
 "el vostre compte en un altre dispositiu."
 
 #: src/qml/settings/DisablePasswordDisplay.qml:98
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePasswordDisplay|"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -1697,12 +1679,9 @@ msgid "Don't show your password"
 msgstr "No mostres la contrasenya"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Information"
-msgstr "Informació del perfil"
+msgstr "Informació"
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:67
 msgctxt "DisablePlainTextPasswordDisplay|"
@@ -1722,9 +1701,6 @@ msgstr ""
 "el vostre compte en un altre dispositiu sense el codi QR d'inici de sessió."
 
 #: src/qml/settings/DisablePlainTextPasswordDisplay.qml:95
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "DisablePlainTextPasswordDisplay|"
 msgid "Cancel"
 msgstr "Cancel·la"
@@ -1735,52 +1711,34 @@ msgid "Don't show password"
 msgstr "No mostres la contrasenya"
 
 #: src/qml/settings/LocalAccountRemoval.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from Kaidan"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out from Kaidan"
-msgstr "Elimina el compte de Kaidan"
+msgstr "Desconnecta de Kaidan"
 
 #: src/qml/settings/LocalAccountRemoval.qml:57
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "LocalAccountRemoval|"
 msgid "Information"
-msgstr "Informació del perfil"
+msgstr "Informació"
 
 #: src/qml/settings/LocalAccountRemoval.qml:70
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid ""
-#| "Your account will be removed from this app.\n"
-#| "Your password will be deleted, make sure it is stored in a password "
-#| "manager or you know it!"
 msgctxt "LocalAccountRemoval|"
 msgid ""
 "Your account will be removed from this app.Your password will be deleted, "
 "make sure it is stored in a password manager or you know it!"
 msgstr ""
-"El vostre compte s'eliminarà d'esta aplicació.\n"
-"Se suprimirà la vostra contrasenya, assegureu-vos que està emmagatzemada en "
-"un gestor de contrasenyes o la sabeu!"
+"El vostre compte s'eliminarà d'esta aplicació. Se suprimirà la vostra "
+"contrasenya, assegureu-vos que està emmagatzemada en un gestor de "
+"contrasenyes o que la sabeu!"
 
 #: src/qml/settings/LocalAccountRemoval.qml:104
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "LocalAccountRemoval|"
 msgid "Cancel"
 msgstr "Cancel·la"
 
 #: src/qml/settings/LocalAccountRemoval.qml:134
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LocalAccountRemoval|"
 msgid "Log out"
-msgstr "Inici de sessió"
+msgstr "Desconnecta"
 
 #: src/qml/settings/MultimediaSettings.qml:43
 msgctxt "MultimediaSettings|"
@@ -1790,7 +1748,7 @@ msgstr "Configuració multimèdia"
 #: src/qml/settings/MultimediaSettings.qml:63
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
-msgstr ""
+msgstr "Seleccioneu els orígens"
 
 #: src/qml/settings/MultimediaSettings.qml:68
 msgctxt "MultimediaSettings|"
@@ -1798,9 +1756,6 @@ msgid "Camera"
 msgstr "Càmera"
 
 #: src/qml/settings/MultimediaSettings.qml:98
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio input"
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
 msgstr "Entrada de l'àudio"
@@ -1808,22 +1763,22 @@ msgstr "Entrada de l'àudio"
 #: src/qml/settings/MultimediaSettings.qml:131
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
-msgstr ""
+msgstr "Eixida del vídeo"
 
 #: src/qml/settings/MultimediaSettings.qml:181
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
-msgstr ""
+msgstr "Reinicia els valors predeterminats"
 
 #: src/qml/settings/MultimediaSettings.qml:200
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
-msgstr ""
+msgstr "Reinicia la configuració d'usuari"
 
 #: src/qml/settings/MultimediaSettings.qml:221
 msgctxt "MultimediaSettings|"
 msgid "Save"
-msgstr ""
+msgstr "Guarda"
 
 #: src/qml/settings/PasswordRemovalPage.qml:44
 msgctxt "PasswordRemovalPage|"
@@ -1857,9 +1812,6 @@ msgid "Remove completely"
 msgstr "Elimina completament"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:40
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete account"
 msgstr "Suprimix el compte"
@@ -1867,36 +1819,23 @@ msgstr "Suprimix el compte"
 #: src/qml/settings/RemoteAccountDeletion.qml:56
 msgctxt "RemoteAccountDeletion|"
 msgid "Warning"
-msgstr ""
+msgstr "Avís"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:72
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid ""
-#| "Your account will be deleted completely, which means from this app and "
-#| "from the server.\n"
-#| "You will not be able to use your account again!"
 msgctxt "RemoteAccountDeletion|"
 msgid ""
 "Your account will be deleted completely, which means from this app and from "
 "the server. You will not be able to use your account again!"
 msgstr ""
 "El vostre compte se suprimirà completament, cosa que significa d'esta "
-"aplicació i del servidor.\n"
-"No podreu tornar a utilitzar el vostre compte!"
+"aplicació i del servidor. No podreu tornar a utilitzar el vostre compte!"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:101
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "RemoteAccountDeletion|"
 msgid "Cancel"
 msgstr "Cancel·la"
 
 #: src/qml/settings/RemoteAccountDeletion.qml:128
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RemoteAccountDeletion|"
 msgid "Delete Account"
 msgstr "Suprimix el compte"
@@ -1907,9 +1846,6 @@ msgid "Settings"
 msgstr "Configuració"
 
 #: src/qml/settings/SettingsContent.qml:56
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "SettingsContent|"
 msgid "Account Settings"
 msgstr "Configureu el compte"
@@ -1947,20 +1883,14 @@ msgstr ""
 "dispositiu"
 
 #: src/qml/settings/SettingsContent.qml:81
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "SettingsContent|"
 msgid "Log out"
-msgstr "Inici de sessió"
+msgstr "Desconnecta"
 
 #: src/qml/settings/SettingsContent.qml:82
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Remove account from this app"
 msgctxt "SettingsContent|"
 msgid "Log out account from this app"
-msgstr "Elimina el compte d'esta aplicació"
+msgstr "Desconnecta el compte d'esta aplicació"
 
 #: src/qml/settings/SettingsContent.qml:87
 msgctxt "SettingsContent|"
@@ -1968,20 +1898,14 @@ msgid "Delete account"
 msgstr "Suprimix el compte"
 
 #: src/qml/settings/SettingsContent.qml:88
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from server"
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Suprimix el compte del servidor"
 
 #: src/qml/settings/SettingsContent.qml:99
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Connection Settings"
 msgctxt "SettingsContent|"
 msgid "Application Settings"
-msgstr "Configureu la connexió"
+msgstr "Configureu l'aplicació"
 
 #: src/qml/settings/SettingsContent.qml:102
 msgctxt "SettingsContent|"
@@ -2004,9 +1928,6 @@ msgid "Configure the hostname and port to connect to"
 msgstr "Configura el nom del servidor i el port al qual connectar"
 
 #: src/qml/settings/SettingsContent.qml:120
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "About"
 msgctxt "SettingsContent|"
 msgid "About"
 msgstr "Quant a"
@@ -2014,13 +1935,15 @@ msgstr "Quant a"
 #: src/qml/settings/SettingsContent.qml:123
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "Quant a Kaidan"
 
 #: src/qml/settings/SettingsContent.qml:124
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
+"Apreneu sobre la versió actual de Kaidan, visualitzeu el codi font i "
+"col·laboreu"
 
 #: src/qml/settings/SettingsPage.qml:35
 msgctxt "SettingsPage|"
@@ -2058,17 +1981,11 @@ msgid "No information available"
 msgstr "No hi ha cap informació disponible"
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "Silencia les notificacions"
+msgstr "Notificacions"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "Silencia les notificacions"
@@ -2310,95 +2227,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Unmute notifications"
-#~ msgstr "Deixa de silenciar les notificacions"
-
-#~ msgctxt "LocalAccountRemoval|"
-#~ msgid "Remove account from this app"
-#~ msgstr "Elimina el compte d'esta aplicació"
-
-#~ msgctxt "LocalAccountRemoval|"
-#~ msgid "Remove"
-#~ msgstr "Elimina"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Configure"
-#~ msgstr "Configura"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Image Capture"
-#~ msgstr "Captura d'imatges"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Audio Recording"
-#~ msgstr "Gravació d'àudio"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Video Recording"
-#~ msgstr "Gravació de vídeo"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Container"
-#~ msgstr "Contenidor"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Image"
-#~ msgstr "Imatge"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Audio"
-#~ msgstr "Àudio"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Video"
-#~ msgstr "Vídeo"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Codec"
-#~ msgstr "Còdec"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Resolution"
-#~ msgstr "Resolució"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Quality"
-#~ msgstr "Qualitat"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Sample Rate"
-#~ msgstr "Freqüència de mostratge"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Frame Rate"
-#~ msgstr "Velocitat dels fotogrames"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Ready"
-#~ msgstr "Preparat"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Initializing…"
-#~ msgstr "S'està inicialitzant…"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Unavailable"
-#~ msgstr "No disponible"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Recording…"
-#~ msgstr "Gravació…"
-
-#~ msgctxt "MultimediaSettings|"
-#~ msgid "Paused"
-#~ msgstr "En pausa"
-
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete account completely"
-#~ msgstr "Suprimix completament el compte"
-
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete"
-#~ msgstr "Suprimix"

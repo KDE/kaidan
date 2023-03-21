@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-19 06:44+0100\n"
+"PO-Revision-Date: 2023-03-20 08:39+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -862,27 +862,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Prosimo, izberite klepet, da začnete s pogovarjanem"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Dodaj stik prek kode QR"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public groups"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Išči javne grupe"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Povabi prijatelje"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Povezava za povabilo kopirana v odložišče"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Zamenjaj napravo"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Nastavitve"
@@ -1309,17 +1317,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Stiki"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Dodaj nov stik"
 
-#: src/qml/RosterPage.qml:72
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Išči javne grupe"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Iskanje stikov"
@@ -1949,17 +1952,11 @@ msgid "No information available"
 msgstr "Nobene informacije ni na voljo"
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "Utišaj obvestila"
+msgstr "Obvestila"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "Utišaj obvestila"

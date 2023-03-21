@@ -880,27 +880,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Aloita viestiminen valitsemalla keskustelu"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lisää yhteystieto QR-koodilla"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Search up"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Etsi ylöspäin"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Kutsu kavereita"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Kutsulinkki kopioitu leikepöydälle"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Vaihda laitetta"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Asetukset"
@@ -1329,20 +1337,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Yhteystiedot"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Lisää uusi yhteystieto"
 
-#: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Etsi ylöspäin"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Etsi yhteystietoja"

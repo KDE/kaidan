@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.07.70\n"
 "X-Qt-Contexts: true\n"
 
@@ -961,7 +961,7 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Bitte wählen Sie einen Chat aus, um zu beginnen"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add Contact"
@@ -969,25 +969,33 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Kontakt hinzufügen"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search up"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Weiter oben suchen"
+
+#: src/qml/GlobalDrawer.qml:108
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Freunde einladen"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Einladungslink wurde in die Zwischenablage kopiert"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Gerät wechseln"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Einstellungen"
@@ -1445,20 +1453,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontakte"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Neuen Kontakt hinzufügen"
 
-#: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search up"
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Weiter oben suchen"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Kontakte suchen"

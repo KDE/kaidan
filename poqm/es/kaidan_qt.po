@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-03-19 20:43+0100\n"
+"PO-Revision-Date: 2023-03-20 23:04+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -862,27 +862,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccione un chat para empezar a enviar mensajes"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Añadir contacto por código QR"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public groups"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Buscar grupos públicos"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Invitar a amigos"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Se ha copiado el enlace de invitación en el portapapeles"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambiar dispositivo"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Preferencias"
@@ -1318,17 +1326,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contactos"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Añadir nuevo contacto"
 
-#: src/qml/RosterPage.qml:72
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Buscar grupos públicos"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Buscar contactos"
@@ -1961,17 +1964,11 @@ msgid "No information available"
 msgstr "No hay información disponible."
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "Silenciar notificaciones"
+msgstr "Notificaciones"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "Silenciar notificaciones"

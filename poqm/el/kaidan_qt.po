@@ -892,27 +892,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Αναζήτηση"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr ""
@@ -1325,20 +1333,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr ""
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr ""
 
-#: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Αναζήτηση"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"

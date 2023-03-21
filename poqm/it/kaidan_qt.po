@@ -874,27 +874,35 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleziona una chat per iniziare a inviare messaggi"
 
-#: src/qml/GlobalDrawer.qml:86
+#: src/qml/GlobalDrawer.qml:91
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Aggiungi contatto tramite codice QR"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:97
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Search public group chat"
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr "Cerca chat di gruppo pubblica"
+
+#: src/qml/GlobalDrawer.qml:108
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Invita amici"
 
-#: src/qml/GlobalDrawer.qml:95
+#: src/qml/GlobalDrawer.qml:112
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Collegamento di invito copiato negli appunti"
 
-#: src/qml/GlobalDrawer.qml:99
+#: src/qml/GlobalDrawer.qml:116
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambia dispositivo"
 
-#: src/qml/GlobalDrawer.qml:107
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Impostazioni"
@@ -1337,20 +1345,12 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contatti"
 
-#: src/qml/RosterPage.qml:60
+#: src/qml/RosterPage.qml:56
 msgctxt "RosterPage|"
 msgid "Add new contact"
 msgstr "Aggiungi un nuovo contatto"
 
-#: src/qml/RosterPage.qml:72
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public group chat"
-msgctxt "RosterPage|"
-msgid "Search public groups"
-msgstr "Cerca chat di gruppo pubblica"
-
-#: src/qml/RosterPage.qml:85
+#: src/qml/RosterPage.qml:68
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Cerca contatti"
