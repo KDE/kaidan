@@ -140,6 +140,11 @@ Kirigami.GlobalDrawer {
 		Kaidan.client.vCardManager.clientVCardRequested()
 
 		// Retrieve the user's own OMEMO key to be used while adding a contact via QR code.
-		Kaidan.client.omemoManager.retrieveOwnKeyRequested()
+		// That is only done when no chat is already open.
+		// Otherwise, it would result in an unneccessary fetching and it would remove the cached
+		// keys for that chat while only keeping the own key in the cache.
+		if (!MessageModel.currentChatJid.length) {
+			Kaidan.client.omemoManager.retrieveOwnKeyRequested()
+		}
 	}
 }
