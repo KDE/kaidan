@@ -116,7 +116,7 @@ Controls.Pane {
 
 			Controls.TextArea {
 				id: messageArea
-				placeholderText: qsTr("Compose message")
+				placeholderText: MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 				background: Item {}
 				wrapMode: TextEdit.Wrap
 				Layout.leftMargin: Style.isMaterial ? 6 : 0
