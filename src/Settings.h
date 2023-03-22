@@ -31,16 +31,21 @@
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
+#include <QMutex>
 #include <QObject>
 #include <QPoint>
 #include <QSettings>
 #include <QSize>
 
-#include "Globals.h"
 #include "Kaidan.h"
 
 constexpr quint16 PORT_AUTODETECT = 0;
 
+/**
+ * Manages settings stored in the settings file.
+ *
+ * All methods are thread-safe.
+ */
 class Settings : public QObject
 {
 	Q_OBJECT
@@ -78,7 +83,7 @@ public:
 	quint16 authPort() const;
 	void setAuthPort(quint16 port);
 	void resetAuthPort();
-	bool isDefaultAuthPort();
+	bool isDefaultAuthPort() const;
 
 	Kaidan::PasswordVisibility authPasswordVisibility() const;
 	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
@@ -127,6 +132,7 @@ signals:
 
 private:
 	QSettings m_settings;
+	mutable QMutex m_mutex;
 };
 
 #endif // SETTINGS_H
