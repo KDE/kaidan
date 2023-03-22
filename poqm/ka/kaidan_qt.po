@@ -852,9 +852,6 @@ msgid "Add contact by QR code"
 msgstr "კონტაქტის QR კოდით დამატება"
 
 #: src/qml/GlobalDrawer.qml:97
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Search public groups"
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "საჯარო ჯგუფების ძებნა"
@@ -1012,7 +1009,7 @@ msgstr "ავტომატური რეგისტრაცია"
 #: src/qml/registration/AutomaticRegistrationPage.qml:106
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr ""
+msgstr "მომწოდებელს ამჟამად ამ აპიდან რეგისტრაციის მხარდაჭერა არ გააჩნია."
 
 #: src/qml/registration/CustomFormView.qml:39
 msgctxt "CustomFormView|"
@@ -1880,17 +1877,11 @@ msgid "No information available"
 msgstr "ინფორმაცია ხელმიუწვდომელია"
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "გაფრთხილებების დადუმება"
+msgstr "გაფრთხილებები"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "გაფრთხილებების დადუმება"
