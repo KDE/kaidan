@@ -31,7 +31,6 @@
 #include "RosterManager.h"
 // Kaidan
 #include "AvatarFileStorage.h"
-#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageModel.h"
 #include "OmemoManager.h"
@@ -39,6 +38,7 @@
 #include "VCardManager.h"
 // QXmpp
 #include <QXmppRosterManager.h>
+#include <QXmppTask.h>
 
 RosterManager::RosterManager(ClientWorker *clientWorker,
                              QXmppClient *client,
