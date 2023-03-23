@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-03-20 19:28+0100\n"
+"PO-Revision-Date: 2023-03-21 11:17+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:301
+#: src/ClientWorker.cpp:302
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -1987,17 +1987,11 @@ msgid "No information available"
 msgstr "Aucun information disponible"
 
 #: src/qml/UserProfileSheet.qml:235
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Notifications"
-msgstr "Mettre les notifications en pause"
+msgstr "Notifications"
 
 #: src/qml/UserProfileSheet.qml:239
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Mute notifications"
 msgstr "Mettre les notifications en pause"
