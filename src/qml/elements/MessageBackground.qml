@@ -38,6 +38,8 @@ import QtGraphicalEffects 1.15
 import QtQuick.Controls 2.12 as Controls
 import org.kde.kirigami 2.14 as Kirigami
 
+import im.kaidan.kaidan 1.0
+
 Item {
 	id: backgroundRoot
 
@@ -140,6 +142,20 @@ Item {
 				delay: 500
 			}
 		}
+
+		Kirigami.Icon {
+			source: backgroundRoot.message.encryption === Encryption.NoEncryption ? "channel-insecure-symbolic" : "channel-secure-symbolic"
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
+		}
+
+		Kirigami.Icon {
+			// TODO: Use "security-low-symbolic" for distrusted, "security-medium-symbolic" for automatically trusted and "security-high-symbolic" for authenticated
+			source: backgroundRoot.message.isTrusted ? "security-high-symbolic" : "security-low-symbolic"
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
+		}
+
 		Image {
 			visible: message.isOwn
 			source: deliveryStateIcon
