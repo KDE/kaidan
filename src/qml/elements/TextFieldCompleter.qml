@@ -58,6 +58,9 @@ FocusScope {
 	//   QStringList is accepted.
 	property alias model: completions.model
 
+	// The model role name to query
+	property string role: "modelData"
+
 	// The currently active, in-use user input that is the basis for the current completions.
 	//   It differs from the text field's "text" content while navigating through autocompletions.
 	//   During that time, the last input as typed by the user is "input" and the text field content is
@@ -259,32 +262,32 @@ FocusScope {
 					completions.currentIndex = -1
 					event.accepted = true
 					break
+
 				case Qt.Key_Up:
-					completions.currentIndex--
-
 					// When moving prior the first item, cycle through completions from the end again.
-					if (completions.currentIndex < 0)
-						completions.currentIndex = completions.model.length - 1
+					if (completions.currentIndex === 0) {
+						completions.currentIndex = completions.count - 1
+					} else {
+						completions.currentIndex--
+					}
 
-					console.log("completions.model[" + completions.currentIndex + "]: "
-								+ JSON.stringify(completions.model[completions.currentIndex]))
-
-					field.text = completions.model[completions.currentIndex]
 					event.accepted = true
 					break
+
 				case Qt.Key_Down:
-					completions.currentIndex++
-
 					// When moving past the last item, cycle through completions from the start again.
-					if (completions.currentIndex > completions.model.length - 1)
+					if (completions.currentIndex === completions.count - 1) {
 						completions.currentIndex = 0
+					} else {
+						completions.currentIndex++
+					}
 
-					field.text = completions.model[completions.currentIndex]
 					event.accepted = true
 					break
+
 				case Qt.Key_Return:
 					field.accepted()
-					event.accepted = true
+					event.accepted = true;
 					break
 				}
 			} else {
@@ -299,7 +302,7 @@ FocusScope {
 					event.accepted = true
 					break
 				case Qt.Key_Down:
-					completionsVisible = completions.model.length > 0 ? true : false
+					completionsVisible = completions.count > 0 ? true : false
 
 					event.accepted = true
 					break
@@ -345,7 +348,7 @@ FocusScope {
 //
 //			onClicked: {
 //				console.log("TextFieldCompleter: field: clicked() received")
-//				completionsVisible = completions.model.length > 0 ? true : false
+//				completionsVisible = completions.count > 0 ? true : false
 //				mouse.accepted = false
 //			}
 //			// onPressed:         mouse.accepted = false
@@ -386,7 +389,7 @@ FocusScope {
 					//   TODO: Use a basic QML component to not be tied to Kirigami. Or document
 					//   what can be used here when wanting to use it independent of Kirigami.
 					delegate: Kirigami.BasicListItem {
-						id: listItem
+						readonly property string value: model[root.role]
 
 						label: highlightCompletion(modelData, root.input)
 						width: completionsBox.width
@@ -394,12 +397,18 @@ FocusScope {
 
 						// Background coloring should be used only for the selected item.
 						//   (Also, a lighter colored background automatically appears on mouse-over.)
-						highlighted: index === completions.currentIndex
+						highlighted: model.index !== -1 && model.index === completions.currentIndex
+
+						onHighlightedChanged: {
+							if (highlighted) {
+								console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
+								field.text = value
+							}
+						}
 
 						onClicked: {
-							console.log("modelData = " + JSON.stringify(modelData))
-							completions.currentIndex = index
-							field.text = modelData
+							console.log("modelData = " + JSON.stringify(value))
+							completions.currentIndex = model.index
 							field.accepted()
 						}
 					}
