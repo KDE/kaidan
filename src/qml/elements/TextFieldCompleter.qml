@@ -316,7 +316,7 @@ FocusScope {
 			//   Because it probably means that the user wants to see the browser, not the
 			//   completions box. So we hide the completions box by removing the focus. We could
 			//   also keep the focus, but focus is useless without a keyboard.
-			onKeyboardRectangleChanged: {
+			function onKeyboardRectangleChanged() {
 				// Contains QML Basic Type "rect", automatically converted from Qt QRectF as per
 				// https://doc.qt.io/qt-5/qml-rect.html
 				const newRect = Qt.inputMethod.keyboardRectangle
