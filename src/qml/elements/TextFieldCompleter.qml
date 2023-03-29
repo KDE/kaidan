@@ -1,12 +1,13 @@
 // SPDX-FileCopyrightText: 2020 Matthias Ansorg
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: MIT
 
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import QtQuick.Layouts 1.2
-import QtQml 2.12
-import org.kde.kirigami 2.10 as Kirigami
+import QtQuick 2.14
+import QtQuick.Controls 2.14
+import QtQuick.Layouts 1.14
+import QtQml 2.14
+import org.kde.kirigami 2.19 as Kirigami
 
 // Autocomplete widget with completion highlighting similar to a web search.
 //
