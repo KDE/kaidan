@@ -100,7 +100,7 @@ FocusScope {
 	//   TODO: Make sure that text is only set here and not also unnecessarily in other locations in
 	//   this component.
 	onInputChanged: {
-		console.log("TextFieldCompleter: 'inputChanged()' signal received")
+		//console.log("TextFieldCompleter: 'inputChanged()' signal received")
 		text = input
 	}
 
@@ -217,7 +217,7 @@ FocusScope {
 		//   This event is emitted by a TextField when the user finishes editing it.
 		//   In desktop software, this requires pressing "Return". Moving focus does not count.
 		onAccepted: {
-			console.log("TextFieldCompleter: field: 'accepted()' received")
+			//console.log("TextFieldCompleter: field: 'accepted()' received")
 
 			// Give up the focus, making it available for grabs by the rest of the UI
 			// via appropriate focus property bindings.
@@ -253,7 +253,7 @@ FocusScope {
 		//   key presses here is more tidy. They cannot all be handled in completionsBox as
 		//   key presses are not delivered or forwarded to components in their invisible state.
 		Keys.onPressed: {
-			console.log("TextFieldCompleter: field: Keys.pressed(): " + event.key + " : " + event.text)
+			//console.log("TextFieldCompleter: field: Keys.pressed(): " + event.key + " : " + event.text)
 
 			if (completionsVisible) {
 				switch (event.key) {
@@ -347,7 +347,7 @@ FocusScope {
 //			// propagateComposedEvents: true
 //
 //			onClicked: {
-//				console.log("TextFieldCompleter: field: clicked() received")
+//				//console.log("TextFieldCompleter: field: clicked() received")
 //				completionsVisible = completions.count > 0 ? true : false
 //				mouse.accepted = false
 //			}
@@ -401,13 +401,13 @@ FocusScope {
 
 						onHighlightedChanged: {
 							if (highlighted) {
-								console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
+								//console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
 								field.text = value
 							}
 						}
 
 						onClicked: {
-							console.log("modelData = " + JSON.stringify(value))
+							//console.log("modelData = " + JSON.stringify(value))
 							completions.currentIndex = model.index
 							field.accepted()
 						}
