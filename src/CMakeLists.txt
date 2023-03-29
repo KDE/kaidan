@@ -48,6 +48,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	GuiStyle.h
 	HostCompletionModel.cpp
 	HostCompletionModel.h
+	HostCompletionProxyModel.cpp
+	HostCompletionProxyModel.h
 	# hsluv-c required for color generation
 	hsluv-c/hsluv.c
 	hsluv-c/hsluv.h

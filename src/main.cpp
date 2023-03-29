@@ -67,6 +67,7 @@
 #include "FileSharingController.h"
 #include "GuiStyle.h"
 #include "HostCompletionModel.h"
+#include "HostCompletionProxyModel.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
 #include "MediaRecorder.h"
@@ -446,6 +447,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
 	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
+	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");
