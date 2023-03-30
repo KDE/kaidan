@@ -31,9 +31,11 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-import "../elements"
-import im.kaidan.kaidan 1.0
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+
+import im.kaidan.kaidan 1.0
+
+import "../elements"
 
 SettingsPageBase {
 	title: qsTr("About Kaidan")
@@ -54,6 +56,7 @@ SettingsPageBase {
 				spacing: 0
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
+					background: Item {}
 					contentItem: RowLayout {
 						Image {
 							source: Utils.getResourcePath("images/kaidan.svg")
@@ -66,6 +69,7 @@ SettingsPageBase {
 							mipmap: true
 							sourceSize: Qt.size(width, height)
 						}
+
 						ColumnLayout {
 							Kirigami.Heading {
 								text: Utils.applicationDisplayName + " " + Utils.versionString
@@ -76,7 +80,7 @@ SettingsPageBase {
 							}
 
 							Controls.Label {
-								text: "<i>" + qsTr("A simple, user-friendly Jabber/XMPP client") + "</i>"
+								text: "<i>" + qsTr("User-friendly and modern chat app for every device") + "</i>"
 								textFormat: Text.StyledText
 								wrapMode: Text.WordWrap
 								Layout.fillWidth: true
@@ -91,51 +95,73 @@ SettingsPageBase {
 			Layout.fillWidth: true
 
 			contentItem: ColumnLayout {
+				UrlFormButtonDelegate {
+					text: qsTr("Visit website")
+					description: qsTr("Open Kaidan's website in a web browser")
+					icon.name: "globe"
+					url: Utils.applicationWebsiteUrl
+				}
+
+				UrlFormButtonDelegate {
+					text: qsTr("Report problems")
+					description: qsTr("Report issues with Kaidan to the developers")
+					icon.name: "computer-fail-symbolic"
+					url: Utils.issueTrackingUrl
+				}
+
+				UrlFormButtonDelegate {
+					text: qsTr("View source code")
+					description: qsTr("View Kaidan's source code online and contribute to the project")
+					icon.name: "system-search-symbolic"
+					url: Utils.applicationSourceCodeUrl
+				}
+			}
+		}
+
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
+					background: Item {}
 					contentItem: ColumnLayout {
+						Controls.Label {
+							text: "GPLv3+ / CC BY-SA 4.0"
+							textFormat: Text.PlainText
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
+						}
+
 						Controls.Label {
 							text: "License"
-						}
-						Controls.Label {
 							font: Kirigami.Theme.smallFont
-							text: "GPLv3+ / CC BY-SA 4.0"
 							color: Kirigami.Theme.disabledTextColor
-							textFormat: Text.PlainText
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
 						}
 					}
 				}
+
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
+					background: Item {}
 					contentItem: ColumnLayout {
 						Controls.Label {
-							text: "Copyright"
-						}
-						Controls.Label {
-							font: Kirigami.Theme.smallFont
 							text: "© 2016-2023 Kaidan developers and contributors"
-							color: Kirigami.Theme.disabledTextColor
 							textFormat: Text.PlainText
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
+						}
+
+						Controls.Label {
+							text: "Copyright"
+							font: Kirigami.Theme.smallFont
+							color: Kirigami.Theme.disabledTextColor
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
 						}
 					}
-				}
-				MobileForm.FormButtonDelegate {
-					text: qsTr("Report problems")
-					description: qsTr("Report issues in Kaidan to the developers")
-					onClicked: Qt.openUrlExternally(Utils.issueTrackingUrl)
-					icon.name: "tools-report-bug"
-				}
-				MobileForm.FormButtonDelegate {
-					text: qsTr("View source code online")
-					description: qsTr("View Kaidan's source code and contribute to the project")
-					onClicked: Qt.openUrlExternally(Utils.applicationSourceCodeUrl)
-					icon.name: "kde"
-				}
-				MobileForm.FormButtonDelegate {
-					text: qsTr("Visit Website")
-					description: "kaidan.im"
-					onClicked: Qt.openUrlExternally("https://www.kaidan.im")
-					icon.name: "globe"
 				}
 			}
 		}

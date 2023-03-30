@@ -133,9 +133,14 @@ QString QmlUtils::getResourcePath(const QString &name)
 	return QString();
 }
 
+QUrl QmlUtils::applicationWebsiteUrl()
+{
+	return { QStringLiteral(APPLICATION_WEBSITE_URL) };
+}
+
 QUrl QmlUtils::issueTrackingUrl()
 {
-	return {QStringLiteral(ISSUE_TRACKING_URL)};
+	return { QStringLiteral(ISSUE_TRACKING_URL) };
 }
 
 QUrl QmlUtils::trustMessageUri(const QString &jid)

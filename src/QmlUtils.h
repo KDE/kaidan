@@ -89,6 +89,11 @@ public:
 	}
 
 	/**
+	 * Returns the URL of this application's website.
+	 */
+	Q_INVOKABLE static QUrl applicationWebsiteUrl();
+
+	/**
 	 * Returns the URL where the source code of this application can be found.
 	 */
 	static QUrl applicationSourceCodeUrl()

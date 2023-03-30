@@ -51,6 +51,7 @@
 #define KAIDAN_JID_RESOURCE_DEFAULT_PREFIX APPLICATION_DISPLAY_NAME
 
 #define INVITATION_URL "https://i.kaidan.im/#"
+#define APPLICATION_WEBSITE_URL "https://www.kaidan.im"
 #define APPLICATION_SOURCE_CODE_URL "https://invent.kde.org/network/kaidan"
 #define ISSUE_TRACKING_URL "https://invent.kde.org/network/kaidan/issues"
 
