@@ -37,7 +37,7 @@ import org.kde.kirigami 2.19 as Kirigami
 //
 //   TODO: Use states to better describe the open and closed state of the completions box.
 //   See: https://code.qt.io/cgit/qt/qtdeclarative.git/tree/examples/quick/keyinteraction/focus/focus.qml?h=5.15#n166
-FocusScope {
+Kirigami.ActionTextField {
 	id: root
 
 	// Always give a QML component a defined height.
@@ -45,8 +45,13 @@ FocusScope {
 	//   the autocomplete will overlap other widgets following it in a ColumnLayout because it has
 	//   height 0 and shows overflow. Defining height in the two ways below allows client code to
 	//   place the widget into a Layout or a non-widget object. See: https://stackoverflow.com/a/38511223
-	Layout.preferredHeight: field.height
-	height: field.height
+	Layout.preferredHeight: height
+
+	// Disable predictive text input to make textEdited() signals work under Android.
+	//   A workaround for multiple Qt bugs. See: https://stackoverflow.com/a/62526369
+	inputMethodHints: Qt.ImhSensitiveData
+
+	selectByMouse: !Kirigami.Settings.isMobile
 
 	// Data source containing the current autocomplete suggestions.
 	//   This property must be set when instantiating this QML component. Acceptable models are string
@@ -74,24 +79,8 @@ FocusScope {
 	//   to "searchTerm". Because it's confusing otherwise.
 	property string input
 
-	// The current textual content of the text field.
-	//   When the input property changes, the text property changes. But when the text property changes,
-	//   the input property changes only if this was triggered by user input.
-	//
-	//   TODO: Probably, this does not have to be part of the public interface. If not, remove it,
-	//   because the distinction between "input" and "text" is quite confusing.
-	property alias text: field.text
-
-	// The text shown in light gray in an empty autocomplete field.
-	property alias placeholderText: field.placeholderText
-
 	// If the box with completions is visible below the autocomplete field.
 	property alias completionsVisible: completionsBox.visible
-
-	// This signal is emitted when the Return or Enter key is pressed in the autocomplete's underlying
-	// text field, or a completion is accepted with a mouse click or by pressing Return or Enter when
-	// it is selected.
-	signal accepted()
 
 	// React to our own auto-provided signal for a change in the "input" property.
 	//   When client code also implements onInputChanged when instantiating an this, it
@@ -166,251 +155,230 @@ FocusScope {
 		return completion
 	}
 
-	// The text field where a user enters to-be-completed text.
-	TextField {
-		id: field
-		focus: true
+	// Necessary to have a blinking cursor in text field at application startup.
+	//   Not done on mobile platforms because it would show the onscreen keyboard at startup,
+	//   hiding half of the window.
+	//
+	//   TODO: Put the focus-at-startup management code in one place. Currently, the same line
+	//   is needed in root.Component.onCompleted in App.qml. Perhaps a FocusScope can help.
+	//   The auto-complete has now become a FocusScope, so maybe this solves it already?
+	Component.onCompleted: if (!Kirigami.Settings.isMobile)
+							forceActiveFocus()
 
-		// Our parent "Item {}" is not a layout, so we can't use "Layout.fillWidth: true".
+	// This event handler is undocumented for TextField and incompletely documented for TextInput,
+	// which TextField wraps: https://doc.qt.io/qt-5/qml-qtquick-textinput.html#textEdited-signal .
+	// However, it works, and is also proposed by code insight in Qt Creator.
+	onTextEdited: {
+		// Update the current input because the user changed the text.
+		//   User changes include cutting and pasting. The "textChanged()" event however
+		//   is emitted also when software changes the text field content (such as when
+		//   navigating through completions), making it the wrong place to update the input.
+		//   This automatically emits inputChanged() so client code can adapt the model.
+		root.input = text
+
+		// Invalidate the completion selection, because the user edited the input so
+		// it does not correspond to any current completion. Also completions might have been cleared.
+		//   TODO: Probably better implement this reactively via onModelChanged, if there is such a thing.
+		completions.currentIndex = -1
+
+		completionsVisible = completions.count > 0 ? true : false
+	}
+
+	// Handle the "text accepted" event, which sets the input from the text.
+	//   This event is also artificially emitted by the "Search" button and by clicking on
+	//   an auto-suggest proposal.
+	//
+	//   This event is emitted by a TextField when the user finishes editing it.
+	//   In desktop software, this requires pressing "Return". Moving focus does not count.
+	onAccepted: {
+		//console.log("AutoComplete: field: 'accepted()' received")
+
+		// Give up the focus, making it available for grabs by the rest of the UI
+		// via appropriate focus property bindings.
+		root.focus = false
+
+		root.completionsVisible = false
+		// When clicking into the text field again, the last set of completions should show
+		// again. But selecting them will start anew.
+		//   TODO: Probably better implement this reactively via onModelChanged, if there is such a thing.
+		completions.currentIndex = -1
+
+		// True to the browser paradigm where URLs are fixed up, we'll correct the input entered.
+		// Such as: " 2 165741  004149  " → "2165741004149"
+		const searchTerm = normalize(text)
+		root.input = searchTerm
+	}
+
+	onActiveFocusChanged: {
+		if (activeFocus && completions.count > 0)
+			completionsVisible = (text == "" || text.match("^[0-9 ]+$")) ? false : true
+		// TODO: Probably better use "input" instead of "text" in the line above.
+		// TODO: Perhaps initialize the completions with suggestions based on the current
+		// text. If the reason for not having the focus before was a previous
+		// search, then it has no completions at this point.
+		else
+			completionsVisible = false
+	}
+
+	// Process all keyboard events here centrally.
+	//   Since the TextEdit plus suggestions box is one combined component, handling all
+	//   key presses here is more tidy. They cannot all be handled in completionsBox as
+	//   key presses are not delivered or forwarded to components in their invisible state.
+	Keys.onPressed: {
+		//console.log("AutoComplete: field: Keys.pressed(): " + event.key + " : " + event.text)
+
+		if (completionsVisible) {
+			switch (event.key) {
+			case Qt.Key_Escape:
+				completionsVisible = false
+				completions.currentIndex = -1
+				event.accepted = true
+				break
+
+			case Qt.Key_Up:
+				// When moving prior the first item, cycle through completions from the end again.
+				if (completions.currentIndex === 0) {
+					completions.currentIndex = completions.count - 1
+				} else {
+					completions.currentIndex--
+				}
+				event.accepted = true
+				break
+
+			case Qt.Key_Down:
+				// When moving past the last item, cycle through completions from the start again.
+				if (completions.currentIndex === completions.count - 1) {
+					completions.currentIndex = 0
+				} else {
+					completions.currentIndex++
+				}
+				event.accepted = true
+				break
+
+			case Qt.Key_Return:
+				root.accepted()
+				event.accepted = true;
+				break
+			}
+		} else {
+			switch (event.key) {
+				// This way, "double Escape" can be used to move the focus to the browser.
+				// The first hides the suggestions box, the second moves the focus.
+			case Qt.Key_Escape:
+				// Give up the focus, making it available for grabs by the rest of the UI
+				// via appropriate focus property bindings.
+				root.focus = false
+				event.accepted = true
+				break
+
+			case Qt.Key_Down:
+				completionsVisible = completions.count > 0 ? true : false
+				event.accepted = true
+				break
+			}
+		}
+	}
+
+	// Event handler for the non-instantiable QML object "Qt" resp. "Qt.inputMethod".
+	//   The details of detecting keyboard changes like this: https://stackoverflow.com/a/62986064
+	Connections {
+		target: Qt.inputMethod
+
+		// Hide the autocomplete when the user hides the Android keyboard.
+		//   Because it probably means that the user wants to see the browser, not the
+		//   completions box. So we hide the completions box by removing the focus. We could
+		//   also keep the focus, but focus is useless without a keyboard.
+		function onKeyboardRectangleChanged() {
+			// Contains QML Basic Type "rect", automatically converted from Qt QRectF as per
+			// https://doc.qt.io/qt-5/qml-rect.html
+			const newRect = Qt.inputMethod.keyboardRectangle
+
+			if (newRect.height === 0) {
+				root.focus = false
+			}
+		}
+	}
+
+	// Custom mouse event handler that will show the completions box when clicking into the
+	// text field. It is the complementary action to pressing "Esc" once, and does the same as
+	// pressing "Arrow Down" while completionsBox is hidden.
+	//
+	//   Due to a bug in Qt, "propagateComposedEvents: true" has no effect when used inside a
+	//   TextField in a StackView page (see https://forum.qt.io/topic/64041 ). There is a
+	//   workaround in C++, but it is complex (see https://forum.qt.io/post/312884 ). Since this
+	//   is non-essential behavior, we better watit for Qt to fix the bug.
+	//
+	//   TODO: Enable this code once Qt fixed the bug described above.
+//	MouseArea {
+//		anchors.fill: parent
+//		// By propagating events and not accepting them in the handlers, the parent TextEdit can
+//		// also react to them to set focus etc.. Source: https://stackoverflow.com/a/29765628
+//		// propagateComposedEvents: true
+//
+//		onClicked: {
+//			//console.log("AutoComplete: field: clicked() received")
+//			completionsVisible = completions.count > 0 ? true : false
+//			mouse.accepted = false
+//		}
+//		// onPressed: mouse.accepted = false
+//		onDoubleClicked: mouse.accepted = false
+//		onPressAndHold: mouse.accepted = false
+//	}
+
+	// Autocomplete dropdown.
+	//   Using Rectangle{Column{Repeater}} here because a ListView does not support setting its
+	//   height to its content's height because it's meant to be scrolled. Doesn't work even
+	//   with "height: childrenRect.height". The Rectangle is just to provide a background canvas.
+	//
+	//   TODO: Make this a sub-component, means provide a public interface of (alias) properties
+	//   and signals that is then accessed by the rest of the AutoComplete code. That avoids
+	//   the confusing parallel use of "completionsBox" and "completions".
+	Rectangle {
+		id: completionsBox
+
+		visible: false // Will be made visible once starting to type a category name.
+
+		anchors.top: parent.bottom
 		anchors.left: parent.left
 		anchors.right: parent.right
+		height: childrenRect.height
 
-		// Disable predictive text input to make textEdited() signals work under Android.
-		//   A workaround for multiple Qt bugs. See: https://stackoverflow.com/a/62526369
-		inputMethodHints: Qt.ImhSensitiveData
+		color: "white" // The default, anyway.
+		border.width: 1
+		border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
 
-		selectByMouse: !Kirigami.Settings.isMobile
+		Column {
+			Repeater {
+				id: completions
 
-		// Necessary to have a blinking cursor in text field at application startup.
-		//   Not done on mobile platforms because it would show the onscreen keyboard at startup,
-		//   hiding half of the window.
-		//
-		//   TODO: Put the focus-at-startup management code in one place. Currently, the same line
-		//   is needed in root.Component.onCompleted in App.qml. Perhaps a FocusScope can help.
-		//   The auto-complete has now become a FocusScope, so maybe this solves it already?
-		Component.onCompleted: if (!Kirigami.Settings.isMobile)
-								forceActiveFocus()
+				// Repeater lacks ListView's currentIndex, so we'll add it.
+				property int currentIndex: -1 // No element highlighted initially.
 
-		// This event handler is undocumented for TextField and incompletely documented for TextInput,
-		// which TextField wraps: https://doc.qt.io/qt-5/qml-qtquick-textinput.html#textEdited-signal .
-		// However, it works, and is also proposed by code insight in Qt Creator.
-		onTextEdited: {
-			// Update the current input because the user changed the text.
-			//   User changes include cutting and pasting. The "textChanged()" event however
-			//   is emitted also when software changes the text field content (such as when
-			//   navigating through completions), making it the wrong place to update the input.
-			//   This automatically emits inputChanged() so client code can adapt the model.
-			root.input = text
+				// A delegate renders one list item.
+				//   TODO: Use a basic QML component to not be tied to Kirigami. Or document what
+				//   can be used here when wanting to use it independent of Kirigami.
+				delegate: Kirigami.BasicListItem {
+					readonly property string value: model[root.role]
 
-			// Invalidate the completion selection, because the user edited the input so
-			// it does not correspond to any current completion. Also completions might have been cleared.
-			//   TODO: Probably better implement this reactively via onModelChanged, if there is such a thing.
-			completions.currentIndex = -1
+					label: highlightCompletion(modelData, root.input)
+					width: completionsBox.width
+					reserveSpaceForIcon: false
 
-			completionsVisible = completions.model.length > 0 ? true : false
-		}
+					// Background coloring should be used only for the selected item.
+					//   (Also, a lighter colored background automatically appears on mouse-over.)
+					highlighted: model.index !== -1 && model.index === completions.currentIndex
 
-		// Handle the "text accepted" event, which sets the input from the text.
-		//   This event is also artificially emitted by the "Search" button and by clicking on
-		//   an auto-suggest proposal.
-		//
-		//   This event is emitted by a TextField when the user finishes editing it.
-		//   In desktop software, this requires pressing "Return". Moving focus does not count.
-		onAccepted: {
-			//console.log("TextFieldCompleter: field: 'accepted()' received")
-
-			// Give up the focus, making it available for grabs by the rest of the UI
-			// via appropriate focus property bindings.
-			root.focus = false
-
-			root.completionsVisible = false
-			// When clicking into the text field again, the last set of completions should show
-			// again. But selecting them will start anew.
-			//   TODO: Probably better implement this reactively via onModelChanged, if there is such a thing.
-			completions.currentIndex = -1
-
-			// True to the browser paradigm where URLs are fixed up, we'll correct the input entered.
-			// Such as: " 2 165741  004149  " → "2165741004149"
-			const searchTerm = normalize(text)
-			root.input = searchTerm
-
-			root.accepted()
-		}
-
-		onActiveFocusChanged: {
-			if (activeFocus && completions.model.length > 0)
-				completionsVisible = (text == "" || text.match("^[0-9 ]+$")) ? false : true
-			// TODO: Probably better use "input" instead of "text" in the line above.
-			// TODO: Perhaps initialize the completions with suggestions based on the current
-			// text. If the reason for not having the focus before was a previous
-			// search, then it has no completions at this point.
-			else
-				completionsVisible = false
-		}
-
-		// Process all keyboard events here centrally.
-		//   Since the TextEdit plus suggestions box is one combined component, handling all
-		//   key presses here is more tidy. They cannot all be handled in completionsBox as
-		//   key presses are not delivered or forwarded to components in their invisible state.
-		Keys.onPressed: {
-			//console.log("TextFieldCompleter: field: Keys.pressed(): " + event.key + " : " + event.text)
-
-			if (completionsVisible) {
-				switch (event.key) {
-				case Qt.Key_Escape:
-					completionsVisible = false
-					completions.currentIndex = -1
-					event.accepted = true
-					break
-
-				case Qt.Key_Up:
-					// When moving prior the first item, cycle through completions from the end again.
-					if (completions.currentIndex === 0) {
-						completions.currentIndex = completions.count - 1
-					} else {
-						completions.currentIndex--
+					onHighlightedChanged: {
+						if (highlighted) {
+							//console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
+							root.text = value
+						}
 					}
 
-					event.accepted = true
-					break
-
-				case Qt.Key_Down:
-					// When moving past the last item, cycle through completions from the start again.
-					if (completions.currentIndex === completions.count - 1) {
-						completions.currentIndex = 0
-					} else {
-						completions.currentIndex++
-					}
-
-					event.accepted = true
-					break
-
-				case Qt.Key_Return:
-					field.accepted()
-					event.accepted = true;
-					break
-				}
-			} else {
-				switch (event.key) {
-
-					// This way, "double Escape" can be used to move the focus to the browser.
-					// The first hides the suggestions box, the second moves the focus.
-				case Qt.Key_Escape:
-					// Give up the focus, making it available for grabs by the rest of the UI
-					// via appropriate focus property bindings.
-					root.focus = false
-					event.accepted = true
-					break
-				case Qt.Key_Down:
-					completionsVisible = completions.count > 0 ? true : false
-
-					event.accepted = true
-					break
-				}
-			}
-		}
-
-		// Event handler for the non-instantiable QML object "Qt" resp. "Qt.inputMethod".
-		//   The details of detecting keyboard changes like this: https://stackoverflow.com/a/62986064
-		Connections {
-			target: Qt.inputMethod
-
-			// Hide the completions when the user hides the Android keyboard.
-			//   Because it probably means that the user wants to see the browser, not the
-			//   completions box. So we hide the completions box by removing the focus. We could
-			//   also keep the focus, but focus is useless without a keyboard.
-			function onKeyboardRectangleChanged() {
-				// Contains QML Basic Type "rect", automatically converted from Qt QRectF as per
-				// https://doc.qt.io/qt-5/qml-rect.html
-				const newRect = Qt.inputMethod.keyboardRectangle
-
-				if (newRect.height === 0) {
-					root.focus = false
-				}
-			}
-		}
-
-		// Custom mouse event handler that will show the completions box when clicking into the
-		// text field. It is the complementary action to pressing "Esc" once, and does the same as
-		// pressing "Arrow Down" while completionsBox is hidden.
-		//
-		//   Due to a bug in Qt, "propagateComposedEvents: true" has no effect when used inside a
-		//   TextField in a StackView page (see https://forum.qt.io/topic/64041 ). There is a
-		//   workaround in C++, but it is complex (see https://forum.qt.io/post/312884 ). Since this
-		//   is non-essential behavior, we better watit for Qt to fix the bug.
-		//
-		//   TODO: Enable this code once Qt fixed the bug described above.
-//		MouseArea {
-//			anchors.fill: parent
-//			// By propagating events and not accepting them in the handlers, the parent TextEdit can
-//			// also react to them to set focus etc.. Source: https://stackoverflow.com/a/29765628
-//			// propagateComposedEvents: true
-//
-//			onClicked: {
-//				//console.log("TextFieldCompleter: field: clicked() received")
-//				completionsVisible = completions.count > 0 ? true : false
-//				mouse.accepted = false
-//			}
-//			// onPressed:         mouse.accepted = false
-//			onDoubleClicked:   mouse.accepted = false
-//			onPressAndHold:    mouse.accepted = false
-//		}
-
-		// Autocomplete dropdown.
-		//   Using Rectangle{Column{Repeater}} here because a ListView does not support setting its
-		//   height to its content's height because it's meant to be scrolled. Doesn't work even
-		//   with "height: childrenRect.height". The Rectangle is just to provide a background canvas.
-		//
-		//   TODO: Make this a sub-component, means provide a public interface of (alias) properties
-		//   and signals that is then accessed by the rest of the code. That avoids the confusing
-		//   parallel use of "completionsBox" and "completions".
-		Rectangle {
-			id: completionsBox
-
-			visible: false // Will be made visible once starting to type a category name.
-
-			anchors.top: parent.bottom
-			anchors.left: parent.left
-			anchors.right: parent.right
-			height: childrenRect.height
-
-			color: "white" // The default, anyway.
-			border.width: 1
-			border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
-
-			Column {
-				Repeater {
-					id: completions
-
-					// Repeater lacks ListView's currentIndex, so we'll add it.
-					property int currentIndex: -1 // No element highlighted initially.
-
-					// A delegate renders one list item.
-					//   TODO: Use a basic QML component to not be tied to Kirigami. Or document
-					//   what can be used here when wanting to use it independent of Kirigami.
-					delegate: Kirigami.BasicListItem {
-						readonly property string value: model[root.role]
-
-						label: highlightCompletion(modelData, root.input)
-						width: completionsBox.width
-						reserveSpaceForIcon: false
-
-						// Background coloring should be used only for the selected item.
-						//   (Also, a lighter colored background automatically appears on mouse-over.)
-						highlighted: model.index !== -1 && model.index === completions.currentIndex
-
-						onHighlightedChanged: {
-							if (highlighted) {
-								//console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
-								field.text = value
-							}
-						}
-
-						onClicked: {
-							//console.log("modelData = " + JSON.stringify(value))
-							completions.currentIndex = model.index
-							field.accepted()
-						}
+					onClicked: {
+						//console.log("modelData = " + JSON.stringify(value))
+						completions.currentIndex = model.index
+						root.accepted()
 					}
 				}
 			}
