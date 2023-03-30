@@ -417,17 +417,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Копировать пароль"
 
-#: src/qml/ChatPage.qml:110
+#: src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Поиск"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "Посмотреть профиль"
 
-#: src/qml/ChatPage.qml:135
+#: src/qml/ChatPage.qml:136
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Отправить спойлер"
@@ -529,16 +529,27 @@ msgid "Close spoiler hint field"
 msgstr "Закрыть описание спойлера"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
-msgid "Compose message"
+msgid "Compose <b>encrypted</b> message"
 msgstr "Написать сообщение"
 
-#: src/qml/elements/ChatPageSendingPane.qml:218
+#: src/qml/elements/ChatPageSendingPane.qml:119
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose message"
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>unencrypted</b> message"
+msgstr "Написать сообщение"
+
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:273
+#: src/qml/elements/ChatPageSendingPane.qml:294
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -546,12 +557,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Сфотографировать"
 
-#: src/qml/elements/ChatPageSendingPane.qml:274
+#: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:285
+#: src/qml/elements/ChatPageSendingPane.qml:306
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -559,12 +570,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Записать видео"
 
-#: src/qml/elements/ChatPageSendingPane.qml:286
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:297
+#: src/qml/elements/ChatPageSendingPane.qml:318
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -572,12 +583,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Аудио"
 
-#: src/qml/elements/ChatPageSendingPane.qml:298
+#: src/qml/elements/ChatPageSendingPane.qml:319
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:309
+#: src/qml/elements/ChatPageSendingPane.qml:330
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -585,7 +596,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Оправить местоположение"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"

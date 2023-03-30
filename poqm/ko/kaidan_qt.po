@@ -407,17 +407,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "암호 복사"
 
-#: src/qml/ChatPage.qml:110
+#: src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:124
+#: src/qml/ChatPage.qml:125
 msgctxt "ChatPage|"
 msgid "View profile"
 msgstr "프로필 보기"
 
-#: src/qml/ChatPage.qml:135
+#: src/qml/ChatPage.qml:136
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "스포일러 메시지 보내기"
@@ -510,16 +510,27 @@ msgid "Close spoiler hint field"
 msgstr "스포일러 힌트 필드 닫기"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
-msgid "Compose message"
+msgid "Compose <b>encrypted</b> message"
 msgstr "메시지 작성"
 
-#: src/qml/elements/ChatPageSendingPane.qml:218
+#: src/qml/elements/ChatPageSendingPane.qml:119
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose message"
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>unencrypted</b> message"
+msgstr "메시지 작성"
+
+#: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:273
+#: src/qml/elements/ChatPageSendingPane.qml:294
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -527,12 +538,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "사진 찍기"
 
-#: src/qml/elements/ChatPageSendingPane.qml:274
+#: src/qml/elements/ChatPageSendingPane.qml:295
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:285
+#: src/qml/elements/ChatPageSendingPane.qml:306
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -540,12 +551,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "동영상 녹화"
 
-#: src/qml/elements/ChatPageSendingPane.qml:286
+#: src/qml/elements/ChatPageSendingPane.qml:307
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:297
+#: src/qml/elements/ChatPageSendingPane.qml:318
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -553,12 +564,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "오디오 파일"
 
-#: src/qml/elements/ChatPageSendingPane.qml:298
+#: src/qml/elements/ChatPageSendingPane.qml:319
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:309
+#: src/qml/elements/ChatPageSendingPane.qml:330
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -566,7 +577,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "위치 전송"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:331
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
