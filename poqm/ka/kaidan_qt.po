@@ -492,20 +492,14 @@ msgid "Close spoiler hint field"
 msgstr "სპოილერის აღწერის ველის დახურვა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "შეტყობინების შედგენა"
+msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "შეტყობინების შედგენა"
+msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა"
 
 #: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
@@ -1937,7 +1931,7 @@ msgstr ""
 #: src/qml/UserProfileSheet.qml:289
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
-msgstr ""
+msgstr "თქვენი სხვა მოწყობილობები OMEMO 2-ს არ იყენებენ"
 
 #: src/qml/UserProfileSheet.qml:296
 msgctxt "UserProfileSheet|"
@@ -2055,22 +2049,22 @@ msgstr "%1-მა შეწყვიტა კრეფა"
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr ""
+msgstr "კონტაქტის დამატება შეუძლებელია. მიერთებული არ ბრძანდებით."
 
 #: src/RosterManager.cpp:145
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr ""
+msgstr "კონტაქტის წაშლა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
 #: src/RosterManager.cpp:158
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
+msgstr "კონტაქტის სახელის გადარქმევა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
 #: src/RosterManager.cpp:169
 msgctxt "RosterManager|"
