@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-03-22 06:14+0100\n"
+"PO-Revision-Date: 2023-03-31 08:47+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -503,20 +503,14 @@ msgid "Close spoiler hint field"
 msgstr "Zapri polje namiga o razkritju"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "Sestavi sporočilo"
+msgstr "Sestavi <b>šifrirano</b> sporočilo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "Sestavi sporočilo"
+msgstr "Sestavi <b>nešifrirano</b>sporočilo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"

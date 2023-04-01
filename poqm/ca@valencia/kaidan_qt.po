@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-03-21 10:06+0100\n"
+"PO-Revision-Date: 2023-03-30 09:49+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -511,20 +511,14 @@ msgid "Close spoiler hint field"
 msgstr "Tanca el camp de consell d'espòiler"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "Redacta un missatge"
+msgstr "Redacta un missatge <b>encriptat</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "Redacta un missatge"
+msgstr "Redacta un missatge <b>sense encriptar</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
