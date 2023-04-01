@@ -333,21 +333,28 @@ Kirigami.ActionTextField {
 	//   TODO: Make this a sub-component, means provide a public interface of (alias) properties
 	//   and signals that is then accessed by the rest of the AutoComplete code. That avoids
 	//   the confusing parallel use of "completionsBox" and "completions".
-	Rectangle {
+	Popup {
 		id: completionsBox
 
+		z: 101 // Kirigami OverlaySheet use z-index of 101, so we need to catch up to see our popup in sheets...
 		visible: false // Will be made visible once starting to type a category name.
+		closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+		margins: 0
+		padding: 0
+		parent: autocomplete
+		y: root.height
+		width: root.width
+		background: Rectangle {
+			anchors.fill: parent
 
-		anchors.top: parent.bottom
-		anchors.left: parent.left
-		anchors.right: parent.right
-		height: childrenRect.height
+			color: "white" // The default, anyway.
+			border.width: 1
+			border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
+		}
 
-		color: "white" // The default, anyway.
-		border.width: 1
-		border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
+		ColumnLayout {
+			anchors.fill: parent
 
-		Column {
 			Repeater {
 				id: completions
 
@@ -360,8 +367,7 @@ Kirigami.ActionTextField {
 				delegate: Kirigami.BasicListItem {
 					readonly property string value: model[root.role]
 
-					label: highlightCompletion(modelData, root.input)
-					width: completionsBox.width
+					label: highlightCompletion(value, root.input)
 					reserveSpaceForIcon: false
 
 					// Background coloring should be used only for the selected item.
