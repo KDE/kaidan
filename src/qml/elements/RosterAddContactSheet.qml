@@ -35,6 +35,8 @@ import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
+import "fields"
+
 Kirigami.Dialog {
 	property string jid: ""
 	property string nickname: ""
@@ -84,12 +86,9 @@ Kirigami.Dialog {
 		Controls.Label {
 			text: qsTr("Jabber-ID:")
 		}
-		Controls.TextField {
+		JidField {
 			id: jidField
 			text: jid
-			placeholderText: qsTr("user@example.org")
-			inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase
-			selectByMouse: true
 			Layout.fillWidth: true
 		}
 
