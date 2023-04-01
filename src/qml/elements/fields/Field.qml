@@ -33,6 +33,8 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
 
+import ".."
+
 /**
  * This is a text field which can be focused and show a hint for invalid input.
  */
@@ -64,6 +66,15 @@ ColumnLayout {
 	// requirement for showing the hint for invalid input
 	property bool invalidHintMayBeShown: false
 
+	// underlying data source for the completion view
+	property alias completionModel: inputField.model
+
+	// completion model role name to query
+	property alias completionRole: inputField.role
+
+	// completed text
+	readonly property alias input: inputField.input
+
 	// label for the input field
 	Controls.Label {
 		id: label
@@ -71,7 +82,7 @@ ColumnLayout {
 
 	RowLayout {
 		// input field
-		Kirigami.ActionTextField {
+		TextFieldCompleter {
 			id: inputField
 			Layout.fillWidth: true
 			selectByMouse: true
