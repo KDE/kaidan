@@ -82,6 +82,10 @@ Kirigami.ActionTextField {
 	// If the box with completions is visible below the autocomplete field.
 	property alias completionsVisible: completionsBox.visible
 
+	// The number of maximum visible search results.
+	// If there are more results, a scrollbar will appear to scroll through all of them.
+	property int maximumVisibleResultCount: 3
+
 	// React to our own auto-provided signal for a change in the "input" property.
 	//   When client code also implements onInputChanged when instantiating an this, it
 	//   will not overwrite this handler but add to it. So no caveats when reacting to own signals.
@@ -356,7 +360,7 @@ Kirigami.ActionTextField {
 
 			anchors.fill: parent
 
-			implicitHeight: contentHeight
+			implicitHeight: count > 0 ? contentHeight / count * Math.min(count, root.maximumVisibleResultCount) : 0
 			implicitWidth: root.width
 			currentIndex: -1 // No element highlighted initially.
 			clip: true
