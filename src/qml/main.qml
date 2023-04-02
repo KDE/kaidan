@@ -226,6 +226,9 @@ Kirigami.ApplicationWindow {
 	}
 
 	Component.onCompleted: {
+		HostCompletionModel.rosterModel = RosterModel;
+		HostCompletionModel.aggregateKnownProviders();
+
 		// Restore the latest application window state if it is stored.
 		if (!Kirigami.Settings.isMobile) {
 			const latestPosition = Kaidan.settings.windowPosition
