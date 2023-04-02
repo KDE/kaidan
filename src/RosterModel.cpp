@@ -158,6 +158,11 @@ std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
 	return std::nullopt;
 }
 
+const QVector<RosterItem> &RosterModel::items() const
+{
+	return m_items;
+}
+
 bool RosterModel::isPresenceSubscribedByItem(const QString &, const QString &jid) const
 {
 	if (auto item = findItem(jid)) {

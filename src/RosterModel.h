@@ -129,6 +129,8 @@ public:
 	 */
 	std::optional<RosterItem> findItem(const QString &jid) const;
 
+	const QVector<RosterItem> &items() const;
+
 	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
