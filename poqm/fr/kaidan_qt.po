@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-03-25 09:15+0100\n"
+"PO-Revision-Date: 2023-03-31 19:25+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -500,20 +500,14 @@ msgid "Close spoiler hint field"
 msgstr "Fermer le champ d'astuces pour un message inapproprié"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "Composer un message"
+msgstr "Composer un message <b>chiffré</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:119
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "Composer un message"
+msgstr "Composer un message <b>non chiffré</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:239
 msgctxt "ChatPageSendingPane|"
