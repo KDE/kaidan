@@ -206,17 +206,22 @@ if(USE_KNOTIFICATIONS)
 endif()
 
 # Dev editable important files, to be seen in the IDE tree view
+
+file(GLOB_RECURSE OTHERS_FILES
+	RELATIVE
+		${CMAKE_SOURCE_DIR}
+	"utils/*.sh"
+	"misc/*.desktop"
+	"misc/*.appdata.xml"
+	"misc/*.notifyrc"
+	"misc/*.in"
+	"misc/*.json"
+	"*.md"
+)
+
 add_custom_target(Others
     SOURCES
-		${CMAKE_SOURCE_DIR}/misc/im.kaidan.kaidan.desktop
-		${CMAKE_SOURCE_DIR}/misc/im.kaidan.kaidan.appdata.xml
-		${CMAKE_SOURCE_DIR}/misc/kaidan.notifyrc
-		${CMAKE_SOURCE_DIR}/misc/android/AndroidManifest.xml.in
-		${CMAKE_SOURCE_DIR}/misc/ios/Info.plist.in
-		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json.in
-		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/apparmor.json
-		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/kaidan.desktop
-		${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json
+		${OTHERS_FILES}
 )
 
 #
