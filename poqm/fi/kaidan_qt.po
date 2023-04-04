@@ -1,8 +1,8 @@
-# Tommi Nieminen <translator@legisign.org>, 2022.
+# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-11-22 14:37+0200\n"
+"PO-Revision-Date: 2023-03-12 16:32+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:302
@@ -441,7 +441,7 @@ msgstr "Ei luotettu"
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1 on lukenut tähän asti"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
@@ -571,24 +571,24 @@ msgstr "Lähetä sijaintisi"
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support Group"
-msgstr ""
+msgstr "Tukiryhmä"
 
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support"
-msgstr ""
+msgstr "Tuki"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "Ryhmätuki %1"
 
 #: src/qml/elements/ChatSupportSheet.qml:67
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
-msgstr ""
+msgstr "Tuki %1"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -744,9 +744,6 @@ msgid "Pin"
 msgstr "Kiinnitä"
 
 #: src/qml/elements/RosterRemoveContactSheet.qml:47
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "RosterRemoveContactSheet|"
 msgid "Remove contact"
 msgstr "Poista yhteystieto"
@@ -791,12 +788,9 @@ msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:45
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "Etsi"
+msgstr "Etsi…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:157
 #, qt-format
@@ -808,12 +802,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:184
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "Nauhoitetaan…"
+msgstr "Ladataan…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:239
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1453,44 +1444,29 @@ msgstr ""
 "Älä anna lisätä laitteita kirjautumisen QR-koodilla äläkä näytä salasanaa."
 
 #: src/qml/settings/AccountSettings.qml:43
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "AccountSettings|"
 msgid "Account settings"
-msgstr "Tilin tietoturva"
+msgstr "Tiliasetukset"
 
 #: src/qml/settings/AccountSettings.qml:237
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Profile"
 msgctxt "AccountSettings|"
 msgid "Profile"
 msgstr "Profiili"
 
 #: src/qml/settings/AccountSettings.qml:271
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "AccountSettings|"
 msgid "Online devices"
 msgstr "Verkossa olevat laitteet"
 
 #: src/qml/settings/AccountSettings.qml:321
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Provider"
 msgctxt "AccountSettings|"
 msgid "Provider"
-msgstr "Palveluntarjoaja"
+msgstr "Tarjoaja"
 
 #: src/qml/settings/AccountSettings.qml:325
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
 msgctxt "AccountSettings|"
 msgid "Visit website"
-msgstr "Avaa verkkosivu"
+msgstr "Käy sivustolla"
 
 #: src/qml/settings/AccountSettings.qml:326
 msgctxt "AccountSettings|"
@@ -1498,12 +1474,9 @@ msgid "Open the website of your provider in a browser"
 msgstr ""
 
 #: src/qml/settings/AccountSettings.qml:333
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy download URL"
 msgctxt "AccountSettings|"
 msgid "Copy URL"
-msgstr "Kopioi latauksen verkko-osoite"
+msgstr "Kopioi verkko-osoite"
 
 #: src/qml/settings/AccountSettings.qml:334
 msgctxt "AccountSettings|"
@@ -1522,7 +1495,7 @@ msgstr "Kutsulinkki kopioitu leikepöydälle"
 #: src/qml/settings/AccountSettings.qml:355
 msgctxt "AccountSettings|"
 msgid "Support"
-msgstr ""
+msgstr "Tuki"
 
 #: src/qml/settings/AccountSettings.qml:357
 msgctxt "AccountSettings|"
@@ -1532,7 +1505,7 @@ msgstr ""
 #: src/qml/settings/AccountSettings.qml:379
 msgctxt "AccountSettings|"
 msgid "Support Group"
-msgstr ""
+msgstr "Tukiryhmä"
 
 #: src/qml/settings/AccountSettings.qml:381
 msgctxt "AccountSettings|"
@@ -1540,49 +1513,34 @@ msgid "Join your provider's support group"
 msgstr ""
 
 #: src/qml/settings/ChangeAvatar.qml:50
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "ChangeAvatar|"
 msgid "Change avatar"
-msgstr "Vaihda salasana"
+msgstr "Vaihda avatar"
 
 #: src/qml/settings/ChangeAvatar.qml:65
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose image"
 msgctxt "ChangeAvatar|"
 msgid "Choose avatar image"
-msgstr "Valitse kuva"
+msgstr "Valitse avatarkuva"
 
 #: src/qml/settings/ChangeAvatar.qml:142
 msgctxt "ChangeAvatar|"
 msgid "Open…"
-msgstr ""
+msgstr "Avaa…"
 
 #: src/qml/settings/ChangeAvatar.qml:151
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChangeAvatar|"
 msgid "Cancel"
 msgstr "Peru"
 
 #: src/qml/settings/ChangeAvatar.qml:160
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change"
 msgctxt "ChangeAvatar|"
 msgid "Change"
 msgstr "Vaihda"
 
 #: src/qml/settings/ChangeAvatar.qml:184
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Password changed successfully"
 msgctxt "ChangeAvatar|"
 msgid "Avatar changed successfully"
-msgstr "Salasanan vaihto onnistui"
+msgstr "Avattaren vaihto onnistui"
 
 #: src/qml/settings/ChangePassword.qml:39
 msgctxt "ChangePassword|"
@@ -1946,12 +1904,9 @@ msgid "Settings"
 msgstr "Asetukset"
 
 #: src/qml/settings/SettingsContent.qml:56
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "SettingsContent|"
 msgid "Account Settings"
-msgstr "Tilin tietoturva"
+msgstr "Tiliasetukset"
 
 #: src/qml/settings/SettingsContent.qml:60
 #, fuzzy
@@ -2018,9 +1973,6 @@ msgid "Delete account"
 msgstr "Poista tili"
 
 #: src/qml/settings/SettingsContent.qml:88
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "SettingsContent|"
 msgid "Delete account from the server"
 msgstr "Poista tili palvelimelta"
@@ -2088,17 +2040,11 @@ msgid "Let's start"
 msgstr "Aloitetaan"
 
 #: src/qml/UserProfileSheet.qml:138
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename contact"
 msgctxt "UserProfileSheet|"
 msgid "Rename contact"
 msgstr "Muuta yhteystiedon nimeä"
 
 #: src/qml/UserProfileSheet.qml:147
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "UserProfileSheet|"
 msgid "Remove contact"
 msgstr "Poista yhteystieto"
@@ -2106,15 +2052,12 @@ msgstr "Poista yhteystieto"
 #: src/qml/UserProfileSheet.qml:184
 msgctxt "UserProfileSheet|"
 msgid "Profile Information"
-msgstr ""
+msgstr "Profiilitiedot"
 
 #: src/qml/UserProfileSheet.qml:193
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "UserProfileSheet|"
 msgid "No information available"
-msgstr "Kameraa ei ole käytettävissä."
+msgstr "Tietoa ei ole saatavilla"
 
 #: src/qml/UserProfileSheet.qml:235
 #, fuzzy
@@ -2135,12 +2078,12 @@ msgstr "Vaimenna ilmoitukset"
 #: src/qml/UserProfileSheet.qml:253
 msgctxt "UserProfileSheet|"
 msgid "Encryption"
-msgstr ""
+msgstr "Salaus"
 
 #: src/qml/UserProfileSheet.qml:256
 msgctxt "UserProfileSheet|"
 msgid "Enable OMEMO 2 encryption"
-msgstr ""
+msgstr "Ottaa käyttöön OMEMO 2 -salauksen"
 
 #: src/qml/UserProfileSheet.qml:257
 msgctxt "UserProfileSheet|"
@@ -2148,87 +2091,68 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Päästä päähän -salaus OMEMO 2:lla varmistaa, ettei kukaan sinun ja "
+"keskustelukumppaniesi lisäksi voi lukea tai muuttaa välitettyä tietoa."
 
 #: src/qml/UserProfileSheet.qml:271
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "UserProfileSheet|"
 msgid "Scan contact's QR code"
-msgstr "Lue QR-koodi"
+msgstr "Lue yhteystiedon QR-koodi"
 
 #: src/qml/UserProfileSheet.qml:272
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your contact's devices to verify the encryption"
-msgstr "Lue QR-koodi olemassa olevalta laitteelta siirrettäväksi tilillesi."
+msgstr "Lue yhteystietojesi laitteiden QR-koodit varmistaaksesi salauksen"
 
 #: src/qml/UserProfileSheet.qml:283
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Scan QR codes"
 msgctxt "UserProfileSheet|"
 msgid "Scan own QR codes"
-msgstr "Lue QR-koodeja"
+msgstr "Lue omat QR-koodisi"
 
 #: src/qml/UserProfileSheet.qml:287 src/qml/UserProfileSheet.qml:293
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices to encrypt for them"
-msgstr "Lue QR-koodi olemassa olevalta laitteelta siirrettäväksi tilillesi."
+msgstr "Lue laitteidesi QR-koodi viestien salaamiseksi niille"
 
 #: src/qml/UserProfileSheet.qml:289
 msgctxt "UserProfileSheet|"
 msgid "Your other devices don't use OMEMO 2"
-msgstr ""
+msgstr "Toiset laitteesi eivät käytä OMEMO 2:ta"
 
 #: src/qml/UserProfileSheet.qml:296
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "UserProfileSheet|"
 msgid "Scan the QR codes of your devices for maximum secure encryption"
-msgstr "Lue QR-koodi olemassa olevalta laitteelta siirrettäväksi tilillesi."
+msgstr "Lue laitteidesi QR-koodit parasta mahdollista salausta varten"
 
 #: src/qml/UserProfileSheet.qml:319
 msgctxt "UserProfileSheet|"
 msgid "Privacy"
-msgstr ""
+msgstr "Yksityisyys"
 
 #: src/qml/UserProfileSheet.qml:323
 msgctxt "UserProfileSheet|"
 msgid "Send status"
-msgstr ""
+msgstr "Lähetä tila"
 
 #: src/qml/UserProfileSheet.qml:335
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send typing notifications"
-msgstr "Lopeta ilmoitusten vaimennus"
+msgstr "Näytä ilmoitus kirjoittamisesta"
 
 #: src/qml/UserProfileSheet.qml:346
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "UserProfileSheet|"
 msgid "Send read notifications"
-msgstr "Lopeta ilmoitusten vaimennus"
+msgstr "Lähetä lukuilmoitukset"
 
 #: src/qml/UserProfileSheet.qml:366
 msgctxt "UserProfileSheet|"
 msgid "Devices"
-msgstr ""
+msgstr "Laitteet"
 
 #: src/qml/UserProfileSheet.qml:374
 msgctxt "UserProfileSheet|"
 msgid "No devices connected"
-msgstr ""
+msgstr "Ei kytkettyjä laitteita"
 
 #: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
