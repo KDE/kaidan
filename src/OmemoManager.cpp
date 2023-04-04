@@ -140,7 +140,7 @@ QFuture<void> OmemoManager::setUp()
 					interface.reportFinished();
 				});
 			} else {
-				emit Kaidan::instance()->passiveNotificationRequested(tr("Secure conversations are not possible because OMEMO could not be set up"));
+				emit Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
 				interface.reportFinished();
 			}
 		});
