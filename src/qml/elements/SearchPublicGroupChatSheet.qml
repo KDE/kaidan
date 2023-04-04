@@ -28,7 +28,7 @@ Kirigami.OverlaySheet {
 
 	onSheetOpenChanged: {
 		if (sheetOpen) {
-			filterField.forceActiveFocus();
+			root.forceActiveFocus();
 			root.requestAll();
 		} else {
 			filterField.clear();
@@ -46,6 +46,15 @@ Kirigami.OverlaySheet {
 
 			onTextChanged: {
 				groupChatsProxy.setFilterWildcard(text);
+			}
+			onActiveFocusChanged: {
+				// Force the active focus when it is lost.
+				// That is needed because the active focus is changed to EmptyChatPage or RosterPage
+				// after opening the public group chat search while being offline (i.e., group chats
+				// are not loaded and loadingArea is not shown) for unknown reasons.
+				if (!activeFocus && root.sheetOpen) {
+					forceActiveFocus()
+				}
 			}
 
 			Layout.fillWidth: true
@@ -175,6 +184,7 @@ Kirigami.OverlaySheet {
 					id: loadingArea
 					anchors.centerIn: parent
 					visible: groupChatsManager.isRunning
+					onVisibleChanged: root.forceActiveFocus()
 
 					Controls.BusyIndicator {
 						Layout.alignment: Qt.AlignHCenter
@@ -249,6 +259,12 @@ Kirigami.OverlaySheet {
 
 			Layout.fillWidth: true
 			Layout.minimumHeight: 300
+		}
+	}
+
+	function forceActiveFocus() {
+		if (!Kirigami.Settings.isMobile && !loadingArea.visible) {
+			filterField.forceActiveFocus()
 		}
 	}
 }
