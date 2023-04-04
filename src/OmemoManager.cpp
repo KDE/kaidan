@@ -122,11 +122,7 @@ QFuture<void> OmemoManager::setUp()
 	} else {
 		auto future = m_manager->setUp();
 		future.then(this, [this, interface](bool isSetUp) mutable {
-			if (!isSetUp) {
-				emit Kaidan::instance()->passiveNotificationRequested(tr("Secure conversations are not possible because OMEMO could not be set up"));
-				interface.reportFinished();
-				return;
-			} else {
+			if (isSetUp) {
 				// Enabling the session building for new devices is delayed after all (or at least
 				// most) devices are automatically received from the servers.
 				// That way, the sessions for those devices, which are only new during this setup,
@@ -143,6 +139,9 @@ QFuture<void> OmemoManager::setUp()
 				await(future, this, [interface]() mutable {
 					interface.reportFinished();
 				});
+			} else {
+				emit Kaidan::instance()->passiveNotificationRequested(tr("Secure conversations are not possible because OMEMO could not be set up"));
+				interface.reportFinished();
 			}
 		});
 	}
