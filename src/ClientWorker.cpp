@@ -254,8 +254,13 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 		m_isDisconnecting = true;
 		break;
 	case QXmppClient::ConnectedState:
-		if (AccountManager::instance()->hasNewCredentials())
+		if (AccountManager::instance()->hasNewCredentials()) {
 			AccountManager::instance()->setHasNewCredentials(false);
+		}
+
+		if (AccountManager::instance()->hasNewConnectionSettings()) {
+			AccountManager::instance()->setHasNewConnectionSettings(false);
+		}
 
 		await(m_omemoManager->unsubscribeFromDeviceLists(), this, [this] {
 			m_client->disconnectFromServer();
@@ -335,12 +340,14 @@ void ClientWorker::onConnected()
 		return;
 	}
 
-	// The following tasks are only done after a login with new credentials.
-	if (AccountManager::instance()->hasNewCredentials()) {
-		emit loggedInWithNewCredentials();
+	// The following tasks are only done after a login with new credentials or connection settings.
+	if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
+		if (AccountManager::instance()->hasNewCredentials()) {
+			emit loggedInWithNewCredentials();
+		}
 
 		// Store the valid settings.
-		AccountManager::instance()->storeCredentials();
+		AccountManager::instance()->storeConnectionData();
 	}
 
 	// Enable auto reconnection so that the client is always trying to reconnect

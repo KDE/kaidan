@@ -182,13 +182,28 @@ public:
 	bool hasEnoughCredentialsForLogin();
 
 	/**
-	 * Loads all credentials used to connect to the server.
+	 * Provides a way to cache whether the current connection settings are new to this client.
 	 *
-	 * If credentials are missing for a login, the signal credentialsNeeded() is emitted.
+	 * The connections settings are new to the client if they were not already in use during the
+	 * previous login.
+	 *
+	 * @return whether the connection settings are new
+	 */
+	bool hasNewConnectionSettings() const;
+
+	/**
+	 * Sets whether the current connection settings are new to this client.
+	 *
+	 * @param hasNewConnectionSettings whether the settings are new
+	 */
+	void setHasNewConnectionSettings(bool hasNewConnectionSettings);
+
+	/**
+	 * Loads all credentials and connection settings used to connect to the server.
 	 *
 	 * @return true if the credentials could be loaded, otherwise false
 	 */
-	Q_INVOKABLE bool loadCredentials();
+	Q_INVOKABLE bool loadConnectionData();
 
 	/**
 	 * Stores the currently set JID in the settings file.
@@ -208,9 +223,9 @@ public:
 	void storeCustomConnectionSettings();
 
 	/**
-	 * Stores credentials (jid, password, etc.) in the settings file.
+	 * Stores credentials and connection settings in the settings file.
 	 */
-	void storeCredentials();
+	void storeConnectionData();
 
 	/**
 	 * Deletes all credentials.
@@ -292,6 +307,7 @@ private:
 	quint16 m_port;
 
 	bool m_hasNewCredentials;
+	bool m_hasNewConnectionSettings;
 
 	static AccountManager *s_instance;
 };

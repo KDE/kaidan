@@ -211,7 +211,7 @@ Kirigami.ApplicationWindow {
 			}
 		}
 
-		if (AccountManager.loadCredentials()) {
+		if (AccountManager.loadConnectionData()) {
 			openChatView()
 			// Announce that the user interface is ready and the application can start connecting.
 			Kaidan.logIn()

@@ -126,7 +126,7 @@ void AccountManager::setHost(const QString &host)
 
 	if (m_host != host) {
 		m_host = host;
-		m_hasNewCredentials = true;
+		m_hasNewConnectionSettings = true;
 
 		locker.unlock();
 		emit hostChanged();
@@ -145,7 +145,7 @@ void AccountManager::setPort(const quint16 port)
 
 	if (m_port != port) {
 		m_port = port;
-		m_hasNewCredentials = true;
+		m_hasNewConnectionSettings = true;
 
 		locker.unlock();
 		emit portChanged();
@@ -190,7 +190,17 @@ bool AccountManager::hasEnoughCredentialsForLogin()
 	return !(jid().isEmpty() || password().isEmpty());
 }
 
-bool AccountManager::loadCredentials()
+bool AccountManager::hasNewConnectionSettings() const
+{
+	return m_hasNewConnectionSettings;
+}
+
+void AccountManager::setHasNewConnectionSettings(bool hasNewConnectionSettings)
+{
+	m_hasNewConnectionSettings = hasNewConnectionSettings;
+}
+
+bool AccountManager::loadConnectionData()
 {
 	if (!hasEnoughCredentialsForLogin()) {
 		// Load the credentials from the settings file.
@@ -204,10 +214,11 @@ bool AccountManager::loadCredentials()
 		setHost(m_settings->authHost());
 		setPort(m_settings->authPort());
 
-		// This method is only used to load old credentials. Therefore,
-		// "m_hasNewCredentials" which was set to "true" by setting the credentials in this
-		// method is reset here.
+		// This method is only used to load old credentials and connection settings.
+		// Thus, "m_hasNewCredentials" and "m_hasNewConnectionSettings" which were set to "true" by
+		// setting the credentials and connection settings in this method are reset here.
 		m_hasNewCredentials = false;
+		m_hasNewConnectionSettings = false;
 
 		// If no credentials could be loaded from the settings file, notify the GUI to ask
 		// the user for credentials.
@@ -241,7 +252,7 @@ void AccountManager::storeCustomConnectionSettings()
 		m_settings->setAuthPort(m_port);
 }
 
-void AccountManager::storeCredentials()
+void AccountManager::storeConnectionData()
 {
 	storeJid();
 	storePassword();
