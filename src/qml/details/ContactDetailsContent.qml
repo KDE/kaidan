@@ -8,6 +8,7 @@ import org.kde.kirigami 2.12 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
+
 import "../elements"
 
 DetailsContent {

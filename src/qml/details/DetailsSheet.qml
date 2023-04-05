@@ -7,6 +7,7 @@ import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 import im.kaidan.kaidan 1.0
+
 import "../elements"
 
 Kirigami.OverlaySheet {
