@@ -39,14 +39,15 @@
 #include "Globals.h"
 
 /**
- * @brief C++ utitlities to be used in QML
- *
- * The methods are not static, because they need to be used from QML and registered in
- * Qt.
+ * This class contains C++ utilities to be used in QML.
  */
 class QmlUtils : public QObject
 {
 	Q_OBJECT
+	Q_PROPERTY(QString versionString READ versionString CONSTANT)
+	Q_PROPERTY(QString applicationDisplayName READ applicationDisplayName CONSTANT)
+	Q_PROPERTY(QUrl applicationWebsiteUrl READ applicationWebsiteUrl CONSTANT)
+	Q_PROPERTY(QUrl applicationSourceCodeUrl READ applicationSourceCodeUrl CONSTANT)
 	Q_PROPERTY(QUrl issueTrackingUrl READ issueTrackingUrl CONSTANT)
 
 public:
@@ -72,27 +73,27 @@ public:
 	Q_INVOKABLE static QString getResourcePath(const QString &resourceName);
 
 	/**
-	 * Returns a string of this build's Kaidan version
+	 * Returns the version of the current build.
 	 */
-	Q_INVOKABLE static QString versionString()
+	static QString versionString()
 	{
 		return QStringLiteral(VERSION_STRING);
 	}
 
 	/**
-	 * Returns the name of this application as it should be displayed to the user
+	 * Returns the name of this application as it should be displayed to users.
 	 */
-	Q_INVOKABLE static QString applicationDisplayName()
+	static QString applicationDisplayName()
 	{
 		return QStringLiteral(APPLICATION_DISPLAY_NAME);
 	}
 
 	/**
-	 * Returns the URL where the source code of this application can be found
+	 * Returns the URL where the source code of this application can be found.
 	 */
-	Q_INVOKABLE static QUrl applicationSourceCodeUrl()
+	static QUrl applicationSourceCodeUrl()
 	{
-		return {QStringLiteral(APPLICATION_SOURCE_CODE_URL)};
+		return { QStringLiteral(APPLICATION_SOURCE_CODE_URL) };
 	}
 
 	/**
@@ -101,11 +102,11 @@ public:
 	static QUrl issueTrackingUrl();
 
 	/**
-	 * Returns an invitation URL to the given JID
+	 * Returns an invitation URL to the given JID.
 	 */
 	Q_INVOKABLE static QUrl invitationUrl(const QString &jid)
 	{
-		return {QStringLiteral(INVITATION_URL) + jid};
+		return { QStringLiteral(INVITATION_URL) + jid };
 	}
 
 	/**
@@ -130,7 +131,7 @@ public:
 	Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
 
 	/**
-	 * Returns a string without new lines, unneeded spaces, etc.
+	 * Returns a string without new lines, unneeded spaces, etc..
 	 *
 	 * See QString::simplified for more information.
 	 */
@@ -141,17 +142,18 @@ public:
 
 	/**
 	 * Checks whether a file is an image and could be displayed as such.
+	 *
 	 * @param fileUrl URL to the possible image file
 	 */
 	Q_INVOKABLE static bool isImageFile(const QUrl &fileUrl);
 
 	/**
-	 * Copy text to the clipboard
+	 * Copies text to the clipboard.
 	 */
 	Q_INVOKABLE static void copyToClipboard(const QString &text);
 
 	/**
-	 * Returns the file name from a URL
+	 * Returns the filename from a URL.
 	 */
 	Q_INVOKABLE static QString fileNameFromUrl(const QUrl &url);
 
@@ -159,7 +161,7 @@ public:
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
 	/**
-	 * Styles/formats a message for displaying
+	 * Styles/Formats a message to be displayed.
 	 *
 	 * This currently only adds some link highlighting
 	 */
@@ -171,7 +173,7 @@ public:
 	Q_INVOKABLE static QColor getUserColor(const QString &nickName);
 
 	/**
-	 * Reads an image from the clipboard and returns the url of the saved image.
+	 * Reads an image from the clipboard and returns the URL of the saved image.
 	 */
 	Q_INVOKABLE static QUrl pasteImage();
 
@@ -181,13 +183,13 @@ public:
 	static QString downloadPath(const QString &filename);
 
 	/**
-	 * Returns the timestamp in a format for file names.
+	 * Returns the timestamp in a format to be used for filenames.
 	 */
 	static QString timestampForFileName();
 	static QString timestampForFileName(const QDateTime &dateTime);
 
 	/**
-	 * Returns a human-readable string describing the state of the chat
+	 * Returns a human-readable string describing the state of the chat.
 	 */
 	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
@@ -195,7 +197,7 @@ public:
 
 private:
 	/**
-	 * Highlights links in a list of words
+	 * Highlights links in a list of words.
 	 */
 	static QString processMsgFormatting(const QStringList &words, bool isFirst = true);
 };

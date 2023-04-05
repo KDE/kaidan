@@ -68,7 +68,7 @@ SettingsPageBase {
 						}
 						ColumnLayout {
 							Kirigami.Heading {
-								text: Utils.applicationDisplayName() + " " + Utils.versionString()
+								text: Utils.applicationDisplayName + " " + Utils.versionString
 								textFormat: Text.PlainText
 								wrapMode: Text.WordWrap
 								Layout.fillWidth: true
@@ -128,7 +128,7 @@ SettingsPageBase {
 				MobileForm.FormButtonDelegate {
 					text: qsTr("View source code online")
 					description: qsTr("View Kaidan's source code and contribute to the project")
-					onClicked: Qt.openUrlExternally(Utils.applicationSourceCodeUrl())
+					onClicked: Qt.openUrlExternally(Utils.applicationSourceCodeUrl)
 					icon.name: "kde"
 				}
 				MobileForm.FormButtonDelegate {
