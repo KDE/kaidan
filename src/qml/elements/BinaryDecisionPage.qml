@@ -30,7 +30,7 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 /**
  * This page is the base of decision pages with two actions.
