@@ -49,6 +49,7 @@ class QmlUtils : public QObject
 	Q_PROPERTY(QUrl applicationWebsiteUrl READ applicationWebsiteUrl CONSTANT)
 	Q_PROPERTY(QUrl applicationSourceCodeUrl READ applicationSourceCodeUrl CONSTANT)
 	Q_PROPERTY(QUrl issueTrackingUrl READ issueTrackingUrl CONSTANT)
+	Q_PROPERTY(QUrl donationUrl READ donationUrl CONSTANT)
 
 public:
 	static QmlUtils *instance();
@@ -105,6 +106,11 @@ public:
 	 * Returns the URL to view and report issues.
 	 */
 	static QUrl issueTrackingUrl();
+
+	/**
+	 * Returns the URL for donations.
+	 */
+	static QUrl donationUrl();
 
 	/**
 	 * Returns an invitation URL to the given JID.

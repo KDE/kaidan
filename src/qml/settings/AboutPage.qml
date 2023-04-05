@@ -103,6 +103,13 @@ SettingsPageBase {
 				}
 
 				UrlFormButtonDelegate {
+					text: qsTr("Donate")
+					description: qsTr("Support Kaidan's development and infrastructure by a donation")
+					icon.name: "emblem-favorite-symbolic"
+					url: Utils.donationUrl
+				}
+
+				UrlFormButtonDelegate {
 					text: qsTr("Report problems")
 					description: qsTr("Report issues with Kaidan to the developers")
 					icon.name: "computer-fail-symbolic"

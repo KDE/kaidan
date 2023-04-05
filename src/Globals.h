@@ -54,6 +54,7 @@
 #define APPLICATION_WEBSITE_URL "https://www.kaidan.im"
 #define APPLICATION_SOURCE_CODE_URL "https://invent.kde.org/network/kaidan"
 #define ISSUE_TRACKING_URL "https://invent.kde.org/network/kaidan/issues"
+#define DONATION_URL "https://liberapay.com/kaidan"
 
 constexpr auto MESSAGE_MAX_CHARS = 1e4;
 
