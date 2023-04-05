@@ -20,7 +20,6 @@ Kirigami.ScrollablePage {
 
 	DetailsContentContainer {
 		jid: root.jid
-		qrCodeButton: header.qrCodeButton
 		mainComponent: root.mainComponent
 	}
 }

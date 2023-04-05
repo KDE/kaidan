@@ -21,7 +21,6 @@ Kirigami.OverlaySheet {
 
 	contentItem: DetailsContentContainer {
 		jid: root.jid
-		qrCodeButton: header.qrCodeButton
 		mainComponent: root.mainComponent
 		Layout.preferredWidth: 600
 		Layout.preferredHeight: 600

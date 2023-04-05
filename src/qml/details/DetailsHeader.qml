@@ -21,7 +21,6 @@ ColumnLayout {
 	required property string jid
 	required property string displayName
 	required property Kirigami.Action avatarAction
-	property alias qrCodeButton: qrCodeButton
 
 	RowLayout {
 		Layout.topMargin: Kirigami.Units.largeSpacing * 2
@@ -162,25 +161,6 @@ ColumnLayout {
 				Layout.fillWidth: true
 				Layout.leftMargin: 40
 			}
-		}
-	}
-
-	RowLayout {
-		Layout.topMargin: - height / 2
-		Layout.bottomMargin: - height / 2 - root.spacing
-		Layout.rightMargin: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing * 2 : 0
-
-		Item {
-			Layout.fillWidth: true
-		}
-
-		Controls.RoundButton {
-			id: qrCodeButton
-			icon.name: checked ? "go-previous-symbolic" : "view-barcode-qr"
-			checkable: true
-			icon.width: Kirigami.Units.iconSizes.medium
-			icon.height: Kirigami.Units.iconSizes.medium
-			padding: Kirigami.Units.largeSpacing
 		}
 	}
 }
