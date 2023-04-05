@@ -37,8 +37,8 @@
 #include <ZXing/MultiFormatWriter.h>
 
 #include "AccountManager.h"
-#include "MessageModel.h"
 #include "Kaidan.h"
+#include "QmlUtils.h"
 #include "Settings.h"
 #include "qxmpp-exts/QXmppUri.h"
 
@@ -77,34 +77,7 @@ QImage QrCodeGenerator::generateContactTrustMessageQrCode(int edgePixelCount, co
 
 QImage QrCodeGenerator::generateTrustMessageQrCode(int edgePixelCount, const QString &jid)
 {
-	const auto keys = MessageModel::instance()->keys().value(jid);
-	QList<QString> authenticatedKeys;
-	QList<QString> distrustedKeys;
-
-	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
-		const auto key = itr.key().toHex();
-		const auto trustLevel = itr.value();
-
-		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-			authenticatedKeys.append(key);
-		} else if (trustLevel == QXmpp::TrustLevel::ManuallyDistrusted) {
-			distrustedKeys.append(key);
-		}
-	}
-
-	QXmppUri uri;
-	uri.setJid(jid);
-
-	// Create a Trust Message URI only if there are keys for it.
-	if (!authenticatedKeys.isEmpty() || !distrustedKeys.isEmpty()) {
-		uri.setAction(QXmppUri::TrustMessage);
-		// TODO: Find solution to pass enum to "uri.setEncryption()" instead of string (see QXmppGlobal::encryptionToString())
-		uri.setEncryption(QStringLiteral("urn:xmpp:omemo:2"));
-		uri.setTrustedKeysIds(authenticatedKeys);
-		uri.setDistrustedKeysIds(distrustedKeys);
-	}
-
-	return generateQrCode(edgePixelCount, uri.toString());
+	return generateQrCode(edgePixelCount, QmlUtils::trustMessageUriString(jid));
 }
 
 QImage QrCodeGenerator::generateQrCode(int edgePixelCount, const QString &text)

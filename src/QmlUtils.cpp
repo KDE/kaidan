@@ -40,7 +40,9 @@
 #include <QStringBuilder>
 // QXmpp
 #include "qxmpp-exts/QXmppColorGenerator.h"
-#include <qxmpp-exts/QXmppUri.h>
+#include "qxmpp-exts/QXmppUri.h"
+// Kaidan
+#include "MessageModel.h"
 
 static QmlUtils *s_instance;
 
@@ -134,6 +136,43 @@ QString QmlUtils::getResourcePath(const QString &name)
 QUrl QmlUtils::issueTrackingUrl()
 {
 	return {QStringLiteral(ISSUE_TRACKING_URL)};
+}
+
+QUrl QmlUtils::trustMessageUri(const QString &jid)
+{
+	return { trustMessageUriString(jid) };
+}
+
+QString QmlUtils::trustMessageUriString(const QString &jid)
+{
+	const auto keys = MessageModel::instance()->keys().value(jid);
+	QList<QString> authenticatedKeys;
+	QList<QString> distrustedKeys;
+
+	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
+		const auto key = itr.key().toHex();
+		const auto trustLevel = itr.value();
+
+		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
+			authenticatedKeys.append(key);
+		} else if (trustLevel == QXmpp::TrustLevel::ManuallyDistrusted) {
+			distrustedKeys.append(key);
+		}
+	}
+
+	QXmppUri uri;
+	uri.setJid(jid);
+
+	// Create a Trust Message URI only if there are keys for it.
+	if (!authenticatedKeys.isEmpty() || !distrustedKeys.isEmpty()) {
+		uri.setAction(QXmppUri::TrustMessage);
+		// TODO: Find solution to pass enum to "uri.setEncryption()" instead of string (see QXmppGlobal::encryptionToString())
+		uri.setEncryption(QStringLiteral("urn:xmpp:omemo:2"));
+		uri.setTrustedKeysIds(authenticatedKeys);
+		uri.setDistrustedKeysIds(distrustedKeys);
+	}
+
+	return uri.toString();
 }
 
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)

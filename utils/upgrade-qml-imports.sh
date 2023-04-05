@@ -30,7 +30,7 @@ QT["QtQuick.Dialogs"]="1.3"
 QT["QtQuick.Layouts"]="1.14"
 
 declare -A KIRIGAMI
-KIRIGAMI["org.kde.kirigami"]="2.12"
+KIRIGAMI["org.kde.kirigami"]="2.19"
 
 declare -A KAIDAN
 KAIDAN["EmojiModel"]="0.1"

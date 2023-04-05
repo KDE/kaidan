@@ -109,6 +109,20 @@ public:
 	}
 
 	/**
+	 * Returns an XMPP Trust Message URI.
+	 *
+	 * @param jid JID of the trust message
+	 */
+	Q_INVOKABLE static QUrl trustMessageUri(const QString &jid);
+
+	/**
+	 * Returns an XMPP Trust Message URI string.
+	 *
+	 * @param jid JID of the trust message
+	 */
+	static QString trustMessageUriString(const QString &jid);
+
+	/**
 	 * Returns an XMPP URI for opening a group chat.
 	 *
 	 * @param groupChatJid JID of the group chat

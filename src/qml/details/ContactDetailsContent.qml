@@ -4,7 +4,7 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
@@ -134,6 +134,54 @@ DetailsContent {
 			visible: text
 			enabled: contactOmemoWatcher.authenticatableOmemoDevices.length
 			onClicked: pageStack.layers.push(qrCodePage, { contactJid: root.jid })
+		}
+	}
+
+	Kirigami.Dialog {
+		id: qrCodeDialog
+		z: 1000
+		preferredWidth: 500
+		standardButtons: Kirigami.Dialog.NoButton
+		showCloseButton: false
+
+		ColumnLayout {
+			QrCode {
+				jid: root.jid
+				Layout.fillHeight: true
+				Layout.fillWidth: true
+				Layout.preferredWidth: 500
+				Layout.preferredHeight: 500
+				Layout.maximumHeight: applicationWindow().height * 0.5
+			}
+		}
+	}
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Sharing")
+			}
+
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Show QR code")
+				description: qsTr("Share this contact's chat address via QR code")
+				icon.name: "view-barcode-qr"
+				onClicked: qrCodeDialog.open()
+			}
+
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Copy chat address")
+				description: qsTr("Share this contact's chat address via text")
+				icon.name: "send-to-symbolic"
+				onClicked: {
+					Utils.copyToClipboard(Utils.trustMessageUri(root.jid))
+					passiveNotification(qsTr("Contact copied to clipboard"))
+				}
+			}
 		}
 	}
 
