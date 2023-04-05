@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 #
 # Kaidan - A user-friendly XMPP client for every device!
 #
@@ -30,13 +30,19 @@
 #
 
 #
-# This script updates the provider list used for registration.
+# This script updates the provider lists used for registration and autocomplete.
 #
 # It should be run before each new release.
 #
 
-SOURCE_URL="https://data.xmpp.net/providers/v1/providers-B.json"
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..
-DESTINATION_PATH="${KAIDAN_SOURCES}/data/providers.json"
 
-curl -L ${SOURCE_URL} > ${DESTINATION_PATH}
+curl \
+	-L \
+	"https://data.xmpp.net/providers/v1/providers-B.json" \
+	> "${KAIDAN_SOURCES}/data/providers.json"
+
+curl \
+	-L \
+	"https://data.xmpp.net/providers/v1/providers-Ds.json" \
+	> "${KAIDAN_SOURCES}/data/providers-completion.json"
