@@ -346,9 +346,9 @@ Kirigami.ActionTextField {
 		background: Rectangle {
 			anchors.fill: parent
 
-			color: "white" // The default, anyway.
+			color: Kirigami.Theme.backgroundColor
 			border.width: 1
-			border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
+			border.color: Kirigami.Theme.textColor
 		}
 
 		ListView {
