@@ -46,6 +46,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	FutureUtils.h
 	Globals.h
 	GuiStyle.h
+	HostCompletionModel.cpp
+	HostCompletionModel.h
 	# hsluv-c required for color generation
 	hsluv-c/hsluv.c
 	hsluv-c/hsluv.h

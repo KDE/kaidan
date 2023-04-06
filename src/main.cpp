@@ -66,6 +66,7 @@
 #include "FileProgressCache.h"
 #include "FileSharingController.h"
 #include "GuiStyle.h"
+#include "HostCompletionModel.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
 #include "MediaRecorder.h"
@@ -444,6 +445,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
 	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
+	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");
@@ -465,6 +467,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", "Not creatable from QML");
 	qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", "Used by PublicGroupChatModel");
+	qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", "Cannot create object; only enums defined!");
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", "Can't create object; only enums defined!");
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", "Can't create object; only enums defined!");
@@ -491,6 +494,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	});
 	qmlRegisterSingletonType<MessageModel>(APPLICATION_ID, 1, 0, "MessageModel", [](QQmlEngine *, QJSEngine *) {
 		return static_cast<QObject *>(MessageModel::instance());
+	});
+	qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
+		static auto self = new HostCompletionModel(qApp);
+		return static_cast<QObject *>(self);
 	});
 
 	engine.load(QUrl("qrc:/qml/main.qml"));

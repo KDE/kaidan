@@ -112,6 +112,11 @@ constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
 #define PROVIDER_LIST_FILE_PATH QStringLiteral(":/data/providers.json")
 
 /**
+ * Path of the JSON provider completion list file
+ */
+#define PROVIDER_COMPLETION_LIST_FILE_PATH QStringLiteral(":/data/providers-completion.json")
+
+/**
  * Number of providers required in a country so that only providers from that country are
  * randomly selected.
  */
