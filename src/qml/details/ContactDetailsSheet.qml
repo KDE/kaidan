@@ -28,20 +28,23 @@
  *  along with Kaidan.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.14
-
-import im.kaidan.kaidan 1.0
+import QtQuick.Layouts 1.14
 
 DetailsSheet {
 	id: root
+
+	required property string jid
+
 	parent: applicationWindow().overlay
-	header: ContactDetailsHeader {
+
+	ContactDetailsHeader {
+		sheet: root
 		jid: root.jid
 	}
-	mainComponent: Component {
-		ContactDetailsContent {
-			sheet: root
-			jid: root.jid
-		}
+
+	ContactDetailsContent {
+		sheet: root
+		jid: root.jid
+		Layout.fillWidth: true
 	}
 }

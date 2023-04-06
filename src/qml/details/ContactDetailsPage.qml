@@ -2,18 +2,19 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-
-import im.kaidan.kaidan 1.0
+import QtQuick.Layouts 1.14
 
 DetailsPage {
 	id: root
-	header: ContactDetailsHeader {
+
+	required property string jid
+
+	ContactDetailsHeader {
 		jid: root.jid
 	}
-	mainComponent: Component {
-		ContactDetailsContent {
-			jid: root.jid
-		}
+
+	ContactDetailsContent {
+		jid: root.jid
+		Layout.fillWidth: true
 	}
 }

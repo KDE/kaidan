@@ -6,22 +6,19 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
 
-import im.kaidan.kaidan 1.0
-
-import "../elements"
-
 Kirigami.OverlaySheet {
 	id: root
 
-	required property string jid
-	required property Component mainComponent
+	default property alias __data: mainArea.data
 
+	topPadding: 0
 	bottomPadding: 0
-	Kirigami.Theme.colorSet: Kirigami.Theme.Window
+	leftPadding: 0
+	rightPadding: 0
+	Kirigami.Theme.colorSet: Kirigami.Theme.Header
 
-	contentItem: DetailsContentContainer {
-		jid: root.jid
-		mainComponent: root.mainComponent
+	ColumnLayout {
+		id: mainArea
 		Layout.preferredWidth: 600
 		Layout.preferredHeight: 600
 		Layout.maximumWidth: 600
