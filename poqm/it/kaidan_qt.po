@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
-#: src/ClientWorker.cpp:302
+#: src/ClientWorker.cpp:307
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -265,12 +265,10 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marca come letto"
 
-#: src/OmemoManager.cpp:122
+#: src/OmemoManager.cpp:143
 msgctxt "OmemoManager|"
-msgid "Secure conversations are not possible because OMEMO could not be set up"
+msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr ""
-"Non sono possibili conversazioni sicure perché non è stato possibile "
-"configurare OMEMO"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -778,7 +776,7 @@ msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr "Cerca…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:157
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid ""
@@ -790,12 +788,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:184
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:194
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr "Caricamento…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:239
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:249
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr "Riprova"
@@ -2216,6 +2214,13 @@ msgstr "Data di nascita"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
+
+#~ msgctxt "OmemoManager|"
+#~ msgid ""
+#~ "Secure conversations are not possible because OMEMO could not be set up"
+#~ msgstr ""
+#~ "Non sono possibili conversazioni sicure perché non è stato possibile "
+#~ "configurare OMEMO"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Unmute notifications"
