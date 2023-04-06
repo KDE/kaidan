@@ -341,9 +341,8 @@ Kirigami.ActionTextField {
 		closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 		margins: 0
 		padding: 0
-		parent: autocomplete
+		parent: root
 		y: root.height
-		width: root.width
 		background: Rectangle {
 			anchors.fill: parent
 
@@ -352,40 +351,43 @@ Kirigami.ActionTextField {
 			border.color: "silver" // TODO: Replace with the themed color used for field borders etc..
 		}
 
-		ColumnLayout {
+		ListView {
+			id: completions
+
 			anchors.fill: parent
 
-			Repeater {
-				id: completions
+			implicitHeight: contentHeight
+			implicitWidth: root.width
+			currentIndex: -1 // No element highlighted initially.
+			clip: true
 
-				// Repeater lacks ListView's currentIndex, so we'll add it.
-				property int currentIndex: -1 // No element highlighted initially.
+			ScrollBar.vertical: ScrollBar {
+			}
 
-				// A delegate renders one list item.
-				//   TODO: Use a basic QML component to not be tied to Kirigami. Or document what
-				//   can be used here when wanting to use it independent of Kirigami.
-				delegate: Kirigami.BasicListItem {
-					readonly property string value: model[root.role]
+			// A delegate renders one list item.
+			//   TODO: Use a basic QML component to not be tied to Kirigami. Or document what
+			//   can be used here when wanting to use it independent of Kirigami.
+			delegate: Kirigami.BasicListItem {
+				readonly property string value: model[root.role]
 
-					label: highlightCompletion(value, root.input)
-					reserveSpaceForIcon: false
+				width: ListView.view.width - ListView.view.ScrollBar.vertical.width
+				label: highlightCompletion(value, root.input)
 
-					// Background coloring should be used only for the selected item.
-					//   (Also, a lighter colored background automatically appears on mouse-over.)
-					highlighted: model.index !== -1 && model.index === completions.currentIndex
+				// Background coloring should be used only for the selected item.
+				//   (Also, a lighter colored background automatically appears on mouse-over.)
+				highlighted: model.index !== -1 && model.index === completions.currentIndex
 
-					onHighlightedChanged: {
-						if (highlighted) {
-							//console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
-							root.text = value
-						}
+				onHighlightedChanged: {
+					if (highlighted) {
+						//console.log( "completions.model[" + model.index + "]: " + JSON.stringify(value))
+						root.text = value
 					}
+				}
 
-					onClicked: {
-						//console.log("modelData = " + JSON.stringify(value))
-						completions.currentIndex = model.index
-						root.accepted()
-					}
+				onClicked: {
+					//console.log("modelData = " + JSON.stringify(value))
+					completions.currentIndex = model.index
+					root.accepted()
 				}
 			}
 		}
