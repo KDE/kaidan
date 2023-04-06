@@ -159,16 +159,6 @@ Kirigami.ActionTextField {
 		return completion
 	}
 
-	// Necessary to have a blinking cursor in text field at application startup.
-	//   Not done on mobile platforms because it would show the onscreen keyboard at startup,
-	//   hiding half of the window.
-	//
-	//   TODO: Put the focus-at-startup management code in one place. Currently, the same line
-	//   is needed in root.Component.onCompleted in App.qml. Perhaps a FocusScope can help.
-	//   The auto-complete has now become a FocusScope, so maybe this solves it already?
-	Component.onCompleted: if (!Kirigami.Settings.isMobile)
-							forceActiveFocus()
-
 	// This event handler is undocumented for TextField and incompletely documented for TextInput,
 	// which TextField wraps: https://doc.qt.io/qt-5/qml-qtquick-textinput.html#textEdited-signal .
 	// However, it works, and is also proposed by code insight in Qt Creator.
