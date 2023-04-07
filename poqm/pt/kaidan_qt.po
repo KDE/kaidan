@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-04-01 11:59+0100\n"
+"PO-Revision-Date: 2023-04-06 10:17+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -274,7 +274,7 @@ msgstr "Marcar como lida"
 #: src/OmemoManager.cpp:143
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr ""
+msgstr "Não foi possível configurar a encriptação ponto-a-ponto por OMEMO 2"
 
 #: src/PresenceCache.cpp:63
 msgctxt "QObject|"
@@ -2214,10 +2214,3 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
-
-#~ msgctxt "OmemoManager|"
-#~ msgid ""
-#~ "Secure conversations are not possible because OMEMO could not be set up"
-#~ msgstr ""
-#~ "As conversas seguras não são possíveis porque não foi possível configurar "
-#~ "o OMEMO"
