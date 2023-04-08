@@ -18,7 +18,7 @@ msgstr ""
 "X-POFile-SpellExtra: Spoiler XMPP QR spoiler CAPTCHA Kaidan áudios OMEMO\n"
 "X-POFile-SpellExtra: avatar\n"
 
-#: src/ClientWorker.cpp:307
+#: src/ClientWorker.cpp:309
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -271,7 +271,7 @@ msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marcar como lida"
 
-#: src/OmemoManager.cpp:143
+#: src/OmemoManager.cpp:149
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Não foi possível configurar a encriptação ponto-a-ponto por OMEMO 2"
@@ -407,20 +407,706 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Copiar a senha"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:108
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr ""
+
+#: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/qml/ChatPage.qml:125
-msgctxt "ChatPage|"
-msgid "View profile"
-msgstr "Ver o perfil"
-
-#: src/qml/ChatPage.qml:136
+#: src/qml/ChatPage.qml:127
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Enviar uma mensagem de 'spoiler'"
+
+#: src/qml/details/AccountDetailsContent.qml:56
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Encryption"
+msgctxt "AccountDetailsContent|"
+msgid "Encryption"
+msgstr "Encriptação"
+
+#: src/qml/details/AccountDetailsContent.qml:60
+msgctxt "AccountDetailsContent|"
+msgid "OMEMO 2"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:61
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "AccountDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"A encriptação ponto-a-ponto com o OMEMO 2 garante que mais ninguém a não ser "
+"você e os seus colaboradores na conversa possam ler ou modificar os dados "
+"que trocar."
+
+#: src/qml/details/AccountDetailsContent.qml:80
+#: src/qml/details/AccountDetailsContent.qml:86
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices to encrypt for them"
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
+"mesmos"
+
+#: src/qml/details/AccountDetailsContent.qml:82
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "AccountDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr "Os seus outros dispositivos não usam o OMEMO 2"
+
+#: src/qml/details/AccountDetailsContent.qml:89
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices for maximum secure encryption"
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices for maximum security"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
+"segura possível"
+
+#: src/qml/details/AccountDetailsContent.qml:154
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Provider"
+msgctxt "AccountDetailsContent|"
+msgid "Provider"
+msgstr "Fornecedor"
+
+#: src/qml/details/AccountDetailsContent.qml:158
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Visit website"
+msgctxt "AccountDetailsContent|"
+msgid "Visit website"
+msgstr "Visitar a página Web"
+
+#: src/qml/details/AccountDetailsContent.qml:159
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Open the website of your provider in a browser"
+msgctxt "AccountDetailsContent|"
+msgid "Open your provider's website in a web browser"
+msgstr "Abrir a página Web do seu fornecedor num navegador"
+
+#: src/qml/details/AccountDetailsContent.qml:165
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Copy website address"
+msgctxt "AccountDetailsContent|"
+msgid "Copy website address"
+msgstr "Copiar o endereço da página Web"
+
+#: src/qml/details/AccountDetailsContent.qml:166
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Copy the providers web address to the clipboard"
+msgctxt "AccountDetailsContent|"
+msgid "Copy your provider's web address to the clipboard"
+msgstr "Copiar o endereço Web dos fornecedores para a área de transferência"
+
+#: src/qml/details/AccountDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "URL copied to clipboard."
+msgctxt "AccountDetailsContent|"
+msgid "Website address copied to clipboard"
+msgstr "O URL foi copiado para a área de transferência."
+
+#: src/qml/details/AccountDetailsContent.qml:175
+msgctxt "AccountDetailsContent|"
+msgid "Open support chat"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:176
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Start chat with your provider's support contact"
+msgctxt "AccountDetailsContent|"
+msgid "Start chat with your provider's support contact"
+msgstr "Iniciar uma conversa com o contacto de suporte do seu fornecedor"
+
+#: src/qml/details/AccountDetailsContent.qml:182
+#, fuzzy
+#| msgctxt "ChatSupportSheet|"
+#| msgid "Support"
+msgctxt "AccountDetailsContent|"
+msgid "Support"
+msgstr "Suporte"
+
+#: src/qml/details/AccountDetailsContent.qml:194
+#, fuzzy
+#| msgctxt "ChatSupportSheet|"
+#| msgid "Support Group"
+msgctxt "AccountDetailsContent|"
+msgid "Open support group"
+msgstr "Grupo de Suporte"
+
+#: src/qml/details/AccountDetailsContent.qml:195
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Join your provider's support group"
+msgctxt "AccountDetailsContent|"
+msgid "Join your provider's public support group"
+msgstr "Juntar-se ao grupo de suporte do seu fornecedor"
+
+#: src/qml/details/AccountDetailsContent.qml:220
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Password"
+msgctxt "AccountDetailsContent|"
+msgid "Password Change"
+msgstr "Senha"
+
+#: src/qml/details/AccountDetailsContent.qml:224
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid ""
+#| "After changing your password, you will need to reenter it on all your "
+#| "other devices."
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Change your password. You need to enter the new password on all your other "
+"devices!"
+msgstr ""
+"Depois de modificar a sua senha, terá de a introduzir de novo em todos os "
+"seus outros dispositivos."
+
+#: src/qml/details/AccountDetailsContent.qml:234
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "AccountDetailsContent|"
+msgid "Enter correct password"
+msgstr "Senha actual:"
+
+#: src/qml/details/AccountDetailsContent.qml:258
+msgctxt "AccountDetailsContent|"
+msgid "Enter different password to change it"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:278
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Change password"
+msgctxt "AccountDetailsContent|"
+msgid "Change password"
+msgstr "Modificar a senha"
+
+#: src/qml/details/AccountDetailsContent.qml:333
+#, fuzzy, qt-format
+#| msgctxt "ChangePassword|"
+#| msgid "Failed to change password: %1"
+msgctxt "AccountDetailsContent|"
+msgid "Failed to change password: %1"
+msgstr "Não foi possível modificar a senha: %1"
+
+#: src/qml/details/AccountDetailsContent.qml:339
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Password changed successfully"
+msgctxt "AccountDetailsContent|"
+msgid "Password changed successfully"
+msgstr "A senha foi modificada com sucesso"
+
+#: src/qml/details/AccountDetailsContent.qml:355
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Password"
+msgctxt "AccountDetailsContent|"
+msgid "Password Security"
+msgstr "Senha"
+
+#: src/qml/details/AccountDetailsContent.qml:359
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Configure this device to not expose your password for changing it or "
+"switching to another device. If you want to change your password or use your "
+"account on another device later, <b>consider storing the password somewhere "
+"else. This cannot be undone!</b>"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:363
+#, fuzzy
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Do not show password as text"
+msgctxt "AccountDetailsContent|"
+msgid "Don't show password as text"
+msgstr "Não mostrar a senha como texto"
+
+#: src/qml/details/AccountDetailsContent.qml:365
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid ""
+#| "Allow to add additional devices using the login QR code but never show "
+#| "the password."
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Allow to add additional devices using the login QR code but never show the "
+"password"
+msgstr ""
+"Permitir adicionar dispositivos extra que usem o código QR de autenticação "
+"mas nunca mostrem a senha."
+
+#: src/qml/details/AccountDetailsContent.qml:374
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Don't expose password in any way"
+msgctxt "AccountDetailsContent|"
+msgid "Don't expose password in any way"
+msgstr "Não expor a senha de forma alguma"
+
+#: src/qml/details/AccountDetailsContent.qml:376
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid ""
+#| "Neither allow to add additional devices using the login QR code nor show "
+#| "the password."
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Neither allow to add additional devices using the login QR code nor show the "
+"password"
+msgstr ""
+"Não permitir adicionar dispositivos extra que usem o código QR de "
+"autenticação ou mostrar a senha."
+
+#: src/qml/details/AccountDetailsContent.qml:398
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "AccountDetailsContent|"
+msgid "Connection"
+msgstr "A ligar…"
+
+#: src/qml/details/AccountDetailsContent.qml:402
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Configure the hostname and port to connect to"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Configure the hostname and port to connect to (empty fields for default "
+"values)"
+msgstr "Configurar o servidor e o porto onde se ligar"
+
+#: src/qml/details/AccountDetailsContent.qml:418
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "AccountDetailsContent|"
+msgid "Change connection settings"
+msgstr "Configuração da ligação"
+
+#: src/qml/details/AccountDetailsContent.qml:434
+#, fuzzy
+#| msgctxt "ConnectionSettings|"
+#| msgid "Connection settings changed"
+msgctxt "AccountDetailsContent|"
+msgid "Enter different connection settings to change them"
+msgstr "A configuração da ligação foi modificada"
+
+#: src/qml/details/AccountDetailsContent.qml:484
+#, fuzzy, qt-format
+#| msgctxt "ConnectionSettings|"
+#| msgid "Connection settings could not be changed"
+msgctxt "AccountDetailsContent|"
+msgid "Connection settings could not be changed: %1"
+msgstr "Não é possível modificar a configuração da ligação"
+
+#: src/qml/details/AccountDetailsContent.qml:499
+#, fuzzy
+#| msgctxt "ConnectionSettings|"
+#| msgid "Connection settings changed"
+msgctxt "AccountDetailsContent|"
+msgid "Connection settings changed"
+msgstr "A configuração da ligação foi modificada"
+
+#: src/qml/details/AccountDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "AccountDetailsContent|"
+msgid "Removal"
+msgstr "Remover o ficheiro"
+
+#: src/qml/details/AccountDetailsContent.qml:530
+#, fuzzy
+#| msgctxt "LocalAccountRemoval|"
+#| msgid "Log out from Kaidan"
+msgctxt "AccountDetailsContent|"
+msgid "Remove from Kaidan"
+msgstr "Encerrar a sessão do Kaidan"
+
+#: src/qml/details/AccountDetailsContent.qml:531
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Remove account from this app. Back up your credentials and chat history if "
+"needed!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:540
+#: src/qml/details/AccountDetailsContent.qml:566
+msgctxt "AccountDetailsContent|"
+msgid "Confirm"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:556
+#, fuzzy
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Remove completely"
+msgctxt "AccountDetailsContent|"
+msgid "Delete completely"
+msgstr "Remover por completo"
+
+#: src/qml/details/AccountDetailsContent.qml:557
+#, fuzzy
+#| msgctxt "RemoteAccountDeletion|"
+#| msgid ""
+#| "Your account will be deleted completely, which means from this app and "
+#| "from the server. You will not be able to use your account again!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Delete account from provider. You will not be able to use your account again!"
+msgstr ""
+"A sua conta será removida por completo, o que significa que será removida "
+"desta aplicação e do servidor. Não poderá mais usar a sua conta de novo!"
+
+#: src/qml/details/AccountDetailsHeader.qml:14
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Edit your profile"
+msgctxt "AccountDetailsHeader|"
+msgid "Change your profile image"
+msgstr "Editar o seu perfil"
+
+#: src/qml/details/AvatarChangePage.qml:21
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
+msgctxt "AvatarChangePage|"
+msgid "Change profile image"
+msgstr "Escolha uma imagem"
+
+#: src/qml/details/AvatarChangePage.qml:35
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose image"
+msgctxt "AvatarChangePage|"
+msgid "Choose profile image"
+msgstr "Escolha uma imagem"
+
+#: src/qml/details/AvatarChangePage.qml:113
+#, fuzzy
+#| msgctxt "ChangeAvatar|"
+#| msgid "Open…"
+msgctxt "AvatarChangePage|"
+msgid "Open image…"
+msgstr "Abrir…"
+
+#: src/qml/details/AvatarChangePage.qml:118
+msgctxt "AvatarChangePage|"
+msgid "Remove current profile image"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:124
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Share location"
+msgctxt "AvatarChangePage|"
+msgid "Save selection"
+msgstr "Partilhar a localização"
+
+#: src/qml/details/ContactDetailsContent.qml:33
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Encryption"
+msgctxt "ContactDetailsContent|"
+msgid "Encryption"
+msgstr "Encriptação"
+
+#: src/qml/details/ContactDetailsContent.qml:37
+msgctxt "ContactDetailsContent|"
+msgid "OMEMO 2"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:38
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "ContactDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"A encriptação ponto-a-ponto com o OMEMO 2 garante que mais ninguém a não ser "
+"você e os seus colaboradores na conversa possam ler ou modificar os dados "
+"que trocar."
+
+#: src/qml/details/ContactDetailsContent.qml:50
+#: src/qml/details/ContactDetailsContent.qml:58
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices to encrypt for them"
+msgctxt "ContactDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
+"mesmos"
+
+#: src/qml/details/ContactDetailsContent.qml:52
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "ContactDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr "Os seus outros dispositivos não usam o OMEMO 2"
+
+#: src/qml/details/ContactDetailsContent.qml:54
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "ContactDetailsContent|"
+msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgstr "Os seus outros dispositivos não usam o OMEMO 2"
+
+#: src/qml/details/ContactDetailsContent.qml:61
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices for maximum secure encryption"
+msgctxt "ContactDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices for maximum security"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
+"segura possível"
+
+#: src/qml/details/ContactDetailsContent.qml:103
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your contact's devices to verify the encryption"
+msgctxt "ContactDetailsContent|"
+msgid "Scan the QR code of your <b>contact</b> to enable encryption"
+msgstr ""
+"Analise os códigos QR dos dispositivos do seu contacto para verificar a "
+"encriptação nos mesmos"
+
+#: src/qml/details/ContactDetailsContent.qml:106
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Your other devices don't use OMEMO 2"
+msgctxt "ContactDetailsContent|"
+msgid "Your <b>contact</b> doesn't use OMEMO 2"
+msgstr "Os seus outros dispositivos não usam o OMEMO 2"
+
+#: src/qml/details/ContactDetailsContent.qml:109
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices to encrypt for them"
+msgctxt "ContactDetailsContent|"
+msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
+"mesmos"
+
+#: src/qml/details/ContactDetailsContent.qml:112
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan the QR codes of your devices for maximum secure encryption"
+msgctxt "ContactDetailsContent|"
+msgid "Scan the QR code of your <b>contact</b> for maximum security"
+msgstr ""
+"Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
+"segura possível"
+
+#: src/qml/details/ContactDetailsContent.qml:166
+msgctxt "ContactDetailsContent|"
+msgid "Sharing"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:170
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Show as QR code"
+msgctxt "ContactDetailsContent|"
+msgid "Show QR code"
+msgstr "Mostrar como um código QR"
+
+#: src/qml/details/ContactDetailsContent.qml:171
+msgctxt "ContactDetailsContent|"
+msgid "Share this contact's chat address via QR code"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:177
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy chat address"
+msgctxt "ContactDetailsContent|"
+msgid "Copy chat address"
+msgstr "Copiar o endereço de conversação"
+
+#: src/qml/details/ContactDetailsContent.qml:178
+msgctxt "ContactDetailsContent|"
+msgid "Share this contact's chat address via text"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:182
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "URL copied to clipboard."
+msgctxt "ContactDetailsContent|"
+msgid "Contact copied to clipboard"
+msgstr "O URL foi copiado para a área de transferência."
+
+#: src/qml/details/ContactDetailsContent.qml:200
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Notifications"
+msgctxt "ContactDetailsContent|"
+msgid "Notifications"
+msgstr "Notificações"
+
+#: src/qml/details/ContactDetailsContent.qml:204
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Compose message"
+msgctxt "ContactDetailsContent|"
+msgid "Incoming messages"
+msgstr "Compor a mensagem"
+
+#: src/qml/details/ContactDetailsContent.qml:205
+msgctxt "ContactDetailsContent|"
+msgid "Show notification and play sound on message arrival"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:224
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Privacy"
+msgctxt "ContactDetailsContent|"
+msgid "Privacy"
+msgstr "Privacidade"
+
+#: src/qml/details/ContactDetailsContent.qml:228
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Send status"
+msgctxt "ContactDetailsContent|"
+msgid "Request status"
+msgstr "Enviar o estado"
+
+#: src/qml/details/ContactDetailsContent.qml:229
+msgctxt "ContactDetailsContent|"
+msgid "Request contact's availability, devices and other personal information"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:235
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Send status"
+msgctxt "ContactDetailsContent|"
+msgid "Send status"
+msgstr "Enviar o estado"
+
+#: src/qml/details/ContactDetailsContent.qml:236
+msgctxt "ContactDetailsContent|"
+msgid "Provide your availability, devices and other personal information"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:249
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Send typing notifications"
+msgctxt "ContactDetailsContent|"
+msgid "Send typing notifications"
+msgstr "Enviar as notificações de escrita"
+
+#: src/qml/details/ContactDetailsContent.qml:250
+msgctxt "ContactDetailsContent|"
+msgid ""
+"Indicate when you have this conversation open, are typing and stopped typing"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:261
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Send read notifications"
+msgctxt "ContactDetailsContent|"
+msgid "Send read notifications"
+msgstr "Enviar as notificações de leitura"
+
+#: src/qml/details/ContactDetailsContent.qml:262
+msgctxt "ContactDetailsContent|"
+msgid "Indicate which messages you have read"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:281
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "ContactDetailsContent|"
+msgid "Removal"
+msgstr "Remover o ficheiro"
+
+#: src/qml/details/ContactDetailsContent.qml:289
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "ContactDetailsContent|"
+msgid "Remove"
+msgstr "Remover o ficheiro"
+
+#: src/qml/details/ContactDetailsContent.qml:290
+msgctxt "ContactDetailsContent|"
+msgid "Remove contact and complete chat history"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:299
+msgctxt "ContactDetailsContent|"
+msgid "Confirm"
+msgstr ""
+
+#: src/qml/details/ContactDetailsHeader.qml:18
+#, fuzzy
+#| msgctxt "ChangeAvatar|"
+#| msgid "Change avatar"
+msgctxt "ContactDetailsHeader|"
+msgid "Maximize avatar"
+msgstr "Modificar o avatar"
+
+#: src/qml/details/DetailsContent.qml:63
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Profile"
+msgctxt "DetailsContent|"
+msgid "Profile"
+msgstr "Perfil"
+
+#: src/qml/details/DetailsContent.qml:110
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Online devices"
+msgctxt "DetailsContent|"
+msgid "Connected Devices"
+msgstr "Dispositivos ligados"
+
+#: src/qml/details/DetailsHeader.qml:86
+msgctxt "DetailsHeader|"
+msgid "Change name…"
+msgstr ""
 
 #: src/qml/elements/ChatMessage.qml:163
 msgctxt "ChatMessage|"
@@ -568,13 +1254,13 @@ msgctxt "ChatSupportSheet|"
 msgid "Support"
 msgstr "Suporte"
 
-#: src/qml/elements/ChatSupportSheet.qml:67
+#: src/qml/elements/ChatSupportSheet.qml:62
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
 msgstr "Grupo de Suporte do %1"
 
-#: src/qml/elements/ChatSupportSheet.qml:67
+#: src/qml/elements/ChatSupportSheet.qml:62
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
@@ -679,50 +1365,45 @@ msgstr ""
 "A sua câmara está ocupada.\n"
 "Tente fechar as outras aplicações que a estão a utilizar."
 
-#: src/qml/elements/RosterAddContactSheet.qml:44
+#: src/qml/elements/RosterAddContactSheet.qml:43
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Adicionar um novo contacto"
 
-#: src/qml/elements/RosterAddContactSheet.qml:52
+#: src/qml/elements/RosterAddContactSheet.qml:51
+msgctxt "RosterAddContactSheet|"
+msgid "Add"
+msgstr "Adicionar"
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Isto irá também enviar um pedido para aceder à presença do contacto."
 
-#: src/qml/elements/RosterAddContactSheet.qml:61
+#: src/qml/elements/RosterAddContactSheet.qml:81
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "ID do Jabber:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:66
+#: src/qml/elements/RosterAddContactSheet.qml:86
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
 msgstr "utilizador@exemplo.org"
 
-#: src/qml/elements/RosterAddContactSheet.qml:73
+#: src/qml/elements/RosterAddContactSheet.qml:93
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Alcunha:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:83
+#: src/qml/elements/RosterAddContactSheet.qml:103
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Mensagem opcional:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:91
+#: src/qml/elements/RosterAddContactSheet.qml:111
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Indique ao seu parceiro quem é você."
-
-#: src/qml/elements/RosterAddContactSheet.qml:100
-msgctxt "RosterAddContactSheet|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/elements/RosterAddContactSheet.qml:114
-msgctxt "RosterAddContactSheet|"
-msgid "Add"
-msgstr "Adicionar"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
@@ -733,44 +1414,6 @@ msgstr "Soltar"
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Fixar"
-
-#: src/qml/elements/RosterRemoveContactSheet.qml:47
-msgctxt "RosterRemoveContactSheet|"
-msgid "Remove contact"
-msgstr "Remover o contacto"
-
-#: src/qml/elements/RosterRemoveContactSheet.qml:53
-#, qt-format
-msgctxt "RosterRemoveContactSheet|"
-msgid ""
-"Do you really want to delete the contact <b>%1</b> from your contact list?"
-msgstr ""
-"Deseja realmente apagar o contacto <b>%1</b> da sua lista de contactos?"
-
-#: src/qml/elements/RosterRemoveContactSheet.qml:72
-msgctxt "RosterRemoveContactSheet|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/elements/RosterRemoveContactSheet.qml:78
-msgctxt "RosterRemoveContactSheet|"
-msgid "Delete"
-msgstr "Apagar"
-
-#: src/qml/elements/RosterRenameContactSheet.qml:48
-msgctxt "RosterRenameContactSheet|"
-msgid "Rename contact"
-msgstr "Modificar o nome do contacto"
-
-#: src/qml/elements/RosterRenameContactSheet.qml:68
-msgctxt "RosterRenameContactSheet|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/elements/RosterRenameContactSheet.qml:75
-msgctxt "RosterRenameContactSheet|"
-msgid "Rename"
-msgstr "Mudar o Nome"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:23
 #, qt-format
@@ -870,32 +1513,48 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccione por favor uma conversa para iniciar as mensagens"
 
-#: src/qml/GlobalDrawer.qml:91
+#: src/qml/GlobalDrawer.qml:82
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account"
+msgctxt "GlobalDrawer|"
+msgid "Accounts"
+msgstr "Conta"
+
+#: src/qml/GlobalDrawer.qml:152
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "GlobalDrawer|"
+msgid "Actions"
+msgstr "Local"
+
+#: src/qml/GlobalDrawer.qml:156
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Adicionar um contacto com um código QR"
 
-#: src/qml/GlobalDrawer.qml:97
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Procurar nos grupos públicos"
 
-#: src/qml/GlobalDrawer.qml:108
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Convidar amigos"
 
-#: src/qml/GlobalDrawer.qml:112
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "A ligação do convite foi copiada para a área de transferência"
 
-#: src/qml/GlobalDrawer.qml:116
+#: src/qml/GlobalDrawer.qml:189
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Mudar de dispositivo"
 
-#: src/qml/GlobalDrawer.qml:124
+#: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Configuração"
@@ -1375,241 +2034,6 @@ msgctxt "AboutPage|"
 msgid "Visit Website"
 msgstr "Visitar a Página Web"
 
-#: src/qml/settings/AccountSecurity.qml:39
-msgctxt "AccountSecurity|"
-msgid "Account Security"
-msgstr "Segurança da Conta"
-
-#: src/qml/settings/AccountSecurity.qml:55
-msgctxt "AccountSecurity|"
-msgid "Information"
-msgstr "Informação"
-
-#: src/qml/settings/AccountSecurity.qml:68
-msgctxt "AccountSecurity|"
-msgid ""
-"Configure password visibility for switching devices, by default your "
-"password can be shown as text and in form of a QR code. You can change this "
-"here."
-msgstr ""
-"Configurar a visibilidade da senha no caso da mudança de dispositivos; por "
-"omissão, a sua senha pode ser apresentada como texto ou sob a forma de um "
-"código QR. Pode alterar isso aqui."
-
-#: src/qml/settings/AccountSecurity.qml:84
-msgctxt "AccountSecurity|"
-msgid "Don't show password"
-msgstr "Não mostrar a senha"
-
-#: src/qml/settings/AccountSecurity.qml:85
-msgctxt "AccountSecurity|"
-msgid ""
-"Allow to add additional devices using the login QR code but never show the "
-"password."
-msgstr ""
-"Permitir adicionar dispositivos extra que usem o código QR de autenticação "
-"mas nunca mostrem a senha."
-
-#: src/qml/settings/AccountSecurity.qml:91
-msgctxt "AccountSecurity|"
-msgid "Don't expose password in any way"
-msgstr "Não expor a senha de forma alguma"
-
-#: src/qml/settings/AccountSecurity.qml:92
-msgctxt "AccountSecurity|"
-msgid ""
-"Neither allow to add additional devices using the login QR code nor show the "
-"password."
-msgstr ""
-"Não permitir adicionar dispositivos extra que usem o código QR de "
-"autenticação ou mostrar a senha."
-
-#: src/qml/settings/AccountSettings.qml:43
-msgctxt "AccountSettings|"
-msgid "Account settings"
-msgstr "Configuração da conta"
-
-#: src/qml/settings/AccountSettings.qml:237
-msgctxt "AccountSettings|"
-msgid "Profile"
-msgstr "Perfil"
-
-#: src/qml/settings/AccountSettings.qml:271
-msgctxt "AccountSettings|"
-msgid "Online devices"
-msgstr "Dispositivos ligados"
-
-#: src/qml/settings/AccountSettings.qml:321
-msgctxt "AccountSettings|"
-msgid "Provider"
-msgstr "Fornecedor"
-
-#: src/qml/settings/AccountSettings.qml:325
-msgctxt "AccountSettings|"
-msgid "Visit website"
-msgstr "Visitar a página Web"
-
-#: src/qml/settings/AccountSettings.qml:326
-msgctxt "AccountSettings|"
-msgid "Open the website of your provider in a browser"
-msgstr "Abrir a página Web do seu fornecedor num navegador"
-
-#: src/qml/settings/AccountSettings.qml:333
-msgctxt "AccountSettings|"
-msgid "Copy URL"
-msgstr "Copiar o URL"
-
-#: src/qml/settings/AccountSettings.qml:334
-msgctxt "AccountSettings|"
-msgid "Copy the providers web address to the clipboard"
-msgstr "Copiar o endereço Web dos fornecedores para a área de transferência"
-
-#: src/qml/settings/AccountSettings.qml:337
-msgctxt "AccountSettings|"
-msgid "URL copied to clipboard."
-msgstr "O URL foi copiado para a área de transferência."
-
-#: src/qml/settings/AccountSettings.qml:342
-#: src/qml/settings/AccountSettings.qml:355
-msgctxt "AccountSettings|"
-msgid "Support"
-msgstr "Suporte"
-
-#: src/qml/settings/AccountSettings.qml:357
-msgctxt "AccountSettings|"
-msgid "Start chat with your provider's support contact"
-msgstr "Iniciar uma conversa com o contacto de suporte do seu fornecedor"
-
-#: src/qml/settings/AccountSettings.qml:379
-msgctxt "AccountSettings|"
-msgid "Support Group"
-msgstr "Grupo de Suporte"
-
-#: src/qml/settings/AccountSettings.qml:381
-msgctxt "AccountSettings|"
-msgid "Join your provider's support group"
-msgstr "Juntar-se ao grupo de suporte do seu fornecedor"
-
-#: src/qml/settings/ChangeAvatar.qml:50
-msgctxt "ChangeAvatar|"
-msgid "Change avatar"
-msgstr "Modificar o avatar"
-
-#: src/qml/settings/ChangeAvatar.qml:65
-msgctxt "ChangeAvatar|"
-msgid "Choose avatar image"
-msgstr "Escolher a imagem do avatar"
-
-#: src/qml/settings/ChangeAvatar.qml:142
-msgctxt "ChangeAvatar|"
-msgid "Open…"
-msgstr "Abrir…"
-
-#: src/qml/settings/ChangeAvatar.qml:151
-msgctxt "ChangeAvatar|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/ChangeAvatar.qml:160
-msgctxt "ChangeAvatar|"
-msgid "Change"
-msgstr "Modificar"
-
-#: src/qml/settings/ChangeAvatar.qml:184
-msgctxt "ChangeAvatar|"
-msgid "Avatar changed successfully"
-msgstr "O avatar foi modificado com sucesso"
-
-#: src/qml/settings/ChangePassword.qml:39
-msgctxt "ChangePassword|"
-msgid "Change password"
-msgstr "Modificar a senha"
-
-#: src/qml/settings/ChangePassword.qml:66
-msgctxt "ChangePassword|"
-msgid "Information"
-msgstr "Informação"
-
-#: src/qml/settings/ChangePassword.qml:76
-msgctxt "ChangePassword|"
-msgid ""
-"After changing your password, you will need to reenter it on all your other "
-"devices."
-msgstr ""
-"Depois de modificar a sua senha, terá de a introduzir de novo em todos os "
-"seus outros dispositivos."
-
-#: src/qml/settings/ChangePassword.qml:92
-msgctxt "ChangePassword|"
-msgid "Current password:"
-msgstr "Senha actual:"
-
-#: src/qml/settings/ChangePassword.qml:107
-msgctxt "ChangePassword|"
-msgid "New password:"
-msgstr "Nova senha:"
-
-#: src/qml/settings/ChangePassword.qml:122
-msgctxt "ChangePassword|"
-msgid "New password (repeat):"
-msgstr "Nova senha (repetir):"
-
-#: src/qml/settings/ChangePassword.qml:141
-msgctxt "ChangePassword|"
-msgid "New passwords do not match."
-msgstr "As novas senhas não correspondem."
-
-#: src/qml/settings/ChangePassword.qml:153
-msgctxt "ChangePassword|"
-msgid "Current password is invalid."
-msgstr "A senha actual é inválida."
-
-#: src/qml/settings/ChangePassword.qml:180
-msgctxt "ChangePassword|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/ChangePassword.qml:219
-msgctxt "ChangePassword|"
-msgid "Change"
-msgstr "Modificar"
-
-#: src/qml/settings/ChangePassword.qml:233
-msgctxt "ChangePassword|"
-msgid "Password changed successfully"
-msgstr "A senha foi modificada com sucesso"
-
-#: src/qml/settings/ChangePassword.qml:239
-#, qt-format
-msgctxt "ChangePassword|"
-msgid "Failed to change password: %1"
-msgstr "Não foi possível modificar a senha: %1"
-
-#: src/qml/settings/ConnectionSettings.qml:41
-msgctxt "ConnectionSettings|"
-msgid "Connection settings"
-msgstr "Configuração da ligação"
-
-#: src/qml/settings/ConnectionSettings.qml:96
-msgctxt "ConnectionSettings|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/ConnectionSettings.qml:129
-msgctxt "ConnectionSettings|"
-msgid "Change"
-msgstr "Modificar"
-
-#: src/qml/settings/ConnectionSettings.qml:146
-msgctxt "ConnectionSettings|"
-msgid "Connection settings could not be changed"
-msgstr "Não é possível modificar a configuração da ligação"
-
-#: src/qml/settings/ConnectionSettings.qml:155
-msgctxt "ConnectionSettings|"
-msgid "Connection settings changed"
-msgstr "A configuração da ligação foi modificada"
-
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
@@ -1624,109 +2048,6 @@ msgstr "O nome do servidor não pode conter espaços em branco"
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Porto:"
-
-#: src/qml/settings/DisablePasswordDisplay.qml:40
-msgctxt "DisablePasswordDisplay|"
-msgid "Don't expose your password in any way"
-msgstr "Não expor a sua senha de forma alguma"
-
-#: src/qml/settings/DisablePasswordDisplay.qml:56
-msgctxt "DisablePasswordDisplay|"
-msgid "Information"
-msgstr "Informação"
-
-#: src/qml/settings/DisablePasswordDisplay.qml:68
-msgctxt "DisablePasswordDisplay|"
-msgid ""
-"Your password will neither be shown as plain text nor included in the login "
-"QR code anymore.\n"
-"You won't be able to use the login via QR code without entering your "
-"password again because this action cannot be undone!\n"
-"Consider storing the password somewhere else if you want to use your account "
-"on another device."
-msgstr ""
-"A sua senha não será mais apresentada como texto simples nem incluída no "
-"código QR de autenticação.\n"
-"Não será mais capaz de usar a autenticação por código QR sem introduzir a "
-"sua senha de novo, porque esta acção não pode ser anulada!\n"
-"Pense em guardar a senha noutro lugar, caso queira usar a sua conta noutro "
-"dispositivo sem usar o código QR de autenticação."
-
-#: src/qml/settings/DisablePasswordDisplay.qml:98
-msgctxt "DisablePasswordDisplay|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/DisablePasswordDisplay.qml:126
-msgctxt "DisablePasswordDisplay|"
-msgid "Don't expose password in any way"
-msgstr "Não expor a senha de forma alguma"
-
-#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:40
-msgctxt "DisablePlainTextPasswordDisplay|"
-msgid "Don't show your password"
-msgstr "Não mostrar a sua senha"
-
-#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:57
-msgctxt "DisablePlainTextPasswordDisplay|"
-msgid "Information"
-msgstr "Informação"
-
-#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:67
-msgctxt "DisablePlainTextPasswordDisplay|"
-msgid ""
-"Your password will not be shown anymore but still exposed via the login QR "
-"code.\n"
-"You won't be able to see your password again because this action cannot be "
-"undone!\n"
-"Consider storing the password somewhere else if you want to use your account "
-"on another device without the login QR code."
-msgstr ""
-"A sua senha não será mais apresentada, mas continuará à mesma exposta "
-"através do código QR da autenticação.\n"
-"Não será mais capaz de ver a sua senha de novo, porque esta acção não pode "
-"ser anulada!\n"
-"Pense em guardar a senha noutro lugar, caso queira usar a sua conta noutro "
-"dispositivo sem usar o código QR de autenticação."
-
-#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:95
-msgctxt "DisablePlainTextPasswordDisplay|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/DisablePlainTextPasswordDisplay.qml:122
-msgctxt "DisablePlainTextPasswordDisplay|"
-msgid "Don't show password"
-msgstr "Não mostrar a senha"
-
-#: src/qml/settings/LocalAccountRemoval.qml:40
-msgctxt "LocalAccountRemoval|"
-msgid "Log out from Kaidan"
-msgstr "Encerrar a sessão do Kaidan"
-
-#: src/qml/settings/LocalAccountRemoval.qml:57
-msgctxt "LocalAccountRemoval|"
-msgid "Information"
-msgstr "Informação"
-
-#: src/qml/settings/LocalAccountRemoval.qml:70
-msgctxt "LocalAccountRemoval|"
-msgid ""
-"Your account will be removed from this app.Your password will be deleted, "
-"make sure it is stored in a password manager or you know it!"
-msgstr ""
-"A sua conta será removida desta aplicação. A sua senha será removida; "
-"certifique-se que está guardada num gestor de senhas ou que a conhece!"
-
-#: src/qml/settings/LocalAccountRemoval.qml:104
-msgctxt "LocalAccountRemoval|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/LocalAccountRemoval.qml:134
-msgctxt "LocalAccountRemoval|"
-msgid "Log out"
-msgstr "Encerrar"
 
 #: src/qml/settings/MultimediaSettings.qml:43
 msgctxt "MultimediaSettings|"
@@ -1768,171 +2089,34 @@ msgctxt "MultimediaSettings|"
 msgid "Save"
 msgstr "Gravar"
 
-#: src/qml/settings/PasswordRemovalPage.qml:44
-msgctxt "PasswordRemovalPage|"
-msgid "Remove password"
-msgstr "Remover a senha"
-
-#: src/qml/settings/PasswordRemovalPage.qml:47
-#, qt-format
-msgctxt "PasswordRemovalPage|"
-msgid ""
-"You can decide to only not show your password for <b>%1</b> as text anymore "
-"or to remove it completely from the account transfer. If you remove your "
-"password completely, you won't be able to use the account transfer via "
-"scanning without entering your password because it is also removed from the "
-"QR code."
-msgstr ""
-"Poderá optar apenas por não mostrar a sua senha para o <b>%1</b> como texto "
-"ou mesmo por removê-la por completo da transferência de contas. Se remover a "
-"sua senha por completo, não será capaz de usar a transferência de contas "
-"através da digitalização sem introduzir a sua senha, porque a mesma também é "
-"removida do código QR."
-
-#: src/qml/settings/PasswordRemovalPage.qml:50
-msgctxt "PasswordRemovalPage|"
-msgid "Do not show password as text"
-msgstr "Não mostrar a senha como texto"
-
-#: src/qml/settings/PasswordRemovalPage.qml:56
-msgctxt "PasswordRemovalPage|"
-msgid "Remove completely"
-msgstr "Remover por completo"
-
-#: src/qml/settings/RemoteAccountDeletion.qml:40
-msgctxt "RemoteAccountDeletion|"
-msgid "Delete account"
-msgstr "Remover a conta"
-
-#: src/qml/settings/RemoteAccountDeletion.qml:56
-msgctxt "RemoteAccountDeletion|"
-msgid "Warning"
-msgstr "Aviso"
-
-#: src/qml/settings/RemoteAccountDeletion.qml:72
-msgctxt "RemoteAccountDeletion|"
-msgid ""
-"Your account will be deleted completely, which means from this app and from "
-"the server. You will not be able to use your account again!"
-msgstr ""
-"A sua conta será removida por completo, o que significa que será removida "
-"desta aplicação e do servidor. Não poderá mais usar a sua conta de novo!"
-
-#: src/qml/settings/RemoteAccountDeletion.qml:101
-msgctxt "RemoteAccountDeletion|"
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/qml/settings/RemoteAccountDeletion.qml:128
-msgctxt "RemoteAccountDeletion|"
-msgid "Delete Account"
-msgstr "Remover a Conta"
-
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
 msgid "Settings"
 msgstr "Configuração"
 
-#: src/qml/settings/SettingsContent.qml:56
-msgctxt "SettingsContent|"
-msgid "Account Settings"
-msgstr "Configuração da Conta"
-
-#: src/qml/settings/SettingsContent.qml:60
-msgctxt "SettingsContent|"
-msgid "Account"
-msgstr "Conta"
-
-#: src/qml/settings/SettingsContent.qml:61
-msgctxt "SettingsContent|"
-msgid "Edit your profile"
-msgstr "Editar o seu perfil"
-
-#: src/qml/settings/SettingsContent.qml:68
-msgctxt "SettingsContent|"
-msgid "Change password"
-msgstr "Modificar a senha"
-
-#: src/qml/settings/SettingsContent.qml:69
-msgctxt "SettingsContent|"
-msgid "Change your account's password"
-msgstr "Mudar a configuração da sua conta"
-
-#: src/qml/settings/SettingsContent.qml:75
-msgctxt "SettingsContent|"
-msgid "Account security"
-msgstr "Segurança da conta"
-
-#: src/qml/settings/SettingsContent.qml:76
-msgctxt "SettingsContent|"
-msgid "Configure whether this device can be used to switch to another device"
-msgstr ""
-"Configura se este dispositivo pode ser usado para se autenticar noutro "
-"dispositivo"
-
-#: src/qml/settings/SettingsContent.qml:81
-msgctxt "SettingsContent|"
-msgid "Log out"
-msgstr "Encerrar"
-
-#: src/qml/settings/SettingsContent.qml:82
-msgctxt "SettingsContent|"
-msgid "Log out account from this app"
-msgstr "Encerrar a conta nesta aplicação"
-
-#: src/qml/settings/SettingsContent.qml:87
-msgctxt "SettingsContent|"
-msgid "Delete account"
-msgstr "Remover a conta"
-
-#: src/qml/settings/SettingsContent.qml:88
-msgctxt "SettingsContent|"
-msgid "Delete account from the server"
-msgstr "Remover a conta do servidor"
-
-#: src/qml/settings/SettingsContent.qml:99
-msgctxt "SettingsContent|"
-msgid "Application Settings"
-msgstr "Configuração da Aplicação"
-
-#: src/qml/settings/SettingsContent.qml:102
+#: src/qml/settings/SettingsContent.qml:53
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Configuração Multimédia"
 
-#: src/qml/settings/SettingsContent.qml:103
+#: src/qml/settings/SettingsContent.qml:54
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Configurar as definições de gravação de fotografias, vídeos e áudios"
 
-#: src/qml/settings/SettingsContent.qml:108
-msgctxt "SettingsContent|"
-msgid "Connection Settings"
-msgstr "Configuração da Ligação"
-
-#: src/qml/settings/SettingsContent.qml:109
-msgctxt "SettingsContent|"
-msgid "Configure the hostname and port to connect to"
-msgstr "Configurar o servidor e o porto onde se ligar"
-
-#: src/qml/settings/SettingsContent.qml:120
-msgctxt "SettingsContent|"
-msgid "About"
-msgstr "Acerca"
-
-#: src/qml/settings/SettingsContent.qml:123
+#: src/qml/settings/SettingsContent.qml:60
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
 msgstr "Acerca do Kaidan"
 
-#: src/qml/settings/SettingsContent.qml:124
+#: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
 "Saber mais sobre a versão actual do Kaidan, ver o código-fonte e contribuir"
 
-#: src/qml/settings/SettingsPage.qml:35
+#: src/qml/settings/SettingsPage.qml:34
 msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Configuração"
@@ -1947,145 +2131,29 @@ msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "Vamos começar"
 
-#: src/qml/UserProfileSheet.qml:138
-msgctxt "UserProfileSheet|"
-msgid "Rename contact"
-msgstr "Modificar o nome do contacto"
-
-#: src/qml/UserProfileSheet.qml:147
-msgctxt "UserProfileSheet|"
-msgid "Remove contact"
-msgstr "Remover o contacto"
-
-#: src/qml/UserProfileSheet.qml:184
-msgctxt "UserProfileSheet|"
-msgid "Profile Information"
-msgstr "Informação do Perfil"
-
-#: src/qml/UserProfileSheet.qml:193
-msgctxt "UserProfileSheet|"
-msgid "No information available"
-msgstr "Nenhuma informação disponível"
-
-#: src/qml/UserProfileSheet.qml:235
-msgctxt "UserProfileSheet|"
-msgid "Notifications"
-msgstr "Notificações"
-
-#: src/qml/UserProfileSheet.qml:239
-msgctxt "UserProfileSheet|"
-msgid "Mute notifications"
-msgstr "Silenciar as notificações"
-
-#: src/qml/UserProfileSheet.qml:253
-msgctxt "UserProfileSheet|"
-msgid "Encryption"
-msgstr "Encriptação"
-
-#: src/qml/UserProfileSheet.qml:256
-msgctxt "UserProfileSheet|"
-msgid "Enable OMEMO 2 encryption"
-msgstr "Activar a encriptação com o OMEMO 2"
-
-#: src/qml/UserProfileSheet.qml:257
-msgctxt "UserProfileSheet|"
-msgid ""
-"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-"your chat partners can read or modify the data you exchange."
-msgstr ""
-"A encriptação ponto-a-ponto com o OMEMO 2 garante que mais ninguém a não ser "
-"você e os seus colaboradores na conversa possam ler ou modificar os dados "
-"que trocar."
-
-#: src/qml/UserProfileSheet.qml:271
-msgctxt "UserProfileSheet|"
-msgid "Scan contact's QR code"
-msgstr "Analisar o código QR do contacto"
-
-#: src/qml/UserProfileSheet.qml:272
-msgctxt "UserProfileSheet|"
-msgid "Scan the QR codes of your contact's devices to verify the encryption"
-msgstr ""
-"Analise os códigos QR dos dispositivos do seu contacto para verificar a "
-"encriptação nos mesmos"
-
-#: src/qml/UserProfileSheet.qml:283
-msgctxt "UserProfileSheet|"
-msgid "Scan own QR codes"
-msgstr "Analisar os próprios códigos QR"
-
-#: src/qml/UserProfileSheet.qml:287 src/qml/UserProfileSheet.qml:293
-msgctxt "UserProfileSheet|"
-msgid "Scan the QR codes of your devices to encrypt for them"
-msgstr ""
-"Analise os códigos QR dos seus dispositivos para usar a encriptação nos "
-"mesmos"
-
-#: src/qml/UserProfileSheet.qml:289
-msgctxt "UserProfileSheet|"
-msgid "Your other devices don't use OMEMO 2"
-msgstr "Os seus outros dispositivos não usam o OMEMO 2"
-
-#: src/qml/UserProfileSheet.qml:296
-msgctxt "UserProfileSheet|"
-msgid "Scan the QR codes of your devices for maximum secure encryption"
-msgstr ""
-"Analise os códigos QR dos seus dispositivos para usar a encriptação mais "
-"segura possível"
-
-#: src/qml/UserProfileSheet.qml:319
-msgctxt "UserProfileSheet|"
-msgid "Privacy"
-msgstr "Privacidade"
-
-#: src/qml/UserProfileSheet.qml:323
-msgctxt "UserProfileSheet|"
-msgid "Send status"
-msgstr "Enviar o estado"
-
-#: src/qml/UserProfileSheet.qml:335
-msgctxt "UserProfileSheet|"
-msgid "Send typing notifications"
-msgstr "Enviar as notificações de escrita"
-
-#: src/qml/UserProfileSheet.qml:346
-msgctxt "UserProfileSheet|"
-msgid "Send read notifications"
-msgstr "Enviar as notificações de leitura"
-
-#: src/qml/UserProfileSheet.qml:366
-msgctxt "UserProfileSheet|"
-msgid "Devices"
-msgstr "Dispositivos"
-
-#: src/qml/UserProfileSheet.qml:374
-msgctxt "UserProfileSheet|"
-msgid "No devices connected"
-msgstr "Nenhum dispositivo ligado"
-
-#: src/QmlUtils.cpp:73
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "O nome de utilizador ou a senha são inválidos."
 
-#: src/QmlUtils.cpp:75
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Não é possível contactar o servidor. Por favor, verifique a sua ligação à "
 "Internet."
 
-#: src/QmlUtils.cpp:77
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Erro ao tentar-se ligar de forma segura."
 
-#: src/QmlUtils.cpp:79
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor não suporta ligações seguras."
 
-#: src/QmlUtils.cpp:81
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2094,22 +2162,22 @@ msgstr ""
 "Não foi possível contactar o servidor. Verifique a sua ligação à Internet ou "
 "o nome do seu servidor."
 
-#: src/QmlUtils.cpp:83
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desligado ou bloqueado por uma 'firewall'."
 
-#: src/QmlUtils.cpp:85
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "O protocolo de autenticação não é compatível com o servidor."
 
-#: src/QmlUtils.cpp:87
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Não foi possível actualizar a ligação."
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:91
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2118,56 +2186,56 @@ msgstr ""
 "O acesso à Internet não é permitido. Por favor, verifique a configuração de "
 "acesso à Internet do seu sistema."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Este servidor não suporta qualquer registo."
 
-#: src/QmlUtils.cpp:166
+#: src/QmlUtils.cpp:205
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/QmlUtils.cpp:240
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está ligado"
 
-#: src/QmlUtils.cpp:242
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está a escrever…"
 
-#: src/QmlUtils.cpp:244
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 parou de escrever"
 
-#: src/QrCodeGenerator.cpp:117
+#: src/QrCodeGenerator.cpp:90
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "A geração do código QR foi mal-sucedida: %1"
 
-#: src/RosterManager.cpp:131
+#: src/RosterManager.cpp:140
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Não foi possível adicionar o contacto, por não estar ligado."
 
-#: src/RosterManager.cpp:145
+#: src/RosterManager.cpp:154
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Não foi possível remover o contacto, por não estar ligado."
 
-#: src/RosterManager.cpp:158
+#: src/RosterManager.cpp:167
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Não foi possível mudar o nome do contacto, por não estar ligado."
 
-#: src/RosterManager.cpp:169
+#: src/RosterManager.cpp:178
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
@@ -2175,12 +2243,12 @@ msgstr ""
 "Não foi possível pedir a visualização do estado do  %s, devido a um erro de "
 "ligação: %s"
 
-#: src/RosterManager.cpp:177
+#: src/RosterManager.cpp:186
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
 msgstr "Permitir ao %s ver o seu estado"
 
-#: src/RosterManager.cpp:184
+#: src/RosterManager.cpp:193
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
 msgstr "Não foi possível proibir o %s de ver o seu estado"
@@ -2214,3 +2282,348 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "View profile"
+#~ msgstr "Ver o perfil"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Remove contact"
+#~ msgstr "Remover o contacto"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid ""
+#~ "Do you really want to delete the contact <b>%1</b> from your contact list?"
+#~ msgstr ""
+#~ "Deseja realmente apagar o contacto <b>%1</b> da sua lista de contactos?"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "RosterRemoveContactSheet|"
+#~ msgid "Delete"
+#~ msgstr "Apagar"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Modificar o nome do contacto"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "RosterRenameContactSheet|"
+#~ msgid "Rename"
+#~ msgstr "Mudar o Nome"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Account Security"
+#~ msgstr "Segurança da Conta"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid ""
+#~ "Configure password visibility for switching devices, by default your "
+#~ "password can be shown as text and in form of a QR code. You can change "
+#~ "this here."
+#~ msgstr ""
+#~ "Configurar a visibilidade da senha no caso da mudança de dispositivos; "
+#~ "por omissão, a sua senha pode ser apresentada como texto ou sob a forma "
+#~ "de um código QR. Pode alterar isso aqui."
+
+#~ msgctxt "AccountSecurity|"
+#~ msgid "Don't show password"
+#~ msgstr "Não mostrar a senha"
+
+#~ msgctxt "AccountSettings|"
+#~ msgid "Account settings"
+#~ msgstr "Configuração da conta"
+
+#~ msgctxt "AccountSettings|"
+#~ msgid "Provider"
+#~ msgstr "Fornecedor"
+
+#~ msgctxt "AccountSettings|"
+#~ msgid "Copy URL"
+#~ msgstr "Copiar o URL"
+
+#~ msgctxt "AccountSettings|"
+#~ msgid "Support"
+#~ msgstr "Suporte"
+
+#~ msgctxt "AccountSettings|"
+#~ msgid "Support Group"
+#~ msgstr "Grupo de Suporte"
+
+#~ msgctxt "ChangeAvatar|"
+#~ msgid "Choose avatar image"
+#~ msgstr "Escolher a imagem do avatar"
+
+#~ msgctxt "ChangeAvatar|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "ChangeAvatar|"
+#~ msgid "Change"
+#~ msgstr "Modificar"
+
+#~ msgctxt "ChangeAvatar|"
+#~ msgid "Avatar changed successfully"
+#~ msgstr "O avatar foi modificado com sucesso"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password:"
+#~ msgstr "Nova senha:"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New password (repeat):"
+#~ msgstr "Nova senha (repetir):"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "New passwords do not match."
+#~ msgstr "As novas senhas não correspondem."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Current password is invalid."
+#~ msgstr "A senha actual é inválida."
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "ChangePassword|"
+#~ msgid "Change"
+#~ msgstr "Modificar"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Connection settings"
+#~ msgstr "Configuração da ligação"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "ConnectionSettings|"
+#~ msgid "Change"
+#~ msgstr "Modificar"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose your password in any way"
+#~ msgstr "Não expor a sua senha de forma alguma"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid ""
+#~ "Your password will neither be shown as plain text nor included in the "
+#~ "login QR code anymore.\n"
+#~ "You won't be able to use the login via QR code without entering your "
+#~ "password again because this action cannot be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device."
+#~ msgstr ""
+#~ "A sua senha não será mais apresentada como texto simples nem incluída no "
+#~ "código QR de autenticação.\n"
+#~ "Não será mais capaz de usar a autenticação por código QR sem introduzir a "
+#~ "sua senha de novo, porque esta acção não pode ser anulada!\n"
+#~ "Pense em guardar a senha noutro lugar, caso queira usar a sua conta "
+#~ "noutro dispositivo sem usar o código QR de autenticação."
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "DisablePasswordDisplay|"
+#~ msgid "Don't expose password in any way"
+#~ msgstr "Não expor a senha de forma alguma"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show your password"
+#~ msgstr "Não mostrar a sua senha"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid ""
+#~ "Your password will not be shown anymore but still exposed via the login "
+#~ "QR code.\n"
+#~ "You won't be able to see your password again because this action cannot "
+#~ "be undone!\n"
+#~ "Consider storing the password somewhere else if you want to use your "
+#~ "account on another device without the login QR code."
+#~ msgstr ""
+#~ "A sua senha não será mais apresentada, mas continuará à mesma exposta "
+#~ "através do código QR da autenticação.\n"
+#~ "Não será mais capaz de ver a sua senha de novo, porque esta acção não "
+#~ "pode ser anulada!\n"
+#~ "Pense em guardar a senha noutro lugar, caso queira usar a sua conta "
+#~ "noutro dispositivo sem usar o código QR de autenticação."
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "DisablePlainTextPasswordDisplay|"
+#~ msgid "Don't show password"
+#~ msgstr "Não mostrar a senha"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Information"
+#~ msgstr "Informação"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid ""
+#~ "Your account will be removed from this app.Your password will be deleted, "
+#~ "make sure it is stored in a password manager or you know it!"
+#~ msgstr ""
+#~ "A sua conta será removida desta aplicação. A sua senha será removida; "
+#~ "certifique-se que está guardada num gestor de senhas ou que a conhece!"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "LocalAccountRemoval|"
+#~ msgid "Log out"
+#~ msgstr "Encerrar"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid "Remove password"
+#~ msgstr "Remover a senha"
+
+#~ msgctxt "PasswordRemovalPage|"
+#~ msgid ""
+#~ "You can decide to only not show your password for <b>%1</b> as text "
+#~ "anymore or to remove it completely from the account transfer. If you "
+#~ "remove your password completely, you won't be able to use the account "
+#~ "transfer via scanning without entering your password because it is also "
+#~ "removed from the QR code."
+#~ msgstr ""
+#~ "Poderá optar apenas por não mostrar a sua senha para o <b>%1</b> como "
+#~ "texto ou mesmo por removê-la por completo da transferência de contas. Se "
+#~ "remover a sua senha por completo, não será capaz de usar a transferência "
+#~ "de contas através da digitalização sem introduzir a sua senha, porque a "
+#~ "mesma também é removida do código QR."
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete account"
+#~ msgstr "Remover a conta"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Warning"
+#~ msgstr "Aviso"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Cancel"
+#~ msgstr "Cancelar"
+
+#~ msgctxt "RemoteAccountDeletion|"
+#~ msgid "Delete Account"
+#~ msgstr "Remover a Conta"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Account Settings"
+#~ msgstr "Configuração da Conta"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change password"
+#~ msgstr "Modificar a senha"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Change your account's password"
+#~ msgstr "Mudar a configuração da sua conta"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Account security"
+#~ msgstr "Segurança da conta"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid ""
+#~ "Configure whether this device can be used to switch to another device"
+#~ msgstr ""
+#~ "Configura se este dispositivo pode ser usado para se autenticar noutro "
+#~ "dispositivo"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Log out"
+#~ msgstr "Encerrar"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Log out account from this app"
+#~ msgstr "Encerrar a conta nesta aplicação"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account"
+#~ msgstr "Remover a conta"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Delete account from the server"
+#~ msgstr "Remover a conta do servidor"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Application Settings"
+#~ msgstr "Configuração da Aplicação"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "Connection Settings"
+#~ msgstr "Configuração da Ligação"
+
+#~ msgctxt "SettingsContent|"
+#~ msgid "About"
+#~ msgstr "Acerca"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Rename contact"
+#~ msgstr "Modificar o nome do contacto"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Remove contact"
+#~ msgstr "Remover o contacto"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Profile Information"
+#~ msgstr "Informação do Perfil"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "No information available"
+#~ msgstr "Nenhuma informação disponível"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Mute notifications"
+#~ msgstr "Silenciar as notificações"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Enable OMEMO 2 encryption"
+#~ msgstr "Activar a encriptação com o OMEMO 2"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Scan contact's QR code"
+#~ msgstr "Analisar o código QR do contacto"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Scan own QR codes"
+#~ msgstr "Analisar os próprios códigos QR"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "Devices"
+#~ msgstr "Dispositivos"
+
+#~ msgctxt "UserProfileSheet|"
+#~ msgid "No devices connected"
+#~ msgstr "Nenhum dispositivo ligado"
