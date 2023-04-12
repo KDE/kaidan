@@ -129,7 +129,7 @@ On a daily basis, Kaidan is automatically built for various systems.
 Those *nightly builds* are based on Kaidan's *master* branch.
 
 Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
-For distributions supporting Flatpak, there is a [Flatpak configuration](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
+For distributions supporting Flatpak, there is a [Flatpak configuration](https://invent.kde.org/network/kaidan/-/blob/master/.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) and its [reference](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.remoteapp) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
 There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
 In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows, macOS and Android builds](https://binary-factory.kde.org/search/?q=kaidan).
 
