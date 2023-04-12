@@ -64,8 +64,12 @@ Kirigami.Dialog {
 			}
 		}
 	]
-	ColumnLayout {
 
+	CredentialsValidator {
+		id: credentialsValidator
+	}
+
+	ColumnLayout {
 		Layout.fillWidth: true
 		Kirigami.InlineMessage {
 			visible: true
