@@ -152,6 +152,7 @@ Item {
 		Kirigami.Icon {
 			// TODO: Use "security-low-symbolic" for distrusted, "security-medium-symbolic" for automatically trusted and "security-high-symbolic" for authenticated
 			source: backgroundRoot.message.isTrusted ? "security-high-symbolic" : "security-low-symbolic"
+			visible: backgroundRoot.message.encryption !== Encryption.NoEncryption
 			Layout.preferredWidth: Kirigami.Units.iconSizes.small
 			Layout.preferredHeight: Layout.preferredWidth
 		}
