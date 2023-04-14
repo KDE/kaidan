@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-04-08 10:16+0200\n"
+"PO-Revision-Date: 2023-04-12 18:28+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -514,12 +514,9 @@ msgstr ""
 "Copier l'adresse Internet du fournisseur Internet dans votre presse-papier"
 
 #: src/qml/details/AccountDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "URL copied to clipboard."
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr "L'URL a été copiée dans le presse-papier."
+msgstr "L'adresse du site Internet a été copiée dans le presse-papier."
 
 #: src/qml/details/AccountDetailsContent.qml:175
 msgctxt "AccountDetailsContent|"
@@ -659,9 +656,6 @@ msgstr ""
 "« QR » de connexion mais ne jamais afficher votre mot de passe."
 
 #: src/qml/details/AccountDetailsContent.qml:374
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Don't expose password in any way"
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne pas exposer un mot de passe de n'importe quelle façon"
@@ -905,12 +899,9 @@ msgstr ""
 "Lire votre code « QR » de votre contact pour l'activation du chiffrement."
 
 #: src/qml/details/ContactDetailsContent.qml:106
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Your contact doesn't use OMEMO 2"
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
-msgstr "Votre contact n'utilise pas « OMEMO 2 »."
+msgstr "Votre <b>contact</b> n'utilise pas « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:109
 #, fuzzy
