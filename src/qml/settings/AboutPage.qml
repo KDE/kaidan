@@ -80,8 +80,8 @@ SettingsPageBase {
 							}
 
 							Controls.Label {
-								text: "<i>" + qsTr("User-friendly and modern chat app for every device") + "</i>"
-								textFormat: Text.StyledText
+								text: qsTr("User-friendly and modern chat app for every device")
+								font.italic: true
 								wrapMode: Text.WordWrap
 								Layout.fillWidth: true
 								horizontalAlignment: Qt.AlignLeft
