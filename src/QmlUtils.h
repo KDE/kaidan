@@ -50,6 +50,7 @@ class QmlUtils : public QObject
 	Q_PROPERTY(QUrl applicationSourceCodeUrl READ applicationSourceCodeUrl CONSTANT)
 	Q_PROPERTY(QUrl issueTrackingUrl READ issueTrackingUrl CONSTANT)
 	Q_PROPERTY(QUrl donationUrl READ donationUrl CONSTANT)
+	Q_PROPERTY(QUrl mastodonUrl READ mastodonUrl CONSTANT)
 
 public:
 	static QmlUtils *instance();
@@ -111,6 +112,11 @@ public:
 	 * Returns the URL for donations.
 	 */
 	static QUrl donationUrl();
+
+	/**
+	 * Returns the URL of this application's Mastodon page.
+	 */
+	static QUrl mastodonUrl();
 
 	/**
 	 * Returns an invitation URL to the given JID.

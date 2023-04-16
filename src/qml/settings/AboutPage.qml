@@ -103,6 +103,13 @@ SettingsPageBase {
 				}
 
 				UrlFormButtonDelegate {
+					text: qsTr("Follow on Mastodon")
+					description: qsTr("Open Kaidan's Mastodon page in a web browser")
+					icon.name: "send-to-symbolic"
+					url: Utils.mastodonUrl
+				}
+
+				UrlFormButtonDelegate {
 					text: qsTr("Donate")
 					description: qsTr("Support Kaidan's development and infrastructure by a donation")
 					icon.name: "emblem-favorite-symbolic"

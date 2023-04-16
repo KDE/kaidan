@@ -148,6 +148,11 @@ QUrl QmlUtils::donationUrl()
 	return { QStringLiteral(DONATION_URL) };
 }
 
+QUrl QmlUtils::mastodonUrl()
+{
+	return { QStringLiteral(MASTODON_URL) };
+}
+
 QUrl QmlUtils::trustMessageUri(const QString &jid)
 {
 	return { trustMessageUriString(jid) };
