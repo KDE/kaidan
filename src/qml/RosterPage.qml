@@ -47,27 +47,12 @@ Kirigami.ScrollablePage {
 	rightPadding: 0
 	bottomPadding: 0
 
-	RosterAddContactSheet {
-		id: addContactSheet
-		jid: ""
-	}
-
 	mainAction: Kirigami.Action {
-		text: qsTr("Add new contact")
-		icon.name: "contact-new-symbolic"
-		onTriggered: {
-			if (addContactSheet.sheetOpen)
-				addContactSheet.close()
-			else
-				addContactSheet.open()
-		}
-	}
-
-	rightAction: Kirigami.Action {
 		id: searchAction
 		text: qsTr("Search contacts")
 		checkable: true
 		icon.name: "system-search-symbolic"
+		displayHint: Kirigami.DisplayHint.IconOnly
 		onTriggered: {
 			if (checked) {
 				searchField.forceActiveFocus()
@@ -155,12 +140,6 @@ Kirigami.ScrollablePage {
 
 			function onOpenChatPageRequested(accountJid, chatJid) {
 				openChatPage(accountJid, chatJid)
-			}
-
-			function onXmppUriReceived(uri) {
-				// 'xmpp:' has length of 5
-				addContactSheet.jid = uri.substr(5)
-				addContactSheet.open()
 			}
 		}
 	}

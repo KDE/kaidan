@@ -59,6 +59,11 @@ Kirigami.GlobalDrawer {
 		AccountDetailsPage {}
 	}
 
+	RosterAddContactSheet {
+		id: contactAdditionSheet
+		jid: ""
+	}
+
 	SearchPublicGroupChatSheet {
 		id: searchPublicGroupChatSheet
 	}
@@ -162,6 +167,15 @@ Kirigami.GlobalDrawer {
 					}
 
 					MobileForm.FormButtonDelegate {
+						text: qsTr("Add contact by chat address")
+						icon.name: "contact-new-symbolic"
+						onClicked: {
+							root.close()
+							contactAdditionSheet.open()
+						}
+					}
+
+					MobileForm.FormButtonDelegate {
 						id: publicGroupChatSearchButton
 						text: qsTr("Search public groups")
 						icon.name: "system-search-symbolic"
@@ -239,6 +253,12 @@ Kirigami.GlobalDrawer {
 		function onCredentialsNeeded() {
 			accountDetailsSheet.close()
 			close()
+		}
+
+		function onXmppUriReceived(uri) {
+			// 'xmpp:' has length 5.
+			contactAdditionSheet.jid = uri.substr(5)
+			contactAdditionSheet.open()
 		}
 	}
 }
