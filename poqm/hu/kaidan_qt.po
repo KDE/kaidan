@@ -212,7 +212,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:144
+#: src/MessageComposition.cpp:206
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
@@ -233,22 +233,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageModel.cpp:246
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr ""
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:250
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr ""
 
-#: src/MessageModel.cpp:250
+#: src/MessageModel.cpp:252
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr ""
 
-#: src/MessageModel.cpp:252
+#: src/MessageModel.cpp:254
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr ""
@@ -1018,71 +1018,71 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Keresés"
 
-#: src/qml/elements/ChatPageSendingPane.qml:74
+#: src/qml/elements/ChatPageSendingPane.qml:81
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
 msgstr "Spoiler tipp"
 
-#: src/qml/elements/ChatPageSendingPane.qml:81
+#: src/qml/elements/ChatPageSendingPane.qml:88
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
 msgstr "Spoiler tipp"
 
-#: src/qml/elements/ChatPageSendingPane.qml:119
+#: src/qml/elements/ChatPageSendingPane.qml:126
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:119
+#: src/qml/elements/ChatPageSendingPane.qml:126
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/ChatPageSendingPane.qml:239
+#: src/qml/elements/ChatPageSendingPane.qml:246
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:301
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:295
+#: src/qml/elements/ChatPageSendingPane.qml:302
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:306
+#: src/qml/elements/ChatPageSendingPane.qml:313
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:318
+#: src/qml/elements/ChatPageSendingPane.qml:325
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:319
+#: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:330
+#: src/qml/elements/ChatPageSendingPane.qml:337
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:331
+#: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr ""
@@ -1224,27 +1224,27 @@ msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:76
+#: src/qml/elements/RosterAddContactSheet.qml:80
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:81
+#: src/qml/elements/RosterAddContactSheet.qml:85
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:86
+#: src/qml/elements/RosterAddContactSheet.qml:90
 msgctxt "RosterAddContactSheet|"
 msgid "user@example.org"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:93
+#: src/qml/elements/RosterAddContactSheet.qml:97
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:103
+#: src/qml/elements/RosterAddContactSheet.qml:107
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Compose message"
@@ -1252,9 +1252,14 @@ msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Üzenet írása"
 
-#: src/qml/elements/RosterAddContactSheet.qml:111
+#: src/qml/elements/RosterAddContactSheet.qml:115
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:81
+msgctxt "RosterListItem|"
+msgid "Draft:"
 msgstr ""
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
