@@ -54,7 +54,9 @@ Kirigami.SwipeListItem {
 	property bool isTrusted
 	property string messageBody
 	property date dateTime
-	property int deliveryState: Enums.DeliveryState.Delivered
+	property int deliveryState
+	property string deliveryStateName
+	property url deliveryStateIcon
 	property bool isLastRead
 	property bool edited
 	property bool isSpoiler
@@ -62,14 +64,13 @@ Kirigami.SwipeListItem {
 	property bool isShowingSpoiler: false
 	property string errorText: ""
 	property alias bodyLabel: bodyLabel
-	property string deliveryStateName
-	property url deliveryStateIcon
 	property var files;
+	property var reactions
+
 	property bool isGroupBegin: {
 		return modelIndex < 1 ||
 			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
 	}
-	property var reactions
 
 	signal messageEditRequested(string id, string body)
 	signal quoteRequested(string body)

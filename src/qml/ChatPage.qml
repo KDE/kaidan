@@ -286,6 +286,7 @@ ChatPageBase {
 		}
 
 		delegate: ChatMessage {
+			contextMenu: messageContextMenu
 			reactionEmojiPicker: root.messageReactionEmojiPicker
 			reactionSenderSheet: root.messageReactionSenderSheet
 			modelIndex: index
@@ -295,19 +296,17 @@ ChatPageBase {
 			chatName: chatItemWatcher.item.displayName
 			encryption: model.encryption
 			isTrusted: model.isTrusted
-			contextMenu: messageContextMenu
 			isOwn: model.isOwn
 			messageBody: model.body
 			dateTime: new Date(model.timestamp)
 			deliveryState: model.deliveryState
+			deliveryStateName: model.deliveryStateName
+			deliveryStateIcon: model.deliveryStateIcon
 			isLastRead: model.isLastRead
 			edited: model.isEdited
 			isSpoiler: model.isSpoiler
-			isShowingSpoiler: false
 			spoilerHint: model.spoilerHint
 			errorText: model.errorText
-			deliveryStateName: model.deliveryStateName
-			deliveryStateIcon: model.deliveryStateIcon
 			files: model.files
 			reactions: model.reactions
 
