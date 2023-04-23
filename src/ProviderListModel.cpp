@@ -29,6 +29,8 @@
  */
 
 #include "ProviderListModel.h"
+// std
+#include <ranges>
 // Qt
 #include <QFile>
 #include <QJsonArray>

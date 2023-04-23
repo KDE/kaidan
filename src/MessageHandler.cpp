@@ -29,6 +29,8 @@
  */
 
 #include "MessageHandler.h"
+// std
+#include <ranges>
 // Qt
 #include <QUrl>
 #include <QRandomGenerator>

@@ -3,6 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageComposition.h"
+
+// std
+#include <ranges>
+
 #include "MessageHandler.h"
 #include "Kaidan.h"
 #include "FileSharingController.h"

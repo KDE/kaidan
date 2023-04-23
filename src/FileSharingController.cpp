@@ -30,6 +30,10 @@
 
 #include "FileSharingController.h"
 
+// std
+#include <array>
+#include <ranges>
+
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
@@ -37,8 +41,6 @@
 #include <QImage>
 #include <QStandardPaths>
 #include <QStringBuilder>
-
-#include <array>
 
 #include <QXmppError.h>
 #include <QXmppFileMetadata.h>
