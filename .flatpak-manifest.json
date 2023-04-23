@@ -43,6 +43,17 @@
             ]
         },
         {
+            "name": "libprotobuf-c",
+            "buildsystem": "autotools",
+            "config-opts": ["--disable-protoc"],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/protobuf-c/protobuf-c.git"
+                }
+            ]
+        },
+        {
             "name": "libomemo-c",
             "buildsystem": "cmake-ninja",
             "config-opts": ["-DBUILD_SHARED_LIBS=ON"],
