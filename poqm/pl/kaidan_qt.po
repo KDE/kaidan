@@ -26,13 +26,13 @@ msgstr ""
 "Twoje konto nie mogło zostać usunięte z serwera. Dlatego nie zostało ono  "
 "również usunięte z tej aplikacji: %1"
 
-#: src/FileSharingController.cpp:200
+#: src/FileSharingController.cpp:202
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Wysyłanie nie powiodło się: %1"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:371
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -222,24 +222,24 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/MessageComposition.cpp:206
+#: src/MessageComposition.cpp:210
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/MessageHandler.cpp:189
+#: src/MessageHandler.cpp:191
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageHandler.cpp:260
+#: src/MessageHandler.cpp:262
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się"
 
-#: src/MessageHandler.cpp:316
+#: src/MessageHandler.cpp:318
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."
@@ -304,7 +304,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Niedostępny"
 
-#: src/ProviderListModel.cpp:51
+#: src/ProviderListModel.cpp:53
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Dostawca własny"
@@ -312,12 +312,12 @@ msgstr "Dostawca własny"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:119 src/ProviderListModel.cpp:129
+#: src/ProviderListModel.cpp:121 src/ProviderListModel.cpp:131
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Nieograniczona"
 
-#: src/ProviderListModel.cpp:131
+#: src/ProviderListModel.cpp:133
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1084,27 +1084,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:163
+#: src/qml/elements/ChatMessage.qml:164
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/qml/elements/ChatMessage.qml:220
+#: src/qml/elements/ChatMessage.qml:221
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Pobierz"
 
-#: src/qml/elements/ChatMessage.qml:318
+#: src/qml/elements/ChatMessage.qml:319
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Niezaszyfrowany"
 
-#: src/qml/elements/ChatMessage.qml:323
+#: src/qml/elements/ChatMessage.qml:324
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Niezaufana"
 
-#: src/qml/elements/ChatMessage.qml:355
+#: src/qml/elements/ChatMessage.qml:356
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1517,7 +1517,7 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Wybierz czat, aby rozpocząć wysyłanie wiadomości"
 
-#: src/qml/GlobalDrawer.qml:82
+#: src/qml/GlobalDrawer.qml:87
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1525,7 +1525,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Bezpieczeństwo konta"
 
-#: src/qml/GlobalDrawer.qml:152
+#: src/qml/GlobalDrawer.qml:157
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -1533,12 +1533,20 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Położenie"
 
-#: src/qml/GlobalDrawer.qml:156
+#: src/qml/GlobalDrawer.qml:161
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Dodaj kontakt poprzez kod QR"
 
-#: src/qml/GlobalDrawer.qml:166
+#: src/qml/GlobalDrawer.qml:170
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by QR code"
+msgctxt "GlobalDrawer|"
+msgid "Add contact by chat address"
+msgstr "Dodaj kontakt poprzez kod QR"
+
+#: src/qml/GlobalDrawer.qml:180
 #, fuzzy
 #| msgctxt "ChatPageSearchView|"
 #| msgid "Search up"
@@ -1546,22 +1554,22 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Poszukaj w górę"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Zaproś przyjaciół"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Link zaproszenia skopiowany do schowka"
 
-#: src/qml/GlobalDrawer.qml:189
+#: src/qml/GlobalDrawer.qml:203
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Zmień urządzenie"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:212
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Ustawienia"
@@ -1990,30 +1998,55 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontakty"
 
-#: src/qml/RosterPage.qml:56
-msgctxt "RosterPage|"
-msgid "Add new contact"
-msgstr "Dodaj nowy kontakt"
-
-#: src/qml/RosterPage.qml:68
+#: src/qml/RosterPage.qml:52
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Poszukaj kontaktów"
 
-#: src/qml/settings/AboutPage.qml:39
+#: src/qml/settings/AboutPage.qml:41
 msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:79
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "A simple, user-friendly Jabber/XMPP client"
+#: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
-msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Prosty, przyjazny dla użytkownika klient Jabber/XMPP"
+msgid "User-friendly and modern chat app for every device"
+msgstr ""
 
-#: src/qml/settings/AboutPage.qml:123
+#: src/qml/settings/AboutPage.qml:99
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Open website"
+msgctxt "AboutPage|"
+msgid "Visit website"
+msgstr "Otwórz stronę sieciową"
+
+#: src/qml/settings/AboutPage.qml:100
+msgctxt "AboutPage|"
+msgid "Open Kaidan's website in a web browser"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:106
+msgctxt "AboutPage|"
+msgid "Follow on Mastodon"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:107
+msgctxt "AboutPage|"
+msgid "Open Kaidan's Mastodon page in a web browser"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:113
+msgctxt "AboutPage|"
+msgid "Donate"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:114
+msgctxt "AboutPage|"
+msgid "Support Kaidan's development and infrastructure by a donation"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:120
 #, fuzzy
 #| msgctxt "AboutDialog|"
 #| msgid "Report problems"
@@ -2021,31 +2054,23 @@ msgctxt "AboutPage|"
 msgid "Report problems"
 msgstr "Zgłoś błędy"
 
-#: src/qml/settings/AboutPage.qml:124
+#: src/qml/settings/AboutPage.qml:121
 msgctxt "AboutPage|"
-msgid "Report issues in Kaidan to the developers"
+msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:129
+#: src/qml/settings/AboutPage.qml:127
 #, fuzzy
 #| msgctxt "AboutDialog|"
 #| msgid "View source code online"
 msgctxt "AboutPage|"
-msgid "View source code online"
+msgid "View source code"
 msgstr "Zobacz kod źródłowy online"
 
-#: src/qml/settings/AboutPage.qml:130
+#: src/qml/settings/AboutPage.qml:128
 msgctxt "AboutPage|"
-msgid "View Kaidan's source code and contribute to the project"
+msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
-
-#: src/qml/settings/AboutPage.qml:135
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
-msgctxt "AboutPage|"
-msgid "Visit Website"
-msgstr "Otwórz stronę sieciową"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -2203,24 +2228,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Ten serwer nie obsługuje procesu rejestracji."
 
-#: src/QmlUtils.cpp:205
+#: src/QmlUtils.cpp:220
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:294
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 jest dostępny"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:296
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 pisze..."
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:298
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -2294,6 +2319,24 @@ msgstr "Urodziny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Dodaj nowy kontakt"
+
+#, fuzzy
+#~| msgctxt "AboutDialog|"
+#~| msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgctxt "AboutPage|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Prosty, przyjazny dla użytkownika klient Jabber/XMPP"
+
+#, fuzzy
+#~| msgctxt "ProviderView|"
+#~| msgid "Open website"
+#~ msgctxt "AboutPage|"
+#~ msgid "Visit Website"
+#~ msgstr "Otwórz stronę sieciową"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "View profile"

@@ -34,13 +34,13 @@ msgstr ""
 "No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
 "eliminat d'esta aplicació: %1"
 
-#: src/FileSharingController.cpp:200
+#: src/FileSharingController.cpp:202
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
 
-#: src/FileSharingController.cpp:369
+#: src/FileSharingController.cpp:371
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -230,23 +230,23 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/MessageComposition.cpp:206
+#: src/MessageComposition.cpp:210
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/MessageHandler.cpp:189
+#: src/MessageHandler.cpp:191
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:260
+#: src/MessageHandler.cpp:262
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:316
+#: src/MessageHandler.cpp:318
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
@@ -311,7 +311,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Desconnectat"
 
-#: src/ProviderListModel.cpp:51
+#: src/ProviderListModel.cpp:53
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Proveïdor personalitzat"
@@ -319,12 +319,12 @@ msgstr "Proveïdor personalitzat"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:119 src/ProviderListModel.cpp:129
+#: src/ProviderListModel.cpp:121 src/ProviderListModel.cpp:131
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Sense límit"
 
-#: src/ProviderListModel.cpp:131
+#: src/ProviderListModel.cpp:133
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -913,27 +913,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Canvia el nom…"
 
-#: src/qml/elements/ChatMessage.qml:163
+#: src/qml/elements/ChatMessage.qml:164
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:220
+#: src/qml/elements/ChatMessage.qml:221
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Baixa"
 
-#: src/qml/elements/ChatMessage.qml:318
+#: src/qml/elements/ChatMessage.qml:319
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
-#: src/qml/elements/ChatMessage.qml:323
+#: src/qml/elements/ChatMessage.qml:324
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "No fiable"
 
-#: src/qml/elements/ChatMessage.qml:355
+#: src/qml/elements/ChatMessage.qml:356
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1323,42 +1323,50 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccioneu un xat per a iniciar la missatgeria"
 
-#: src/qml/GlobalDrawer.qml:82
+#: src/qml/GlobalDrawer.qml:87
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Comptes"
 
-#: src/qml/GlobalDrawer.qml:152
+#: src/qml/GlobalDrawer.qml:157
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Accions"
 
-#: src/qml/GlobalDrawer.qml:156
+#: src/qml/GlobalDrawer.qml:161
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Afig un contacte a partir del codi QR"
 
-#: src/qml/GlobalDrawer.qml:166
+#: src/qml/GlobalDrawer.qml:170
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Add contact by QR code"
+msgctxt "GlobalDrawer|"
+msgid "Add contact by chat address"
+msgstr "Afig un contacte a partir del codi QR"
+
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Busca grups públics"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Convideu a amics"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:198
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "L'enllaç d'invitació s'ha copiat al porta-retalls"
 
-#: src/qml/GlobalDrawer.qml:189
+#: src/qml/GlobalDrawer.qml:203
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Canvi de dispositiu"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:212
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Configuració"
@@ -1799,50 +1807,88 @@ msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Contactes"
 
-#: src/qml/RosterPage.qml:56
-msgctxt "RosterPage|"
-msgid "Add new contact"
-msgstr "Afig un contacte nou"
-
-#: src/qml/RosterPage.qml:68
+#: src/qml/RosterPage.qml:52
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Busca contactes"
 
-#: src/qml/settings/AboutPage.qml:39
+#: src/qml/settings/AboutPage.qml:41
 msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr "Quant a Kaidan"
 
-#: src/qml/settings/AboutPage.qml:79
+#: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
-msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Un client de Jabber/XMPP senzill i fàcil d'emprar"
+msgid "User-friendly and modern chat app for every device"
+msgstr ""
 
-#: src/qml/settings/AboutPage.qml:123
+#: src/qml/settings/AboutPage.qml:99
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Visit website"
+msgctxt "AboutPage|"
+msgid "Visit website"
+msgstr "Visiteu el lloc web"
+
+#: src/qml/settings/AboutPage.qml:100
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open your provider's website in a web browser"
+msgctxt "AboutPage|"
+msgid "Open Kaidan's website in a web browser"
+msgstr "Obri el lloc web del proveïdor en un navegador web"
+
+#: src/qml/settings/AboutPage.qml:106
+msgctxt "AboutPage|"
+msgid "Follow on Mastodon"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:107
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open your provider's website in a web browser"
+msgctxt "AboutPage|"
+msgid "Open Kaidan's Mastodon page in a web browser"
+msgstr "Obri el lloc web del proveïdor en un navegador web"
+
+#: src/qml/settings/AboutPage.qml:113
+msgctxt "AboutPage|"
+msgid "Donate"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:114
+msgctxt "AboutPage|"
+msgid "Support Kaidan's development and infrastructure by a donation"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
 msgid "Report problems"
 msgstr "Informeu de problemes"
 
-#: src/qml/settings/AboutPage.qml:124
+#: src/qml/settings/AboutPage.qml:121
+#, fuzzy
+#| msgctxt "AboutPage|"
+#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
-msgid "Report issues in Kaidan to the developers"
+msgid "Report issues with Kaidan to the developers"
 msgstr "Informeu de les incidències en Kaidan als desenvolupadors"
 
-#: src/qml/settings/AboutPage.qml:129
+#: src/qml/settings/AboutPage.qml:127
+#, fuzzy
+#| msgctxt "AboutPage|"
+#| msgid "View source code online"
 msgctxt "AboutPage|"
-msgid "View source code online"
+msgid "View source code"
 msgstr "Visualitzeu el codi font en línia"
 
-#: src/qml/settings/AboutPage.qml:130
+#: src/qml/settings/AboutPage.qml:128
+#, fuzzy
+#| msgctxt "AboutPage|"
+#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
-msgid "View Kaidan's source code and contribute to the project"
+msgid "View Kaidan's source code online and contribute to the project"
 msgstr "Visualitzeu el codi font de Kaidan i col·laboreu amb el projecte"
-
-#: src/qml/settings/AboutPage.qml:135
-msgctxt "AboutPage|"
-msgid "Visit Website"
-msgstr "Visiteu el lloc web"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -2002,24 +2048,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Este servidor no permet el registre."
 
-#: src/QmlUtils.cpp:205
+#: src/QmlUtils.cpp:220
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/QmlUtils.cpp:279
+#: src/QmlUtils.cpp:294
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 està en línia"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:296
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 està escrivint…"
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:298
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -2095,3 +2141,15 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Add new contact"
+#~ msgstr "Afig un contacte nou"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Un client de Jabber/XMPP senzill i fàcil d'emprar"
+
+#~ msgctxt "AboutPage|"
+#~ msgid "Visit Website"
+#~ msgstr "Visiteu el lloc web"
