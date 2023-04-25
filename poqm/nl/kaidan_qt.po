@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-17 11:03+0200\n"
+"PO-Revision-Date: 2023-04-24 12:43+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1322,12 +1322,9 @@ msgid "Add contact by QR code"
 msgstr "Contactpersoon toevoegen met QR-code"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Contactpersoon toevoegen met QR-code"
+msgstr "Contactpersoon toevoegen met chat-adres"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
@@ -1797,46 +1794,38 @@ msgstr "Over Kaidan"
 #: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
-msgstr ""
+msgstr "Gebruikersvriendelijke en moderne chat-toepassing voor elk apparaat"
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Website bezoeken"
 
 #: src/qml/settings/AboutPage.qml:100
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "De website van uw leverancier openen in een webbrowser"
+msgstr "De website van Kaidan openen in een webbrowser"
 
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Op Mastodon volgen"
 
 #: src/qml/settings/AboutPage.qml:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "De website van uw leverancier openen in een webbrowser"
+msgstr "De pagina op Mastodon van Kaidan openen in een webbrowser"
 
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Doneren"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
+"Het ontwikkelen en de infrastructuur van Kaidan ondersteunen met een donatie"
 
 #: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
@@ -1844,28 +1833,19 @@ msgid "Report problems"
 msgstr "Problemen rapporteren"
 
 #: src/qml/settings/AboutPage.qml:121
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
-msgstr "Rapporteer problemen in Kaidan aan de ontwikkelaars"
+msgstr "Rapporteer problemen met Kaidan aan de ontwikkelaars"
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Broncode online bekijken"
+msgstr "Broncode bekijken"
 
 #: src/qml/settings/AboutPage.qml:128
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr "Bekijk de broncode van Kaidan en draagbij aan het project"
+msgstr "Bekijk de broncode van Kaidan online en draagbij aan het project"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
