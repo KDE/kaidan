@@ -1,4 +1,4 @@
-# Kaidan - A user-friendly XMPP client for every device!
+# Kaidan - User-friendly and modern chat app for every device
 
 [![Kaidan MUC](https://search.jabbercat.org/api/1.0/badge?address=kaidan@muc.kaidan.im)](https://i.kaidan.im)
 [![license](https://img.shields.io/badge/License-GPLv3%2B%20%2F%20CC%20BY--SA%204.0-blue.svg)](https://raw.githubusercontent.com/kaidanim/kaidan/master/LICENSE)
