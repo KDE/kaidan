@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-04-17 16:00+0100\n"
+"PO-Revision-Date: 2023-04-25 21:17+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Language: pt\n"
 "X-Qt-Contexts: true\n"
 "X-POFile-SpellExtra: Spoiler XMPP QR spoiler CAPTCHA Kaidan áudios OMEMO\n"
-"X-POFile-SpellExtra: avatar\n"
+"X-POFile-SpellExtra: avatar Mastodon\n"
 
 #: src/ClientWorker.cpp:309
 #, qt-format
@@ -1336,12 +1336,9 @@ msgid "Add contact by QR code"
 msgstr "Adicionar um contacto com um código QR"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Adicionar um contacto com um código QR"
+msgstr "Adicionar um contacto pelo endereço de conversação"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
@@ -1811,46 +1808,38 @@ msgstr "Acerca do Kaidan"
 #: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
-msgstr ""
+msgstr "Ferramenta amigável e moderna de conversação para vários dispositivos"
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Visitar a página Web"
 
 #: src/qml/settings/AboutPage.qml:100
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "Abrir a página Web do seu fornecedor num navegador"
+msgstr "Abrir a página Web do Kaidan num navegador"
 
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Seguir no Mastodon"
 
 #: src/qml/settings/AboutPage.qml:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "Abrir a página Web do seu fornecedor num navegador"
+msgstr "Abrir a página de Mastodon do Kaidan num navegador"
 
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Doar"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
+"Apoiar o desenvolvimento e infra-estrutura do Kaidan através de uma doação"
 
 #: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
@@ -1858,28 +1847,19 @@ msgid "Report problems"
 msgstr "Comunicar problemas"
 
 #: src/qml/settings/AboutPage.qml:121
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
 msgstr "Comunicar problemas no Kaidan aos programadores"
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Ver o código-fonte 'online'"
+msgstr "Ver o código-fonte"
 
 #: src/qml/settings/AboutPage.qml:128
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr "Ver o código-fonte do Kaidan e contribuir para o projecto"
+msgstr "Ver o código-fonte do Kaidan 'online' e contribuir para o projecto"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -2129,15 +2109,3 @@ msgstr "Aniversário"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
-
-#~ msgctxt "RosterPage|"
-#~ msgid "Add new contact"
-#~ msgstr "Adicionar um novo contacto"
-
-#~ msgctxt "AboutPage|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "Um cliente de Jabber/XMPP simples e amigável"
-
-#~ msgctxt "AboutPage|"
-#~ msgid "Visit Website"
-#~ msgstr "Visitar a Página Web"
