@@ -258,8 +258,9 @@ Kirigami.SwipeListItem {
 
 					// message reactions (emojis in reaction to this message)
 					Flow {
+						visible: Object.keys(root.reactions).length
 						spacing: 4
-						Layout.rightMargin: isOwn ? 45 : 30
+						Layout.bottomMargin: 15
 						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
 						Layout.preferredWidth: {
 							if (messageReactionAddition.visible) {
