@@ -152,6 +152,10 @@ For each release, its source code and the source code's signature is [uploaded](
 Kaidan is translated via [KDE Localization](https://l10n.kde.org/stats/gui/trunk-kf5/package/kaidan/).
 In order to make translations possible, you need to use `qsTr("<text>")` (Example: `qsTr("Login")`) for QML `string`'s and `tr(<text>)` (Example: `tr("Online")`) for `QString`s in C++.
 
+## QML and Javascript
+
+Please use `let` or `const` instead of `var` when you define a variable in JavaScript within a QML file.
+
 ## Graphics
 
 The preferred format for graphics in Kaidan is *SVG*.
