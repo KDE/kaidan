@@ -166,12 +166,9 @@ Item {
 	 * Searches for a message containing the entered text in the search field.
 	 *
 	 * If a message is found for the entered text, that message is highlighted.
-	 * If the upwards search reaches the top of the message list view, the search is restarted at the bottom to search for messages which were not included in the search yet because they were below the message at the start index.
-	 * That behavior is not applied to an upwards search starting from the index of the most recent message (0) to avoid searching twice.
-	 * If the downwards search reaches the bottom of the message list view, the search is restarted at the top to search for messages which were not included in the search yet because they were above the message at the start index.
 	 *
 	 * @param searchUpwards true for searching upwards or false for searching downwards
-	 * @param startIndex index index of the first message to search for the entered text
+	 * @param startIndex index of the first message to search for the entered text
 	 */
 	function search(searchUpwards, startIndex) {
 		let newIndex = -1
