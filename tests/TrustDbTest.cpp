@@ -8,7 +8,6 @@
 #include <QtTest>
 
 #include "../src/Database.h"
-#include "../src/FutureUtils.h"
 #include "../src/TrustDb.h"
 #include "utils.h"
 #include <QXmppTrustMessageKeyOwner.h>

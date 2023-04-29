@@ -47,7 +47,6 @@
 #include "OmemoManager.h"
 #include "QmlUtils.h"
 #include "RosterModel.h"
-#include "FileSharingController.h"
 #include "RosterItemWatcher.h"
 
 using namespace std::chrono_literals;

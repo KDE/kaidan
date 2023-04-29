@@ -32,8 +32,6 @@
 
 // Qt
 #include <QMutexLocker>
-// Kaidan
-#include "AccountManager.h"
 
 VCardCache::VCardCache(QObject *parent)
 	: QObject(parent)

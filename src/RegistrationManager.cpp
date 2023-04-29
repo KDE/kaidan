@@ -37,7 +37,6 @@
 #include "AccountManager.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
-#include "Globals.h"
 #include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
