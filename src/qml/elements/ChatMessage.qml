@@ -84,7 +84,8 @@ Kirigami.SwipeListItem {
 		Kirigami.Action {
 			text: "Add message reaction"
 			icon.name: "smiley-add"
-			visible: !root.isOwn && !Object.keys(root.reactions).length
+			// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
+			visible: !root.isOwn && !Object.keys(root.reactions).length && Kaidan.connectionState === Enums.StateConnected
 			onTriggered: {
 				root.reactionEmojiPicker.messageId = root.msgId
 				root.reactionEmojiPicker.open()
@@ -301,7 +302,8 @@ Kirigami.SwipeListItem {
 
 						MessageReactionAddition {
 							id: messageReactionAddition
-							visible: !root.isOwn && Object.keys(root.reactions).length
+							// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
+							visible: !root.isOwn && Object.keys(root.reactions).length && Kaidan.connectionState === Enums.StateConnected
 							messageId: root.msgId
 							emojiPicker: root.reactionEmojiPicker
 							primaryColor: secondaryBackgroundColor

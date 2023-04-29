@@ -55,7 +55,8 @@ Kirigami.OverlaySheet {
 	footer: RowLayout {
 		CenteredAdaptiveButton {
 			text: qsTr("Add own reaction")
-			visible: !root.senderJids.includes(AccountManager.jid) && !isOwnMessage
+			// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
+			visible: !root.senderJids.includes(AccountManager.jid) && !isOwnMessage && Kaidan.connectionState === Enums.StateConnected
 			onClicked: {
 				MessageModel.addMessageReaction(root.messageId, root.emoji)
 				root.close()
@@ -64,7 +65,8 @@ Kirigami.OverlaySheet {
 
 		CenteredAdaptiveButton {
 			text: qsTr("Remove own reaction")
-			visible: root.senderJids.includes(AccountManager.jid)
+			// TODO: Remove " && Kaidan.connectionState === Enums.StateConnected" once offline queue for message reactions is implemented
+			visible: root.senderJids.includes(AccountManager.jid) && Kaidan.connectionState === Enums.StateConnected
 			onClicked: {
 				MessageModel.removeMessageReaction(root.messageId, root.emoji)
 				root.close()
