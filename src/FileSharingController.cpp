@@ -32,7 +32,6 @@
 
 // std
 #include <array>
-#include <ranges>
 
 #include <QDir>
 #include <QFile>
@@ -65,7 +64,17 @@
 #include "Algorithms.h"
 #include "ServerFeaturesCache.h"
 
-namespace ranges = std::ranges;
+template<typename T, typename Lambda>
+auto find_if(T &container, Lambda lambda)
+{
+	return std::find_if(container.begin(), container.end(), std::forward<Lambda>(lambda));
+}
+
+template<typename T, typename Value>
+auto find(T &container, Value value)
+{
+	return std::find(container.begin(), container.end(), std::forward<Value>(value));
+}
 
 static qint64 generateFileId()
 {
@@ -108,10 +117,10 @@ static std::optional<QString> sanitizeFilename(QStringView fileName) {
 	};
 
 	constexpr auto isBadChar = [=](QChar c) {
-		return ranges::find(bad_chars, c) != bad_chars.end() || c.category() == QChar::Other_Control;
+		return find(bad_chars, c) != bad_chars.end() || c.category() == QChar::Other_Control;
 	};
 	constexpr auto isBadName = [=](QStringView name) {
-		return ranges::find(bad_names, name) != bad_names.end();
+		return find(bad_names, name) != bad_names.end();
 	};
 
 	// Tokenize file name by splitting on bad chars
@@ -129,7 +138,7 @@ static std::optional<QString> sanitizeFilename(QStringView fileName) {
 		filenameParts.push_back(substr);
 	}
 
-	auto relevantPart = ranges::find_if(filenameParts, [](const auto &part) {
+	auto relevantPart = find_if(filenameParts, [](const auto &part) {
 		return !part.isEmpty();
 	});
 
@@ -184,14 +193,14 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 
 	await(join(this, std::move(futures)), this, [message = std::move(message)](auto &&uploadResults) mutable {
 		// Check if any of the uploads failed
-		bool failed = ranges::any_of(uploadResults, [](const auto &result) {
+		bool failed = std::any_of(uploadResults.begin(), uploadResults.end(), [](const auto &result) {
 			auto &[id, uploadResult] = result;
 			return !std::holds_alternative<QXmppFileUpload::FileResult>(uploadResult);
 		});
 
 		// upload error handling
 		if (failed) {
-			auto errorIt = ranges::find_if(uploadResults, [](const auto &result) {
+			auto errorIt = find_if(uploadResults, [](const auto &result) {
 				auto &[id, uploadResult] = result;
 				return std::holds_alternative<QXmppError>(uploadResult);
 			});
@@ -371,7 +380,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 					tr("Couldn't download file: %1").arg(errorText));
 			} else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
 				MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
-					auto *file = ranges::find_if(message.files, [=](const auto &file) {
+					auto *file = find_if(message.files, [=](const auto &file) {
 						return file.id == fileId;
 					});
 
@@ -393,7 +402,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 void FileSharingController::deleteFile(const QString &messageId, const File &file)
 {
 	MessageDb::instance()->updateMessage(messageId, [fileId = file.id](Message &message) {
-		auto *it = ranges::find_if(message.files, [fileId](const auto &file) {
+		auto *it = find_if(message.files, [fileId](const auto &file) {
 			return file.id == fileId;
 		});
 		if (it != message.files.cend()) {

@@ -30,7 +30,6 @@
 
 #include "ProviderListModel.h"
 // std
-#include <ranges>
 // Qt
 #include <QFile>
 #include <QJsonArray>
@@ -144,7 +143,7 @@ QVariant ProviderListModel::data(int row, ProviderListModel::Role role) const
 
 ProviderListItem ProviderListModel::provider(const QString &jid) const
 {
-	auto item = std::ranges::find_if(m_items, [&jid](const auto &it) {
+	auto item = std::find_if(m_items.begin(), m_items.end(), [&jid](const auto &it) {
 		return it.jid() == jid;
 	});
 

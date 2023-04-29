@@ -5,8 +5,7 @@
 #include "MessageComposition.h"
 
 // std
-#include <ranges>
-
+// Kaidan
 #include "MessageHandler.h"
 #include "Kaidan.h"
 #include "FileSharingController.h"
@@ -22,8 +21,6 @@
 
 #include <KIO/PreviewJob>
 #include <KFileItem>
-
-namespace ranges = std::ranges;
 
 constexpr auto THUMBNAIL_SIZE = 200;
 
@@ -299,7 +296,7 @@ void FileSelectionModel::generateThumbnail(const File &file)
 	job->setAutoDelete(true);
 
 	connect(job, &KIO::PreviewJob::gotPreview, this, [this](const KFileItem &item, const QPixmap &preview) {
-		auto *file = std::ranges::find_if(m_files, [&](const auto &file) {
+		auto *file = std::find_if(m_files.begin(), m_files.end(), [&](const auto &file) {
 			return file.localFilePath == item.localPath();
 		});
 

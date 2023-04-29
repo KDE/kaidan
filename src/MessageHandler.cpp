@@ -30,7 +30,6 @@
 
 #include "MessageHandler.h"
 // std
-#include <ranges>
 // Qt
 #include <QUrl>
 #include <QRandomGenerator>
@@ -62,8 +61,6 @@
 #include "Notifications.h"
 #include "OmemoManager.h"
 #include "RosterModel.h"
-
-namespace ranges = std::ranges;
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
@@ -481,7 +478,11 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 				if (messages.messages.empty()) {
 					return stamp;
 				}
-				return ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
+				// requires ranges support
+				// return std::ranges::max(messages.messages, {}, &QXmppMessage::stamp).stamp();
+				return std::max_element(messages.messages.begin(), messages.messages.end(), [](const auto &a, const auto &b) {
+					return a.stamp() < b.stamp();
+				})->stamp();
 			}();
 
 			// TODO: Do real batch processing (especially in the DB)
@@ -603,7 +604,7 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 					const auto &bobData = message.bitsOfBinaryData();
 					if (!file.metadata().thumbnails().empty()) {
 						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
-						const auto *thumbnailData = ranges::find_if(bobData, [&](auto bobBlob) {
+						const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
 							return bobBlob.cid() == cid;
 						});
 
