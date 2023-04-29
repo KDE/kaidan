@@ -30,6 +30,9 @@
 
 #pragma once
 
+// std
+#include <unordered_map>
+// Qt
 #include <QSharedDataPointer>
 #include <QVariantList>
 
