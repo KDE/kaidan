@@ -85,7 +85,7 @@ auto filter(T &&input, Condition condition)
 
 	input.erase(it, input.end());
 
-	return input;
+	return std::move(input);
 }
 
 template<typename T, typename ConditionalConverter>
