@@ -54,7 +54,7 @@ struct FileHash
 
 	QXmppHash toQXmpp() const;
 
-	bool operator==(const FileHash &other) const;
+	bool operator==(const FileHash &other) const = default;
 };
 
 struct HttpSource
@@ -64,7 +64,7 @@ struct HttpSource
 
 	QXmppHttpFileSource toQXmpp() const;
 
-	bool operator==(const HttpSource &other) const;
+	bool operator==(const HttpSource &other) const = default;
 };
 
 struct EncryptedSource
@@ -79,7 +79,7 @@ struct EncryptedSource
 
 	QXmppEncryptedFileSource toQXmpp() const;
 
-	bool operator==(const EncryptedSource &other) const;
+	bool operator==(const EncryptedSource &other) const = default;
 };
 
 struct File
@@ -118,7 +118,7 @@ public:
 
 	[[nodiscard]] QXmppFileShare toQXmpp() const;
 
-	bool operator==(const File &other) const;
+	bool operator==(const File &other) const = default;
 
 private:
 	[[nodiscard]] QString _name() const { return name.value_or(QString()); }
@@ -140,7 +140,7 @@ struct MessageReaction
 	QDateTime latestTimestamp;
 	QVector<QString> emojis;
 
-	bool operator==(const MessageReaction &other) const;
+	bool operator==(const MessageReaction &other) const = default;
 };
 
 /**
@@ -157,8 +157,8 @@ public:
 	 * Compares another @c Message with this. Only attributes that are saved in the
 	 * database are checked.
 	 */
-	bool operator==(const Message &m) const;
-	bool operator!=(const Message &m) const;
+	bool operator==(const Message &m) const = default;
+	bool operator!=(const Message &m) const = default;
 
 	QString id;
 	QString to;

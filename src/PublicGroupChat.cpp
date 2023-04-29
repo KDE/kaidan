@@ -113,10 +113,6 @@ void PublicGroupChat::setLanguages(const QStringList &languages)
 
 PublicGroupChat &PublicGroupChat::operator=(const PublicGroupChat &other) = default;
 
-bool PublicGroupChat::operator==(const PublicGroupChat &other) const = default;
-
-bool PublicGroupChat::operator!=(const PublicGroupChat &other) const = default;
-
 QJsonObject PublicGroupChat::toJson() const
 {
 	QJsonObject object;

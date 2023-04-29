@@ -52,9 +52,6 @@ bool RosterItem::isReceivingPresence() const
 	return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
 }
 
-bool RosterItem::operator==(const RosterItem &other) const = default;
-bool RosterItem::operator!=(const RosterItem &other) const = default;
-
 bool RosterItem::operator<(const RosterItem &other) const
 {
 	if (pinningPosition == -1 && other.pinningPosition == -1) {

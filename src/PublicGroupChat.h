@@ -52,8 +52,8 @@ public:
 	void setLanguages(const QStringList &languages);
 
 	PublicGroupChat &operator=(const PublicGroupChat &other);
-	bool operator==(const PublicGroupChat &other) const;
-	bool operator!=(const PublicGroupChat &other) const;
+	bool operator==(const PublicGroupChat &other) const = default;
+	bool operator!=(const PublicGroupChat &other) const = default;
 
 	QJsonObject toJson() const;
 

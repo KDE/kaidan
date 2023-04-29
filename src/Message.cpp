@@ -52,16 +52,12 @@ QXmppHash FileHash::toQXmpp() const
 	return hash;
 }
 
-bool FileHash::operator==(const FileHash &other) const = default;
-
 QXmppHttpFileSource HttpSource::toQXmpp() const
 {
 	QXmppHttpFileSource source;
 	source.setUrl(url);
 	return source;
 }
-
-bool HttpSource::operator==(const HttpSource &other) const = default;
 
 QXmppEncryptedFileSource EncryptedSource::toQXmpp() const
 {
@@ -78,8 +74,6 @@ QXmppEncryptedFileSource EncryptedSource::toQXmpp() const
 	}));
 	return source;
 }
-
-bool EncryptedSource::operator==(const EncryptedSource &other) const = default;
 
 QXmppFileShare File::toQXmpp() const
 {
@@ -111,8 +105,6 @@ QXmppFileShare File::toQXmpp() const
 	return fs;
 }
 
-bool File::operator==(const File &other) const = default;
-
 QImage File::thumbnailSquareImage() const
 {
 	auto image = QImage::fromData(thumbnail);
@@ -143,11 +135,6 @@ MessageType File::type() const
 {
 	return MediaUtils::messageType(mimeType);
 }
-
-bool MessageReaction::operator==(const MessageReaction &other) const = default;
-
-bool Message::operator==(const Message &m) const = default;
-bool Message::operator!=(const Message &m) const = default;
 
 QXmppMessage Message::toQXmpp() const
 {

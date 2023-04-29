@@ -59,8 +59,8 @@ public:
 	bool isSendingPresence() const;
 	bool isReceivingPresence() const;
 
-	bool operator==(const RosterItem &other) const;
-	bool operator!=(const RosterItem &other) const;
+	bool operator==(const RosterItem &other) const = default;
+	bool operator!=(const RosterItem &other) const = default;
 
 	bool operator<(const RosterItem &other) const;
 	bool operator>(const RosterItem &other) const;
