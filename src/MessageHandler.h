@@ -52,7 +52,6 @@ public:
 
 	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
-public slots:
 	void handleRosterReceived();
 	void handleLastMessageStampFetched(const QDateTime &stamp);
 
@@ -94,7 +93,7 @@ signals:
 
 	void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
 
-private slots:
+private:
 	void handleConnected();
 
 	/**
@@ -108,7 +107,6 @@ private slots:
 	void retrieveCatchUpMessages(const QDateTime &stamp);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
-private:
 	/**
 	 * Handles a message that may contain a read marker.
 	 *

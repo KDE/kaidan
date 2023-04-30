@@ -234,7 +234,7 @@ signals:
 	 */
 	void messageSearchFinished(int queryStringMessageIndex);
 
-private slots:
+private:
 	void handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
 
 	void handleMessagesFetched(const QVector<Message> &m_messages);
@@ -247,7 +247,6 @@ private slots:
 	void handleMessage(Message msg, MessageOrigin origin);
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
 
-private:
 	void resetCurrentChat(const QString &accountJid, const QString &chatJid);
 
 	/**

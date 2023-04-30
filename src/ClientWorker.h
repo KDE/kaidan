@@ -209,16 +209,15 @@ public:
 	 */
 	void finishTask();
 
-public slots:
 	/**
 	 * Connects to the server and logs in with all needed configuration variables.
 	 */
-	void logIn();
+	Q_INVOKABLE void logIn();
 
 	/**
 	 * Connects to the server and requests a data form for account registration.
 	 */
-	void connectToRegister();
+	Q_INVOKABLE void connectToRegister();
 
 	/**
 	 * Connects to the server with a minimal configuration.
@@ -228,61 +227,60 @@ public slots:
 	 * @param config configuration with additional variables for connecting to the server
 	 * or nothing if only the minimal configuration should be used
 	 */
-	void connectToServer(QXmppConfiguration config = QXmppConfiguration());
+	Q_INVOKABLE void connectToServer(QXmppConfiguration config = QXmppConfiguration());
 
 	/**
 	 * Logs out of the server if the client is not already logged out.
 	 *
 	 * @param isApplicationBeingClosed true if the application will be terminated directly after logging out, false otherwise
 	 */
-	void logOut(bool isApplicationBeingClosed = false);
+	Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
 
 	/**
 	 * Deletes the account data from the client and server.
 	 */
-	void deleteAccountFromClientAndServer();
+	Q_INVOKABLE void deleteAccountFromClientAndServer();
 
 	/**
 	 * Deletes the account data from the configuration file and database.
 	 */
-	void deleteAccountFromClient();
+	Q_INVOKABLE void deleteAccountFromClient();
 
 	/**
 	 * Called when the account is deleted from the server.
 	 */
-	void handleAccountDeletedFromServer();
+	Q_INVOKABLE void handleAccountDeletedFromServer();
 
 	/**
 	 * Called when the account could not be deleted from the server.
 	 *
 	 * @param error error of the failed account deletion
 	 */
-	void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
+	Q_INVOKABLE void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
 
-signals:
 	/**
 	 * Emitted when an authenticated connection to the server is established with new
 	 * credentials for the first time.
 	 *
 	 * The client will be in connected state when this is emitted.
 	 */
-	void loggedInWithNewCredentials();
+	Q_SIGNAL void loggedInWithNewCredentials();
 
 	/**
 	 * Emitted when the client's connection state changed.
 	 *
 	 * @param connectionState new connection state
 	 */
-	void connectionStateChanged(Enums::ConnectionState connectionState);
+	Q_SIGNAL void connectionStateChanged(Enums::ConnectionState connectionState);
 
 	/**
 	 * Emitted when the client failed to connect to the server.
 	 *
 	 * @param error new connection error
 	 */
-	void connectionErrorChanged(ClientWorker::ConnectionError error);
+	Q_SIGNAL void connectionErrorChanged(ClientWorker::ConnectionError error);
 
-private slots:
+private:
 	/**
 	 * Called when an authenticated connection to the server is established.
 	 */
@@ -307,7 +305,6 @@ private slots:
 	 */
 	void onConnectionError(QXmppClient::Error error);
 
-private:
 	/**
 	 * Starts a pending (enqueued) task (e.g. a password change) if the variable (e.g. a
 	 * password) could not be changed on the server before because the client was not

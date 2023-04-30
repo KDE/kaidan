@@ -64,14 +64,13 @@ signals:
 	void jidChanged();
 	void clientVersionsRequested(const QString &bareJid, const QString &resource = {});
 
-private slots:
+private:
 	void handleClientVersionReceived(const QXmppVersionIq &versionIq);
 	void handlePresenceChanged(PresenceCache::ChangeType type,
 	                           const QString &jid,
 	                           const QString &resource);
 	void handlePresencesCleared();
 
-private:
 	struct DeviceInfo {
 		DeviceInfo(const QString &resource);
 		DeviceInfo(const QXmppVersionIq &);

@@ -97,7 +97,6 @@ public:
 	int resourcesCount(const QString &jid);
 	std::optional<QXmppPresence> presence(const QString &jid, const QString &resource);
 
-public slots:
 	/**
 	 * Updates the presence cache, it will ignore subscribe presences
 	 */

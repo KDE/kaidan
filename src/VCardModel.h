@@ -76,10 +76,9 @@ public:
 signals:
 	void jidChanged();
 
-private slots:
+private:
 	void handleVCardReceived(const QXmppVCardIq &vCard);
 
-private:
 	QVector<Item> m_vCard;
 	QString m_jid;
 };

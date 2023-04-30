@@ -189,11 +189,10 @@ public:
 	// Save user default
 	Q_INVOKABLE void saveUserSettings();
 
-public slots:
-	void record();
-	void pause();
-	void stop();
-	void cancel();
+	Q_INVOKABLE void record();
+	Q_INVOKABLE void pause();
+	Q_INVOKABLE void stop();
+	Q_INVOKABLE void cancel();
 
 signals:
 	void typeChanged();

@@ -84,7 +84,7 @@ signals:
 	 */
 	void sendRegistrationFormRequested();
 
-private slots:
+private:
 	/**
 	 * Sends the form containing information to register an account.
 	 */
@@ -141,7 +141,6 @@ private slots:
 	 */
 	void handlePasswordChangeFailed(const QXmppStanza::Error &error);
 
-private:
 	/**
 	 * Extracts a form from an IQ stanza for registration.
 	 *

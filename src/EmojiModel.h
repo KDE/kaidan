@@ -82,13 +82,11 @@ public:
 
 	bool hasFavoriteEmojis() const;
 
-public slots:
-	void addFavoriteEmoji(int proxyRow);
+	Q_INVOKABLE void addFavoriteEmoji(int proxyRow);
 
-signals:
-	void groupChanged();
-	void filterChanged();
-	void hasFavoriteEmojisChanged();
+	Q_SIGNAL void groupChanged();
+	Q_SIGNAL void filterChanged();
+	Q_SIGNAL void hasFavoriteEmojisChanged();
 
 protected:
 	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;

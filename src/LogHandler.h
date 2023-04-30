@@ -50,7 +50,6 @@ public:
 	 */
 	void enableLogging(bool enable);
 
-public slots:
 	/**
 	 * Handles logging messages and processes them (currently only output
 	 * of XML streams)

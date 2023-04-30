@@ -109,7 +109,7 @@ signals:
 	void changeNicknameRequested(const QString &nickname);
 	void changeAvatarRequested(const QImage &avatar = {});
 
-private slots:
+private:
 	/**
 	 * Changes the user's nickname.
 	 *
@@ -118,7 +118,6 @@ private slots:
 	void changeNickname(const QString &nickname);
 	void changeAvatar(const QImage &avatar = {});
 
-private:
 	/**
 	 * Changes the nickname which was cached to be set after receiving the current vCard.
 	 */

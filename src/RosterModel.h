@@ -156,7 +156,7 @@ signals:
 	 */
 	void subscriptionRequestReceived(const QString &from, const QString &msg);
 
-private slots:
+private:
 	void handleItemsFetched(const QVector<RosterItem> &items);
 
 	void addItem(const RosterItem &item);
@@ -179,7 +179,6 @@ private slots:
 	void handleDraftMessageRemoved(const QString &id);
 	void handleDraftMessageFetched(const Message &msg);
 
-private:
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);
 	int positionToAdd(const RosterItem &item);

@@ -43,11 +43,10 @@ class VersionManager : public QObject
 public:
 	explicit VersionManager(QXmppClient *client, QObject *parent = nullptr);
 
-public slots:
 	/**
 	 * Fetches the version information of all resources of the given  bare JID
 	 */
-	void fetchVersions(const QString &bareJid, const QString &resource);
+	Q_INVOKABLE void fetchVersions(const QString &bareJid, const QString &resource);
 
 signals:
 	/**

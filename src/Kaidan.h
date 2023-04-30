@@ -330,21 +330,21 @@ signals:
 	 */
 	void deleteAccountFromClient();
 
-public slots:
+public:
 	/**
 	 * Set current connection state
 	 */
-	void setConnectionState(Enums::ConnectionState connectionState);
+	Q_INVOKABLE void setConnectionState(Enums::ConnectionState connectionState);
 
 	/**
 	 * Sets a new connection error.
 	 */
-	void setConnectionError(ClientWorker::ConnectionError error);
+	Q_INVOKABLE void setConnectionError(ClientWorker::ConnectionError error);
 
 	/**
 	 * Receives messages from another instance of the application
 	 */
-	void receiveMessage(quint32, const QByteArray &msg)
+	Q_INVOKABLE void receiveMessage(quint32, const QByteArray &msg)
 	{
 		// currently we only send XMPP URIs
 		addOpenUri(msg);
@@ -353,7 +353,7 @@ public slots:
 	/**
 	 * Returns whether notifications are enabled for the given contact.
 	 */
-	bool notificationsMuted(const QString& jid);
+	Q_INVOKABLE bool notificationsMuted(const QString& jid);
 
 	/**
 	 * Sets the notifications to muted/unmuted.
@@ -361,7 +361,7 @@ public slots:
 	 * @param muted true if notifications should be muted
 	 * @param jid JID of the entity for that notifications should be muted or unmuted
 	 */
-	void setNotificationsMuted(const QString &jid, bool muted);
+	Q_INVOKABLE void setNotificationsMuted(const QString &jid, bool muted);
 
 private:
 	Notifications *m_notifications;

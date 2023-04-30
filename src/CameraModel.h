@@ -90,12 +90,10 @@ public:
 	static CameraInfo camera(const QString &deviceName);
 	static CameraInfo camera(QCamera::Position position);
 
-public slots:
-	void refresh();
+	Q_INVOKABLE void refresh();
 
-signals:
-	void camerasChanged();
-	void currentIndexChanged();
+	Q_SIGNAL void camerasChanged();
+	Q_SIGNAL void currentIndexChanged();
 
 private:
 	QList<QCameraInfo> m_cameras;
