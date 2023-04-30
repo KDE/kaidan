@@ -17,7 +17,11 @@ Use the following prefixes for branch names:
 
 ## Merge Requests (MR)
 
-Currently, Linus Jahn (@lnj) and Jonah Brüchert (@jbbgameich) are the maintainers of Kaidan.
+Current Maintainers:
+ * Linus Jahn (@lnj)
+ * Jonah Brüchert (@jbbgameich)
+ * Melvin Keskin (@melvo)
+
 They are responsible for accepting MRs.
 Nevertheless, everybody is welcome to review MRs and give feedback on them.
 
