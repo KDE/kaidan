@@ -23,13 +23,13 @@ msgstr ""
 "Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
 "tagits bort från applikationen: %1"
 
-#: src/FileSharingController.cpp:202
+#: src/FileSharingController.cpp:211
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Uppladdning misslyckades: %1"
 
-#: src/FileSharingController.cpp:371
+#: src/FileSharingController.cpp:380
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -219,23 +219,23 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:210
+#: src/MessageComposition.cpp:207
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/MessageHandler.cpp:191
+#: src/MessageHandler.cpp:188
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Meddelandet är krypterat med %1 men kunde inte avkrypteras"
 
-#: src/MessageHandler.cpp:262
+#: src/MessageHandler.cpp:259
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Rättning av meddelande lyckades inte"
 
-#: src/MessageHandler.cpp:318
+#: src/MessageHandler.cpp:315
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meddelande kunde inte skickas."
@@ -300,7 +300,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Nerkopplad"
 
-#: src/ProviderListModel.cpp:53
+#: src/ProviderListModel.cpp:52
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Egen leverantör"
@@ -308,12 +308,12 @@ msgstr "Egen leverantör"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:121 src/ProviderListModel.cpp:131
+#: src/ProviderListModel.cpp:120 src/ProviderListModel.cpp:130
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Obegränsat"
 
-#: src/ProviderListModel.cpp:133
+#: src/ProviderListModel.cpp:132
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1067,27 +1067,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:164
+#: src/qml/elements/ChatMessage.qml:165
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:221
+#: src/qml/elements/ChatMessage.qml:222
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Ladda ner"
 
-#: src/qml/elements/ChatMessage.qml:319
+#: src/qml/elements/ChatMessage.qml:321
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Okrypterat"
 
-#: src/qml/elements/ChatMessage.qml:324
+#: src/qml/elements/ChatMessage.qml:326
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Opålitligt"
 
-#: src/qml/elements/ChatMessage.qml:356
+#: src/qml/elements/ChatMessage.qml:358
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1284,7 +1284,7 @@ msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:66
+#: src/qml/elements/MessageReactionSenderSheet.qml:67
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Remove contact"
