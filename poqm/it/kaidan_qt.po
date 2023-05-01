@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-18 09:20+0200\n"
+"PO-Revision-Date: 2023-04-25 10:51+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:309
@@ -214,7 +214,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:199
+#: src/Message.cpp:186
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -240,22 +240,22 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In attesa"
 
-#: src/MessageModel.cpp:250
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Inviato"
 
-#: src/MessageModel.cpp:252
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Consegnato"
 
-#: src/MessageModel.cpp:254
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errore"
@@ -1330,12 +1330,9 @@ msgid "Add contact by QR code"
 msgstr "Aggiungi contatto tramite codice QR"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Aggiungi contatto tramite codice QR"
+msgstr "Aggiungi contatto per indirizzo di chat"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
@@ -1813,46 +1810,37 @@ msgstr "Informazioni su Kaidan"
 #: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
-msgstr ""
+msgstr "Applicazione di chat moderna e intuitiva per ogni dispositivo"
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Visita il sito web"
 
 #: src/qml/settings/AboutPage.qml:100
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "Apri il sito web del tuo provider in un browser web"
+msgstr "Apri il sito web di Kaidan in un browser web"
 
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Segui su Mastodon"
 
 #: src/qml/settings/AboutPage.qml:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open your provider's website in a web browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "Apri il sito web del tuo provider in un browser web"
+msgstr "Apri la pagina Mastodon di Kaidan in un browser web"
 
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Fai una donazione"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "Sostieni lo sviluppo e l'infrastruttura di Kaidan con una donazione"
 
 #: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
@@ -1860,25 +1848,16 @@ msgid "Report problems"
 msgstr "Segnala problemi"
 
 #: src/qml/settings/AboutPage.qml:121
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
 msgstr "Segnala problemi di Kaidan agli sviluppatori"
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Visualizza il codice sorgente in linea"
+msgstr "Visualizza il codice sorgente"
 
 #: src/qml/settings/AboutPage.qml:128
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr "Visualizza il codice sorgente di Kaidan e contribuisci al progetto"
