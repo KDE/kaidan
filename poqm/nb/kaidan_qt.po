@@ -29,13 +29,13 @@ msgstr ""
 "Kontoen din kunne ikke slettes fra tjeneren. Derfor ble den heller ikke "
 "fjernet fra dette programmet: %1"
 
-#: src/FileSharingController.cpp:202
+#: src/FileSharingController.cpp:211
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:371
+#: src/FileSharingController.cpp:380
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -220,48 +220,48 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:199
+#: src/Message.cpp:186
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/MessageComposition.cpp:210
+#: src/MessageComposition.cpp:207
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:191
+#: src/MessageHandler.cpp:188
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:262
+#: src/MessageHandler.cpp:259
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:318
+#: src/MessageHandler.cpp:315
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:247
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Venter"
 
-#: src/MessageModel.cpp:250
+#: src/MessageModel.cpp:249
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Sendt"
 
-#: src/MessageModel.cpp:252
+#: src/MessageModel.cpp:251
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Levert"
 
-#: src/MessageModel.cpp:254
+#: src/MessageModel.cpp:253
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Feil"
@@ -311,7 +311,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#: src/ProviderListModel.cpp:53
+#: src/ProviderListModel.cpp:52
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr ""
@@ -319,12 +319,12 @@ msgstr ""
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:121 src/ProviderListModel.cpp:131
+#: src/ProviderListModel.cpp:120 src/ProviderListModel.cpp:130
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:133
+#: src/ProviderListModel.cpp:132
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -877,27 +877,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:164
+#: src/qml/elements/ChatMessage.qml:165
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/qml/elements/ChatMessage.qml:221
+#: src/qml/elements/ChatMessage.qml:222
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Last ned"
 
-#: src/qml/elements/ChatMessage.qml:319
+#: src/qml/elements/ChatMessage.qml:321
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:324
+#: src/qml/elements/ChatMessage.qml:326
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:356
+#: src/qml/elements/ChatMessage.qml:358
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1078,7 +1078,7 @@ msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:66
+#: src/qml/elements/MessageReactionSenderSheet.qml:67
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
 msgstr ""
