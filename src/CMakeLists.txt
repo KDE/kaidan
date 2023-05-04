@@ -296,6 +296,7 @@ if(STATIC_BUILD)
 	find_library(QQC2_MATERIAL_PLUGIN qtquickcontrols2materialstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Material)
 	find_library(QQC2_UNIVERSAL_PLUGIN qtquickcontrols2universalstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Universal)
 	find_library(QLAYOUTS_PLUGIN qquicklayoutsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Layouts)
+	find_library(QDIALOGS_PLUGIN qquickdialogsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Dialogs)
 	find_library(QWINDOW_PLUGIN windowplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Window.2)
 	find_library(QSHAPES_PLUGIN qmlshapesplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Shapes)
 	find_library(QUICKSHAPES Qt5QuickShapes PATHS ${QT_LIBDIR})
@@ -321,6 +322,7 @@ if(STATIC_BUILD)
 		${QQC2_MATERIAL_PLUGIN}
 		${QQC2_UNIVERSAL_PLUGIN}
 		${QLAYOUTS_PLUGIN}
+		${QDIALOGS_PLUGIN}
 		${QWINDOW_PLUGIN}
 		${QSHAPES_PLUGIN}
 		${QUICKSHAPES}
