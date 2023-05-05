@@ -46,8 +46,8 @@ Kirigami.ApplicationWindow {
 	minimumWidth: 280
 
 	readonly property ChatPage currentChatPage: {
-		for (var i = 0; i < pageStack.items.length; ++i) {
-			var page = pageStack.items[i];
+		for (let i = 0; i < pageStack.items.length; ++i) {
+			const page = pageStack.items[i];
 
 			if (page instanceof ChatPage) {
 				return page;

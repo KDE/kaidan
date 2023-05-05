@@ -151,8 +151,8 @@ Kirigami.ScrollablePage {
 	 * @param chatJid JID of the chat for that the chat page is opened
 	 */
 	function openChatPage(accountJid, chatJid) {
-		for (var i = 0; i < pageStack.items.length; ++i) {
-			var page = pageStack.items[i];
+		for (let i = 0; i < pageStack.items.length; ++i) {
+			let page = pageStack.items[i];
 
 			if (page instanceof ChatPage) {
 				page.saveDraft();

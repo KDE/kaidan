@@ -129,8 +129,8 @@ DetailsContent {
 		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
 
 		readonly property string providerUrl: {
-			var domain = root.jid.split('@')[1]
-			var provider = providerListModel.provider(domain)
+			const domain = root.jid.split('@')[1]
+			const provider = providerListModel.provider(domain)
 
 			return providerListModel.chooseWebsite(provider.websites)
 		}

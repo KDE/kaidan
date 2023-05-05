@@ -108,7 +108,7 @@ Kirigami.GlobalDrawer {
 								leadingPadding: 10
 								text: AccountManager.displayName
 								description: {
-									var color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
+									const color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
 									return "<font color='" + color + "'>" + Kaidan.connectionStateText + "</font>"
 								}
 								trailing: Controls.Switch {
