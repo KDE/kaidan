@@ -28,6 +28,7 @@ public:
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
 	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
+	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
 
 	RosterItem() = default;
 	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
@@ -90,6 +91,9 @@ public:
 
 	// Whether read markers are sent to this roster item.
 	bool readMarkerSendingEnabled = true;
+
+	// Whether notifications are muted.
+	bool notificationsMuted = false;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

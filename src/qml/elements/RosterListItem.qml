@@ -23,6 +23,7 @@ UserListItem {
 	property string lastMessage
 	property int unreadMessages
 	property bool pinned
+	property bool notificationsMuted
 
 	isSelected: {
 		return !Kirigami.Settings.isMobile &&
@@ -95,7 +96,7 @@ UserListItem {
 		source: "audio-volume-muted-symbolic"
 		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
 		Layout.preferredHeight: Layout.preferredWidth
-		visible: mutedWatcher.muted
+		visible: notificationsMuted
 	}
 
 	// right: icon for pinned chat
@@ -111,7 +112,7 @@ UserListItem {
 	MessageCounter {
 		id: counter
 		count: unreadMessages
-		muted: mutedWatcher.muted
+		muted: notificationsMuted
 	}
 
 	// right: icon for reordering
@@ -134,11 +135,6 @@ UserListItem {
 		}
 
 		onPressAndHold: showContextMenu()
-	}
-
-	NotificationsMutedWatcher {
-		id: mutedWatcher
-		jid: root.jid
 	}
 
 	function showContextMenu() {

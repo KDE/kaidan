@@ -92,6 +92,7 @@ Kirigami.ScrollablePage {
 				lastMessageIsDraft: model ? model.draftId : false
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
+				notificationsMuted: model ? model.notificationsMuted : false
 
 				onClicked: {
 					// Open the chatPage only if it is not yet open.

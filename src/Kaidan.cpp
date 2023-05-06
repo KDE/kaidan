@@ -29,7 +29,6 @@
 #include "MessageDb.h"
 #include "Notifications.h"
 #include "RosterDb.h"
-#include "Settings.h"
 #include "FileSharingController.h"
 
 Kaidan *Kaidan::s_instance;
@@ -119,17 +118,6 @@ void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
 		m_connectionError = error;
 		emit connectionErrorChanged();
 	}
-}
-
-bool Kaidan::notificationsMuted(const QString &jid)
-{
-	return m_caches->settings->notificationsMuted(jid);
-}
-
-void Kaidan::setNotificationsMuted(const QString &jid, bool muted)
-{
-	m_caches->settings->setNotificationsMuted(jid, muted);
-	emit notificationsMutedChanged(jid);
 }
 
 void Kaidan::addOpenUri(const QString &uri)

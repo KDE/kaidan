@@ -84,9 +84,6 @@ public:
 	 */
 	void setQrCodePageExplanationVisible(bool isVisible);
 
-	bool notificationsMuted(const QString &bareJid) const;
-	void setNotificationsMuted(const QString &bareJid, bool muted);
-
 	QStringList favoriteEmojis() const;
 	void setFavoriteEmojis(const QStringList &emoji);
 
@@ -108,7 +105,6 @@ signals:
 	void authPasswordVisibilityChanged();
 	void encryptionChanged();
 	void qrCodePageExplanationVisibleChanged();
-	void notificationsMutedChanged(const QString &bareJid);
 	void favoriteEmojisChanged();
 	void windowPositionChanged();
 	void windowSizeChanged();

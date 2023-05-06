@@ -169,20 +169,6 @@ void Settings::setQrCodePageExplanationVisible(bool isVisible)
 	emit qrCodePageExplanationVisibleChanged();
 }
 
-bool Settings::notificationsMuted(const QString &bareJid) const
-{
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED) + bareJid, false).toBool();
-}
-
-void Settings::setNotificationsMuted(const QString &bareJid, bool muted)
-{
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED) + bareJid, muted);
-	locker.unlock();
-	emit notificationsMutedChanged(bareJid);
-}
-
 QStringList Settings::favoriteEmojis() const
 {
 	QMutexLocker locker(&m_mutex);

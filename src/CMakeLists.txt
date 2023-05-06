@@ -87,8 +87,6 @@ target_sources(${PROJECT_NAME} PRIVATE
 	MessageModel.h
 	Notifications.cpp
 	Notifications.h
-	NotificationsMutedWatcher.cpp
-	NotificationsMutedWatcher.h
 	OmemoDb.cpp
 	OmemoDb.h
 	OmemoManager.cpp

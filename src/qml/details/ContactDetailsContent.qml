@@ -185,11 +185,6 @@ DetailsContent {
 		}
 	}
 
-	RosterItemWatcher {
-		id: contactWatcher
-		jid: root.jid
-	}
-
 	MobileForm.FormCard {
 		Layout.fillWidth: true
 
@@ -203,12 +198,12 @@ DetailsContent {
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Incoming messages")
 				description: qsTr("Show notification and play sound on message arrival")
-				checked: !mutedWatcher.muted
-				onToggled: mutedWatcher.muted = !mutedWatcher.muted
-
-				NotificationsMutedWatcher {
-					id: mutedWatcher
-					jid: root.jid
+				checked: !contactWatcher.item.notificationsMuted
+				onToggled: {
+					RosterModel.setNotificationsMuted(
+						MessageModel.currentAccountJid,
+						MessageModel.currentChatJid,
+						!checked)
 				}
 			}
 		}
@@ -307,5 +302,13 @@ DetailsContent {
 				}
 			}
 		}
+	}
+
+	// This needs to be placed after the notification section.
+	// Otherwise, notifications will not be shown as muted after switching chats.
+	// It is probably a bug in Kirigami Addons.
+	RosterItemWatcher {
+		id: contactWatcher
+		jid: root.jid
 	}
 }

@@ -300,11 +300,6 @@ signals:
 	void avatarChangeSucceeded();
 
 	/**
-	 * Emitted, when a contact was muted/unmuted.
-	 */
-	void notificationsMutedChanged(const QString& jid);
-
-	/**
 	 * Deletes the account data from the client and server.
 	 */
 	void deleteAccountFromClientAndServer();
@@ -333,19 +328,6 @@ public:
 		// currently we only send XMPP URIs
 		addOpenUri(msg);
 	}
-
-	/**
-	 * Returns whether notifications are enabled for the given contact.
-	 */
-	Q_INVOKABLE bool notificationsMuted(const QString& jid);
-
-	/**
-	 * Sets the notifications to muted/unmuted.
-	 *
-	 * @param muted true if notifications should be muted
-	 * @param jid JID of the entity for that notifications should be muted or unmuted
-	 */
-	Q_INVOKABLE void setNotificationsMuted(const QString &jid, bool muted);
 
 private:
 	Notifications *m_notifications;

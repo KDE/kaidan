@@ -1015,7 +1015,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 		const auto accountJid = AccountManager::instance()->jid();
 		const auto chatJid = message.from;
 
-		bool userMuted = Kaidan::instance()->notificationsMuted(chatJid);
+		bool userMuted = m_rosterItemWatcher.item().notificationsMuted;
 		bool chatActive =
 				isChatCurrentChat(accountJid, chatJid) &&
 				QGuiApplication::applicationState() == Qt::ApplicationActive;

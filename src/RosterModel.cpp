@@ -94,6 +94,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[LastMessageRole] = "lastMessage";
 	roles[PinnedRole] = "pinned";
 	roles[DraftIdRole] = "draftId";
+	roles[NotificationsMutedRole] = "notificationsMuted";
 	return roles;
 }
 
@@ -119,6 +120,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).pinningPosition >= 0;
 	case DraftIdRole:
 		return m_items.at(index.row()).draftMessageId;
+	case NotificationsMutedRole:
+		return m_items.at(index.row()).notificationsMuted;
 	}
 	return {};
 }
@@ -325,6 +328,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.pinningPosition = oldItem->pinningPosition;
 			item.chatStateSendingEnabled = oldItem->chatStateSendingEnabled;
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
+			item.notificationsMuted = oldItem->notificationsMuted;
 			item.draftMessageId = oldItem->draftMessageId;
 		}
 
@@ -414,6 +418,13 @@ void RosterModel::setReadMarkerSendingEnabled(const QString &, const QString &ji
 {
 	emit updateItemRequested(jid, [=](RosterItem &item) {
 		item.readMarkerSendingEnabled = readMarkerSendingEnabled;
+	});
+}
+
+void RosterModel::setNotificationsMuted(const QString &, const QString &jid, bool notificationsMuted)
+{
+	emit updateItemRequested(jid, [=](RosterItem &item) {
+		item.notificationsMuted = notificationsMuted;
 	});
 }
 
