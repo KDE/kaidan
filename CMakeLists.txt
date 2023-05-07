@@ -21,7 +21,7 @@ endif()
 # Version
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 9)
-set(VERSION_PATCH 0)
+set(VERSION_PATCH 1)
 set(VERSION_CODE 14)
 set(VERSION_EXTRA "" CACHE STRING "Stuff to append to version string")
 
