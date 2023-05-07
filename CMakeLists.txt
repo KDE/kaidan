@@ -22,7 +22,7 @@ endif()
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 10)
 set(VERSION_PATCH 0)
-set(VERSION_CODE 14)
+set(VERSION_CODE 15)
 set(VERSION_EXTRA "" CACHE STRING "Stuff to append to version string")
 
 set(DEVELOPMENT_BUILD TRUE)
