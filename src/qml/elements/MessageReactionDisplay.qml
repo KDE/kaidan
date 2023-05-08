@@ -23,11 +23,11 @@ MessageReaction {
 	property string description: senderJids.length
 	property MessageReactionSenderSheet senderSheet
 
-	text: emoji + " " +  description
+	text: description === "1" ? emoji : emoji + " " + description
 	width: smallButtonWidth + (description.length == 1 ? 0 : (description.length - 1) * Kirigami.Theme.defaultFont.pixelSize * 0.6)
 	contentItem: Controls.Label {
 		text: root.text
-		padding: smallButtonWidth / 8
+		horizontalAlignment: Text.AlignHCenter
 	}
 	onClicked: {
 		senderSheet.messageId = root.messageId
