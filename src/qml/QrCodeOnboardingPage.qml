@@ -21,9 +21,9 @@ ExplanationTogglePage {
 	id: root
 	title: qsTr("Scan QR code")
 	useMarginsForContent: false
-	explanationToggleButton.text: explanationToggleButton.checked ? qsTr("Show explanation") : qsTr("Scan QR code")
+	primaryButton.text: primaryButton.checked ? qsTr("Show explanation") : qsTr("Scan QR code")
 
-	explanationToggleButton.onClicked: {
+	primaryButton.onClicked: {
 		if (!scanner.cameraEnabled) {
 			scanner.camera.start()
 			scanner.cameraEnabled = true

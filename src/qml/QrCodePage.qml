@@ -28,10 +28,10 @@ ExplanationTogglePage {
 
 	title: qsTr("Scan QR codes")
 	explanationArea.visible: Kaidan.settings.qrCodePageExplanationVisible
-	explanationToggleButton.text: explanationToggleButton.checked ? qsTr("Show explanation") : qsTr("Scan QR codes")
-	explanationToggleButton.checked: !Kaidan.settings.qrCodePageExplanationVisible
+	primaryButton.text: primaryButton.checked ? qsTr("Show explanation") : qsTr("Scan QR codes")
+	primaryButton.checked: !Kaidan.settings.qrCodePageExplanationVisible
 
-	explanationToggleButton.onClicked: {
+	primaryButton.onClicked: {
 		if (Kaidan.settings.qrCodePageExplanationVisible) {
 			// Hide the explanation when this page is opened again in the future.
 			Kaidan.settings.qrCodePageExplanationVisible = false
