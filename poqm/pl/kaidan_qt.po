@@ -1262,17 +1262,17 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Anuluj"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Adres czatu"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "użytkownik@przykład.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr "Adres czatu musi mieć postać <b>nazwauzytkownika@serwer</b>"
@@ -1355,42 +1355,37 @@ msgstr ""
 "Twoja kamera jest zajęta.\n"
 "Spróbuj zamknąć inne aplikacje korzystające z aparatu."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Dodaj nowy kontakt"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Dodaj"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Kontakt zostanie również zapytany o dostęp do swojego stanu online."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "nick@example.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Nick:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Opcjonalna wiadomość:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Powiedz swojemu rozmówcy, kim jesteś."
@@ -2319,6 +2314,10 @@ msgstr "Urodziny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Strona sieciowa"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "nick@example.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

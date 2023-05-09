@@ -1049,17 +1049,17 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Sohbet adresi"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "kullanıcı@örnek.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr "Sohbet adresinin biçimi <b>kullanıcıadı@sunucu</b> olmalıdır"
@@ -1142,42 +1142,37 @@ msgstr ""
 "Kameranız meşgul.\n"
 "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Yeni kişi ekle"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ekle"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Bu, aynı zamanda kişinin varlığına erişim isteği gönderecektir."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber Kimliği:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "kullanıcı@örnek.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Takma ad:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "İsteğe bağlı ileti:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Sohbet arkadaşınıza kim olduğunuzu söyleyin."
@@ -2077,6 +2072,10 @@ msgstr "Doğum günü"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "kullanıcı@örnek.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

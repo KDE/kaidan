@@ -1129,12 +1129,12 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Utzi"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr ""
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "user@example.org"
@@ -1142,7 +1142,7 @@ msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "erabiltzailea@example.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
@@ -1234,42 +1234,37 @@ msgid ""
 "Try to close other applications using the camera."
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Kontaktu berria gehitu"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Gehitu"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Honek kontaktuaren presentziara sarbide eskaera bidaliko du."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber-IDa:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "erabiltzailea@example.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Ezizena:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Aukerako mezua:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Esan nor zaren zure berriketa lagunari."
@@ -2172,6 +2167,10 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr ""
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "erabiltzailea@example.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

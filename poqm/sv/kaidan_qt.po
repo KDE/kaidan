@@ -1248,17 +1248,17 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Chattadress"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "användare@exempel.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr "Chattadressen måste ha formen <b>användarnamn@server</b>"
@@ -1344,42 +1344,37 @@ msgstr ""
 "Kameran är upptagen.\n"
 "Försök stänga andra program som använder kameran."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Lägg till ny kontakt"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Lägg till"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Det skickar också en begäran för att komma åt kontaktens närvaro."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber-id:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "användare@exempel.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Smeknamn:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Valfritt meddelande"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Tala om för chattpartnern vem du är."
@@ -2310,6 +2305,10 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "användare@exempel.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

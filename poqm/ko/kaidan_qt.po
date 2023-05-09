@@ -1225,17 +1225,17 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "취소"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "대화 주소"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr "대화 주소는 <b>username@server</b> 형식이어야 합니다"
@@ -1327,42 +1327,37 @@ msgstr ""
 "카메라가 사용 중입니다.\n"
 "카메라를 사용 중인 다른 프로그램을 닫으십시오."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "새 대화 상대 추가"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "추가"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "대화 상대의 온라인 정보 접근 요청을 보낼 것입니다."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "user@example.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "별명:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "추가 메시지:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "대화 상대에게 자기 소개를 남기십시오."
@@ -2314,6 +2309,10 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "user@example.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

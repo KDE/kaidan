@@ -1244,7 +1244,7 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Չեղարկել"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1252,7 +1252,7 @@ msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Զրույցի հասցե:"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "user@example.org"
@@ -1260,7 +1260,7 @@ msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
@@ -1355,42 +1355,37 @@ msgstr ""
 "Ձեր տեսախցիկը օգտագործվում է։\n"
 "Փակեք այն հավելվածները, որոնք օգտագործում են այն։"
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Ստեղծել նոր կոնտակտ"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ավելացնել"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr "Այս գործողությունը նաև ներկայության զննման առաջարկ կուղարկի։"
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber-ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "user@example.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Անվանում:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Լրացուցիչ հաղորդագրություն:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Ասացեք Ձեր զրուցակցին, թե ով եք Դուք:"
@@ -2362,6 +2357,10 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "user@example.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

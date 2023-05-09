@@ -1110,17 +1110,17 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "Chat-Adresse"
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
@@ -1210,17 +1210,17 @@ msgstr ""
 "Deine Kamera ist beschäftigt.\n"
 "Versuche andere Programme, welche die Kamera verwenden, zu schließen."
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Neuen Kontakt hinzufügen"
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 #, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
@@ -1228,28 +1228,23 @@ msgstr ""
 "Dies wird auch eine Abonnement-Anfrage senden, um die Präsenz des Kontakts "
 "zu empfangen."
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber-ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "user@example.org"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Spitzname:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 #, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Optionale Nachricht:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 #, fuzzy
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
@@ -2242,6 +2237,10 @@ msgstr "Geburtstag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "user@example.org"
 
 #~ msgctxt "RosterPage|"
 #~ msgid "Add new contact"

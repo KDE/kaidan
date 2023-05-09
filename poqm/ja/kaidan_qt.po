@@ -1102,13 +1102,13 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: src/qml/elements/fields/JidField.qml:39
+#: src/qml/elements/fields/JidField.qml:43
 #, fuzzy
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr "チャットアドレス："
 
-#: src/qml/elements/fields/JidField.qml:40
+#: src/qml/elements/fields/JidField.qml:44
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "user@example.org"
@@ -1116,7 +1116,7 @@ msgctxt "JidField|"
 msgid "user@example.org"
 msgstr "user＠example.jp"
 
-#: src/qml/elements/fields/JidField.qml:42
+#: src/qml/elements/fields/JidField.qml:46
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
@@ -1202,22 +1202,22 @@ msgid ""
 "Try to close other applications using the camera."
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:43
+#: src/qml/elements/RosterAddContactSheet.qml:45
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:51
+#: src/qml/elements/RosterAddContactSheet.qml:53
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:80
+#: src/qml/elements/RosterAddContactSheet.qml:82
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:85
+#: src/qml/elements/RosterAddContactSheet.qml:87
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Your Jabber-ID:"
@@ -1225,18 +1225,12 @@ msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "君のJabber-ID："
 
-#: src/qml/elements/RosterAddContactSheet.qml:90
-#, fuzzy
-msgctxt "RosterAddContactSheet|"
-msgid "user@example.org"
-msgstr "user＠example.jp"
-
-#: src/qml/elements/RosterAddContactSheet.qml:97
+#: src/qml/elements/RosterAddContactSheet.qml:96
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:107
+#: src/qml/elements/RosterAddContactSheet.qml:106
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Compose message"
@@ -1244,7 +1238,7 @@ msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "メッセージを書く"
 
-#: src/qml/elements/RosterAddContactSheet.qml:115
+#: src/qml/elements/RosterAddContactSheet.qml:114
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr ""
@@ -2147,6 +2141,11 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ウェブサイト"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "user@example.org"
+#~ msgstr "user＠example.jp"
 
 #, fuzzy
 #~ msgctxt "AboutPage|"
