@@ -9,6 +9,10 @@
 #include "../src/PublicGroupChatProxyModel.h"
 #include "../src/PublicGroupChatSearchManager.h"
 
+#define REQUEST_TIMEOUT \
+	static_cast<int>( \
+		(std::chrono::milliseconds(PublicGroupChatSearchManager::RequestTimeout) * 1.2).count())
+
 class GroupChatTest : public QObject
 {
 	Q_OBJECT
@@ -162,7 +166,7 @@ private Q_SLOTS:
 		// Really requestAll
 		manager.requestAll();
 
-		QVERIFY(spyIsRunning.wait(30000));
+		QVERIFY(spyIsRunning.wait(REQUEST_TIMEOUT));
 		QVERIFY(spyError.isEmpty());
 		QCOMPARE(spyReceived.count(), 1);
 		QCOMPARE(spyIsRunning.count(), 2);
