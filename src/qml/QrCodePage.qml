@@ -138,7 +138,7 @@ ExplanationTogglePage {
 			filter.onScanningSucceeded: {
 				if (isAcceptingResult) {
 					isBusy = true
-					const processTrust = true
+					let processTrust = true
 
 					// Try to add a contact.
 					if (!root.isOnlyForTrustDecisions) {

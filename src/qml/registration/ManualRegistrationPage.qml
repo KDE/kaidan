@@ -125,7 +125,7 @@ RegistrationPage {
 			formModel = dataFormModel
 			formFilterModel.sourceModel = dataFormModel
 
-			const indexToInsert = loadingView.Controls.SwipeView.index
+			let indexToInsert = loadingView.Controls.SwipeView.index
 
 			// There are three cases here:
 			//
@@ -258,7 +258,7 @@ RegistrationPage {
 	 * If a random username was used for registration, a new one is generated.
 	 */
 	function handleUsernameConflictError() {
-		const notificationText = qsTr("The username is already taken.")
+		let notificationText = qsTr("The username is already taken.")
 
 		if (usernameView.enteredText.length === 0) {
 			usernameView.regenerateUsername()
