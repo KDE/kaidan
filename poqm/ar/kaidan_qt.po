@@ -1,8 +1,8 @@
-# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2022-10-03 17:20+0400\n"
+"PO-Revision-Date: 2023-05-11 10:32+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -401,7 +401,7 @@ msgstr "انسخ كلمة المرور"
 #: src/qml/ChatPage.qml:108
 msgctxt "ChatPage|"
 msgid "Details…"
-msgstr ""
+msgstr "التفاصيل…"
 
 #: src/qml/ChatPage.qml:114
 msgctxt "ChatPage|"
@@ -416,7 +416,7 @@ msgstr "أرسل رسالة مخفية"
 #: src/qml/details/AccountDetailsContent.qml:56
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "التشفير"
 
 #: src/qml/details/AccountDetailsContent.qml:60
 msgctxt "AccountDetailsContent|"
@@ -447,20 +447,14 @@ msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:154
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Provider"
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "المزود"
 
 #: src/qml/details/AccountDetailsContent.qml:158
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
-msgstr "افتح موقع"
+msgstr "زر موقع الويب"
 
 #: src/qml/details/AccountDetailsContent.qml:159
 msgctxt "AccountDetailsContent|"
@@ -468,9 +462,6 @@ msgid "Open your provider's website in a web browser"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:165
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Copy website address"
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "انسخ عنوان الموقع"
@@ -481,17 +472,14 @@ msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Invitation link copied to clipboard"
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr "تم نسخ رابط الدعوة إلى الحافظة"
+msgstr "نُسخ عنوان الموقع إلى الحافظة"
 
 #: src/qml/details/AccountDetailsContent.qml:175
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
-msgstr ""
+msgstr "افتح دردشة الدعم"
 
 #: src/qml/details/AccountDetailsContent.qml:176
 msgctxt "AccountDetailsContent|"
@@ -501,12 +489,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:182
 msgctxt "AccountDetailsContent|"
 msgid "Support"
-msgstr ""
+msgstr "الدعم"
 
 #: src/qml/details/AccountDetailsContent.qml:194
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
-msgstr ""
+msgstr "افتح مجموعة الدعم"
 
 #: src/qml/details/AccountDetailsContent.qml:195
 msgctxt "AccountDetailsContent|"
@@ -514,12 +502,9 @@ msgid "Join your provider's public support group"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:220
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
-msgstr "كلمة السّر"
+msgstr "غير كلمة السّر"
 
 #: src/qml/details/AccountDetailsContent.qml:224
 #, fuzzy
@@ -535,12 +520,9 @@ msgstr ""
 "بعد تغيير كلمة المرور, يجب أن تعيد إدخالها في جميع الأجهزة المتصلة الأخرى."
 
 #: src/qml/details/AccountDetailsContent.qml:234
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
-msgstr "كلمة المرور الحالية:"
+msgstr "أدخل كلمة السر صحيحة"
 
 #: src/qml/details/AccountDetailsContent.qml:258
 msgctxt "AccountDetailsContent|"
@@ -548,36 +530,25 @@ msgid "Enter different password to change it"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:278
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
-msgstr "تغيير كلمة المرور"
+msgstr "غير كلمة السر"
 
 #: src/qml/details/AccountDetailsContent.qml:333
-#, fuzzy, qt-format
-#| msgctxt "ChangePassword|"
-#| msgid "Failed to change password: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "فشل في تغيير كلمة السر: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:339
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Password changed successfully"
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "كلمة السر غيّرت بنجاح"
 
 #: src/qml/details/AccountDetailsContent.qml:355
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password Security"
-msgstr "كلمة السّر"
+msgstr "أمن كلمة السّر"
 
 #: src/qml/details/AccountDetailsContent.qml:359
 msgctxt "AccountDetailsContent|"
@@ -589,9 +560,6 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:363
-#, fuzzy
-#| msgctxt "PasswordRemovalPage|"
-#| msgid "Do not show password as text"
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "لا تظهر كلمة السر كنص"
@@ -604,9 +572,6 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:374
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Don't expose password in any way"
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "لا تعرض كلمة السر بأي طريقة"
@@ -619,12 +584,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:398
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
-msgstr "اتصل"
+msgstr "الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:402
 msgctxt "AccountDetailsContent|"
@@ -634,12 +596,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:418
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
-msgstr "إعدادات الاتّصال"
+msgstr "غير إعدادات الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:434
 #, fuzzy
@@ -650,28 +609,20 @@ msgid "Enter different connection settings to change them"
 msgstr "تغيرت إعدادات الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:484
-#, fuzzy, qt-format
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings could not be changed"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr "لا يمكن تعديل إعدادات الاتّصال"
+msgstr "لا يمكن تعديل إعدادات الاتّصال: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:499
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings changed"
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "تغيرت إعدادات الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:522
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
-msgstr "أزل"
+msgstr "الإزالة"
 
 #: src/qml/details/AccountDetailsContent.qml:530
 #, fuzzy
@@ -690,20 +641,14 @@ msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:540
 #: src/qml/details/AccountDetailsContent.qml:566
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
-msgstr "اضبط"
+msgstr "أكد"
 
 #: src/qml/details/AccountDetailsContent.qml:556
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete account completely"
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
-msgstr "احذف الحساب بالكامل"
+msgstr "احذف بالكامل"
 
 #: src/qml/details/AccountDetailsContent.qml:557
 msgctxt "AccountDetailsContent|"
@@ -738,7 +683,7 @@ msgstr "اختر صورة"
 #: src/qml/details/AvatarChangePage.qml:113
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
-msgstr ""
+msgstr "افتح صورة…"
 
 #: src/qml/details/AvatarChangePage.qml:118
 #, fuzzy
@@ -759,7 +704,7 @@ msgstr "أرسل موقع جغرافي"
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "التشفير"
 
 #: src/qml/details/ContactDetailsContent.qml:37
 msgctxt "ContactDetailsContent|"
@@ -817,15 +762,12 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
-msgstr ""
+msgstr "مشاركة"
 
 #: src/qml/details/ContactDetailsContent.qml:170
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Show QR code"
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
-msgstr "أظهر باركود"
+msgstr "أظهر رمز QR"
 
 #: src/qml/details/ContactDetailsContent.qml:171
 msgctxt "ContactDetailsContent|"
@@ -833,9 +775,6 @@ msgid "Share this contact's chat address via QR code"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:177
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "انسخ عنوان الدردشة"
@@ -854,20 +793,14 @@ msgid "Contact copied to clipboard"
 msgstr "تم نسخ رابط الدعوة إلى الحافظة"
 
 #: src/qml/details/ContactDetailsContent.qml:200
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Mute notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
-msgstr "اكتم الإشعارات"
+msgstr "التنبيهات"
 
 #: src/qml/details/ContactDetailsContent.qml:204
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Compose message"
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
-msgstr "اكتب رسالة"
+msgstr "الرسائل الواردة"
 
 #: src/qml/details/ContactDetailsContent.qml:205
 msgctxt "ContactDetailsContent|"
@@ -877,12 +810,12 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:224
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
-msgstr ""
+msgstr "الخصوصية"
 
 #: src/qml/details/ContactDetailsContent.qml:228
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
-msgstr ""
+msgstr "حالة الطلب"
 
 #: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
@@ -892,7 +825,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:235
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
-msgstr ""
+msgstr "حالة الإرسال"
 
 #: src/qml/details/ContactDetailsContent.qml:236
 msgctxt "ContactDetailsContent|"
@@ -900,12 +833,9 @@ msgid "Provide your availability, devices and other personal information"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:249
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr "ألغ كتم الإشعارات"
+msgstr "أرسل إشعار الكتابة"
 
 #: src/qml/details/ContactDetailsContent.qml:250
 msgctxt "ContactDetailsContent|"
@@ -927,20 +857,14 @@ msgid "Indicate which messages you have read"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:281
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
-msgstr "أزل"
+msgstr "الإزالة"
 
 #: src/qml/details/ContactDetailsContent.qml:289
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
-msgstr "أزل"
+msgstr "احذف"
 
 #: src/qml/details/ContactDetailsContent.qml:290
 msgctxt "ContactDetailsContent|"
@@ -948,33 +872,21 @@ msgid "Remove contact and complete chat history"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:299
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
-msgstr "اضبط"
+msgstr "أكد"
 
 #: src/qml/details/ContactDetailsHeader.qml:18
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Change password"
 msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
-msgstr "تغيير كلمة المرور"
+msgstr "كبّر الصورة الرمزية"
 
 #: src/qml/details/DetailsContent.qml:63
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Profile"
 msgctxt "DetailsContent|"
 msgid "Profile"
-msgstr "الملف الشخصي"
+msgstr "التشكيلة"
 
 #: src/qml/details/DetailsContent.qml:110
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "الأجهزة المتصلة"
@@ -982,7 +894,7 @@ msgstr "الأجهزة المتصلة"
 #: src/qml/details/DetailsHeader.qml:86
 msgctxt "DetailsHeader|"
 msgid "Change name…"
-msgstr ""
+msgstr "غير اسم…"
 
 #: src/qml/elements/ChatMessage.qml:165
 msgctxt "ChatMessage|"
@@ -1036,12 +948,9 @@ msgid "Delete file"
 msgstr "احذف ملف"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:84
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr "علّم كمقروءة"
+msgstr "علّم كَغَير مقروءة من قبل"
 
 #: src/qml/elements/ChatPageSearchView.qml:70
 msgctxt "ChatPageSearchView|"
@@ -1069,20 +978,14 @@ msgid "Close spoiler hint field"
 msgstr "أغلق حقل تلميحة المخفي"
 
 #: src/qml/elements/ChatPageSendingPane.qml:126
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr "اكتب رسالة"
+msgstr "كتب رسالة <b>معماة</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:126
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr "اكتب رسالة"
+msgstr "كتب رسالة <b>غير معماة</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:246
 msgctxt "ChatPageSendingPane|"
@@ -1100,9 +1003,6 @@ msgid "Take a picture using your camera"
 msgstr "خذ صورة باستخدام كاميرتك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:313
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "سجّل فيديو"
@@ -1113,25 +1013,19 @@ msgid "Record a video using your camera"
 msgstr "سجّل فيديو باستخدام كاميرتك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:325
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr "أرسل ملفّات"
+msgstr "شارك ملفّات"
 
 #: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
-msgstr ""
+msgstr "شارك ملفّات من جهازك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:337
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr "أرسل موقع جغرافي"
+msgstr "شارك موقع جغرافي"
 
 #: src/qml/elements/ChatPageSendingPane.qml:338
 msgctxt "ChatPageSendingPane|"
@@ -1141,24 +1035,24 @@ msgstr "أرسل موقعك الجغرافي"
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support Group"
-msgstr ""
+msgstr "مجموعة الدعم"
 
 #: src/qml/elements/ChatSupportSheet.qml:45
 msgctxt "ChatSupportSheet|"
 msgid "Support"
-msgstr ""
+msgstr "الدعم"
 
 #: src/qml/elements/ChatSupportSheet.qml:62
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "مجموعة الدعم %1"
 
 #: src/qml/elements/ChatSupportSheet.qml:62
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
-msgstr ""
+msgstr "الدعم %1"
 
 #: src/qml/elements/ConfirmationPage.qml:48
 msgctxt "ConfirmationPage|"
@@ -1194,20 +1088,17 @@ msgstr "من فضلك أدخل كلمة السر صالحة"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "مرسلون %1"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
-msgstr ""
+msgstr "أضف تفاعلك"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:67
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
-msgstr "أزل المتراسل"
+msgstr "أزل تفاعلك"
 
 #: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
 msgctxt "NewMedia|"
@@ -1297,17 +1188,17 @@ msgstr "عرف شريكك في المحادثة عن نفسك."
 #: src/qml/elements/RosterListItem.qml:81
 msgctxt "RosterListItem|"
 msgid "Draft:"
-msgstr ""
+msgstr "المسودة:"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "ألغ التثبيت"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:45
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "ثبت"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:23
 #, qt-format
@@ -1316,12 +1207,9 @@ msgid "Search public groups (%1)"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:45
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr "ابحث"
+msgstr "ابحث..."
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 #, qt-format
@@ -1333,33 +1221,24 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:194
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
-msgstr "يسجّل"
+msgstr "يحمّل..."
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:249
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
-msgstr ""
+msgstr "أعِد المحاولة"
 
 #: src/qml/elements/SendMediaSheet.qml:52
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Send files"
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr "أرسل ملفّات"
+msgstr "شارك ملفّات"
 
 #: src/qml/elements/SendMediaSheet.qml:101
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr "اختر ملفّا"
+msgstr "حدد ملفات"
 
 #: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
@@ -1415,41 +1294,29 @@ msgid "Please select a chat to start messaging"
 msgstr "من فضلك اختر محادثة للشروع في المراسلة"
 
 #: src/qml/GlobalDrawer.qml:87
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
-msgstr "أمن الحساب"
+msgstr "الحسابات"
 
 #: src/qml/GlobalDrawer.qml:157
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GlobalDrawer|"
 msgid "Actions"
-msgstr "المكان"
+msgstr "إجراءات"
 
 #: src/qml/GlobalDrawer.qml:161
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "أضف متراسل برمز كيو أر"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "انسخ عنوان الدردشة"
+msgstr "أضف متراسل بعنوان الدردشة"
 
 #: src/qml/GlobalDrawer.qml:180
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Search up"
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
-msgstr "ابحث للأعلى"
+msgstr "ابحث في المجموعات العامة"
 
 #: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
@@ -1733,12 +1600,12 @@ msgstr "متصل منذ:"
 #: src/qml/registration/ProviderView.qml:168
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr ""
+msgstr "يسمح بمشاركة الوسائط إلى حد:"
 
 #: src/qml/registration/ProviderView.qml:174
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr ""
+msgstr "يسمح بحفظ الوسائط إلى حد:"
 
 #: src/qml/registration/ProviderView.qml:182
 msgctxt "ProviderView|"
@@ -1773,7 +1640,7 @@ msgstr "أنشئ الحساب يدوياً"
 #: src/qml/registration/RegistrationPage.qml:80
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "إدخال CAPTCHA خاطئ"
 
 #: src/qml/registration/RegistrationPage.qml:89
 msgctxt "RegistrationPage|"
@@ -1875,7 +1742,7 @@ msgstr "ابحث عن متراسلين"
 #: src/qml/settings/AboutPage.qml:41
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "عن كايدان"
 
 #: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
@@ -1883,12 +1750,9 @@ msgid "User-friendly and modern chat app for every device"
 msgstr ""
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Open website"
 msgctxt "AboutPage|"
 msgid "Visit website"
-msgstr "افتح موقع"
+msgstr "زر موقع الويب"
 
 #: src/qml/settings/AboutPage.qml:100
 msgctxt "AboutPage|"
@@ -1898,7 +1762,7 @@ msgstr ""
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "تابعنا على مستودون"
 
 #: src/qml/settings/AboutPage.qml:107
 msgctxt "AboutPage|"
@@ -1908,7 +1772,7 @@ msgstr ""
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "تبرّع"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
@@ -1916,9 +1780,6 @@ msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
 #: src/qml/settings/AboutPage.qml:120
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "Report problems"
 msgctxt "AboutPage|"
 msgid "Report problems"
 msgstr "أبلغ عن مشكلة"
@@ -1929,12 +1790,9 @@ msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "عرض الشفرة المصدرية على الويب"
+msgstr "طالع الشفرة المصدرية"
 
 #: src/qml/settings/AboutPage.qml:128
 msgctxt "AboutPage|"
@@ -1964,7 +1822,7 @@ msgstr "إعدادات الوسائط المتعدّدة"
 #: src/qml/settings/MultimediaSettings.qml:63
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
-msgstr ""
+msgstr "اختر المصادر"
 
 #: src/qml/settings/MultimediaSettings.qml:68
 msgctxt "MultimediaSettings|"
@@ -1972,9 +1830,6 @@ msgid "Camera"
 msgstr "كاميرا"
 
 #: src/qml/settings/MultimediaSettings.qml:98
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Audio input"
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
 msgstr "مدخل الصوت"
@@ -1982,22 +1837,22 @@ msgstr "مدخل الصوت"
 #: src/qml/settings/MultimediaSettings.qml:131
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
-msgstr ""
+msgstr "خرج الفيديو"
 
 #: src/qml/settings/MultimediaSettings.qml:181
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
-msgstr ""
+msgstr "صفّر إلى المبدئيات"
 
 #: src/qml/settings/MultimediaSettings.qml:200
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
-msgstr ""
+msgstr "صفّر إعدادات المستخدم"
 
 #: src/qml/settings/MultimediaSettings.qml:221
 msgctxt "MultimediaSettings|"
 msgid "Save"
-msgstr ""
+msgstr "احفظ"
 
 #: src/qml/settings/SettingsContent.qml:43
 msgctxt "SettingsContent|"
@@ -2017,7 +1872,7 @@ msgstr ""
 #: src/qml/settings/SettingsContent.qml:60
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "عن كايدان"
 
 #: src/qml/settings/SettingsContent.qml:61
 msgctxt "SettingsContent|"
