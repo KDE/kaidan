@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-04-24 08:00+0200\n"
+"PO-Revision-Date: 2023-05-17 18:18+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -595,6 +595,11 @@ msgid ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 msgstr ""
+"Configurer ce périphérique pour ne pas exposer votre mot de passe lors de sa "
+"modification ou basculer vers un autre appareil. Si vous souhaitez modifier "
+"votre mot de passe ou utiliser ultérieurement votre compte sur un autre "
+"appareil , <b>veuillez prendre en compte l'enregistrement de votre mot de "
+"passe ailleurs. Cela ne peut pas être annulé ! </b>"
 
 #: src/qml/details/AccountDetailsContent.qml:363
 msgctxt "AccountDetailsContent|"
@@ -850,7 +855,7 @@ msgstr "Afficher un code « QR »"
 #: src/qml/details/ContactDetailsContent.qml:171
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr ""
+msgstr "Partager cette adresse de discussions avec ce contact par un code QR"
 
 #: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
@@ -860,7 +865,7 @@ msgstr "Copier une adresse de salon"
 #: src/qml/details/ContactDetailsContent.qml:178
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
-msgstr ""
+msgstr "Partager cette adresse de discussions avec ce contact par du texte"
 
 #: src/qml/details/ContactDetailsContent.qml:182
 msgctxt "ContactDetailsContent|"
@@ -922,6 +927,8 @@ msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
+"Indiquer quand vous avez ouvert cette conversation, quand vous avez fait des "
+"saisies ou les avez arrêtées."
 
 #: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
@@ -931,7 +938,7 @@ msgstr "Envoyer des notifications de lecture"
 #: src/qml/details/ContactDetailsContent.qml:262
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "Indiquer quels messages vous avez lus"
 
 #: src/qml/details/ContactDetailsContent.qml:281
 msgctxt "ContactDetailsContent|"
@@ -946,7 +953,7 @@ msgstr "Supprimer"
 #: src/qml/details/ContactDetailsContent.qml:290
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr ""
+msgstr "Supprimer un contact et la totalité de l'historique des discussions"
 
 #: src/qml/details/ContactDetailsContent.qml:299
 msgctxt "ContactDetailsContent|"
@@ -1885,6 +1892,8 @@ msgstr "À propos de Kaidan"
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
 msgstr ""
+"Application moderne et conviviale de messagerie instantanée sur n'importe "
+"quel périphérique"
 
 #: src/qml/settings/AboutPage.qml:99
 #, fuzzy
@@ -1905,7 +1914,7 @@ msgstr "Ouvrir le site Internet de votre fournisseur dans un navigateur"
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Suivre sur Mastodon"
 
 #: src/qml/settings/AboutPage.qml:107
 #, fuzzy
@@ -1918,12 +1927,12 @@ msgstr "Ouvrir le site Internet de votre fournisseur dans un navigateur"
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Faire un don"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "Soutenir le développement et l'infrastructure de Kaidan par des dons"
 
 #: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
