@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-05-17 18:18+0200\n"
+"PO-Revision-Date: 2023-05-19 09:53+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -444,12 +444,9 @@ msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:80
 #: src/qml/details/AccountDetailsContent.qml:86
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr "Lire les codes « QR » de vos périphériques pour les chiffrer"
+msgstr "Lire les codes « QR » de <b>vos</b> périphériques pour les chiffrer"
 
 #: src/qml/details/AccountDetailsContent.qml:82
 msgctxt "AccountDetailsContent|"
@@ -478,12 +475,9 @@ msgid "Visit website"
 msgstr "Visiter un site Internet"
 
 #: src/qml/details/AccountDetailsContent.qml:159
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Open the website of your provider in a browser"
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
-msgstr "Ouvrir le site Internet de votre fournisseur dans un navigateur"
+msgstr "Ouvrir le site de votre fournisseur dans un navigateur Internet"
 
 #: src/qml/details/AccountDetailsContent.qml:165
 msgctxt "AccountDetailsContent|"
@@ -491,13 +485,10 @@ msgid "Copy website address"
 msgstr "Copier l'adresse du site Internet"
 
 #: src/qml/details/AccountDetailsContent.qml:166
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Copy the providers web address to the clipboard"
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
-"Copier l'adresse Internet du fournisseur Internet dans votre presse-papier"
+"Copier l'adresse Internet de votre fournisseur dans votre presse-papier"
 
 #: src/qml/details/AccountDetailsContent.qml:170
 msgctxt "AccountDetailsContent|"
@@ -510,9 +501,6 @@ msgid "Open support chat"
 msgstr "Ouvrir la discussion d'entre-aide"
 
 #: src/qml/details/AccountDetailsContent.qml:176
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Start chat with your provider's support contact"
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
@@ -525,12 +513,9 @@ msgid "Support"
 msgstr "Soutenir"
 
 #: src/qml/details/AccountDetailsContent.qml:194
-#, fuzzy
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support Group"
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
-msgstr "Soutenir un groupe"
+msgstr "Ouvrir le groupe de dépannage"
 
 #: src/qml/details/AccountDetailsContent.qml:195
 msgctxt "AccountDetailsContent|"
@@ -660,12 +645,9 @@ msgid "Change connection settings"
 msgstr "Modifier la configuration de connexion"
 
 #: src/qml/details/AccountDetailsContent.qml:434
-#, fuzzy
-#| msgctxt "ConnectionSettings|"
-#| msgid "Connection settings changed"
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
-msgstr "La configuration de connexion a changée."
+msgstr "Saisir une configuration de connexion différente pour les modifier"
 
 #: src/qml/details/AccountDetailsContent.qml:484
 #, qt-format
@@ -793,12 +775,10 @@ msgstr ""
 "<b>Vos</b> autres périphériques n'utilisent pas le chiffrement « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:54
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "You have no other devices supporting OMEMO 2"
 msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
-msgstr "Vous ne possédez aucun périphérique prenant en charge « OMEMO 2 »."
+msgstr ""
+"<b>Vous</b> ne possédez aucun périphérique prenant en charge « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:61
 #, fuzzy
@@ -1404,12 +1384,9 @@ msgid "Add contact by QR code"
 msgstr "Ajouter un contact grâce à un code « QR »"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Ajouter un contact grâce à un code « QR »"
+msgstr "Ajouter un contact sous forme d'une adresse de discussions"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
@@ -1896,20 +1873,14 @@ msgstr ""
 "quel périphérique"
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Visiter un site Internet"
 
 #: src/qml/settings/AboutPage.qml:100
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Open the website of your provider in a browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "Ouvrir le site Internet de votre fournisseur dans un navigateur"
+msgstr "Ouvrir le site de Kaidan dans un navigateur Internet"
 
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
@@ -1917,12 +1888,9 @@ msgid "Follow on Mastodon"
 msgstr "Suivre sur Mastodon"
 
 #: src/qml/settings/AboutPage.qml:107
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Open the website of your provider in a browser"
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "Ouvrir le site Internet de votre fournisseur dans un navigateur"
+msgstr "Ouvrir la page Mastodon de Kaidan dans un navigateur Internet"
 
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
@@ -1940,20 +1908,14 @@ msgid "Report problems"
 msgstr "Signaler des problèmes"
 
 #: src/qml/settings/AboutPage.qml:121
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
 msgstr "Signaler des problèmes de Kaidan à l'équipe de développement"
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Afficher le code source en ligne."
+msgstr "Afficher le code source"
 
 #: src/qml/settings/AboutPage.qml:128
 #, fuzzy
