@@ -1,4 +1,5 @@
-// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2022 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Linus Jahn <lnj@kaidan.im>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 

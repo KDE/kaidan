@@ -1,4 +1,6 @@
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2022 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Jonah Brüchert <jbb@kaidan.im>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 

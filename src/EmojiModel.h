@@ -1,3 +1,11 @@
+// SPDX-FileCopyrightText: 2017 Konstantinos Sideris <siderisk@auth.gr>
+// SPDX-FileCopyrightText: 2018 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2019 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
 #pragma once
 
 #include <QAbstractListModel>

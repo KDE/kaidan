@@ -1,3 +1,9 @@
+// SPDX-FileCopyrightText: 2015 Alexei Boronine (original idea, JavaScript implementation)
+// SPDX-FileCopyrightText: 2015 Roger Tallada (Obj-C implementation)
+// SPDX-FileCopyrightText: 2017 Martin Mitas (C implementation, based on Obj-C implementation)
+//
+// SPDX-License-Identifier: MIT
+
 /*
  * HSLuv-C: Human-friendly HSL
  * <http://github.com/hsluv/hsluv-c>

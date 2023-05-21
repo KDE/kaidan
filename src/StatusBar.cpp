@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2016 J-P Nurmi
+//
+// SPDX-License-Identifier: MIT
+
 /*
  * Copyright (c) 2016 J-P Nurmi
  *
