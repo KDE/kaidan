@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Jonah Brüchert <jbb@kaidan.im>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 

@@ -1,8 +1,9 @@
-/*
- *   SPDX-FileCopyrightText: 2022 Nate Graham <nate@kde.org>
- *
- *   SPDX-License-Identifier: LGPL-2.0-or-later
- */
+// SPDX-FileCopyrightText: 2022 Nate Graham <nate@kde.org>
+// SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2022 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
