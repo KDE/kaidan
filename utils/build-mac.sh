@@ -1,4 +1,10 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2018 Ilya Bizyaev <bizyaev@zoho.com>
+# SPDX-FileCopyrightText: 2019 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
+# SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # NOTE: To use this script, you need to set $QT_MACOS to your Qt for MacOS installation
 
@@ -7,7 +13,7 @@ if [ -z "$QT_MACOS" ]; then
     exit 1
 fi
 
-# Build type is one of: 
+# Build type is one of:
 # Debug, Release, RelWithDebInfo and MinSizeRel
 BUILD_TYPE="${BUILD_TYPE:-Debug}"
 
@@ -84,7 +90,7 @@ echo "*****************************************"
         -DCMAKE_PREFIX_PATH=$QT_MACOS \
         -DECM_ADDITIONAL_FIND_ROOT_PATH=$QT_MACOS \
         -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_INSTALL_PREFIX=$KIRIGAMI_BUILD
-    
+
     make -j$(sysctl -n hw.logicalcpu)
     make install
     rm -rf $KAIDAN_SOURCES/3rdparty/kirigami/build
@@ -168,7 +174,7 @@ echo "*****************************************"
     cd $KAIDAN_SOURCES/build
     export LD_LIBRARY_PATH=$QT_MACOS/lib/:$KIRIGAMI_BUILD/lib:$ZXING_BUILD/lib:$LD_LIBRARY_PATH
     export PATH=$QT_MACOS/bin/:$PATH
-    
+
     # FIXME: Use `macdeployqt -qmlimport` when QTBUG-70977 is fixed
     if [ ! -d "$QT_MACOS/qml/org/kde/kirigami.2" ]; then
         mkdir -p $QT_MACOS/qml/org/kde

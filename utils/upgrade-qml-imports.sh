@@ -1,4 +1,7 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2019 Filipe Azevedo <pasnox@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 SCRIPT_DIR=$(dirname "${0}")
 

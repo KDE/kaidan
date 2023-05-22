@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2019 caca hueto <cacahueto@olomono.de>
+# SPDX-FileCopyrightText: 2019 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 set -e
 

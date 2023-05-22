@@ -1,4 +1,9 @@
 #!/usr/bin/env perl
+
+# SPDX-FileCopyrightText: 2016 Konstantin Tokarev <annulen@yandex.ru>
+#
+# SPDX-License-Identifier: BSD-2-Clause
+
 # Copyright (C) 2016 Konstantin Tokarev <annulen@yandex.ru>
 #
 # Redistribution and use in source and binary forms, with or without
@@ -117,11 +122,11 @@ sub squash_prl_libs {
             ++$i;
         }
         $lib =~ s"\$\$\[QT_INSTALL_LIBS\]"$qt_install_libs"g;
-        
+
         if (lc($compiler) eq 'msvc') {
             # convert backslashes
             $lib =~ s"\\"/"g;
-            
+
             # MSVC doesn't support -L and -l arguments
             if ($lib =~ /^-L(.*)$/) {
                 $lib = "-LIBPATH:$1"

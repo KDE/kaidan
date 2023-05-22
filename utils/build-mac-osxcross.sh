@@ -1,4 +1,9 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2019 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
+# SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # NOTE: To use this script, you need to set $QT_MACOS to your Qt for MacOS installation
 

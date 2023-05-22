@@ -1,4 +1,12 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2018 Ilya Bizyaev <bizyaev@zoho.com>
+# SPDX-FileCopyrightText: 2019 Mauricio Torres Mejía <mauro@olomono.de>
+# SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+# SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # NOTE: To use this script, you need to set $QT_IOS to your Qt for iOS installation
 
 if [ -z "$QT_IOS" ]; then

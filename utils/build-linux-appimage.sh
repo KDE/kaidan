@@ -1,4 +1,11 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2018 Ilya Bizyaev <bizyaev@zoho.com>
+# SPDX-FileCopyrightText: 2018 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2018 Linus Jahn <lnj@kaidan.im>
+# SPDX-FileCopyrightText: 2019 Filipe Azevedo <pasnox@gmail.com>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 
 # NOTE: To use this script, you need to set $QT_LINUX to your Qt for Linux installation
 

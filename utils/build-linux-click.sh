@@ -1,4 +1,8 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2018 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..
 CLICK_TARGET_DIR="$KAIDAN_SOURCES/bin/ubuntu-touch/tmp" # tmp is hard-coded into clickable

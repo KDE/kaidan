@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2018 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 # Tidy up code to use modern C++
 
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..

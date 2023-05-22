@@ -1,4 +1,8 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2018 Ilya Bizyaev <bizyaev@zoho.com>
+# SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # NOTE: To use this script, you need to set ANDROID_NDK_ROOT, ANDROID_SDK_ROOT
 # and QT_ANDROID to your Qt for Android installation
@@ -18,7 +22,7 @@ if [ -z "$QT_ANDROID" ]; then
     exit 1
 fi
 
-# Build type is one of: 
+# Build type is one of:
 # Debug, Release, RelWithDebInfo and MinSizeRel
 BUILD_TYPE="${BUILD_TYPE:-Debug}"
 # Android SDK Tools version available on the system
@@ -186,7 +190,7 @@ if [ ! -z "$INSTALL" ]; then
     echo "*****************************************"
     echo "Installing to device"
     echo "*****************************************"
-    
+
     cd $KAIDAN_SOURCES/build
     make install-apk-kaidan
 fi

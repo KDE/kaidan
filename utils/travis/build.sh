@@ -1,4 +1,9 @@
 #!/bin/bash -e
+# SPDX-FileCopyrightText: 2018 Linus Jahn <lnj@kaidan.im>
+# SPDX-FileCopyrightText: 2018 Jonah Brüchert <jbb@kaidan.im>
+#
+# SPDX-License-Identifier: CC0-1.0
+
 . utils/travis/common.sh
 
 echo "*****************************************"

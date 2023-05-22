@@ -1,4 +1,10 @@
 #!/bin/bash
+# SPDX-FileCopyrightText: 2019 Ilya Bizyaev <bizyaev@zoho.com>
+# SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
+# SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
+# SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..
 OPTIMIZE_PNG_SCRIPT="${KAIDAN_SOURCES}/utils/optimize-png.sh"
