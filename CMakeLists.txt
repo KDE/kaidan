@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2016 Linus Jahn <lnj@kaidan.im>
+#
+# SPDX-License-Identifier: CC0-1.0
+
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 20)
 set(QT_MIN_VERSION "5.15.0")

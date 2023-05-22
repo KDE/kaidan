@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2016 Linus Jahn <lnj@kaidan.im>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Kaidan - User-friendly and modern chat app for every device
 
 [![Kaidan MUC](https://search.jabbercat.org/api/1.0/badge?address=kaidan@muc.kaidan.im)](https://i.kaidan.im)

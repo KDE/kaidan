@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
+
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Contributing
 
 This is a guideline for contributing to Kaidan.
