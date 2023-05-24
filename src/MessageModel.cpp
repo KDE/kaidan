@@ -876,7 +876,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
 
 	if (foundIndex < m_messages.size()) {
 		for (; foundIndex < m_messages.size(); foundIndex++) {
-			if (m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive)) {
+			if (foundIndex > -1 && m_messages.at(foundIndex).body.contains(searchString, Qt::CaseInsensitive)) {
 				return foundIndex;
 			}
 		}
