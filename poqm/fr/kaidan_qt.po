@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-05-19 09:53+0200\n"
+"PO-Revision-Date: 2023-05-23 19:25+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard]neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -428,11 +428,6 @@ msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/AccountDetailsContent.qml:61
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -455,14 +450,11 @@ msgstr ""
 "<b>Vos</b> autres périphériques n'utilisent pas le chiffrement « OMEMO 2 »."
 
 #: src/qml/details/AccountDetailsContent.qml:89
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
-"Lire les codes « QR » de vos périphériques pour un chiffrement avec niveau "
-"maximum de sécurité."
+"Lire les codes « QR » de <b>vos</b> périphériques pour un niveau maximum de "
+"sécurité."
 
 #: src/qml/details/AccountDetailsContent.qml:154
 msgctxt "AccountDetailsContent|"
@@ -528,18 +520,13 @@ msgid "Password Change"
 msgstr "Modification de mot de passe"
 
 #: src/qml/details/AccountDetailsContent.qml:224
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid ""
-#| "After changing your password, you will need to reenter it on all your "
-#| "other devices."
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
-"Après le changement de votre mot de passe, vous devez le re-saisir sur tous "
-"vos autres périphériques ?"
+"Modifiez votre mot de passe. Vous devez saisir le nouveau mot de passe sur "
+"tous vos autres périphériques !"
 
 #: src/qml/details/AccountDetailsContent.qml:234
 msgctxt "AccountDetailsContent|"
@@ -592,11 +579,6 @@ msgid "Don't show password as text"
 msgstr "Ne pas afficher un mot de passe comme du texte"
 
 #: src/qml/details/AccountDetailsContent.qml:365
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid ""
-#| "Allow to add additional devices using the login QR code but never show "
-#| "the password."
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -611,18 +593,13 @@ msgid "Don't expose password in any way"
 msgstr "Ne pas exposer un mot de passe de n'importe quelle façon"
 
 #: src/qml/details/AccountDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid ""
-#| "Neither allow to add additional devices using the login QR code nor show "
-#| "the password."
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
-"Ne permettre ni l'ajout de périphériques en utilisant le code « QR » de "
-"connexion ni afficher le mot de passe."
+"Ne permettre ni l'ajout de périphériques supplémentaires en utilisant le "
+"code « QR » de connexion, ni afficher le mot de passe."
 
 #: src/qml/details/AccountDetailsContent.qml:398
 msgctxt "AccountDetailsContent|"
@@ -630,14 +607,13 @@ msgid "Connection"
 msgstr "Connexion"
 
 #: src/qml/details/AccountDetailsContent.qml:402
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Configure the hostname and port to connect to"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
-msgstr "Configurer le nom de l'hôte et le port sur lesquels se connecter"
+msgstr ""
+"Configurer le nom de l'hôte et le port sur lesquels se connecter (Champs "
+"vide pour les valeurs par défaut)"
 
 #: src/qml/details/AccountDetailsContent.qml:418
 msgctxt "AccountDetailsContent|"
@@ -691,18 +667,12 @@ msgid "Delete completely"
 msgstr "Supprimer totalement"
 
 #: src/qml/details/AccountDetailsContent.qml:557
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid ""
-#| "Your account will be deleted completely, which means from this app and "
-#| "from the server. You will not be able to use your account again!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
-"Votre compte sera complètement supprimé, ce qui signifie à la fois dans "
-"cette application et du serveur. Vous ne pourrez plus utiliser votre compte "
-"à nouveau !"
+"Supprimer un compte chez votre fournisseur. Vous ne pourrez plus utiliser "
+"votre compte à nouveau !"
 
 #: src/qml/details/AccountDetailsHeader.qml:14
 msgctxt "AccountDetailsHeader|"
@@ -745,11 +715,6 @@ msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:38
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid ""
-#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
-#| "your chat partners can read or modify the data you exchange."
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -761,12 +726,9 @@ msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:50
 #: src/qml/details/ContactDetailsContent.qml:58
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr "Lire les codes « QR » de vos périphériques pour les chiffrer"
+msgstr "Lire les codes « QR » de <b>vos</b> périphériques pour les chiffrer."
 
 #: src/qml/details/ContactDetailsContent.qml:52
 msgctxt "ContactDetailsContent|"
@@ -781,23 +743,17 @@ msgstr ""
 "<b>Vous</b> ne possédez aucun périphérique prenant en charge « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:61
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan the QR codes of your devices for maximum secure encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
-"Lire les codes « QR » de vos périphériques pour un chiffrement avec niveau "
-"maximum de sécurité."
+"Lire les codes « QR » de <b>vos</b> périphériques pour un niveau maximum de "
+"sécurité."
 
 #: src/qml/details/ContactDetailsContent.qml:103
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR code of your contact to enable encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgstr ""
-"Lire votre code « QR » de votre contact pour l'activation du chiffrement."
+"Lire les codes « QR » de vos <b>contact</b> pour autoriser le chiffrement."
 
 #: src/qml/details/ContactDetailsContent.qml:106
 msgctxt "ContactDetailsContent|"
@@ -805,22 +761,18 @@ msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Votre <b>contact</b> n'utilise pas « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:109
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan the QR codes of your devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
-msgstr "Lire les codes « QR » de vos périphériques pour les chiffrer"
+msgstr ""
+"Lire les codes « QR » des périphériques de vos <b>contacts</b>pour les "
+"chiffrer."
 
 #: src/qml/details/ContactDetailsContent.qml:112
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan the QR code of your contact for maximum secure encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr ""
-"Lire votre code « QR » de votre contact pour un chiffrement avec un maximum "
-"de sécurité."
+"Lire les codes « QR » de vos<b>contacts</b> pour un niveau maximum de "
+"sécurité."
 
 #: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
@@ -1918,12 +1870,11 @@ msgid "View source code"
 msgstr "Afficher le code source"
 
 #: src/qml/settings/AboutPage.qml:128
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr "Afficher le code source de Kaidan et contribuer au projet"
+msgstr ""
+"Afficher le code source de Kaidan disponible en ligne et contribuer au "
+"projet."
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
