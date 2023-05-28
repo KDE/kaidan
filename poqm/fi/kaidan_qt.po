@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-20 11:32+0300\n"
+"PO-Revision-Date: 2023-05-15 18:59+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:309
@@ -1075,7 +1075,7 @@ msgstr "Anna kelvollinen salasana"
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
-msgstr ""
+msgstr "%1 – lähettäjät"
 
 #: src/qml/elements/MessageReactionSenderSheet.qml:57
 msgctxt "MessageReactionSenderSheet|"
@@ -1303,12 +1303,9 @@ msgid "Add contact by QR code"
 msgstr "Lisää yhteystieto QR-koodilla"
 
 #: src/qml/GlobalDrawer.qml:170
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Lisää yhteystieto QR-koodilla"
+msgstr "Lisää yhteystieto keskusteluosoitteella"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
@@ -1772,12 +1769,9 @@ msgstr "Tietoa Kaidanista"
 #: src/qml/settings/AboutPage.qml:83
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
-msgstr ""
+msgstr "Joka laitteen käyttäjäystävällinen ja nykyaikainen keskustelusovellus"
 
 #: src/qml/settings/AboutPage.qml:99
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Visit website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Käy sivustolla"
@@ -1785,27 +1779,27 @@ msgstr "Käy sivustolla"
 #: src/qml/settings/AboutPage.qml:100
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "Avaa Kaidanin sivusto selaimeen"
 
 #: src/qml/settings/AboutPage.qml:106
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Seuraa Mastodonissa"
 
 #: src/qml/settings/AboutPage.qml:107
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr ""
+msgstr "Avaa Kaidanin Mastodon-sivu selaimeen"
 
 #: src/qml/settings/AboutPage.qml:113
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Lahjoita"
 
 #: src/qml/settings/AboutPage.qml:114
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "Tue Kaidanin kehitystä ja infrastruktuuria lahjoittamalla"
 
 #: src/qml/settings/AboutPage.qml:120
 msgctxt "AboutPage|"
@@ -1815,20 +1809,17 @@ msgstr "Ilmoita ongelmista"
 #: src/qml/settings/AboutPage.qml:121
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
-msgstr ""
+msgstr "Kerro Kaidanin ongelmista kehittäjille"
 
 #: src/qml/settings/AboutPage.qml:127
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Näytä lähdekoodi verkossa"
+msgstr "Näytä lähdekoodi"
 
 #: src/qml/settings/AboutPage.qml:128
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr ""
+msgstr "Näytä Kaidanin lähdekoodi verkossa ja avusta projektia"
 
 #: src/qml/settings/CustomConnectionSettings.qml:49
 msgctxt "CustomConnectionSettings|"
@@ -2031,17 +2022,17 @@ msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
-msgstr ""
+msgstr "Käyttäjän %s tilannäkemispyyntö epäonnistui yhteysongelman vuoksi: %s"
 
 #: src/RosterManager.cpp:186
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
-msgstr ""
+msgstr "Käyttäjän %s salliminen nähdä tilasi epäonnistui"
 
 #: src/RosterManager.cpp:193
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
-msgstr ""
+msgstr "Käyttäjän %s estäminen näkemästä tilaasi epäonnistui"
 
 #: src/VCardModel.cpp:90
 msgctxt "VCardModel|"
