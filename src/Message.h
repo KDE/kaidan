@@ -72,11 +72,13 @@ struct File
 	Q_PROPERTY(QDateTime lastModified MEMBER lastModified)
 	Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
 	Q_PROPERTY(QString localFilePath MEMBER localFilePath)
+	Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
 	Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
 	Q_PROPERTY(QImage thumbnail READ thumbnailImage CONSTANT)
 	Q_PROPERTY(QImage thumbnailSquare READ thumbnailSquareImage CONSTANT)
 	Q_PROPERTY(QUrl downloadUrl READ downloadUrl CONSTANT)
 	Q_PROPERTY(Enums::MessageType type READ type CONSTANT)
+	Q_PROPERTY(QString details READ details CONSTANT)
 
 public:
 	qint64 id = 0;
@@ -108,8 +110,10 @@ private:
 	[[nodiscard]] QImage thumbnailImage() const { return QImage::fromData(thumbnail); }
 	[[nodiscard]] QImage thumbnailSquareImage() const;
 	[[nodiscard]] QUrl downloadUrl() const;
+	[[nodiscard]] QUrl localFileUrl() const;
 	[[nodiscard]] Enums::MessageType type() const;
 	[[nodiscard]] QString fileId() const { return QString::number(id); }
+	[[nodiscard]] QString details() const;
 };
 
 class MessageReactionDeliveryState

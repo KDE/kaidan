@@ -17,6 +17,7 @@
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
 
+#include <QFileInfo>
 #include <QStringBuilder>
 
 #include <QXmppHttpFileSource.h>
@@ -109,9 +110,50 @@ QUrl File::downloadUrl() const
 	return {};
 }
 
+QUrl File::localFileUrl() const
+{
+	return localFilePath.isEmpty() ? QUrl() : QUrl::fromLocalFile(localFilePath);
+}
+
 MessageType File::type() const
 {
 	return MediaUtils::messageType(mimeType);
+}
+
+QString File::details() const
+{
+	const auto formattedSize = [this]() {
+		if (size) {
+			return QLocale::system().formattedDataSize(*size);
+		}
+
+		if (const QFileInfo fileInfo(localFilePath); fileInfo.exists()) {
+			return QLocale::system().formattedDataSize(fileInfo.size());
+		}
+
+		return QString();
+	}();
+	const auto formattedDateTime = [this]() {
+		if (lastModified.isValid()) {
+			return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
+		}
+
+		return QString();
+	}();
+
+	if (formattedSize.isEmpty() && formattedDateTime.isEmpty()) {
+		return QObject::tr("No information");
+	}
+
+	if (formattedSize.isEmpty()) {
+		return formattedDateTime;
+	}
+
+	if (formattedDateTime.isEmpty()) {
+		return formattedSize;
+	}
+
+	return QStringLiteral("%1, %2").arg(formattedSize, formattedDateTime);
 }
 
 QXmppMessage Message::toQXmpp() const
