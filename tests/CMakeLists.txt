@@ -79,6 +79,23 @@ ecm_add_test(
 	LINK_LIBRARIES Qt::Test Qt::Network
 )
 
+ecm_add_test(
+	FileModelTest.cpp
+	../src/Enums.h
+	../src/MediaUtils.cpp
+	../src/MediaUtils.h
+	../src/Message.cpp
+	../src/Message.h
+	../src/FileModel.cpp
+	../src/FileModel.h
+	../src/FileProxyModel.cpp
+	../src/FileProxyModel.h
+	TEST_NAME FileModelTest
+	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
+)
+
+target_compile_definitions(FileModelTest PRIVATE BUILD_TESTS)
+
 # Manual tests
 
 add_executable(PublicGroupChatSearch

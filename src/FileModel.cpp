@@ -98,6 +98,7 @@ void FileModel::setFiles(const Files &files)
 	}
 }
 
+#ifndef BUILD_TESTS
 void FileModel::loadFiles()
 {
 	m_watcher.cancel();
@@ -121,3 +122,4 @@ void FileModel::loadDownloadedFiles()
 		m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid, m_chatJid));
 	}
 }
+#endif
