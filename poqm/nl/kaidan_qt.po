@@ -417,17 +417,46 @@ msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Bericht met spoileralert versturen"
 
-#: src/qml/details/AccountDetailsContent.qml:57
+#: src/qml/details/AccountDetailsContent.qml:36
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Information"
+msgctxt "AccountDetailsContent|"
+msgid "Less information"
+msgstr "Informatie"
+
+#: src/qml/details/AccountDetailsContent.qml:36
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Profile Information"
+msgctxt "AccountDetailsContent|"
+msgid "More information"
+msgstr "Profielinformatie"
+
+#: src/qml/details/AccountDetailsContent.qml:58
+msgctxt "AccountDetailsContent|"
+msgid "Empty"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:78
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Set up"
+msgctxt "AccountDetailsContent|"
+msgid "Set value"
+msgstr "Opzetten"
+
+#: src/qml/details/AccountDetailsContent.qml:164
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Versleuteling"
 
-#: src/qml/details/AccountDetailsContent.qml:61
+#: src/qml/details/AccountDetailsContent.qml:168
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:62
+#: src/qml/details/AccountDetailsContent.qml:169
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -436,83 +465,83 @@ msgstr ""
 "End-to-end versleuteling met OMEMO 2 verzekert dat niemand anders dan u en "
 "uw chat-partners de uitgewisselde gegevens kan lezen of wijzigen."
 
-#: src/qml/details/AccountDetailsContent.qml:81
-#: src/qml/details/AccountDetailsContent.qml:87
+#: src/qml/details/AccountDetailsContent.qml:188
+#: src/qml/details/AccountDetailsContent.qml:194
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "De QR-code van <b>uw</b> apparaten scannen om voor hen te versleutelen"
 
-#: src/qml/details/AccountDetailsContent.qml:83
+#: src/qml/details/AccountDetailsContent.qml:190
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Uw</b> andere apparaten gebruiken geen OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:90
+#: src/qml/details/AccountDetailsContent.qml:197
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "De QR-codes van <b>uw</b> apparaten scannen voor maximale veiligheid"
 
-#: src/qml/details/AccountDetailsContent.qml:155
+#: src/qml/details/AccountDetailsContent.qml:262
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Leverancier"
 
-#: src/qml/details/AccountDetailsContent.qml:159
+#: src/qml/details/AccountDetailsContent.qml:266
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Website bezoeken"
 
-#: src/qml/details/AccountDetailsContent.qml:160
+#: src/qml/details/AccountDetailsContent.qml:267
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "De website van uw leverancier openen in een webbrowser"
 
-#: src/qml/details/AccountDetailsContent.qml:166
+#: src/qml/details/AccountDetailsContent.qml:273
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Website-adres kopiëren"
 
-#: src/qml/details/AccountDetailsContent.qml:167
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Het webadres van uw leverancier naar het klembord kopiëren"
 
-#: src/qml/details/AccountDetailsContent.qml:171
+#: src/qml/details/AccountDetailsContent.qml:278
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Websiteadres gekopieerd naar het klembord"
 
-#: src/qml/details/AccountDetailsContent.qml:176
+#: src/qml/details/AccountDetailsContent.qml:283
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Chat voor ondersteuning openen"
 
-#: src/qml/details/AccountDetailsContent.qml:177
+#: src/qml/details/AccountDetailsContent.qml:284
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Chat starten met de ondersteuning van uw leverancier"
 
-#: src/qml/details/AccountDetailsContent.qml:183
+#: src/qml/details/AccountDetailsContent.qml:290
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Ondersteuning"
 
-#: src/qml/details/AccountDetailsContent.qml:195
+#: src/qml/details/AccountDetailsContent.qml:302
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Ondersteuningsgroep openen"
 
-#: src/qml/details/AccountDetailsContent.qml:196
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Doe mee met de publieke ondersteuningsgroep van uw leverancier"
 
-#: src/qml/details/AccountDetailsContent.qml:221
+#: src/qml/details/AccountDetailsContent.qml:328
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Wachtwoordwijziging"
 
-#: src/qml/details/AccountDetailsContent.qml:225
+#: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -521,38 +550,38 @@ msgstr ""
 "Wijzig uw wachtwoord. U zult het nieuwe wachtwoord in moeten voeren op al uw "
 "andere apparaten!"
 
-#: src/qml/details/AccountDetailsContent.qml:235
+#: src/qml/details/AccountDetailsContent.qml:342
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Juiste wachtwoord invoeren"
 
-#: src/qml/details/AccountDetailsContent.qml:259
+#: src/qml/details/AccountDetailsContent.qml:366
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Ander wachtwoord invoeren om het te wijzigen"
 
-#: src/qml/details/AccountDetailsContent.qml:279
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
-#: src/qml/details/AccountDetailsContent.qml:334
+#: src/qml/details/AccountDetailsContent.qml:441
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Wijzigen van wachtwoord is mislukt: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:340
+#: src/qml/details/AccountDetailsContent.qml:447
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Wachtwoord is met succes gewijzigd"
 
-#: src/qml/details/AccountDetailsContent.qml:356
+#: src/qml/details/AccountDetailsContent.qml:463
 msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Veiligheid van wachtwoord"
 
-#: src/qml/details/AccountDetailsContent.qml:360
+#: src/qml/details/AccountDetailsContent.qml:467
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -566,12 +595,12 @@ msgstr ""
 "wachtwoord ergens anders op te slaan. Dit kan niet ongedaan worden gemaakt!</"
 "b>"
 
-#: src/qml/details/AccountDetailsContent.qml:364
+#: src/qml/details/AccountDetailsContent.qml:471
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Wachtwoord niet als tekst tonen"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:473
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -580,12 +609,12 @@ msgstr ""
 "Sta toe om additionele apparaten toe te voegen met de QR-code voor aanmelden "
 "maar toon nooit het wachtwoord"
 
-#: src/qml/details/AccountDetailsContent.qml:375
+#: src/qml/details/AccountDetailsContent.qml:482
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Toon op geen manier het wachtwoord"
 
-#: src/qml/details/AccountDetailsContent.qml:377
+#: src/qml/details/AccountDetailsContent.qml:484
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -594,12 +623,12 @@ msgstr ""
 "Sta ook niet toe om additionele apparaten toe te voegen met de QR-code voor "
 "aanmelden en toon nooit het wachtwoord"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Verbinding"
 
-#: src/qml/details/AccountDetailsContent.qml:403
+#: src/qml/details/AccountDetailsContent.qml:510
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -608,38 +637,38 @@ msgstr ""
 "Hostnaam en poort om verbinding mee te maken configureren (lege velden voor "
 "standaard waarden)"
 
-#: src/qml/details/AccountDetailsContent.qml:419
+#: src/qml/details/AccountDetailsContent.qml:526
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Verbindingsinstellingen wijzigen"
 
-#: src/qml/details/AccountDetailsContent.qml:435
+#: src/qml/details/AccountDetailsContent.qml:542
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Andere verbindingsinstellingen invoeren om ze te wijzigen"
 
-#: src/qml/details/AccountDetailsContent.qml:485
+#: src/qml/details/AccountDetailsContent.qml:592
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Verbindingsinstellingen konden niet gewijzigd worden: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:500
+#: src/qml/details/AccountDetailsContent.qml:607
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Verbindingsinstellingen gewijzigd"
 
-#: src/qml/details/AccountDetailsContent.qml:523
+#: src/qml/details/AccountDetailsContent.qml:630
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Verwijdering"
 
-#: src/qml/details/AccountDetailsContent.qml:531
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Uit Kaidan verwijderen"
 
-#: src/qml/details/AccountDetailsContent.qml:532
+#: src/qml/details/AccountDetailsContent.qml:639
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -648,18 +677,18 @@ msgstr ""
 "Account uit deze toepassing verwijderen. Maak een reservekopie van uw "
 "credentials en chatgeschiedenis indien nodig!"
 
-#: src/qml/details/AccountDetailsContent.qml:541
-#: src/qml/details/AccountDetailsContent.qml:567
+#: src/qml/details/AccountDetailsContent.qml:648
+#: src/qml/details/AccountDetailsContent.qml:674
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Bevestigen"
 
-#: src/qml/details/AccountDetailsContent.qml:557
+#: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Geheel verwijderen"
 
-#: src/qml/details/AccountDetailsContent.qml:558
+#: src/qml/details/AccountDetailsContent.qml:665
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -697,17 +726,17 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Selectie opslaan"
 
-#: src/qml/details/ContactDetailsContent.qml:33
+#: src/qml/details/ContactDetailsContent.qml:63
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Versleuteling"
 
-#: src/qml/details/ContactDetailsContent.qml:37
+#: src/qml/details/ContactDetailsContent.qml:67
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:38
+#: src/qml/details/ContactDetailsContent.qml:68
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -716,130 +745,130 @@ msgstr ""
 "End-to-end versleuteling met OMEMO 2 verzekert dat niemand anders dan u en "
 "uw chat-partners de uitgewisselde gegevens kan lezen of wijzigen."
 
-#: src/qml/details/ContactDetailsContent.qml:50
-#: src/qml/details/ContactDetailsContent.qml:58
+#: src/qml/details/ContactDetailsContent.qml:80
+#: src/qml/details/ContactDetailsContent.qml:88
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "De QR-code van <b>uw</b> apparaten scannen om voor hen te versleutelen"
 
-#: src/qml/details/ContactDetailsContent.qml:52
+#: src/qml/details/ContactDetailsContent.qml:82
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Uw</b> andere apparaten gebruiken geen OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:54
+#: src/qml/details/ContactDetailsContent.qml:84
 msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "<b>U</b> hebt geen andere apparaten die OMEMO 2 ondersteunen"
 
-#: src/qml/details/ContactDetailsContent.qml:61
+#: src/qml/details/ContactDetailsContent.qml:91
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "De QR-codes van <b>uw</b> apparaten scannen voor maximale veiligheid"
 
-#: src/qml/details/ContactDetailsContent.qml:103
+#: src/qml/details/ContactDetailsContent.qml:133
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgstr ""
 "De QR-code van uw <b>contactpersoon</b> scannen om versleuteling in te "
 "schakelen"
 
-#: src/qml/details/ContactDetailsContent.qml:106
+#: src/qml/details/ContactDetailsContent.qml:136
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Uw <b>contactpersoon</b> gebruikt geen OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:109
+#: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgstr ""
 "De QR-codes van de apparaten van uw <b>contactpersoon</b> scannen om ze voor "
 "hen te versleutelen"
 
-#: src/qml/details/ContactDetailsContent.qml:112
+#: src/qml/details/ContactDetailsContent.qml:142
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr ""
 "De QR-code van uw <b>contactpersoon</b> scannen voor maximale veiligheid"
 
-#: src/qml/details/ContactDetailsContent.qml:166
+#: src/qml/details/ContactDetailsContent.qml:196
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
 msgstr "Delen"
 
-#: src/qml/details/ContactDetailsContent.qml:170
+#: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
 msgstr "QR-code tonen"
 
-#: src/qml/details/ContactDetailsContent.qml:171
+#: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Dit chatadres van de contactpersoon via QR-code delen"
 
-#: src/qml/details/ContactDetailsContent.qml:177
+#: src/qml/details/ContactDetailsContent.qml:207
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "Chatadres kopiëren"
 
-#: src/qml/details/ContactDetailsContent.qml:178
+#: src/qml/details/ContactDetailsContent.qml:208
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Dit chatadres van de contactpersoon via tekst delen"
 
-#: src/qml/details/ContactDetailsContent.qml:182
+#: src/qml/details/ContactDetailsContent.qml:212
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Contactpersoon gekopieerd naar het klembord"
 
-#: src/qml/details/ContactDetailsContent.qml:195
+#: src/qml/details/ContactDetailsContent.qml:225
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Meldingen"
 
-#: src/qml/details/ContactDetailsContent.qml:199
+#: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Inkomende berichten"
 
-#: src/qml/details/ContactDetailsContent.qml:200
+#: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Meldingen tonen en geluid laten horen bij aankomst van bericht"
 
-#: src/qml/details/ContactDetailsContent.qml:219
+#: src/qml/details/ContactDetailsContent.qml:249
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Privacy"
 
-#: src/qml/details/ContactDetailsContent.qml:223
+#: src/qml/details/ContactDetailsContent.qml:253
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr "Verzoeken om status"
 
-#: src/qml/details/ContactDetailsContent.qml:224
+#: src/qml/details/ContactDetailsContent.qml:254
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 "Om de beschikbaarheid van de contactpersoon, apparaten en andere personele "
 "informatie vragen"
 
-#: src/qml/details/ContactDetailsContent.qml:230
+#: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr "Status verzenden"
 
-#: src/qml/details/ContactDetailsContent.qml:231
+#: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr "Lever uw beschikbaarheid, apparaten en andere personele informatie"
 
-#: src/qml/details/ContactDetailsContent.qml:244
+#: src/qml/details/ContactDetailsContent.qml:274
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Meldingen over typen verzenden"
 
-#: src/qml/details/ContactDetailsContent.qml:245
+#: src/qml/details/ContactDetailsContent.qml:275
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -847,32 +876,32 @@ msgstr ""
 "Geef aan wanneer u deze conversatie open heeft, aan het typen bent en "
 "gestopt met typen"
 
-#: src/qml/details/ContactDetailsContent.qml:256
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Meldingen over lezen verzenden"
 
-#: src/qml/details/ContactDetailsContent.qml:257
+#: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Geef aan welk bericht u hebt gelezen"
 
-#: src/qml/details/ContactDetailsContent.qml:276
+#: src/qml/details/ContactDetailsContent.qml:306
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Verwijdering"
 
-#: src/qml/details/ContactDetailsContent.qml:284
+#: src/qml/details/ContactDetailsContent.qml:314
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: src/qml/details/ContactDetailsContent.qml:285
+#: src/qml/details/ContactDetailsContent.qml:315
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Contactpersoon verwijderen en de complete chatgeschiedenis"
 
-#: src/qml/details/ContactDetailsContent.qml:294
+#: src/qml/details/ContactDetailsContent.qml:324
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Bevestigen"
@@ -882,12 +911,12 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Avatar maximaliseren"
 
-#: src/qml/details/DetailsContent.qml:63
+#: src/qml/details/DetailsContent.qml:66
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profiel"
 
-#: src/qml/details/DetailsContent.qml:110
+#: src/qml/details/DetailsContent.qml:88
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Verbonden apparaten"
@@ -2063,32 +2092,32 @@ msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
 msgstr "%s niet toestaan om uw status te zien is mislukt"
 
-#: src/VCardModel.cpp:67
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Naam"
 
-#: src/VCardModel.cpp:70
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Bijnaam"
 
-#: src/VCardModel.cpp:73
+#: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Over"
 
-#: src/VCardModel.cpp:76
+#: src/VCardModel.cpp:123
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "E-mail"
 
-#: src/VCardModel.cpp:79
+#: src/VCardModel.cpp:124
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Verjaardag"
 
-#: src/VCardModel.cpp:82
+#: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
@@ -2149,10 +2178,6 @@ msgstr "Website"
 #~ msgctxt "AccountSecurity|"
 #~ msgid "Account Security"
 #~ msgstr "Beveiliging van account"
-
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Information"
-#~ msgstr "Informatie"
 
 #~ msgctxt "AccountSecurity|"
 #~ msgid ""
@@ -2426,10 +2451,6 @@ msgstr "Website"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Remove contact"
 #~ msgstr "Contactpersoon verwijderen"
-
-#~ msgctxt "UserProfileSheet|"
-#~ msgid "Profile Information"
-#~ msgstr "Profielinformatie"
 
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "No information available"

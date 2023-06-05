@@ -19,7 +19,7 @@ msgstr ""
 "X-Text-Markup: qtrich\n"
 "X-Generator: Lokalize 22.04.0\n"
 
-#: src/ClientWorker.cpp:309
+#: src/ClientWorker.cpp:286
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -29,289 +29,289 @@ msgstr ""
 "Kontoen din kunne ikke slettes fra tjeneren. Derfor ble den heller ikke "
 "fjernet fra dette programmet: %1"
 
-#: src/FileSharingController.cpp:211
+#: src/FileSharingController.cpp:186
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr ""
 
-#: src/FileSharingController.cpp:380
+#: src/FileSharingController.cpp:355
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr ""
 
-#: src/Kaidan.cpp:108
+#: src/Kaidan.cpp:88
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Tilkoblet"
 
-#: src/Kaidan.cpp:110
+#: src/Kaidan.cpp:90
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Kobler til …"
 
-#: src/Kaidan.cpp:112
+#: src/Kaidan.cpp:92
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#: src/Kaidan.cpp:163
+#: src/Kaidan.cpp:132
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Lenken vil åpnes etter at du har koblet til."
 
-#: src/MediaRecorder.cpp:1187 src/MediaRecorder.cpp:1195
-#: src/MediaRecorder.cpp:1210 src/MediaRecorder.cpp:1219
-#: src/MediaRecorder.cpp:1227 src/MediaRecorder.cpp:1236
-#: src/MediaRecorder.cpp:1244
+#: src/MediaRecorder.cpp:1163 src/MediaRecorder.cpp:1171
+#: src/MediaRecorder.cpp:1186 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1203 src/MediaRecorder.cpp:1212
+#: src/MediaRecorder.cpp:1220
 msgctxt "MediaRecorder|"
 msgid "Default"
 msgstr "Forvalg"
 
-#: src/MediaSettings.cpp:161
+#: src/MediaSettings.cpp:137
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
 msgstr "Veldig lavt"
 
-#: src/MediaSettings.cpp:163
+#: src/MediaSettings.cpp:139
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
 msgstr "Lavt"
 
-#: src/MediaSettings.cpp:165
+#: src/MediaSettings.cpp:141
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
 msgstr "Normalt"
 
-#: src/MediaSettings.cpp:167
+#: src/MediaSettings.cpp:143
 msgctxt "CommonEncoderSettings|"
 msgid "High"
 msgstr "Høyt"
 
-#: src/MediaSettings.cpp:169
+#: src/MediaSettings.cpp:145
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
 msgstr "Veldig høyt"
 
-#: src/MediaSettings.cpp:180
+#: src/MediaSettings.cpp:156
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
 msgstr "Konstant kvalitet"
 
-#: src/MediaSettings.cpp:182
+#: src/MediaSettings.cpp:158
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
 msgstr "Konstant bitrate"
 
-#: src/MediaSettings.cpp:184
+#: src/MediaSettings.cpp:160
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
 msgstr "Gjennomsnittlig bitrate"
 
-#: src/MediaSettings.cpp:186
+#: src/MediaSettings.cpp:162
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
 msgstr "Dobbelt-arbeidet"
 
-#: src/MediaUtils.cpp:251
+#: src/MediaUtils.cpp:228
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Lyd"
 
-#: src/MediaUtils.cpp:253
+#: src/MediaUtils.cpp:230
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Dokument"
 
-#: src/MediaUtils.cpp:255
+#: src/MediaUtils.cpp:232
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Plassering"
 
-#: src/MediaUtils.cpp:257
+#: src/MediaUtils.cpp:234
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Bilde"
 
-#: src/MediaUtils.cpp:259
+#: src/MediaUtils.cpp:236
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:263
+#: src/MediaUtils.cpp:240
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fil"
 
-#: src/MediaUtils.cpp:272
+#: src/MediaUtils.cpp:249
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Ta bilde"
 
-#: src/MediaUtils.cpp:274
+#: src/MediaUtils.cpp:251
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Ta opp video"
 
-#: src/MediaUtils.cpp:276
+#: src/MediaUtils.cpp:253
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ta opp stemme"
 
-#: src/MediaUtils.cpp:278
+#: src/MediaUtils.cpp:255
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Send plassering"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:293
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Velg fil"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:295
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Velg bilde"
 
-#: src/MediaUtils.cpp:320
+#: src/MediaUtils.cpp:297
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Velg video"
 
-#: src/MediaUtils.cpp:322
+#: src/MediaUtils.cpp:299
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Velg lydfil"
 
-#: src/MediaUtils.cpp:324
+#: src/MediaUtils.cpp:301
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Velg dokument"
 
-#: src/MediaUtils.cpp:346
+#: src/MediaUtils.cpp:323
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Alle filer"
 
-#: src/MediaUtils.cpp:348
+#: src/MediaUtils.cpp:325
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Bilder"
 
-#: src/MediaUtils.cpp:350
+#: src/MediaUtils.cpp:327
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videoer"
 
-#: src/MediaUtils.cpp:352
+#: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Lydfiler"
 
-#: src/MediaUtils.cpp:354
+#: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Dokumenter"
 
-#: src/MediaUtils.cpp:379
+#: src/MediaUtils.cpp:356
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:186
+#: src/Message.cpp:163
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/MessageComposition.cpp:207
+#: src/MessageComposition.cpp:209
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:188
+#: src/MessageHandler.cpp:168
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:259
+#: src/MessageHandler.cpp:239
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:315
+#: src/MessageHandler.cpp:295
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
 
-#: src/MessageModel.cpp:247
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Venter"
 
-#: src/MessageModel.cpp:249
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Sendt"
 
-#: src/MessageModel.cpp:251
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Levert"
 
-#: src/MessageModel.cpp:253
+#: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Feil"
 
-#: src/Notifications.cpp:188
+#: src/Notifications.cpp:166
 msgctxt "QObject|"
 msgid "Mark as read"
 msgstr "Marker som lest"
 
-#: src/OmemoManager.cpp:149
+#: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr ""
 
-#: src/PresenceCache.cpp:63
+#: src/PresenceCache.cpp:39
 #, fuzzy
 msgctxt "QObject|"
 msgid "Available"
 msgstr "Tilgjengelig"
 
-#: src/PresenceCache.cpp:65
+#: src/PresenceCache.cpp:41
 #, fuzzy
 msgctxt "QObject|"
 msgid "Free for chat"
 msgstr "Ledig for sludring"
 
-#: src/PresenceCache.cpp:67
+#: src/PresenceCache.cpp:43
 #, fuzzy
 msgctxt "QObject|"
 msgid "Away"
 msgstr "Borte"
 
-#: src/PresenceCache.cpp:69
+#: src/PresenceCache.cpp:45
 #, fuzzy
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "Ikke forstyrr"
 
-#: src/PresenceCache.cpp:71
+#: src/PresenceCache.cpp:47
 #, fuzzy
 msgctxt "QObject|"
 msgid "Away for longer"
 msgstr "Lengre tids fravær"
 
-#: src/PresenceCache.cpp:73
+#: src/PresenceCache.cpp:49
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#: src/ProviderListModel.cpp:52
+#: src/ProviderListModel.cpp:28
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr ""
@@ -319,63 +319,63 @@ msgstr ""
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:120 src/ProviderListModel.cpp:130
+#: src/ProviderListModel.cpp:96 src/ProviderListModel.cpp:106
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:132
+#: src/ProviderListModel.cpp:108
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr ""
 
-#: src/qml/AboutDialog.qml:78
+#: src/qml/AboutDialog.qml:54
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
 msgstr "En enkel, brukervennlig XMPP-klient"
 
-#: src/qml/AboutDialog.qml:86
+#: src/qml/AboutDialog.qml:62
 msgctxt "AboutDialog|"
 msgid "License:"
 msgstr "Lisens:"
 
-#: src/qml/AboutDialog.qml:103
+#: src/qml/AboutDialog.qml:79
 msgctxt "AboutDialog|"
 msgid "Report problems"
 msgstr "Innrapporter problemer"
 
-#: src/qml/AboutDialog.qml:108
+#: src/qml/AboutDialog.qml:84
 msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Vis kildekoden på nett"
 
-#: src/qml/AccountTransferPage.qml:46
+#: src/qml/AccountTransferPage.qml:24
 msgctxt "AccountTransferPage|"
 msgid "Transfer account to another device"
 msgstr "Overfør konto til en annen enhet"
 
-#: src/qml/AccountTransferPage.qml:48
+#: src/qml/AccountTransferPage.qml:26
 msgctxt "AccountTransferPage|"
 msgid "Hide QR code"
 msgstr "Skjul QR-kode"
 
-#: src/qml/AccountTransferPage.qml:48
+#: src/qml/AccountTransferPage.qml:26
 msgctxt "AccountTransferPage|"
 msgid "Show as QR code"
 msgstr "Vis som QR-kode"
 
-#: src/qml/AccountTransferPage.qml:52
+#: src/qml/AccountTransferPage.qml:30
 msgctxt "AccountTransferPage|"
 msgid "Hide text"
 msgstr "Skjul tekst"
 
-#: src/qml/AccountTransferPage.qml:52
+#: src/qml/AccountTransferPage.qml:30
 msgctxt "AccountTransferPage|"
 msgid "Show as text"
 msgstr "Vis som tekst"
 
-#: src/qml/AccountTransferPage.qml:86
+#: src/qml/AccountTransferPage.qml:64
 msgctxt "AccountTransferPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -392,173 +392,173 @@ msgstr ""
 "Aldri vis denne QR-koden til noen andre. Den gir ubegrenset tilganger til "
 "kontoen din!"
 
-#: src/qml/AccountTransferPage.qml:108
+#: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
 msgstr "Sludreadresse:"
 
-#: src/qml/AccountTransferPage.qml:117
+#: src/qml/AccountTransferPage.qml:95
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
 msgstr "Kopier sludringsadresse"
 
-#: src/qml/AccountTransferPage.qml:127
+#: src/qml/AccountTransferPage.qml:105
 msgctxt "AccountTransferPage|"
 msgid "Password:"
 msgstr "Passord:"
 
-#: src/qml/AccountTransferPage.qml:137
+#: src/qml/AccountTransferPage.qml:115
 msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopier passord"
 
-#: src/qml/ChatPage.qml:108
+#: src/qml/ChatPage.qml:92
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:114
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Søk"
 
-#: src/qml/ChatPage.qml:127
+#: src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Send en avsløringsmelding"
 
-#: src/qml/details/AccountDetailsContent.qml:56
+#: src/qml/details/AccountDetailsContent.qml:57
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:60
+#: src/qml/details/AccountDetailsContent.qml:61
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:61
+#: src/qml/details/AccountDetailsContent.qml:62
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:80
-#: src/qml/details/AccountDetailsContent.qml:86
+#: src/qml/details/AccountDetailsContent.qml:81
+#: src/qml/details/AccountDetailsContent.qml:87
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:82
+#: src/qml/details/AccountDetailsContent.qml:83
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:89
+#: src/qml/details/AccountDetailsContent.qml:90
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:154
+#: src/qml/details/AccountDetailsContent.qml:155
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:158
+#: src/qml/details/AccountDetailsContent.qml:159
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:159
+#: src/qml/details/AccountDetailsContent.qml:160
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:165
+#: src/qml/details/AccountDetailsContent.qml:166
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:166
+#: src/qml/details/AccountDetailsContent.qml:167
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:170
+#: src/qml/details/AccountDetailsContent.qml:171
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:175
+#: src/qml/details/AccountDetailsContent.qml:176
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:176
+#: src/qml/details/AccountDetailsContent.qml:177
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:182
+#: src/qml/details/AccountDetailsContent.qml:183
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:194
+#: src/qml/details/AccountDetailsContent.qml:195
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:195
+#: src/qml/details/AccountDetailsContent.qml:196
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:220
+#: src/qml/details/AccountDetailsContent.qml:221
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:224
+#: src/qml/details/AccountDetailsContent.qml:225
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:234
+#: src/qml/details/AccountDetailsContent.qml:235
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:258
+#: src/qml/details/AccountDetailsContent.qml:259
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:278
+#: src/qml/details/AccountDetailsContent.qml:279
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:334
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:339
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:355
+#: src/qml/details/AccountDetailsContent.qml:356
 msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:359
+#: src/qml/details/AccountDetailsContent.qml:360
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -567,92 +567,92 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:363
+#: src/qml/details/AccountDetailsContent.qml:364
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:365
+#: src/qml/details/AccountDetailsContent.qml:366
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:374
+#: src/qml/details/AccountDetailsContent.qml:375
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:376
+#: src/qml/details/AccountDetailsContent.qml:377
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:398
+#: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:402
+#: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:418
+#: src/qml/details/AccountDetailsContent.qml:419
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:435
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:484
+#: src/qml/details/AccountDetailsContent.qml:485
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:499
+#: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:522
+#: src/qml/details/AccountDetailsContent.qml:523
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:530
+#: src/qml/details/AccountDetailsContent.qml:531
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:531
+#: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:540
-#: src/qml/details/AccountDetailsContent.qml:566
+#: src/qml/details/AccountDetailsContent.qml:541
+#: src/qml/details/AccountDetailsContent.qml:567
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:556
+#: src/qml/details/AccountDetailsContent.qml:557
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:557
+#: src/qml/details/AccountDetailsContent.qml:558
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -663,27 +663,27 @@ msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:21
+#: src/qml/details/AvatarChangePage.qml:22
 msgctxt "AvatarChangePage|"
 msgid "Change profile image"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:35
+#: src/qml/details/AvatarChangePage.qml:36
 msgctxt "AvatarChangePage|"
 msgid "Choose profile image"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:113
+#: src/qml/details/AvatarChangePage.qml:114
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:118
+#: src/qml/details/AvatarChangePage.qml:119
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:124
+#: src/qml/details/AvatarChangePage.qml:125
 msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr ""
@@ -776,83 +776,83 @@ msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:200
+#: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:204
+#: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:205
+#: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:224
+#: src/qml/details/ContactDetailsContent.qml:219
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:228
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:229
+#: src/qml/details/ContactDetailsContent.qml:224
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:235
+#: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:236
+#: src/qml/details/ContactDetailsContent.qml:231
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:249
+#: src/qml/details/ContactDetailsContent.qml:244
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:250
+#: src/qml/details/ContactDetailsContent.qml:245
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:261
+#: src/qml/details/ContactDetailsContent.qml:256
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:262
+#: src/qml/details/ContactDetailsContent.qml:257
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:281
+#: src/qml/details/ContactDetailsContent.qml:276
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:289
+#: src/qml/details/ContactDetailsContent.qml:284
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:290
+#: src/qml/details/ContactDetailsContent.qml:285
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:299
+#: src/qml/details/ContactDetailsContent.qml:294
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr ""
@@ -877,257 +877,257 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:165
+#: src/qml/elements/ChatMessage.qml:148
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Avsløring"
 
-#: src/qml/elements/ChatMessage.qml:222
+#: src/qml/elements/ChatMessage.qml:205
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Last ned"
 
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:304
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:309
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:341
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:23
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Kopier melding"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:57
+#: src/qml/elements/ChatMessageContextMenu.qml:34
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Rediger melding"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:63
+#: src/qml/elements/ChatMessageContextMenu.qml:40
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "Kopier nedlastings-nettadresse"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:69
+#: src/qml/elements/ChatMessageContextMenu.qml:46
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Siter melding"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:76
+#: src/qml/elements/ChatMessageContextMenu.qml:53
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:84
+#: src/qml/elements/ChatMessageContextMenu.qml:61
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:70
+#: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:106
+#: src/qml/elements/ChatPageSearchView.qml:83
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
 msgstr ""
 
-#: src/qml/elements/ChatPageSearchView.qml:117
+#: src/qml/elements/ChatPageSearchView.qml:94
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:81
+#: src/qml/elements/ChatPageSendingPane.qml:60
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
 msgstr "Avsløringshint"
 
-#: src/qml/elements/ChatPageSendingPane.qml:88
+#: src/qml/elements/ChatPageSendingPane.qml:67
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
 msgstr "Lukk avsløringshintfeltet"
 
-#: src/qml/elements/ChatPageSendingPane.qml:126
+#: src/qml/elements/ChatPageSendingPane.qml:105
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:126
+#: src/qml/elements/ChatPageSendingPane.qml:105
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:246
+#: src/qml/elements/ChatPageSendingPane.qml:225
 msgctxt "ChatPageSendingPane|"
 msgid "Attachments"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:301
+#: src/qml/elements/ChatPageSendingPane.qml:280
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:302
+#: src/qml/elements/ChatPageSendingPane.qml:281
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:313
+#: src/qml/elements/ChatPageSendingPane.qml:292
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:293
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:325
+#: src/qml/elements/ChatPageSendingPane.qml:304
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:326
+#: src/qml/elements/ChatPageSendingPane.qml:305
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:337
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:338
+#: src/qml/elements/ChatPageSendingPane.qml:317
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:45
+#: src/qml/elements/ChatSupportSheet.qml:21
 msgctxt "ChatSupportSheet|"
 msgid "Support Group"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:45
+#: src/qml/elements/ChatSupportSheet.qml:21
 msgctxt "ChatSupportSheet|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:62
+#: src/qml/elements/ChatSupportSheet.qml:38
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:62
+#: src/qml/elements/ChatSupportSheet.qml:38
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
 msgstr ""
 
-#: src/qml/elements/ConfirmationPage.qml:48
+#: src/qml/elements/ConfirmationPage.qml:24
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Avbryt"
 
-#: src/qml/elements/fields/JidField.qml:43
+#: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "Chat address"
 msgstr ""
 
-#: src/qml/elements/fields/JidField.qml:44
+#: src/qml/elements/fields/JidField.qml:20
 msgctxt "JidField|"
 msgid "user@example.org"
 msgstr ""
 
-#: src/qml/elements/fields/JidField.qml:46
+#: src/qml/elements/fields/JidField.qml:22
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
 msgstr ""
 
-#: src/qml/elements/fields/PasswordField.qml:40
+#: src/qml/elements/fields/PasswordField.qml:15
 msgctxt "PasswordField|"
 msgid "Password"
 msgstr "Passord"
 
-#: src/qml/elements/fields/PasswordField.qml:41
+#: src/qml/elements/fields/PasswordField.qml:16
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:51
+#: src/qml/elements/MessageReactionSenderSheet.qml:26
 #, qt-format
 msgctxt "MessageReactionSenderSheet|"
 msgid "Senders of %1"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:57
+#: src/qml/elements/MessageReactionSenderSheet.qml:32
 msgctxt "MessageReactionSenderSheet|"
 msgid "Add own reaction"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:67
+#: src/qml/elements/MessageReactionSenderSheet.qml:42
 msgctxt "MessageReactionSenderSheet|"
 msgid "Remove own reaction"
 msgstr ""
 
-#: src/qml/elements/NewMedia.qml:224 src/qml/elements/NewMedia.qml:233
+#: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
 msgid "Initializing…"
 msgstr "Igangsetter…"
 
-#: src/qml/elements/NewMedia.qml:229
+#: src/qml/elements/NewMedia.qml:206
 msgctxt "NewMedia|"
 msgid "Unavailable"
 msgstr "Utilgjengelig"
 
-#: src/qml/elements/NewMedia.qml:239
+#: src/qml/elements/NewMedia.qml:216
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
 msgstr "Satt på pause %1"
 
-#: src/qml/elements/NewMedia.qml:254
+#: src/qml/elements/NewMedia.qml:231
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
 msgstr "Tar opp… %1"
 
-#: src/qml/elements/NewMediaSheet.qml:101
+#: src/qml/elements/NewMediaSheet.qml:77
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr ""
 
-#: src/qml/elements/NewMediaSheet.qml:115
+#: src/qml/elements/NewMediaSheet.qml:91
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr ""
 
-#: src/qml/elements/QrCodeScanner.qml:71
+#: src/qml/elements/QrCodeScanner.qml:47
 #, fuzzy, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
 msgstr "Kameraformatet \"%1\" støttes ikke."
 
-#: src/qml/elements/QrCodeScanner.qml:98
+#: src/qml/elements/QrCodeScanner.qml:74
 #, fuzzy
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
 msgstr "Kamera ikke tilgjengelig."
 
-#: src/qml/elements/QrCodeScanner.qml:101
+#: src/qml/elements/QrCodeScanner.qml:77
 #, fuzzy
 msgctxt "QrCodeScanner|"
 msgid ""
@@ -1137,70 +1137,70 @@ msgstr ""
 "Kamera ditt er opptatt.\n"
 "Prøv å lukke andre programmer ved bruk av kameraet."
 
-#: src/qml/elements/RosterAddContactSheet.qml:45
+#: src/qml/elements/RosterAddContactSheet.qml:26
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Legg til ny kontakt"
 
-#: src/qml/elements/RosterAddContactSheet.qml:53
+#: src/qml/elements/RosterAddContactSheet.qml:34
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Legg til"
 
-#: src/qml/elements/RosterAddContactSheet.qml:82
+#: src/qml/elements/RosterAddContactSheet.qml:63
 msgctxt "RosterAddContactSheet|"
 msgid "This will also send a request to access the presence of the contact."
 msgstr ""
 "Dette vil også sende en forespørsel om tilgang til kontaktens "
 "tilstedeværelsesinfo."
 
-#: src/qml/elements/RosterAddContactSheet.qml:87
+#: src/qml/elements/RosterAddContactSheet.qml:68
 msgctxt "RosterAddContactSheet|"
 msgid "Jabber-ID:"
 msgstr "Jabber-ID:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:96
+#: src/qml/elements/RosterAddContactSheet.qml:77
 msgctxt "RosterAddContactSheet|"
 msgid "Nickname:"
 msgstr "Kallenavn:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:106
+#: src/qml/elements/RosterAddContactSheet.qml:87
 msgctxt "RosterAddContactSheet|"
 msgid "Optional message:"
 msgstr "Valgfri melding:"
 
-#: src/qml/elements/RosterAddContactSheet.qml:114
+#: src/qml/elements/RosterAddContactSheet.qml:95
 msgctxt "RosterAddContactSheet|"
 msgid "Tell your chat partner who you are."
 msgstr "Fortell din sludrepartner hvem du er."
 
-#: src/qml/elements/RosterListItem.qml:81
+#: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterListItemContextMenu.qml:45
+#: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
 msgstr ""
 
-#: src/qml/elements/RosterListItemContextMenu.qml:45
+#: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:23
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:45
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:46
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:167
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid ""
@@ -1209,57 +1209,57 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:194
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:195
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Loading…"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:249
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:250
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:52
+#: src/qml/elements/SendMediaSheet.qml:29
 msgctxt "SendMediaSheet|"
 msgid "Share files"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:101
+#: src/qml/elements/SendMediaSheet.qml:78
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:146
+#: src/qml/elements/SendMediaSheet.qml:123
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:154
+#: src/qml/elements/SendMediaSheet.qml:131
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:168
+#: src/qml/elements/SendMediaSheet.qml:145
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:175
+#: src/qml/elements/SendMediaSheet.qml:152
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:186
+#: src/qml/elements/SendMediaSheet.qml:163
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Send"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:42
+#: src/qml/elements/SubRequestAcceptSheet.qml:18
 msgctxt "SubRequestAcceptSheet|"
 msgid "Subscription Request"
 msgstr "Abonnementsforespørsel"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:51
+#: src/qml/elements/SubRequestAcceptSheet.qml:27
 #, qt-format
 msgctxt "SubRequestAcceptSheet|"
 msgid ""
@@ -1269,207 +1269,207 @@ msgstr ""
 "Du har mottatt en abonnementsforespørsel av <b>%1</b>. Hvis du godtar den, "
 "vil kontoen ha tilgang til din tilstedeværelsesstatus."
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:63
+#: src/qml/elements/SubRequestAcceptSheet.qml:39
 msgctxt "SubRequestAcceptSheet|"
 msgid "Decline"
 msgstr "Avslå"
 
-#: src/qml/elements/SubRequestAcceptSheet.qml:72
+#: src/qml/elements/SubRequestAcceptSheet.qml:48
 msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Godta"
 
-#: src/qml/EmptyChatPage.qml:54
+#: src/qml/EmptyChatPage.qml:30
 msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Velg en sludring for å begynne å sende meldinger"
 
-#: src/qml/GlobalDrawer.qml:87
+#: src/qml/GlobalDrawer.qml:64
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:157
+#: src/qml/GlobalDrawer.qml:134
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:161
+#: src/qml/GlobalDrawer.qml:138
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:170
+#: src/qml/GlobalDrawer.qml:147
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:157
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:194
+#: src/qml/GlobalDrawer.qml:171
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Inviter venner"
 
-#: src/qml/GlobalDrawer.qml:198
+#: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Invitasjonslenke kopiert til utklippstavle"
 
-#: src/qml/GlobalDrawer.qml:203
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Bytt enhet"
 
-#: src/qml/GlobalDrawer.qml:212
+#: src/qml/GlobalDrawer.qml:189
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: src/qml/LoginPage.qml:43 src/qml/LoginPage.qml:106
+#: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
 msgctxt "LoginPage|"
 msgid "Log in"
 msgstr "Logg inn"
 
-#: src/qml/LoginPage.qml:49
+#: src/qml/LoginPage.qml:28
 msgctxt "LoginPage|"
 msgid "Log in to your XMPP account"
 msgstr "Logg inn på din XMPP-konto"
 
-#: src/qml/LoginPage.qml:75
+#: src/qml/LoginPage.qml:54
 msgctxt "LoginPage|"
 msgid "Connection settings"
 msgstr "Tilkoblingsinnstillinger"
 
-#: src/qml/LoginPage.qml:114
+#: src/qml/LoginPage.qml:93
 msgctxt "LoginPage|"
 msgid "Connecting…"
 msgstr "Kobler til…"
 
-#: src/qml/QrCodeOnboardingPage.qml:45 src/qml/QrCodeOnboardingPage.qml:47
+#: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Skann QR-kode"
 
-#: src/qml/QrCodeOnboardingPage.qml:47
+#: src/qml/QrCodeOnboardingPage.qml:24
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Vis forklaring"
 
-#: src/qml/QrCodeOnboardingPage.qml:56
+#: src/qml/QrCodeOnboardingPage.qml:33
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Continue without QR code"
 msgstr "Fortsett uten QR-kode"
 
-#: src/qml/QrCodeOnboardingPage.qml:62
+#: src/qml/QrCodeOnboardingPage.qml:39
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
 msgstr "Skann QR-koden fra din eksisterende enhet for å overføre kontoen din."
 
-#: src/qml/QrCodeOnboardingPage.qml:103
+#: src/qml/QrCodeOnboardingPage.qml:80
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Kobler til…"
 
-#: src/qml/QrCodeOnboardingPage.qml:121
+#: src/qml/QrCodeOnboardingPage.qml:98
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Denne QR-koden er ikke en gylding innloggings-QR-kode."
 
-#: src/qml/QrCodePage.qml:52 src/qml/QrCodePage.qml:54
+#: src/qml/QrCodePage.qml:29 src/qml/QrCodePage.qml:31
 msgctxt "QrCodePage|"
 msgid "Scan QR codes"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:54
+#: src/qml/QrCodePage.qml:31
 msgctxt "QrCodePage|"
 msgid "Show explanation"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:78
+#: src/qml/QrCodePage.qml:55
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:80
+#: src/qml/QrCodePage.qml:57
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:108
+#: src/qml/QrCodePage.qml:85
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:110
+#: src/qml/QrCodePage.qml:87
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:147
+#: src/qml/QrCodePage.qml:124
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:154
+#: src/qml/QrCodePage.qml:131
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:167
+#: src/qml/QrCodePage.qml:144
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:169
+#: src/qml/QrCodePage.qml:146
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:176
+#: src/qml/QrCodePage.qml:153
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your other device"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:178
+#: src/qml/QrCodePage.qml:155
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:184
+#: src/qml/QrCodePage.qml:161
 msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:228
+#: src/qml/QrCodePage.qml:205
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:228
+#: src/qml/QrCodePage.qml:205
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:49
+#: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:106
+#: src/qml/registration/AutomaticRegistrationPage.qml:81
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr ""
 
-#: src/qml/registration/CustomFormView.qml:39
+#: src/qml/registration/CustomFormView.qml:14
 msgctxt "CustomFormView|"
 msgid ""
 "The server has requested more information.\n"
@@ -1477,7 +1477,7 @@ msgid ""
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:39
+#: src/qml/registration/DisplayNameView.qml:14
 msgctxt "DisplayNameView|"
 msgid ""
 "Your display name is what your contacts will see.\n"
@@ -1487,57 +1487,57 @@ msgid ""
 "could decrease your privacy!"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:47
+#: src/qml/registration/DisplayNameView.qml:22
 msgctxt "DisplayNameView|"
 msgid "Display Name"
 msgstr ""
 
-#: src/qml/registration/LoadingView.qml:41
+#: src/qml/registration/LoadingView.qml:16
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:45
+#: src/qml/registration/ManualRegistrationPage.qml:21
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:195
+#: src/qml/registration/ManualRegistrationPage.qml:171
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:238
+#: src/qml/registration/ManualRegistrationPage.qml:214
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:238
+#: src/qml/registration/ManualRegistrationPage.qml:214
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:242
+#: src/qml/registration/ManualRegistrationPage.qml:218
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:246
+#: src/qml/registration/ManualRegistrationPage.qml:222
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:261
+#: src/qml/registration/ManualRegistrationPage.qml:237
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:265
+#: src/qml/registration/ManualRegistrationPage.qml:241
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
 
-#: src/qml/registration/PasswordView.qml:43
+#: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
 msgid ""
 "Your password is used to log in to your account.\n"
@@ -1546,109 +1546,109 @@ msgid ""
 "Don't use passwords you're already using somewhere else!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:46
+#: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
 msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:64
+#: src/qml/registration/ProviderView.qml:39
 msgctxt "ProviderView|"
 msgid "Provider"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:101
+#: src/qml/registration/ProviderView.qml:76
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:144
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
+#: src/qml/registration/ProviderView.qml:120
 msgctxt "ProviderView|"
 msgid "No"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
+#: src/qml/registration/ProviderView.qml:120
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:150
+#: src/qml/registration/ProviderView.qml:125
 msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:156
+#: src/qml/registration/ProviderView.qml:131
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:162
+#: src/qml/registration/ProviderView.qml:137
 msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:168
+#: src/qml/registration/ProviderView.qml:143
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:174
+#: src/qml/registration/ProviderView.qml:149
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:182
+#: src/qml/registration/ProviderView.qml:157
 msgctxt "ProviderView|"
 msgid "Open website"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:188
+#: src/qml/registration/ProviderView.qml:163
 msgctxt "ProviderView|"
 msgid "Copy website address"
 msgstr ""
 
-#: src/qml/registration/RegistrationButton.qml:37
+#: src/qml/registration/RegistrationButton.qml:12
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/registration/RegistrationDecisionPage.qml:41
+#: src/qml/registration/RegistrationDecisionPage.qml:16
 msgctxt "RegistrationDecisionPage|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/registration/RegistrationDecisionPage.qml:47
+#: src/qml/registration/RegistrationDecisionPage.qml:22
 msgctxt "RegistrationDecisionPage|"
 msgid "Generate an account automatically"
 msgstr ""
 
-#: src/qml/registration/RegistrationDecisionPage.qml:52
+#: src/qml/registration/RegistrationDecisionPage.qml:27
 msgctxt "RegistrationDecisionPage|"
 msgid "Create an account manually"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:80
+#: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:89
+#: src/qml/registration/RegistrationPage.qml:64
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:98
+#: src/qml/registration/RegistrationPage.qml:73
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr ""
 
-#: src/qml/registration/ResultView.qml:42
+#: src/qml/registration/ResultView.qml:17
 msgctxt "ResultView|"
 msgid ""
 "Your chat address is used to chat with you, like your email address is used "
@@ -1657,7 +1657,7 @@ msgid ""
 "Your chat address will be:"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:43
+#: src/qml/registration/UsernameView.qml:18
 msgctxt "UsernameView|"
 msgid ""
 "Your username is used to log in to your account and to chat with you.\n"
@@ -1667,257 +1667,257 @@ msgid ""
 "decrease your privacy!"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:60
+#: src/qml/registration/UsernameView.qml:35
 msgctxt "UsernameView|"
 msgid "Username"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:67
+#: src/qml/registration/UsernameView.qml:42
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:42
+#: src/qml/registration/WebRegistrationView.qml:18
 msgctxt "WebRegistrationView|"
 msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:49
+#: src/qml/registration/WebRegistrationView.qml:25
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:54
+#: src/qml/registration/WebRegistrationView.qml:30
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:60
+#: src/qml/registration/WebRegistrationView.qml:36
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr ""
 
-#: src/qml/RegistrationLoginDecisionPage.qml:41
+#: src/qml/RegistrationLoginDecisionPage.qml:16
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Set up"
 msgstr "Sett opp"
 
-#: src/qml/RegistrationLoginDecisionPage.qml:47
+#: src/qml/RegistrationLoginDecisionPage.qml:22
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Register a new account"
 msgstr "Registrer ny konto"
 
-#: src/qml/RegistrationLoginDecisionPage.qml:52
+#: src/qml/RegistrationLoginDecisionPage.qml:27
 msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Bruk eksisterende konto"
 
-#: src/qml/RosterPage.qml:41
+#: src/qml/RosterPage.qml:24
 msgctxt "RosterPage|"
 msgid "Connecting…"
 msgstr "Kobler til…"
 
-#: src/qml/RosterPage.qml:42
+#: src/qml/RosterPage.qml:25
 msgctxt "RosterPage|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#: src/qml/RosterPage.qml:43
+#: src/qml/RosterPage.qml:26
 msgctxt "RosterPage|"
 msgid "Contacts"
 msgstr "Kontakter"
 
-#: src/qml/RosterPage.qml:52
+#: src/qml/RosterPage.qml:35
 msgctxt "RosterPage|"
 msgid "Search contacts"
 msgstr "Søk i kontakter"
 
-#: src/qml/settings/AboutPage.qml:41
+#: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:83
+#: src/qml/settings/AboutPage.qml:58
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:99
+#: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:100
+#: src/qml/settings/AboutPage.qml:75
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:106
+#: src/qml/settings/AboutPage.qml:81
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:107
+#: src/qml/settings/AboutPage.qml:82
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:113
+#: src/qml/settings/AboutPage.qml:88
 msgctxt "AboutPage|"
 msgid "Donate"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:114
+#: src/qml/settings/AboutPage.qml:89
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:120
+#: src/qml/settings/AboutPage.qml:95
 msgctxt "AboutPage|"
 msgid "Report problems"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:121
+#: src/qml/settings/AboutPage.qml:96
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:127
+#: src/qml/settings/AboutPage.qml:102
 msgctxt "AboutPage|"
 msgid "View source code"
 msgstr ""
 
-#: src/qml/settings/AboutPage.qml:128
+#: src/qml/settings/AboutPage.qml:103
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
 
-#: src/qml/settings/CustomConnectionSettings.qml:49
+#: src/qml/settings/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
 msgstr "Vertsnavn:"
 
-#: src/qml/settings/CustomConnectionSettings.qml:53
+#: src/qml/settings/CustomConnectionSettings.qml:29
 #, fuzzy
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
 msgstr "Vertsnavnet kan ikke inneholde mellomrom"
 
-#: src/qml/settings/CustomConnectionSettings.qml:77
+#: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
 msgstr "Port:"
 
-#: src/qml/settings/MultimediaSettings.qml:43
+#: src/qml/settings/MultimediaSettings.qml:21
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
 msgstr "Multimediainnstillinger"
 
-#: src/qml/settings/MultimediaSettings.qml:63
+#: src/qml/settings/MultimediaSettings.qml:41
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
 msgstr ""
 
-#: src/qml/settings/MultimediaSettings.qml:68
+#: src/qml/settings/MultimediaSettings.qml:46
 msgctxt "MultimediaSettings|"
 msgid "Camera"
 msgstr "Kamera"
 
-#: src/qml/settings/MultimediaSettings.qml:98
+#: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
 msgstr ""
 
-#: src/qml/settings/MultimediaSettings.qml:131
+#: src/qml/settings/MultimediaSettings.qml:109
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
 msgstr ""
 
-#: src/qml/settings/MultimediaSettings.qml:181
+#: src/qml/settings/MultimediaSettings.qml:159
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
 msgstr ""
 
-#: src/qml/settings/MultimediaSettings.qml:200
+#: src/qml/settings/MultimediaSettings.qml:178
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
 msgstr ""
 
-#: src/qml/settings/MultimediaSettings.qml:221
+#: src/qml/settings/MultimediaSettings.qml:199
 msgctxt "MultimediaSettings|"
 msgid "Save"
 msgstr ""
 
-#: src/qml/settings/SettingsContent.qml:43
+#: src/qml/settings/SettingsContent.qml:20
 #, fuzzy
 msgctxt "SettingsContent|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: src/qml/settings/SettingsContent.qml:53
+#: src/qml/settings/SettingsContent.qml:30
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
 msgstr "Multimedia-innstillinger"
 
-#: src/qml/settings/SettingsContent.qml:54
+#: src/qml/settings/SettingsContent.qml:31
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
 msgstr "Sett opp bilde- video- og lyd-opptaksinnstillinger"
 
-#: src/qml/settings/SettingsContent.qml:60
+#: src/qml/settings/SettingsContent.qml:37
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
 msgstr ""
 
-#: src/qml/settings/SettingsContent.qml:61
+#: src/qml/settings/SettingsContent.qml:38
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
 
-#: src/qml/settings/SettingsPage.qml:34
+#: src/qml/settings/SettingsPage.qml:10
 msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: src/qml/StartPage.qml:68
+#: src/qml/StartPage.qml:43
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Nyt fri kommunikasjon på alle enheter."
 
-#: src/qml/StartPage.qml:84
+#: src/qml/StartPage.qml:59
 msgctxt "StartPage|"
 msgid "Let's start"
 msgstr "La oss begynne"
 
-#: src/QmlUtils.cpp:75
+#: src/QmlUtils.cpp:51
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Ugyldig brukernavn eller passord."
 
-#: src/QmlUtils.cpp:77
+#: src/QmlUtils.cpp:53
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Kan ikke koble til tjeneren. Sjekk din internettilknytning."
 
-#: src/QmlUtils.cpp:79
+#: src/QmlUtils.cpp:55
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Feil under forsøk på sikker tilkobling."
 
-#: src/QmlUtils.cpp:81
+#: src/QmlUtils.cpp:57
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Tjeneren støtter ikke sikre tilkoblinger."
 
-#: src/QmlUtils.cpp:83
+#: src/QmlUtils.cpp:59
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
@@ -1927,23 +1927,23 @@ msgstr ""
 "Kunne ikke koble til tjeneren. Sjekk at tilkoblingen din til Internett er "
 "oppe, og tjenernavnet ditt."
 
-#: src/QmlUtils.cpp:85
+#: src/QmlUtils.cpp:61
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Tjeneren er nede eller blokkert av en brannmur."
 
-#: src/QmlUtils.cpp:87
+#: src/QmlUtils.cpp:63
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Identitetsbekreftelsesprotokollen støttes ikke av tjeneren."
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:65
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Tilkoblingen kunne ikke gjenoppfriskes."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:67
 #, fuzzy
 msgctxt "QmlUtils|"
 msgid ""
@@ -1951,23 +1951,23 @@ msgid ""
 "access configuration."
 msgstr "Innvilg internettilgang i systemets tilgangsoppsett."
 
-#: src/QmlUtils.cpp:93
+#: src/QmlUtils.cpp:69
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Denne tjeneren støtter ikke registrering."
 
-#: src/QmlUtils.cpp:220
+#: src/QmlUtils.cpp:196
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:294
+#: src/QmlUtils.cpp:270
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 er pålogget"
 
-#: src/QmlUtils.cpp:296
+#: src/QmlUtils.cpp:272
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
@@ -1975,78 +1975,78 @@ msgstr ""
 "Du kjenner blott blodets hvisken og benpipernes bøn fra %1 sitt ubevisste "
 "sjeleliv …"
 
-#: src/QmlUtils.cpp:298
+#: src/QmlUtils.cpp:274
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 tok en pause i skrivingen"
 
-#: src/QrCodeGenerator.cpp:90
+#: src/QrCodeGenerator.cpp:67
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Kunne ikke generere QR-kode: %1"
 
-#: src/RosterManager.cpp:140
+#: src/RosterManager.cpp:118
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Kunne ikke legge til kontakt, som følge av manglende tilkobling."
 
-#: src/RosterManager.cpp:154
+#: src/RosterManager.cpp:132
 #, fuzzy
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Kunne ikke fjerne kontakt, som følge av manglende tilkobling."
 
-#: src/RosterManager.cpp:167
+#: src/RosterManager.cpp:145
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Kunne ikke gi kontakten nytt navn, fordi den ikke er tilkoblet."
 
-#: src/RosterManager.cpp:178
+#: src/RosterManager.cpp:156
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %s failed because of a connection problem: %s"
 msgstr ""
 
-#: src/RosterManager.cpp:186
+#: src/RosterManager.cpp:164
 msgctxt "RosterManager|"
 msgid "Allowing %s to see your status failed"
 msgstr ""
 
-#: src/RosterManager.cpp:193
+#: src/RosterManager.cpp:171
 msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
 msgstr ""
 
-#: src/VCardModel.cpp:90
+#: src/VCardModel.cpp:67
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Navn"
 
-#: src/VCardModel.cpp:93
+#: src/VCardModel.cpp:70
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Kallenavn"
 
-#: src/VCardModel.cpp:96
+#: src/VCardModel.cpp:73
 #, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Om"
 
-#: src/VCardModel.cpp:99
+#: src/VCardModel.cpp:76
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "E-post"
 
-#: src/VCardModel.cpp:102
+#: src/VCardModel.cpp:79
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Geburtsdag"
 
-#: src/VCardModel.cpp:105
+#: src/VCardModel.cpp:82
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Nettside"

@@ -416,7 +416,36 @@ msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Skicka ett spoilermeddelande"
 
-#: src/qml/details/AccountDetailsContent.qml:57
+#: src/qml/details/AccountDetailsContent.qml:36
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "AccountDetailsContent|"
+msgid "Less information"
+msgstr "Plats"
+
+#: src/qml/details/AccountDetailsContent.qml:36
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "AccountDetailsContent|"
+msgid "More information"
+msgstr "Plats"
+
+#: src/qml/details/AccountDetailsContent.qml:58
+msgctxt "AccountDetailsContent|"
+msgid "Empty"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:78
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Set up"
+msgctxt "AccountDetailsContent|"
+msgid "Set value"
+msgstr "Inställning"
+
+#: src/qml/details/AccountDetailsContent.qml:164
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -424,12 +453,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Kryptering (OMEMO 2)"
 
-#: src/qml/details/AccountDetailsContent.qml:61
+#: src/qml/details/AccountDetailsContent.qml:168
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:62
+#: src/qml/details/AccountDetailsContent.qml:169
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid ""
@@ -443,8 +472,8 @@ msgstr ""
 "Kryptering hela vägen med OMEMO 2 säkerställer att ingen annan än du och din "
 "chattpartner kan läsa eller ändra data som ni utbyter."
 
-#: src/qml/details/AccountDetailsContent.qml:81
-#: src/qml/details/AccountDetailsContent.qml:87
+#: src/qml/details/AccountDetailsContent.qml:188
+#: src/qml/details/AccountDetailsContent.qml:194
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -452,7 +481,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "Läs av QR-koderna för dina apparater för att kryptera för dem"
 
-#: src/qml/details/AccountDetailsContent.qml:83
+#: src/qml/details/AccountDetailsContent.qml:190
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -460,7 +489,7 @@ msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Dina andra apparater använder inte OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:90
+#: src/qml/details/AccountDetailsContent.qml:197
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -468,7 +497,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Läs av QR-koderna för dina apparater för maximalt säker kryptering"
 
-#: src/qml/details/AccountDetailsContent.qml:155
+#: src/qml/details/AccountDetailsContent.qml:262
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Provider"
@@ -476,7 +505,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Leverantör"
 
-#: src/qml/details/AccountDetailsContent.qml:159
+#: src/qml/details/AccountDetailsContent.qml:266
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Open website"
@@ -484,12 +513,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Öppna webbplats"
 
-#: src/qml/details/AccountDetailsContent.qml:160
+#: src/qml/details/AccountDetailsContent.qml:267
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:166
+#: src/qml/details/AccountDetailsContent.qml:273
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Copy website address"
@@ -497,12 +526,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopiera webbplatsadress"
 
-#: src/qml/details/AccountDetailsContent.qml:167
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:171
+#: src/qml/details/AccountDetailsContent.qml:278
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -510,32 +539,32 @@ msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Inbjudningslänk kopierad till klippbordet"
 
-#: src/qml/details/AccountDetailsContent.qml:176
+#: src/qml/details/AccountDetailsContent.qml:283
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:177
+#: src/qml/details/AccountDetailsContent.qml:284
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:183
+#: src/qml/details/AccountDetailsContent.qml:290
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:195
+#: src/qml/details/AccountDetailsContent.qml:302
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:196
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:221
+#: src/qml/details/AccountDetailsContent.qml:328
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -543,7 +572,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:225
+#: src/qml/details/AccountDetailsContent.qml:332
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -557,7 +586,7 @@ msgstr ""
 "Efter att ha ändrat lösenordet, måste du mata in det igen på alla dina "
 "övriga apparater."
 
-#: src/qml/details/AccountDetailsContent.qml:235
+#: src/qml/details/AccountDetailsContent.qml:342
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -565,12 +594,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Nuvarande lösenord:"
 
-#: src/qml/details/AccountDetailsContent.qml:259
+#: src/qml/details/AccountDetailsContent.qml:366
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:279
+#: src/qml/details/AccountDetailsContent.qml:386
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -578,7 +607,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ändra lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:334
+#: src/qml/details/AccountDetailsContent.qml:441
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Failed to change password: %1"
@@ -586,7 +615,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Misslyckades ändra lösenord: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:340
+#: src/qml/details/AccountDetailsContent.qml:447
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -594,7 +623,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/qml/details/AccountDetailsContent.qml:356
+#: src/qml/details/AccountDetailsContent.qml:463
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -602,7 +631,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:360
+#: src/qml/details/AccountDetailsContent.qml:467
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -611,7 +640,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:364
+#: src/qml/details/AccountDetailsContent.qml:471
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -619,7 +648,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Visa inte lösenord som text"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:473
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -633,7 +662,7 @@ msgstr ""
 "Tillåt att ytterligare apparater läggs till genom att använda QR-koden för "
 "inloggning men visa aldrig lösenordet."
 
-#: src/qml/details/AccountDetailsContent.qml:375
+#: src/qml/details/AccountDetailsContent.qml:482
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -641,7 +670,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Exponera inte lösenord på något sätt"
 
-#: src/qml/details/AccountDetailsContent.qml:377
+#: src/qml/details/AccountDetailsContent.qml:484
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -655,7 +684,7 @@ msgstr ""
 "Tillåt varken att ytterligare apparater läggs till genom att använda QR-"
 "koden för inloggning eller visning av lösenordet."
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:506
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -663,7 +692,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Ansluter…"
 
-#: src/qml/details/AccountDetailsContent.qml:403
+#: src/qml/details/AccountDetailsContent.qml:510
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -673,7 +702,7 @@ msgid ""
 "values)"
 msgstr "Anpassa värddatornamn och port att ansluta till"
 
-#: src/qml/details/AccountDetailsContent.qml:419
+#: src/qml/details/AccountDetailsContent.qml:526
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -681,7 +710,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Anslutningsinställningar"
 
-#: src/qml/details/AccountDetailsContent.qml:435
+#: src/qml/details/AccountDetailsContent.qml:542
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -689,7 +718,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Anslutningsinställningar ändrade"
 
-#: src/qml/details/AccountDetailsContent.qml:485
+#: src/qml/details/AccountDetailsContent.qml:592
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -697,7 +726,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Anslutningsinställningarna kunde inte ändras."
 
-#: src/qml/details/AccountDetailsContent.qml:500
+#: src/qml/details/AccountDetailsContent.qml:607
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -705,7 +734,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
-#: src/qml/details/AccountDetailsContent.qml:523
+#: src/qml/details/AccountDetailsContent.qml:630
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -713,7 +742,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Ta bort"
 
-#: src/qml/details/AccountDetailsContent.qml:531
+#: src/qml/details/AccountDetailsContent.qml:638
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -721,15 +750,15 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Ta bort konto från Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:532
+#: src/qml/details/AccountDetailsContent.qml:639
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:541
-#: src/qml/details/AccountDetailsContent.qml:567
+#: src/qml/details/AccountDetailsContent.qml:648
+#: src/qml/details/AccountDetailsContent.qml:674
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Configure"
@@ -737,7 +766,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Anpassa"
 
-#: src/qml/details/AccountDetailsContent.qml:557
+#: src/qml/details/AccountDetailsContent.qml:664
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -745,7 +774,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ta bort konto helt och hållet"
 
-#: src/qml/details/AccountDetailsContent.qml:558
+#: src/qml/details/AccountDetailsContent.qml:665
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -805,7 +834,7 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Skicka plats"
 
-#: src/qml/details/ContactDetailsContent.qml:33
+#: src/qml/details/ContactDetailsContent.qml:63
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Encryption (OMEMO 2)"
@@ -813,12 +842,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Kryptering (OMEMO 2)"
 
-#: src/qml/details/ContactDetailsContent.qml:37
+#: src/qml/details/ContactDetailsContent.qml:67
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:38
+#: src/qml/details/ContactDetailsContent.qml:68
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid ""
@@ -832,8 +861,8 @@ msgstr ""
 "Kryptering hela vägen med OMEMO 2 säkerställer att ingen annan än du och din "
 "chattpartner kan läsa eller ändra data som ni utbyter."
 
-#: src/qml/details/ContactDetailsContent.qml:50
-#: src/qml/details/ContactDetailsContent.qml:58
+#: src/qml/details/ContactDetailsContent.qml:80
+#: src/qml/details/ContactDetailsContent.qml:88
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -841,7 +870,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "Läs av QR-koderna för dina apparater för att kryptera för dem"
 
-#: src/qml/details/ContactDetailsContent.qml:52
+#: src/qml/details/ContactDetailsContent.qml:82
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -849,7 +878,7 @@ msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Dina andra apparater använder inte OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:54
+#: src/qml/details/ContactDetailsContent.qml:84
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your other devices don't use OMEMO 2"
@@ -857,7 +886,7 @@ msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "Dina andra apparater använder inte OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:61
+#: src/qml/details/ContactDetailsContent.qml:91
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices for maximum secure encryption"
@@ -865,7 +894,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Läs av QR-koderna för dina apparater för maximalt säker kryptering"
 
-#: src/qml/details/ContactDetailsContent.qml:103
+#: src/qml/details/ContactDetailsContent.qml:133
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR code of your contact to enable encryption"
@@ -873,7 +902,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgstr "Läs av QR-koden för din kontakt för att aktivera kryptering"
 
-#: src/qml/details/ContactDetailsContent.qml:106
+#: src/qml/details/ContactDetailsContent.qml:136
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Your contact doesn't use OMEMO 2"
@@ -881,7 +910,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Din kontakt använder inte OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:109
+#: src/qml/details/ContactDetailsContent.qml:139
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR codes of your devices to encrypt for them"
@@ -889,7 +918,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgstr "Läs av QR-koderna för dina apparater för att kryptera för dem"
 
-#: src/qml/details/ContactDetailsContent.qml:112
+#: src/qml/details/ContactDetailsContent.qml:142
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Scan the QR code of your contact for maximum secure encryption"
@@ -897,12 +926,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr "Läs av QR-koden för din kontakt för maximalt säker kryptering"
 
-#: src/qml/details/ContactDetailsContent.qml:166
+#: src/qml/details/ContactDetailsContent.qml:196
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:170
+#: src/qml/details/ContactDetailsContent.qml:200
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Show QR code"
@@ -910,12 +939,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
 msgstr "Visa QR-kod"
 
-#: src/qml/details/ContactDetailsContent.qml:171
+#: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:177
+#: src/qml/details/ContactDetailsContent.qml:207
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -923,12 +952,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopiera chattadress"
 
-#: src/qml/details/ContactDetailsContent.qml:178
+#: src/qml/details/ContactDetailsContent.qml:208
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:182
+#: src/qml/details/ContactDetailsContent.qml:212
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -936,7 +965,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Inbjudningslänk kopierad till klippbordet"
 
-#: src/qml/details/ContactDetailsContent.qml:195
+#: src/qml/details/ContactDetailsContent.qml:225
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -944,7 +973,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Tysta underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:199
+#: src/qml/details/ContactDetailsContent.qml:229
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Compose message"
@@ -952,37 +981,37 @@ msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Skriv meddelande"
 
-#: src/qml/details/ContactDetailsContent.qml:200
+#: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:219
+#: src/qml/details/ContactDetailsContent.qml:249
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:223
+#: src/qml/details/ContactDetailsContent.qml:253
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:224
+#: src/qml/details/ContactDetailsContent.qml:254
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:230
+#: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:231
+#: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:244
+#: src/qml/details/ContactDetailsContent.qml:274
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -990,13 +1019,13 @@ msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Tysta inte underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:245
+#: src/qml/details/ContactDetailsContent.qml:275
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:256
+#: src/qml/details/ContactDetailsContent.qml:286
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Unmute notifications"
@@ -1004,12 +1033,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Tysta inte underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:257
+#: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:276
+#: src/qml/details/ContactDetailsContent.qml:306
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1017,7 +1046,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Ta bort"
 
-#: src/qml/details/ContactDetailsContent.qml:284
+#: src/qml/details/ContactDetailsContent.qml:314
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1025,12 +1054,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/qml/details/ContactDetailsContent.qml:285
+#: src/qml/details/ContactDetailsContent.qml:315
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:294
+#: src/qml/details/ContactDetailsContent.qml:324
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Configure"
@@ -1046,7 +1075,7 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Ändra lösenord"
 
-#: src/qml/details/DetailsContent.qml:63
+#: src/qml/details/DetailsContent.qml:66
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Profile"
@@ -1054,7 +1083,7 @@ msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/qml/details/DetailsContent.qml:110
+#: src/qml/details/DetailsContent.qml:88
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Online devices"
@@ -2276,32 +2305,32 @@ msgctxt "RosterManager|"
 msgid "Disallowing %s to see your status failed"
 msgstr ""
 
-#: src/VCardModel.cpp:67
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Namn"
 
-#: src/VCardModel.cpp:70
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Smeknamn"
 
-#: src/VCardModel.cpp:73
+#: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Om"
 
-#: src/VCardModel.cpp:76
+#: src/VCardModel.cpp:123
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "E-post"
 
-#: src/VCardModel.cpp:79
+#: src/VCardModel.cpp:124
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Födelsedag"
 
-#: src/VCardModel.cpp:82
+#: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
@@ -2372,13 +2401,6 @@ msgstr "Webbplats"
 #~ msgctxt "AccountSecurity|"
 #~ msgid "Account Security"
 #~ msgstr "Kontosäkerhet"
-
-#, fuzzy
-#~| msgctxt "MediaUtils|"
-#~| msgid "Location"
-#~ msgctxt "AccountSecurity|"
-#~ msgid "Information"
-#~ msgstr "Plats"
 
 #~ msgctxt "AccountSecurity|"
 #~ msgid "Don't show password"
