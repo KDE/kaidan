@@ -234,6 +234,7 @@ Controls.Pane {
 						Layout.fillHeight: true
 
 						visible: thumbnails.count !== 0
+						clip: true
 
 						RowLayout {
 							Repeater {
