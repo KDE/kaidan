@@ -16,6 +16,7 @@
 #include <QBuffer>
 #include <QMimeType>
 #include <QImage>
+#include <QImageReader>
 #include <QPixmap>
 
 // KDE
@@ -501,12 +502,9 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 		QBuffer thumbnailBuffer(&thumbnailData);
 		image.save(&thumbnailBuffer, "JPG", JPEG_EXPORT_QUALITY);
 
-		// Don't fill the ram just to find the dimensions of an image
-		if (file->size() < THUMBNAIL_GENERATION_MAX_FILE_SIZE) {
-			QImage image(file->fileName());
-
-			if (!image.isNull()) {
-				result->dimensions = image.size();
+		if (const QImageReader reader(file->fileName()); reader.canRead()) {
+			if (const QSize size = reader.size(); !size.isEmpty()) {
+				result->dimensions = size;
 			}
 		}
 
