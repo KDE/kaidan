@@ -28,7 +28,7 @@ Kirigami.OverlaySheet {
 		model: Array.from(chatSupportList)
 
 		RosterAddContactSheet {
-			id: addContactSheet
+			id: contactAdditionSheet
 		}
 
 		delegate: Kirigami.AbstractListItem {
@@ -60,10 +60,10 @@ Kirigami.OverlaySheet {
 				if (isGroupChatSupportSheet) {
 					Qt.openUrlExternally("xmpp:" + modelData + "?join")
 				} else {
-					if (!addContactSheet.sheetOpen) {
-						addContactSheet.jid = modelData
-						addContactSheet.nickName = chatName
-						addContactSheet.open()
+					if (!contactAdditionSheet.sheetOpen) {
+						contactAdditionSheet.jid = modelData
+						contactAdditionSheet.name = chatName
+						contactAdditionSheet.open()
 					}
 				}
 

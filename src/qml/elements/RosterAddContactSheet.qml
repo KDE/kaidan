@@ -19,88 +19,81 @@ import im.kaidan.kaidan 1.0
 import "fields"
 
 Kirigami.Dialog {
-	property string jid: ""
-	property string nickname: ""
-	padding: Kirigami.Units.mediumSpacing
-	parent: applicationWindow().overlay
+	property alias jid: jidField.text
+	property alias name: nameField.text
+
 	title: qsTr("Add new contact")
-	standardButtons: Kirigami.Dialog.Cancel
-	onRejected: {
-		clearInput()
-		close()
+	parent: applicationWindow().overlay
+	standardButtons: Kirigami.Dialog.NoButton
+	padding: Kirigami.Units.mediumSpacing
+	preferredWidth: largeButtonWidth
+	onOpened: {
+		// "jidField.forceActiveFocus()" would result in showing the invalid hint on second opening.
+		jidField.inputField.forceActiveFocus()
 	}
-	customFooterActions: [
-		Kirigami.Action {
-			text: qsTr("Add")
-			enabled: credentialsValidator.isAccountJidValid(jidField.text)
-			iconName: "list-add"
-			onTriggered: {
-				Kaidan.client.rosterManager.addContactRequested(
-						jidField.text.toLowerCase(),
-						nickField.text,
-						msgField.text
-				)
-				clearInput()
-				close()
-
-				Kaidan.openChatPageRequested(AccountManager.jid, jidField.text)
-			}
-		}
-	]
-
-	CredentialsValidator {
-		id: credentialsValidator
+	onClosed: {
+		jid = "";
+		jidField.invalidHintMayBeShown = false
+		jidField.toggleHintForInvalidText()
+		name = "";
+		messageField.text = "";
 	}
 
 	ColumnLayout {
 		Layout.fillWidth: true
-		Kirigami.InlineMessage {
-			visible: true
-			Layout.preferredWidth: 400
-			Layout.fillWidth: true
-			type: Kirigami.MessageType.Information
 
-			text:  qsTr("This will also send a request to access the " +
-						"presence of the contact.")
-		}
-
-		Controls.Label {
-			text: qsTr("Jabber-ID:")
-		}
 		JidField {
 			id: jidField
-			text: jid
+			inputField.onAccepted: valid ? nameField.forceActiveFocus() : forceActiveFocus()
+			Layout.fillWidth: true
+			inputField.onActiveFocusChanged: {
+				// The active focus is taken after opening by another item.
+				// Thus, it must be forced again.
+				if (!inputField.activeFocus && !nameField.inputField.activeFocus && !messageField.activeFocus) {
+					jidField.forceActiveFocus()
+					jidField.invalidHintMayBeShown = false
+				} else {
+					jidField.invalidHintMayBeShown = true
+				}
+			}
+		}
+
+		Field {
+			id: nameField
+			labelText: qsTr("Name (optional):")
+			inputMethodHints: Qt.ImhPreferUppercase
+			inputField.onAccepted: messageField.forceActiveFocus()
 			Layout.fillWidth: true
 		}
 
 		Controls.Label {
-			text: qsTr("Nickname:")
-		}
-		Controls.TextField {
-			id: nickField
-			selectByMouse: true
-			Layout.fillWidth: true
-			text: nickname
-		}
-
-		Controls.Label {
-			text: qsTr("Optional message:")
+			text: qsTr("Message (optional):")
 			textFormat: Text.PlainText
 			Layout.fillWidth: true
 		}
 		Controls.TextArea {
-			id: msgField
+			id: messageField
+			placeholderText: qsTr("Hello, I'm…")
+			inputMethodHints: Qt.ImhPreferUppercase
+			wrapMode: TextEdit.Wrap
 			Layout.fillWidth: true
 			Layout.minimumHeight: Kirigami.Units.gridUnit * 4
-			placeholderText: qsTr("Tell your chat partner who you are.")
-			wrapMode: Controls.TextArea.Wrap
-			selectByMouse: true
 		}
-	}
 
-	function clearInput() {
-		jid = "";
-		nickname = "";
-		msgField.text = "";
+		CenteredAdaptiveHighlightedButton {
+			text: qsTr("Add")
+			Layout.fillWidth: true
+			onClicked: {
+				if (jidField.valid) {
+					Kaidan.client.rosterManager.addContactRequested(jid.toLowerCase(), name, messageField.text)
+					close()
+
+					Kaidan.openChatPageRequested(AccountManager.jid, jid)
+				} else {
+					jidField.forceActiveFocus()
+				}
+			}
+		}
+
 	}
 }

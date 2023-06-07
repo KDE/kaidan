@@ -287,7 +287,7 @@ DetailsContent {
 					if (providerArea.chatSupportList.length === 1) {
 						if (!contactAdditionSheet.sheetOpen) {
 							contactAdditionSheet.jid = providerArea.chatSupportList[0]
-							contactAdditionSheet.nickname = qsTr("Support")
+							contactAdditionSheet.name = qsTr("Support")
 							root.sheet.close()
 							contactAdditionSheet.open()
 						}
