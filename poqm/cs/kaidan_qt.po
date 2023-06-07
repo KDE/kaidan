@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-06 15:06+0200\n"
+"PO-Revision-Date: 2023-06-05 11:11+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:286
@@ -396,7 +396,7 @@ msgstr "Kopírovat heslo"
 #: src/qml/ChatPage.qml:92
 msgctxt "ChatPage|"
 msgid "Details…"
-msgstr ""
+msgstr "Podrobnosti…"
 
 #: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
@@ -411,27 +411,27 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:36
 msgctxt "AccountDetailsContent|"
 msgid "Less information"
-msgstr ""
+msgstr "Méně informací"
 
 #: src/qml/details/AccountDetailsContent.qml:36
 msgctxt "AccountDetailsContent|"
 msgid "More information"
-msgstr ""
+msgstr "Více informací"
 
 #: src/qml/details/AccountDetailsContent.qml:58
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "Prázdné"
 
 #: src/qml/details/AccountDetailsContent.qml:78
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr ""
+msgstr "Nastavit hodnotu"
 
 #: src/qml/details/AccountDetailsContent.qml:164
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "Šifrování"
 
 #: src/qml/details/AccountDetailsContent.qml:168
 msgctxt "AccountDetailsContent|"
@@ -464,12 +464,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:262
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
-msgstr ""
+msgstr "Poskytovatel"
 
 #: src/qml/details/AccountDetailsContent.qml:266
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
-msgstr ""
+msgstr "Navštívit webovou stránku"
 
 #: src/qml/details/AccountDetailsContent.qml:267
 msgctxt "AccountDetailsContent|"
@@ -499,12 +499,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:284
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "Začít rozhovor s kontaktem podpory vašeho poskytovatele"
 
 #: src/qml/details/AccountDetailsContent.qml:290
 msgctxt "AccountDetailsContent|"
 msgid "Support"
-msgstr ""
+msgstr "Podpora"
 
 #: src/qml/details/AccountDetailsContent.qml:302
 msgctxt "AccountDetailsContent|"
@@ -519,7 +519,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:328
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
-msgstr ""
+msgstr "Změna hesla"
 
 #: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
@@ -541,13 +541,13 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
-msgstr ""
+msgstr "Změnit heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:441
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr ""
+msgstr "Změna hesla selhala: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:447
 msgctxt "AccountDetailsContent|"
@@ -595,7 +595,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
-msgstr ""
+msgstr "Spojení"
 
 #: src/qml/details/AccountDetailsContent.qml:510
 msgctxt "AccountDetailsContent|"
@@ -628,7 +628,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:630
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Odstranění"
 
 #: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
@@ -646,7 +646,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:674
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdit"
 
 #: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
@@ -677,7 +677,7 @@ msgstr ""
 #: src/qml/details/AvatarChangePage.qml:114
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
-msgstr ""
+msgstr "Otevřít obrázek…"
 
 #: src/qml/details/AvatarChangePage.qml:119
 msgctxt "AvatarChangePage|"
@@ -687,12 +687,12 @@ msgstr ""
 #: src/qml/details/AvatarChangePage.qml:125
 msgctxt "AvatarChangePage|"
 msgid "Save selection"
-msgstr ""
+msgstr "Uložit výběr"
 
 #: src/qml/details/ContactDetailsContent.qml:63
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "Šifrování"
 
 #: src/qml/details/ContactDetailsContent.qml:67
 msgctxt "ContactDetailsContent|"
@@ -750,12 +750,12 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:196
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
-msgstr ""
+msgstr "Sdílení"
 
 #: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
-msgstr ""
+msgstr "Zobrazit QR kód"
 
 #: src/qml/details/ContactDetailsContent.qml:201
 msgctxt "ContactDetailsContent|"
@@ -780,12 +780,12 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:225
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
-msgstr ""
+msgstr "Upozornění"
 
 #: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
-msgstr ""
+msgstr "Příchozí zprávy"
 
 #: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
@@ -795,7 +795,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:249
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
-msgstr ""
+msgstr "Soukromí"
 
 #: src/qml/details/ContactDetailsContent.qml:253
 msgctxt "ContactDetailsContent|"
@@ -810,7 +810,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
-msgstr ""
+msgstr "Odeslat stav"
 
 #: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
@@ -820,7 +820,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:274
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr ""
+msgstr "Posílat oznamování o psaní"
 
 #: src/qml/details/ContactDetailsContent.qml:275
 msgctxt "ContactDetailsContent|"
@@ -831,7 +831,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
-msgstr ""
+msgstr "Posílat oznamování o čtení"
 
 #: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
@@ -841,12 +841,12 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:306
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "Odstranění"
 
 #: src/qml/details/ContactDetailsContent.qml:314
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
-msgstr ""
+msgstr "Odstranit"
 
 #: src/qml/details/ContactDetailsContent.qml:315
 msgctxt "ContactDetailsContent|"
@@ -856,7 +856,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:324
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
-msgstr ""
+msgstr "Potvrdit"
 
 #: src/qml/details/ContactDetailsHeader.qml:18
 msgctxt "ContactDetailsHeader|"
@@ -866,17 +866,17 @@ msgstr ""
 #: src/qml/details/DetailsContent.qml:66
 msgctxt "DetailsContent|"
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: src/qml/details/DetailsContent.qml:88
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
-msgstr ""
+msgstr "Připojená zařízení"
 
 #: src/qml/details/DetailsHeader.qml:86
 msgctxt "DetailsHeader|"
 msgid "Change name…"
-msgstr ""
+msgstr "Změnit název…"
 
 #: src/qml/elements/ChatMessage.qml:148
 msgctxt "ChatMessage|"
@@ -1170,7 +1170,7 @@ msgstr ""
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
 msgid "Draft:"
-msgstr ""
+msgstr "Koncept:"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
@@ -1278,12 +1278,12 @@ msgstr ""
 #: src/qml/GlobalDrawer.qml:64
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
-msgstr ""
+msgstr "Účty"
 
 #: src/qml/GlobalDrawer.qml:134
 msgctxt "GlobalDrawer|"
 msgid "Actions"
-msgstr ""
+msgstr "Činnosti"
 
 #: src/qml/GlobalDrawer.qml:138
 msgctxt "GlobalDrawer|"
@@ -1291,12 +1291,9 @@ msgid "Add contact by QR code"
 msgstr "Přidat kontakt QR kódem"
 
 #: src/qml/GlobalDrawer.qml:147
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by QR code"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "Přidat kontakt QR kódem"
+msgstr "Přidat kontakt podle adresy rozhovoru"
 
 #: src/qml/GlobalDrawer.qml:157
 msgctxt "GlobalDrawer|"
@@ -1733,11 +1730,9 @@ msgstr "O aplikaci Kaidan"
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
 msgstr ""
+"Uživatelsky přívětivý a moderní klient pro rozhovory pro každé zařízení"
 
 #: src/qml/settings/AboutPage.qml:74
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Visit Website"
 msgctxt "AboutPage|"
 msgid "Visit website"
 msgstr "Navštívit webovou stránku"
@@ -1745,12 +1740,12 @@ msgstr "Navštívit webovou stránku"
 #: src/qml/settings/AboutPage.qml:75
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "Otevřít webovou stránku aplikace Kaidan v prohlížeči"
 
 #: src/qml/settings/AboutPage.qml:81
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "Sledujte na Mastodonu"
 
 #: src/qml/settings/AboutPage.qml:82
 msgctxt "AboutPage|"
@@ -1760,7 +1755,7 @@ msgstr ""
 #: src/qml/settings/AboutPage.qml:88
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "Přispějte"
 
 #: src/qml/settings/AboutPage.qml:89
 msgctxt "AboutPage|"
@@ -1773,28 +1768,20 @@ msgid "Report problems"
 msgstr "Nahlaste problémy"
 
 #: src/qml/settings/AboutPage.qml:96
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues in Kaidan to the developers"
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
 msgstr "Nahlaste vývojářům aplikace Kaidan nalezené problémy"
 
 #: src/qml/settings/AboutPage.qml:102
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code online"
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr "Prohledávejte zdrojové kódy na síti"
+msgstr "Prohledávejte zdrojové kódy"
 
 #: src/qml/settings/AboutPage.qml:103
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code and contribute to the project"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr "Prohlížejte zdrojové kódy aplikace Kaidan a přispívejte do projektu"
+msgstr ""
+"Prohlížejte online zdrojové kódy aplikace Kaidan a přispívejte do projektu"
 
 #: src/qml/settings/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
@@ -2035,15 +2022,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "RosterAddContactSheet|"
-#~ msgid "user@example.org"
-#~ msgstr "uzivatel@priklad.cz"
-
-#~ msgctxt "RosterPage|"
-#~ msgid "Add new contact"
-#~ msgstr "Přidat nový kontakt"
-
-#~ msgctxt "AboutPage|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "Jednoduchý uživatelsky přívětivý klient Jabber/XMPP"
