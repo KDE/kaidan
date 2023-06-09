@@ -238,30 +238,46 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageHandler.cpp:295
+#: src/MessageHandler.cpp:297
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:234
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Очікування"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:236
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Надіслані"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:238
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:240
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Помилка"
+
+#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageModel|"
+msgid "Reaction could not be sent: %s"
+msgstr "Повідомлення не вдалося надіслати."
+
+#: src/MessageModel.cpp:847
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageModel|"
+msgid "Reactions could not be sent: %s"
+msgstr "Повідомлення не вдалося надіслати."
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -923,27 +939,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Змінити назву…"
 
-#: src/qml/elements/ChatMessage.qml:148
+#: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:205
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Отримати"
 
-#: src/qml/elements/ChatMessage.qml:304
+#: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Не зашифровано"
 
-#: src/qml/elements/ChatMessage.qml:309
+#: src/qml/elements/ChatMessage.qml:328
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Не довірено"
 
-#: src/qml/elements/ChatMessage.qml:341
+#: src/qml/elements/ChatMessage.qml:360
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1112,21 +1128,50 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Будь ласка, введіть коректний пароль"
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:26
-#, qt-format
-msgctxt "MessageReactionSenderSheet|"
-msgid "Senders of %1"
-msgstr "Відправники %1"
+#: src/qml/elements/MessageReactionDetailsSheet.qml:27
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Actions"
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Reactions"
+msgstr "Дії"
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:32
-msgctxt "MessageReactionSenderSheet|"
-msgid "Add own reaction"
-msgstr "Додати власну реакцію"
+#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Own:"
+msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:42
-msgctxt "MessageReactionSenderSheet|"
-msgid "Remove own reaction"
-msgstr "Вилучити власну реакцію"
+#: src/qml/elements/MessageReactionDetailsSheet.qml:53
+#, fuzzy, qt-format
+#| msgctxt "Kaidan|"
+#| msgid "The link will be opened after you have connected."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be added once you are connected"
+msgstr "Посилання буде відкрито після встановлення з'єднання."
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#, fuzzy, qt-format
+#| msgctxt "Kaidan|"
+#| msgid "The link will be opened after you have connected."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be removed once you are connected"
+msgstr "Посилання буде відкрито після встановлення з'єднання."
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be added"
+msgstr "Повідомлення не вдалося надіслати."
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be removed"
+msgstr "Повідомлення не вдалося надіслати."
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
@@ -2126,6 +2171,18 @@ msgstr "День народження"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
+
+#~ msgctxt "MessageReactionSenderSheet|"
+#~ msgid "Senders of %1"
+#~ msgstr "Відправники %1"
+
+#~ msgctxt "MessageReactionSenderSheet|"
+#~ msgid "Add own reaction"
+#~ msgstr "Додати власну реакцію"
+
+#~ msgctxt "MessageReactionSenderSheet|"
+#~ msgid "Remove own reaction"
+#~ msgstr "Вилучити власну реакцію"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "user@example.org"

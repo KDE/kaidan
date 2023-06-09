@@ -230,29 +230,39 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageHandler.cpp:295
+#: src/MessageHandler.cpp:297
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:234
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr ""
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:236
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr ""
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:238
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr ""
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:240
 msgctxt "MessageModel|"
 msgid "Error"
+msgstr ""
+
+#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+msgctxt "MessageModel|"
+msgid "Reaction could not be sent: %s"
+msgstr ""
+
+#: src/MessageModel.cpp:847
+msgctxt "MessageModel|"
+msgid "Reactions could not be sent: %s"
 msgstr ""
 
 #: src/Notifications.cpp:166
@@ -875,27 +885,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:148
+#: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:205
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:304
+#: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:309
+#: src/qml/elements/ChatMessage.qml:328
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:341
+#: src/qml/elements/ChatMessage.qml:360
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1063,20 +1073,38 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:26
+#: src/qml/elements/MessageReactionDetailsSheet.qml:27
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Reactions"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Own:"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:53
 #, qt-format
-msgctxt "MessageReactionSenderSheet|"
-msgid "Senders of %1"
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be added once you are connected"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:32
-msgctxt "MessageReactionSenderSheet|"
-msgid "Add own reaction"
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be removed once you are connected"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:42
-msgctxt "MessageReactionSenderSheet|"
-msgid "Remove own reaction"
+#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be added"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be removed"
 msgstr ""
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210

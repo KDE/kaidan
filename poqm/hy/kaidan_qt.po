@@ -246,30 +246,46 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Հաղորդագրության ուղղումը ձախողվել է։"
 
-#: src/MessageHandler.cpp:295
+#: src/MessageHandler.cpp:297
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:234
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ընթացքում է"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:236
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Ուղարկված"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:238
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Առաքված"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:240
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ձախողված"
+
+#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageModel|"
+msgid "Reaction could not be sent: %s"
+msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
+
+#: src/MessageModel.cpp:847
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageModel|"
+msgid "Reactions could not be sent: %s"
+msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1074,27 +1090,27 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:148
+#: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
 
-#: src/qml/elements/ChatMessage.qml:205
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Ներբեռնել"
 
-#: src/qml/elements/ChatMessage.qml:304
+#: src/qml/elements/ChatMessage.qml:323
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:309
+#: src/qml/elements/ChatMessage.qml:328
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:341
+#: src/qml/elements/ChatMessage.qml:360
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1307,24 +1323,50 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/MessageReactionSenderSheet.qml:26
-#, qt-format
-msgctxt "MessageReactionSenderSheet|"
-msgid "Senders of %1"
-msgstr ""
-
-#: src/qml/elements/MessageReactionSenderSheet.qml:32
-msgctxt "MessageReactionSenderSheet|"
-msgid "Add own reaction"
-msgstr ""
-
-#: src/qml/elements/MessageReactionSenderSheet.qml:42
+#: src/qml/elements/MessageReactionDetailsSheet.qml:27
 #, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Remove contact"
-msgctxt "MessageReactionSenderSheet|"
-msgid "Remove own reaction"
-msgstr "Ջնջել կոնտակտը"
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Reactions"
+msgstr "Տեղադրություն"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Own:"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:53
+#, fuzzy, qt-format
+#| msgctxt "Kaidan|"
+#| msgid "The link will be opened after you have connected."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be added once you are connected"
+msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#, fuzzy, qt-format
+#| msgctxt "Kaidan|"
+#| msgid "The link will be opened after you have connected."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be removed once you are connected"
+msgstr "Հղումը կբացվի կապ հաստատելուց հետո։"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be added"
+msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be removed"
+msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
@@ -2386,6 +2428,13 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "UserProfilePage|"
+#~| msgid "Remove contact"
+#~ msgctxt "MessageReactionSenderSheet|"
+#~ msgid "Remove own reaction"
+#~ msgstr "Ջնջել կոնտակտը"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "user@example.org"
