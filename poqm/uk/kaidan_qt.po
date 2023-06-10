@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-05 09:05+0300\n"
+"PO-Revision-Date: 2023-06-09 17:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -264,20 +264,14 @@ msgid "Error"
 msgstr "Помилка"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Не вдалося надіслати реакцію: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Не вдалося надіслати реакції: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1129,49 +1123,38 @@ msgid "Please enter a valid password"
 msgstr "Будь ласка, введіть коректний пароль"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Дії"
+msgstr "Реакції"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Власні:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:53
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "Посилання буде відкрито після встановлення з'єднання."
+msgstr "%1 буде додано одразу після встановлення з'єднання"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "Посилання буде відкрито після встановлення з'єднання."
+msgstr "%1 буде вилучено одразу після встановлення з'єднання"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Не вдалося додати %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "Повідомлення не вдалося надіслати."
+msgstr "Не вдалося вилучити %1"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-06 05:24+0300\n"
+"PO-Revision-Date: 2023-06-09 12:29+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -261,20 +261,14 @@ msgid "Error"
 msgstr "Hata"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "İleti gönderilemedi."
+msgstr "Tepki gönderilemedi: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "İleti gönderilemedi."
+msgstr "Tepkiler gönderilemedi: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1111,49 +1105,38 @@ msgid "Please enter a valid password"
 msgstr "Geçerli bir parola girin"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Eylemler"
+msgstr "Tepkiler"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Sahip:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:53
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
+msgstr "%1, bağlandığınızda eklenecek"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
+msgstr "%1, bağlandığınızda kaldırılacak"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "İleti gönderilemedi."
+msgstr "%1 eklenemedi"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "İleti gönderilemedi."
+msgstr "%1 kaldırılamadı"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

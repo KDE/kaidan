@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-06-05 09:49+0200\n"
+"PO-Revision-Date: 2023-06-09 09:29+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -272,20 +272,14 @@ msgid "Error"
 msgstr "Error"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "No s'ha pogut enviar la reacció: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "No s'han pogut enviar les reaccions: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1138,49 +1132,38 @@ msgid "Please enter a valid password"
 msgstr "Introduïu una contrasenya vàlida"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Accions"
+msgstr "Reaccions"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Propietat:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:53
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
+msgstr "%1 s'afegirà després que us hàgiu connectat"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
+msgstr "%1 s'eliminarà després que us hàgiu connectat"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "No s'ha pogut afegir %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "No s'ha pogut enviar el missatge."
+msgstr "No s'ha pogut eliminar %1"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
@@ -2179,15 +2162,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "MessageReactionSenderSheet|"
-#~ msgid "Senders of %1"
-#~ msgstr "Remitents de %1"
-
-#~ msgctxt "MessageReactionSenderSheet|"
-#~ msgid "Add own reaction"
-#~ msgstr "Afegeix una reacció pròpia"
-
-#~ msgctxt "MessageReactionSenderSheet|"
-#~ msgid "Remove own reaction"
-#~ msgstr "Elimina la reacció pròpia"
