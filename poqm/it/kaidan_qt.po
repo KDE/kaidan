@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-25 10:51+0200\n"
+"PO-Revision-Date: 2023-06-09 15:59+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.0\n"
+"X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:286
@@ -261,20 +261,14 @@ msgid "Error"
 msgstr "Errore"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "Il messaggio non può essere inviato."
+msgstr "Impossibile inviare la reazione: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "Il messaggio non può essere inviato."
+msgstr "Impossibile inviare le reazioni: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -433,33 +427,24 @@ msgid "Send a spoiler message"
 msgstr "Invia un messaggio spoiler"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Information"
 msgctxt "AccountDetailsContent|"
 msgid "Less information"
-msgstr "Informazioni"
+msgstr "Meno informazioni"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "AccountDetailsContent|"
 msgid "More information"
-msgstr "Informazioni di profilo"
+msgstr "Più informazioni"
 
 #: src/qml/details/AccountDetailsContent.qml:58
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "Vuoto"
 
 #: src/qml/details/AccountDetailsContent.qml:78
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Set up"
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr "Configurazione"
+msgstr "Imposta il valore"
 
 #: src/qml/details/AccountDetailsContent.qml:164
 msgctxt "AccountDetailsContent|"
@@ -1138,49 +1123,38 @@ msgid "Please enter a valid password"
 msgstr "Digita una password valida"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Azioni"
+msgstr "Reazioni"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Propria:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:53
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "Il collegamento sarà aperto dopo la connessione."
+msgstr "%1 sarà aggiunto una volta connesso"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "Il collegamento sarà aperto dopo la connessione."
+msgstr "%1 sarà rimosso una volta connesso"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "Il messaggio non può essere inviato."
+msgstr "%1 non può essere aggiunto"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "Il messaggio non può essere inviato."
+msgstr "%1 non può essere rimosso"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
