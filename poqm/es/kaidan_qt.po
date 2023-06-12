@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-05 22:01+0200\n"
+"PO-Revision-Date: 2023-06-11 21:39+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -262,20 +262,14 @@ msgid "Error"
 msgstr "Error"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "No se pudo enviar el mensaje."
+msgstr "No se ha podido enviar la reacción: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "No se pudo enviar el mensaje."
+msgstr "No se han podido enviar las reacciones: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1124,49 +1118,38 @@ msgid "Please enter a valid password"
 msgstr "Introduzca una contraseña válida"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Acciones"
+msgstr "Reacciones"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Propia:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:53
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "El enlace se abrirá cuando se haya conectado."
+msgstr "Se añadirá %1 cuando esté conectado"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "El enlace se abrirá cuando se haya conectado."
+msgstr "Se eliminará %1 cuando esté conectado"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "No se pudo enviar el mensaje."
+msgstr "No se ha podido añadir %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "No se pudo enviar el mensaje."
+msgstr "No se ha podido eliminar %1"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
