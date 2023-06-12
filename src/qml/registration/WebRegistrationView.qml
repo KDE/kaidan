@@ -37,7 +37,7 @@ View {
 			Layout.topMargin: height
 			onClicked: {
 				let page = pageStack.layers.push(loginPage)
-				page.prefillJidDomain(serverView.text)
+				page.prefillJidDomain(providerView.text)
 			}
 		}
 	}
