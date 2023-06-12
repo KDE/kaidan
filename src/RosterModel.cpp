@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -54,6 +55,7 @@ RosterModel::RosterModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::draftMessageUpdated, this, &RosterModel::handleDraftMessageUpdated);
 	connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
 	connect(MessageDb::instance(), &MessageDb::draftMessageFetched, this, &RosterModel::handleDraftMessageFetched);
+	connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &RosterModel::handleMessageRemoved);
 
 	connect(AccountManager::instance(), &AccountManager::jidChanged, this, [this] {
 		beginResetModel();
@@ -339,6 +341,29 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 	handleItemsFetched(newItems);
 }
 
+void RosterModel::updateLastMessage(
+	QVector<RosterItem>::Iterator &itr, const Message &message,
+	QVector<int> &changedRoles, bool onlyUpdateIfNewer)
+{
+	// If desired, only set the new message as the current last message if it is newer than
+	// the current one. Allow using the previous message as the new last message if the current
+	// last message is empty.
+	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewer && itr->lastExchanged >= message.stamp)) {
+		return;
+	}
+
+	itr->lastExchanged = message.stamp;
+
+	// The new message is only set as the current last message if they are different and there
+	// is no draft message.
+	if (const auto lastMessage = message.previewText();
+		itr->draftMessageId.isEmpty() && itr->lastMessage != lastMessage)
+	{
+		itr->lastMessage = lastMessage;
+		changedRoles << int(LastMessageRole);
+	}
+}
+
 void RosterModel::pinItem(const QString &, const QString &jid)
 {
 	emit updateItemRequested(jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
@@ -454,24 +479,11 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	if (itr == m_items.end())
 		return;
 
-	// only set new message if it's newer
-	// allow setting old message if the current message is empty
-	if (!itr->lastMessage.isEmpty() && itr->lastExchanged >= message.stamp)
-		return;
-
 	QVector<int> changedRoles = {
 		int(LastExchangedRole)
 	};
 
-	// last exchanged
-	itr->lastExchanged = message.stamp;
-
-	// last message, we only set it if there is no draft pending
-	const auto lastMessage = message.previewText();
-	if (itr->draftMessageId.isEmpty() && itr->lastMessage != lastMessage) {
-		itr->lastMessage = lastMessage;
-		changedRoles << int(LastMessageRole);
-	}
+	updateLastMessage(itr, message, changedRoles);
 
 	// unread messages counter
 	std::optional<int> newUnreadMessages;
@@ -613,6 +625,34 @@ void RosterModel::handleDraftMessageRemoved(const QString &id)
 void RosterModel::handleDraftMessageFetched(const Message &msg)
 {
 	handleDraftMessageUpdated(msg);
+}
+
+void RosterModel::handleMessageRemoved(std::shared_ptr<Message> newLastMessage)
+{
+	if (!newLastMessage) {
+		return;
+	}
+
+	newLastMessage->isOwn = AccountManager::instance()->jid() == newLastMessage->from;
+	const auto contactJid = newLastMessage->isOwn ? newLastMessage->to : newLastMessage->from;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
+		return item.jid == contactJid;
+	});
+
+	// Skip further processing if the contact could not be found.
+	if (itr == m_items.end()) {
+		return;
+	}
+
+	QVector<int> changedRoles {};
+
+	updateLastMessage(itr, *newLastMessage, changedRoles, false);
+
+	// Notify the user interface and watchers.
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 }
 
 void RosterModel::insertItem(int index, const RosterItem &item)

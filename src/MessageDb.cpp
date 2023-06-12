@@ -89,6 +89,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxOriginId = rec.indexOf("originId");
 	int idxStanza = rec.indexOf("stanzaId");
 	int idxFileGroupId = rec.indexOf("fileGroupId");
+	int idxRemoved = rec.indexOf("removed");
 
 	while (query.next()) {
 		Message msg;
@@ -113,6 +114,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.fileGroupId = variantToOptional<qint64>(query.value(idxFileGroupId));
 		// this is useful with resending pending messages
 		msg.receiptRequested = true;
+		msg.removed = query.value(idxRemoved).toBool();
 
 		// fetch referenced files
 		if (msg.fileGroupId) {
@@ -164,6 +166,9 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
 	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
 		rec.append(createSqlField("fileGroupId", optionalToVariant(newMsg.fileGroupId)));
+	}
+	if (oldMsg.removed != newMsg.removed) {
+		rec.append(createSqlField("removed", newMsg.removed));
 	}
 
 	return rec;
@@ -485,10 +490,10 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			query,
 			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
 			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
-			"originId, stanzaId, fileGroupId) "
+			"originId, stanzaId, fileGroupId, removed) "
 			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
 			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
-			":originId, :stanzaId, :fileGroupId)"
+			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
 
 		bindValues(query, {
@@ -507,7 +512,8 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":replaceId", msg.replaceId },
 			{ u":originId", msg.originId },
 			{ u":stanzaId", msg.stanzaId },
-			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) }
+			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) },
+			{ u":removed", msg.removed }
 		});
 		execQuery(query);
 
@@ -535,6 +541,70 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 		}
 
 		execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
+	});
+}
+
+QFuture<void> MessageDb::removeMessage(const QString &senderJid, const QString &recipientJid,
+									   const QString &messageId)
+{
+	return run([this, senderJid, recipientJid, messageId]() {
+		auto query = createQuery();
+
+		execQuery(
+			query,
+			"SELECT * FROM chatMessages "
+			"WHERE id = :messageId "
+			"AND ((sender = :sender AND recipient = :recipient) OR "
+			"(recipient = :sender AND sender = :recipient)) "
+			"LIMIT 1",
+			{{ u":messageId", messageId },
+			 { u":recipient", recipientJid },
+			 { u":sender", senderJid }}
+		);
+
+		auto messages = _fetchMessagesFromQuery(query);
+
+		if (!messages.isEmpty()) {
+			// Set the message's content to NULL and the "removed" flag to true.
+			execQuery(
+				query,
+				"UPDATE messages "
+				"SET message = NULL, spoilerHint = NULL, removed = 1 "
+				"WHERE id = :messageId "
+				"AND ((sender = :sender AND recipient = :recipient) OR "
+				"(recipient = :sender AND sender = :recipient)) ",
+				{{ u":messageId", messageId },
+				 { u":recipient", recipientJid },
+				 { u":sender", senderJid }}
+			);
+
+			// Remove reactions corresponding to the removed message.
+			execQuery(
+				query,
+				"DELETE FROM messageReactions "
+				"WHERE messageId = :messageId "
+				"AND ((messageSender = :sender AND messageRecipient = :recipient) "
+				"OR (messageRecipient = :sender AND messageSender = :recipient)) "
+				"LIMIT 1",
+				{{ u":messageId", messageId },
+				 { u":recipient", recipientJid },
+				 { u":sender", senderJid }}
+			);
+		}
+
+		std::shared_ptr<Message> message {
+			std::make_shared<Message>(_fetchLastMessage(senderJid, recipientJid))
+		};
+
+		// The retrieved last message can be a default-constructed message if the removed
+		// message was the last one of the corresponding chat. In that case, the sender and
+		// recipient JIDs are set in order to relate the message to its chat.
+		if (message->from.isEmpty()) {
+			message->from = senderJid;
+			message->to = recipientJid;
+		}
+
+		emit messageRemoved(message);
 	});
 }
 
@@ -667,10 +737,10 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 			query,
 			"INSERT INTO " DB_TABLE_MESSAGES " (sender, recipient, timestamp, message, id, encryption, "
 			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
-			"originId, stanzaId, fileGroupId) "
+			"originId, stanzaId, fileGroupId, removed) "
 			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
 			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
-			":originId, :stanzaId, :fileGroupId)"
+			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
 
 		bindValues(query, {
@@ -689,7 +759,8 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 			{ u":replaceId", msg.replaceId },
 			{ u":originId", msg.originId },
 			{ u":stanzaId", msg.stanzaId },
-			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) }
+			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) },
+			{ u":removed", msg.removed }
 		});
 		execQuery(query);
 
@@ -1079,11 +1150,16 @@ bool MessageDb::_checkMessageExists(const Message &message)
 	}
 
 	const QString idConditionSql = idChecks.join(u" OR ");
+
+	// By querying DB_TABLE_MESSAGES instead of DB_VIEW_CHAT_MESSAGES and excluding drafts, all sent or received messages are retrieved.
+	// That includes locally removed messages.
+	// It avoids storing messages that were already locally removed again when received via MAM afterwards.
 	const QString querySql =
-		QStringLiteral("SELECT COUNT(*) FROM " DB_VIEW_CHAT_MESSAGES " "
+		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES " "
 		               "WHERE (sender = :from AND recipient = :to AND (") %
 		idConditionSql %
-		QStringLiteral(")) ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
+		QStringLiteral(")) AND deliveryState != 4 ") %
+		QStringLiteral("ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
 	auto query = createQuery();
 	execQuery(query, querySql, bindValues);

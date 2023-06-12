@@ -187,6 +187,16 @@ public:
 	QFuture<void> removeMessages(const QString &accountJid, const QString &chatJid = {});
 
 	/**
+	 * Removes a chat message locally.
+	 *
+	 * @param senderJid bare JID of the message's sender
+	 * @param recipientJid bare JID of the message's recipient
+	 * @param messageId ID of the message
+	 */
+	QFuture<void> removeMessage(const QString &senderJid, const QString &recipientJid, const QString &messageId);
+	Q_SIGNAL void messageRemoved(std::shared_ptr<Message> message);
+
+	/**
 	 * Loads a message, runs the update lambda and writes it to the DB again.
 	 *
 	 * @param updateMsg Function that changes the message

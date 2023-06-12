@@ -201,6 +201,13 @@ public:
 	Q_INVOKABLE void correctMessage(const QString &msgId, const QString &message);
 
 	/**
+	 * Removes a message locally.
+	 * 
+	 * @param messageId ID of the message
+	 */
+	Q_INVOKABLE void removeMessage(const QString &messageId);
+
+	/**
 	 * Searches from the most recent to the oldest message to find a given substring (case insensitive).
 	 *
 	 * If no index is passed, the search begins from the most recent message.
@@ -292,6 +299,7 @@ private:
 
 	void handleMessage(Message msg, MessageOrigin origin);
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
+	void handleMessageRemoved(const QString &senderJid, const QString &recipientJid, const QString &messageId);
 
 	void resetCurrentChat(const QString &accountJid, const QString &chatJid);
 

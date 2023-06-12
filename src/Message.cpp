@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2019 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 

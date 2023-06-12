@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -111,6 +112,8 @@ public:
 
 	const QVector<RosterItem> &items() const;
 
+	void updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+
 	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
@@ -144,9 +147,12 @@ private:
 
 	void addItem(const RosterItem &item);
 	void removeItem(const QString &jid);
-	void updateItem(const QString &jid,
-	                const std::function<void (RosterItem &)> &updateItem);
 	void replaceItems(const QHash<QString, RosterItem> &items);
+
+	void updateLastMessage(QVector<RosterItem>::Iterator &itr,
+						   const Message &message,
+						   QVector<int> &changedRoles,
+						   bool onlyUpdateIfNewer = true);
 
 	/**
 	 * Removes all roster items of an account or a specific roster item.
@@ -161,6 +167,7 @@ private:
 	void handleDraftMessageUpdated(const Message &message);
 	void handleDraftMessageRemoved(const QString &id);
 	void handleDraftMessageFetched(const Message &msg);
+	void handleMessageRemoved(std::shared_ptr<Message> newLastMessage);
 
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);

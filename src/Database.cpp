@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2023 Sergey Smirnykh <sergey.smirnykh@siborgium.xyz>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -42,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 29
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(29)
+#define DATABASE_LATEST_VERSION 30
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(30)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -400,6 +401,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
 			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
@@ -572,8 +574,10 @@ void Database::createNewDatabase()
 		)
 	);
 
-	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState != 4");
-	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState = 4");
+	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
+					 " WHERE deliveryState != 4 AND removed != 1");
+	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
+					 " WHERE deliveryState = 4");
 
 	d->version = DATABASE_LATEST_VERSION;
 }
@@ -1411,4 +1415,15 @@ void Database::convertDatabaseToV29()
 	execQuery(query, "DROP TABLE messageReactions_tmp");
 
 	d->version = 29;
+}
+
+void Database::convertDatabaseToV30()
+{
+	DATABASE_CONVERT_TO_VERSION(29);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE " DB_TABLE_MESSAGES " ADD removed " SQL_BOOL_NOT_NULL " DEFAULT 0");
+	execQuery(query, "DROP VIEW " DB_VIEW_CHAT_MESSAGES);
+	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM "
+			  DB_TABLE_MESSAGES " WHERE deliveryState != 4 AND removed != 1");
+	d->version = 30;
 }

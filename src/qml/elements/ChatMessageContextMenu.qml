@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2020 Yury Gubich <blue@macaw.me>
 // SPDX-FileCopyrightText: 2021 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -64,6 +65,18 @@ Controls.Menu {
 			MessageModel.markMessageAsFirstUnread(message.modelIndex);
 			MessageModel.resetCurrentChat()
 			openChatView()
+		}
+	}
+
+	Controls.MenuItem {
+		text: qsTr("Remove from this device")
+		onTriggered: {
+			root.message.font.italic = true
+			MessageModel.removeMessage(root.message.msgId)
+
+			if (root.file && root.file.localFilePath) {
+				Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
+			}
 		}
 	}
 }

@@ -98,6 +98,8 @@ Q_DECLARE_METATYPE(std::function<void()>)
 Q_DECLARE_METATYPE(std::function<void(RosterItem&)>)
 Q_DECLARE_METATYPE(std::function<void(Message&)>)
 
+Q_DECLARE_METATYPE(std::shared_ptr<Message>)
+
 #ifdef STATIC_BUILD
 #include "static_plugins.h"
 #endif
@@ -267,6 +269,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppVersionIq>();
 	qRegisterMetaType<QXmppUri>();
 	qRegisterMetaType<QMap<QString, QUrl>>();
+	qRegisterMetaType<std::shared_ptr<Message>>();
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();

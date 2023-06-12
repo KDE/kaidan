@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2019 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -198,6 +199,8 @@ public:
 	DeliveryState deliveryState = DeliveryState::Delivered;
 	// Text description of an error if it ever happened to the message
 	QString errorText;
+	// True if the message's content and related data such as files have been removed locally.
+	bool removed = false;
 
 	[[nodiscard]] QXmppMessage toQXmpp() const;
 

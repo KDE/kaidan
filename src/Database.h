@@ -4,6 +4,7 @@
 // SPDX-FileCopyrightText: 2022 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -110,6 +111,7 @@ private:
 	void convertDatabaseToV27();
 	void convertDatabaseToV28();
 	void convertDatabaseToV29();
+	void convertDatabaseToV30();
 
 	std::unique_ptr<DatabasePrivate> d;
 };
