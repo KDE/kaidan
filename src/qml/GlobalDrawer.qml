@@ -228,8 +228,8 @@ Kirigami.GlobalDrawer {
 		}
 
 		function onXmppUriReceived(uri) {
-			// 'xmpp:' has length 5.
-			openView(contactAdditionDialog, contactAdditionPage).jid = uri.substr(5)
+			const xmppUriPrefix = `xmpp:`
+			openView(contactAdditionDialog, contactAdditionPage).jid = uri.substr(xmppUriPrefix.length)
 		}
 	}
 }
