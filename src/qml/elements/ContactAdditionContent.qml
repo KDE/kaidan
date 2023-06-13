@@ -38,6 +38,7 @@ ActionView {
 			jidField.forceActiveFocus()
 		}
 	}
+	loadingDescription: qsTr("Adding contact…")
 
 	JidField {
 		id: jidField

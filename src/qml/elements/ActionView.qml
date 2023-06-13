@@ -15,6 +15,7 @@ StackLayout {
 
 	default property alias __data: contentArea.data
 	property alias confirmationButton: confirmationButton
+	property alias loadingDescription: loadingArea.description
 
 	ColumnLayout {
 		spacing: 20
@@ -30,7 +31,10 @@ StackLayout {
 		}
 	}
 
-	Controls.BusyIndicator {}
+	LoadingArea {
+		id: loadingArea
+		backgroundColor: secondaryBackgroundColor
+	}
 
 	function showLoadingView() {
 		currentIndex = 1

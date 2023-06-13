@@ -54,33 +54,10 @@ ExplanationTogglePage {
 		id: scanner
 		anchors.fill: parent
 
-		Item {
+		LoadingArea {
 			anchors.centerIn: parent
-
-			// background of loadingArea
-			Rectangle {
-				anchors.fill: loadingArea
-				anchors.margins: -8
-				radius: roundedCornersRadius
-				color: Kirigami.Theme.backgroundColor
-				opacity: 0.9
-				visible: loadingArea.visible
-			}
-
-			ColumnLayout {
-				id: loadingArea
-				anchors.centerIn: parent
-				visible: Kaidan.connectionState === Enums.StateConnecting
-
-				Controls.BusyIndicator {
-					Layout.alignment: Qt.AlignHCenter
-				}
-
-				Controls.Label {
-					text: "<i>" + qsTr("Connecting…") + "</i>"
-					color: Kirigami.Theme.textColor
-				}
-			}
+			description: qsTr("Connecting…")
+			visible: Kaidan.connectionState === Enums.StateConnecting
 		}
 
 		filter.onScanningSucceeded: {
