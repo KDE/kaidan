@@ -29,7 +29,14 @@ ActionView {
 	confirmationButton.onClicked: {
 		const jidInLowerCase = jid.toLowerCase()
 
-		if (jidField.valid) {
+		if (RosterModel.hasItem(jidInLowerCase)) {
+			showPassiveNotification(qsTr("Contact already exists"),
+									"long",
+									qsTr("Open chat"),
+									function () {
+										Kaidan.openChatPageRequested(AccountManager.jid, jidInLowerCase)
+									})
+		} else if (jidField.valid) {
 			showLoadingView()
 			Kaidan.client.rosterManager.addContactRequested(jidInLowerCase, name, messageField.text)
 			hideLoadingView()
