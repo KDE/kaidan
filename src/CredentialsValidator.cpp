@@ -13,7 +13,7 @@ CredentialsValidator::CredentialsValidator(QObject *parent)
 {
 }
 
-bool CredentialsValidator::isAccountJidValid(const QString &jid)
+bool CredentialsValidator::isUserJidValid(const QString &jid)
 {
 	return jid.count('@') == 1 && isUsernameValid(QXmppUtils::jidToUser(jid)) && isServerValid(QXmppUtils::jidToDomain(jid));
 }

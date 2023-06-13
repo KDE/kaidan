@@ -142,7 +142,7 @@ quint8 Kaidan::logInByUri(const QString &uri)
 
 	QXmppUri parsedUri(uri);
 
-	if (!CredentialsValidator::isAccountJidValid(parsedUri.jid())) {
+	if (!CredentialsValidator::isUserJidValid(parsedUri.jid())) {
 		return quint8(LoginByUriState::InvalidLoginUri);
 	}
 
