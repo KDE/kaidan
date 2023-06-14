@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-05 11:11+0200\n"
+"PO-Revision-Date: 2023-06-12 16:23+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ClientWorker.cpp:286
@@ -261,12 +261,12 @@ msgstr "Chyba"
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr ""
+msgstr "Reakci nelze odeslat: %s"
 
 #: src/MessageModel.cpp:847
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr ""
+msgstr "Reakce nelze odeslat: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -1079,7 +1079,7 @@ msgstr ""
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr ""
+msgstr "Reakce"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
@@ -1090,25 +1090,25 @@ msgstr ""
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr ""
+msgstr "%1 bude přidán jakmile se připojíte"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr ""
+msgstr "%1 bude odebrán jakmile se připojíte"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:58
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr ""
+msgstr "%1 nelze přidat"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr ""
+msgstr "%1 nelze odstranit"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
