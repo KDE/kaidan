@@ -48,6 +48,10 @@ Kirigami.OverlaySheet {
 					isOwnMessage: root.isOwnMessage
 					text: modelData.emoji
 					onClicked: {
+						const resendMessageReactions = function () {
+							MessageModel.resendMessageReactions(root.messageId)
+						}
+
 						if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
 							passiveNotification(qsTr("%1 will be added once you are connected").arg(modelData.emoji))
 						} else if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
@@ -63,10 +67,6 @@ Kirigami.OverlaySheet {
 						} else if (deliveryState === MessageReactionDeliveryState.Delivered) {
 							showPassiveNotification(qsTr("%1 has been delivered").arg(modelData.emoji))
 						}
-					}
-
-					function resendMessageReactions() {
-						MessageModel.resendMessageReactions(root.messageId)
 					}
 				}
 			}
