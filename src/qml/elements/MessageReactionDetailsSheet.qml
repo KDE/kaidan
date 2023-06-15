@@ -47,7 +47,6 @@ Kirigami.OverlaySheet {
 					deliveryState: modelData.deliveryState
 					isOwnMessage: root.isOwnMessage
 					text: modelData.emoji
-					hoverEnabled: deliveryState !== MessageReactionDeliveryState.Sent && deliveryState !== MessageReactionDeliveryState.Sent
 					onClicked: {
 						if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
 							passiveNotification(qsTr("%1 will be added once you are connected").arg(modelData.emoji))
@@ -59,6 +58,10 @@ Kirigami.OverlaySheet {
 						} else if (deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterSent ||
 							deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterDelivered) {
 							showPassiveNotification(qsTr("%1 could not be removed").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
+						} else if (deliveryState === MessageReactionDeliveryState.Sent) {
+							showPassiveNotification(qsTr("%1 has been sent").arg(modelData.emoji))
+						} else if (deliveryState === MessageReactionDeliveryState.Delivered) {
+							showPassiveNotification(qsTr("%1 has been delivered").arg(modelData.emoji))
 						}
 					}
 
