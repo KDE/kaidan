@@ -1202,40 +1202,30 @@ msgstr ""
 "Vaša kamera je zaposlena.\n"
 "Poskusite zapreti druge aplikacije, ki uporabljajo kamero."
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Dodaj nov stik"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Dodaj"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr "S tem boste poslali tudi zahtevo za dostop do prisotnosti stika."
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Vzdevek:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Neobvezno sporočilo:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Povejte partnerju v klepetu, kdo ste."
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2128,6 +2118,26 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "S tem boste poslali tudi zahtevo za dostop do prisotnosti stika."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Vzdevek:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Neobvezno sporočilo:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Povejte partnerju v klepetu, kdo ste."
 
 #~ msgctxt "MessageReactionSenderSheet|"
 #~ msgid "Senders of %1"

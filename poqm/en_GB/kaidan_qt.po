@@ -1216,40 +1216,30 @@ msgstr ""
 "Your camera is busy.\n"
 "Try to close other applications using the camera."
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Add new contact"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Add"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr "This will also send a request to access the presence of the contact."
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Nickname:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Optional message:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Tell your chat partner who you are."
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2141,6 +2131,27 @@ msgstr "Birthday"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "This will also send a request to access the presence of the contact."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Nickname:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Optional message:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Tell your chat partner who you are."
 
 #~ msgctxt "MessageReactionSenderSheet|"
 #~ msgid "Senders of %1"

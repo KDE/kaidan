@@ -1271,45 +1271,30 @@ msgstr ""
 "Deine Kamera ist beschäftigt.\n"
 "Versuche andere Programme, welche die Kamera verwenden, zu schließen."
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Neuen Kontakt hinzufügen"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Hinzufügen"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-#, fuzzy
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr ""
-"Dies wird auch eine Abonnement-Anfrage senden, um die Präsenz des Kontakts "
-"zu empfangen."
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Spitzname:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-#, fuzzy
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Optionale Nachricht:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-#, fuzzy
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Sagen Sie Ihrem Kontakt, wer Sie sind."
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2298,6 +2283,31 @@ msgstr "Geburtstag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr ""
+#~ "Dies wird auch eine Abonnement-Anfrage senden, um die Präsenz des "
+#~ "Kontakts zu empfangen."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Spitzname:"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Optionale Nachricht:"
+
+#, fuzzy
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Sagen Sie Ihrem Kontakt, wer Sie sind."
 
 #, fuzzy
 #~| msgctxt "RosterAddContactSheet|"

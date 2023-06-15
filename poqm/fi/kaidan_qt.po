@@ -1213,40 +1213,30 @@ msgstr ""
 "Kamera on varattu.\n"
 "Yritä sulkea muut kameraa käyttävät sovellukset."
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Lisää uusi yhteystieto"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Lisää"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr "Tämä lähettää myös pyynnön nähdä yhteystiedon läsnäolotila."
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Kutsumanimi:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Vapaavalintainen viesti:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Kerro keskustelukumppanillesi, kuka olet."
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2137,6 +2127,26 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "Tämä lähettää myös pyynnön nähdä yhteystiedon läsnäolotila."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Kutsumanimi:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Vapaavalintainen viesti:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Kerro keskustelukumppanillesi, kuka olet."
 
 #~ msgctxt "MessageReactionSenderSheet|"
 #~ msgid "Senders of %1"

@@ -1426,40 +1426,30 @@ msgstr ""
 "Ձեր տեսախցիկը օգտագործվում է։\n"
 "Փակեք այն հավելվածները, որոնք օգտագործում են այն։"
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "Ստեղծել նոր կոնտակտ"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "Ավելացնել"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr "Այս գործողությունը նաև ներկայության զննման առաջարկ կուղարկի։"
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber-ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "Անվանում:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "Լրացուցիչ հաղորդագրություն:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "Ասացեք Ձեր զրուցակցին, թե ով եք Դուք:"
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2428,6 +2418,26 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "Այս գործողությունը նաև ներկայության զննման առաջարկ կուղարկի։"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber-ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "Անվանում:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "Լրացուցիչ հաղորդագրություն:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "Ասացեք Ձեր զրուցակցին, թե ով եք Դուք:"
 
 #, fuzzy
 #~| msgctxt "UserProfilePage|"

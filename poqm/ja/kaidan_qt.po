@@ -1259,45 +1259,29 @@ msgid ""
 "Try to close other applications using the camera."
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
-msgctxt "RosterAddContactSheet|"
-msgid "Add"
-msgstr ""
-
 #: src/qml/elements/RosterAddContactSheet.qml:63
 msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
+msgid "Name (optional):"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:68
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Your Jabber-ID:"
+#: src/qml/elements/RosterAddContactSheet.qml:70
 msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "君のJabber-ID："
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
+msgid "Message (optional):"
 msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:87
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Compose message"
+#: src/qml/elements/RosterAddContactSheet.qml:76
 msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "メッセージを書く"
+msgid "Hello, I'm…"
+msgstr ""
 
-#: src/qml/elements/RosterAddContactSheet.qml:95
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
+msgid "Add"
 msgstr ""
 
 #: src/qml/elements/RosterListItem.qml:61
@@ -2198,6 +2182,20 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ウェブサイト"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Your Jabber-ID:"
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "君のJabber-ID："
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Compose message"
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "メッセージを書く"
 
 #, fuzzy
 #~ msgctxt "RosterAddContactSheet|"

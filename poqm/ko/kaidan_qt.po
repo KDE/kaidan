@@ -1398,40 +1398,30 @@ msgstr ""
 "카메라가 사용 중입니다.\n"
 "카메라를 사용 중인 다른 프로그램을 닫으십시오."
 
-#: src/qml/elements/RosterAddContactSheet.qml:26
+#: src/qml/elements/RosterAddContactSheet.qml:25
 msgctxt "RosterAddContactSheet|"
 msgid "Add new contact"
 msgstr "새 대화 상대 추가"
 
-#: src/qml/elements/RosterAddContactSheet.qml:34
+#: src/qml/elements/RosterAddContactSheet.qml:63
+msgctxt "RosterAddContactSheet|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:70
+msgctxt "RosterAddContactSheet|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:76
+msgctxt "RosterAddContactSheet|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/RosterAddContactSheet.qml:84
 msgctxt "RosterAddContactSheet|"
 msgid "Add"
 msgstr "추가"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "This will also send a request to access the presence of the contact."
-msgstr "대화 상대의 온라인 정보 접근 요청을 보낼 것입니다."
-
-#: src/qml/elements/RosterAddContactSheet.qml:68
-msgctxt "RosterAddContactSheet|"
-msgid "Jabber-ID:"
-msgstr "Jabber ID:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:77
-msgctxt "RosterAddContactSheet|"
-msgid "Nickname:"
-msgstr "별명:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:87
-msgctxt "RosterAddContactSheet|"
-msgid "Optional message:"
-msgstr "추가 메시지:"
-
-#: src/qml/elements/RosterAddContactSheet.qml:95
-msgctxt "RosterAddContactSheet|"
-msgid "Tell your chat partner who you are."
-msgstr "대화 상대에게 자기 소개를 남기십시오."
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -2380,6 +2370,26 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "This will also send a request to access the presence of the contact."
+#~ msgstr "대화 상대의 온라인 정보 접근 요청을 보낼 것입니다."
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Jabber-ID:"
+#~ msgstr "Jabber ID:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Nickname:"
+#~ msgstr "별명:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Optional message:"
+#~ msgstr "추가 메시지:"
+
+#~ msgctxt "RosterAddContactSheet|"
+#~ msgid "Tell your chat partner who you are."
+#~ msgstr "대화 상대에게 자기 소개를 남기십시오."
 
 #, fuzzy
 #~| msgctxt "UserProfilePage|"
