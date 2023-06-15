@@ -585,13 +585,13 @@ void MessageModel::markMessageAsFirstUnread(int index)
 
 void MessageModel::addMessageReaction(const QString &messageId, const QString &emoji)
 {
-	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), [&](const Message &message) {
+	const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
 		return message.id == messageId;
 	});
 
 	// Update only deliverState if there is already a reaction with the same emoji.
 	// Otherwise, add a new reaction.
-	if (itr != m_messages.end()) {
+	if (itr != m_messages.cend()) {
 		const auto senderJid = m_currentAccountJid;
 		const auto reactions = itr->reactionSenders.value(senderJid).reactions;
 
@@ -677,11 +677,11 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 
 void MessageModel::removeMessageReaction(const QString &messageId, const QString &emoji)
 {
-	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), [&](const Message &message) {
+	const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
 		return message.id == messageId;
 	});
 
-	if (itr != m_messages.end()) {
+	if (itr != m_messages.cend()) {
 		const auto senderJid = m_currentAccountJid;
 		const auto &reactions = itr->reactionSenders.value(senderJid).reactions;
 
@@ -798,11 +798,11 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 
 void MessageModel::resendMessageReactions(const QString &messageId)
 {
-	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), [&](const Message &message) {
+	const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), [&](const Message &message) {
 		return message.id == messageId;
 	});
 
-	if (itr != m_messages.end()) {
+	if (itr != m_messages.cend()) {
 		const auto senderJid = m_currentAccountJid;
 
 		MessageDb::instance()->updateMessage(messageId, [senderJid](Message &message) {
