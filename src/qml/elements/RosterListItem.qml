@@ -92,8 +92,7 @@ UserListItem {
 	// right: icon for muted contact
 	// Its size depends on the font's pixel size to be as large as the message counter.
 	Kirigami.Icon {
-		id: mutedIcon
-		source: "audio-volume-muted-symbolic"
+		source: "notifications-disabled-symbolic"
 		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
 		Layout.preferredHeight: Layout.preferredWidth
 		visible: notificationsMuted
