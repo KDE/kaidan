@@ -516,7 +516,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
 
-#: src/qml/details/AccountDetailsContent.qml:262
+#: src/qml/details/AccountDetailsContent.qml:258
 #, fuzzy
 #| msgctxt "ServerListModel|"
 #| msgid "Custom server"
@@ -524,7 +524,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Այլ սերվեր"
 
-#: src/qml/details/AccountDetailsContent.qml:266
+#: src/qml/details/AccountDetailsContent.qml:262
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "Website"
@@ -532,12 +532,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Վեբ-կայք"
 
-#: src/qml/details/AccountDetailsContent.qml:267
+#: src/qml/details/AccountDetailsContent.qml:263
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:273
+#: src/qml/details/AccountDetailsContent.qml:269
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -545,12 +545,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:278
+#: src/qml/details/AccountDetailsContent.qml:274
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -558,32 +558,32 @@ msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Հրավերի հղումը պատճենվել է"
 
-#: src/qml/details/AccountDetailsContent.qml:283
+#: src/qml/details/AccountDetailsContent.qml:279
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:284
+#: src/qml/details/AccountDetailsContent.qml:280
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:286
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:302
+#: src/qml/details/AccountDetailsContent.qml:298
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:303
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:328
+#: src/qml/details/AccountDetailsContent.qml:324
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -591,7 +591,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Գաղտնաբառ:"
 
-#: src/qml/details/AccountDetailsContent.qml:332
+#: src/qml/details/AccountDetailsContent.qml:328
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -604,7 +604,7 @@ msgid ""
 msgstr ""
 "Գաղտնաբառը փոխելուց հետո անհրաժեշտ է այն ներմուծել Ձեր մնացած սարքերի մեջ։"
 
-#: src/qml/details/AccountDetailsContent.qml:342
+#: src/qml/details/AccountDetailsContent.qml:338
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -612,12 +612,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Այժմյա գաղտնաբառ:"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:362
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:386
+#: src/qml/details/AccountDetailsContent.qml:382
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -625,7 +625,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Փոխել գաղտնաբառը"
 
-#: src/qml/details/AccountDetailsContent.qml:441
+#: src/qml/details/AccountDetailsContent.qml:437
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Failed to change password: %1"
@@ -633,7 +633,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Չհաջողվեց փոխել գաղտնաբառը: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:447
+#: src/qml/details/AccountDetailsContent.qml:443
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -641,7 +641,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Գաղտնաբառը հաջողությամբ փոխվել է"
 
-#: src/qml/details/AccountDetailsContent.qml:463
+#: src/qml/details/AccountDetailsContent.qml:459
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -649,7 +649,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Գաղտնաբառ:"
 
-#: src/qml/details/AccountDetailsContent.qml:467
+#: src/qml/details/AccountDetailsContent.qml:463
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -658,7 +658,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:471
+#: src/qml/details/AccountDetailsContent.qml:467
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -666,7 +666,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Թաքցնել տեքստային գաղտնաբառը"
 
-#: src/qml/details/AccountDetailsContent.qml:473
+#: src/qml/details/AccountDetailsContent.qml:469
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -678,7 +678,7 @@ msgid ""
 "password"
 msgstr "Թույլ տալ այլ սարքերի մուտքը QR կոդով՝ միշտ թաքցնելով գաղտնաբառը։"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:478
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -686,7 +686,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Թաքցնել գաղտնաբառը ցանկացած դեպքում"
 
-#: src/qml/details/AccountDetailsContent.qml:484
+#: src/qml/details/AccountDetailsContent.qml:480
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -698,7 +698,7 @@ msgid ""
 "password"
 msgstr "Չթույլատրել այլ սարքերի ավելացումը գաղտնաբառի կամ QR կոդի միջոցով։"
 
-#: src/qml/details/AccountDetailsContent.qml:506
+#: src/qml/details/AccountDetailsContent.qml:502
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -706,7 +706,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Կապը հաստատվում է…"
 
-#: src/qml/details/AccountDetailsContent.qml:510
+#: src/qml/details/AccountDetailsContent.qml:506
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -716,7 +716,7 @@ msgid ""
 "values)"
 msgstr "Սահմանել հոսթնեյմը և պորտը"
 
-#: src/qml/details/AccountDetailsContent.qml:526
+#: src/qml/details/AccountDetailsContent.qml:522
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -724,7 +724,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Կապի կարգավորումներ"
 
-#: src/qml/details/AccountDetailsContent.qml:542
+#: src/qml/details/AccountDetailsContent.qml:538
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -732,7 +732,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Կապի կարգավորումները պահպանվել են"
 
-#: src/qml/details/AccountDetailsContent.qml:592
+#: src/qml/details/AccountDetailsContent.qml:588
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -740,7 +740,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Չհաջողվեց փոփոխել կապի կարգավորումները"
 
-#: src/qml/details/AccountDetailsContent.qml:607
+#: src/qml/details/AccountDetailsContent.qml:603
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -748,7 +748,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Կապի կարգավորումները պահպանվել են"
 
-#: src/qml/details/AccountDetailsContent.qml:630
+#: src/qml/details/AccountDetailsContent.qml:626
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -756,7 +756,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Հեռացնել"
 
-#: src/qml/details/AccountDetailsContent.qml:638
+#: src/qml/details/AccountDetailsContent.qml:634
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -764,15 +764,15 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Հեռացնել հաշիվը Kaidan-ից"
 
-#: src/qml/details/AccountDetailsContent.qml:639
+#: src/qml/details/AccountDetailsContent.qml:635
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:648
-#: src/qml/details/AccountDetailsContent.qml:674
+#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:670
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Configure"
@@ -780,7 +780,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Կարգավորել"
 
-#: src/qml/details/AccountDetailsContent.qml:664
+#: src/qml/details/AccountDetailsContent.qml:660
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -788,7 +788,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ջնջել հաշիվը ամբողջովին"
 
-#: src/qml/details/AccountDetailsContent.qml:665
+#: src/qml/details/AccountDetailsContent.qml:661
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1090,6 +1090,11 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
+#: src/qml/elements/ActionView.qml:30
+msgctxt "ActionView|"
+msgid "OK"
+msgstr ""
+
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
@@ -1272,13 +1277,13 @@ msgctxt "ChatSupportSheet|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:38
+#: src/qml/elements/ChatSupportSheet.qml:34
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
 msgstr ""
 
-#: src/qml/elements/ChatSupportSheet.qml:38
+#: src/qml/elements/ChatSupportSheet.qml:34
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
@@ -1288,6 +1293,63 @@ msgstr ""
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Չեղարկել"
+
+#: src/qml/elements/ContactAdditionContent.qml:28
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add"
+msgctxt "ContactAdditionContent|"
+msgid "Add"
+msgstr "Ավելացնել"
+
+#: src/qml/elements/ContactAdditionContent.qml:33
+msgctxt "ContactAdditionContent|"
+msgid "Contact already exists"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:35
+msgctxt "ContactAdditionContent|"
+msgid "Open chat"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:48
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "ContactAdditionContent|"
+msgid "Adding contact…"
+msgstr "Ստեղծել նոր կոնտակտ"
+
+#: src/qml/elements/ContactAdditionContent.qml:59
+msgctxt "ContactAdditionContent|"
+msgid "Name (optional):"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:66
+msgctxt "ContactAdditionContent|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:73
+msgctxt "ContactAdditionContent|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionDialog.qml:16
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "ContactAdditionDialog|"
+msgid "Add contact"
+msgstr "Ստեղծել նոր կոնտակտ"
+
+#: src/qml/elements/ContactAdditionPage.qml:14
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "ContactAdditionPage|"
+msgid "Add contact"
+msgstr "Ստեղծել նոր կոնտակտ"
 
 #: src/qml/elements/fields/JidField.qml:19
 #, fuzzy
@@ -1322,6 +1384,14 @@ msgstr "Գաղտնաբառ:"
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
+
+#: src/qml/elements/LoadingArea.qml:13
+#, fuzzy
+#| msgctxt "MultimediaSettings|"
+#| msgid "Recording…"
+msgctxt "LoadingArea|"
+msgid "Loading…"
+msgstr "Ձայնագրում…"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 #, fuzzy
@@ -1425,31 +1495,6 @@ msgid ""
 msgstr ""
 "Ձեր տեսախցիկը օգտագործվում է։\n"
 "Փակեք այն հավելվածները, որոնք օգտագործում են այն։"
-
-#: src/qml/elements/RosterAddContactSheet.qml:25
-msgctxt "RosterAddContactSheet|"
-msgid "Add new contact"
-msgstr "Ստեղծել նոր կոնտակտ"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "Name (optional):"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:70
-msgctxt "RosterAddContactSheet|"
-msgid "Message (optional):"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:76
-msgctxt "RosterAddContactSheet|"
-msgid "Hello, I'm…"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:84
-msgctxt "RosterAddContactSheet|"
-msgid "Add"
-msgstr "Ավելացնել"
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -1582,7 +1627,7 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Ընտրեք զրույց և սկսեք շփվել"
 
-#: src/qml/GlobalDrawer.qml:64
+#: src/qml/GlobalDrawer.qml:59
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1590,7 +1635,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Հաշվի Անվտանգություն"
 
-#: src/qml/GlobalDrawer.qml:134
+#: src/qml/GlobalDrawer.qml:129
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -1598,12 +1643,12 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Տեղադրություն"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:133
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:147
+#: src/qml/GlobalDrawer.qml:142
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1611,7 +1656,7 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/GlobalDrawer.qml:157
+#: src/qml/GlobalDrawer.qml:152
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -1619,22 +1664,22 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Որոնել վերևում"
 
-#: src/qml/GlobalDrawer.qml:171
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Հրավիրել ընկերներին"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Հրավերի հղումը պատճենվել է"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Փոխել սարքը"
 
-#: src/qml/GlobalDrawer.qml:189
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Կարգավորումներ"
@@ -1679,12 +1724,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
 msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:59
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/qml/QrCodeOnboardingPage.qml:98
+#: src/qml/QrCodeOnboardingPage.qml:75
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Այս QR կոդը անվավեր է մուտքի համար։"

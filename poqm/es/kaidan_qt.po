@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-11 21:39+0200\n"
+"PO-Revision-Date: 2023-06-16 02:24+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 23.04.2\n"
 
 #: src/ClientWorker.cpp:286
 #, qt-format
@@ -484,67 +484,67 @@ msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Escanee el código QR de <b>sus</b> dispositivos para máxima seguridad"
 
-#: src/qml/details/AccountDetailsContent.qml:262
+#: src/qml/details/AccountDetailsContent.qml:258
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Proveedor"
 
-#: src/qml/details/AccountDetailsContent.qml:266
+#: src/qml/details/AccountDetailsContent.qml:262
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Visitar sitio web"
 
-#: src/qml/details/AccountDetailsContent.qml:267
+#: src/qml/details/AccountDetailsContent.qml:263
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Abrir el sitio web de su proveedor en un navegador web"
 
-#: src/qml/details/AccountDetailsContent.qml:273
+#: src/qml/details/AccountDetailsContent.qml:269
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Copiar dirección del sitio web"
 
-#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Copiar la dirección web del proveedor en el portapapeles"
 
-#: src/qml/details/AccountDetailsContent.qml:278
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Dirección del sitio web copiada en el portapapeles"
 
-#: src/qml/details/AccountDetailsContent.qml:283
+#: src/qml/details/AccountDetailsContent.qml:279
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Abrir chat de asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:284
+#: src/qml/details/AccountDetailsContent.qml:280
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Iniciar un chat con el contacto de asistencia del proveedor"
 
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:286
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:302
+#: src/qml/details/AccountDetailsContent.qml:298
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Abrir el grupo de asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:303
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Unirse al grupo de asistencia público de su proveedor"
 
-#: src/qml/details/AccountDetailsContent.qml:328
+#: src/qml/details/AccountDetailsContent.qml:324
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Cambio de contraseña"
 
-#: src/qml/details/AccountDetailsContent.qml:332
+#: src/qml/details/AccountDetailsContent.qml:328
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -553,38 +553,38 @@ msgstr ""
 "Cambiar su contraseña. Tendrá que introducir la nueva contraseña en todos "
 "sus dispositivos."
 
-#: src/qml/details/AccountDetailsContent.qml:342
+#: src/qml/details/AccountDetailsContent.qml:338
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Introduzca la contraseña correcta"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:362
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Introduzca una contraseña distinta para cambiarla"
 
-#: src/qml/details/AccountDetailsContent.qml:386
+#: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Cambiar la contraseña"
 
-#: src/qml/details/AccountDetailsContent.qml:441
+#: src/qml/details/AccountDetailsContent.qml:437
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "No se ha podido cambiar la contraseña: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:447
+#: src/qml/details/AccountDetailsContent.qml:443
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "La contraseña se ha cambiado correctamente"
 
-#: src/qml/details/AccountDetailsContent.qml:463
+#: src/qml/details/AccountDetailsContent.qml:459
 msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Seguridad de la contraseña"
 
-#: src/qml/details/AccountDetailsContent.qml:467
+#: src/qml/details/AccountDetailsContent.qml:463
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -597,12 +597,12 @@ msgstr ""
 "usar la cuenta en otro dispositivo posteriormente, <b>considere guardar la "
 "contraseña en otro lugar. Esto no se puede deshacer.</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:471
+#: src/qml/details/AccountDetailsContent.qml:467
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "No mostrar la contraseña como texto"
 
-#: src/qml/details/AccountDetailsContent.qml:473
+#: src/qml/details/AccountDetailsContent.qml:469
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -611,12 +611,12 @@ msgstr ""
 "Permitir añadir dispositivos adicionales usando el código QR de inicio de "
 "sesión, pero no mostrar nunca la contraseña"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:478
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "No exponer la contraseña de ningún modo"
 
-#: src/qml/details/AccountDetailsContent.qml:484
+#: src/qml/details/AccountDetailsContent.qml:480
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -625,12 +625,12 @@ msgstr ""
 "No permitir añadir dispositivos adicionales usando el código QR ni mostrar "
 "la contraseña"
 
-#: src/qml/details/AccountDetailsContent.qml:506
+#: src/qml/details/AccountDetailsContent.qml:502
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Conexión"
 
-#: src/qml/details/AccountDetailsContent.qml:510
+#: src/qml/details/AccountDetailsContent.qml:506
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -639,38 +639,38 @@ msgstr ""
 "Configurar el nombre de la máquina y el puerto al que conectarse (deje los "
 "campos vacíos para usar los valores predeterminados)"
 
-#: src/qml/details/AccountDetailsContent.qml:526
+#: src/qml/details/AccountDetailsContent.qml:522
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Cambiar las preferencias de la conexión"
 
-#: src/qml/details/AccountDetailsContent.qml:542
+#: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Introducir preferencias de conexión distintas para cambiarlas"
 
-#: src/qml/details/AccountDetailsContent.qml:592
+#: src/qml/details/AccountDetailsContent.qml:588
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "No se han podido cambiar las preferencias de la conexión: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:607
+#: src/qml/details/AccountDetailsContent.qml:603
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Se han modificado las preferencias de la conexión"
 
-#: src/qml/details/AccountDetailsContent.qml:630
+#: src/qml/details/AccountDetailsContent.qml:626
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminación"
 
-#: src/qml/details/AccountDetailsContent.qml:638
+#: src/qml/details/AccountDetailsContent.qml:634
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Eliminar de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:639
+#: src/qml/details/AccountDetailsContent.qml:635
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -679,18 +679,18 @@ msgstr ""
 "Eliminar la cuenta de esta aplicación. Cree una copia de respaldo de sus "
 "credenciales y del historial de charla si es necesario."
 
-#: src/qml/details/AccountDetailsContent.qml:648
-#: src/qml/details/AccountDetailsContent.qml:674
+#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:670
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/details/AccountDetailsContent.qml:664
+#: src/qml/details/AccountDetailsContent.qml:660
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Borrar completamente"
 
-#: src/qml/details/AccountDetailsContent.qml:665
+#: src/qml/details/AccountDetailsContent.qml:661
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -929,6 +929,11 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Cambiar nombre..."
 
+#: src/qml/elements/ActionView.qml:30
+msgctxt "ActionView|"
+msgid "OK"
+msgstr ""
+
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
@@ -1075,13 +1080,13 @@ msgctxt "ChatSupportSheet|"
 msgid "Support"
 msgstr "Asistencia"
 
-#: src/qml/elements/ChatSupportSheet.qml:38
+#: src/qml/elements/ChatSupportSheet.qml:34
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Group Support %1"
 msgstr "Grupo de asistencia de %1"
 
-#: src/qml/elements/ChatSupportSheet.qml:38
+#: src/qml/elements/ChatSupportSheet.qml:34
 #, qt-format
 msgctxt "ChatSupportSheet|"
 msgid "Support %1"
@@ -1091,6 +1096,78 @@ msgstr "Asistencia de %1"
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Cancelar"
+
+#: src/qml/elements/ContactAdditionContent.qml:28
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add"
+msgctxt "ContactAdditionContent|"
+msgid "Add"
+msgstr "Añadir"
+
+#: src/qml/elements/ContactAdditionContent.qml:33
+#, fuzzy
+#| msgctxt "UserProfilePage|"
+#| msgid "Contact sends no status"
+msgctxt "ContactAdditionContent|"
+msgid "Contact already exists"
+msgstr "El contacto no envía estado"
+
+#: src/qml/elements/ContactAdditionContent.qml:35
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Open support chat"
+msgctxt "ContactAdditionContent|"
+msgid "Open chat"
+msgstr "Abrir chat de asistencia"
+
+#: src/qml/elements/ContactAdditionContent.qml:48
+#, fuzzy
+#| msgctxt "QrCodePage|"
+#| msgid "Adding contact…"
+msgctxt "ContactAdditionContent|"
+msgid "Adding contact…"
+msgstr "Añadiendo contacto..."
+
+#: src/qml/elements/ContactAdditionContent.qml:59
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Name (optional):"
+msgctxt "ContactAdditionContent|"
+msgid "Name (optional):"
+msgstr "Nombre (opcional):"
+
+#: src/qml/elements/ContactAdditionContent.qml:66
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Message (optional):"
+msgctxt "ContactAdditionContent|"
+msgid "Message (optional):"
+msgstr "Mensaje (opcional):"
+
+#: src/qml/elements/ContactAdditionContent.qml:73
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Hello, I'm…"
+msgctxt "ContactAdditionContent|"
+msgid "Hello, I'm…"
+msgstr "¡Hola! Soy..."
+
+#: src/qml/elements/ContactAdditionDialog.qml:16
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "ContactAdditionDialog|"
+msgid "Add contact"
+msgstr "Añadir nuevo contacto"
+
+#: src/qml/elements/ContactAdditionPage.qml:14
+#, fuzzy
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
+msgctxt "ContactAdditionPage|"
+msgid "Add contact"
+msgstr "Añadir nuevo contacto"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1116,6 +1193,14 @@ msgstr "Contraseña"
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Introduzca una contraseña válida"
+
+#: src/qml/elements/LoadingArea.qml:13
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Loading…"
+msgctxt "LoadingArea|"
+msgid "Loading…"
+msgstr "Cargando..."
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1202,31 +1287,6 @@ msgid ""
 msgstr ""
 "La cámara está ocupada.\n"
 "Pruebe a cerrar otras aplicaciones que estén usando la cámara."
-
-#: src/qml/elements/RosterAddContactSheet.qml:25
-msgctxt "RosterAddContactSheet|"
-msgid "Add new contact"
-msgstr "Añadir nuevo contacto"
-
-#: src/qml/elements/RosterAddContactSheet.qml:63
-msgctxt "RosterAddContactSheet|"
-msgid "Name (optional):"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:70
-msgctxt "RosterAddContactSheet|"
-msgid "Message (optional):"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:76
-msgctxt "RosterAddContactSheet|"
-msgid "Hello, I'm…"
-msgstr ""
-
-#: src/qml/elements/RosterAddContactSheet.qml:84
-msgctxt "RosterAddContactSheet|"
-msgid "Add"
-msgstr "Añadir"
 
 #: src/qml/elements/RosterListItem.qml:61
 msgctxt "RosterListItem|"
@@ -1341,47 +1401,47 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Seleccione un chat para empezar a enviar mensajes"
 
-#: src/qml/GlobalDrawer.qml:64
+#: src/qml/GlobalDrawer.qml:59
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Cuentas"
 
-#: src/qml/GlobalDrawer.qml:134
+#: src/qml/GlobalDrawer.qml:129
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Acciones"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:133
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Añadir contacto por código QR"
 
-#: src/qml/GlobalDrawer.qml:147
+#: src/qml/GlobalDrawer.qml:142
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Añadir contacto por dirección de chat"
 
-#: src/qml/GlobalDrawer.qml:157
+#: src/qml/GlobalDrawer.qml:152
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Buscar grupos públicos"
 
-#: src/qml/GlobalDrawer.qml:171
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Invitar a amigos"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Se ha copiado el enlace de invitación en el portapapeles"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambiar dispositivo"
 
-#: src/qml/GlobalDrawer.qml:189
+#: src/qml/GlobalDrawer.qml:184
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Preferencias"
@@ -1426,12 +1486,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
 msgstr "Escanee el código QR desde su dispositivo para transferir su cuenta."
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:59
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Conectando..."
 
-#: src/qml/QrCodeOnboardingPage.qml:98
+#: src/qml/QrCodeOnboardingPage.qml:75
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Este código QR no es válido para iniciar sesión."
@@ -2660,10 +2720,6 @@ msgstr "Sitio web"
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Rename contact"
 #~ msgstr "Cambiar nombre de contacto"
-
-#~ msgctxt "UserProfilePage|"
-#~ msgid "Contact sends no status"
-#~ msgstr "El contacto no envía estado"
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Online devices"
