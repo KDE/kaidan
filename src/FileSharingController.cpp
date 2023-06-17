@@ -335,7 +335,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 
 	runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
 		QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) +
-						  QDir::separator() + APPLICATION_DISPLAY_NAME + QDir::separator();
+						  QDir::separator() + APPLICATION_DISPLAY_NAME;
 
 		if (auto dir = QDir(dirPath); !dir.exists()) {
 			dir.mkpath(QStringLiteral("."));
