@@ -10,12 +10,11 @@ import org.kde.kirigami 2.12 as Kirigami
 Item {
 	id: root
 
-	property string description: qsTr("Loading…")
-	property alias backgroundColor: roundedRectangleBackground.color
+	property alias background: background
+	property alias description: description.text
 
-	// background
 	Rectangle {
-		id: roundedRectangleBackground
+		id: background
 		anchors.fill: content
 		anchors.margins: -8
 		radius: roundedCornersRadius
@@ -32,7 +31,9 @@ Item {
 		}
 
 		Controls.Label {
-			text: "<i>" + root.description + "</i>"
+			id: description
+			text: qsTr("Loading…")
+			font.italic: true
 			color: Kirigami.Theme.textColor
 		}
 	}

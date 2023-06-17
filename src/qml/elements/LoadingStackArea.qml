@@ -19,7 +19,7 @@ StackLayout {
 
 	LoadingArea {
 		id: loadingArea
-		backgroundColor: secondaryBackgroundColor
+		background.color: secondaryBackgroundColor
 	}
 
 	function showLoadingView() {
