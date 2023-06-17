@@ -1208,7 +1208,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:53
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1216,7 +1216,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "The link will be opened after you have connected."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:59
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1224,7 +1224,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "The link will be opened after you have connected."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1232,13 +1232,25 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "Message could not be sent."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:64
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "Message could not be sent."
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been sent"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been delivered"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

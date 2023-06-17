@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-06-15 08:42+0200\n"
+"PO-Revision-Date: 2023-06-16 08:11+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -931,7 +931,7 @@ msgstr "Spremeni ime…"
 #: src/qml/elements/ActionView.qml:30
 msgctxt "ActionView|"
 msgid "OK"
-msgstr ""
+msgstr "V redu"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1097,76 +1097,49 @@ msgid "Cancel"
 msgstr "Prekliči"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Dodaj"
 
 #: src/qml/elements/ContactAdditionContent.qml:33
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Contact sends no status"
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr "Stik ne pošilja nobenega stanja"
+msgstr "Stik že obstaja"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Odpri klepet s podporo"
+msgstr "Odpri klepet"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Dodajanje stika…"
 
 #: src/qml/elements/ContactAdditionContent.qml:59
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Ime (neobvezno):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr "Sporočilo (neobvezno):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Hello, I'm…"
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Zdravo, Jaz sem…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "Dodaj nov stik"
+msgstr "Dodaj stik"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "Dodaj nov stik"
+msgstr "Dodaj stik"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1194,9 +1167,6 @@ msgid "Please enter a valid password"
 msgstr "Vnesite veljavno geslo"
 
 #: src/qml/elements/LoadingArea.qml:13
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Nalaganje…"
@@ -1211,29 +1181,41 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr "Lastni:"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:53
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "%1 bo dodan, ko se povežete"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:59
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "%1 bo odstranjen, ko se povežete"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "%1 ni bilo mogoče dodati"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:64
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "%1 ni bilo mogoče odstraniti"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been sent"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been delivered"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

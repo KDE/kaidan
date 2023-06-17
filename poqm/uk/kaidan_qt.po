@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-15 08:24+0300\n"
+"PO-Revision-Date: 2023-06-16 08:51+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -936,7 +936,7 @@ msgstr "Змінити назву…"
 #: src/qml/elements/ActionView.qml:30
 msgctxt "ActionView|"
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1102,76 +1102,49 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Додати"
 
 #: src/qml/elements/ContactAdditionContent.qml:33
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Contact sends no status"
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr "Контакт не надсилає даних стану"
+msgstr "Запис такого контакту вже існує"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Відкрити спілкування з підтримкою"
+msgstr "Почати спілкування"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Додавання контакту…"
 
 #: src/qml/elements/ContactAdditionContent.qml:59
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Назва (необов'язково):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr "Повідомлення (необов'язково):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Hello, I'm…"
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Доброго дня, я…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "Додати новий контакт"
+msgstr "Додати контакт"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "Додати новий контакт"
+msgstr "Додати контакт"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1200,9 +1173,6 @@ msgid "Please enter a valid password"
 msgstr "Будь ласка, введіть коректний пароль"
 
 #: src/qml/elements/LoadingArea.qml:13
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Завантаження…"
@@ -1217,29 +1187,41 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr "Власні:"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:53
+#: src/qml/elements/MessageReactionDetailsSheet.qml:56
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "%1 буде додано одразу після встановлення з'єднання"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:59
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "%1 буде вилучено одразу після встановлення з'єднання"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:58
+#: src/qml/elements/MessageReactionDetailsSheet.qml:61
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "Не вдалося додати %1"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:64
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "Не вдалося вилучити %1"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been sent"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been delivered"
+msgstr ""
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
