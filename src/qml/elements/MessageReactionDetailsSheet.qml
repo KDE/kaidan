@@ -29,7 +29,7 @@ Kirigami.OverlaySheet {
 
 	// TODO: Load / Set footer only if needed
 	footer: RowLayout {
-		visible: ownDetailedReactions.length
+		visible: root.ownDetailedReactions.length
 
 		Kirigami.Heading {
 			text: qsTr("Own:")
