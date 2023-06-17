@@ -62,18 +62,20 @@ ConfirmationArea {
 		Layout.fillWidth: true
 	}
 
-	Controls.Label {
-		text: qsTr("Message (optional):")
-		textFormat: Text.PlainText
-		Layout.fillWidth: true
-	}
+	ColumnLayout {
+		Controls.Label {
+			text: qsTr("Message (optional):")
+			textFormat: Text.PlainText
+			Layout.fillWidth: true
+		}
 
-	Controls.TextArea {
-		id: messageField
-		placeholderText: qsTr("Hello, I'm…")
-		inputMethodHints: Qt.ImhPreferUppercase
-		wrapMode: TextEdit.Wrap
-		Layout.fillWidth: true
-		Layout.minimumHeight: Kirigami.Units.gridUnit * 4
+		Controls.TextArea {
+			id: messageField
+			placeholderText: qsTr("Hello, I'm…")
+			inputMethodHints: Qt.ImhPreferUppercase
+			wrapMode: TextEdit.Wrap
+			Layout.fillWidth: true
+			Layout.minimumHeight: Kirigami.Units.gridUnit * 4
+		}
 	}
 }
