@@ -88,7 +88,7 @@ static qint64 generateFileId()
 ///
 /// A file extension can be added again by infering it from the mime type if one is needed.
 ///
-static std::optional<QString> sanitizeFilename(QStringView fileName) {
+static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView fileName) {
 	constexpr std::array bad_chars = {
 #ifdef Q_OS_UNIX
 		// These have special meaning in a file name.
@@ -147,12 +147,22 @@ static std::optional<QString> sanitizeFilename(QStringView fileName) {
 		return {};
 	}
 
+	QString fileExtension;
+	for (auto itr = --filenameParts.end();
+		 itr != relevantPart;
+		 itr--) {
+		if (!itr->isEmpty()) {
+			fileExtension = *itr;
+			break;
+		}
+	}
+
 	auto filename = *relevantPart;
 
 	if (isBadName(filename)) {
 		return {};
 	}
-	return filename;
+	return std::make_pair(filename, fileExtension);
 }
 
 FileSharingController::FileSharingController(QXmppClient *client)
@@ -334,11 +344,24 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 		// Sanitize file name, if given
 		auto maybeFileName = andThen(fileShare.metadata().filename(), sanitizeFilename);
 
-		const auto dateString = QDateTime::currentDateTime().toString();
-		const auto fileExtension = fileShare.metadata().mediaType()->preferredSuffix();
-
 		// Add fallback file name, so we always have a file name
-		auto filename = maybeFileName.value_or(dateString);
+		auto filename = [&]() {
+			if (maybeFileName) {
+				return maybeFileName->first;
+			}
+			return QDateTime::currentDateTime().toString();
+		}();
+
+		const auto fileExtension = [&]() {
+			auto extension = fileShare.metadata().mediaType()->preferredSuffix();
+			if (!extension.isEmpty()) {
+				return extension;
+			}
+			if (maybeFileName) {
+				return maybeFileName->second;
+			}
+			return QString();
+		}();
 
 		auto makeFileName = [&]() -> QString {
 			return dirPath % QDir::separator() % filename % "." % fileExtension;
