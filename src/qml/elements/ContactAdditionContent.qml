@@ -18,7 +18,7 @@ import im.kaidan.kaidan 1.0
 
 import "fields"
 
-ActionView {
+ConfirmationArea {
 	property alias jidField: jidField
 	property alias jid: jidField.text
 	property alias nameField: nameField
@@ -45,7 +45,7 @@ ActionView {
 			jidField.forceActiveFocus()
 		}
 	}
-	loadingDescription: qsTr("Adding contact…")
+	loadingArea.description: qsTr("Adding contact…")
 
 	JidField {
 		id: jidField

@@ -2,33 +2,19 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.12 as Kirigami
 
 /**
- * This is used for a single action without an instantaneous result.
+ * This is used for actions without instantaneous results.
  */
 StackLayout {
-	id: root
-
 	default property alias __data: contentArea.data
-	property alias confirmationButton: confirmationButton
-	property alias loadingDescription: loadingArea.description
+	property alias loadingArea: loadingArea
 
 	ColumnLayout {
-		spacing: 20
-
-		ColumnLayout {
-			id: contentArea
-			Layout.fillWidth: true
-		}
-
-		CenteredAdaptiveHighlightedButton {
-			id: confirmationButton
-			text: qsTr("OK")
-		}
+		id: contentArea
+		spacing: Kirigami.Units.largeSpacing * 2
 	}
 
 	LoadingArea {
