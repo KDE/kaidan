@@ -896,7 +896,7 @@ msgstr "სახელის გადარქმევა…"
 #: src/qml/elements/ActionView.qml:30
 msgctxt "ActionView|"
 msgid "OK"
-msgstr ""
+msgstr "დიახ"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1062,33 +1062,21 @@ msgid "Cancel"
 msgstr "გაუქმება"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "დამატება"
 
 #: src/qml/elements/ContactAdditionContent.qml:33
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Contact sends no status"
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr "კონტაქტი სტატუსს არ აგზავნის"
+msgstr "კონტაქტი უკვე არსებობს"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "მხარდაჭერის ჩატის გახსნა"
+msgstr "ჩატის გახსნა"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "კონტაქტის დამატება…"
@@ -1096,33 +1084,27 @@ msgstr "კონტაქტის დამატება…"
 #: src/qml/elements/ContactAdditionContent.qml:59
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr ""
+msgstr "სახელი (არასავალდებულო):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "შეტყობინება (არასავალდებულო):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "გამარჯობა, მე ვარ…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "ახალი კონტაქტის დამატება"
+msgstr "კონტაქტის დამატება"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "ახალი კონტაქტის დამატება"
+msgstr "კონტაქტის დამატება"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1150,9 +1132,6 @@ msgid "Please enter a valid password"
 msgstr "შეიყვანეთ სწორი პაროლი"
 
 #: src/qml/elements/LoadingArea.qml:13
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
@@ -1195,13 +1174,13 @@ msgstr "%1-ის წაშლა შეუძლებელია"
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
-msgstr ""
+msgstr "%1 გაგზავნილია"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:68
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
-msgstr ""
+msgstr "%1 მიწოდებულია"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

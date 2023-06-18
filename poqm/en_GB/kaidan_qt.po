@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-04-29 12:37+0100\n"
+"PO-Revision-Date: 2023-06-17 12:20+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -261,20 +261,14 @@ msgid "Error"
 msgstr "Error"
 
 #: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
-msgstr "Message could not be sent."
+msgstr "Reaction could not be sent: %s"
 
 #: src/MessageModel.cpp:847
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
-msgstr "Message could not be sent."
+msgstr "Reactions could not be sent: %s"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -433,33 +427,24 @@ msgid "Send a spoiler message"
 msgstr "Send a spoiler message"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Information"
 msgctxt "AccountDetailsContent|"
 msgid "Less information"
-msgstr "Information"
+msgstr "Less information"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "AccountDetailsContent|"
 msgid "More information"
-msgstr "Profile Information"
+msgstr "More information"
 
 #: src/qml/details/AccountDetailsContent.qml:58
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "Empty"
 
 #: src/qml/details/AccountDetailsContent.qml:78
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Set up"
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr "Set up"
+msgstr "Set value"
 
 #: src/qml/details/AccountDetailsContent.qml:164
 msgctxt "AccountDetailsContent|"
@@ -934,7 +919,7 @@ msgstr "Change name…"
 #: src/qml/elements/ActionView.qml:30
 msgctxt "ActionView|"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1100,33 +1085,21 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Add"
 
 #: src/qml/elements/ContactAdditionContent.qml:33
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Contact sends no status"
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr "Contact sends no status"
+msgstr "Contact already exists"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Open support chat"
+msgstr "Open chat"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Adding contact…"
@@ -1134,33 +1107,27 @@ msgstr "Adding contact…"
 #: src/qml/elements/ContactAdditionContent.qml:59
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr ""
+msgstr "Name (optional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "Message (optional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "Hello, I am…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "Add new contact"
+msgstr "Add contact"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "Add new contact"
+msgstr "Add contact"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1188,69 +1155,55 @@ msgid "Please enter a valid password"
 msgstr "Please enter a valid password"
 
 #: src/qml/elements/LoadingArea.qml:13
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Loading…"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Actions"
+msgstr "Reactions"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:35
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Own:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:56
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "The link will be opened after you have connected."
+msgstr "%1 will be added once you are connected"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:59
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "The link will be opened after you have connected."
+msgstr "%1 will be removed once you are connected"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:61
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "Message could not be sent."
+msgstr "%1 could not be added"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:64
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "Message could not be sent."
+msgstr "%1 could not be removed"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:66
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
-msgstr ""
+msgstr "%1 has been sent"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:68
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
-msgstr ""
+msgstr "%1 has been delivered"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"

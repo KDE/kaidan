@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-16 08:44+0200\n"
+"PO-Revision-Date: 2023-06-17 16:09+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -111,7 +111,7 @@ msgstr "Dúas pasadas"
 #: src/MediaUtils.cpp:228
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr "Audio"
+msgstr "Son"
 
 #: src/MediaUtils.cpp:230
 msgctxt "MediaUtils|"
@@ -176,7 +176,7 @@ msgstr "Escoller vídeo"
 #: src/MediaUtils.cpp:299
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr "Escoller ficheiro de audio"
+msgstr "Escolla un ficheiro de son"
 
 #: src/MediaUtils.cpp:301
 msgctxt "MediaUtils|"
@@ -201,7 +201,7 @@ msgstr "Vídeos"
 #: src/MediaUtils.cpp:329
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr "Ficheiros de audio"
+msgstr "Ficheiros de son"
 
 #: src/MediaUtils.cpp:331
 msgctxt "MediaUtils|"
@@ -233,7 +233,7 @@ msgstr "Esta mensaxe está cifrada con %1 pero non puido descifrarse"
 #: src/MessageHandler.cpp:239
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "Non se puido editar a mensaxe."
+msgstr "Non se puido corrixir a mensaxe."
 
 #: src/MessageHandler.cpp:297
 msgctxt "MessageHandler|"
@@ -659,7 +659,7 @@ msgstr "Non se puideron cambiar os axustes da conexión: %1"
 #: src/qml/details/AccountDetailsContent.qml:603
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
-msgstr "Gardados os novos axustes da conexión"
+msgstr "Cambiouse a configuración de conexión."
 
 #: src/qml/details/AccountDetailsContent.qml:626
 msgctxt "AccountDetailsContent|"
@@ -900,7 +900,7 @@ msgstr "Eliminar"
 #: src/qml/details/ContactDetailsContent.qml:315
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr "Eliminar contacto e pechar historial da conversa"
+msgstr "Eliminar contacto e o historial de conversas"
 
 #: src/qml/details/ContactDetailsContent.qml:324
 msgctxt "ContactDetailsContent|"
@@ -1011,7 +1011,7 @@ msgstr "Aviso Spoiler"
 #: src/qml/elements/ChatPageSendingPane.qml:67
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
-msgstr "Pechar o cambio de aviso de spoiler"
+msgstr "Pechar o campo de aviso de spoiler"
 
 #: src/qml/elements/ChatPageSendingPane.qml:105
 msgctxt "ChatPageSendingPane|"
@@ -1415,7 +1415,7 @@ msgstr "Convidar amizades"
 #: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr "Ligazón do convite copiada"
+msgstr "A ligazón do convite copiouse no portapapeis."
 
 #: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
@@ -1659,7 +1659,7 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
-"O provedor é onde se creará a conta.\n"
+"O provedor é onde se atopa a conta.\n"
 "Os provedores dispoñibles están escollidos pola nosa comunidade!"
 
 #: src/qml/registration/ProviderView.qml:39
@@ -1859,7 +1859,7 @@ msgstr "Buscar contactos"
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr "Acerca de Kaidan"
+msgstr "Sobre Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
 msgctxt "AboutPage|"
@@ -1949,7 +1949,7 @@ msgstr "Cámara"
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
-msgstr "Entrada de audio"
+msgstr "Entrada de son"
 
 #: src/qml/settings/MultimediaSettings.qml:109
 msgctxt "MultimediaSettings|"
@@ -1984,19 +1984,19 @@ msgstr "Axustes Multimedia"
 #: src/qml/settings/SettingsContent.qml:31
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
-msgstr "Configurar os axustes para fotos e gravación de audio e vídeo"
+msgstr "Configurar os axustes para fotos e gravación de son e vídeo"
 
 #: src/qml/settings/SettingsContent.qml:37
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr "Acerca de Kaidan"
+msgstr "Sobre Kaidan"
 
 #: src/qml/settings/SettingsContent.qml:38
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
-"Coñece máis acerca da versión actual de Kaidan, le o código fonte e colabora"
+"Coñece máis sobre a versión actual de Kaidan, le o código fonte e colabora"
 
 #: src/qml/settings/SettingsPage.qml:10
 msgctxt "SettingsPage|"
@@ -2147,7 +2147,7 @@ msgstr "Alcume"
 #: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "About"
-msgstr "Acerca de"
+msgstr "Sobre"
 
 #: src/VCardModel.cpp:123
 msgctxt "VCardModel|"

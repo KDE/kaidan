@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-06-15 11:46+0100\n"
+"PO-Revision-Date: 2023-06-18 00:02+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: Portuguese <LL@li.org>\n"
 "Language: pt\n"
@@ -943,7 +943,7 @@ msgstr "Mudar o nome…"
 #: src/qml/elements/ActionView.qml:30
 msgctxt "ActionView|"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1109,9 +1109,6 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Adicionar"
@@ -1119,63 +1116,42 @@ msgstr "Adicionar"
 #: src/qml/elements/ContactAdditionContent.qml:33
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr ""
+msgstr "O contacto já existe"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Abrir uma conversa de suporte"
+msgstr "Abrir uma conversa"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "A adicionar o contacto…"
 
 #: src/qml/elements/ContactAdditionContent.qml:59
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Name (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Nome (opcional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:66
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Message (optional):"
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr "Mensagem (opcional):"
 
 #: src/qml/elements/ContactAdditionContent.qml:73
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Hello, I'm…"
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Olá, chamo-me…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "Adicionar um novo contacto"
+msgstr "Adicionar um contacto"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "Adicionar um novo contacto"
+msgstr "Adicionar o contacto"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1204,9 +1180,6 @@ msgid "Please enter a valid password"
 msgstr "Indique por favor uma senha válida"
 
 #: src/qml/elements/LoadingArea.qml:13
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "A carregar…"
@@ -1249,13 +1222,13 @@ msgstr "Não foi possível remover o %1"
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
-msgstr ""
+msgstr "Foi enviado o %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:68
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
-msgstr ""
+msgstr "Foi entregue o %1"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
