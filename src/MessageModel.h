@@ -17,6 +17,7 @@
 // Kaidan
 #include "Message.h"
 #include "OmemoWatcher.h"
+#include "PresenceCache.h"
 #include "RosterItemWatcher.h"
 
 class QTimer;
@@ -325,6 +326,7 @@ private:
 	QString m_currentAccountJid;
 	QString m_currentChatJid;
 	RosterItemWatcher m_rosterItemWatcher;
+	UserResourcesWatcher m_contactResourcesWatcher;
 	OmemoWatcher m_accountOmemoWatcher;
 	OmemoWatcher m_contactOmemoWatcher;
 	QString m_lastReadOwnMessageId;

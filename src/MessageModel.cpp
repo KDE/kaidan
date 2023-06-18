@@ -1039,6 +1039,7 @@ void MessageModel::resetCurrentChat(const QString &accountJid, const QString &ch
 	emit currentChatJidChanged(chatJid);
 
 	m_rosterItemWatcher.setJid(chatJid);
+	m_contactResourcesWatcher.setJid(chatJid);
 	m_accountOmemoWatcher.setJid(accountJid);
 	m_contactOmemoWatcher.setJid(chatJid);
 	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
@@ -1240,7 +1241,7 @@ QXmppMessage::State MessageModel::chatState() const
 
 void MessageModel::sendChatState(QXmppMessage::State state)
 {
-	if (!m_rosterItemWatcher.item().chatStateSendingEnabled) {
+	if (m_contactResourcesWatcher.resourcesCount() == 0 || !m_rosterItemWatcher.item().chatStateSendingEnabled) {
 		return;
 	}
 
