@@ -1249,6 +1249,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "მიმაგრება"
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "ძებნა"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1771,26 +1779,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "არსებული ანგარიშის გამოყენება"
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "დაკავშირება…"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "გათიშული"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "კონტაქტები"
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "კონტაქტების ძებნა"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2091,6 +2079,22 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "დაკავშირება…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "გათიშული"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "კონტაქტები"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "კონტაქტების ძებნა"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "Jabber-ID:"

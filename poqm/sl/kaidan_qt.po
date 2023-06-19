@@ -1284,6 +1284,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Pripni"
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Iskanje"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1834,26 +1842,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Uporabi obstoječ račun"
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Povezovanje…"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Nepovezan"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Stiki"
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Iskanje stikov"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2160,6 +2148,22 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Povezovanje…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Nepovezan"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Stiki"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Iskanje stikov"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "This will also send a request to access the presence of the contact."

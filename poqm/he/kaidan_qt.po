@@ -1420,6 +1420,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "חיפוש"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1992,28 +2000,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:24
-#, fuzzy
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "בהתחברות…"
-
-#: src/qml/RosterPage.qml:25
-#, fuzzy
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "לא מחובר/ת"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr ""
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr ""
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2326,6 +2312,16 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "אתר אינטרנט"
+
+#, fuzzy
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "בהתחברות…"
+
+#, fuzzy
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "לא מחובר/ת"
 
 #, fuzzy
 #~| msgctxt "ChatPage|"

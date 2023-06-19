@@ -1512,6 +1512,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Sök"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -2086,26 +2094,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Använd ett befintligt konto"
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Ansluter…"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Nerkopplad"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Kontakter"
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Sök efter kontakter"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2423,6 +2411,22 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Ansluter…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Nerkopplad"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Kontakter"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Sök efter kontakter"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "This will also send a request to access the presence of the contact."

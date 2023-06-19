@@ -1290,6 +1290,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Пришпилити"
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Пошук"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1849,26 +1857,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Використати наявний обліковий запис"
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Встановлення з’єднання…"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Поза мережею"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Контакти"
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Шукати контакти"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2184,6 +2172,22 @@ msgstr "День народження"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Встановлення з’єднання…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Поза мережею"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Контакти"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Шукати контакти"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "This will also send a request to access the presence of the contact."

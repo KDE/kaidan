@@ -1535,6 +1535,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Cari"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -2156,26 +2164,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Guna akaun sedia ada"
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Menyambung…"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Luar talian"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Kenalan"
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Cari kenalan"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2493,6 +2481,22 @@ msgstr "Hari lahir"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Laman web"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Menyambung…"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Luar talian"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Kenalan"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Cari kenalan"
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "This will also send a request to access the presence of the contact."

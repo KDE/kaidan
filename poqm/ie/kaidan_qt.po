@@ -1390,6 +1390,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Fixar"
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Serchar"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1959,29 +1967,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Conto:"
 
-#: src/qml/RosterPage.qml:24
-#, fuzzy
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Conexente"
-
-#: src/qml/RosterPage.qml:25
-#, fuzzy
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Ne in li rete"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr "Contactes"
-
-#: src/qml/RosterPage.qml:35
-#, fuzzy
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Contactes..."
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2296,6 +2281,25 @@ msgstr "Aniversarie"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#, fuzzy
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Conexente"
+
+#, fuzzy
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Ne in li rete"
+
+#~ msgctxt "RosterPage|"
+#~ msgid "Contacts"
+#~ msgstr "Contactes"
+
+#, fuzzy
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Contactes..."
 
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "Jabber-ID:"

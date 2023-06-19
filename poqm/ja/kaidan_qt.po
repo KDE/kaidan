@@ -1350,6 +1350,11 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr ""
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1898,29 +1903,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:24
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connect"
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "接続"
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr ""
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr ""
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr ""
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2233,6 +2215,13 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ウェブサイト"
+
+#, fuzzy
+#~| msgctxt "LoginPage|"
+#~| msgid "Connect"
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "接続"
 
 #, fuzzy
 #~| msgctxt "LoginPage|"

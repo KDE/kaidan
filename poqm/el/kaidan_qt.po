@@ -1361,6 +1361,14 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search"
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Αναζήτηση"
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1907,29 +1915,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:24
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr ""
-
-#: src/qml/RosterPage.qml:25
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr ""
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr ""
-
-#: src/qml/RosterPage.qml:35
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search down"
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr "Αναζήτηση προς τα κάτω"
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2238,6 +2223,13 @@ msgstr ""
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Ιστότοπος"
+
+#, fuzzy
+#~| msgctxt "ChatPage|"
+#~| msgid "Search down"
+#~ msgctxt "RosterPage|"
+#~ msgid "Search contacts"
+#~ msgstr "Αναζήτηση προς τα κάτω"
 
 #, fuzzy
 #~| msgctxt "ChatMessageContextMenu|"

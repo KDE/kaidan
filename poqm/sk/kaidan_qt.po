@@ -1337,6 +1337,11 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr ""
 
+#: src/qml/elements/SearchBarPage.qml:29
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr ""
+
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1898,32 +1903,6 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr ""
 
-#: src/qml/RosterPage.qml:24
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
-msgctxt "RosterPage|"
-msgid "Connecting…"
-msgstr "Pripájam..."
-
-#: src/qml/RosterPage.qml:25
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Offline"
-msgctxt "RosterPage|"
-msgid "Offline"
-msgstr "Nepripojený"
-
-#: src/qml/RosterPage.qml:26
-msgctxt "RosterPage|"
-msgid "Contacts"
-msgstr ""
-
-#: src/qml/RosterPage.qml:35
-msgctxt "RosterPage|"
-msgid "Search contacts"
-msgstr ""
-
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2229,6 +2208,20 @@ msgstr "Narodeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
+
+#, fuzzy
+#~| msgctxt "Kaidan|"
+#~| msgid "Connecting…"
+#~ msgctxt "RosterPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Pripájam..."
+
+#, fuzzy
+#~| msgctxt "Kaidan|"
+#~| msgid "Offline"
+#~ msgctxt "RosterPage|"
+#~ msgid "Offline"
+#~ msgstr "Nepripojený"
 
 #, fuzzy
 #~| msgctxt "VCardModel|"
