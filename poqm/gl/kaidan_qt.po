@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-18 09:00+0200\n"
+"PO-Revision-Date: 2023-06-20 08:19+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -384,12 +384,12 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Escanear código QR ou escribir as credenciais como texto noutro dispositivo "
-"para conectar nel.\n"
+"Escanee o código QR ou escriba as credenciais noutro dispositivo para "
+"conectarse nel.\n"
 "\n"
 "Atención:\n"
-"Nunca lle mostres este código QR a ninguén. Permitiríalle acceso sen límite "
-"á túa conta!"
+"Nunca lle amose este código QR a ninguén. Permitiríalle acceso ilimitado á "
+"súa conta!"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -1283,9 +1283,6 @@ msgid "Pin"
 msgstr "Fixar"
 
 #: src/qml/elements/SearchBarPage.qml:29
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Buscar"
@@ -1421,7 +1418,7 @@ msgstr "Convidar amizades"
 #: src/qml/GlobalDrawer.qml:170
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr "A ligazón do convite copiouse no portapapeis."
+msgstr "A ligazón da invitación copiouse no portapapeis."
 
 #: src/qml/GlobalDrawer.qml:175
 msgctxt "GlobalDrawer|"
@@ -1591,15 +1588,15 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
-"O teu nome público é o que verán os teus contactos.\n"
+"O teu nome visual é o que verán os teus contactos.\n"
 "Se non queres establecer este nome podes deixar o campo baleiro.\n"
-"Usar un nome público pode axudar aos teus contactos a recoñecerte máis axiña "
+"Usar un nome visual pode axudar aos teus contactos a recoñecerte máis axiña "
 "pero tamén diminúe a túa privacidade!"
 
 #: src/qml/registration/DisplayNameView.qml:22
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr "Nome público"
+msgstr "Nome visual"
 
 #: src/qml/registration/LoadingView.qml:16
 msgctxt "LoadingView|"
@@ -1756,7 +1753,7 @@ msgstr "O texto CAPTCHA non é correcto"
 #: src/qml/registration/RegistrationPage.qml:64
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr "Falta información obrigatoria:"
+msgstr "Falta información obrigatoria: "
 
 #: src/qml/registration/RegistrationPage.qml:73
 msgctxt "RegistrationPage|"
