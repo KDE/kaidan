@@ -541,10 +541,8 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 	itr->draftMessageId = message.id;
 	itr->lastMessage = lastMessage;
 
-	RosterDb::instance()->updateItem(
-		itr->jid, [id = message.id, lastMessage](RosterItem &item) {
+	RosterDb::instance()->updateItem(itr->jid, [id = message.id](RosterItem &item) {
 		item.draftMessageId = id;
-		item.lastMessage = lastMessage;
 	});
 
 	// notify gui
@@ -571,11 +569,6 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 
 	const auto lastMessage = message.previewText();
 	itr->lastMessage = lastMessage;
-
-	RosterDb::instance()->updateItem(
-		itr->jid, [lastMessage](RosterItem &item) {
-		item.lastMessage = lastMessage;
-	});
 
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
@@ -609,10 +602,8 @@ void RosterModel::handleDraftMessageRemoved(const QString &id)
 	itr->lastMessage = lastMessage;
 
 	RosterDb::instance()->updateItem(
-		itr->jid, [lastExchange = last.stamp, lastMessage](RosterItem &item) {
+		itr->jid, [](RosterItem &item) {
 		item.draftMessageId.clear();
-		item.lastExchanged = lastExchange;
-		item.lastMessage = lastMessage;
 	});
 
 	// notify gui
