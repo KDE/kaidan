@@ -50,12 +50,6 @@ SearchBarPage {
 				notificationsMuted: model ? model.notificationsMuted : false
 
 				onClicked: {
-//					// Open the chatPage only if it is not yet open.
-//					if (!isSelected || !wideScreen) {
-//						openChatPage(accountJid, jid)
-//					}
-
-					// TODO: Is this actually needed instead of the previous part?
 					// Open the chatPage only if it is not yet open.
 					// Emitting the signal is needed because there are slots in other places.
 					if (!isSelected || !wideScreen) {
