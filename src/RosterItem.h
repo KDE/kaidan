@@ -31,7 +31,7 @@ public:
 	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
 
 	RosterItem() = default;
-	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &dateTime = QDateTime::currentDateTimeUtc());
+	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastExchanged = QDateTime::currentDateTimeUtc());
 
 	QString displayName() const;
 
