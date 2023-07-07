@@ -533,11 +533,13 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 		return;
 
 	QVector<int> changedRoles = {
+		int(LastExchangedRole),
 		int(LastMessageRole),
 		int(DraftIdRole)
 	};
 
 	const auto lastMessage = message.previewText();
+	itr->lastExchanged = QDateTime::currentDateTimeUtc();
 	itr->draftMessageId = message.id;
 	itr->lastMessage = lastMessage;
 
@@ -563,11 +565,13 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 		return;
 
 	QVector<int> changedRoles = {
+		int(LastExchangedRole),
 		int(LastMessageRole),
 		int(DraftIdRole)
 	};
 
 	const auto lastMessage = message.previewText();
+	itr->lastExchanged = QDateTime::currentDateTimeUtc();
 	itr->lastMessage = lastMessage;
 
 	// notify gui
