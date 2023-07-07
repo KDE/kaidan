@@ -43,6 +43,9 @@ Controls.Pane {
 			this.isSpoiler = isSpoiler;
 			spoilerHintField.text = spoilerHint;
 			messageArea.text = body;
+
+			// Position the cursor after the draft message's body.
+			messageArea.cursorPosition = messageArea.text.length
 		}
 	}
 
