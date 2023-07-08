@@ -218,7 +218,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:163
+#: src/Message.cpp:164
 #, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
@@ -266,7 +266,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -274,7 +274,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:847
+#: src/MessageModel.cpp:851
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1005,39 +1005,47 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:23
+#: src/qml/elements/ChatMessageContextMenu.qml:24
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Nachricht kopieren"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:34
+#: src/qml/elements/ChatMessageContextMenu.qml:35
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Nachricht bearbeiten"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:40
+#: src/qml/elements/ChatMessageContextMenu.qml:41
 #, fuzzy
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "URL zum Herunterladen kopieren"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Nachricht zitieren"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:54
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Datei löschen"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:62
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "Mark as read"
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Als gelesen markieren"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Remove from Kaidan"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr "Aus Kaidan entfernen"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 #, fuzzy

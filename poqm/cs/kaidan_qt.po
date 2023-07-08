@@ -212,7 +212,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:163
+#: src/Message.cpp:164
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr ""
@@ -258,12 +258,12 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Chyba"
 
-#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
 msgstr "Reakci nelze odeslat: %s"
 
-#: src/MessageModel.cpp:847
+#: src/MessageModel.cpp:851
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
 msgstr "Reakce nelze odeslat: %s"
@@ -919,35 +919,40 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:23
+#: src/qml/elements/ChatMessageContextMenu.qml:24
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Kopírovat zprávu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:34
+#: src/qml/elements/ChatMessageContextMenu.qml:35
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Upravit zprávu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:40
+#: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:54
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Smazat soubor"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Označit jako první nepřečtené"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr ""
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"

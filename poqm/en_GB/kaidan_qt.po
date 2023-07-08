@@ -214,7 +214,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:163
+#: src/Message.cpp:164
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -260,12 +260,12 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
 msgstr "Reaction could not be sent: %s"
 
-#: src/MessageModel.cpp:847
+#: src/MessageModel.cpp:851
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
 msgstr "Reactions could not be sent: %s"
@@ -947,35 +947,43 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1 has read up to this point"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:23
+#: src/qml/elements/ChatMessageContextMenu.qml:24
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Copy message"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:34
+#: src/qml/elements/ChatMessageContextMenu.qml:35
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Edit message"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:40
+#: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "Copy download URL"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Quote message"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:54
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Delete file"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Mark as first unread"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Remove from Kaidan"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr "Remove from Kaidan"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"

@@ -214,7 +214,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:163
+#: src/Message.cpp:164
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "სპოილერი"
@@ -260,12 +260,12 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %s"
 
-#: src/MessageModel.cpp:847
+#: src/MessageModel.cpp:851
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %s"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %s"
@@ -924,35 +924,43 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1-მა ამ წერტილამდე წაიკითხა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:23
+#: src/qml/elements/ChatMessageContextMenu.qml:24
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "შეტყობინების კოპირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:34
+#: src/qml/elements/ChatMessageContextMenu.qml:35
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "შეტყობინების შეცვლა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:40
+#: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "გადმოწერის ბმულის კოპირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "შეტყობინების ციტირება"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:54
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Ფაილის წაშლა"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "მონიშნე, როგორც პირველი წაუკითხავი"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Remove from Kaidan"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr "Kaidan-დან წაშლა"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"

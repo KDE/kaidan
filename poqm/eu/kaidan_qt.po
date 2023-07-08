@@ -218,7 +218,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr ""
 
-#: src/Message.cpp:163
+#: src/Message.cpp:164
 #, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
@@ -266,7 +266,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errorea"
 
-#: src/MessageModel.cpp:666 src/MessageModel.cpp:769 src/MessageModel.cpp:906
+#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connecting…"
@@ -274,7 +274,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %s"
 msgstr "Konektatzen…"
 
-#: src/MessageModel.cpp:847
+#: src/MessageModel.cpp:851
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connecting…"
@@ -1007,7 +1007,7 @@ msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:23
+#: src/qml/elements/ChatMessageContextMenu.qml:24
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Copy Message"
@@ -1015,7 +1015,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Mezua kopiatu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:34
+#: src/qml/elements/ChatMessageContextMenu.qml:35
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Edit Message"
@@ -1023,12 +1023,12 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Mezua editatu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:40
+#: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr ""
 
-#: src/qml/elements/ChatMessageContextMenu.qml:46
+#: src/qml/elements/ChatMessageContextMenu.qml:47
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Compose message"
@@ -1036,7 +1036,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Mezua sortu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:53
+#: src/qml/elements/ChatMessageContextMenu.qml:54
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Select a file"
@@ -1044,10 +1044,18 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Artxibo bat aukeratu"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:61
+#: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr "Kontaktua ezabatu"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 #, fuzzy
