@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,6 +17,19 @@ DetailsContent {
 	id: root
 
 	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
+
+	function loadDownloadedFiles() {
+		mediaOverview.loadDownloadedFiles()
+	}
+
+	function collapseExpandedSections() {
+		mediaOverviewExpansionButton.checked = false
+	}
+
+	mediaOverview {
+		accountJid: MessageModel.currentAccountJid
+		chatJid: MessageModel.currentChatJid
+	}
 
 	vCardRepeater {
 		model: VCardModel {
@@ -46,6 +60,7 @@ DetailsContent {
 			}
 		}
 	}
+
 	encryptionArea: ColumnLayout {
 		spacing: 0
 

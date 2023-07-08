@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -21,6 +22,8 @@ Controls.Control {
 	property Kirigami.OverlaySheet sheet
 	required property string jid
 	property alias qrCodePage: qrCodePage
+	property alias mediaOverview: mediaOverview
+	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea.data
 	property alias vCardRepeater: vCardRepeater
 	required property ColumnLayout encryptionArea
@@ -50,6 +53,36 @@ Controls.Control {
 				Component.onDestruction: {
 					if (root.sheet) {
 						root.sheet.open()
+					}
+				}
+			}
+		}
+
+		MobileForm.FormCard {
+			visible: contentItem.enabled
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				enabled: mediaOverview.totalFilesCount
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Media")
+				}
+
+				MediaOverview {
+					id: mediaOverview
+					visible: mediaOverviewExpansionButton.checked
+					Layout.fillWidth: true
+				}
+
+				FormExpansionButton {
+					id: mediaOverviewExpansionButton
+					onCheckedChanged: {
+						if (checked) {
+							mediaOverview.selectionMode = false
+							mediaOverview.tabBarCurrentIndex = 0
+							mediaOverview.loadDownloadedFiles()
+						}
 					}
 				}
 			}

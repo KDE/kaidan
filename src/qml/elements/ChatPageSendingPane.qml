@@ -225,7 +225,7 @@ Controls.Pane {
 						Layout.fillWidth: true
 						leftPadding: Kirigami.Units.largeSpacing
 						Kirigami.Heading {
-							text: qsTr("Attachments")
+							text: qsTr("Media")
 						}
 
 					}

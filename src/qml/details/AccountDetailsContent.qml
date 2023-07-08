@@ -20,12 +20,25 @@ import "../settings"
 DetailsContent {
 	id: root
 
+	function loadDownloadedFiles() {
+		mediaOverview.loadDownloadedFiles()
+	}
+
+	function collapseExpandedSections() {
+		mediaOverviewExpansionButton.checked = false
+		vCardExpansionButton.checked = false
+	}
+
+	mediaOverview {
+		accountJid: MessageModel.currentAccountJid
+		chatJid: ""
+	}
+
 	vCardArea: [
 		FormExpansionButton {
+			id: vCardExpansionButton
 			checked: vCardRepeater.model.unsetEntriesProcessed
-			onClicked: {
-				vCardRepeater.model.unsetEntriesProcessed = !vCardRepeater.model.unsetEntriesProcessed
-			}
+			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
 		}
 	]
 

@@ -2,6 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick 2.14
 import QtQuick.Layouts 1.14
 
 import im.kaidan.kaidan 1.0
@@ -14,7 +15,10 @@ DetailsPage {
 	}
 
 	AccountDetailsContent {
+		id: content
 		jid: AccountManager.jid
 		Layout.fillWidth: true
 	}
+
+	Component.onCompleted: content.loadDownloadedFiles()
 }
