@@ -32,7 +32,7 @@ public:
 	enum RosterItemRoles {
 		JidRole,
 		NameRole,
-		LastExchangedRole,
+		LastMessageDateTimeRole,
 		UnreadMessagesRole,
 		LastMessageRole,
 		PinnedRole,

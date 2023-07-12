@@ -253,7 +253,7 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 
 		for (auto &item : items) {
 			Message lastMessage = MessageDb::instance()->_fetchLastMessage(accountId, item.jid);
-			item.lastExchanged = lastMessage.stamp;
+			item.lastMessageDateTime = lastMessage.stamp;
 			item.lastMessage = lastMessage.previewText();
 		}
 

@@ -91,7 +91,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	QHash<int, QByteArray> roles;
 	roles[JidRole] = "jid";
 	roles[NameRole] = "name";
-	roles[LastExchangedRole] = "lastExchanged";
+	roles[LastMessageDateTimeRole] = "lastMessageDateTime";
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
 	roles[PinnedRole] = "pinned";
@@ -112,8 +112,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).jid;
 	case NameRole:
 		return m_items.at(index.row()).name;
-	case LastExchangedRole:
-		return m_items.at(index.row()).lastExchanged;
+	case LastMessageDateTimeRole:
+		return m_items.at(index.row()).lastMessageDateTime;
 	case UnreadMessagesRole:
 		return m_items.at(index.row()).unreadMessages;
 	case LastMessageRole:
@@ -322,7 +322,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 		// use the old item's values, if found
 		if (oldItem != m_items.end()) {
 			item.lastMessage = oldItem->lastMessage;
-			item.lastExchanged = oldItem->lastExchanged;
+			item.lastMessageDateTime = oldItem->lastMessageDateTime;
 			item.unreadMessages = oldItem->unreadMessages;
 			item.lastReadOwnMessageId = oldItem->lastReadOwnMessageId;
 			item.lastReadContactMessageId = oldItem->lastReadContactMessageId;
@@ -348,11 +348,11 @@ void RosterModel::updateLastMessage(
 	// If desired, only set the new message as the current last message if it is newer than
 	// the current one. Allow using the previous message as the new last message if the current
 	// last message is empty.
-	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewer && itr->lastExchanged >= message.stamp)) {
+	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewer && itr->lastMessageDateTime >= message.stamp)) {
 		return;
 	}
 
-	itr->lastExchanged = message.stamp;
+	itr->lastMessageDateTime = message.stamp;
 
 	// The new message is only set as the current last message if they are different and there
 	// is no draft message.
@@ -480,7 +480,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		return;
 
 	QVector<int> changedRoles = {
-		int(LastExchangedRole)
+		int(LastMessageDateTimeRole)
 	};
 
 	updateLastMessage(itr, message, changedRoles);
@@ -533,13 +533,13 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 		return;
 
 	QVector<int> changedRoles = {
-		int(LastExchangedRole),
+		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
 		int(DraftIdRole)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastExchanged = QDateTime::currentDateTimeUtc();
+	itr->lastMessageDateTime = QDateTime::currentDateTimeUtc();
 	itr->draftMessageId = message.id;
 	itr->lastMessage = lastMessage;
 
@@ -565,13 +565,13 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 		return;
 
 	QVector<int> changedRoles = {
-		int(LastExchangedRole),
+		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
 		int(DraftIdRole)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastExchanged = QDateTime::currentDateTimeUtc();
+	itr->lastMessageDateTime = QDateTime::currentDateTimeUtc();
 	itr->lastMessage = lastMessage;
 
 	// notify gui
@@ -596,13 +596,13 @@ void RosterModel::handleDraftMessageRemoved(const QString &id)
 	const auto lastMessage = last.previewText();
 
 	QVector<int> changedRoles = {
-		int(LastExchangedRole),
+		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
 		int(DraftIdRole)
 	};
 
 	itr->draftMessageId.clear();
-	itr->lastExchanged = last.stamp;
+	itr->lastMessageDateTime = last.stamp;
 	itr->lastMessage = lastMessage;
 
 	RosterDb::instance()->updateItem(

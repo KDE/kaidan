@@ -31,7 +31,7 @@ public:
 	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
 
 	RosterItem() = default;
-	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastExchanged = QDateTime::currentDateTimeUtc());
+	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime = QDateTime::currentDateTimeUtc());
 
 	QString displayName() const;
 
@@ -61,9 +61,10 @@ public:
 	// Number of messages unread by the user.
 	int unreadMessages = 0;
 
-	// Last activity of the conversation, e.g. an incoming message.
-	// This is used to sort the contacts on the roster page.
-	QDateTime lastExchanged = QDateTime::currentDateTimeUtc();
+	// Last activity of the conversation, e.g., when the last message was exchanged or a draft
+	// stored.
+	// This is used to display the date and to sort the contacts on the roster page´.
+	QDateTime lastMessageDateTime = QDateTime::currentDateTimeUtc();
 
 	// Last message of the conversation.
 	QString lastMessage;

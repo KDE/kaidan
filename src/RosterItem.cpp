@@ -8,8 +8,8 @@
 
 #include <QXmppUtils.h>
 
-RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastExchanged)
-	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastExchanged(lastExchanged)
+RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime)
+	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastMessageDateTime(lastMessageDateTime)
 {
 }
 
@@ -31,8 +31,8 @@ bool RosterItem::isReceivingPresence() const
 bool RosterItem::operator<(const RosterItem &other) const
 {
 	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastExchanged != other.lastExchanged) {
-			return lastExchanged > other.lastExchanged;
+		if (lastMessageDateTime != other.lastMessageDateTime) {
+			return lastMessageDateTime > other.lastMessageDateTime;
 		}
 		return displayName().toUpper() < other.displayName().toUpper();
 	}
@@ -42,8 +42,8 @@ bool RosterItem::operator<(const RosterItem &other) const
 bool RosterItem::operator>(const RosterItem &other) const
 {
 	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastExchanged != other.lastExchanged) {
-			return lastExchanged < other.lastExchanged;
+		if (lastMessageDateTime != other.lastMessageDateTime) {
+			return lastMessageDateTime < other.lastMessageDateTime;
 		}
 		return displayName().toUpper() > other.displayName().toUpper();
 	}
@@ -53,8 +53,8 @@ bool RosterItem::operator>(const RosterItem &other) const
 bool RosterItem::operator<=(const RosterItem &other) const
 {
 	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastExchanged != other.lastExchanged) {
-			return lastExchanged >= other.lastExchanged;
+		if (lastMessageDateTime != other.lastMessageDateTime) {
+			return lastMessageDateTime >= other.lastMessageDateTime;
 		}
 		return displayName().toUpper() <= other.displayName().toUpper();
 	}
@@ -64,8 +64,8 @@ bool RosterItem::operator<=(const RosterItem &other) const
 bool RosterItem::operator>=(const RosterItem &other) const
 {
 	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastExchanged != other.lastExchanged) {
-			return lastExchanged <= other.lastExchanged;
+		if (lastMessageDateTime != other.lastMessageDateTime) {
+			return lastMessageDateTime <= other.lastMessageDateTime;
 		}
 		return displayName().toUpper() >= other.displayName().toUpper();
 	}
