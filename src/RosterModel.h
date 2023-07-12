@@ -173,6 +173,8 @@ private:
 	void updateItemPosition(int currentIndex);
 	int positionToAdd(const RosterItem &item);
 	int positionToMove(int currentIndex);
+	
+	QString formattedLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
 
 	QVector<RosterItem> m_items;
 

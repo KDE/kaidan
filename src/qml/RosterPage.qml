@@ -6,8 +6,8 @@
 // SPDX-FileCopyrightText: 2020 caca hueto <cacahueto@olomono.de>
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
-// SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -43,6 +43,7 @@ SearchBarPage {
 				accountJid: AccountManager.jid
 				jid: model ? model.jid : ""
 				name: model ? (model.name ? model.name : model.jid) : ""
+				lastMessageDateTime: model ? model.lastMessageDateTime : ""
 				lastMessage: model ? model.lastMessage : ""
 				lastMessageIsDraft: model ? model.draftId : false
 				unreadMessages: model ? model.unreadMessages : 0

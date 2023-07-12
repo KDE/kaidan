@@ -112,8 +112,18 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).jid;
 	case NameRole:
 		return m_items.at(index.row()).name;
-	case LastMessageDateTimeRole:
-		return m_items.at(index.row()).lastMessageDateTime;
+	case LastMessageDateTimeRole: {
+		// "lastMessageDateTime" is used for sorting the roster items.
+		// Thus, each new item has the current date as its default value.
+		// But that date should only be displayed when there is a last (exchanged or draft) message.
+		if (const auto &item = m_items.at(index.row()); !item.lastMessage.isEmpty() || !item.draftMessageId.isEmpty()) {
+			return formattedLastMessageDateTime(m_items.at(index.row()).lastMessageDateTime);
+		}
+
+		// The user interface needs a valid string.
+		// Thus, a null string (i.e., "{}") must not be returned.
+		return QString();
+	}
 	case UnreadMessagesRole:
 		return m_items.at(index.row()).unreadMessages;
 	case LastMessageRole:
@@ -715,4 +725,20 @@ int RosterModel::positionToMove(int currentIndex)
 	// position is not changed.
 	// In all other cases, the item is appended to the list.
 	return currentIndex == m_items.size() - 1 ? currentIndex : m_items.size();
+}
+
+QString RosterModel::formattedLastMessageDateTime(const QDateTime &lastMessageDateTime) const
+{
+	const QDateTime &lastMessageDateTimeLocal { lastMessageDateTime.toLocalTime() };
+
+	if (const auto now = QDateTime::currentDateTimeUtc(); lastMessageDateTime.date() == now.date()) {
+		// Today: Return only the time.
+		return QLocale::system().toString(lastMessageDateTimeLocal.time(), "hh:mm");
+	} else if (lastMessageDateTime.daysTo(now) <= 7) {
+		// Between yesterday and seven days before today: Return the day of the week.
+		return QLocale::system().toString(lastMessageDateTimeLocal.date(), "ddd");
+	} else {
+		// Older than seven days before today: Return the date.
+		return QLocale::system().toString(lastMessageDateTimeLocal.date(), QLocale::ShortFormat);
+	}
 }

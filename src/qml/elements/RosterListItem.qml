@@ -2,8 +2,8 @@
 // SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
-// SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -20,6 +20,7 @@ UserListItem {
 	property ListView listView
 	property Controls.Menu contextMenu
 	property bool lastMessageIsDraft
+	property alias lastMessageDateTime: lastMessageDateTimeText.text
 	property string lastMessage
 	property int unreadMessages
 	property bool pinned
@@ -36,16 +37,26 @@ UserListItem {
 		spacing: Kirigami.Units.largeSpacing
 		Layout.fillWidth: true
 
-		// name
-		Kirigami.Heading {
-			id: nameText
-			text: name
-			textFormat: Text.PlainText
-			elide: Text.ElideRight
-			maximumLineCount: 1
-			level: 4
-			Layout.fillWidth: true
-			Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
+		RowLayout {
+			// name
+			Kirigami.Heading {
+				id: nameText
+				text: root.name
+				textFormat: Text.PlainText
+				elide: Text.ElideRight
+				maximumLineCount: 1
+				level: 4
+				Layout.fillWidth: true
+				Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
+			}
+
+			// last (exchanged/draft) message date/time
+			Text {
+				id: lastMessageDateTimeText
+				text: root.lastMessageDateTime
+				visible: text
+				color: Kirigami.Theme.disabledTextColor
+			}
 		}
 
 		// last message or error status message if available, otherwise not visible
@@ -77,7 +88,20 @@ UserListItem {
 		}
 	}
 
-	onIsSelectedChanged: textColorAnimation.restart()
+	onIsSelectedChanged: {
+		lastMessageDateTimeColorAnimation.restart()
+		textColorAnimation.restart()
+	}
+
+	// fading text colors
+	ColorAnimation {
+		id: lastMessageDateTimeColorAnimation
+		targets: [lastMessageDateTimeText]
+		property: "color"
+		to: root.isSelected ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.highlightedTextColor
+		duration: Kirigami.Units.shortDuration
+		running: false
+	}
 
 	// fading text colors
 	ColorAnimation {
