@@ -184,7 +184,7 @@ void RosterModel::setItemEncryption(const QString &, const QString &jid, Encrypt
 
 void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption)
 {
-	for (const auto &item : m_items) {
+	for (const auto &item : std::as_const(m_items)) {
 		emit updateItemRequested(item.jid, [encryption](RosterItem &item) {
 			item.encryption = encryption;
 		});
@@ -322,15 +322,15 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 	for (auto item : items) {
 		// find old item
 		auto oldItem = std::find_if(
-			m_items.begin(),
-			m_items.end(),
+			m_items.cbegin(),
+			m_items.cend(),
 			[&] (const RosterItem &oldItem) {
 				return oldItem.jid == item.jid;
 			}
 		);
 
 		// use the old item's values, if found
-		if (oldItem != m_items.end()) {
+		if (oldItem != m_items.cend()) {
 			item.lastMessage = oldItem->lastMessage;
 			item.lastMessageDateTime = oldItem->lastMessageDateTime;
 			item.unreadMessages = oldItem->unreadMessages;
@@ -403,7 +403,7 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 
 void RosterModel::reorderPinnedItem(const QString &, const QString &jid, int oldIndex, int newIndex)
 {
-	const auto itemBeingReordered = m_items[oldIndex];
+	const auto &itemBeingReordered = m_items.at(oldIndex);
 	const auto pinningPositionDifference = oldIndex - newIndex;
 
 	const auto oldPinningPosition = itemBeingReordered.pinningPosition;
@@ -466,7 +466,7 @@ void RosterModel::setNotificationsMuted(const QString &, const QString &jid, boo
 void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 {
 	for (int i = 0; i < m_items.size(); i++) {
-		RosterItem &item = m_items[i];
+		const RosterItem &item = m_items.at(i);
 
 		if (AccountManager::instance()->jid() == accountJid && (item.jid.isEmpty() || item.jid == jid)) {
 			beginRemoveRows(QModelIndex(), i, i);
