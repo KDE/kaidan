@@ -17,6 +17,7 @@
 #include <QStringBuilder>
 #include <QMimeDatabase>
 #include <QBuffer>
+#include <QFile>
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
@@ -200,6 +201,16 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		emit messagesFetched(messages);
 		return messages;
 	});
+}
+
+QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
+{
+	return _fetchFiles(accountJid, chatJid, false);
+}
+
+QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, const QString &chatJid)
+{
+	return _fetchFiles(accountJid, chatJid, true);
 }
 
 QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
@@ -1117,6 +1128,48 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 			reactionSender.reactions.append(reaction);
 		}
 	}
+}
+
+QFuture<QVector<File> > MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid, bool checkExists)
+{
+	return run([this, accountJid, chatJid, checkExists]() {
+		const QString vice =
+			chatJid.isEmpty()
+				? QStringLiteral("sender = :accountJid")
+				: QStringLiteral("(sender = :accountJid AND recipient = :chatJid)");
+		const QString versa =
+			chatJid.isEmpty()
+				? QStringLiteral("recipient = :accountJid")
+				: QStringLiteral("(sender = :chatJid AND recipient = :accountJid)");
+		auto query = createQuery();
+		prepareQuery(query,
+			"SELECT fileGroupId FROM " DB_VIEW_CHAT_MESSAGES " "
+			"WHERE (" % vice % " OR " % versa % ") AND "
+			"fileGroupId IS NOT NULL");
+		bindValues(query,
+			{
+				{u":accountJid", accountJid},
+				{u":chatJid", chatJid},
+			});
+		execQuery(query);
+
+		QVector<File> files;
+		while (query.next()) {
+			auto fetched = _fetchFiles(query.value(0).toLongLong());
+
+			if (checkExists) {
+				fetched.erase(std::remove_if(fetched.begin(),
+						      fetched.end(),
+						      [](const File &file) {
+							      return !QFile::exists(file.localFilePath);
+						      }),
+					fetched.end());
+			}
+
+			files.append(fetched);
+		}
+		return files;
+	});
 }
 
 bool MessageDb::_checkMessageExists(const Message &message)

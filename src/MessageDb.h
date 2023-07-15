@@ -63,6 +63,28 @@ public:
 	QFuture<QVector<Message>> fetchMessages(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
+	 * Fetches shared media from the database.
+	 * If chatJid is empty, all media related to accountJid are fetched.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 * @param chatJid bare Jid of the chat
+	 *
+	 * @return the fetched messages
+	 */
+	QFuture<QVector<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
+
+	/**
+	 * Fetches downloaded shared media from the database.
+	 * If chatJid is empty, all media related to accountJid are fetched.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 * @param chatJid bare Jid of the chat
+	 *
+	 * @return the fetched messages
+	 */
+	QFuture<QVector<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
+
+	/**
 	 * Fetches entries until the first message of chatJid from the database and emits
 	 * messagesFetched() with the results.
 	 *
@@ -245,6 +267,7 @@ private:
 	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
 	void _fetchReactions(QVector<Message> &messages);
+	QFuture<QVector<File>> _fetchFiles(const QString &accountJid, const QString &chatJid, bool checkExists);
 
 	/**
 	 * Checks whether a message already exists in the database
