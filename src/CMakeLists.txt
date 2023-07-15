@@ -45,6 +45,10 @@ target_sources(${PROJECT_NAME} PRIVATE
 	EmojiModel.h
 	Encryption.h
 	Enums.h
+	FileModel.cpp
+	FileModel.h
+	FileProxyModel.cpp
+	FileProxyModel.h
 	FileProgressCache.cpp
 	FileProgressCache.h
 	FileSharingController.cpp

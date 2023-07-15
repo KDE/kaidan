@@ -47,7 +47,9 @@
 #include "EmojiModel.h"
 #include "Encryption.h"
 #include "Enums.h"
+#include "FileModel.h"
 #include "FileProgressCache.h"
+#include "FileProxyModel.h"
 #include "FileSharingController.h"
 #include "GuiStyle.h"
 #include "HostCompletionModel.h"
@@ -297,6 +299,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<ChatState::State>();
 	qRegisterMetaType<Encryption>();
 	qRegisterMetaType<MessageReactionDeliveryState>();
+	qRegisterMetaType<FileModel::Role>();
+	qRegisterMetaType<FileProxyModel::Mode>();
 
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
@@ -435,6 +439,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
 	qmlRegisterType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel");
+	qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
+	qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");
