@@ -25,6 +25,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	CameraImageCapture.h
 	CameraModel.cpp
 	CameraModel.h
+	ChatHintModel.cpp
+	ChatHintModel.h
 	ClientWorker.cpp
 	ClientWorker.h
 	CredentialsGenerator.cpp

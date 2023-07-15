@@ -15,7 +15,6 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-import QtQml.Models 2.14
 import QtMultimedia 5.14 as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
@@ -135,25 +134,6 @@ ChatPageBase {
 
 		ContactDetailsPage {
 			jid: MessageModel.currentChatJid
-		}
-	}
-
-	Component.onCompleted: showLoginAreaWhenDisconnected()
-
-	Component {
-		id: chatHintLoginAreaComponent
-
-		// That area is displayed when the user is not logged in.
-		ChatHintLoginArea {
-			model: chatHintListView.model
-		}
-	}
-
-	Connections {
-		target: Kaidan
-
-		function onConnectionStateChanged() {
-			root.showLoginAreaWhenDisconnected()
 		}
 	}
 
@@ -408,12 +388,32 @@ ChatPageBase {
 
 	footer:	ListView {
 		id: chatHintListView
-		width: contentWidth
 		height: contentHeight
 		verticalLayoutDirection: ListView.BottomToTop
 		interactive: false
-		model: ObjectModel {}
+		model: ChatHintModel {}
+		delegate: ChatHintArea {
+			id: chatHintArea
+			chatHintModel: chatHintListView.model
+			index: model.index
+			text: model.text
+			buttons: model.buttons
+			loading: model.loading
+			loadingDescription: model.loadingDescription
+			anchors.bottom: root.sendingPane.top
 
+			Connections {
+				target: chatHintListView
+
+				function onCountChanged() {
+					if (chatHintListView.count > 0) {
+						chatHintArea.enabled = chatHintArea.index === chatHintListView.count - 1
+					} else {
+						chatHintArea.enabled = false
+					}
+				}
+			}
+		}
 		header: ChatPageSendingPane {
 			chatPage: root
 			width: root.width
@@ -422,21 +422,9 @@ ChatPageBase {
 				root.sendingPane = this
 			}
 		}
-
 		onCountChanged: {
 			// Make it possible to directly enter a message after chatHintListView is focused because of changes in its model.
 			sendingPane.forceActiveFocus()
-		}
-	}
-
-	/**
-	 * Adds a ChatHintLoginArea to chatHintListView.
-	 */
-	function showLoginAreaWhenDisconnected() {
-		if (Kaidan.connectionState === Enums.StateDisconnected) {
-			// TODO: Do not add a ChatHintLoginArea if already displayed
-			// The passed parent is needed because it would otherwise lead to a segmentation fault after multiple executions.
-			chatHintListView.model.append(chatHintLoginAreaComponent.createObject(chatHintListView))
 		}
 	}
 

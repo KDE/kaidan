@@ -39,6 +39,7 @@
 #include "AvatarFileStorage.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "CameraModel.h"
+#include "ChatHintModel.h"
 #include "CredentialsGenerator.h"
 #include "CredentialsValidator.h"
 #include "DataFormModel.h"
@@ -433,6 +434,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
+	qmlRegisterType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", "Used by proxy models");
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", "Used by emoji models");

@@ -3,34 +3,40 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
-import QtQml.Models 2.14
 import org.kde.kirigami 2.19 as Kirigami
 
+import im.kaidan.kaidan 1.0
+
 /**
- * This is used for displaying content that can be expanded and collapsed.
+ * This is an area used for displaying hints and corresponding buttons on the chat page.
  *
- * The area is intended to be added to a view (e.g., ListView) and thus managed by its model.
- * It is opened on creation by increasing its height and closed via close() by decreasing it again.
+ * It is opened by increasing its height and closed by decreasing it again.
  */
 Rectangle {
-	default property alias __data: contentArea.data
-	property ObjectModel model
+	id: root
 
-	width: parent ? parent.width : 0
-	height: enabled ? contentArea.height + Kirigami.Units.largeSpacing * 4 : 0
+	property ChatHintModel chatHintModel
+	property int index
+	property string text
+	property var buttons
+	property bool loading
+	property string loadingDescription
+
+	width: ListView.view.width
+	height: enabled ? contentArea.height : 0
+	enabled: false
 	clip: true
 	color: primaryBackgroundColor
-	enabled: false
+	ListView.delayRemove: true
+	onLoadingChanged: loading ? loadingStackArea.showLoadingView() : loadingStackArea.hideLoadingView()
 	onHeightChanged: {
-		if (height === 0) {
-			model.remove(this.ObjectModel.index)
+		// Ensure the deletion of this item after the removal animation of decreasing its height.
+		// When this item is removed from the model (i.e., it has the index -1), it is set to be
+		// finally removed from the user interface as soon as it is completely collapsed.
+		if (index === -1 && height === 0) {
+			ListView.delayRemove = false
 		}
-	}
-	Component.onCompleted: {
-		// Show this view.
-		enabled = true
 	}
 
 	Behavior on height {
@@ -39,37 +45,58 @@ Rectangle {
 		}
 	}
 
-	// top: colored separator
-	Rectangle {
-		height: 3
-		color: Kirigami.Theme.highlightColor
-		anchors {
-			left: parent ? parent.left : undefined
-			right: parent ? parent.right : undefined
-			top: parent ? parent.top : undefined
-		}
-	}
-
-	// middle: content
 	ColumnLayout {
 		id: contentArea
-		anchors.centerIn: parent
-		anchors.margins: Kirigami.Units.largeSpacing
-		width: parent.width - anchors.margins * 2
-	}
+		anchors.left: root.left
+		anchors.right: root.right
 
-	// bottom: colored separator
-	Rectangle {
-		height: 3
-		color: Kirigami.Theme.highlightColor
-		anchors {
-			left: parent ? parent.left : undefined
-			right: parent ? parent.right : undefined
-			bottom: parent ? parent.bottom : undefined
+		// top: colored separator
+		Rectangle {
+			height: 3
+			color: Kirigami.Theme.highlightColor
+			Layout.fillWidth: true
 		}
-	}
 
-	function close() {
-		enabled = false
+		// middle: chat hint
+		ColumnLayout {
+			Layout.margins: Kirigami.Units.largeSpacing
+
+			LoadingStackArea {
+				id: loadingStackArea
+				loadingArea.background.visible: false
+				loadingArea.description: root.loadingDescription
+
+				ColumnLayout {
+					visible: root.text
+
+					CenteredAdaptiveText {
+						id: hintText
+						text: root.text
+					}
+				}
+
+				RowLayout {
+					visible: root.buttons.length
+					Layout.alignment: Qt.AlignHCenter
+					Layout.maximumWidth: largeButtonWidth * root.buttons.length + spacing
+
+					Repeater {
+						id: buttonArea
+						model: root.buttons
+						delegate: CenteredAdaptiveButton {
+							text: modelData.text
+							onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
+						}
+					}
+				}
+			}
+		}
+
+		// bottom: colored separator
+		Rectangle {
+			height: 3
+			color: Kirigami.Theme.highlightColor
+			Layout.fillWidth: true
+		}
 	}
 }
