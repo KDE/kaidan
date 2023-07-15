@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2021 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2021 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -11,7 +12,6 @@
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlField>
-#include <QSqlQuery>
 #include <QSqlRecord>
 
 namespace SqlUtils {

@@ -1,17 +1,19 @@
 // SPDX-FileCopyrightText: 2021 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
 #include <QStringView>
+#include <QSqlQuery>
 #include <QVariant>
+
 #include <optional>
 #include <vector>
 
 class QSqlDriver;
 class QSqlField;
-class QSqlQuery;
 
 namespace SqlUtils {
 
@@ -118,5 +120,20 @@ QVariant serialize(const QDateTime &dateTime);
 std::optional<QDateTime> parseOptDateTime(QSqlQuery &query, int index);
 /// Parse QDateTime from 'INTEGER NOT NULL'
 QDateTime parseDateTime(QSqlQuery &query, int index);
+
+/// Try to reserve space for a query in a container.
+template<typename Container>
+void reserve(Container &container, const QSqlQuery &query)
+{
+	if (!query.isActive()) {
+		return;
+	}
+
+	if (query.isSelect()) {
+		if (query.size() != -1) {
+			container.reserve(query.size());
+		}
+	}
+}
 
 }  // SqlUtils

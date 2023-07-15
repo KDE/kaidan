@@ -92,6 +92,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxFileGroupId = rec.indexOf("fileGroupId");
 	int idxRemoved = rec.indexOf("removed");
 
+	reserve(messages, query);
 	while (query.next()) {
 		Message msg;
 		msg.from = query.value(idxFrom).toString();
@@ -542,6 +543,7 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 			execQuery(query, "SELECT fileGroupId FROM messages WHERE fileGroupId IS NOT NULL");
 
 			QVector<qint64> fileIds;
+			reserve(fileIds, query);
 			while (query.next()) {
 				fileIds.append(query.value(0).toLongLong());
 			}
@@ -995,6 +997,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 	execQuery(query);
 
 	QVector<File> files;
+	reserve(files, query);
 	while (query.next()) {
 		auto id = query.value(Id).toLongLong();
 		files << File {
@@ -1029,6 +1032,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 	execQuery(query);
 
 	QVector<FileHash> hashes;
+	reserve(hashes, query);
 	while (query.next()) {
 		hashes << FileHash {
 			fileId,
@@ -1052,6 +1056,7 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 	execQuery(query);
 
 	QVector<HttpSource> sources;
+	reserve(sources, query);
 	while (query.next()) {
 		sources << HttpSource {
 			fileId,
@@ -1084,6 +1089,7 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 	};
 
 	QVector<EncryptedSource> sources;
+	reserve(sources, query);
 	while (query.next()) {
 		sources << EncryptedSource {
 			fileId,
@@ -1154,6 +1160,7 @@ QFuture<QVector<File> > MessageDb::_fetchFiles(const QString &accountJid, const 
 		execQuery(query);
 
 		QVector<File> files;
+		reserve(files, query);
 		while (query.next()) {
 			auto fetched = _fetchFiles(query.value(0).toLongLong());
 
