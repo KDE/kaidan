@@ -69,7 +69,7 @@ Kirigami.SwipeListItem {
 		Kirigami.Action {
 			text: "Add message reaction"
 			icon.name: "smiley-add"
-			visible: !root.isOwn && !root.displayedReactions.length
+			visible: !root.displayedReactions.length
 			onTriggered: {
 				root.reactionEmojiPicker.messageId = root.msgId
 				root.reactionEmojiPicker.open()
@@ -281,9 +281,8 @@ Kirigami.SwipeListItem {
 								isOwnMessage: root.isOwn
 								text: modelData.count === 1 ? modelData.emoji : modelData.emoji + " " + modelData.count
 								width: smallButtonWidth + (text.length < 3 ? 0 : (text.length - 2) * Kirigami.Theme.defaultFont.pixelSize * 0.6)
-								hoverEnabled: !isOwnMessage
 								onClicked: {
-									if (!isOwnMessage && ownReactionIncluded) {
+									if (ownReactionIncluded) {
 										if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
 											deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
 											MessageModel.addMessageReaction(root.msgId, modelData.emoji)
@@ -297,7 +296,6 @@ Kirigami.SwipeListItem {
 
 						MessageReactionAdditionButton {
 							id: messageReactionAdditionButton
-							visible: !root.isOwn
 							messageId: root.msgId
 							emojiPicker: root.reactionEmojiPicker
 							accentColor: bubble.backgroundColor
