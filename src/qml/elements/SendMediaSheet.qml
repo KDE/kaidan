@@ -61,7 +61,7 @@ Kirigami.OverlaySheet {
 
 	Item {
 		Connections {
-			target: root.composition.fileSelectionModel
+			target: root.composition && root.composition.fileSelectionModel
 
 			function onSelectFileFinished() {
 				if (!root.sheetOpen) {
