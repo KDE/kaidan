@@ -80,7 +80,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxId = rec.indexOf("id");
 	int idxEncryption = rec.indexOf("encryption");
 	int idxSenderKey = rec.indexOf("senderKey");
-	int idxBody = rec.indexOf("message");
+	int idxBody = rec.indexOf("body");
 	int idxDeliveryState = rec.indexOf("deliveryState");
 	int idxIsEdited = rec.indexOf("isEdited");
 	int idxSpoilerHint = rec.indexOf("spoilerHint");
@@ -149,7 +149,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.senderKey != newMsg.senderKey)
 		rec.append(createSqlField("senderKey", newMsg.senderKey));
 	if (oldMsg.body != newMsg.body)
-		rec.append(createSqlField("message", newMsg.body));
+		rec.append(createSqlField("body", newMsg.body));
 	if (oldMsg.deliveryState != newMsg.deliveryState)
 		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
 	if (oldMsg.errorText != newMsg.errorText)
@@ -304,7 +304,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 			"WHERE timestamp >= "
 			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) AND "
-			"message LIKE :queryString AND "
+			"body LIKE :queryString AND "
 			"timestamp <= "
 			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE ((sender = :chatJid AND recipient = :accountJid) OR (sender = :accountJid AND recipient = :chatJid)) "
@@ -500,10 +500,10 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"INSERT INTO messages (sender, recipient, timestamp, message, id, encryption, "
+			"INSERT INTO messages (sender, recipient, timestamp, body, id, encryption, "
 			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
 			"originId, stanzaId, fileGroupId, removed) "
-			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
+			"VALUES (:sender, :recipient, :timestamp, :body, :id, :encryption, :senderKey, "
 			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
 			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
@@ -512,7 +512,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":sender", msg.from },
 			{ u":recipient", msg.to },
 			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
-			{ u":message", msg.body },
+			{ u":body", msg.body },
 			{ u":id", msg.id.isEmpty() ? " " : msg.id },
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
@@ -582,7 +582,7 @@ QFuture<void> MessageDb::removeMessage(const QString &senderJid, const QString &
 			execQuery(
 				query,
 				"UPDATE messages "
-				"SET message = NULL, spoilerHint = NULL, removed = 1 "
+				"SET body = NULL, spoilerHint = NULL, removed = 1 "
 				"WHERE id = :messageId "
 				"AND ((sender = :sender AND recipient = :recipient) OR "
 				"(recipient = :sender AND sender = :recipient)) ",
@@ -748,10 +748,10 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"INSERT INTO " DB_TABLE_MESSAGES " (sender, recipient, timestamp, message, id, encryption, "
+			"INSERT INTO " DB_TABLE_MESSAGES " (sender, recipient, timestamp, body, id, encryption, "
 			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
 			"originId, stanzaId, fileGroupId, removed) "
-			"VALUES (:sender, :recipient, :timestamp, :message, :id, :encryption, :senderKey, "
+			"VALUES (:sender, :recipient, :timestamp, :body, :id, :encryption, :senderKey, "
 			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
 			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
@@ -760,7 +760,7 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 			{ u":sender", msg.from },
 			{ u":recipient", msg.to },
 			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
-			{ u":message", msg.body },
+			{ u":body", msg.body },
 			{ u":id", msg.id },
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },

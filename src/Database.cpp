@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 30
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(30)
+#define DATABASE_LATEST_VERSION 31
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(31)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -390,7 +390,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
-			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(body, SQL_TEXT)
 			SQL_ATTRIBUTE(id, SQL_TEXT)
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
@@ -1427,4 +1427,12 @@ void Database::convertDatabaseToV30()
 	execQuery(query, "DROP VIEW chatMessages");
 	execQuery(query, "CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4 AND removed != 1");
 	d->version = 30;
+}
+
+void Database::convertDatabaseToV31()
+{
+	DATABASE_CONVERT_TO_VERSION(30);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE messages RENAME COLUMN message TO body");
+	d->version = 31;
 }

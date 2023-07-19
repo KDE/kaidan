@@ -112,6 +112,7 @@ private:
 	void convertDatabaseToV28();
 	void convertDatabaseToV29();
 	void convertDatabaseToV30();
+	void convertDatabaseToV31();
 
 	std::unique_ptr<DatabasePrivate> d;
 };
