@@ -27,45 +27,62 @@ Kirigami.OverlaySheet {
 		text: qsTr("Reactions")
 	}
 
-	// TODO: Load / Set footer only if needed
-	footer: RowLayout {
-		visible: root.ownDetailedReactions && root.ownDetailedReactions.length
+	footer: Loader {
+		// Using an empty item is necessary because the sheet needs an item as its footer once the
+		// footer has been initialized and does not provide a way to reset the footer.
+		// If "undefined" instead of "emptyItemComponent" was used, the footer's height would be
+		// more than needed.
+		// If the footer was set to "null", an error would occur when the sheet tries to access the
+		// footer.
+		sourceComponent: root.ownDetailedReactions && root.ownDetailedReactions.length ? ownDetailedReactionsAreaComponent : emptyItemComponent
 
-		Kirigami.Heading {
-			text: qsTr("Own:")
+		Component {
+			id: emptyItemComponent
+
+			Item {}
 		}
 
-		Flow {
-			spacing: 4
-			Layout.fillWidth: true
+		Component {
+			id: ownDetailedReactionsAreaComponent
 
-			Repeater {
-				model: root.ownDetailedReactions
+			RowLayout {
+				Kirigami.Heading {
+					text: qsTr("Own:")
+				}
 
-				MessageReactionDisplayButton {
-					accentColor: secondaryBackgroundColor
-					deliveryState: modelData.deliveryState
-					isOwnMessage: root.isOwnMessage
-					text: modelData.emoji
-					onClicked: {
-						const resendMessageReactions = function () {
-							MessageModel.resendMessageReactions(root.messageId)
-						}
+				Flow {
+					spacing: 4
+					Layout.fillWidth: true
 
-						if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
-							passiveNotification(qsTr("%1 will be added once you are connected").arg(modelData.emoji))
-						} else if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
-							deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
-							passiveNotification(qsTr("%1 will be removed once you are connected").arg(modelData.emoji))
-						} else if (deliveryState === MessageReactionDeliveryState.ErrorOnAddition) {
-							showPassiveNotification(qsTr("%1 could not be added").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
-						} else if (deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterSent ||
-							deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterDelivered) {
-							showPassiveNotification(qsTr("%1 could not be removed").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
-						} else if (deliveryState === MessageReactionDeliveryState.Sent) {
-							showPassiveNotification(qsTr("%1 has been sent").arg(modelData.emoji))
-						} else if (deliveryState === MessageReactionDeliveryState.Delivered) {
-							showPassiveNotification(qsTr("%1 has been delivered").arg(modelData.emoji))
+					Repeater {
+						model: root.ownDetailedReactions
+
+						MessageReactionDisplayButton {
+							accentColor: secondaryBackgroundColor
+							deliveryState: modelData.deliveryState
+							isOwnMessage: root.isOwnMessage
+							text: modelData.emoji
+							onClicked: {
+								const resendMessageReactions = function () {
+									MessageModel.resendMessageReactions(root.messageId)
+								}
+
+								if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
+									passiveNotification(qsTr("%1 will be added once you are connected").arg(modelData.emoji))
+								} else if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
+									deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
+									passiveNotification(qsTr("%1 will be removed once you are connected").arg(modelData.emoji))
+								} else if (deliveryState === MessageReactionDeliveryState.ErrorOnAddition) {
+									showPassiveNotification(qsTr("%1 could not be added").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
+								} else if (deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterSent ||
+									deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterDelivered) {
+									showPassiveNotification(qsTr("%1 could not be removed").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
+								} else if (deliveryState === MessageReactionDeliveryState.Sent) {
+									showPassiveNotification(qsTr("%1 has been sent").arg(modelData.emoji))
+								} else if (deliveryState === MessageReactionDeliveryState.Delivered) {
+									showPassiveNotification(qsTr("%1 has been delivered").arg(modelData.emoji))
+								}
+							}
 						}
 					}
 				}
