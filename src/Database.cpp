@@ -1355,9 +1355,9 @@ void Database::convertDatabaseToV27()
 {
 	DATABASE_CONVERT_TO_VERSION(26);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE " DB_TABLE_ROSTER " ADD draftMessageId " SQL_TEXT " REFERENCES " DB_TABLE_MESSAGES " (id)");
-	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState != 4");
-	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES " WHERE deliveryState = 4");
+	execQuery(query, "ALTER TABLE roster ADD draftMessageId " SQL_TEXT " REFERENCES messages (id)");
+	execQuery(query, "CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4");
+	execQuery(query, "CREATE VIEW draftMessages AS SELECT * FROM messages WHERE deliveryState = 4");
 	d->version = 27;
 }
 
@@ -1365,7 +1365,7 @@ void Database::convertDatabaseToV28()
 {
 	DATABASE_CONVERT_TO_VERSION(27);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE " DB_TABLE_ROSTER " ADD notificationsMuted " SQL_BOOL);
+	execQuery(query, "ALTER TABLE roster ADD notificationsMuted " SQL_BOOL);
 	d->version = 28;
 }
 
@@ -1423,9 +1423,8 @@ void Database::convertDatabaseToV30()
 {
 	DATABASE_CONVERT_TO_VERSION(29);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE " DB_TABLE_MESSAGES " ADD removed " SQL_BOOL_NOT_NULL " DEFAULT 0");
-	execQuery(query, "DROP VIEW " DB_VIEW_CHAT_MESSAGES);
-	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM "
-			  DB_TABLE_MESSAGES " WHERE deliveryState != 4 AND removed != 1");
+	execQuery(query, "ALTER TABLE messages ADD removed " SQL_BOOL_NOT_NULL " DEFAULT 0");
+	execQuery(query, "DROP VIEW chatMessages");
+	execQuery(query, "CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4 AND removed != 1");
 	d->version = 30;
 }
