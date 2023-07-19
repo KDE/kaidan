@@ -288,7 +288,7 @@ void Database::loadDatabaseInfo()
 void Database::saveDatabaseInfo()
 {
 	if (d->version <= DbOldVersion || d->version > DATABASE_LATEST_VERSION) {
-		qFatal("[database] Fatal error: Attempted to save invalid db version number.");
+		qFatal("[Database] Fatal error: Attempted to save invalid db version number.");
 	}
 
 	QSqlRecord updateRecord;
@@ -320,13 +320,15 @@ bool Database::needToConvert()
 
 void Database::convertDatabase()
 {
-	qDebug() << "[database] Converting database to latest version from version" << d->version;
 	transaction();
 
-	if (d->version == DbNotCreated)
+	if (d->version == DbNotCreated) {
+		qDebug() << "[Database] Creating new database with latest version" << DATABASE_LATEST_VERSION;
 		createNewDatabase();
-	else
+	} else {
+		qDebug() << "[Database] Converting database from version" << d->version << "to latest version" << DATABASE_LATEST_VERSION;
 		DATABASE_CONVERT_TO_LATEST_VERSION();
+	}
 
 	saveDatabaseInfo();
 	commit();
