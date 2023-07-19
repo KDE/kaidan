@@ -729,16 +729,19 @@ int RosterModel::positionToMove(int currentIndex)
 
 QString RosterModel::formattedLastMessageDateTime(const QDateTime &lastMessageDateTime) const
 {
-	const QDateTime &lastMessageDateTimeLocal { lastMessageDateTime.toLocalTime() };
+	const QDateTime &lastMessageLocalDateTime { lastMessageDateTime.toLocalTime() };
 
-	if (const auto now = QDateTime::currentDateTimeUtc(); lastMessageDateTime.date() == now.date()) {
+	if (const auto elapsedNightCount = lastMessageDateTime.daysTo(QDateTime::currentDateTimeUtc()); elapsedNightCount == 0) {
 		// Today: Return only the time.
-		return QLocale::system().toString(lastMessageDateTimeLocal.time(), QStringLiteral("hh:mm"));
-	} else if (lastMessageDateTime.daysTo(now) <= 7) {
+		return QLocale::system().toString(lastMessageLocalDateTime.time(), QStringLiteral("hh:mm"));
+	} else if (elapsedNightCount == 1) {
+		// Yesterday: Return that term.
+		return tr("Yesterday");
+	} else if (elapsedNightCount <= 7) {
 		// Between yesterday and seven days before today: Return the day of the week.
-		return QLocale::system().toString(lastMessageDateTimeLocal.date(), QStringLiteral("ddd"));
+		return QLocale::system().toString(lastMessageLocalDateTime.date(), QStringLiteral("ddd"));
 	} else {
 		// Older than seven days before today: Return the date.
-		return QLocale::system().toString(lastMessageDateTimeLocal.date(), QLocale::ShortFormat);
+		return QLocale::system().toString(lastMessageLocalDateTime.date(), QLocale::ShortFormat);
 	}
 }
