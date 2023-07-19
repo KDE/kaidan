@@ -193,7 +193,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case IsOwn:
 		return msg.isOwn;
 	case IsEdited:
-		return msg.isEdited;
+		return !msg.replaceId.isEmpty();
 	case IsLastRead:
 		// A read marker text is only displayed if the message is the last read message and no
 		// message is received by the contact after it.
@@ -1291,8 +1291,7 @@ void MessageModel::correctMessage(const QString &msgId, const QString &message)
 			msg.id = QXmppUtils::generateStanzaUuid();
 			// Set replaceId only on first correction, so it's always the original id
 			// (`id` is the id of the current edit, `replaceId` is the original id)
-			if (!msg.isEdited) {
-				msg.isEdited = true;
+			if (msg.replaceId.isEmpty()) {
 				msg.replaceId = msgId;
 			}
 			msg.deliveryState = Enums::DeliveryState::Pending;
@@ -1304,7 +1303,7 @@ void MessageModel::correctMessage(const QString &msgId, const QString &message)
 				copy.stamp = QDateTime::currentDateTimeUtc();
 				emit sendCorrectedMessageRequested(copy);
 			}
-		} else if (!msg.isEdited) {
+		} else if (msg.replaceId.isEmpty()) {
 			msg.stamp = QDateTime::currentDateTimeUtc();
 		}
 

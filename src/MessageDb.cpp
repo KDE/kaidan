@@ -82,7 +82,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxSenderKey = rec.indexOf("senderKey");
 	int idxBody = rec.indexOf("body");
 	int idxDeliveryState = rec.indexOf("deliveryState");
-	int idxIsEdited = rec.indexOf("isEdited");
 	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxIsSpoiler = rec.indexOf("isSpoiler");
 	int idxErrorText = rec.indexOf("errorText");
@@ -106,7 +105,6 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.senderKey = query.value(idxSenderKey).toByteArray();
 		msg.body = query.value(idxBody).toString();
 		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
-		msg.isEdited = query.value(idxIsEdited).toBool();
 		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.errorText = query.value(idxErrorText).toString();
 		msg.isSpoiler = query.value(idxIsSpoiler).toBool();
@@ -154,8 +152,6 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
 	if (oldMsg.errorText != newMsg.errorText)
 		rec.append(createSqlField("errorText", newMsg.errorText));
-	if (oldMsg.isEdited != newMsg.isEdited)
-		rec.append(createSqlField("isEdited", newMsg.isEdited));
 	if (oldMsg.spoilerHint != newMsg.spoilerHint)
 		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
 	if (oldMsg.isSpoiler != newMsg.isSpoiler)
@@ -501,10 +497,10 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		prepareQuery(
 			query,
 			"INSERT INTO messages (sender, recipient, timestamp, body, id, encryption, "
-			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
+			"senderKey, deliveryState, isSpoiler, spoilerHint, errorText, replaceId, "
 			"originId, stanzaId, fileGroupId, removed) "
 			"VALUES (:sender, :recipient, :timestamp, :body, :id, :encryption, :senderKey, "
-			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
+			":deliveryState, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
 			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
 
@@ -517,7 +513,6 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
-			{ u":isEdited", msg.isEdited },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },
 			{ u":errorText", msg.errorText },
@@ -749,10 +744,10 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 		prepareQuery(
 			query,
 			"INSERT INTO " DB_TABLE_MESSAGES " (sender, recipient, timestamp, body, id, encryption, "
-			"senderKey, deliveryState, isEdited, isSpoiler, spoilerHint, errorText, replaceId, "
+			"senderKey, deliveryState, isSpoiler, spoilerHint, errorText, replaceId, "
 			"originId, stanzaId, fileGroupId, removed) "
 			"VALUES (:sender, :recipient, :timestamp, :body, :id, :encryption, :senderKey, "
-			":deliveryState, :isEdited, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
+			":deliveryState, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
 			":originId, :stanzaId, :fileGroupId, :removed)"
 		);
 
@@ -765,7 +760,6 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
-			{ u":isEdited", msg.isEdited },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },
 			{ u":errorText", msg.errorText },

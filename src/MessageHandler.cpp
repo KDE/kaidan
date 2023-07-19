@@ -188,7 +188,6 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	if (msg.replaceId().isEmpty()) {
 		MessageDb::instance()->addMessage(message, origin);
 	} else {
-		message.isEdited = true;
 		message.id.clear();
 		MessageDb::instance()->updateMessage(msg.replaceId(), [message](Message &m) {
 			// replace completely
@@ -281,7 +280,7 @@ void MessageHandler::sendPendingMessage(Message message)
 		// if the message is a pending edition of the existing in the history message
 		// I need to send it with the most recent stamp
 		// for that I'm gonna copy that message and update in the copy just the stamp
-		if (message.isEdited) {
+		if (!message.replaceId.isEmpty()) {
 			message.stamp = QDateTime::currentDateTimeUtc();
 		}
 

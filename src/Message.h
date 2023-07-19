@@ -197,8 +197,6 @@ public:
 	QByteArray senderKey;
 	// True if the message is an own one.
 	bool isOwn = true;
-	// True if the orginal message was edited.
-	bool isEdited = false;
 	// Delivery state of the message, like if it was sent successfully or if it was already delivered
 	DeliveryState deliveryState = DeliveryState::Delivered;
 	// Text description of an error if it ever happened to the message
