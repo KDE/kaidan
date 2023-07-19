@@ -34,7 +34,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemAdded,
 		this, [this](const QString &jid) {
-		RosterItem rosterItem { m_manager->getRosterEntry(jid) };
+		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		emit RosterModel::instance()->addItemRequested(rosterItem);
 
@@ -95,7 +95,7 @@ void RosterManager::populateRoster()
 	const QStringList bareJids = m_manager->getRosterBareJids();
 	const auto initialTime = QDateTime::currentDateTimeUtc();
 	for (const auto &jid : bareJids) {
-		RosterItem rosterItem { m_manager->getRosterEntry(jid), initialTime };
+		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid), initialTime };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		items.insert(jid, rosterItem);
 

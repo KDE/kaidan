@@ -8,8 +8,8 @@
 
 #include <QXmppUtils.h>
 
-RosterItem::RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime)
-	: jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastMessageDateTime(lastMessageDateTime)
+RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime)
+	: accountJid(accountJid), jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastMessageDateTime(lastMessageDateTime)
 {
 }
 

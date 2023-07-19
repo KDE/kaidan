@@ -42,6 +42,7 @@ RosterDb *RosterDb::instance()
 void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 {
 	QSqlRecord rec = query.record();
+	int idxAccountJid = rec.indexOf("accountJid");
 	int idxJid = rec.indexOf("jid");
 	int idxName = rec.indexOf("name");
 	int idxSubscription = rec.indexOf("subscription");
@@ -58,6 +59,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 
 	while (query.next()) {
 		RosterItem item;
+		item.accountJid = query.value(idxAccountJid).toString();
 		item.jid = query.value(idxJid).toString();
 		item.name = query.value(idxName).toString();
 		item.subscription = QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt());
@@ -79,6 +81,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterItem &newItem)
 {
 	QSqlRecord rec;
+	if (oldItem.accountJid != newItem.accountJid)
+		rec.append(createSqlField("accountJid", newItem.accountJid));
 	if (oldItem.jid != newItem.jid)
 		rec.append(createSqlField("jid", newItem.jid));
 	if (oldItem.name != newItem.name)
@@ -127,6 +131,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 		));
 
 		for (const auto &item : items) {
+			query.addBindValue(item.accountJid);
 			query.addBindValue(item.jid);
 			query.addBindValue(item.name);
 			query.addBindValue(item.subscription);

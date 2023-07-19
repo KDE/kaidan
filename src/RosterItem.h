@@ -20,6 +20,7 @@ struct RosterItem
 {
 	Q_GADGET
 public:
+	Q_PROPERTY(QString accountJid MEMBER jid)
 	Q_PROPERTY(QString jid MEMBER jid)
 	Q_PROPERTY(QString name MEMBER name)
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
@@ -31,7 +32,7 @@ public:
 	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
 
 	RosterItem() = default;
-	RosterItem(const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime = QDateTime::currentDateTimeUtc());
+	RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime = QDateTime::currentDateTimeUtc());
 
 	QString displayName() const;
 
@@ -45,6 +46,9 @@ public:
 	bool operator>(const RosterItem &other) const;
 	bool operator<=(const RosterItem &other) const;
 	bool operator>=(const RosterItem &other) const;
+
+	// JID of the account that has this item.
+	QString accountJid;
 
 	// JID of the contact.
 	QString jid;

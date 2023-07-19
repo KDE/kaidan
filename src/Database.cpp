@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 32
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(32)
+#define DATABASE_LATEST_VERSION 33
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(33)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -365,6 +365,7 @@ void Database::createNewDatabase()
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_ROSTER,
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(name, SQL_TEXT)
 			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
@@ -378,6 +379,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
 			SQL_ATTRIBUTE(draftMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			"PRIMARY KEY(accountJid, jid),"
 			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
 		)
 	);
@@ -1505,4 +1507,41 @@ void Database::convertDatabaseToV32()
 	execQuery(query, "DROP TABLE messages_tmp");
 
 	d->version = 32;
+}
+
+void Database::convertDatabaseToV33()
+{
+	DATABASE_CONVERT_TO_VERSION(32);
+	QSqlQuery query(currentDatabase());
+
+	// Add the column "accountJid" and set a new primary key.
+	// The value for the new column "accountJid" cannot be determined by the database.
+	// Thus, the table "roster" is removed and recreated in order to store the latest values from
+	// the server (e.g., "name") in the database again and include the new "accountJid".
+	// Unfortunately, all data not stored on the server (e.g., "encryption") is lost.
+	execQuery(query, "DROP TABLE roster");
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(draftMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			"PRIMARY KEY(accountJid, jid),"
+			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
+		)
+	);
+
+	d->version = 33;
 }
