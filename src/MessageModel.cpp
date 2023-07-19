@@ -667,7 +667,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 				}, this, [=, this](QFuture<QXmpp::SendResult> future) {
 					await(future, this, [=, this](QXmpp::SendResult result) {
 						if (const auto error = std::get_if<QXmppError>(&result)) {
-							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %s").arg(error->description));
+							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 							addReaction(MessageReactionDeliveryState::ErrorOnAddition);
 						} else {
 							updateMessageReactionsAfterSending(messageId, senderJid);
@@ -770,7 +770,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 				}, this, [=, this](QFuture<QXmpp::SendResult> future) {
 					await(future, this, [=, this](QXmpp::SendResult result) {
 						if (const auto error = std::get_if<QXmppError>(&result)) {
-							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %s").arg(error->description));
+							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
 							MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
 								auto &reactions = message.reactionSenders[senderJid].reactions;
@@ -848,7 +848,7 @@ void MessageModel::resendMessageReactions(const QString &messageId)
 			}, this, [=, this](QFuture<QXmpp::SendResult> future) {
 				await(future, this, [=, this](QXmpp::SendResult result) {
 					if (const auto error = std::get_if<QXmppError>(&result)) {
-						emit Kaidan::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %s").arg(error->description));
+						emit Kaidan::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
 
 						MessageDb::instance()->updateMessage(messageId, [senderJid](Message &message) {
 							auto &reactionSender = message.reactionSenders[senderJid];
@@ -907,7 +907,7 @@ void MessageModel::sendPendingMessageReactions(const QString &accountJid)
 				}, this, [=, this](QFuture<QXmpp::SendResult> future) {
 					await(future, this, [=, this](QXmpp::SendResult result) {
 						if (const auto error = std::get_if<QXmppError>(&result)) {
-							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %s").arg(error->description));
+							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
 							MessageDb::instance()->updateMessage(messageId, [senderJid](Message &message) {
 								auto &reactionSender = message.reactionSenders[senderJid];

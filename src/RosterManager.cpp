@@ -153,7 +153,7 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 {
 	m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
 		if (const auto error = std::get_if<QXmppError>(&result)) {
-			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %s failed because of a connection problem: %s").arg(contactJid, error->description));
+			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
 		}
 	});
 }
@@ -161,13 +161,13 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
 {
 	if (!m_manager->acceptSubscription(contactJid)) {
-		emit Kaidan::instance()->passiveNotificationRequested(tr("Allowing %s to see your status failed").arg(contactJid));
+		emit Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your status failed").arg(contactJid));
 	}
 }
 
 void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 {
 	if (!m_manager->refuseSubscription(contactJid)) {
-		emit Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %s to see your status failed").arg(contactJid));
+		emit Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %1 to see your status failed").arg(contactJid));
 	}
 }
