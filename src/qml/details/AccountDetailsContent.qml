@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 // SPDX-FileCopyrightText: 2023 Bhavy Airi <airiraghav@gmail.com>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -20,25 +21,10 @@ DetailsContent {
 	id: root
 
 	vCardArea: [
-		MobileForm.AbstractFormDelegate {
-			onClicked: vCardRepeater.model.unsetEntriesProcessed = !vCardRepeater.model.unsetEntriesProcessed
-			Layout.fillWidth: true
-			contentItem: RowLayout {
-				Item {
-					Layout.fillWidth: true
-				}
-
-				Kirigami.Icon {
-					source: vCardRepeater.model.unsetEntriesProcessed ? "go-up-symbolic" : "go-down-symbolic"
-				}
-
-				Controls.Label {
-					text: vCardRepeater.model.unsetEntriesProcessed ? qsTr("Less information") : qsTr("More information")
-				}
-
-				Item {
-					Layout.fillWidth: true
-				}
+		FormExpansionButton {
+			checked: vCardRepeater.model.unsetEntriesProcessed
+			onClicked: {
+				vCardRepeater.model.unsetEntriesProcessed = !vCardRepeater.model.unsetEntriesProcessed
 			}
 		}
 	]
