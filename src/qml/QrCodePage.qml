@@ -179,33 +179,10 @@ ExplanationTogglePage {
 				onTriggered: scanner.isAcceptingResult = true
 			}
 
-			Item {
+			LoadingArea {
+				description: root.isOnlyForTrustDecisions ? qsTr("Making trust decisions…") : qsTr("Adding contact…")
 				anchors.centerIn: parent
-
-				// background of loadingArea
-				Rectangle {
-					anchors.fill: loadingArea
-					anchors.margins: -8
-					radius: roundedCornersRadius
-					color: Kirigami.Theme.backgroundColor
-					opacity: 0.9
-					visible: loadingArea.visible
-				}
-
-				ColumnLayout {
-					id: loadingArea
-					anchors.centerIn: parent
-					visible: scanner.isBusy
-
-					Controls.BusyIndicator {
-						Layout.alignment: Qt.AlignHCenter
-					}
-
-					Controls.Label {
-						text: "<i>" + root.isOnlyForTrustDecisions ? qsTr("Making trust decisions…") : qsTr("Adding contact…") + "</i>"
-						color: Kirigami.Theme.textColor
-					}
-				}
+				visible: scanner.isBusy
 			}
 		}
 

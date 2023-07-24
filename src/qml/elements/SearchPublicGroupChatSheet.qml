@@ -168,34 +168,13 @@ Kirigami.OverlaySheet {
 				}
 			}
 
-			Item {
+			LoadingArea {
+				id: loadingArea
+				description: qsTr("Downloading…")
 				anchors.centerIn: parent
-
-				// background of loadingArea
-				Rectangle {
-					anchors.fill: loadingArea
-					anchors.margins: -8
-					radius: roundedCornersRadius
-					color: Kirigami.Theme.backgroundColor
-					opacity: 0.9
-					visible: loadingArea.visible
-				}
-
-				ColumnLayout {
-					id: loadingArea
-					anchors.centerIn: parent
-					visible: groupChatsManager.isRunning
-					onVisibleChanged: root.forceActiveFocus()
-
-					Controls.BusyIndicator {
-						Layout.alignment: Qt.AlignHCenter
-					}
-
-					Controls.Label {
-						text: "<i>" + qsTr("Loading…") + "</i>"
-						color: Kirigami.Theme.textColor
-					}
-				}
+				background.visible: false
+				visible: groupChatsManager.isRunning
+				onVisibleChanged: root.forceActiveFocus()
 			}
 
 			Item {
