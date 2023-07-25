@@ -21,8 +21,7 @@ xmllint:
   stage: test
   image: ghcr.io/kaidanim/debian
   script:
-    - apt update && apt install -y libxml2-utils
-    - xmllint --noout $(find . -type f -name *.xml* -or -name *.xml.in)
+    - apt update && apt install -y libxml2-utils && xmllint --noout $(find . -type f -name *.xml -or -name *.xml.in)
 
 build:
   stage: test
