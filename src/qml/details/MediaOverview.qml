@@ -23,28 +23,18 @@ Controls.Control {
 	readonly property alias totalFilesCount: fileModel.rowCount
 	readonly property alias visibleFilesCount: fileProxyModel.rowCount
 
-	function loadFiles() {
-		fileModel.loadFiles()
-	}
-
-	function loadDownloadedFiles() {
-		fileModel.loadDownloadedFiles()
-	}
-
 	leftPadding: 0
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 0
-
 	contentItem: GridView {
-		id: view
 		implicitHeight: contentHeight
 		boundsMovement: Flickable.StopAtBounds
 		cellWidth: {
 			switch (root.tabBarCurrentIndex) {
 			case 0:
 			case 1:
-				return Kirigami.Units.smallSpacing * 18
+				return root.width / 4
 			case 2:
 				return width
 			}
@@ -57,7 +47,7 @@ Controls.Control {
 			case 1:
 				return cellWidth
 			case 2:
-				return Kirigami.Units.smallSpacing * 12
+				return Kirigami.Units.largeSpacing * 6
 			}
 
 			return 0
@@ -361,11 +351,12 @@ Controls.Control {
 			Controls.ItemDelegate {
 				id: control
 				implicitWidth: GridView.view.cellWidth
-				implicitHeight: GridView.view.cellHeight
+				implicitHeight: GridView.view.cellHeight + topPadding + bottomPadding
 				autoExclusive: false
 				checkable: root.selectionMode
 				checked: checkable && model.checkState === Qt.Checked
-				padding: 0
+				topPadding: Kirigami.Units.largeSpacing
+				bottomPadding: topPadding
 				contentItem: MouseArea {
 					id: selectionArea
 					hoverEnabled: true
@@ -380,7 +371,7 @@ Controls.Control {
 							Layout.row: 0
 							Layout.column: 0
 							Layout.rowSpan: 2
-							Layout.leftMargin: parent.columnSpacing * 2
+							Layout.leftMargin: parent.columnSpacing
 							Layout.preferredWidth: parent.height * .8
 							Layout.preferredHeight: Layout.preferredWidth
 						}
@@ -434,5 +425,13 @@ Controls.Control {
 				}
 			}
 		}
+	}
+
+	function loadFiles() {
+		fileModel.loadFiles()
+	}
+
+	function loadDownloadedFiles() {
+		fileModel.loadDownloadedFiles()
 	}
 }
