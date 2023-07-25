@@ -13,6 +13,32 @@ msgstr ""
 "X-Generator: Lokalize 23.04.1\n"
 "X-Qt-Contexts: true\n"
 
+#: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
+msgctxt "ChatHintModel|"
+msgid "You are not connected - Messages are sent and received once connected"
+msgstr ""
+
+#: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
+msgctxt "ChatHintModel|"
+msgid "Dismiss"
+msgstr ""
+
+#: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection"
+msgctxt "ChatHintModel|"
+msgid "Connect"
+msgstr "Yhteys"
+
+#: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Yhdistetään…"
+
 #: src/ClientWorker.cpp:286
 #, qt-format
 msgctxt "ClientWorker|"
@@ -261,19 +287,19 @@ msgid "Error"
 msgstr "Virhe"
 
 #: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
-#, fuzzy
+#, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageModel|"
-msgid "Reaction could not be sent: %s"
+msgid "Reaction could not be sent: %1"
 msgstr "Viestiä ei voitu lähettää."
 
 #: src/MessageModel.cpp:851
-#, fuzzy
+#, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageModel|"
-msgid "Reactions could not be sent: %s"
+msgid "Reactions could not be sent: %1"
 msgstr "Viestiä ei voitu lähettää."
 
 #: src/Notifications.cpp:166
@@ -417,17 +443,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopioi salasana"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Yksityiskohdat…"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Lähetä vihjeviesti"
@@ -928,11 +954,6 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Muuta nimeä…"
 
-#: src/qml/elements/ActionView.qml:30
-msgctxt "ActionView|"
-msgid "OK"
-msgstr ""
-
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
@@ -943,17 +964,17 @@ msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Lataa"
 
-#: src/qml/elements/ChatMessage.qml:323
+#: src/qml/elements/ChatMessage.qml:321
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/ChatMessage.qml:328
+#: src/qml/elements/ChatMessage.qml:326
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
 
-#: src/qml/elements/ChatMessage.qml:360
+#: src/qml/elements/ChatMessage.qml:358
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1138,12 +1159,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:66
+#: src/qml/elements/ContactAdditionContent.qml:67
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:73
+#: src/qml/elements/ContactAdditionContent.qml:74
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr ""
@@ -1189,7 +1210,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Anna kelvollinen salasana"
 
-#: src/qml/elements/LoadingArea.qml:13
+#: src/qml/elements/LoadingArea.qml:35
 #, fuzzy
 #| msgctxt "SearchPublicGroupChatSheet|"
 #| msgid "Loading…"
@@ -1205,12 +1226,12 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
 msgstr "Toiminnot"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+#: src/qml/elements/MessageReactionDetailsSheet.qml:50
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:71
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1218,7 +1239,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "Linkki avataan yhdistämisen jälkeen."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:59
+#: src/qml/elements/MessageReactionDetailsSheet.qml:74
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1226,7 +1247,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "Linkki avataan yhdistämisen jälkeen."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:76
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1234,7 +1255,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:64
+#: src/qml/elements/MessageReactionDetailsSheet.qml:79
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1242,13 +1263,13 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#: src/qml/elements/MessageReactionDetailsSheet.qml:83
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
@@ -1352,12 +1373,15 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:195
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:173
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Loading…"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Loading…"
+msgid "Downloading…"
 msgstr "Ladataan…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:250
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:229
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr "Yritä uudelleen"
@@ -1367,32 +1391,32 @@ msgctxt "SendMediaSheet|"
 msgid "Share files"
 msgstr "Jaa tiedostoja"
 
-#: src/qml/elements/SendMediaSheet.qml:78
+#: src/qml/elements/SendMediaSheet.qml:79
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Valitse tiedostot"
 
-#: src/qml/elements/SendMediaSheet.qml:123
+#: src/qml/elements/SendMediaSheet.qml:124
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "Kirjoita kuvaus…"
 
-#: src/qml/elements/SendMediaSheet.qml:131
+#: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Kirjoita viesti"
 
-#: src/qml/elements/SendMediaSheet.qml:152
+#: src/qml/elements/SendMediaSheet.qml:153
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Lisää"
 
-#: src/qml/elements/SendMediaSheet.qml:163
+#: src/qml/elements/SendMediaSheet.qml:164
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Lähetä"
@@ -1588,12 +1612,12 @@ msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
 msgstr "Tämä QR-koodi ei ole luottamuspäätöksiä varten"
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
 msgstr "Tehdään luottamuspäätöksiä…"
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
 msgstr "Lisätään yhteystietoa…"
@@ -2139,20 +2163,36 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
 #: src/RosterManager.cpp:156
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "Requesting to see the status of %s failed because of a connection "
+#| "problem: %s"
 msgctxt "RosterManager|"
 msgid ""
-"Requesting to see the status of %s failed because of a connection problem: %s"
+"Requesting to see the status of %1 failed because of a connection problem: %2"
 msgstr "Käyttäjän %s tilannäkemispyyntö epäonnistui yhteysongelman vuoksi: %s"
 
 #: src/RosterManager.cpp:164
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Allowing %s to see your status failed"
 msgctxt "RosterManager|"
-msgid "Allowing %s to see your status failed"
+msgid "Allowing %1 to see your status failed"
 msgstr "Käyttäjän %s salliminen nähdä tilasi epäonnistui"
 
 #: src/RosterManager.cpp:171
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "Disallowing %s to see your status failed"
 msgctxt "RosterManager|"
-msgid "Disallowing %s to see your status failed"
+msgid "Disallowing %1 to see your status failed"
 msgstr "Käyttäjän %s estäminen näkemästä tilaasi epäonnistui"
+
+#: src/RosterModel.cpp:739
+msgctxt "RosterModel|"
+msgid "Yesterday"
+msgstr ""
 
 #: src/VCardModel.cpp:120
 msgctxt "VCardModel|"

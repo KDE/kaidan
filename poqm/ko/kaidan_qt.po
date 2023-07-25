@@ -13,6 +13,32 @@ msgstr ""
 "X-Generator: Lokalize 21.12.3\n"
 "X-Qt-Contexts: true\n"
 
+#: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
+msgctxt "ChatHintModel|"
+msgid "You are not connected - Messages are sent and received once connected"
+msgstr ""
+
+#: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
+msgctxt "ChatHintModel|"
+msgid "Dismiss"
+msgstr ""
+
+#: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connect"
+msgstr "연결 중..."
+
+#: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "연결 중..."
+
 #: src/ClientWorker.cpp:286
 #, qt-format
 msgctxt "ClientWorker|"
@@ -267,19 +293,19 @@ msgid "Error"
 msgstr "오류"
 
 #: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
-#, fuzzy
+#, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageModel|"
-msgid "Reaction could not be sent: %s"
+msgid "Reaction could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
 #: src/MessageModel.cpp:851
-#, fuzzy
+#, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageModel|"
-msgid "Reactions could not be sent: %s"
+msgid "Reactions could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
 #: src/Notifications.cpp:166
@@ -423,17 +449,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "암호 복사"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "검색"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "스포일러 메시지 보내기"
@@ -1080,11 +1106,6 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/elements/ActionView.qml:30
-msgctxt "ActionView|"
-msgid "OK"
-msgstr ""
-
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
@@ -1095,17 +1116,17 @@ msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "다운로드"
 
-#: src/qml/elements/ChatMessage.qml:323
+#: src/qml/elements/ChatMessage.qml:321
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:328
+#: src/qml/elements/ChatMessage.qml:326
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:360
+#: src/qml/elements/ChatMessage.qml:358
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1314,12 +1335,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:66
+#: src/qml/elements/ContactAdditionContent.qml:67
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:73
+#: src/qml/elements/ContactAdditionContent.qml:74
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr ""
@@ -1365,7 +1386,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "올바른 암호를 입력하십시오"
 
-#: src/qml/elements/LoadingArea.qml:13
+#: src/qml/elements/LoadingArea.qml:35
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -1381,12 +1402,12 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
 msgstr "위치"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+#: src/qml/elements/MessageReactionDetailsSheet.qml:50
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:71
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1394,7 +1415,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "연결한 후 링크를 열 것입니다."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:59
+#: src/qml/elements/MessageReactionDetailsSheet.qml:74
 #, fuzzy, qt-format
 #| msgctxt "Kaidan|"
 #| msgid "The link will be opened after you have connected."
@@ -1402,7 +1423,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "연결한 후 링크를 열 것입니다."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:76
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1410,7 +1431,7 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:64
+#: src/qml/elements/MessageReactionDetailsSheet.qml:79
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1418,13 +1439,13 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#: src/qml/elements/MessageReactionDetailsSheet.qml:83
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
@@ -1534,15 +1555,15 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:195
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:173
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Loading…"
+msgid "Downloading…"
 msgstr "녹음 중…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:250
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:229
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr ""
@@ -1555,7 +1576,7 @@ msgctxt "SendMediaSheet|"
 msgid "Share files"
 msgstr "오디오 파일"
 
-#: src/qml/elements/SendMediaSheet.qml:78
+#: src/qml/elements/SendMediaSheet.qml:79
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Choose file"
@@ -1563,12 +1584,12 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "파일 선택"
 
-#: src/qml/elements/SendMediaSheet.qml:123
+#: src/qml/elements/SendMediaSheet.qml:124
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:131
+#: src/qml/elements/SendMediaSheet.qml:132
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1576,7 +1597,7 @@ msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "삭제"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:146
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -1584,7 +1605,7 @@ msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "메시지 작성"
 
-#: src/qml/elements/SendMediaSheet.qml:152
+#: src/qml/elements/SendMediaSheet.qml:153
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add"
@@ -1592,7 +1613,7 @@ msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "추가"
 
-#: src/qml/elements/SendMediaSheet.qml:163
+#: src/qml/elements/SendMediaSheet.qml:164
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "보내기"
@@ -1823,12 +1844,12 @@ msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
 msgstr "이 QR 코드에 대화 상대 정보가 없습니다."
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
 msgstr "대화 상대 추가…"
@@ -2379,19 +2400,27 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr "연결되지 않아서 대화 상대의 이름을 변경할 수 없었습니다."
 
 #: src/RosterManager.cpp:156
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
-"Requesting to see the status of %s failed because of a connection problem: %s"
+"Requesting to see the status of %1 failed because of a connection problem: %2"
 msgstr ""
 
 #: src/RosterManager.cpp:164
+#, qt-format
 msgctxt "RosterManager|"
-msgid "Allowing %s to see your status failed"
+msgid "Allowing %1 to see your status failed"
 msgstr ""
 
 #: src/RosterManager.cpp:171
+#, qt-format
 msgctxt "RosterManager|"
-msgid "Disallowing %s to see your status failed"
+msgid "Disallowing %1 to see your status failed"
+msgstr ""
+
+#: src/RosterModel.cpp:739
+msgctxt "RosterModel|"
+msgid "Yesterday"
 msgstr ""
 
 #: src/VCardModel.cpp:120

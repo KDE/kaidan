@@ -13,6 +13,32 @@ msgstr ""
 "X-Generator: Lokalize 23.04.2\n"
 "X-Qt-Contexts: true\n"
 
+#: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
+msgctxt "ChatHintModel|"
+msgid "You are not connected - Messages are sent and received once connected"
+msgstr ""
+
+#: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
+msgctxt "ChatHintModel|"
+msgid "Dismiss"
+msgstr ""
+
+#: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection"
+msgctxt "ChatHintModel|"
+msgid "Connect"
+msgstr "Spojení"
+
+#: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
+#, fuzzy
+#| msgctxt "Kaidan|"
+#| msgid "Connecting…"
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr "Navazuji spojení…"
+
 #: src/ClientWorker.cpp:286
 #, qt-format
 msgctxt "ClientWorker|"
@@ -259,13 +285,19 @@ msgid "Error"
 msgstr "Chyba"
 
 #: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reaction could not be sent: %s"
 msgctxt "MessageModel|"
-msgid "Reaction could not be sent: %s"
+msgid "Reaction could not be sent: %1"
 msgstr "Reakci nelze odeslat: %s"
 
 #: src/MessageModel.cpp:851
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reactions could not be sent: %s"
 msgctxt "MessageModel|"
-msgid "Reactions could not be sent: %s"
+msgid "Reactions could not be sent: %1"
 msgstr "Reakce nelze odeslat: %s"
 
 #: src/Notifications.cpp:166
@@ -403,17 +435,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopírovat heslo"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Hledat"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr ""
@@ -888,11 +920,6 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Změnit název…"
 
-#: src/qml/elements/ActionView.qml:30
-msgctxt "ActionView|"
-msgid "OK"
-msgstr "OK"
-
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
 msgid "Spoiler"
@@ -903,17 +930,17 @@ msgctxt "ChatMessage|"
 msgid "Download"
 msgstr "Stáhnout"
 
-#: src/qml/elements/ChatMessage.qml:323
+#: src/qml/elements/ChatMessage.qml:321
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Nezašifrováno"
 
-#: src/qml/elements/ChatMessage.qml:328
+#: src/qml/elements/ChatMessage.qml:326
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Nedůvěryhodný"
 
-#: src/qml/elements/ChatMessage.qml:360
+#: src/qml/elements/ChatMessage.qml:358
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1086,12 +1113,12 @@ msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Jméno (volitelné):"
 
-#: src/qml/elements/ContactAdditionContent.qml:66
+#: src/qml/elements/ContactAdditionContent.qml:67
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr ""
 
-#: src/qml/elements/ContactAdditionContent.qml:73
+#: src/qml/elements/ContactAdditionContent.qml:74
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr ""
@@ -1131,7 +1158,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr ""
 
-#: src/qml/elements/LoadingArea.qml:13
+#: src/qml/elements/LoadingArea.qml:35
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Probíhá načítání…"
@@ -1141,42 +1168,42 @@ msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
 msgstr "Reakce"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:35
+#: src/qml/elements/MessageReactionDetailsSheet.qml:50
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:56
+#: src/qml/elements/MessageReactionDetailsSheet.qml:71
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
 msgstr "%1 bude přidán jakmile se připojíte"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:59
+#: src/qml/elements/MessageReactionDetailsSheet.qml:74
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
 msgstr "%1 bude odebrán jakmile se připojíte"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:61
+#: src/qml/elements/MessageReactionDetailsSheet.qml:76
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
 msgstr "%1 nelze přidat"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:64
+#: src/qml/elements/MessageReactionDetailsSheet.qml:79
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
 msgstr "%1 nelze odstranit"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:66
+#: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
 msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:68
+#: src/qml/elements/MessageReactionDetailsSheet.qml:83
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
@@ -1272,12 +1299,15 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:195
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:173
+#, fuzzy
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid "Loading…"
 msgctxt "SearchPublicGroupChatSheet|"
-msgid "Loading…"
+msgid "Downloading…"
 msgstr "Probíhá načítání…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:250
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:229
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr "Zkusit znovu"
@@ -1287,32 +1317,32 @@ msgctxt "SendMediaSheet|"
 msgid "Share files"
 msgstr "Sdílet soubory"
 
-#: src/qml/elements/SendMediaSheet.qml:78
+#: src/qml/elements/SendMediaSheet.qml:79
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Vyberte soubory"
 
-#: src/qml/elements/SendMediaSheet.qml:123
+#: src/qml/elements/SendMediaSheet.qml:124
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "Zadejte popis..."
 
-#: src/qml/elements/SendMediaSheet.qml:131
+#: src/qml/elements/SendMediaSheet.qml:132
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Odstranit soubor"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:146
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Napsat zprávu"
 
-#: src/qml/elements/SendMediaSheet.qml:152
+#: src/qml/elements/SendMediaSheet.qml:153
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Přidat"
 
-#: src/qml/elements/SendMediaSheet.qml:163
+#: src/qml/elements/SendMediaSheet.qml:164
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Odeslat"
@@ -1505,12 +1535,12 @@ msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
 msgstr ""
 
-#: src/qml/QrCodePage.qml:205
+#: src/qml/QrCodePage.qml:183
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
 msgstr "Přidávám kontakt…"
@@ -2028,19 +2058,27 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 
 #: src/RosterManager.cpp:156
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
-"Requesting to see the status of %s failed because of a connection problem: %s"
+"Requesting to see the status of %1 failed because of a connection problem: %2"
 msgstr ""
 
 #: src/RosterManager.cpp:164
+#, qt-format
 msgctxt "RosterManager|"
-msgid "Allowing %s to see your status failed"
+msgid "Allowing %1 to see your status failed"
 msgstr ""
 
 #: src/RosterManager.cpp:171
+#, qt-format
 msgctxt "RosterManager|"
-msgid "Disallowing %s to see your status failed"
+msgid "Disallowing %1 to see your status failed"
+msgstr ""
+
+#: src/RosterModel.cpp:739
+msgctxt "RosterModel|"
+msgid "Yesterday"
 msgstr ""
 
 #: src/VCardModel.cpp:120
@@ -2072,3 +2110,7 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
+
+#~ msgctxt "ActionView|"
+#~ msgid "OK"
+#~ msgstr "OK"
