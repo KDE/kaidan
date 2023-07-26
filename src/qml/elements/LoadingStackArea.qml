@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick.Layouts 1.14
-import org.kde.kirigami 2.12 as Kirigami
+import org.kde.kirigami 2.19 as Kirigami
 
 /**
  * This is used for actions without instantaneous results.
