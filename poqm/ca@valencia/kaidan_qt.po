@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-07-08 10:00+0200\n"
+"PO-Revision-Date: 2023-07-26 07:43+0300\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -28,24 +28,20 @@ msgstr ""
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
+"No hi ha connexió: Els missatges s'enviaran i es rebran una vegada hi haja "
+"connexió"
 
 #: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "Descarta"
 
 #: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "ChatHintModel|"
 msgid "Connect"
-msgstr "Connexió"
+msgstr "Connecta"
 
 #: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
@@ -254,15 +250,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "dd MMM a les hh:mm"
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "More information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Més informació"
+msgstr "Sense informació"
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -280,12 +273,12 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
-#: src/MessageHandler.cpp:239
+#: src/MessageHandler.cpp:238
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:297
+#: src/MessageHandler.cpp:296
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
@@ -311,20 +304,16 @@ msgid "Error"
 msgstr "S'ha produït un error"
 
 #: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reaction could not be sent: %s"
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr "No s'ha pogut enviar la reacció: %s"
+msgstr "No s'ha pogut enviar la reacció: %1"
 
 #: src/MessageModel.cpp:851
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %s"
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr "No s'han pogut enviar les reaccions: %s"
+msgstr "No s'han pogut enviar les reaccions: %1"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -920,7 +909,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:289
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr "Envia notificacions d'escriptura"
+msgstr "Envia les notificacions d'escriptura"
 
 #: src/qml/details/ContactDetailsContent.qml:290
 msgctxt "ContactDetailsContent|"
@@ -931,7 +920,7 @@ msgstr "Indica quan teniu esta conversa oberta, i esteu o pareu de teclejar"
 #: src/qml/details/ContactDetailsContent.qml:301
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
-msgstr "Envia notificacions de lectura"
+msgstr "Envia les notificacions de lectura"
 
 #: src/qml/details/ContactDetailsContent.qml:302
 msgctxt "ContactDetailsContent|"
@@ -966,7 +955,7 @@ msgstr "Maximitza l'avatar"
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Multimèdia"
 
 #: src/qml/details/DetailsContent.qml:99
 msgctxt "DetailsContent|"
@@ -984,17 +973,11 @@ msgid "Change name…"
 msgstr "Canvia el nom…"
 
 #: src/qml/details/MediaOverview.qml:78
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Imatges"
 
 #: src/qml/details/MediaOverview.qml:93
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Vídeos"
@@ -1002,13 +985,13 @@ msgstr "Vídeos"
 #: src/qml/details/MediaOverview.qml:108
 msgctxt "MediaOverview|"
 msgid "Others"
-msgstr ""
+msgstr "Altres"
 
 #: src/qml/details/MediaOverview.qml:176
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "Seleccionats %1/%2"
 
 #: src/qml/details/MediaOverview.qml:222
 #, qt-format
@@ -1017,6 +1000,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"No s'han pogut suprimir tots els fitxers:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1117,7 +1102,7 @@ msgstr "Redacta un missatge <b>sense encriptar</b>"
 #: src/qml/elements/ChatPageSendingPane.qml:228
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Multimèdia"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
@@ -1403,12 +1388,9 @@ msgstr ""
 "%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
-msgstr "S'està carregant…"
+msgstr "S'està baixant…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:229
 msgctxt "SearchPublicGroupChatSheet|"
@@ -2213,38 +2195,30 @@ msgstr ""
 "connectat."
 
 #: src/RosterManager.cpp:156
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %s failed because of a connection "
-#| "problem: %s"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %1 failed because of a connection problem: %2"
 msgstr ""
-"La sol·licitud de veure l'estat de %s ha fallat per un problema de connexió: "
-"%s"
+"La sol·licitud de veure l'estat de %1 ha fallat per un problema de connexió: "
+"%2"
 
 #: src/RosterManager.cpp:164
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %s to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your status failed"
-msgstr "No s'ha pogut permetre a %2 veure el vostre estat"
+msgstr "No s'ha pogut permetre a %1 veure el vostre estat"
 
 #: src/RosterManager.cpp:171
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Disallowing %s to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
-msgstr "No s'ha pogut no permetre a %2 veure el vostre estat"
+msgstr "No s'ha pogut no permetre a %1 veure el vostre estat"
 
 #: src/RosterModel.cpp:739
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
 #: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
@@ -2275,15 +2249,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Less information"
-#~ msgstr "Menys informació"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Attachments"
-#~ msgstr "Adjunts"
-
-#~ msgctxt "ActionView|"
-#~ msgid "OK"
-#~ msgstr "D'acord"

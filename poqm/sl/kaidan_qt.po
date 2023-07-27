@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-07-25 05:31+0200\n"
+"PO-Revision-Date: 2023-07-26 07:19+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -243,15 +243,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "dd MMM ob hh:mm"
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "More information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Več  informacij"
+msgstr "Ni informacij"
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -269,12 +266,12 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "To sporočilo je šifrirano s %1, a ga ni bilo mogoče dešifrirati"
 
-#: src/MessageHandler.cpp:239
+#: src/MessageHandler.cpp:238
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Popravljanje sporočila ni uspelo"
 
-#: src/MessageHandler.cpp:297
+#: src/MessageHandler.cpp:296
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Pošiljanje sporočila ni uspelo."
@@ -942,7 +939,7 @@ msgstr "Maksimiziraj avatarja"
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Medij"
 
 #: src/qml/details/DetailsContent.qml:99
 msgctxt "DetailsContent|"
@@ -960,31 +957,25 @@ msgid "Change name…"
 msgstr "Spremeni ime…"
 
 #: src/qml/details/MediaOverview.qml:78
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Slike"
 
 #: src/qml/details/MediaOverview.qml:93
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
-msgstr "Video datoteke"
+msgstr "Videi"
 
 #: src/qml/details/MediaOverview.qml:108
 msgctxt "MediaOverview|"
 msgid "Others"
-msgstr ""
+msgstr "Ostalo"
 
 #: src/qml/details/MediaOverview.qml:176
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "%1/%2 izbrano"
 
 #: src/qml/details/MediaOverview.qml:222
 #, qt-format
@@ -993,6 +984,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Ni bilo mogoče izbrisati vseh datotek:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1093,7 +1086,7 @@ msgstr "Sestavi <b>nešifrirano</b>sporočilo"
 #: src/qml/elements/ChatPageSendingPane.qml:228
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Medij"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"

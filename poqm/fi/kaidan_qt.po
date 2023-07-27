@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-05-15 18:59+0300\n"
+"PO-Revision-Date: 2023-07-25 16:32+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.04.1\n"
+"X-Generator: Lokalize 22.12.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
@@ -269,12 +269,12 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Viesti on %1-salattu, mutta salausta ei voi purkaa"
 
-#: src/MessageHandler.cpp:239
+#: src/MessageHandler.cpp:238
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Viestin korjaaminen ei onnistunut"
 
-#: src/MessageHandler.cpp:297
+#: src/MessageHandler.cpp:296
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
@@ -474,15 +474,12 @@ msgstr "Lähetä vihjeviesti"
 #: src/qml/details/AccountDetailsContent.qml:57
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "Tyhjä"
 
 #: src/qml/details/AccountDetailsContent.qml:77
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Set up"
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr "Aseta"
+msgstr "Aseta arvo"
 
 #: src/qml/details/AccountDetailsContent.qml:163
 msgctxt "AccountDetailsContent|"
@@ -1048,12 +1045,9 @@ msgid "Mark as first unread"
 msgstr "Merkitse ensimmäiseksi ei-luetuksi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:72
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Remove from Kaidan"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
-msgstr "Poista Kaidanista"
+msgstr "Poista tältä laitteelta"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"
@@ -1163,9 +1157,6 @@ msgid "Cancel"
 msgstr "Peru"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add"
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Lisää"
@@ -1173,20 +1164,14 @@ msgstr "Lisää"
 #: src/qml/elements/ContactAdditionContent.qml:33
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr ""
+msgstr "Yhteystieto on jo olemassa"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Open support chat"
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr "Avaa tukikeskustelu"
+msgstr "Avaa keskustelu"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Adding contact…"
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Lisätään yhteystietoa…"
@@ -1194,33 +1179,27 @@ msgstr "Lisätään yhteystietoa…"
 #: src/qml/elements/ContactAdditionContent.qml:59
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr ""
+msgstr "Nimi (valinnainen):"
 
 #: src/qml/elements/ContactAdditionContent.qml:67
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "Viesti (valinnainen):"
 
 #: src/qml/elements/ContactAdditionContent.qml:74
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "Hei, olen…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr "Lisää uusi yhteystieto"
+msgstr "Lisää yhteystieto"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
-#, fuzzy
-#| msgctxt "RosterAddContactSheet|"
-#| msgid "Add new contact"
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr "Lisää uusi yhteystieto"
+msgstr "Lisää yhteystieto"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
@@ -1248,69 +1227,55 @@ msgid "Please enter a valid password"
 msgstr "Anna kelvollinen salasana"
 
 #: src/qml/elements/LoadingArea.qml:35
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Ladataan…"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Actions"
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr "Toiminnot"
+msgstr "Reaktiot"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:50
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "Omat:"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:71
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr "Linkki avataan yhdistämisen jälkeen."
+msgstr "%1 lisätään yhteydenoton jälkeen"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:74
-#, fuzzy, qt-format
-#| msgctxt "Kaidan|"
-#| msgid "The link will be opened after you have connected."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr "Linkki avataan yhdistämisen jälkeen."
+msgstr "%1 poistetaan yhteydenoton jälkeen"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:76
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "Viestiä ei voitu lähettää."
+msgstr "Ei voitu lisätä: %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:79
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "Viestiä ei voitu lähettää."
+msgstr "Ei voitu poistaa: %1"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
-msgstr ""
+msgstr "%1 on lähetetty"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:83
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
-msgstr ""
+msgstr "%1 on toimitettu"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
@@ -1380,9 +1345,6 @@ msgid "Pin"
 msgstr "Kiinnitä"
 
 #: src/qml/elements/SearchBarPage.qml:29
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Etsi"

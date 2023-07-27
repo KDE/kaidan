@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-25 09:36+0300\n"
+"PO-Revision-Date: 2023-07-26 08:38+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -241,15 +241,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "dd MMM о hh:mm"
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "More information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Докладніше"
+msgstr "Немає інформації"
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -268,12 +265,12 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageHandler.cpp:239
+#: src/MessageHandler.cpp:238
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageHandler.cpp:297
+#: src/MessageHandler.cpp:296
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
@@ -948,7 +945,7 @@ msgstr "Максимізувати аватар"
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Мультимедіа"
 
 #: src/qml/details/DetailsContent.qml:99
 msgctxt "DetailsContent|"
@@ -966,34 +963,25 @@ msgid "Change name…"
 msgstr "Змінити назву…"
 
 #: src/qml/details/MediaOverview.qml:78
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
-msgstr "зображення"
+msgstr "Зображення"
 
 #: src/qml/details/MediaOverview.qml:93
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
-msgstr "відео"
+msgstr "Відео"
 
 #: src/qml/details/MediaOverview.qml:108
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Other file"
 msgctxt "MediaOverview|"
 msgid "Others"
-msgstr "Інший файл"
+msgstr "Інші"
 
 #: src/qml/details/MediaOverview.qml:176
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "Позначено %1 з %2"
 
 #: src/qml/details/MediaOverview.qml:222
 #, qt-format
@@ -1002,6 +990,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Не усі файли можна вилучити:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1102,7 +1092,7 @@ msgstr "Створити <b>нешифроване</b> повідомлення"
 #: src/qml/elements/ChatPageSendingPane.qml:228
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Мультимедіа"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"

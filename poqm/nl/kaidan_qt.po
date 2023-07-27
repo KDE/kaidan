@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-25 13:53+0200\n"
+"PO-Revision-Date: 2023-07-26 18:04+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -240,15 +240,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "dd MMM om hh:mm"
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "More information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Meer informatie"
+msgstr "Geen informatie"
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -266,12 +263,12 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageHandler.cpp:239
+#: src/MessageHandler.cpp:238
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Het corrigeren van het bericht is mislukt"
 
-#: src/MessageHandler.cpp:297
+#: src/MessageHandler.cpp:296
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
@@ -942,7 +939,7 @@ msgstr "Avatar maximaliseren"
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/qml/details/DetailsContent.qml:99
 msgctxt "DetailsContent|"
@@ -960,34 +957,25 @@ msgid "Change name…"
 msgstr "Naam wijzigen…"
 
 #: src/qml/details/MediaOverview.qml:78
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Afbeeldingen"
 
 #: src/qml/details/MediaOverview.qml:93
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Video's"
 
 #: src/qml/details/MediaOverview.qml:108
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Other file"
 msgctxt "MediaOverview|"
 msgid "Others"
-msgstr "Ander bestand"
+msgstr "Overig"
 
 #: src/qml/details/MediaOverview.qml:176
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "%1/%2 geselecteerd"
 
 #: src/qml/details/MediaOverview.qml:222
 #, qt-format
@@ -996,6 +984,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Niet alle bestanden konden worden verwijderd:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1096,7 +1086,7 @@ msgstr "<b>Niet-versleuteld</b> bericht opstellen"
 #: src/qml/elements/ChatPageSendingPane.qml:228
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/qml/elements/ChatPageSendingPane.qml:284
 msgctxt "ChatPageSendingPane|"
