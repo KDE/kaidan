@@ -124,7 +124,6 @@ public:
 
 signals:
 	void addItemRequested(const RosterItem &item);
-	void removeItemRequested(const QString &jid);
 	void updateItemRequested(const QString &jid,
 	                         const std::function<void (RosterItem &)> &updateItem);
 	void replaceItemsRequested(const QHash<QString, RosterItem> &items);
@@ -146,7 +145,6 @@ private:
 	void handleItemsFetched(const QVector<RosterItem> &items);
 
 	void addItem(const RosterItem &item);
-	void removeItem(const QString &jid);
 	void replaceItems(const QHash<QString, RosterItem> &items);
 
 	void updateLastMessage(QVector<RosterItem>::Iterator &itr,

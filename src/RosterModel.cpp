@@ -274,22 +274,6 @@ void RosterModel::addItem(const RosterItem &item)
 	insertItem(positionToAdd(item), item);
 }
 
-void RosterModel::removeItem(const QString &jid)
-{
-	QMutableVectorIterator<RosterItem> itr(m_items);
-	int i = 0;
-	while (itr.hasNext()) {
-		if (itr.next().jid == jid) {
-			beginRemoveRows(QModelIndex(), i, i);
-			itr.remove();
-			endRemoveRows();
-			RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
-			return;
-		}
-		i++;
-	}
-}
-
 void RosterModel::updateItem(const QString &jid,
                              const std::function<void (RosterItem &)> &updateItem)
 {
