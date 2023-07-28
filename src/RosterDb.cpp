@@ -221,11 +221,27 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 	});
 }
 
-QFuture<void> RosterDb::removeItems(const QString &, const QString &)
+QFuture<void> RosterDb::removeItems(const QString &accountJid, const QString &jid)
 {
-	return run([this]() {
+	return run([this, accountJid, jid]() {
 		auto query = createQuery();
-		execQuery(query, "DELETE FROM roster");
+
+		if (jid.isEmpty()) {
+			execQuery(
+				query,
+				"DELETE FROM " DB_TABLE_ROSTER " "
+				"WHERE accountJid = :accountJid",
+				{ u":accountJid", accountJid }
+			);
+		} else {
+			execQuery(
+				query,
+				"DELETE FROM " DB_TABLE_ROSTER " "
+				"WHERE accountJid = :accountJid AND jid = :jid",
+				{ { u":accountJid", accountJid },
+				  { u":jid", jid } }
+			);
+		}
 	});
 }
 
