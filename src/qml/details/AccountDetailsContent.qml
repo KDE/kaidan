@@ -51,7 +51,6 @@ DetailsContent {
 
 			property bool editing: false
 
-			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				Controls.Label {
 					text: model.value ? model.value : qsTr("Empty")

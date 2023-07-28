@@ -134,7 +134,6 @@ Controls.Control {
 						jid: root.jid
 					}
 					delegate: MobileForm.AbstractFormDelegate {
-						Layout.fillWidth: true
 						background: Item {}
 						contentItem: ColumnLayout {
 							Controls.Label {

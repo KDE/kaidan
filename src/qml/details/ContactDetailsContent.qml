@@ -37,7 +37,6 @@ DetailsContent {
 		}
 		delegate: MobileForm.AbstractFormDelegate {
 			id: vCardDelegate
-			Layout.fillWidth: true
 			background: Item {}
 			contentItem: ColumnLayout {
 				Controls.Label {
