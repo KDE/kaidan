@@ -16,6 +16,7 @@ Controls.Button {
 	property bool remainTooltip: false
 
 	flat: Style.isMaterial
+	hoverEnabled: true
 	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.veryLongDuration * 2
 	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
 	onHoveredChanged: {
