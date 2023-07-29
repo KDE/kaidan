@@ -19,7 +19,6 @@ Kirigami.ScrollablePage {
 	property ListView listView
 	property SearchBarPageSearchField searchField
 	property bool isSearchActionShown: true
-	property bool isSearchFieldFillingActionToolBar: false
 
 	background: Rectangle {
 		color: primaryBackgroundColor
@@ -47,7 +46,7 @@ Kirigami.ScrollablePage {
 		SearchBarPageSearchField {
 			listView: root.listView
 			anchors.left: parent.left
-			anchors.right: root.isSearchFieldFillingActionToolBar ? parent.right : undefined
+			width: root.actions.right ? parent.width - Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing : parent.width
 
 			Connections {
 				target: searchFieldFocusTimer

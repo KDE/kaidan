@@ -689,10 +689,10 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 							}
 						}
 					}
-				} else if (auto rec = createUpdateRecord(oldMessage, newMessage); rec.count()) {
+				} else if (auto rec = createUpdateRecord(oldMessage, newMessage); !rec.isEmpty()) {
 					auto &driver = sqlDriver();
 
-					// Create an SQL record with only the differences.
+					// Create an SQL record containing only the differences.
 					execQuery(
 						query,
 						driver.sqlStatement(

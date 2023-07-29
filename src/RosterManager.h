@@ -32,6 +32,9 @@ public:
 	void acceptSubscriptionToPresence(const QString &contactJid);
 	void refuseSubscriptionToPresence(const QString &contactJid);
 
+	void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});
+	Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
+
 signals:
 	/**
 	 * Requests to send subscription request answer (whether it was accepted
@@ -72,4 +75,5 @@ private:
 	AvatarFileStorage *m_avatarStorage;
 	VCardManager *m_vCardManager;
 	QXmppRosterManager *m_manager;
+	bool m_isItemBeingChanged = false;
 };

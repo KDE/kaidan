@@ -26,6 +26,7 @@ Controls.Control {
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea.data
 	property alias vCardRepeater: vCardRepeater
+	property ColumnLayout rosterGroupArea
 	required property ColumnLayout encryptionArea
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
@@ -110,6 +111,11 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 			}
+		}
+
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+			contentItem: root.rosterGroupArea
 		}
 
 		MobileForm.FormCard {

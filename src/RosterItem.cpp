@@ -11,6 +11,8 @@
 RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime)
 	: accountJid(accountJid), jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType()), lastMessageDateTime(lastMessageDateTime)
 {
+	const auto rosterGroups = item.groups();
+	groups = QVector(rosterGroups.cbegin(), rosterGroups.cend());
 }
 
 QString RosterItem::displayName() const

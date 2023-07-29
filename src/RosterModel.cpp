@@ -3,7 +3,6 @@
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2020 caca hueto <cacahueto@olomono.de>
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
-// SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
@@ -89,8 +88,10 @@ int RosterModel::rowCount(const QModelIndex&) const
 QHash<int, QByteArray> RosterModel::roleNames() const
 {
 	QHash<int, QByteArray> roles;
+	roles[AccountJidRole] = "accountJid";
 	roles[JidRole] = "jid";
 	roles[NameRole] = "name";
+	roles[GroupsRole] = "groups";
 	roles[LastMessageDateTimeRole] = "lastMessageDateTime";
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
@@ -108,10 +109,14 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 	}
 
 	switch (role) {
+	case AccountJidRole:
+		return m_items.at(index.row()).accountJid;
 	case JidRole:
 		return m_items.at(index.row()).jid;
 	case NameRole:
 		return m_items.at(index.row()).name;
+	case GroupsRole:
+		return QVariant::fromValue(m_items.at(index.row()).groups);
 	case LastMessageDateTimeRole: {
 		// "lastMessageDateTime" is used for sorting the roster items.
 		// Thus, each new item has the current date as its default value.
@@ -141,6 +146,61 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 bool RosterModel::hasItem(const QString &jid) const
 {
 	return findItem(jid).has_value();
+}
+
+QStringList RosterModel::accountJids() const
+{
+	QStringList accountJids;
+
+	std::for_each(m_items.cbegin(), m_items.cend(), [&accountJids](const RosterItem &item) {
+		if (const auto accountJid = item.accountJid; !accountJids.contains(accountJid)) {
+			accountJids.append(accountJid);
+		}
+	});
+
+	std::sort(accountJids.begin(), accountJids.end());
+
+	return accountJids;
+}
+
+QStringList RosterModel::groups() const
+{
+	QStringList groups;
+
+	std::for_each(m_items.cbegin(), m_items.cend(), [&groups](const RosterItem &item) {
+		std::for_each(item.groups.cbegin(), item.groups.cend(), [&](const QString &group) {
+			if (!groups.contains(group)) {
+				groups.append(group);
+			}
+		});
+	});
+
+	std::sort(groups.begin(), groups.end());
+
+	return groups;
+}
+
+void RosterModel::updateGroup(const QString &oldGroup, const QString &newGroup)
+{
+	for (const auto &item : std::as_const(m_items)) {
+		if (auto groups = item.groups; groups.contains(oldGroup)) {
+			groups.removeOne(oldGroup);
+			groups.append(newGroup);
+
+			Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+		}
+	}
+}
+
+void RosterModel::removeGroup(const QString &group)
+{
+	for (const auto &item : std::as_const(m_items)) {
+		if (auto groups = item.groups; groups.contains(group)) {
+			groups.removeOne(group);
+
+			Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+		}
+	}
 }
 
 std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
@@ -260,6 +320,7 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 	m_items = items;
 	std::sort(m_items.begin(), m_items.end());
 	endResetModel();
+
 	for (const auto &item : std::as_const(m_items)) {
 		RosterItemNotifier::instance().notifyWatchers(item.jid, item);
 
@@ -267,6 +328,9 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 			MessageDb::instance()->fetchDraftMessage(item.draftMessageId);
 		}
 	}
+
+	Q_EMIT accountJidsChanged();
+	Q_EMIT groupsChanged();
 }
 
 void RosterModel::addItem(const RosterItem &item)
@@ -287,6 +351,9 @@ void RosterModel::updateItem(const QString &jid,
 			if (m_items.at(i) == item)
 				return;
 
+			// TODO: Uncomment this and see TODO in ContactDetailsContent once fixed in Kirigami Addons.
+//			auto oldGroups = groups();
+
 			m_items.replace(i, item);
 
 			// item was changed: refresh all roles
@@ -295,6 +362,12 @@ void RosterModel::updateItem(const QString &jid,
 
 			// check, if the position of the new item may be different
 			updateItemPosition(i);
+
+			// TODO: Uncomment this and see TODO in ContactDetailsContent once fixed in Kirigami Addons.
+//			if (oldGroups != groups()) {
+				Q_EMIT groupsChanged();
+//			}
+
 			return;
 		}
 	}
@@ -453,10 +526,22 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 		const RosterItem &item = m_items.at(i);
 
 		if (AccountManager::instance()->jid() == accountJid && (item.jid.isEmpty() || item.jid == jid)) {
+			auto oldGroupCount = groups().size();
+
 			beginRemoveRows(QModelIndex(), i, i);
 			m_items.remove(i);
 			endRemoveRows();
+
 			RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
+
+			if (!accountJids().contains(accountJid)) {
+				Q_EMIT accountJidsChanged();
+			}
+
+			if (oldGroupCount < groups().size()) {
+				Q_EMIT groupsChanged();
+			}
+
 			return;
 		}
 	}
@@ -646,10 +731,22 @@ void RosterModel::handleMessageRemoved(std::shared_ptr<Message> newLastMessage)
 
 void RosterModel::insertItem(int index, const RosterItem &item)
 {
+	auto newAccountJidAdded = !accountJids().contains(item.accountJid);
+	auto oldGroupCount = groups().size();
+
 	beginInsertRows(QModelIndex(), index, index);
 	m_items.insert(index, item);
 	endInsertRows();
+
 	RosterItemNotifier::instance().notifyWatchers(item.jid, item);
+
+	if (newAccountJidAdded) {
+		Q_EMIT accountJidsChanged();
+	}
+
+	if (oldGroupCount < groups().size()) {
+		Q_EMIT groupsChanged();
+	}
 }
 
 void RosterModel::updateItemPosition(int currentIndex)

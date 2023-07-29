@@ -2,7 +2,6 @@
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
-// SPDX-FileCopyrightText: 2022 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
 //
@@ -28,10 +27,15 @@ class RosterModel : public QAbstractListModel
 {
 	Q_OBJECT
 
+	Q_PROPERTY(QStringList accountJids READ accountJids NOTIFY accountJidsChanged)
+	Q_PROPERTY(QStringList groups READ groups NOTIFY groupsChanged)
+
 public:
 	enum RosterItemRoles {
+		AccountJidRole,
 		JidRole,
 		NameRole,
+		GroupsRole,
 		LastMessageDateTimeRole,
 		UnreadMessagesRole,
 		LastMessageRole,
@@ -67,6 +71,25 @@ public:
 	 * @return true if a roster item with the passed properties exists, otherwise false
 	 */
 	Q_INVOKABLE bool hasItem(const QString &jid) const;
+
+	/**
+	 * Returns the account JIDs of all roster items.
+	 *
+	 * @return all account JIDs
+	 */
+	QStringList accountJids() const;
+	Q_SIGNAL void accountJidsChanged();
+
+	/**
+	 * Returns the roster groups of all roster items.
+	 *
+	 * @return all roster groups
+	 */
+	QStringList groups() const;
+	Q_SIGNAL void groupsChanged();
+
+	Q_INVOKABLE void updateGroup(const QString &oldGroup, const QString &newGroup);
+	Q_INVOKABLE void removeGroup(const QString &group);
 
 	/**
 	 * Returns whether an account's presence is subscribed by a roster item.

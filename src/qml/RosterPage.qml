@@ -19,8 +19,41 @@ import im.kaidan.kaidan 1.0
 import "elements"
 
 SearchBarPage {
-	isSearchFieldFillingActionToolBar: true
 	listView: rosterListView
+	rightAction: Kirigami.Action {
+		text: qsTr("Filter")
+		icon.name: "filter-symbolic"
+		displayHint: Kirigami.DisplayHint.IconOnly
+		onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
+	}
+
+	Component {
+		id: rosterFilteringDialog
+
+		Kirigami.Dialog {
+			title: qsTr("Filter")
+			standardButtons: Kirigami.Dialog.NoButton
+
+			RosterFilteringArea {
+				rosterFilterProxyModel: filterModel
+			}
+		}
+	}
+
+	Component {
+		id: rosterFilteringPage
+
+		Kirigami.ScrollablePage {
+			title: qsTr("Filter")
+			background: Rectangle {
+				color: Kirigami.Theme.alternateBackgroundColor
+			}
+
+			RosterFilteringArea {
+				rosterFilterProxyModel: filterModel
+			}
+		}
+	}
 
 	ListView {
 		id: rosterListView

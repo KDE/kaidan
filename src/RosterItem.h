@@ -26,6 +26,7 @@ public:
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
 	Q_PROPERTY(bool sendingPresence READ isSendingPresence CONSTANT)
 	Q_PROPERTY(bool receivingPresence READ isReceivingPresence CONSTANT)
+	Q_PROPERTY(QVector<QString> groups MEMBER groups)
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
 	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
@@ -58,6 +59,9 @@ public:
 
 	// Type of this roster item's presence subscription.
 	QXmppRosterIq::Item::SubscriptionType subscription = QXmppRosterIq::Item::NotSet;
+
+	// Roster groups (i.e., labels) used for filtering (e.g., "Family", "Friends" etc.).
+	QVector<QString> groups;
 
 	// End-to-end encryption used for this roster item.
 	Encryption::Enum encryption = Encryption::Omemo2;

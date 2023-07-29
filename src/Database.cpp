@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 33
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(33)
+#define DATABASE_LATEST_VERSION 34
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(34)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -381,6 +381,18 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
 			"PRIMARY KEY(accountJid, jid),"
 			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
+		)
+	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_ROSTER_GROUPS,
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(accountJid, chatJid, name),"
+			"FOREIGN KEY(accountJid) REFERENCES " DB_TABLE_ROSTER " (accountJid),"
+			"FOREIGN KEY(chatJid) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
 	);
 
@@ -1544,4 +1556,25 @@ void Database::convertDatabaseToV33()
 	);
 
 	d->version = 33;
+}
+
+void Database::convertDatabaseToV34()
+{
+	DATABASE_CONVERT_TO_VERSION(33);
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"rosterGroups",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(accountJid, chatJid, name),"
+			"FOREIGN KEY(accountJid) REFERENCES " DB_TABLE_ROSTER " (accountJid),"
+			"FOREIGN KEY(chatJid) REFERENCES " DB_TABLE_ROSTER " (jid)"
+		)
+	);
+
+	d->version = 34;
 }

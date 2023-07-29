@@ -48,8 +48,16 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		emit RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
 			item.name = updatedItem.name();
-			item.subscription= updatedItem.subscriptionType();
+			item.subscription = updatedItem.subscriptionType();
+
+			const auto groups = updatedItem.groups();
+			item.groups = QVector(groups.cbegin(), groups.cend());
 		});
+
+		if (m_isItemBeingChanged) {
+			m_clientWorker->finishTask();
+			m_isItemBeingChanged = false;
+		}
 	});
 
 	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
@@ -85,6 +93,8 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	connect(this, &RosterManager::subscribeToPresenceRequested, this, &RosterManager::subscribeToPresence);
 	connect(this, &RosterManager::acceptSubscriptionToPresenceRequested, this, &RosterManager::acceptSubscriptionToPresence);
 	connect(this, &RosterManager::refuseSubscriptionToPresenceRequested, this, &RosterManager::refuseSubscriptionToPresence);
+
+	connect(this, &RosterManager::updateGroupsRequested, this, &RosterManager::updateGroups);
 }
 
 void RosterManager::populateRoster()
@@ -170,4 +180,16 @@ void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 	if (!m_manager->refuseSubscription(contactJid)) {
 		emit Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %1 to see your status failed").arg(contactJid));
 	}
+}
+
+void RosterManager::updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups)
+{
+	m_isItemBeingChanged = true;
+
+	m_clientWorker->startTask(
+		[this, jid, name, groups] {
+			// TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
+			m_manager->addItem(jid, name, QSet(groups.cbegin(), groups.cend()));
+		}
+	);
 }
