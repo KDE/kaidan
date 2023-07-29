@@ -24,20 +24,14 @@ msgid "Dismiss"
 msgstr ""
 
 #: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "ChatHintModel|"
 msgid "Connect"
-msgstr "Spojení"
+msgstr ""
 
 #: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr "Navazuji spojení…"
+msgstr ""
 
 #: src/ClientWorker.cpp:286
 #, qt-format
@@ -244,12 +238,9 @@ msgid "dd MMM at hh:mm"
 msgstr ""
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "More information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Více informací"
+msgstr ""
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -298,20 +289,16 @@ msgid "Error"
 msgstr "Chyba"
 
 #: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reaction could not be sent: %s"
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr "Reakci nelze odeslat: %s"
+msgstr ""
 
 #: src/MessageModel.cpp:851
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reactions could not be sent: %s"
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr "Reakce nelze odeslat: %s"
+msgstr ""
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -929,20 +916,14 @@ msgid "Change name…"
 msgstr "Změnit název…"
 
 #: src/qml/details/MediaOverview.qml:68
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
-msgstr "Obrázky"
+msgstr ""
 
 #: src/qml/details/MediaOverview.qml:83
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
-msgstr "Videa"
+msgstr ""
 
 #: src/qml/details/MediaOverview.qml:98
 msgctxt "MediaOverview|"
@@ -1343,12 +1324,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
-msgstr "Probíhá načítání…"
+msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:229
 msgctxt "SearchPublicGroupChatSheet|"
@@ -2153,15 +2131,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Less information"
-#~ msgstr "Méně informací"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Attachments"
-#~ msgstr "Přílohy"
-
-#~ msgctxt "ActionView|"
-#~ msgid "OK"
-#~ msgstr "OK"
