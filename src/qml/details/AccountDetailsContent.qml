@@ -336,12 +336,12 @@ DetailsContent {
 						invalidHintText: qsTr("Enter correct password")
 						visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
 						enabled: !passwordBusyIndicator.visible
-						Layout.rightMargin: passwordChangeConfirmationButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
+						Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
 						onTextChanged: {
 							valid = text === AccountManager.password
 							toggleHintForInvalidText()
 						}
-						inputField.onAccepted: passwordChangeConfirmationButton.clicked()
+						inputField.onAccepted: passwordChangeButton.clicked()
 
 						function initialize() {
 							showPassword = false
@@ -364,7 +364,7 @@ DetailsContent {
 								valid = credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
 								toggleHintForInvalidText()
 							}
-							inputField.onAccepted: passwordChangeConfirmationButton.clicked()
+							inputField.onAccepted: passwordChangeButton.clicked()
 
 							function initialize() {
 								showPassword = false
@@ -376,7 +376,7 @@ DetailsContent {
 						}
 
 						Button {
-							id: passwordChangeConfirmationButton
+							id: passwordChangeButton
 							Controls.ToolTip.text: qsTr("Change password")
 							icon.name: "emblem-ok-symbolic"
 							visible: !passwordBusyIndicator.visible
@@ -407,9 +407,9 @@ DetailsContent {
 						Controls.BusyIndicator {
 							id: passwordBusyIndicator
 							visible: false
-							Layout.preferredWidth: passwordChangeConfirmationButton.Layout.preferredWidth
+							Layout.preferredWidth: passwordChangeButton.Layout.preferredWidth
 							Layout.preferredHeight: Layout.preferredWidth
-							Layout.alignment: passwordChangeConfirmationButton.Layout.alignment
+							Layout.alignment: passwordChangeButton.Layout.alignment
 						}
 					}
 
@@ -512,11 +512,11 @@ DetailsContent {
 					RowLayout {
 						CustomConnectionSettings {
 							id: customConnectionSettings
-							confirmationButton: connectionSettingsConfirmationButton
+							confirmationButton: connectionSettingsButton
 						}
 
 						Button {
-							id: connectionSettingsConfirmationButton
+							id: connectionSettingsButton
 							Controls.ToolTip.text: qsTr("Change connection settings")
 							icon.name: "emblem-ok-symbolic"
 							visible: !connectionSettingsBusyIndicator.visible
@@ -555,9 +555,9 @@ DetailsContent {
 						Controls.BusyIndicator {
 							id: connectionSettingsBusyIndicator
 							visible: false
-							Layout.preferredWidth: connectionSettingsConfirmationButton.Layout.preferredWidth
+							Layout.preferredWidth: connectionSettingsButton.Layout.preferredWidth
 							Layout.preferredHeight: Layout.preferredWidth
-							Layout.alignment: connectionSettingsConfirmationButton.Layout.alignment
+							Layout.alignment: connectionSettingsButton.Layout.alignment
 						}
 					}
 
