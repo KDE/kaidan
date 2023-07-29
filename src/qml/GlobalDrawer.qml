@@ -26,8 +26,10 @@ Kirigami.GlobalDrawer {
 		QrCodePage {}
 	}
 
-	AccountDetailsSheet {
+	Component {
 		id: accountDetailsSheet
+
+		AccountDetailsSheet {}
 	}
 
 	Component {
@@ -88,15 +90,8 @@ Kirigami.GlobalDrawer {
 									onToggled: accountArea.disconnected ? Kaidan.logIn() : Kaidan.logOut()
 								}
 								onClicked: {
-									if (Kirigami.Settings.isMobile) {
-										if (pageStack.layers.depth < 2) {
-											pageStack.layers.push(accountDetailsPage)
-											root.close()
-										}
-									} else {
-										root.close()
-										accountDetailsSheet.open()
-									}
+									root.close()
+									openViewFromGlobalDrawer(accountDetailsSheet, accountDetailsPage)
 								}
 							}
 
@@ -141,10 +136,7 @@ Kirigami.GlobalDrawer {
 					MobileForm.FormButtonDelegate {
 						text: qsTr("Add contact by chat address")
 						icon.name: "contact-new-symbolic"
-						onClicked: {
-							root.close()
-							openView(contactAdditionDialog, contactAdditionPage)
-						}
+						onClicked: openContactAdditionView()
 					}
 
 					MobileForm.FormButtonDelegate {
@@ -219,6 +211,15 @@ Kirigami.GlobalDrawer {
 		}
 	}
 
+	function openContactAdditionView() {
+		return openViewFromGlobalDrawer(contactAdditionDialog, contactAdditionPage)
+	}
+
+	function openViewFromGlobalDrawer(overlayComponent, pageComponent) {
+		root.close()
+		return openView(overlayComponent, pageComponent)
+	}
+
 	Connections {
 		target: Kaidan
 
@@ -229,7 +230,7 @@ Kirigami.GlobalDrawer {
 
 		function onXmppUriReceived(uri) {
 			const xmppUriPrefix = `xmpp:`
-			openView(contactAdditionDialog, contactAdditionPage).jid = uri.substr(xmppUriPrefix.length)
+			openContactAdditionView().jid = uri.substr(xmppUriPrefix.length)
 		}
 	}
 }

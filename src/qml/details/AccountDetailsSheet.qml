@@ -16,17 +16,8 @@ DetailsSheet {
 	}
 
 	AccountDetailsContent {
-		id: content
 		sheet: root
 		jid: AccountManager.jid
 		Layout.fillWidth: true
-	}
-
-	onSheetOpenChanged: {
-		if (sheetOpen) {
-			content.loadDownloadedFiles()
-		} else {
-			content.collapseExpandedSections()
-		}
 	}
 }

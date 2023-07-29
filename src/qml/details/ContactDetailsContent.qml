@@ -18,14 +18,6 @@ DetailsContent {
 
 	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
 
-	function loadDownloadedFiles() {
-		mediaOverview.loadDownloadedFiles()
-	}
-
-	function collapseExpandedSections() {
-		mediaOverviewExpansionButton.checked = false
-	}
-
 	mediaOverview {
 		accountJid: MessageModel.currentAccountJid
 		chatJid: MessageModel.currentChatJid

@@ -15,22 +15,12 @@ DetailsSheet {
 	parent: applicationWindow().overlay
 
 	ContactDetailsHeader {
-		sheet: root
 		jid: root.jid
 	}
 
 	ContactDetailsContent {
-		id: content
 		sheet: root
 		jid: root.jid
 		Layout.fillWidth: true
-	}
-
-	onSheetOpenChanged: {
-		if (sheetOpen) {
-			content.loadDownloadedFiles()
-		} else {
-			content.collapseExpandedSections()
-		}
 	}
 }

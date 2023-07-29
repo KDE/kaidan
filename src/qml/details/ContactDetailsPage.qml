@@ -16,10 +16,7 @@ DetailsPage {
 	}
 
 	ContactDetailsContent {
-		id: content
 		jid: root.jid
 		Layout.fillWidth: true
 	}
-
-	Component.onCompleted: content.loadDownloadedFiles()
 }

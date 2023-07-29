@@ -15,10 +15,7 @@ DetailsPage {
 	}
 
 	AccountDetailsContent {
-		id: content
 		jid: AccountManager.jid
 		Layout.fillWidth: true
 	}
-
-	Component.onCompleted: content.loadDownloadedFiles()
 }

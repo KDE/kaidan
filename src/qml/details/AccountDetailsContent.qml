@@ -19,21 +19,10 @@ import "../settings"
 
 DetailsContent {
 	id: root
-
-	function loadDownloadedFiles() {
-		mediaOverview.loadDownloadedFiles()
-	}
-
-	function collapseExpandedSections() {
-		mediaOverviewExpansionButton.checked = false
-		vCardExpansionButton.checked = false
-	}
-
 	mediaOverview {
 		accountJid: AccountManager.jid
 		chatJid: ""
 	}
-
 	vCardArea: [
 		FormExpansionButton {
 			id: vCardExpansionButton
@@ -125,31 +114,10 @@ DetailsContent {
 
 	encryptionArea: ColumnLayout {
 		spacing: 0
-
 		Component.onCompleted: {
-			// Retrieve the own devices if they are not loaded yet on a mobile device.
-			if (!root.sheet && MessageModel.currentAccountJid != root.jid) {
+			// Retrieve the own devices if they are not loaded yet.
+			if (MessageModel.currentAccountJid != root.jid) {
 				Kaidan.client.omemoManager.initializeChatRequested(root.jid)
-			}
-
-			passwordVerificationField.initialize()
-			passwordField.initialize()
-		}
-		Connections {
-			target: root.sheet
-
-			function onSheetOpenChanged() {
-				if (root.sheet.sheetOpen) {
-					// Retrieve the own devices if they are not loaded yet on a desktop device.
-					if (MessageModel.currentAccountJid != root.jid) {
-						Kaidan.client.omemoManager.initializeChatRequested(root.jid)
-					}
-
-					passwordVerificationField.initialize()
-					passwordField.initialize()
-					passwordChangeErrorMessage.visible = false
-					connectionSettingsErrorMessage.visible = false
-				}
 			}
 		}
 
@@ -329,6 +297,11 @@ DetailsContent {
 			MobileForm.AbstractFormDelegate {
 				background: Item {}
 				contentItem: ColumnLayout {
+					Component.onCompleted: {
+						passwordVerificationField.initialize()
+						passwordField.initialize()
+					}
+
 					PasswordField {
 						id: passwordVerificationField
 						labelText: qsTr("Current password")
@@ -368,7 +341,7 @@ DetailsContent {
 
 							function initialize() {
 								showPassword = false
-								text = passwordVerificationField.visible ? "" : AccountManager.password
+								text = Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible ? "" : AccountManager.password
 
 								// Avoid showing a hint on initial setting.
 								invalidHint.visible = false

@@ -9,6 +9,9 @@ import im.kaidan.kaidan 1.0
 
 DetailsHeader {
 	id: root
+
+	property Kirigami.OverlaySheet sheet
+
 	displayName: AccountManager.displayName
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")

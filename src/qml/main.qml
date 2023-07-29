@@ -154,13 +154,21 @@ Kirigami.ApplicationWindow {
 	 */
 	function openView(overlayComponent, pageComponent) {
 		if (Kirigami.Settings.isMobile) {
-			popLayersAboveLowest()
-			return pageStack.layers.push(pageComponent)
+			return openPage(pageComponent)
 		} else {
-			let overlay = overlayComponent.createObject(root)
-			overlay.open()
-			return overlay
+			return openOverlay(overlayComponent)
 		}
+	}
+
+	function openOverlay(overlayComponent) {
+		let overlay = overlayComponent.createObject(root)
+		overlay.open()
+		return overlay
+	}
+
+	function openPage(pageComponent) {
+		popLayersAboveLowest()
+		return pageStack.layers.push(pageComponent)
 	}
 
 	// Show the rosterPage instead of the emptyChatPage if the window is narrow.

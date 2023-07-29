@@ -83,7 +83,7 @@ ChatPageBase {
 			}
 		}
 
-		onClicked: contactDetailsSheet.open()
+		onClicked: openOverlay(contactDetailsSheet)
 	}
 	keyboardNavigationEnabled: true
 	contextualActions: [
@@ -91,7 +91,7 @@ ChatPageBase {
 			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
-			onTriggered: pageStack.layers.push(contactDetailsPage)
+			onTriggered: openPage(contactDetailsPage)
 		},
 		// Action to toggle the message search bar
 		Kirigami.Action {
@@ -124,9 +124,12 @@ ChatPageBase {
 		jid: MessageModel.currentChatJid
 	}
 
-	ContactDetailsSheet {
+	Component {
 		id: contactDetailsSheet
-		jid: MessageModel.currentChatJid
+
+		ContactDetailsSheet {
+			jid: MessageModel.currentChatJid
+		}
 	}
 
 	Component {

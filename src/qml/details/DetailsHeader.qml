@@ -17,7 +17,6 @@ RowLayout {
 	id: root
 
 	default property alias __data: mainArea.data
-	property Kirigami.OverlaySheet sheet
 	required property string jid
 	required property string displayName
 	required property Kirigami.Action avatarAction
