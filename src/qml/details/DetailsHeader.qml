@@ -82,7 +82,7 @@ RowLayout {
 			spacing: 0
 
 			Button {
-				id: displayNameEditingIcon
+				id: displayNameEditingButton
 				Controls.ToolTip.text: qsTr("Change name…")
 				icon.name: "document-edit-symbolic"
 				display: Controls.AbstractButton.IconOnly
@@ -126,9 +126,9 @@ RowLayout {
 					anchors.fill: displayNameText
 					hoverEnabled: true
 					cursorShape: Qt.PointingHandCursor
-					onEntered: displayNameEditingIcon.flat = false
-					onExited: displayNameEditingIcon.flat = true
-					onClicked: displayNameEditingIcon.clicked(Qt.LeftButton)
+					onEntered: displayNameEditingButton.flat = false
+					onExited: displayNameEditingButton.flat = true
+					onClicked: displayNameEditingButton.clicked(Qt.LeftButton)
 				}
 			}
 
@@ -158,7 +158,7 @@ RowLayout {
 			maximumLineCount: 1
 			elide: Text.ElideRight
 			Layout.fillWidth: true
-			Layout.leftMargin: displayNameEditingIcon.Layout.preferredWidth + displayNameTextField.Layout.leftMargin
+			Layout.leftMargin: displayNameEditingButton.Layout.preferredWidth + displayNameTextField.Layout.leftMargin
 		}
 	}
 }
