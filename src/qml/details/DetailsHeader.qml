@@ -83,11 +83,12 @@ RowLayout {
 
 			Button {
 				id: displayNameEditingButton
-				Controls.ToolTip.text: qsTr("Change name…")
+				text: qsTr("Change name…")
 				icon.name: "document-edit-symbolic"
 				display: Controls.AbstractButton.IconOnly
 				checked: !displayNameText.visible
 				flat: true
+				Controls.ToolTip.text: text
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
 				onHoveredChanged: {
@@ -104,7 +105,10 @@ RowLayout {
 						displayNameTextField.selectAll()
 					} else {
 						displayNameTextField.visible = false
-						displayNameArea.changeDisplayName(displayNameTextField.text)
+
+						if (displayNameTextField.text !== root.displayName) {
+							root.displayNameChangeFunction(displayNameTextField.text)
+						}
 					}
 				}
 			}
@@ -128,7 +132,7 @@ RowLayout {
 					cursorShape: Qt.PointingHandCursor
 					onEntered: displayNameEditingButton.flat = false
 					onExited: displayNameEditingButton.flat = true
-					onClicked: displayNameEditingButton.clicked(Qt.LeftButton)
+					onClicked: displayNameEditingButton.clicked()
 				}
 			}
 
@@ -138,16 +142,7 @@ RowLayout {
 				visible: false
 				Layout.leftMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
-				onAccepted: {
-					displayNameArea.changeDisplayName(text)
-					visible = false
-				}
-			}
-
-			function changeDisplayName(newDisplayName) {
-				if (newDisplayName !== root.displayName) {
-					root.displayNameChangeFunction(newDisplayName)
-				}
+				onAccepted: displayNameEditingButton.clicked()
 			}
 		}
 
