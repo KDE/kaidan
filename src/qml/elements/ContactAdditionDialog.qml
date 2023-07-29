@@ -19,7 +19,7 @@ Kirigami.Dialog {
 	padding: Kirigami.Units.mediumSpacing
 	preferredWidth: largeButtonWidth
 	onOpened: content.jidField.forceActiveFocus()
-	onClosed: root.destroy()
+	onClosed: destroy()
 
 	ContactAdditionContent {
 		id: content
