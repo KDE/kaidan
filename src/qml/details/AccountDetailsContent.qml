@@ -331,8 +331,8 @@ DetailsContent {
 				contentItem: ColumnLayout {
 					PasswordField {
 						id: passwordVerificationField
-						labelText: "Current password"
-						placeholderText: "Enter your current password"
+						labelText: qsTr("Current password")
+						placeholderText: qsTr("Enter your current password")
 						invalidHintText: qsTr("Enter correct password")
 						visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
 						enabled: !passwordBusyIndicator.visible
@@ -355,8 +355,8 @@ DetailsContent {
 
 						PasswordField {
 							id: passwordField
-							labelText: passwordVerificationField.visible ? "New password" : "Password"
-							placeholderText: "Enter your new password"
+							labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
+							placeholderText: qsTr("Enter your new password")
 							invalidHintText: qsTr("Enter different password to change it")
 							invalidHintMayBeShown: true
 							enabled: !passwordBusyIndicator.visible
