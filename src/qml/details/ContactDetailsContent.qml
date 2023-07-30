@@ -22,7 +22,6 @@ DetailsContent {
 		accountJid: MessageModel.currentAccountJid
 		chatJid: MessageModel.currentChatJid
 	}
-
 	vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
@@ -51,7 +50,6 @@ DetailsContent {
 			}
 		}
 	}
-
 	encryptionArea: ColumnLayout {
 		spacing: 0
 

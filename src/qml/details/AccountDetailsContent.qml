@@ -30,7 +30,6 @@ DetailsContent {
 			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
 		}
 	]
-
 	vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
@@ -111,7 +110,6 @@ DetailsContent {
 			}
 		}
 	}
-
 	encryptionArea: ColumnLayout {
 		spacing: 0
 		Component.onCompleted: {
@@ -195,8 +193,6 @@ DetailsContent {
 
 	MobileForm.FormCard {
 		id: providerArea
-		Layout.fillWidth: true
-		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
 
 		readonly property string providerUrl: {
 			const domain = root.jid.split('@')[1]
@@ -208,6 +204,8 @@ DetailsContent {
 		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chatSupport
 		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).groupChatSupport
 
+		Layout.fillWidth: true
+		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
 		contentItem: ColumnLayout {
 			spacing: 0
 
