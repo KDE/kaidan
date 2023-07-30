@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -23,7 +24,6 @@ MobileForm.AbstractFormDelegate {
 
 		Kirigami.Icon {
 			source: root.checked ? "go-up-symbolic" : "go-down-symbolic"
-			color: root.icon.color
 			implicitWidth: Kirigami.Units.iconSizes.small
 			implicitHeight: implicitWidth
 		}
