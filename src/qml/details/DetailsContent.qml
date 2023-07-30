@@ -80,7 +80,13 @@ Controls.Control {
 					onCheckedChanged: {
 						if (checked) {
 							mediaOverview.selectionMode = false
-							mediaOverview.tabBarCurrentIndex = 0
+
+							// Display the content of the first tab only on initial loading.
+							// Afterwards, display the content of the last active tab.
+							if (mediaOverview.tabBarCurrentIndex === -1) {
+								mediaOverview.tabBarCurrentIndex = 0
+							}
+
 							mediaOverview.loadDownloadedFiles()
 						}
 					}

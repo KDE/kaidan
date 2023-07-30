@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -47,7 +48,7 @@ Controls.Control {
 			case 1:
 				return cellWidth
 			case 2:
-				return Kirigami.Units.largeSpacing * 6
+				return Kirigami.Units.largeSpacing * 8
 			}
 
 			return 0
@@ -63,52 +64,58 @@ Controls.Control {
 				spacing: 0
 
 				MobileForm.AbstractFormDelegate {
+					id: imagesTab
 					checkable: true
+					Layout.preferredWidth: tabBar.width / 3
 					contentItem: Controls.Label {
 						text: qsTr("Images")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
 						font.bold: parent.checked
 					}
-					Layout.preferredWidth: tabBar.width / 3
 				}
 
 				Kirigami.Separator {
+					id: imagesVideosTabSeparator
 					Layout.fillHeight: true
 				}
 
 				MobileForm.AbstractFormDelegate {
+					id: videosTab
 					checkable: true
+					Layout.preferredWidth: tabBar.width / 3
 					contentItem: Controls.Label {
 						text: qsTr("Videos")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
 						font.bold: parent.checked
 					}
-					Layout.preferredWidth: tabBar.width / 3
 				}
 
+
 				Kirigami.Separator {
+					id: videosOtherTabSeparator
 					Layout.fillHeight: true
 				}
 
 				MobileForm.AbstractFormDelegate {
+					id: otherTab
 					checkable: true
+					Layout.preferredWidth: tabBar.width / 3
 					contentItem: Controls.Label {
-						text: qsTr("Others")
+						text: qsTr("Other")
 						wrapMode: Text.Wrap
 						horizontalAlignment: Controls.Label.AlignHCenter
 						font.bold: parent.checked
 					}
-					Layout.preferredWidth: tabBar.width / 3
 				}
 
 				Controls.ButtonGroup {
 					id: tabBarGroup
 					buttons: [
-						tabBar.children[0],
-						tabBar.children[2],
-						tabBar.children[4]
+						imagesTab,
+						videosTab,
+						otherTab
 					]
 					onCheckedButtonChanged: {
 						switch (checkedButton) {
@@ -169,7 +176,7 @@ Controls.Control {
 				}
 
 				Controls.ToolButton {
-					visible: fileProxyModel.checkedCount != fileProxyModel.rowCount
+					visible: fileProxyModel.checkedCount !== fileProxyModel.rowCount
 					icon.name: "edit-select-all-symbolic"
 					onClicked: {
 						fileProxyModel.checkAll()
@@ -185,9 +192,45 @@ Controls.Control {
 				}
 			}
 
-			MobileForm.FormDelegateSeparator {
-				Layout.leftMargin: 0
-				Layout.rightMargin: 0
+			// regular separator
+			Kirigami.Separator {
+				implicitHeight: Kirigami.Units.smallSpacing
+				Layout.fillWidth: true
+			}
+
+			// colored marker for current tab selection partly covering the regular separator
+			Kirigami.Separator {
+				color: Kirigami.Theme.highlightColor
+				visible: !root.selectionMode
+				implicitHeight: Kirigami.Units.smallSpacing
+				Layout.fillWidth: true
+				Layout.topMargin: - implicitHeight
+				Layout.leftMargin: {
+					if (imagesTab.checked) {
+						return 0
+					}
+
+					if (videosTab.checked) {
+						return imagesTab.width
+					}
+
+					if (otherTab.checked ) {
+						return imagesTab.width + imagesVideosTabSeparator.width + videosTab.width
+					}
+				}
+				Layout.rightMargin: {
+					if (otherTab.checked) {
+						return 0
+					}
+
+					if (videosTab.checked ) {
+						return otherTab.width
+					}
+
+					if (imagesTab.checked ) {
+						return videosTab.width + videosOtherTabSeparator.width + otherTab.width
+					}
+				}
 			}
 		}
 		model: FileProxyModel {
@@ -232,41 +275,10 @@ Controls.Control {
 		Component {
 			id: imageDelegate
 
-			Controls.ItemDelegate {
-				id: control
-				implicitWidth: GridView.view.cellWidth
-				implicitHeight: GridView.view.cellHeight
-				autoExclusive: false
+			SelectablePreview {
+				id: preview
 				checkable: root.selectionMode
 				checked: checkable && model.checkState === Qt.Checked
-				padding: Kirigami.Units.smallSpacing / 2
-				contentItem: MouseArea {
-					id: selectionArea
-					hoverEnabled: true
-					acceptedButtons: Qt.NoButton
-
-					Image {
-						source: model.file.localFileUrl
-						fillMode: Image.PreserveAspectFit
-						asynchronous: true
-						sourceSize.width: parent.availableWidth
-						sourceSize.height: parent.availableHeight
-						anchors.fill: parent
-
-						SelectionMarker {
-							visible: root.selectionMode || selectionArea.containsMouse
-							checked: control.checked
-							anchors.top: parent.top
-							anchors.right: parent.right
-							onClicked: {
-								root.selectionMode = true
-								model.checkState = checkState
-								control.toggled()
-								control.clicked()
-							}
-						}
-					}
-				}
 				onToggled: {
 					model.checkState = checked ? Qt.Checked : Qt.Unchecked
 				}
@@ -281,6 +293,30 @@ Controls.Control {
 				}
 				onPressAndHold: {
 					root.selectionMode = true
+				}
+
+				Image {
+					source: model.file.localFileUrl
+					fillMode: Image.PreserveAspectCrop
+					asynchronous: true
+					sourceSize.width: parent.availableWidth
+					sourceSize.height: parent.availableHeight
+					anchors.fill: parent
+
+					SelectionMarker {
+						visible: preview.containsMouse || checked
+						checked: preview.checked
+						anchors.top: parent.top
+						anchors.right: parent.right
+						anchors.topMargin: Kirigami.Units.smallSpacing
+						anchors.rightMargin: anchors.topMargin
+						onClicked: {
+							root.selectionMode = true
+							model.checkState = checkState
+							preview.toggled()
+							preview.clicked()
+						}
+					}
 				}
 			}
 		}
@@ -288,45 +324,10 @@ Controls.Control {
 		Component {
 			id: videoDelegate
 
-			Controls.ItemDelegate {
-				id: control
-				implicitWidth: GridView.view.cellWidth
-				implicitHeight: GridView.view.cellHeight
-				autoExclusive: false
+			SelectablePreview {
+				id: preview
 				checkable: root.selectionMode
 				checked: checkable && model.checkState === Qt.Checked
-				padding: Kirigami.Units.smallSpacing / 2
-				contentItem: MouseArea {
-					id: selectionArea
-					hoverEnabled: true
-					acceptedButtons: Qt.NoButton
-
-					Multimedia.Video {
-						source: model.file.localFileUrl
-						autoPlay: true
-						fillMode: Multimedia.VideoOutput.PreserveAspectFit
-						anchors.fill: parent
-
-						SelectionMarker {
-							visible: root.selectionMode || selectionArea.containsMouse
-							checked: control.checked
-							anchors.top: parent.top
-							anchors.right: parent.right
-							onClicked: {
-								root.selectionMode = true
-								model.checkState = checkState
-								control.toggled()
-								control.clicked()
-							}
-						}
-						onStatusChanged: {
-							// Display a thumbnail by playing the first frame and pausing afterwards.
-							if (status === Multimedia.MediaPlayer.Buffered) {
-								pause()
-							}
-						}
-					}
-				}
 				onToggled: {
 					model.checkState = checked ? Qt.Checked : Qt.Unchecked
 				}
@@ -341,6 +342,34 @@ Controls.Control {
 				}
 				onPressAndHold: {
 					root.selectionMode = true
+				}
+
+				Multimedia.Video {
+					source: model.file.localFileUrl
+					autoPlay: true
+					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
+					anchors.fill: parent
+
+					SelectionMarker {
+						visible: preview.containsMouse || checked
+						checked: preview.checked
+						anchors.top: parent.top
+						anchors.right: parent.right
+						anchors.topMargin: Kirigami.Units.smallSpacing
+						anchors.rightMargin: anchors.topMargin
+						onClicked: {
+							root.selectionMode = true
+							model.checkState = checkState
+							preview.toggled()
+							preview.clicked()
+						}
+					}
+					onStatusChanged: {
+						// Display a thumbnail by playing the first frame and pausing afterwards.
+						if (status === Multimedia.MediaPlayer.Buffered) {
+							pause()
+						}
+					}
 				}
 			}
 		}
@@ -351,7 +380,7 @@ Controls.Control {
 			Controls.ItemDelegate {
 				id: control
 				implicitWidth: GridView.view.cellWidth
-				implicitHeight: GridView.view.cellHeight + topPadding + bottomPadding
+				implicitHeight: GridView.view.cellHeight
 				autoExclusive: false
 				checkable: root.selectionMode
 				checked: checkable && model.checkState === Qt.Checked
@@ -393,7 +422,7 @@ Controls.Control {
 						}
 
 						SelectionMarker {
-							visible: root.selectionMode || selectionArea.containsMouse
+							visible: selectionArea.containsMouse || checked
 							checked: control.checked
 							Layout.row: 0
 							Layout.column: 2

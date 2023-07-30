@@ -12,23 +12,24 @@ import im.kaidan.kaidan 1.0
  * Used to select an item inside of it.
  */
 Controls.CheckBox {
-	id: control
+	id: root
 	padding: 3
 	implicitWidth: 2 * padding + Math.max(implicitIndicatorWidth, implicitBackgroundWidth)
 	implicitHeight: 2 * padding + Math.max(implicitIndicatorHeight, implicitBackgroundHeight)
 
 	background: Rectangle {
-		border.color: Kirigami.Theme.highlightColor
+		color: Kirigami.Theme.highlightColor
+		opacity: root.hovered ? 1 : 0.8
 		implicitWidth: 20
 		implicitHeight: 20
 		radius: implicitWidth
 	}
 
-	indicator: Image {
-		visible: control.checked
-		source: Utils.getResourcePath("images/check-mark-pale.svg")
-		sourceSize.width: 15
-		sourceSize.height: 15
+	indicator: Kirigami.Icon {
+		source: "emblem-ok-symbolic"
+		color: Kirigami.Theme.highlightedTextColor
+		implicitWidth: Kirigami.Units.iconSizes.small
+		implicitHeight: implicitWidth
 		anchors.centerIn: parent
 	}
 }

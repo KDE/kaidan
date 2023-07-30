@@ -30,7 +30,7 @@ DetailsContent {
 	}
 
 	mediaOverview {
-		accountJid: MessageModel.currentAccountJid
+		accountJid: AccountManager.jid
 		chatJid: ""
 	}
 
