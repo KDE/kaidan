@@ -957,12 +957,12 @@ msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Multimèdia"
 
-#: src/qml/details/DetailsContent.qml:99
+#: src/qml/details/DetailsContent.qml:105
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Perfil"
 
-#: src/qml/details/DetailsContent.qml:121
+#: src/qml/details/DetailsContent.qml:127
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Dispositius connectats"
@@ -972,28 +972,31 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Canvia el nom…"
 
-#: src/qml/details/MediaOverview.qml:68
+#: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Imatges"
 
-#: src/qml/details/MediaOverview.qml:83
+#: src/qml/details/MediaOverview.qml:88
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Vídeos"
 
-#: src/qml/details/MediaOverview.qml:98
+#: src/qml/details/MediaOverview.qml:106
+#, fuzzy
+#| msgctxt "MediaOverview|"
+#| msgid "Others"
 msgctxt "MediaOverview|"
-msgid "Others"
+msgid "Other"
 msgstr "Altres"
 
-#: src/qml/details/MediaOverview.qml:166
+#: src/qml/details/MediaOverview.qml:173
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "Seleccionats %1/%2"
 
-#: src/qml/details/MediaOverview.qml:212
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
