@@ -26,9 +26,9 @@ DetailsHeader {
 		jid: root.jid
 	}
 
-	function displayNameChangeFunction(newDisplayName) {
+	function changeDisplayName(newDisplayName) {
 		Kaidan.client.rosterManager.renameContactRequested(root.jid, newDisplayName)
 	}
 
-	function displayNameChangedFunction() {}
+	function handleDisplayNameChanged() {}
 }

@@ -106,7 +106,7 @@ RowLayout {
 						displayNameTextField.visible = false
 
 						if (displayNameTextField.text !== root.displayName) {
-							root.displayNameChangeFunction(displayNameTextField.text)
+							root.changeDisplayName(displayNameTextField.text)
 						}
 					}
 				}
@@ -123,7 +123,7 @@ RowLayout {
 				Layout.fillWidth: true
 				leftPadding: Kirigami.Units.largeSpacing
 				// TODO: Get update of current vCard by using Entity Capabilities
-				onTextChanged: displayNameChangedFunction()
+				onTextChanged: handleDisplayNameChanged()
 
 				MouseArea {
 					anchors.fill: displayNameText
