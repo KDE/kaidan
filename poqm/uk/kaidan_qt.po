@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-26 08:38+0300\n"
+"PO-Revision-Date: 2023-08-02 17:12+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -463,27 +463,48 @@ msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Надіслати повідомлення-спойлер"
 
-#: src/qml/details/AccountDetailsContent.qml:57
+#: src/qml/details/AccountDetailsContent.qml:44
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr "Порожньо"
 
-#: src/qml/details/AccountDetailsContent.qml:77
+#: src/qml/details/AccountDetailsContent.qml:64
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Встановити значення"
 
-#: src/qml/details/AccountDetailsContent.qml:163
+#: src/qml/details/AccountDetailsContent.qml:120
+msgctxt "AccountDetailsContent|"
+msgid "Labels"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "DetailsHeader|"
+#| msgid "Change name…"
+msgctxt "AccountDetailsContent|"
+msgid "Change label…"
+msgstr "Змінити назву…"
+
+#: src/qml/details/AccountDetailsContent.qml:185
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
+msgctxt "AccountDetailsContent|"
+msgid "Remove label"
+msgstr "Вилучити файл"
+
+#: src/qml/details/AccountDetailsContent.qml:220
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/qml/details/AccountDetailsContent.qml:167
+#: src/qml/details/AccountDetailsContent.qml:224
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:168
+#: src/qml/details/AccountDetailsContent.qml:225
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -493,85 +514,85 @@ msgstr ""
 "даних та внесення до них змін під час обміну даними між вами і вашими "
 "співрозмовниками."
 
-#: src/qml/details/AccountDetailsContent.qml:187
-#: src/qml/details/AccountDetailsContent.qml:193
+#: src/qml/details/AccountDetailsContent.qml:244
+#: src/qml/details/AccountDetailsContent.qml:250
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr ""
 "Скануйте QR-коди <b>ваших</b> пристроїв, щоб увімкнути для них шифрування"
 
-#: src/qml/details/AccountDetailsContent.qml:189
+#: src/qml/details/AccountDetailsContent.qml:246
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "На <b>вашому</b> іншому пристрої не використано OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:196
+#: src/qml/details/AccountDetailsContent.qml:253
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
 "Скануйте QR-коди <b>ваших</b> пристроїв, щоб забезпечити максимальний захист"
 
-#: src/qml/details/AccountDetailsContent.qml:257
+#: src/qml/details/AccountDetailsContent.qml:314
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Надавач послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:261
+#: src/qml/details/AccountDetailsContent.qml:318
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Відвідати сайт"
 
-#: src/qml/details/AccountDetailsContent.qml:262
+#: src/qml/details/AccountDetailsContent.qml:319
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Відкрити сайт вашого надавача послуг у браузері"
 
-#: src/qml/details/AccountDetailsContent.qml:268
+#: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Копіювати адресу сайта"
 
-#: src/qml/details/AccountDetailsContent.qml:269
+#: src/qml/details/AccountDetailsContent.qml:326
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Скопіювати адресу вашого надавача послуг до буфера обміну даними"
 
-#: src/qml/details/AccountDetailsContent.qml:273
+#: src/qml/details/AccountDetailsContent.qml:330
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Адресу сайта скопійовано до буфера даних."
 
-#: src/qml/details/AccountDetailsContent.qml:278
+#: src/qml/details/AccountDetailsContent.qml:335
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Відкрити спілкування з підтримкою"
 
-#: src/qml/details/AccountDetailsContent.qml:279
+#: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Почати спілкування на каналі супроводу вашого надавача послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:285
+#: src/qml/details/AccountDetailsContent.qml:342
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Підтримка"
 
-#: src/qml/details/AccountDetailsContent.qml:297
+#: src/qml/details/AccountDetailsContent.qml:354
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Відкрити групу підтримки"
 
-#: src/qml/details/AccountDetailsContent.qml:298
+#: src/qml/details/AccountDetailsContent.qml:355
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Долучитися до відкритої групи супроводу вашого надавача послуг"
 
-#: src/qml/details/AccountDetailsContent.qml:323
+#: src/qml/details/AccountDetailsContent.qml:380
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Зміна пароля"
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:384
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -580,38 +601,78 @@ msgstr ""
 "Змінити ваш пароль. Вам доведеться повторно ввести його на усіх інших ваших "
 "пристроях."
 
-#: src/qml/details/AccountDetailsContent.qml:337
+#: src/qml/details/AccountDetailsContent.qml:397
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password is invalid."
+msgctxt "AccountDetailsContent|"
+msgid "Current password"
+msgstr "Поточний пароль є некоректним."
+
+#: src/qml/details/AccountDetailsContent.qml:398
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter correct password"
+msgctxt "AccountDetailsContent|"
+msgid "Enter your current password"
+msgstr "Введіть правильний пароль"
+
+#: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Введіть правильний пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:361
+#: src/qml/details/AccountDetailsContent.qml:421
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "New password:"
+msgctxt "AccountDetailsContent|"
+msgid "New password"
+msgstr "Новий пароль:"
+
+#: src/qml/details/AccountDetailsContent.qml:421
+#, fuzzy
+#| msgctxt "PasswordField|"
+#| msgid "Password"
+msgctxt "AccountDetailsContent|"
+msgid "Password"
+msgstr "Пароль"
+
+#: src/qml/details/AccountDetailsContent.qml:422
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter correct password"
+msgctxt "AccountDetailsContent|"
+msgid "Enter your new password"
+msgstr "Введіть правильний пароль"
+
+#: src/qml/details/AccountDetailsContent.qml:423
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Введіть інший пароль, щоб змінити його"
 
-#: src/qml/details/AccountDetailsContent.qml:381
+#: src/qml/details/AccountDetailsContent.qml:443
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Змінити пароль"
 
-#: src/qml/details/AccountDetailsContent.qml:436
+#: src/qml/details/AccountDetailsContent.qml:498
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Не вдалося змінити пароль: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:442
+#: src/qml/details/AccountDetailsContent.qml:504
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Пароль успішно змінено"
 
-#: src/qml/details/AccountDetailsContent.qml:458
+#: src/qml/details/AccountDetailsContent.qml:520
 msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Захист пароля"
 
-#: src/qml/details/AccountDetailsContent.qml:462
+#: src/qml/details/AccountDetailsContent.qml:524
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -625,12 +686,12 @@ msgstr ""
 "варто зберегти пароль в якомусь іншому місці. Скасувати наслідки цієї дії "
 "неможливо!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:466
+#: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Не показувати пароль як текст"
 
-#: src/qml/details/AccountDetailsContent.qml:468
+#: src/qml/details/AccountDetailsContent.qml:530
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -639,12 +700,12 @@ msgstr ""
 "Дозволити додавати пристрої за допомогою QR-коду, але ніколи не показувати "
 "пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:477
+#: src/qml/details/AccountDetailsContent.qml:539
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Не показувати пароль у будь-який спосіб"
 
-#: src/qml/details/AccountDetailsContent.qml:479
+#: src/qml/details/AccountDetailsContent.qml:541
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -653,12 +714,12 @@ msgstr ""
 "Не дозволяти додавати пристрої, у яких для входу використовуватиметься QR-"
 "код, і не показувати пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:501
+#: src/qml/details/AccountDetailsContent.qml:563
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "З'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:505
+#: src/qml/details/AccountDetailsContent.qml:567
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -667,38 +728,38 @@ msgstr ""
 "Налаштувати назву вузла і порт для з'єднання (не заповнюйте поля, щоб "
 "скористатися типовими значеннями)"
 
-#: src/qml/details/AccountDetailsContent.qml:521
+#: src/qml/details/AccountDetailsContent.qml:583
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Змінити параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:537
+#: src/qml/details/AccountDetailsContent.qml:599
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Введіть інші параметри з'єднання, щоб змінити їх"
 
-#: src/qml/details/AccountDetailsContent.qml:587
+#: src/qml/details/AccountDetailsContent.qml:649
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Не вдалося змінити параметри з'єднання: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:602
+#: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Змінено параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:625
+#: src/qml/details/AccountDetailsContent.qml:687
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/AccountDetailsContent.qml:633
+#: src/qml/details/AccountDetailsContent.qml:695
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Вилучити з Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:634
+#: src/qml/details/AccountDetailsContent.qml:696
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -707,18 +768,18 @@ msgstr ""
 "Вилучити обліковий запис з цієї програми. Створіть резервну копію "
 "реєстраційних даних і журналу спілкування, якщо це потрібно!"
 
-#: src/qml/details/AccountDetailsContent.qml:643
-#: src/qml/details/AccountDetailsContent.qml:669
+#: src/qml/details/AccountDetailsContent.qml:705
+#: src/qml/details/AccountDetailsContent.qml:731
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Підтвердити"
 
-#: src/qml/details/AccountDetailsContent.qml:659
+#: src/qml/details/AccountDetailsContent.qml:721
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Повністю вилучити"
 
-#: src/qml/details/AccountDetailsContent.qml:660
+#: src/qml/details/AccountDetailsContent.qml:722
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -726,7 +787,7 @@ msgstr ""
 "Вилучити обліковий запис з бази даних надавача послуг. Ви більше не зможете "
 "скористатися вашим обліковим записом!"
 
-#: src/qml/details/AccountDetailsHeader.qml:14
+#: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Змінити зображення вашого профілю"
@@ -756,17 +817,32 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Зберегти вибір"
 
-#: src/qml/details/ContactDetailsContent.qml:78
+#: src/qml/details/ContactDetailsContent.qml:60
+msgctxt "ContactDetailsContent|"
+msgid "Labels"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:79
+msgctxt "ContactDetailsContent|"
+msgid "New label"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:98
+msgctxt "ContactDetailsContent|"
+msgid "Add label"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Шифрування"
 
-#: src/qml/details/ContactDetailsContent.qml:82
+#: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:83
+#: src/qml/details/ContactDetailsContent.qml:200
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -776,130 +852,130 @@ msgstr ""
 "даних та внесення до них змін під час обміну даними між вами і вашими "
 "співрозмовниками."
 
-#: src/qml/details/ContactDetailsContent.qml:95
-#: src/qml/details/ContactDetailsContent.qml:103
+#: src/qml/details/ContactDetailsContent.qml:212
+#: src/qml/details/ContactDetailsContent.qml:220
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr ""
 "Скануйте QR-коди <b>ваших</b> пристроїв, щоб увімкнути для них шифрування"
 
-#: src/qml/details/ContactDetailsContent.qml:97
+#: src/qml/details/ContactDetailsContent.qml:214
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "На <b>вашому</b> іншому пристрої не використано OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:99
+#: src/qml/details/ContactDetailsContent.qml:216
 msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "У <b>вас</b> немає інших пристроїв із підтримкою OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:106
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
 "Скануйте QR-коди <b>ваших</b> пристроїв, щоб забезпечити максимальний захист"
 
-#: src/qml/details/ContactDetailsContent.qml:148
+#: src/qml/details/ContactDetailsContent.qml:265
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgstr "Скануйте QR-код вашого <b>контакту</b>, щоб увімкнути шифрування"
 
-#: src/qml/details/ContactDetailsContent.qml:151
+#: src/qml/details/ContactDetailsContent.qml:268
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Ваш <b>контакт</b> не використовує OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:154
+#: src/qml/details/ContactDetailsContent.qml:271
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgstr ""
 "Скануйте QR-коди пристроїв вашого <b>контакту</b>, щоб увімкнути для них "
 "шифрування"
 
-#: src/qml/details/ContactDetailsContent.qml:157
+#: src/qml/details/ContactDetailsContent.qml:274
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr ""
 "Скануйте QR-код вашого <b>контакту</b>, щоб забезпечити максимальний захист"
 
-#: src/qml/details/ContactDetailsContent.qml:211
+#: src/qml/details/ContactDetailsContent.qml:328
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
 msgstr "Оприлюднення"
 
-#: src/qml/details/ContactDetailsContent.qml:215
+#: src/qml/details/ContactDetailsContent.qml:332
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
 msgstr "Показати QR-код"
 
-#: src/qml/details/ContactDetailsContent.qml:216
+#: src/qml/details/ContactDetailsContent.qml:333
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Оприлюднити адресу спілкування з цим контактом за допомогою QR-коду"
 
-#: src/qml/details/ContactDetailsContent.qml:222
+#: src/qml/details/ContactDetailsContent.qml:339
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "Копіювати адресу спілкування"
 
-#: src/qml/details/ContactDetailsContent.qml:223
+#: src/qml/details/ContactDetailsContent.qml:340
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Оприлюднити адресу спілкування з цим контактом за допомогою тексту"
 
-#: src/qml/details/ContactDetailsContent.qml:227
+#: src/qml/details/ContactDetailsContent.qml:344
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Дані контакту скопійовано до буфера даних"
 
-#: src/qml/details/ContactDetailsContent.qml:240
+#: src/qml/details/ContactDetailsContent.qml:357
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Сповіщення"
 
-#: src/qml/details/ContactDetailsContent.qml:244
+#: src/qml/details/ContactDetailsContent.qml:361
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Вхідні повідомлення"
 
-#: src/qml/details/ContactDetailsContent.qml:245
+#: src/qml/details/ContactDetailsContent.qml:362
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Показувати сповіщення і відтворювати звук при надходженні повідомлення"
 
-#: src/qml/details/ContactDetailsContent.qml:264
+#: src/qml/details/ContactDetailsContent.qml:381
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Конфіденційність"
 
-#: src/qml/details/ContactDetailsContent.qml:268
+#: src/qml/details/ContactDetailsContent.qml:385
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr "Запитати про стан"
 
-#: src/qml/details/ContactDetailsContent.qml:269
+#: src/qml/details/ContactDetailsContent.qml:386
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 "Надіслати запити щодо доступності контакту, пристроїв та інших особистих "
 "даних"
 
-#: src/qml/details/ContactDetailsContent.qml:275
+#: src/qml/details/ContactDetailsContent.qml:392
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr "Надсилати стан"
 
-#: src/qml/details/ContactDetailsContent.qml:276
+#: src/qml/details/ContactDetailsContent.qml:393
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr "Надати дані щодо вашої доступності, пристроїв та інші особисті дані"
 
-#: src/qml/details/ContactDetailsContent.qml:289
+#: src/qml/details/ContactDetailsContent.qml:406
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Надсилати сповіщення щодо введення"
 
-#: src/qml/details/ContactDetailsContent.qml:290
+#: src/qml/details/ContactDetailsContent.qml:407
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -907,32 +983,32 @@ msgstr ""
 "Показувати, коли вами відкрито це спілкування, коли ви набираєте "
 "повідомлення і припиняєте його набирати"
 
-#: src/qml/details/ContactDetailsContent.qml:301
+#: src/qml/details/ContactDetailsContent.qml:418
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Надсилати сповіщення про прочитання"
 
-#: src/qml/details/ContactDetailsContent.qml:302
+#: src/qml/details/ContactDetailsContent.qml:419
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Показувати, які повідомлення ви прочитали"
 
-#: src/qml/details/ContactDetailsContent.qml:321
+#: src/qml/details/ContactDetailsContent.qml:438
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/ContactDetailsContent.qml:329
+#: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/details/ContactDetailsContent.qml:330
+#: src/qml/details/ContactDetailsContent.qml:447
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Вилучити контакт і завершити журнал спілкування"
 
-#: src/qml/details/ContactDetailsContent.qml:339
+#: src/qml/details/ContactDetailsContent.qml:456
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Підтвердити"
@@ -942,51 +1018,48 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Максимізувати аватар"
 
-#: src/qml/details/DetailsContent.qml:69
+#: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Мультимедіа"
 
-#: src/qml/details/DetailsContent.qml:105
+#: src/qml/details/DetailsContent.qml:106
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Профіль"
 
-#: src/qml/details/DetailsContent.qml:127
+#: src/qml/details/DetailsContent.qml:133
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "З’єднані пристрої"
 
-#: src/qml/details/DetailsHeader.qml:86
+#: src/qml/details/DetailsHeader.qml:85
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Змінити назву…"
 
-#: src/qml/details/MediaOverview.qml:71
+#: src/qml/details/MediaOverview.qml:72
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Зображення"
 
-#: src/qml/details/MediaOverview.qml:88
+#: src/qml/details/MediaOverview.qml:89
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Відео"
 
-#: src/qml/details/MediaOverview.qml:106
-#, fuzzy
-#| msgctxt "MediaOverview|"
-#| msgid "Others"
+#: src/qml/details/MediaOverview.qml:107
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Інші"
 
-#: src/qml/details/MediaOverview.qml:173
+#: src/qml/details/MediaOverview.qml:174
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "Позначено %1 з %2"
 
-#: src/qml/details/MediaOverview.qml:255
+#: src/qml/details/MediaOverview.qml:256
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -1338,6 +1411,29 @@ msgstr ""
 "Із відеокамерою працює інша програма.\n"
 "Спробуйте завершити роботу інших програм, які користуються відеокамерою."
 
+#: src/qml/elements/RosterFilteringArea.qml:34
+#, fuzzy
+#| msgctxt "RemoteAccountDeletion|"
+#| msgid "Delete account"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by accounts"
+msgstr "Вилучити обліковий запис"
+
+#: src/qml/elements/RosterFilteringArea.qml:35
+msgctxt "RosterFilteringArea|"
+msgid "Show only chats of selected accounts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:111
+msgctxt "RosterFilteringArea|"
+msgid "Filter by labels"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:112
+msgctxt "RosterFilteringArea|"
+msgid "Show only chats with selected labels"
+msgstr ""
+
 #: src/qml/elements/RosterListItem.qml:72
 msgctxt "RosterListItem|"
 msgid "Draft:"
@@ -1353,7 +1449,7 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Пришпилити"
 
-#: src/qml/elements/SearchBarPage.qml:29
+#: src/qml/elements/SearchBarPage.qml:28
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Пошук"
@@ -1457,47 +1553,47 @@ msgctxt "EmptyChatPage|"
 msgid "Please select a chat to start messaging"
 msgstr "Будь ласка, виберіть спілкування, щоб розпочати обмін повідомленнями"
 
-#: src/qml/GlobalDrawer.qml:59
+#: src/qml/GlobalDrawer.qml:61
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Облікові записи"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:124
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Дії"
 
-#: src/qml/GlobalDrawer.qml:133
+#: src/qml/GlobalDrawer.qml:128
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Додати контакт за QR-кодом"
 
-#: src/qml/GlobalDrawer.qml:142
+#: src/qml/GlobalDrawer.qml:137
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Додати контакт за адресою у спілкування"
 
-#: src/qml/GlobalDrawer.qml:152
+#: src/qml/GlobalDrawer.qml:144
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Шукати у загальнодоступних групах"
 
-#: src/qml/GlobalDrawer.qml:166
+#: src/qml/GlobalDrawer.qml:158
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Запросити друзів"
 
-#: src/qml/GlobalDrawer.qml:170
+#: src/qml/GlobalDrawer.qml:162
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Посилання на запрошення скопійовано до буфера обміну даними"
 
-#: src/qml/GlobalDrawer.qml:175
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Перемкнути пристрій"
 
-#: src/qml/GlobalDrawer.qml:184
+#: src/qml/GlobalDrawer.qml:176
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Параметри"
@@ -1917,6 +2013,12 @@ msgctxt "RegistrationLoginDecisionPage|"
 msgid "Use an existing account"
 msgstr "Використати наявний обліковий запис"
 
+#: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
+#: src/qml/RosterPage.qml:47
+msgctxt "RosterPage|"
+msgid "Filter"
+msgstr ""
+
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
@@ -2169,24 +2271,24 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Не вдалося створити QR-код: %1"
 
-#: src/RosterManager.cpp:118
+#: src/RosterManager.cpp:128
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Не вдалося додати контакт через те, що немає з'єднання."
 
-#: src/RosterManager.cpp:132
+#: src/RosterManager.cpp:142
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Не вдалося вилучити контакт через те, що немає з'єднання."
 
-#: src/RosterManager.cpp:145
+#: src/RosterManager.cpp:155
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "Не вдалося перейменувати запис контакту через те, що не вдалося встановити "
 "з'єднання."
 
-#: src/RosterManager.cpp:156
+#: src/RosterManager.cpp:166
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -2194,19 +2296,19 @@ msgid ""
 msgstr ""
 "Запит щодо перегляду стану %1 зазнав невдачі через проблеми зі з'єднанням: %2"
 
-#: src/RosterManager.cpp:164
+#: src/RosterManager.cpp:174
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your status failed"
 msgstr "Спроба уможливлення для %1 перегляду вашого стану зазнала невдачі"
 
-#: src/RosterManager.cpp:171
+#: src/RosterManager.cpp:181
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr "Спроба заборони для %1 перегляду вашого стану зазнала невдачі"
 
-#: src/RosterModel.cpp:739
+#: src/RosterModel.cpp:820
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -2417,20 +2519,12 @@ msgstr "Сайт"
 #~ msgstr "Інформація"
 
 #~ msgctxt "ChangePassword|"
-#~ msgid "New password:"
-#~ msgstr "Новий пароль:"
-
-#~ msgctxt "ChangePassword|"
 #~ msgid "New password (repeat):"
 #~ msgstr "Новий пароль (ще раз):"
 
 #~ msgctxt "ChangePassword|"
 #~ msgid "New passwords do not match."
 #~ msgstr "Вказані нові паролі не збігаються."
-
-#~ msgctxt "ChangePassword|"
-#~ msgid "Current password is invalid."
-#~ msgstr "Поточний пароль є некоректним."
 
 #~ msgctxt "ChangePassword|"
 #~ msgid "Cancel"
@@ -2559,10 +2653,6 @@ msgstr "Сайт"
 #~ msgctxt "PasswordRemovalPage|"
 #~ msgid "Remove completely"
 #~ msgstr "Вилучити повністю"
-
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete account"
-#~ msgstr "Вилучити обліковий запис"
 
 #~ msgctxt "RemoteAccountDeletion|"
 #~ msgid "Warning"
