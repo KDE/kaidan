@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-08-02 11:58+0200\n"
+"PO-Revision-Date: 2023-08-03 10:52+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -474,23 +474,17 @@ msgstr "Waarde instellen"
 #: src/qml/details/AccountDetailsContent.qml:120
 msgctxt "AccountDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 #: src/qml/details/AccountDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "DetailsHeader|"
-#| msgid "Change name…"
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr "Naam wijzigen…"
+msgstr "Label wijzigen…"
 
 #: src/qml/details/AccountDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr "Verwijder bestand"
+msgstr "Label verwijderen"
 
 #: src/qml/details/AccountDetailsContent.qml:220
 msgctxt "AccountDetailsContent|"
@@ -597,20 +591,14 @@ msgstr ""
 "andere apparaten!"
 
 #: src/qml/details/AccountDetailsContent.qml:397
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password is invalid."
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr "Het huidige wachtwoord is ongeldig."
+msgstr "Huidig wachtwoord"
 
 #: src/qml/details/AccountDetailsContent.qml:398
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr "Juiste wachtwoord invoeren"
+msgstr "Uw huidige wachtwoord invoeren"
 
 #: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
@@ -618,28 +606,19 @@ msgid "Enter correct password"
 msgstr "Juiste wachtwoord invoeren"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr "Nieuw wachtwoord:"
+msgstr "Nieuw wachtwoord"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Wachtwoord"
 
 #: src/qml/details/AccountDetailsContent.qml:422
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr "Juiste wachtwoord invoeren"
+msgstr "Uw nieuwe wachtwoord invoeren"
 
 #: src/qml/details/AccountDetailsContent.qml:423
 msgctxt "AccountDetailsContent|"
@@ -815,17 +794,17 @@ msgstr "Selectie opslaan"
 #: src/qml/details/ContactDetailsContent.qml:60
 msgctxt "ContactDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 #: src/qml/details/ContactDetailsContent.qml:79
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "Nieuw label"
 
 #: src/qml/details/ContactDetailsContent.qml:98
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "Label toevoegen"
 
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
@@ -1405,27 +1384,24 @@ msgstr ""
 "Probeer andere toepassingen, die de camera gebruiken, te sluiten."
 
 #: src/qml/elements/RosterFilteringArea.qml:34
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete account"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "Account verwijderen"
+msgstr "Op account filteren"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "Alleen chats van geselecteerde accounts tonen"
 
 #: src/qml/elements/RosterFilteringArea.qml:111
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "Op labels filteren"
 
 #: src/qml/elements/RosterFilteringArea.qml:112
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "Alleen chats met geselecteerde labels tonen"
 
 #: src/qml/elements/RosterListItem.qml:72
 msgctxt "RosterListItem|"
@@ -2009,7 +1985,7 @@ msgstr "Een bestaande account gebruiken"
 #: src/qml/RosterPage.qml:47
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"

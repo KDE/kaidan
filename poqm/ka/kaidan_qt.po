@@ -465,23 +465,17 @@ msgstr "მნიშვნელობის დაყენება"
 #: src/qml/details/AccountDetailsContent.qml:120
 msgctxt "AccountDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "ჭდეები"
 
 #: src/qml/details/AccountDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "DetailsHeader|"
-#| msgid "Change name…"
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr "სახელის გადარქმევა…"
+msgstr "ჭდის შეცვლა…"
 
 #: src/qml/details/AccountDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr "ფაილის წაშლა"
+msgstr "ჭდის წაშლა"
 
 #: src/qml/details/AccountDetailsContent.qml:220
 msgctxt "AccountDetailsContent|"
@@ -584,20 +578,14 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:397
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password is invalid."
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr "მიმდინარე პაროლი არასწორია."
+msgstr "მიმდინარე პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:398
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr "შეიყვანეთ სწორი პაროლი"
+msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
@@ -605,28 +593,19 @@ msgid "Enter correct password"
 msgstr "შეიყვანეთ სწორი პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr "ახალი პაროლი:"
+msgstr "ახალი პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:422
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr "შეიყვანეთ სწორი პაროლი"
+msgstr "შეიყვანეთ თქვენი ახალი პაროლი"
 
 #: src/qml/details/AccountDetailsContent.qml:423
 msgctxt "AccountDetailsContent|"
@@ -789,17 +768,17 @@ msgstr "მონიშნულის შენახვა"
 #: src/qml/details/ContactDetailsContent.qml:60
 msgctxt "ContactDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "ჭდეები"
 
 #: src/qml/details/ContactDetailsContent.qml:79
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "ახალი ჭდე"
 
 #: src/qml/details/ContactDetailsContent.qml:98
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "ჭდის დამატება"
 
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
@@ -1007,12 +986,9 @@ msgid "Videos"
 msgstr "ვიდეო"
 
 #: src/qml/details/MediaOverview.qml:107
-#, fuzzy
-#| msgctxt "MediaOverview|"
-#| msgid "Others"
 msgctxt "MediaOverview|"
 msgid "Other"
-msgstr "სხვები"
+msgstr "სხვა"
 
 #: src/qml/details/MediaOverview.qml:174
 #, qt-format
@@ -1027,6 +1003,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"ყველა ფაილის წაშლა შეუძლებელია:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:149
 msgctxt "ChatMessage|"
@@ -1370,27 +1348,24 @@ msgstr ""
 "სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ."
 
 #: src/qml/elements/RosterFilteringArea.qml:34
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete account"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "ანგარიშის წაშლა"
+msgstr "ანგარიშებით გაფილტვრა"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "მხოლოდ მონიშნული ანგარიშების ჩატის ჩვენება"
 
 #: src/qml/elements/RosterFilteringArea.qml:111
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "ჭდეების გაფილტვრა"
 
 #: src/qml/elements/RosterFilteringArea.qml:112
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "მხოლოდ მონიშნული ჭდეების მქონე ჩატებს ჩვენება"
 
 #: src/qml/elements/RosterListItem.qml:72
 msgctxt "RosterListItem|"
@@ -1938,7 +1913,7 @@ msgstr "არსებული ანგარიშის გამოყე�
 #: src/qml/RosterPage.qml:47
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "ფილტრი"
 
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
