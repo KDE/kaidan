@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+SPDX-FileCopyrightText: 2017 Ilya Bizyaev <bizyaev@zoho.com>
+SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
+SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
+
+SPDX-License-Identifier: CC0-1.0
+-->
 <manifest package="@APPLICATION_ID@" xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="@VERSION_STRING@" android:versionCode="@VERSION_CODE@" android:installLocation="auto">
     <application android:hardwareAccelerated="true" android:name="org.qtproject.qt5.android.bindings.QtApplication" android:label="@APPLICATION_DISPLAY_NAME@" android:icon="@mipmap/icon" android:debuggable="false">
         <activity android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation" android:name="org.qtproject.qt5.android.bindings.QtActivity" android:label="@APPLICATION_DISPLAY_NAME@" android:screenOrientation="unspecified" android:launchMode="singleTop" android:windowSoftInputMode="adjustResize">
