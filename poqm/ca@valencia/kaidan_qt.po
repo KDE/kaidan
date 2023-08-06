@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-07-26 07:43+0300\n"
+"PO-Revision-Date: 2023-08-03 10:06+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.04.3\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -484,23 +484,17 @@ msgstr "Establix un valor"
 #: src/qml/details/AccountDetailsContent.qml:120
 msgctxt "AccountDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetes"
 
 #: src/qml/details/AccountDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "DetailsHeader|"
-#| msgid "Change name…"
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr "Canvia el nom…"
+msgstr "Canvia una etiqueta…"
 
 #: src/qml/details/AccountDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr "Elimina el fitxer"
+msgstr "Elimina l'etiqueta"
 
 #: src/qml/details/AccountDetailsContent.qml:220
 msgctxt "AccountDetailsContent|"
@@ -611,20 +605,14 @@ msgstr ""
 "els altres dispositius."
 
 #: src/qml/details/AccountDetailsContent.qml:397
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change password"
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr "Canvia la contrasenya"
+msgstr "Contrasenya actual"
 
 #: src/qml/details/AccountDetailsContent.qml:398
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr "Introduïu la contrasenya correcta"
+msgstr "Introduïu la contrasenya actual"
 
 #: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
@@ -632,28 +620,19 @@ msgid "Enter correct password"
 msgstr "Introduïu la contrasenya correcta"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Change password"
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr "Canvia la contrasenya"
+msgstr "Contrasenya nova"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasenya"
 
 #: src/qml/details/AccountDetailsContent.qml:422
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr "Introduïu la contrasenya correcta"
+msgstr "Introduïu la contrasenya nova"
 
 #: src/qml/details/AccountDetailsContent.qml:423
 msgctxt "AccountDetailsContent|"
@@ -828,17 +807,17 @@ msgstr "Guarda la selecció"
 #: src/qml/details/ContactDetailsContent.qml:60
 msgctxt "ContactDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetes"
 
 #: src/qml/details/ContactDetailsContent.qml:79
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "Etiqueta nova"
 
 #: src/qml/details/ContactDetailsContent.qml:98
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "Afig una etiqueta"
 
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
@@ -1059,9 +1038,6 @@ msgid "Videos"
 msgstr "Vídeos"
 
 #: src/qml/details/MediaOverview.qml:107
-#, fuzzy
-#| msgctxt "MediaOverview|"
-#| msgid "Others"
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Altres"
@@ -1424,27 +1400,24 @@ msgstr ""
 "Intenteu tancar les altres aplicacions que estan utilitzant la càmera."
 
 #: src/qml/elements/RosterFilteringArea.qml:34
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "Registreu un compte nou"
+msgstr "Filtra per comptes"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "Mostra només els xats dels comptes seleccionats"
 
 #: src/qml/elements/RosterFilteringArea.qml:111
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "Filtra per etiquetes"
 
 #: src/qml/elements/RosterFilteringArea.qml:112
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "Mostra només els xats amb les etiquetes seleccionades"
 
 #: src/qml/elements/RosterListItem.qml:72
 msgctxt "RosterListItem|"
@@ -2034,7 +2007,7 @@ msgstr "Utilitza un compte existent"
 #: src/qml/RosterPage.qml:47
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "Filtre"
 
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
