@@ -86,6 +86,8 @@ public slots:
 
 	void sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
 
+	void sendPendingMessage(Message message);
+
 signals:
 	void sendMessageRequested(const QString &toJid,
 				  const QString &body,
@@ -101,8 +103,6 @@ private slots:
 	 * Handles pending messages found in the database.
 	 */
 	void handlePendingMessages(const QVector<Message> &messages);
-
-	void sendPendingMessage(Message message);
 
 	void retrieveInitialMessages();
 	void retrieveCatchUpMessages(const QDateTime &stamp);
