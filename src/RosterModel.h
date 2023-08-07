@@ -39,8 +39,8 @@ public:
 		LastMessageDateTimeRole,
 		UnreadMessagesRole,
 		LastMessageRole,
+		LastMessageIsDraftRole,
 		PinnedRole,
-		DraftIdRole,
 		NotificationsMutedRole,
 	};
 

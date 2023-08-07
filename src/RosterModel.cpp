@@ -95,8 +95,8 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[LastMessageDateTimeRole] = "lastMessageDateTime";
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
+	roles[LastMessageIsDraftRole] = "lastMessageIsDraft";
 	roles[PinnedRole] = "pinned";
-	roles[DraftIdRole] = "draftId";
 	roles[NotificationsMutedRole] = "notificationsMuted";
 	return roles;
 }
@@ -133,10 +133,10 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).unreadMessages;
 	case LastMessageRole:
 		return m_items.at(index.row()).lastMessage;
+	case LastMessageIsDraftRole:
+		return !m_items.at(index.row()).draftMessageId.isEmpty();
 	case PinnedRole:
 		return m_items.at(index.row()).pinningPosition >= 0;
-	case DraftIdRole:
-		return m_items.at(index.row()).draftMessageId;
 	case NotificationsMutedRole:
 		return m_items.at(index.row()).notificationsMuted;
 	}
@@ -614,7 +614,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 	QVector<int> changedRoles = {
 		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
-		int(DraftIdRole)
+		int(LastMessageIsDraftRole)
 	};
 
 	const auto lastMessage = message.previewText();
@@ -646,7 +646,7 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 	QVector<int> changedRoles = {
 		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
-		int(DraftIdRole)
+		int(LastMessageIsDraftRole)
 	};
 
 	const auto lastMessage = message.previewText();
@@ -677,7 +677,7 @@ void RosterModel::handleDraftMessageRemoved(const QString &id)
 	QVector<int> changedRoles = {
 		int(LastMessageDateTimeRole),
 		int(LastMessageRole),
-		int(DraftIdRole)
+		int(LastMessageIsDraftRole)
 	};
 
 	itr->draftMessageId.clear();
