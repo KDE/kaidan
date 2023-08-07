@@ -101,8 +101,9 @@ void MessageComposition::send()
 		message.from = AccountManager::instance()->jid();
 		message.body = m_body;
 		message.files = m_fileSelectionModel->files();
+		message.encryption = MessageModel::instance()->activeEncryption();
 
-		bool encrypt = MessageModel::instance()->activeEncryption() != Encryption::NoEncryption;
+		bool encrypt = message.encryption != Encryption::NoEncryption;
 		Kaidan::instance()->fileSharingController()->sendMessage(std::move(message), encrypt);
 		m_fileSelectionModel->clear();
 	} else {
