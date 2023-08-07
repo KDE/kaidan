@@ -101,6 +101,7 @@ void MessageComposition::send()
 		message.from = AccountManager::instance()->jid();
 		message.body = m_body;
 		message.files = m_fileSelectionModel->files();
+		message.receiptRequested = true;
 		message.encryption = MessageModel::instance()->activeEncryption();
 
 		bool encrypt = message.encryption != Encryption::NoEncryption;
