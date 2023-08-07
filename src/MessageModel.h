@@ -64,11 +64,11 @@ struct DetailedMessageReaction
 {
 	Q_GADGET
 	Q_PROPERTY(QString senderJid MEMBER senderJid)
-	Q_PROPERTY(QVector<QString> emojis MEMBER emojis)
+	Q_PROPERTY(QStringList emojis MEMBER emojis)
 
 public:
 	QString senderJid;
-	QVector<QString> emojis;
+	QStringList emojis;
 
 	bool operator<(const DetailedMessageReaction &other) const;
 };

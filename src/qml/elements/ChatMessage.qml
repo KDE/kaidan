@@ -234,19 +234,22 @@ Kirigami.SwipeListItem {
 
 					// message reactions (emojis in reaction to this message)
 					Flow {
-						visible: root.displayedReactions.length
+						visible: displayedReactionsArea.count
 						spacing: 4
 						Layout.bottomMargin: 15
 						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
 						Layout.preferredWidth: {
-							if (messageReactionAdditionButton.visible) {
-								return (messageReactionAdditionButton.width + spacing) * (root.displayedReactions.length + 2)
-							} else {
-								return (messageReactionAdditionButton.width + spacing) * (root.displayedReactions.length + 1)
+							var displayedReactionsWidth = 0
+
+							for (var i = 0; i < displayedReactionsArea.count; i++) {
+								displayedReactionsWidth += displayedReactionsArea.itemAt(i).width
 							}
+
+							return displayedReactionsWidth + (messageReactionAdditionButton.width * 2) + spacing * (displayedReactionsArea.count + 2)
 						}
 
 						Repeater {
+							id: displayedReactionsArea
 							model: root.displayedReactions
 
 							MessageReactionDisplayButton {
@@ -264,6 +267,8 @@ Kirigami.SwipeListItem {
 										} else {
 											MessageModel.removeMessageReaction(root.msgId, modelData.emoji)
 										}
+									} else {
+										MessageModel.addMessageReaction(root.msgId, modelData.emoji)
 									}
 								}
 							}

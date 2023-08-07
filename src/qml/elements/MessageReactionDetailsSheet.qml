@@ -121,6 +121,7 @@ Kirigami.OverlaySheet {
 				}
 			}
 
+			// right: emojis
 			RowLayout {
 				Layout.fillWidth: true
 

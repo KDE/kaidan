@@ -249,19 +249,27 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 		const auto &reactionSenders = msg.reactionSenders;
 		for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
+			const auto ownReactionsIterated = itr.key() == m_currentAccountJid;
+
 			for (const auto &reaction : std::as_const(itr->reactions)) {
 				auto reactionItr = std::find_if(displayedMessageReactions.begin(), displayedMessageReactions.end(), [=](const DisplayedMessageReaction &displayedMessageReaction) {
 					return displayedMessageReaction.emoji == reaction.emoji;
 				});
 
-				const auto ownReactionIncluded = itr.key() == m_currentAccountJid;
-
-				if (reactionItr == displayedMessageReactions.end()) {
-					displayedMessageReactions.append({ reaction.emoji, 1, ownReactionIncluded, reaction.deliveryState });
+				if (ownReactionsIterated) {
+					if (reactionItr == displayedMessageReactions.end()) {
+						displayedMessageReactions.append({ reaction.emoji, 1, ownReactionsIterated, reaction.deliveryState });
+					} else {
+						reactionItr->count++;
+						reactionItr->ownReactionIncluded = ownReactionsIterated;
+						reactionItr->deliveryState = reaction.deliveryState;
+					}
 				} else {
-					reactionItr->count++;
-					reactionItr->ownReactionIncluded = ownReactionIncluded;
-					reactionItr->deliveryState = reaction.deliveryState;
+					if (reactionItr == displayedMessageReactions.end()) {
+						displayedMessageReactions.append({ reaction.emoji, 1, ownReactionsIterated, {} });
+					} else {
+						reactionItr->count++;
+					}
 				}
 			}
 		}
@@ -274,8 +282,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		QVector<DetailedMessageReaction> detailedMessageReactions;
 
 		const auto &reactionSenders = msg.reactionSenders;
-		for (auto itr = reactionSenders.begin(); itr != reactionSenders.end() && itr.key() != m_currentAccountJid; ++itr) {
-				QVector<QString> emojis;
+		for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
+			// Skip own reactions.
+			if (itr.key() != m_currentAccountJid) {
+				QStringList emojis;
 
 				for (const auto &reaction : std::as_const(itr->reactions)) {
 					emojis.append(reaction.emoji);
@@ -284,6 +294,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 				std::sort(emojis.begin(), emojis.end());
 
 				detailedMessageReactions.append({ itr.key(), emojis });
+			}
 		}
 
 		return QVariant::fromValue(detailedMessageReactions);
