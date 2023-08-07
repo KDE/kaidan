@@ -105,10 +105,11 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("chatStateSendingEnabled", newItem.chatStateSendingEnabled));
 	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
 		rec.append(createSqlField("readMarkerSendingEnabled", newItem.readMarkerSendingEnabled));
-	if (oldItem.notificationsMuted != newItem.notificationsMuted)
-		rec.append(createSqlField("notificationsMuted", newItem.notificationsMuted));
 	if (oldItem.draftMessageId != newItem.draftMessageId)
 		rec.append(createSqlField("draftMessageId", newItem.draftMessageId));
+	if (oldItem.notificationsMuted != newItem.notificationsMuted)
+		rec.append(createSqlField("notificationsMuted", newItem.notificationsMuted));
+
 	return rec;
 }
 
@@ -143,8 +144,8 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(item.pinningPosition);
 			query.addBindValue(item.chatStateSendingEnabled);
 			query.addBindValue(item.readMarkerSendingEnabled);
-			query.addBindValue(item.notificationsMuted);
 			query.addBindValue(QString()); // draftMessageId
+			query.addBindValue(item.notificationsMuted);
 			execQuery(query);
 
 			addGroups(item.accountJid, item.jid, item.groups);
