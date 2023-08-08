@@ -6,7 +6,6 @@
 
 #include "MessageComposition.h"
 
-// std
 // Kaidan
 #include "MessageHandler.h"
 #include "Kaidan.h"
@@ -16,11 +15,14 @@
 #include "MediaUtils.h"
 #include "MessageDb.h"
 
-#include <QGuiApplication>
+// Qt
 #include <QFileDialog>
 #include <QFutureWatcher>
+#include <QGuiApplication>
 #include <QMimeDatabase>
-
+// QXmpp
+#include <QXmppUtils.h>
+// KF
 #include <KIO/PreviewJob>
 #include <KFileItem>
 
@@ -109,24 +111,40 @@ void MessageComposition::send()
 	Q_ASSERT(!m_accountJid.isNull());
 	Q_ASSERT(!m_chatJid.isNull());
 
-	if (m_fileSelectionModel->hasFiles()) {
-		Message message;
-		message.accountJid = m_accountJid;
-		message.chatJid = m_chatJid;
-		message.senderId = m_accountJid;
-		message.body = m_body;
-		message.files = m_fileSelectionModel->files();
-		message.receiptRequested = true;
-		message.encryption = MessageModel::instance()->activeEncryption();
+	Message message {
+		.accountJid = m_accountJid,
+		.chatJid = m_chatJid,
+		.senderId = m_accountJid,
+		.id = QXmppUtils::generateStanzaUuid(),
+		.originId = message.id,
+		.stanzaId = {},
+		.replaceId = {},
+		.timestamp = QDateTime::currentDateTimeUtc(),
+		.body = m_body,
+		.encryption = MessageModel::instance()->activeEncryption(),
+		.senderKey = {},
+		.deliveryState = DeliveryState::Pending,
+		.isSpoiler = m_spoiler,
+		.spoilerHint = m_spoilerHint,
+		.fileGroupId = {},
+		.files = m_fileSelectionModel->files(),
+		.markerId = {},
+		.receiptRequested = true,
+		.reactionSenders = {},
+		.errorText = {},
+	};
 
+	if (m_fileSelectionModel->hasFiles()) {
 		bool encrypt = message.encryption != Encryption::NoEncryption;
 		Kaidan::instance()->fileSharingController()->sendMessage(std::move(message), encrypt);
 		m_fileSelectionModel->clear();
 	} else {
-		Q_EMIT Kaidan::instance()
-			->client()
-			->messageHandler()
-			->sendMessageRequested(m_chatJid, m_body, m_spoiler, m_spoilerHint);
+		MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
+
+		auto *client = Kaidan::instance()->client();
+		runOnThread(client, [client, message = std::move(message)]() mutable {
+			client->messageHandler()->sendPendingMessage(std::move(message));
+		});
 	}
 
 	setSpoiler(false);

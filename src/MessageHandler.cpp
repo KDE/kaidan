@@ -54,7 +54,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	connect(client, &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
 		handleMessage(msg, MessageOrigin::Stream);
 	});
-	connect(this, &MessageHandler::sendMessageRequested, this, &MessageHandler::sendMessage);
 	connect(MessageModel::instance(), &MessageModel::sendCorrectedMessageRequested,
 	        this, &MessageHandler::sendCorrectedMessage);
 	connect(MessageModel::instance(), &MessageModel::sendChatStateRequested,
@@ -195,29 +194,6 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 			m.timestamp = timestamp;
 		});
 	}
-}
-
-void MessageHandler::sendMessage(const QString& toJid,
-                                 const QString& body,
-                                 bool isSpoiler,
-                                 const QString& spoilerHint)
-{
-	Message msg;
-	msg.accountJid = AccountManager::instance()->jid();
-	msg.chatJid = toJid;
-	msg.senderId = msg.accountJid;
-	msg.body = body;
-	msg.id = QXmppUtils::generateStanzaUuid();
-	msg.originId = msg.id;
-	// MessageModel::activeEncryption() is thread-safe.
-	msg.encryption = MessageModel::instance()->activeEncryption();
-	msg.deliveryState = Enums::DeliveryState::Pending;
-	msg.timestamp = QDateTime::currentDateTimeUtc();
-	msg.isSpoiler = isSpoiler;
-	msg.spoilerHint = spoilerHint;
-
-	MessageDb::instance()->addMessage(msg, MessageOrigin::UserInput);
-	sendPendingMessage(std::move(msg));
 }
 
 void MessageHandler::sendPendingMessages()

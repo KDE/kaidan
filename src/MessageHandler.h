@@ -40,11 +40,6 @@ public:
 	void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
 
 	/**
-	 * Send a text message to any JID
-	 */
-	void sendMessage(const QString &toJid, const QString &body, bool isSpoiler, const QString &spoilerHint);
-
-	/**
 	 * Sends pending messages again after searching them in the database.
 	 */
 	void sendPendingMessages();
@@ -71,13 +66,7 @@ public:
 
 	void sendPendingMessage(Message message);
 
-signals:
-	void sendMessageRequested(const QString &toJid,
-				  const QString &body,
-				  bool isSpoiler,
-				  const QString &spoilerHint);
-
-	void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
+	Q_SIGNAL void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
 
 private:
 	void handleConnected();
