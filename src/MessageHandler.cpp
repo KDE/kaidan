@@ -141,7 +141,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
-	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty()) {
+	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty() && msg.sharedFiles().isEmpty()) {
 		return;
 	}
 
