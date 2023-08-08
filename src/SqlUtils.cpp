@@ -52,18 +52,6 @@ void execQuery(QSqlQuery &query, const QString &sql)
 	execQuery(query);
 }
 
-void execQuery(QSqlQuery &query,
-               const QString &sql,
-               const QVector<QVariant> &bindValues)
-{
-	prepareQuery(query, sql);
-
-	for (const auto &val : bindValues)
-		query.addBindValue(val);
-
-	execQuery(query);
-}
-
 QSqlField createSqlField(const QString &key, const QVariant &val)
 {
 	QSqlField field(key, val.type());
