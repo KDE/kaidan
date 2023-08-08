@@ -3,12 +3,11 @@
 # SPDX-License-Identifier: CC0-1.0
 
 stages:
-  - test
   - build
   - deploy
 
 clazy:
-  stage: test
+  stage: build
   image: ghcr.io/kaidanim/debian
   variables:
     CMAKE_CXX_COMPILER: clazy
@@ -16,21 +15,21 @@ clazy:
   allow_failure: true
 
 qmllint:
-  stage: test
+  stage: build
   image: ghcr.io/kaidanim/debian
   script: qmllint $(find . -name "*.qml")
   variables:
     QT_SELECT: 5
 
 xmllint:
-  stage: test
+  stage: build
   image: ghcr.io/kaidanim/debian
   script:
     - apt update && apt install -y libxml2-utils
     - xmllint --noout $(find . -type f -name *.xml -or -name *.xml.in)
 
 build:
-  stage: test
+  stage: build
   image: ghcr.io/kaidanim/debian
   script: utils/travis/build.sh
 
