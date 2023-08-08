@@ -164,6 +164,8 @@ Kirigami.OverlaySheet {
 				text: qsTr("Send")
 				icon.name: "mail-send-symbolic"
 				onClicked: {
+					// always (re)set the body in root.composition (it may contain a body from a previous message)
+					root.composition.body = messageText.text
 					root.composition.send()
 					close()
 				}

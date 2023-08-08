@@ -39,8 +39,8 @@ Controls.Menu {
 
 	Controls.MenuItem {
 		text: qsTr("Copy download URL")
-		visible: root.file && root.file.downloadUrl
-		onTriggered: Utils.copyToClipboard(root.file.downloadUrl)
+		visible: root.file && root.file.downloadUrl.toString() !== ""
+		onTriggered: Utils.copyToClipboard(root.file.downloadUrl.toString())
 	}
 
 	Controls.MenuItem {
