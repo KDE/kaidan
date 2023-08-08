@@ -185,31 +185,6 @@ Kirigami.SwipeListItem {
 					ColumnLayout {
 						visible: isSpoiler && isShowingSpoiler || !isSpoiler
 
-						Controls.ToolButton {
-							visible: {
-								switch (root.mediaType) {
-								case Enums.MessageType.MessageUnknown:
-								case Enums.MessageType.MessageText:
-								case Enums.MessageType.MessageGeoLocation:
-									break
-								case Enums.MessageType.MessageImage:
-								case Enums.MessageType.MessageAudio:
-								case Enums.MessageType.MessageVideo:
-								case Enums.MessageType.MessageFile:
-								case Enums.MessageType.MessageDocument:
-									return !transferWatcher.isLoading && root.mediaGetUrl !== ""
-											&& (root.mediaLocation === "" || !MediaUtilsInstance.localFileAvailable(media.mediaSource))
-								}
-
-								return false
-							}
-							text: qsTr("Download")
-							onClicked: {
-								print("Downloading " + mediaGetUrl + "…")
-								Kaidan.client.downloadManager.startDownloadRequested(msgId, mediaGetUrl)
-							}
-						}
-
 						Repeater {
 							model: root.files
 
