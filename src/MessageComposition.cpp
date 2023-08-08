@@ -134,19 +134,64 @@ void MessageComposition::send()
 		.errorText = {},
 	};
 
+	// generate file IDs if needed
 	if (m_fileSelectionModel->hasFiles()) {
+		message.fileGroupId = FileSharingController::generateFileId();
+
+		for (auto &file : message.files) {
+			file.fileGroupId = *message.fileGroupId;
+			file.id = FileSharingController::generateFileId();
+			file.name = QUrl::fromLocalFile(file.localFilePath).fileName();
+		}
+	}
+
+	// add pending message to database
+	MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
+
+	if (m_fileSelectionModel->hasFiles()) {
+		// upload files and send message after uploading
+
+		// whether to symmetrically encrypt the files
 		bool encrypt = message.encryption != Encryption::NoEncryption;
-		Kaidan::instance()->fileSharingController()->sendMessage(std::move(message), encrypt);
+
+		auto *fSController = Kaidan::instance()->fileSharingController();
+		// upload files
+		fSController->sendFiles(message.files, encrypt).then(fSController, [message = std::move(message)](auto result) mutable {
+			if (auto files = std::get_if<QVector<File>>(&result)) {
+				// uploading succeeded
+
+				// set updated files with new metadata and uploaded sources
+				message.files = std::move(*files);
+
+				// update message in database
+				MessageDb::instance()->updateMessage(message.id, [files = message.files](auto &message) {
+					message.files = files;
+				});
+
+				// send message with file sources
+				runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
+					qDebug() << "sending encrypted:" << message.files.first().encryptedSources.first().url;
+					Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
+				});
+			} else {
+				// uploading did not succeed
+				auto errorText = std::get<QXmppError>(std::move(result)).description;
+
+				// set error text in database
+				MessageDb::instance()->updateMessage(message.id, [errorText](auto &message) {
+					message.errorText = tr("Upload failed: %1").arg(errorText);
+				});
+			}
+		});
 		m_fileSelectionModel->clear();
 	} else {
-		MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
-
-		auto *client = Kaidan::instance()->client();
-		runOnThread(client, [client, message = std::move(message)]() mutable {
-			client->messageHandler()->sendPendingMessage(std::move(message));
+		// directly send message
+		runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
+			Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
 		});
 	}
 
+	// clean up
 	setSpoiler(false);
 	setIsDraft(false);
 }

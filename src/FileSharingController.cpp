@@ -28,6 +28,7 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppUploadRequestManager.h>
+#include <QXmppPromise.h>
 
 #include <KFileUtils>
 
@@ -35,7 +36,6 @@
 #include "FutureUtils.h"
 #include "FileProgressCache.h"
 #include "MessageDb.h"
-#include "MessageHandler.h"
 #include "Algorithms.h"
 #include "ServerFeaturesCache.h"
 
@@ -49,11 +49,6 @@ template<typename T, typename Value>
 auto find(T &container, Value value)
 {
 	return std::find(container.begin(), container.end(), std::forward<Value>(value));
-}
-
-static qint64 generateFileId()
-{
-	return QRandomGenerator::system()->generate64();
 }
 
 // ported from https://github.com/SergioBenitez/Rocket/blob/2cee4b459492136d616e5863c54754b135e41572/core/lib/src/fs/file_name.rs#L112
@@ -153,26 +148,24 @@ FileSharingController::FileSharingController(QXmppClient *client)
 	});
 }
 
-void FileSharingController::sendMessage(Message &&message, bool encrypt)
+qint64 FileSharingController::generateFileId()
 {
-	Q_ASSERT(!message.files.empty());
+	return QRandomGenerator::system()->generate64();
+}
 
-	if (!message.fileGroupId) {
-		message.fileGroupId = generateFileId();
-	}
-	for (auto &file : message.files) {
-		file.fileGroupId = *message.fileGroupId;
-		file.id = generateFileId();
-		file.name = QUrl::fromLocalFile(file.localFilePath).fileName();
-	}
+auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
+	-> QXmppTask<SendFilesResult>
+{
+	Q_ASSERT(!files.empty());
 
-	MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
+	QXmppPromise<SendFilesResult> promise;
+	auto task = promise.task();
 
-	auto futures = transform(message.files, [&](auto &file) {
+	auto futures = transform(files, [&](auto &file) {
 		return sendFile(file, encrypt);
 	});
 
-	await(join(this, std::move(futures)), this, [message = std::move(message)](auto &&uploadResults) mutable {
+	await(join(this, std::move(futures)), this, [promise = std::move(promise), files = std::move(files)](auto &&uploadResults) mutable {
 		// Check if any of the uploads failed
 		bool failed = std::any_of(uploadResults.begin(), uploadResults.end(), [](const auto &result) {
 			auto &[id, uploadResult] = result;
@@ -187,10 +180,8 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 			});
 			Q_ASSERT(errorIt != uploadResults.end());
 
-			auto errorText = std::get<QXmppError>(std::get<1>(*errorIt)).description;
-			MessageDb::instance()->updateMessage(message.id, [errorText](auto &message) {
-				message.errorText = tr("Upload failed: %1").arg(errorText);
-			});
+			// currently this only gives the error of the first failed upload
+			promise.finish(std::get<QXmppError>(std::get<1>(std::move(*errorIt))));
 			return;
 		}
 
@@ -200,7 +191,7 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 			return std::pair { fileId, std::get<QXmppFileUpload::FileResult>(uploadResult) };
 		});
 
-		for (auto &file : message.files) {
+		for (auto &file : files) {
 			auto fileResult = fileResultsMap.find(file.id);
 			if (fileResult == fileResultsMap.end()) {
 				continue;
@@ -243,14 +234,10 @@ void FileSharingController::sendMessage(Message &&message, bool encrypt)
 			});
 		}
 
-		MessageDb::instance()->updateMessage(message.id, [files = message.files](auto &message) {
-			message.files = files;
-		});
-
-		runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
-			Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
-		});
+		promise.finish(std::move(files));
 	});
+
+	return task;
 }
 
 auto FileSharingController::sendFile(const File &file, bool encrypt)

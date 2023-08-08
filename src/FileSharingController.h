@@ -6,11 +6,9 @@
 #pragma once
 
 #include <QObject>
-#include <QFuture>
+#include <QXmppTask.h>
 
 #include <QXmppFileSharingManager.h>
-
-#include <memory>
 
 struct File;
 struct Message;
@@ -22,15 +20,19 @@ class FileSharingController : public QObject
 {
 	Q_OBJECT
 public:
+	using SendFilesResult = std::variant<QVector<File>, QXmppError>;
 	using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
 	explicit FileSharingController(QXmppClient *client);
 
-	void sendMessage(Message &&message, bool encrypt);
+	static qint64 generateFileId();
 
-	QFuture<UploadResult> sendFile(const File &file, bool encrypt);
+	auto sendFiles(QVector<File> files, bool encrypt) -> QXmppTask<SendFilesResult>;
 	Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
 	Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);
 
 	Q_SIGNAL void errorOccured(qint64, QXmppError);
+
+private:
+	QFuture<UploadResult> sendFile(const File &file, bool encrypt);
 };
