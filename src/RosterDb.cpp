@@ -236,7 +236,7 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid, const QString &ji
 				query,
 				"DELETE FROM " DB_TABLE_ROSTER " "
 				"WHERE accountJid = :accountJid",
-				{ u":accountJid", accountJid }
+				std::vector<QueryBindValue> { { u":accountJid", accountJid } }
 			);
 
 			removeGroups(accountJid);
@@ -404,7 +404,7 @@ void RosterDb::removeGroups(const QString &accountJid)
 		query,
 		"DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
 		"WHERE accountJid = :accountJid",
-		{ u":accountJid", accountJid }
+		std::vector<QueryBindValue> { { u":accountJid", accountJid } }
 	);
 }
 
