@@ -39,7 +39,7 @@ public:
 	Q_SIGNAL void modeChanged();
 
 	int checkedCount() const;
-	Q_SIGNAL void checkedCountChanged() const;
+	Q_SIGNAL void checkedCountChanged();
 
 	Q_SLOT void checkAll();
 	Q_SLOT void clearChecked();
