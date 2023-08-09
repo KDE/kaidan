@@ -52,13 +52,13 @@ msgstr ""
 "Ihr Konto konnte nicht vom Server gelöscht werden. Daher wurde es auch nicht "
 "aus dieser App entfernt: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Upload fehlgeschlagen: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -266,7 +266,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Unbekannte Größe"
@@ -1122,22 +1122,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Versteckte Nachricht"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Herunterladen"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Unverschlüsselt"
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Nicht vertrauenswürdig"
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2511,6 +2506,10 @@ msgstr "Geburtstag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Herunterladen"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

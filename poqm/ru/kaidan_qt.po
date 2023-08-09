@@ -47,7 +47,7 @@ msgstr ""
 "Вашу учётную запись не удалось удалить на сервере, поэтому из приложения она "
 "также не была удалена: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -55,7 +55,7 @@ msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Не удалось загрузить: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -269,7 +269,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
@@ -1242,22 +1242,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Скачать"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2654,6 +2649,10 @@ msgstr "Дата рождения"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Веб-сайт"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Скачать"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

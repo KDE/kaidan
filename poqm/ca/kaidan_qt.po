@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-08-03 10:06+0200\n"
+"PO-Revision-Date: 2023-08-08 16:56+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -56,13 +56,13 @@ msgstr ""
 "No s'ha pogut suprimir el vostre compte del servidor. Per tant, tampoc s'ha "
 "eliminat d'aquesta aplicació: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -262,7 +262,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
@@ -563,7 +563,7 @@ msgstr "Copia l'adreça web del proveïdor al porta-retalls"
 #: src/qml/details/AccountDetailsContent.qml:330
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr "L'adreça del lloc web s'ha copiat al porta-retalls."
+msgstr "L'adreça del lloc web s'ha copiat al porta-retalls"
 
 #: src/qml/details/AccountDetailsContent.qml:335
 msgctxt "AccountDetailsContent|"
@@ -1063,22 +1063,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Baixa"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "No fiable"
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1698,7 +1693,7 @@ msgstr "Aquest codi QR no és per a l'altre dispositiu vostre"
 #: src/qml/QrCodePage.qml:155
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
-msgstr "Aquest codi QR no és per al vostre contacte."
+msgstr "Aquest codi QR no és per al vostre contacte"
 
 #: src/qml/QrCodePage.qml:161
 msgctxt "QrCodePage|"
@@ -2327,3 +2322,7 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Baixa"

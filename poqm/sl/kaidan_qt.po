@@ -49,13 +49,13 @@ msgstr ""
 "Brisanje vašega računa s strežnika ni uspelo. Zato prav tako ni bil "
 "odstranjen iz te aplikacije: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Prenos spodletel: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -255,7 +255,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neznana velikost"
@@ -1047,22 +1047,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Razkritje"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Prenesi"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Nešifrirano"
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Zaupanja nevredno"
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2293,6 +2288,10 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Prenesi"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Less information"

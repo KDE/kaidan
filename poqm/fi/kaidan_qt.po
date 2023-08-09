@@ -49,13 +49,13 @@ msgstr ""
 "Tiliäsi ei voitu poistaa palvelimelta, joten sitä ei poistettu myöskään "
 "tästä sovelluksesta: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "Lähetys epäonnistui: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -258,7 +258,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
@@ -1069,22 +1069,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "Lataa"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2327,6 +2322,10 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "Lataa"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"

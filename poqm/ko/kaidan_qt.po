@@ -45,13 +45,13 @@ msgid ""
 msgstr ""
 "서버에서 계정을 삭제할 수 없습니다. 앱에서도 계정을 삭제하지 않았습니다: %1"
 
-#: src/FileSharingController.cpp:186
+#: src/FileSharingController.cpp:196
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Upload failed: %1"
 msgstr "업로드 실패: %1"
 
-#: src/FileSharingController.cpp:355
+#: src/FileSharingController.cpp:378
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -256,7 +256,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/MessageComposition.cpp:209
+#: src/MessageComposition.cpp:211
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
@@ -1169,22 +1169,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/qml/elements/ChatMessage.qml:206
-msgctxt "ChatMessage|"
-msgid "Download"
-msgstr "다운로드"
-
-#: src/qml/elements/ChatMessage.qml:321
+#: src/qml/elements/ChatMessage.qml:296
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "암호화되지 않음"
 
-#: src/qml/elements/ChatMessage.qml:326
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "신뢰할 수 없음"
 
-#: src/qml/elements/ChatMessage.qml:358
+#: src/qml/elements/ChatMessage.qml:333
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2506,6 +2501,10 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "ChatMessage|"
+#~ msgid "Download"
+#~ msgstr "다운로드"
 
 #, fuzzy
 #~| msgctxt "MediaUtils|"
