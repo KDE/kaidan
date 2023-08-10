@@ -77,12 +77,12 @@ public:
 		Settings *settings;
 		VCardCache *vCardCache;
 		AccountManager *accountManager;
+		PresenceCache *presenceCache;
 		MessageModel *msgModel;
 		RosterModel *rosterModel;
 		OmemoCache *omemoCache;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
-		PresenceCache *presenceCache;
 	};
 
 	/**

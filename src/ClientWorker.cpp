@@ -49,12 +49,12 @@ ClientWorker::Caches::Caches(QObject *parent)
 	: settings(new Settings(parent)),
 	  vCardCache(new VCardCache(parent)),
 	  accountManager(new AccountManager(settings, vCardCache, parent)),
+	  presenceCache(new PresenceCache(parent)),
 	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
 	  omemoCache(new OmemoCache(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
-	  serverFeaturesCache(new ServerFeaturesCache(parent)),
-	  presenceCache(new PresenceCache(parent))
+	  serverFeaturesCache(new ServerFeaturesCache(parent))
 {
 }
 
