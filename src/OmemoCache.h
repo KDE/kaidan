@@ -1,5 +1,3 @@
-// SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
-// SPDX-FileCopyrightText: 2019 Robert Maerkisch <zatroxde@protonmail.ch>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
@@ -8,9 +6,6 @@
 
 #include <QObject>
 
-/**
- * @class OmemoCache A cache for presence holders for certain JIDs
- */
 class OmemoCache : public QObject
 {
 	Q_OBJECT

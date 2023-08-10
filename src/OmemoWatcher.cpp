@@ -2,8 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "OmemoCache.h"
 #include "OmemoWatcher.h"
+
+#include "OmemoCache.h"
 
 QString OmemoWatcher::jid() const
 {
