@@ -299,7 +299,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Virhe"
 
-#: src/MessageModel.cpp:670 src/MessageModel.cpp:773 src/MessageModel.cpp:910
+#: src/MessageModel.cpp:681 src/MessageModel.cpp:784 src/MessageModel.cpp:921
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -307,7 +307,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageModel.cpp:851
+#: src/MessageModel.cpp:862
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1069,17 +1069,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:296
+#: src/qml/elements/ChatMessage.qml:301
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/ChatMessage.qml:301
+#: src/qml/elements/ChatMessage.qml:306
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
 
-#: src/qml/elements/ChatMessage.qml:333
+#: src/qml/elements/ChatMessage.qml:338
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
