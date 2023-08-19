@@ -40,6 +40,7 @@ public:
 		UnreadMessagesRole,
 		LastMessageRole,
 		LastMessageIsDraftRole,
+		LastMessageSenderJidRole,
 		PinnedRole,
 		NotificationsMutedRole,
 	};
@@ -173,7 +174,7 @@ private:
 	void updateLastMessage(QVector<RosterItem>::Iterator &itr,
 						   const Message &message,
 						   QVector<int> &changedRoles,
-						   bool onlyUpdateIfNewer = true);
+						   bool onlyUpdateIfNewerOrAtSameAge = true);
 
 	/**
 	 * Removes all roster items of an account or a specific roster item.
@@ -184,6 +185,7 @@ private:
 	void removeItems(const QString &accountJid, const QString &jid = {});
 
 	void handleMessageAdded(const Message &message, MessageOrigin origin);
+	void handleMessageUpdated(const Message &message);
 	void handleDraftMessageAdded(const Message &message);
 	void handleDraftMessageUpdated(const Message &message);
 	void handleDraftMessageRemoved(std::shared_ptr<Message> newLastMessage);

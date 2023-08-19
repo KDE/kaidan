@@ -81,6 +81,9 @@ public:
 	// Delivery state of the last message.
 	Enums::DeliveryState lastMessageDeliveryState;
 
+	// JID of the Last message's sender.
+	QString lastMessageSenderJid;
+
 	// Last message i.e read by the receiver.
 	QString lastReadOwnMessageId;
 

@@ -22,6 +22,7 @@ UserListItem {
 	property bool lastMessageIsDraft
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
 	property string lastMessage
+	property string lastMessageSenderJid
 	property int unreadMessages
 	property bool pinned
 	property bool notificationsMuted
@@ -54,7 +55,7 @@ UserListItem {
 			Text {
 				id: lastMessageDateTimeText
 				text: root.lastMessageDateTime
-				visible: text
+				visible: text && root.lastMessage
 				color: Kirigami.Theme.disabledTextColor
 			}
 		}
@@ -62,17 +63,27 @@ UserListItem {
 		// last message or error status message if available, otherwise not visible
 		RowLayout {
 			visible: lastMessageText.text
-
 			Layout.fillWidth: true
 
 			Controls.Label {
-				id: draft
-				visible: lastMessageIsDraft
+				id: lastMessagePrefix
+				visible: lastMessageIsDraft || lastMessageSenderJid
 				textFormat: Text.PlainText
-				text: qsTr("Draft:")
+				text: {
+					if (lastMessageIsDraft) {
+						return qsTr("Draft:")
+					} else {
+						if (lastMessageSenderJid === root.accountJid) {
+							return qsTr("Me:")
+						} else {
+							return qsTr("%1:").arg(root.name)
+						}
+					}
+				}
+				color: Kirigami.Theme.disabledTextColor
 				font {
 					weight: Font.Light
-					italic: true
+					italic: lastMessageIsDraft
 				}
 			}
 
@@ -89,14 +100,14 @@ UserListItem {
 	}
 
 	onIsSelectedChanged: {
-		lastMessageDateTimeColorAnimation.restart()
+		lastMessageInfoColorAnimation.restart()
 		textColorAnimation.restart()
 	}
 
 	// fading text colors
 	ColorAnimation {
-		id: lastMessageDateTimeColorAnimation
-		targets: [lastMessageDateTimeText]
+		id: lastMessageInfoColorAnimation
+		targets: [lastMessageDateTimeText, lastMessagePrefix]
 		property: "color"
 		to: root.isSelected ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.highlightedTextColor
 		duration: Kirigami.Units.shortDuration

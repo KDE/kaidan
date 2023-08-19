@@ -73,12 +73,13 @@ SearchBarPage {
 			RosterListItem {
 				listView: rosterListView
 				contextMenu: itemContextMenu
-				accountJid: AccountManager.jid
+				accountJid: model ? model.accountJid : ""
 				jid: model ? model.jid : ""
 				name: model ? (model.name ? model.name : model.jid) : ""
 				lastMessageDateTime: model ? model.lastMessageDateTime : ""
 				lastMessage: model ? model.lastMessage : ""
 				lastMessageIsDraft: model ? model.lastMessageIsDraft : false
+				lastMessageSenderJid: model ? model.lastMessageSenderJid : ""
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
 				notificationsMuted: model ? model.notificationsMuted : false

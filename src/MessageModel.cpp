@@ -1349,6 +1349,7 @@ void MessageModel::removeMessage(const QString &messageId)
 					item.lastReadContactMessageId = QString();
 					item.lastReadOwnMessageId = QString();
 					item.lastMessage = QString();
+					item.lastMessageSenderJid = QString();
 					item.unreadMessages = 0;
 				});
 			} else {

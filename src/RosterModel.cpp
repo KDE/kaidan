@@ -50,6 +50,7 @@ RosterModel::RosterModel(QObject *parent)
 
 	connect(MessageDb::instance(), &MessageDb::messageAdded,
 	        this, &RosterModel::handleMessageAdded);
+	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &RosterModel::handleMessageUpdated);
 	connect(MessageDb::instance(), &MessageDb::draftMessageAdded, this, &RosterModel::handleDraftMessageAdded);
 	connect(MessageDb::instance(), &MessageDb::draftMessageUpdated, this, &RosterModel::handleDraftMessageUpdated);
 	connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
@@ -100,6 +101,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
 	roles[LastMessageIsDraftRole] = "lastMessageIsDraft";
+	roles[LastMessageSenderJidRole] = "lastMessageSenderJid";
 	roles[PinnedRole] = "pinned";
 	roles[NotificationsMutedRole] = "notificationsMuted";
 	return roles;
@@ -139,6 +141,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).lastMessage;
 	case LastMessageIsDraftRole:
 		return m_items.at(index.row()).lastMessageDeliveryState == Enums::DeliveryState::Draft;
+	case LastMessageSenderJidRole:
+		return m_items.at(index.row()).lastMessageSenderJid;
 	case PinnedRole:
 		return m_items.at(index.row()).pinningPosition >= 0;
 	case NotificationsMutedRole:
@@ -392,6 +396,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
 			item.notificationsMuted = oldItem->notificationsMuted;
 			item.lastMessageDeliveryState = oldItem->lastMessageDeliveryState;
+			item.lastMessageSenderJid = oldItem->lastMessageSenderJid;
 		}
 
 		newItems << item;
@@ -403,12 +408,13 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 
 void RosterModel::updateLastMessage(
 	QVector<RosterItem>::Iterator &itr, const Message &message,
-	QVector<int> &changedRoles, bool onlyUpdateIfNewer)
+	QVector<int> &changedRoles, bool onlyUpdateIfNewerOrAtSameAge)
 {
 	// If desired, only set the new message as the current last message if it is newer than
-	// the current one. Allow using the previous message as the new last message if the current
+	// the current one or at the same age.
+	// That makes it possible to use the previous message as the new last message if the current
 	// last message is empty.
-	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewer && itr->lastMessageDateTime >= message.stamp)) {
+	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewerOrAtSameAge && itr->lastMessageDateTime > message.stamp)) {
 		return;
 	}
 
@@ -420,7 +426,8 @@ void RosterModel::updateLastMessage(
 		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft && itr->lastMessage != lastMessage)
 	{
 		itr->lastMessage = lastMessage;
-		changedRoles << int(LastMessageRole);
+		itr->lastMessageSenderJid = message.from;
+		changedRoles << int(LastMessageRole) << int(LastMessageSenderJidRole);
 	}
 }
 
@@ -592,6 +599,31 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// move row to correct position
 	updateItemPosition(i);
+}
+
+void RosterModel::handleMessageUpdated(const Message &message)
+{
+	const auto contactJid = message.isOwn ? message.to : message.from;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
+		return item.jid == contactJid;
+	});
+
+	// Skip further processing if the contact could not be found.
+	if (itr == m_items.end()) {
+		return;
+	}
+
+	QVector<int> changedRoles = {
+		int(LastMessageRole)
+	};
+
+	updateLastMessage(itr, message, changedRoles);
+
+	// Notify the user interface and watchers.
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 }
 
 void RosterModel::handleDraftMessageAdded(const Message &message)
