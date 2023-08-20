@@ -11,16 +11,17 @@
 #include <QSettings>
 #include <QNetworkAccessManager>
 // QXmpp
+#include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
-#include <QXmppMamManager.h>
-#include <QXmppPubSubManager.h>
-#include <QXmppUtils.h>
+#include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppFileSharingManager.h>
 #include <QXmppHttpFileSharingProvider.h>
-#include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
-#include <QXmppUploadRequestManager.h>
+#include <QXmppMamManager.h>
 #include <QXmppPubSubBaseItem.h>
+#include <QXmppPubSubManager.h>
+#include <QXmppUploadRequestManager.h>
+#include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"
 #include "AtmManager.h"
@@ -70,6 +71,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_client->addNewExtension<QXmppMamManager>();
 	m_client->addNewExtension<QXmppPubSubManager>();
 	m_client->addNewExtension<QXmppUploadRequestManager>();
+	m_client->addNewExtension<QXmppBlockingManager>();
 	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);

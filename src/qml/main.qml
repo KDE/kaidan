@@ -39,6 +39,11 @@ Kirigami.ApplicationWindow {
 		return Kirigami.Theme.backgroundColor
 	}
 
+	readonly property color tertiaryBackgroundColor: {
+		const accentColor = secondaryBackgroundColor
+		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.7))
+	}
+
 	// radius for using rounded corners
 	readonly property int roundedCornersRadius: Kirigami.Units.smallSpacing * 1.5
 
@@ -67,6 +72,29 @@ Kirigami.ApplicationWindow {
 
 	SubRequestAcceptSheet {
 		id: subReqAcceptSheet
+	}
+
+	// Needed to be outside of the DetailsSheet to not be destroyed with it.
+	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
+	BlockingAction {
+		id: blockingAction
+		onSucceeded: (jid, block) => {
+			// Show a passive notification when a JID that is not in the roster is blocked and
+			// provide an option to undo that.
+			// JIDs in the roster can be blocked again via their details.
+			if (!block && !RosterModel.hasItem(jid)) {
+				showPassiveNotification(qsTr("Unblocked %1").arg(jid), "long", qsTr("Undo"), () => {
+					blockingAction.block(jid)
+				})
+			}
+		}
+		onErrorOccurred: (jid, block, errorText) => {
+			if (block) {
+				showPassiveNotification(qsTr("Could not block %1: %2").arg(jid).arg(errorText))
+			} else {
+				showPassiveNotification(qsTr("Could not unblock %1: %2").arg(jid).arg(errorText))
+			}
+		}
 	}
 
 	// components for all main pages

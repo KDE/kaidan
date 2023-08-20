@@ -24,14 +24,15 @@
 #include "AccountManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
+#include "Blocking.h"
 #include "CredentialsValidator.h"
 #include "Database.h"
+#include "FileSharingController.h"
 #include "Globals.h"
 #include "MessageDb.h"
 #include "Notifications.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
-#include "FileSharingController.h"
 #include "Settings.h"
 
 Kaidan *Kaidan::s_instance;
@@ -71,6 +72,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	m_cltThrd->start();
 
 	// create controllers
+	m_blockingController = std::make_unique<BlockingController>(m_database);
 	m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
 
 	// Log out of the server when the application window is closed.

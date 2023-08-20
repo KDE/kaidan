@@ -38,6 +38,7 @@
 #include "AudioDeviceModel.h"
 #include "AvatarFileStorage.h"
 #include "BitsOfBinaryImageProvider.h"
+#include "Blocking.h"
 #include "CameraModel.h"
 #include "ChatHintModel.h"
 #include "CredentialsGenerator.h"
@@ -55,34 +56,34 @@
 #include "HostCompletionModel.h"
 #include "HostCompletionProxyModel.h"
 #include "Kaidan.h"
-#include "MediaUtils.h"
 #include "MediaRecorder.h"
+#include "MediaUtils.h"
 #include "Message.h"
 #include "MessageComposition.h"
-#include "MessageModel.h"
 #include "MessageHandler.h"
+#include "MessageModel.h"
 #include "OmemoManager.h"
 #include "OmemoWatcher.h"
+#include "ProviderListModel.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
 #include "QrCodeGenerator.h"
 #include "QrCodeScannerFilter.h"
+#include "RecentPicturesModel.h"
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationManager.h"
+#include "RosterFilterProxyModel.h"
 #include "RosterItemWatcher.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
-#include "RosterFilterProxyModel.h"
 #include "ServerFeaturesCache.h"
-#include "ProviderListModel.h"
 #include "StatusBar.h"
 #include "UserDevicesModel.h"
-#include "VCardModel.h"
 #include "VCardManager.h"
+#include "VCardModel.h"
 #include "VersionManager.h"
-#include "RecentPicturesModel.h"
 
 Q_DECLARE_METATYPE(Qt::ApplicationState)
 
@@ -410,6 +411,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
 	qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
 	qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
+	qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
+	qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
+	qmlRegisterType<BlockingAction>(APPLICATION_ID, 1, 0, "BlockingAction");
 	qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
 	qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
 	qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");

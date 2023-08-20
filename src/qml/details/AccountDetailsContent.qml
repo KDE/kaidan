@@ -391,6 +391,132 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Blocked Chat Addresses")
+			}
+
+			MobileForm.FormSectionText {
+				text: qsTr("Block a specific user (e.g., user@example.org) or all users of the same server (e.g., example.org)")
+				visible: blockingExpansionButton.checked
+			}
+
+			ListView {
+				id: blockingListView
+				model: BlockingModel {}
+				visible: blockingExpansionButton.checked
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				header: MobileForm.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: MobileForm.AbstractFormDelegate {
+						background: Item {}
+						contentItem: RowLayout {
+							spacing: Kirigami.Units.largeSpacing * 3
+
+							Controls.Label {
+								text: qsTr("You must be connected to block or unblock chat addresses")
+								visible: Kaidan.connectionState !== Enums.StateConnected
+								Layout.fillWidth: true
+							}
+
+							Controls.TextField {
+								id: blockingTextField
+								placeholderText: qsTr("user@example.org")
+								visible: Kaidan.connectionState === Enums.StateConnected
+								enabled: !blockingAction.loading
+								Layout.fillWidth: true
+								onAccepted: blockingButton.clicked()
+								onVisibleChanged: {
+									if (visible) {
+										text = ""
+										forceActiveFocus()
+									}
+								}
+							}
+
+							Button {
+								id: blockingButton
+								Controls.ToolTip.text: qsTr("Block chat address")
+								icon.name: "list-add-symbolic"
+								visible: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
+								enabled: blockingTextField.text.length
+								flat: !hovered
+								Layout.preferredWidth: Layout.preferredHeight
+								Layout.preferredHeight: blockingTextField.implicitHeight
+								Layout.rightMargin: Kirigami.Units.largeSpacing
+								onHoveredChanged: flat = !hovered
+								onClicked: {
+									const jid = blockingTextField.text
+									if (blockingListView.model.contains(jid)) {
+										blockingTextField.text = ""
+									} else if (enabled) {
+										blockingAction.block(jid)
+										blockingTextField.text = ""
+									} else {
+										blockingTextField.forceActiveFocus()
+									}
+								}
+							}
+
+							Controls.BusyIndicator {
+								visible: blockingAction.loading
+								Layout.preferredWidth: blockingButton.Layout.preferredWidth
+								Layout.preferredHeight: Layout.preferredWidth
+								Layout.rightMargin: blockingButton.Layout.rightMargin
+							}
+						}
+					}
+				}
+				section.property: "type"
+				section.delegate: MobileForm.FormSectionText {
+					text: section
+					padding: Kirigami.Units.largeSpacing
+					leftPadding: Kirigami.Units.largeSpacing * 3
+					font.weight: Font.Light
+					anchors.left: parent.left
+					anchors.right: parent.right
+					background: Rectangle {
+						color: tertiaryBackgroundColor
+					}
+				}
+				delegate: MobileForm.AbstractFormDelegate {
+					id: blockingDelegate
+					width: ListView.view.width
+					contentItem: RowLayout {
+						Controls.Label {
+							text: model.jid
+							textFormat: Text.PlainText
+							elide: Text.ElideMiddle
+							Layout.fillWidth: true
+							leftPadding: Kirigami.Units.smallSpacing * 1.5
+						}
+
+						Button {
+							text: qsTr("Unblock")
+							icon.name: "edit-delete-symbolic"
+							visible: Kaidan.connectionState === Enums.StateConnected
+							display: Controls.AbstractButton.IconOnly
+							flat: !blockingDelegate.hovered
+							Controls.ToolTip.text: text
+							Layout.rightMargin: Kirigami.Units.largeSpacing
+							onClicked: blockingAction.unblock(model.jid)
+						}
+					}
+				}
+			}
+
+			FormExpansionButton {
+				id: blockingExpansionButton
+			}
+		}
+	}
+
+	MobileForm.FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		Layout.fillWidth: true
 

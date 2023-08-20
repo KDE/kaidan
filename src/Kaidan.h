@@ -23,6 +23,7 @@ class DataFormModel;
 class Notifications;
 class RosterDb;
 class MessageDb;
+class BlockingController;
 class FileSharingController;
 
 /**
@@ -39,6 +40,7 @@ class Kaidan : public QObject
 	Q_OBJECT
 
 	Q_PROPERTY(ClientWorker* client READ client CONSTANT)
+	Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
 	Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
 	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
 	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
@@ -123,6 +125,7 @@ public:
 	quint8 connectionError() const { return quint8(m_connectionError); }
 
 	ClientWorker *client() const { return m_client; }
+	BlockingController *blockingController() const { return m_blockingController.get(); }
 	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }
 	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
 	ServerFeaturesCache *serverFeaturesCache() const { return m_caches->serverFeaturesCache; }
@@ -335,6 +338,7 @@ private:
 	QThread *m_cltThrd;
 	ClientWorker::Caches *m_caches;
 	ClientWorker *m_client;
+	std::unique_ptr<BlockingController> m_blockingController;
 	std::unique_ptr<FileSharingController> m_fileSharingController;
 
 	QString m_openUriCache;

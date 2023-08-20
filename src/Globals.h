@@ -51,6 +51,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_FILE_HTTP_SOURCES "fileHttpSources"
 #define DB_TABLE_FILE_ENCRYPTED_SOURCES "fileEncryptedSources"
 #define DB_TABLE_MESSAGE_REACTIONS "messageReactions"
+#define DB_TABLE_BLOCKED "blocked"
 #define DB_TABLE_TRUST_SECURITY_POLICIES "trustSecurityPolicies"
 #define DB_TABLE_TRUST_OWN_KEYS "trustOwnKeys"
 #define DB_TABLE_TRUST_KEYS "trustKeys"
@@ -59,6 +60,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_OMEMO_OWN_DEVICES "omemoDevicesOwn"
 #define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemoPreKeyPairs"
 #define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemoPreKeyPairsSigned"
+#define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_QUERY_LIMIT_MESSAGES 20
 
 //

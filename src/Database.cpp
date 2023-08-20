@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 38
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(38)
+#define DATABASE_LATEST_VERSION 39
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(39)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -584,6 +584,17 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(data, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(creationTimestamp, SQL_INTEGER)
 			"PRIMARY KEY(account, id)"
+		)
+	);
+
+	// blocked
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_BLOCKED,
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(accountJid, jid)"
 		)
 	);
 
@@ -1845,4 +1856,23 @@ void Database::convertDatabaseToV38()
 	QSqlQuery query(currentDatabase());
 	execQuery(query, "ALTER TABLE Roster ADD automaticMediaDownloadsRule " SQL_INTEGER);
 	d->version = 38;
+}
+
+void Database::convertDatabaseToV39()
+{
+	DATABASE_CONVERT_TO_VERSION(38)
+	QSqlQuery query(currentDatabase());
+
+	// blocked
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_BLOCKED,
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			"PRIMARY KEY(accountJid, jid)"
+		)
+	);
+
+	d->version = 39;
 }

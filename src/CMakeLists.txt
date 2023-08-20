@@ -21,6 +21,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	AvatarFileStorage.h
 	BitsOfBinaryImageProvider.cpp
 	BitsOfBinaryImageProvider.h
+	Blocking.cpp
+	Blocking.h
 	CameraImageCapture.cpp
 	CameraImageCapture.h
 	CameraModel.cpp

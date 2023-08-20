@@ -440,6 +440,25 @@ DetailsContent {
 						checked)
 				}
 			}
+
+			MobileForm.FormSwitchDelegate {
+				text: qsTr("Block")
+				description: qsTr("Block all communication including status and notifications")
+				enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
+				checked: blockingWatcher.blocked
+				onToggled: {
+					if (checked) {
+						blockingAction.block(root.jid)
+					} else {
+						blockingAction.unblock(root.jid)
+					}
+				}
+
+				BlockingWatcher {
+					id: blockingWatcher
+					jid: root.jid
+				}
+			}
 		}
 	}
 
