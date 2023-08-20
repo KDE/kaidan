@@ -14,6 +14,8 @@
 #include "VCardManager.h"
 #include "FutureUtils.h"
 
+using namespace Enums;
+
 VCardModel::VCardModel(QObject *parent)
 	: QAbstractListModel(parent)
 {
@@ -108,7 +110,7 @@ void VCardModel::setJid(const QString &jid)
 	m_jid = jid;
 	Q_EMIT jidChanged();
 
-	if (Kaidan::instance()->connectionState() == QXmppClient::ConnectedState) {
+	if (Kaidan::instance()->connectionState() == ConnectionState::StateConnected) {
 		Q_EMIT Kaidan::instance()->client()->vCardManager()->vCardRequested(jid);
 	}
 }

@@ -43,7 +43,7 @@ class Kaidan : public QObject
 	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
 	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
 	Q_PROPERTY(Settings* settings READ settings CONSTANT)
-	Q_PROPERTY(quint8 connectionState READ connectionState NOTIFY connectionStateChanged)
+	Q_PROPERTY(quint8 connectionState READ connectionStateId NOTIFY connectionStateChanged)
 	Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
 	Q_PROPERTY(quint8 connectionError READ connectionError NOTIFY connectionErrorChanged)
 
@@ -112,10 +112,8 @@ public:
 	/**
 	 * Returns the current ConnectionState
 	 */
-	quint8 connectionState() const
-	{
-		return quint8(m_connectionState);
-	}
+	quint8 connectionStateId() const { return quint8(m_connectionState); }
+	Enums::ConnectionState connectionState() const { return m_connectionState; }
 
 	QString connectionStateText() const;
 
