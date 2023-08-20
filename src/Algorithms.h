@@ -126,3 +126,13 @@ bool containsIf(const T &input, Condition condition)
 {
 	return std::find_if(input.begin(), input.end(), condition) != input.end();
 }
+
+/**
+ * Removes duplicates from a container.
+ */
+template<typename Container>
+static void makeUnique(Container &container)
+{
+	std::sort(container.begin(), container.end());
+	container.erase(std::unique(container.begin(), container.end()), container.end());
+}
