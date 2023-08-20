@@ -67,8 +67,8 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	  m_networkManager(new QNetworkAccessManager(this))
 {
 	m_client->addNewExtension<QXmppCarbonManagerV2>();
-	m_client->addExtension(new QXmppMamManager);
-	m_client->addExtension(new QXmppPubSubManager);
+	m_client->addNewExtension<QXmppMamManager>();
+	m_client->addNewExtension<QXmppPubSubManager>();
 	m_client->addNewExtension<QXmppUploadRequestManager>();
 	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 

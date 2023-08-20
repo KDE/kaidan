@@ -21,11 +21,9 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
 	  m_client(client),
-	  m_manager(new QXmppRegistrationManager),
+	  m_manager(client->addNewExtension<QXmppRegistrationManager>()),
 	  m_dataFormModel(new RegistrationDataFormModel())
 {
-	client->addExtension(m_manager);
-
 	connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationManager::handleInBandRegistrationSupportedChanged);
 
 	// account creation
