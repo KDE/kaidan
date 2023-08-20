@@ -178,20 +178,22 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.stanzaId = msg.stanzaId();
 	message.originId = msg.originId();
 
-	// get possible delay (timestamp)
-	message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
-	                 ? QDateTime::currentDateTimeUtc()
-	                 : msg.stamp().toUTC();
-
 	// save the message to the database
 	// in case of message correction, replace old message
 	if (msg.replaceId().isEmpty()) {
+		// get possible delay (timestamp)
+		message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
+						 ? QDateTime::currentDateTimeUtc()
+						 : msg.stamp().toUTC();
+
 		MessageDb::instance()->addMessage(message, origin);
 	} else {
 		message.id.clear();
 		MessageDb::instance()->updateMessage(msg.replaceId(), [message](Message &m) {
-			// replace completely
+			// Replace the whole stored message but keep its original timestamp.
+			const auto timestamp = m.stamp;
 			m = message;
+			m.stamp = timestamp;
 		});
 	}
 }
