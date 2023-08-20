@@ -27,6 +27,21 @@ QFuture<T> makeReadyFuture(T &&value)
 	return interface.future();
 }
 
+template<typename T>
+QXmppTask<T> makeReadyTask(T &&value)
+{
+	QXmppPromise<T> promise;
+	promise.finish(std::move(value));
+	return promise.task();
+}
+
+inline QXmppTask<void> makeReadyTask()
+{
+	QXmppPromise<void> promise;
+	promise.finish();
+	return promise.task();
+}
+
 template<typename T, typename Handler>
 void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
