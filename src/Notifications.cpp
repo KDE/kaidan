@@ -202,12 +202,12 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 
 void Notifications::closeMessageNotification(const QString &accountJid, const QString &chatJid)
 {
-	auto notificationWrapperItr = std::find_if(m_openNotifications.begin(), m_openNotifications.end(), [accountJid, chatJid](const NotificationWrapper &notificationWrapper) {
+	const auto notificationWrapperItr = std::find_if(m_openNotifications.cbegin(), m_openNotifications.cend(), [accountJid, chatJid](const NotificationWrapper &notificationWrapper) {
 		return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
 	});
 
-	if (notificationWrapperItr != m_openNotifications.end()) {
-		m_openNotifications.erase(notificationWrapperItr);
+	if (notificationWrapperItr != m_openNotifications.cend()) {
+		notificationWrapperItr->notification->close();
 	}
 }
 #else
