@@ -166,6 +166,20 @@ auto runOnThread(QObject *targetObject, Function function, QObject *caller, Hand
 	});
 }
 
+// Calls a function returning a QXmppTask on a remote thread and handles the result on the caller's
+// thread
+template<typename Function, typename Handler>
+auto callRemoteTask(QObject *target, Function function, QObject *caller, Handler handler)
+{
+	QMetaObject::invokeMethod(target, [f = std::move(function), caller, h = std::move(handler)]() mutable {
+		auto [task, taskContext] = f();
+		task.then(taskContext, [caller, h = std::move(h)](auto r) mutable {
+			QMetaObject::invokeMethod(caller,
+				[h = std::move(h), r = std::move(r)]() mutable { h(std::move(r)); });
+		});
+	});
+}
+
 // Creates a future with the results from all given futures.
 template <typename T>
 QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
