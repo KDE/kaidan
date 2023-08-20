@@ -619,14 +619,12 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
                                        const std::function<void (Message &)> &updateMsg)
 {
 	return run([this, id, updateMsg]() {
-		emit messageUpdated(id, updateMsg);
-
 		// load current message item from db
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " WHERE id = ? LIMIT 1",
-			{ id }
+			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " WHERE id = ? OR replaceId = ? LIMIT 1",
+			{ id, id }
 		);
 
 		auto msgs = _fetchMessagesFromQuery(query);
@@ -636,6 +634,9 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 		if (!msgs.isEmpty()) {
 			const auto &oldMessage = msgs.first();
 			Q_ASSERT(oldMessage.deliveryState != DeliveryState::Draft);
+
+			emit messageUpdated(oldMessage.id, updateMsg);
+
 			Message newMessage = oldMessage;
 			updateMsg(newMessage);
 			Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
@@ -700,7 +701,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 							rec,
 							false
 						) +
-						simpleWhereStatement(&driver, "id", id)
+						simpleWhereStatement(&driver, "id", oldMessage.id)
 					);
 				}
 

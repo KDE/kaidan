@@ -188,8 +188,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 
 		MessageDb::instance()->addMessage(message, origin);
 	} else {
-		message.id.clear();
-		MessageDb::instance()->updateMessage(msg.replaceId(), [message](Message &m) {
+		const auto replaceId = msg.replaceId();
+		message.replaceId = replaceId;
+		MessageDb::instance()->updateMessage(replaceId, [message](Message &m) {
 			// Replace the whole stored message but keep its original timestamp.
 			const auto timestamp = m.stamp;
 			m = message;

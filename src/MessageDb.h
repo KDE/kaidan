@@ -221,6 +221,10 @@ public:
 	/**
 	 * Loads a message, runs the update lambda and writes it to the DB again.
 	 *
+	 * A message can be found by its regular "id" or by its "replaceId" passed as the parameter
+	 * "id".
+	 *
+	 * @param id ID of the message to be updated
 	 * @param updateMsg Function that changes the message
 	 */
 	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
