@@ -290,10 +290,9 @@ private:
 	void handleMamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete);
 
 	void addMessage(const Message &msg);
-	void updateMessage(const QString &id,
-	                   const std::function<void (Message &)> &updateMsg);
 
 	void handleMessage(Message msg, MessageOrigin origin);
+	void handleMessageUpdated(const Message &message);
 	void handleChatState(const QString &bareJid, QXmppMessage::State state);
 	void handleMessageRemoved(const QString &senderJid, const QString &recipientJid, const QString &messageId);
 

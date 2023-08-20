@@ -228,7 +228,7 @@ public:
 	 * @param updateMsg Function that changes the message
 	 */
 	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
-	Q_SIGNAL void messageUpdated(const QString &id, const std::function<void (Message &)> &updateMsg);
+	Q_SIGNAL void messageUpdated(const Message &message);
 
 	/**
 	 * Fetches a draft message from the database.

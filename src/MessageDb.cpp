@@ -635,14 +635,14 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 			const auto &oldMessage = msgs.first();
 			Q_ASSERT(oldMessage.deliveryState != DeliveryState::Draft);
 
-			emit messageUpdated(oldMessage.id, updateMsg);
-
 			Message newMessage = oldMessage;
 			updateMsg(newMessage);
 			Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
 
 			// Replace the old message's values with the updated ones if the message has changed.
 			if (oldMessage != newMessage) {
+				emit messageUpdated(newMessage);
+
 				const auto &oldReactionSenders = oldMessage.reactionSenders;
 				if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
 					// Remove old reactions.

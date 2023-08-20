@@ -112,7 +112,7 @@ MessageModel::MessageModel(QObject *parent)
 	// added if MessageDb::messageAdded is emitted
 	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
 
-	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::updateMessage);
+	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::handleMessageUpdated);
 
 	connect(this, &MessageModel::handleChatStateRequested,
 	        this, &MessageModel::handleChatState);
@@ -1109,43 +1109,6 @@ void MessageModel::addMessage(const Message &msg)
 	insertMessage(i, msg);
 }
 
-void MessageModel::updateMessage(const QString &id,
-                                 const std::function<void(Message &)> &updateMsg)
-{
-	for (int i = 0; i < m_messages.length(); i++) {
-		if (m_messages.at(i).id == id) {
-			// update message
-			Message msg = m_messages.at(i);
-			updateMsg(msg);
-
-			// check if item was actually modified
-			if (m_messages.at(i) == msg)
-				return;
-
-			// check, if the position of the new message may be different
-			if (msg.stamp == m_messages.at(i).stamp) {
-				beginRemoveRows(QModelIndex(), i, i);
-				m_messages.removeAt(i);
-				endRemoveRows();
-
-				// add the message at the same position
-				insertMessage(i, msg);
-			} else {
-				beginRemoveRows(QModelIndex(), i, i);
-				m_messages.removeAt(i);
-				endRemoveRows();
-
-				// put to new position
-				addMessage(msg);
-			}
-
-			showMessageNotification(msg, MessageOrigin::Stream);
-
-			break;
-		}
-	}
-}
-
 void MessageModel::updateLastReadOwnMessageId()
 {
 	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
@@ -1189,6 +1152,35 @@ void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 
 	if (msg.from == m_currentChatJid || msg.to == m_currentChatJid) {
 		addMessage(std::move(msg));
+	}
+}
+
+void MessageModel::handleMessageUpdated(const Message &message)
+{
+	for (int i = 0; i < m_messages.length(); i++) {
+		const auto oldMessage = m_messages.at(i);
+		const auto oldId = oldMessage.id;
+		const auto oldReplaceId = oldMessage.replaceId;
+
+		// The updated message can be either a normal message, a first message correction or a
+		// subsequent messsage correction.
+		if (oldId == message.id || oldId == message.replaceId || oldReplaceId == message.replaceId) {
+			beginRemoveRows(QModelIndex(), i, i);
+			m_messages.removeAt(i);
+			endRemoveRows();
+
+			// Insert the message at its original position if the date is unchanged.
+			// Otherwise, move it to its new position.
+			if (message.stamp == m_messages.at(i).stamp) {
+				insertMessage(i, message);
+			} else {
+				addMessage(message);
+			}
+
+			showMessageNotification(message, MessageOrigin::Stream);
+
+			break;
+		}
 	}
 }
 
