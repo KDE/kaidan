@@ -734,6 +734,7 @@ DetailsContent {
 					onClicked: {
 						visible = false
 						removalButton.enabled = false
+						deletionButton.enabled = false
 						Kaidan.deleteAccountFromClientAndServer()
 					}
 				}

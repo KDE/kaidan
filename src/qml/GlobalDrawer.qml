@@ -224,7 +224,6 @@ Kirigami.GlobalDrawer {
 		target: Kaidan
 
 		function onCredentialsNeeded() {
-			accountDetailsSheet.close()
 			close()
 		}
 
