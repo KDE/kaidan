@@ -75,6 +75,11 @@ RosterModel::RosterModel(QObject *parent)
 	});
 }
 
+RosterModel::~RosterModel()
+{
+	s_instance = nullptr;
+}
+
 bool RosterModel::isEmpty() const
 {
 	return m_items.isEmpty();
