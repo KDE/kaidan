@@ -17,6 +17,8 @@ msgstr ""
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
+"მიერთებული არ ბრძანდებით - შეტყობინებები გაიგზავნება და მიიღება, როცა "
+"მიერთდებით"
 
 #: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
 msgctxt "ChatHintModel|"
@@ -237,7 +239,7 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "დდ თთთ სს:წწ"
 
 #: src/Message.cpp:145
 msgctxt "QObject|"
@@ -416,6 +418,12 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"სხვა მოწყობილობიდან შესასვლელად დაასკანერეთ QR კოდი ან შეიყვანეთ "
+"ავტორიზაციის დეტალები.\n"
+"\n"
+"გაფრთხილება:\n"
+"ეს QR კოდი არავის აჩვენოთ, არასდროს. ის მათ თქვენს ანგარიშზე შეუზღუდავ "
+"წვდომას მისცემს!"
 
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
@@ -493,12 +501,15 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"გამჭოლი დაშიფვრა OMEMO 2-ით უზრუნველყოფს, რომ არავის, თქვენი და თქვენი ჩატის "
+"პარტნიორების გარდა, შეეძლება თქვენს შორის მიმოცვლილი მონაცემების წაკითხვა ან "
+"შეცვლა."
 
 #: src/qml/details/AccountDetailsContent.qml:244
 #: src/qml/details/AccountDetailsContent.qml:250
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr ""
+msgstr "მათ დასაშიფრად დაასკანერეთ QR კოდები <b>თქვენი</b> მოწყობილობებით"
 
 #: src/qml/details/AccountDetailsContent.qml:246
 msgctxt "AccountDetailsContent|"
@@ -509,6 +520,8 @@ msgstr "<b>თქვენი</b> სხვა მოწყობილობე
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
+"მაქსიმალური უსაფრთხოებისთვის დაასკანერეთ QR კოდები <b>თქვენი</b> "
+"მოწყობილობებით"
 
 #: src/qml/details/AccountDetailsContent.qml:314
 msgctxt "AccountDetailsContent|"
@@ -576,6 +589,8 @@ msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
+"შეცვალეთ თქვენი პაროლი. ახალი პაროლის შეყვანა თქვენს ყველა სხვა "
+"მოწყობილობაზე მოგიწევთ!"
 
 #: src/qml/details/AccountDetailsContent.qml:397
 msgctxt "AccountDetailsContent|"
@@ -641,6 +656,10 @@ msgid ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 msgstr ""
+"მოირგეთ ეს მოწყობილობა, რათა მან თქვენი პაროლი არ გაავრცელოს, მისი შეცვლით "
+"ან სხვა მოწყობილობაზე გადართვით. თუ გნებავთ, შეცვალოთ თქვენი პაროლი ან "
+"თქვენი ანგარიში სხვა მოწყობილობაზე გამოიყენოთ, <b>სჯობს პაროლი შეცვალოთ. "
+"ქმედება შეუქცევადია!</b>"
 
 #: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
@@ -653,6 +672,8 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
+"დაუშვით დამატებითი მოწყობილობების დამატება ამ შესვლის QR კოდით, მაგრამ "
+"პაროლი არასოდეს აჩვენოთ"
 
 #: src/qml/details/AccountDetailsContent.qml:539
 msgctxt "AccountDetailsContent|"
@@ -665,6 +686,8 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
+"არც დამატებითი მოწყობილობის დამატება იქნებ შესაძლებელი შესვლის QR კოდით, არც "
+"პაროლები იქნება ნაჩვენები"
 
 #: src/qml/details/AccountDetailsContent.qml:563
 msgctxt "AccountDetailsContent|"
@@ -717,6 +740,8 @@ msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
+"ანგარიშის წაშლა ამ აპიდან. დაამარქაფეთ თქვენი ავტორიზაციის დეტალები და ჩატის "
+"ისტორია, თუ ეს საჭიროა!"
 
 #: src/qml/details/AccountDetailsContent.qml:705
 #: src/qml/details/AccountDetailsContent.qml:731
@@ -733,7 +758,7 @@ msgstr "სრულად წაშლა"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
-msgstr ""
+msgstr "ანგარიშის მომწოდებლის წაშლა. თქვენს ანგარიშს ვეღარ გამოიყენებთ!"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -796,12 +821,15 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"გამჭოლი დაშიფვრა OMEMO 2-ით უზრუნველყოფს, რომ არავის, თქვენი და თქვენი ჩატის "
+"პარტნიორების გარდა, შეეძლება თქვენს შორის მიმოცვლილი მონაცემების წაკითხვა ან "
+"შეცვლა."
 
 #: src/qml/details/ContactDetailsContent.qml:212
 #: src/qml/details/ContactDetailsContent.qml:220
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr ""
+msgstr "მათ დასაშიფრად დაასკანერეთ QR კოდები <b>თქვენი</b> მოწყობილობებით"
 
 #: src/qml/details/ContactDetailsContent.qml:214
 msgctxt "ContactDetailsContent|"
@@ -817,11 +845,13 @@ msgstr "<b>თქვენი</b> სხვა მოწყობილობე
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr ""
+"მაქსიმალური უსაფრთხოებისთვის დაასკანერეთ QR კოდები <b>თქვენი</b> "
+"მოწყობილობებით"
 
 #: src/qml/details/ContactDetailsContent.qml:265
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
-msgstr ""
+msgstr "დაშიფვრის ჩასართავად დაასკანერეთ თქვენი <b>კონტაქტის</b> QR კოდი"
 
 #: src/qml/details/ContactDetailsContent.qml:268
 msgctxt "ContactDetailsContent|"
@@ -832,11 +862,14 @@ msgstr "თქვენი <b>კონტაქტი</b> OMEMO 2-ს არ �
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgstr ""
+"მათთვის დასაშიფრად დაასკანერეთ თქვენი <b>კონტაქტის</b> მოწყობილობების QR "
+"კოდები"
 
 #: src/qml/details/ContactDetailsContent.qml:274
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr ""
+"მაქსიმალური უსაფრთხოებისთვის დაასკანერეთ თქვენი <b>კონტაქტის</b> QR კოდი"
 
 #: src/qml/details/ContactDetailsContent.qml:328
 msgctxt "ContactDetailsContent|"
@@ -918,7 +951,7 @@ msgstr "კრეფის შეტყობინების გაგზა�
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
+msgstr "მითითება, როცა საუბარი გახსნილი გაქვთ, კრეფთ ან შეწყვიტეთ კრეფა"
 
 #: src/qml/details/ContactDetailsContent.qml:418
 msgctxt "ContactDetailsContent|"
@@ -1462,6 +1495,8 @@ msgid ""
 "You received a subscription request by <b>%1</b>. If you accept it, the "
 "account will have access to your presence status."
 msgstr ""
+"მიიღეთ გამოწერის მოთხოვნა <b>%1</b>-სგან. თუ დაეთანხმებით, ანგარიშს თქვენს "
+"სტატუსთან წვდომა ექნება."
 
 #: src/qml/elements/SubRequestAcceptSheet.qml:39
 msgctxt "SubRequestAcceptSheet|"
@@ -1562,6 +1597,8 @@ msgstr "QR კოდის გარეშე გაგრძელება"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
+"თქვენი ანგარიშის გადმოსატანად დაასკანერეთ QR კოდი თქვენი არსებული "
+"მოწყობილობიდან."
 
 #: src/qml/QrCodeOnboardingPage.qml:59
 msgctxt "QrCodeOnboardingPage|"
@@ -1586,22 +1623,24 @@ msgstr "ახნის ჩვენება"
 #: src/qml/QrCodePage.qml:55
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr ""
+msgstr "ნაბიჯი 1: დაასკანერეთ თქვენი <b>სხვა მოწყობილობის</b> QR კოდი"
 
 #: src/qml/QrCodePage.qml:57
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "ნაბიჯი 1: დაასკანერეთ თქვენი <b>კონტაქტის</b> QR კოდი"
 
 #: src/qml/QrCodePage.qml:85
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr ""
+"ნაბიჯი 2: დაასკანერეთ თქვენი სხვა მოწყობილობიT <b>ამ მოწყობილობის</b> QR კოდი"
 
 #: src/qml/QrCodePage.qml:87
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr ""
+"ნაბიჯი 2: მიეცით უფლება თქვენს კონტაქტს, <b>თქვენი</b> QR კოდი დაასკანეროს"
 
 #: src/qml/QrCodePage.qml:124
 msgctxt "QrCodePage|"
@@ -1617,11 +1656,14 @@ msgstr "ეს QR კოდი კონტაქტს არ შეიცა�
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
+"სხვა მოწყობილობისთვის მიღებული გადაწყვეტილებების თანხმობა - მეორე ნაბიჯზე "
+"გაგრძელება"
 
 #: src/qml/QrCodePage.qml:146
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
+"კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა - მეორე ნაბიჯზე გაგრძელება"
 
 #: src/qml/QrCodePage.qml:153
 msgctxt "QrCodePage|"
@@ -1665,6 +1707,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"სერვერმა მეტი ინფორმაცია მოითხოვა.\n"
+"შეიძლება, ყველაფერი საჭირო არ იყოს.\n"
+"თუ CAPTCHA-ს დაინახავთ, საჭიროა, ნაჩვენები ტექსტი შეიყვანოთ."
 
 #: src/qml/registration/DisplayNameView.qml:14
 msgctxt "DisplayNameView|"
@@ -1675,6 +1720,11 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"თქვენი საჩვენებელი სახელი ისაა, რასაც თქვენი კონტაქტები ხედავენ.\n"
+"თუ არ გნებავთ საჩვენებელი სახელის გამოყენება, ეს ველი შეგიძლიათ, ცარიელი "
+"დატოვოთ.\n"
+"საჩვენებელი სახელის გამოყენებით ახალი კონტაქტები უფრო ადვილად გიცნობენ, "
+"მაგრამ ეს ასევე დაწევს თქვენს კონფიდენციალობას!"
 
 #: src/qml/registration/DisplayNameView.qml:22
 msgctxt "DisplayNameView|"
@@ -1709,7 +1759,7 @@ msgstr "მომწოდებელს ამჟამად ამ აპი
 #: src/qml/registration/ManualRegistrationPage.qml:218
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
-msgstr ""
+msgstr "მაგრამ, თქვენ შეგიძლიათ, მომწოდებლის ვებ-რეგისტრაცია გამოიყენოთ."
 
 #: src/qml/registration/ManualRegistrationPage.qml:222
 msgctxt "ManualRegistrationPage|"
@@ -1734,6 +1784,9 @@ msgid ""
 "one is used.\n"
 "Don't use passwords you're already using somewhere else!"
 msgstr ""
+"პაროლი თქვენს ანგარიშში შესასვლელად გამოიყენება.\n"
+"თუ პაროლს არ შეიყვანთ, შემთხვევითი პაროლი იქნება ნაჩვენები და გამოყენებული.\n"
+"ნუ გამოიყენებთ პაროლებს, რომლებსაც სხვაგან უკვე იყენებთ!"
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -1741,6 +1794,8 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"მომწოდებელ ადგილია, სადაც თქვენი ანგარიშია განთავსებული.\n"
+"მონიშვნადი მომწოდებლები ჩვენი საზოგადოების მიერ ხელითაა არჩეული!"
 
 #: src/qml/registration/ProviderView.qml:39
 msgctxt "ProviderView|"
@@ -1845,6 +1900,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"თქვენ ჩატის მისამართი თქვენთან სასაუბროდ გამოყენება ისე, როგორც ელფოსტის "
+"მისამართი, თქვენთვის მოსაწერად.\n"
+"\n"
+"თქვენი ჩატის მისამართი იქნება:"
 
 #: src/qml/registration/UsernameView.qml:18
 msgctxt "UsernameView|"
@@ -1855,6 +1914,12 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"თქვენი მომხმარებლის სახელი თქვენს ანგარიშში შესასვლელად და თქვენთან "
+"სასაუბროდ გამოიყენება.\n"
+"თუ მომხმარებლის სახელს არ შეიყვანთ, გამოყენებული იქნება შემთხვევითად "
+"დაგენერირებული და ნაჩვენები სახელი.\n"
+"თქვენი საკუთარი სახელის შეყვანით თქვენ უფრო ადვილად საცნობი გახდებით, რაც "
+"ასევე შეამცირებს თქვენს კონფიდენციალობას!"
 
 #: src/qml/registration/UsernameView.qml:35
 msgctxt "UsernameView|"
@@ -1866,6 +1931,8 @@ msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
+"შეიყვანეთ სწორი მომხმარებლის სახელი ან, შემთხვევითის ასარჩევად, ეს ველი "
+"ცარიელი დატოვეთ."
 
 #: src/qml/registration/WebRegistrationView.qml:18
 msgctxt "WebRegistrationView|"
@@ -1873,6 +1940,8 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"მონიშნულ მომწოდებელს, მხოლოდ, ვებ რეგისტრაცია გააჩნია. ვებგვერდზე ანგარიშის "
+"შექმნის შემდეგ მასში Kaidan-ით შეგეძლებათ, შეხვიდეთ."
 
 #: src/qml/registration/WebRegistrationView.qml:25
 msgctxt "WebRegistrationView|"
@@ -1950,6 +2019,8 @@ msgstr "შემოწირულობა"
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
+"ამოგვიდექით გვერდში Kaidan-ის პროგრამულ და ინფრასტრუქტურულ განვითარებას, "
+"შემოწირულობებით"
 
 #: src/qml/settings/AboutPage.qml:95
 msgctxt "AboutPage|"
@@ -2051,6 +2122,8 @@ msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
 msgstr ""
+"გაიგეთ მეტი მიმდინარე Kaidan-ის ვერსიაზე, დაათვალიერეთ მისი კოდი და "
+"შემოგვწირეთ"
 
 #: src/qml/settings/SettingsPage.qml:10
 msgctxt "SettingsPage|"
@@ -2093,6 +2166,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"სერვერთან მერთების პრობლემა. გადაამოწმეთ ინტერნეტკავშირი ან თქვენი სერვერის "
+"სახელი."
 
 #: src/QmlUtils.cpp:61
 msgctxt "QmlUtils|"
@@ -2115,6 +2190,8 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"ინტერნეტთან წვდომა აკრძალულია. შეამოწმეთ თქვენ სისტემის ინტერნეტთან წვდომის "
+"კონფიგურაცია."
 
 #: src/QmlUtils.cpp:69
 msgctxt "QmlUtils|"
@@ -2170,7 +2247,7 @@ msgstr "კონტაქტის სახელის გადარქმ�
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %1 failed because of a connection problem: %2"
-msgstr ""
+msgstr "%1-ის სტატუსის ნახვის მოთხოვნა ჩავარდა მიერთების პრობლემს გამო: %2"
 
 #: src/RosterManager.cpp:174
 #, qt-format
