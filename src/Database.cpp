@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 34
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(34)
+#define DATABASE_LATEST_VERSION 35
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(35)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -377,10 +377,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
 			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
-			SQL_ATTRIBUTE(draftMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
-			"PRIMARY KEY(accountJid, jid),"
-			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
+			"PRIMARY KEY(accountJid, jid)"
 		)
 	);
 	execQuery(
@@ -1577,4 +1575,67 @@ void Database::convertDatabaseToV34()
 	);
 
 	d->version = 34;
+}
+
+void Database::convertDatabaseToV35()
+{
+	DATABASE_CONVERT_TO_VERSION(31);
+	QSqlQuery query(currentDatabase());
+
+	// Remove the column "draftMessageId".
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster_tmp",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			"PRIMARY KEY(accountJid, jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO roster_tmp SELECT accountJid, jid, name, subscription, encryption, unreadMessages, "
+		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition, "
+		"chatStateSendingEnabled, readMarkerSendingEnabled, notificationsMuted FROM roster"
+	);
+
+	execQuery(query, "DROP TABLE roster");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			"PRIMARY KEY(accountJid, jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
+	execQuery(query, "DROP TABLE roster_tmp");
+
+	d->version = 32;
 }

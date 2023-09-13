@@ -430,8 +430,4 @@ ChatPageBase {
 			sendingPane.forceActiveFocus()
 		}
 	}
-
-	function saveDraft() {
-		sendingPane.composition.saveDraft();
-	}
 }

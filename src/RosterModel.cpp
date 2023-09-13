@@ -53,7 +53,6 @@ RosterModel::RosterModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::draftMessageAdded, this, &RosterModel::handleDraftMessageAdded);
 	connect(MessageDb::instance(), &MessageDb::draftMessageUpdated, this, &RosterModel::handleDraftMessageUpdated);
 	connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
-	connect(MessageDb::instance(), &MessageDb::draftMessageFetched, this, &RosterModel::handleDraftMessageFetched);
 	connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &RosterModel::handleMessageRemoved);
 
 	connect(AccountManager::instance(), &AccountManager::jidChanged, this, [this] {
@@ -61,7 +60,7 @@ RosterModel::RosterModel(QObject *parent)
 		m_items.clear();
 		endResetModel();
 
-		await(RosterDb::instance()->fetchItems(AccountManager::instance()->jid()), this, [this](QVector<RosterItem> items) {
+		await(RosterDb::instance()->fetchItems(), this, [this](const QVector<RosterItem> &items) {
 			handleItemsFetched(items);
 		});
 	});
@@ -126,7 +125,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		// "lastMessageDateTime" is used for sorting the roster items.
 		// Thus, each new item has the current date as its default value.
 		// But that date should only be displayed when there is a last (exchanged or draft) message.
-		if (const auto &item = m_items.at(index.row()); !item.lastMessage.isEmpty() || !item.draftMessageId.isEmpty()) {
+		if (const auto &item = m_items.at(index.row()); !item.lastMessage.isEmpty() || item.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
 			return formattedLastMessageDateTime(m_items.at(index.row()).lastMessageDateTime);
 		}
 
@@ -139,7 +138,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 	case LastMessageRole:
 		return m_items.at(index.row()).lastMessage;
 	case LastMessageIsDraftRole:
-		return !m_items.at(index.row()).draftMessageId.isEmpty();
+		return m_items.at(index.row()).lastMessageDeliveryState == Enums::DeliveryState::Draft;
 	case PinnedRole:
 		return m_items.at(index.row()).pinningPosition >= 0;
 	case NotificationsMutedRole:
@@ -293,13 +292,6 @@ QString RosterModel::lastReadContactMessageId(const QString &, const QString &ji
 	return {};
 }
 
-QString RosterModel::draftMessageId(const QString &, const QString &jid) const
-{
-	if (auto item = findItem(jid))
-		return item->draftMessageId;
-	return {};
-}
-
 void RosterModel::sendPendingReadMarkers(const QString &)
 {
 	for (const auto &item : std::as_const(m_items)) {
@@ -328,10 +320,6 @@ void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
 
 	for (const auto &item : std::as_const(m_items)) {
 		RosterItemNotifier::instance().notifyWatchers(item.jid, item);
-
-		if (!item.draftMessageId.isEmpty()) {
-			MessageDb::instance()->fetchDraftMessage(item.draftMessageId);
-		}
 	}
 
 	Q_EMIT accountJidsChanged();
@@ -403,7 +391,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.chatStateSendingEnabled = oldItem->chatStateSendingEnabled;
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
 			item.notificationsMuted = oldItem->notificationsMuted;
-			item.draftMessageId = oldItem->draftMessageId;
+			item.lastMessageDeliveryState = oldItem->lastMessageDeliveryState;
 		}
 
 		newItems << item;
@@ -429,7 +417,7 @@ void RosterModel::updateLastMessage(
 	// The new message is only set as the current last message if they are different and there
 	// is no draft message.
 	if (const auto lastMessage = message.previewText();
-		itr->draftMessageId.isEmpty() && itr->lastMessage != lastMessage)
+		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft && itr->lastMessage != lastMessage)
 	{
 		itr->lastMessage = lastMessage;
 		changedRoles << int(LastMessageRole);
@@ -623,25 +611,24 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastMessageDateTime = QDateTime::currentDateTimeUtc();
-	itr->draftMessageId = message.id;
+	itr->lastMessageDateTime = message.stamp;
+	itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
 	itr->lastMessage = lastMessage;
-
-	RosterDb::instance()->updateItem(itr->jid, [id = message.id](RosterItem &item) {
-		item.draftMessageId = id;
-	});
 
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
 	emit dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+
+	// Move the updated item to its correct position.
+	updateItemPosition(i);
 }
 
 void RosterModel::handleDraftMessageUpdated(const Message &message)
 {
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-		return item.draftMessageId == message.id;
+		return item.jid == message.to;
 	});
 
 	// contact not found
@@ -655,29 +642,31 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastMessageDateTime = QDateTime::currentDateTimeUtc();
+	itr->lastMessageDateTime = message.stamp;
 	itr->lastMessage = lastMessage;
+
+
 
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
 	emit dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+
+	// Move the updated item to its correct position.
+	updateItemPosition(i);
 }
 
-void RosterModel::handleDraftMessageRemoved(const QString &id)
+void RosterModel::handleDraftMessageRemoved(std::shared_ptr<Message> newLastMessage)
 {
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [&id](const RosterItem &item) {
-		return item.draftMessageId == id;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [accountJid = newLastMessage->from, chatJid = newLastMessage->to](const RosterItem &item) {
+		return item.accountJid == accountJid && item.jid == chatJid;
 	});
 
 	// contact not found
-	if (itr == m_items.end())
+	if (itr == m_items.end()) {
 		return;
-
-	const QString accountJid = MessageModel::instance()->currentAccountJid();
-	const Message last = MessageDb::instance()->_fetchLastMessage(accountJid, itr->jid);
-	const auto lastMessage = last.previewText();
+	}
 
 	QVector<int> changedRoles = {
 		int(LastMessageDateTimeRole),
@@ -685,25 +674,18 @@ void RosterModel::handleDraftMessageRemoved(const QString &id)
 		int(LastMessageIsDraftRole)
 	};
 
-	itr->draftMessageId.clear();
-	itr->lastMessageDateTime = last.stamp;
-	itr->lastMessage = lastMessage;
-
-	RosterDb::instance()->updateItem(
-		itr->jid, [](RosterItem &item) {
-		item.draftMessageId.clear();
-	});
+	itr->lastMessageDeliveryState = newLastMessage->deliveryState;
+	itr->lastMessageDateTime = newLastMessage->stamp;
+	itr->lastMessage = newLastMessage->body;
 
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
 	emit dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
-}
 
-void RosterModel::handleDraftMessageFetched(const Message &msg)
-{
-	handleDraftMessageUpdated(msg);
+	// Move the updated item to its correct position.
+	updateItemPosition(i);
 }
 
 void RosterModel::handleMessageRemoved(std::shared_ptr<Message> newLastMessage)

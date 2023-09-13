@@ -158,7 +158,7 @@ public:
 	QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> fetchPendingReactions(const QString &accountJid);
 
 	/**
-	 * Fetches the last message and returns it.
+	 * Fetches the last message from the database synchronously.
 	 */
 	Message _fetchLastMessage(const QString &user1, const QString &user2);
 
@@ -227,28 +227,27 @@ public:
 	Q_SIGNAL void messageUpdated(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 	/**
+	 * Fetches a draft message from the database.
+	 */
+	QFuture<std::optional<Message>> fetchDraftMessage(const QString &accountJid, const QString &chatJid);
+
+	/**
 	 * Adds a draft message to the database.
 	 */
-	QFuture<Message> addDraftMessage(const Message &msg);
+	QFuture<void> addDraftMessage(const Message &msg);
 	Q_SIGNAL void draftMessageAdded(const Message &msg);
 
 	/**
 	 * Updates a draft message from the database.
 	 */
-	QFuture<Message> updateDraftMessage(const Message &msg);
+	QFuture<void> updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void (Message &)> &updateMessage);
 	Q_SIGNAL void draftMessageUpdated(const Message &msg);
 
 	/**
 	 * Removes a draft message from the database.
 	 */
-	QFuture<QString> removeDraftMessage(const QString &id);
-	Q_SIGNAL void draftMessageRemoved(const QString &id);
-
-	/**
-	 * Fetch a draft message from the database.
-	 */
-	QFuture<Message> fetchDraftMessage(const QString &id);
-	Q_SIGNAL void draftMessageFetched(const Message &msg);
+	QFuture<void> removeDraftMessage(const QString &accountJid, const QString &chatJid);
+	Q_SIGNAL void draftMessageRemoved(std::shared_ptr<Message> newLastMessage);
 
 private:
 	// Setters do INSERT OR REPLACE INTO

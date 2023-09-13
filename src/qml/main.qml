@@ -28,20 +28,6 @@ Kirigami.ApplicationWindow {
 	minimumHeight: 300
 	minimumWidth: 280
 
-	readonly property ChatPage currentChatPage: {
-		for (let i = 0; i < pageStack.items.length; ++i) {
-			const page = pageStack.items[i];
-
-			if (page instanceof ChatPage) {
-				return page;
-			}
-		}
-
-		return null;
-	}
-
-	property bool currentDraftSaved: false
-
 	readonly property color primaryBackgroundColor: {
 		Kirigami.Theme.colorSet = Kirigami.Theme.View
 		return Kirigami.Theme.backgroundColor
@@ -98,21 +84,6 @@ Kirigami.ApplicationWindow {
 	Component {id: contactAdditionDialog; ContactAdditionDialog {}}
 
 	onWideScreenChanged: showRosterPageForNarrowWindow()
-
-	onClosing: {
-		if (currentChatPage) {
-			if (!currentDraftSaved) {
-				currentChatPage.saveDraft();
-
-				close.accepted = false;
-
-				Qt.callLater(function() {
-					root.currentDraftSaved = true;
-					root.close();
-				});
-			}
-		}
-	}
 
 	/**
 	 * Shows a passive notification for a long period.

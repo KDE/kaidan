@@ -44,7 +44,7 @@ public:
 	 */
 	QFuture<void> removeItems(const QString &accountJid, const QString &jid = {});
 	QFuture<void> replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
-	QFuture<QVector<RosterItem>> fetchItems(const QString &accountId);
+	QFuture<QVector<RosterItem>> fetchItems();
 
 
 private:

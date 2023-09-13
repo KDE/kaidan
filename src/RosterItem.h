@@ -12,6 +12,7 @@
 #include <QXmppRosterIq.h>
 
 #include "Encryption.h"
+#include "Enums.h"
 
 /**
  * Item containing one contact / conversation.
@@ -77,14 +78,14 @@ public:
 	// Last message of the conversation.
 	QString lastMessage;
 
+	// Delivery state of the last message.
+	Enums::DeliveryState lastMessageDeliveryState;
+
 	// Last message i.e read by the receiver.
 	QString lastReadOwnMessageId;
 
 	// Last message i.e read by the user.
 	QString lastReadContactMessageId;
-	
-	// Draft message i.e written by the user but not yet sent.
-	QString draftMessageId;
 
 	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
 	bool readMarkerPending = false;

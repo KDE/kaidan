@@ -54,7 +54,6 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxPinningPosition = rec.indexOf("pinningPosition");
 	int idxChateStateSendingEnabled = rec.indexOf("chatStateSendingEnabled");
 	int idxReadMarkerSendingEnabled = rec.indexOf("readMarkerSendingEnabled");
-	int idxDraftMessageId = rec.indexOf("draftMessageId");
 	int idxNotificationsMuted = rec.indexOf("notificationsMuted");
 
 	while (query.next()) {
@@ -71,7 +70,6 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.pinningPosition = query.value(idxPinningPosition).toInt();
 		item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
 		item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
-		item.draftMessageId = query.value(idxDraftMessageId).toString();
 		item.notificationsMuted = query.value(idxNotificationsMuted).toBool();
 
 		items << std::move(item);
@@ -105,8 +103,6 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField("chatStateSendingEnabled", newItem.chatStateSendingEnabled));
 	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
 		rec.append(createSqlField("readMarkerSendingEnabled", newItem.readMarkerSendingEnabled));
-	if (oldItem.draftMessageId != newItem.draftMessageId)
-		rec.append(createSqlField("draftMessageId", newItem.draftMessageId));
 	if (oldItem.notificationsMuted != newItem.notificationsMuted)
 		rec.append(createSqlField("notificationsMuted", newItem.notificationsMuted));
 
@@ -144,7 +140,6 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(item.pinningPosition);
 			query.addBindValue(item.chatStateSendingEnabled);
 			query.addBindValue(item.readMarkerSendingEnabled);
-			query.addBindValue(QString()); // draftMessageId
 			query.addBindValue(item.notificationsMuted);
 			execQuery(query);
 
@@ -275,9 +270,9 @@ QFuture<void> RosterDb::replaceItem(const RosterItem &oldItem, const RosterItem 
 	});
 }
 
-QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
+QFuture<QVector<RosterItem>> RosterDb::fetchItems()
 {
-	return run([this, accountId]() {
+	return run([this]() {
 		auto query = createQuery();
 		execQuery(query, "SELECT * FROM roster");
 
@@ -285,9 +280,10 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems(const QString &accountId)
 		parseItemsFromQuery(query, items);
 
 		for (auto &item : items) {
-			Message lastMessage = MessageDb::instance()->_fetchLastMessage(accountId, item.jid);
+			auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
 			item.lastMessageDateTime = lastMessage.stamp;
 			item.lastMessage = lastMessage.previewText();
+			item.lastMessageDeliveryState = lastMessage.deliveryState;
 		}
 
 		fetchGroups(items);

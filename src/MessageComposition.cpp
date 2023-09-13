@@ -17,6 +17,7 @@
 #include "MediaUtils.h"
 #include "MessageDb.h"
 
+#include <QGuiApplication>
 #include <QFileDialog>
 #include <QFutureWatcher>
 #include <QMimeDatabase>
@@ -28,31 +29,35 @@ constexpr auto THUMBNAIL_SIZE = 200;
 
 MessageComposition::MessageComposition()
 	: m_fileSelectionModel(new FileSelectionModel(this))
-	, m_fetchDraftWatcher(new QFutureWatcher<Message>(this))
-	, m_removeDraftWatcher(new QFutureWatcher<QString>(this))
 {
-	connect(m_fetchDraftWatcher, &QFutureWatcher<Message>::finished, this, [this]() {
-		const auto msg = m_fetchDraftWatcher->result();
-		emit draftFetched(msg.body, msg.isSpoiler, msg.spoilerHint);
-	});
-	connect(m_removeDraftWatcher, &QFutureWatcher<QString>::finished, this, [this]() {
-		setDraftId({});
+	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
+		saveDraft();
 	});
 }
 
 void MessageComposition::setAccount(const QString &account)
 {
 	if (m_account != account) {
+		// Save the draft of the last chat when the current chat is changed.
+		saveDraft();
+
 		m_account = account;
-		emit accountChanged();
+		Q_EMIT accountChanged();
+
+		loadDraft();
 	}
 }
 
 void MessageComposition::setTo(const QString &to)
 {
 	if (m_to != to) {
+		// Save the draft of the last chat when the current chat is changed.
+		saveDraft();
+
 		m_to = to;
-		emit toChanged();
+		Q_EMIT toChanged();
+
+		loadDraft();
 	}
 }
 
@@ -60,7 +65,7 @@ void MessageComposition::setBody(const QString &body)
 {
 	if (m_body != body) {
 		m_body = body;
-		emit bodyChanged();
+		Q_EMIT bodyChanged();
 	}
 }
 
@@ -68,7 +73,7 @@ void MessageComposition::setSpoiler(bool spoiler)
 {
 	if (m_spoiler != spoiler) {
 		m_spoiler = spoiler;
-		emit isSpoilerChanged();
+		Q_EMIT isSpoilerChanged();
 	}
 }
 
@@ -76,18 +81,18 @@ void MessageComposition::setSpoilerHint(const QString &spoilerHint)
 {
 	if (m_spoilerHint != spoilerHint) {
 		m_spoilerHint = spoilerHint;
-		emit spoilerHintChanged();
+		Q_EMIT spoilerHintChanged();
 	}
 }
 
-void MessageComposition::setDraftId(const QString &id)
+void MessageComposition::setIsDraft(bool isDraft)
 {
-	if (m_draftId != id) {
-		m_draftId = id;
-		emit draftIdChanged();
+	if (m_isDraft != isDraft) {
+		m_isDraft = isDraft;
+		Q_EMIT isDraftChanged();
 
-		if (!m_draftId.isEmpty()) {
-			m_fetchDraftWatcher->setFuture(MessageDb::instance()->fetchDraftMessage(id));
+		if (!isDraft) {
+			MessageDb::instance()->removeDraftMessage(m_account, m_to);
 		}
 	}
 }
@@ -99,8 +104,8 @@ void MessageComposition::send()
 
 	if (m_fileSelectionModel->hasFiles()) {
 		Message message;
+		message.from = m_account;
 		message.to = m_to;
-		message.from = AccountManager::instance()->jid();
 		message.body = m_body;
 		message.files = m_fileSelectionModel->files();
 		message.receiptRequested = true;
@@ -110,30 +115,31 @@ void MessageComposition::send()
 		Kaidan::instance()->fileSharingController()->sendMessage(std::move(message), encrypt);
 		m_fileSelectionModel->clear();
 	} else {
-		emit Kaidan::instance()
+		Q_EMIT Kaidan::instance()
 			->client()
 			->messageHandler()
 			->sendMessageRequested(m_to, m_body, m_spoiler, m_spoilerHint);
 	}
 
 	setSpoiler(false);
-
-	if (!m_draftId.isEmpty()) {
-		m_removeDraftWatcher->setFuture(MessageDb::instance()->removeDraftMessage(m_draftId));
-	}
+	setIsDraft(false);
 }
 
-Message MessageComposition::draft() const
+void MessageComposition::loadDraft()
 {
-	Message msg;
-	msg.id = m_draftId;
-	msg.deliveryState = DeliveryState::Draft;
-	msg.from = m_account;
-	msg.to = m_to;
-	msg.isSpoiler = m_spoiler;
-	msg.spoilerHint = m_spoilerHint;
-	msg.body = m_body;
-	return msg;
+	if (m_account.isEmpty() || m_to.isEmpty()) {
+		return;
+	}
+
+	auto future = MessageDb::instance()->fetchDraftMessage(m_account, m_to);
+	await(future, this, [this](std::optional<Message> message) {
+		if (message) {
+			setBody(message->body);
+			setSpoiler(message->isSpoiler);
+			setSpoilerHint(message->spoilerHint);
+			setIsDraft(true);
+		}
+	});
 }
 
 void MessageComposition::saveDraft()
@@ -142,19 +148,30 @@ void MessageComposition::saveDraft()
 		return;
 	}
 
-	const Message msg = draft();
-	const bool canSave = !msg.spoilerHint.isEmpty() || !msg.body.isEmpty();
+	const bool savingNeeded = !m_body.isEmpty() || !m_spoilerHint.isEmpty();
 
-	if (msg.id.isEmpty()) {
-		if (canSave) {
-			MessageDb::instance()->addDraftMessage(msg);
-		}
-	} else {
-		if (canSave) {
-			MessageDb::instance()->updateDraftMessage(msg);
+	if (m_isDraft) {
+		if (savingNeeded) {
+			MessageDb::instance()->updateDraftMessage(m_account, m_to, [body = m_body, isSpoiler = m_spoiler, spoilerHint = m_spoilerHint](Message &message) {
+				message.stamp = QDateTime::currentDateTimeUtc();
+				message.body = body;
+				message.isSpoiler = isSpoiler;
+				message.spoilerHint = spoilerHint;
+			});
 		} else {
-			m_removeDraftWatcher->setFuture(MessageDb::instance()->removeDraftMessage(msg.id));
+			MessageDb::instance()->removeDraftMessage(m_account, m_to);
 		}
+	} else if (savingNeeded) {
+		Message msg;
+		msg.from = m_account;
+		msg.to = m_to;
+		msg.stamp = QDateTime::currentDateTimeUtc();
+		msg.body = m_body;
+		msg.isSpoiler = m_spoiler;
+		msg.spoilerHint = m_spoilerHint;
+		msg.deliveryState = DeliveryState::Draft;
+
+		MessageDb::instance()->addDraftMessage(msg);
 	}
 }
 

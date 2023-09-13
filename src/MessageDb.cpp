@@ -362,9 +362,8 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 	auto query = createQuery();
 	execQuery(
 		query,
-		"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
-		"WHERE (sender = :user1 AND recipient = :user2) OR "
-		      "(sender = :user2 AND recipient = :user1) "
+		"SELECT * FROM " DB_TABLE_MESSAGES " "
+		"WHERE ((sender = :user1 AND recipient = :user2) OR (sender = :user2 AND recipient = :user1)) AND removed = 0 "
 		"ORDER BY timestamp DESC "
 		"LIMIT 1",
 		{ { u":user1", user1 }, { u":user2", user2 } }
@@ -372,8 +371,10 @@ Message MessageDb::_fetchLastMessage(const QString &user1, const QString &user2)
 
 	auto messages = _fetchMessagesFromQuery(query);
 
-	if (!messages.isEmpty())
+	if (!messages.isEmpty()) {
 		return messages.first();
+	}
+
 	return {};
 }
 
@@ -725,7 +726,28 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 	});
 }
 
-QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
+QFuture<std::optional<Message>> MessageDb::fetchDraftMessage(const QString &accountJid, const QString &chatJid)
+{
+	return run([this, accountJid, chatJid]() -> std::optional<Message> {
+		auto query = createQuery();
+		execQuery(
+			query,
+			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " "
+			"WHERE (sender = :accountJid AND recipient = :chatJid)",
+			{ { u":accountJid", accountJid }, { u":chatJid", chatJid } }
+		);
+
+		auto messages = _fetchMessagesFromQuery(query);
+
+		if (messages.isEmpty()) {
+			return std::nullopt;
+		}
+
+		return messages.first();
+	});
+}
+
+QFuture<void> MessageDb::addDraftMessage(const Message &msg)
 {
 	Q_ASSERT(msg.deliveryState == DeliveryState::Draft);
 
@@ -772,91 +794,73 @@ QFuture<Message> MessageDb::addDraftMessage(const Message &msg)
 		execQuery(query);
 
 		emit draftMessageAdded(msg);
-
-		return msg;
 	});
 }
 
-QFuture<Message> MessageDb::updateDraftMessage(const Message &msg)
+QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void (Message &)> &updateMessage)
 {
-	Q_ASSERT(msg.deliveryState == DeliveryState::Draft);
-
-	return run([this, msg]() {
+	return run([this, accountJid, chatJid, updateMessage]() {
 		// load current message item from db
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE id = ? LIMIT 1",
-			{ msg.id }
+			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE sender = ? AND recipient = ?",
+			{ accountJid, chatJid }
 		);
 
-		auto msgs = _fetchMessagesFromQuery(query);
+		auto messages = _fetchMessagesFromQuery(query);
 
 		// update loaded item
-		if (msgs.count() == 1) {
-			const auto &oldMessage = msgs.constFirst();
+		if (!messages.isEmpty()) {
+			const auto &oldMessage = messages.constFirst();
+			Q_ASSERT(oldMessage.deliveryState == DeliveryState::Draft);
+			Message newMessage = oldMessage;
+			updateMessage(newMessage);
+			Q_ASSERT(newMessage.deliveryState == DeliveryState::Draft);
 
 			// Replace the old message's values with the updated ones if the message has changed.
-			if (oldMessage != msg) {
-				if (auto rec = createUpdateRecord(oldMessage, msg); rec.count()) {
-					auto &driver = sqlDriver();
+			if (auto rec = createUpdateRecord(oldMessage, newMessage); !rec.isEmpty()) {
+				auto &driver = sqlDriver();
 
-					// Create an SQL record with only the differences.
-					execQuery(
-						query,
-						driver.sqlStatement(
-							QSqlDriver::UpdateStatement,
-							DB_TABLE_MESSAGES,
-							rec,
-							false
-						) +
-						simpleWhereStatement(&driver, "id", msg.id)
-					);
+				// Create an SQL record containing only the differences.
+				execQuery(
+					query,
+					driver.sqlStatement(
+						QSqlDriver::UpdateStatement,
+						DB_TABLE_MESSAGES,
+						rec,
+						false
+					) +
+					simpleWhereStatement(&driver, "id", newMessage.id)
+				);
 
-					emit draftMessageUpdated(msg);
-
-					return msg;
-				}
+				Q_EMIT draftMessageUpdated(newMessage);
 			}
 		}
-
-		return Message();
 	});
 }
 
-QFuture<QString> MessageDb::removeDraftMessage(const QString &id)
+QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QString &chatJid)
 {
-	return run([this, id]() {
+	return run([this, accountJid, chatJid]() {
 		auto query = createQuery();
-		prepareQuery(query, "DELETE FROM " DB_TABLE_MESSAGES " WHERE id = ? AND deliveryState = ?");
-		bindValues(query, { id, int(DeliveryState::Draft) });
+		prepareQuery(query, "DELETE FROM " DB_TABLE_MESSAGES " WHERE sender = ? AND recipient = ? AND deliveryState = ?");
+		bindValues(query, { accountJid, chatJid, int(DeliveryState::Draft) });
 		execQuery(query);
 
-		emit draftMessageRemoved(id);
+		std::shared_ptr<Message> message {
+			std::make_shared<Message>(_fetchLastMessage(accountJid, chatJid))
+		};
 
-		return id;
-	});
-}
-
-QFuture<Message> MessageDb::fetchDraftMessage(const QString &id)
-{
-	return run([this, id]() {
-		auto query = createQuery();
-		execQuery(
-			query,
-			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE id = ? LIMIT 1",
-			{ id }
-		);
-
-		auto msgs = _fetchMessagesFromQuery(query);
-
-		if (msgs.count() == 1) {
-			emit draftMessageFetched(msgs.constFirst());
-
-			return msgs.constFirst();
+		// The retrieved last message can be a default-constructed message if the removed
+		// message was the last one of the corresponding chat. In that case, the sender and
+		// recipient JIDs are set in order to relate the message to its chat.
+		if (message->from.isEmpty()) {
+			message->from = accountJid;
+			message->to = chatJid;
 		}
 
-		return Message();
+		emit draftMessageRemoved(message);
 	});
 }
 

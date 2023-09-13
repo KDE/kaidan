@@ -21,7 +21,7 @@ class MessageComposition : public QObject
 	Q_PROPERTY(QString body READ body WRITE setBody NOTIFY bodyChanged)
 	Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
 	Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
-	Q_PROPERTY(QString draftId READ draftId WRITE setDraftId NOTIFY draftIdChanged)
+	Q_PROPERTY(bool isDraft READ isDraft WRITE setIsDraft NOTIFY isDraftChanged)
 	Q_PROPERTY(FileSelectionModel *fileSelectionModel MEMBER m_fileSelectionModel CONSTANT)
 
 public:
@@ -38,33 +38,30 @@ public:
 	void setSpoiler(bool spoiler);
 	[[nodiscard]] QString spoilerHint() const { return m_spoilerHint; }
 	void setSpoilerHint(const QString &spoilerHint);
-	[[nodiscard]] QString draftId() const { return m_draftId; }
-	void setDraftId(const QString &id);
+	[[nodiscard]] bool isDraft() const { return m_isDraft; }
+	void setIsDraft(bool isDraft);
 
 	Q_INVOKABLE void send();
-	Q_INVOKABLE void saveDraft();
+	void loadDraft();
 
 	Q_SIGNAL void accountChanged();
 	Q_SIGNAL void toChanged();
 	Q_SIGNAL void bodyChanged();
 	Q_SIGNAL void isSpoilerChanged();
 	Q_SIGNAL void spoilerHintChanged();
-	Q_SIGNAL void draftIdChanged();
-	Q_SIGNAL void draftFetched(const QString &body, bool isSpoiler, const QString &spoilerHint);
+	Q_SIGNAL void isDraftChanged();
 
 private:
-	Message draft() const;
+	void saveDraft();
 
 	QString m_account;
 	QString m_to;
 	QString m_body;
 	bool m_spoiler = false;
 	QString m_spoilerHint;
-	QString m_draftId;
+	bool m_isDraft = false;
 
 	FileSelectionModel *m_fileSelectionModel;
-	QFutureWatcher<Message> *const m_fetchDraftWatcher;
-	QFutureWatcher<QString> *const m_removeDraftWatcher;
 };
 
 class FileSelectionModel : public QAbstractListModel

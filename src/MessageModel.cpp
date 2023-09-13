@@ -387,11 +387,6 @@ void MessageModel::resetCurrentChat() {
 	resetCurrentChat({}, {});
 }
 
-QString MessageModel::currentDraftMessageId() const
-{
-	return m_rosterItemWatcher.item().draftMessageId;
-}
-
 bool MessageModel::isChatCurrentChat(const QString &accountJid, const QString &chatJid) const
 {
 	return accountJid == m_currentAccountJid && chatJid == m_currentChatJid;
@@ -1058,7 +1053,6 @@ void MessageModel::resetCurrentChat(const QString &accountJid, const QString &ch
 	m_accountOmemoWatcher.setJid(accountJid);
 	m_contactOmemoWatcher.setJid(chatJid);
 	m_lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;
-	emit currentDraftMessageIdChanged(currentDraftMessageId());
 
 	// Reset the chat states of the previous chat.
 	m_ownChatState = QXmppMessage::State::None;

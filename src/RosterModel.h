@@ -116,7 +116,6 @@ public:
 
 	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
-	QString draftMessageId(const QString &accountJid, const QString &jid) const;
 
 	/**
 	 * Sends read markers for all roster items that have unsent (pending) ones.
@@ -187,8 +186,7 @@ private:
 	void handleMessageAdded(const Message &message, MessageOrigin origin);
 	void handleDraftMessageAdded(const Message &message);
 	void handleDraftMessageUpdated(const Message &message);
-	void handleDraftMessageRemoved(const QString &id);
-	void handleDraftMessageFetched(const Message &msg);
+	void handleDraftMessageRemoved(std::shared_ptr<Message> newLastMessage);
 	void handleMessageRemoved(std::shared_ptr<Message> newLastMessage);
 
 	void insertItem(int index, const RosterItem &item);

@@ -32,20 +32,19 @@ Controls.Pane {
 	property alias messageArea: messageArea
 	property int lastMessageLength: 0
 	readonly property MessageComposition composition: MessageComposition {
-		id: composition
-		account: AccountManager.jid
+		account: MessageModel.currentAccountJid
 		to: MessageModel.currentChatJid
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
-		draftId: MessageModel.currentDraftMessageId
 
-		onDraftFetched: {
-			this.isSpoiler = isSpoiler;
-			spoilerHintField.text = spoilerHint;
-			messageArea.text = body;
+		onIsDraftChanged: {
+			if (isDraft) {
+				spoilerHintField.text = spoilerHint
+				messageArea.text = body
 
-			// Position the cursor after the draft message's body.
-			messageArea.cursorPosition = messageArea.text.length
+				// Position the cursor after the draft message's body.
+				messageArea.cursorPosition = messageArea.text.length
+			}
 		}
 	}
 

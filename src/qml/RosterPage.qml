@@ -125,14 +125,6 @@ SearchBarPage {
 					searchField.text = ""
 				}
 
-				for (let i = 0; i < pageStack.items.length; ++i) {
-					let page = pageStack.items[i];
-
-					if (page instanceof ChatPage) {
-						page.saveDraft();
-					}
-				}
-
 				MessageModel.setCurrentChat(accountJid, chatJid)
 
 				// Close all pages (especially the chat page) except the roster page.
