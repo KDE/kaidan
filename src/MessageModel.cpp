@@ -1282,41 +1282,44 @@ void MessageModel::sendChatState(ChatState::State state)
 	sendChatState(QXmppMessage::State(state));
 }
 
-void MessageModel::correctMessage(const QString &msgId, const QString &message)
+void MessageModel::correctMessage(const QString &replaceId, const QString &body, const QString &spoilerHint)
 {
-	const auto hasCorrectId = [&msgId](const Message& msg) {
-		return msg.id == msgId;
+	const auto hasCorrectId = [&replaceId](const Message &message) {
+		return message.id == replaceId;
 	};
 	auto itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
 
 	if (itr != m_messages.end()) {
-		Message &msg = *itr;
-		msg.body = message;
-		if (msg.deliveryState != Enums::DeliveryState::Pending) {
-			msg.id = QXmppUtils::generateStanzaUuid();
+		Message &message = *itr;
+		message.body = body;
+		message.isSpoiler = !spoilerHint.isEmpty();
+		message.spoilerHint = spoilerHint;
+
+		if (message.deliveryState != Enums::DeliveryState::Pending) {
+			message.id = QXmppUtils::generateStanzaUuid();
 			// Set replaceId only on first correction, so it's always the original id
 			// (`id` is the id of the current edit, `replaceId` is the original id)
-			if (msg.replaceId.isEmpty()) {
-				msg.replaceId = msgId;
+			if (message.replaceId.isEmpty()) {
+				message.replaceId = replaceId;
 			}
-			msg.deliveryState = Enums::DeliveryState::Pending;
+			message.deliveryState = Enums::DeliveryState::Pending;
 
 			if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
 				// the trick with the time is important for the servers
 				// this way they can tell which version of the message is the latest
-				Message copy = msg;
+				Message copy = message;
 				copy.stamp = QDateTime::currentDateTimeUtc();
-				emit sendCorrectedMessageRequested(copy);
+				Q_EMIT sendCorrectedMessageRequested(copy);
 			}
-		} else if (msg.replaceId.isEmpty()) {
-			msg.stamp = QDateTime::currentDateTimeUtc();
+		} else if (message.replaceId.isEmpty()) {
+			message.stamp = QDateTime::currentDateTimeUtc();
 		}
 
 		QModelIndex index = createIndex(std::distance(m_messages.begin(), itr), 0);
-		emit dataChanged(index, index);
+		Q_EMIT dataChanged(index, index);
 
-		MessageDb::instance()->updateMessage(msgId, [msg](Message &localMessage) {
-			localMessage = msg;
+		MessageDb::instance()->updateMessage(replaceId, [message](Message &localMessage) {
+			localMessage = message;
 		});
 	}
 }

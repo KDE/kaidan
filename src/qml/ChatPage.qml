@@ -57,7 +57,6 @@ ChatPageBase {
 	property alias messageReactionDetailsSheet: messageReactionDetailsSheet
 
 	property ChatPageSendingPane sendingPane
-	property string messageToCorrect
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 	property bool viewPositioned: false
 
@@ -300,12 +299,7 @@ ChatPageBase {
 			detailedReactions: model.detailedReactions
 			ownDetailedReactions: model.ownDetailedReactions
 
-			onMessageEditRequested: {
-				messageToCorrect = id
-
-				sendingPane.messageArea.text = body
-				sendingPane.messageArea.state = "edit"
-			}
+			onMessageEditRequested: (replaceId, body, spoilerHint) => sendingPane.prepareMessageCorrection(replaceId, body, spoilerHint)
 
 			onQuoteRequested: {
 				let quotedText = ""

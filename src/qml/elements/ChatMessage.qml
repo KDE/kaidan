@@ -57,7 +57,7 @@ Kirigami.SwipeListItem {
 			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
 	}
 
-	signal messageEditRequested(string id, string body)
+	signal messageEditRequested(string replaceId, string body, string spoilerHint)
 	signal quoteRequested(string body)
 
 	height: messageArea.implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)

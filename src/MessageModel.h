@@ -195,7 +195,7 @@ public:
 	/**
 	 * Correct the last message
 	 */
-	Q_INVOKABLE void correctMessage(const QString &msgId, const QString &message);
+	Q_INVOKABLE void correctMessage(const QString &replaceId, const QString &body, const QString &spoilerHint);
 
 	/**
 	 * Removes a message locally.

@@ -30,20 +30,26 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
+	property string messageToCorrect
 	property int lastMessageLength: 0
-	readonly property MessageComposition composition: MessageComposition {
+	property MessageComposition composition: MessageComposition {
 		account: MessageModel.currentAccountJid
 		to: MessageModel.currentChatJid
+		replaceId: messageToCorrect
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
 
 		onIsDraftChanged: {
 			if (isDraft) {
-				spoilerHintField.text = spoilerHint
-				messageArea.text = body
+				if (replaceId) {
+					prepareMessageCorrection(replaceId, body, spoilerHint)
+				} else {
+					messageArea.text = body
+					spoilerHintField.text = spoilerHint
 
-				// Position the cursor after the draft message's body.
-				messageArea.cursorPosition = messageArea.text.length
+					// Position the cursor after the draft message's body.
+					messageArea.cursorPosition = messageArea.text.length
+				}
 			}
 		}
 	}
@@ -134,14 +140,6 @@ Controls.Pane {
 						name: "edit"
 					}
 				]
-
-				onStateChanged: {
-					if (state === "edit") {
-						// Move the cursor to the end of the text being corrected.
-						forceActiveFocus()
-						cursorPosition = text.length
-					}
-				}
 
 				Keys.onReturnPressed: {
 					if (event.key === Qt.Key_Return) {
@@ -358,6 +356,18 @@ Controls.Pane {
 		}
 	}
 
+	function prepareMessageCorrection(replaceId, body, spoilerHint) {
+		messageToCorrect = replaceId
+		messageArea.text = body
+		composition.isSpoiler = spoilerHint.length
+		spoilerHintField.text = spoilerHint
+		messageArea.state = "edit"
+
+		// Move the cursor to the end of the text being corrected and focus it.
+		messageArea.cursorPosition = messageArea.text.length
+		forceActiveFocus()
+	}
+
 	/**
 	 * Sends the text entered in the messageArea.
 	 */
@@ -373,7 +383,8 @@ Controls.Pane {
 		if (messageArea.state === "compose") {
 			composition.send()
 		} else if (messageArea.state === "edit") {
-			MessageModel.correctMessage(chatPage.messageToCorrect, messageArea.text)
+			MessageModel.correctMessage(messageToCorrect, messageArea.text, spoilerHintField.text)
+			composition.isDraft = false
 		}
 		MessageModel.resetComposingChatState();
 
@@ -426,8 +437,9 @@ Controls.Pane {
 
 	function clearMessageArea() {
 		messageArea.text = ""
+		composition.isSpoiler = false
 		spoilerHintField.text = ""
-		chatPage.messageToCorrect = ''
+		messageToCorrect = ""
 		messageArea.state = "compose"
 	}
 }

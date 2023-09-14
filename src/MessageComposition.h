@@ -18,6 +18,7 @@ class MessageComposition : public QObject
 	Q_OBJECT
 	Q_PROPERTY(QString account READ account WRITE setAccount NOTIFY accountChanged)
 	Q_PROPERTY(QString to READ to WRITE setTo NOTIFY toChanged)
+	Q_PROPERTY(QString replaceId READ replaceId WRITE setReplaceId NOTIFY replaceIdChanged)
 	Q_PROPERTY(QString body READ body WRITE setBody NOTIFY bodyChanged)
 	Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
 	Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
@@ -32,6 +33,8 @@ public:
 	void setAccount(const QString &account);
 	[[nodiscard]] QString to() const { return m_to; }
 	void setTo(const QString &to);
+	[[nodiscard]] QString replaceId() const { return m_replaceId; }
+	void setReplaceId(const QString &replaceId);
 	[[nodiscard]] QString body() const { return m_body; }
 	void setBody(const QString &body);
 	[[nodiscard]] bool isSpoiler() const { return m_spoiler; }
@@ -46,6 +49,7 @@ public:
 
 	Q_SIGNAL void accountChanged();
 	Q_SIGNAL void toChanged();
+	Q_SIGNAL void replaceIdChanged();
 	Q_SIGNAL void bodyChanged();
 	Q_SIGNAL void isSpoilerChanged();
 	Q_SIGNAL void spoilerHintChanged();
@@ -56,6 +60,7 @@ private:
 
 	QString m_account;
 	QString m_to;
+	QString m_replaceId;
 	QString m_body;
 	bool m_spoiler = false;
 	QString m_spoilerHint;

@@ -61,6 +61,14 @@ void MessageComposition::setTo(const QString &to)
 	}
 }
 
+void MessageComposition::setReplaceId(const QString &replaceId)
+{
+	if (m_replaceId != replaceId) {
+		m_replaceId = replaceId;
+		Q_EMIT replaceIdChanged();
+	}
+}
+
 void MessageComposition::setBody(const QString &body)
 {
 	if (m_body != body) {
@@ -134,6 +142,7 @@ void MessageComposition::loadDraft()
 	auto future = MessageDb::instance()->fetchDraftMessage(m_account, m_to);
 	await(future, this, [this](std::optional<Message> message) {
 		if (message) {
+			setReplaceId(message->replaceId);
 			setBody(message->body);
 			setSpoiler(message->isSpoiler);
 			setSpoilerHint(message->spoilerHint);
@@ -152,26 +161,28 @@ void MessageComposition::saveDraft()
 
 	if (m_isDraft) {
 		if (savingNeeded) {
-			MessageDb::instance()->updateDraftMessage(m_account, m_to, [body = m_body, isSpoiler = m_spoiler, spoilerHint = m_spoilerHint](Message &message) {
+			MessageDb::instance()->updateDraftMessage(m_account, m_to, [this](Message &message) {
+				message.replaceId = m_replaceId;
 				message.stamp = QDateTime::currentDateTimeUtc();
-				message.body = body;
-				message.isSpoiler = isSpoiler;
-				message.spoilerHint = spoilerHint;
+				message.body = m_body;
+				message.isSpoiler = m_spoiler;
+				message.spoilerHint = m_spoilerHint;
 			});
 		} else {
 			MessageDb::instance()->removeDraftMessage(m_account, m_to);
 		}
 	} else if (savingNeeded) {
-		Message msg;
-		msg.from = m_account;
-		msg.to = m_to;
-		msg.stamp = QDateTime::currentDateTimeUtc();
-		msg.body = m_body;
-		msg.isSpoiler = m_spoiler;
-		msg.spoilerHint = m_spoilerHint;
-		msg.deliveryState = DeliveryState::Draft;
+		Message message;
+		message.from = m_account;
+		message.to = m_to;
+		message.replaceId = m_replaceId;
+		message.stamp = QDateTime::currentDateTimeUtc();
+		message.body = m_body;
+		message.isSpoiler = m_spoiler;
+		message.spoilerHint = m_spoilerHint;
+		message.deliveryState = DeliveryState::Draft;
 
-		MessageDb::instance()->addDraftMessage(msg);
+		MessageDb::instance()->addDraftMessage(message);
 	}
 }
 
