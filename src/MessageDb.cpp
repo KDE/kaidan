@@ -571,9 +571,7 @@ QFuture<void> MessageDb::removeMessage(const QString &senderJid, const QString &
 			 { u":sender", senderJid }}
 		);
 
-		auto messages = _fetchMessagesFromQuery(query);
-
-		if (!messages.isEmpty()) {
+		if (query.first()) {
 			// Set the message's content to NULL and the "removed" flag to true.
 			execQuery(
 				query,

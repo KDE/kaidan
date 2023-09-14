@@ -216,7 +216,7 @@ public:
 	 * @param messageId ID of the message
 	 */
 	QFuture<void> removeMessage(const QString &senderJid, const QString &recipientJid, const QString &messageId);
-	Q_SIGNAL void messageRemoved(std::shared_ptr<Message> message);
+	Q_SIGNAL void messageRemoved(std::shared_ptr<Message> newLastMessage);
 
 	/**
 	 * Loads a message, runs the update lambda and writes it to the DB again.
