@@ -188,8 +188,8 @@ private:
 	void handleMessageUpdated(const Message &message);
 	void handleDraftMessageAdded(const Message &message);
 	void handleDraftMessageUpdated(const Message &message);
-	void handleDraftMessageRemoved(std::shared_ptr<Message> newLastMessage);
-	void handleMessageRemoved(std::shared_ptr<Message> newLastMessage);
+	void handleDraftMessageRemoved(const Message &newLastMessage);
+	void handleMessageRemoved(const Message &newLastMessage);
 
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);

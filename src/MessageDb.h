@@ -216,7 +216,7 @@ public:
 	 * @param messageId ID of the message
 	 */
 	QFuture<void> removeMessage(const QString &senderJid, const QString &recipientJid, const QString &messageId);
-	Q_SIGNAL void messageRemoved(std::shared_ptr<Message> newLastMessage);
+	Q_SIGNAL void messageRemoved(const Message &newLastMessage);
 
 	/**
 	 * Loads a message, runs the update lambda and writes it to the DB again.
@@ -251,7 +251,7 @@ public:
 	 * Removes a draft message from the database.
 	 */
 	QFuture<void> removeDraftMessage(const QString &accountJid, const QString &chatJid);
-	Q_SIGNAL void draftMessageRemoved(std::shared_ptr<Message> newLastMessage);
+	Q_SIGNAL void draftMessageRemoved(const Message &newLastMessage);
 
 private:
 	// Setters do INSERT OR REPLACE INTO

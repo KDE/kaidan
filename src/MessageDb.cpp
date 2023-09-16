@@ -599,16 +599,14 @@ QFuture<void> MessageDb::removeMessage(const QString &senderJid, const QString &
 			);
 		}
 
-		std::shared_ptr<Message> message {
-			std::make_shared<Message>(_fetchLastMessage(senderJid, recipientJid))
-		};
+		auto message = _fetchLastMessage(senderJid, recipientJid);
 
 		// The retrieved last message can be a default-constructed message if the removed
 		// message was the last one of the corresponding chat. In that case, the sender and
 		// recipient JIDs are set in order to relate the message to its chat.
-		if (message->from.isEmpty()) {
-			message->from = senderJid;
-			message->to = recipientJid;
+		if (message.from.isEmpty()) {
+			message.from = senderJid;
+			message.to = recipientJid;
 		}
 
 		emit messageRemoved(message);
@@ -847,16 +845,14 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 		bindValues(query, { accountJid, chatJid, int(DeliveryState::Draft) });
 		execQuery(query);
 
-		std::shared_ptr<Message> message {
-			std::make_shared<Message>(_fetchLastMessage(accountJid, chatJid))
-		};
+		auto message = _fetchLastMessage(accountJid, chatJid);
 
 		// The retrieved last message can be a default-constructed message if the removed
 		// message was the last one of the corresponding chat. In that case, the sender and
 		// recipient JIDs are set in order to relate the message to its chat.
-		if (message->from.isEmpty()) {
-			message->from = accountJid;
-			message->to = chatJid;
+		if (message.from.isEmpty()) {
+			message.from = accountJid;
+			message.to = chatJid;
 		}
 
 		emit draftMessageRemoved(message);

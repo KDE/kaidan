@@ -689,9 +689,9 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 	updateItemPosition(i);
 }
 
-void RosterModel::handleDraftMessageRemoved(std::shared_ptr<Message> newLastMessage)
+void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 {
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [accountJid = newLastMessage->from, chatJid = newLastMessage->to](const RosterItem &item) {
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [accountJid = newLastMessage.from, chatJid = newLastMessage.to](const RosterItem &item) {
 		return item.accountJid == accountJid && item.jid == chatJid;
 	});
 
@@ -706,9 +706,9 @@ void RosterModel::handleDraftMessageRemoved(std::shared_ptr<Message> newLastMess
 		int(LastMessageIsDraftRole)
 	};
 
-	itr->lastMessageDeliveryState = newLastMessage->deliveryState;
-	itr->lastMessageDateTime = newLastMessage->stamp;
-	itr->lastMessage = newLastMessage->body;
+	itr->lastMessageDeliveryState = newLastMessage.deliveryState;
+	itr->lastMessageDateTime = newLastMessage.stamp;
+	itr->lastMessage = newLastMessage.body;
 
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
@@ -720,14 +720,10 @@ void RosterModel::handleDraftMessageRemoved(std::shared_ptr<Message> newLastMess
 	updateItemPosition(i);
 }
 
-void RosterModel::handleMessageRemoved(std::shared_ptr<Message> newLastMessage)
+void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 {
-	if (!newLastMessage) {
-		return;
-	}
-
-	newLastMessage->isOwn = AccountManager::instance()->jid() == newLastMessage->from;
-	const auto contactJid = newLastMessage->isOwn ? newLastMessage->to : newLastMessage->from;
+	const auto isOwnMessage = AccountManager::instance()->jid() == newLastMessage.from;
+	const auto contactJid = isOwnMessage ? newLastMessage.to : newLastMessage.from;
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
 		return item.jid == contactJid;
 	});
@@ -739,7 +735,7 @@ void RosterModel::handleMessageRemoved(std::shared_ptr<Message> newLastMessage)
 
 	QVector<int> changedRoles {};
 
-	updateLastMessage(itr, *newLastMessage, changedRoles, false);
+	updateLastMessage(itr, newLastMessage, changedRoles, false);
 
 	// Notify the user interface and watchers.
 	const auto i = std::distance(m_items.begin(), itr);
