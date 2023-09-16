@@ -1579,7 +1579,7 @@ void Database::convertDatabaseToV34()
 
 void Database::convertDatabaseToV35()
 {
-	DATABASE_CONVERT_TO_VERSION(31);
+	DATABASE_CONVERT_TO_VERSION(34);
 	QSqlQuery query(currentDatabase());
 
 	// Remove the column "draftMessageId".
@@ -1637,5 +1637,5 @@ void Database::convertDatabaseToV35()
 	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
 	execQuery(query, "DROP TABLE roster_tmp");
 
-	d->version = 32;
+	d->version = 35;
 }
