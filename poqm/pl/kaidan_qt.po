@@ -264,7 +264,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/MessageComposition.cpp:211
+#: src/MessageComposition.cpp:239
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
@@ -276,12 +276,12 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageHandler.cpp:238
+#: src/MessageHandler.cpp:241
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się"
 
-#: src/MessageHandler.cpp:296
+#: src/MessageHandler.cpp:299
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."
@@ -306,7 +306,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Błąd"
 
-#: src/MessageModel.cpp:681 src/MessageModel.cpp:784 src/MessageModel.cpp:921
+#: src/MessageModel.cpp:676 src/MessageModel.cpp:779 src/MessageModel.cpp:916
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -314,7 +314,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie udało się wysłać wiadomość."
 
-#: src/MessageModel.cpp:862
+#: src/MessageModel.cpp:857
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -463,17 +463,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Skopiuj hasło"
 
-#: src/qml/ChatPage.qml:93
+#: src/qml/ChatPage.qml:92
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr ""
 
-#: src/qml/ChatPage.qml:99
+#: src/qml/ChatPage.qml:98
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Poszukaj"
 
-#: src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:111
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Wyślij zwiniętą wiadomość"
@@ -1345,17 +1345,17 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Poszukaj w dół"
 
-#: src/qml/elements/ChatPageSendingPane.qml:63
+#: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Spoiler hint"
 msgstr "Podpowiedź zwiniętej wiadomości"
 
-#: src/qml/elements/ChatPageSendingPane.qml:70
+#: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Close spoiler hint field"
 msgstr "Zamknij pole podpowiedzi zwiniętej wiadomości"
 
-#: src/qml/elements/ChatPageSendingPane.qml:108
+#: src/qml/elements/ChatPageSendingPane.qml:113
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -1363,7 +1363,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Napisz wiadomość"
 
-#: src/qml/elements/ChatPageSendingPane.qml:108
+#: src/qml/elements/ChatPageSendingPane.qml:113
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -1371,22 +1371,22 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Napisz wiadomość"
 
-#: src/qml/elements/ChatPageSendingPane.qml:228
+#: src/qml/elements/ChatPageSendingPane.qml:225
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:284
+#: src/qml/elements/ChatPageSendingPane.qml:281
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Zrób zdjęcie"
 
-#: src/qml/elements/ChatPageSendingPane.qml:285
+#: src/qml/elements/ChatPageSendingPane.qml:282
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Zrób zdjęcie kamerą"
 
-#: src/qml/elements/ChatPageSendingPane.qml:296
+#: src/qml/elements/ChatPageSendingPane.qml:293
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -1394,12 +1394,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Nagraj obraz"
 
-#: src/qml/elements/ChatPageSendingPane.qml:297
+#: src/qml/elements/ChatPageSendingPane.qml:294
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Nagraj wideo kamerą"
 
-#: src/qml/elements/ChatPageSendingPane.qml:308
+#: src/qml/elements/ChatPageSendingPane.qml:305
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send files"
@@ -1407,12 +1407,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Wyślij pliki"
 
-#: src/qml/elements/ChatPageSendingPane.qml:309
+#: src/qml/elements/ChatPageSendingPane.qml:306
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:320
+#: src/qml/elements/ChatPageSendingPane.qml:317
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -1420,7 +1420,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Wyślij położenie"
 
-#: src/qml/elements/ChatPageSendingPane.qml:321
+#: src/qml/elements/ChatPageSendingPane.qml:318
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Wyślij swoje położenie"
@@ -1677,9 +1677,20 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:72
+#: src/qml/elements/RosterListItem.qml:74
 msgctxt "RosterListItem|"
 msgid "Draft:"
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:77
+msgctxt "RosterListItem|"
+msgid "Me:"
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:79
+#, qt-format
+msgctxt "RosterListItem|"
+msgid "%1:"
 msgstr ""
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
@@ -2577,7 +2588,7 @@ msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr "Odmów %s zobaczenia, że twój stan się nie udał"
 
-#: src/RosterModel.cpp:820
+#: src/RosterModel.cpp:839
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
