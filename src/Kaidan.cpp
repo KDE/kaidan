@@ -78,6 +78,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 Kaidan::~Kaidan()
 {
+	m_cltThrd->quit();
+	m_cltThrd->wait();
 	s_instance = nullptr;
 }
 
