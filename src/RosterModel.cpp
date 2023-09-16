@@ -418,16 +418,20 @@ void RosterModel::updateLastMessage(
 		return;
 	}
 
-	itr->lastMessageDateTime = message.stamp;
-
 	// The new message is only set as the current last message if they are different and there
 	// is no draft message.
 	if (const auto lastMessage = message.previewText();
 		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft && itr->lastMessage != lastMessage)
 	{
+		itr->lastMessageDateTime = message.stamp;
 		itr->lastMessage = lastMessage;
 		itr->lastMessageSenderJid = message.from;
-		changedRoles << int(LastMessageRole) << int(LastMessageSenderJidRole);
+
+		changedRoles = {
+			int(LastMessageRole),
+			int(LastMessageSenderJidRole),
+			int(LastMessageDateTimeRole),
+		};
 	}
 }
 
