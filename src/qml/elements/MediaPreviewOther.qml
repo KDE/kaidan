@@ -54,55 +54,63 @@ Rectangle {
 
 
 			// left: file icon
-			Rectangle {
-				id: fallbackCircle
-
-				visible: !file.hasThumbnail
-				Layout.fillHeight: true
-				Layout.preferredWidth: height
+			Item {
+				Layout.preferredHeight: Kirigami.Units.gridUnit * 3
+				Layout.preferredWidth: Layout.preferredHeight
 				Layout.alignment: Qt.AlignLeft
-				radius: height / 2
-				color: Qt.lighter(Kirigami.Theme.focusColor, 1.05)
 
-				Kirigami.Icon {
-					source: root.fileAvailable ? file.mimeTypeIcon : "download"
-					isMask: !openButton.pressed && !openButton.containsMouse
-					smooth: true
-					height: 24 // we always want the 24x24 icon
-					width: height
+				Rectangle {
+					id: fallbackCircle
+
+					visible: !file.hasThumbnail
+					radius: height / 2
+					color: Qt.lighter(Kirigami.Theme.focusColor, 1.05)
 
 					anchors {
-						centerIn: parent
+						fill: parent
 					}
-				}
-			}
-			Kirigami.Icon {
-				id: thumbnailIcon
-				visible: file.hasThumbnail
-				Layout.fillHeight: true
-				Layout.preferredWidth: height
-				Layout.alignment: Qt.AlignLeft
-				source: file.thumbnailSquare
 
-				layer.enabled: true
-				layer.effect: OpacityMask {
-					maskSource: Item {
-						width: thumbnailIcon.paintedWidth
-						height: thumbnailIcon.paintedHeight
+					Kirigami.Icon {
+						source: root.fileAvailable ? file.mimeTypeIcon : "download"
+						isMask: !openButton.pressed && !openButton.containsMouse
+						smooth: true
+						height: 24 // we always want the 24x24 icon
+						width: height
 
-						Rectangle {
-							anchors.centerIn: parent
-							width: Math.min(thumbnailIcon.width, thumbnailIcon.height)
-							height: width
-							radius: roundedCornersRadius
+						anchors {
+							centerIn: parent
 						}
 					}
 				}
-
 				Kirigami.Icon {
-					source: "download"
-					anchors.fill: thumbnailIcon
-					visible: !root.fileAvailable
+					id: thumbnailIcon
+					visible: file.hasThumbnail
+					source: file.thumbnailSquare
+
+					anchors {
+						fill: parent
+					}
+
+					layer.enabled: true
+					layer.effect: OpacityMask {
+						maskSource: Item {
+							width: thumbnailIcon.paintedWidth
+							height: thumbnailIcon.paintedHeight
+
+							Rectangle {
+								anchors.centerIn: parent
+								width: Math.min(thumbnailIcon.width, thumbnailIcon.height)
+								height: width
+								radius: roundedCornersRadius
+							}
+						}
+					}
+
+					Kirigami.Icon {
+						source: "download"
+						anchors.fill: thumbnailIcon
+						visible: !root.fileAvailable
+					}
 				}
 			}
 
