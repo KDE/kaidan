@@ -90,7 +90,9 @@ class MessageModel : public QAbstractListModel
 public:
 	// Basically copy from QXmpp, but we need to expose this to QML
 	enum MessageRoles {
-		Timestamp = Qt::UserRole + 1,
+		Date = Qt::UserRole + 1,
+		NextDate,
+		Time,
 		Id,
 		Sender,
 		Recipient,
@@ -324,6 +326,22 @@ private:
 	void showMessageNotification(const Message &message, MessageOrigin origin) const;
 
 	void updateMessageReactionsAfterSending(const QString &messageId, const QString &senderJid);
+
+	/**
+	 * Searches a message with a more recent date and returns that date.
+	 *
+	 * This is needed as a workaround for a bug in Qt Quick's implementation of the ListView section
+	 * for "verticalLayoutDirection: ListView.BottomToTop".
+	 * That bug results in each section label being displayed at the bottom of its corresponding
+	 * section instead of displaying it at the top of it.
+	 *
+	 * @param messageStartIndex index of the message to start the search with
+	 *
+	 * @return the date of the first message with a more recent date
+	 */
+	QDate searchNextDate(int messageStartIndex) const;
+
+	QString formatDate(QDate localDate) const;
 
 	QVector<Message> m_messages;
 	QString m_currentAccountJid;

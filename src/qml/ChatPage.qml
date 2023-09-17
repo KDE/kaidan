@@ -57,6 +57,7 @@ ChatPageBase {
 	property alias messageReactionDetailsSheet: messageReactionDetailsSheet
 
 	property ChatPageSendingPane sendingPane
+	property ChatDate globalChatDate
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 	property bool viewPositioned: false
 
@@ -163,6 +164,33 @@ ChatPageBase {
 		id: messageListView
 		verticalLayoutDirection: ListView.BottomToTop
 		spacing: 0
+		footerPositioning: ListView.OverlayFooter
+		section.property: "nextDate"
+		section.delegate: ColumnLayout {
+			anchors.horizontalCenter: parent.horizontalCenter
+			spacing: 0
+
+			Item {
+				height: Kirigami.Units.smallSpacing * 3
+			}
+
+			// placeholder for the hidden chatDate
+			Item {
+				height: chatDate.height
+				visible: !chatDate.visible
+			}
+
+			ChatDate {
+				id: chatDate
+				text: section
+				// Hide the date if the section label would display the same date as globalChatDate.
+				visible: root.globalChatDate && text !== root.globalChatDate.text
+			}
+
+			Item {
+				height: Kirigami.Units.smallSpacing
+			}
+		}
 
 		// Highlighting of the message containing a searched string.
 		highlight: Component {
@@ -285,7 +313,8 @@ ChatPageBase {
 			isTrusted: model.isTrusted
 			isOwn: model.isOwn
 			messageBody: model.body
-			dateTime: new Date(model.timestamp)
+			date: model.date
+			time: model.time
 			deliveryState: model.deliveryState
 			deliveryStateName: model.deliveryStateName
 			deliveryStateIcon: model.deliveryStateIcon
@@ -331,17 +360,60 @@ ChatPageBase {
 			}
 		}
 
-		footer: Controls.BusyIndicator {
-			visible: opacity !== 0.0
+		footer: ColumnLayout {
+			z: 2
 			anchors.horizontalCenter: parent.horizontalCenter
-			height: visible ? undefined : Kirigami.Units.smallSpacing * 4
-			padding: 0
-			opacity: MessageModel.mamLoading ? 1.0 : 0.0
+			spacing: 0
 
-			Behavior on opacity {
-				NumberAnimation {
-					duration: Kirigami.Units.shortDuration
+			Item {
+				height: Kirigami.Units.smallSpacing * 3
+			}
+
+			// date of the top-most (first) visible message shown at the top of the ChatPage
+			ChatDate {
+				text: {
+					// The "yPosition" is checked in order to update/display the text once the
+					// ChatPage is opened and its messages loaded.
+					if (messageListView.visibleArea.yPosition >= 0) {
+						const contentY = messageListView.contentY
+
+						// Search until a message is found if there is a section label instead of a
+						// message at the top of the visible/content area.
+						// "i" is used as an offset.
+						for (let i = 0; i < 100; i++) {
+							const firstVisibleMessage = messageListView.itemAt(0, contentY + i)
+
+							if (firstVisibleMessage) {
+								return firstVisibleMessage.date
+							}
+						}
+
+						return ""
+					}
+
+					return ""
 				}
+				visible: text.length
+				Component.onCompleted: root.globalChatDate = this
+			}
+
+			Controls.BusyIndicator {
+				visible: opacity !== 0.0
+				height: visible ? undefined : Kirigami.Units.smallSpacing * 4
+				Layout.alignment: Qt.AlignHCenter
+				Layout.topMargin: Kirigami.Units.smallSpacing
+				padding: 0
+				opacity: MessageModel.mamLoading ? 1.0 : 0.0
+
+				Behavior on opacity {
+					NumberAnimation {
+						duration: Kirigami.Units.shortDuration
+					}
+				}
+			}
+
+			Item {
+				height: Kirigami.Units.smallSpacing
 			}
 		}
 

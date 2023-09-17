@@ -36,7 +36,8 @@ Kirigami.SwipeListItem {
 	property int encryption
 	property bool isTrusted
 	property string messageBody
-	property date dateTime
+	property string date
+	property string time
 	property int deliveryState
 	property string deliveryStateName
 	property url deliveryStateIcon

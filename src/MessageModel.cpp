@@ -138,7 +138,9 @@ int MessageModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
 	QHash<int, QByteArray> roles;
-	roles[Timestamp] = "timestamp";
+	roles[Date] = "date";
+	roles[NextDate] = "nextDate";
+	roles[Time] = "time";
 	roles[Id] = "id";
 	roles[Sender] = "sender";
 	roles[Recipient] = "recipient";
@@ -163,15 +165,21 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 
 QVariant MessageModel::data(const QModelIndex &index, int role) const
 {
-	if (!hasIndex(index.row(), index.column(), index.parent())) {
+	const auto row = index.row();
+
+	if (!hasIndex(row, index.column(), index.parent())) {
 		qWarning() << "Could not get data from message model." << index << role;
 		return {};
 	}
-	const Message &msg = m_messages.at(index.row());
+	const Message &msg = m_messages.at(row);
 
 	switch (role) {
-	case Timestamp:
-		return msg.stamp;
+	case Date:
+		return formatDate(msg.stamp.date());
+	case NextDate:
+		return formatDate(searchNextDate(row));
+	case Time:
+		return QLocale::system().toString(msg.stamp.time(), QLocale::ShortFormat);
 	case Id:
 		return msg.id;
 	case Sender:
@@ -302,6 +310,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case OwnDetailedReactions:
 		return QVariant::fromValue(msg.reactionSenders.value(m_currentAccountJid).reactions);
 	}
+
 	return {};
 }
 
@@ -1481,5 +1490,38 @@ void MessageModel::handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QX
 	// levels.
 	if (!m_messages.isEmpty()) {
 		emit dataChanged(index(0), index(m_messages.size() - 1), { IsTrusted });
+	}
+}
+
+QDate MessageModel::searchNextDate(int messageStartIndex) const
+{
+	const auto startDate = m_messages.at(messageStartIndex).stamp.toLocalTime().date();
+
+	for (int i = messageStartIndex; i >= 0; i--) {
+		if (const auto date = m_messages.at(i).stamp.toLocalTime().date(); date > startDate) {
+			return date;
+		}
+	}
+
+	return {};
+}
+
+QString MessageModel::formatDate(QDate localDate) const
+{
+	if (localDate.isNull()) {
+		// Unset date: Return a default-constructed string.
+		return {};
+	} else if (const auto elapsedNightCount = localDate.daysTo(QDateTime::currentDateTime().date()); elapsedNightCount == 0) {
+		// Today: Return that term.
+		return tr("Today");
+	} else if (elapsedNightCount == 1) {
+		// Yesterday: Return that term.
+		return tr("Yesterday");
+	} else if (elapsedNightCount <= 7) {
+		// Between yesterday and seven days before today: Return the day of the week.
+		return QLocale::system().dayName(localDate.dayOfWeek(), QLocale::LongFormat);
+	} else {
+		// Older than seven days before today: Return the date.
+		return QLocale::system().toString(localDate, QLocale::LongFormat);
 	}
 }
