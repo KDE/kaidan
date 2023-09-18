@@ -196,7 +196,7 @@ private:
 	int positionToAdd(const RosterItem &item);
 	int positionToMove(int currentIndex);
 	
-	QString formattedLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
+	QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
 
 	QVector<RosterItem> m_items;
 

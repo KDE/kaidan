@@ -128,7 +128,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		// Thus, each new item has the current date as its default value.
 		// But that date should only be displayed when there is a last (exchanged or draft) message.
 		if (const auto &item = m_items.at(index.row()); !item.lastMessage.isEmpty() || item.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
-			return formattedLastMessageDateTime(m_items.at(index.row()).lastMessageDateTime);
+			return formatLastMessageDateTime(m_items.at(index.row()).lastMessageDateTime);
 		}
 
 		// The user interface needs a valid string.
@@ -827,19 +827,19 @@ int RosterModel::positionToMove(int currentIndex)
 	return currentIndex == m_items.size() - 1 ? currentIndex : m_items.size();
 }
 
-QString RosterModel::formattedLastMessageDateTime(const QDateTime &lastMessageDateTime) const
+QString RosterModel::formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const
 {
 	const QDateTime &lastMessageLocalDateTime { lastMessageDateTime.toLocalTime() };
 
 	if (const auto elapsedNightCount = lastMessageDateTime.daysTo(QDateTime::currentDateTimeUtc()); elapsedNightCount == 0) {
 		// Today: Return only the time.
-		return QLocale::system().toString(lastMessageLocalDateTime.time(), QStringLiteral("hh:mm"));
+		return QLocale::system().toString(lastMessageLocalDateTime.time(), QLocale::ShortFormat);
 	} else if (elapsedNightCount == 1) {
 		// Yesterday: Return that term.
 		return tr("Yesterday");
 	} else if (elapsedNightCount <= 7) {
 		// Between yesterday and seven days before today: Return the day of the week.
-		return QLocale::system().toString(lastMessageLocalDateTime.date(), QStringLiteral("ddd"));
+		return QLocale::system().dayName(lastMessageLocalDateTime.date().dayOfWeek(), QLocale::ShortFormat);
 	} else {
 		// Older than seven days before today: Return the date.
 		return QLocale::system().toString(lastMessageLocalDateTime.date(), QLocale::ShortFormat);
