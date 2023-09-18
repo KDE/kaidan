@@ -471,7 +471,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		case MessageOrigin::Stream:
 			if (_checkMessageExists(msg)) {
 				// Mark messages sent to oneself as delivered.
-				if (msg.isOwn) {
+				if (msg.isOwn && msg.from == msg.to) {
 					updateMessage(msg.id, [](Message &msg) {
 						msg.deliveryState = Enums::DeliveryState::Delivered;
 					});
