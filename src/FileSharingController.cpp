@@ -146,7 +146,7 @@ FileSharingController::FileSharingController(QXmppClient *client)
 		auto reqMan = client->findExtension<QXmppUploadRequestManager>();
 		Q_ASSERT(reqMan);
 
-		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, reqMan, [reqMan]() {
+		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [reqMan]() {
 			bool supported = reqMan->serviceFound();
 			Kaidan::instance()->serverFeaturesCache()->setHttpUploadSupported(supported);
 		});
