@@ -244,7 +244,7 @@ if(ANDROID OR IOS)
 endif()
 
 if(ANDROID)
-	target_link_libraries(${PROJECT_NAME} PkgConfig::OPENSSL SQLite::SQLite3 Qt5::AndroidExtras)
+	target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
 endif()
 
 if(STATIC_BUILD)

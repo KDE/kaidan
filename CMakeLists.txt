@@ -122,8 +122,7 @@ if(ANDROID)
 	# We need to link against sqlite3 to help androiddeployqt detect that we need it
 	find_package(SQLite3 REQUIRED)
 
-	find_package(PkgConfig REQUIRED)
-	pkg_search_module(OPENSSL REQUIRED openssl IMPORTED_TARGET)
+	find_package(OpenSSL 1.1 REQUIRED COMPONENTS Crypto)
 	message(STATUS "Using OpenSSL ${OPENSSL_VERSION}")
 endif()
 
