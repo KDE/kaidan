@@ -227,7 +227,6 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Location
 	Qt::QuickControls2
 	KF5::CoreAddons
-	KF5::KIOFileWidgets
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}
@@ -245,6 +244,8 @@ endif()
 
 if(ANDROID)
 	target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
+else()
+	target_link_libraries(${PROJECT_NAME} KF5::KIOFileWidgets)
 endif()
 
 if(STATIC_BUILD)

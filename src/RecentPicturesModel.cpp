@@ -6,6 +6,22 @@
 
 #include "RecentPicturesModel.h"
 
+#ifdef Q_OS_ANDROID
+RecentPicturesModel::RecentPicturesModel(QObject *parent)
+	: QAbstractListModel(parent)
+{
+}
+
+int RecentPicturesModel::rowCount(const QModelIndex &) const
+{
+	return 0;
+}
+
+QVariant RecentPicturesModel::data(const QModelIndex &, int) const
+{
+	return {};
+}
+#else
 #include <KDirLister>
 #include <KDirModel>
 
@@ -41,3 +57,4 @@ bool RecentPicturesModel::subSortLessThan(const QModelIndex &left, const QModelI
 
 	return leftFile.time(KFileItem::ModificationTime) > rightFile.time(KFileItem::ModificationTime);
 }
+#endif

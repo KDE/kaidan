@@ -6,6 +6,21 @@
 
 #pragma once
 
+#ifdef Q_OS_ANDROID
+#include <QAbstractListModel>
+
+class RecentPicturesModel : public QAbstractListModel
+{
+	Q_OBJECT
+
+public:
+	explicit RecentPicturesModel(QObject *parent = nullptr);
+
+	int rowCount(const QModelIndex &) const override;
+	QVariant data(const QModelIndex &, int) const override;
+
+};
+#else
 #include <KDirSortFilterProxyModel>
 
 class RecentPicturesModel : public KDirSortFilterProxyModel
@@ -25,4 +40,4 @@ public:
 
     bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
-
+#endif
