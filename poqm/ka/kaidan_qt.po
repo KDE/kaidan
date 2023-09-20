@@ -272,37 +272,50 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "შეტყობინების გაგზავნა შეუძლებელია."
 
-#: src/MessageModel.cpp:234
+#: src/MessageModel.cpp:242
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "დარჩენილი"
 
-#: src/MessageModel.cpp:236
+#: src/MessageModel.cpp:244
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "გაგზავნილია"
 
-#: src/MessageModel.cpp:238
+#: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "მოწოდებულია"
 
-#: src/MessageModel.cpp:240
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:676 src/MessageModel.cpp:779 src/MessageModel.cpp:916
+#: src/MessageModel.cpp:685 src/MessageModel.cpp:788 src/MessageModel.cpp:925
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:857
+#: src/MessageModel.cpp:866
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
+
+#: src/MessageModel.cpp:1516
+msgctxt "MessageModel|"
+msgid "Today"
+msgstr ""
+
+#: src/MessageModel.cpp:1519
+#, fuzzy
+#| msgctxt "RosterModel|"
+#| msgid "Yesterday"
+msgctxt "MessageModel|"
+msgid "Yesterday"
+msgstr "გუშინ"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -445,17 +458,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "პაროლის კოპირება"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "დეტალები…"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "ძებნა"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "სპოილერის გაგზავნა"
@@ -1039,22 +1052,22 @@ msgstr ""
 "ყველა ფაილის წაშლა შეუძლებელია:\n"
 "%1"
 
-#: src/qml/elements/ChatMessage.qml:149
+#: src/qml/elements/ChatMessage.qml:150
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/qml/elements/ChatMessage.qml:301
+#: src/qml/elements/ChatMessage.qml:302
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "დაუშიფრავი"
 
-#: src/qml/elements/ChatMessage.qml:306
+#: src/qml/elements/ChatMessage.qml:307
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "არასანდო"
 
-#: src/qml/elements/ChatMessage.qml:338
+#: src/qml/elements/ChatMessage.qml:339
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"

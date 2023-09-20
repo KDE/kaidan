@@ -279,27 +279,27 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageModel.cpp:234
+#: src/MessageModel.cpp:242
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Jonossa"
 
-#: src/MessageModel.cpp:236
+#: src/MessageModel.cpp:244
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Lähetetty"
 
-#: src/MessageModel.cpp:238
+#: src/MessageModel.cpp:246
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Välitetty"
 
-#: src/MessageModel.cpp:240
+#: src/MessageModel.cpp:248
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Virhe"
 
-#: src/MessageModel.cpp:676 src/MessageModel.cpp:779 src/MessageModel.cpp:916
+#: src/MessageModel.cpp:685 src/MessageModel.cpp:788 src/MessageModel.cpp:925
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -307,13 +307,23 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageModel.cpp:857
+#: src/MessageModel.cpp:866
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Viestiä ei voitu lähettää."
+
+#: src/MessageModel.cpp:1516
+msgctxt "MessageModel|"
+msgid "Today"
+msgstr ""
+
+#: src/MessageModel.cpp:1519
+msgctxt "MessageModel|"
+msgid "Yesterday"
+msgstr ""
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -456,17 +466,17 @@ msgctxt "AccountTransferPage|"
 msgid "Copy password"
 msgstr "Kopioi salasana"
 
-#: src/qml/ChatPage.qml:92
+#: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Yksityiskohdat…"
 
-#: src/qml/ChatPage.qml:98
+#: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Etsi"
 
-#: src/qml/ChatPage.qml:111
+#: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Send a spoiler message"
 msgstr "Lähetä vihjeviesti"
@@ -1064,22 +1074,22 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:149
+#: src/qml/elements/ChatMessage.qml:150
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:301
+#: src/qml/elements/ChatMessage.qml:302
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Ei salattu"
 
-#: src/qml/elements/ChatMessage.qml:306
+#: src/qml/elements/ChatMessage.qml:307
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "Ei luotettu"
 
-#: src/qml/elements/ChatMessage.qml:338
+#: src/qml/elements/ChatMessage.qml:339
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
