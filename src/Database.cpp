@@ -904,8 +904,8 @@ void Database::convertDatabaseToV18()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES Roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES Roster (jid)"
 		)
 	);
 
@@ -941,8 +941,8 @@ void Database::convertDatabaseToV18()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES Roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES Roster (jid)"
 		)
 	);
 
@@ -1030,8 +1030,8 @@ void Database::convertDatabaseToV19()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES Roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES Roster (jid)"
 		)
 	);
 
@@ -1065,8 +1065,8 @@ void Database::convertDatabaseToV19()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES Roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES Roster (jid)"
 		)
 	);
 
@@ -1100,7 +1100,7 @@ void Database::convertDatabaseToV22()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_MESSAGE_REACTIONS,
+			"messageReactions",
 			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
@@ -1164,6 +1164,71 @@ void Database::convertDatabaseToV23()
 
 	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
 	execQuery(query, "DROP TABLE roster_tmp");
+
+	// Adapt the foreign keys of table "messages" to new table name "roster".
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages_tmp",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		"senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
+		"replaceId, originId, stanzaId, file_group_id FROM messages"
+	);
+
+	execQuery(query, "DROP TABLE messages");
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(message, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isMarkable, SQL_BOOL)
+			SQL_ATTRIBUTE(isEdited, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(file_group_id, SQL_INTEGER)
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
+	execQuery(query, "DROP TABLE messages_tmp");
 
 	// Use camelCase for all tables.
 
@@ -1258,8 +1323,8 @@ void Database::convertDatabaseToV25()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
 		)
 	);
 
@@ -1292,8 +1357,8 @@ void Database::convertDatabaseToV25()
 			SQL_ATTRIBUTE(originId, SQL_TEXT)
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
 		)
 	);
 
@@ -1473,8 +1538,8 @@ void Database::convertDatabaseToV32()
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
 			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
 		)
 	);
 
@@ -1507,8 +1572,8 @@ void Database::convertDatabaseToV32()
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
 			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(sender) REFERENCES roster (jid),"
+			"FOREIGN KEY(recipient) REFERENCES roster (jid)"
 		)
 	);
 
@@ -1548,7 +1613,7 @@ void Database::convertDatabaseToV33()
 			SQL_ATTRIBUTE(draftMessageId, SQL_TEXT)
 			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
 			"PRIMARY KEY(accountJid, jid),"
-			"FOREIGN KEY(draftMessageId) REFERENCES " DB_TABLE_MESSAGES " (id)"
+			"FOREIGN KEY(draftMessageId) REFERENCES messages (id)"
 		)
 	);
 
@@ -1568,8 +1633,8 @@ void Database::convertDatabaseToV34()
 			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(name, SQL_TEXT_NOT_NULL)
 			"PRIMARY KEY(accountJid, chatJid, name),"
-			"FOREIGN KEY(accountJid) REFERENCES " DB_TABLE_ROSTER " (accountJid),"
-			"FOREIGN KEY(chatJid) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(accountJid) REFERENCES roster (accountJid),"
+			"FOREIGN KEY(chatJid) REFERENCES roster (jid)"
 		)
 	);
 
