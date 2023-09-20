@@ -34,27 +34,27 @@ MessageComposition::MessageComposition()
 	});
 }
 
-void MessageComposition::setAccount(const QString &account)
+void MessageComposition::setAccountJid(const QString &accountJid)
 {
-	if (m_account != account) {
+	if (m_accountJid != accountJid) {
 		// Save the draft of the last chat when the current chat is changed.
 		saveDraft();
 
-		m_account = account;
-		Q_EMIT accountChanged();
+		m_accountJid = accountJid;
+		Q_EMIT accountJidChanged();
 
 		loadDraft();
 	}
 }
 
-void MessageComposition::setTo(const QString &to)
+void MessageComposition::setChatJid(const QString &chatJid)
 {
-	if (m_to != to) {
+	if (m_chatJid != chatJid) {
 		// Save the draft of the last chat when the current chat is changed.
 		saveDraft();
 
-		m_to = to;
-		Q_EMIT toChanged();
+		m_chatJid = chatJid;
+		Q_EMIT chatJidChanged();
 
 		loadDraft();
 	}
@@ -99,20 +99,21 @@ void MessageComposition::setIsDraft(bool isDraft)
 		Q_EMIT isDraftChanged();
 
 		if (!isDraft) {
-			MessageDb::instance()->removeDraftMessage(m_account, m_to);
+			MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
 		}
 	}
 }
 
 void MessageComposition::send()
 {
-	Q_ASSERT(!m_account.isNull());
-	Q_ASSERT(!m_to.isNull());
+	Q_ASSERT(!m_accountJid.isNull());
+	Q_ASSERT(!m_chatJid.isNull());
 
 	if (m_fileSelectionModel->hasFiles()) {
 		Message message;
-		message.from = m_account;
-		message.to = m_to;
+		message.accountJid = m_accountJid;
+		message.chatJid = m_chatJid;
+		message.senderId = m_accountJid;
 		message.body = m_body;
 		message.files = m_fileSelectionModel->files();
 		message.receiptRequested = true;
@@ -125,7 +126,7 @@ void MessageComposition::send()
 		Q_EMIT Kaidan::instance()
 			->client()
 			->messageHandler()
-			->sendMessageRequested(m_to, m_body, m_spoiler, m_spoilerHint);
+			->sendMessageRequested(m_chatJid, m_body, m_spoiler, m_spoilerHint);
 	}
 
 	setSpoiler(false);
@@ -134,11 +135,11 @@ void MessageComposition::send()
 
 void MessageComposition::loadDraft()
 {
-	if (m_account.isEmpty() || m_to.isEmpty()) {
+	if (m_accountJid.isEmpty() || m_chatJid.isEmpty()) {
 		return;
 	}
 
-	auto future = MessageDb::instance()->fetchDraftMessage(m_account, m_to);
+	auto future = MessageDb::instance()->fetchDraftMessage(m_accountJid, m_chatJid);
 	await(future, this, [this](std::optional<Message> message) {
 		if (message) {
 			setReplaceId(message->replaceId);
@@ -152,7 +153,7 @@ void MessageComposition::loadDraft()
 
 void MessageComposition::saveDraft()
 {
-	if (m_account.isEmpty() || m_to.isEmpty()) {
+	if (m_accountJid.isEmpty() || m_chatJid.isEmpty()) {
 		return;
 	}
 
@@ -160,7 +161,7 @@ void MessageComposition::saveDraft()
 
 	if (m_isDraft) {
 		if (savingNeeded) {
-			MessageDb::instance()->updateDraftMessage(m_account, m_to, [this](Message &message) {
+			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this](Message &message) {
 				message.replaceId = m_replaceId;
 				message.stamp = QDateTime::currentDateTimeUtc();
 				message.body = m_body;
@@ -168,12 +169,12 @@ void MessageComposition::saveDraft()
 				message.spoilerHint = m_spoilerHint;
 			});
 		} else {
-			MessageDb::instance()->removeDraftMessage(m_account, m_to);
+			MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
 		}
 	} else if (savingNeeded) {
 		Message message;
-		message.from = m_account;
-		message.to = m_to;
+		message.accountJid = m_accountJid;
+		message.chatJid = m_chatJid;
 		message.replaceId = m_replaceId;
 		message.stamp = QDateTime::currentDateTimeUtc();
 		message.body = m_body;

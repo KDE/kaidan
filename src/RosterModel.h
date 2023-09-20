@@ -40,7 +40,7 @@ public:
 		UnreadMessagesRole,
 		LastMessageRole,
 		LastMessageIsDraftRole,
-		LastMessageSenderJidRole,
+		LastMessageSenderIdRole,
 		PinnedRole,
 		NotificationsMutedRole,
 	};

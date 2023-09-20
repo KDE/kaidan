@@ -29,7 +29,7 @@ Kirigami.SwipeListItem {
 
 	property int modelIndex
 	property string msgId
-	property string senderJid
+	property string senderId
 	property string senderName
 	property string chatName
 	property bool isOwn: true
@@ -55,7 +55,7 @@ Kirigami.SwipeListItem {
 
 	property bool isGroupBegin: {
 		return modelIndex < 1 ||
-			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.Sender) !== senderJid
+			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderId) !== senderId
 	}
 
 	signal messageEditRequested(string replaceId, string body, string spoilerHint)
@@ -101,7 +101,7 @@ Kirigami.SwipeListItem {
 					id: avatar
 					visible: !isOwn && isGroupBegin
 					anchors.fill: parent
-					jid: root.senderJid
+					jid: root.senderId
 					name: root.senderName
 				}
 			}

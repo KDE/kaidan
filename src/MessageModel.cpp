@@ -141,8 +141,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[NextDate] = "nextDate";
 	roles[Time] = "time";
 	roles[Id] = "id";
-	roles[Sender] = "sender";
-	roles[Recipient] = "recipient";
+	roles[SenderId] = "senderId";
 	roles[Encryption] = "encryption";
 	roles[IsTrusted] = "isTrusted";
 	roles[Body] = "body";
@@ -181,10 +180,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return QLocale::system().toString(msg.stamp.time(), QLocale::ShortFormat);
 	case Id:
 		return msg.id;
-	case Sender:
-		return msg.from;
-	case Recipient:
-		return msg.to;
+	case SenderId:
+		return msg.senderId;
 	case Encryption:
 		return msg.encryption;
 	case IsTrusted: {
@@ -192,7 +189,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return true;
 		}
 
-		const auto trustLevel = m_keys.value(msg.from).value(msg.senderKey);
+		const auto trustLevel = m_keys.value(msg.accountJid == msg.senderId ? msg.accountJid : msg.senderId).value(msg.senderKey);
 		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
 	}
 	case Body:
@@ -206,7 +203,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		// message is received by the contact after it.
 		if (msg.id == m_lastReadOwnMessageId) {
 			for (auto i = index.row(); i >= 0; --i) {
-				if (m_messages.at(i).from != m_currentAccountJid) {
+				if (m_messages.at(i).senderId != m_currentAccountJid) {
 					return false;
 				}
 			}
@@ -999,11 +996,11 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 
 	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.length() - 1);
 	for (auto msg : msgs) {
-		// Skip messages that were not fetched for this chat
-		if (msg.from != m_currentChatJid && msg.to != m_currentChatJid) {
+		// Skip messages that were not fetched for the current chat.
+		if (msg.accountJid != m_currentAccountJid || msg.chatJid != m_currentChatJid) {
 			continue;
 		}
-		msg.isOwn = AccountManager::instance()->jid() == msg.from;
+		msg.isOwn = msg.accountJid == msg.senderId;
 		processMessage(msg);
 		m_messages << msg;
 	}
@@ -1159,7 +1156,7 @@ void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 
 	showMessageNotification(msg, origin);
 
-	if (msg.from == m_currentChatJid || msg.to == m_currentChatJid) {
+	if (msg.accountJid == m_currentAccountJid && msg.chatJid == m_currentChatJid) {
 		addMessage(std::move(msg));
 	}
 }
@@ -1358,7 +1355,7 @@ void MessageModel::removeMessage(const QString &messageId)
 					item.lastReadContactMessageId = QString();
 					item.lastReadOwnMessageId = QString();
 					item.lastMessage = QString();
-					item.lastMessageSenderJid = QString();
+					item.lastMessageSenderId = QString();
 					item.unreadMessages = 0;
 				});
 			} else {
@@ -1375,7 +1372,7 @@ void MessageModel::removeMessage(const QString &messageId)
 
 		// Remove the message from the database and model.
 
-		MessageDb::instance()->removeMessage(itr->from, itr->to, messageId);
+		MessageDb::instance()->removeMessage(itr->accountJid, itr->chatJid, messageId);
 		updateLastReadOwnMessageId();
 
 		QModelIndex index = createIndex(readMessageIndex, 0);
@@ -1421,7 +1418,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 
 	if (!message.isOwn) {
 		const auto accountJid = AccountManager::instance()->jid();
-		const auto chatJid = message.from;
+		const auto chatJid = message.chatJid;
 
 		bool userMuted = m_rosterItemWatcher.item().notificationsMuted;
 		bool chatActive =

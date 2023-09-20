@@ -22,7 +22,7 @@ UserListItem {
 	property bool lastMessageIsDraft
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
 	property string lastMessage
-	property string lastMessageSenderJid
+	property string lastMessageSenderId
 	property int unreadMessages
 	property bool pinned
 	property bool notificationsMuted
@@ -67,13 +67,13 @@ UserListItem {
 
 			Controls.Label {
 				id: lastMessagePrefix
-				visible: lastMessageIsDraft || lastMessageSenderJid
+				visible: lastMessageIsDraft || lastMessageSenderId
 				textFormat: Text.PlainText
 				text: {
 					if (lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
-						if (lastMessageSenderJid === root.accountJid) {
+						if (lastMessageSenderId === root.accountJid) {
 							return qsTr("Me:")
 						} else {
 							return qsTr("%1:").arg(root.name)

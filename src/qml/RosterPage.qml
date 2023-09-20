@@ -79,7 +79,7 @@ SearchBarPage {
 				lastMessageDateTime: model ? model.lastMessageDateTime : ""
 				lastMessage: model ? model.lastMessage : ""
 				lastMessageIsDraft: model ? model.lastMessageIsDraft : false
-				lastMessageSenderJid: model ? model.lastMessageSenderJid : ""
+				lastMessageSenderId: model ? model.lastMessageSenderId : ""
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
 				notificationsMuted: model ? model.notificationsMuted : false

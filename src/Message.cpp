@@ -159,9 +159,9 @@ QString File::details() const
 QXmppMessage Message::toQXmpp() const
 {
 	QXmppMessage msg;
+	msg.setFrom(isOwn ? accountJid : chatJid);
+	msg.setTo(isOwn ? chatJid : accountJid);
 	msg.setId(id);
-	msg.setTo(to);
-	msg.setFrom(from);
 	msg.setBody(body);
 	msg.setStamp(stamp);
 	msg.setIsSpoiler(isSpoiler);

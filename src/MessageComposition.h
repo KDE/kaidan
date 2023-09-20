@@ -16,8 +16,8 @@ class QFutureWatcher;
 class MessageComposition : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(QString account READ account WRITE setAccount NOTIFY accountChanged)
-	Q_PROPERTY(QString to READ to WRITE setTo NOTIFY toChanged)
+	Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
+	Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)
 	Q_PROPERTY(QString replaceId READ replaceId WRITE setReplaceId NOTIFY replaceIdChanged)
 	Q_PROPERTY(QString body READ body WRITE setBody NOTIFY bodyChanged)
 	Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
@@ -29,10 +29,10 @@ public:
 	MessageComposition();
 	~MessageComposition() override = default;
 
-	[[nodiscard]] QString account() const { return m_account; }
-	void setAccount(const QString &account);
-	[[nodiscard]] QString to() const { return m_to; }
-	void setTo(const QString &to);
+	[[nodiscard]] QString accountJid() const { return m_accountJid; }
+	void setAccountJid(const QString &accountJid);
+	[[nodiscard]] QString chatJid() const { return m_chatJid; }
+	void setChatJid(const QString &chatJid);
 	[[nodiscard]] QString replaceId() const { return m_replaceId; }
 	void setReplaceId(const QString &replaceId);
 	[[nodiscard]] QString body() const { return m_body; }
@@ -47,8 +47,8 @@ public:
 	Q_INVOKABLE void send();
 	void loadDraft();
 
-	Q_SIGNAL void accountChanged();
-	Q_SIGNAL void toChanged();
+	Q_SIGNAL void accountJidChanged();
+	Q_SIGNAL void chatJidChanged();
 	Q_SIGNAL void replaceIdChanged();
 	Q_SIGNAL void bodyChanged();
 	Q_SIGNAL void isSpoilerChanged();
@@ -58,8 +58,8 @@ public:
 private:
 	void saveDraft();
 
-	QString m_account;
-	QString m_to;
+	QString m_accountJid;
+	QString m_chatJid;
 	QString m_replaceId;
 	QString m_body;
 	bool m_spoiler = false;

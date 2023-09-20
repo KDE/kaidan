@@ -306,7 +306,7 @@ ChatPageBase {
 			reactionDetailsSheet: root.messageReactionDetailsSheet
 			modelIndex: index
 			msgId: model.id
-			senderJid: model.sender
+			senderId: model.senderId
 			senderName: model.isOwn ? "" : chatItemWatcher.item.displayName
 			chatName: chatItemWatcher.item.displayName
 			encryption: model.encryption

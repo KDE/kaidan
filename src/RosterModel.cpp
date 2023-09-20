@@ -101,7 +101,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[UnreadMessagesRole] = "unreadMessages";
 	roles[LastMessageRole] = "lastMessage";
 	roles[LastMessageIsDraftRole] = "lastMessageIsDraft";
-	roles[LastMessageSenderJidRole] = "lastMessageSenderJid";
+	roles[LastMessageSenderIdRole] = "lastMessageSenderId";
 	roles[PinnedRole] = "pinned";
 	roles[NotificationsMutedRole] = "notificationsMuted";
 	return roles;
@@ -141,8 +141,8 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return m_items.at(index.row()).lastMessage;
 	case LastMessageIsDraftRole:
 		return m_items.at(index.row()).lastMessageDeliveryState == Enums::DeliveryState::Draft;
-	case LastMessageSenderJidRole:
-		return m_items.at(index.row()).lastMessageSenderJid;
+	case LastMessageSenderIdRole:
+		return m_items.at(index.row()).lastMessageSenderId;
 	case PinnedRole:
 		return m_items.at(index.row()).pinningPosition >= 0;
 	case NotificationsMutedRole:
@@ -396,7 +396,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
 			item.notificationsMuted = oldItem->notificationsMuted;
 			item.lastMessageDeliveryState = oldItem->lastMessageDeliveryState;
-			item.lastMessageSenderJid = oldItem->lastMessageSenderJid;
+			item.lastMessageSenderId = oldItem->lastMessageSenderId;
 		}
 
 		newItems << item;
@@ -425,11 +425,11 @@ void RosterModel::updateLastMessage(
 	{
 		itr->lastMessageDateTime = message.stamp;
 		itr->lastMessage = lastMessage;
-		itr->lastMessageSenderJid = message.from;
+		itr->lastMessageSenderId = message.senderId;
 
 		changedRoles = {
 			int(LastMessageRole),
-			int(LastMessageSenderJidRole),
+			int(LastMessageSenderIdRole),
 			int(LastMessageDateTimeRole),
 		};
 	}
@@ -553,9 +553,8 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)
 {
-	const auto contactJid = message.isOwn ? message.to : message.from;
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
-		return item.jid == contactJid;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+		return item.jid == message.chatJid;
 	});
 
 	// contact not found
@@ -590,7 +589,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		itr->unreadMessages = *newUnreadMessages;
 		changedRoles << int(UnreadMessagesRole);
 
-		RosterDb::instance()->updateItem(contactJid, [newCount = *newUnreadMessages](RosterItem &item) {
+		RosterDb::instance()->updateItem(message.chatJid, [newCount = *newUnreadMessages](RosterItem &item) {
 			item.unreadMessages = newCount;
 		});
 	}
@@ -607,9 +606,8 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 void RosterModel::handleMessageUpdated(const Message &message)
 {
-	const auto contactJid = message.isOwn ? message.to : message.from;
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
-		return item.jid == contactJid;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
+		return item.jid == message.chatJid;
 	});
 
 	// Skip further processing if the contact could not be found.
@@ -633,7 +631,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
 void RosterModel::handleDraftMessageAdded(const Message &message)
 {
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-		return item.jid == message.to;
+		return item.jid == message.chatJid;
 	});
 
 	// contact not found
@@ -664,7 +662,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 void RosterModel::handleDraftMessageUpdated(const Message &message)
 {
 	auto itr = std::find_if(m_items.begin(), m_items.end(), [&message](const RosterItem &item) {
-		return item.jid == message.to;
+		return item.jid == message.chatJid;
 	});
 
 	// contact not found
@@ -695,8 +693,8 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 
 void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 {
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [accountJid = newLastMessage.from, chatJid = newLastMessage.to](const RosterItem &item) {
-		return item.accountJid == accountJid && item.jid == chatJid;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
+		return item.accountJid == newLastMessage.accountJid && item.jid == newLastMessage.chatJid;
 	});
 
 	// contact not found
@@ -726,10 +724,8 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 {
-	const auto isOwnMessage = AccountManager::instance()->jid() == newLastMessage.from;
-	const auto contactJid = isOwnMessage ? newLastMessage.to : newLastMessage.from;
-	auto itr = std::find_if(m_items.begin(), m_items.end(), [&contactJid](const RosterItem &item) {
-		return item.jid == contactJid;
+	auto itr = std::find_if(m_items.begin(), m_items.end(), [&newLastMessage](const RosterItem &item) {
+		return item.jid == newLastMessage.chatJid;
 	});
 
 	// Skip further processing if the contact could not be found.

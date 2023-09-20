@@ -140,11 +140,11 @@ public:
 	QFuture<MessageResult> fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString);
 
 	/**
-	 * @brief Fetches messages that are marked as pending.
+	 * Fetches messages that are marked as pending.
 	 *
-	 * @param userJid JID of the user whose messages should be fetched
+	 * @param accountJid JID of the account whose messages should be fetched
 	 */
-	QFuture<QVector<Message>> fetchPendingMessages(const QString &userJid);
+	QFuture<QVector<Message>> fetchPendingMessages(const QString &accountJid);
 	Q_SIGNAL void pendingMessagesFetched(const QVector<Message> &messages);
 
 	/**
@@ -160,7 +160,7 @@ public:
 	/**
 	 * Fetches the last message from the database synchronously.
 	 */
-	Message _fetchLastMessage(const QString &user1, const QString &user2);
+	Message _fetchLastMessage(const QString &accountJid, const QString &chatJid);
 
 	/**
 	 * Fetch the latest message stamp
@@ -174,14 +174,14 @@ public:
 	 * Returns the count of messages chronologically between (including) two given messages
 	 * specified by their IDs.
 	 *
-	 * @param senderJid JID of the messages' sender
-	 * @param recipientJid JID of the messages' recipient
+	 * @param accountJid JID of the account
+	 * @param chatJid JID of the chat
 	 * @param messageIdBegin ID of the message to start the counting
 	 * @param messageIdEnd ID of the message to end the counting
 	 *
 	 * @return the message count
 	 */
-	QFuture<int> messageCount(const QString &senderJid, const QString &recipientJid, const QString &messageIdBegin, const QString &messageIdEnd);
+	QFuture<int> messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd);
 
 	/**
 	 * Adds a message to the database.
@@ -209,11 +209,11 @@ public:
 	/**
 	 * Removes a chat message locally.
 	 *
-	 * @param senderJid bare JID of the message's sender
-	 * @param recipientJid bare JID of the message's recipient
+	 * @param accountJid JID of account
+	 * @param chatJid JID of the chat
 	 * @param messageId ID of the message
 	 */
-	QFuture<void> removeMessage(const QString &senderJid, const QString &recipientJid, const QString &messageId);
+	QFuture<void> removeMessage(const QString &accountJid, const QString &chatJid, const QString &messageId);
 	Q_SIGNAL void messageRemoved(const Message &newLastMessage);
 
 	/**

@@ -33,8 +33,8 @@ Controls.Pane {
 	property string messageToCorrect
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
-		account: MessageModel.currentAccountJid
-		to: MessageModel.currentChatJid
+		accountJid: MessageModel.currentAccountJid
+		chatJid: MessageModel.currentChatJid
 		replaceId: messageToCorrect
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text

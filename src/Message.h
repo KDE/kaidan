@@ -174,9 +174,10 @@ public:
 	bool operator==(const Message &m) const = default;
 	bool operator!=(const Message &m) const = default;
 
+	QString accountJid;
+	QString chatJid;
+	QString senderId;
 	QString id;
-	QString to;
-	QString from;
 	QString body;
 	QDateTime stamp;
 	bool isSpoiler = false;

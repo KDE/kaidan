@@ -284,7 +284,7 @@ QFuture<QVector<RosterItem>> RosterDb::fetchItems()
 			item.lastMessageDateTime = lastMessage.stamp;
 			item.lastMessage = lastMessage.previewText();
 			item.lastMessageDeliveryState = lastMessage.deliveryState;
-			item.lastMessageSenderJid = lastMessage.from;
+			item.lastMessageSenderId = lastMessage.senderId;
 		}
 
 		fetchGroups(items);

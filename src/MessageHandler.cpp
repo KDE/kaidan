@@ -124,9 +124,10 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
+	const auto accountJid = m_client->configuration().jidBare();
 	const auto senderJid = QXmppUtils::jidToBareJid(msg.from());
 	const auto recipientJid = QXmppUtils::jidToBareJid(msg.to());
-	const auto isOwnMessage = senderJid == m_client->configuration().jidBare();
+	const auto isOwnMessage = senderJid == accountJid;
 
 	if (msg.state() != QXmppMessage::State::None) {
 		emit MessageModel::instance()->handleChatStateRequested(
@@ -151,8 +152,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	Message message;
-	message.from = senderJid;
-	message.to = recipientJid;
+	message.accountJid = accountJid;
+	message.chatJid = isOwnMessage ? recipientJid : senderJid;
+	message.senderId = senderJid;
 	message.isOwn = isOwnMessage;
 	message.id = msg.id();
 
@@ -205,8 +207,9 @@ void MessageHandler::sendMessage(const QString& toJid,
                                  const QString& spoilerHint)
 {
 	Message msg;
-	msg.from = AccountManager::instance()->jid();
-	msg.to = toJid;
+	msg.accountJid = AccountManager::instance()->jid();
+	msg.chatJid = toJid;
+	msg.senderId = msg.accountJid;
 	msg.body = body;
 	msg.id = QXmppUtils::generateStanzaUuid();
 	msg.originId = msg.id;

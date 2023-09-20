@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 35
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(35)
+#define DATABASE_LATEST_VERSION 36
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(36)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -399,8 +399,9 @@ void Database::createNewDatabase()
 		query,
 		SQL_CREATE_TABLE(
 			DB_TABLE_MESSAGES,
-			SQL_ATTRIBUTE(sender, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderId, SQL_TEXT)
 			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
 			SQL_ATTRIBUTE(body, SQL_TEXT)
 			SQL_ATTRIBUTE(id, SQL_TEXT)
@@ -415,8 +416,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
 			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
-			"FOREIGN KEY(sender) REFERENCES " DB_TABLE_ROSTER " (jid),"
-			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
+			"FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"
 		)
 	);
 	execQuery(
@@ -1702,4 +1702,68 @@ void Database::convertDatabaseToV35()
 	execQuery(query, "DROP TABLE roster_tmp");
 
 	d->version = 35;
+}
+
+void Database::convertDatabaseToV36()
+{
+	DATABASE_CONVERT_TO_VERSION(35);
+	QSqlQuery query(currentDatabase());
+
+	// Replace the columns "sender" and "recipient" with "accountJid", "chatJid" and "senderId".
+	// Set new foreign keys.
+	// The values for the new columns cannot be determined by the database.
+	// Thus, the table "messages" is removed and recreated in order to store the latest values from
+	// the server in the database again and include the values for the new columns.
+	// Unfortunately, all data not stored on the server (e.g., "removed") is lost.
+	execQuery(query, "DROP TABLE messages");
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderId, SQL_TEXT)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(body, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
+			"FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"
+		)
+	);
+
+	// Replace the columns "messageSender" and "messageRecipient" with "accountJid", "chatJid" and
+	// "senderId".
+	// Set a new primary key accordingly.
+	// The values for the new columns cannot be determined by the database.
+	// Thus, the table "messageReactions" is removed and recreated in order to store the latest
+	// values from the server in the database again and include the values for the new columns.
+	// Unfortunately, all data not stored on the server (e.g., "deliveryState") is lost.
+	execQuery(query, "DROP TABLE messageReactions");
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messageReactions",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageSenderId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			"PRIMARY KEY(accountJid, chatJid, messageSenderId, messageId, senderJid, emoji)"
+		)
+	);
+
+	d->version = 36;
 }
