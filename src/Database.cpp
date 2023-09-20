@@ -419,6 +419,21 @@ void Database::createNewDatabase()
 			"FOREIGN KEY(recipient) REFERENCES " DB_TABLE_ROSTER " (jid)"
 		)
 	);
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_MESSAGE_REACTIONS,
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageSenderId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			"PRIMARY KEY(accountJid, chatJid, messageId, senderJid, emoji)"
+		)
+	);
 
 	// file sharing
 	execQuery(
@@ -468,22 +483,6 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(iv, SQL_BLOB_NOT_NULL)
 			SQL_ATTRIBUTE(encryptedDataId, SQL_INTEGER)
 			"PRIMARY KEY(fileId)"
-		)
-	);
-
-	// message reactions
-	execQuery(
-		query,
-		SQL_CREATE_TABLE(
-			DB_TABLE_MESSAGE_REACTIONS,
-			SQL_ATTRIBUTE(messageSender, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(messageRecipient, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(messageId, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(senderJid, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(emoji, SQL_TEXT_NOT_NULL)
-			SQL_ATTRIBUTE(timestamp, SQL_INTEGER)
-			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
-			"PRIMARY KEY(messageSender, messageRecipient, messageId, senderJid, emoji)"
 		)
 	);
 
