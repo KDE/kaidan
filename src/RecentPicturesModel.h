@@ -6,6 +6,8 @@
 
 #pragma once
 
+#include <QtGlobal>
+
 #ifdef Q_OS_ANDROID
 #include <QAbstractListModel>
 
