@@ -41,6 +41,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_FILE_BASE_NAME "kaidan"
 #define DB_TABLE_INFO "dbinfo"
 #define DB_TABLE_ROSTER "roster"
+#define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_TABLE_MESSAGES "messages"
 #define DB_VIEW_CHAT_MESSAGES "chatMessages"
 #define DB_VIEW_DRAFT_MESSAGES "draftMessages"
@@ -57,7 +58,6 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_OMEMO_OWN_DEVICES "omemoDevicesOwn"
 #define DB_TABLE_OMEMO_PRE_KEY_PAIRS "omemoPreKeyPairs"
 #define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemoPreKeyPairsSigned"
-#define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_QUERY_LIMIT_MESSAGES 20
 
 //
