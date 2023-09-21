@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 36
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(36)
+#define DATABASE_LATEST_VERSION 37
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(37)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -402,19 +402,19 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(senderId, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
 			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
 			SQL_ATTRIBUTE(body, SQL_TEXT)
-			SQL_ATTRIBUTE(id, SQL_TEXT)
 			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
 			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
 			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
-			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
 			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
-			SQL_ATTRIBUTE(errorText, SQL_TEXT)
-			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
-			SQL_ATTRIBUTE(originId, SQL_TEXT)
-			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
 			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
 			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
 			"FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"
 		)
@@ -1766,4 +1766,74 @@ void Database::convertDatabaseToV36()
 	);
 
 	d->version = 36;
+}
+
+void Database::convertDatabaseToV37()
+{
+	DATABASE_CONVERT_TO_VERSION(36);
+	QSqlQuery query(currentDatabase());
+
+	// Reorder various columns for a consistent order through the whole code base.
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages_tmp",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderId, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(body, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
+			"FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		"INSERT INTO messages_tmp SELECT accountJid, chatJid, senderId, id, originId, stanzaId, "
+		"replaceId, timestamp, body, encryption, senderKey, deliveryState, isSpoiler, spoilerHint, "
+		"fileGroupId, errorText, removed FROM messages"
+	);
+
+	execQuery(query, "DROP TABLE messages");
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"messages",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(chatJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(senderId, SQL_TEXT)
+			SQL_ATTRIBUTE(id, SQL_TEXT)
+			SQL_ATTRIBUTE(originId, SQL_TEXT)
+			SQL_ATTRIBUTE(stanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(replaceId, SQL_TEXT)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(body, SQL_TEXT)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(senderKey, SQL_BLOB)
+			SQL_ATTRIBUTE(deliveryState, SQL_INTEGER)
+			SQL_ATTRIBUTE(isSpoiler, SQL_BOOL)
+			SQL_ATTRIBUTE(spoilerHint, SQL_TEXT)
+			SQL_ATTRIBUTE(fileGroupId, SQL_INTEGER)
+			SQL_ATTRIBUTE(errorText, SQL_TEXT)
+			SQL_ATTRIBUTE(removed, SQL_BOOL_NOT_NULL)
+			"FOREIGN KEY(accountJid, chatJid) REFERENCES roster (accountJid, jid)"
+		)
+	);
+
+	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
+	execQuery(query, "DROP TABLE messages_tmp");
+
+	d->version = 37;
 }

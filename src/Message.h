@@ -178,28 +178,28 @@ public:
 	QString chatJid;
 	QString senderId;
 	QString id;
-	QString body;
-	QDateTime timestamp;
-	bool isSpoiler = false;
-	QString spoilerHint;
-	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
-	QString markerId;
-	QString replaceId;
 	QString originId;
 	QString stanzaId;
-	std::optional<qint64> fileGroupId;
-	QVector<File> files;
-	bool receiptRequested = false;
-	// JIDs of senders mapped to the senders
-	QMap<QString, MessageReactionSender> reactionSenders;
+	QString replaceId;
+	QDateTime timestamp;
+	QString body;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
 	// ID of this message's sender's public long-term end-to-end encryption key.
 	QByteArray senderKey;
-	// True if the message is an own one.
-	bool isOwn = true;
 	// Delivery state of the message, like if it was sent successfully or if it was already delivered
 	DeliveryState deliveryState = DeliveryState::Delivered;
+	bool isSpoiler = false;
+	QString spoilerHint;
+	std::optional<qint64> fileGroupId;
+	QVector<File> files;
+	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
+	QString markerId;
+	bool receiptRequested = false;
+	// JIDs of senders mapped to the senders
+	QMap<QString, MessageReactionSender> reactionSenders;
+	// True if the message is an own one.
+	bool isOwn = true;
 	// Text description of an error if it ever happened to the message
 	QString errorText;
 	// True if the message's content and related data such as files have been removed locally.

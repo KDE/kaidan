@@ -162,16 +162,16 @@ QXmppMessage Message::toQXmpp() const
 	msg.setFrom(isOwn ? accountJid : chatJid);
 	msg.setTo(isOwn ? chatJid : accountJid);
 	msg.setId(id);
-	msg.setBody(body);
+	msg.setOriginId(originId);
+	msg.setStanzaId(stanzaId);
+	msg.setReplaceId(replaceId);
 	msg.setStamp(timestamp);
+	msg.setBody(body);
 	msg.setIsSpoiler(isSpoiler);
 	msg.setSpoilerHint(spoilerHint);
 	msg.setMarkable(true);
 	msg.setMarker(marker);
 	msg.setMarkerId(markerId);
-	msg.setReplaceId(replaceId);
-	msg.setOriginId(originId);
-	msg.setStanzaId(stanzaId);
 	msg.setReceiptRequested(receiptRequested);
 
 	// attached files

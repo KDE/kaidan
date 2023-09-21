@@ -77,19 +77,19 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxAccountJid = rec.indexOf("accountJid");
 	int idxChatJid = rec.indexOf("chatJid");
 	int idxSenderId = rec.indexOf("senderId");
-	int idxTimestamp = rec.indexOf("timestamp");
 	int idxId = rec.indexOf("id");
+	int idxOriginId = rec.indexOf("originId");
+	int idxStanzaId = rec.indexOf("stanzaId");
+	int idxReplaceId = rec.indexOf("replaceId");
+	int idxTimestamp = rec.indexOf("timestamp");
+	int idxBody = rec.indexOf("body");
 	int idxEncryption = rec.indexOf("encryption");
 	int idxSenderKey = rec.indexOf("senderKey");
-	int idxBody = rec.indexOf("body");
 	int idxDeliveryState = rec.indexOf("deliveryState");
-	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxIsSpoiler = rec.indexOf("isSpoiler");
-	int idxErrorText = rec.indexOf("errorText");
-	int idxReplaceId = rec.indexOf("replaceId");
-	int idxOriginId = rec.indexOf("originId");
-	int idxStanza = rec.indexOf("stanzaId");
+	int idxSpoilerHint = rec.indexOf("spoilerHint");
 	int idxFileGroupId = rec.indexOf("fileGroupId");
+	int idxErrorText = rec.indexOf("errorText");
 	int idxRemoved = rec.indexOf("removed");
 
 	reserve(messages, query);
@@ -98,30 +98,26 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.accountJid = query.value(idxAccountJid).toString();
 		msg.chatJid = query.value(idxChatJid).toString();
 		msg.senderId = query.value(idxSenderId).toString();
+		msg.id = query.value(idxId).toString();
+		msg.originId = query.value(idxOriginId).toString();
+		msg.stanzaId = query.value(idxStanzaId).toString();
+		msg.replaceId = query.value(idxReplaceId).toString();
 		msg.timestamp = QDateTime::fromString(
 			query.value(idxTimestamp).toString(),
 			Qt::ISODate
 		);
-		msg.id = query.value(idxId).toString();
+		msg.body = query.value(idxBody).toString();
 		msg.encryption = Encryption::Enum(query.value(idxEncryption).toInt());
 		msg.senderKey = query.value(idxSenderKey).toByteArray();
-		msg.body = query.value(idxBody).toString();
 		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
-		msg.spoilerHint = query.value(idxSpoilerHint).toString();
-		msg.errorText = query.value(idxErrorText).toString();
 		msg.isSpoiler = query.value(idxIsSpoiler).toBool();
-		msg.replaceId = query.value(idxReplaceId).toString();
-		msg.originId = query.value(idxOriginId).toString();
-		msg.stanzaId = query.value(idxStanza).toString();
+		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.fileGroupId = variantToOptional<qint64>(query.value(idxFileGroupId));
-		// this is useful with resending pending messages
-		msg.receiptRequested = true;
-		msg.removed = query.value(idxRemoved).toBool();
-
-		// fetch referenced files
 		if (msg.fileGroupId) {
 			msg.files = _fetchFiles(*msg.fileGroupId);
 		}
+		msg.errorText = query.value(idxErrorText).toString();
+		msg.removed = query.value(idxRemoved).toBool();
 
 		messages << std::move(msg);
 	}
@@ -141,33 +137,44 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.senderId != newMsg.senderId) {
 		rec.append(createSqlField("recipient", newMsg.senderId));
 	}
-	if (oldMsg.timestamp != newMsg.timestamp)
-		rec.append(createSqlField("timestamp", newMsg.timestamp.toString(Qt::ISODateWithMs)));
 	if (oldMsg.id != newMsg.id) {
 		rec.append(createSqlField("id", newMsg.id));
 	}
-	if (oldMsg.encryption != newMsg.encryption)
-		rec.append(createSqlField("encryption", newMsg.encryption));
-	if (oldMsg.senderKey != newMsg.senderKey)
-		rec.append(createSqlField("senderKey", newMsg.senderKey));
-	if (oldMsg.body != newMsg.body)
-		rec.append(createSqlField("body", newMsg.body));
-	if (oldMsg.deliveryState != newMsg.deliveryState)
-		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
-	if (oldMsg.errorText != newMsg.errorText)
-		rec.append(createSqlField("errorText", newMsg.errorText));
-	if (oldMsg.spoilerHint != newMsg.spoilerHint)
-		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
-	if (oldMsg.isSpoiler != newMsg.isSpoiler)
-		rec.append(createSqlField("isSpoiler", newMsg.isSpoiler));
-	if (oldMsg.replaceId != newMsg.replaceId)
-		rec.append(createSqlField("replaceId", newMsg.replaceId));
-	if (oldMsg.originId != newMsg.originId)
+	if (oldMsg.originId != newMsg.originId) {
 		rec.append(createSqlField("originId", newMsg.originId));
-	if (oldMsg.stanzaId != newMsg.stanzaId)
+	}
+	if (oldMsg.stanzaId != newMsg.stanzaId) {
 		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
+	}
+	if (oldMsg.replaceId != newMsg.replaceId) {
+		rec.append(createSqlField("replaceId", newMsg.replaceId));
+	}
+	if (oldMsg.timestamp != newMsg.timestamp) {
+		rec.append(createSqlField("timestamp", newMsg.timestamp.toString(Qt::ISODateWithMs)));
+	}
+	if (oldMsg.body != newMsg.body) {
+		rec.append(createSqlField("body", newMsg.body));
+	}
+	if (oldMsg.encryption != newMsg.encryption) {
+		rec.append(createSqlField("encryption", newMsg.encryption));
+	}
+	if (oldMsg.senderKey != newMsg.senderKey) {
+		rec.append(createSqlField("senderKey", newMsg.senderKey));
+	}
+	if (oldMsg.deliveryState != newMsg.deliveryState) {
+		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
+	}
+	if (oldMsg.isSpoiler != newMsg.isSpoiler) {
+		rec.append(createSqlField("isSpoiler", newMsg.isSpoiler));
+	}
+	if (oldMsg.spoilerHint != newMsg.spoilerHint) {
+		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
+	}
 	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
 		rec.append(createSqlField("fileGroupId", optionalToVariant(newMsg.fileGroupId)));
+	}
+	if (oldMsg.errorText != newMsg.errorText) {
+		rec.append(createSqlField("errorText", newMsg.errorText));
 	}
 	if (oldMsg.removed != newMsg.removed) {
 		rec.append(createSqlField("removed", newMsg.removed));
@@ -477,31 +484,31 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		auto query = createQuery();
 		prepareQuery(
 			query,
-			"INSERT INTO " DB_TABLE_MESSAGES " (accountJid, chatJid, senderId, timestamp, body, "
-			"id, encryption, senderKey, deliveryState, isSpoiler, spoilerHint, errorText, "
-			"replaceId, originId, stanzaId, fileGroupId, removed) "
-			"VALUES (:accountJid, :chatJid, :senderId, :timestamp, :body, :id, :encryption, "
-			":senderKey, :deliveryState, :isSpoiler, :spoilerHint, :errorText, :replaceId, "
-			":originId, :stanzaId, :fileGroupId, :removed)"
+			"INSERT INTO " DB_TABLE_MESSAGES " (accountJid, chatJid, senderId, id, originId, "
+			"stanzaId, replaceId, timestamp, body, encryption, senderKey, deliveryState, "
+			"isSpoiler, spoilerHint, fileGroupId, errorText, removed) "
+			"VALUES (:accountJid, :chatJid, :senderId, :id, :originId, :stanzaId, :replaceId, :timestamp, "
+			":body, :encryption, :senderKey, :deliveryState, :isSpoiler, :spoilerHint, :fileGroupId, "
+			":errorText, :removed)"
 		);
 
 		bindValues(query, {
 			{ u":accountJid", msg.accountJid },
 			{ u":chatJid", msg.chatJid },
 			{ u":senderId", msg.senderId },
+			{ u":id", msg.id },
+			{ u":originId", msg.originId },
+			{ u":stanzaId", msg.stanzaId },
+			{ u":replaceId", msg.replaceId },
 			{ u":timestamp", msg.timestamp.toString(Qt::ISODateWithMs) },
 			{ u":body", msg.body },
-			{ u":id", msg.id },
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
 			{ u":isSpoiler", msg.isSpoiler },
 			{ u":spoilerHint", msg.spoilerHint },
-			{ u":errorText", msg.errorText },
-			{ u":replaceId", msg.replaceId },
-			{ u":originId", msg.originId },
-			{ u":stanzaId", msg.stanzaId },
 			{ u":fileGroupId", optionalToVariant(msg.fileGroupId) },
+			{ u":errorText", msg.errorText },
 			{ u":removed", msg.removed }
 		});
 		execQuery(query);

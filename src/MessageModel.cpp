@@ -137,27 +137,27 @@ int MessageModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
 	QHash<int, QByteArray> roles;
+	roles[SenderId] = "senderId";
+	roles[Id] = "id";
+	roles[IsLastRead] = "isLastRead";
+	roles[IsEdited] = "isEdited";
 	roles[Date] = "date";
 	roles[NextDate] = "nextDate";
 	roles[Time] = "time";
-	roles[Id] = "id";
-	roles[SenderId] = "senderId";
+	roles[Body] = "body";
 	roles[Encryption] = "encryption";
 	roles[IsTrusted] = "isTrusted";
-	roles[Body] = "body";
-	roles[IsOwn] = "isOwn";
-	roles[IsEdited] = "isEdited";
 	roles[DeliveryState] = "deliveryState";
-	roles[IsLastRead] = "isLastRead";
-	roles[IsSpoiler] = "isSpoiler";
-	roles[SpoilerHint] = "spoilerHint";
-	roles[ErrorText] = "errorText";
 	roles[DeliveryStateIcon] = "deliveryStateIcon";
 	roles[DeliveryStateName] = "deliveryStateName";
+	roles[IsSpoiler] = "isSpoiler";
+	roles[SpoilerHint] = "spoilerHint";
+	roles[IsOwn] = "isOwn";
 	roles[Files] = "files";
 	roles[DisplayedReactions] = "displayedReactions";
 	roles[DetailedReactions] = "detailedReactions";
 	roles[OwnDetailedReactions] = "ownDetailedReactions";
+	roles[ErrorText] = "errorText";
 	return roles;
 }
 
@@ -172,32 +172,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	const Message &msg = m_messages.at(row);
 
 	switch (role) {
-	case Date:
-		return formatDate(msg.timestamp.date());
-	case NextDate:
-		return formatDate(searchNextDate(row));
-	case Time:
-		return QLocale::system().toString(msg.timestamp.time(), QLocale::ShortFormat);
-	case Id:
-		return msg.id;
 	case SenderId:
 		return msg.senderId;
-	case Encryption:
-		return msg.encryption;
-	case IsTrusted: {
-		if (msg.isOwn && msg.senderKey.isEmpty()) {
-			return true;
-		}
-
-		const auto trustLevel = m_keys.value(msg.accountJid == msg.senderId ? msg.accountJid : msg.senderId).value(msg.senderKey);
-		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
-	}
-	case Body:
-		return msg.body;
-	case IsOwn:
-		return msg.isOwn;
-	case IsEdited:
-		return !msg.replaceId.isEmpty();
+	case Id:
+		return msg.id;
 	case IsLastRead:
 		// A read marker text is only displayed if the message is the last read message and no
 		// message is received by the contact after it.
@@ -210,14 +188,28 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return true;
 		}
 		return false;
+	case IsEdited:
+		return !msg.replaceId.isEmpty();
+	case Date:
+		return formatDate(msg.timestamp.date());
+	case NextDate:
+		return formatDate(searchNextDate(row));
+	case Time:
+		return QLocale::system().toString(msg.timestamp.time(), QLocale::ShortFormat);
+	case Body:
+		return msg.body;
+	case Encryption:
+		return msg.encryption;
+	case IsTrusted: {
+		if (msg.isOwn && msg.senderKey.isEmpty()) {
+			return true;
+		}
+
+		const auto trustLevel = m_keys.value(msg.isOwn ? msg.accountJid : msg.senderId).value(msg.senderKey);
+		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
+	}
 	case DeliveryState:
 		return QVariant::fromValue(msg.deliveryState);
-	case IsSpoiler:
-		return msg.isSpoiler;
-	case SpoilerHint:
-		return msg.spoilerHint;
-	case ErrorText:
-		return msg.errorText;
 	case DeliveryStateIcon:
 		switch (msg.deliveryState) {
 		case DeliveryState::Pending:
@@ -246,6 +238,12 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			Q_UNREACHABLE();
 		}
 		return {};
+	case IsSpoiler:
+		return msg.isSpoiler;
+	case SpoilerHint:
+		return msg.spoilerHint;
+	case IsOwn:
+		return msg.isOwn;
 	case Files:
 		return QVariant::fromValue(msg.files);
 	case DisplayedReactions: {
@@ -305,6 +303,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	}
 	case OwnDetailedReactions:
 		return QVariant::fromValue(msg.reactionSenders.value(m_currentAccountJid).reactions);
+	case ErrorText:
+		return msg.errorText;
 	}
 
 	return {};

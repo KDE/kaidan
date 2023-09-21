@@ -90,27 +90,27 @@ class MessageModel : public QAbstractListModel
 public:
 	// Basically copy from QXmpp, but we need to expose this to QML
 	enum MessageRoles {
-		Date = Qt::UserRole + 1,
+		SenderId = Qt::UserRole + 1,
+		Id,
+		IsLastRead,
+		IsEdited,
+		Date,
 		NextDate,
 		Time,
-		Id,
-		SenderId,
+		Body,
 		Encryption,
 		IsTrusted,
-		Body,
-		IsOwn,
-		IsEdited,
 		DeliveryState,
-		IsLastRead,
-		IsSpoiler,
-		SpoilerHint,
-		ErrorText,
 		DeliveryStateIcon,
 		DeliveryStateName,
+		IsSpoiler,
+		SpoilerHint,
+		IsOwn,
 		Files,
 		DisplayedReactions,
 		DetailedReactions,
 		OwnDetailedReactions,
+		ErrorText,
 	};
 	Q_ENUM(MessageRoles)
 
