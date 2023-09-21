@@ -227,6 +227,8 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Location
 	Qt::QuickControls2
 	KF5::CoreAddons
+	KF5::KIOCore
+	KF5::KIOWidgets
 	QXmpp::QXmpp QXmpp::Omemo
 	${__Qt5Widgets_LIBRARIES}
 	${__KF5Notifications_LIBRARIES}
