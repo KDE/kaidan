@@ -12,7 +12,6 @@
 #include "Kaidan.h"
 #include "FileSharingController.h"
 #include "Algorithms.h"
-#include "AccountManager.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
