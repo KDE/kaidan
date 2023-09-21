@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-09-16 11:57+0200\n"
+"PO-Revision-Date: 2023-09-20 10:07+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -68,22 +68,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "No s'ha pogut baixar el fitxer: %1"
 
-#: src/Kaidan.cpp:88
+#: src/Kaidan.cpp:90
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línia"
 
-#: src/Kaidan.cpp:90
+#: src/Kaidan.cpp:92
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Kaidan.cpp:92
+#: src/Kaidan.cpp:94
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Fora de línia"
 
-#: src/Kaidan.cpp:132
+#: src/Kaidan.cpp:134
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
@@ -318,12 +318,9 @@ msgstr "No s'han pogut enviar les reaccions: %1"
 #: src/MessageModel.cpp:1516
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "Avui"
 
 #: src/MessageModel.cpp:1519
-#, fuzzy
-#| msgctxt "RosterModel|"
-#| msgid "Yesterday"
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ahir"

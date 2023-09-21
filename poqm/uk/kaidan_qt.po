@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-16 08:32+0300\n"
+"PO-Revision-Date: 2023-09-20 08:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -59,22 +59,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
-#: src/Kaidan.cpp:88
+#: src/Kaidan.cpp:90
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "У мережі"
 
-#: src/Kaidan.cpp:90
+#: src/Kaidan.cpp:92
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Kaidan.cpp:92
+#: src/Kaidan.cpp:94
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#: src/Kaidan.cpp:132
+#: src/Kaidan.cpp:134
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Посилання буде відкрито після встановлення з'єднання."
@@ -310,12 +310,9 @@ msgstr "Не вдалося надіслати реакції: %1"
 #: src/MessageModel.cpp:1516
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "Сьогодні"
 
 #: src/MessageModel.cpp:1519
-#, fuzzy
-#| msgctxt "RosterModel|"
-#| msgid "Yesterday"
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"

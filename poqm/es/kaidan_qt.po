@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-16 11:36+0200\n"
+"PO-Revision-Date: 2023-09-20 22:58+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.0\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -57,22 +57,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "No se ha podido descargar el archivo: %1"
 
-#: src/Kaidan.cpp:88
+#: src/Kaidan.cpp:90
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línea"
 
-#: src/Kaidan.cpp:90
+#: src/Kaidan.cpp:92
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Conectando..."
 
-#: src/Kaidan.cpp:92
+#: src/Kaidan.cpp:94
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Sin conexión"
 
-#: src/Kaidan.cpp:132
+#: src/Kaidan.cpp:134
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "El enlace se abrirá cuando se haya conectado."
@@ -307,12 +307,9 @@ msgstr "No se han podido enviar las reacciones: %1"
 #: src/MessageModel.cpp:1516
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 #: src/MessageModel.cpp:1519
-#, fuzzy
-#| msgctxt "RosterModel|"
-#| msgid "Yesterday"
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ayer"
