@@ -77,7 +77,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxAccountJid = rec.indexOf("accountJid");
 	int idxChatJid = rec.indexOf("chatJid");
 	int idxSenderId = rec.indexOf("senderId");
-	int idxStamp = rec.indexOf("timestamp");
+	int idxTimestamp = rec.indexOf("timestamp");
 	int idxId = rec.indexOf("id");
 	int idxEncryption = rec.indexOf("encryption");
 	int idxSenderKey = rec.indexOf("senderKey");
@@ -98,8 +98,8 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.accountJid = query.value(idxAccountJid).toString();
 		msg.chatJid = query.value(idxChatJid).toString();
 		msg.senderId = query.value(idxSenderId).toString();
-		msg.stamp = QDateTime::fromString(
-			query.value(idxStamp).toString(),
+		msg.timestamp = QDateTime::fromString(
+			query.value(idxTimestamp).toString(),
 			Qt::ISODate
 		);
 		msg.id = query.value(idxId).toString();
@@ -141,11 +141,8 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.senderId != newMsg.senderId) {
 		rec.append(createSqlField("recipient", newMsg.senderId));
 	}
-	if (oldMsg.stamp != newMsg.stamp)
-		rec.append(createSqlField(
-		        "timestamp",
-		        newMsg.stamp.toString(Qt::ISODateWithMs)
-		));
+	if (oldMsg.timestamp != newMsg.timestamp)
+		rec.append(createSqlField("timestamp", newMsg.timestamp.toString(Qt::ISODateWithMs)));
 	if (oldMsg.id != newMsg.id) {
 		rec.append(createSqlField("id", newMsg.id));
 	}
@@ -492,7 +489,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":accountJid", msg.accountJid },
 			{ u":chatJid", msg.chatJid },
 			{ u":senderId", msg.senderId },
-			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
+			{ u":timestamp", msg.timestamp.toString(Qt::ISODateWithMs) },
 			{ u":body", msg.body },
 			{ u":id", msg.id },
 			{ u":encryption", msg.encryption },
@@ -819,7 +816,7 @@ QFuture<void> MessageDb::addDraftMessage(const Message &msg)
 			{ u":originId", msg.originId },
 			{ u":stanzaId", msg.stanzaId },
 			{ u":replaceId", msg.replaceId },
-			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
+			{ u":timestamp", msg.timestamp.toString(Qt::ISODateWithMs) },
 			{ u":body", msg.body },
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },

@@ -163,7 +163,7 @@ QXmppMessage Message::toQXmpp() const
 	msg.setTo(isOwn ? chatJid : accountJid);
 	msg.setId(id);
 	msg.setBody(body);
-	msg.setStamp(stamp);
+	msg.setStamp(timestamp);
 	msg.setIsSpoiler(isSpoiler);
 	msg.setSpoilerHint(spoilerHint);
 	msg.setMarkable(true);

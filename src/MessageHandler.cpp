@@ -184,7 +184,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	// in case of message correction, replace old message
 	if (msg.replaceId().isEmpty()) {
 		// get possible delay (timestamp)
-		message.stamp = (msg.stamp().isNull() || !msg.stamp().isValid())
+		message.timestamp = (msg.stamp().isNull() || !msg.stamp().isValid())
 						 ? QDateTime::currentDateTimeUtc()
 						 : msg.stamp().toUTC();
 
@@ -194,9 +194,9 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		message.replaceId = replaceId;
 		MessageDb::instance()->updateMessage(replaceId, [message](Message &m) {
 			// Replace the whole stored message but keep its original timestamp.
-			const auto timestamp = m.stamp;
+			const auto timestamp = m.timestamp;
 			m = message;
-			m.stamp = timestamp;
+			m.timestamp = timestamp;
 		});
 	}
 }
@@ -218,7 +218,7 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.receiptRequested = true;
 	msg.isOwn = true;
 	msg.deliveryState = Enums::DeliveryState::Pending;
-	msg.stamp = QDateTime::currentDateTimeUtc();
+	msg.timestamp = QDateTime::currentDateTimeUtc();
 	msg.isSpoiler = isSpoiler;
 	msg.spoilerHint = spoilerHint;
 
@@ -287,7 +287,7 @@ void MessageHandler::sendPendingMessage(Message message)
 		// I need to send it with the most recent stamp
 		// for that I'm gonna copy that message and update in the copy just the stamp
 		if (!message.replaceId.isEmpty()) {
-			message.stamp = QDateTime::currentDateTimeUtc();
+			message.timestamp = QDateTime::currentDateTimeUtc();
 		}
 
 		const auto messageId = message.id;

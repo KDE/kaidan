@@ -414,7 +414,7 @@ void RosterModel::updateLastMessage(
 	// the current one or at the same age.
 	// That makes it possible to use the previous message as the new last message if the current
 	// last message is empty.
-	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewerOrAtSameAge && itr->lastMessageDateTime > message.stamp)) {
+	if (!itr->lastMessage.isEmpty() && (onlyUpdateIfNewerOrAtSameAge && itr->lastMessageDateTime > message.timestamp)) {
 		return;
 	}
 
@@ -423,7 +423,7 @@ void RosterModel::updateLastMessage(
 	if (const auto lastMessage = message.previewText();
 		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft && itr->lastMessage != lastMessage)
 	{
-		itr->lastMessageDateTime = message.stamp;
+		itr->lastMessageDateTime = message.timestamp;
 		itr->lastMessage = lastMessage;
 		itr->lastMessageSenderId = message.senderId;
 
@@ -645,7 +645,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastMessageDateTime = message.stamp;
+	itr->lastMessageDateTime = message.timestamp;
 	itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
 	itr->lastMessage = lastMessage;
 
@@ -676,7 +676,7 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 	};
 
 	const auto lastMessage = message.previewText();
-	itr->lastMessageDateTime = message.stamp;
+	itr->lastMessageDateTime = message.timestamp;
 	itr->lastMessage = lastMessage;
 
 
@@ -709,7 +709,7 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 	};
 
 	itr->lastMessageDeliveryState = newLastMessage.deliveryState;
-	itr->lastMessageDateTime = newLastMessage.stamp;
+	itr->lastMessageDateTime = newLastMessage.timestamp;
 	itr->lastMessage = newLastMessage.body;
 
 	// notify gui

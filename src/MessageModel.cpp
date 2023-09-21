@@ -173,11 +173,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
 	switch (role) {
 	case Date:
-		return formatDate(msg.stamp.date());
+		return formatDate(msg.timestamp.date());
 	case NextDate:
 		return formatDate(searchNextDate(row));
 	case Time:
-		return QLocale::system().toString(msg.stamp.time(), QLocale::ShortFormat);
+		return QLocale::system().toString(msg.timestamp.time(), QLocale::ShortFormat);
 	case Id:
 		return msg.id;
 	case SenderId:
@@ -342,7 +342,7 @@ void MessageModel::fetchMore(const QModelIndex &)
 		const auto lastStamp = [this]() -> QDateTime {
 			const auto stamp1 = m_mamBacklogLastStamp.isNull() ? QDateTime::currentDateTimeUtc() : m_mamBacklogLastStamp;
 			if (!m_messages.empty()) {
-				return std::min(stamp1, m_messages.constLast().stamp);
+				return std::min(stamp1, m_messages.constLast().timestamp);
 			}
 			return stamp1;
 		};
@@ -966,7 +966,7 @@ bool MessageModel::canCorrectMessage(int index) const
 	// check time limit
 	const auto timeThreshold =
 		QDateTime::currentDateTimeUtc().addDays(-MAX_CORRECTION_MESSAGE_DAYS_DEPTH);
-	if (msg.stamp < timeThreshold)
+	if (msg.timestamp < timeThreshold)
 		return false;
 
 	// check messages count limit
@@ -1105,7 +1105,7 @@ void MessageModel::addMessage(const Message &msg)
 	// index where to add the new message
 	int i = 0;
 	for (const auto &message : qAsConst(m_messages)) {
-		if (msg.stamp > message.stamp) {
+		if (msg.timestamp > message.timestamp) {
 			insertMessage(i, msg);
 			return;
 		}
@@ -1177,7 +1177,7 @@ void MessageModel::handleMessageUpdated(const Message &message)
 
 			// Insert the message at its original position if the date is unchanged.
 			// Otherwise, move it to its new position.
-			if (message.stamp == m_messages.at(i).stamp) {
+			if (message.timestamp == m_messages.at(i).timestamp) {
 				insertMessage(i, message);
 			} else {
 				addMessage(message);
@@ -1306,11 +1306,11 @@ void MessageModel::correctMessage(const QString &replaceId, const QString &body,
 				// the trick with the time is important for the servers
 				// this way they can tell which version of the message is the latest
 				Message copy = message;
-				copy.stamp = QDateTime::currentDateTimeUtc();
+				copy.timestamp = QDateTime::currentDateTimeUtc();
 				Q_EMIT sendCorrectedMessageRequested(copy);
 			}
 		} else if (message.replaceId.isEmpty()) {
-			message.stamp = QDateTime::currentDateTimeUtc();
+			message.timestamp = QDateTime::currentDateTimeUtc();
 		}
 
 		QModelIndex index = createIndex(std::distance(m_messages.begin(), itr), 0);
@@ -1492,10 +1492,10 @@ void MessageModel::handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QX
 
 QDate MessageModel::searchNextDate(int messageStartIndex) const
 {
-	const auto startDate = m_messages.at(messageStartIndex).stamp.toLocalTime().date();
+	const auto startDate = m_messages.at(messageStartIndex).timestamp.toLocalTime().date();
 
 	for (int i = messageStartIndex; i >= 0; i--) {
-		if (const auto date = m_messages.at(i).stamp.toLocalTime().date(); date > startDate) {
+		if (const auto date = m_messages.at(i).timestamp.toLocalTime().date(); date > startDate) {
 			return date;
 		}
 	}

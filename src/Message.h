@@ -179,7 +179,7 @@ public:
 	QString senderId;
 	QString id;
 	QString body;
-	QDateTime stamp;
+	QDateTime timestamp;
 	bool isSpoiler = false;
 	QString spoilerHint;
 	QXmppMessage::Marker marker = QXmppMessage::NoMarker;

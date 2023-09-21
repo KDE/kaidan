@@ -163,7 +163,7 @@ void MessageComposition::saveDraft()
 		if (savingNeeded) {
 			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this](Message &message) {
 				message.replaceId = m_replaceId;
-				message.stamp = QDateTime::currentDateTimeUtc();
+				message.timestamp = QDateTime::currentDateTimeUtc();
 				message.body = m_body;
 				message.isSpoiler = m_spoiler;
 				message.spoilerHint = m_spoilerHint;
@@ -176,7 +176,7 @@ void MessageComposition::saveDraft()
 		message.accountJid = m_accountJid;
 		message.chatJid = m_chatJid;
 		message.replaceId = m_replaceId;
-		message.stamp = QDateTime::currentDateTimeUtc();
+		message.timestamp = QDateTime::currentDateTimeUtc();
 		message.body = m_body;
 		message.isSpoiler = m_spoiler;
 		message.spoilerHint = m_spoilerHint;
