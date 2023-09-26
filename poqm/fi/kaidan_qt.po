@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-07-25 16:32+0300\n"
+"PO-Revision-Date: 2023-09-04 14:39+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -17,24 +17,20 @@ msgstr ""
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
+"Verkkoyhteyttä ei ole: viestit lähetetään ja vastaanotetaan vasta "
+"yhteydenoton jälkeen"
 
 #: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "Merkitse nähdyksi"
 
 #: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "ChatHintModel|"
 msgid "Connect"
-msgstr "Yhteys"
+msgstr "Yhdistä"
 
 #: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "Connecting…"
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
@@ -243,15 +239,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "pp KKK klo tt:mm"
 
 #: src/Message.cpp:145
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Profile Information"
 msgctxt "QObject|"
 msgid "No information"
-msgstr "Profiilitiedot"
+msgstr "Ei tietoa"
 
 #: src/Message.cpp:206
 msgctxt "Message|"
@@ -300,20 +293,16 @@ msgid "Error"
 msgstr "Virhe"
 
 #: src/MessageModel.cpp:685 src/MessageModel.cpp:788 src/MessageModel.cpp:925
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr "Viestiä ei voitu lähettää."
+msgstr "Reaktiota ei voitu lähettää: %1"
 
 #: src/MessageModel.cpp:866
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr "Viestiä ei voitu lähettää."
+msgstr "Reaktioita ei voitu lähettää: %1"
 
 #: src/MessageModel.cpp:1516
 msgctxt "MessageModel|"
@@ -494,23 +483,17 @@ msgstr "Aseta arvo"
 #: src/qml/details/AccountDetailsContent.qml:120
 msgctxt "AccountDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Nimiöt"
 
 #: src/qml/details/AccountDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "DetailsHeader|"
-#| msgid "Change name…"
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr "Muuta nimeä…"
+msgstr "Muuta nimiötä…"
 
 #: src/qml/details/AccountDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr "Poista tiedosto"
+msgstr "Poista nimiö"
 
 #: src/qml/details/AccountDetailsContent.qml:220
 msgctxt "AccountDetailsContent|"
@@ -615,20 +598,14 @@ msgid ""
 msgstr "Vaihda salasana. Uusi salasana on syötettävä kaikille laitteille!"
 
 #: src/qml/details/AccountDetailsContent.qml:397
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password is invalid."
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr "Nykyinen salasana on virheellinen."
+msgstr "Nykyinen salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:398
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr "Anna oikea salasana"
+msgstr "Anna nykyinen salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:399
 msgctxt "AccountDetailsContent|"
@@ -636,28 +613,19 @@ msgid "Enter correct password"
 msgstr "Anna oikea salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "New password:"
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr "Uusi salasana:"
+msgstr "Uusi salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "PasswordField|"
-#| msgid "Password"
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:422
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter correct password"
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr "Anna oikea salasana"
+msgstr "Anna uusi salasana"
 
 #: src/qml/details/AccountDetailsContent.qml:423
 msgctxt "AccountDetailsContent|"
@@ -828,17 +796,17 @@ msgstr "Tallenna valinta"
 #: src/qml/details/ContactDetailsContent.qml:60
 msgctxt "ContactDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Nimiöt"
 
 #: src/qml/details/ContactDetailsContent.qml:79
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "Uusi nimiö"
 
 #: src/qml/details/ContactDetailsContent.qml:98
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "Lisää nimiö"
 
 #: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
@@ -1022,7 +990,7 @@ msgstr "Suurenna avatar"
 #: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/qml/details/DetailsContent.qml:106
 msgctxt "DetailsContent|"
@@ -1040,17 +1008,11 @@ msgid "Change name…"
 msgstr "Muuta nimeä…"
 
 #: src/qml/details/MediaOverview.qml:72
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Images"
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Kuvat"
 
 #: src/qml/details/MediaOverview.qml:89
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Videos"
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Videot"
@@ -1058,13 +1020,13 @@ msgstr "Videot"
 #: src/qml/details/MediaOverview.qml:107
 msgctxt "MediaOverview|"
 msgid "Other"
-msgstr ""
+msgstr "Muu"
 
 #: src/qml/details/MediaOverview.qml:174
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "%1/%2 valittu"
 
 #: src/qml/details/MediaOverview.qml:256
 #, qt-format
@@ -1073,6 +1035,8 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Kaikkia tiedostoja ei voitu poistaa:\n"
+"%1"
 
 #: src/qml/elements/ChatMessage.qml:150
 msgctxt "ChatMessage|"
@@ -1168,7 +1132,7 @@ msgstr "Kirjoita <b>salaamaton</b> viesti"
 #: src/qml/elements/ChatPageSendingPane.qml:225
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: src/qml/elements/ChatPageSendingPane.qml:281
 msgctxt "ChatPageSendingPane|"
@@ -1411,27 +1375,24 @@ msgstr ""
 "Yritä sulkea muut kameraa käyttävät sovellukset."
 
 #: src/qml/elements/RosterFilteringArea.qml:34
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "Poista tili"
+msgstr "Suodata tilin mukaan"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "Näytä vain valittujen tilien keskustelut"
 
 #: src/qml/elements/RosterFilteringArea.qml:111
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "Suodata nimiön mukaan"
 
 #: src/qml/elements/RosterFilteringArea.qml:112
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "Näytä vain valittujen nimiöiden keskustelut"
 
 #: src/qml/elements/RosterListItem.qml:74
 msgctxt "RosterListItem|"
@@ -1488,9 +1449,6 @@ msgstr ""
 "%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Loading…"
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
 msgstr "Ladataan…"
@@ -2023,7 +1981,7 @@ msgstr "Käytä olemassa olevaa tiliä"
 #: src/qml/RosterPage.qml:47
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "Suodata"
 
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
@@ -2283,36 +2241,28 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
 #: src/RosterManager.cpp:166
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %s failed because of a connection "
-#| "problem: %s"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %1 failed because of a connection problem: %2"
-msgstr "Käyttäjän %s tilannäkemispyyntö epäonnistui yhteysongelman vuoksi: %s"
+msgstr "Käyttäjän %1 tilannäkemispyyntö epäonnistui yhteysongelman vuoksi: %2"
 
 #: src/RosterManager.cpp:174
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %s to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your status failed"
-msgstr "Käyttäjän %s salliminen nähdä tilasi epäonnistui"
+msgstr "Käyttäjän %1 salliminen nähdä tilasi epäonnistui"
 
 #: src/RosterManager.cpp:181
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Disallowing %s to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
-msgstr "Käyttäjän %s estäminen näkemästä tilaasi epäonnistui"
+msgstr "Käyttäjän %1 estäminen näkemästä tilaasi epäonnistui"
 
 #: src/RosterModel.cpp:839
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "Eilen"
 
 #: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
