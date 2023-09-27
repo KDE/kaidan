@@ -124,17 +124,21 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
-	const auto accountJid = m_client->configuration().jidBare();
 	const auto senderJid = QXmppUtils::jidToBareJid(msg.from());
 	const auto recipientJid = QXmppUtils::jidToBareJid(msg.to());
-	const auto isOwnMessage = senderJid == accountJid;
+
+	Message message;
+	message.accountJid = m_client->configuration().jidBare();
+	message.senderId = senderJid;
+	message.chatJid = message.isOwn() ? recipientJid : senderJid;
+
 
 	if (msg.state() != QXmppMessage::State::None) {
 		emit MessageModel::instance()->handleChatStateRequested(
 				senderJid, msg.state());
 	}
 
-	if (handleReadMarker(msg, senderJid, recipientJid, isOwnMessage)) {
+	if (handleReadMarker(msg, senderJid, recipientJid, message.isOwn())) {
 		return;
 	}
 
@@ -147,15 +151,10 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	}
 
 	// Close a notification for messages to which the user replied via another own resource.
-	if (isOwnMessage) {
+	if (message.isOwn()) {
 		emit Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
 	}
 
-	Message message;
-	message.accountJid = accountJid;
-	message.chatJid = isOwnMessage ? recipientJid : senderJid;
-	message.senderId = senderJid;
-	message.isOwn = isOwnMessage;
 	message.id = msg.id();
 
 	if (auto e2eeMetadata = msg.e2eeMetadata()) {
@@ -216,7 +215,6 @@ void MessageHandler::sendMessage(const QString& toJid,
 	// MessageModel::activeEncryption() is thread-safe.
 	msg.encryption = MessageModel::instance()->activeEncryption();
 	msg.receiptRequested = true;
-	msg.isOwn = true;
 	msg.deliveryState = Enums::DeliveryState::Pending;
 	msg.timestamp = QDateTime::currentDateTimeUtc();
 	msg.isSpoiler = isSpoiler;

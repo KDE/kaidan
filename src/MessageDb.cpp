@@ -458,7 +458,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		case MessageOrigin::Stream:
 			if (_checkMessageExists(msg)) {
 				// Mark messages sent to oneself as delivered.
-				if (msg.isOwn && msg.accountJid == msg.chatJid) {
+				if (msg.isOwn() && msg.accountJid == msg.chatJid) {
 					updateMessage(msg.id, [](Message &msg) {
 						msg.deliveryState = Enums::DeliveryState::Delivered;
 					});
@@ -1218,7 +1218,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
 	}
 	// only check origin IDs if the message was possibly sent by us (since
 	// Kaidan uses random suffixes in the resource, we can't check the resource)
-	if (message.isOwn && !message.originId.isEmpty()) {
+	if (message.isOwn() && !message.originId.isEmpty()) {
 		idChecks << QStringLiteral("originId = :originId");
 		bindValues.push_back({ u":originId", message.originId });
 	}

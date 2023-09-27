@@ -201,11 +201,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case Encryption:
 		return msg.encryption;
 	case IsTrusted: {
-		if (msg.isOwn && msg.senderKey.isEmpty()) {
+		if (msg.isOwn() && msg.senderKey.isEmpty()) {
 			return true;
 		}
 
-		const auto trustLevel = m_keys.value(msg.isOwn ? msg.accountJid : msg.senderId).value(msg.senderKey);
+		const auto trustLevel = m_keys.value(msg.isOwn() ? msg.accountJid : msg.senderId).value(msg.senderKey);
 		return (QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel);
 	}
 	case DeliveryState:
@@ -243,7 +243,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case SpoilerHint:
 		return msg.spoilerHint;
 	case IsOwn:
-		return msg.isOwn;
+		return msg.isOwn();
 	case Files:
 		return QVariant::fromValue(msg.files);
 	case DisplayedReactions: {
@@ -460,11 +460,11 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 
 	// Search for the last read contact message if it is at the top of the chat page list view but
 	// readMessageIndex is of an own message.
-	if (readMessage.isOwn) {
+	if (readMessage.isOwn()) {
 		auto isContactMessageRead = false;
 
 		for (int i = readMessageIndex + 1; i != m_messages.size(); ++i) {
-			if (const auto &message = m_messages.at(i); !message.isOwn) {
+			if (const auto &message = m_messages.at(i); !message.isOwn()) {
 				readContactMessageIndex = i;
 				readContactMessage = message;
 				isContactMessageRead = true;
@@ -510,7 +510,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 			// message and the last read contact message.
 			if (readContactMessageIndex == 0 ||
 				lastReadContactMessageId.isEmpty() ||
-				readMessage.isOwn)
+				readMessage.isOwn())
 			{
 				item.unreadMessages = 0;
 			} else {
@@ -518,7 +518,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 				for (int i = readContactMessageIndex + 1; i < m_messages.size(); ++i) {
 					if (const auto &message = m_messages.at(i); message.id == lastReadContactMessageId) {
 						break;
-					} else if (!message.isOwn) {
+					} else if (!message.isOwn()) {
 						++readMessageCount;
 					}
 				}
@@ -539,14 +539,14 @@ int MessageModel::firstUnreadContactMessageIndex()
 
 		// lastReadContactMessageId can be empty if there is no contact message stored or the oldest
 		// stored contact message is marked as first unread.
-		if (!message.isOwn && (messageId == lastReadContactMessageId || lastReadContactMessageId.isEmpty())) {
+		if (!message.isOwn() && (messageId == lastReadContactMessageId || lastReadContactMessageId.isEmpty())) {
 			lastReadContactMessageIndex = i;
 		}
 	}
 
 	if (lastReadContactMessageIndex > 0) {
 		for (auto i = lastReadContactMessageIndex - 1; i >= 0; --i) {
-			if (!m_messages.at(i).isOwn) {
+			if (!m_messages.at(i).isOwn()) {
 				return i;
 			}
 		}
@@ -562,7 +562,7 @@ void MessageModel::markMessageAsFirstUnread(int index)
 
 	// Determine the count of unread contact messages before the marked one.
 	for (int i = 0; i != index; ++i) {
-		if (!m_messages.at(i).isOwn) {
+		if (!m_messages.at(i).isOwn()) {
 			++unreadMessageCount;
 		}
 	}
@@ -571,7 +571,7 @@ void MessageModel::markMessageAsFirstUnread(int index)
 	if (index < m_messages.size() - 1) {
 		for (int i = index + 1; i != m_messages.size(); ++i) {
 			const auto &message = m_messages.at(i);
-			if (!message.isOwn) {
+			if (!message.isOwn()) {
 				lastReadContactMessageId = message.id;
 				break;
 			}
@@ -960,7 +960,7 @@ bool MessageModel::canCorrectMessage(int index) const
 
 	// message needs to be sent by us and needs to be no error message
 	const auto &msg = m_messages.at(index);
-	if (!msg.isOwn || msg.deliveryState == Enums::DeliveryState::Error)
+	if (!msg.isOwn() || msg.deliveryState == Enums::DeliveryState::Error)
 		return false;
 
 	// check time limit
@@ -971,7 +971,7 @@ bool MessageModel::canCorrectMessage(int index) const
 
 	// check messages count limit
 	for (int i = 0, count = 0; i < index; i++) {
-		if (m_messages.at(i).isOwn && ++count == MAX_CORRECTION_MESSAGE_COUNT_DEPTH)
+		if (m_messages.at(i).isOwn() && ++count == MAX_CORRECTION_MESSAGE_COUNT_DEPTH)
 			return false;
 	}
 
@@ -1000,7 +1000,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		if (msg.accountJid != m_currentAccountJid || msg.chatJid != m_currentChatJid) {
 			continue;
 		}
-		msg.isOwn = msg.accountJid == msg.senderId;
+
 		processMessage(msg);
 		m_messages << msg;
 	}
@@ -1026,7 +1026,7 @@ void MessageModel::handleMamBacklogRetrieved(const QString &accountJid, const QS
 
 		if (m_rosterItemWatcher.item().lastReadContactMessageId.isEmpty()) {
 			for (const auto &message : std::as_const(m_messages)) {
-				if (!message.isOwn) {
+				if (!message.isOwn()) {
 					emit RosterModel::instance()->updateItemRequested(m_currentChatJid, [=, messageId = message.id](RosterItem &item) {
 						item.lastReadContactMessageId = messageId;
 					});
@@ -1361,7 +1361,7 @@ void MessageModel::removeMessage(const QString &messageId)
 			} else {
 				emit RosterModel::instance()->updateItemRequested(m_currentChatJid,
 					[=](RosterItem &item) {
-						if (itr->isOwn) {
+						if (itr->isOwn()) {
 							item.lastReadOwnMessageId = newLastReadMessageId;
 						} else {
 							item.lastReadContactMessageId = newLastReadMessageId;
@@ -1416,7 +1416,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 		break;
 	}
 
-	if (!message.isOwn) {
+	if (!message.isOwn()) {
 		const auto accountJid = AccountManager::instance()->jid();
 		const auto chatJid = message.chatJid;
 

@@ -159,8 +159,8 @@ QString File::details() const
 QXmppMessage Message::toQXmpp() const
 {
 	QXmppMessage msg;
-	msg.setFrom(isOwn ? accountJid : chatJid);
-	msg.setTo(isOwn ? chatJid : accountJid);
+	msg.setFrom(isOwn() ? accountJid : chatJid);
+	msg.setTo(isOwn() ? chatJid : accountJid);
 	msg.setId(id);
 	msg.setOriginId(originId);
 	msg.setStanzaId(stanzaId);
@@ -197,6 +197,11 @@ QXmppMessage Message::toQXmpp() const
 	}));
 
 	return msg;
+}
+
+bool Message::isOwn() const
+{
+	return accountJid == senderId;
 }
 
 QString Message::previewText() const

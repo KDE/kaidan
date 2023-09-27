@@ -198,14 +198,16 @@ public:
 	bool receiptRequested = false;
 	// JIDs of senders mapped to the senders
 	QMap<QString, MessageReactionSender> reactionSenders;
-	// True if the message is an own one.
-	bool isOwn = true;
+
 	// Text description of an error if it ever happened to the message
 	QString errorText;
 	// True if the message's content and related data such as files have been removed locally.
 	bool removed = false;
 
 	[[nodiscard]] QXmppMessage toQXmpp() const;
+
+	// Returns whether this message is an own one (i.e., sent by the accountJid).
+	bool isOwn() const;
 
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)

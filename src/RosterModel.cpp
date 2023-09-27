@@ -569,7 +569,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 
 	// unread messages counter
 	std::optional<int> newUnreadMessages;
-	if (message.isOwn) {
+	if (message.isOwn()) {
 		// if we sent a message (with another device), reset counter
 		newUnreadMessages = 0;
 	} else {
