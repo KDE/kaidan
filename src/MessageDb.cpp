@@ -578,17 +578,7 @@ QFuture<void> MessageDb::removeMessage(const QString &senderJid, const QString &
 			);
 		}
 
-		auto message = _fetchLastMessage(senderJid, recipientJid);
-
-		// The retrieved last message can be a default-constructed message if the removed
-		// message was the last one of the corresponding chat. In that case, the sender and
-		// recipient JIDs are set in order to relate the message to its chat.
-		if (message.from.isEmpty()) {
-			message.from = senderJid;
-			message.to = recipientJid;
-		}
-
-		emit messageRemoved(message);
+		emit messageRemoved(_initializeLastMessage(senderJid, recipientJid));
 	});
 }
 
@@ -824,17 +814,7 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 		bindValues(query, { accountJid, chatJid, int(DeliveryState::Draft) });
 		execQuery(query);
 
-		auto message = _fetchLastMessage(accountJid, chatJid);
-
-		// The retrieved last message can be a default-constructed message if the removed
-		// message was the last one of the corresponding chat. In that case, the sender and
-		// recipient JIDs are set in order to relate the message to its chat.
-		if (message.from.isEmpty()) {
-			message.from = accountJid;
-			message.to = chatJid;
-		}
-
-		emit draftMessageRemoved(message);
+		emit draftMessageRemoved(_initializeLastMessage(accountJid, chatJid));
 	});
 }
 
@@ -1285,4 +1265,19 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 
 		return reactions;
 	});
+}
+
+Message MessageDb::_initializeLastMessage(const QString &accountJid, const QString &chatJid)
+{
+	auto message = _fetchLastMessage(accountJid, chatJid);
+
+	// The retrieved last message can be a default-constructed message if the removed message was
+	// the last one of the corresponding chat.
+	// In that case, the sender and  JIDs are set in order to relate the message to its chat.
+	if (message.from.isEmpty()) {
+		message.from = accountJid;
+		message.to = chatJid;
+	}
+
+	return message;
 }

@@ -266,5 +266,7 @@ private:
 	 */
 	bool _checkMessageExists(const Message &message);
 
+	Message _initializeLastMessage(const QString &accountJid, const QString &chatJid);
+
 	static MessageDb *s_instance;
 };
