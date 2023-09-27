@@ -10,7 +10,7 @@
 // Kaidan
 #include "AvatarFileStorage.h"
 #include "Kaidan.h"
-#include "MessageModel.h"
+#include "MessageDb.h"
 #include "OmemoManager.h"
 #include "RosterModel.h"
 #include "Settings.h"
@@ -62,7 +62,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
 		const auto accountJid = m_client->configuration().jidBare();
-		emit MessageModel::instance()->removeMessagesRequested(accountJid, jid);
+		MessageDb::instance()->removeAllMessagesFromChat(accountJid, jid);
 		emit RosterModel::instance()->removeItemsRequested(accountJid, jid);
 		m_clientWorker->omemoManager()->removeContactDevices(jid);
 	});

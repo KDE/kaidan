@@ -271,14 +271,6 @@ signals:
 	void mamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete);
 
 	/**
-	 * Emitted to remove all messages of an account or an account's chat.
-	 *
-	 * @param accountJid JID of the account whose messages are being removed
-	 * @param chatJid JID of the chat whose messages are being removed (optional)
-	 */
-	void removeMessagesRequested(const QString &accountJid, const QString &chatJid = {});
-
-	/**
 	 * Emitted when fetching messages for a query string is completed.
 	 *
 	 * @param queryStringMessageIndex message index of found query string

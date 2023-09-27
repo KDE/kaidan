@@ -508,14 +508,24 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 	});
 }
 
-QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
+QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 {
-	return run([this]() {
+	return run([this, accountJid]() {
 		auto query = createQuery();
 
 		// remove files
 		{
-			execQuery(query, "SELECT fileGroupId FROM messages WHERE fileGroupId IS NOT NULL");
+			prepareQuery(
+				query,
+				"SELECT fileGroupId FROM messages WHERE accountJid = :accountJid AND fileGroupId "
+				"IS NOT NULL"
+			);
+
+			bindValues(query, {
+				std::vector<QueryBindValue> { { u":accountJid", accountJid } }
+			});
+
+			execQuery(query);
 
 			QVector<qint64> fileIds;
 			reserve(fileIds, query);
@@ -528,7 +538,66 @@ QFuture<void> MessageDb::removeMessages(const QString &, const QString &)
 			}
 		}
 
-		execQuery(query, "DELETE FROM " DB_TABLE_MESSAGES);
+		prepareQuery(
+			query,
+			"DELETE FROM " DB_TABLE_MESSAGES " WHERE accountJid = :accountJid"
+		);
+
+		bindValues(query, {
+			std::vector<QueryBindValue> { { u":accountJid", accountJid } }
+		});
+
+		execQuery(query);
+
+		allMessagesRemovedFromAccount(accountJid);
+	});
+}
+
+QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, const QString &chatJid)
+{
+	return run([this, accountJid, chatJid]() {
+		auto query = createQuery();
+
+		// remove files
+		{
+			prepareQuery(
+				query,
+				"SELECT fileGroupId FROM messages WHERE accountJid = :accountJid AND chatJid = "
+				":chatJid AND fileGroupId IS NOT NULL"
+			);
+
+			bindValues(query, {
+				{ u":accountJid", accountJid },
+				{ u":chatJid", chatJid },
+			});
+
+			execQuery(query);
+
+			QVector<qint64> fileIds;
+			reserve(fileIds, query);
+			while (query.next()) {
+				fileIds.append(query.value(0).toLongLong());
+			}
+			if (!fileIds.isEmpty()) {
+				_removeFiles(fileIds);
+				_removeFileHashes(fileIds);
+			}
+		}
+
+		prepareQuery(
+			query,
+			"DELETE FROM " DB_TABLE_MESSAGES " WHERE accountJid = :accountJid AND chatJid = "
+			":chatJid"
+		);
+
+		bindValues(query, {
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+		});
+
+		execQuery(query);
+
+		allMessagesRemovedFromChat(accountJid, chatJid);
 	});
 }
 

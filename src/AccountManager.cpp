@@ -15,7 +15,7 @@
 // Kaidan
 #include "Globals.h"
 #include "Kaidan.h"
-#include "MessageModel.h"
+#include "MessageDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
 #include "VCardCache.h"
@@ -271,7 +271,7 @@ void AccountManager::removeAccount(const QString &accountJid)
 	deleteSettings();
 	deleteCredentials();
 
-	emit MessageModel::instance()->removeMessagesRequested(accountJid);
+	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
 	emit RosterModel::instance()->removeItemsRequested(accountJid);
 }
 

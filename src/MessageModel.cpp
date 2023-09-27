@@ -117,8 +117,7 @@ MessageModel::MessageModel(QObject *parent)
 	connect(this, &MessageModel::handleChatStateRequested,
 	        this, &MessageModel::handleChatState);
 
-	connect(this, &MessageModel::removeMessagesRequested, this, &MessageModel::removeMessages);
-	connect(this, &MessageModel::removeMessagesRequested, MessageDb::instance(), &MessageDb::removeMessages);
+	connect(MessageDb::instance(), &MessageDb::allMessagesRemovedFromChat, this, &MessageModel::removeMessages);
 
 	connect(this, &MessageModel::mamBacklogRetrieved, this, &MessageModel::handleMamBacklogRetrieved);
 }
@@ -1076,8 +1075,9 @@ void MessageModel::resetCurrentChat(const QString &accountJid, const QString &ch
 
 void MessageModel::removeMessages(const QString &accountJid, const QString &chatJid)
 {
-	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid)
+	if (accountJid == m_currentAccountJid && chatJid == m_currentChatJid) {
 		removeAllMessages();
+	}
 }
 
 void MessageModel::removeAllMessages()

@@ -190,12 +190,21 @@ public:
 	Q_SIGNAL void messageAdded(const Message &msg, MessageOrigin origin);
 
 	/**
-	 * Removes all messages of an account or an account's chat.
+	 * Removes all messages from an account.
 	 *
 	 * @param accountJid JID of the account whose messages are being removed
-	 * @param chatJid JID of the chat whose messages are being removed (optional)
 	 */
-	QFuture<void> removeMessages(const QString &accountJid, const QString &chatJid = {});
+	QFuture<void> removeAllMessagesFromAccount(const QString &accountJid);
+	Q_SIGNAL void allMessagesRemovedFromAccount(const QString &accountJid);
+
+	/**
+	 * Removes all messages from an account's chat.
+	 *
+	 * @param accountJid JID of the account whose messages are being removed
+	 * @param chatJid JID of the chat whose messages are being removed
+	 */
+	QFuture<void> removeAllMessagesFromChat(const QString &accountJid, const QString &chatJid);
+	Q_SIGNAL void allMessagesRemovedFromChat(const QString &accountJid, const QString &chatJid);
 
 	/**
 	 * Removes a chat message locally.
