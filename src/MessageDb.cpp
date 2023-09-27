@@ -397,27 +397,6 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 	});
 }
 
-QFuture<QDateTime> MessageDb::messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId)
-{
-	return run([=, this]() {
-		auto query = createQuery();
-		execQuery(
-			query,
-			"SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " DESC WHERE sender = ? AND recipient = ? AND id = ? LIMIT 1",
-			{ senderJid, recipientJid, messageId }
-		);
-
-		if (query.first()) {
-			return QDateTime::fromString(
-				query.value(0).toString(),
-				Qt::ISODateWithMs
-			);
-		}
-
-		return QDateTime();
-	});
-}
-
 QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, const QString &chatJid, int index)
 {
 	return run([=, this]() {

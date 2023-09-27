@@ -168,17 +168,6 @@ public:
 	QFuture<QDateTime> fetchLastMessageStamp();
 	Q_SIGNAL void lastMessageStampFetched(const QDateTime &stamp);
 
-	/**
-	 * Returns the timestamp of a message.
-	 *
-	 * @param senderJid JID of the message's sender
-	 * @param recipientJid JID of the message's recipient
-	 * @param messageId ID of the message
-	 *
-	 * @return the message's timestamp
-	 */
-	QFuture<QDateTime> messageTimestamp(const QString &senderJid, const QString &recipientJid, const QString &messageId);
-
 	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
