@@ -230,11 +230,6 @@ public:
 	Q_INVOKABLE int searchForMessageFromOldToNew(const QString &searchString, int startIndex = -1);
 
 	/**
-	 * Sends pending messages again after searching them in the database.
-	 */
-	void sendPendingMessages();
-
-	/**
 	  * Returns the current chat state
 	  */
 	QXmppMessage::State chatState() const;
@@ -262,7 +257,6 @@ signals:
 	void keysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
 	void keysChanged();
 
-	void pendingMessagesFetched(const QVector<Message> &messages);
 	void sendCorrectedMessageRequested(const Message &msg);
 	void chatStateChanged();
 	void sendChatStateRequested(const QString &bareJid, QXmppMessage::State state);

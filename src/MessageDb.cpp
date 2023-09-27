@@ -1270,10 +1270,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &account
 			}
 		);
 
-		auto messages = _fetchMessagesFromQuery(query);
-
-		emit pendingMessagesFetched(messages);
-		return messages;
+		return _fetchMessagesFromQuery(query);
 	});
 }
 

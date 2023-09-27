@@ -333,7 +333,7 @@ void ClientWorker::onConnected()
 	// automatically in case of a connection outage.
 	m_client->configuration().setAutoReconnectionEnabled(true);
 
-	MessageModel::instance()->sendPendingMessages();
+	m_messageHandler->sendPendingMessages();
 
 	// Send read markers that could not be sent yet because the client was offline.
 	runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {

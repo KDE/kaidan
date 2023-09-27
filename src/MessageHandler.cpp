@@ -78,9 +78,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 
 	client->addExtension(&m_receiptManager);
 
-	connect(MessageModel::instance(), &MessageModel::pendingMessagesFetched,
-			this, &MessageHandler::handlePendingMessages);
-
 	// get last message stamp to retrieve all new messages from the server since then
 	MessageDb::instance()->fetchLastMessageStamp();
 }
@@ -223,6 +220,16 @@ void MessageHandler::sendMessage(const QString& toJid,
 	sendPendingMessage(std::move(msg));
 }
 
+void MessageHandler::sendPendingMessages()
+{
+	auto future = MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid());
+	await(future, this, [this](QVector<Message> messages) {
+		for (Message message : messages) {
+			sendPendingMessage(std::move(message));
+		}
+	});
+}
+
 void MessageHandler::sendChatState(const QString &toJid, const QXmppMessage::State state)
 {
 	QXmppMessage message;
@@ -359,13 +366,6 @@ void MessageHandler::sendReadMarker(const QString &chatJid, const QString &messa
 	message.setMarkerId(messageId);
 
 	send(std::move(message));
-}
-
-void MessageHandler::handlePendingMessages(const QVector<Message> &messages)
-{
-	for (Message message : messages) {
-		sendPendingMessage(std::move(message));
-	}
 }
 
 void MessageHandler::retrieveInitialMessages()

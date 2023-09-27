@@ -145,7 +145,6 @@ public:
 	 * @param accountJid JID of the account whose messages should be fetched
 	 */
 	QFuture<QVector<Message>> fetchPendingMessages(const QString &accountJid);
-	Q_SIGNAL void pendingMessagesFetched(const QVector<Message> &messages);
 
 	/**
 	 * Fetches message reactions marked as pending.

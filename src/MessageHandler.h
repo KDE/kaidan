@@ -45,6 +45,11 @@ public:
 	void sendMessage(const QString &toJid, const QString &body, bool isSpoiler, const QString &spoilerHint);
 
 	/**
+	 * Sends pending messages again after searching them in the database.
+	 */
+	void sendPendingMessages();
+
+	/**
 	 * Sends a chat state notification to the server.
 	 */
 	void sendChatState(const QString &toJid, const QXmppMessage::State state);
@@ -76,12 +81,6 @@ signals:
 
 private:
 	void handleConnected();
-
-	/**
-	 * Handles pending messages found in the database.
-	 */
-	void handlePendingMessages(const QVector<Message> &messages);
-
 	void retrieveInitialMessages();
 	void retrieveCatchUpMessages(const QDateTime &stamp);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);

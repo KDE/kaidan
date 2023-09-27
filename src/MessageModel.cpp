@@ -103,10 +103,7 @@ MessageModel::MessageModel(QObject *parent)
 		emit chatStateChanged();
 	});
 
-	connect(MessageDb::instance(), &MessageDb::messagesFetched,
-	        this, &MessageModel::handleMessagesFetched);
-	connect(MessageDb::instance(), &MessageDb::pendingMessagesFetched,
-	        this, &MessageModel::pendingMessagesFetched);
+	connect(MessageDb::instance(), &MessageDb::messagesFetched, this, &MessageModel::handleMessagesFetched);
 
 	// addMessage requests are forwarded to the MessageDb, are deduplicated there and
 	// added if MessageDb::messageAdded is emitted
@@ -1234,11 +1231,6 @@ void MessageModel::processMessage(Message &msg)
 		body.truncate(MESSAGE_MAX_CHARS);
 		msg.body = body;
 	}
-}
-
-void MessageModel::sendPendingMessages()
-{
-	MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid());
 }
 
 QXmppMessage::State MessageModel::chatState() const
