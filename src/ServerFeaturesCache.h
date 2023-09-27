@@ -43,7 +43,7 @@ signals:
 	/**
 	 * Emitted when In-Band Registration support changed.
 	 */
-	bool inBandRegistrationSupportedChanged();
+	void inBandRegistrationSupportedChanged();
 
 	void httpUploadSupportedChanged();
 
