@@ -214,7 +214,6 @@ void MessageHandler::sendMessage(const QString& toJid,
 	msg.originId = msg.id;
 	// MessageModel::activeEncryption() is thread-safe.
 	msg.encryption = MessageModel::instance()->activeEncryption();
-	msg.receiptRequested = true;
 	msg.deliveryState = Enums::DeliveryState::Pending;
 	msg.timestamp = QDateTime::currentDateTimeUtc();
 	msg.isSpoiler = isSpoiler;
@@ -287,6 +286,8 @@ void MessageHandler::sendPendingMessage(Message message)
 		if (!message.replaceId.isEmpty()) {
 			message.timestamp = QDateTime::currentDateTimeUtc();
 		}
+
+		message.receiptRequested = true;
 
 		const auto messageId = message.id;
 		await(send(message.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
