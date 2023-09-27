@@ -489,7 +489,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 			{ u":recipient", msg.to },
 			{ u":timestamp", msg.stamp.toString(Qt::ISODateWithMs) },
 			{ u":body", msg.body },
-			{ u":id", msg.id.isEmpty() ? " " : msg.id },
+			{ u":id", msg.id },
 			{ u":encryption", msg.encryption },
 			{ u":senderKey", msg.senderKey },
 			{ u":deliveryState", int(msg.deliveryState) },
