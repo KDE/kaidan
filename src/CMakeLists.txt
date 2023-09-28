@@ -63,11 +63,6 @@ target_sources(${PROJECT_NAME} PRIVATE
 	# hsluv-c required for color generation
 	hsluv-c/hsluv.c
 	hsluv-c/hsluv.h
-	OmemoCache.cpp
-	OmemoCache.h
-	OmemoWatcher.cpp
-	OmemoWatcher.h
-
 	JsonUtils.h
 	Kaidan.cpp
 	Kaidan.h
@@ -93,10 +88,14 @@ target_sources(${PROJECT_NAME} PRIVATE
 	MessageModel.h
 	Notifications.cpp
 	Notifications.h
+	OmemoCache.cpp
+	OmemoCache.h
 	OmemoDb.cpp
 	OmemoDb.h
 	OmemoManager.cpp
 	OmemoManager.h
+	OmemoWatcher.cpp
+	OmemoWatcher.h
 	PresenceCache.cpp
 	PresenceCache.h
 	ProviderListItem.cpp
