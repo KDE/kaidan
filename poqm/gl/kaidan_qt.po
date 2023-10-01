@@ -50,7 +50,8 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"Non se puido eliminar do servidor. Así, tampouco foi eliminada desta app: %1"
+"Non foi posíbel eliminar do servidor. Así, tampouco foi eliminada desta app: "
+"%1"
 
 #: src/FileSharingController.cpp:196
 #, qt-format
@@ -275,12 +276,12 @@ msgstr "Esta mensaxe está cifrada con %1 pero non puido descifrarse"
 #: src/MessageHandler.cpp:241
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr "Non se puido corrixir a mensaxe."
+msgstr "Non foi posíbel corrixir a mensaxe."
 
 #: src/MessageHandler.cpp:299
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr "Non se puido enviar a mensaxe."
+msgstr "Non foi posíbel enviar a mensaxe."
 
 #: src/MessageModel.cpp:242
 msgctxt "MessageModel|"
@@ -336,7 +337,7 @@ msgstr "Marcar como lido"
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr "Non se puido configurar o cifrado extremo-a-extremo OMEMO 2"
+msgstr "Non foi posíbel configurar o cifrado extremo-a-extremo OMEMO 2"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -682,7 +683,7 @@ msgstr "Cambiar contrasinal"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr "Non se puido cambiar o contrasinal: %1"
+msgstr "Non foi posíbel cambiar o contrasinal: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:504
 msgctxt "AccountDetailsContent|"
@@ -718,8 +719,8 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
-"Permitir engadir dispositivos adicionais utilizando o código QR de conexión "
-"mais non amosar nunca o contrasinal"
+"Permitir engadir dispositivos adicionais usando o código QR de conexión mais "
+"non amosar nunca o contrasinal"
 
 #: src/qml/details/AccountDetailsContent.qml:539
 msgctxt "AccountDetailsContent|"
@@ -732,8 +733,8 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
-"Non permitir engadir dispositivos adicionais utilizando o código QR de "
-"conexión ni amosar o contrasinal."
+"Non permitir engadir dispositivos adicionais usando o código QR de conexión "
+"ni amosar o contrasinal."
 
 #: src/qml/details/AccountDetailsContent.qml:563
 msgctxt "AccountDetailsContent|"
@@ -763,7 +764,7 @@ msgstr "Escribe uns valores diferentes para a conexión para cambialos"
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr "Non se puideron cambiar os axustes da conexión: %1"
+msgstr "Non foi posíbel cambiar os axustes da conexión: %1"
 
 #: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
@@ -1359,13 +1360,13 @@ msgstr "%1 retirarase cando se conecte."
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr "Non se puido engadir %1."
+msgstr "Non foi posíbel engadir %1."
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:79
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr "Non se puido retirar %1."
+msgstr "Non foi posíbel retirar %1."
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
@@ -2229,8 +2230,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
-"Non se puido conectar co servidor. Comproba a conexión a internet ou o nome "
-"do servidor."
+"Non foi posíbel conectar co servidor. Comproba a conexión a internet ou o "
+"nome do servidor."
 
 #: src/QmlUtils.cpp:61
 msgctxt "QmlUtils|"
