@@ -259,7 +259,7 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Położenie"
 
-#: src/Message.cpp:206
+#: src/Message.cpp:211
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
@@ -269,44 +269,44 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/MessageHandler.cpp:168
+#: src/MessageHandler.cpp:166
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageHandler.cpp:241
+#: src/MessageHandler.cpp:248
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się"
 
-#: src/MessageHandler.cpp:299
+#: src/MessageHandler.cpp:308
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."
 
-#: src/MessageModel.cpp:242
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Oczekujący"
 
-#: src/MessageModel.cpp:244
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Wysłane"
 
-#: src/MessageModel.cpp:246
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Doręczono"
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Błąd"
 
-#: src/MessageModel.cpp:685 src/MessageModel.cpp:788 src/MessageModel.cpp:925
+#: src/MessageModel.cpp:678 src/MessageModel.cpp:781 src/MessageModel.cpp:918
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -314,7 +314,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie udało się wysłać wiadomość."
 
-#: src/MessageModel.cpp:866
+#: src/MessageModel.cpp:859
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -322,12 +322,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Nie udało się wysłać wiadomość."
 
-#: src/MessageModel.cpp:1516
+#: src/MessageModel.cpp:1505
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1519
+#: src/MessageModel.cpp:1508
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2598,7 +2598,7 @@ msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr "Odmów %s zobaczenia, że twój stan się nie udał"
 
-#: src/RosterModel.cpp:839
+#: src/RosterModel.cpp:835
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

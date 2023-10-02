@@ -251,7 +251,7 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "위치"
 
-#: src/Message.cpp:206
+#: src/Message.cpp:211
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "스포일러"
@@ -261,13 +261,13 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/MessageHandler.cpp:168
+#: src/MessageHandler.cpp:166
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:241
+#: src/MessageHandler.cpp:248
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -275,32 +275,32 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "메시지 수정에 실패했습니다."
 
-#: src/MessageHandler.cpp:299
+#: src/MessageHandler.cpp:308
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:242
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "대기 중"
 
-#: src/MessageModel.cpp:244
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "보냄"
 
-#: src/MessageModel.cpp:246
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "배달됨"
 
-#: src/MessageModel.cpp:248
+#: src/MessageModel.cpp:233
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "오류"
 
-#: src/MessageModel.cpp:685 src/MessageModel.cpp:788 src/MessageModel.cpp:925
+#: src/MessageModel.cpp:678 src/MessageModel.cpp:781 src/MessageModel.cpp:918
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -308,7 +308,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:866
+#: src/MessageModel.cpp:859
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -316,12 +316,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/MessageModel.cpp:1516
+#: src/MessageModel.cpp:1505
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1519
+#: src/MessageModel.cpp:1508
 #, fuzzy
 #| msgctxt "RosterModel|"
 #| msgid "Yesterday"
@@ -2491,7 +2491,7 @@ msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr ""
 
-#: src/RosterModel.cpp:839
+#: src/RosterModel.cpp:835
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "어제"
