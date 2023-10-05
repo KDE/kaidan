@@ -64,14 +64,14 @@ Reviews have to be done by at least one maintainer not involved as the MR's auth
 
 ## Features
 
-If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](/misc/doap.xml) accordingly.
+If you add or update a functionality specified by an [XMPP Extension Protocol (XEP)](https://xmpp.org/extensions/), adjust the [Description of a Project (DOAP) file](misc/doap.xml) accordingly.
 
-## Configuration and Database Files
+## Configuration and Database
 
 Kaidan uses a configuration file to store settings such as the last window size.
 On Linux, that configuration file is located at `.config/kaidan/kaidan.conf`.
 
-Kaidan's database is an SQLite file.
+Kaidan's database is an [SQLite](https://sqlite.org) file.
 It stores, for example, contacts and messages.
 On Linux, you can find it at `.local/kaidan/kaidan.sqlite3`.
 To open it, you need an SQLite application (e.g., `sqlitebrowser`, use `sudo apt install sqlitebrowser` to install it on Debian-based systems)
@@ -103,35 +103,42 @@ Kaidan can be run on desktop devices as well as on mobile devices with touchscre
 A user interface optimized for mobile devices can be applied via the environment variable `QT_QUICK_CONTROLS_MOBILE`.
 You can run Kaidan with `QT_QUICK_CONTROLS_MOBILE=true kaidan` in order to get its mobile view.
 
-## Files
+## C++
 
-If you add a new C++ file, please add it to `src/CMakeLists.txt`.
-QML files must be added to `src/qml/qml.qrc`.
+C++ files (except unit tests) are stored in Kaidan's [`src` directory](src).
+If you add such a new file, please add it to the related [CMakeLists file](src/CMakeLists.txt).
+
+## QML
+
+Kaidan uses [QML](https://doc.qt.io/qt-6/qmlapplications.html) for its user interface.
+New QML files must be added to the related [Qt resource collection file](src/qml/qml.qrc).
 You can add your file to the end of the listings without applying any order.
 Please do not change the order of existing files.
 
-## Notifications
+## JavaScript
 
-Notifications are triggered by `src/Notifications` via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
-The configuration file `misc/kaidan.notifyrc` is used by KNotifications.
-It is automatically installed when you install Kaidan.
-Remember to install Kaidan again if you modified that file in order to see any changes.
+Please use `let` or `const` instead of `var` when you define a variable in JavaScript within a QML file.
 
-## User Interface
+## Kirigami
 
 Kaidan depends on the user interface framework [Kirigami](https://api.kde.org/frameworks/kirigami/html/index.html).
 Please use its visual components within Kaidan instead of creating own ones as far as it makes sense.
 You can have a look at the components Kirigami provides by opening the [Kirigami Gallery](https://invent.kde.org/sdk/kirigami-gallery) (use `sudo apt install kirigami-gallery` to install it and `kirigami2gallery` to run it on Debian-based systems).
 
+## Translations
+
+Kaidan is translated via [KDE Localization](https://l10n.kde.org/stats/gui/trunk-kf5/package/kaidan/).
+In order to make translations possible, you need to use `qsTr("<text>")` (Example: `qsTr("Login")`) for QML `string`'s and `tr(<text>)` (Example: `tr("Online")`) for `QString`s in C++.
+
 ## Icons
 
 For using an icon as a user interface element such as [`Kirigami.Icon`](https://api.kde.org/frameworks/kirigami/html/classIcon.html) or [`QtQuick.Controls.Button`](https://doc.qt.io/qt-5/qml-qtquick-controls2-button.html), you need to set the actual icon as its [`source`](https://api.kde.org/frameworks/kirigami/html/classIcon.html#ab04bfe8d23fdd9779421aadaaaa022f4) resp. [`name`](https://doc.qt.io/qt-5/qml-qtquick-controls2-abstractbutton.html#icon.name-prop) property.
-All icons used by Kaidan must be referenced in [`kirigami-icons.qrc`](https://invent.kde.org/melvo/kaidan/-/blob/master/kirigami-icons.qrc).
+All icons used by Kaidan must be referenced in the related [Qt resource collection file](kirigami-icons.qrc).
 Kaidan's default icon theme is [Breeze](https://invent.kde.org/frameworks/breeze-icons).
 
 Instead of using new icons, search and use icons that are already used for similar purposes.
 If your purpose needs a new icon that is not yet used by Kaidan, you can find one with [Cuttlefish](https://invent.kde.org/plasma/plasma-sdk/-/tree/master/cuttlefish) (use `sudo apt install plasma-sdk` to install it and `cuttlefish` to run it on Debian-based systems).
-Via corresponding buttons, you can check whether an icon is available for Breeze and if so, retrieve the icon's name to be used in Kaidan's code and the icon's path to be used in `kirigami-icons.qrc`.
+Via corresponding buttons, you can check whether an icon is available for Breeze and if so, retrieve the icon's name to be used in Kaidan's code and the icon's path to be used in the related [Qt resource collection file](kirigami-icons.qrc).
 
 Always make sure that you use the right path within [Breeze's icon directory](https://invent.kde.org/frameworks/breeze-icons/-/tree/master/icons).
 Cuttlefish will open the chosen icon of your system's theme.
@@ -140,47 +147,15 @@ If that is not Breeze, you need to find the corresponding icon in Breeze's icon 
 The system Kaidan is run on can apply a different icon theme than Kaidan's default.
 For good compatibility with various icon themes, it is often better to use the `-symbolic.svg` variant of an icon.
 
-## Builds and Dependencies
-
-On a daily basis, Kaidan is automatically built for various systems.
-Those *nightly builds* are based on Kaidan's *master* branch.
-
-Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
-For distributions supporting Flatpak, there is a [Flatpak configuration](https://invent.kde.org/network/kaidan/-/blob/master/.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) and its [reference](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.remoteapp) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
-There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
-In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows, macOS and Android builds](https://binary-factory.kde.org/search/?q=kaidan).
-
-Dependencies are mainly managed by Kaidan's [CMakeLists](/CMakeLists.txt) file.
-When you add or remove dependencies, update the [README](/README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
-
-You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
-Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
-It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py), [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) and [zxing-cpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/zxing-cpp/zxing-cpp.py) as well.
-That way, Kaidan can be built correctly by KDE's automated process.
-As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
-
-## Releases
-
-Kaidan's releases are marked by [tags](https://invent.kde.org/network/kaidan/-/tags).
-For each release, its source code and the source code's signature is [uploaded](https://download.kde.org/unstable/kaidan/) by one of Kaidan's maintainers.
-
-## Translations
-
-Kaidan is translated via [KDE Localization](https://l10n.kde.org/stats/gui/trunk-kf5/package/kaidan/).
-In order to make translations possible, you need to use `qsTr("<text>")` (Example: `qsTr("Login")`) for QML `string`'s and `tr(<text>)` (Example: `tr("Online")`) for `QString`s in C++.
-
-## QML and Javascript
-
-Please use `let` or `const` instead of `var` when you define a variable in JavaScript within a QML file.
-
 ## Graphics
 
 The preferred format for graphics in Kaidan is *SVG*.
 If SVG is not applicable like for screenshots, the graphic should have the format *PNG*.
+New graphics that are used at runtime must be added to the related [Qt resource collection file](data/images/images.qrc).
 
 ### Changes
 
-If you change a graphic, it might be necessary to run `utils/render-graphics.sh` in order to generate new PNG files from their original SVG files.
+If you change a graphic, it might be necessary to run [graphic rendering tool](utils/render-graphics.sh) in order to generate new PNG files from their original SVG files.
 Once the PNG files are created, the graphics need to be updated everywhere they are used (e.g., on Mastodon or in Kaidan's group chat).
 
 ### Optimization
@@ -189,10 +164,10 @@ In any case, the new or modified graphic must be [optimized](https://invent.kde.
 
 ### Copyright
 
-The *LICENSE* file must be updated if there are copyright changes:
+The [license file](LICENSE) must be updated if there are copyright changes:
 
-1. Add to *utils/generate-license.py* a new `CopyrightTarget` for a new graphic or change an existing one for a modification of an existing graphic.
-1. Execute `utils/generate-license.py > LICENSE` for updating the *LICENSE* file.
+1. Add to the [license generation tool](utils/generate-license.py) a new `CopyrightTarget` for a new graphic or change an existing one for a modification of an existing graphic.
+1. Execute `utils/generate-license.py > LICENSE` for updating the [license file](LICENSE) file.
 1. Add those two file changes to the same commit which contains the new or modified graphic.
 
 ### Logo
@@ -204,3 +179,44 @@ Furthermore, the logo has to be updated on multiple other places:
 1. In the [repository of Kaidan's website](https://invent.kde.org/websites/kaidan-im) by updating all instances of `favicon*` and `logo*`.
 1. On [Kaidan's Mastodon profile](https://fosstodon.org/@kaidan) by uploading a new avatar.
 1. In [Kaidan's group chat](xmpp:kaidan@muc.kaidan.im?join) by uploading a new avatar.
+
+## Other Files
+
+Other files that are used at runtime must be added to the related [Qt resource collection file](data/data.qrc).
+The [XMPP provider list](data/providers.json) from [XMPP Providers](https://invent.kde.org/melvo/xmpp-providers) is an example for such a file.
+
+## Notifications
+
+[Notifications](src/Notifications.cpp) are triggered via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
+The [configuration file](misc/kaidan.notifyrc] is used by KNotifications.
+It is automatically installed when you install Kaidan.
+Remember to install Kaidan again if you modified that file in order to see any changes.
+
+## Unit Tests
+
+Unit tests are stored in Kaidan's [`tests` directory](tests).
+If you add a new C++ file to that directory, please add it to the related [CMakeLists file](tests/CMakeLists.txt).
+
+## Builds and Dependencies
+
+On a daily basis, Kaidan is automatically built for various systems.
+Those *nightly builds* are based on Kaidan's [`master` branch](https://invent.kde.org/network/kaidan/-/tree/master).
+
+Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
+For distributions supporting Flatpak, there is a [Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) and its [reference](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.remoteapp) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
+There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
+In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows, macOS and Android builds](https://binary-factory.kde.org/search/?q=kaidan).
+
+Dependencies are mainly managed by Kaidan's [root CMakeLists file](CMakeLists.txt).
+When you add or remove dependencies, update the [README](README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
+
+You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
+Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
+It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py), [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) and [zxing-cpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/zxing-cpp/zxing-cpp.py) as well.
+That way, Kaidan can be built correctly by KDE's automated process.
+As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
+
+## Releases
+
+Kaidan's releases are marked by [tags](https://invent.kde.org/network/kaidan/-/tags).
+For each release, its source code and the source code's signature is [uploaded](https://download.kde.org/unstable/kaidan/) by one of Kaidan's maintainers.
