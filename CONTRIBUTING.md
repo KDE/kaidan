@@ -83,6 +83,13 @@ It defines their filename suffixes after a separating `-` while their file exten
 In combination with the command-line option `--multiple`, multiple instances of Kaidan can be run simultaneously with different profiles.
 E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-test.conf` and the database file `messages-test.sqlite3`.
 
+## Logging
+
+Kaidan uses QXmpp's logging.
+That mainly outputs the XML data exchanged between Kaidan and the XMPP servers it is connected to.
+[LogHandler](src/LogHandler.cpp) specifies the logging type.
+The command-line argument `--disable-xml-log` disables QXmpp's logging.
+
 ## Styles
 
 A style influences Kaidan's look.
