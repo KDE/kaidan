@@ -190,7 +190,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		prepareQuery(
 			query,
 			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
-			"WHERE (accountJid = :accountJid AND chatJid = :chatJid)"
+			"WHERE (accountJid = :accountJid AND chatJid = :chatJid) "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, :limit"
 		);
@@ -266,7 +266,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 		prepareQuery(
 			query,
 			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
-			"WHERE accountJid = :accountJid AND chatJid = :chatJid"
+			"WHERE accountJid = :accountJid AND chatJid = :chatJid "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, ("
 			"SELECT COUNT() FROM " DB_VIEW_CHAT_MESSAGES " "
@@ -333,7 +333,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 		prepareQuery(
 			query,
 			"SELECT * FROM " DB_VIEW_CHAT_MESSAGES " "
-			"WHERE accountJid = :accountJid AND chatJid = :chatJid"
+			"WHERE accountJid = :accountJid AND chatJid = :chatJid "
 			"ORDER BY timestamp DESC "
 			"LIMIT :index, :limit"
 		);
