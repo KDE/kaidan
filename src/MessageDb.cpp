@@ -129,13 +129,13 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	QSqlRecord rec;
 
 	if (oldMsg.accountJid != newMsg.accountJid) {
-		rec.append(createSqlField("sender", newMsg.accountJid));
+		rec.append(createSqlField("accountJid", newMsg.accountJid));
 	}
 	if (oldMsg.chatJid != newMsg.chatJid) {
-		rec.append(createSqlField("recipient", newMsg.chatJid));
+		rec.append(createSqlField("chatJid", newMsg.chatJid));
 	}
 	if (oldMsg.senderId != newMsg.senderId) {
-		rec.append(createSqlField("recipient", newMsg.senderId));
+		rec.append(createSqlField("senderId", newMsg.senderId));
 	}
 	if (oldMsg.id != newMsg.id) {
 		rec.append(createSqlField("id", newMsg.id));
@@ -272,8 +272,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 			"SELECT COUNT() FROM " DB_VIEW_CHAT_MESSAGES " "
 			"WHERE timestamp >= "
 			"(SELECT timestamp FROM " DB_VIEW_CHAT_MESSAGES " "
-			"WHERE sender = :chatJid AND recipient = :accountJid AND id = :id) AND "
-			"accountJid = :accountJid AND chatJid = :chatJid "
+			"WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :id)"
 			") + :limit"
 		);
 		bindValues(query, {
@@ -847,7 +846,7 @@ QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QSt
 		auto query = createQuery();
 		execQuery(
 			query,
-			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE sender = ? AND recipient = ?",
+			"SELECT * FROM " DB_VIEW_DRAFT_MESSAGES " WHERE accountJid = ? AND chatJid = ?",
 			{ accountJid, chatJid }
 		);
 
@@ -887,7 +886,7 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 {
 	return run([this, accountJid, chatJid]() {
 		auto query = createQuery();
-		prepareQuery(query, "DELETE FROM " DB_TABLE_MESSAGES " WHERE sender = ? AND recipient = ? AND deliveryState = ?");
+		prepareQuery(query, "DELETE FROM " DB_TABLE_MESSAGES " WHERE accountJid = ? AND chatJid = ? AND deliveryState = ?");
 		bindValues(query, { accountJid, chatJid, int(DeliveryState::Draft) });
 		execQuery(query);
 
