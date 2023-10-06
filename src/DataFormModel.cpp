@@ -38,7 +38,8 @@ QVariant DataFormModel::data(const QModelIndex &index, int role) const
 	if (!index.isValid() || !hasIndex(index.row(), index.column(), index.parent()))
 		return {};
 
-	const QXmppDataForm::Field &field = m_form.fields().at(index.row());
+	auto fields = m_form.fields();
+	const auto &field = fields.at(index.row());
 
 	switch(role) {
 	case Key:
