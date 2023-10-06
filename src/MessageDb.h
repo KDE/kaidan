@@ -101,7 +101,7 @@ public:
 	QFuture<QVector<Message>> fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
-	 * Fetches entries until messageId from the database and emits messagesFetched() with the
+	 * Fetches entries until a specific ID from the database and emits messagesFetched() with the
 	 * results.
 	 *
 	 * Entries are fetched until a message with messageId is found.
@@ -251,6 +251,8 @@ public:
 	Q_SIGNAL void draftMessageRemoved(const Message &newLastMessage);
 
 private:
+	void _addMessage(const Message &message);
+
 	// Setters do INSERT OR REPLACE INTO
 	void _setFiles(const QVector<File> &files);
 	void _setFileHashes(const QVector<FileHash> &fileHashes);
@@ -268,6 +270,7 @@ private:
 
 	void _fetchReactions(QVector<Message> &messages);
 	QFuture<QVector<File>> _fetchFiles(const QString &accountJid, const QString &chatJid, bool checkExists);
+	std::optional<Message> _fetchDraftMessage(const QString &accountJid, const QString &chatJid);
 
 	/**
 	 * Checks whether a message already exists in the database
