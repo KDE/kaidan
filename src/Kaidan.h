@@ -114,8 +114,8 @@ public:
 	 */
 	quint8 connectionStateId() const { return quint8(m_connectionState); }
 	Enums::ConnectionState connectionState() const { return m_connectionState; }
-
 	QString connectionStateText() const;
+	bool connected() const { return connectionState() == Enums::ConnectionState::StateConnected; }
 
 	/**
 	 * Returns the last connection error.
