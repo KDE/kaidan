@@ -184,7 +184,6 @@ public:
 	 * Fetch the latest message stamp
 	 */
 	QFuture<QDateTime> fetchLastMessageStamp();
-	Q_SIGNAL void lastMessageStampFetched(const QDateTime &stamp);
 
 	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
 

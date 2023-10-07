@@ -62,8 +62,6 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	connect(client, &QXmppClient::connected, this, &MessageHandler::handleConnected);
 	connect(client->findExtension<QXmppRosterManager>(), &QXmppRosterManager::rosterReceived,
 	        this, &MessageHandler::handleRosterReceived);
-	connect(MessageDb::instance(), &MessageDb::lastMessageStampFetched,
-	        this, &MessageHandler::handleLastMessageStampFetched);
 
 	connect(&m_receiptManager, &QXmppMessageReceiptManager::messageDelivered,
 		this, [](const QString &, const QString &id) {
@@ -78,7 +76,9 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 	client->addExtension(&m_receiptManager);
 
 	// get last message stamp to retrieve all new messages from the server since then
-	MessageDb::instance()->fetchLastMessageStamp();
+	await(MessageDb::instance()->fetchLastMessageStamp(), this, [this](QDateTime &&stamp) {
+		handleLastMessageStampFetched(stamp);
+	});
 }
 
 void MessageHandler::handleRosterReceived()

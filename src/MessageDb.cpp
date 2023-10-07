@@ -454,7 +454,6 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 			);
 		}
 
-		Q_EMIT lastMessageStampFetched(stamp);
 		return stamp;
 	});
 }
