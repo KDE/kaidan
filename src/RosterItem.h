@@ -34,7 +34,7 @@ public:
 	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
 
 	RosterItem() = default;
-	RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item, const QDateTime &lastMessageDateTime = QDateTime::currentDateTimeUtc());
+	RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item);
 
 	QString displayName() const;
 
@@ -73,7 +73,7 @@ public:
 	// Last activity of the conversation, e.g., when the last message was exchanged or a draft
 	// stored.
 	// This is used to display the date and to sort the contacts on the roster page´.
-	QDateTime lastMessageDateTime = QDateTime::currentDateTimeUtc();
+	QDateTime lastMessageDateTime;
 
 	// Last message of the conversation.
 	QString lastMessage;

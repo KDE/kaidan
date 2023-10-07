@@ -36,6 +36,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		this, [this](const QString &jid) {
 		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
+		rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
 		emit RosterModel::instance()->addItemRequested(rosterItem);
 
 		if (m_client->state() == QXmppClient::ConnectedState) {
@@ -103,9 +104,9 @@ void RosterManager::populateRoster()
 	// create a new list of contacts
 	QHash<QString, RosterItem> items;
 	const QStringList bareJids = m_manager->getRosterBareJids();
-	const auto initialTime = QDateTime::currentDateTimeUtc();
+
 	for (const auto &jid : bareJids) {
-		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid), initialTime };
+		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid)};
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		items.insert(jid, rosterItem);
 
