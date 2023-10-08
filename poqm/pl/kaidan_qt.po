@@ -2554,22 +2554,22 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Nie udało się wytworzyć kodu QR: %1"
 
-#: src/RosterManager.cpp:128
+#: src/RosterManager.cpp:129
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Nie można dodać styku, w wyniku nie podłączenia."
 
-#: src/RosterManager.cpp:142
+#: src/RosterManager.cpp:143
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Nie można usunąć styku, ponieważ nie jest on połączony."
 
-#: src/RosterManager.cpp:155
+#: src/RosterManager.cpp:156
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Nie można było zmienić nazwy kontaktu, w wyniku braku połączenia."
 
-#: src/RosterManager.cpp:166
+#: src/RosterManager.cpp:167
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid ""
@@ -2582,7 +2582,7 @@ msgstr ""
 "Nie udało się zażądać zobaczenia stanu %s ze względu na kłopoty z "
 "połączeniem: %s"
 
-#: src/RosterManager.cpp:174
+#: src/RosterManager.cpp:175
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Allowing %s to see your status failed"
@@ -2590,7 +2590,7 @@ msgctxt "RosterManager|"
 msgid "Allowing %1 to see your status failed"
 msgstr "Zezwól %s na zobaczenie, że twój stan się nie udał"
 
-#: src/RosterManager.cpp:181
+#: src/RosterManager.cpp:182
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "Disallowing %s to see your status failed"
