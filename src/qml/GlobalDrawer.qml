@@ -26,18 +26,6 @@ Kirigami.GlobalDrawer {
 		QrCodePage {}
 	}
 
-	Component {
-		id: accountDetailsSheet
-
-		AccountDetailsSheet {}
-	}
-
-	Component {
-		id: accountDetailsPage
-
-		AccountDetailsPage {}
-	}
-
 	SearchPublicGroupChatSheet {
 		id: searchPublicGroupChatSheet
 	}

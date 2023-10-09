@@ -18,6 +18,7 @@ import StatusBar 0.1
 
 import im.kaidan.kaidan 1.0
 
+import "details"
 import "elements"
 import "registration"
 import "settings"
@@ -79,6 +80,9 @@ Kirigami.ApplicationWindow {
 	Component {id: chatPage; ChatPage {}}
 	Component {id: emptyChatPage; EmptyChatPage {}}
 	Component {id: settingsPage; SettingsPage {}}
+	Component {id: accountDetailsSheet; AccountDetailsSheet {}}
+	Component {id: accountDetailsPage; AccountDetailsPage {}}
+	Component {id: avatarChangePage; AvatarChangePage {}}
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
 	Component {id: contactAdditionPage; ContactAdditionPage {}}
 	Component {id: contactAdditionDialog; ContactAdditionDialog {}}

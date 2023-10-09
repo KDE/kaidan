@@ -16,25 +16,12 @@ DetailsHeader {
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")
 		icon.name: "camera-photo-symbolic"
-		onTriggered: pageStack.layers.push(avatarChangePage)
-	}
-
-	Component {
-		id: avatarChangePage
-
-		AvatarChangePage {
-			Component.onCompleted: {
-				if (root.sheet) {
-					root.sheet.close()
-				}
+		onTriggered: {
+			if (root.sheet) {
+				root.sheet.close()
 			}
 
-			Component.onDestruction: {
-				if (root.sheet) {
-					root.sheet.open()
-					Kaidan.client.vCardManager.clientVCardRequested()
-				}
-			}
+			openPage(avatarChangePage)
 		}
 	}
 
