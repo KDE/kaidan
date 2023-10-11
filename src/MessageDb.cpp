@@ -1222,14 +1222,14 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 
 void MessageDb::_fetchReactions(QVector<Message> &messages)
 {
-	enum { SenderJid, Timestamp, DeliveryState, Emoji };
+	enum { SenderJid, Emoji, Timestamp, DeliveryState };
 	auto query = createQuery();
 
 	for (auto &message : messages) {
 		execQuery(
 			query,
 			QStringLiteral(R"(
-				SELECT senderJid, timestamp, deliveryState, emoji
+				SELECT senderJid, emoji, timestamp, deliveryState
 				FROM messageReactions
 				WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId
 			)"),
@@ -1243,6 +1243,10 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 
 		// Iterate over all found emojis.
 		while (query.next()) {
+			MessageReaction reaction;
+			reaction.emoji = query.value(Emoji).toString();
+			reaction.deliveryState = MessageReactionDeliveryState::Enum(query.value(DeliveryState).toInt());
+
 			auto &reactionSender = message.reactionSenders[query.value(SenderJid).toString()];
 
 			// Use the timestamp of the current emoji as the latest timestamp if the emoji's
@@ -1250,10 +1254,6 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 			if (const auto timestamp = query.value(Timestamp).toDateTime(); reactionSender.latestTimestamp < timestamp) {
 				reactionSender.latestTimestamp = timestamp;
 			}
-
-			MessageReaction reaction;
-			reaction.deliveryState = MessageReactionDeliveryState::Enum(query.value(DeliveryState).toInt());
-			reaction.emoji = query.value(Emoji).toString();
 
 			reactionSender.reactions.append(reaction);
 		}
@@ -1399,12 +1399,12 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &account
 QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPendingReactions(const QString &accountJid)
 {
 	return run([this, accountJid]() {
-		enum { AccountJid, ChatJid, MessageSenderId, MessageId };
+		enum { ChatJid, MessageSenderId, MessageId };
 		auto pendingReactionQuery = createQuery();
 		execQuery(
 			pendingReactionQuery,
 			QStringLiteral(R"(
-				SELECT DISTINCT accountJid, chatJid, messageSenderId, messageId
+				SELECT DISTINCT chatJid, messageSenderId, messageId
 				FROM messageReactions
 				WHERE
 					accountJid = :accountJid AND senderJid = :accountJid AND
@@ -1418,22 +1418,21 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 			}
 		);
 
-		// ID of message sender mapped to messageId mapped to MessageReactionSender
+		// IDs of chats mapped to IDs of messages mapped to MessageReactionSender
 		QMap<QString, QMap<QString, MessageReactionSender>> reactions;
 
 		// Iterate over all IDs of messages with pending reactions.
 		while (pendingReactionQuery.next()) {
-			enum { Timestamp, DeliveryState, Emoji };
 			const auto chatJid = pendingReactionQuery.value(ChatJid).toString();
 			const auto messageSenderId = pendingReactionQuery.value(MessageSenderId).toString();
-			const auto messageSender = messageSenderId.isEmpty() ? accountJid : messageSenderId;
 			const auto messageId = pendingReactionQuery.value(MessageId).toString();
 
+			enum { Emoji, Timestamp, DeliveryState };
 			auto reactionQuery = createQuery();
 			execQuery(
 				reactionQuery,
 				QStringLiteral(R"(
-					SELECT timestamp, deliveryState, emoji
+					SELECT emoji, timestamp, deliveryState
 					FROM messageReactions
 					WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderJid = :accountJid
 				)"),
@@ -1447,7 +1446,7 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 
 			// Iterate over all reactions of messages with pending reactions.
 			while (reactionQuery.next()) {
-				auto &reactionSender = reactions[messageSender][messageId];
+				auto &reactionSender = reactions[chatJid][messageId];
 
 				// Use the timestamp of the current emoji as the latest timestamp if the emoji's
 				// timestamp is newer than the latest one.

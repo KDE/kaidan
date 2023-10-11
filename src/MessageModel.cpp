@@ -891,16 +891,14 @@ void MessageModel::sendPendingMessageReactions(const QString &accountJid)
 {
 	auto future = MessageDb::instance()->fetchPendingReactions(accountJid);
 	await(future, this, [=, this](QMap<QString, QMap<QString, MessageReactionSender>> reactions) {
-		const auto senderJid = m_currentAccountJid;
+		for (auto reactionItr = reactions.cbegin(); reactionItr != reactions.cend(); ++reactionItr) {
+			const auto &reactionSenders = reactionItr.value();
 
-		for (auto messageSenderItr = reactions.cbegin(); messageSenderItr != reactions.cend(); ++messageSenderItr) {
-			const auto &reactionSenders = messageSenderItr.value();
-
-			for (auto messageIdItr = reactionSenders.cbegin(); messageIdItr != reactionSenders.cend(); ++messageIdItr) {
-				const auto messageId = messageIdItr.key();
+			for (auto reactionSenderItr = reactionSenders.cbegin(); reactionSenderItr != reactionSenders.cend(); ++reactionSenderItr) {
+				const auto messageId = reactionSenderItr.key();
 				QVector<QString> emojis;
 
-				for (const auto &reaction : messageIdItr->reactions) {
+				for (const auto &reaction : reactionSenderItr->reactions) {
 					if (const auto deliveryState = reaction.deliveryState;
 						deliveryState != MessageReactionDeliveryState::PendingRemovalAfterSent &&
 						deliveryState != MessageReactionDeliveryState::PendingRemovalAfterDelivered &&
@@ -910,15 +908,15 @@ void MessageModel::sendPendingMessageReactions(const QString &accountJid)
 					}
 				}
 
-				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = messageSenderItr.key(), messageId, emojis] {
+				runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid = reactionItr.key(), messageId, emojis] {
 					return Kaidan::instance()->client()->messageHandler()->sendMessageReaction(chatJid, messageId, emojis);
 				}, this, [=, this](QFuture<QXmpp::SendResult> future) {
 					await(future, this, [=, this](QXmpp::SendResult result) {
 						if (const auto error = std::get_if<QXmppError>(&result)) {
 							emit Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
-							MessageDb::instance()->updateMessage(messageId, [senderJid](Message &message) {
-								auto &reactionSender = message.reactionSenders[senderJid];
+							MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
+								auto &reactionSender = message.reactionSenders[accountJid];
 								reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
 								for (auto &reaction : reactionSender.reactions) {
@@ -938,7 +936,7 @@ void MessageModel::sendPendingMessageReactions(const QString &accountJid)
 								}
 							});
 						} else {
-							updateMessageReactionsAfterSending(messageId, senderJid);
+							updateMessageReactionsAfterSending(messageId, accountJid);
 						}
 					});
 				});

@@ -151,8 +151,8 @@ public:
 	 *
 	 * @param accountJid JID of the account whose message reactions are fetched
 	 *
-	 * @return the IDs of the messages mapped to their reactions (JIDs of senders mapped to the
-	 *         senders)
+	 * @return the IDs of the chats mapped to their reactions (message IDs mapped to the message
+	 *         reaction senders)
 	 */
 	QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> fetchPendingReactions(const QString &accountJid);
 
