@@ -601,54 +601,27 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 		return message.id == messageId;
 	});
 
-	// Update only deliverState if there is already a reaction with the same emoji.
-	// Otherwise, add a new reaction.
 	if (itr != m_messages.cend()) {
 		const auto senderJid = m_currentAccountJid;
 		const auto reactions = itr->reactionSenders.value(senderJid).reactions;
 
+		if (undoMessageReactionRemoval(messageId, senderJid, emoji, reactions)) {
+			return;
+		}
+
 		auto addReaction = [messageId, senderJid, emoji](MessageReactionDeliveryState::Enum deliveryState) -> QFuture<void> {
 			return MessageDb::instance()->updateMessage(messageId, [senderJid, emoji, deliveryState](Message &message) {
 				auto &reactionSender = message.reactionSenders[senderJid];
-				auto &reactions = reactionSender.reactions;
+				reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 
 				MessageReaction reaction;
 				reaction.emoji = emoji;
 				reaction.deliveryState = deliveryState;
 
-				reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+				auto &reactions = reactionSender.reactions;
 				reactions.append(reaction);
 			});
 		};
-
-		const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-			return reaction.emoji == emoji;
-		});
-
-		if (reactionItr != reactions.end()) {
-			MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
-				auto &reactions = message.reactionSenders[senderJid].reactions;
-
-				const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-					return reaction.emoji == emoji;
-				});
-
-				switch (auto &deliveryState = itr->deliveryState) {
-				case MessageReactionDeliveryState::PendingRemovalAfterSent:
-				case MessageReactionDeliveryState::ErrorOnRemovalAfterSent:
-					deliveryState = MessageReactionDeliveryState::Sent;
-					break;
-				case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
-				case MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered:
-					deliveryState = MessageReactionDeliveryState::Delivered;
-					break;
-				default:
-					break;
-				}
-			});
-
-			return;
-		}
 
 		auto future = addReaction(MessageReactionDeliveryState::PendingAddition);
 		await(future, this, [=, this, chatJid = m_currentChatJid]() {
@@ -697,37 +670,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 		const auto senderJid = m_currentAccountJid;
 		const auto &reactions = itr->reactionSenders.value(senderJid).reactions;
 
-		const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-			return reaction.emoji == emoji &&
-				(reaction.deliveryState == MessageReactionDeliveryState::PendingAddition ||
-				 reaction.deliveryState == MessageReactionDeliveryState::ErrorOnAddition);
-		});
-
-		if (reactionItr != reactions.end()) {
-			MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
-				auto &reactionSenders = message.reactionSenders;
-				auto &reactions = reactionSenders[senderJid].reactions;
-
-				const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
-					return reaction.emoji == emoji;
-				});
-
-				switch (itr->deliveryState) {
-				case MessageReactionDeliveryState::PendingAddition:
-				case MessageReactionDeliveryState::ErrorOnAddition:
-					reactions.erase(itr);
-
-					// Remove the reaction sender if it has no reactions anymore.
-					if (reactions.isEmpty()) {
-						reactionSenders.remove(senderJid);
-					}
-
-					break;
-				default:
-					break;
-				}
-			});
-
+		if (undoMessageReactionAddition(messageId, senderJid, emoji, reactions)) {
 			return;
 		}
 
@@ -1421,6 +1364,79 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, message.body);
 		}
 	}
+}
+
+bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions)
+{
+	const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+		return reaction.emoji == emoji;
+	});
+
+	if (reactionItr != reactions.end()) {
+		MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
+			auto &reactions = message.reactionSenders[senderJid].reactions;
+
+			const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+				return reaction.emoji == emoji;
+			});
+
+			switch (auto &deliveryState = itr->deliveryState) {
+			case MessageReactionDeliveryState::PendingRemovalAfterSent:
+			case MessageReactionDeliveryState::ErrorOnRemovalAfterSent:
+				deliveryState = MessageReactionDeliveryState::Sent;
+				break;
+			case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
+			case MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered:
+				deliveryState = MessageReactionDeliveryState::Delivered;
+				break;
+			default:
+				break;
+			}
+		});
+
+		return true;
+	}
+
+	return false;
+}
+
+bool MessageModel::undoMessageReactionAddition(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions)
+{
+	const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+		return reaction.emoji == emoji &&
+			(reaction.deliveryState == MessageReactionDeliveryState::PendingAddition ||
+			 reaction.deliveryState == MessageReactionDeliveryState::ErrorOnAddition);
+	});
+
+	if (reactionItr != reactions.end()) {
+		MessageDb::instance()->updateMessage(messageId, [senderJid, emoji](Message &message) {
+			auto &reactionSenders = message.reactionSenders;
+			auto &reactions = reactionSenders[senderJid].reactions;
+
+			const auto itr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+				return reaction.emoji == emoji;
+			});
+
+			switch (itr->deliveryState) {
+			case MessageReactionDeliveryState::PendingAddition:
+			case MessageReactionDeliveryState::ErrorOnAddition:
+				reactions.erase(itr);
+
+				// Remove the reaction sender if it has no reactions anymore.
+				if (reactions.isEmpty()) {
+					reactionSenders.remove(senderJid);
+				}
+
+				break;
+			default:
+				break;
+			}
+		});
+
+		return true;
+	}
+
+	return false;
 }
 
 void MessageModel::updateMessageReactionsAfterSending(const QString &messageId, const QString &senderJid)
