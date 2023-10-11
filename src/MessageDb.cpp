@@ -672,8 +672,7 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 				query,
 				QStringLiteral(R"(
 					DELETE FROM messageReactions
-					WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageId
-					LIMIT 1
+					WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
 				)"),
 				{
 					{ u":accountJid", accountJid },
