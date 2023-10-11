@@ -1167,7 +1167,9 @@ void MessageModel::handleMessageUpdated(const Message &message)
 
 		// The updated message can be either a normal message, a first message correction or a
 		// subsequent messsage correction.
-		if (oldId == message.id || oldId == message.replaceId || oldReplaceId == message.replaceId) {
+		if ((!oldId.isEmpty() && oldId == message.id) ||
+			(!oldId.isEmpty() && oldId == message.replaceId) ||
+			(!oldReplaceId.isEmpty() && oldReplaceId == message.replaceId)) {
 			beginRemoveRows(QModelIndex(), i, i);
 			m_messages.removeAt(i);
 			endRemoveRows();
