@@ -261,13 +261,10 @@ Kirigami.SwipeListItem {
 								text: modelData.count === 1 ? modelData.emoji : modelData.emoji + " " + modelData.count
 								width: smallButtonWidth + (text.length < 3 ? 0 : (text.length - 2) * Kirigami.Theme.defaultFont.pixelSize * 0.6)
 								onClicked: {
-									if (ownReactionIncluded) {
-										if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
-											deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
-											MessageModel.addMessageReaction(root.msgId, modelData.emoji)
-										} else {
-											MessageModel.removeMessageReaction(root.msgId, modelData.emoji)
-										}
+									if (ownReactionIncluded &&
+										deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterSent &&
+										deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
+										MessageModel.removeMessageReaction(root.msgId, modelData.emoji)
 									} else {
 										MessageModel.addMessageReaction(root.msgId, modelData.emoji)
 									}
