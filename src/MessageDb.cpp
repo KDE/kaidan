@@ -12,7 +12,6 @@
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlField>
-#include <QSqlQuery>
 #include <QSqlRecord>
 #include <QStringBuilder>
 #include <QMimeDatabase>
@@ -24,13 +23,10 @@
 #include "Algorithms.h"
 #include "Database.h"
 #include "Globals.h"
-#include "SqlUtils.h"
 
 Q_DECLARE_METATYPE(QXmpp::Cipher)
 Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)
 Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
-
-using namespace SqlUtils;
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
 
@@ -216,14 +212,38 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 	});
 }
 
+QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid)
+{
+	return run([this, accountJid]() {
+		return _fetchFiles(accountJid);
+	});
+}
+
 QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
 {
-	return _fetchFiles(accountJid, chatJid, false);
+	return run([this, accountJid, chatJid]() {
+		return _fetchFiles(accountJid, chatJid);
+	});
+}
+
+QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid)
+{
+	return run([this, accountJid]() {
+		auto files = _fetchFiles(accountJid);
+		_extractDownloadedFiles(files);
+
+		return files;
+	});
 }
 
 QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, const QString &chatJid)
 {
-	return _fetchFiles(accountJid, chatJid, true);
+	return run([this, accountJid, chatJid]() {
+		auto files = _fetchFiles(accountJid, chatJid);
+		_extractDownloadedFiles(files);
+
+		return files;
+	});
 }
 
 QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
@@ -1198,6 +1218,64 @@ void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
 	}
 }
 
+QVector<File> MessageDb::_fetchFiles(const QString &accountJid)
+{
+	Q_ASSERT(!accountJid.isEmpty());
+
+	return _fetchFiles(
+		QStringLiteral(R"(
+			SELECT fileGroupId
+			FROM chatMessages
+			WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
+		)"),
+		{
+			{ u":accountJid", accountJid },
+		}
+	);
+}
+
+QVector<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid)
+{
+	Q_ASSERT(!accountJid.isEmpty() && !chatJid.isEmpty());
+
+	return _fetchFiles(
+		QStringLiteral(R"(
+			SELECT fileGroupId
+			FROM chatMessages
+			WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
+		)"),
+		{
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+		}
+	);
+}
+
+QVector<File> MessageDb::_fetchFiles(const QString &statement, const std::vector<QueryBindValue> &bindValues)
+{
+	enum { FileGroupId };
+	auto query = createQuery();
+	execQuery(query, statement, bindValues);
+
+	QVector<File> files;
+	reserve(files, query);
+
+	while (query.next()) {
+		files.append(_fetchFiles(query.value(FileGroupId).toLongLong()));
+	}
+
+	return files;
+}
+
+void MessageDb::_extractDownloadedFiles(QVector<File> &files)
+{
+	files.erase(std::remove_if(files.begin(), files.end(), [](const File &file) {
+			return !QFile::exists(file.localFilePath);
+		}),
+		files.end()
+	);
+}
+
 QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 {
 	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath };
@@ -1359,43 +1437,6 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 			reactionSender.reactions.append(reaction);
 		}
 	}
-}
-
-QFuture<QVector<File> > MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid, bool checkExists)
-{
-	return run([this, accountJid, chatJid, checkExists]() {
-		auto query = createQuery();
-		execQuery(
-			query,
-			QStringLiteral(R"(
-				SELECT fileGroupId
-				FROM chatMessages
-				WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
-			)"),
-			{
-				{ u":accountJid", accountJid },
-				{ u":chatJid", chatJid },
-			}
-		);
-
-		QVector<File> files;
-		reserve(files, query);
-		while (query.next()) {
-			auto fetched = _fetchFiles(query.value(0).toLongLong());
-
-			if (checkExists) {
-				fetched.erase(std::remove_if(fetched.begin(),
-						      fetched.end(),
-						      [](const File &file) {
-							      return !QFile::exists(file.localFilePath);
-						      }),
-					fetched.end());
-			}
-
-			files.append(fetched);
-		}
-		return files;
-	});
 }
 
 std::optional<Message> MessageDb::_fetchDraftMessage(const QString &accountJid, const QString &chatJid)

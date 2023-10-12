@@ -105,6 +105,8 @@ void FileModel::loadFiles()
 
 	if (m_accountJid.isEmpty()) {
 		qWarning("FileModel: Trying to call loadFiles() but m_accountJid is empty.");
+	} else if (m_chatJid.isEmpty()){
+		m_watcher.setFuture(MessageDb::instance()->fetchFiles(m_accountJid));
 	} else {
 		m_watcher.setFuture(MessageDb::instance()->fetchFiles(m_accountJid, m_chatJid));
 	}
@@ -118,6 +120,8 @@ void FileModel::loadDownloadedFiles()
 		qWarning(
 			"FileModel: Trying to call loadDownloadedFiles() but m_accountJid is "
 			"empty.");
+	} else if (m_chatJid.isEmpty()){
+		m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid));
 	} else {
 		m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid, m_chatJid));
 	}

@@ -91,7 +91,7 @@ ecm_add_test(
 	../src/FileProxyModel.cpp
 	../src/FileProxyModel.h
 	TEST_NAME FileModelTest
-	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
+	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Sql Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
 )
 
 target_compile_definitions(FileModelTest PRIVATE BUILD_TESTS)

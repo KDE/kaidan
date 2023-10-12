@@ -12,10 +12,13 @@
 
 #include "Message.h"
 #include "DatabaseComponent.h"
+#include "SqlUtils.h"
 
 class Database;
 class QSqlQuery;
 class QSqlRecord;
+
+using namespace SqlUtils;
 
 /**
  * @class The MessageDb is used to query the 'messages' database table. It's used by the
@@ -63,8 +66,16 @@ public:
 	QFuture<QVector<Message>> fetchMessages(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
-	 * Fetches shared media from the database.
-	 * If chatJid is empty, all media related to accountJid are fetched.
+	 * Fetches shared media for an account from the database.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 *
+	 * @return the fetched messages
+	 */
+	QFuture<QVector<File>> fetchFiles(const QString &accountJid);
+
+	/**
+	 * Fetches shared media of a chat from the database.
 	 *
 	 * @param accountJid bare JID of the user's account
 	 * @param chatJid bare Jid of the chat
@@ -74,8 +85,16 @@ public:
 	QFuture<QVector<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
 
 	/**
-	 * Fetches downloaded shared media from the database.
-	 * If chatJid is empty, all media related to accountJid are fetched.
+	 * Fetches downloaded shared media of an account from the database.
+	 *
+	 * @param accountJid bare JID of the user's account
+	 *
+	 * @return the fetched messages
+	 */
+	QFuture<QVector<File>> fetchDownloadedFiles(const QString &accountJid);
+
+	/**
+	 * Fetches downloaded shared media of a chat from the database.
 	 *
 	 * @param accountJid bare JID of the user's account
 	 * @param chatJid bare Jid of the chat
@@ -263,13 +282,16 @@ private:
 	void _removeHttpSources(const QVector<qint64> &fileIds);
 	void _removeEncryptedSources(const QVector<qint64> &fileIds);
 	QVector<Message> _fetchMessagesFromQuery(QSqlQuery &query);
+	QVector<File> _fetchFiles(const QString &accountJid);
+	QVector<File> _fetchFiles(const QString &accountJid, const QString &chatJid);
+	QVector<File> _fetchFiles(const QString &statement, const std::vector<QueryBindValue> &bindValues);
+	void _extractDownloadedFiles(QVector<File> &files);
 	QVector<File> _fetchFiles(qint64 fileGroupId);
 	QVector<FileHash> _fetchFileHashes(qint64 dataId);
 	QVector<HttpSource> _fetchHttpSource(qint64 fileId);
 	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
 	void _fetchReactions(QVector<Message> &messages);
-	QFuture<QVector<File>> _fetchFiles(const QString &accountJid, const QString &chatJid, bool checkExists);
 	std::optional<Message> _fetchDraftMessage(const QString &accountJid, const QString &chatJid);
 
 	/**
