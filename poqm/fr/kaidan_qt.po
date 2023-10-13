@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-09-26 10:05+0200\n"
+"PO-Revision-Date: 2023-10-11 21:25+0200\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -261,7 +261,8 @@ msgstr "Taille inconnue"
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "Ce message est chiffré avec %1 mais ne peut pas être déchiffré."
+msgstr ""
+"Ce message est chiffré avec %1 mais il est impossible de le déchiffrer."
 
 #: src/MessageHandler.cpp:248
 msgctxt "MessageHandler|"
@@ -674,8 +675,8 @@ msgstr ""
 "Configurer ce périphérique pour ne pas exposer votre mot de passe lors de sa "
 "modification ou basculer vers un autre appareil. Si vous souhaitez modifier "
 "votre mot de passe ou utiliser ultérieurement votre compte sur un autre "
-"appareil , <b>veuillez prendre en compte l'enregistrement de votre mot de "
-"passe ailleurs. Cela ne peut pas être annulé ! </b>"
+"appareil, <b>veuillez prendre en compte l'enregistrement de votre mot de "
+"passe ailleurs. Il est impossible d'annuler cette action ! </b>"
 
 #: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
@@ -2311,7 +2312,7 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the status of %1 failed because of a connection problem: %2"
 msgstr ""
-"La demande pour obtenir l’état de %1 a échoué en raison d’un problème de "
+"La demande pour obtenir l'état de %1 a échoué en raison d'un problème de "
 "connexion : %2"
 
 #: src/RosterManager.cpp:175
