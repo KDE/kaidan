@@ -58,7 +58,7 @@ void RosterItemWatcher::setJid(const QString &jid)
 		unregister();
 		m_jid = jid;
 		RosterItemNotifier::instance().registerItemWatcher(m_jid, this);
-		emit jidChanged();
+		Q_EMIT jidChanged();
 #ifndef UNIT_TEST
 		notify(RosterModel::instance()->findItem(m_jid));
 #endif
@@ -84,5 +84,5 @@ void RosterItemWatcher::notify(const std::optional<RosterItem> &item)
 	} else {
 		m_item = {};
 	}
-	emit itemChanged();
+	Q_EMIT itemChanged();
 }

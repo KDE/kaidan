@@ -71,7 +71,7 @@ RosterModel::RosterModel(QObject *parent)
 		removeItems(accountJid, chatJid);
 
 		if (accountJid == MessageModel::instance()->currentAccountJid() && chatJid == MessageModel::instance()->currentChatJid())
-			emit Kaidan::instance()->openChatViewRequested();
+			Q_EMIT Kaidan::instance()->openChatViewRequested();
 	});
 }
 
@@ -245,7 +245,7 @@ std::optional<Encryption::Enum> RosterModel::itemEncryption(const QString &, con
 
 void RosterModel::setItemEncryption(const QString &, const QString &jid, Encryption::Enum encryption)
 {
-	emit updateItemRequested(jid, [encryption](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [encryption](RosterItem &item) {
 		item.encryption = encryption;
 	});
 }
@@ -253,7 +253,7 @@ void RosterModel::setItemEncryption(const QString &, const QString &jid, Encrypt
 void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption)
 {
 	for (const auto &item : std::as_const(m_items)) {
-		emit updateItemRequested(item.jid, [encryption](RosterItem &item) {
+		Q_EMIT updateItemRequested(item.jid, [encryption](RosterItem &item) {
 			item.encryption = encryption;
 		});
 	}
@@ -270,11 +270,11 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &u
 		}
 
 		if (RosterModel::instance()->hasItem(jid)) {
-			emit Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
+			Q_EMIT Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
 			return AddContactByUriResult::ContactExists;
 		}
 
-		emit Kaidan::instance()->client()->rosterManager()->addContactRequested(jid);
+		Q_EMIT Kaidan::instance()->client()->rosterManager()->addContactRequested(jid);
 
 		return AddContactByUriResult::AddingContact;
 	}
@@ -308,7 +308,7 @@ void RosterModel::sendPendingReadMarkers(const QString &)
 				});
 			}
 
-			emit updateItemRequested(chatJid, [](RosterItem &item) {
+			Q_EMIT updateItemRequested(chatJid, [](RosterItem &item) {
 				item.readMarkerPending = false;
 			});
 		}
@@ -354,7 +354,7 @@ void RosterModel::updateItem(const QString &jid,
 			m_items.replace(i, item);
 
 			// item was changed: refresh all roles
-			emit dataChanged(index(i), index(i), {});
+			Q_EMIT dataChanged(index(i), index(i), {});
 			RosterItemNotifier::instance().notifyWatchers(jid, item);
 
 			// check, if the position of the new item may be different
@@ -437,7 +437,7 @@ void RosterModel::updateLastMessage(
 
 void RosterModel::pinItem(const QString &, const QString &jid)
 {
-	emit updateItemRequested(jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [highestPinningPosition = m_items.at(0).pinningPosition](RosterItem &item) {
 		item.pinningPosition = highestPinningPosition + 1;
 	});
 }
@@ -449,14 +449,14 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 			// Decrease the pinning position of the pinned items with higher pinning positions than
 			// the pinning position of the item being pinned.
 			if (item.pinningPosition > itemBeingUnpinned->pinningPosition) {
-				emit updateItemRequested(item.jid, [](RosterItem &item) {
+				Q_EMIT updateItemRequested(item.jid, [](RosterItem &item) {
 					item.pinningPosition -= 1;
 				});
 			}
 		}
 
 		// Reset the pinning position of the item being unpinned.
-		emit updateItemRequested(jid, [](RosterItem &item) {
+		Q_EMIT updateItemRequested(jid, [](RosterItem &item) {
 			item.pinningPosition = -1;
 		});
 	}
@@ -486,11 +486,11 @@ void RosterModel::reorderPinnedItem(const QString &, const QString &jid, int old
 			const auto itemMovedUpwards = pinningPositionDifference > 0;
 
 			if (itemMovedUpwards && pinningPosition > oldPinningPosition && pinningPosition <= newPinningPosition) {
-				emit updateItemRequested(item.jid, [](RosterItem &item) {
+				Q_EMIT updateItemRequested(item.jid, [](RosterItem &item) {
 					--item.pinningPosition;
 				});
 			} else if (!itemMovedUpwards && pinningPosition < oldPinningPosition && pinningPosition >= newPinningPosition) {
-				emit updateItemRequested(item.jid, [](RosterItem &item) {
+				Q_EMIT updateItemRequested(item.jid, [](RosterItem &item) {
 					++item.pinningPosition;
 				});
 			}
@@ -498,28 +498,28 @@ void RosterModel::reorderPinnedItem(const QString &, const QString &jid, int old
 	}
 
 	// Update the pinning position of the reordered item.
-	emit updateItemRequested(jid, [newPinningPosition](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [newPinningPosition](RosterItem &item) {
 		item.pinningPosition = newPinningPosition;
 	});
 }
 
 void RosterModel::setChatStateSendingEnabled(const QString &, const QString &jid, bool chatStateSendingEnabled)
 {
-	emit updateItemRequested(jid, [=](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [=](RosterItem &item) {
 		item.chatStateSendingEnabled = chatStateSendingEnabled;
 	});
 }
 
 void RosterModel::setReadMarkerSendingEnabled(const QString &, const QString &jid, bool readMarkerSendingEnabled)
 {
-	emit updateItemRequested(jid, [=](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [=](RosterItem &item) {
 		item.readMarkerSendingEnabled = readMarkerSendingEnabled;
 	});
 }
 
 void RosterModel::setNotificationsMuted(const QString &, const QString &jid, bool notificationsMuted)
 {
-	emit updateItemRequested(jid, [=](RosterItem &item) {
+	Q_EMIT updateItemRequested(jid, [=](RosterItem &item) {
 		item.notificationsMuted = notificationsMuted;
 	});
 }
@@ -597,7 +597,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 
 	// move row to correct position
@@ -624,7 +624,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
 	// Notify the user interface and watchers.
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 }
 
@@ -652,7 +652,7 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 
 	// Move the updated item to its correct position.
@@ -684,7 +684,7 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 
 	// Move the updated item to its correct position.
@@ -715,7 +715,7 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 	// notify gui
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 
 	// Move the updated item to its correct position.
@@ -740,7 +740,7 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 	// Notify the user interface and watchers.
 	const auto i = std::distance(m_items.begin(), itr);
 	const auto modelIndex = index(i);
-	emit dataChanged(modelIndex, modelIndex, changedRoles);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
 	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
 }
 

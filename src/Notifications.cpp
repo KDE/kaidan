@@ -167,11 +167,11 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	});
 
 	QObject::connect(notification, &KNotification::defaultActivated, this, [=] {
-		emit Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
-		emit Kaidan::instance()->raiseWindowRequested();
+		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
+		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 	});
 	QObject::connect(notification, &KNotification::action1Activated, this, [=] {
-		emit RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
+		Q_EMIT RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
 			item.lastReadContactMessageId = messageId;
 			item.unreadMessages = 0;
 		});

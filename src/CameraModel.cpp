@@ -87,7 +87,7 @@ void CameraModel::setCurrentIndex(int currentIndex)
 	}
 
 	m_currentIndex = currentIndex;
-	emit currentIndexChanged();
+	Q_EMIT currentIndexChanged();
 }
 
 CameraInfo CameraModel::currentCamera() const
@@ -152,6 +152,6 @@ void CameraModel::refresh()
 	m_currentIndex = it == m_cameras.constEnd() ? -1 : it - m_cameras.constBegin();
 	endResetModel();
 
-	emit camerasChanged();
-	emit currentIndexChanged();
+	Q_EMIT camerasChanged();
+	Q_EMIT currentIndexChanged();
 }

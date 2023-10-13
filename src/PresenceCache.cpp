@@ -158,20 +158,20 @@ void PresenceCache::updatePresence(const QXmppPresence &presence)
 	if (userPresences.contains(resource)) {
 		if (presence.type() == QXmppPresence::Available) {
 			m_presences[jid][resource] = presence;
-			emit presenceChanged(Updated, jid, resource);
+			Q_EMIT presenceChanged(Updated, jid, resource);
 		} else {
 			// presence is 'Unavailable'
 			userPresences.remove(resource);
 			if (userPresences.isEmpty())
 				m_presences.remove(jid);
 
-			emit presenceChanged(Disconnected, jid, resource);
+			Q_EMIT presenceChanged(Disconnected, jid, resource);
 		}
 	} else {
 		// client is unknown (hasn't been cached yet)
 		if (presence.type() == QXmppPresence::Available) {
 			userPresences.insert(resource, presence);
-			emit presenceChanged(Connected, jid, resource);
+			Q_EMIT presenceChanged(Connected, jid, resource);
 		}
 
 		// presences from unknown clients that are unavailable are ignored
@@ -181,7 +181,7 @@ void PresenceCache::updatePresence(const QXmppPresence &presence)
 void PresenceCache::clear()
 {
 	m_presences.clear();
-	emit presencesCleared();
+	Q_EMIT presencesCleared();
 }
 
 constexpr qint8 PresenceCache::availabilityPriority(QXmppPresence::AvailableStatusType type)
@@ -262,7 +262,7 @@ void UserPresenceWatcher::setJid(const QString &jid)
 {
 	if (m_jid != jid) {
 		m_jid = jid;
-		emit jidChanged();
+		Q_EMIT jidChanged();
 
 		if (m_resourceAutoPicked)
 			autoPickResource();
@@ -295,12 +295,12 @@ void UserPresenceWatcher::handlePresenceChanged(PresenceCache::ChangeType type,
 				// If the resource didn't change, the notify signals won't
 				// be emitted. However, if the current resource's presence
 				// was updated, we still want those signals to be emitted.
-				emit presencePropertiesChanged();
+				Q_EMIT presencePropertiesChanged();
 			}
 		} else if (m_resource == resource) {
 			// the resource is fixed: we only need to call the updated-
 			// signals since the resource can't change
-			emit presencePropertiesChanged();
+			Q_EMIT presencePropertiesChanged();
 		}
 	}
 }
@@ -309,9 +309,9 @@ void UserPresenceWatcher::handlePresencesCleared()
 {
 	if (m_resourceAutoPicked) {
 		m_resource.clear();
-		emit resourceChanged();
+		Q_EMIT resourceChanged();
 	}
-	emit presencePropertiesChanged();
+	Q_EMIT presencePropertiesChanged();
 }
 
 /**
@@ -333,9 +333,9 @@ bool UserPresenceWatcher::setResource(const QString &resource, bool autoPicked)
 		}
 
 		m_resource = resource;
-		emit resourceChanged();
+		Q_EMIT resourceChanged();
 
-		emit presencePropertiesChanged();
+		Q_EMIT presencePropertiesChanged();
 		return true;
 	}
 	return false;
@@ -363,7 +363,7 @@ UserResourcesWatcher::UserResourcesWatcher(QObject *parent)
 {
 	connect(PresenceCache::instance(), &PresenceCache::presenceChanged,
 	        this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
-		emit resourcesCountChanged();
+		Q_EMIT resourcesCountChanged();
 	});
 
 	connect(PresenceCache::instance(), &PresenceCache::presencesCleared,
@@ -389,11 +389,11 @@ void UserResourcesWatcher::setJid(const QString &jid)
 {
 	if (m_jid != jid) {
 		m_jid = jid;
-		emit jidChanged();
+		Q_EMIT jidChanged();
 
 		// That signal is emitted to reload the resources in QML after setting
 		// the JID.
-		emit resourcesCountChanged();
+		Q_EMIT resourcesCountChanged();
 	}
 }
 

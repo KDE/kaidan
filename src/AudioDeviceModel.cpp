@@ -105,7 +105,7 @@ void AudioDeviceModel::setMode(AudioDeviceModel::Mode mode)
 	}
 
 	m_mode = mode;
-	emit modeChanged();
+	Q_EMIT modeChanged();
 }
 
 QList<QAudioDeviceInfo> AudioDeviceModel::audioDevices() const
@@ -139,7 +139,7 @@ void AudioDeviceModel::setCurrentIndex(int currentIndex)
 	}
 
 	m_currentIndex = currentIndex;
-	emit currentIndexChanged();
+	Q_EMIT currentIndexChanged();
 }
 
 AudioDeviceInfo AudioDeviceModel::currentAudioDevice() const
@@ -213,6 +213,6 @@ void AudioDeviceModel::refresh()
 	m_currentIndex = it == m_audioDevices.constEnd() ? -1 : it - m_audioDevices.constBegin();
 	endResetModel();
 
-	emit audioDevicesChanged();
-	emit currentIndexChanged();
+	Q_EMIT audioDevicesChanged();
+	Q_EMIT currentIndexChanged();
 }

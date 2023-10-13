@@ -585,7 +585,7 @@ void MediaRecorder::setMediaSettings(const MediaSettings &settings)
 			break;
 		}
 
-		emit mediaSettingsChanged();
+		Q_EMIT mediaSettingsChanged();
 	}
 }
 
@@ -612,7 +612,7 @@ void MediaRecorder::setImageEncoderSettings(const ImageEncoderSettings &settings
 
 			if (!m_initializing) {
 				m_imageCapturer->setEncodingSettings(m_imageEncoderSettings.toQImageEncoderSettings());
-				emit imageEncoderSettingsChanged();
+				Q_EMIT imageEncoderSettingsChanged();
 			}
 		}
 
@@ -655,11 +655,11 @@ void MediaRecorder::setAudioEncoderSettings(const AudioEncoderSettings &settings
 					m_videoRecorder->setAudioSettings(m_audioEncoderSettings.toQAudioEncoderSettings());
 				}
 
-				emit audioEncoderSettingsChanged();
+				Q_EMIT audioEncoderSettingsChanged();
 
 				// Changing audio settings does not trigger ready changed.
 				if (m_type == MediaRecorder::Type::Audio) {
-					emit readyChanged();
+					Q_EMIT readyChanged();
 				}
 			}
 		}
@@ -696,7 +696,7 @@ void MediaRecorder::setVideoEncoderSettings(const VideoEncoderSettings &settings
 
 			if (!m_initializing) {
 				m_videoRecorder->setVideoSettings(m_videoEncoderSettings.toQVideoEncoderSettings());
-				emit videoEncoderSettingsChanged();
+				Q_EMIT videoEncoderSettingsChanged();
 			}
 		}
 
@@ -1104,9 +1104,9 @@ void MediaRecorder::setupRecorder(MediaRecorder::Type type)
 
 	switch (m_type) {
 	case MediaRecorder::Type::Invalid:
-		emit imageEncoderSettingsChanged();
-		emit audioEncoderSettingsChanged();
-		emit videoEncoderSettingsChanged();
+		Q_EMIT imageEncoderSettingsChanged();
+		Q_EMIT audioEncoderSettingsChanged();
+		Q_EMIT videoEncoderSettingsChanged();
 		break;
 	case MediaRecorder::Type::Image:
 		setupCamera();
@@ -1121,16 +1121,16 @@ void MediaRecorder::setupRecorder(MediaRecorder::Type type)
 		break;
 	}
 
-	emit typeChanged();
-	emit availabilityStatusChanged();
-	emit stateChanged();
-	emit statusChanged();
-	emit readyChanged();
-	emit errorChanged();
-	emit actualLocationChanged();
-	emit durationChanged();
-	emit mutedChanged();
-	emit volumeChanged();
+	Q_EMIT typeChanged();
+	Q_EMIT availabilityStatusChanged();
+	Q_EMIT stateChanged();
+	Q_EMIT statusChanged();
+	Q_EMIT readyChanged();
+	Q_EMIT errorChanged();
+	Q_EMIT actualLocationChanged();
+	Q_EMIT durationChanged();
+	Q_EMIT mutedChanged();
+	Q_EMIT volumeChanged();
 
 	if (m_camera && m_camera->state() != QCamera::State::ActiveState) {
 		m_camera->start();
@@ -1147,7 +1147,7 @@ void MediaRecorder::deleteActualLocation()
 
 		if (file.exists()) {
 			if (file.remove()) {
-				emit actualLocationChanged();
+				Q_EMIT actualLocationChanged();
 			} else {
 				qWarning("Can not delete record '%s'", qUtf8Printable(filePath));
 			}

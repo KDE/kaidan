@@ -87,7 +87,7 @@ public:
 	 */
 	Q_INVOKABLE void logIn()
 	{
-		emit logInRequested();
+		Q_EMIT logInRequested();
 	}
 
 	/**
@@ -95,7 +95,7 @@ public:
 	 */
 	Q_INVOKABLE void requestRegistrationForm()
 	{
-		emit registrationFormRequested();
+		Q_EMIT registrationFormRequested();
 	}
 
 	/**
@@ -106,7 +106,7 @@ public:
 	 */
 	Q_INVOKABLE void logOut()
 	{
-		emit logOutRequested();
+		Q_EMIT logOutRequested();
 	}
 
 	/**

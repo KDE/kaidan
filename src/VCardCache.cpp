@@ -27,6 +27,6 @@ void VCardCache::setVCard(const QString &jid, const QXmppVCardIq &vCard)
 	if (m_vCards.value(jid) != vCard) {
 		m_vCards.insert(jid, vCard);
 		locker.unlock();
-		emit vCardChanged(jid);
+		Q_EMIT vCardChanged(jid);
 	}
 }

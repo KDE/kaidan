@@ -46,7 +46,7 @@ QColor StatusBar::color() const
 void StatusBar::setColor(const QColor &color)
 {
 	m_color = color;
-	emit colorChanged();
+	Q_EMIT colorChanged();
 	if (!isAvailable())
 		return;
 

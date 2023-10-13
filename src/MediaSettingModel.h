@@ -63,12 +63,12 @@ public:
 	void setToString(MediaSettingModel::ToString toString) {
 		m_toString = toString;
 
-		emit toStringChanged();
+		Q_EMIT toStringChanged();
 
 		const int count = rowCount();
 
 		if (count > 0) {
-			emit dataChanged(index(0, 0), index(count -1, 0));
+			Q_EMIT dataChanged(index(0, 0), index(count -1, 0));
 		}
 	}
 
@@ -83,12 +83,12 @@ public:
 
 		m_userData = userData;
 
-		emit userDataChanged();
+		Q_EMIT userDataChanged();
 
 		const int count = rowCount();
 
 		if (count > 0) {
-			emit dataChanged(index(0, 0), index(count -1, 0));
+			Q_EMIT dataChanged(index(0, 0), index(count -1, 0));
 		}
 	}
 
@@ -109,10 +109,10 @@ public:
 		m_currentIndex = newCurrentIndex;
 		endResetModel();
 
-		emit valuesChanged();
+		Q_EMIT valuesChanged();
 
 		if (curIdxChanged) {
-			emit currentIndexChanged();
+			Q_EMIT currentIndexChanged();
 		}
 	}
 
@@ -127,7 +127,7 @@ public:
 		}
 
 		m_currentIndex = currentIndex;
-		emit currentIndexChanged();
+		Q_EMIT currentIndexChanged();
 	}
 
 	T currentValue() const {
@@ -158,8 +158,8 @@ public:
 					 : -1;
 		endResetModel();
 
-		emit valuesChanged();
-		emit currentIndexChanged();
+		Q_EMIT valuesChanged();
+		Q_EMIT currentIndexChanged();
 	}
 
 	void setValuesAndCurrentValue(const QList<T> &values, const T &currentValue) {
@@ -173,8 +173,8 @@ public:
 		m_values.clear();
 		endResetModel();
 
-		emit valuesChanged();
-		emit currentIndexChanged();
+		Q_EMIT valuesChanged();
+		Q_EMIT currentIndexChanged();
 	}
 
 	virtual int indexOf(const T &value) const {

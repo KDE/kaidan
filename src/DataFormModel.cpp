@@ -92,7 +92,7 @@ bool DataFormModel::setData(const QModelIndex &index, const QVariant &value, int
 	}
 
 	m_form.fields()[index.row()] = field;
-	emit dataChanged(index, index, QVector<int>() << role);
+	Q_EMIT dataChanged(index, index, QVector<int>() << role);
 	return true;
 }
 
@@ -120,7 +120,7 @@ void DataFormModel::setForm(const QXmppDataForm &form)
 	m_form = form;
 	endResetModel();
 
-	emit formChanged();
+	Q_EMIT formChanged();
 }
 
 QString DataFormModel::instructions() const

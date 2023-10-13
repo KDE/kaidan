@@ -45,10 +45,10 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 	// Otherwise, emit a signal for failed decoding.
 	if (result.isValid())
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 0, 0)
-		emit decodingSucceeded(QString::fromStdString(TextUtfEncoding::ToUtf8(result.text())));
+		Q_EMIT decodingSucceeded(QString::fromStdString(TextUtfEncoding::ToUtf8(result.text())));
 #else
-		emit decodingSucceeded(QString::fromStdString(result.text()));
+		Q_EMIT decodingSucceeded(QString::fromStdString(result.text()));
 #endif
 	else
-		emit decodingFailed();
+		Q_EMIT decodingFailed();
 }

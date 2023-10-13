@@ -41,7 +41,7 @@ void OmemoWatcher::handleDistrustedOmemoDevicesRetrieved(const QString &jid, con
 {
 	if (jid == m_jid) {
 		m_distrustedOmemoDevices = deviceLabels;
-		emit distrustedOmemoDevicesChanged();
+		Q_EMIT distrustedOmemoDevicesChanged();
 	}
 }
 
@@ -49,7 +49,7 @@ void OmemoWatcher::handleUsableOmemoDevicesRetrieved(const QString &jid, const Q
 {
 	if (jid == m_jid) {
 		m_usableOmemoDevices = deviceLabels;
-		emit usableOmemoDevicesChanged();
+		Q_EMIT usableOmemoDevicesChanged();
 	}
 }
 
@@ -57,6 +57,6 @@ void OmemoWatcher::handleAuthenticatableOmemoDevicesRetrieved(const QString &jid
 {
 	if (jid == m_jid) {
 		m_authenticatableOmemoDevices = deviceLabels;
-		emit authenticatableOmemoDevicesChanged();
+		Q_EMIT authenticatableOmemoDevicesChanged();
 	}
 }

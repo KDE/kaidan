@@ -122,7 +122,7 @@ QFuture<void> OmemoManager::setUp()
 					interface.reportFinished();
 				});
 			} else {
-				emit Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
+				Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
 				interface.reportFinished();
 			}
 		});
@@ -275,7 +275,7 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 	auto future = m_manager->ownKey();
 	future.then(this, [interface, keys = std::move(keys)](QByteArray key) mutable {
 		keys.insert(AccountManager::instance()->jid(), { { key, QXmpp::TrustLevel::Authenticated } });
-		emit MessageModel::instance()->keysRetrieved(keys);
+		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
 		interface.reportFinished();
 	});
 
@@ -322,7 +322,7 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 
 void OmemoManager::emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices)
 {
-	emit OmemoCache::instance()->distrustedOmemoDevicesRetrieved(jid, distrustedDevices);
-	emit OmemoCache::instance()->usableOmemoDevicesRetrieved(jid, usableDevices);
-	emit OmemoCache::instance()->authenticatableOmemoDevicesRetrieved(jid, authenticatableDevices);
+	Q_EMIT OmemoCache::instance()->distrustedOmemoDevicesRetrieved(jid, distrustedDevices);
+	Q_EMIT OmemoCache::instance()->usableOmemoDevicesRetrieved(jid, usableDevices);
+	Q_EMIT OmemoCache::instance()->authenticatableOmemoDevicesRetrieved(jid, authenticatableDevices);
 }

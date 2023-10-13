@@ -37,7 +37,7 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
 
 	connect(cache, &VCardCache::vCardChanged, this, [this](const QString &jid) {
 		if (m_jid == jid) {
-			emit displayNameChanged();
+			Q_EMIT displayNameChanged();
 		}
 	});
 }
@@ -57,7 +57,7 @@ void AccountManager::setJid(const QString &jid)
 		m_hasNewCredentials = true;
 
 		locker.unlock();
-		emit jidChanged();
+		Q_EMIT jidChanged();
 	}
 }
 
@@ -87,7 +87,7 @@ void AccountManager::setPassword(const QString &password)
 		m_hasNewCredentials = true;
 
 		locker.unlock();
-		emit passwordChanged();
+		Q_EMIT passwordChanged();
 	}
 }
 
@@ -106,7 +106,7 @@ void AccountManager::setHost(const QString &host)
 		m_hasNewConnectionSettings = true;
 
 		locker.unlock();
-		emit hostChanged();
+		Q_EMIT hostChanged();
 	}
 }
 
@@ -125,7 +125,7 @@ void AccountManager::setPort(const quint16 port)
 		m_hasNewConnectionSettings = true;
 
 		locker.unlock();
-		emit portChanged();
+		Q_EMIT portChanged();
 	}
 }
 
@@ -253,7 +253,7 @@ void AccountManager::deleteCredentials()
 	setPassword({});
 	resetCustomConnectionSettings();
 
-	emit credentialsNeeded();
+	Q_EMIT credentialsNeeded();
 }
 
 void AccountManager::deleteSettings()
@@ -272,7 +272,7 @@ void AccountManager::removeAccount(const QString &accountJid)
 	deleteCredentials();
 
 	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
-	emit RosterModel::instance()->removeItemsRequested(accountJid);
+	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
 }
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const

@@ -283,7 +283,7 @@ void ClientWorker::handleAccountDeletedFromServer()
 
 void ClientWorker::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
 {
-	emit Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
+	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
 
 	m_isAccountToBeDeletedFromClientAndServer = false;
 
@@ -297,7 +297,7 @@ void ClientWorker::onConnected()
 	qDebug() << "[client] Connected successfully to server";
 
 	// If there was an error before, notify about its absence.
-	emit connectionErrorChanged(ClientWorker::NoError);
+	Q_EMIT connectionErrorChanged(ClientWorker::NoError);
 
 	// If the account could not be deleted from the server because the client was
 	// disconnected, delete it now.
@@ -322,7 +322,7 @@ void ClientWorker::onConnected()
 	// The following tasks are only done after a login with new credentials or connection settings.
 	if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
 		if (AccountManager::instance()->hasNewCredentials()) {
-			emit loggedInWithNewCredentials();
+			Q_EMIT loggedInWithNewCredentials();
 		}
 
 		// Store the valid settings.
@@ -369,7 +369,7 @@ void ClientWorker::onDisconnected()
 
 void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
 {
-	emit connectionStateChanged(Enums::ConnectionState(connectionState));
+	Q_EMIT connectionStateChanged(Enums::ConnectionState(connectionState));
 }
 
 void ClientWorker::onConnectionError(QXmppClient::Error error)
@@ -381,15 +381,15 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 	case QXmppClient::NoError:
 		Q_UNREACHABLE();
 	case QXmppClient::KeepAliveError:
-		emit connectionErrorChanged(ClientWorker::KeepAliveError);
+		Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
 		break;
 	case QXmppClient::XmppStreamError: {
 		QXmppStanza::Error::Condition xmppStreamError = m_client->xmppStreamError();
 		qDebug() << "[client] XMPP stream error:" << xmppStreamError;
 		if (xmppStreamError == QXmppStanza::Error::NotAuthorized) {
-			emit connectionErrorChanged(ClientWorker::AuthenticationFailed);
+			Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
 		} else {
-			emit connectionErrorChanged(ClientWorker::NotConnected);
+			Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
 		}
 		break;
 	}
@@ -398,23 +398,23 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 		switch (socketError) {
 		case QAbstractSocket::ConnectionRefusedError:
 		case QAbstractSocket::RemoteHostClosedError:
-			emit connectionErrorChanged(ClientWorker::ConnectionRefused);
+			Q_EMIT connectionErrorChanged(ClientWorker::ConnectionRefused);
 			break;
 		case QAbstractSocket::HostNotFoundError:
-			emit connectionErrorChanged(ClientWorker::DnsError);
+			Q_EMIT connectionErrorChanged(ClientWorker::DnsError);
 			break;
 		case QAbstractSocket::SocketAccessError:
-			emit connectionErrorChanged(ClientWorker::NoNetworkPermission);
+			Q_EMIT connectionErrorChanged(ClientWorker::NoNetworkPermission);
 			break;
 		case QAbstractSocket::SocketTimeoutError:
-			emit connectionErrorChanged(ClientWorker::KeepAliveError);
+			Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
 			break;
 		case QAbstractSocket::SslHandshakeFailedError:
 		case QAbstractSocket::SslInternalError:
-			emit connectionErrorChanged(ClientWorker::TlsFailed);
+			Q_EMIT connectionErrorChanged(ClientWorker::TlsFailed);
 			break;
 		default:
-			emit connectionErrorChanged(ClientWorker::NotConnected);
+			Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
 		}
 		break;
 	}

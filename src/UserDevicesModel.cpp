@@ -85,9 +85,9 @@ void UserDevicesModel::setJid(const QString &jid)
 	endResetModel();
 
 	// request version data for all available resources
-	emit clientVersionsRequested(m_jid);
+	Q_EMIT clientVersionsRequested(m_jid);
 
-	emit jidChanged();
+	Q_EMIT jidChanged();
 }
 
 void UserDevicesModel::handleClientVersionReceived(const QXmppVersionIq &versionIq)
@@ -107,7 +107,7 @@ void UserDevicesModel::handleClientVersionReceived(const QXmppVersionIq &version
 		info->os = versionIq.os();
 
 		const int i = std::distance(m_devices.begin(), info);
-		emit dataChanged(index(i), index(i), { Name, Version, OS });
+		Q_EMIT dataChanged(index(i), index(i), { Name, Version, OS });
 	}
 }
 
@@ -122,7 +122,7 @@ void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, con
 		m_devices.append(DeviceInfo(resource));
 		endInsertRows();
 
-		emit clientVersionsRequested(m_jid, resource);
+		Q_EMIT clientVersionsRequested(m_jid, resource);
 		break;
 	case PresenceCache::Disconnected:
 		for (int i = 0; i < m_devices.count(); i++) {

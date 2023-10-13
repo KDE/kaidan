@@ -24,7 +24,7 @@ void ServerFeaturesCache::setInBandRegistrationSupported(bool supported)
 	if (m_inBandRegistrationSupported != supported) {
 		m_inBandRegistrationSupported = supported;
 		locker.unlock();
-		emit inBandRegistrationSupportedChanged();
+		Q_EMIT inBandRegistrationSupportedChanged();
 	}
 }
 
@@ -40,6 +40,6 @@ void ServerFeaturesCache::setHttpUploadSupported(bool supported)
 	if (m_httpUploadSupported != supported) {
 		m_httpUploadSupported = supported;
 		locker.unlock();
-		emit httpUploadSupportedChanged();
+		Q_EMIT httpUploadSupportedChanged();
 	}
 }

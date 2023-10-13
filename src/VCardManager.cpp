@@ -53,7 +53,7 @@ void VCardManager::handleVCardReceived(const QXmppVCardIq &iq)
 		m_avatarStorage->addAvatar(QXmppUtils::jidToBareJid(iq.from().isEmpty() ? m_client->configuration().jid() : iq.from()), iq.photo());
 	}
 
-	emit vCardReceived(iq);
+	Q_EMIT vCardReceived(iq);
 }
 
 void VCardManager::requestClientVCard()
@@ -154,5 +154,5 @@ void VCardManager::changeAvatarAfterReceivingCurrentVCard()
 	m_avatarToBeSetAfterReceivingCurrentVCard = {};
 	m_clientWorker->finishTask();
 
-	emit Kaidan::instance()->avatarChangeSucceeded();
+	Q_EMIT Kaidan::instance()->avatarChangeSucceeded();
 }

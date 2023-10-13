@@ -106,10 +106,10 @@ QString VCardModel::jid() const
 void VCardModel::setJid(const QString &jid)
 {
 	m_jid = jid;
-	emit jidChanged();
+	Q_EMIT jidChanged();
 
 	if (Kaidan::instance()->connectionState() == QXmppClient::ConnectedState) {
-		emit Kaidan::instance()->client()->vCardManager()->vCardRequested(jid);
+		Q_EMIT Kaidan::instance()->client()->vCardManager()->vCardRequested(jid);
 	}
 }
 

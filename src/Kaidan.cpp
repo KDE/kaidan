@@ -72,7 +72,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 	// Log out of the server when the application window is closed.
 	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
-		emit logOutRequested(true);
+		Q_EMIT logOutRequested(true);
 	});
 }
 
@@ -100,14 +100,14 @@ void Kaidan::setConnectionState(Enums::ConnectionState connectionState)
 {
 	if (m_connectionState != connectionState) {
 		m_connectionState = connectionState;
-		emit connectionStateChanged();
+		Q_EMIT connectionStateChanged();
 
 		// Open the possibly cached URI when connected.
 		// This is needed because the XMPP URIs can't be opened when Kaidan is not connected.
 		if (m_connectionState == ConnectionState::StateConnected && !m_openUriCache.isEmpty()) {
 			// delay is needed because sometimes the RosterPage needs to be loaded first
 			QTimer::singleShot(300, this, [this] {
-				emit xmppUriReceived(m_openUriCache);
+				Q_EMIT xmppUriReceived(m_openUriCache);
 				m_openUriCache = "";
 			});
 		}
@@ -118,7 +118,7 @@ void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
 {
 	if (error != m_connectionError) {
 		m_connectionError = error;
-		emit connectionErrorChanged();
+		Q_EMIT connectionErrorChanged();
 	}
 }
 
@@ -129,9 +129,9 @@ void Kaidan::addOpenUri(const QString &uri)
 		return;
 
 	if (m_connectionState == ConnectionState::StateConnected) {
-		emit xmppUriReceived(uri);
+		Q_EMIT xmppUriReceived(uri);
 	} else {
-		emit passiveNotificationRequested(tr("The link will be opened after you have connected."));
+		Q_EMIT passiveNotificationRequested(tr("The link will be opened after you have connected."));
 		m_openUriCache = uri;
 	}
 }

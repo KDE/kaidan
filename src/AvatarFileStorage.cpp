@@ -76,7 +76,7 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
 	// only update GUI, if avatar really has changed
 	if (hasAvatarHash(result.hash)) {
 		if (result.hasChanged)
-			emit avatarIdsChanged();
+			Q_EMIT avatarIdsChanged();
 		return result;
 	}
 
@@ -95,7 +95,7 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
 	// mark that the avatar is new
 	result.newWritten = true;
 
-	emit avatarIdsChanged();
+	Q_EMIT avatarIdsChanged();
 	return result;
 }
 
@@ -112,7 +112,7 @@ void AvatarFileStorage::clearAvatar(const QString &jid)
 	m_jidAvatarMap.remove(jid);
 	saveAvatarsFile();
 	cleanUp(oldHash);
-	emit avatarIdsChanged();
+	Q_EMIT avatarIdsChanged();
 }
 
 void AvatarFileStorage::cleanUp(QString &oldHash)

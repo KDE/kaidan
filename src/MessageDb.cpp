@@ -207,7 +207,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		emit messagesFetched(messages);
+		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -282,7 +282,7 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		emit messagesFetched(messages);
+		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -322,7 +322,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		emit messagesFetched(messages);
+		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -399,7 +399,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 
 		_fetchReactions(result.messages);
 
-		emit messagesFetched(result.messages);
+		Q_EMIT messagesFetched(result.messages);
 
 		return result;
 	});
@@ -454,7 +454,7 @@ QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
 			);
 		}
 
-		emit lastMessageStampFetched(stamp);
+		Q_EMIT lastMessageStampFetched(stamp);
 		return stamp;
 	});
 }
@@ -557,7 +557,7 @@ QFuture<void> MessageDb::addMessage(const Message &msg, MessageOrigin origin)
 		}
 
 		// to speed up the whole process emit signal first and do the actual insert after that
-		emit messageAdded(msg, origin);
+		Q_EMIT messageAdded(msg, origin);
 
 		_addMessage(msg);
 		_setFiles(msg.files);
@@ -706,7 +706,7 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 			);
 		}
 
-		emit messageRemoved(_initializeLastMessage(accountJid, chatJid));
+		Q_EMIT messageRemoved(_initializeLastMessage(accountJid, chatJid));
 	});
 }
 
@@ -743,7 +743,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 
 			// Replace the old message's values with the updated ones if the message has changed.
 			if (oldMessage != newMessage) {
-				emit messageUpdated(newMessage);
+				Q_EMIT messageUpdated(newMessage);
 
 				const auto &oldReactionSenders = oldMessage.reactionSenders;
 				if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
@@ -932,7 +932,7 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 			}
 		);
 
-		emit draftMessageRemoved(_initializeLastMessage(accountJid, chatJid));
+		Q_EMIT draftMessageRemoved(_initializeLastMessage(accountJid, chatJid));
 	});
 }
 

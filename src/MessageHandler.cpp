@@ -131,7 +131,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 
 
 	if (msg.state() != QXmppMessage::State::None) {
-		emit MessageModel::instance()->handleChatStateRequested(
+		Q_EMIT MessageModel::instance()->handleChatStateRequested(
 				senderJid, msg.state());
 	}
 
@@ -149,7 +149,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 
 	// Close a notification for messages to which the user replied via another own resource.
 	if (message.isOwn()) {
-		emit Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
+		Q_EMIT Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
 	}
 
 	message.id = msg.id();
@@ -244,7 +244,7 @@ void MessageHandler::sendCorrectedMessage(Message msg)
 	await(send(msg.toQXmpp()), this, [messageId](QXmpp::SendResult result) {
 		if (std::holds_alternative<QXmppError>(result)) {
 			// TODO store in the database only error codes, assign text messages right in the QML
-			emit Kaidan::instance()->passiveNotificationRequested(
+			Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 						tr("Message correction was not successful"));
 
 			MessageDb::instance()->updateMessage(messageId, [](Message &message) {
@@ -305,7 +305,7 @@ void MessageHandler::sendPendingMessage(Message message)
 				// The error message of the message is saved untranslated. To make
 				// translation work in the UI, the tr() call of the passive
 				// notification must contain exactly the same string.
-				emit Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
+				Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
 				MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
 					msg.deliveryState = Enums::DeliveryState::Error;
 					msg.errorText = QStringLiteral("Message could not be sent.");
@@ -478,11 +478,11 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 			}
 			Kaidan::instance()->database()->commitTransaction();
 
-			emit MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, lastTimestamp, messages.result.complete());
+			Q_EMIT MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, lastTimestamp, messages.result.complete());
 
 		} else if (auto err = std::get_if<QXmppError>(&result)) {
 			qDebug() << "[MAM]" << "Error requesting MAM backlog:" << err->description;
-			emit MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, stamp, false);
+			Q_EMIT MessageModel::instance()->mamBacklogRetrieved(ownJid, jid, stamp, false);
 		}
 	});
 }
@@ -499,16 +499,16 @@ bool MessageHandler::handleReadMarker(const QXmppMessage &message, const QString
 			// count of read messages.
 			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, lastReadContactMessageId, markedId);
 			await(future, this, [recipientJid, markedId](int count) {
-				emit RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
+				Q_EMIT RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
 					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
 					item.lastReadContactMessageId = markedId;
 					item.readMarkerPending = false;
 				});
 			});
 
-			emit Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
+			Q_EMIT Notifications::instance()->closeMessageNotificationRequested(senderJid, recipientJid);
 		} else {
-			emit RosterModel::instance()->updateItemRequested(senderJid, [markedId](RosterItem &item) {
+			Q_EMIT RosterModel::instance()->updateItemRequested(senderJid, [markedId](RosterItem &item) {
 				item.lastReadOwnMessageId = markedId;
 			});
 

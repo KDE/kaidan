@@ -37,7 +37,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
-		emit RosterModel::instance()->addItemRequested(rosterItem);
+		Q_EMIT RosterModel::instance()->addItemRequested(rosterItem);
 
 		if (m_client->state() == QXmppClient::ConnectedState) {
 			m_vCardManager->requestVCard(jid);
@@ -46,7 +46,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
 		this, [this] (const QString &jid) {
-		emit RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
+		Q_EMIT RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
 			item.name = updatedItem.name();
 			item.subscription = updatedItem.subscriptionType();
@@ -64,13 +64,13 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
 		const auto accountJid = m_client->configuration().jidBare();
 		MessageDb::instance()->removeAllMessagesFromChat(accountJid, jid);
-		emit RosterModel::instance()->removeItemsRequested(accountJid, jid);
+		Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid, jid);
 		m_clientWorker->omemoManager()->removeContactDevices(jid);
 	});
 
 	connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived,
 	        this, [](const QString &subscriberBareJid, const QXmppPresence &presence) {
-		emit RosterModel::instance()->subscriptionRequestReceived(subscriberBareJid, presence.statusText());
+		Q_EMIT RosterModel::instance()->subscriptionRequestReceived(subscriberBareJid, presence.statusText());
 	});
 	connect(this, &RosterManager::answerSubscriptionRequestRequested,
 	        this, [this](QString jid, bool accepted) {
@@ -116,7 +116,7 @@ void RosterManager::populateRoster()
 	}
 
 	// replace current contacts with new ones from server
-	emit RosterModel::instance()->replaceItemsRequested(items);
+	Q_EMIT RosterModel::instance()->replaceItemsRequested(items);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &msg)
@@ -125,7 +125,7 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
 		m_manager->addItem(jid, name);
 		m_manager->subscribe(jid, msg);
 	} else {
-		emit Kaidan::instance()->passiveNotificationRequested(
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 			tr("Could not add contact, as a result of not being connected.")
 		);
 		qWarning() << "[client] [RosterManager] Could not add contact, as a result of "
@@ -139,7 +139,7 @@ void RosterManager::removeContact(const QString &jid)
 		m_manager->unsubscribe(jid);
 		m_manager->removeItem(jid);
 	} else {
-		emit Kaidan::instance()->passiveNotificationRequested(
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 			tr("Could not remove contact, as a result of not being connected.")
 		);
 		qWarning() << "[client] [RosterManager] Could not remove contact, as a result of "
@@ -152,7 +152,7 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
 	if (m_client->state() == QXmppClient::ConnectedState) {
 		m_manager->renameItem(jid, newContactName);
 	} else {
-		emit Kaidan::instance()->passiveNotificationRequested(
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 			tr("Could not rename contact, as a result of not being connected.")
 		);
 		qWarning() << "[client] [RosterManager] Could not rename contact, as a result of "
@@ -164,7 +164,7 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 {
 	m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
 		if (const auto error = std::get_if<QXmppError>(&result)) {
-			emit Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
+			Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the status of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
 		}
 	});
 }
@@ -172,14 +172,14 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
 {
 	if (!m_manager->acceptSubscription(contactJid)) {
-		emit Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your status failed").arg(contactJid));
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your status failed").arg(contactJid));
 	}
 }
 
 void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 {
 	if (!m_manager->refuseSubscription(contactJid)) {
-		emit Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %1 to see your status failed").arg(contactJid));
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %1 to see your status failed").arg(contactJid));
 	}
 }
 
