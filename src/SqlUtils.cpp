@@ -24,13 +24,6 @@ void prepareQuery(QSqlQuery &query, const QString &sql)
 	}
 }
 
-void bindValues(QSqlQuery &query, const std::vector<QVariant> &values)
-{
-	for (const auto &val : values) {
-		query.addBindValue(val);
-	}
-}
-
 void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values)
 {
 	for (const auto &bindValue : values) {

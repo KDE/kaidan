@@ -33,7 +33,6 @@ struct QueryBindValue
  */
 void prepareQuery(QSqlQuery &query, const QString &sql);
 
-void bindValues(QSqlQuery &query, const std::vector<QVariant> &values);
 void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values);
 
 /**
@@ -50,21 +49,6 @@ void execQuery(QSqlQuery &query);
  * @param sql SQL statement
  */
 void execQuery(QSqlQuery &query, const QString &sql);
-
-/**
- * Prepares an SQL query, sequentially binds values, executes the query and
- * handles possible errors.
- *
- * @param query SQL query
- * @param sql SQL statement
- * @param bindValues values to be bound sequentially
- */
-inline void execQuery(QSqlQuery &query, const QString &sql, const std::vector<QVariant> &values)
-{
-	prepareQuery(query, sql);
-	bindValues(query, values);
-	execQuery(query);
-}
 
 /**
  * Prepares an SQL query, binds values by names, executes the query and handles

@@ -559,7 +559,7 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 					WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
 				)"),
 				{
-					QueryBindValue { u":accountJid", accountJid },
+					{ u":accountJid", accountJid },
 				}
 			);
 
@@ -580,7 +580,7 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 				DELETE FROM messages WHERE accountJid = :accountJid
 			)"),
 			{
-				QueryBindValue { u":accountJid", accountJid },
+				{ u":accountJid", accountJid },
 			}
 		);
 
@@ -705,7 +705,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				LIMIT 1
 			)"),
 			{
-				QueryBindValue { u":messageId", id },
+				{ u":messageId", id },
 			}
 		);
 
@@ -793,7 +793,7 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 										{ u":senderJid", senderJid },
 										{ u":timestamp", reactionSender.latestTimestamp },
 										{ u":deliveryState", int(reaction.deliveryState) },
-										{ u":emoji", reaction.emoji }
+										{ u":emoji", reaction.emoji },
 									}
 								);
 							}
@@ -989,22 +989,54 @@ void MessageDb::_setFiles(const QVector<File> &files)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO files VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		prepareQuery(
+			query,
+			QStringLiteral(R"(
+				INSERT OR REPLACE INTO files (
+					id,
+					fileGroupId,
+					name,
+					description,
+					mimeType,
+					size,
+					lastModified,
+					disposition,
+					thumbnail,
+					localFilePath
+				)
+				VALUES (
+					:id,
+					:fileGroupId,
+					:name,
+					:description,
+					:mimeType,
+					:size,
+					:lastModified,
+					:disposition,
+					:thumbnail,
+					:localFilePath
+				)
+			)")
+		);
 		return query;
 	}();
 
 	for (const auto &file : files) {
-		bindValues(query, {
-			file.id,
-			file.fileGroupId,
-			optionalToVariant(file.name),
-			optionalToVariant(file.description),
-			file.mimeType.name(),
-			optionalToVariant(file.size),
-			serialize(file.lastModified),
-			int(file.disposition),
-			file.thumbnail,
-			file.localFilePath });
+		bindValues(
+			query,
+			{
+				{ u":id", file.id },
+				{ u":fileGroupId", file.fileGroupId },
+				{ u":name", optionalToVariant(file.name) },
+				{ u":description", optionalToVariant(file.description) },
+				{ u":mimeType", file.mimeType.name() },
+				{ u":size", optionalToVariant(file.size) },
+				{ u":lastModified", serialize(file.lastModified) },
+				{ u":disposition", int(file.disposition) },
+				{ u":thumbnail", file.thumbnail },
+				{ u":localFilePath", file.localFilePath },
+			}
+		);
 		execQuery(query);
 
 		_setFileHashes(file.hashes);
@@ -1017,15 +1049,33 @@ void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO fileHashes VALUES (?, ?, ?)");
+		prepareQuery(
+			query,
+			QStringLiteral(R"(
+				INSERT OR REPLACE INTO fileHashes (
+					dataId,
+					hashType,
+					hashValue
+				)
+				VALUES (
+					:dataId,
+					:hashType,
+					:hashValue
+				)
+			)")
+		);
 		return query;
 	}();
 
 	for (const auto &hash : fileHashes) {
-		bindValues(query, {
-			hash.dataId,
-			int(hash.hashType),
-			hash.hashValue });
+		bindValues(
+			query,
+			{
+				{ u":dataId", hash.dataId },
+				{ u":hashType", int(hash.hashType) },
+				{ u":hashValue", hash.hashValue },
+			}
+		);
 		execQuery(query);
 	}
 }
@@ -1034,12 +1084,30 @@ void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO fileHttpSources VALUES (?, ?)");
+		prepareQuery(
+			query,
+			QStringLiteral(R"(
+				INSERT OR REPLACE INTO fileHttpSources (
+					fileId,
+					url
+				)
+				VALUES (
+					:fileId,
+					:url
+				)
+			)")
+		);
 		return query;
 	}();
 
 	for (const auto &source : sources) {
-		bindValues(query, { source.fileId, source.url.toEncoded() });
+		bindValues(
+			query,
+			{
+				{ u":fileId", source.fileId },
+				{ u":url", source.url.toEncoded() },
+			}
+		);
 		execQuery(query);
 	}
 }
@@ -1048,12 +1116,42 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(query, "INSERT OR REPLACE INTO fileEncryptedSources VALUES (?, ?, ?, ?, ?, ?)");
+		prepareQuery(
+			query,
+			QStringLiteral(R"(
+				INSERT OR REPLACE INTO fileEncryptedSources (
+					fileId,
+					url,
+					cipher,
+					key,
+					iv,
+					encryptedDataId
+				)
+				VALUES (
+					:fileId,
+					:url,
+					:cipher,
+					:key,
+					:iv,
+					:encryptedDataId
+				)
+			)")
+		);
 		return query;
 	}();
 
 	for (const auto &source : sources) {
-		bindValues(query, { source.fileId, source.url.toEncoded(), int(source.cipher), source.key, source.iv, optionalToVariant(source.encryptedDataId) });
+		bindValues(
+			query,
+			{
+				{ u":fileId", source.fileId },
+				{ u":url", source.url.toEncoded() },
+				{ u":cipher", int(source.cipher) },
+				{ u":key", source.key },
+				{ u":iv", source.iv },
+				{ u":encryptedDataId", optionalToVariant(source.encryptedDataId) },
+			}
+		);
 		execQuery(query);
 
 		_setFileHashes(source.encryptedHashes);
@@ -1063,9 +1161,9 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM files WHERE id = ?");
-	for (auto id : fileIds) {
-		bindValues(query, { QVariant(id) });
+	prepareQuery(query, "DELETE FROM files WHERE id = :fileId");
+	for (auto fileId : fileIds) {
+		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
 	}
 }
@@ -1073,9 +1171,9 @@ void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileHashes WHERE dataId = ?");
-	for (auto id : fileIds) {
-		bindValues(query, { QVariant(id) });
+	prepareQuery(query, "DELETE FROM fileHashes WHERE dataId = :fileId");
+	for (auto fileId : fileIds) {
+		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
 	}
 }
@@ -1083,9 +1181,9 @@ void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileHttpSources WHERE fileId = ?");
-	for (auto id : fileIds) {
-		bindValues(query, { QVariant(id) });
+	prepareQuery(query, "DELETE FROM fileHttpSources WHERE fileId = :fileId");
+	for (auto fileId : fileIds) {
+		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
 	}
 }
@@ -1093,9 +1191,9 @@ void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileEncryptedSources WHERE fileId = ?");
-	for (auto id : fileIds) {
-		bindValues(query, { QVariant(id) });
+	prepareQuery(query, "DELETE FROM fileEncryptedSources WHERE fileId = :fileId");
+	for (auto fileId : fileIds) {
+		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
 	}
 }
@@ -1112,7 +1210,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 		return q;
 	}();
 
-	bindValues(query, {QueryBindValue {u":fileGroupId", QVariant(fileGroupId)}});
+	bindValues(query, {{ u":fileGroupId", QVariant(fileGroupId) }});
 	execQuery(query);
 
 	QVector<File> files;
@@ -1143,11 +1241,11 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 	enum { HashType, HashValue };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT hashType, hashValue FROM fileHashes WHERE dataId = ?");
+		prepareQuery(q, "SELECT hashType, hashValue FROM fileHashes WHERE dataId = :fileId");
 		return q;
 	}();
 
-	bindValues(query, { QVariant(fileId) });
+	bindValues(query, {{ u":fileId", fileId }});
 	execQuery(query);
 
 	QVector<FileHash> hashes;
@@ -1167,11 +1265,11 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 	enum { Url };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT url FROM fileHttpSources WHERE fileId = ?");
+		prepareQuery(q, "SELECT url FROM fileHttpSources WHERE fileId = :fileId");
 		return q;
 	}();
 
-	bindValues(query, { QVariant(fileId) });
+	bindValues(query, {{ u":fileId", fileId }});
 	execQuery(query);
 
 	QVector<HttpSource> sources;
@@ -1192,11 +1290,11 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 		auto q = createQuery();
 		prepareQuery(q,
 			"SELECT url, cipher, key, iv, encryptedDataId FROM fileEncryptedSources "
-			"WHERE fileId = ?");
+			"WHERE fileId = :fileId");
 		return q;
 	}();
 
-	bindValues(query, { QVariant(fileId) });
+	bindValues(query, {{ u":fileId", fileId }});
 	execQuery(query);
 
 	auto parseHashes = [this](QSqlQuery &query) -> QVector<FileHash> {

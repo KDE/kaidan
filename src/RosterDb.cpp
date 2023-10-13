@@ -158,7 +158,18 @@ QFuture<void> RosterDb::updateItem(const QString &jid,
 	return run([this, jid, updateItem]() {
 		// load current roster item from db
 		auto query = createQuery();
-		execQuery(query, "SELECT * FROM roster WHERE jid = ? LIMIT 1", {jid});
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				SELECT *
+				FROM roster
+				WHERE jid = :jid
+				LIMIT 1
+			)"),
+			{
+				{ u":jid", jid },
+			}
+		);
 
 		QVector<RosterItem> items;
 		parseItemsFromQuery(query, items);
@@ -324,9 +335,16 @@ void RosterDb::fetchGroups(QVector<RosterItem> &items)
 	for(auto &item : items) {
 		execQuery(
 			query,
-			"SELECT name FROM rosterGroups "
-			"WHERE accountJid = ? AND chatJid = ?",
-			{ item.accountJid, item.jid }
+			QStringLiteral(R"(
+				SELECT name
+				FROM rosterGroups
+				WHERE accountJid = :accountJid AND chatJid = :jid
+				LIMIT 1
+			)"),
+			{
+				{ u":accountJid", item.accountJid },
+				{ u":jid", item.jid },
+			}
 		);
 
 		// Iterate over all found groups.
