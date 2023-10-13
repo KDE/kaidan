@@ -26,6 +26,10 @@
 #include "Globals.h"
 #include "SqlUtils.h"
 
+Q_DECLARE_METATYPE(QXmpp::Cipher)
+Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)
+Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
+
 using namespace SqlUtils;
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
@@ -107,9 +111,9 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 			Qt::ISODate
 		);
 		msg.body = query.value(idxBody).toString();
-		msg.encryption = Encryption::Enum(query.value(idxEncryption).toInt());
+		msg.encryption = query.value(idxEncryption).value<Encryption::Enum>();
 		msg.senderKey = query.value(idxSenderKey).toByteArray();
-		msg.deliveryState = static_cast<Enums::DeliveryState>(query.value(idxDeliveryState).toInt());
+		msg.deliveryState = query.value(idxDeliveryState).value<Enums::DeliveryState>();
 		msg.isSpoiler = query.value(idxIsSpoiler).toBool();
 		msg.spoilerHint = query.value(idxSpoilerHint).toString();
 		msg.fileGroupId = variantToOptional<qint64>(query.value(idxFileGroupId));
@@ -1123,7 +1127,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 			QMimeDatabase().mimeTypeForName(query.value(MimeType).toString()),
 			variantToOptional<long long>(query.value(Size)),
 			parseDateTime(query, LastModified),
-			QXmppFileShare::Disposition(query.value(Disposition).toInt()),
+			query.value(Disposition).value<QXmppFileShare::Disposition>(),
 			query.value(LocalFilePath).toString(),
 			_fetchFileHashes(id),
 			query.value(Thumbnail).toByteArray(),
@@ -1151,7 +1155,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 	while (query.next()) {
 		hashes << FileHash {
 			fileId,
-			QXmpp::HashAlgorithm(query.value(HashType).toInt()),
+			query.value(HashType).value<QXmpp::HashAlgorithm>(),
 			query.value(HashValue).toByteArray()
 		};
 	}
@@ -1209,7 +1213,7 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 		sources << EncryptedSource {
 			fileId,
 			QUrl::fromEncoded(query.value(Url).toByteArray()),
-			QXmpp::Cipher(query.value(Cipher).toInt()),
+			query.value(Cipher).value<QXmpp::Cipher>(),
 			query.value(Key).toByteArray(),
 			query.value(Iv).toByteArray(),
 			variantToOptional<qint64>(query.value(EncryptedDataId)),
@@ -1244,7 +1248,7 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 		while (query.next()) {
 			MessageReaction reaction;
 			reaction.emoji = query.value(Emoji).toString();
-			reaction.deliveryState = MessageReactionDeliveryState::Enum(query.value(DeliveryState).toInt());
+			reaction.deliveryState = query.value(DeliveryState).value<MessageReactionDeliveryState::Enum>();
 
 			auto &reactionSender = message.reactionSenders[query.value(SenderJid).toString()];
 

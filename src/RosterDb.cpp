@@ -18,6 +18,8 @@
 #include <QSqlQuery>
 #include <QSqlRecord>
 
+Q_DECLARE_METATYPE(QXmppRosterIq::Item::SubscriptionType)
+
 using namespace SqlUtils;
 
 RosterDb *RosterDb::s_instance = nullptr;
@@ -61,8 +63,8 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.accountJid = query.value(idxAccountJid).toString();
 		item.jid = query.value(idxJid).toString();
 		item.name = query.value(idxName).toString();
-		item.subscription = QXmppRosterIq::Item::SubscriptionType(query.value(idxSubscription).toInt());
-		item.encryption = Encryption::Enum(query.value(idxEncryption).toInt());
+		item.subscription = query.value(idxSubscription).value<QXmppRosterIq::Item::SubscriptionType>();
+		item.encryption = query.value(idxEncryption).value<Encryption::Enum>();
 		item.unreadMessages = query.value(idxUnreadMessages).toInt();
 		item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
 		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();

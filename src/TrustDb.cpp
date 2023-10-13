@@ -14,6 +14,8 @@
 
 #include "SqlUtils.h"
 
+Q_DECLARE_METATYPE(QXmpp::TrustLevel)
+
 using namespace QXmpp;
 using namespace SqlUtils;
 
@@ -162,7 +164,7 @@ auto TrustDb::keys(const QString &encryption, TrustLevels trustLevels)
 				keys.push_back(QueryResult {
 					query.value(KeyId).toByteArray(),
 					query.value(OwnerJid).toString(),
-					TrustLevel(query.value(TrustLevel_).toInt()),
+					query.value(TrustLevel_).value<TrustLevel>(),
 				});
 			}
 			return keys;
@@ -212,7 +214,7 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
 			std::vector<QueryResult> keys;
 			while (query.next()) {
 				keys.push_back(QueryResult {query.value(KeyId).toByteArray(),
-					TrustLevel(query.value(TrustLevel_).toInt())});
+					query.value(TrustLevel_).value<TrustLevel>()});
 			}
 			return keys;
 		};
@@ -350,7 +352,7 @@ auto TrustDb::setTrustLevel(const QString &encryption,
 			execQuery(query);
 
 			if (query.next()) {
-				if (query.value(TrustLevel_).toLongLong() != qint64(trustLevel)) {
+				if (query.value(TrustLevel_).value<TrustLevel>() != trustLevel) {
 					_setTrustLevel(trustLevel, query.value(RowId).toLongLong());
 					changes.insert(ownerJid, keyId);
 				}
