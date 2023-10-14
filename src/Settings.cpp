@@ -24,102 +24,72 @@ QSettings &Settings::raw()
 
 bool Settings::authOnline() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE), true).toBool();
+	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE), true);
 }
 
 void Settings::setAuthOnline(bool online)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE), online);
-	locker.unlock();
-	Q_EMIT authOnlineChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE), online, &Settings::authOnlineChanged);
 }
 
 QString Settings::authJid() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID)).toString();
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID));
 }
 
 void Settings::setAuthJid(const QString &jid)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID), jid);
-	locker.unlock();
-	Q_EMIT authJidChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID), jid, &Settings::authJidChanged);
 }
 
 QString Settings::authJidResourcePrefix() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), KAIDAN_JID_RESOURCE_DEFAULT_PREFIX).toString();
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), KAIDAN_JID_RESOURCE_DEFAULT_PREFIX);
 }
 
 void Settings::setAuthJidResourcePrefix(const QString &prefix)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), prefix);
-	locker.unlock();
-	Q_EMIT authJidResourcePrefixChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), prefix, &Settings::authJidResourcePrefixChanged);
 }
 
 QString Settings::authPassword() const
 {
-	QMutexLocker locker(&m_mutex);
-	return QByteArray::fromBase64(m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toString().toUtf8());
+	return QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8());
 }
 
 void Settings::setAuthPassword(const QString &password)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()));
-	locker.unlock();
-	Q_EMIT authPasswordChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()), &Settings::authPasswordChanged);
 }
 
 QString Settings::authHost() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST)).toString();
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST));
 }
 
 void Settings::setAuthHost(const QString &host)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST), host);
-	locker.unlock();
-	Q_EMIT authHostChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST), host, &Settings::authHostChanged);
 }
 
 void Settings::resetAuthHost()
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.remove(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST));
-	locker.unlock();
-	Q_EMIT authHostChanged();
+	remove(QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST), &Settings::authHostChanged);
 }
 
 quint16 Settings::authPort() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), PORT_AUTODETECT).value<quint16>();
+	return value<quint16>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), PORT_AUTODETECT);
 }
 
 void Settings::setAuthPort(quint16 port)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), port);
-	locker.unlock();
-	Q_EMIT authPortChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), port, &Settings::authPortChanged);
 }
 
 void Settings::resetAuthPort()
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.remove(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT));
-	locker.unlock();
-	Q_EMIT authPortChanged();
+	remove(QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT), &Settings::authPortChanged);
 }
 
 bool Settings::isDefaultAuthPort() const
@@ -129,86 +99,62 @@ bool Settings::isDefaultAuthPort() const
 
 Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible).value<Kaidan::PasswordVisibility>();
+	return value<Kaidan::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible);
 }
 
 void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), visibility);
-	locker.unlock();
-	Q_EMIT authPasswordVisibilityChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), visibility, &Settings::authPasswordVisibilityChanged);
 }
 
 Encryption::Enum Settings::encryption() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), Encryption::Omemo2).value<Encryption::Enum>();
+	return value<Encryption::Enum>(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), Encryption::Omemo2);
 }
 
 void Settings::setEncryption(Encryption::Enum encryption)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), encryption);
-	locker.unlock();
-	Q_EMIT encryptionChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), encryption, &Settings::encryptionChanged);
 }
 
 bool Settings::qrCodePageExplanationVisible() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), true).toBool();
+	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), true);
 }
 
 void Settings::setQrCodePageExplanationVisible(bool isVisible)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), isVisible);
-	locker.unlock();
-	Q_EMIT qrCodePageExplanationVisibleChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), isVisible, &Settings::qrCodePageExplanationVisibleChanged);
 }
 
 QStringList Settings::favoriteEmojis() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS)).toStringList();
+	return value<QStringList>(QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS));
 }
 
 void Settings::setFavoriteEmojis(const QStringList &emoji)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS), emoji);
-	locker.unlock();
-	Q_EMIT favoriteEmojisChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS), emoji, &Settings::favoriteEmojisChanged);
 }
 
 QPoint Settings::windowPosition() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION)).toPoint();
+	return value<QPoint>(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION));
 }
 
 void Settings::setWindowPosition(const QPoint &windowPosition)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION), windowPosition);
-	locker.unlock();
-	Q_EMIT windowPositionChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_POSITION), windowPosition, &Settings::windowPositionChanged);
 }
 
 QSize Settings::windowSize() const
 {
-	QMutexLocker locker(&m_mutex);
-	return m_settings.value(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE)).toSize();
+	return value<QSize>(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE));
 }
 
 void Settings::setWindowSize(const QSize &windowSize)
 {
-	QMutexLocker locker(&m_mutex);
-	m_settings.setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize);
-	locker.unlock();
-	Q_EMIT windowSizeChanged();
+	setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize, &Settings::windowSizeChanged);
 }
 
 void Settings::remove(const QStringList &keys)
