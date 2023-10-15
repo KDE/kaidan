@@ -303,24 +303,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "S'ha produït un error"
 
-#: src/MessageModel.cpp:678 src/MessageModel.cpp:781 src/MessageModel.cpp:918
+#: src/MessageModel.cpp:651 src/MessageModel.cpp:724 src/MessageModel.cpp:859
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "No s'ha pogut enviar la reacció: %1"
 
-#: src/MessageModel.cpp:859
+#: src/MessageModel.cpp:802
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "No s'han pogut enviar les reaccions: %1"
 
-#: src/MessageModel.cpp:1505
+#: src/MessageModel.cpp:1521
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Hui"
 
-#: src/MessageModel.cpp:1508
+#: src/MessageModel.cpp:1524
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ahir"
@@ -1073,17 +1073,17 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:302
+#: src/qml/elements/ChatMessage.qml:299
 msgctxt "ChatMessage|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
-#: src/qml/elements/ChatMessage.qml:307
+#: src/qml/elements/ChatMessage.qml:304
 msgctxt "ChatMessage|"
 msgid "Untrusted"
 msgstr "No fiable"
 
-#: src/qml/elements/ChatMessage.qml:339
+#: src/qml/elements/ChatMessage.qml:336
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
