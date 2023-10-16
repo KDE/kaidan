@@ -759,7 +759,6 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 									QStringLiteral(R"(
 										DELETE FROM messageReactions
 										WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderJid = :senderJid AND emoji = :emoji
-										LIMIT 1
 									)"),
 									{
 										{ u":accountJid", oldMessage.accountJid },
