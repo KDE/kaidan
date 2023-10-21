@@ -301,6 +301,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MessageReactionDeliveryState>();
 	qRegisterMetaType<FileModel::Role>();
 	qRegisterMetaType<FileProxyModel::Mode>();
+	qRegisterMetaType<AccountManager::AutomaticMediaDownloadsRule>();
+	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
 
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
@@ -464,6 +466,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", "Used by PublicGroupChatModel");
 	qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", "Cannot create object; only enums defined!");
 	qmlRegisterUncreatableType<MessageReactionDeliveryState>(APPLICATION_ID, 1, 0, "MessageReactionDeliveryState", "Cannot create object; only enums defined!");
+	qmlRegisterUncreatableType<RosterItem>(APPLICATION_ID, 1, 0, "RosterItem", "Cannot create object; only enums defined!");
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", "Can't create object; only enums defined!");
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", "Can't create object; only enums defined!");

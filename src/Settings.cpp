@@ -157,6 +157,16 @@ void Settings::setWindowSize(const QSize &windowSize)
 	setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize, &Settings::windowSizeChanged);
 }
 
+AccountManager::AutomaticMediaDownloadsRule Settings::automaticMediaDownloadsRule() const
+{
+	return value<AccountManager::AutomaticMediaDownloadsRule>(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), AccountManager::AutomaticMediaDownloadsRule::Default);
+}
+
+void Settings::setAutomaticMediaDownloadsRule(AccountManager::AutomaticMediaDownloadsRule rule)
+{
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), rule, &Settings::automaticMediaDownloadsRuleChanged);
+}
+
 void Settings::remove(const QStringList &keys)
 {
 	QMutexLocker locker(&m_mutex);

@@ -397,6 +397,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.notificationsMuted = oldItem->notificationsMuted;
 			item.lastMessageDeliveryState = oldItem->lastMessageDeliveryState;
 			item.lastMessageSenderId = oldItem->lastMessageSenderId;
+			item.automaticMediaDownloadsRule = oldItem->automaticMediaDownloadsRule;
 		}
 
 		newItems << item;
@@ -521,6 +522,13 @@ void RosterModel::setNotificationsMuted(const QString &, const QString &jid, boo
 {
 	Q_EMIT updateItemRequested(jid, [=](RosterItem &item) {
 		item.notificationsMuted = notificationsMuted;
+	});
+}
+
+void RosterModel::setAutomaticMediaDownloadsRule(const QString &, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule)
+{
+	Q_EMIT updateItemRequested(jid, [rule](RosterItem &item) {
+		item.automaticMediaDownloadsRule = rule;
 	});
 }
 

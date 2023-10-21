@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 37
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(37)
+#define DATABASE_LATEST_VERSION 38
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(38)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -378,6 +378,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
 			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
 			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER)
 			"PRIMARY KEY(accountJid, jid)"
 		)
 	);
@@ -1836,4 +1837,12 @@ void Database::convertDatabaseToV37()
 	execQuery(query, "DROP TABLE messages_tmp");
 
 	d->version = 37;
+}
+
+void Database::convertDatabaseToV38()
+{
+	DATABASE_CONVERT_TO_VERSION(37);
+	QSqlQuery query(currentDatabase());
+	execQuery(query, "ALTER TABLE Roster ADD automaticMediaDownloadsRule " SQL_INTEGER);
+	d->version = 38;
 }

@@ -14,6 +14,7 @@
 #include <QSettings>
 #include <QSize>
 
+#include "AccountManager.h"
 #include "Encryption.h"
 #include "Kaidan.h"
 
@@ -35,6 +36,7 @@ class Settings : public QObject
 	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
+	Q_PROPERTY(AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
 
 public:
 	explicit Settings(QObject *parent = nullptr);
@@ -95,6 +97,9 @@ public:
 	QSize windowSize() const;
 	void setWindowSize(const QSize &windowSize);
 
+	AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule() const;
+	void setAutomaticMediaDownloadsRule(AccountManager::AutomaticMediaDownloadsRule rule);
+
 	void remove(const QStringList &keys);
 
 signals:
@@ -110,6 +115,7 @@ signals:
 	void favoriteEmojisChanged();
 	void windowPositionChanged();
 	void windowSizeChanged();
+	void automaticMediaDownloadsRuleChanged();
 
 private:
 	template<typename T>

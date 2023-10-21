@@ -20,7 +20,7 @@
 struct RosterItem
 {
 	Q_GADGET
-public:
+
 	Q_PROPERTY(QString accountJid MEMBER jid)
 	Q_PROPERTY(QString jid MEMBER jid)
 	Q_PROPERTY(QString name MEMBER name)
@@ -32,6 +32,19 @@ public:
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
 	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
 	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
+	Q_PROPERTY(RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule MEMBER automaticMediaDownloadsRule)
+
+public:
+	/**
+	 * Rule to automatically download media for a roster item
+	 */
+	enum class AutomaticMediaDownloadsRule {
+		Account, ///< Use the account rule
+		Never,   ///< Never automatically download files
+		Always,  ///< Always automatically download files
+		Default = Account,
+	};
+	Q_ENUM(AutomaticMediaDownloadsRule)
 
 	RosterItem() = default;
 	RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item);
@@ -107,6 +120,10 @@ public:
 
 	// Whether notifications are muted.
 	bool notificationsMuted = false;
+
+	// Wheither files get downloaded automatically
+	RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 };
 
 Q_DECLARE_METATYPE(RosterItem)
+Q_DECLARE_METATYPE(RosterItem::AutomaticMediaDownloadsRule)

@@ -19,6 +19,28 @@ import "../settings"
 
 DetailsContent {
 	id: root
+	automaticMediaDownloadsDelegate {
+		model: [
+			{
+				display: qsTr("Never"),
+				value: AccountManager.AutomaticMediaDownloadsRule.Never
+			},
+			{
+				display: qsTr("Only when status is sent"),
+				value: AccountManager.AutomaticMediaDownloadsRule.PresenceOnly
+			},
+			{
+				display: qsTr("Always"),
+				value: AccountManager.AutomaticMediaDownloadsRule.Always
+			}
+		]
+		textRole: "display"
+		valueRole: "value"
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(Kaidan.settings.automaticMediaDownloadsRule)
+		onActivated: {
+			Kaidan.settings.automaticMediaDownloadsRule = automaticMediaDownloadsDelegate.currentValue
+		}
+	}
 	mediaOverview {
 		accountJid: AccountManager.jid
 		chatJid: ""

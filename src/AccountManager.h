@@ -28,6 +28,17 @@ class AccountManager : public QObject
 	Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
 
 public:
+	/**
+	 * Default rule to automatically download media for all roster items of an account
+	 */
+	enum class AutomaticMediaDownloadsRule {
+		Never,        ///< Never automatically download files
+		PresenceOnly, ///< Only for contacts receiving presence
+		Always,       ///< Always automatically download files
+		Default = PresenceOnly,
+	};
+	Q_ENUM(AutomaticMediaDownloadsRule)
+
 	static AccountManager *instance();
 
 	AccountManager(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
@@ -287,3 +298,5 @@ private:
 
 	static AccountManager *s_instance;
 };
+
+Q_DECLARE_METATYPE(AccountManager::AutomaticMediaDownloadsRule)

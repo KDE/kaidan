@@ -18,6 +18,26 @@ DetailsContent {
 
 	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
 
+	automaticMediaDownloadsDelegate {
+		model: [
+			{
+				display: qsTr("Account default"),
+				value: RosterItem.AutomaticMediaDownloadsRule.Account
+			},
+			{
+				display: qsTr("Never"),
+				value: RosterItem.AutomaticMediaDownloadsRule.Never
+			},
+			{
+				display: qsTr("Always"),
+				value: RosterItem.AutomaticMediaDownloadsRule.Always
+			}
+		]
+		textRole: "display"
+		valueRole: "value"
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
+		onActivated: RosterModel.setAutomaticMediaDownloadsRule(MessageModel.currentAccountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
+	}
 	mediaOverview {
 		accountJid: MessageModel.currentAccountJid
 		chatJid: MessageModel.currentChatJid

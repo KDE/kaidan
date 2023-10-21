@@ -36,6 +36,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		this, [this](const QString &jid) {
 		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
+		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 		rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
 		Q_EMIT RosterModel::instance()->addItemRequested(rosterItem);
 
@@ -108,6 +109,7 @@ void RosterManager::populateRoster()
 	for (const auto &jid : bareJids) {
 		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid)};
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
+		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 		items.insert(jid, rosterItem);
 
 		if (m_avatarStorage->getHashOfJid(jid).isEmpty() && m_client->state() == QXmppClient::ConnectedState) {

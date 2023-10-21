@@ -17,6 +17,7 @@
 #include <QStringBuilder>
 #include <QThread>
 #include <QTimer>
+#include <QFile>
 // QXmpp
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
@@ -29,7 +30,9 @@
 #include "MessageDb.h"
 #include "Notifications.h"
 #include "RosterDb.h"
+#include "RosterModel.h"
 #include "FileSharingController.h"
+#include "Settings.h"
 
 Kaidan *Kaidan::s_instance;
 
@@ -73,6 +76,49 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	// Log out of the server when the application window is closed.
 	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
 		Q_EMIT logOutRequested(true);
+	});
+
+	connect(m_msgDb, &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
+		if (origin != MessageOrigin::UserInput) {
+			if (const auto item = RosterModel::instance()->findItem(message.chatJid)) {
+				const auto contactRule = item->automaticMediaDownloadsRule;
+
+				const auto effectiveRule = [this, contactRule]() -> AccountManager::AutomaticMediaDownloadsRule {
+					switch (contactRule) {
+					case RosterItem::AutomaticMediaDownloadsRule::Account:
+						return settings()->automaticMediaDownloadsRule();
+					case RosterItem::AutomaticMediaDownloadsRule::Never:
+						return AccountManager::AutomaticMediaDownloadsRule::Never;
+					case RosterItem::AutomaticMediaDownloadsRule::Always:
+						return AccountManager::AutomaticMediaDownloadsRule::Always;
+					}
+
+					Q_UNREACHABLE();
+				}();
+
+				const auto automaticDownloadDesired = [effectiveRule, &message]() -> bool {
+					switch (effectiveRule) {
+					case AccountManager::AutomaticMediaDownloadsRule::Never:
+						return false;
+					case AccountManager::AutomaticMediaDownloadsRule::PresenceOnly:
+						return RosterModel::instance()->isPresenceSubscribedByItem(
+							message.accountJid, message.chatJid);
+					case AccountManager::AutomaticMediaDownloadsRule::Always:
+						return true;
+					}
+
+					Q_UNREACHABLE();
+				}();
+
+				if (automaticDownloadDesired) {
+					for (const auto &file : message.files) {
+						if (file.localFilePath.isEmpty() || !QFile::exists(file.localFilePath)) {
+							m_fileSharingController->downloadFile(message.id, file);
+						}
+					}
+				}
+			}
+		}
 	});
 }
 

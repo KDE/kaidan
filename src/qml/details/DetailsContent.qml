@@ -22,6 +22,7 @@ Controls.Control {
 	property Kirigami.OverlaySheet sheet
 	required property string jid
 	property alias qrCodePage: qrCodePage
+	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaOverview: mediaOverview
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea.data
@@ -60,24 +61,58 @@ Controls.Control {
 		}
 
 		MobileForm.FormCard {
-			visible: contentItem.enabled
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
-				enabled: mediaOverview.totalFilesCount
 				spacing: 0
 
 				MobileForm.FormCardHeader {
 					title: qsTr("Media")
 				}
 
-				MediaOverview {
-					id: mediaOverview
-					visible: mediaOverviewExpansionButton.checked
-					Layout.fillWidth: true
+				MobileForm.FormComboBoxDelegate {
+					id: automaticMediaDownloadsDelegate
+					text: qsTr("Automatic Downloads")
+					description: qsTr("Download media automatically")
+
+					// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based
+					// model.
+					// Thus, an own function is used.
+					function indexOf(value) {
+						if (Array.isArray(model)) {
+							return model.findIndex((entry) => entry[valueRole] === value)
+						}
+
+						return indexOfValue(value)
+					}
+
+                    Component.onCompleted: {
+						let comboBox = contentItem.children[2];
+
+						if (comboBox instanceof Controls.ComboBox) {
+							// "Kirigami.OverlaySheet" uses a z-index of 101.
+							// In order to see the popup, it needs to have that z-index as well.
+							comboBox.popup.z = 101
+                        }
+                    }
+				}
+
+				ColumnLayout {
+					visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
+					spacing: 0
+
+					Kirigami.Separator {
+						Layout.fillWidth: true
+					}
+
+					MediaOverview {
+						id: mediaOverview
+						Layout.fillWidth: true
+					}
 				}
 
 				FormExpansionButton {
 					id: mediaOverviewExpansionButton
+					visible: mediaOverview.totalFilesCount
 					onCheckedChanged: {
 						if (checked) {
 							mediaOverview.selectionMode = false
