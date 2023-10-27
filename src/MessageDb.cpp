@@ -493,24 +493,25 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
 		auto query = createQuery();
 		execQuery(
 			query,
+			// The double round brackets are needed to evaluate the datetime.
 			QStringLiteral(R"(
 				SELECT COUNT(*)
 				FROM chatMessages DESC
 				WHERE
 					accountJid = :accountJid AND chatJid = :chatJid AND
 					datetime(timestamp) BETWEEN
-						datetime(
+						datetime((
 							SELECT timestamp
 							FROM chatMessages DESC
 							WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdBegin
 							LIMIT 1
-						) AND
-						datetime(
+						)) AND
+						datetime((
 							SELECT timestamp
 							FROM chatMessages DESC
 							WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :messageIdEnd
 							LIMIT 1
-						)
+						))
 			)"),
 			{
 				{ u":accountJid", accountJid },
