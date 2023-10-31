@@ -9,6 +9,7 @@ import QtQuick.Layouts 1.14
 DetailsPage {
 	id: root
 
+	required property string accountJid
 	required property string jid
 
 	ContactDetailsHeader {
@@ -16,6 +17,7 @@ DetailsPage {
 	}
 
 	ContactDetailsContent {
+		accountJid: root.accountJid
 		jid: root.jid
 		Layout.fillWidth: true
 	}

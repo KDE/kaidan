@@ -16,7 +16,8 @@ import "../elements"
 DetailsContent {
 	id: root
 
-	property bool isChatWithOneself: MessageModel.currentAccountJid === jid
+	required property string accountJid
+	property bool isChatWithOneself: accountJid === jid
 
 	automaticMediaDownloadsDelegate {
 		model: [
@@ -36,11 +37,11 @@ DetailsContent {
 		textRole: "display"
 		valueRole: "value"
 		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
-		onActivated: RosterModel.setAutomaticMediaDownloadsRule(MessageModel.currentAccountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
+		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
 	}
 	mediaOverview {
-		accountJid: MessageModel.currentAccountJid
-		chatJid: MessageModel.currentChatJid
+		accountJid: root.accountJid
+		chatJid: root.jid
 	}
 	vCardRepeater {
 		model: VCardModel {
@@ -125,7 +126,7 @@ DetailsContent {
 									Layout.rightMargin: Kirigami.Units.largeSpacing
 									onHoveredChanged: flat = !hovered
 									onClicked: {
-										let groups = chatItemWatcher.item.groups
+										let groups = contactWatcher.item.groups
 
 										if (groups.includes(rosterGroupField.text)) {
 											rosterGroupField.text = ""
@@ -133,7 +134,7 @@ DetailsContent {
 											rosterGroupBusyIndicator.visible = true
 
 											groups.push(rosterGroupField.text)
-											Kaidan.client.rosterManager.updateGroupsRequested(root.jid, chatItemWatcher.item.name, groups)
+											Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
 
 											rosterGroupField.text = ""
 										} else {
@@ -383,8 +384,8 @@ DetailsContent {
 				checked: !contactWatcher.item.notificationsMuted
 				onToggled: {
 					RosterModel.setNotificationsMuted(
-						MessageModel.currentAccountJid,
-						MessageModel.currentChatJid,
+						root.accountJid,
+						root.jid,
 						!checked)
 				}
 			}
@@ -415,9 +416,9 @@ DetailsContent {
 				visible: !isChatWithOneself
 				onToggled: {
 					if (checked) {
-						Kaidan.client.rosterManager.acceptSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+						Kaidan.client.rosterManager.acceptSubscriptionToPresenceRequested(root.jid)
 					} else {
-						Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(MessageModel.currentChatJid)
+						Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
 					}
 				}
 			}
@@ -428,8 +429,8 @@ DetailsContent {
 				checked: contactWatcher.item.chatStateSendingEnabled
 				onToggled: {
 					RosterModel.setChatStateSendingEnabled(
-						MessageModel.currentAccountJid,
-						MessageModel.currentChatJid,
+						root.accountJid,
+						root.jid,
 						checked)
 				}
 			}
@@ -440,8 +441,8 @@ DetailsContent {
 				checked: contactWatcher.item.readMarkerSendingEnabled
 				onToggled: {
 					RosterModel.setReadMarkerSendingEnabled(
-						MessageModel.currentAccountJid,
-						MessageModel.currentChatJid,
+						root.accountJid,
+						root.jid,
 						checked)
 				}
 			}

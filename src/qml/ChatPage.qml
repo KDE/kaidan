@@ -128,6 +128,7 @@ ChatPageBase {
 		id: contactDetailsSheet
 
 		ContactDetailsSheet {
+			accountJid: MessageModel.currentAccountJid
 			jid: MessageModel.currentChatJid
 		}
 	}
@@ -136,6 +137,7 @@ ChatPageBase {
 		id: contactDetailsPage
 
 		ContactDetailsPage {
+			accountJid: MessageModel.currentAccountJid
 			jid: MessageModel.currentChatJid
 		}
 	}

@@ -10,6 +10,7 @@ import QtQuick.Layouts 1.14
 DetailsSheet {
 	id: root
 
+	required property string accountJid
 	required property string jid
 
 	parent: applicationWindow().overlay
@@ -20,6 +21,7 @@ DetailsSheet {
 
 	ContactDetailsContent {
 		sheet: root
+		accountJid: root.accountJid
 		jid: root.jid
 		Layout.fillWidth: true
 	}
