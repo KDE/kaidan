@@ -11,11 +11,16 @@ class RosterFilterProxyModel : public QSortFilterProxyModel
 {
 	Q_OBJECT
 
+	Q_PROPERTY(bool onlyAvailableContactsShown READ onlyAvailableContactsShown WRITE setOnlyAvailableContactsShown NOTIFY onlyAvailableContactsShownChanged)
 	Q_PROPERTY(QVector<QString> selectedAccountJids READ selectedAccountJids WRITE setSelectedAccountJids NOTIFY selectedAccountJidsChanged)
 	Q_PROPERTY(QVector<QString> selectedGroups READ selectedGroups WRITE setSelectedGroups NOTIFY selectedGroupsChanged)
 
 public:
 	RosterFilterProxyModel(QObject *parent = nullptr);
+
+	void setOnlyAvailableContactsShown(bool onlyAvailableContactsShown);
+	bool onlyAvailableContactsShown() const;
+	Q_SIGNAL void onlyAvailableContactsShownChanged();
 
 	void setSelectedAccountJids(const QVector<QString> &selectedAccountJids);
 	QVector<QString> selectedAccountJids() const;
@@ -30,4 +35,5 @@ public:
 private:
 	QVector<QString> m_selectedAccountJids;
 	QVector<QString> m_selectedGroups;
+	bool m_onlyAvailableContactsShown = false;
 };

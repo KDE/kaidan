@@ -4,11 +4,27 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterFilterProxyModel.h"
+
+#include "PresenceCache.h"
 #include "RosterModel.h"
 
 RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent)
 	: QSortFilterProxyModel(parent)
 {
+}
+
+void RosterFilterProxyModel::setOnlyAvailableContactsShown(bool onlyAvailableContactsShown)
+{
+	if (m_onlyAvailableContactsShown != onlyAvailableContactsShown) {
+		m_onlyAvailableContactsShown = onlyAvailableContactsShown;
+		invalidate();
+		Q_EMIT onlyAvailableContactsShownChanged();
+	}
+}
+
+bool RosterFilterProxyModel::onlyAvailableContactsShown() const
+{
+	return m_onlyAvailableContactsShown;
 }
 
 void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &selectedAccountJids)
@@ -44,6 +60,19 @@ QVector<QString> RosterFilterProxyModel::selectedGroups() const
 bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
 	QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
+
+	if (m_onlyAvailableContactsShown) {
+		auto *presenceCache = PresenceCache::instance();
+		const auto chatJid = sourceModel()->data(index, RosterModel::JidRole).toString();
+
+		if (const auto contactPresence = presenceCache->presence(chatJid, presenceCache->pickIdealResource(chatJid))) {
+			if (contactPresence->type() != QXmppPresence::Available) {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 
 	if (const auto accountJid = sourceModel()->data(index, RosterModel::AccountJidRole).toString();
 		!m_selectedAccountJids.isEmpty() && !m_selectedAccountJids.contains(accountJid)) {
