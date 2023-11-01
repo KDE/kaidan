@@ -43,15 +43,7 @@ msgstr ""
 "Não foi possível excluir sua conta do servidor. Por essa razão, ela também "
 "não foi excluída deste aplicativo: %1"
 
-#: src/FileSharingController.cpp:196
-#, fuzzy, qt-format
-#| msgctxt "DownloadJob|"
-#| msgid "Download failed: %1"
-msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Download falhou: %1"
-
-#: src/FileSharingController.cpp:378
+#: src/FileSharingController.cpp:361
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Could not save file: %1"
@@ -265,18 +257,26 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:239
+#: src/MessageComposition.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "DownloadJob|"
+#| msgid "Download failed: %1"
+msgctxt "MessageComposition|"
+msgid "Upload failed: %1"
+msgstr "Download falhou: %1"
+
+#: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:166
+#: src/MessageHandler.cpp:165
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageHandler.cpp:248
+#: src/MessageHandler.cpp:224
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -284,7 +284,7 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível a correção da mensagem."
 
-#: src/MessageHandler.cpp:308
+#: src/MessageHandler.cpp:284
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."

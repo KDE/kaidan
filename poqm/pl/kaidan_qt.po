@@ -48,13 +48,7 @@ msgstr ""
 "Twoje konto nie mogło zostać usunięte z serwera. Dlatego nie zostało ono  "
 "również usunięte z tej aplikacji: %1"
 
-#: src/FileSharingController.cpp:196
-#, qt-format
-msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Wysyłanie nie powiodło się: %1"
-
-#: src/FileSharingController.cpp:378
+#: src/FileSharingController.cpp:361
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -254,24 +248,32 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/MessageComposition.cpp:239
+#: src/MessageComposition.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "MessageComposition|"
+msgid "Upload failed: %1"
+msgstr "Wysyłanie nie powiodło się: %1"
+
+#: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Rozmiar nieznany"
 
-#: src/MessageHandler.cpp:166
+#: src/MessageHandler.cpp:165
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageHandler.cpp:248
+#: src/MessageHandler.cpp:224
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się"
 
-#: src/MessageHandler.cpp:308
+#: src/MessageHandler.cpp:284
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."

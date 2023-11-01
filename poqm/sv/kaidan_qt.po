@@ -44,13 +44,7 @@ msgstr ""
 "Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
 "tagits bort från applikationen: %1"
 
-#: src/FileSharingController.cpp:196
-#, qt-format
-msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Uppladdning misslyckades: %1"
-
-#: src/FileSharingController.cpp:378
+#: src/FileSharingController.cpp:361
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -250,23 +244,31 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:239
+#: src/MessageComposition.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "MessageComposition|"
+msgid "Upload failed: %1"
+msgstr "Uppladdning misslyckades: %1"
+
+#: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/MessageHandler.cpp:166
+#: src/MessageHandler.cpp:165
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Meddelandet är krypterat med %1 men kunde inte avkrypteras"
 
-#: src/MessageHandler.cpp:248
+#: src/MessageHandler.cpp:224
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Rättning av meddelande lyckades inte"
 
-#: src/MessageHandler.cpp:308
+#: src/MessageHandler.cpp:284
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meddelande kunde inte skickas."

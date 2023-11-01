@@ -44,13 +44,7 @@ msgstr ""
 "Impossibile eliminare il tuo account dal server. Perciò, non è stato rimosso "
 "nemmeno da questa applicazione: %1"
 
-#: src/FileSharingController.cpp:196
-#, qt-format
-msgctxt "FileSharingController|"
-msgid "Upload failed: %1"
-msgstr "Caricamento non riuscito: %1"
-
-#: src/FileSharingController.cpp:378
+#: src/FileSharingController.cpp:361
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -250,23 +244,31 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:239
+#: src/MessageComposition.cpp:182
+#, fuzzy, qt-format
+#| msgctxt "FileSharingController|"
+#| msgid "Upload failed: %1"
+msgctxt "MessageComposition|"
+msgid "Upload failed: %1"
+msgstr "Caricamento non riuscito: %1"
+
+#: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
-#: src/MessageHandler.cpp:166
+#: src/MessageHandler.cpp:165
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Questo messaggio è cifrato con %1 ma non può essere decifrato"
 
-#: src/MessageHandler.cpp:248
+#: src/MessageHandler.cpp:224
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correzione del messaggio non è riuscita"
 
-#: src/MessageHandler.cpp:308
+#: src/MessageHandler.cpp:284
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
