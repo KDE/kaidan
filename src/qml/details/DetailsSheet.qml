@@ -6,6 +6,8 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
 
+import im.kaidan.kaidan 1.0
+
 Kirigami.OverlaySheet {
 	id: root
 
@@ -27,5 +29,14 @@ Kirigami.OverlaySheet {
 		Layout.preferredWidth: 600
 		Layout.preferredHeight: 600
 		Layout.maximumWidth: 600
+
+		// Close this sheet when the account/contact is removed.
+		Connections {
+			target: Kaidan
+
+			function onOpenChatViewRequested() {
+				root.close()
+			}
+		}
 	}
 }
