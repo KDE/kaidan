@@ -15,8 +15,8 @@ void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &sele
 {
 	if (m_selectedAccountJids != selectedAccountJids) {
 		m_selectedAccountJids = selectedAccountJids;
-		Q_EMIT selectedAccountJidsChanged();
 		invalidate();
+		Q_EMIT selectedAccountJidsChanged();
 	}
 
 }
@@ -30,8 +30,8 @@ void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedG
 {
 	if (m_selectedGroups != selectedGroups) {
 		m_selectedGroups = selectedGroups;
-		Q_EMIT selectedGroupsChanged();
 		invalidate();
+		Q_EMIT selectedGroupsChanged();
 	}
 
 }
