@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-11-01 11:06+0100\n"
+"PO-Revision-Date: 2023-11-02 09:28+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -484,17 +484,17 @@ msgstr "Envia un missatge d'espòiler"
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Només quan s'envia un estat"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -830,22 +830,19 @@ msgid "Save selection"
 msgstr "Desa la selecció"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Accounts"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Comptes"
+msgstr "Compte predeterminat"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
@@ -1058,15 +1055,12 @@ msgstr "Multimèdia"
 #: src/qml/details/DetailsContent.qml:74
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "Baixades automàtiques"
 
 #: src/qml/details/DetailsContent.qml:75
-#, fuzzy
-#| msgctxt "AutomaticRegistrationPage|"
-#| msgid "Register automatically"
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Registra automàticament"
+msgstr "Baixa automàticament els elements multimèdia"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
