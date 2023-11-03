@@ -45,15 +45,18 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 {
 	QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);
 
-	const auto accountJid = sourceModel()->data(index, RosterModel::AccountJidRole).value<QString>();
-	bool accountJidSelected = m_selectedAccountJids.isEmpty() || m_selectedAccountJids.contains(accountJid);
+	if (const auto accountJid = sourceModel()->data(index, RosterModel::AccountJidRole).toString();
+		!m_selectedAccountJids.isEmpty() && !m_selectedAccountJids.contains(accountJid)) {
+		return false;
+	}
 
-	const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QVector<QString>>();
-	bool groupSelected = m_selectedGroups.isEmpty() || std::any_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
+	if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QVector<QString>>();
+		!m_selectedGroups.isEmpty() && std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
 		return m_selectedGroups.contains(group);
-	});
+	})) {
+		return false;
+	}
 
-	return (sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegExp()) ||
-			sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp())) &&
-			accountJidSelected && groupSelected;
+	return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegExp()) ||
+		   sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
 }
