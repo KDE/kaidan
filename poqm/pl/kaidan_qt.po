@@ -3,15 +3,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-10-08 10:46+0200\n"
+"PO-Revision-Date: 2023-11-04 12:44+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
+" || n%100>=20) ? 1 : 2);\n"
 "X-Language: pl\n"
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 23.04.3\n"
@@ -249,12 +249,12 @@ msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
+#, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Upload failed: %1"
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
-msgstr "Wysyłanie nie powiodło się: %1"
+msgstr "Nie udało się wysłać: %1"
 
 #: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
@@ -480,17 +480,17 @@ msgstr "Wyślij zwiniętą wiadomość"
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Tylko gdy stan zostanie wysłany"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Zawsze"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -825,22 +825,21 @@ msgid "Save selection"
 msgstr "Zapisz zaznaczenie"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Bezpieczeństwo konta"
+msgstr "Domyślne dla konta"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nigdy"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Zawsze"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
@@ -1048,15 +1047,14 @@ msgstr "Media"
 #: src/qml/details/DetailsContent.qml:74
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "Samoczynne pobieranie"
 
 #: src/qml/details/DetailsContent.qml:75
-#, fuzzy
 #| msgctxt "AutomaticRegistrationPage|"
 #| msgid "Register automatically"
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Rejestruj się automatycznie"
+msgstr "Sam pobieraj media"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
@@ -1441,17 +1439,16 @@ msgstr ""
 "Spróbuj zamknąć inne aplikacje korzystające z aparatu."
 
 #: src/qml/elements/RosterFilteringArea.qml:29
-#, fuzzy
 #| msgctxt "RosterFilteringArea|"
 #| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by availability"
-msgstr "Odfiltruj po etykietach"
+msgstr "Odfiltruj po dostępności"
 
 #: src/qml/elements/RosterFilteringArea.qml:30
 msgctxt "RosterFilteringArea|"
 msgid "Show only available contacts"
-msgstr ""
+msgstr "Pokaż tylko dostępne kontakty"
 
 #: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
