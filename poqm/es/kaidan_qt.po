@@ -1435,22 +1435,35 @@ msgstr ""
 "La cámara está ocupada.\n"
 "Pruebe a cerrar otras aplicaciones que estén usando la cámara."
 
-#: src/qml/elements/RosterFilteringArea.qml:34
+#: src/qml/elements/RosterFilteringArea.qml:29
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by availability"
+msgstr "Filtrar por etiquetas"
+
+#: src/qml/elements/RosterFilteringArea.qml:30
+msgctxt "RosterFilteringArea|"
+msgid "Show only available contacts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
 msgstr "Filtrar por cuentas"
 
-#: src/qml/elements/RosterFilteringArea.qml:35
+#: src/qml/elements/RosterFilteringArea.qml:49
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Mostrar solo los chats de las cuentas seleccionadas"
 
-#: src/qml/elements/RosterFilteringArea.qml:111
+#: src/qml/elements/RosterFilteringArea.qml:126
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
 msgstr "Filtrar por etiquetas"
 
-#: src/qml/elements/RosterFilteringArea.qml:112
+#: src/qml/elements/RosterFilteringArea.qml:127
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Mostrar solo los chats con las etiquetas seleccionadas"

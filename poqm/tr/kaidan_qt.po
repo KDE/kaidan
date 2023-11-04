@@ -1415,22 +1415,35 @@ msgstr ""
 "Kameranız meşgul.\n"
 "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin."
 
-#: src/qml/elements/RosterFilteringArea.qml:34
+#: src/qml/elements/RosterFilteringArea.qml:29
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by availability"
+msgstr "Etiketlere Göre Süz"
+
+#: src/qml/elements/RosterFilteringArea.qml:30
+msgctxt "RosterFilteringArea|"
+msgid "Show only available contacts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
 msgstr "Hesaplara Göre Süz"
 
-#: src/qml/elements/RosterFilteringArea.qml:35
+#: src/qml/elements/RosterFilteringArea.qml:49
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Yalnızca seçili hesapların sohbetlerini göster"
 
-#: src/qml/elements/RosterFilteringArea.qml:111
+#: src/qml/elements/RosterFilteringArea.qml:126
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
 msgstr "Etiketlere Göre Süz"
 
-#: src/qml/elements/RosterFilteringArea.qml:112
+#: src/qml/elements/RosterFilteringArea.qml:127
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Yalnızca seçili etiketlere iye olan sohbetleri göster"

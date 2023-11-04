@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-10-11 21:25+0200\n"
+"PO-Revision-Date: 2023-11-02 12:10+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
@@ -247,12 +247,10 @@ msgid "Spoiler"
 msgstr "Message inapproprié"
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
-msgstr "Téléchargement impossible : %1"
+msgstr "Envoi impossible : %1"
 
 #: src/MessageComposition.cpp:302
 msgctxt "FileSelectionModel|"
@@ -1457,22 +1455,35 @@ msgstr ""
 "Votre appareil photo est occupé.\n"
 "Veuillez essayer de fermer les autres applications l'utilisant."
 
-#: src/qml/elements/RosterFilteringArea.qml:34
+#: src/qml/elements/RosterFilteringArea.qml:29
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by availability"
+msgstr "Filtrer selon les étiquettes"
+
+#: src/qml/elements/RosterFilteringArea.qml:30
+msgctxt "RosterFilteringArea|"
+msgid "Show only available contacts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
 msgstr "Filtrer selon les comptes"
 
-#: src/qml/elements/RosterFilteringArea.qml:35
+#: src/qml/elements/RosterFilteringArea.qml:49
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
 msgstr "N'afficher que les discussions des comptes sélectionnés"
 
-#: src/qml/elements/RosterFilteringArea.qml:111
+#: src/qml/elements/RosterFilteringArea.qml:126
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
 msgstr "Filtrer selon les étiquettes"
 
-#: src/qml/elements/RosterFilteringArea.qml:112
+#: src/qml/elements/RosterFilteringArea.qml:127
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "N'afficher que les discussions des étiquettes sélectionnées"

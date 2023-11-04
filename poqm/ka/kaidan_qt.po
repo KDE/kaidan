@@ -1433,22 +1433,35 @@ msgstr ""
 "კამერა დაკავებულია.\n"
 "სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ."
 
-#: src/qml/elements/RosterFilteringArea.qml:34
+#: src/qml/elements/RosterFilteringArea.qml:29
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by availability"
+msgstr "ჭდეების გაფილტვრა"
+
+#: src/qml/elements/RosterFilteringArea.qml:30
+msgctxt "RosterFilteringArea|"
+msgid "Show only available contacts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
 msgstr "ანგარიშებით გაფილტვრა"
 
-#: src/qml/elements/RosterFilteringArea.qml:35
+#: src/qml/elements/RosterFilteringArea.qml:49
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
 msgstr "მხოლოდ მონიშნული ანგარიშების ჩატის ჩვენება"
 
-#: src/qml/elements/RosterFilteringArea.qml:111
+#: src/qml/elements/RosterFilteringArea.qml:126
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
 msgstr "ჭდეების გაფილტვრა"
 
-#: src/qml/elements/RosterFilteringArea.qml:112
+#: src/qml/elements/RosterFilteringArea.qml:127
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "მხოლოდ მონიშნული ჭდეების მქონე ჩატებს ჩვენება"
