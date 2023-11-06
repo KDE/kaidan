@@ -40,6 +40,7 @@
 #include "MediaUtils.h"
 #include "Notifications.h"
 #include "OmemoManager.h"
+#include "RosterManager.h"
 #include "RosterModel.h"
 
 // Number of messages fetched at once when loading MAM backlog
@@ -128,7 +129,6 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.senderId = senderJid;
 	message.chatJid = message.isOwn() ? recipientJid : senderJid;
 
-
 	if (msg.state() != QXmppMessage::State::None) {
 		Q_EMIT MessageModel::instance()->handleChatStateRequested(
 				senderJid, msg.state());
@@ -184,6 +184,13 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 						 : msg.stamp().toUTC();
 
 		MessageDb::instance()->addMessage(message, origin);
+
+		// Add the message's sender to the roster if not already done and only for direct messages.
+		// Otherwise, the chat could only be opened via the message's notification and could not be
+		// opened again later.
+		if (msg.type() != QXmppMessage::GroupChat && !RosterModel::instance()->hasItem(senderJid)) {
+			m_clientWorker->rosterManager()->addContact(senderJid);
+		}
 	} else {
 		const auto replaceId = msg.replaceId();
 		message.replaceId = replaceId;
