@@ -468,8 +468,7 @@ DetailsContent {
 					description: qsTr("Remove contact and complete chat history")
 					icon.name: "edit-delete-symbolic"
 					icon.color: "red"
-					checkable: true
-					onToggled: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
+					onClicked: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {

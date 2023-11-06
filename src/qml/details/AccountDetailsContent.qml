@@ -718,8 +718,7 @@ DetailsContent {
 					description: qsTr("Remove account from this app. Back up your credentials and chat history if needed!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
-					checkable: true
-					onToggled: accountRemovalConfirmationButton.visible = !accountRemovalConfirmationButton.visible
+					onClicked: accountRemovalConfirmationButton.visible = !accountRemovalConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {
@@ -744,8 +743,7 @@ DetailsContent {
 					description: qsTr("Delete account from provider. You will not be able to use your account again!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
-					checkable: true
-					onToggled: accountDeletionConfirmationButton.visible = !accountDeletionConfirmationButton.visible
+					onClicked: accountDeletionConfirmationButton.visible = !accountDeletionConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {
