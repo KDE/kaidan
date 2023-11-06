@@ -17,7 +17,18 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
 
 QString RosterItem::displayName() const
 {
-	return name.isEmpty() ? QXmppUtils::jidToUser(jid) : name;
+	if (name.isEmpty()) {
+		const auto username = QXmppUtils::jidToUser(jid);
+
+		// Return the domain in case of a server as a roster item (for service announcements).
+		if (username.isEmpty()) {
+			return QXmppUtils::jidToDomain(jid);
+		}
+
+		return username;
+	}
+
+	return name;
 }
 
 bool RosterItem::isSendingPresence() const
