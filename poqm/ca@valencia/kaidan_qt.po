@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-09-20 10:07+0200\n"
+"PO-Revision-Date: 2023-11-04 10:04+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -257,9 +257,7 @@ msgid "Spoiler"
 msgstr "Espòiler"
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Ha fallat la pujada: %1"
@@ -486,17 +484,17 @@ msgstr "Envia un missatge d'espòiler"
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Només quan s'envia un estat"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -832,22 +830,19 @@ msgid "Save selection"
 msgstr "Guarda la selecció"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Accounts"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Comptes"
+msgstr "Compte predeterminat"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
@@ -1060,15 +1055,12 @@ msgstr "Multimèdia"
 #: src/qml/details/DetailsContent.qml:74
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "Baixades automàtiques"
 
 #: src/qml/details/DetailsContent.qml:75
-#, fuzzy
-#| msgctxt "AutomaticRegistrationPage|"
-#| msgid "Register automatically"
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Registra automàticament"
+msgstr "Baixa automàticament els elements multimèdia"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
@@ -1453,17 +1445,14 @@ msgstr ""
 "Intenteu tancar les altres aplicacions que estan utilitzant la càmera."
 
 #: src/qml/elements/RosterFilteringArea.qml:29
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by availability"
-msgstr "Filtra per etiquetes"
+msgstr "Filtra per disponibilitat"
 
 #: src/qml/elements/RosterFilteringArea.qml:30
 msgctxt "RosterFilteringArea|"
 msgid "Show only available contacts"
-msgstr ""
+msgstr "Mostra només els contactes disponibles"
 
 #: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
