@@ -713,23 +713,23 @@ DetailsContent {
 				spacing: 0
 
 				MobileForm.FormButtonDelegate {
-					id: removalButton
+					id: accountRemovalButton
 					text: qsTr("Remove from Kaidan")
 					description: qsTr("Remove account from this app. Back up your credentials and chat history if needed!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
 					checkable: true
-					onToggled: contactRemovalCorfirmationButton.visible = !contactRemovalCorfirmationButton.visible
+					onToggled: accountRemovalConfirmationButton.visible = !accountRemovalConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {
-					id: contactRemovalCorfirmationButton
+					id: accountRemovalConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
 					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
 					onClicked: {
 						visible = false
-						removalButton.enabled = false
+						accountRemovalButton.enabled = false
 						Kaidan.deleteAccountFromClient()
 					}
 				}
@@ -739,24 +739,24 @@ DetailsContent {
 				spacing: 0
 
 				MobileForm.FormButtonDelegate {
-					id: deletionButton
+					id: accountDeletionButton
 					text: qsTr("Delete completely")
 					description: qsTr("Delete account from provider. You will not be able to use your account again!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
 					checkable: true
-					onToggled: contactDeletionCorfirmationButton.visible = !contactDeletionCorfirmationButton.visible
+					onToggled: accountDeletionConfirmationButton.visible = !accountDeletionConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {
-					id: contactDeletionCorfirmationButton
+					id: accountDeletionConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
 					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
 					onClicked: {
 						visible = false
-						removalButton.enabled = false
-						deletionButton.enabled = false
+						accountRemovalButton.enabled = false
+						accountDeletionButton.enabled = false
 						Kaidan.deleteAccountFromClientAndServer()
 					}
 				}

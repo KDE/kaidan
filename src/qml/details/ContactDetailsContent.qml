@@ -463,23 +463,23 @@ DetailsContent {
 				spacing: 0
 
 				MobileForm.FormButtonDelegate {
-					id: removalButton
+					id: contactRemovalButton
 					text: qsTr("Remove")
 					description: qsTr("Remove contact and complete chat history")
 					icon.name: "edit-delete-symbolic"
 					icon.color: "red"
 					checkable: true
-					onToggled: contactRemovalCorfirmButton.visible = !contactRemovalCorfirmButton.visible
+					onToggled: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
 				}
 
 				MobileForm.FormButtonDelegate {
-					id: contactRemovalCorfirmButton
+					id: contactRemovalConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
 					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
 					onClicked: {
 						visible = false
-						removalButton.enabled = false
+						contactRemovalButton.enabled = false
 						Kaidan.client.rosterManager.removeContactRequested(jid)
 					}
 				}
