@@ -82,7 +82,6 @@ DetailsContent {
 				}
 
 				ListView {
-					id: rosterGroupListView
 					model: RosterModel.groups
 					visible: rosterGroupExpansionButton.checked
 					implicitHeight: contentHeight
@@ -101,15 +100,10 @@ DetailsContent {
 									enabled: !rosterGroupBusyIndicator.visible
 									Layout.fillWidth: true
 									onAccepted: rosterGroupAdditionButton.clicked()
-
-									Connections {
-										target: rosterGroupListView
-
-										function onVisibleChanged() {
-											if (rosterGroupListView.visible) {
-												rosterGroupField.text = ""
-												rosterGroupField.forceActiveFocus()
-											}
+									onVisibleChanged: {
+										if (visible) {
+											text = ""
+											forceActiveFocus()
 										}
 									}
 								}
