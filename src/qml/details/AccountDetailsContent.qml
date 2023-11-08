@@ -143,7 +143,6 @@ DetailsContent {
 				}
 
 				ListView {
-					id: rosterGroupListView
 					model: RosterModel.groups
 					visible: rosterGroupExpansionButton.checked
 					implicitHeight: contentHeight
