@@ -5,32 +5,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
-import QtGraphicalEffects 1.14
-import org.kde.kirigami 2.19 as Kirigami
+
+import "elements"
 
 ChatPageBase {
-	verticalScrollBarPolicy: Qt.ScrollBarAlwaysOff
-
-	Item {
-		height: root.height * 0.8
-
-		// message bubble
-		Kirigami.ShadowedRectangle {
-			anchors.centerIn: parent
-			width: label.width
-			height: label.height
-			shadow.color: Qt.darker(color, 1.2)
-			shadow.size: 4
-			radius: roundedCornersRadius
-			color: primaryBackgroundColor
-
-			Controls.Label {
-				id: label
-				text: qsTr("Please select a chat to start messaging")
-				anchors.centerIn: parent
-				padding: Kirigami.Units.gridUnit * 0.4
-			}
-		}
+	ChatInfo {
+		text: qsTr("Select a chat to start messaging")
+		level: 4
+		anchors.centerIn: parent
 	}
 }

@@ -57,7 +57,7 @@ ChatPageBase {
 	property alias messageReactionDetailsSheet: messageReactionDetailsSheet
 
 	property ChatPageSendingPane sendingPane
-	property ChatDate globalChatDate
+	property ChatInfo globalChatDate
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 	property bool viewPositioned: false
 
@@ -182,7 +182,7 @@ ChatPageBase {
 				visible: !chatDate.visible
 			}
 
-			ChatDate {
+			ChatInfo {
 				id: chatDate
 				text: section
 				// Hide the date if the section label would display the same date as globalChatDate.
@@ -372,7 +372,7 @@ ChatPageBase {
 			}
 
 			// date of the top-most (first) visible message shown at the top of the ChatPage
-			ChatDate {
+			ChatInfo {
 				text: {
 					// The "yPosition" is checked in order to update/display the text once the
 					// ChatPage is opened and its messages loaded.
