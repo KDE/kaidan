@@ -140,46 +140,36 @@ Kirigami.SwipeListItem {
 				}
 
 				contentItem: ColumnLayout {
-					id: content
-
-					RowLayout {
-						id: spoilerHintRow
+					// spoiler hint area
+					ColumnLayout {
 						visible: isSpoiler
+						Layout.minimumWidth: bubbleBackground.metaInfoWidth
+						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
 
-						Controls.Label {
-							text: spoilerHint == "" ? qsTr("Spoiler") : spoilerHint
-							color: Kirigami.Theme.textColor
-							font.pixelSize: Kirigami.Units.gridUnit * 0.8
-							MouseArea {
-								anchors.fill: parent
-								acceptedButtons: Qt.LeftButton | Qt.RightButton
-								onClicked: {
-									if (mouse.button === Qt.LeftButton) {
-										isShowingSpoiler = !isShowingSpoiler
-									}
-								}
+						RowLayout {
+							Controls.Label {
+								text: spoilerHint == "" ? qsTr("Spoiler") : Utils.formatMessage(spoilerHint)
+								textFormat: Text.StyledText
+								wrapMode: Text.Wrap
+								color: Kirigami.Theme.textColor
+								Layout.fillWidth: true
+							}
+
+							ClickableIcon {
+								source: isShowingSpoiler ? "password-show-off" : "password-show-on"
+								Layout.leftMargin: Kirigami.Units.largeSpacing
+								onClicked: isShowingSpoiler = !isShowingSpoiler
 							}
 						}
 
-						Item {
+						Kirigami.Separator {
+							visible: isShowingSpoiler
 							Layout.fillWidth: true
-							height: 1
-						}
-
-						Kirigami.Icon {
-							height: 28
-							width: 28
-							source: isShowingSpoiler ? "password-show-off" : "password-show-on"
-							color: Kirigami.Theme.textColor
-						}
-					}
-					Kirigami.Separator {
-						visible: isSpoiler
-						Layout.fillWidth: true
-						color: {
-							let bgColor = Kirigami.Theme.backgroundColor
-							let textColor = Kirigami.Theme.textColor
-							return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
+							color: {
+								const bgColor = Kirigami.Theme.backgroundColor
+								const textColor = Kirigami.Theme.textColor
+								return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
+							}
 						}
 					}
 
@@ -221,15 +211,6 @@ Kirigami.SwipeListItem {
 							color: Kirigami.Theme.textColor
 							onLinkActivated: Qt.openUrlExternally(link)
 							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
-						}
-						Kirigami.Separator {
-							visible: isSpoiler && isShowingSpoiler
-							Layout.fillWidth: true
-							color: {
-								let bgColor = Kirigami.Theme.backgroundColor
-								let textColor = Kirigami.Theme.textColor
-								return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
-							}
 						}
 					}
 
