@@ -99,12 +99,40 @@ Item {
 			margins: Kirigami.Units.smallSpacing
 		}
 
+		// warning for different encryption corner cases
 		Controls.Label {
-			id: timestamp
+			text: {
+				if (backgroundRoot.message.encryption === Encryption.NoEncryption) {
+					if (MessageModel.isOmemoEncryptionEnabled) {
+						// Encryption is set for the current chat but this message is unencrypted.
+						return qsTr("Unencrypted")
+					}
+				} else if (MessageModel.encryption !== Encryption.NoEncryption && !backgroundRoot.message.isTrusted){
+					// Encryption is set for the current chat but the key of this message's sender
+					// is not trusted.
+					return qsTr("Untrusted")
+				}
+
+				return ""
+			}
+			visible: text.length
+			color: Kirigami.Theme.neutralTextColor
+			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+			font.italic: true
+		}
+
+		Controls.Label {
+			text: backgroundRoot.message.errorText
+			visible: text.length
+			color: Kirigami.Theme.negativeTextColor
+			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+		}
+
+		Controls.Label {
 			opacity: 0.5
-			text: message.time
-			font.pointSize: -1
-			font.pixelSize: Kirigami.Units.gridUnit * (2/3)
+			text: backgroundRoot.message.time
+			color: Kirigami.Theme.disabledTextColor
+			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
 		}
 
 		Kirigami.Icon {
