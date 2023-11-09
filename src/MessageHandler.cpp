@@ -125,12 +125,12 @@ QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)
 			runOnThread(RosterModel::instance(), [accountJid = AccountManager::instance()->jid(), recipientJid]() {
 				return RosterModel::instance()->itemEncryption(accountJid, recipientJid).value_or(Encryption::NoEncryption);
 			}, this, [=, this](Encryption::Enum activeEncryption) mutable {
-				if (activeEncryption == Encryption::Omemo2) {
+				if (const auto omemoEncryptionActive = activeEncryption == Encryption::Omemo2) {
 					auto future = m_clientWorker->omemoManager()->hasUsableDevices({ recipientJid });
 					await(future, this, [=](bool hasUsableDevices) mutable {
-						const auto isOmemoEncryptionEnabled = activeEncryption == Encryption::Omemo2 && hasUsableDevices;
+						const auto omemoEncryptionEnabled = omemoEncryptionActive && hasUsableDevices;
 
-						if (isOmemoEncryptionEnabled) {
+						if (omemoEncryptionEnabled) {
 							sendEncrypted();
 						} else {
 							sendUnencrypted();
