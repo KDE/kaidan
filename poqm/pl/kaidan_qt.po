@@ -266,12 +266,12 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageHandler.cpp:224
+#: src/MessageHandler.cpp:231
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Poprawienie wiadomości nie powiodło się"
 
-#: src/MessageHandler.cpp:284
+#: src/MessageHandler.cpp:291
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Nie udało się wysłać wiadomość."
@@ -774,18 +774,18 @@ msgstr ""
 "Usuń konto z tej aplikacji. Utwórz kopię zapasową swoich danych dostępowych "
 "oraz historii rozmów, jeśli potrzebujesz!"
 
-#: src/qml/details/AccountDetailsContent.qml:727
-#: src/qml/details/AccountDetailsContent.qml:753
+#: src/qml/details/AccountDetailsContent.qml:726
+#: src/qml/details/AccountDetailsContent.qml:751
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Potwierdź"
 
-#: src/qml/details/AccountDetailsContent.qml:743
+#: src/qml/details/AccountDetailsContent.qml:742
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Usuń całkowicie"
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:743
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1025,7 +1025,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Usuń znajomego i całą historię rozmów"
 
-#: src/qml/details/ContactDetailsContent.qml:477
+#: src/qml/details/ContactDetailsContent.qml:476
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Potwierdź"

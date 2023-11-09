@@ -264,12 +264,12 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Esta mensaxe está cifrada con %1 pero non foi posíbel descifrala."
 
-#: src/MessageHandler.cpp:224
+#: src/MessageHandler.cpp:231
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Non foi posíbel corrixir a mensaxe."
 
-#: src/MessageHandler.cpp:284
+#: src/MessageHandler.cpp:291
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Non foi posíbel enviar a mensaxe."
@@ -772,18 +772,18 @@ msgstr ""
 "Retirar a conta da aplicación. Salvagarde as credenciais e o historial de "
 "charla se o necesita!"
 
-#: src/qml/details/AccountDetailsContent.qml:727
-#: src/qml/details/AccountDetailsContent.qml:753
+#: src/qml/details/AccountDetailsContent.qml:726
+#: src/qml/details/AccountDetailsContent.qml:751
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/details/AccountDetailsContent.qml:743
+#: src/qml/details/AccountDetailsContent.qml:742
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Eliminar completamente"
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:743
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1027,7 +1027,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Eliminar contacto e o historial de charlas"
 
-#: src/qml/details/ContactDetailsContent.qml:477
+#: src/qml/details/ContactDetailsContent.qml:476
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Configurar"
