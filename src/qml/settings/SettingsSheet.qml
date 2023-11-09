@@ -35,7 +35,6 @@ Kirigami.OverlaySheet {
 			text: stack.currentItem.title
 		}
 	}
-
 	contentItem: Controls.StackView {
 		Layout.fillHeight: true
 		Layout.fillWidth: true
@@ -46,5 +45,10 @@ Kirigami.OverlaySheet {
 
 		initialItem: SettingsContent {}
 		clip: true
+	}
+	onSheetOpenChanged: {
+		if (!sheetOpen) {
+			destroy()
+		}
 	}
 }
