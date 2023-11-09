@@ -21,7 +21,6 @@ Controls.Control {
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
 	required property string jid
-	property alias qrCodePage: qrCodePage
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaOverview: mediaOverview
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
@@ -41,24 +40,6 @@ Controls.Control {
 	contentItem: ColumnLayout {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
-
-		Component {
-			id: qrCodePage
-
-			QrCodePage {
-				Component.onCompleted: {
-					if (root.sheet) {
-						root.sheet.close()
-					}
-				}
-
-				Component.onDestruction: {
-					if (root.sheet) {
-						root.sheet.open()
-					}
-				}
-			}
-		}
 
 		MobileForm.FormCard {
 			Layout.fillWidth: true
@@ -233,5 +214,13 @@ Controls.Control {
 				}
 			}
 		}
+	}
+
+	function openQrCodePage(qrCodePageComponent) {
+		if (root.sheet) {
+			root.sheet.close()
+		}
+
+		return openPage(qrCodePageComponent)
 	}
 }

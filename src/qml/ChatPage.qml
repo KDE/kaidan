@@ -143,6 +143,14 @@ ChatPageBase {
 		}
 	}
 
+	Component {
+		id: contactDetailsQrCodePage
+
+		QrCodePage {
+			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
+		}
+	}
+
 	SendMediaSheet {
 		id: sendMediaSheet
 		composition: sendingPane.composition

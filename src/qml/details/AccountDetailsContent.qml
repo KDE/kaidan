@@ -161,14 +161,14 @@ DetailsContent {
 
 		MobileForm.FormButtonDelegate {
 			text: {
-				if (!omemoWatcher.usableOmemoDevices.length) {
-					if (omemoWatcher.distrustedOmemoDevices.length) {
+				if (!omemoWatcher.usableDevices.length) {
+					if (omemoWatcher.distrustedDevices.length) {
 						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
 					} else if (ownResourcesWatcher.resourcesCount > 1) {
 						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
 					}
-				} else if (omemoWatcher.authenticatableOmemoDevices.length) {
-					if (omemoWatcher.authenticatableOmemoDevices.length === omemoWatcher.distrustedOmemoDevices.length) {
+				} else if (omemoWatcher.authenticatableDevices.length) {
+					if (omemoWatcher.authenticatableDevices.length === omemoWatcher.distrustedDevices.length) {
 						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
 					}
 
@@ -178,14 +178,14 @@ DetailsContent {
 				return ""
 			}
 			icon.name: {
-				if (!omemoWatcher.usableOmemoDevices.length) {
-					if (omemoWatcher.distrustedOmemoDevices.length) {
+				if (!omemoWatcher.usableDevices.length) {
+					if (omemoWatcher.distrustedDevices.length) {
 						return "channel-secure-symbolic"
 					} else if (ownResourcesWatcher.resourcesCount > 1) {
 						return "channel-insecure-symbolic"
 					}
-				} else if (omemoWatcher.authenticatableOmemoDevices.length) {
-					if (omemoWatcher.authenticatableOmemoDevices.length === omemoWatcher.distrustedOmemoDevices.length) {
+				} else if (omemoWatcher.authenticatableDevices.length) {
+					if (omemoWatcher.authenticatableDevices.length === omemoWatcher.distrustedDevices.length) {
 						return "security-medium-symbolic"
 					}
 
@@ -195,8 +195,8 @@ DetailsContent {
 				return ""
 			}
 			visible: text
-			enabled: omemoWatcher.authenticatableOmemoDevices.length
-			onClicked: pageStack.layers.push(qrCodePage, { isForOwnDevices: true })
+			enabled: omemoWatcher.authenticatableDevices.length
+			onClicked: root.openQrCodePage(accountDetailsQrCodePage).isForOwnDevices = true
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher

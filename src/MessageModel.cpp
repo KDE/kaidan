@@ -67,8 +67,8 @@ MessageModel::MessageModel(QObject *parent)
 	connect(this, &MessageModel::usableOmemoDevicesChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
 	connect(&m_rosterItemWatcher, &RosterItemWatcher::itemChanged, this, &MessageModel::isOmemoEncryptionEnabledChanged);
 
-	connect(&m_accountOmemoWatcher, &OmemoWatcher::usableOmemoDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
-	connect(&m_contactOmemoWatcher, &OmemoWatcher::usableOmemoDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
+	connect(&m_accountOmemoWatcher, &OmemoWatcher::usableDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
+	connect(&m_contactOmemoWatcher, &OmemoWatcher::usableDevicesChanged, this, &MessageModel::usableOmemoDevicesChanged);
 
 	// Timer to set state to paused
 	m_composingTimer->setSingleShot(true);
@@ -428,7 +428,7 @@ void MessageModel::setEncryption(Encryption::Enum encryption)
 
 QList<QString> MessageModel::usableOmemoDevices() const
 {
-	   return m_currentAccountJid == m_currentChatJid ? m_accountOmemoWatcher.usableOmemoDevices() : m_contactOmemoWatcher.usableOmemoDevices();
+	   return m_currentAccountJid == m_currentChatJid ? m_accountOmemoWatcher.usableDevices() : m_contactOmemoWatcher.usableDevices();
 }
 
 void MessageModel::resetComposingChatState()
@@ -1496,8 +1496,7 @@ void MessageModel::handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QX
 	m_keys = keys;
 	Q_EMIT keysChanged();
 
-	// The messages need to be updated in order to reflect the most recent trust
-	// levels.
+	// The messages need to be updated in order to reflect the most recent trust levels.
 	if (!m_messages.isEmpty()) {
 		Q_EMIT dataChanged(index(0), index(m_messages.size() - 1), { IsTrusted });
 	}

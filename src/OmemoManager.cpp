@@ -322,7 +322,7 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 
 void OmemoManager::emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices)
 {
-	Q_EMIT OmemoCache::instance()->distrustedOmemoDevicesRetrieved(jid, distrustedDevices);
-	Q_EMIT OmemoCache::instance()->usableOmemoDevicesRetrieved(jid, usableDevices);
-	Q_EMIT OmemoCache::instance()->authenticatableOmemoDevicesRetrieved(jid, authenticatableDevices);
+	Q_EMIT OmemoCache::instance()->setDistrustedDevices(jid, distrustedDevices);
+	Q_EMIT OmemoCache::instance()->setUsableDevices(jid, usableDevices);
+	Q_EMIT OmemoCache::instance()->setAuthenticatableDevices(jid, authenticatableDevices);
 }

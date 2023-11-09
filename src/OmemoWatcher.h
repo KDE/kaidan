@@ -12,9 +12,9 @@ class OmemoWatcher : public QObject
 
 	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 
-	Q_PROPERTY(QList<QString> distrustedOmemoDevices READ distrustedOmemoDevices NOTIFY distrustedOmemoDevicesChanged)
-	Q_PROPERTY(QList<QString> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
-	Q_PROPERTY(QList<QString> authenticatableOmemoDevices READ authenticatableOmemoDevices NOTIFY authenticatableOmemoDevicesChanged)
+	Q_PROPERTY(QList<QString> distrustedDevices READ distrustedDevices NOTIFY distrustedDevicesChanged)
+	Q_PROPERTY(QList<QString> usableDevices READ usableDevices NOTIFY usableDevicesChanged)
+	Q_PROPERTY(QList<QString> authenticatableDevices READ authenticatableDevices NOTIFY authenticatableDevicesChanged)
 
 public:
 	OmemoWatcher() = default;
@@ -23,24 +23,24 @@ public:
 	void setJid(const QString &jid);
 	Q_SIGNAL void jidChanged();
 
-	QList<QString> distrustedOmemoDevices() const;
-	Q_SIGNAL void distrustedOmemoDevicesChanged();
+	QList<QString> distrustedDevices() const;
+	Q_SIGNAL void distrustedDevicesChanged();
 
-	QList<QString> usableOmemoDevices() const;
-	Q_SIGNAL void usableOmemoDevicesChanged();
+	QList<QString> usableDevices() const;
+	Q_SIGNAL void usableDevicesChanged();
 
-	QList<QString> authenticatableOmemoDevices() const;
-	Q_SIGNAL void authenticatableOmemoDevicesChanged();
+	QList<QString> authenticatableDevices() const;
+	Q_SIGNAL void authenticatableDevicesChanged();
 
 private:
-	void handleDistrustedOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
-	void handleUsableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
-	void handleAuthenticatableOmemoDevicesRetrieved(const QString &jid, const QList<QString> &deviceLabels);
+	void handleDistrustedDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
+	void handleUsableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
+	void handleAuthenticatableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
 
 	QString m_jid;
 
-	QList<QString> m_distrustedOmemoDevices;
-	QList<QString> m_usableOmemoDevices;
-	QList<QString> m_authenticatableOmemoDevices;
+	QList<QString> m_distrustedDevices;
+	QList<QString> m_usableDevices;
+	QList<QString> m_authenticatableDevices;
 };
 

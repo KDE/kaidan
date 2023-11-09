@@ -15,8 +15,7 @@ import im.kaidan.kaidan 1.0
 import "elements"
 
 /**
- * This page is used for scanning QR codes and displaying an own QR code which
- * can be scanned.
+ * This page is used for scanning QR codes and displaying an own QR code which can be scanned.
  */
 ExplanationTogglePage {
 	id: root
