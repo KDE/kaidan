@@ -487,13 +487,55 @@ DetailsContent {
 				delegate: MobileForm.AbstractFormDelegate {
 					id: blockingDelegate
 					width: ListView.view.width
+					onClicked: blockingEditingButton.toggled()
 					contentItem: RowLayout {
 						Controls.Label {
+							id: blockingText
 							text: model.jid
 							textFormat: Text.PlainText
 							elide: Text.ElideMiddle
+							visible: !blockingEditingTextField.visible
+							Layout.preferredHeight: blockingEditingTextField.height
 							Layout.fillWidth: true
 							leftPadding: Kirigami.Units.smallSpacing * 1.5
+						}
+
+						Controls.TextField {
+							id: blockingEditingTextField
+							text: model.jid
+							visible: false
+							Layout.fillWidth: true
+							onAccepted: blockingEditingButton.toggled()
+						}
+
+						Button {
+							id: blockingEditingButton
+							text: qsTr("Change chat address…")
+							icon.name: "document-edit-symbolic"
+							display: Controls.AbstractButton.IconOnly
+							checked: !blockingText.visible
+							flat: !hovered
+							Controls.ToolTip.text: text
+							// Ensure that the button can be used within "blockingDelegate"
+							// which acts as an overlay to toggle this button when clicked.
+							// Otherwise, this button would be toggled by "blockingDelegate"
+							// and by this button's own visible area at the same time resulting
+							// in resetting the toggling on each click.
+							autoRepeat: true
+							onToggled: {
+								if (blockingText.visible) {
+									blockingEditingTextField.visible = true
+									blockingEditingTextField.forceActiveFocus()
+									blockingEditingTextField.selectAll()
+								} else {
+									blockingEditingTextField.visible = false
+
+									if (blockingEditingTextField.text !== model.jid) {
+										blockingAction.block(blockingEditingTextField.text)
+										blockingAction.unblock(model.jid)
+									}
+								}
+							}
 						}
 
 						Button {
@@ -503,7 +545,6 @@ DetailsContent {
 							display: Controls.AbstractButton.IconOnly
 							flat: !blockingDelegate.hovered
 							Controls.ToolTip.text: text
-							Layout.rightMargin: Kirigami.Units.largeSpacing
 							onClicked: blockingAction.unblock(model.jid)
 						}
 					}
