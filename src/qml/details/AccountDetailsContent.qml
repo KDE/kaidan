@@ -156,7 +156,6 @@ DetailsContent {
 								id: rosterGroupText
 								text: modelData
 								textFormat: Text.PlainText
-								maximumLineCount: 1
 								elide: Text.ElideRight
 								visible: !rosterGroupTextField.visible
 								Layout.preferredHeight: rosterGroupTextField.height
