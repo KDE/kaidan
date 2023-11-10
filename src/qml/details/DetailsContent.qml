@@ -177,6 +177,7 @@ Controls.Control {
 						jid: root.jid
 					}
 					delegate: MobileForm.AbstractFormDelegate {
+						visible: deviceExpansionButton.checked
 						background: Item {}
 						contentItem: ColumnLayout {
 							Controls.Label {
@@ -204,6 +205,10 @@ Controls.Control {
 							}
 						}
 					}
+				}
+
+				FormExpansionButton {
+					id: deviceExpansionButton
 				}
 			}
 		}
