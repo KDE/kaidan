@@ -1181,22 +1181,12 @@ msgstr ""
 "Non se puideron eliminar todos os ficheiros:\n"
 "%1"
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "Non cifrado"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "Non de confianza"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1421,6 +1411,22 @@ msgstr "Escribe o contrasinal válido"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Cargando…"
+
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "Non cifrado"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "Non de confianza"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1677,9 +1683,12 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Aceptar"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr "Escolle unha charla para comezar"
 
 #: src/qml/GlobalDrawer.qml:49

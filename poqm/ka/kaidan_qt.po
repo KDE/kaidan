@@ -1172,22 +1172,12 @@ msgstr ""
 "ყველა ფაილის წაშლა შეუძლებელია:\n"
 "%1"
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "დაუშიფრავი"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "არასანდო"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1409,6 +1399,22 @@ msgstr "შეიყვანეთ სწორი პაროლი"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
+
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "დაუშიფრავი"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "არასანდო"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1662,9 +1668,12 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "დასტური"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr "საუბრის დასაწყებად აირჩიეთ ჩატი"
 
 #: src/qml/GlobalDrawer.qml:49

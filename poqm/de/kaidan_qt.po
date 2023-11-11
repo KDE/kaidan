@@ -1249,23 +1249,13 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 #, fuzzy
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Versteckte Nachricht"
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "Unverschlüsselt"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "Nicht vertrauenswürdig"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1520,6 +1510,22 @@ msgstr "Bitte geben Sie ein gültiges Passwort ein"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Aufnahme läuft ..."
+
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "Unverschlüsselt"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "Nicht vertrauenswürdig"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 #, fuzzy
@@ -1812,10 +1818,10 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Annehmen"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
 #, fuzzy
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr "Bitte wählen Sie einen Chat aus, um zu beginnen"
 
 #: src/qml/GlobalDrawer.qml:49

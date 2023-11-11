@@ -1,8 +1,8 @@
-# Vit Pelcak <vit@pelcak.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Vit Pelcak <vit@pelcak.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-06-23 13:38+0200\n"
+"PO-Revision-Date: 2023-11-10 16:30+0100\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.04.2\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -25,12 +25,9 @@ msgid "Devices"
 msgstr ""
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Uživatelské jméno"
+msgstr ""
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
@@ -50,17 +47,17 @@ msgstr ""
 #: src/ChatHintModel.cpp:87 src/ChatHintModel.cpp:106
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "Zahodit"
 
 #: src/ChatHintModel.cpp:88 src/ChatHintModel.cpp:107
 msgctxt "ChatHintModel|"
 msgid "Connect"
-msgstr ""
+msgstr "Připojit se"
 
 #: src/ChatHintModel.cpp:90 src/ChatHintModel.cpp:109
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/ClientWorker.cpp:288
 #, qt-format
@@ -258,12 +255,12 @@ msgstr "%1 (%2)"
 #: src/Message.cpp:138
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "dd MMM v hh:mm"
 
 #: src/Message.cpp:145
 msgctxt "QObject|"
 msgid "No information"
-msgstr ""
+msgstr "Žádné informace"
 
 #: src/Message.cpp:211
 msgctxt "Message|"
@@ -271,9 +268,7 @@ msgid "Spoiler"
 msgstr ""
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Odeslání se nezdařilo: %1"
@@ -323,23 +318,23 @@ msgstr "Chyba"
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr ""
+msgstr "Reakci nelze odeslat: %1"
 
 #: src/MessageModel.cpp:802
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr ""
+msgstr "Reakce nelze odeslat: %1"
 
 #: src/MessageModel.cpp:1521
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "Dnes"
 
 #: src/MessageModel.cpp:1524
 msgctxt "MessageModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "Včera"
 
 #: src/Notifications.cpp:166
 msgctxt "QObject|"
@@ -494,17 +489,17 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Jen pokud je poslán stav"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Vždy"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -519,17 +514,17 @@ msgstr "Nastavit hodnotu"
 #: src/qml/details/AccountDetailsContent.qml:142
 msgctxt "AccountDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Popisky"
 
 #: src/qml/details/AccountDetailsContent.qml:177
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr ""
+msgstr "Změnit popisek…"
 
 #: src/qml/details/AccountDetailsContent.qml:206
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr ""
+msgstr "Odstranit popisek"
 
 #: src/qml/details/AccountDetailsContent.qml:241
 msgctxt "AccountDetailsContent|"
@@ -637,20 +632,14 @@ msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
-msgstr "uzivatel@priklad.cz"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Add contact by chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Přidat kontakt podle adresy rozhovoru"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
@@ -672,12 +661,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:544
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr ""
+msgstr "Stávající heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:545
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr ""
+msgstr "Zadejte své současné heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:546
 msgctxt "AccountDetailsContent|"
@@ -687,17 +676,17 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:568
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr ""
+msgstr "Nové heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:568
 msgctxt "AccountDetailsContent|"
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:569
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr ""
+msgstr "Zadejte své nové heslo"
 
 #: src/qml/details/AccountDetailsContent.qml:570
 msgctxt "AccountDetailsContent|"
@@ -856,37 +845,34 @@ msgid "Save selection"
 msgstr "Uložit výběr"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Accounts"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Účty"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nikdy"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Vždy"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Popisky"
 
 #: src/qml/details/ContactDetailsContent.qml:99
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "Nový popisek"
 
 #: src/qml/details/ContactDetailsContent.qml:113
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "Přidat popisek"
 
 #: src/qml/details/ContactDetailsContent.qml:210
 msgctxt "ContactDetailsContent|"
@@ -1131,22 +1117,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "Nezašifrováno"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "Nedůvěryhodný"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1368,6 +1344,22 @@ msgstr ""
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Probíhá načítání…"
+
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "Nezašifrováno"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "Nedůvěryhodný"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1614,9 +1606,9 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Přijmout"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:49

@@ -1305,22 +1305,12 @@ msgid ""
 "%1"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "스포일러"
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "암호화되지 않음"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "신뢰할 수 없음"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1575,6 +1565,22 @@ msgstr "올바른 암호를 입력하십시오"
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "녹음 중…"
+
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "암호화되지 않음"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "신뢰할 수 없음"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 #, fuzzy
@@ -1860,9 +1866,12 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "수락"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr "메시지를 주고 받으려면 대화 선택"
 
 #: src/qml/GlobalDrawer.qml:49

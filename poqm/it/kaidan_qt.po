@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-09-21 01:40+0200\n"
+"PO-Revision-Date: 2023-11-08 10:08+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -277,9 +277,7 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Caricamento non riuscito: %1"
@@ -506,17 +504,17 @@ msgstr "Invia un messaggio spoiler"
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Solo quando viene inviato lo stato"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -892,22 +890,19 @@ msgid "Save selection"
 msgstr "Salva la selezione"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Sicurezza account"
+msgstr "Predefiniti dell'account"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Mai"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
@@ -1133,15 +1128,12 @@ msgstr "Media"
 #: src/qml/details/DetailsContent.qml:74
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "Scaricamenti automatici"
 
 #: src/qml/details/DetailsContent.qml:75
-#, fuzzy
-#| msgctxt "AutomaticRegistrationPage|"
-#| msgid "Register automatically"
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Registra automaticamente"
+msgstr "Scarica i contenuti multimediali automaticamente"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
@@ -1189,22 +1181,12 @@ msgstr ""
 "Non tutti i file possono essere eliminati:\n"
 "%1"
 
-#: src/qml/elements/ChatMessage.qml:150
+#: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:299
-msgctxt "ChatMessage|"
-msgid "Unencrypted"
-msgstr "Non cifrato"
-
-#: src/qml/elements/ChatMessage.qml:304
-msgctxt "ChatMessage|"
-msgid "Untrusted"
-msgstr "Non affidabile"
-
-#: src/qml/elements/ChatMessage.qml:336
+#: src/qml/elements/ChatMessage.qml:284
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1427,6 +1409,22 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Caricamento…"
 
+#: src/qml/elements/MessageBackground.qml:108
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Unencrypted"
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "Non cifrato"
+
+#: src/qml/elements/MessageBackground.qml:113
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Untrusted"
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "Non affidabile"
+
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
@@ -1526,17 +1524,14 @@ msgstr ""
 "Cerca di chiudere le altre applicazioni che la usano."
 
 #: src/qml/elements/RosterFilteringArea.qml:29
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by availability"
-msgstr "Filtra per etichette"
+msgstr "Filtra per disponibilità"
 
 #: src/qml/elements/RosterFilteringArea.qml:30
 msgctxt "RosterFilteringArea|"
 msgid "Show only available contacts"
-msgstr ""
+msgstr "Mostra solo i contatti disponibili"
 
 #: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
@@ -1682,9 +1677,12 @@ msgctxt "SubRequestAcceptSheet|"
 msgid "Accept"
 msgstr "Accetta"
 
-#: src/qml/EmptyChatPage.qml:30
+#: src/qml/EmptyChatPage.qml:13
+#, fuzzy
+#| msgctxt "EmptyChatPage|"
+#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
-msgid "Please select a chat to start messaging"
+msgid "Select a chat to start messaging"
 msgstr "Seleziona una chat per iniziare a inviare messaggi"
 
 #: src/qml/GlobalDrawer.qml:49
