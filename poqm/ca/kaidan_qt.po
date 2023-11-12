@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-11-10 11:02+0100\n"
+"PO-Revision-Date: 2023-11-11 11:03+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1407,17 +1407,11 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Sense encriptar"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "No fiable"
@@ -1675,9 +1669,6 @@ msgid "Accept"
 msgstr "Accepta"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Seleccioneu un xat per a iniciar la missatgeria"

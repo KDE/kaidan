@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-06 17:51+0100\n"
+"PO-Revision-Date: 2023-11-12 01:00+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -18,33 +18,27 @@ msgstr ""
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "Ha ocurrido un error al extraer la lista de bloqueos: %1"
 
 #: src/Blocking.cpp:321
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Devices"
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Dispositivos"
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Nombre de usuario"
+msgstr "Usuarios"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Servidores"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Dispositivos en servidores"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -635,12 +629,9 @@ msgid "Join your provider's public support group"
 msgstr "Unirse al grupo de asistencia público de su proveedor"
 
 #: src/qml/details/AccountDetailsContent.qml:399
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Dirección para chatear"
+msgstr "Direcciones para chat bloqueadas"
 
 #: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
@@ -648,32 +639,28 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Bloquear a un determinado usuario (por ejemplo, usuario@ejemplo.org) o a "
+"todos los usuarios del mismo servidor (por ejemplo, ejemplo.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:422
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr ""
+msgstr "Debe tener conexión para bloquear y desbloquear direcciones de chat"
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "usuario@ejemplo.org"
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Copiar dirección del chat"
+msgstr "Bloquear dirección de chat"
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: src/qml/details/AccountDetailsContent.qml:527
 msgctxt "AccountDetailsContent|"
@@ -1083,12 +1070,13 @@ msgstr "Indicar los mensajes que usted ha leído"
 #: src/qml/details/ContactDetailsContent.qml:445
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Bloquear"
 
 #: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
+"Bloquear todas las comunicaciones, incluidos el estado y las notificaciones"
 
 #: src/qml/details/ContactDetailsContent.qml:472
 msgctxt "ContactDetailsContent|"
@@ -1405,17 +1393,11 @@ msgid "Loading…"
 msgstr "Cargando..."
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Sin cifrar"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "No es de confianza"
@@ -1673,9 +1655,6 @@ msgid "Accept"
 msgstr "Aceptar"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Seleccione un chat para empezar a enviar mensajes"
@@ -1749,24 +1728,24 @@ msgstr "Conectando..."
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "%1 desbloqueado"
 
 #: src/qml/main.qml:86
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Deshacer"
 
 #: src/qml/main.qml:93
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "No se ha podido bloquear a %1: %2"
 
 #: src/qml/main.qml:95
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "No se ha podido desbloquear a %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"

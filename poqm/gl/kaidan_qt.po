@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-10-09 14:38+0200\n"
+"PO-Revision-Date: 2023-11-11 14:37+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
@@ -12,36 +12,33 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 23.08.2\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "Erro ao obter ao lista de bloqueo: %1"
 
 #: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "Dispositivos"
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Nome de usuaria"
+msgstr "Persoas usuarias"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Servidores"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Dispositivos en servidores"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -275,9 +272,7 @@ msgid "Spoiler"
 msgstr "Spoiler"
 
 #: src/MessageComposition.cpp:182
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "O envío fallou: %1"
@@ -504,17 +499,17 @@ msgstr "Enviar mensaxe spoiler"
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "Only when status is sent"
-msgstr ""
+msgstr "Só cando se envía o estado"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/AccountDetailsContent.qml:66
 msgctxt "AccountDetailsContent|"
@@ -636,12 +631,9 @@ msgid "Join your provider's public support group"
 msgstr "Únase ao grupo público de asistencia do seu provedor"
 
 #: src/qml/details/AccountDetailsContent.qml:399
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Enderezo da charla"
+msgstr "Enderezo da charla bloqueados"
 
 #: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
@@ -649,32 +641,28 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Bloquear unha persoa usuaria concreta (p. ex. persoa@example.org) ou todas "
+"as persoas usuarias do mesmo servidor (p. ex. example.org)."
 
 #: src/qml/details/AccountDetailsContent.qml:422
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr ""
+msgstr "Debe ter conexión para bloquear ou desbloquear enderezos de charla."
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
-msgstr "usuaria@exemplo.org"
+msgstr "persoa@example.org"
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Copiar o enderezo da charla"
+msgstr "Bloquear o enderezo da charla"
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Desbloquear"
 
 #: src/qml/details/AccountDetailsContent.qml:527
 msgctxt "AccountDetailsContent|"
@@ -890,22 +878,19 @@ msgid "Save selection"
 msgstr "Gardar selección"
 
 #: src/qml/details/ContactDetailsContent.qml:25
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Seguridade da conta"
+msgstr "Predeterminada da conta"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "Nunca"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "Sempre"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
@@ -1085,12 +1070,12 @@ msgstr "Indicar se leu as mensaxes."
 #: src/qml/details/ContactDetailsContent.qml:445
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Bloquear"
 
 #: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "Bloquear toda comunicación, tamén o estado e as notificacións."
 
 #: src/qml/details/ContactDetailsContent.qml:472
 msgctxt "ContactDetailsContent|"
@@ -1125,15 +1110,12 @@ msgstr "Multimedia"
 #: src/qml/details/DetailsContent.qml:74
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "Descargas automáticas"
 
 #: src/qml/details/DetailsContent.qml:75
-#, fuzzy
-#| msgctxt "AutomaticRegistrationPage|"
-#| msgid "Register automatically"
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr "Rexistro automático"
+msgstr "Descargar o contido multimedia automaticamente"
 
 #: src/qml/details/DetailsContent.qml:141
 msgctxt "DetailsContent|"
@@ -1387,7 +1369,7 @@ msgstr "Enderezo da charla"
 #: src/qml/elements/fields/JidField.qml:20
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr "usuaria@exemplo.org"
+msgstr "persoa@example.org"
 
 # skip-rule: trasno-username
 # well-spelled: nomedeusuaria
@@ -1413,17 +1395,11 @@ msgid "Loading…"
 msgstr "Cargando…"
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Non cifrado"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Non de confianza"
@@ -1527,17 +1503,14 @@ msgstr ""
 "Pecha outras aplicacións que a estean usando."
 
 #: src/qml/elements/RosterFilteringArea.qml:29
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by availability"
-msgstr "Filtrar por etiquetas"
+msgstr "Filtrar por dispoñibilidade"
 
 #: src/qml/elements/RosterFilteringArea.qml:30
 msgctxt "RosterFilteringArea|"
 msgid "Show only available contacts"
-msgstr ""
+msgstr "Amosar só os contactos dispoñíbeis"
 
 #: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
@@ -1684,12 +1657,9 @@ msgid "Accept"
 msgstr "Aceptar"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
-msgstr "Escolle unha charla para comezar"
+msgstr "Seleccione unha charla para comezar"
 
 #: src/qml/GlobalDrawer.qml:49
 msgctxt "GlobalDrawer|"
@@ -1760,24 +1730,24 @@ msgstr "Conectando…"
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Desbloqueouse %1"
 
 #: src/qml/main.qml:86
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Desfacer"
 
 #: src/qml/main.qml:93
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Non foi posíbel bloquear %1: %2"
 
 #: src/qml/main.qml:95
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Non foi posíbel desbloquear %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"

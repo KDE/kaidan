@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-11-10 11:16+0100\n"
+"PO-Revision-Date: 2023-11-11 09:31+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1392,20 +1392,14 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Nešifrirano"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
-msgstr "Zaupanja nevredno"
+msgstr "Nevredno zaupanja"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1660,12 +1654,9 @@ msgid "Accept"
 msgstr "Sprejmi"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
-msgstr "Prosimo, izberite klepet, da začnete s pogovarjanem"
+msgstr "Izberite klepet, da začnete s sporočanjem"
 
 #: src/qml/GlobalDrawer.qml:49
 msgctxt "GlobalDrawer|"

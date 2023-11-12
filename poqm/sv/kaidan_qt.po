@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-06 21:07+0100\n"
+"PO-Revision-Date: 2023-11-11 10:01+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -17,30 +17,27 @@ msgstr ""
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "Fel när blocklista skulle hämtas: %1"
 
 #: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Användarnamn"
+msgstr "Användare"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Servrar"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Enheter på servrar"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -630,12 +627,9 @@ msgid "Join your provider's public support group"
 msgstr "Gå med i leverantörens öppna supportgrupp"
 
 #: src/qml/details/AccountDetailsContent.qml:399
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Chattadress"
+msgstr "Blockerade chattadresser"
 
 #: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
@@ -643,32 +637,30 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Blockera en specifik användare (t.ex. användare@exempel.org) eller alla "
+"användare på samma server (t.ex. exempel.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:422
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
+"Du måste vara ansluten för att blockera eller ta bort blockering av "
+"chattadresser"
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "användare@exempel.org"
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Kopiera chattadress"
+msgstr "Blockera chattadress"
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Ta bort blockering"
 
 #: src/qml/details/AccountDetailsContent.qml:527
 msgctxt "AccountDetailsContent|"
@@ -1073,12 +1065,12 @@ msgstr "Indikera vilka meddelanden du har läst"
 #: src/qml/details/ContactDetailsContent.qml:445
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Blockera"
 
 #: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "Blockera all kommunikation inklusive status och underrättelser"
 
 #: src/qml/details/ContactDetailsContent.qml:472
 msgctxt "ContactDetailsContent|"
@@ -1395,17 +1387,11 @@ msgid "Loading…"
 msgstr "Läser in…"
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Okrypterat"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Opålitligt"
@@ -1663,9 +1649,6 @@ msgid "Accept"
 msgstr "Acceptera"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Välj en chatt för att börja skicka meddelanden"
@@ -1739,24 +1722,24 @@ msgstr "Ansluter…"
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Tog bort blockering av %1"
 
 #: src/qml/main.qml:86
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Ångra"
 
 #: src/qml/main.qml:93
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Kunde inte blockera %1: %2"
 
 #: src/qml/main.qml:95
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Kunde inte ta bort blockering för %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"
