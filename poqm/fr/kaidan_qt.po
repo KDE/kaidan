@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-11-07 09:33+0100\n"
+"PO-Revision-Date: 2023-11-11 11:13+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: fr\n"
 "Language: fr\n"
@@ -11,40 +11,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "Erreur lors de la recherche de la blocklist : %1"
 
 #: src/Blocking.cpp:321
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Devices"
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Périphériques"
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Nom d'utilisateur"
+msgstr "Utilisateurs"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Serveurs"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Périphériques des serveurs "
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -642,12 +636,9 @@ msgid "Join your provider's public support group"
 msgstr "Veuillez contacter l'équipe de dépannage de de votre fournisseur"
 
 #: src/qml/details/AccountDetailsContent.qml:399
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Adresse du forum"
+msgstr "Adresses des forums bloqués"
 
 #: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
@@ -655,32 +646,29 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Bloquer un utilisateur spécifique (Par exemple, utilisateur@exemple.org) ou "
+"tous les utilisateurs sur le même serveur (Par exemple, exemple.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:422
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
+"Vous devez être connecté pour bloquer ou débloquer les adresses de salons"
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "utilisateur@exemple.org"
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Copier une adresse de salon"
+msgstr "Bloquer une adresse de salon"
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Débloquer"
 
 #: src/qml/details/AccountDetailsContent.qml:527
 msgctxt "AccountDetailsContent|"
@@ -1098,12 +1086,13 @@ msgstr "Indiquer quels messages vous avez lus"
 #: src/qml/details/ContactDetailsContent.qml:445
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Bloquer"
 
 #: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
+"Bloquer toutes les communications, y compris les états et les notifications"
 
 #: src/qml/details/ContactDetailsContent.qml:472
 msgctxt "ContactDetailsContent|"
@@ -1770,24 +1759,24 @@ msgstr "Connexion en cours..."
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Débloquer %1"
 
 #: src/qml/main.qml:86
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Annuler"
 
 #: src/qml/main.qml:93
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Impossible de bloquer %1 : %2"
 
 #: src/qml/main.qml:95
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Impossible de débloquer %1 : %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"
