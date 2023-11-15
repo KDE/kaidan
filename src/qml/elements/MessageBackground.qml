@@ -100,7 +100,7 @@ Item {
 		}
 
 		// warning for different encryption corner cases
-		Controls.Label {
+		ScalableText {
 			text: {
 				if (backgroundRoot.message.encryption === Encryption.NoEncryption) {
 					if (MessageModel.isOmemoEncryptionEnabled) {
@@ -117,22 +117,22 @@ Item {
 			}
 			visible: text.length
 			color: Kirigami.Theme.neutralTextColor
-			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
 			font.italic: true
+			scaleFactor: 0.9
 		}
 
-		Controls.Label {
+		ScalableText {
 			text: backgroundRoot.message.errorText
 			visible: text.length
 			color: Kirigami.Theme.negativeTextColor
-			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+			scaleFactor: 0.9
 		}
 
-		Controls.Label {
-			opacity: 0.5
+		ScalableText {
 			text: backgroundRoot.message.time
 			color: Kirigami.Theme.disabledTextColor
-			font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+			opacity: 0.5
+			scaleFactor: 0.9
 		}
 
 		Kirigami.Icon {
