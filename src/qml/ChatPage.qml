@@ -346,6 +346,7 @@ ChatPageBase {
 
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
+			visible: MessageModel.currentAccountJid !== MessageModel.currentChatJid
 			anchors.left: parent.left
 			anchors.right: parent.right
 			height: stateLabel.text ? 20 : 0
