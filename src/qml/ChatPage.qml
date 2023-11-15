@@ -72,7 +72,7 @@ ChatPageBase {
 				Layout.leftMargin: Kirigami.Units.largeSpacing
 				Layout.preferredHeight: parent.height
 				Layout.preferredWidth: parent.height
-				jid: chatItemWatcher.item.jid
+				jid: MessageModel.currentChatJid
 				name: chatItemWatcher.item.displayName
 			}
 			Kirigami.Heading {
