@@ -5,7 +5,7 @@
 [Desktop Entry]
 
 Type=Application
-Version=1.0
+Version=1.5
 Name=Kaidan
 Name[ar]=كايدان
 Name[ca]=Kaidan
@@ -147,5 +147,6 @@ Icon=kaidan
 StartupNotify=true
 StartupWMClass=Kaidan
 Terminal=false
+SingleMainWindow=true
 Categories=Network;InstantMessaging;Qt;
 MimeType=x-scheme-handler/xmpp;
