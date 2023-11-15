@@ -30,7 +30,7 @@ ColumnLayout {
 	// entered text
 	property alias text: inputField.text
 
-	// hint to be shown if the the entered is not valid
+	// hint to be shown if the input entered is not valid
 	property alias invalidHint: invalidHint
 
 	// text to be shown as a hint if the entered text is not valid
