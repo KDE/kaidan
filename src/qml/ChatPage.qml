@@ -98,7 +98,7 @@ ChatPageBase {
 			id: searchAction
 			text: qsTr("Search")
 			icon.name: "system-search-symbolic"
-
+			displayHint: Kirigami.DisplayHint.IconOnly
 			onTriggered: {
 				if (searchBar.active)
 					searchBar.close()
@@ -109,7 +109,8 @@ ChatPageBase {
 		Kirigami.Action {
 			visible: !sendingPane.composition.isSpoiler
 			icon.name: "password-show-off"
-			text: qsTr("Send a spoiler message")
+			text: qsTr("Add hidden message part")
+			displayHint: Kirigami.DisplayHint.IconOnly
 			onTriggered: sendingPane.composition.isSpoiler = true
 		}
 	]

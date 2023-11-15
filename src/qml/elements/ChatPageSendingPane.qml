@@ -65,14 +65,14 @@ Controls.Pane {
 			Controls.TextArea {
 				id: spoilerHintField
 				Layout.fillWidth: true
-				placeholderText: qsTr("Spoiler hint")
+				placeholderText: qsTr("Visible message part")
 				wrapMode: Controls.TextArea.Wrap
 				selectByMouse: true
 				background: Item {}
 			}
 
 			Controls.Button {
-				text: qsTr("Close spoiler hint field")
+				text: qsTr("Cancel adding hidden message part")
 				icon.name: "window-close-symbolic"
 				display: Controls.Button.IconOnly
 				flat: true
@@ -110,7 +110,13 @@ Controls.Pane {
 
 			Controls.TextArea {
 				id: messageArea
-				placeholderText: MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
+				placeholderText: {
+					if (root.composition.isSpoiler) {
+						return MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
+					} else {
+						return MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
+					}
+				}
 				background: Item {}
 				wrapMode: TextEdit.Wrap
 				Layout.leftMargin: Style.isMaterial ? 6 : 0
