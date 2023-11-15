@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-08 10:08+0100\n"
+"PO-Revision-Date: 2023-11-12 10:49+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -17,33 +17,27 @@ msgstr ""
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "Errore durante il recupero dell'elenco di blocco: %1"
 
 #: src/Blocking.cpp:321
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Devices"
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Dispositivi"
 
 #: src/Blocking.cpp:323
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "Nome utente"
+msgstr "Utenti"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Server"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "Dispositivi sui server"
 
 #: src/ChatHintModel.cpp:86 src/ChatHintModel.cpp:105
 msgctxt "ChatHintModel|"
@@ -469,12 +463,12 @@ msgstr ""
 #: src/qml/AccountTransferPage.qml:86
 msgctxt "AccountTransferPage|"
 msgid "Chat address:"
-msgstr "Indirizzo chat:"
+msgstr "Indirizzo di chat:"
 
 #: src/qml/AccountTransferPage.qml:95
 msgctxt "AccountTransferPage|"
 msgid "Copy chat address"
-msgstr "Copia indirizzo chat"
+msgstr "Copia indirizzo di chat"
 
 #: src/qml/AccountTransferPage.qml:105
 msgctxt "AccountTransferPage|"
@@ -635,12 +629,9 @@ msgid "Join your provider's public support group"
 msgstr "Unisciti al gruppo di supporto pubblico del tuo fornitore"
 
 #: src/qml/details/AccountDetailsContent.qml:399
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr "Indirizzo chat"
+msgstr "Indirizzi di chat bloccati"
 
 #: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
@@ -648,32 +639,29 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Blocca un utente specifico (ad es. utente@esempio.org) o tutti gli utenti "
+"dello stesso server (ad es. esempio.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:422
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
+"È necessario essere connessi per bloccare o sbloccare gli indirizzi di chat"
 
 #: src/qml/details/AccountDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "utente@esempio.com"
 
 #: src/qml/details/AccountDetailsContent.qml:444
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr "Copia indirizzo chat"
+msgstr "Blocca indirizzo di chat"
 
 #: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Sblocca"
 
 #: src/qml/details/AccountDetailsContent.qml:527
 msgctxt "AccountDetailsContent|"
@@ -1006,7 +994,7 @@ msgstr "Condividi l'indirizzo di chat di questo contatto tramite codice QR"
 #: src/qml/details/ContactDetailsContent.qml:354
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
-msgstr "Copia indirizzo chat"
+msgstr "Copia indirizzo di chat"
 
 #: src/qml/details/ContactDetailsContent.qml:355
 msgctxt "ContactDetailsContent|"
@@ -1088,12 +1076,12 @@ msgstr "Indica quali messaggi hai letto"
 #: src/qml/details/ContactDetailsContent.qml:445
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Blocca"
 
 #: src/qml/details/ContactDetailsContent.qml:446
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "Blocca tutte le comunicazioni, inclusi lo stato e le notifiche"
 
 #: src/qml/details/ContactDetailsContent.qml:472
 msgctxt "ContactDetailsContent|"
@@ -1382,7 +1370,7 @@ msgstr "Aggiungi contatto"
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr "Indirizzo chat"
+msgstr "Indirizzo di chat"
 
 #: src/qml/elements/fields/JidField.qml:20
 msgctxt "JidField|"
@@ -1392,7 +1380,7 @@ msgstr "utente@esempio.com"
 #: src/qml/elements/fields/JidField.qml:22
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr "L'indirizzo della chat deve avere il formato <b>nomeutente@server</b>"
+msgstr "L'indirizzo di chat deve avere il formato <b>nomeutente@server</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:15
 msgctxt "PasswordField|"
@@ -1410,17 +1398,11 @@ msgid "Loading…"
 msgstr "Caricamento…"
 
 #: src/qml/elements/MessageBackground.qml:108
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Non cifrato"
 
 #: src/qml/elements/MessageBackground.qml:113
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Non affidabile"
@@ -1678,9 +1660,6 @@ msgid "Accept"
 msgstr "Accetta"
 
 #: src/qml/EmptyChatPage.qml:13
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Please select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Seleziona una chat per iniziare a inviare messaggi"
@@ -1754,24 +1733,24 @@ msgstr "Connessione…"
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "Sbloccato %1"
 
 #: src/qml/main.qml:86
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Annulla"
 
 #: src/qml/main.qml:93
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "Impossibile bloccare %1: %2"
 
 #: src/qml/main.qml:95
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "Impossibile sbloccare %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"
