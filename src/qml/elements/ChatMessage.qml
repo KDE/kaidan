@@ -279,11 +279,30 @@ Kirigami.SwipeListItem {
 		}
 
 		// Read marker text for own message
-		Text {
-			visible: isLastRead
-			text: qsTr("%1 has read up to this point").arg(chatName)
-			Layout.topMargin: 10
-			Layout.leftMargin: 10
+		RowLayout {
+			visible: root.isLastRead && MessageModel.currentAccountJid !== MessageModel.currentChatJid
+			spacing: Kirigami.Units.smallSpacing * 3
+			Layout.topMargin: spacing
+			Layout.leftMargin: spacing
+			Layout.rightMargin: spacing
+
+			Kirigami.Separator {
+				opacity: 0.8
+				Layout.fillWidth: true
+			}
+
+			ScalableText {
+				text: qsTr("%1 has read up to this point").arg(chatName)
+				color: Kirigami.Theme.disabledTextColor
+				scaleFactor: 0.9
+				elide: Text.ElideMiddle
+				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 10
+			}
+
+			Kirigami.Separator {
+				opacity: 0.8
+				Layout.fillWidth: true
+			}
 		}
 	}
 
