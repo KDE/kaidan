@@ -125,92 +125,71 @@ DetailsContent {
 			}
 		}
 	}
-	rosterGroupArea: ColumnLayout {
-		MobileForm.FormCard {
-			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormCardHeader {
-					title: qsTr("Labels")
+	rosterGoupListView {
+		delegate: MobileForm.AbstractFormDelegate {
+			id: rosterGroupDelegate
+			width: ListView.view.width
+			onClicked: rosterGroupEditingButton.toggled()
+			contentItem: RowLayout {
+				Controls.Label {
+					id: rosterGroupText
+					text: modelData
+					textFormat: Text.PlainText
+					elide: Text.ElideRight
+					visible: !rosterGroupTextField.visible
+					Layout.preferredHeight: rosterGroupTextField.height
+					Layout.fillWidth: true
+					leftPadding: Kirigami.Units.smallSpacing * 1.5
 				}
 
-				ListView {
-					model: RosterModel.groups
-					visible: rosterGroupExpansionButton.checked
-					implicitHeight: contentHeight
+				Controls.TextField {
+					id: rosterGroupTextField
+					text: modelData
+					visible: false
 					Layout.fillWidth: true
-					delegate: MobileForm.AbstractFormDelegate {
-						id: rosterGroupDelegate
-						width: ListView.view.width
-						onClicked: rosterGroupEditingButton.toggled()
-						contentItem: RowLayout {
-							Controls.Label {
-								id: rosterGroupText
-								text: modelData
-								textFormat: Text.PlainText
-								elide: Text.ElideRight
-								visible: !rosterGroupTextField.visible
-								Layout.preferredHeight: rosterGroupTextField.height
-								Layout.fillWidth: true
-								leftPadding: Kirigami.Units.smallSpacing * 1.5
-							}
+					onAccepted: rosterGroupEditingButton.toggled()
+				}
 
-							Controls.TextField {
-								id: rosterGroupTextField
-								text: modelData
-								visible: false
-								Layout.fillWidth: true
-								onAccepted: rosterGroupEditingButton.toggled()
-							}
+				Button {
+					id: rosterGroupEditingButton
+					text: qsTr("Change label…")
+					icon.name: "document-edit-symbolic"
+					display: Controls.AbstractButton.IconOnly
+					checked: !rosterGroupText.visible
+					flat: !hovered
+					Controls.ToolTip.text: text
+					// Ensure that the button can be used within "rosterGroupDelegate"
+					// which acts as an overlay to toggle this button when clicked.
+					// Otherwise, this button would be toggled by "rosterGroupDelegate"
+					// and by this button's own visible area at the same time resulting
+					// in resetting the toggling on each click.
+					autoRepeat: true
+					onToggled: {
+						if (rosterGroupText.visible) {
+							rosterGroupTextField.visible = true
+							rosterGroupTextField.forceActiveFocus()
+							rosterGroupTextField.selectAll()
+						} else {
+							rosterGroupTextField.visible = false
 
-							Button {
-								id: rosterGroupEditingButton
-								text: qsTr("Change label…")
-								icon.name: "document-edit-symbolic"
-								display: Controls.AbstractButton.IconOnly
-								checked: !rosterGroupText.visible
-								flat: !hovered
-								Controls.ToolTip.text: text
-								// Ensure that the button can be used within "rosterGroupDelegate"
-								// which acts as an overlay to toggle this button when clicked.
-								// Otherwise, this button would be toggled by "rosterGroupDelegate"
-								// and by this button's own visible area at the same time resulting
-								// in resetting the toggling on each click.
-								autoRepeat: true
-								onToggled: {
-									if (rosterGroupText.visible) {
-										rosterGroupTextField.visible = true
-										rosterGroupTextField.forceActiveFocus()
-										rosterGroupTextField.selectAll()
-									} else {
-										rosterGroupTextField.visible = false
-
-										if (rosterGroupTextField.text !== modelData) {
-											RosterModel.updateGroup(modelData, rosterGroupTextField.text)
-										}
-									}
-								}
-							}
-
-							Button {
-								id: rosterGroupRemovalButton
-								text: qsTr("Remove label")
-								icon.name: "edit-delete-symbolic"
-								display: Controls.AbstractButton.IconOnly
-								flat: !rosterGroupDelegate.hovered
-								Controls.ToolTip.text: text
-								onClicked: {
-									rosterGroupTextField.visible = false
-									RosterModel.removeGroup(modelData)
-								}
+							if (rosterGroupTextField.text !== modelData) {
+								RosterModel.updateGroup(modelData, rosterGroupTextField.text)
 							}
 						}
 					}
 				}
 
-				FormExpansionButton {
-					id: rosterGroupExpansionButton
+				Button {
+					id: rosterGroupRemovalButton
+					text: qsTr("Remove label")
+					icon.name: "edit-delete-symbolic"
+					display: Controls.AbstractButton.IconOnly
+					flat: !rosterGroupDelegate.hovered
+					Controls.ToolTip.text: text
+					onClicked: {
+						rosterGroupTextField.visible = false
+						RosterModel.removeGroup(modelData)
+					}
 				}
 			}
 		}

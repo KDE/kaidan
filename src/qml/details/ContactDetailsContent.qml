@@ -71,123 +71,102 @@ DetailsContent {
 			}
 		}
 	}
-	rosterGroupArea: ColumnLayout {
-		MobileForm.FormCard {
-			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
+	rosterGoupListView {
+		header: MobileForm.FormCard {
+			width: ListView.view.width
+			Kirigami.Theme.colorSet: Kirigami.Theme.Window
+			contentItem: MobileForm.AbstractFormDelegate {
+				background: Item {}
+				contentItem: RowLayout {
+					spacing: Kirigami.Units.largeSpacing * 3
 
-				MobileForm.FormCardHeader {
-					title: qsTr("Labels")
-				}
-
-				ListView {
-					model: RosterModel.groups
-					visible: rosterGroupExpansionButton.checked
-					implicitHeight: contentHeight
-					Layout.fillWidth: true
-					header: MobileForm.FormCard {
-						width: ListView.view.width
-						Kirigami.Theme.colorSet: Kirigami.Theme.Window
-						contentItem: MobileForm.AbstractFormDelegate {
-							background: Item {}
-							contentItem: RowLayout {
-								spacing: Kirigami.Units.largeSpacing * 3
-
-								Controls.TextField {
-									id: rosterGroupField
-									placeholderText: qsTr("New label")
-									enabled: !rosterGroupBusyIndicator.visible
-									Layout.fillWidth: true
-									onAccepted: rosterGroupAdditionButton.clicked()
-									onVisibleChanged: {
-										if (visible) {
-											text = ""
-											forceActiveFocus()
-										}
-									}
-								}
-
-								Button {
-									id: rosterGroupAdditionButton
-									Controls.ToolTip.text: qsTr("Add label")
-									icon.name: "list-add-symbolic"
-									enabled: rosterGroupField.text.length
-									visible: !rosterGroupBusyIndicator.visible
-									flat: !hovered
-									Layout.preferredWidth: Layout.preferredHeight
-									Layout.preferredHeight: rosterGroupField.implicitHeight
-									Layout.rightMargin: Kirigami.Units.largeSpacing
-									onClicked: {
-										let groups = contactWatcher.item.groups
-
-										if (groups.includes(rosterGroupField.text)) {
-											rosterGroupField.text = ""
-										} else if (enabled) {
-											rosterGroupBusyIndicator.visible = true
-
-											groups.push(rosterGroupField.text)
-											Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
-
-											rosterGroupField.text = ""
-										} else {
-											rosterGroupField.forceActiveFocus()
-										}
-									}
-								}
-
-								Controls.BusyIndicator {
-									id: rosterGroupBusyIndicator
-									visible: false
-									Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
-									Layout.preferredHeight: Layout.preferredWidth
-									Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
-								}
-
-								Connections {
-									target: RosterModel
-
-									function onGroupsChanged() {
-										rosterGroupBusyIndicator.visible = false
-										rosterGroupField.forceActiveFocus()
-									}
-								}
+					Controls.TextField {
+						id: rosterGroupField
+						placeholderText: qsTr("New label")
+						enabled: !rosterGroupBusyIndicator.visible
+						Layout.fillWidth: true
+						onAccepted: rosterGroupAdditionButton.clicked()
+						onVisibleChanged: {
+							if (visible) {
+								text = ""
+								forceActiveFocus()
 							}
 						}
 					}
-					delegate: MobileForm.FormSwitchDelegate {
-						id: rosterGroupDelegate
-						text: modelData
-						checked: contactWatcher.item.groups.includes(modelData)
-						width: ListView.view.width
-						onToggled: {
+
+					Button {
+						id: rosterGroupAdditionButton
+						Controls.ToolTip.text: qsTr("Add label")
+						icon.name: "list-add-symbolic"
+						enabled: rosterGroupField.text.length
+						visible: !rosterGroupBusyIndicator.visible
+						flat: !hovered
+						Layout.preferredWidth: Layout.preferredHeight
+						Layout.preferredHeight: rosterGroupField.implicitHeight
+						Layout.rightMargin: Kirigami.Units.largeSpacing
+						onClicked: {
 							let groups = contactWatcher.item.groups
 
-							if (checked) {
-								groups.push(modelData)
+							if (groups.includes(rosterGroupField.text)) {
+								rosterGroupField.text = ""
+							} else if (enabled) {
+								rosterGroupBusyIndicator.visible = true
+
+								groups.push(rosterGroupField.text)
+								Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
+
+								rosterGroupField.text = ""
 							} else {
-								groups.splice(groups.indexOf(modelData), 1)
-							}
-
-							Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
-						}
-
-						// TODO: Remove this and see TODO in RosterModel once fixed in Kirigami Addons.
-						Connections {
-							target: RosterModel
-
-							function onGroupsChanged() {
-								// Update the "checked" value of "rosterGroupDelegate" as a work
-								// around because "MobileForm.FormSwitchDelegate" does not listen to
-								// changes of "contactWatcher.item.groups".
-								rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
+								rosterGroupField.forceActiveFocus()
 							}
 						}
 					}
+
+					Controls.BusyIndicator {
+						id: rosterGroupBusyIndicator
+						visible: false
+						Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
+						Layout.preferredHeight: Layout.preferredWidth
+						Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
+					}
+
+					Connections {
+						target: RosterModel
+
+						function onGroupsChanged() {
+							rosterGroupBusyIndicator.visible = false
+							rosterGroupField.forceActiveFocus()
+						}
+					}
+				}
+			}
+		}
+		delegate: MobileForm.FormSwitchDelegate {
+			id: rosterGroupDelegate
+			text: modelData
+			checked: contactWatcher.item.groups.includes(modelData)
+			width: ListView.view.width
+			onToggled: {
+				let groups = contactWatcher.item.groups
+
+				if (checked) {
+					groups.push(modelData)
+				} else {
+					groups.splice(groups.indexOf(modelData), 1)
 				}
 
-				FormExpansionButton {
-					id: rosterGroupExpansionButton
+				Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
+			}
+
+			// TODO: Remove this and see TODO in RosterModel once fixed in Kirigami Addons.
+			Connections {
+				target: RosterModel
+
+				function onGroupsChanged() {
+					// Update the "checked" value of "rosterGroupDelegate" as a work
+					// around because "MobileForm.FormSwitchDelegate" does not listen to
+					// changes of "contactWatcher.item.groups".
+					rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
 				}
 			}
 		}
