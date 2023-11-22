@@ -86,17 +86,10 @@ DetailsContent {
 						Controls.ToolTip.text: qsTr("Set value")
 						icon.name: "emblem-ok-symbolic"
 						visible: !vCardBusyIndicator.visible
-						flat: true
+						flat: !hovered
 						Layout.preferredWidth: Layout.preferredHeight
 						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
-						onHoveredChanged: {
-							if (hovered) {
-								flat = false
-							} else {
-								flat = true
-							}
-						}
 						onClicked: {
 							vCardBusyIndicator.visible = true
 							model.value = vCardValueField.text
@@ -448,7 +441,6 @@ DetailsContent {
 								Layout.preferredWidth: Layout.preferredHeight
 								Layout.preferredHeight: blockingTextField.implicitHeight
 								Layout.rightMargin: Kirigami.Units.largeSpacing
-								onHoveredChanged: flat = !hovered
 								onClicked: {
 									const jid = blockingTextField.text
 									if (blockingListView.model.contains(jid)) {
@@ -671,17 +663,10 @@ DetailsContent {
 							Controls.ToolTip.text: qsTr("Change password")
 							icon.name: "emblem-ok-symbolic"
 							visible: !passwordBusyIndicator.visible
-							flat: true
+							flat: !hovered
 							Layout.preferredWidth: Layout.preferredHeight
 							Layout.preferredHeight: passwordField.inputField.implicitHeight
 							Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
-							onHoveredChanged: {
-								if (hovered) {
-									flat = false
-								} else {
-									flat = true
-								}
-							}
 							onClicked: {
 								if (passwordVerificationField.visible && !passwordVerificationField.valid) {
 									passwordVerificationField.forceActiveFocus()
@@ -811,17 +796,10 @@ DetailsContent {
 							Controls.ToolTip.text: qsTr("Change connection settings")
 							icon.name: "emblem-ok-symbolic"
 							visible: !connectionSettingsBusyIndicator.visible
-							flat: true
+							flat: !hovered
 							Layout.preferredWidth: Layout.preferredHeight
 							Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
 							Layout.alignment: Qt.AlignBottom
-							onHoveredChanged: {
-								if (hovered) {
-									flat = false
-								} else {
-									flat = true
-								}
-							}
 							onClicked: {
 								if (customConnectionSettings.hostField.text === AccountManager.host && customConnectionSettings.portField.value === AccountManager.port) {
 									connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")

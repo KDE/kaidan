@@ -86,17 +86,10 @@ RowLayout {
 				icon.name: "document-edit-symbolic"
 				display: Controls.AbstractButton.IconOnly
 				checked: !displayNameText.visible
-				flat: true
+				flat: !hovered && !displayNameMouseArea.containsMouse
 				Controls.ToolTip.text: text
 				Layout.preferredWidth: Layout.preferredHeight
 				Layout.preferredHeight: displayNameTextField.implicitHeight
-				onHoveredChanged: {
-					if (hovered) {
-						flat = false
-					} else {
-						flat = true
-					}
-				}
 				onClicked: {
 					if (displayNameText.visible) {
 						displayNameTextField.visible = true
@@ -126,11 +119,10 @@ RowLayout {
 				onTextChanged: handleDisplayNameChanged()
 
 				MouseArea {
+					id: displayNameMouseArea
 					anchors.fill: displayNameText
 					hoverEnabled: true
 					cursorShape: Qt.PointingHandCursor
-					onEntered: displayNameEditingButton.flat = false
-					onExited: displayNameEditingButton.flat = true
 					onClicked: displayNameEditingButton.clicked()
 				}
 			}

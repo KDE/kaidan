@@ -118,7 +118,6 @@ DetailsContent {
 									Layout.preferredWidth: Layout.preferredHeight
 									Layout.preferredHeight: rosterGroupField.implicitHeight
 									Layout.rightMargin: Kirigami.Units.largeSpacing
-									onHoveredChanged: flat = !hovered
 									onClicked: {
 										let groups = contactWatcher.item.groups
 
