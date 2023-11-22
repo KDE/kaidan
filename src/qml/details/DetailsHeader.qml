@@ -13,7 +13,7 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-RowLayout {
+GridLayout {
 	id: root
 
 	default property alias __data: mainArea.data
@@ -21,6 +21,7 @@ RowLayout {
 	required property string displayName
 	required property Kirigami.Action avatarAction
 
+	flow: width > Kirigami.Units.gridUnit * 20 ? GridLayout.LeftToRight : GridLayout.TopToBottom
 	Layout.topMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 2
 	Layout.bottomMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing
 	Layout.leftMargin: Kirigami.Units.largeSpacing * 2
@@ -29,6 +30,7 @@ RowLayout {
 	Avatar {
 		jid: root.jid
 		name: root.displayName
+		Layout.alignment: Qt.AlignHCenter
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 8
 		Layout.preferredWidth: Layout.preferredHeight
 
