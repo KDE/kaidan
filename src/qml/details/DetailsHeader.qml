@@ -50,7 +50,7 @@ GridLayout {
 			Kirigami.Icon {
 				id: avatarActionHoverImage
 				source: root.avatarAction.icon.name
-				color: Kirigami.Theme.backgroundColor
+				color: Kirigami.Theme.textColor
 				width: parent.width / 2
 				height: width
 				anchors.centerIn: parent
