@@ -67,12 +67,17 @@ UserListItem {
 
 			Controls.Label {
 				id: lastMessagePrefix
-				visible: lastMessageIsDraft || lastMessageSenderId
+				visible: text && (lastMessageIsDraft || lastMessageSenderId)
 				textFormat: Text.PlainText
 				text: {
 					if (lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
+						// Omit the sender in case of the chat with oneself.
+						if (root.jid == root.accountJid) {
+							return ""
+						}
+
 						if (lastMessageSenderId === root.accountJid) {
 							return qsTr("Me:")
 						} else {
