@@ -121,7 +121,7 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 	case JidRole:
 		return m_items.at(index.row()).jid;
 	case NameRole:
-		return m_items.at(index.row()).name;
+		return m_items.at(index.row()).displayName();
 	case GroupsRole:
 		return QVariant::fromValue(m_items.at(index.row()).groups);
 	case LastMessageDateTimeRole: {

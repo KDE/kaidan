@@ -18,6 +18,10 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
 QString RosterItem::displayName() const
 {
 	if (name.isEmpty()) {
+		if (jid == accountJid) {
+			return QObject::tr("Notes");
+		}
+
 		const auto username = QXmppUtils::jidToUser(jid);
 
 		// Return the domain in case of a server as a roster item (for service announcements).
