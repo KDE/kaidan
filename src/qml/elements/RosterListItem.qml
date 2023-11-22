@@ -80,9 +80,9 @@ UserListItem {
 
 						if (lastMessageSenderId === root.accountJid) {
 							return qsTr("Me:")
-						} else {
-							return qsTr("%1:").arg(root.name)
 						}
+
+						return qsTr("%1:").arg(root.name)
 					}
 				}
 				color: Kirigami.Theme.disabledTextColor
