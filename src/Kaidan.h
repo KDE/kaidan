@@ -267,6 +267,11 @@ signals:
 	void openChatPageRequested(const QString &accountJid, const QString &chatJid);
 
 	/**
+	 * Closes the chat page.
+	 */
+	void closeChatPageRequested();
+
+	/**
 	 * Emitted when the removal state of the password on the account transfer page changed.
 	 */
 	void passwordVisibilityChanged();

@@ -29,14 +29,5 @@ Kirigami.OverlaySheet {
 		Layout.preferredWidth: 600
 		Layout.preferredHeight: 600
 		Layout.maximumWidth: 600
-
-		// Close this sheet when the account/contact is removed.
-		Connections {
-			target: Kaidan
-
-			function onOpenChatViewRequested() {
-				root.close()
-			}
-		}
 	}
 }

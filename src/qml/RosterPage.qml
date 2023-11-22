@@ -128,13 +128,23 @@ SearchBarPage {
 
 				MessageModel.setCurrentChat(accountJid, chatJid)
 
-				// Close all pages (especially the chat page) except the roster page.
+				closePagesExceptRosterPage()
+				popLayersAboveLowest()
+				pageStack.push(chatPage)
+			}
+
+			function onCloseChatPageRequested() {
+				closePagesExceptRosterPage()
+				resetChatView()
+			}
+
+			/**
+			 * Closes all pages (especially the chat page) on the same layer except the roster page.
+			 */
+			function closePagesExceptRosterPage() {
 				while (pageStack.depth > 1) {
 					pageStack.pop()
 				}
-
-				popLayersAboveLowest()
-				pageStack.push(chatPage)
 			}
 		}
 	}

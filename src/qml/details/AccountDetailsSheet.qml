@@ -25,7 +25,13 @@ DetailsSheet {
 	Connections {
 		target: Kaidan
 
+		// Close this sheet when the account is removed.
 		function onCredentialsNeeded() {
+			root.close()
+		}
+
+		// Close this sheet when the chat with oneself is added via it.
+		function onOpenChatPageRequested(accountJid, chatJid) {
 			root.close()
 		}
 	}

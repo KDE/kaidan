@@ -64,7 +64,7 @@ Controls.Menu {
 		onTriggered: {
 			MessageModel.markMessageAsFirstUnread(message.modelIndex);
 			MessageModel.resetCurrentChat()
-			openChatView()
+			Kaidan.closeChatPageRequested()
 		}
 	}
 

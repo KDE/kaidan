@@ -70,8 +70,9 @@ RosterModel::RosterModel(QObject *parent)
 		RosterDb::instance()->removeItems(accountJid, chatJid);
 		removeItems(accountJid, chatJid);
 
-		if (accountJid == MessageModel::instance()->currentAccountJid() && chatJid == MessageModel::instance()->currentChatJid())
-			Q_EMIT Kaidan::instance()->openChatViewRequested();
+		if (accountJid == MessageModel::instance()->currentAccountJid() && chatJid == MessageModel::instance()->currentChatJid()) {
+			Q_EMIT Kaidan::instance()->closeChatPageRequested();
+		}
 	});
 }
 

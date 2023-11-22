@@ -517,6 +517,47 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		id: notesAdditionArea
+		visible: !RosterModel.hasItem(root.jid)
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Notes")
+			}
+
+			// TODO: Find a solution (hide button or add local-only chat) to servers not allowing to add oneself to the roster (such as Prosody)
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Add chat for notes")
+				description: qsTr("Add a chat for synchronizing your notes across all your devices")
+				icon.name: "note-symbolic"
+				onClicked: {
+					Kaidan.client.rosterManager.addContactRequested(root.jid)
+					Kaidan.openChatPageRequested(root.jid, root.jid)
+				}
+
+				Connections {
+					target: RosterModel
+
+					function onAddItemRequested(item) {
+						if (item.jid === root.jid) {
+							notesAdditionArea.visible = false
+						}
+					}
+
+					function onRemoveItemsRequested(accountJid, jid) {
+						if (accountJid === jid) {
+							notesAdditionArea.visible = true
+						}
+					}
+				}
+			}
+		}
+	}
+
+	MobileForm.FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		Layout.fillWidth: true
 

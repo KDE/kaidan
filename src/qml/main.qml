@@ -141,8 +141,14 @@ Kirigami.ApplicationWindow {
 		popLayersAboveLowest()
 		popAllPages()
 		pageStack.push(rosterPage)
-		if (!Kirigami.Settings.isMobile)
+		resetChatView()
+	}
+
+	function resetChatView() {
+		if (!Kirigami.Settings.isMobile) {
 			pageStack.push(emptyChatPage)
+		}
+
 		showRosterPageForNarrowWindow()
 	}
 
