@@ -21,6 +21,15 @@ DetailsHeader {
 		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(jid))
 	}
 
+	Controls.Label {
+		text: qsTr("Messages in this chat are synchronized as notes across all your devices")
+		visible: accountJid === jid
+		color: Kirigami.Theme.neutralTextColor
+		wrapMode: Text.WordWrap
+		Layout.fillWidth: true
+		Layout.leftMargin: Kirigami.Units.largeSpacing * 5
+	}
+
 	RosterItemWatcher {
 		id: contactWatcher
 		jid: root.jid
