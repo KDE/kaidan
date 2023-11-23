@@ -1117,7 +1117,7 @@ void MessageModel::handleMessageUpdated(const Message &message)
 
 			// Insert the message at its original position if the date is unchanged.
 			// Otherwise, move it to its new position.
-			if (message.timestamp == m_messages.at(i).timestamp) {
+			if (!m_messages.isEmpty() && (message.timestamp == m_messages.at(i).timestamp)) {
 				insertMessage(i, message);
 			} else {
 				addMessage(message);
