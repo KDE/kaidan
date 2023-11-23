@@ -432,29 +432,27 @@ Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &c
 	return {};
 }
 
-QFuture<QDateTime> MessageDb::fetchLastMessageStamp()
+QFuture<QString> MessageDb::fetchLastMessageStanzaId()
 {
 	return run([this]() {
 		auto query = createQuery();
 		execQuery(
 			query,
 			QStringLiteral(R"(
-				SELECT timestamp
+				SELECT stanzaId
 				FROM chatMessages
 				ORDER BY timestamp DESC
 				LIMIT 1
 			)")
 		);
 
-		QDateTime stamp;
-		while (query.next()) {
-			stamp = QDateTime::fromString(
-				query.value(query.record().indexOf("timestamp")).toString(),
-				Qt::ISODate
-			);
+		QString stanzaId;
+
+		if (query.first()) {
+			stanzaId = query.value(0).toString();
 		}
 
-		return stamp;
+		return stanzaId;
 	});
 }
 

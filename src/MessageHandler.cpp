@@ -76,22 +76,24 @@ MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, 
 
 	client->addExtension(&m_receiptManager);
 
-	// get last message stamp to retrieve all new messages from the server since then
-	await(MessageDb::instance()->fetchLastMessageStamp(), this, [this](QDateTime &&stamp) {
-		handleLastMessageStampFetched(stamp);
+	// Fetch the stanza ID of the last message to retrieve all new messages from the server since
+	// then.
+	await(MessageDb::instance()->fetchLastMessageStanzaId(), this, [this](QString &&id) {
+		handleLastMessageIdFetched(id);
 	});
 }
 
 void MessageHandler::handleRosterReceived()
 {
-	// retrieve initial messages for each contact, if there is no last message locally
-	if (m_lastMessageLoaded && m_lastMessageStamp.isNull())
+	// If there is no last message locally stored, retrieve an initial message for each chat.
+	if (m_lastMessageLoaded && m_lastMessageId.isEmpty()) {
 		retrieveInitialMessages();
+	}
 }
 
-void MessageHandler::handleLastMessageStampFetched(const QDateTime &stamp)
+void MessageHandler::handleLastMessageIdFetched(const QString &id)
 {
-	m_lastMessageStamp = stamp;
+	m_lastMessageId = id;
 	m_lastMessageLoaded = true;
 
 	// this is for the case that loading the last message took longer than connecting to
@@ -101,12 +103,12 @@ void MessageHandler::handleLastMessageStampFetched(const QDateTime &stamp)
 	if (m_client->isConnected()) {
 		// if there are no messages at all, load initial history,
 		// otherwise load all missed messages since last online.
-		if (stamp.isNull()) {
+		if (m_lastMessageId.isEmpty()) {
 			// only start if roster was received already
 			if (m_client->findExtension<QXmppRosterManager>()->isRosterReceived())
 				retrieveInitialMessages();
 		} else {
-			retrieveCatchUpMessages(stamp);
+			retrieveCatchUpMessages();
 		}
 	}
 }
@@ -261,9 +263,10 @@ QFuture<QXmpp::SendResult> MessageHandler::sendMessageReaction(const QString &ch
 
 void MessageHandler::handleConnected()
 {
-	// retrieve missed messages, if the last saved message has been loaded and exists
-	if (m_lastMessageLoaded && !m_lastMessageStamp.isNull()) {
-		retrieveCatchUpMessages(m_lastMessageStamp);
+	// Retrieve messages received by the server while the user was offline if the last stored
+	// message has been loaded and exists.
+	if (m_lastMessageLoaded && !m_lastMessageId.isEmpty()) {
+		retrieveCatchUpMessages();
 	}
 }
 
@@ -399,21 +402,25 @@ void MessageHandler::retrieveInitialMessages()
 				Kaidan::instance()->database()->commitTransaction();
 
 				// so this won't be triggered again on reconnect
-				m_lastMessageStamp = QDateTime::currentDateTimeUtc();
+				await(MessageDb::instance()->fetchLastMessageStanzaId(), this, [this](QString &&id) {
+					m_lastMessageId = id;
+				});
 			}
 		});
 	}
 }
 
-void MessageHandler::retrieveCatchUpMessages(const QDateTime &stamp)
+void MessageHandler::retrieveCatchUpMessages()
 {
 	using Mam = QXmppMamManager;
 
 	QXmppResultSetQuery queryLimit;
+
+	queryLimit.setAfter(m_lastMessageId);
 	// no limit
 	queryLimit.setMax(-1);
 
-	m_mamManager->retrieveMessages({}, {}, {}, stamp, {}, queryLimit).then(this, [this](auto result) {
+	m_mamManager->retrieveMessages({}, {}, {}, {}, {}, queryLimit).then(this, [this](auto result) {
 		if (std::holds_alternative<typename Mam::RetrievedMessages>(result)) {
 			auto messages = std::get<typename Mam::RetrievedMessages>(std::move(result));
 

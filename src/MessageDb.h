@@ -181,9 +181,9 @@ public:
 	Message _fetchLastMessage(const QString &accountJid, const QString &chatJid);
 
 	/**
-	 * Fetch the latest message stamp
+	 * Fetches the stanza ID of the latest message.
 	 */
-	QFuture<QDateTime> fetchLastMessageStamp();
+	QFuture<QString> fetchLastMessageStanzaId();
 
 	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
 

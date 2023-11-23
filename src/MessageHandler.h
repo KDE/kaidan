@@ -32,7 +32,7 @@ public:
 	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
 	void handleRosterReceived();
-	void handleLastMessageStampFetched(const QDateTime &stamp);
+	void handleLastMessageIdFetched(const QString &id);
 
 	/**
 	 * Handles incoming messages from the server.
@@ -71,7 +71,7 @@ public:
 private:
 	void handleConnected();
 	void retrieveInitialMessages();
-	void retrieveCatchUpMessages(const QDateTime &stamp);
+	void retrieveCatchUpMessages();
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
 	/**
@@ -91,7 +91,7 @@ private:
 	QXmppMessageReceiptManager m_receiptManager;
 	QXmppMamManager *m_mamManager;
 
-	QDateTime m_lastMessageStamp;
+	QString m_lastMessageId;
 	bool m_lastMessageLoaded = false;
 
 	uint m_runningInitialMessageQueries = 0;
