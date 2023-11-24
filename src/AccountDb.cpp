@@ -77,7 +77,7 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 
 		// Update the loaded account.
 		if (!accounts.isEmpty()) {
-			const auto &oldAccount = accounts.first();
+			const auto &oldAccount = accounts.constFirst();
 			Account newAccount = oldAccount;
 			updateAccount(newAccount);
 
@@ -111,7 +111,7 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 		QString stanzaId;
 
 		if (query.first()) {
-			stanzaId = query.value(query.record().indexOf(QStringLiteral("latestMessageStanzaId"))).toString();
+			stanzaId = query.value(0).toString();
 		}
 
 		return stanzaId;
@@ -127,6 +127,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxLatestMessageStanzaId = rec.indexOf("latestMessageStanzaId");
 	int idxLatestMessageTimestamp = rec.indexOf("latestMessageTimestamp");
 
+	reserve(accounts, query);
 	while (query.next()) {
 		Account account;
 

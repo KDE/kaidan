@@ -8,7 +8,7 @@
 #include <QObject>
 #include <QString>
 
-struct Account
+class Account
 {
 	Q_GADGET
 

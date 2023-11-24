@@ -180,11 +180,6 @@ public:
 	 */
 	Message _fetchLastMessage(const QString &accountJid, const QString &chatJid);
 
-	/**
-	 * Fetches the stanza ID of the latest message.
-	 */
-	QFuture<QString> fetchLastMessageStanzaId();
-
 	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
 
 	/**

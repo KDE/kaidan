@@ -28,6 +28,8 @@
 #include <QXmppThumbnail.h>
 #include <QXmppUtils.h>
 // Kaidan
+#include "Account.h"
+#include "AccountDb.h"
 #include "AccountManager.h"
 #include "Algorithms.h"
 #include "ClientWorker.h"
@@ -281,9 +283,9 @@ void MessageHandler::handleConnected()
 	// Fetch the stanza ID of the last message to retrieve all new messages from the server since
 	// then if the there is such a last message locally stored.
 	// That is not the case when the user's account is added to Kaidan.
-	await(MessageDb::instance()->fetchLastMessageStanzaId(), this, [this](QString &&id) {
-		if (!id.isEmpty()) {
-			retrieveCatchUpMessages(id);
+	await(AccountDb::instance()->fetchLatestMessageStanzaId(m_client->configuration().jidBare()), this, [this](QString &&stanzaId) {
+		if (!stanzaId.isEmpty()) {
+			retrieveCatchUpMessages(stanzaId);
 		}
 	});
 }
@@ -293,8 +295,8 @@ void MessageHandler::handleRosterReceived()
 	// Fetch the stanza ID of the last message to retrieve one initial message for each roster item
 	// from the server if there is no last message locally stored.
 	// That is the case when the user's account is added to Kaidan.
-	await(MessageDb::instance()->fetchLastMessageStanzaId(), this, [this](QString &&id) {
-		if (id.isEmpty()) {
+	await(AccountDb::instance()->fetchLatestMessageStanzaId(m_client->configuration().jidBare()), this, [this](QString &&stanzaId) {
+		if (stanzaId.isEmpty()) {
 			retrieveInitialMessages();
 		}
 	});
@@ -351,13 +353,13 @@ void MessageHandler::retrieveInitialMessages()
 	}
 }
 
-void MessageHandler::retrieveCatchUpMessages(const QString &lastMessageStanzaId)
+void MessageHandler::retrieveCatchUpMessages(const QString &latestMessageStanzaId)
 {
 	using Mam = QXmppMamManager;
 
 	QXmppResultSetQuery queryLimit;
 
-	queryLimit.setAfter(lastMessageStanzaId);
+	queryLimit.setAfter(latestMessageStanzaId);
 	// no limit
 	queryLimit.setMax(-1);
 
@@ -428,11 +430,12 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
+	const auto accountJid = m_client->configuration().jidBare();
 	const auto senderJid = QXmppUtils::jidToBareJid(msg.from());
 	const auto recipientJid = QXmppUtils::jidToBareJid(msg.to());
 
 	Message message;
-	message.accountJid = m_client->configuration().jidBare();
+	message.accountJid = accountJid;
 	message.senderId = senderJid;
 	message.chatJid = message.isOwn() ? recipientJid : senderJid;
 
@@ -481,6 +484,15 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.spoilerHint = msg.spoilerHint();
 	message.stanzaId = msg.stanzaId();
 	message.originId = msg.originId();
+
+	AccountDb::instance()->updateAccount(accountJid, [stanzaId = msg.stanzaId(), timestamp = msg.stamp().toUTC()](Account &account) {
+		// Check "<=" instead of "<" to update the ID in the rare case that the timestamps are equal
+		// (e.g., because the timestamps are not precise enough)
+		if (account.latestMessageTimestamp <= timestamp) {
+			account.latestMessageStanzaId = stanzaId;
+			account.latestMessageTimestamp = timestamp;
+		}
+	});
 
 	// save the message to the database
 	// in case of message correction, replace old message

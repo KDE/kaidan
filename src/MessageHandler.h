@@ -64,7 +64,7 @@ private:
 	void handleConnected();
 	void handleRosterReceived();
 	void retrieveInitialMessages();
-	void retrieveCatchUpMessages(const QString &lastMessageStanzaId);
+	void retrieveCatchUpMessages(const QString &latestMessageStanzaId);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
 	/**

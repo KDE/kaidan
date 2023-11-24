@@ -432,30 +432,6 @@ Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &c
 	return {};
 }
 
-QFuture<QString> MessageDb::fetchLastMessageStanzaId()
-{
-	return run([this]() {
-		auto query = createQuery();
-		execQuery(
-			query,
-			QStringLiteral(R"(
-				SELECT stanzaId
-				FROM chatMessages
-				ORDER BY timestamp DESC
-				LIMIT 1
-			)")
-		);
-
-		QString stanzaId;
-
-		if (query.first()) {
-			stanzaId = query.value(0).toString();
-		}
-
-		return stanzaId;
-	});
-}
-
 QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, const QString &chatJid, int index)
 {
 	return run([=, this]() {
