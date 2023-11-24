@@ -329,7 +329,7 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 			false
 		) +
 		simpleWhereStatement(&driver, keyValuePairs)
-				);
+	);
 }
 
 void RosterDb::fetchGroups(QVector<RosterItem> &items)
