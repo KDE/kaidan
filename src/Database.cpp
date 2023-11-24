@@ -1867,7 +1867,7 @@ void Database::convertDatabaseToV39()
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
-			DB_TABLE_BLOCKED,
+			"blocked",
 			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
 			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
 			"PRIMARY KEY(accountJid, jid)"
