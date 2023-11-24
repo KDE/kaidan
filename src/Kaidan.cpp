@@ -21,6 +21,7 @@
 // QXmpp
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
+#include "AccountDb.h"
 #include "AccountManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
@@ -47,6 +48,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 	// database
 	m_database = new Database(this);
+	m_accountDb = new AccountDb(m_database, this);
 	m_msgDb = new MessageDb(m_database, this);
 	m_rosterDb = new RosterDb(m_database, this);
 

@@ -41,6 +41,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 // SQL
 #define DB_FILE_BASE_NAME "kaidan"
 #define DB_TABLE_INFO "dbinfo"
+#define DB_TABLE_ACCOUNTS "accounts"
 #define DB_TABLE_ROSTER "roster"
 #define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_TABLE_MESSAGES "messages"

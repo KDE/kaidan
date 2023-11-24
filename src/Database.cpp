@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 39
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(39)
+#define DATABASE_LATEST_VERSION 40
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(40)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -357,6 +357,19 @@ void Database::createNewDatabase()
 			DB_TABLE_INFO,
 			insertRecord,
 			false
+		)
+	);
+
+	// accounts
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_ACCOUNTS,
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestMessageTimestamp, SQL_TEXT)
+			"PRIMARY KEY(jid)"
 		)
 	);
 
@@ -1875,4 +1888,24 @@ void Database::convertDatabaseToV39()
 	);
 
 	d->version = 39;
+}
+
+void Database::convertDatabaseToV40()
+{
+	DATABASE_CONVERT_TO_VERSION(39)
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"accounts",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestMessageTimestamp, SQL_TEXT)
+			"PRIMARY KEY(jid)"
+		)
+	);
+
+	d->version = 40;
 }

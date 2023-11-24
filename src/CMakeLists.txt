@@ -10,6 +10,10 @@ add_executable(${PROJECT_NAME} WIN32)
 
 target_sources(${PROJECT_NAME} PRIVATE
 	AbstractNotifier.h
+	Account.cpp
+	Account.h
+	AccountDb.cpp
+	AccountDb.h
 	AccountManager.cpp
 	AccountManager.h
 	Algorithms.h

@@ -18,6 +18,7 @@
 #include "ClientWorker.h"
 
 class QSize;
+class AccountDb;
 class Database;
 class DataFormModel;
 class Notifications;
@@ -338,6 +339,7 @@ public:
 private:
 	Notifications *m_notifications;
 	Database *m_database;
+	AccountDb *m_accountDb;
 	MessageDb *m_msgDb;
 	RosterDb *m_rosterDb;
 	QThread *m_cltThrd;

@@ -13,6 +13,8 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
+#include "Account.h"
+#include "AccountDb.h"
 #include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
@@ -55,6 +57,8 @@ void AccountManager::setJid(const QString &jid)
 	if (m_jid != jid) {
 		m_jid = jid;
 		m_hasNewCredentials = true;
+
+		AccountDb::instance()->addAccount(jid);
 
 		locker.unlock();
 		Q_EMIT jidChanged();
