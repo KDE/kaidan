@@ -31,14 +31,6 @@ public:
 
 	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
-	void handleRosterReceived();
-	void handleLastMessageIdFetched(const QString &id);
-
-	/**
-	 * Handles incoming messages from the server.
-	 */
-	void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
-
 	/**
 	 * Sends pending messages again after searching them in the database.
 	 */
@@ -70,9 +62,15 @@ public:
 
 private:
 	void handleConnected();
+	void handleRosterReceived();
 	void retrieveInitialMessages();
-	void retrieveCatchUpMessages();
+	void retrieveCatchUpMessages(const QString &lastMessageStanzaId);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
+
+	/**
+	 * Handles incoming messages from the server.
+	 */
+	void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
 
 	/**
 	 * Handles a message that may contain a read marker.
@@ -90,9 +88,6 @@ private:
 	QXmppClient *m_client;
 	QXmppMessageReceiptManager m_receiptManager;
 	QXmppMamManager *m_mamManager;
-
-	QString m_lastMessageId;
-	bool m_lastMessageLoaded = false;
 
 	uint m_runningInitialMessageQueries = 0;
 };
