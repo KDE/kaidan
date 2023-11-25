@@ -666,7 +666,22 @@ msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:527
+#: src/qml/details/AccountDetailsContent.qml:528
+msgctxt "AccountDetailsContent|"
+msgid "Notes"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:533
+msgctxt "AccountDetailsContent|"
+msgid "Add chat for notes"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:534
+msgctxt "AccountDetailsContent|"
+msgid "Add a chat for synchronizing your notes across all your devices"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:568
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -674,7 +689,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:531
+#: src/qml/details/AccountDetailsContent.qml:572
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -688,7 +703,7 @@ msgstr ""
 "Αφού αλλάξετε τον κωδικό πρόσβασής σας, θα πρέπει να τον εισαγάγετε ξανά σε "
 "όλες τις άλλες συσκευές σας."
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:585
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -696,7 +711,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Ο τρέχων κωδικός δεν είναι έγκυρος."
 
-#: src/qml/details/AccountDetailsContent.qml:545
+#: src/qml/details/AccountDetailsContent.qml:586
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -704,7 +719,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:546
+#: src/qml/details/AccountDetailsContent.qml:587
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -712,7 +727,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:568
+#: src/qml/details/AccountDetailsContent.qml:609
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -720,7 +735,7 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Νέος κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:568
+#: src/qml/details/AccountDetailsContent.qml:609
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -728,7 +743,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:569
+#: src/qml/details/AccountDetailsContent.qml:610
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -736,12 +751,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Τρέχων κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:570
+#: src/qml/details/AccountDetailsContent.qml:611
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:590
+#: src/qml/details/AccountDetailsContent.qml:631
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -749,13 +764,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Νέος κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:645
+#: src/qml/details/AccountDetailsContent.qml:686
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Αποτυχία αλλαγής κωδικού πρόσβασης: % 1"
 
-#: src/qml/details/AccountDetailsContent.qml:651
+#: src/qml/details/AccountDetailsContent.qml:692
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -763,7 +778,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Ο κωδικός άλλαξε επιτυχώς"
 
-#: src/qml/details/AccountDetailsContent.qml:667
+#: src/qml/details/AccountDetailsContent.qml:708
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -771,7 +786,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Κωδικός πρόσβασης:"
 
-#: src/qml/details/AccountDetailsContent.qml:671
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -780,7 +795,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:675
+#: src/qml/details/AccountDetailsContent.qml:716
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't show password"
@@ -788,7 +803,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Να μην εμφανίζεται κωδικός πρόσβασης"
 
-#: src/qml/details/AccountDetailsContent.qml:677
+#: src/qml/details/AccountDetailsContent.qml:718
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -802,7 +817,7 @@ msgstr ""
 "Επιτρέψτε να προσθέσετε επιπλέον συσκευές χρησιμοποιώντας τον κωδικό QR "
 "σύνδεσης, αλλά ποτέ να μην εμφανίζεται ο κωδικός πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:727
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -810,7 +825,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Μην εκθέτετε τον κωδικό πρόσβασης με κανέναν τρόπο"
 
-#: src/qml/details/AccountDetailsContent.qml:688
+#: src/qml/details/AccountDetailsContent.qml:729
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -824,19 +839,19 @@ msgstr ""
 "Να μην επιτρέπεται η προσθήκη επιπλέον συσκευών χρησιμοποιώντας τον κωδικό "
 "QR σύνδεσης ούτε η εμφάνιση του κωδικού πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:751
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:755
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:771
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -844,46 +859,46 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:746
+#: src/qml/details/AccountDetailsContent.qml:787
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:837
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:852
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:834
+#: src/qml/details/AccountDetailsContent.qml:875
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:883
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:843
+#: src/qml/details/AccountDetailsContent.qml:884
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:851
-#: src/qml/details/AccountDetailsContent.qml:876
+#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:917
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:867
+#: src/qml/details/AccountDetailsContent.qml:908
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -891,7 +906,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:868
+#: src/qml/details/AccountDetailsContent.qml:909
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1168,6 +1183,11 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Νέος κωδικός πρόσβασης:"
 
+#: src/qml/details/ContactDetailsHeader.qml:25
+msgctxt "ContactDetailsHeader|"
+msgid "Messages in this chat are synchronized as notes across all your devices"
+msgstr ""
+
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
@@ -1235,7 +1255,7 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:284
+#: src/qml/elements/ChatMessage.qml:295
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1635,12 +1655,12 @@ msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:77
+#: src/qml/elements/RosterListItem.qml:82
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:79
+#: src/qml/elements/RosterListItem.qml:84
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -2487,6 +2507,11 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr ""
 
+#: src/RosterItem.cpp:22
+msgctxt "QObject|"
+msgid "Notes"
+msgstr ""
+
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
@@ -2521,7 +2546,7 @@ msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr ""
 
-#: src/RosterModel.cpp:843
+#: src/RosterModel.cpp:844
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

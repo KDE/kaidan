@@ -720,7 +720,22 @@ msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:527
+#: src/qml/details/AccountDetailsContent.qml:528
+msgctxt "AccountDetailsContent|"
+msgid "Notes"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:533
+msgctxt "AccountDetailsContent|"
+msgid "Add chat for notes"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:534
+msgctxt "AccountDetailsContent|"
+msgid "Add a chat for synchronizing your notes across all your devices"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:568
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -728,7 +743,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Senha:"
 
-#: src/qml/details/AccountDetailsContent.qml:531
+#: src/qml/details/AccountDetailsContent.qml:572
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -742,7 +757,7 @@ msgstr ""
 "Depois de mudar sua senha, você precisará digitá-la novamente em todos os "
 "seus outros dispositivos."
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:585
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -750,7 +765,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "A senha atual é inválida."
 
-#: src/qml/details/AccountDetailsContent.qml:545
+#: src/qml/details/AccountDetailsContent.qml:586
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -758,7 +773,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Senha atual:"
 
-#: src/qml/details/AccountDetailsContent.qml:546
+#: src/qml/details/AccountDetailsContent.qml:587
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -766,7 +781,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Senha atual:"
 
-#: src/qml/details/AccountDetailsContent.qml:568
+#: src/qml/details/AccountDetailsContent.qml:609
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -774,7 +789,7 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nova senha:"
 
-#: src/qml/details/AccountDetailsContent.qml:568
+#: src/qml/details/AccountDetailsContent.qml:609
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -782,7 +797,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Senha:"
 
-#: src/qml/details/AccountDetailsContent.qml:569
+#: src/qml/details/AccountDetailsContent.qml:610
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -790,12 +805,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Senha atual:"
 
-#: src/qml/details/AccountDetailsContent.qml:570
+#: src/qml/details/AccountDetailsContent.qml:611
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:590
+#: src/qml/details/AccountDetailsContent.qml:631
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -803,7 +818,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Alterar a senha"
 
-#: src/qml/details/AccountDetailsContent.qml:645
+#: src/qml/details/AccountDetailsContent.qml:686
 #, fuzzy, qt-format
 #| msgctxt "ChangePassword|"
 #| msgid "Failed to change password: %1"
@@ -811,7 +826,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Falhou ao alterar a senha: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:651
+#: src/qml/details/AccountDetailsContent.qml:692
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Password changed successfully"
@@ -819,7 +834,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Senha alterada com sucesso"
 
-#: src/qml/details/AccountDetailsContent.qml:667
+#: src/qml/details/AccountDetailsContent.qml:708
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -827,7 +842,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Security"
 msgstr "Senha:"
 
-#: src/qml/details/AccountDetailsContent.qml:671
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -836,7 +851,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:675
+#: src/qml/details/AccountDetailsContent.qml:716
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -844,7 +859,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Não mostrar senha como texto"
 
-#: src/qml/details/AccountDetailsContent.qml:677
+#: src/qml/details/AccountDetailsContent.qml:718
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -858,7 +873,7 @@ msgstr ""
 "Permitir adicionar novos dispositivos usando o código QR de acesso mas nunca "
 "expor a senha."
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:727
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -866,7 +881,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Não expor a senha de forma nenhuma"
 
-#: src/qml/details/AccountDetailsContent.qml:688
+#: src/qml/details/AccountDetailsContent.qml:729
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -880,7 +895,7 @@ msgstr ""
 "Nem permitir adicionar novos dispositivos usando o código QR de acesso nem "
 "expor a senha."
 
-#: src/qml/details/AccountDetailsContent.qml:710
+#: src/qml/details/AccountDetailsContent.qml:751
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -888,7 +903,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Conectar"
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:755
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -898,7 +913,7 @@ msgid ""
 "values)"
 msgstr "Configure o servidor e a porta para conexão"
 
-#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:771
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -906,7 +921,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Configurações de conexão"
 
-#: src/qml/details/AccountDetailsContent.qml:746
+#: src/qml/details/AccountDetailsContent.qml:787
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -914,7 +929,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Configurações de conexão alteradas"
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:837
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -922,7 +937,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Não foi possível alterar as configurações de conexão"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:852
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -930,7 +945,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Configurações de conexão alteradas"
 
-#: src/qml/details/AccountDetailsContent.qml:834
+#: src/qml/details/AccountDetailsContent.qml:875
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -938,7 +953,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Excluir"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:883
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -946,15 +961,15 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Excluir conta de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:843
+#: src/qml/details/AccountDetailsContent.qml:884
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:851
-#: src/qml/details/AccountDetailsContent.qml:876
+#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:917
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Configure"
@@ -962,7 +977,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Configure"
 
-#: src/qml/details/AccountDetailsContent.qml:867
+#: src/qml/details/AccountDetailsContent.qml:908
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -970,7 +985,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Excluir a conta por completo"
 
-#: src/qml/details/AccountDetailsContent.qml:868
+#: src/qml/details/AccountDetailsContent.qml:909
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1300,6 +1315,11 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Alterar a senha"
 
+#: src/qml/details/ContactDetailsHeader.qml:25
+msgctxt "ContactDetailsHeader|"
+msgid "Messages in this chat are synchronized as notes across all your devices"
+msgstr ""
+
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Media"
@@ -1376,7 +1396,7 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:284
+#: src/qml/elements/ChatMessage.qml:295
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1828,12 +1848,12 @@ msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:77
+#: src/qml/elements/RosterListItem.qml:82
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:79
+#: src/qml/elements/RosterListItem.qml:84
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -2764,6 +2784,11 @@ msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Geração do código QR falhou: %1"
 
+#: src/RosterItem.cpp:22
+msgctxt "QObject|"
+msgid "Notes"
+msgstr ""
+
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
@@ -2802,7 +2827,7 @@ msgctxt "RosterManager|"
 msgid "Disallowing %1 to see your status failed"
 msgstr ""
 
-#: src/RosterModel.cpp:843
+#: src/RosterModel.cpp:844
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
