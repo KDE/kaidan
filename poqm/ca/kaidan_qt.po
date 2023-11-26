@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-11-11 11:03+0100\n"
+"PO-Revision-Date: 2023-11-25 10:44+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -678,17 +678,19 @@ msgstr "Desbloqueja"
 #: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "Notes"
 
 #: src/qml/details/AccountDetailsContent.qml:533
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "Afegeix un xat per a les notes"
 
 #: src/qml/details/AccountDetailsContent.qml:534
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
+"Afegeix un xat per a sincronitzar les notes entre tots els vostres "
+"dispositius"
 
 #: src/qml/details/AccountDetailsContent.qml:568
 msgctxt "AccountDetailsContent|"
@@ -1136,6 +1138,8 @@ msgstr "Maximitza l'avatar"
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"Els missatges en aquest xat se sincronitzen com a notes entre tots els "
+"vostres dispositius"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
@@ -2438,7 +2442,7 @@ msgstr "Ha fallat en generar el codi QR: %1"
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Notes"
 
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"

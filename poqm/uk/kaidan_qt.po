@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-11 08:44+0200\n"
+"PO-Revision-Date: 2023-11-25 12:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -671,17 +671,17 @@ msgstr "Розблокувати"
 #: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "Нотатки"
 
 #: src/qml/details/AccountDetailsContent.qml:533
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "Додати спілкування для нотаток"
 
 #: src/qml/details/AccountDetailsContent.qml:534
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
-msgstr ""
+msgstr "Додати спілкування для синхронізації ваших нотаток на усіх пристроях"
 
 #: src/qml/details/AccountDetailsContent.qml:568
 msgctxt "AccountDetailsContent|"
@@ -1128,6 +1128,8 @@ msgstr "Максимізувати аватар"
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"Повідомлення у цьому спілкуванні буде синхронізовано як нотатки на усіх "
+"ваших пристроях"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
@@ -2431,7 +2433,7 @@ msgstr "Не вдалося створити QR-код: %1"
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Нотатки"
 
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
