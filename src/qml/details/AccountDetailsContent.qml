@@ -1064,6 +1064,15 @@ DetailsContent {
 				}
 				confirmationButton.onClicked: AccountManager.deleteAccountFromClientAndServer()
 				busyText: qsTr("Deleting account…")
+
+				Connections {
+					target: AccountManager
+
+					function onAccountDeletionFromClientAndServerFailed(errorMessage) {
+						accountDeletionButtonArea.busy = false
+						passiveNotification(qsTr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error));
+					}
+				}
 			}
 		}
 	}

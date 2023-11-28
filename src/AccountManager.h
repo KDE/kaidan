@@ -253,6 +253,7 @@ public:
 	 * @param error error of the failed account deletion
 	 */
 	void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
+	Q_SIGNAL void accountDeletionFromClientAndServerFailed(const QString &errorMessage);
 
 	bool handleConnected();
 	void handleDisconnected();

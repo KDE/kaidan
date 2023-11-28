@@ -378,7 +378,7 @@ void AccountManager::handleAccountDeletedFromServer()
 
 void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
 {
-	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
+	Q_EMIT accountDeletionFromClientAndServerFailed(error.text());
 
 	if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
 		m_deletionStates = DeletionState::NotToBeDeleted;
