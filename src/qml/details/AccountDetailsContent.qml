@@ -47,6 +47,7 @@ DetailsContent {
 		chatJid: ""
 	}
 	vCardArea.visible: true
+	vCardArea.enabled: accountRemovalArea.enabled
 	vCardContentArea: [
 		FormExpansionButton {
 			checked: vCardRepeater.model.unsetEntriesProcessed
@@ -212,6 +213,7 @@ DetailsContent {
 		}
 	}
 	rosterGoupListView {
+		enabled: accountRemovalArea.enabled
 		delegate: MobileForm.AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
@@ -302,7 +304,6 @@ DetailsContent {
 
 	MobileForm.FormCard {
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -369,8 +370,9 @@ DetailsContent {
 		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chosenChatSupport
 		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).chosenGroupChatSupport
 
-		Layout.fillWidth: true
 		visible: providerUrl.toString() || chatSupportList.length || groupChatSupportList.length
+		enabled: accountRemovalArea.enabled
+		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -488,6 +490,7 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
@@ -646,8 +649,8 @@ DetailsContent {
 	MobileForm.FormCard {
 		id: notesAdditionArea
 		visible: !RosterModel.hasItem(root.jid)
+		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -686,8 +689,8 @@ DetailsContent {
 
 	MobileForm.FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
+		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -823,7 +826,6 @@ DetailsContent {
 	MobileForm.FormCard {
 		visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -881,8 +883,8 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -1001,8 +1003,8 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -1030,63 +1032,37 @@ DetailsContent {
 
 	MobileForm.FormCard {
 		Layout.fillWidth: true
-
 		contentItem: ColumnLayout {
+			id: accountRemovalArea
 			spacing: 0
+			enabled: !accountRemovalButtonArea.busy && !accountDeletionButtonArea.busy
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Removal")
 			}
 
-			ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormButtonDelegate {
-					id: accountRemovalButton
+			ConfirmationFormButtonArea {
+				id: accountRemovalButtonArea
+				button {
 					text: qsTr("Remove from Kaidan")
 					description: qsTr("Remove account from this app. Back up your credentials and chat history if needed!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
-					onClicked: accountRemovalConfirmationButton.visible = !accountRemovalConfirmationButton.visible
 				}
-
-				MobileForm.FormButtonDelegate {
-					id: accountRemovalConfirmationButton
-					text: qsTr("Confirm")
-					visible: false
-					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
-					onClicked: {
-						visible = false
-						accountRemovalButton.enabled = false
-						AccountManager.deleteAccountFromClient()
-					}
-				}
+				confirmationButton.onClicked: AccountManager.deleteAccountFromClient()
+				busyText: qsTr("Removing account…")
 			}
 
-			ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormButtonDelegate {
-					id: accountDeletionButton
+			ConfirmationFormButtonArea {
+				id: accountDeletionButtonArea
+				button {
 					text: qsTr("Delete completely")
 					description: qsTr("Delete account from provider. You will not be able to use your account again!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
-					onClicked: accountDeletionConfirmationButton.visible = !accountDeletionConfirmationButton.visible
 				}
-
-				MobileForm.FormButtonDelegate {
-					id: accountDeletionConfirmationButton
-					text: qsTr("Confirm")
-					visible: false
-					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
-					onClicked: {
-						visible = false
-						accountRemovalButton.enabled = false
-						accountDeletionButton.enabled = false
-						AccountManager.deleteAccountFromClientAndServer()
-					}
-				}
+				confirmationButton.onClicked: AccountManager.deleteAccountFromClientAndServer()
+				busyText: qsTr("Deleting account…")
 			}
 		}
 	}
