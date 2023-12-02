@@ -713,7 +713,7 @@ DetailsContent {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
-				title: qsTr("Password Security")
+				title: qsTr("Password Visibility")
 			}
 
 			MobileForm.FormSectionText {
@@ -722,9 +722,17 @@ DetailsContent {
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Don't show password as text")
-				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
 				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
 				icon.name: "security-medium-symbolic"
+				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
+				onClicked: passwordRemovalFromQrCodeConfirmationButton.visible = !passwordRemovalFromQrCodeConfirmationButton.visible
+			}
+
+			MobileForm.FormButtonDelegate {
+				id: passwordRemovalFromQrCodeConfirmationButton
+				text: qsTr("Confirm")
+				visible: false
+				Layout.leftMargin: Kirigami.Units.smallSpacing * 7
 				onClicked: {
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
 					passwordField.initialize()
@@ -733,9 +741,17 @@ DetailsContent {
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Don't expose password in any way")
-				visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
 				icon.name: "security-high-symbolic"
+				visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
+				onClicked: passwordRemovalConfirmationButton.visible = !passwordRemovalConfirmationButton.visible
+			}
+
+			MobileForm.FormButtonDelegate {
+				id: passwordRemovalConfirmationButton
+				text: qsTr("Confirm")
+				visible: false
+				Layout.leftMargin: Kirigami.Units.smallSpacing * 7
 				onClicked: {
 					const oldPasswordVisibility = Kaidan.settings.passwordVisibility
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
