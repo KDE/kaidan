@@ -178,13 +178,12 @@ public:
 	 */
 	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
 
-signals:
 	/**
 	 * Emitted when a data form for registration is received from the server.
 	 *
 	 * @param dataFormModel received model for the registration data form
 	 */
-	void registrationFormReceived(DataFormModel *dataFormModel);
+	Q_SIGNAL void registrationFormReceived(DataFormModel *dataFormModel);
 
 	/**
 	 * Emitted when an out-of-band URL for registration is received from the
@@ -192,13 +191,13 @@ signals:
 	 *
 	 * @param outOfBandUrl URL used for out-of-band registration
 	 */
-	void registrationOutOfBandUrlReceived(const QString &outOfBandUrl);
+	Q_SIGNAL void registrationOutOfBandUrlReceived(const QString &outOfBandUrl);
 
 	/**
 	 * Emitted to request a registration form from the server which is set as the
 	 * currently used JID.
 	 */
-	void registrationFormRequested();
+	Q_SIGNAL void registrationFormRequested();
 
 	/**
 	 * Emitted when the account registration failed.
@@ -206,58 +205,58 @@ signals:
 	 * @param error received error
 	 * @param errorMessage message describing the error
 	 */
-	void registrationFailed(quint8 error, const QString &errorMessage);
+	Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
 
 	/**
 	 * Emitted to log in to the server with the set credentials.
 	 */
-	void logInRequested();
+	Q_SIGNAL void logInRequested();
 
 	/**
 	 * Emitted to log out of the server.
 	 *
 	 * @param isApplicationBeingClosed true if the application will be terminated directly after logging out, false otherwise
 	 */
-	void logOutRequested(bool isApplicationBeingClosed = false);
+	Q_SIGNAL void logOutRequested(bool isApplicationBeingClosed = false);
 
-	void avatarStorageChanged();
+	Q_SIGNAL void avatarStorageChanged();
 
 	/**
 	 * Emitted, when the client's connection state has changed (e.g. when
 	 * successfully connected or when disconnected)
 	 */
-	void connectionStateChanged();
+	Q_SIGNAL void connectionStateChanged();
 
 	/**
 	 * Emitted when the connection error changed.
 	 *
 	 * That is the case when the client failed to connect or it succeeded to connect after an error.
 	 */
-	void connectionErrorChanged();
+	Q_SIGNAL void connectionErrorChanged();
 
 	/**
 	 * Emitted when there are no (correct) credentials and new ones are needed.
 	 *
 	 * The client will be in disconnected state when this is emitted.
 	 */
-	void credentialsNeeded();
+	Q_SIGNAL void credentialsNeeded();
 
 	/**
 	 * Emitted when an authenticated connection to the server is established with new credentials for the first time.
 	 *
 	 * The client will be in connected state when this is emitted.
 	 */
-	void loggedInWithNewCredentials();
+	Q_SIGNAL void loggedInWithNewCredentials();
 
 	/**
 	 * Raises the window to the foreground so that it is on top of all other windows.
 	 */
-	void raiseWindowRequested();
+	Q_SIGNAL void raiseWindowRequested();
 
 	/**
 	 * Opens the view with the roster and empty chat page.
 	 */
-	void openChatViewRequested();
+	Q_SIGNAL void openChatViewRequested();
 
 	/**
 	 * Opens the chat page for a given chat.
@@ -265,58 +264,57 @@ signals:
 	 * @param accountJid JID of the account for that the chat page is opened
 	 * @param chatJid JID of the chat for that the chat page is opened
 	 */
-	void openChatPageRequested(const QString &accountJid, const QString &chatJid);
+	Q_SIGNAL void openChatPageRequested(const QString &accountJid, const QString &chatJid);
 
 	/**
 	 * Closes the chat page.
 	 */
-	void closeChatPageRequested();
+	Q_SIGNAL void closeChatPageRequested();
 
 	/**
 	 * Emitted when the removal state of the password on the account transfer page changed.
 	 */
-	void passwordVisibilityChanged();
+	Q_SIGNAL void passwordVisibilityChanged();
 
 	/**
 	 * Show passive notification
 	 */
-	void passiveNotificationRequested(QString text);
+	Q_SIGNAL void passiveNotificationRequested(QString text);
 
 	/**
 	 * XMPP URI received
 	 *
 	 * Is called when Kaidan was used to open an XMPP URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join')
 	 */
-	void xmppUriReceived(QString uri);
+	Q_SIGNAL void xmppUriReceived(QString uri);
 
 	/**
 	 * Emitted when changing of the user's password finished succfessully.
 	 */
-	void passwordChangeSucceeded();
+	Q_SIGNAL void passwordChangeSucceeded();
 
 	/**
 	 * Emitted when changing the user's password failed.
 	 *
 	 * @param errorMessage message describing the error
 	 */
-	void passwordChangeFailed(const QString &errorMessage);
+	Q_SIGNAL void passwordChangeFailed(const QString &errorMessage);
 
 	/**
 	 * Emitted when changing of the user's avatar finished succfessully.
 	 */
-	void avatarChangeSucceeded();
+	Q_SIGNAL void avatarChangeSucceeded();
 
 	/**
 	 * Deletes the account data from the client and server.
 	 */
-	void deleteAccountFromClientAndServer();
+	Q_SIGNAL void deleteAccountFromClientAndServer();
 
 	/**
 	 * Deletes the account data from the configuration file and database.
 	 */
-	void deleteAccountFromClient();
+	Q_SIGNAL void deleteAccountFromClient();
 
-public:
 	/**
 	 * Set current connection state
 	 */
