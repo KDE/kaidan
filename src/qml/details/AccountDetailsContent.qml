@@ -583,117 +583,121 @@ DetailsContent {
 				text: qsTr("Change your password. You need to enter the new password on all your other devices!")
 			}
 
-			MobileForm.AbstractFormDelegate {
-				background: Item {}
-				contentItem: ColumnLayout {
-					Component.onCompleted: {
-						passwordVerificationField.initialize()
-						passwordField.initialize()
-					}
-
-					PasswordField {
-						id: passwordVerificationField
-						labelText: qsTr("Current password")
-						placeholderText: qsTr("Enter your current password")
-						invalidHintText: qsTr("Enter correct password")
-						visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
-						enabled: !passwordBusyIndicator.visible
-						Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
-						onTextChanged: {
-							valid = text === AccountManager.password
-							toggleHintForInvalidText()
+			MobileForm.FormCard {
+				Layout.fillWidth: true
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				contentItem: MobileForm.AbstractFormDelegate {
+					background: Item {}
+					contentItem: ColumnLayout {
+						Component.onCompleted: {
+							passwordVerificationField.initialize()
+							passwordField.initialize()
 						}
-						inputField.onAccepted: passwordChangeButton.clicked()
-
-						function initialize() {
-							showPassword = false
-							invalidHintMayBeShown = false
-							text = ""
-						}
-					}
-
-					RowLayout {
-						id: passwordButtonFieldArea
 
 						PasswordField {
-							id: passwordField
-							labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
-							placeholderText: qsTr("Enter your new password")
-							invalidHintText: qsTr("Enter different password to change it")
-							invalidHintMayBeShown: true
+							id: passwordVerificationField
+							labelText: qsTr("Current password")
+							placeholderText: qsTr("Enter your current password")
+							invalidHintText: qsTr("Enter correct password")
+							visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
 							enabled: !passwordBusyIndicator.visible
+							Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
 							onTextChanged: {
-								valid = credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
+								valid = text === AccountManager.password
 								toggleHintForInvalidText()
 							}
 							inputField.onAccepted: passwordChangeButton.clicked()
 
 							function initialize() {
 								showPassword = false
-								text = Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible ? "" : AccountManager.password
-
-								// Avoid showing a hint on initial setting.
-								invalidHint.visible = false
+								invalidHintMayBeShown = false
+								text = ""
 							}
 						}
 
-						Button {
-							id: passwordChangeButton
-							Controls.ToolTip.text: qsTr("Change password")
-							icon.name: "emblem-ok-symbolic"
-							visible: !passwordBusyIndicator.visible
-							flat: !hovered
-							Layout.preferredWidth: Layout.preferredHeight
-							Layout.preferredHeight: passwordField.inputField.implicitHeight
-							Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
-							onClicked: {
-								if (passwordVerificationField.visible && !passwordVerificationField.valid) {
-									passwordVerificationField.forceActiveFocus()
-								} else if (!passwordField.valid) {
-									passwordField.forceActiveFocus()
-									passwordField.toggleHintForInvalidText()
-								} else {
-									passwordBusyIndicator.visible = true
-									Kaidan.client.registrationManager.changePasswordRequested(passwordField.text)
+						RowLayout {
+							id: passwordButtonFieldArea
+
+							PasswordField {
+								id: passwordField
+								labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
+								placeholderText: qsTr("Enter your new password")
+								invalidHintText: qsTr("Enter different password to change it")
+								invalidHintMayBeShown: true
+								enabled: !passwordBusyIndicator.visible
+								onTextChanged: {
+									valid = credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
+									toggleHintForInvalidText()
+								}
+								inputField.onAccepted: passwordChangeButton.clicked()
+
+								function initialize() {
+									showPassword = false
+									text = Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible ? "" : AccountManager.password
+
+									// Avoid showing a hint on initial setting.
+									invalidHint.visible = false
 								}
 							}
+
+							Button {
+								id: passwordChangeButton
+								Controls.ToolTip.text: qsTr("Change password")
+								icon.name: "emblem-ok-symbolic"
+								visible: !passwordBusyIndicator.visible
+								flat: !hovered
+								Layout.preferredWidth: Layout.preferredHeight
+								Layout.preferredHeight: passwordField.inputField.implicitHeight
+								Layout.alignment: passwordField.invalidHint.visible ? Qt.AlignVCenter : Qt.AlignBottom
+								onClicked: {
+									if (passwordVerificationField.visible && !passwordVerificationField.valid) {
+										passwordVerificationField.forceActiveFocus()
+									} else if (!passwordField.valid) {
+										passwordField.forceActiveFocus()
+										passwordField.toggleHintForInvalidText()
+									} else {
+										passwordBusyIndicator.visible = true
+										Kaidan.client.registrationManager.changePasswordRequested(passwordField.text)
+									}
+								}
+							}
+
+							Controls.BusyIndicator {
+								id: passwordBusyIndicator
+								visible: false
+								Layout.preferredWidth: passwordChangeButton.Layout.preferredWidth
+								Layout.preferredHeight: Layout.preferredWidth
+								Layout.alignment: passwordChangeButton.Layout.alignment
+							}
 						}
 
-						Controls.BusyIndicator {
-							id: passwordBusyIndicator
+						Controls.Label {
+							id: passwordChangeErrorMessage
 							visible: false
-							Layout.preferredWidth: passwordChangeButton.Layout.preferredWidth
-							Layout.preferredHeight: Layout.preferredWidth
-							Layout.alignment: passwordChangeButton.Layout.alignment
-						}
-					}
-
-					Controls.Label {
-						id: passwordChangeErrorMessage
-						visible: false
-						font.bold: true
-						wrapMode: Text.WordWrap
-						padding: 10
-						Layout.fillWidth: true
-						background: Rectangle {
-							color: Kirigami.Theme.negativeBackgroundColor
-							radius: roundedCornersRadius
-						}
-					}
-
-					Connections {
-						target: Kaidan
-
-						function onPasswordChangeFailed(errorMessage) {
-							passwordBusyIndicator.visible = false
-							passwordChangeErrorMessage.visible = true
-							passwordChangeErrorMessage.text = qsTr("Failed to change password: %1").arg(errorMessage)
+							font.bold: true
+							wrapMode: Text.WordWrap
+							padding: 10
+							Layout.fillWidth: true
+							background: Rectangle {
+								color: Kirigami.Theme.negativeBackgroundColor
+								radius: roundedCornersRadius
+							}
 						}
 
-						function onPasswordChangeSucceeded() {
-							passwordBusyIndicator.visible = false
-							passwordChangeErrorMessage.visible = false
-							passiveNotification(qsTr("Password changed successfully"))
+						Connections {
+							target: Kaidan
+
+							function onPasswordChangeFailed(errorMessage) {
+								passwordBusyIndicator.visible = false
+								passwordChangeErrorMessage.visible = true
+								passwordChangeErrorMessage.text = qsTr("Failed to change password: %1").arg(errorMessage)
+							}
+
+							function onPasswordChangeSucceeded() {
+								passwordBusyIndicator.visible = false
+								passwordChangeErrorMessage.visible = false
+								passiveNotification(qsTr("Password changed successfully"))
+							}
 						}
 					}
 				}
@@ -759,103 +763,107 @@ DetailsContent {
 				text: qsTr("Configure the hostname and port to connect to (empty fields for default values)")
 			}
 
-			MobileForm.AbstractFormDelegate {
-				background: Item {}
-				contentItem: ColumnLayout {
-					id: connectionSettings
+			MobileForm.FormCard {
+				Layout.fillWidth: true
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				contentItem: MobileForm.AbstractFormDelegate {
+					background: Item {}
+					contentItem: ColumnLayout {
+						id: connectionSettings
 
-					RowLayout {
-						CustomConnectionSettings {
-							id: customConnectionSettings
-							confirmationButton: connectionSettingsButton
-						}
+						RowLayout {
+							CustomConnectionSettings {
+								id: customConnectionSettings
+								confirmationButton: connectionSettingsButton
+							}
 
-						Button {
-							id: connectionSettingsButton
-							Controls.ToolTip.text: qsTr("Change connection settings")
-							icon.name: "emblem-ok-symbolic"
-							visible: !connectionSettingsBusyIndicator.visible
-							flat: !hovered
-							Layout.preferredWidth: Layout.preferredHeight
-							Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
-							Layout.alignment: Qt.AlignBottom
-							onClicked: {
-								if (customConnectionSettings.hostField.text === AccountManager.host && customConnectionSettings.portField.value === AccountManager.port) {
-									connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
-									connectionSettingsErrorMessage.visible = true
-								} else {
-									connectionSettingsBusyIndicator.visible = true
-
-									// Reset the error message in case of previous button clicking without changed entered settings.
-									if (Kaidan.connectionError === ClientWorker.NoError) {
-										connectionSettingsErrorMessage.visible = false
-									}
-
-									if (Kaidan.connectionState === Enums.StateDisconnected) {
-										connectionSettings.logIn()
+							Button {
+								id: connectionSettingsButton
+								Controls.ToolTip.text: qsTr("Change connection settings")
+								icon.name: "emblem-ok-symbolic"
+								visible: !connectionSettingsBusyIndicator.visible
+								flat: !hovered
+								Layout.preferredWidth: Layout.preferredHeight
+								Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
+								Layout.alignment: Qt.AlignBottom
+								onClicked: {
+									if (customConnectionSettings.hostField.text === AccountManager.host && customConnectionSettings.portField.value === AccountManager.port) {
+										connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
+										connectionSettingsErrorMessage.visible = true
 									} else {
-										Kaidan.logOut()
+										connectionSettingsBusyIndicator.visible = true
+
+										// Reset the error message in case of previous button clicking without changed entered settings.
+										if (Kaidan.connectionError === ClientWorker.NoError) {
+											connectionSettingsErrorMessage.visible = false
+										}
+
+										if (Kaidan.connectionState === Enums.StateDisconnected) {
+											connectionSettings.logIn()
+										} else {
+											Kaidan.logOut()
+										}
 									}
 								}
 							}
+
+							Controls.BusyIndicator {
+								id: connectionSettingsBusyIndicator
+								visible: false
+								Layout.preferredWidth: connectionSettingsButton.Layout.preferredWidth
+								Layout.preferredHeight: Layout.preferredWidth
+								Layout.alignment: connectionSettingsButton.Layout.alignment
+							}
 						}
 
-						Controls.BusyIndicator {
-							id: connectionSettingsBusyIndicator
+						Controls.Label {
+							id: connectionSettingsErrorMessage
 							visible: false
-							Layout.preferredWidth: connectionSettingsButton.Layout.preferredWidth
-							Layout.preferredHeight: Layout.preferredWidth
-							Layout.alignment: connectionSettingsButton.Layout.alignment
-						}
-					}
-
-					Controls.Label {
-						id: connectionSettingsErrorMessage
-						visible: false
-						font.bold: true
-						wrapMode: Text.WordWrap
-						padding: 10
-						Layout.fillWidth: true
-						background: Rectangle {
-							color: Kirigami.Theme.negativeBackgroundColor
-							radius: roundedCornersRadius
-						}
-					}
-
-					Connections {
-						target: Kaidan
-
-						function onConnectionErrorChanged() {
-							// Skip connection error changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
-							if (Kaidan.connectionError === ClientWorker.NoError) {
-								connectionSettingsErrorMessage.visible = false
-							} else {
-								connectionSettingsErrorMessage.visible = true
-								connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(Utils.connectionErrorMessage(Kaidan.connectionError))
+							font.bold: true
+							wrapMode: Text.WordWrap
+							padding: 10
+							Layout.fillWidth: true
+							background: Rectangle {
+								color: Kirigami.Theme.negativeBackgroundColor
+								radius: roundedCornersRadius
 							}
 						}
 
-						function onConnectionStateChanged() {
-							// Skip connection state changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
-							if (connectionSettingsBusyIndicator.visible) {
-								if (Kaidan.connectionState === Enums.StateDisconnected) {
-									if (Kaidan.connectionError === ClientWorker.NoError) {
-										connectionSettings.logIn()
-									} else {
+						Connections {
+							target: Kaidan
+
+							function onConnectionErrorChanged() {
+								// Skip connection error changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
+								if (Kaidan.connectionError === ClientWorker.NoError) {
+									connectionSettingsErrorMessage.visible = false
+								} else {
+									connectionSettingsErrorMessage.visible = true
+									connectionSettingsErrorMessage.text = qsTr("Connection settings could not be changed: %1").arg(Utils.connectionErrorMessage(Kaidan.connectionError))
+								}
+							}
+
+							function onConnectionStateChanged() {
+								// Skip connection state changes not invoked via connectionSettings by checking whether connectionSettingsBusyIndicator is visible.
+								if (connectionSettingsBusyIndicator.visible) {
+									if (Kaidan.connectionState === Enums.StateDisconnected) {
+										if (Kaidan.connectionError === ClientWorker.NoError) {
+											connectionSettings.logIn()
+										} else {
+											connectionSettingsBusyIndicator.visible = false
+										}
+									} else if (Kaidan.connectionState === Enums.StateConnected) {
 										connectionSettingsBusyIndicator.visible = false
+										passiveNotification(qsTr("Connection settings changed"))
 									}
-								} else if (Kaidan.connectionState === Enums.StateConnected) {
-									connectionSettingsBusyIndicator.visible = false
-									passiveNotification(qsTr("Connection settings changed"))
 								}
 							}
 						}
-					}
 
-					function logIn() {
-						AccountManager.host = customConnectionSettings.hostField.text
-						AccountManager.port = customConnectionSettings.portField.value
-						Kaidan.logIn()
+						function logIn() {
+							AccountManager.host = customConnectionSettings.hostField.text
+							AccountManager.port = customConnectionSettings.portField.value
+							Kaidan.logIn()
+						}
 					}
 				}
 			}
