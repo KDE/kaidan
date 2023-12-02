@@ -151,6 +151,11 @@ Controls.Control {
 		}
 
 		MobileForm.FormCard {
+			Layout.fillWidth: true
+			contentItem: root.encryptionArea
+		}
+
+		MobileForm.FormCard {
 			// Hide this if there are no items and no header.
 			visible: rosterGoupListView.count || rosterGoupListView.headerItem
 			Layout.fillWidth: true
@@ -178,11 +183,6 @@ Controls.Control {
 					}
 				}
 			}
-		}
-
-		MobileForm.FormCard {
-			Layout.fillWidth: true
-			contentItem: root.encryptionArea
 		}
 
 		MobileForm.FormCard {
