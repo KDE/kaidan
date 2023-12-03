@@ -170,7 +170,6 @@ void MessageComposition::send()
 
 				// send message with file sources
 				runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
-					qDebug() << "sending encrypted:" << message.files.first().encryptedSources.first().url;
 					Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
 				});
 			} else {
