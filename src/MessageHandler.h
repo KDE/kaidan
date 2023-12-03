@@ -64,6 +64,14 @@ private:
 	void handleConnected();
 	void handleRosterReceived();
 	void retrieveInitialMessages();
+
+	/**
+	 * Retrieves one message before offsetMessageId with a body or shared files.
+	 *
+	 * offsetMessageId must be "" instead of a default-consctructed string to retrieve the latest
+	 * message with the given JID
+	 */
+	void retrieveInitialMessage(const QString &jid, const QString &offsetMessageId = QLatin1String(""));
 	void retrieveCatchUpMessages(const QString &latestMessageStanzaId);
 	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 

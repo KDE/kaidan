@@ -312,53 +312,58 @@ void MessageHandler::handleRosterReceived()
 
 void MessageHandler::retrieveInitialMessages()
 {
-	using Mam = QXmppMamManager;
-
-	QXmppResultSetQuery queryLimit;
-	// load only one message per user (the rest can be loaded when needed)
-	queryLimit.setMax(1);
-	// query last (newest) first
-	queryLimit.setBefore("");
-
-	const auto bareJids = m_client->findExtension<QXmppRosterManager>()->getRosterBareJids();
-	if (bareJids.isEmpty()) {
+	const auto jids = m_client->findExtension<QXmppRosterManager>()->getRosterBareJids();
+	if (jids.isEmpty()) {
 		return;
 	}
 
 	// start database transaction if no queries are running and we are going to request messages
-	if (!m_runningInitialMessageQueries && !bareJids.empty()) {
+	if (!m_runningInitialMessageQueries && !jids.empty()) {
 		Kaidan::instance()->database()->startTransaction();
 	}
 
-	for (const auto &jid : bareJids) {
+	for (const auto &jid : jids) {
 		m_runningInitialMessageQueries++;
-
-		m_mamManager->retrieveMessages(
-			QString(),
-			QString(),
-			jid,
-			QDateTime(),
-			QDateTime(),
-			queryLimit).then(this, [this](auto result) {
-			m_runningInitialMessageQueries--;
-
-			// process received message
-			if (std::holds_alternative<typename Mam::RetrievedMessages>(result)) {
-				auto messages = std::get<typename Mam::RetrievedMessages>(std::move(result));
-
-				if (!messages.messages.empty()) {
-					// TODO: request other message if this message is empty (e.g. no body)
-					handleMessage(messages.messages.first(), MessageOrigin::MamInitial);
-				}
-			}
-			// do nothing on error
-
-			// commit database transaction when all queries have finished
-			if (!m_runningInitialMessageQueries) {
-				Kaidan::instance()->database()->commitTransaction();
-			}
-		});
+		retrieveInitialMessage(jid);
 	}
+}
+
+void MessageHandler::retrieveInitialMessage(const QString &jid, const QString &offsetMessageId)
+{
+	using Mam = QXmppMamManager;
+
+	QXmppResultSetQuery queryLimit;
+	queryLimit.setMax(1);
+	queryLimit.setBefore(offsetMessageId);
+
+	m_mamManager->retrieveMessages(
+		QString(),
+		QString(),
+		jid,
+		QDateTime(),
+		QDateTime(),
+		queryLimit).then(this, [this, jid](Mam::RetrieveResult result) {
+
+		// process received message
+		if (auto retrievedMessages = std::get_if<Mam::RetrievedMessages>(&result)) {
+			if (const auto messages = retrievedMessages->messages; !messages.empty()) {
+				const auto message = messages.constFirst();
+
+				if (message.body().isEmpty() && message.sharedFiles().isEmpty()) {
+					retrieveInitialMessage(jid, retrievedMessages->result.resultSetReply().first());
+					return;
+				}
+
+				handleMessage(message, MessageOrigin::MamInitial);
+			}
+		}
+		// do nothing on error
+
+		// commit database transaction when all queries have finished
+		if (!--m_runningInitialMessageQueries) {
+			Kaidan::instance()->database()->commitTransaction();
+		}
+	});
 }
 
 void MessageHandler::retrieveCatchUpMessages(const QString &latestMessageStanzaId)
@@ -448,8 +453,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	message.chatJid = message.isOwn() ? recipientJid : senderJid;
 
 	if (msg.state() != QXmppMessage::State::None) {
-		Q_EMIT MessageModel::instance()->handleChatStateRequested(
-				senderJid, msg.state());
+		Q_EMIT MessageModel::instance()->handleChatStateRequested(senderJid, msg.state());
 	}
 
 	if (handleReadMarker(msg, senderJid, recipientJid, message.isOwn())) {
