@@ -105,8 +105,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 					case AccountManager::AutomaticMediaDownloadsRule::Never:
 						return false;
 					case AccountManager::AutomaticMediaDownloadsRule::PresenceOnly:
-						return RosterModel::instance()->isPresenceSubscribedByItem(
-							message.accountJid, message.chatJid);
+						return message.isOwn() || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
 					case AccountManager::AutomaticMediaDownloadsRule::Always:
 						return true;
 					}
