@@ -88,22 +88,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "No s'ha pogut baixar el fitxer: %1"
 
-#: src/Kaidan.cpp:138
+#: src/Kaidan.cpp:140
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "En línia"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:142
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:144
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Fora de línia"
 
-#: src/Kaidan.cpp:182
+#: src/Kaidan.cpp:184
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
@@ -293,21 +293,21 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Mida desconeguda"
 
-#: src/MessageHandler.cpp:165
-#, qt-format
-msgctxt "MessageHandler|"
-msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
-
-#: src/MessageHandler.cpp:231
+#: src/MessageHandler.cpp:166
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correcció del missatge no ha anat bé"
 
-#: src/MessageHandler.cpp:291
+#: src/MessageHandler.cpp:218
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "No s'ha pogut enviar el missatge."
+
+#: src/MessageHandler.cpp:475
+#, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr "Aquest missatge està encriptat amb %1, però no s'ha pogut desencriptar"
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"

@@ -82,23 +82,23 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Ne successat trovar li action «%1»"
 
-#: src/Kaidan.cpp:138
+#: src/Kaidan.cpp:140
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "In li rete"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:142
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Conexente..."
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:144
 #, fuzzy
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Ne in li rete"
 
-#: src/Kaidan.cpp:182
+#: src/Kaidan.cpp:184
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr ""
@@ -300,23 +300,23 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Ínconosset grandore"
 
-#: src/MessageHandler.cpp:165
-#, fuzzy, qt-format
-msgctxt "MessageHandler|"
-msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "Ne successat importar %1, un duplicat missage"
-
-#: src/MessageHandler.cpp:231
+#: src/MessageHandler.cpp:166
 #, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Rapid copiation (sin correction de errores)"
 
-#: src/MessageHandler.cpp:291
+#: src/MessageHandler.cpp:218
 #, fuzzy
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Inviat"
+
+#: src/MessageHandler.cpp:475
+#, fuzzy, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr "Ne successat importar %1, un duplicat missage"
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"

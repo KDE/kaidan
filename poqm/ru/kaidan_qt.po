@@ -84,7 +84,7 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Не удалось сохранить файл: %1"
 
-#: src/Kaidan.cpp:138
+#: src/Kaidan.cpp:140
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -92,7 +92,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "В сети"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:142
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -100,7 +100,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Поключение…"
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:144
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -108,7 +108,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Не в сети"
 
-#: src/Kaidan.cpp:182
+#: src/Kaidan.cpp:184
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Ссылка будет открыта после подключения."
@@ -303,13 +303,7 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:165
-#, qt-format
-msgctxt "MessageHandler|"
-msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
-
-#: src/MessageHandler.cpp:231
+#: src/MessageHandler.cpp:166
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -317,10 +311,16 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Не удалось изменить сообщение."
 
-#: src/MessageHandler.cpp:291
+#: src/MessageHandler.cpp:218
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
+
+#: src/MessageHandler.cpp:475
+#, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr ""
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"

@@ -79,22 +79,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Не вдалося отримати файл: %1"
 
-#: src/Kaidan.cpp:138
+#: src/Kaidan.cpp:140
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "У мережі"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:142
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:144
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#: src/Kaidan.cpp:182
+#: src/Kaidan.cpp:184
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Посилання буде відкрито після встановлення з'єднання."
@@ -284,22 +284,22 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageHandler.cpp:165
+#: src/MessageHandler.cpp:166
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful"
+msgstr "Спроба виправити повідомлення зазнала невдачі"
+
+#: src/MessageHandler.cpp:218
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr "Повідомлення не вдалося надіслати."
+
+#: src/MessageHandler.cpp:475
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
-
-#: src/MessageHandler.cpp:231
-msgctxt "MessageHandler|"
-msgid "Message correction was not successful"
-msgstr "Спроба виправити повідомлення зазнала невдачі"
-
-#: src/MessageHandler.cpp:291
-msgctxt "MessageHandler|"
-msgid "Message could not be sent."
-msgstr "Повідомлення не вдалося надіслати."
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"

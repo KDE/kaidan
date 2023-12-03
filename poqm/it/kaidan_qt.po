@@ -76,22 +76,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Impossibile scaricare il file: %1."
 
-#: src/Kaidan.cpp:138
+#: src/Kaidan.cpp:140
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "In linea"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:142
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:144
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Non in linea"
 
-#: src/Kaidan.cpp:182
+#: src/Kaidan.cpp:184
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Il collegamento sarà aperto dopo la connessione."
@@ -281,21 +281,21 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Dimensione sconosciuta"
 
-#: src/MessageHandler.cpp:165
-#, qt-format
-msgctxt "MessageHandler|"
-msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "Questo messaggio è cifrato con %1 ma non può essere decifrato"
-
-#: src/MessageHandler.cpp:231
+#: src/MessageHandler.cpp:166
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "La correzione del messaggio non è riuscita"
 
-#: src/MessageHandler.cpp:291
+#: src/MessageHandler.cpp:218
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
+
+#: src/MessageHandler.cpp:475
+#, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr "Questo messaggio è cifrato con %1 ma non può essere decifrato"
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
