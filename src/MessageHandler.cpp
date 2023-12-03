@@ -92,6 +92,14 @@ QFuture<QXmpp::SendResult> MessageHandler::send(QXmppMessage &&message)
 	};
 
 	auto sendUnencrypted = [=, this]() mutable {
+		// Ensure that a message containing files but without a body is stored/archived via MAM by
+		// the server.
+		// That is not needed if the message is encrypted because that is handled by the
+		// corresponding encryption manager.
+		if (!message.sharedFiles().isEmpty() && message.body().isEmpty()) {
+			message.addHint(QXmppMessage::Store);
+		}
+
 		m_client->send(std::move(message)).then(this, [=](QXmpp::SendResult result) mutable {
 			reportFinishedResult(interface, result);
 		});
