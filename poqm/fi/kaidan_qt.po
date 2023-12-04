@@ -501,8 +501,8 @@ msgstr "Etsi"
 
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
-msgid "Send a spoiler message"
-msgstr "Lähetä vihjeviesti"
+msgid "Add hidden message part"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -529,32 +529,17 @@ msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Aseta arvo"
 
-#: src/qml/details/AccountDetailsContent.qml:142
-msgctxt "AccountDetailsContent|"
-msgid "Labels"
-msgstr "Nimiöt"
-
-#: src/qml/details/AccountDetailsContent.qml:177
-msgctxt "AccountDetailsContent|"
-msgid "Change label…"
-msgstr "Muuta nimiötä…"
-
-#: src/qml/details/AccountDetailsContent.qml:206
-msgctxt "AccountDetailsContent|"
-msgid "Remove label"
-msgstr "Poista nimiö"
-
-#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:143
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Salaus"
 
-#: src/qml/details/AccountDetailsContent.qml:245
+#: src/qml/details/AccountDetailsContent.qml:147
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:246
+#: src/qml/details/AccountDetailsContent.qml:148
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -563,78 +548,88 @@ msgstr ""
 "Päästä päähän -salaus OMEMO 2:lla varmistaa, ettei kukaan sinun ja "
 "keskustelukumppaniesi lisäksi voi lukea tai muuttaa välitettyä tietoa."
 
-#: src/qml/details/AccountDetailsContent.qml:265
-#: src/qml/details/AccountDetailsContent.qml:271
+#: src/qml/details/AccountDetailsContent.qml:167
+#: src/qml/details/AccountDetailsContent.qml:173
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "Lue <b>omien</b> laitteidesi QR-koodit viestien salaamiseksi niille"
 
-#: src/qml/details/AccountDetailsContent.qml:267
+#: src/qml/details/AccountDetailsContent.qml:169
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Sinun</b> muut laitteesi eivät käytä OMEMO 2:ta"
 
-#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:176
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Lue <b>omien</b> laitteidesi QR-koodit parasta tietoturvaa varten"
 
-#: src/qml/details/AccountDetailsContent.qml:335
+#: src/qml/details/AccountDetailsContent.qml:235
+msgctxt "AccountDetailsContent|"
+msgid "Change label…"
+msgstr "Muuta nimiötä…"
+
+#: src/qml/details/AccountDetailsContent.qml:264
+msgctxt "AccountDetailsContent|"
+msgid "Remove label"
+msgstr "Poista nimiö"
+
+#: src/qml/details/AccountDetailsContent.qml:306
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Palveluntarjoaja"
 
-#: src/qml/details/AccountDetailsContent.qml:339
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Käy sivustolla"
 
-#: src/qml/details/AccountDetailsContent.qml:340
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Avaa palveluntarjoajasi sivusto selaimeen"
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:317
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopioi verkkosivun osoite"
 
-#: src/qml/details/AccountDetailsContent.qml:347
+#: src/qml/details/AccountDetailsContent.qml:318
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Kopioi palveluntarjoajasi verkko-osoite leikepöydälle"
 
-#: src/qml/details/AccountDetailsContent.qml:351
+#: src/qml/details/AccountDetailsContent.qml:322
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Verkko-osoite kopioitu leikepöydälle"
 
-#: src/qml/details/AccountDetailsContent.qml:356
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Avaa tukikeskustelu"
 
-#: src/qml/details/AccountDetailsContent.qml:357
+#: src/qml/details/AccountDetailsContent.qml:328
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Aloita keskustelu palveluntarjoajasi tuen kanssa"
 
-#: src/qml/details/AccountDetailsContent.qml:363
+#: src/qml/details/AccountDetailsContent.qml:334
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Tuki"
 
-#: src/qml/details/AccountDetailsContent.qml:375
+#: src/qml/details/AccountDetailsContent.qml:346
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Avaa tukiryhmä"
 
-#: src/qml/details/AccountDetailsContent.qml:376
+#: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Liity palveluntarjoajasi julkiseen tukiryhmään"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:370
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -642,19 +637,19 @@ msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Keskustelun osoite"
 
-#: src/qml/details/AccountDetailsContent.qml:403
+#: src/qml/details/AccountDetailsContent.qml:374
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:422
+#: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:429
+#: src/qml/details/AccountDetailsContent.qml:400
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -662,7 +657,7 @@ msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "kayttaja@esimerkki.fi"
 
-#: src/qml/details/AccountDetailsContent.qml:444
+#: src/qml/details/AccountDetailsContent.qml:415
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -670,95 +665,106 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Kopioi keskusteluosoite"
 
-#: src/qml/details/AccountDetailsContent.qml:500
+#: src/qml/details/AccountDetailsContent.qml:483
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy chat address"
+msgctxt "AccountDetailsContent|"
+msgid "Change chat address…"
+msgstr "Kopioi keskusteluosoite"
+
+#: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:528
+#: src/qml/details/AccountDetailsContent.qml:539
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:533
+#: src/qml/details/AccountDetailsContent.qml:544
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:534
+#: src/qml/details/AccountDetailsContent.qml:545
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:568
+#: src/qml/details/AccountDetailsContent.qml:579
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Salasanan vaihto"
 
-#: src/qml/details/AccountDetailsContent.qml:572
+#: src/qml/details/AccountDetailsContent.qml:583
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr "Vaihda salasana. Uusi salasana on syötettävä kaikille laitteille!"
 
-#: src/qml/details/AccountDetailsContent.qml:585
+#: src/qml/details/AccountDetailsContent.qml:599
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Nykyinen salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:586
+#: src/qml/details/AccountDetailsContent.qml:600
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Anna nykyinen salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:587
+#: src/qml/details/AccountDetailsContent.qml:601
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Anna oikea salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:609
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Uusi salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:609
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:610
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Anna uusi salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:611
+#: src/qml/details/AccountDetailsContent.qml:625
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Anna eri salasana vaihtaaksesi sen"
 
-#: src/qml/details/AccountDetailsContent.qml:631
+#: src/qml/details/AccountDetailsContent.qml:645
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Vaihda salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:686
+#: src/qml/details/AccountDetailsContent.qml:693
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Salasanan vaihtaminen epäonnistui: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:692
+#: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Salasanan vaihto onnistui"
 
-#: src/qml/details/AccountDetailsContent.qml:708
+#: src/qml/details/AccountDetailsContent.qml:716
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
-msgid "Password Security"
+msgid "Password Visibility"
 msgstr "Salasanan tietoturva"
 
-#: src/qml/details/AccountDetailsContent.qml:712
+#: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -771,12 +777,12 @@ msgstr ""
 "käyttää tiliä toiselta laitteelta, <b>harkitse salasanan tallettamista "
 "muualle. Tätä ei voi kumota!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:724
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Älä näytä salasanaa tekstinä"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:725
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -785,12 +791,20 @@ msgstr ""
 "Anna lisätä laitteita kirjautumisen QR-koodilla mutta älä koskaan näytä "
 "salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:727
+#: src/qml/details/AccountDetailsContent.qml:733
+#: src/qml/details/AccountDetailsContent.qml:752
+#: src/qml/details/AccountDetailsContent.qml:913
+#: src/qml/details/AccountDetailsContent.qml:938
+msgctxt "AccountDetailsContent|"
+msgid "Confirm"
+msgstr "Vahvista"
+
+#: src/qml/details/AccountDetailsContent.qml:743
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Älä mitenkään paljasta salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:729
+#: src/qml/details/AccountDetailsContent.qml:744
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -798,12 +812,12 @@ msgid ""
 msgstr ""
 "Älä anna lisätä laitteita kirjautumisen QR-koodilla äläkä näytä salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:751
+#: src/qml/details/AccountDetailsContent.qml:775
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Yhteys"
 
-#: src/qml/details/AccountDetailsContent.qml:755
+#: src/qml/details/AccountDetailsContent.qml:779
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -811,38 +825,38 @@ msgid ""
 msgstr ""
 "Aseta palvelinnimi ja -portti, johon yhdistetään (oletusarvo = tyhjä kenttä)"
 
-#: src/qml/details/AccountDetailsContent.qml:771
+#: src/qml/details/AccountDetailsContent.qml:798
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Muuta yhteysasetuksia"
 
-#: src/qml/details/AccountDetailsContent.qml:787
+#: src/qml/details/AccountDetailsContent.qml:807
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Anna eri yhteysasetukset muuttaaksesi niitä"
 
-#: src/qml/details/AccountDetailsContent.qml:837
+#: src/qml/details/AccountDetailsContent.qml:857
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Yhteysasetuksia ei voitu muuttaa: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:852
+#: src/qml/details/AccountDetailsContent.qml:872
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Yhteysasetukset ovat muuttuneet"
 
-#: src/qml/details/AccountDetailsContent.qml:875
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
-#: src/qml/details/AccountDetailsContent.qml:883
+#: src/qml/details/AccountDetailsContent.qml:904
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Poista Kaidanista"
 
-#: src/qml/details/AccountDetailsContent.qml:884
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -851,18 +865,12 @@ msgstr ""
 "Poista tili tältä laitteelta. Varmuuskopioi tarvittaessa todennustiedot ja "
 "keskusteluhistoria!"
 
-#: src/qml/details/AccountDetailsContent.qml:892
-#: src/qml/details/AccountDetailsContent.qml:917
-msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Vahvista"
-
-#: src/qml/details/AccountDetailsContent.qml:908
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Poista kokonaan"
 
-#: src/qml/details/AccountDetailsContent.qml:909
+#: src/qml/details/AccountDetailsContent.qml:930
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -916,32 +924,17 @@ msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:81
-msgctxt "ContactDetailsContent|"
-msgid "Labels"
-msgstr "Nimiöt"
-
-#: src/qml/details/ContactDetailsContent.qml:99
-msgctxt "ContactDetailsContent|"
-msgid "New label"
-msgstr "Uusi nimiö"
-
-#: src/qml/details/ContactDetailsContent.qml:113
-msgctxt "ContactDetailsContent|"
-msgid "Add label"
-msgstr "Lisää nimiö"
-
-#: src/qml/details/ContactDetailsContent.qml:210
+#: src/qml/details/ContactDetailsContent.qml:88
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Salaus"
 
-#: src/qml/details/ContactDetailsContent.qml:214
+#: src/qml/details/ContactDetailsContent.qml:92
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:215
+#: src/qml/details/ContactDetailsContent.qml:93
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -950,167 +943,177 @@ msgstr ""
 "Päästä päähän -salaus OMEMO 2:lla varmistaa, ettei kukaan sinun ja "
 "keskustelukumppaniesi lisäksi voi lukea tai muuttaa välitettyä tietoa."
 
-#: src/qml/details/ContactDetailsContent.qml:227
-#: src/qml/details/ContactDetailsContent.qml:235
+#: src/qml/details/ContactDetailsContent.qml:105
+#: src/qml/details/ContactDetailsContent.qml:113
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgstr "Lue <b>omien</b> laitteidesi QR-koodit viestien salaamiseksi niille"
 
-#: src/qml/details/ContactDetailsContent.qml:229
+#: src/qml/details/ContactDetailsContent.qml:107
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Sinun</b> muut laitteesi eivät käytä OMEMO 2:ta"
 
-#: src/qml/details/ContactDetailsContent.qml:231
+#: src/qml/details/ContactDetailsContent.qml:109
 msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "<b>Sinulla</b> ei ole muita OMEMO 2:ta tukevia laitteita"
 
-#: src/qml/details/ContactDetailsContent.qml:238
+#: src/qml/details/ContactDetailsContent.qml:116
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgstr "Lue <b>omien</b> laitteidesi QR-koodit parasta tietoturvaa varten"
 
-#: src/qml/details/ContactDetailsContent.qml:280
+#: src/qml/details/ContactDetailsContent.qml:158
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgstr "Lue <b>yhteystietosi</b> QR-koodi salauksen käyttöönottoa varten"
 
-#: src/qml/details/ContactDetailsContent.qml:283
+#: src/qml/details/ContactDetailsContent.qml:161
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "<b>Yhteystietosi</b> ei käytä OMEMO 2:ta"
 
-#: src/qml/details/ContactDetailsContent.qml:286
+#: src/qml/details/ContactDetailsContent.qml:164
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgstr ""
 "Lue <b>yhteystietosi</b> laitteiden QR-koodit salataksesi viestisi heille"
 
-#: src/qml/details/ContactDetailsContent.qml:289
+#: src/qml/details/ContactDetailsContent.qml:167
 msgctxt "ContactDetailsContent|"
 msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgstr "Lue <b>yhteystietosi</b> QR-koodi parasta tietoturvaa varten"
 
-#: src/qml/details/ContactDetailsContent.qml:343
+#: src/qml/details/ContactDetailsContent.qml:205
+msgctxt "ContactDetailsContent|"
+msgid "New label"
+msgstr "Uusi nimiö"
+
+#: src/qml/details/ContactDetailsContent.qml:219
+msgctxt "ContactDetailsContent|"
+msgid "Add label"
+msgstr "Lisää nimiö"
+
+#: src/qml/details/ContactDetailsContent.qml:321
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
 msgstr "Jakaminen"
 
-#: src/qml/details/ContactDetailsContent.qml:347
+#: src/qml/details/ContactDetailsContent.qml:325
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
 msgstr "Näytä QR-koodi"
 
-#: src/qml/details/ContactDetailsContent.qml:348
+#: src/qml/details/ContactDetailsContent.qml:326
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Jaa tämän yhteystiedon osoite QR-koodina"
 
-#: src/qml/details/ContactDetailsContent.qml:354
+#: src/qml/details/ContactDetailsContent.qml:332
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopioi keskusteluosoite"
 
-#: src/qml/details/ContactDetailsContent.qml:355
+#: src/qml/details/ContactDetailsContent.qml:333
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Jaa tämän yhteystiedon osoite tekstinä"
 
-#: src/qml/details/ContactDetailsContent.qml:359
+#: src/qml/details/ContactDetailsContent.qml:337
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Yhteystieto kopioitu leikepöydälle"
 
-#: src/qml/details/ContactDetailsContent.qml:372
+#: src/qml/details/ContactDetailsContent.qml:350
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
-#: src/qml/details/ContactDetailsContent.qml:376
+#: src/qml/details/ContactDetailsContent.qml:354
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Saapuvat viestit"
 
-#: src/qml/details/ContactDetailsContent.qml:377
+#: src/qml/details/ContactDetailsContent.qml:355
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Näytä viestin saapuessa ilmoitus ja soita merkkiääni"
 
-#: src/qml/details/ContactDetailsContent.qml:396
+#: src/qml/details/ContactDetailsContent.qml:374
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Yksityisyys"
 
-#: src/qml/details/ContactDetailsContent.qml:400
+#: src/qml/details/ContactDetailsContent.qml:378
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr "Pyydä tilaa"
 
-#: src/qml/details/ContactDetailsContent.qml:401
+#: src/qml/details/ContactDetailsContent.qml:379
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 "Pyydä yhteyskumppanin läsnäolo-, laite- ja muita henkilökohtaisia tietoja"
 
-#: src/qml/details/ContactDetailsContent.qml:407
+#: src/qml/details/ContactDetailsContent.qml:385
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr "Lähetä tila"
 
-#: src/qml/details/ContactDetailsContent.qml:408
+#: src/qml/details/ContactDetailsContent.qml:386
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr "Tarjoa läsnäolo-, laite- ja muita henkilökohtaisia tietoja"
 
-#: src/qml/details/ContactDetailsContent.qml:421
+#: src/qml/details/ContactDetailsContent.qml:399
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Näytä ilmoitus kirjoittamisesta"
 
-#: src/qml/details/ContactDetailsContent.qml:422
+#: src/qml/details/ContactDetailsContent.qml:400
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 "Osoita, kun keskustelu on auki, joku kirjoittaa tai keskeyttää kirjoittamisen"
 
-#: src/qml/details/ContactDetailsContent.qml:433
+#: src/qml/details/ContactDetailsContent.qml:411
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Lähetä lukuilmoitukset"
 
-#: src/qml/details/ContactDetailsContent.qml:434
+#: src/qml/details/ContactDetailsContent.qml:412
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Osoita, mitkä viestit olet lukenut"
 
-#: src/qml/details/ContactDetailsContent.qml:445
+#: src/qml/details/ContactDetailsContent.qml:423
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:446
+#: src/qml/details/ContactDetailsContent.qml:424
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:472
+#: src/qml/details/ContactDetailsContent.qml:450
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
-#: src/qml/details/ContactDetailsContent.qml:480
+#: src/qml/details/ContactDetailsContent.qml:458
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/qml/details/ContactDetailsContent.qml:481
+#: src/qml/details/ContactDetailsContent.qml:459
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Poista yhteystieto keskusteluhistorioineen"
 
-#: src/qml/details/ContactDetailsContent.qml:489
+#: src/qml/details/ContactDetailsContent.qml:467
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Vahvista"
@@ -1143,17 +1146,25 @@ msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Rekisteröidy automaattisesti"
 
-#: src/qml/details/DetailsContent.qml:141
+#: src/qml/details/DetailsContent.qml:143
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profiili"
 
-#: src/qml/details/DetailsContent.qml:168
+#: src/qml/details/DetailsContent.qml:169
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Labels"
+msgctxt "DetailsContent|"
+msgid "Labels"
+msgstr "Nimiöt"
+
+#: src/qml/details/DetailsContent.qml:195
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Yhdistetyt laitteet"
 
-#: src/qml/details/DetailsHeader.qml:85
+#: src/qml/details/DetailsHeader.qml:87
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Muuta nimeä…"
@@ -1252,65 +1263,81 @@ msgstr "Etsi alaspäin"
 
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
-msgid "Spoiler hint"
-msgstr "Vihje"
+msgid "Visible message part"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
-msgid "Close spoiler hint field"
-msgstr "Sulje vihjekenttä"
+msgid "Cancel adding hidden message part"
+msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:113
+#: src/qml/elements/ChatPageSendingPane.qml:115
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose <b>encrypted</b> message"
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>encrypted </b> message with hidden part"
+msgstr "Kirjoita <b>salattu</b> viesti"
+
+#: src/qml/elements/ChatPageSendingPane.qml:115
+#, fuzzy
+#| msgctxt "ChatPageSendingPane|"
+#| msgid "Compose <b>unencrypted</b> message"
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>unencrypted</b> message with hidden part"
+msgstr "Kirjoita <b>salaamaton</b> viesti"
+
+#: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Kirjoita <b>salattu</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:113
+#: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Kirjoita <b>salaamaton</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:225
+#: src/qml/elements/ChatPageSendingPane.qml:231
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/elements/ChatPageSendingPane.qml:281
+#: src/qml/elements/ChatPageSendingPane.qml:287
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Ota kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:282
+#: src/qml/elements/ChatPageSendingPane.qml:288
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Ota kameralla kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:293
+#: src/qml/elements/ChatPageSendingPane.qml:299
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Nauhoita video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:300
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Nauhoita kameralla video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:305
+#: src/qml/elements/ChatPageSendingPane.qml:311
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Jaa tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:306
+#: src/qml/elements/ChatPageSendingPane.qml:312
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Jaa laitteelta tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:317
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Jaa sijainti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:318
+#: src/qml/elements/ChatPageSendingPane.qml:324
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Lähetä sijaintisi"
@@ -1574,7 +1601,7 @@ msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr "Minä:"
 
-#: src/qml/elements/RosterListItem.qml:84
+#: src/qml/elements/RosterListItem.qml:85
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -1696,47 +1723,47 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Aloita viestiminen valitsemalla keskustelu"
 
-#: src/qml/GlobalDrawer.qml:49
+#: src/qml/GlobalDrawer.qml:59
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Tilit"
 
-#: src/qml/GlobalDrawer.qml:112
+#: src/qml/GlobalDrawer.qml:122
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Toiminnot"
 
-#: src/qml/GlobalDrawer.qml:116
+#: src/qml/GlobalDrawer.qml:126
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lisää yhteystieto QR-koodilla"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:132
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Lisää yhteystieto keskusteluosoitteella"
 
-#: src/qml/GlobalDrawer.qml:132
+#: src/qml/GlobalDrawer.qml:139
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Etsi julkisia ryhmiä"
 
-#: src/qml/GlobalDrawer.qml:146
+#: src/qml/GlobalDrawer.qml:150
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Kutsu kavereita"
 
-#: src/qml/GlobalDrawer.qml:150
+#: src/qml/GlobalDrawer.qml:154
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Kutsulinkki kopioitu leikepöydälle"
 
-#: src/qml/GlobalDrawer.qml:155
+#: src/qml/GlobalDrawer.qml:159
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Vaihda laitetta"
 
-#: src/qml/GlobalDrawer.qml:164
+#: src/qml/GlobalDrawer.qml:165
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Asetukset"
@@ -2494,6 +2521,22 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "ChatPage|"
+#~ msgid "Send a spoiler message"
+#~ msgstr "Lähetä vihjeviesti"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Labels"
+#~ msgstr "Nimiöt"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Spoiler hint"
+#~ msgstr "Vihje"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Close spoiler hint field"
+#~ msgstr "Sulje vihjekenttä"
 
 #~ msgctxt "ChatMessage|"
 #~ msgid "Download"
