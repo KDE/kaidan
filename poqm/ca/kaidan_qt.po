@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2023-11-25 10:44+0100\n"
+"PO-Revision-Date: 2023-12-04 11:15+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -505,7 +505,7 @@ msgstr "Cerca"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Afegeix una part oculta del missatge"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -666,12 +666,9 @@ msgid "Block chat address"
 msgstr "Bloqueja l'adreça de xat"
 
 #: src/qml/details/AccountDetailsContent.qml:483
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Copia l'adreça de xat"
+msgstr "Canvia l'adreça de xat"
 
 #: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
@@ -761,12 +758,9 @@ msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
 #: src/qml/details/AccountDetailsContent.qml:716
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "Seguretat de la contrasenya"
+msgstr "Visibilitat de la contrasenya"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1165,9 +1159,6 @@ msgid "Profile"
 msgstr "Perfil"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etiquetes"
@@ -1277,28 +1268,22 @@ msgstr "Cerca avall"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Part visible del missatge"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Cancel·la l'addició d'una part oculta del missatge"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "Redacta un missatge <b>encriptat</b>"
+msgstr "Redacta un missatge <b>encriptat</b> amb una part oculta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "Redacta un missatge <b>sense encriptar</b>"
+msgstr "Redacta un missatge <b>sense encriptar</b> amb una part oculta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
@@ -2542,19 +2527,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatPage|"
-#~ msgid "Send a spoiler message"
-#~ msgstr "Envia un missatge d'espòiler"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Labels"
-#~ msgstr "Etiquetes"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Spoiler hint"
-#~ msgstr "Consell d'espòiler"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Close spoiler hint field"
-#~ msgstr "Tanca el camp de consell d'espòiler"

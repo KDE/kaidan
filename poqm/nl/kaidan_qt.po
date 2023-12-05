@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-25 14:22+0100\n"
+"PO-Revision-Date: 2023-12-04 11:52+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -495,7 +495,7 @@ msgstr "Zoeken"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Verborgen deel van bericht toevoegen"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -652,12 +652,9 @@ msgid "Block chat address"
 msgstr "Chatadres blokkeren"
 
 #: src/qml/details/AccountDetailsContent.qml:483
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Chatadres kopiëren"
+msgstr "Chatadres wijzigen…"
 
 #: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
@@ -746,12 +743,9 @@ msgid "Password changed successfully"
 msgstr "Wachtwoord is met succes gewijzigd"
 
 #: src/qml/details/AccountDetailsContent.qml:716
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "Veiligheid van wachtwoord"
+msgstr "Zichtbaarheid van wachtwoord"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1148,9 +1142,6 @@ msgid "Profile"
 msgstr "Profiel"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Labels"
@@ -1260,28 +1251,22 @@ msgstr "Naar beneden zoeken"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Zichtbare deel van bericht"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Toevoegen van verborgen deel van bericht annuleren"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "<b>Versleuteld</b> bericht opstellen"
+msgstr "<b>Versleuteld</b> bericht met verborgen deel opstellen"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "<b>Niet-versleuteld</b> bericht opstellen"
+msgstr "<b>Niet-versleuteld</b> bericht met verborgen deel opstellen"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"

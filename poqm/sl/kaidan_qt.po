@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-02 09:01+0100\n"
+"PO-Revision-Date: 2023-12-04 21:36+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Poedit 3.4.1\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -498,7 +498,7 @@ msgstr "Iskanje"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Dodajte skriti del sporočila"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -658,12 +658,9 @@ msgid "Block chat address"
 msgstr "Blokiraj naslov klepeta"
 
 #: src/qml/details/AccountDetailsContent.qml:483
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Kopiraj naslov klepeta"
+msgstr "Spremeni naslov klepeta…"
 
 #: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
@@ -751,12 +748,9 @@ msgid "Password changed successfully"
 msgstr "Geslo uspešno spremenjeno"
 
 #: src/qml/details/AccountDetailsContent.qml:716
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "Varnost gesla"
+msgstr "Vidnost gesla"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1148,9 +1142,6 @@ msgid "Profile"
 msgstr "Profil"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Oznake"
@@ -1260,28 +1251,22 @@ msgstr "Išči navzdol"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Vidni del sporočila"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Prekliči dodajanje skritega dela sporočila"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "Sestavi <b>šifrirano</b> sporočilo"
+msgstr "Sestavi <b>šifrirano</b> sporočilo s skritim delom"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "Sestavi <b>nešifrirano</b>sporočilo"
+msgstr "Sestavi <b>nešifrirano</b>sporočilo s skritim delom"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
