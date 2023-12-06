@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-12 10:49+0100\n"
+"PO-Revision-Date: 2023-12-05 06:22+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 23.08.3\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -493,7 +493,7 @@ msgstr "Cerca"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Aggiungi parte nascosta del messaggio"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -654,12 +654,9 @@ msgid "Block chat address"
 msgstr "Blocca indirizzo di chat"
 
 #: src/qml/details/AccountDetailsContent.qml:483
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Copia indirizzo di chat"
+msgstr "Cambia indirizzo della di chat..."
 
 #: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
@@ -669,17 +666,18 @@ msgstr "Sblocca"
 #: src/qml/details/AccountDetailsContent.qml:539
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #: src/qml/details/AccountDetailsContent.qml:544
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "Aggiungi chat per le note"
 
 #: src/qml/details/AccountDetailsContent.qml:545
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
+"Aggiungi una chat per sincronizzare le tue note su tutti i tuoi dispositivi"
 
 #: src/qml/details/AccountDetailsContent.qml:579
 msgctxt "AccountDetailsContent|"
@@ -747,12 +745,9 @@ msgid "Password changed successfully"
 msgstr "Password modificata correttamente"
 
 #: src/qml/details/AccountDetailsContent.qml:716
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "Sicurezza della password"
+msgstr "Visibilità della password"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1130,6 +1125,8 @@ msgstr "Massimizza l'avatar"
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"I messaggi in questa chat sono sincronizzati come note su tutti i tuoi "
+"dispositivi"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
@@ -1152,9 +1149,6 @@ msgid "Profile"
 msgstr "Profilo"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etichette"
@@ -1264,28 +1258,22 @@ msgstr "Cerca in giù"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Parte visibile del messaggio"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Annulla l'aggiunta della parte nascosta del messaggio"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "Componi messaggio <b>cifrato</b>"
+msgstr "Componi messaggio <b>cifrato</b> con parte nascosta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "Componi messaggio <b>non cifrato</b>"
+msgstr "Componi messaggio <b>non cifrato</b> con parte nascosta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
@@ -2457,7 +2445,7 @@ msgstr "Generazione del codice QR non riuscita: %1"
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #: src/RosterManager.cpp:131
 msgctxt "RosterManager|"
