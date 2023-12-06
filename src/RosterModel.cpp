@@ -115,21 +115,23 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return {};
 	}
 
+	const auto &item = m_items.at(index.row());
+
 	switch (role) {
 	case AccountJidRole:
-		return m_items.at(index.row()).accountJid;
+		return item.accountJid;
 	case JidRole:
-		return m_items.at(index.row()).jid;
+		return item.jid;
 	case NameRole:
-		return m_items.at(index.row()).displayName();
+		return item.displayName();
 	case GroupsRole:
-		return QVariant::fromValue(m_items.at(index.row()).groups);
+		return QVariant::fromValue(item.groups);
 	case LastMessageDateTimeRole: {
 		// "lastMessageDateTime" is used for sorting the roster items.
 		// Thus, each new item has the current date as its default value.
 		// But that date should only be displayed when there is a last (exchanged or draft) message.
-		if (const auto &item = m_items.at(index.row()); !item.lastMessage.isEmpty() || item.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
-			return formatLastMessageDateTime(m_items.at(index.row()).lastMessageDateTime);
+		if (!item.lastMessage.isEmpty() || item.lastMessageDeliveryState == Enums::DeliveryState::Draft) {
+			return formatLastMessageDateTime(item.lastMessageDateTime);
 		}
 
 		// The user interface needs a valid string.
@@ -137,17 +139,17 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return QString();
 	}
 	case UnreadMessagesRole:
-		return m_items.at(index.row()).unreadMessages;
+		return item.unreadMessages;
 	case LastMessageRole:
-		return m_items.at(index.row()).lastMessage;
+		return item.lastMessage;
 	case LastMessageIsDraftRole:
-		return m_items.at(index.row()).lastMessageDeliveryState == Enums::DeliveryState::Draft;
+		return item.lastMessageDeliveryState == Enums::DeliveryState::Draft;
 	case LastMessageSenderIdRole:
-		return m_items.at(index.row()).lastMessageSenderId;
+		return item.lastMessageSenderId;
 	case PinnedRole:
-		return m_items.at(index.row()).pinningPosition >= 0;
+		return item.pinningPosition >= 0;
 	case NotificationsMutedRole:
-		return m_items.at(index.row()).notificationsMuted;
+		return item.notificationsMuted;
 	}
 	return {};
 }
