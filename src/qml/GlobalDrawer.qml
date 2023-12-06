@@ -33,9 +33,9 @@ Kirigami.GlobalDrawer {
 	}
 
 	Component {
-		id: accountTransferPage
+		id: deviceSwitchingPage
 
-		AccountTransferPage {}
+		DeviceSwitchingPage {}
 	}
 
 	Component {
@@ -158,7 +158,7 @@ Kirigami.GlobalDrawer {
 					MobileForm.FormButtonDelegate {
 						text: qsTr("Switch device")
 						icon.name: "send-to-symbolic"
-						onClicked: openPageFromGlobalDrawer(accountTransferPage)
+						onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
 					}
 
 					MobileForm.FormButtonDelegate {
