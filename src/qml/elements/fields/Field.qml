@@ -71,15 +71,6 @@ ColumnLayout {
 				}
 			}
 		}
-
-		// icon for an invalid input
-		Kirigami.Icon {
-			id: invalidIcon
-			visible: invalidHint.visible
-			source: "dialog-error-symbolic"
-			width: Kirigami.Units.iconSizes.smallMedium
-			height: width
-		}
 	}
 
 	// hint for entering a valid input
