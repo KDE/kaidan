@@ -494,7 +494,7 @@ msgstr "ძებნა"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "დამალული შეტყობინების ნაწილის დამატება"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -656,12 +656,9 @@ msgid "Block chat address"
 msgstr "ჩატის მისამართის დაბლოკვა"
 
 #: src/qml/details/AccountDetailsContent.qml:483
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "ჩატის მისამართის კოპირება"
+msgstr "ჩატის მისამართის შეცვლა…"
 
 #: src/qml/details/AccountDetailsContent.qml:512
 msgctxt "AccountDetailsContent|"
@@ -750,12 +747,9 @@ msgid "Password changed successfully"
 msgstr "პაროლი წარმატებით შეიცვალა"
 
 #: src/qml/details/AccountDetailsContent.qml:716
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "პაროლის უსაფრთხოება"
+msgstr "პაროლის ხილვადობა"
 
 #: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
@@ -1146,9 +1140,6 @@ msgid "Profile"
 msgstr "პროფილი"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "ჭდეები"
@@ -1258,28 +1249,22 @@ msgstr "დაბლა ძებნა"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "ხილული შეტყობინების ნაწილი"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "დამალული შეტყობინების ნაწილის დამატების გაუქმება"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა"
+msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა დამალული ნაწილით"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა"
+msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა დამალული ნაწილით"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
