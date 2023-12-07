@@ -159,28 +159,24 @@ Controls.Control {
 			// Hide this if there are no items and no header.
 			visible: rosterGoupListView.count || rosterGoupListView.headerItem
 			Layout.fillWidth: true
+
 			contentItem: ColumnLayout {
-				MobileForm.FormCard {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Labels")
+				}
+
+				ListView {
+					id: rosterGoupListView
+					model: RosterModel.groups
+					visible: rosterGroupExpansionButton.checked
+					implicitHeight: contentHeight
 					Layout.fillWidth: true
-					contentItem: ColumnLayout {
-						spacing: 0
+				}
 
-						MobileForm.FormCardHeader {
-							title: qsTr("Labels")
-						}
-
-						ListView {
-							id: rosterGoupListView
-							model: RosterModel.groups
-							visible: rosterGroupExpansionButton.checked
-							implicitHeight: contentHeight
-							Layout.fillWidth: true
-						}
-
-						FormExpansionButton {
-							id: rosterGroupExpansionButton
-						}
-					}
+				FormExpansionButton {
+					id: rosterGroupExpansionButton
 				}
 			}
 		}
