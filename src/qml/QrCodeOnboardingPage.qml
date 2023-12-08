@@ -52,6 +52,7 @@ ExplanationTogglePage {
 
 	content: QrCodeScanner {
 		id: scanner
+		cornersRounded: false
 		anchors.fill: parent
 
 		LoadingArea {

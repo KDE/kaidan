@@ -37,7 +37,6 @@ ExplanationTogglePage {
 			Kaidan.settings.qrCodePageExplanationVisible = false
 
 			if (!scanner.cameraEnabled) {
-				scanner.camera.start()
 				scanner.cameraEnabled = true
 			}
 		}
@@ -203,7 +202,6 @@ ExplanationTogglePage {
 
 	Component.onCompleted: {
 		if (!Kaidan.settings.qrCodePageExplanationVisible) {
-			scanner.camera.start()
 			scanner.cameraEnabled = true
 		}
 	}
