@@ -292,25 +292,6 @@ DetailsContent {
 		}
 	}
 
-	Kirigami.Dialog {
-		id: qrCodeDialog
-		z: 1000
-		preferredWidth: 500
-		standardButtons: Kirigami.Dialog.NoButton
-		showCloseButton: false
-
-		ColumnLayout {
-			QrCode {
-				jid: root.jid
-				Layout.fillHeight: true
-				Layout.fillWidth: true
-				Layout.preferredWidth: 500
-				Layout.preferredHeight: 500
-				Layout.maximumHeight: applicationWindow().height * 0.5
-			}
-		}
-	}
-
 	MobileForm.FormCard {
 		Layout.fillWidth: true
 
@@ -325,7 +306,27 @@ DetailsContent {
 				text: qsTr("Show QR code")
 				description: qsTr("Share this contact's chat address via QR code")
 				icon.name: "view-barcode-qr"
-				onClicked: qrCodeDialog.open()
+				// TODO: If possible, scroll down to show whole QR code
+				onClicked: qrCodeArea.visible = !qrCodeArea.visible
+			}
+
+			MobileForm.AbstractFormDelegate {
+				id: qrCodeArea
+				visible: false
+				background: Rectangle {
+					color: secondaryBackgroundColor
+				}
+				contentItem: QrCode {
+					jid: root.jid
+					Layout.fillHeight: true
+					Layout.fillWidth: true
+					Layout.preferredWidth: parent.width
+					Layout.preferredHeight: Layout.preferredWidth
+				}
+				Layout.fillHeight: true
+				Layout.fillWidth: true
+				Layout.preferredWidth: parent.width
+				Layout.preferredHeight: Layout.preferredWidth
 			}
 
 			MobileForm.FormButtonDelegate {
