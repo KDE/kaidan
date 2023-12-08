@@ -104,7 +104,7 @@ Kirigami.GlobalDrawer {
 								Layout.fillWidth: true
 								background: Rectangle {
 									color: Kirigami.Theme.negativeBackgroundColor
-									radius: roundedCornersRadius
+									radius: relativeRoundedCornersRadius(width, height)
 								}
 							}
 						}

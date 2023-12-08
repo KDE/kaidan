@@ -23,7 +23,7 @@ Controls.Button {
 	width: smallButtonWidth
 	hoverEnabled: true
 	background: Rectangle {
-		radius: roundedCornersRadius
+		radius: relativeRoundedCornersRadius(width, height)
 		color: {
 			if (root.hovered) {
 				return Qt.tint(root.primaryColor, Qt.rgba(root.accentColor.r, root.accentColor.g, root.accentColor.b, 0.1))

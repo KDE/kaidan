@@ -680,7 +680,7 @@ DetailsContent {
 							Layout.fillWidth: true
 							background: Rectangle {
 								color: Kirigami.Theme.negativeBackgroundColor
-								radius: roundedCornersRadius
+								radius: relativeRoundedCornersRadius(width, height)
 							}
 						}
 
@@ -841,7 +841,7 @@ DetailsContent {
 							Layout.fillWidth: true
 							background: Rectangle {
 								color: Kirigami.Theme.negativeBackgroundColor
-								radius: roundedCornersRadius
+								radius: relativeRoundedCornersRadius(width, height)
 							}
 						}
 

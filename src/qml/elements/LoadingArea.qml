@@ -17,7 +17,7 @@ Item {
 		id: background
 		anchors.fill: content
 		anchors.margins: -8
-		radius: roundedCornersRadius
+		radius: relativeRoundedCornersRadius(width, height)
 		color: primaryBackgroundColor
 		opacity: 0.9
 	}

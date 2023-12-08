@@ -118,6 +118,17 @@ Kirigami.ApplicationWindow {
 	onWideScreenChanged: showRosterPageForNarrowWindow()
 
 	/**
+	 * Returns a radius used for rectangles with rounded corners that is relative to the
+	 * rectangle's dimensions.
+	 *
+	 * @param width width of the rectangle
+	 * @param height height of the rectangle
+	 */
+	function relativeRoundedCornersRadius(width, height) {
+		return Math.sqrt(width < height ? width : height)
+	}
+
+	/**
 	 * Shows a passive notification for a long period.
 	 */
 	function passiveNotification(text) {

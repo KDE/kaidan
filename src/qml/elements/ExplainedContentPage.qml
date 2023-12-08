@@ -64,7 +64,7 @@ Kirigami.Page {
 		z: 1
 		anchors.fill: overlay
 		anchors.margins: -8
-		radius: roundedCornersRadius
+		radius: relativeRoundedCornersRadius(width, height)
 		color: Kirigami.Theme.backgroundColor
 		opacity: 0.90
 		visible: explanationArea.visible

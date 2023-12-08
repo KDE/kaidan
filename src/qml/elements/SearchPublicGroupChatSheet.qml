@@ -186,7 +186,7 @@ Kirigami.OverlaySheet {
 
 				// background of errorArea
 				Rectangle {
-					radius: roundedCornersRadius
+					radius: relativeRoundedCornersRadius(width, height)
 					color: Kirigami.Theme.backgroundColor
 					opacity: 0.9
 
