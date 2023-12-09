@@ -11,6 +11,7 @@
 #include "AvatarFileStorage.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
+#include "Notifications.h"
 #include "OmemoManager.h"
 #include "RosterModel.h"
 #include "Settings.h"
@@ -29,8 +30,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	  m_vCardManager(clientWorker->vCardManager()),
 	  m_manager(client->findExtension<QXmppRosterManager>())
 {
-	connect(m_manager, &QXmppRosterManager::rosterReceived,
-	        this, &RosterManager::populateRoster);
+	connect(m_manager, &QXmppRosterManager::rosterReceived, this, &RosterManager::populateRoster);
 
 	connect(m_manager, &QXmppRosterManager::itemAdded,
 		this, [this](const QString &jid) {
@@ -69,23 +69,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		m_clientWorker->omemoManager()->removeContactDevices(jid);
 	});
 
-	connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived,
-	        this, [](const QString &subscriberBareJid, const QXmppPresence &presence) {
-		Q_EMIT RosterModel::instance()->subscriptionRequestReceived(subscriberBareJid, presence.statusText());
-	});
-	connect(this, &RosterManager::answerSubscriptionRequestRequested,
-	        this, [this](QString jid, bool accepted) {
-		if (accepted) {
-			m_manager->acceptSubscription(jid);
-
-			// do not send a subscription request if both users have already subscribed
-			// each others presence
-			if (m_manager->getRosterEntry(jid).subscriptionType() != QXmppRosterIq::Item::Both)
-				m_manager->subscribe(jid);
-		} else {
-			m_manager->refuseSubscription(jid);
-		}
-	});
+	connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived, this, &RosterManager::handleSubscriptionRequest);
 
 	// user actions
 	connect(this, &RosterManager::addContactRequested, this, &RosterManager::addContact);
@@ -102,6 +86,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 void RosterManager::populateRoster()
 {
 	qDebug() << "[client] [RosterManager] Populating roster";
+
 	// create a new list of contacts
 	QHash<QString, RosterItem> items;
 	const QStringList bareJids = m_manager->getRosterBareJids();
@@ -115,10 +100,53 @@ void RosterManager::populateRoster()
 		if (m_avatarStorage->getHashOfJid(jid).isEmpty() && m_client->state() == QXmppClient::ConnectedState) {
 			m_vCardManager->requestVCard(jid);
 		}
+
+		// Remove subscription requests from JIDs that are in the roster.
+		m_unprocessedSubscriptions.remove(jid);
 	}
 
 	// replace current contacts with new ones from server
 	Q_EMIT RosterModel::instance()->replaceItemsRequested(items);
+
+	// Process subscription requests that were received before the roster was received.
+	for (auto itr = m_unprocessedSubscriptions.begin(); itr != m_unprocessedSubscriptions.end();) {
+		processSubscriptionRequest(itr.key(), itr.value());
+		itr = m_unprocessedSubscriptions.erase(itr);
+	}
+}
+
+void RosterManager::handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &presence)
+{
+	const auto requestText = presence.statusText();
+
+	if (m_manager->isRosterReceived()) {
+		if (!m_manager->getRosterBareJids().contains(subscriberJid)) {
+			processSubscriptionRequest(subscriberJid, requestText);
+		}
+	} else {
+		m_unprocessedSubscriptions.insert(subscriberJid, requestText);
+	}
+}
+
+void RosterManager::processSubscriptionRequest(const QString &subscriberJid, const QString &requestText)
+{
+	addContact(subscriberJid);
+
+	const auto accountJid = m_client->configuration().jidBare();
+
+	Message message;
+	message.accountJid = accountJid;
+	message.chatJid = subscriberJid;
+	message.senderId = subscriberJid;
+	message.body = requestText;
+
+	if (!requestText.isEmpty()) {
+		MessageDb::instance()->addMessage(message, MessageOrigin::Stream);
+	} else {
+		runOnThread(Notifications::instance(), [accountJid, subscriberJid]() {
+			Notifications::instance()->sendMessageNotification(accountJid, subscriberJid, {}, tr("New contact"));
+		});
+	}
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &msg)

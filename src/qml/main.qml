@@ -69,11 +69,6 @@ Kirigami.ApplicationWindow {
 		id: contextDrawer
 	}
 
-
-	SubRequestAcceptSheet {
-		id: subReqAcceptSheet
-	}
-
 	// Needed to be outside of the DetailsSheet to not be destroyed with it.
 	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
 	BlockingAction {
@@ -243,18 +238,6 @@ Kirigami.ApplicationWindow {
 
 		function onOpenChatViewRequested() {
 			openChatView()
-		}
-	}
-
-	Connections {
-		target: RosterModel
-
-		function onSubscriptionRequestReceived(from, msg) {
-			Kaidan.client.vCardManager.vCardRequested(from)
-
-			subReqAcceptSheet.from = from
-
-			subReqAcceptSheet.open()
 		}
 	}
 

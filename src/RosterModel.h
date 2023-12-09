@@ -161,11 +161,6 @@ signals:
 	 */
 	void removeItemsRequested(const QString &accountJid, const QString &jid = {});
 
-	/**
-	 * Emitted, whan a subscription request was received
-	 */
-	void subscriptionRequestReceived(const QString &from, const QString &msg);
-
 private:
 	void handleItemsFetched(const QVector<RosterItem> &items);
 
