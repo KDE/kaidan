@@ -13,11 +13,10 @@ Item {
 	property alias background: background
 	property alias description: description.text
 
-	Rectangle {
+	RoundedRectangle {
 		id: background
 		anchors.fill: content
 		anchors.margins: -8
-		radius: relativeRoundedCornersRadius(width, height)
 		color: primaryBackgroundColor
 		opacity: 0.9
 	}

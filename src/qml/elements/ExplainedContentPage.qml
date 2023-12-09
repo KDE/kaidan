@@ -60,13 +60,12 @@ Kirigami.Page {
 	}
 
 	// background of overlay
-	Rectangle {
+	RoundedRectangle {
 		z: 1
 		anchors.fill: overlay
 		anchors.margins: -8
-		radius: relativeRoundedCornersRadius(width, height)
 		color: Kirigami.Theme.backgroundColor
-		opacity: 0.90
+		opacity: 0.9
 		visible: explanationArea.visible
 	}
 

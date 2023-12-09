@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/qml">
-        <file>DeviceSwitchingPage.qml</file>
         <file>ChatPage.qml</file>
         <file>ChatPageBase.qml</file>
+        <file>DeviceSwitchingPage.qml</file>
         <file>EmptyChatPage.qml</file>
         <file>GlobalDrawer.qml</file>
         <file>LoginPage.qml</file>
@@ -77,6 +77,8 @@
         <file>elements/RosterFilteringArea.qml</file>
         <file>elements/RosterListItem.qml</file>
         <file>elements/RosterListItemContextMenu.qml</file>
+        <file>elements/RoundedRectangle.qml</file>
+        <file>elements/ScalableText.qml</file>
         <file>elements/SearchBarPage.qml</file>
         <file>elements/SearchBarPageSearchField.qml</file>
         <file>elements/SearchPublicGroupChatSheet.qml</file>
@@ -121,6 +123,5 @@
         <file>settings/SettingsPage.qml</file>
         <file>settings/SettingsPageBase.qml</file>
         <file>settings/SettingsSheet.qml</file>
-        <file>elements/ScalableText.qml</file>
     </qresource>
 </RCC>

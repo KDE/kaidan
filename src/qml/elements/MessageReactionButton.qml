@@ -22,8 +22,7 @@ Controls.Button {
 	height: Kirigami.Theme.defaultFont.pixelSize * 2.1
 	width: smallButtonWidth
 	hoverEnabled: true
-	background: Rectangle {
-		radius: relativeRoundedCornersRadius(width, height)
+	background: RoundedRectangle {
 		color: {
 			if (root.hovered) {
 				return Qt.tint(root.primaryColor, Qt.rgba(root.accentColor.r, root.accentColor.g, root.accentColor.b, 0.1))

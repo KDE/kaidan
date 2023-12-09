@@ -97,11 +97,10 @@ Rectangle {
 							width: thumbnailIcon.paintedWidth
 							height: thumbnailIcon.paintedHeight
 
-							Rectangle {
+							RoundedRectangle {
 								anchors.centerIn: parent
 								width: Math.min(thumbnailIcon.width, thumbnailIcon.height)
 								height: width
-								radius: relativeRoundedCornersRadius(width, height)
 							}
 						}
 					}

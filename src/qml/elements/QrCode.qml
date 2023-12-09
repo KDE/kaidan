@@ -20,13 +20,12 @@ import im.kaidan.kaidan 1.0
  * If a JID is provided, that JID is used for the URI.
  * Otherwise, the own JID is used.
  */
-Rectangle {
+RoundedRectangle {
 	property bool isForLogin: false
 	property string jid
 
 	border.color: "white"
 	border.width: radius * 0.3
-	radius: relativeRoundedCornersRadius(width, height)
 
 	Kirigami.Icon {
 		anchors.fill: parent

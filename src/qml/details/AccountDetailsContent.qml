@@ -678,9 +678,8 @@ DetailsContent {
 							wrapMode: Text.WordWrap
 							padding: 10
 							Layout.fillWidth: true
-							background: Rectangle {
+							background: RoundedRectangle {
 								color: Kirigami.Theme.negativeBackgroundColor
-								radius: relativeRoundedCornersRadius(width, height)
 							}
 						}
 
@@ -839,9 +838,8 @@ DetailsContent {
 							wrapMode: Text.WordWrap
 							padding: 10
 							Layout.fillWidth: true
-							background: Rectangle {
+							background: RoundedRectangle {
 								color: Kirigami.Theme.negativeBackgroundColor
-								radius: relativeRoundedCornersRadius(width, height)
 							}
 						}
 
