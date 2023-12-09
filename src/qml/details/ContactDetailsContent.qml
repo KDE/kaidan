@@ -365,14 +365,14 @@ DetailsContent {
 			}
 
 			MobileForm.FormButtonDelegate {
-				text: qsTr("Request status")
-				description: qsTr("Request contact's availability, devices and other personal information")
+				text: qsTr("Request personal data")
+				description: qsTr("Ask your contact to share the availability, devices and other personal information")
 				visible: !contactWatcher.item.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
 			}
 
 			MobileForm.FormSwitchDelegate {
-				text: qsTr("Send status")
+				text: qsTr("Share personal data")
 				description: qsTr("Provide your availability, devices and other personal information")
 				checked: contactWatcher.item.receivingPresence
 				visible: !isChatWithOneself

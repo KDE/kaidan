@@ -26,7 +26,7 @@ DetailsContent {
 				value: AccountManager.AutomaticMediaDownloadsRule.Never
 			},
 			{
-				display: qsTr("Only when status is sent"),
+				display: qsTr("If personal data is shared"),
 				value: AccountManager.AutomaticMediaDownloadsRule.PresenceOnly
 			},
 			{
