@@ -80,7 +80,7 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Não foi possível salvar arquivo: %1"
 
-#: src/Kaidan.cpp:140
+#: src/Kaidan.cpp:139
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -88,7 +88,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Online"
 
-#: src/Kaidan.cpp:142
+#: src/Kaidan.cpp:141
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -96,7 +96,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Conectando…"
 
-#: src/Kaidan.cpp:144
+#: src/Kaidan.cpp:143
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -104,7 +104,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
 
-#: src/Kaidan.cpp:184
+#: src/Kaidan.cpp:183
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "O link será aberto depois que você tiver conectado."
@@ -286,7 +286,7 @@ msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:182
+#: src/MessageComposition.cpp:181
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -294,12 +294,12 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Download falhou: %1"
 
-#: src/MessageComposition.cpp:302
+#: src/MessageComposition.cpp:301
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageHandler.cpp:166
+#: src/MessageHandler.cpp:174
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful."
@@ -307,12 +307,12 @@ msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível a correção da mensagem."
 
-#: src/MessageHandler.cpp:218
+#: src/MessageHandler.cpp:226
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageHandler.cpp:475
+#: src/MessageHandler.cpp:487
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
