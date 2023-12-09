@@ -28,24 +28,33 @@ GridLayout {
 	Layout.rightMargin: Layout.leftMargin
 
 	Avatar {
+		id: avatar
 		jid: root.jid
 		name: root.displayName
 		Layout.alignment: Qt.AlignHCenter
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 8
 		Layout.preferredWidth: Layout.preferredHeight
 
-		// TODO: Make icon also visible when the cursor is on it directly after opening this page
 		MouseArea {
 			anchors.fill: parent
-			hoverEnabled: true
 			cursorShape: Qt.PointingHandCursor
 			visible: avatarAction.enabled
-			onEntered: {
-				avatarActionHoverImage.visible = true
-				avatarHoverFadeInAnimation.start()
+			hoverEnabled: true
+			onHoveredChanged: {
+				if (containsMouse) {
+					avatarHoverFadeInAnimation.start()
+				} else {
+					avatarHoverFadeOutAnimation.start()
+				}
 			}
 			onExited: avatarHoverFadeOutAnimation.start()
 			onClicked: root.avatarAction.triggered()
+
+			Rectangle {
+				anchors.fill: parent
+				color: Kirigami.Theme.backgroundColor
+				opacity: avatar.source.toString().length ? avatarActionHoverImage.opacity * 0.5 : 0
+			}
 
 			Kirigami.Icon {
 				id: avatarActionHoverImage
@@ -54,20 +63,18 @@ GridLayout {
 				width: parent.width / 2
 				height: width
 				anchors.centerIn: parent
-				opacity: 0
-				visible: false
 
 				NumberAnimation on opacity {
-					id: avatarHoverFadeInAnimation
-					from: 0
-					to: 0.8
+					id: avatarHoverFadeOutAnimation
+					from: avatar.source.toString().length? 1 : 0.8
+					to: 0
 					duration: 250
 				}
 
 				NumberAnimation on opacity {
-					id: avatarHoverFadeOutAnimation
-					from: 0.8
-					to: 0
+					id: avatarHoverFadeInAnimation
+					from: 0
+					to: avatar.source.toString().length ? 1 : 0.8
 					duration: 250
 				}
 			}
