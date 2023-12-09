@@ -138,7 +138,6 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
 void RosterManager::removeContact(const QString &jid)
 {
 	if (m_client->state() == QXmppClient::ConnectedState) {
-		m_manager->unsubscribe(jid);
 		m_manager->removeItem(jid);
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
