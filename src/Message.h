@@ -181,7 +181,7 @@ public:
 	QString originId;
 	QString stanzaId;
 	QString replaceId;
-	QDateTime timestamp;
+	QDateTime timestamp = QDateTime::currentDateTimeUtc();
 	QString body;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
