@@ -133,7 +133,7 @@ Controls.Control {
 		}
 
 		MobileForm.FormCard {
-			visible: vCardRepeater.count
+			visible: vCardRepeater.count || vCardRepeater.model.jid === AccountManager.jid
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				id: vCardArea

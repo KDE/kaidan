@@ -48,14 +48,12 @@ DetailsContent {
 			jid: root.jid
 		}
 		delegate: MobileForm.AbstractFormDelegate {
-			id: vCardDelegate
 			background: Item {}
 			contentItem: ColumnLayout {
 				Controls.Label {
 					text: Utils.formatMessage(model.value)
 					textFormat: Text.StyledText
 					wrapMode: Text.WordWrap
-					visible: !vCardDelegate.editMode
 					Layout.fillWidth: true
 					onLinkActivated: Qt.openUrlExternally(link)
 				}

@@ -47,7 +47,6 @@ DetailsContent {
 	}
 	vCardArea: [
 		FormExpansionButton {
-			id: vCardExpansionButton
 			checked: vCardRepeater.model.unsetEntriesProcessed
 			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
 		}
