@@ -47,24 +47,15 @@ DetailsContent {
 		model: VCardModel {
 			jid: root.jid
 		}
-		delegate: MobileForm.AbstractFormDelegate {
-			background: Item {}
-			contentItem: ColumnLayout {
-				Controls.Label {
-					text: Utils.formatMessage(model.value)
-					textFormat: Text.StyledText
-					wrapMode: Text.WordWrap
-					Layout.fillWidth: true
-					onLinkActivated: Qt.openUrlExternally(link)
-				}
-
-				Controls.Label {
-					text: model.key
-					color: Kirigami.Theme.disabledTextColor
-					font: Kirigami.Theme.smallFont
-					textFormat: Text.PlainText
-					wrapMode: Text.WordWrap
-					Layout.fillWidth: true
+		delegate: MobileForm.FormButtonDelegate {
+			text: model.value
+			description: model.key
+			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
+			onClicked: {
+				if (model.uriScheme === "mailto") {
+					Qt.openUrlExternally(model.uriScheme + ":" + model.value)
+				} else if (model.uriScheme === "http") {
+					Qt.openUrlExternally(model.value)
 				}
 			}
 		}

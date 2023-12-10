@@ -20,13 +20,15 @@ class VCardModel : public QAbstractListModel
 public:
 	enum Roles {
 		Key,
-		Value
+		Value,
+		UriScheme,
 	};
 
 	struct Item {
 		QString name;
 		std::function<QString(const QXmppVCardIq *)> value;
 		std::function<void(QXmppVCardIq *, const QString &)> setValue;
+		QString uriScheme = {};
 	};
 
 	explicit VCardModel(QObject *parent = nullptr);
