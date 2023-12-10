@@ -246,6 +246,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<RosterManager*>();
 	qRegisterMetaType<Message>();
 	qRegisterMetaType<MessageModel*>();
+	qRegisterMetaType<ChatHintModel*>();
 	qRegisterMetaType<MessageHandler*>();
 	qRegisterMetaType<DiscoveryManager*>();
 	qRegisterMetaType<VCardManager*>();
@@ -444,7 +445,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
-	qmlRegisterType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel");
 	qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
 	qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
 
@@ -497,6 +497,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	});
 	qmlRegisterSingletonType<MessageModel>(APPLICATION_ID, 1, 0, "MessageModel", [](QQmlEngine *, QJSEngine *) {
 		return static_cast<QObject *>(MessageModel::instance());
+	});
+	qmlRegisterSingletonType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel", [](QQmlEngine *, QJSEngine *) {
+		return static_cast<QObject *>(ChatHintModel::instance());
 	});
 	qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
 		static auto self = new HostCompletionModel(qApp);

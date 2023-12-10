@@ -16,6 +16,7 @@
 class AccountManager;
 class AtmManager;
 class AvatarFileStorage;
+class ChatHintModel;
 class Database;
 class DiscoveryManager;
 class LogHandler;
@@ -80,6 +81,7 @@ public:
 		PresenceCache *presenceCache;
 		MessageModel *msgModel;
 		RosterModel *rosterModel;
+		ChatHintModel *chatHintModel;
 		OmemoCache *omemoCache;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;

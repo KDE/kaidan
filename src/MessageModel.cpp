@@ -394,6 +394,11 @@ bool MessageModel::isChatCurrentChat(const QString &accountJid, const QString &c
 	return accountJid == m_currentAccountJid && chatJid == m_currentChatJid;
 }
 
+const RosterItemWatcher &MessageModel::rosterItemWatcher() const
+{
+	return m_rosterItemWatcher;
+}
+
 QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> MessageModel::keys()
 {
 	return m_keys;

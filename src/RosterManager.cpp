@@ -9,9 +9,9 @@
 #include "RosterManager.h"
 // Kaidan
 #include "AvatarFileStorage.h"
+#include "ChatHintModel.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
-#include "Notifications.h"
 #include "OmemoManager.h"
 #include "RosterModel.h"
 #include "Settings.h"
@@ -42,6 +42,10 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 		if (m_client->state() == QXmppClient::ConnectedState) {
 			m_vCardManager->requestVCard(jid);
+		}
+
+		if (m_pendingSubscriptionRequests.contains(jid)) {
+			addUnrespondedSubscriptionRequest(jid, m_pendingSubscriptionRequests.take(jid));
 		}
 	});
 
@@ -101,17 +105,21 @@ void RosterManager::populateRoster()
 			m_vCardManager->requestVCard(jid);
 		}
 
-		// Remove subscription requests from JIDs that are in the roster.
-		m_unprocessedSubscriptions.remove(jid);
+		// Process subscription requests from roster items that were received before the roster was
+		// received.
+		if (m_unprocessedSubscriptionRequests.contains(jid)) {
+			addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
+		}
 	}
 
 	// replace current contacts with new ones from server
 	Q_EMIT RosterModel::instance()->replaceItemsRequested(items);
 
-	// Process subscription requests that were received before the roster was received.
-	for (auto itr = m_unprocessedSubscriptions.begin(); itr != m_unprocessedSubscriptions.end();) {
-		processSubscriptionRequest(itr.key(), itr.value());
-		itr = m_unprocessedSubscriptions.erase(itr);
+	// Process subscription requests from strangers that were received before the roster was
+	// received.
+	for (auto itr = m_unprocessedSubscriptionRequests.begin(); itr != m_unprocessedSubscriptionRequests.end();) {
+		processSubscriptionRequestFromStranger(itr.key(), itr.value());
+		itr = m_unprocessedSubscriptionRequests.erase(itr);
 	}
 }
 
@@ -120,33 +128,27 @@ void RosterManager::handleSubscriptionRequest(const QString &subscriberJid, cons
 	const auto requestText = presence.statusText();
 
 	if (m_manager->isRosterReceived()) {
-		if (!m_manager->getRosterBareJids().contains(subscriberJid)) {
-			processSubscriptionRequest(subscriberJid, requestText);
+		if (m_manager->getRosterBareJids().contains(subscriberJid)) {
+			addUnrespondedSubscriptionRequest(subscriberJid, requestText);
+		} else {
+			processSubscriptionRequestFromStranger(subscriberJid, requestText);
 		}
 	} else {
-		m_unprocessedSubscriptions.insert(subscriberJid, requestText);
+		m_unprocessedSubscriptionRequests.insert(subscriberJid, requestText);
 	}
 }
 
-void RosterManager::processSubscriptionRequest(const QString &subscriberJid, const QString &requestText)
+void RosterManager::processSubscriptionRequestFromStranger(const QString &subscriberJid, const QString &requestText)
 {
+	m_pendingSubscriptionRequests.insert(subscriberJid, requestText);
 	addContact(subscriberJid);
+}
 
+void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QString &requestText)
+{
+	m_unrespondedSubscriptionRequests.insert(subscriberJid, requestText);
 	const auto accountJid = m_client->configuration().jidBare();
-
-	Message message;
-	message.accountJid = accountJid;
-	message.chatJid = subscriberJid;
-	message.senderId = subscriberJid;
-	message.body = requestText;
-
-	if (!requestText.isEmpty()) {
-		MessageDb::instance()->addMessage(message, MessageOrigin::Stream);
-	} else {
-		runOnThread(Notifications::instance(), [accountJid, subscriberJid]() {
-			Notifications::instance()->sendMessageNotification(accountJid, subscriberJid, {}, tr("New contact"));
-		});
-	}
+	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, subscriberJid, requestText);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &msg)
@@ -200,16 +202,25 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 
 void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
 {
-	if (!m_manager->acceptSubscription(contactJid)) {
+	if (m_manager->acceptSubscription(contactJid)) {
+		m_unrespondedSubscriptionRequests.remove(contactJid);
+	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
 	}
 }
 
 void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 {
-	if (!m_manager->refuseSubscription(contactJid)) {
-		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Disallowing %1 to see your personal data failed").arg(contactJid));
+	if (m_manager->refuseSubscription(contactJid)) {
+		m_unrespondedSubscriptionRequests.remove(contactJid);
+	} else {
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
 	}
+}
+
+QMap<QString, QString> RosterManager::unrespondedPresenceSubscriptionRequests()
+{
+	return m_unrespondedSubscriptionRequests;
 }
 
 void RosterManager::updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups)

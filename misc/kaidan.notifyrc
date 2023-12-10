@@ -177,3 +177,8 @@ Comment[uk]=Отримано нове повідомлення одразу пі
 Comment[x-test]=xxNew message received in quick succession to a previous one from the same chatxx
 Comment[zh_CN]=从同一聊天中快速接连收到新消息
 Action=Popup
+
+[Event/presence-subscription-request]
+Name=Request to share personal data
+Comment=A contact asks for receiving personal data
+Action=Sound|Popup

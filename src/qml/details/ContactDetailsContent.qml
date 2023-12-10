@@ -367,22 +367,15 @@ DetailsContent {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
-				visible: !contactWatcher.item.sendingPresence
+				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && !contactWatcher.item.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
 			}
 
-			MobileForm.FormSwitchDelegate {
-				text: qsTr("Share personal data")
-				description: qsTr("Provide your availability, devices and other personal information")
-				checked: contactWatcher.item.receivingPresence
-				visible: !isChatWithOneself
-				onToggled: {
-					if (checked) {
-						Kaidan.client.rosterManager.acceptSubscriptionToPresenceRequested(root.jid)
-					} else {
-						Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
-					}
-				}
+			MobileForm.FormButtonDelegate {
+				text: qsTr("Cancel personal data sharing")
+				description: qsTr("Stop sharing your availability, devices and other personal information")
+				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && contactWatcher.item.receivingPresence
+				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
 			}
 
 			MobileForm.FormSwitchDelegate {

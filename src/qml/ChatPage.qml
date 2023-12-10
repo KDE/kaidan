@@ -464,10 +464,9 @@ ChatPageBase {
 		height: contentHeight
 		verticalLayoutDirection: ListView.BottomToTop
 		interactive: false
-		model: ChatHintModel {}
+		model: ChatHintModel
 		delegate: ChatHintArea {
 			id: chatHintArea
-			chatHintModel: chatHintListView.model
 			index: model.index
 			text: model.text
 			buttons: model.buttons

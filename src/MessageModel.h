@@ -142,6 +142,8 @@ public:
 	 */
 	bool isChatCurrentChat(const QString &accountJid, const QString &chatJid) const;
 
+	const RosterItemWatcher &rosterItemWatcher() const;
+
 	QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> keys();
 
 	Encryption::Enum activeEncryption();

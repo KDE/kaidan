@@ -26,6 +26,7 @@
 #include "AccountManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
+#include "ChatHintModel.h"
 #include "DiscoveryManager.h"
 #include "Enums.h"
 #include "FutureUtils.h"
@@ -53,6 +54,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  presenceCache(new PresenceCache(parent)),
 	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
+	  chatHintModel(new ChatHintModel(parent)),
 	  omemoCache(new OmemoCache(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
 	  serverFeaturesCache(new ServerFeaturesCache(parent))

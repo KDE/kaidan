@@ -16,7 +16,6 @@ import im.kaidan.kaidan 1.0
 Rectangle {
 	id: root
 
-	property ChatHintModel chatHintModel
 	property int index
 	property string text
 	property var buttons
@@ -85,7 +84,7 @@ Rectangle {
 						model: root.buttons
 						delegate: CenteredAdaptiveButton {
 							text: modelData.text
-							onClicked: root.chatHintModel.handleButtonClicked(root.index, modelData.type)
+							onClicked: ChatHintModel.handleButtonClicked(root.index, modelData.type)
 						}
 					}
 				}

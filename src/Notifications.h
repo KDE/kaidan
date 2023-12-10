@@ -21,15 +21,21 @@ class Notifications : public QObject
 	Q_OBJECT
 
 public:
-	struct NotificationWrapper
+	struct MessageNotificationWrapper
 	{
-		QUuid id;
 		QString accountJid;
 		QString chatJid;
 		QDateTime initalTimestamp;
 		QString latestMessageId;
 		QVector<QString> messages;
 		bool isDeletionEnabled = true;
+		KNotification *notification = nullptr;
+	};
+
+	struct PresenceSubscriptionRequestNotificationWrapper
+	{
+		QString accountJid;
+		QString chatJid;
 		KNotification *notification = nullptr;
 	};
 
@@ -54,8 +60,14 @@ public:
 	 */
 	Q_SIGNAL void closeMessageNotificationRequested(const QString &accountJid, const QString &chatJid);
 
+	void sendPresenceSubscriptionRequestNotification(const QString &accountJid, const QString &chatJid);
+	void closePresenceSubscriptionRequestNotification(const QString &accountJid, const QString &chatJid);
+
 private:
-	QVector<NotificationWrapper> m_openNotifications;
+	QString determineChatName(const QString &chatJid) const;
+
+	QVector<MessageNotificationWrapper> m_openMessageNotifications;
+	QVector<PresenceSubscriptionRequestNotificationWrapper> m_openPresenceSubscriptionRequestNotifications;
 
 	static Notifications *s_instance;
 };
