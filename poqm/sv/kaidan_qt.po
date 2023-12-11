@@ -418,68 +418,6 @@ msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Titta i källkod på nätet"
 
-#: src/qml/AccountTransferPage.qml:24
-msgctxt "AccountTransferPage|"
-msgid "Transfer account to another device"
-msgstr "Överför konto till en annan apparat"
-
-#: src/qml/AccountTransferPage.qml:26
-msgctxt "AccountTransferPage|"
-msgid "Hide QR code"
-msgstr "Dölj QR-kod"
-
-#: src/qml/AccountTransferPage.qml:26
-msgctxt "AccountTransferPage|"
-msgid "Show as QR code"
-msgstr "Visa som QR-kod"
-
-#: src/qml/AccountTransferPage.qml:30
-msgctxt "AccountTransferPage|"
-msgid "Hide text"
-msgstr "Dölj text"
-
-#: src/qml/AccountTransferPage.qml:30
-msgctxt "AccountTransferPage|"
-msgid "Show as text"
-msgstr "Visa som text"
-
-#: src/qml/AccountTransferPage.qml:64
-msgctxt "AccountTransferPage|"
-msgid ""
-"Scan the QR code or enter the credentials as text on another device to log "
-"in on it.\n"
-"\n"
-"Attention:\n"
-"Never show this QR code to anyone else. It would allow unlimited access to "
-"your account!"
-msgstr ""
-"Läs av QR-koden eller ange inloggningsinformation som text på en annan "
-"apparat för att logga in på den.\n"
-"\n"
-"Observera:\n"
-"Visa aldrig QR-koden för någon annan. Den kan ge obegränsad åtkomst till "
-"ditt konto!"
-
-#: src/qml/AccountTransferPage.qml:86
-msgctxt "AccountTransferPage|"
-msgid "Chat address:"
-msgstr "Chattadress:"
-
-#: src/qml/AccountTransferPage.qml:95
-msgctxt "AccountTransferPage|"
-msgid "Copy chat address"
-msgstr "Kopiera chattadress"
-
-#: src/qml/AccountTransferPage.qml:105
-msgctxt "AccountTransferPage|"
-msgid "Password:"
-msgstr "Lösenord:"
-
-#: src/qml/AccountTransferPage.qml:115
-msgctxt "AccountTransferPage|"
-msgid "Copy password"
-msgstr "Kopiera lösenord"
-
 #: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
@@ -734,18 +672,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ändra lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:693
+#: src/qml/details/AccountDetailsContent.qml:692
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Misslyckades ändra lösenord: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:698
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:715
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Password Security"
@@ -753,7 +691,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Lösenordssäkerhet"
 
-#: src/qml/details/AccountDetailsContent.qml:720
+#: src/qml/details/AccountDetailsContent.qml:719
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -766,12 +704,12 @@ msgstr ""
 "använda kontot på en annan apparat, <b>överväg att lagra lösenordet någon "
 "annanstans. Det går inte att ångra."
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:723
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Visa inte lösenord som text"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:724
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -780,20 +718,20 @@ msgstr ""
 "Tillåt att ytterligare apparater läggs till genom att använda QR-koden för "
 "inloggning men visa aldrig lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:733
-#: src/qml/details/AccountDetailsContent.qml:752
-#: src/qml/details/AccountDetailsContent.qml:913
-#: src/qml/details/AccountDetailsContent.qml:938
+#: src/qml/details/AccountDetailsContent.qml:732
+#: src/qml/details/AccountDetailsContent.qml:751
+#: src/qml/details/AccountDetailsContent.qml:911
+#: src/qml/details/AccountDetailsContent.qml:936
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Bekräfta"
 
-#: src/qml/details/AccountDetailsContent.qml:743
+#: src/qml/details/AccountDetailsContent.qml:742
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Exponera inte lösenord på något sätt"
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:743
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -802,12 +740,12 @@ msgstr ""
 "Tillåt varken att ytterligare apparater läggs till genom att använda QR-"
 "koden för inloggning eller visning av lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:775
+#: src/qml/details/AccountDetailsContent.qml:774
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Anslutning"
 
-#: src/qml/details/AccountDetailsContent.qml:779
+#: src/qml/details/AccountDetailsContent.qml:778
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -816,38 +754,38 @@ msgstr ""
 "Anpassa värddatornamn och port att ansluta till (tomma fält för "
 "standardvärden)"
 
-#: src/qml/details/AccountDetailsContent.qml:798
+#: src/qml/details/AccountDetailsContent.qml:797
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ändra anslutningsinställningar"
 
-#: src/qml/details/AccountDetailsContent.qml:807
+#: src/qml/details/AccountDetailsContent.qml:806
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Ange andra anslutningsinställningar för att ändra dem"
 
-#: src/qml/details/AccountDetailsContent.qml:857
+#: src/qml/details/AccountDetailsContent.qml:855
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Anslutningsinställningarna kunde inte ändras.: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:872
+#: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:894
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Borttagning"
 
-#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:902
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Ta bort från Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:905
+#: src/qml/details/AccountDetailsContent.qml:903
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -856,12 +794,12 @@ msgstr ""
 "Ta bort konto från programmet. Säkerhetskopiera din inloggningsinformation "
 "och chatthistorik om det behövs."
 
-#: src/qml/details/AccountDetailsContent.qml:929
+#: src/qml/details/AccountDetailsContent.qml:927
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ta bort fullständigt"
 
-#: src/qml/details/AccountDetailsContent.qml:930
+#: src/qml/details/AccountDetailsContent.qml:928
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -986,126 +924,126 @@ msgctxt "ContactDetailsContent|"
 msgid "Add label"
 msgstr "Lägg till etikett"
 
-#: src/qml/details/ContactDetailsContent.qml:321
+#: src/qml/details/ContactDetailsContent.qml:302
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
 msgstr "Delning"
 
-#: src/qml/details/ContactDetailsContent.qml:325
+#: src/qml/details/ContactDetailsContent.qml:306
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
 msgstr "Visa QR-kod"
 
-#: src/qml/details/ContactDetailsContent.qml:326
+#: src/qml/details/ContactDetailsContent.qml:307
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Dela kontaktens chattadress via QR-kod"
 
-#: src/qml/details/ContactDetailsContent.qml:332
+#: src/qml/details/ContactDetailsContent.qml:333
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopiera chattadress"
 
-#: src/qml/details/ContactDetailsContent.qml:333
+#: src/qml/details/ContactDetailsContent.qml:334
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Dela kontaktens chattadress via text"
 
-#: src/qml/details/ContactDetailsContent.qml:337
+#: src/qml/details/ContactDetailsContent.qml:338
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Kontakt kopierad till klippbordet"
 
-#: src/qml/details/ContactDetailsContent.qml:350
+#: src/qml/details/ContactDetailsContent.qml:351
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:354
+#: src/qml/details/ContactDetailsContent.qml:355
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Inkommande meddelanden"
 
-#: src/qml/details/ContactDetailsContent.qml:355
+#: src/qml/details/ContactDetailsContent.qml:356
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
 
-#: src/qml/details/ContactDetailsContent.qml:374
+#: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Integritet"
 
-#: src/qml/details/ContactDetailsContent.qml:378
+#: src/qml/details/ContactDetailsContent.qml:379
 msgctxt "ContactDetailsContent|"
 msgid "Request status"
 msgstr "Begär status"
 
-#: src/qml/details/ContactDetailsContent.qml:379
+#: src/qml/details/ContactDetailsContent.qml:380
 msgctxt "ContactDetailsContent|"
 msgid "Request contact's availability, devices and other personal information"
 msgstr ""
 "Begär kontaktens tillgänglighet, apparater och annan personlig information"
 
-#: src/qml/details/ContactDetailsContent.qml:385
+#: src/qml/details/ContactDetailsContent.qml:386
 msgctxt "ContactDetailsContent|"
 msgid "Send status"
 msgstr "Skicka status"
 
-#: src/qml/details/ContactDetailsContent.qml:386
+#: src/qml/details/ContactDetailsContent.qml:387
 msgctxt "ContactDetailsContent|"
 msgid "Provide your availability, devices and other personal information"
 msgstr ""
 "Tillhandahåll din tillgänglighet, apparater och annan personlig information"
 
-#: src/qml/details/ContactDetailsContent.qml:399
+#: src/qml/details/ContactDetailsContent.qml:400
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Skicka skrivunderrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:400
+#: src/qml/details/ContactDetailsContent.qml:401
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 "Indikera när du har konversationen öppen, och skriver eller slutar skriva"
 
-#: src/qml/details/ContactDetailsContent.qml:411
+#: src/qml/details/ContactDetailsContent.qml:412
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Skicka läsunderrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:412
+#: src/qml/details/ContactDetailsContent.qml:413
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indikera vilka meddelanden du har läst"
 
-#: src/qml/details/ContactDetailsContent.qml:423
+#: src/qml/details/ContactDetailsContent.qml:424
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "Blockera"
 
-#: src/qml/details/ContactDetailsContent.qml:424
+#: src/qml/details/ContactDetailsContent.qml:425
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Blockera all kommunikation inklusive status och underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:450
+#: src/qml/details/ContactDetailsContent.qml:451
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Borttagning"
 
-#: src/qml/details/ContactDetailsContent.qml:458
+#: src/qml/details/ContactDetailsContent.qml:459
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/qml/details/ContactDetailsContent.qml:459
+#: src/qml/details/ContactDetailsContent.qml:460
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Ta bort kontakt och fullständig chatthistorik"
 
-#: src/qml/details/ContactDetailsContent.qml:467
+#: src/qml/details/ContactDetailsContent.qml:468
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Bekräfta"
@@ -1140,7 +1078,7 @@ msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/qml/details/DetailsContent.qml:169
+#: src/qml/details/DetailsContent.qml:167
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Labels"
@@ -1148,7 +1086,7 @@ msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etiketter"
 
-#: src/qml/details/DetailsContent.qml:195
+#: src/qml/details/DetailsContent.qml:191
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Anslutna apparater"
@@ -1188,6 +1126,104 @@ msgid ""
 msgstr ""
 "Alla filer kunde inte tas bort:\n"
 "%1"
+
+#: src/qml/DeviceSwitchingPage.qml:24
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Transfer account to another device"
+msgctxt "DeviceSwitchingPage|"
+msgid "Transfer account to another device"
+msgstr "Överför konto till en annan apparat"
+
+#: src/qml/DeviceSwitchingPage.qml:26
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Hide QR code"
+msgctxt "DeviceSwitchingPage|"
+msgid "Hide QR code"
+msgstr "Dölj QR-kod"
+
+#: src/qml/DeviceSwitchingPage.qml:26
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Show as QR code"
+msgctxt "DeviceSwitchingPage|"
+msgid "Show as QR code"
+msgstr "Visa som QR-kod"
+
+#: src/qml/DeviceSwitchingPage.qml:30
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Hide text"
+msgctxt "DeviceSwitchingPage|"
+msgid "Hide text"
+msgstr "Dölj text"
+
+#: src/qml/DeviceSwitchingPage.qml:30
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Show as text"
+msgctxt "DeviceSwitchingPage|"
+msgid "Show as text"
+msgstr "Visa som text"
+
+#: src/qml/DeviceSwitchingPage.qml:64
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "DeviceSwitchingPage|"
+msgid ""
+"Scan the QR code or enter the credentials as text on another device to log "
+"in on it.\n"
+"\n"
+"Attention:\n"
+"Never show this QR code to anyone else. It would allow unlimited access to "
+"your account!"
+msgstr ""
+"Läs av QR-koden eller ange inloggningsinformation som text på en annan "
+"apparat för att logga in på den.\n"
+"\n"
+"Observera:\n"
+"Visa aldrig QR-koden för någon annan. Den kan ge obegränsad åtkomst till "
+"ditt konto!"
+
+#: src/qml/DeviceSwitchingPage.qml:86
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Chat address:"
+msgctxt "DeviceSwitchingPage|"
+msgid "Chat address:"
+msgstr "Chattadress:"
+
+#: src/qml/DeviceSwitchingPage.qml:95
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy chat address"
+msgctxt "DeviceSwitchingPage|"
+msgid "Copy chat address"
+msgstr "Kopiera chattadress"
+
+#: src/qml/DeviceSwitchingPage.qml:105
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Password:"
+msgctxt "DeviceSwitchingPage|"
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: src/qml/DeviceSwitchingPage.qml:115
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy password"
+msgctxt "DeviceSwitchingPage|"
+msgid "Copy password"
+msgstr "Kopiera lösenord"
 
 #: src/qml/elements/ChatMessage.qml:151
 msgctxt "ChatMessage|"
@@ -1428,7 +1464,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Ange ett giltigt lösenord"
 
-#: src/qml/elements/LoadingArea.qml:35
+#: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Läser in…"
@@ -1521,18 +1557,26 @@ msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Skicka"
 
-#: src/qml/elements/QrCodeScanner.qml:47
+#: src/qml/elements/QrCodeScanner.qml:67
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
 msgstr "Kameraformatet '%1' stöds inte."
 
-#: src/qml/elements/QrCodeScanner.qml:74
+#: src/qml/elements/QrCodeScanner.qml:152
+#, fuzzy
+#| msgctxt "LoadingArea|"
+#| msgid "Loading…"
+msgctxt "QrCodeScanner|"
+msgid "Loading camera…"
+msgstr "Läser in…"
+
+#: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"
 msgid "There is no camera available."
 msgstr "Det finns ingen kamera tillgänglig."
 
-#: src/qml/elements/QrCodeScanner.qml:77
+#: src/qml/elements/QrCodeScanner.qml:162
 msgctxt "QrCodeScanner|"
 msgid ""
 "Your camera is busy.\n"
@@ -1630,7 +1674,7 @@ msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
 msgstr "Laddar ner..."
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:229
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:228
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr "Försök igen"
@@ -1705,42 +1749,42 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Konton"
 
-#: src/qml/GlobalDrawer.qml:122
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Åtgärder"
 
-#: src/qml/GlobalDrawer.qml:126
+#: src/qml/GlobalDrawer.qml:125
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Lägg till kontakt med QR-kod"
 
-#: src/qml/GlobalDrawer.qml:132
+#: src/qml/GlobalDrawer.qml:131
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Lägg till kontakt enligt chattadress"
 
-#: src/qml/GlobalDrawer.qml:139
+#: src/qml/GlobalDrawer.qml:138
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Sök öppna grupper"
 
-#: src/qml/GlobalDrawer.qml:150
+#: src/qml/GlobalDrawer.qml:149
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Bjud in vänner"
 
-#: src/qml/GlobalDrawer.qml:154
+#: src/qml/GlobalDrawer.qml:153
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Inbjudningslänk kopierad till klippbordet"
 
-#: src/qml/GlobalDrawer.qml:159
+#: src/qml/GlobalDrawer.qml:158
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Byt apparat"
 
-#: src/qml/GlobalDrawer.qml:165
+#: src/qml/GlobalDrawer.qml:164
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Inställningar"
@@ -1809,12 +1853,12 @@ msgid "Scan the QR code from your existing device to transfer your account."
 msgstr ""
 "Läs in QR-koden från din befintliga apparat för att överföra ditt konto."
 
-#: src/qml/QrCodeOnboardingPage.qml:59
+#: src/qml/QrCodeOnboardingPage.qml:60
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Ansluter…"
 
-#: src/qml/QrCodeOnboardingPage.qml:75
+#: src/qml/QrCodeOnboardingPage.qml:76
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "QR-koden är inte en giltig inloggningskod."
@@ -1829,67 +1873,67 @@ msgctxt "QrCodePage|"
 msgid "Show explanation"
 msgstr "Visa förklaring"
 
-#: src/qml/QrCodePage.qml:55
+#: src/qml/QrCodePage.qml:54
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgstr "Steg 1: läs av din <b>andra apparats</b> QR-kod"
 
-#: src/qml/QrCodePage.qml:57
+#: src/qml/QrCodePage.qml:56
 msgctxt "QrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Steg 1: Läs av <b>kontaktens</b> QR-kod"
 
-#: src/qml/QrCodePage.qml:85
+#: src/qml/QrCodePage.qml:84
 msgctxt "QrCodePage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr "Steg 2: Läs in <b>den här apparatens</b> QR-kod med din andra apparat"
 
-#: src/qml/QrCodePage.qml:87
+#: src/qml/QrCodePage.qml:86
 msgctxt "QrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Steg 2: Låt kontakten läsa <b>din</b> QR-kod"
 
-#: src/qml/QrCodePage.qml:124
+#: src/qml/QrCodePage.qml:123
 msgctxt "QrCodePage|"
 msgid "Contact added - Continue with step 2"
 msgstr "Kontakt tillagd: fortsätt med steg 2"
 
-#: src/qml/QrCodePage.qml:131
+#: src/qml/QrCodePage.qml:130
 msgctxt "QrCodePage|"
 msgid "This QR code does not contain a contact"
 msgstr "QR-koden innehåller inte en kontakt"
 
-#: src/qml/QrCodePage.qml:144
+#: src/qml/QrCodePage.qml:143
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr "Lita på beslut gjorda med andra apparater - Fortsätt med steg 2"
 
-#: src/qml/QrCodePage.qml:146
+#: src/qml/QrCodePage.qml:145
 msgctxt "QrCodePage|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Lita på beslut gjorda för kontakt - Fortsätt med steg 2"
 
-#: src/qml/QrCodePage.qml:153
+#: src/qml/QrCodePage.qml:152
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your other device"
 msgstr "QR-koden är inte för din andra apparat"
 
-#: src/qml/QrCodePage.qml:155
+#: src/qml/QrCodePage.qml:154
 msgctxt "QrCodePage|"
 msgid "This QR code is not for your contact"
 msgstr "QR-koden är inte för din kontakt"
 
-#: src/qml/QrCodePage.qml:161
+#: src/qml/QrCodePage.qml:160
 msgctxt "QrCodePage|"
 msgid "This QR code is not for trust decisions"
 msgstr "QR-koden är inte för beslut om pålitlighet"
 
-#: src/qml/QrCodePage.qml:183
+#: src/qml/QrCodePage.qml:182
 msgctxt "QrCodePage|"
 msgid "Making trust decisions…"
 msgstr "Ta beslut om pålitlighet…"
 
-#: src/qml/QrCodePage.qml:183
+#: src/qml/QrCodePage.qml:182
 msgctxt "QrCodePage|"
 msgid "Adding contact…"
 msgstr "Lägger till kontakt…"
