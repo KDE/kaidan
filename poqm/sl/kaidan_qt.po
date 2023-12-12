@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-04 21:36+0100\n"
+"PO-Revision-Date: 2023-12-11 09:56+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1126,55 +1126,31 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Transfer account to another device"
 msgstr "Prenesi račun na drugo napravo"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "Skrij QR kodo"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "Prikaži kot QR kodo"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "Skrij besedilo"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Prikaži kot besedilo"
 
 #: src/qml/DeviceSwitchingPage.qml:64
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -1188,37 +1164,25 @@ msgstr ""
 "se na njej prijavite.\n"
 "\n"
 "Pozor:\n"
-"Nikoli ne pokažite te QR-kode nikomur drugemu. To bi omogočilo neomejen "
+"Nikoli ne pokažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
 "dostop do vašega računa!"
 
 #: src/qml/DeviceSwitchingPage.qml:86
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Naslov klepeta:"
 
 #: src/qml/DeviceSwitchingPage.qml:95
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Kopiraj naslov klepeta"
 
 #: src/qml/DeviceSwitchingPage.qml:105
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Geslo:"
 
 #: src/qml/DeviceSwitchingPage.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Kopiraj geslo"
@@ -1556,12 +1520,9 @@ msgid "The camera format '%1' is not supported."
 msgstr "Format kamere '%1' ni podprt."
 
 #: src/qml/elements/QrCodeScanner.qml:152
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr "Nalaganje…"
+msgstr "Nalaganje kamere…"
 
 #: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"

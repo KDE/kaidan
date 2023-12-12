@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-04 20:08+0300\n"
+"PO-Revision-Date: 2023-12-11 16:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.11.70\n"
+"X-Generator: Lokalize 24.01.80\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1113,55 +1113,31 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Transfer account to another device"
 msgstr "Hesabı başka bir aygıta aktar"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "Kare kodu gizle"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "Kare kod olarak göster"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "Metni gizle"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Metin olarak göster"
 
 #: src/qml/DeviceSwitchingPage.qml:64
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -1179,33 +1155,21 @@ msgstr ""
 "hesabınıza sınırsız erişimine izin verir!"
 
 #: src/qml/DeviceSwitchingPage.qml:86
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Sohbet adresi:"
 
 #: src/qml/DeviceSwitchingPage.qml:95
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Sohbet adresini kopyala"
 
 #: src/qml/DeviceSwitchingPage.qml:105
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Parola:"
 
 #: src/qml/DeviceSwitchingPage.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Parolayı kopyala"
@@ -1543,12 +1507,9 @@ msgid "The camera format '%1' is not supported."
 msgstr "'%1' kamera biçimi desteklenmiyor."
 
 #: src/qml/elements/QrCodeScanner.qml:152
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr "Yükleniyor…"
+msgstr "Kamera yükleniyor…"
 
 #: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"
