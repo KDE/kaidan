@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-04 11:52+0100\n"
+"PO-Revision-Date: 2023-12-11 14:44+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1126,55 +1126,31 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Transfer account to another device"
 msgstr "Account naar een ander apparaat overbrengen"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "QR-code verbergen"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "Als QR-code tonen"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "Tekst verbergen"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Als tekst tonen"
 
 #: src/qml/DeviceSwitchingPage.qml:64
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -1192,33 +1168,21 @@ msgstr ""
 "bieden tot uw account!"
 
 #: src/qml/DeviceSwitchingPage.qml:86
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Chatadres:"
 
 #: src/qml/DeviceSwitchingPage.qml:95
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Chatadres kopiëren"
 
 #: src/qml/DeviceSwitchingPage.qml:105
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: src/qml/DeviceSwitchingPage.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Wachtwoord kopiëren"
@@ -1556,12 +1520,9 @@ msgid "The camera format '%1' is not supported."
 msgstr "Het cameraformaat '%1' wordt niet ondersteund."
 
 #: src/qml/elements/QrCodeScanner.qml:152
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr "Bezig met laden…"
+msgstr "Camera laden…"
 
 #: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"
