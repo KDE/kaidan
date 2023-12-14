@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-12-05 11:55+0100\n"
+"PO-Revision-Date: 2023-12-12 11:42+0100\n"
 "Last-Translator: Xavier BESNARD <xavier.besnard@neuf.fr>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -1145,55 +1145,31 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Transfer account to another device"
 msgstr "Transférer un compte vers un autre périphérique"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "Masquer un code « QR »"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "Afficher comme un code « QR »"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "Masquer du texte"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
-msgstr "Afficher en texte"
+msgstr "Afficher comme du texte"
 
 #: src/qml/DeviceSwitchingPage.qml:64
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -1205,38 +1181,27 @@ msgid ""
 msgstr ""
 "Lisez le code « QR » ou saisissez les identifiants sous forme de texte sur "
 "un autre appareil pour y ouvrir une session.\n"
+"\n"
 "Attention : \n"
 "Ne jamais afficher ce code « QR » à quelqu'un d'autre. Il permettrait un "
 "accès illimité à votre compte !"
 
 #: src/qml/DeviceSwitchingPage.qml:86
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Adresse du salon :"
 
 #: src/qml/DeviceSwitchingPage.qml:95
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Copier une adresse de salon"
 
 #: src/qml/DeviceSwitchingPage.qml:105
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Mot de passe :"
 
 #: src/qml/DeviceSwitchingPage.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Copier un mot de passe"
@@ -1579,12 +1544,9 @@ msgid "The camera format '%1' is not supported."
 msgstr "Le format de l'appareil photo « %1 » n'est pas pris en charge."
 
 #: src/qml/elements/QrCodeScanner.qml:152
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr "Chargement en cours..."
+msgstr "Chargement de la caméra..."
 
 #: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"
