@@ -155,15 +155,13 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	notification->setIconName("kaidan-bw");
 #endif
 	notification->setDefaultAction(tr("Open"));
-	notification->setActions({
-		QObject::tr("Mark as read")
-	});
+	notification->setActions({ tr("Mark as read") });
 
-	QObject::connect(notification, &KNotification::defaultActivated, this, [=] {
+	connect(notification, &KNotification::defaultActivated, this, [=] {
 		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 	});
-	QObject::connect(notification, &KNotification::action1Activated, this, [=] {
+	connect(notification, &KNotification::action1Activated, this, [=] {
 		Q_EMIT RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
 			item.lastReadContactMessageId = messageId;
 			item.unreadMessages = 0;
@@ -176,7 +174,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 		}
 	});
 
-	QObject::connect(notification, &KNotification::closed, this, [=, this]() {
+	connect(notification, &KNotification::closed, this, [=, this]() {
 		auto notificationWrapperItr = std::find_if(m_openMessageNotifications.begin(), m_openMessageNotifications.end(), [accountJid, chatJid](const MessageNotificationWrapper &notificationWrapper) {
 			return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
 		});
@@ -241,13 +239,13 @@ void Notifications::sendPresenceSubscriptionRequestNotification(const QString &a
 
 	notification->setDefaultAction(tr("Open"));
 
-	QObject::connect(notification, &KNotification::defaultActivated, this, [=] {
+	connect(notification, &KNotification::defaultActivated, this, [=] {
 		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 		notification->close();
 	});
 
-	QObject::connect(notification, &KNotification::closed, this, [=, this]() {
+	connect(notification, &KNotification::closed, this, [=, this]() {
 		auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(), m_openPresenceSubscriptionRequestNotifications.end(), [accountJid, chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {
 			return notificationWrapper.accountJid == accountJid && notificationWrapper.chatJid == chatJid;
 		});
