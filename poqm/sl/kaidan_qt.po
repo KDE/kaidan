@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-12-11 09:56+0100\n"
+"PO-Revision-Date: 2023-12-23 08:57+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -66,33 +66,29 @@ msgid "Connecting…"
 msgstr "Povezovanje…"
 
 #: src/ChatHintModel.cpp:222
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
-msgstr "Zahtevaj razpoložljivost stika, naprav in osebnih podatkov"
+msgstr ""
+"%1 želi prejeti vaše osebne podatke, kot so razpoložljivost, naprave in "
+"drugi osebni podatki%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Zavrni"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Dovoli"
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Nalaganje…"
+msgstr "Dovoljevanje…"
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -374,17 +370,11 @@ msgid "Yesterday"
 msgstr "Včeraj"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Odpri klepet"
+msgstr "Odpri"
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
@@ -392,7 +382,7 @@ msgstr "Označi kot prebrano"
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "Zahteva prejem vaših osebnih podatkov"
 
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
@@ -491,7 +481,7 @@ msgstr "Nikoli"
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "Če se osebni podatki delijo"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
@@ -1020,36 +1010,27 @@ msgid "Privacy"
 msgstr "Zasebnost"
 
 #: src/qml/details/ContactDetailsContent.qml:368
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Request status"
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr "Zahtevaj stanje"
+msgstr "Zahtevaj osebne podatke"
 
 #: src/qml/details/ContactDetailsContent.qml:369
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
-msgstr "Zahtevaj razpoložljivost stika, naprav in osebnih podatkov"
+msgstr ""
+"Prosi svojega stika, da deli razpoložljivost, naprave in druge osebne podatke"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Prekliči deljenje osebnih podatkov"
 
 #: src/qml/details/ContactDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Provide your availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr "Nudi razpoložljivost, naprave in osebne podatke"
+msgstr "Prenehaj deliti svojo razpoložljivost, naprave in druge osebne podatke"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
@@ -2476,33 +2457,25 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr "Preimenovanje stika ni uspelo, ker ste nepovezani."
 
 #: src/RosterManager.cpp:198
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"Zahtevek za vpogled v stanje %1 ni uspelo zaradi težav pri povezavi: %2"
+"Zahteva za ogled osebnih podatkov %1 ni uspela zaradi težave s povezavo: %2"
 
 #: src/RosterManager.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "Dovoljenje za %1 za vpogled vašega neuspelega stanja"
+msgstr "Dovoljevanje %1, vpogleda v vaše osebne podatke, ni uspelo"
 
 #: src/RosterManager.cpp:217
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Dovoljenje za %1 za vpogled vašega neuspelega stanja"
+msgstr "Zaustavitev %1 ogleda vaših osebnih podatkov ni uspela"
 
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"

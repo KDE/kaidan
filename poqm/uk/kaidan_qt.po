@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-11 08:50+0200\n"
+"PO-Revision-Date: 2023-12-23 09:14+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Language: uk\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 20.12.0\n"
+"X-Generator: Lokalize 23.04.1\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -64,35 +64,29 @@ msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
 #: src/ChatHintModel.cpp:222
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr ""
-"Надіслати запити щодо доступності контакту, пристроїв та інших особистих "
-"даних"
+"%1 хоче отримувати ваші особисті дані, зокрема щодо доступності контакту, "
+"пристроїв та інших особистих даних%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Відмовити"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Дозволити"
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Завантаження…"
+msgstr "Уможливлення…"
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -375,17 +369,11 @@ msgid "Yesterday"
 msgstr "Вчора"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Почати спілкування"
+msgstr "Відкрити"
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Позначити як прочитане"
@@ -393,7 +381,7 @@ msgstr "Позначити як прочитане"
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "Запити для отримання особистих даних"
 
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
@@ -492,7 +480,7 @@ msgstr "Ніколи"
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "Чи оприлюднено особисті дані"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
@@ -1027,38 +1015,30 @@ msgid "Privacy"
 msgstr "Конфіденційність"
 
 #: src/qml/details/ContactDetailsContent.qml:368
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Request status"
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr "Запитати про стан"
+msgstr "Запитати про особисті дані"
 
 #: src/qml/details/ContactDetailsContent.qml:369
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
-"Надіслати запити щодо доступності контакту, пристроїв та інших особистих "
-"даних"
+"Попросити ваш контакт оприлюднити дані щодо доступності, пристроїв та інших "
+"особистих даних"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Скасувати оприлюднення особистих даних"
 
 #: src/qml/details/ContactDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Provide your availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr "Надати дані щодо вашої доступності, пристроїв та інші особисті дані"
+msgstr ""
+"Припинити оприлюднення даних щодо вашої доступності, пристроїв та інші "
+"особисті дані"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
@@ -2503,33 +2483,27 @@ msgstr ""
 "з'єднання."
 
 #: src/RosterManager.cpp:198
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"Запит щодо перегляду стану %1 зазнав невдачі через проблеми зі з'єднанням: %2"
+"Запит щодо перегляду особистих даних %1 зазнав невдачі через проблеми зі "
+"з'єднанням: %2"
 
 #: src/RosterManager.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "Спроба уможливлення для %1 перегляду вашого стану зазнала невдачі"
+msgstr ""
+"Спроба уможливлення для %1 перегляду ваших особистих даних зазнала невдачі"
 
 #: src/RosterManager.cpp:217
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Спроба уможливлення для %1 перегляду вашого стану зазнала невдачі"
+msgstr "Спроба припинити надання %1 ваших особистих даних зазнала невдачі"
 
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"

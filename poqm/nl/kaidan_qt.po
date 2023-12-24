@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-11 14:44+0100\n"
+"PO-Revision-Date: 2023-12-23 11:20+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -63,35 +63,29 @@ msgid "Connecting…"
 msgstr "Bezig met verbinden…"
 
 #: src/ChatHintModel.cpp:222
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr ""
-"Om de beschikbaarheid van de contactpersoon, apparaten en andere personele "
-"informatie vragen"
+"%1 zou graag uw persoonlijke gegevens zoals beschikbaarheid, apparaten en "
+"andere personele informatie %2 vragen"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Weigeren"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Toestaan"
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Bezig met laden…"
+msgstr "Bezig met toestaan…"
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -373,17 +367,11 @@ msgid "Yesterday"
 msgstr "Gisteren"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Chat openen"
+msgstr "Openen"
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Markeren als gelezen"
@@ -391,7 +379,7 @@ msgstr "Markeren als gelezen"
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "Verzoek om uw persoonlijke gegevens te ontvangen"
 
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
@@ -490,7 +478,7 @@ msgstr "Nooit"
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "Als persoonlijke gegevens worden gedeeld"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
@@ -1020,38 +1008,30 @@ msgid "Privacy"
 msgstr "Privacy"
 
 #: src/qml/details/ContactDetailsContent.qml:368
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Request status"
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr "Verzoeken om status"
+msgstr "Verzoek om persoonlijke gegevens"
 
 #: src/qml/details/ContactDetailsContent.qml:369
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
-"Om de beschikbaarheid van de contactpersoon, apparaten en andere personele "
-"informatie vragen"
+"Vraag uw contactpersoon om de beschikbaarheid, apparaten en andere personele "
+"informatie te delen"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Delen van persoonlijke gegevens annuleren"
 
 #: src/qml/details/ContactDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Provide your availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr "Lever uw beschikbaarheid, apparaten en andere personele informatie"
+msgstr ""
+"Stoppen met delen van uw beschikbaarheid, apparaten en andere personele "
+"informatie"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
@@ -2490,34 +2470,26 @@ msgstr ""
 "verbinding beschikbaar is."
 
 #: src/RosterManager.cpp:198
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"Verzoek doen om de status van %1 te zien is mislukt vanwege een probleem met "
-"de verbinding: %2"
+"Verzoek om de persoonlijke gegevens van %1 te zien is mislukt vanwege een "
+"probleem met de verbinding: %2"
 
 #: src/RosterManager.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "%1 toestaan om uw status te zien is mislukt"
+msgstr "%1 toestaan om uw persoonlijke gegevens te zien is mislukt"
 
 #: src/RosterManager.cpp:217
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "%1 toestaan om uw status te zien is mislukt"
+msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
 
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"

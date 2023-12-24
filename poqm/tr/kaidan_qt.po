@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-11 16:13+0300\n"
+"PO-Revision-Date: 2023-12-23 11:50+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.01.80\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -61,33 +61,29 @@ msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
 #: src/ChatHintModel.cpp:222
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
-msgstr "Kişinin uygunluğunu, aygıtlarını ve diğer kişisel bilgisini iste"
+msgstr ""
+"%1; uygunluk, aygıtlar ve diğer kişisel bilgilerinizi içeren verinizi almak "
+"ister%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Reddet"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "İzin Ver"
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Yükleniyor…"
+msgstr "İzin veriliyor…"
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -369,25 +365,19 @@ msgid "Yesterday"
 msgstr "Dün"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Sohbet aç"
+msgstr "Aç"
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
-msgstr "Okundu olarak imle"
+msgstr "Okundu Olarak İmle"
 
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "Kişisel verinizi alma isteği"
 
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
@@ -486,7 +476,7 @@ msgstr "Asla"
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "Kişisel veri paylaşılıyorsa"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
@@ -1011,36 +1001,29 @@ msgid "Privacy"
 msgstr "Gizlilik"
 
 #: src/qml/details/ContactDetailsContent.qml:368
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Request status"
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr "Durum iste"
+msgstr "Kişisel Veri İste"
 
 #: src/qml/details/ContactDetailsContent.qml:369
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
-msgstr "Kişinin uygunluğunu, aygıtlarını ve diğer kişisel bilgisini iste"
+msgstr ""
+"Kişinizin uygunluğunu, aygıtlarını ve diğer kişisel bilgisini paylaşmasını "
+"isteyin"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Kişisel veri paylaşmayı iptal et"
 
 #: src/qml/details/ContactDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Provide your availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr "Uygunluğunu, aygıtlarını ve diğer kişisel bilgilerini belirt"
+msgstr ""
+"Uygunluğunuzu, aygıtlarınızı ve diğer kişisel verinizi paylaşmayı durdurun"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
@@ -2466,34 +2449,26 @@ msgid "Could not rename contact, as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
 #: src/RosterManager.cpp:198
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"%1 kişisinin durumunu görme isteği, bir bağlantı sorunu yüzünden başarısız "
-"oldu: %2"
+"%1 kişisinin kişisel verisini görme isteği, bir bağlantı sorunu yüzünden "
+"başarısız oldu: %2"
 
 #: src/RosterManager.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "%1 kişisine durumunuzu görme izni verme başarısız oldu"
+msgstr "%1 kişisinin sizin kişisel verinizi görme isteği başarısız oldu"
 
 #: src/RosterManager.cpp:217
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "%1 kişisine durumunuzu görme izni verme başarısız oldu"
+msgstr "%1 kişisinin sizin kişisel verinizi durdurma isteği başarısız oldu"
 
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"
