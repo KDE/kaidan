@@ -1,8 +1,8 @@
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023 Stefan Asserhäll <stefan.asserhall@bredband.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-11 10:01+0100\n"
+"PO-Revision-Date: 2023-12-28 21:13+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.04.3\n"
+"X-Generator: Lokalize 23.08.3\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -61,34 +61,29 @@ msgid "Connecting…"
 msgstr "Ansluter…"
 
 #: src/ChatHintModel.cpp:222
-#, fuzzy, qt-format
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr ""
-"Begär kontaktens tillgänglighet, apparater och annan personlig information"
+"%1 skulle vilja ta emot personlig data såsom tillgänglighet, apparater och "
+"annan personlig information%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Vägra"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Tillåt"
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Läser in…"
+msgstr "Tillåter…"
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -370,17 +365,11 @@ msgid "Yesterday"
 msgstr "Igår"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Öppna chatt"
+msgstr "Öppna"
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Markera som läst"
@@ -388,7 +377,7 @@ msgstr "Markera som läst"
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "Begäran om att få din personliga information"
 
 #: src/OmemoManager.cpp:125
 msgctxt "OmemoManager|"
@@ -477,7 +466,7 @@ msgstr "Sök"
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "Lägg till dold meddelandedel"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
@@ -487,7 +476,7 @@ msgstr "Aldrig"
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "Om personlig information delas"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
@@ -637,12 +626,9 @@ msgid "Block chat address"
 msgstr "Blockera chattadress"
 
 #: src/qml/details/AccountDetailsContent.qml:482
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr "Kopiera chattadress"
+msgstr "Ändra chattadress…"
 
 #: src/qml/details/AccountDetailsContent.qml:511
 msgctxt "AccountDetailsContent|"
@@ -652,17 +638,19 @@ msgstr "Ta bort blockering"
 #: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "Anteckningar"
 
 #: src/qml/details/AccountDetailsContent.qml:543
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "Lägg till chatt för anteckningar"
 
 #: src/qml/details/AccountDetailsContent.qml:544
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
+"Lägg till en chatt för att synkronisera dina anteckningar mellan alla dina "
+"apparater"
 
 #: src/qml/details/AccountDetailsContent.qml:578
 msgctxt "AccountDetailsContent|"
@@ -730,12 +718,9 @@ msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
 #: src/qml/details/AccountDetailsContent.qml:714
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Password Security"
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr "Lösenordssäkerhet"
+msgstr "Lösenordssynlighet"
 
 #: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
@@ -1021,38 +1006,29 @@ msgid "Privacy"
 msgstr "Integritet"
 
 #: src/qml/details/ContactDetailsContent.qml:368
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Request status"
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr "Begär status"
+msgstr "Begär personlig information"
 
 #: src/qml/details/ContactDetailsContent.qml:369
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Request contact's availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
-"Begär kontaktens tillgänglighet, apparater och annan personlig information"
+"Be din kontakt om att dela tillgänglighet, apparater och annan personlig "
+"information"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "Avbryt delning av personlig information"
 
 #: src/qml/details/ContactDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Provide your availability, devices and other personal information"
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
-"Tillhandahåll din tillgänglighet, apparater och annan personlig information"
+"Sluta dela din tillgänglighet, apparater och annan personlig information"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
@@ -1115,6 +1091,8 @@ msgstr "Maximera avatar"
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
+"Meddelanden i den här chatten synkroniseras som anteckningar mellan alla "
+"dina apparater"
 
 #: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
@@ -1137,9 +1115,6 @@ msgid "Profile"
 msgstr "Profil"
 
 #: src/qml/details/DetailsContent.qml:167
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Labels"
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etiketter"
@@ -1186,55 +1161,31 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Transfer account to another device"
 msgstr "Överför konto till en annan apparat"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "Dölj QR-kod"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "Visa som QR-kod"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "Dölj text"
 
 #: src/qml/DeviceSwitchingPage.qml:30
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Visa som text"
 
 #: src/qml/DeviceSwitchingPage.qml:64
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
@@ -1252,33 +1203,21 @@ msgstr ""
 "ditt konto!"
 
 #: src/qml/DeviceSwitchingPage.qml:86
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Chattadress:"
 
 #: src/qml/DeviceSwitchingPage.qml:95
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Kopiera chattadress"
 
 #: src/qml/DeviceSwitchingPage.qml:105
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Lösenord:"
 
 #: src/qml/DeviceSwitchingPage.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Kopiera lösenord"
@@ -1347,28 +1286,22 @@ msgstr "Sök neråt"
 #: src/qml/elements/ChatPageSendingPane.qml:68
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "Synlig meddelandedel"
 
 #: src/qml/elements/ChatPageSendingPane.qml:75
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "Avbryt tillägg av dold meddelandedel"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>encrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr "Skriv <b>krypterat</b> brev"
+msgstr "Skriv <b>krypterat</b> meddelande med dold del"
 
 #: src/qml/elements/ChatPageSendingPane.qml:115
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Compose <b>unencrypted</b> message"
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr "Skriv <b>okrypterat</b> meddelande"
+msgstr "Skriv <b>okrypterat</b> meddelande med dold del"
 
 #: src/qml/elements/ChatPageSendingPane.qml:117
 msgctxt "ChatPageSendingPane|"
@@ -1622,12 +1555,9 @@ msgid "The camera format '%1' is not supported."
 msgstr "Kameraformatet '%1' stöds inte."
 
 #: src/qml/elements/QrCodeScanner.qml:152
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr "Läser in…"
+msgstr "Laddar kamera…"
 
 #: src/qml/elements/QrCodeScanner.qml:159
 msgctxt "QrCodeScanner|"
@@ -2508,7 +2438,7 @@ msgstr "Misslyckades skapa QR-kod: %1"
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Anteckningar"
 
 #: src/RosterManager.cpp:161
 msgctxt "RosterManager|"
@@ -2528,34 +2458,26 @@ msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
 #: src/RosterManager.cpp:198
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "Requesting to see the status of %1 failed because of a connection "
-#| "problem: %2"
+#, qt-format
 msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
-"Begäran att se status för %1 misslyckades på grund av ett "
+"Begäran att se personlig information för %1 misslyckades på grund av ett "
 "anslutningsproblem: %2"
 
 #: src/RosterManager.cpp:208
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr "Misslyckades låta %1 se din status"
+msgstr "Misslyckades tillåta %1 att se din personlig information"
 
 #: src/RosterManager.cpp:217
-#, fuzzy, qt-format
-#| msgctxt "RosterManager|"
-#| msgid "Allowing %1 to see your status failed"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr "Misslyckades låta %1 se din status"
+msgstr "Misslyckades stoppa %1 från att se din personliga information"
 
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"
