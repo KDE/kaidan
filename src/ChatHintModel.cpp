@@ -110,7 +110,7 @@ void ChatHintModel::handleConnectionStateChanged()
 {
 	switch (Enums::ConnectionState(Kaidan::instance()->connectionState())) {
 	case Enums::ConnectionState::StateDisconnected:
-		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer) == -1) {
+		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer); i == -1) {
 			handleConnectionErrorChanged(addConnectToServerChatHint(false));
 		} else {
 			updateChatHint(i, [](ChatHint &chatHint) {
@@ -122,7 +122,7 @@ void ChatHintModel::handleConnectionStateChanged()
 
 		return;
 	case Enums::ConnectionState::StateConnecting:
-		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer) == -1) {
+		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer); i == -1) {
 			addConnectToServerChatHint(true);
 		} else {
 			updateChatHint(i, [](ChatHint &chatHint) {
@@ -244,7 +244,7 @@ void ChatHintModel::insertChatHint(int i, const ChatHint &chatHint)
 
 void ChatHintModel::updateChatHint(ChatHintButton::Type buttonType, const std::function<void (ChatHint &)> &updateChatHint)
 {
-	if (const auto i = chatHintIndex(buttonType) != -1) {
+	if (const auto i = chatHintIndex(buttonType); i != -1) {
 		this->updateChatHint(i, updateChatHint);
 	}
 }
