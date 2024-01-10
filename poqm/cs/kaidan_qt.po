@@ -78,12 +78,9 @@ msgid "Allow"
 msgstr ""
 
 #: src/ChatHintModel.cpp:226
-#, fuzzy
-#| msgctxt "LoadingArea|"
-#| msgid "Loading…"
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr "Probíhá načítání…"
+msgstr ""
 
 #: src/ClientWorker.cpp:290
 #, qt-format
@@ -363,20 +360,14 @@ msgid "Yesterday"
 msgstr "Včera"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Open chat"
 msgctxt "Notifications|"
 msgid "Open"
-msgstr "Otevřít rozhovor"
+msgstr ""
 
 #: src/Notifications.cpp:158
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
-msgstr "Označit jako přečtené"
+msgstr ""
 
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
@@ -2433,19 +2424,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Only when status is sent"
-#~ msgstr "Jen pokud je poslán stav"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Send status"
-#~ msgstr "Odeslat stav"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Decline"
-#~ msgstr "Odmítnout"
-
-#~ msgctxt "SubRequestAcceptSheet|"
-#~ msgid "Accept"
-#~ msgstr "Přijmout"
