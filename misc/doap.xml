@@ -137,6 +137,15 @@ SPDX-License-Identifier: CC0-1.0
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0158.html'/>
+        <xmpp:status>partial</xmpp:status>
+        <xmpp:version>1.0</xmpp:version>
+        <xmpp:since>0.5</xmpp:since>
+        <xmpp:note>Only used for In-Band Registration with image ('ocr')</xmpp:note>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0163.html'/>
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>1.2</xmpp:version>
