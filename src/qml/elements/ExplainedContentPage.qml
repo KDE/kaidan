@@ -33,6 +33,11 @@ Kirigami.Page {
 	property alias explanation: explanationArea.data
 
 	/**
+	 * background of the explanation area
+	 */
+	property alias explanationAreaBackground: explanationAreaBackground
+
+	/**
 	 * content displayed while the explanation is not displayed
 	 */
 	property alias content: contentArea.data
@@ -61,6 +66,7 @@ Kirigami.Page {
 
 	// background of overlay
 	RoundedRectangle {
+		id: explanationAreaBackground
 		z: 1
 		anchors.fill: overlay
 		anchors.margins: -8
@@ -72,16 +78,14 @@ Kirigami.Page {
 	ColumnLayout {
 		id: overlay
 		z: 2
+		anchors.fill: parent
 		anchors.margins: 18
-		anchors.top: parent.top
-		anchors.left: parent.left
-		anchors.right: parent.right
-		anchors.bottom: parent.bottom
 
-		GridLayout {
+		Item {
 			id: explanationArea
 			Layout.fillWidth: true
 			Layout.fillHeight: true
+			Layout.bottomMargin: Kirigami.Units.smallSpacing * 3
 		}
 
 		ColumnLayout {

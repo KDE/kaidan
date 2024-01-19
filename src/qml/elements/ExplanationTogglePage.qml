@@ -8,6 +8,5 @@
  * This is the base for pages having an explained content and a button for toggling the explanation.
  */
 ExplainedContentPage {
-	primaryButton.checkable: true
 	primaryButton.onClicked: explanationArea.visible = !explanationArea.visible
 }

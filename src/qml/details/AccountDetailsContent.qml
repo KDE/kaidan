@@ -196,7 +196,7 @@ DetailsContent {
 			}
 			visible: text
 			enabled: omemoWatcher.authenticatableDevices.length
-			onClicked: root.openQrCodePage(accountDetailsQrCodePage).isForOwnDevices = true
+			onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage, root.jid, root.jid)
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher

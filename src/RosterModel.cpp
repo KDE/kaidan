@@ -262,7 +262,7 @@ void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption
 	}
 }
 
-RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &uriString)
+RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &accountJid, const QString &uriString)
 {
 	if (QXmppUri::isXmppUri(uriString)) {
 		auto uri = QXmppUri(uriString);
@@ -273,7 +273,7 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &u
 		}
 
 		if (RosterModel::instance()->hasItem(jid)) {
-			Q_EMIT Kaidan::instance()->openChatPageRequested(AccountManager::instance()->jid(), jid);
+			Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, jid);
 			return AddContactByUriResult::ContactExists;
 		}
 

@@ -4,9 +4,12 @@
 
 #pragma once
 
+// Qt
 #include <QMap>
 #include <QMutex>
 #include <QObject>
+// Kaidan
+#include "OmemoManager.h"
 
 class OmemoCache : public QObject
 {
@@ -21,41 +24,38 @@ public:
 		return s_instance;
 	}
 
-	void setDistrustedDevices(const QString &jid, const QList<QString> &distrustedDevices);
-	QList<QString> distrustedDevices(const QString &jid);
-	/**
-	 * Emitted when there are OMEMO devices with distrusted keys.
-	 *
-	 * @param jid JID of the device's owner
-	 * @param deviceLabels human-readable strings used to identify the devices
-	 */
-	Q_SIGNAL void distrustedDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
+	void setAuthenticatableKeys(const QString &jid, const QList<QString> &authenticatableKeys);
+	void setAuthenticatedKeys(const QString &jid, const QList<QString> &authenticatedKeys);
 
-	void setUsableDevices(const QString &jid, const QList<QString> &usableDevices);
-	QList<QString> usableDevices(const QString &jid);
-	/**
-	 * Emitted when there are OMEMO devices usable for end-to-end encryption.
-	 *
-	 * @param jid JID of the device's owner
-	 * @param deviceLabels human-readable strings used to identify the devices
-	 */
-	Q_SIGNAL void usableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
+	void setOwnDevice(const OmemoManager::Device &ownDevice);
+	OmemoManager::Device ownDevice();
+	Q_SIGNAL void ownDeviceUpdated(const OmemoManager::Device &ownDevice);
 
-	void setAuthenticatableDevices(const QString &jid, const QList<QString> &authenticatableDevices);
-	QList<QString> authenticatableDevices(const QString &jid);
-	/**
-	 * Emitted when there are OMEMO devices with keys that can be authenticated.
-	 *
-	 * @param jid JID of the device's owner
-	 * @param deviceLabels human-readable strings used to identify the devices
-	 */
-	Q_SIGNAL void authenticatableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels);
+	void setDistrustedDevices(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices);
+	QList<OmemoManager::Device> distrustedDevices(const QString &jid);
+	Q_SIGNAL void distrustedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices);
+
+	void setUsableDevices(const QString &jid, const QList<OmemoManager::Device> &usableDevices);
+	QList<OmemoManager::Device> usableDevices(const QString &jid);
+	Q_SIGNAL void usableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &usableDevices);
+
+	void setAuthenticatableDevices(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices);
+	QList<OmemoManager::Device> authenticatableDevices(const QString &jid);
+	Q_SIGNAL void authenticatableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices);
+
+	void setAuthenticatedDevices(const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices);
+	QList<OmemoManager::Device> authenticatedDevices(const QString &jid);
+	Q_SIGNAL void authenticatedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices);
 
 private:
 	QMutex m_mutex;
-	QMap<QString, QList<QString>> m_distrustedDevices;
-	QMap<QString, QList<QString>> m_usableDevices;
-	QMap<QString, QList<QString>> m_authenticatableDevices;
+
+	OmemoManager::Device m_ownDevice;
+
+	QMap<QString, QList<OmemoManager::Device>> m_distrustedDevices;
+	QMap<QString, QList<OmemoManager::Device>> m_usableDevices;
+	QMap<QString, QList<OmemoManager::Device>> m_authenticatableDevices;
+	QMap<QString, QList<OmemoManager::Device>> m_authenticatedDevices;
 
 	static OmemoCache *s_instance;
 };

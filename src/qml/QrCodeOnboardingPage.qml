@@ -21,20 +21,20 @@ ExplanationTogglePage {
 	id: root
 	title: qsTr("Scan QR code")
 	useMarginsForContent: false
-	primaryButton.text: primaryButton.checked ? qsTr("Show explanation") : qsTr("Scan QR code")
-
+	primaryButton.text: explanationArea.visible ? qsTr("Scan QR code") : qsTr("Show explanation")
 	primaryButton.onClicked: {
 		if (!scanner.cameraEnabled) {
 			scanner.camera.start()
 			scanner.cameraEnabled = true
 		}
 	}
-
 	secondaryButton.text: qsTr("Continue without QR code")
 	secondaryButton.onClicked: pageStack.layers.push(registrationLoginDecisionPage)
 	secondaryButton.flat: Style.isMaterial ? explanationArea.visible : false
-
 	explanation: ColumnLayout {
+		width: parent.width
+		height: parent.height
+
 		CenteredAdaptiveText {
 			text: qsTr("Scan the QR code from your existing device to transfer your account.")
 			Layout.topMargin: 10
@@ -49,18 +49,15 @@ ExplanationTogglePage {
 			Layout.fillWidth: true
 		}
 	}
-
 	content: QrCodeScanner {
 		id: scanner
+
+		property bool acceptResult: true
+
 		cornersRounded: false
 		anchors.fill: parent
-
-		LoadingArea {
-			anchors.centerIn: parent
-			description: qsTr("Connecting…")
-			visible: Kaidan.connectionState === Enums.StateConnecting
-		}
-
+		zoomSliderArea.anchors.bottomMargin: Kirigami.Units.largeSpacing * 11
+		zoomSliderArea.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
 		filter.onScanningSucceeded: {
 			if (acceptResult) {
 				// Try to log in by the data from the decoded QR code.
@@ -78,7 +75,11 @@ ExplanationTogglePage {
 			}
 		}
 
-		property bool acceptResult: true
+		LoadingArea {
+			anchors.centerIn: parent
+			description: qsTr("Connecting…")
+			visible: Kaidan.connectionState === Enums.StateConnecting
+		}
 
 		// timer to accept the result again after an invalid login URI was scanned
 		Timer {

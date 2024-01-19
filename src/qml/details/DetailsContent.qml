@@ -216,11 +216,13 @@ Controls.Control {
 		}
 	}
 
-	function openQrCodePage(qrCodePageComponent) {
+	function openKeyAuthenticationPage(keyAuthenticationPageComponent, accountJid, chatJid) {
 		if (root.sheet) {
 			root.sheet.close()
 		}
 
-		return openPage(qrCodePageComponent)
+		var keyAuthenticationPage = openPage(keyAuthenticationPageComponent)
+		keyAuthenticationPage.accountJid = accountJid
+		keyAuthenticationPage.chatJid = chatJid
 	}
 }

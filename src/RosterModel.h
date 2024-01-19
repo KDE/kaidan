@@ -113,7 +113,7 @@ public:
 	 *
 	 * @param uriString XMPP URI string that contains only a JID
 	 */
-	Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &uriString);
+	Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &accountJid, const QString &uriString);
 
 	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;

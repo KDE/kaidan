@@ -144,9 +144,9 @@ ChatPageBase {
 	}
 
 	Component {
-		id: contactDetailsQrCodePage
+		id: contactDetailsKeyAuthenticationPage
 
-		QrCodePage {
+		KeyAuthenticationPage {
 			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
 		}
 	}

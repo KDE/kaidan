@@ -220,7 +220,7 @@ Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &
 			}
 
 			runOnThread(m_client->atmManager(), [uri = std::move(parsedUri)]() {
-				Kaidan::instance()->client()->atmManager()->makeTrustDecisions(uri);
+				Kaidan::instance()->client()->atmManager()->makeTrustDecisionsByUri(uri);
 			});
 			return MakingTrustDecisions;
 		} else {

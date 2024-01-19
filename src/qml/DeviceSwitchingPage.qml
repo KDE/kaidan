@@ -20,105 +20,62 @@ import "elements"
  *
  * It enables the user to log in on another device.
  */
-ExplainedContentPage {
+ExplanationOptionsTogglePage {
 	title: qsTr("Transfer account to another device")
-
-	primaryButton.text: primaryButton.checked ? qsTr("Hide QR code") : qsTr("Show as QR code")
-	primaryButton.checkable: true
-	primaryButton.onClicked: state = primaryButton.checked ? "qrCodeDisplayed" : "explanationDisplayed"
-
-	secondaryButton.text: secondaryButton.checked ? qsTr("Hide text") : qsTr("Show as text")
-	secondaryButton.checkable: true
-	secondaryButton.onClicked: state = secondaryButton.checked ? "plainTextDisplayed" : "explanationDisplayed"
-
-	state: "explanationDisplayed"
-
-	states: [
-		State {
-			name: "explanationDisplayed"
-			PropertyChanges { target: explanationArea; visible: true }
-			PropertyChanges { target: primaryButton; checked: false }
-			PropertyChanges { target: secondaryButton; checked: false }
-			PropertyChanges { target: qrCode; visible: false }
-			PropertyChanges { target: plainText; visible: false }
-		},
-		State {
-			name: "qrCodeDisplayed"
-			PropertyChanges { target: explanationArea; visible: false }
-			PropertyChanges { target: primaryButton; checked: true }
-			PropertyChanges { target: secondaryButton; checked: false }
-			PropertyChanges { target: qrCode; visible: true }
-			PropertyChanges { target: plainText; visible: false }
-		},
-		State {
-			name: "plainTextDisplayed"
-			PropertyChanges { target: explanationArea; visible: false }
-			PropertyChanges { target: primaryButton; checked: false }
-			PropertyChanges { target: secondaryButton; checked: true}
-			PropertyChanges { target: qrCode; visible: false }
-			PropertyChanges { target: plainText; visible: true }
-		}
-	]
-
+	primaryButton.text: state === "primaryAreaDisplayed" ? qsTr("Hide QR code") : qsTr("Show as QR code")
+	secondaryButton.text: state === "secondaryAreaDisplayed" ? qsTr("Hide text") : qsTr("Show as text")
 	explanation: CenteredAdaptiveText {
 		text: qsTr("Scan the QR code or enter the credentials as text on another device to log in on it.\n\nAttention:\nNever show this QR code to anyone else. It would allow unlimited access to your account!")
 		verticalAlignment: Text.AlignVCenter
 		Layout.fillHeight: true
 		scaleFactor: 1.5
 	}
+	explanationAreaBackground.opacity: 1
+	primaryArea: QrCode {
+		width: Math.min(largeButtonWidth, parent.width, parent.height)
+		height: width
+		anchors.centerIn: parent
+		isForLogin: true
+	}
+	secondaryArea: Kirigami.FormLayout {
+		anchors.centerIn: parent
 
-	content: Item {
-		anchors.fill: parent
+		RowLayout {
+			Kirigami.FormData.label: qsTr("Chat address:")
+			Layout.fillWidth: true
 
-		QrCode {
-			id: qrCode
-			width: Math.min(largeButtonWidth, parent.width, parent.height)
-			height: width
-			anchors.centerIn: parent
-			isForLogin: true
-		}
-
-		Kirigami.FormLayout {
-			id: plainText
-			anchors.centerIn: parent
-
-			RowLayout {
-				Kirigami.FormData.label: qsTr("Chat address:")
+			Controls.Label {
+				text: AccountManager.jid
 				Layout.fillWidth: true
-
-				Controls.Label {
-					text: AccountManager.jid
-					Layout.fillWidth: true
-				}
-
-				Controls.ToolButton {
-					text: qsTr("Copy chat address")
-					icon.name: "edit-copy-symbolic"
-					display: Controls.AbstractButton.IconOnly
-					flat: true
-					Layout.alignment: Qt.AlignRight
-					onClicked: Utils.copyToClipboard(AccountManager.jid)
-				}
 			}
 
-			RowLayout {
-				Kirigami.FormData.label: qsTr("Password:")
-				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
+			Controls.ToolButton {
+				text: qsTr("Copy chat address")
+				icon.name: "edit-copy-symbolic"
+				display: Controls.AbstractButton.IconOnly
+				flat: true
+				Layout.alignment: Qt.AlignRight
+				onClicked: Utils.copyToClipboard(AccountManager.jid)
+			}
+		}
+
+		RowLayout {
+			Kirigami.FormData.label: qsTr("Password:")
+			visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
+			Layout.fillWidth: true
+
+			Controls.Label {
+				text: AccountManager.password
 				Layout.fillWidth: true
+			}
 
-				Controls.Label {
-					text: AccountManager.password
-					Layout.fillWidth: true
-				}
-
-				Controls.ToolButton {
-					text: qsTr("Copy password")
-					icon.name: "edit-copy-symbolic"
-					display: Controls.AbstractButton.IconOnly
-					flat: true
-					Layout.alignment: Qt.AlignRight
-					onClicked: Utils.copyToClipboard(AccountManager.password)
-				}
+			Controls.ToolButton {
+				text: qsTr("Copy password")
+				icon.name: "edit-copy-symbolic"
+				display: Controls.AbstractButton.IconOnly
+				flat: true
+				Layout.alignment: Qt.AlignRight
+				onClicked: Utils.copyToClipboard(AccountManager.password)
 			}
 		}
 	}

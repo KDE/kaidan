@@ -39,9 +39,13 @@ public:
 	 *
 	 * @param uri Trust Message URI
 	 */
-	void makeTrustDecisions(const QXmppUri &uri);
+	void makeTrustDecisionsByUri(const QXmppUri &uri);
+	void makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting);
+	Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
 
 private:
+	QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);
+
 	std::unique_ptr<TrustDb> m_trustStorage;
 	QXmppAtmManager *const m_manager;
 };

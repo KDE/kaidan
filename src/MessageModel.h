@@ -83,7 +83,7 @@ class MessageModel : public QAbstractListModel
 	Q_PROPERTY(QString currentChatJid READ currentChatJid NOTIFY currentChatJidChanged)
 	Q_PROPERTY(bool isOmemoEncryptionEnabled READ isOmemoEncryptionEnabled NOTIFY isOmemoEncryptionEnabledChanged)
 	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
-	Q_PROPERTY(QList<QString> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
+	Q_PROPERTY(QList<OmemoManager::Device> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
 	Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
 	Q_PROPERTY(bool mamLoading READ mamLoading NOTIFY mamLoadingChanged)
 
@@ -152,7 +152,7 @@ public:
 	Encryption::Enum encryption() const;
 	void setEncryption(Encryption::Enum encryption);
 
-	QList<QString> usableOmemoDevices() const;
+	QList<OmemoManager::Device> usableOmemoDevices() const;
 
 	Q_INVOKABLE void resetComposingChatState();
 

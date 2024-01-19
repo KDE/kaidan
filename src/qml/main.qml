@@ -111,9 +111,9 @@ Kirigami.ApplicationWindow {
 	Component {id: contactAdditionDialog; ContactAdditionDialog {}}
 
 	Component {
-		id: accountDetailsQrCodePage
+		id: accountDetailsKeyAuthenticationPage
 
-		QrCodePage {
+		KeyAuthenticationPage {
 			Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
 		}
 	}

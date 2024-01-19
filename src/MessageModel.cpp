@@ -426,7 +426,7 @@ void MessageModel::setEncryption(Encryption::Enum encryption)
 	Q_EMIT encryptionChanged();
 }
 
-QList<QString> MessageModel::usableOmemoDevices() const
+QList<OmemoManager::Device> MessageModel::usableOmemoDevices() const
 {
 	   return m_currentAccountJid == m_currentChatJid ? m_accountOmemoWatcher.usableDevices() : m_contactOmemoWatcher.usableDevices();
 }

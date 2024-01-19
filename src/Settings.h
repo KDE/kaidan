@@ -33,7 +33,8 @@ class Settings : public QObject
 
 	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
 	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
-	Q_PROPERTY(bool qrCodePageExplanationVisible READ qrCodePageExplanationVisible WRITE setQrCodePageExplanationVisible NOTIFY qrCodePageExplanationVisibleChanged)
+	Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible WRITE setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
+	Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible WRITE setKeyAuthenticationPageExplanationVisible NOTIFY keyAuthenticationPageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
 	Q_PROPERTY(AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
@@ -74,19 +75,11 @@ public:
 	Encryption::Enum encryption() const;
 	void setEncryption(Encryption::Enum encryption);
 
-	/**
-	 * Retrieves the visibility of the QrCodePage's explanation from the settings file.
-	 *
-	 * @return true if the explanation is set to be visible, otherwise false
-	 */
-	bool qrCodePageExplanationVisible() const;
+	bool contactAdditionQrCodePageExplanationVisible() const;
+	void setContactAdditionQrCodePageExplanationVisible(bool visible);
 
-	/**
-	 * Stores the visibility of the QrCodePage's explanation in the settings file.
-	 *
-	 * @param isVisible true if the explanation should be visible in the future, otherwise false
-	 */
-	void setQrCodePageExplanationVisible(bool isVisible);
+	bool keyAuthenticationPageExplanationVisible() const;
+	void setKeyAuthenticationPageExplanationVisible(bool visible);
 
 	QStringList favoriteEmojis() const;
 	void setFavoriteEmojis(const QStringList &emoji);
@@ -111,7 +104,8 @@ signals:
 	void authPortChanged();
 	void authPasswordVisibilityChanged();
 	void encryptionChanged();
-	void qrCodePageExplanationVisibleChanged();
+	void contactAdditionQrCodePageExplanationVisibleChanged();
+	void keyAuthenticationPageExplanationVisibleChanged();
 	void favoriteEmojisChanged();
 	void windowPositionChanged();
 	void windowSizeChanged();

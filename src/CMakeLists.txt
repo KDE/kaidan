@@ -100,6 +100,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	OmemoDb.h
 	OmemoManager.cpp
 	OmemoManager.h
+	OmemoModel.cpp
+	OmemoModel.h
 	OmemoWatcher.cpp
 	OmemoWatcher.h
 	PresenceCache.cpp

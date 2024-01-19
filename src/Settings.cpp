@@ -117,14 +117,24 @@ void Settings::setEncryption(Encryption::Enum encryption)
 	setValue(QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION), encryption, &Settings::encryptionChanged);
 }
 
-bool Settings::qrCodePageExplanationVisible() const
+bool Settings::contactAdditionQrCodePageExplanationVisible() const
 {
-	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), true);
+	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), true);
 }
 
-void Settings::setQrCodePageExplanationVisible(bool isVisible)
+void Settings::setContactAdditionQrCodePageExplanationVisible(bool visible)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE), isVisible, &Settings::qrCodePageExplanationVisibleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), visible, &Settings::contactAdditionQrCodePageExplanationVisibleChanged);
+}
+
+bool Settings::keyAuthenticationPageExplanationVisible() const
+{
+	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE), true);
+}
+
+void Settings::setKeyAuthenticationPageExplanationVisible(bool visible)
+{
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE), visible, &Settings::keyAuthenticationPageExplanationVisibleChanged);
 }
 
 QStringList Settings::favoriteEmojis() const

@@ -17,9 +17,11 @@ import im.kaidan.kaidan 1.0
  */
 Item {
 	id: root
+
 	property bool cameraEnabled: false
 	property Camera camera
 	property alias filter: filter
+	property alias zoomSliderArea: zoomSliderArea
 	property bool cornersRounded: true
 
 	Component.onCompleted: cameraComponent.createObject()
@@ -31,7 +33,7 @@ Item {
 		Camera {
 			// Show camera input if this page is visible and the camera enabled.
 			cameraState: {
-				if (visible && cameraEnabled) {
+				if (root.visible && cameraEnabled) {
 					return Camera.ActiveState
 				}
 
@@ -70,6 +72,7 @@ Item {
 
 	// video output from the camera which is shown on the screen and decoded by a filter
 	VideoOutput {
+		visible: camera.cameraStatus === Camera.ActiveStatus
 		fillMode: VideoOutput.PreserveAspectCrop
 		source: root.camera
 		autoOrientation: true
@@ -86,6 +89,7 @@ Item {
 		}
 
 		Rectangle {
+			id: zoomSliderArea
 			color: primaryBackgroundColor
 			opacity: 0.9
 			radius: relativeRoundedCornersRadius(width, height) * 2
@@ -109,77 +113,70 @@ Item {
 	// hint for camera status
 	Rectangle {
 		id: cameraStatusArea
-		visible: root.cameraEnabled && cameraStatusText.text.length
+		visible: cameraStatusText.text.length
 		color: primaryBackgroundColor
 		radius: root.cornersRounded ? relativeRoundedCornersRadius(width, height) : 0
 		anchors.fill: parent
 
 		ColumnLayout {
 			anchors.fill: parent
+			anchors.margins: Kirigami.Units.largeSpacing
 
-			// This placeholder is needed to position the icon and text in the center without additional
+			// The layout is needed to position the icon and text in the center without additional
 			// spacing between them while keeping the text's end being elided.
-			// The spacing is multiplied by 3 for the spacings between all items including the
-			// placeholders themselves.
-			Item {
-				Layout.preferredHeight: (parent.height - parent.spacing * 3 - cameraStatusIcon.height - cameraStatusText.height) / 2
-				Layout.fillHeight: true
-			}
-
-			Controls.BusyIndicator {
-				visible: !cameraStatusIcon.visible
-				Layout.preferredWidth: cameraStatusIcon.Layout.preferredWidth
-				Layout.preferredHeight: Layout.preferredWidth
-				Layout.alignment: Qt.AlignHCenter
-			}
-
-			Kirigami.Icon {
-				id: cameraStatusIcon
-				source: "camera-disabled-symbolic"
-				fallback: "camera-off-symbolic"
-				color: Kirigami.Theme.neutralTextColor
-				visible: root.camera.cameraStatus !== Camera.StartingStatus
-				Layout.preferredWidth: Kirigami.Units.iconSizes.enormous
-				Layout.preferredHeight: Layout.preferredWidth
-				Layout.fillHeight: true
-				Layout.alignment: Qt.AlignHCenter
-			}
-
-			Kirigami.Heading {
-				id: cameraStatusText
-				text: {
-					if (root.camera.cameraStatus === Camera.StartingStatus) {
-						return qsTr("Loading camera…")
-					}
-
-					switch (root.camera.availability) {
-					case Camera.Unavailable:
-					case Camera.ResourceMissing:
-						// message to be shown if no camera can be found
-						return qsTr("There is no camera available.")
-					case Camera.Busy:
-						// message to be shown if the found camera is not usable
-						return qsTr("Your camera is busy.\nTry to close other applications using the camera.")
-					default:
-						// no message if no issue could be found
-						return ""
-					}
+			ColumnLayout {
+				Controls.BusyIndicator {
+					visible: !cameraStatusIcon.visible
+					Layout.maximumWidth: cameraStatusIcon.Layout.maximumWidth
+					Layout.maximumHeight: Layout.maximumWidth
+					Layout.fillWidth: true
+					Layout.fillHeight: true
+					Layout.alignment: Qt.AlignHCenter
 				}
-				color: root.camera.cameraStatus === Camera.StartingStatus ? Kirigami.Theme.textColor : Kirigami.Theme.neutralTextColor
-				wrapMode: Text.Wrap
-				elide: Text.ElideRight
-				Layout.fillWidth: true
-				Layout.fillHeight: true
-				horizontalAlignment: Text.AlignHCenter
-			}
 
-			// This placeholder is needed to position the icon and text in the center without additional
-			// spacing between them while keeping the text's end being elided.
-			// The spacing is multiplied by 3 for the spacings between all items including the
-			// placeholders themselves.
-			Item {
-				Layout.preferredHeight: (parent.height - parent.spacing * 3 - cameraStatusIcon.height - cameraStatusText.height) / 2
-				Layout.fillHeight: true
+				Kirigami.Icon {
+					id: cameraStatusIcon
+					source: "camera-disabled-symbolic"
+					fallback: "camera-off-symbolic"
+					color: Kirigami.Theme.neutralTextColor
+					visible: root.camera.cameraStatus !== Camera.StartingStatus
+					Layout.maximumWidth: Kirigami.Units.iconSizes.enormous
+					Layout.maximumHeight: Layout.maximumWidth
+					Layout.fillWidth: true
+					Layout.fillHeight: true
+					Layout.alignment: Qt.AlignHCenter
+				}
+
+				Kirigami.Heading {
+					id: cameraStatusText
+					text: {
+						if (root.camera.cameraStatus === Camera.StartingStatus) {
+							return qsTr("Loading camera…")
+						}
+
+						switch (root.camera.availability) {
+						case Camera.Unavailable:
+						case Camera.ResourceMissing:
+							// message to be shown if no camera can be found
+							return qsTr("No camera available")
+						case Camera.Busy:
+							// message to be shown if the found camera is not usable
+							return qsTr("Camera busy\nTry to close other applications using the camera")
+						default:
+							// no message if no issue could be found
+							return ""
+						}
+					}
+					color: root.camera.cameraStatus === Camera.StartingStatus ? Kirigami.Theme.textColor : Kirigami.Theme.neutralTextColor
+					wrapMode: Text.Wrap
+					elide: Text.ElideRight
+					horizontalAlignment: Text.AlignHCenter
+					Layout.fillWidth: true
+					// "Layout.fillHeight: true" cannot be used to position the icon and text in the
+					// center without additional spacing between them while keeping the text's end
+					// being elided.
+					Layout.fillHeight: cameraStatusIcon.height + parent.spacing + implicitHeight > parent.parent.height
+				}
 			}
 		}
 	}

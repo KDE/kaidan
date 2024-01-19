@@ -29,41 +29,41 @@ void OmemoWatcher::setJid(const QString &jid)
 	Q_EMIT authenticatableDevicesChanged();
 }
 
-QList<QString> OmemoWatcher::distrustedDevices() const
+QList<OmemoManager::Device> OmemoWatcher::distrustedDevices() const
 {
 	return m_distrustedDevices;
 }
 
-QList<QString> OmemoWatcher::usableDevices() const
+QList<OmemoManager::Device> OmemoWatcher::usableDevices() const
 {
 	return m_usableDevices;
 }
 
-QList<QString> OmemoWatcher::authenticatableDevices() const
+QList<OmemoManager::Device> OmemoWatcher::authenticatableDevices() const
 {
 	return m_authenticatableDevices;
 }
 
-void OmemoWatcher::handleDistrustedDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels)
+void OmemoWatcher::handleDistrustedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices)
 {
 	if (jid == m_jid) {
-		m_distrustedDevices = deviceLabels;
+		m_distrustedDevices = distrustedDevices;
 		Q_EMIT distrustedDevicesChanged();
 	}
 }
 
-void OmemoWatcher::handleUsableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels)
+void OmemoWatcher::handleUsableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &usableDevices)
 {
 	if (jid == m_jid) {
-		m_usableDevices = deviceLabels;
+		m_usableDevices = usableDevices;
 		Q_EMIT usableDevicesChanged();
 	}
 }
 
-void OmemoWatcher::handleAuthenticatableDevicesUpdated(const QString &jid, const QList<QString> &deviceLabels)
+void OmemoWatcher::handleAuthenticatableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices)
 {
 	if (jid == m_jid) {
-		m_authenticatableDevices = deviceLabels;
+		m_authenticatableDevices = authenticatableDevices;
 		Q_EMIT authenticatableDevicesChanged();
 	}
 }

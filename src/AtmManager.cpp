@@ -17,6 +17,9 @@ AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
 	  m_trustStorage(new TrustDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppAtmManager>(m_trustStorage.get()))
 {
+	connect(this, &AtmManager::makeTrustDecisionsRequested, this, [this](const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting) {
+		makeTrustDecisions(jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
+	});
 }
 
 AtmManager::~AtmManager() = default;
@@ -26,19 +29,25 @@ void AtmManager::setAccountJid(const QString &accountJid)
 	m_trustStorage->setAccountJid(accountJid);
 }
 
-void AtmManager::makeTrustDecisions(const QXmppUri &uri)
+void AtmManager::makeTrustDecisionsByUri(const QXmppUri &uri)
 {
-	QList<QByteArray> keyIdsForAuthentication;
-	const auto trustedKeysIds = uri.trustedKeysIds();
-	for (const auto &keyId : trustedKeysIds) {
-		keyIdsForAuthentication.append(QByteArray::fromHex(keyId.toUtf8()));
-	}
+	m_manager->makeTrustDecisions(uri.encryption(), uri.jid(), keyIdsFromHex(uri.trustedKeysIds()), keyIdsFromHex(uri.distrustedKeysIds()));
+}
 
-	QList<QByteArray> keyIdsForDistrusting;
-	const auto distrustedKeysIds = uri.distrustedKeysIds();
-	for (const auto &keyId : distrustedKeysIds) {
-		keyIdsForDistrusting.append(QByteArray::fromHex(keyId.toUtf8()));
-	}
+void AtmManager::makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting)
+{
+	m_manager->makeTrustDecisions(QStringLiteral("urn:xmpp:omemo:2"), jid, keyIdsForAuthentication, keyIdsForDistrusting);
+}
 
-	m_manager->makeTrustDecisions(uri.encryption(), uri.jid(), keyIdsForAuthentication, keyIdsForDistrusting);
+QList<QByteArray> AtmManager::keyIdsFromHex(const QList<QString> &keyIds)
+{
+	QList<QByteArray> byteArrayKeyIds;
+
+	const auto addKeyIdFromHex = [&byteArrayKeyIds](const QString &keyId) {
+		byteArrayKeyIds.append(QByteArray::fromHex(keyId.toUtf8()));
+	};
+
+	std::for_each(keyIds.cbegin(), keyIds.cend(), addKeyIdFromHex);
+
+	return byteArrayKeyIds;
 }

@@ -36,6 +36,7 @@
 // Kaidan
 #include "AccountManager.h"
 #include "AudioDeviceModel.h"
+#include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "Blocking.h"
@@ -62,6 +63,7 @@
 #include "MessageComposition.h"
 #include "MessageHandler.h"
 #include "MessageModel.h"
+#include "OmemoModel.h"
 #include "OmemoManager.h"
 #include "OmemoWatcher.h"
 #include "ProviderListModel.h"
@@ -89,11 +91,11 @@ Q_DECLARE_METATYPE(Qt::ApplicationState)
 
 Q_DECLARE_METATYPE(QXmppClient::State)
 Q_DECLARE_METATYPE(QXmppMessage::State)
-Q_DECLARE_METATYPE(QXmppDiscoveryIq);
+Q_DECLARE_METATYPE(QXmppDiscoveryIq)
 Q_DECLARE_METATYPE(QXmppPresence)
 Q_DECLARE_METATYPE(QXmppStanza::Error)
-Q_DECLARE_METATYPE(QXmppResultSetReply);
-Q_DECLARE_METATYPE(QXmpp::TrustLevel);
+Q_DECLARE_METATYPE(QXmppResultSetReply)
+Q_DECLARE_METATYPE(QXmpp::TrustLevel)
 Q_DECLARE_METATYPE(QXmppUri)
 Q_DECLARE_METATYPE(QXmppVCardIq)
 Q_DECLARE_METATYPE(QXmppVersionIq)
@@ -254,6 +256,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<RegistrationManager*>();
 	qRegisterMetaType<FileSharingController *>();
 	qRegisterMetaType<OmemoManager *>();
+	qRegisterMetaType<OmemoManager::Device>();
 	qRegisterMetaType<AvatarFileStorage*>();
 	qRegisterMetaType<QmlUtils*>();
 	qRegisterMetaType<QVector<Message>>();
@@ -275,6 +278,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppUri>();
 	qRegisterMetaType<QMap<QString, QUrl>>();
 	qRegisterMetaType<std::shared_ptr<Message>>();
+	qRegisterMetaType<AtmManager*>();
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();
@@ -442,6 +446,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
 	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
+	qmlRegisterType<OmemoModel>(APPLICATION_ID, 1, 0, "OmemoModel");
 	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");

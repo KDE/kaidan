@@ -12,6 +12,7 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QMimeDatabase>
+#include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStringBuilder>
 // QXmpp
@@ -172,6 +173,24 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 	uri.setJid(groupChatJid);
 	uri.setAction(QXmppUri::Join);
 	return { uri.toString() };
+}
+
+bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
+{
+	return QRegularExpression("^[0-9A-F]{64}$", QRegularExpression::CaseInsensitiveOption).match(keyId).hasMatch();
+}
+
+QString QmlUtils::displayableEncryptionKeyId(QString keyId)
+{
+	keyId.remove(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR.toString());
+
+	QStringList keyIdParts;
+
+	for (int i = 0; i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE < keyId.size(); i++) {
+		keyIdParts.append(keyId.mid(i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE, ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE));
+	}
+
+	return keyIdParts.join(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR);
 }
 
 bool QmlUtils::isImageFile(const QUrl &fileUrl)

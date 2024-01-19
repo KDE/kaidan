@@ -17,7 +17,7 @@ DetailsContent {
 	id: root
 
 	required property string accountJid
-	property bool isChatWithOneself: accountJid === jid
+	readonly property bool isChatWithOneself: accountJid === jid
 
 	automaticMediaDownloadsDelegate {
 		model: [
@@ -91,7 +91,7 @@ DetailsContent {
 			text: {
 				if (!MessageModel.usableOmemoDevices.length) {
 					if (accountOmemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
 					} else if (ownResourcesWatcher.resourcesCount > 1) {
 						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
 					} else if (root.isChatWithOneself) {
@@ -99,10 +99,10 @@ DetailsContent {
 					}
 				} else if (accountOmemoWatcher.authenticatableDevices.length) {
 					if (accountOmemoWatcher.authenticatableDevices.length === accountOmemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
 					}
 
-					return qsTr("Scan the QR codes of <b>your</b> devices for maximum security")
+					return qsTr("Verify <b>your</b> devices for maximum security")
 				}
 
 				return ""
@@ -128,7 +128,7 @@ DetailsContent {
 			}
 			visible: text
 			enabled: accountOmemoWatcher.authenticatableDevices.length
-			onClicked: root.openQrCodePage(contactDetailsQrCodePage).isForOwnDevices = true
+			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.accountJid)
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
@@ -144,16 +144,16 @@ DetailsContent {
 
 				if (!MessageModel.usableOmemoDevices.length) {
 					if (contactOmemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR code of your <b>contact</b> to enable encryption")
+						return qsTr("Verify your <b>contact</b> to enable encryption")
 					}
 
 					return qsTr("Your <b>contact</b> doesn't use OMEMO 2")
 				} else if (contactOmemoWatcher.authenticatableDevices.length) {
 					if (contactOmemoWatcher.authenticatableDevices.length === contactOmemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR codes of your <b>contact's</b> devices to encrypt for them")
+						return qsTr("Verify your <b>contact's</b> devices to encrypt for them")
 					}
 
-					return qsTr("Scan the QR code of your <b>contact</b> for maximum security")
+					return qsTr("Verify your <b>contact</b> for maximum security")
 				}
 
 				return ""
@@ -177,7 +177,7 @@ DetailsContent {
 			}
 			visible: text
 			enabled: contactOmemoWatcher.authenticatableDevices.length
-			onClicked: root.openQrCodePage(contactDetailsQrCodePage).contactJid = root.jid
+			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
 		}
 	}
 	rosterGoupListView {

@@ -30,7 +30,8 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	  m_omemoStorage(new OmemoDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
-	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this]() {
+	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this, client]() {
+		m_lastRequestedKeyOwnerJids = { client->configuration().jidBare() };
 		retrieveOwnKey();
 	});
 
@@ -39,7 +40,7 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	});
 
 	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
-		retrieveKeys(modifiedKeys.keys());
+		retrieveKeysForRequestedJids(modifiedKeys.keys());
 	});
 
 	connect(m_manager, &QXmppOmemoManager::deviceAdded, this, [this](const QString &jid, uint32_t) {
@@ -57,8 +58,8 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	connect(m_manager, &QXmppOmemoManager::devicesRemoved, this, &OmemoManager::retrieveDevicesForRequestedJids);
 
 	connect(m_manager, &QXmppOmemoManager::allDevicesRemoved, this, [this] {
-		for (const auto &jid : std::as_const(m_lastRequestedDeviceJids)) {
-			emitDeviceSignals(jid, {}, {}, {});
+		for (const auto &jid : std::as_const(m_lastRequestedKeyOwnerJids)) {
+			updateCachedDevices(jid, {}, {}, {}, {});
 		}
 	});
 }
@@ -218,7 +219,7 @@ QFuture<void> OmemoManager::initializeChat(const QString &accountJid, const QStr
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	const QList<QString> jids = { accountJid, chatJid };
-	m_lastRequestedDeviceJids = jids;
+	m_lastRequestedKeyOwnerJids = jids;
 
 	auto initializeSessionsKeysAndDevices = [this, interface, jids]() mutable {
 		auto future = m_manager->buildMissingSessions(jids);
@@ -273,18 +274,48 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->ownKey();
-	future.then(this, [interface, keys = std::move(keys)](QByteArray key) mutable {
+	future.then(this, [this, interface, keys = std::move(keys)](QByteArray key) mutable {
 		keys.insert(AccountManager::instance()->jid(), { { key, QXmpp::TrustLevel::Authenticated } });
 		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
+
+		for (auto itr = keys.cbegin(); itr != keys.cend(); ++itr) {
+			using KeyIds = QList<QString>;
+			KeyIds authenticatableKeys;
+			KeyIds authenticatedKeys;
+
+			const auto jid = itr.key();
+			const auto trustLevels = itr.value();
+
+			for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend(); ++trustLevelItr) {
+				const auto keyId = trustLevelItr.key();
+				const auto trustLevel = trustLevelItr.value();
+
+				if (trustLevel == QXmpp::TrustLevel::Authenticated) {
+					authenticatedKeys.append(keyId.toHex());
+				} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
+					authenticatableKeys.append(keyId.toHex());
+				}
+			}
+
+			updateCachedKeys(jid, authenticatableKeys, authenticatedKeys);
+		}
+
 		interface.reportFinished();
 	});
 
 	return interface.future();
 }
 
+void OmemoManager::retrieveKeysForRequestedJids(const QList<QString> &jids)
+{
+	if (std::search(jids.cbegin(), jids.cend(), m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend()) != jids.cend()) {
+		retrieveKeys(m_lastRequestedKeyOwnerJids);
+	}
+}
+
 void OmemoManager::retrieveDevicesForRequestedJids(const QString &jid)
 {
-	if (m_lastRequestedDeviceJids.contains(jid)) {
+	if (m_lastRequestedKeyOwnerJids.contains(jid)) {
 		retrieveDevices({ jid });
 	}
 }
@@ -293,36 +324,50 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 {
 	auto future = m_manager->devices(jids);
 	future.then(this, [this, jids](QVector<QXmppOmemoDevice> devices) {
-		using JidLabelMap = QMultiHash<QString, QString>;
-		JidLabelMap distrustedDevices;
-		JidLabelMap usableDevices;
-		JidLabelMap authenticatableDevices;
+		using JidDeviceMap = QMultiHash<QString, Device>;
+		JidDeviceMap distrustedDevices;
+		JidDeviceMap usableDevices;
+		JidDeviceMap authenticatableDevices;
+		JidDeviceMap authenticatedDevices;
 
 		for (const auto &device : std::as_const(devices)) {
 			const auto jid = device.jid();
-			const auto trustLevel = device.trustLevel();
 			const auto label = device.label();
+			const auto keyId = device.keyId();
+			const auto trustLevel = device.trustLevel();
 
 			if ((QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted).testFlag(trustLevel)) {
-				distrustedDevices.insert(jid, label);
+				distrustedDevices.insert(jid, { label, keyId.toHex() });
 			} else {
-				usableDevices.insert(jid, label);
+				usableDevices.insert(jid, { label, keyId.toHex() });
 			}
 
-			if (!((QXmpp::TrustLevel::Undecided | QXmpp::TrustLevel::Authenticated).testFlag(trustLevel))) {
-				authenticatableDevices.insert(jid, label);
+			if (trustLevel == QXmpp::TrustLevel::Authenticated) {
+				authenticatedDevices.insert(jid, { label, keyId.toHex() });
+			} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
+				authenticatableDevices.insert(jid, { label, keyId.toHex() });
 			}
 		}
 
 		for (const auto &jid : jids) {
-			emitDeviceSignals(jid, distrustedDevices.values(jid), usableDevices.values(jid), authenticatableDevices.values(jid));
+			updateCachedDevices(jid, distrustedDevices.values(jid), usableDevices.values(jid), authenticatableDevices.values(jid), authenticatedDevices.values(jid));
 		}
+
+		const auto ownDevice = m_manager->ownDevice();
+		OmemoCache::instance()->setOwnDevice({ ownDevice.label(), ownDevice.keyId().toHex() });
 	});
 }
 
-void OmemoManager::emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices)
+void OmemoManager::updateCachedKeys(const QString &jid, const QList<QString> &authenticatableKeys, const QList<QString> &authenticatedKeys)
 {
-	Q_EMIT OmemoCache::instance()->setDistrustedDevices(jid, distrustedDevices);
-	Q_EMIT OmemoCache::instance()->setUsableDevices(jid, usableDevices);
-	Q_EMIT OmemoCache::instance()->setAuthenticatableDevices(jid, authenticatableDevices);
+	OmemoCache::instance()->setAuthenticatableKeys(jid, authenticatableKeys);
+	OmemoCache::instance()->setAuthenticatedKeys(jid, authenticatedKeys);
+}
+
+void OmemoManager::updateCachedDevices(const QString &jid, const QList<Device> &distrustedDevices, const QList<Device> &usableDevices, const QList<Device> &authenticatableDevices, const QList<Device> &authenticatedDevices)
+{
+	OmemoCache::instance()->setDistrustedDevices(jid, distrustedDevices);
+	OmemoCache::instance()->setUsableDevices(jid, usableDevices);
+	OmemoCache::instance()->setAuthenticatableDevices(jid, authenticatableDevices);
+	OmemoCache::instance()->setAuthenticatedDevices(jid, authenticatedDevices);
 }

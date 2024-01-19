@@ -124,6 +124,24 @@ public:
 	Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
 
 	/**
+	 * Validates the ID of an encryption key.
+	 *
+	 * @param keyId encryption key ID
+	 *
+	 * @return whether the key ID is valid
+	 */
+	Q_INVOKABLE static bool validateEncryptionKeyId(const QString &keyId);
+
+	/**
+	 * Creates a variant of an encryption key ID to be displayed making it easier to read.
+	 *
+	 * @param keyId encryption key ID
+	 *
+	 * @return displayable key ID
+	 */
+	Q_INVOKABLE static QString displayableEncryptionKeyId(QString keyId);
+
+	/**
 	 * Returns a string without new lines, unneeded spaces, etc..
 	 *
 	 * See QString::simplified for more information.

@@ -25,7 +25,8 @@
 #define KAIDAN_SETTINGS_WINDOW_POSITION "window/position"
 #define KAIDAN_SETTINGS_WINDOW_SIZE "window/size"
 #define KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE "media/automaticDownloadsRule"
-#define KAIDAN_SETTINGS_HELP_VISIBILITY_QR_CODE_PAGE "helpVisibility/qrCodePage"
+#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE "explanationVisibility/contactAdditionQrCodePage"
+#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE "explanationVisibility/keyAuthenticationPage"
 
 #define KAIDAN_JID_RESOURCE_DEFAULT_PREFIX APPLICATION_DISPLAY_NAME
 
@@ -116,5 +117,11 @@ constexpr auto JPEG_EXPORT_QUALITY = 85;
 constexpr auto THUMBNAIL_GENERATION_MAX_FILE_SIZE = 10 * 1024 * 1024;
 // Width and height of generated file thumbnails.
 constexpr auto THUMBNAIL_PIXEL_SIZE = 50;
+
+// Count of encryption key ID characters that are grouped to be displayed for better readability
+constexpr int ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE = 8;
+
+// Separator between grouped encryption key ID characters to be displayed for better readability
+constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
 
 #endif // GLOBALS_H

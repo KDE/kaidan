@@ -21,9 +21,9 @@ Kirigami.GlobalDrawer {
 	id: root
 
 	Component {
-		id: qrCodePage
+		id: contactAdditionQrCodePage
 
-		QrCodePage {}
+		ContactAdditionQrCodePage {}
 	}
 
 	Component {
@@ -124,7 +124,7 @@ Kirigami.GlobalDrawer {
 					MobileForm.FormButtonDelegate {
 						text: qsTr("Add contact by QR code")
 						icon.name: "view-barcode-qr"
-						onClicked: openPageFromGlobalDrawer(qrCodePage)
+						onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
 					}
 
 					MobileForm.FormButtonDelegate {

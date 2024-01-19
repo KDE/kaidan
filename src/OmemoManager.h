@@ -20,6 +20,13 @@ class OmemoManager : public QObject
 	Q_OBJECT
 
 public:
+	struct Device {
+		QString label;
+		QString keyId;
+
+		bool operator==(const Device &other) const = default;
+	};
+
 	OmemoManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
 	~OmemoManager();
 
@@ -56,13 +63,19 @@ private:
 
 	QFuture<void> retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> keys = {});
 
+	void retrieveKeysForRequestedJids(const QList<QString> &jids);
 	void retrieveDevicesForRequestedJids(const QString &jid);
+
 	void retrieveDevices(const QList<QString> &jids);
-	void emitDeviceSignals(const QString &jid, const QList<QString> &distrustedDevices, const QList<QString> &usableDevices, const QList<QString> &authenticatableDevices);
+
+	void updateCachedKeys(const QString &jid, const QList<QString> &authenticatableKeys, const QList<QString> &authenticatedKeys);
+	void updateCachedDevices(const QString &jid, const QList<Device> &distrustedDevices, const QList<Device> &usableDevices, const QList<Device> &authenticatableDevices, const QList<Device> &authenticatedDevices);
 
 	std::unique_ptr<OmemoDb> m_omemoStorage;
 	QXmppOmemoManager *const m_manager;
 
 	bool m_isLoaded = false;
-	QList<QString> m_lastRequestedDeviceJids;
+	QList<QString> m_lastRequestedKeyOwnerJids;
 };
+
+Q_DECLARE_METATYPE(OmemoManager::Device)
