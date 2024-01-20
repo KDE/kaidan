@@ -14,7 +14,7 @@ auto transform(vector<T> &input, Converter convert)
     using Output = decay_t<decltype(convert(input.front()))>;
     vector<Output> output;
     output.reserve(input.size());
-    transform(input.begin(), input.end(), back_inserter(output), move(convert));
+    transform(input.begin(), input.end(), back_inserter(output), std::move(convert));
     return output;
 }
 

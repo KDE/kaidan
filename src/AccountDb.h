@@ -7,7 +7,7 @@
 // Kaidan
 #include "DatabaseComponent.h"
 
-struct Account;
+class Account;
 
 class AccountDb : public DatabaseComponent
 {
