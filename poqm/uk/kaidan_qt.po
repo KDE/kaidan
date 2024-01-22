@@ -1,8 +1,8 @@
-# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023.
+# Yuri Chornoivan <yurchor@ukr.net>, 2022, 2023, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-23 09:14+0200\n"
+"PO-Revision-Date: 2024-01-21 09:14+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -389,12 +389,9 @@ msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Не вдалося налаштувати міжвузлове шифрування за допомогою OMEMO 2"
 
 #: src/OmemoModel.cpp:126
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "OmemoModel|"
 msgid "This device"
-msgstr "Перемкнути пристрій"
+msgstr "Цей пристрій"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -918,13 +915,9 @@ msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr ""
-"Скануйте QR-коди <b>ваших</b> пристроїв, щоб увімкнути для них шифрування"
+msgstr "Перевірте <b>ваші</b> пристрої, щоб увімкнути для них шифрування"
 
 #: src/qml/details/ContactDetailsContent.qml:96
 msgctxt "ContactDetailsContent|"
@@ -937,21 +930,14 @@ msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "У <b>вас</b> немає інших пристроїв із підтримкою OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:105
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
-msgstr ""
-"Скануйте QR-коди <b>ваших</b> пристроїв, щоб забезпечити максимальний захист"
+msgstr "Перевірте <b>ваші</b> пристрої, щоб забезпечити максимальний захист"
 
 #: src/qml/details/ContactDetailsContent.qml:147
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
-msgstr "Скануйте QR-код вашого <b>контакту</b>, щоб увімкнути шифрування"
+msgstr "Перевірте ваш <b>контакт</b>, щоб увімкнути шифрування"
 
 #: src/qml/details/ContactDetailsContent.qml:150
 msgctxt "ContactDetailsContent|"
@@ -959,24 +945,15 @@ msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Ваш <b>контакт</b> не використовує OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:153
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgstr ""
-"Скануйте QR-коди пристроїв вашого <b>контакту</b>, щоб увімкнути для них "
-"шифрування"
+"Перевірте пристрої вашого <b>контакту</b>, щоб увімкнути для них шифрування"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
-msgstr ""
-"Скануйте QR-код вашого <b>контакту</b>, щоб забезпечити максимальний захист"
+msgstr "Перевірте ваш <b>контакт</b>, щоб забезпечити максимальний захист"
 
 #: src/qml/details/ContactDetailsContent.qml:194
 msgctxt "ContactDetailsContent|"
@@ -1466,41 +1443,26 @@ msgid "Add contact"
 msgstr "Додати контакт"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
-#, fuzzy
-#| msgctxt "ContactAdditionDialog|"
-#| msgid "Add contact"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
 msgstr "Додати контакт"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
 msgstr "Сканування QR-кодів"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
 msgstr "Показати пояснення"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Крок 1: скануйте QR-код вашого <b>контакту</b>"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Крок 2: передайте вашому контакту <b>ваш</b> QR-код"
@@ -1636,19 +1598,11 @@ msgid "Loading camera…"
 msgstr "Завантаження камери…"
 
 #: src/qml/elements/QrCodeScanner.qml:161
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "QrCodeScanner|"
 msgid "No camera available"
-msgstr "Немає доступної відеокамери."
+msgstr "Немає доступних камер"
 
 #: src/qml/elements/QrCodeScanner.qml:164
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Your camera is busy.\n"
-#| "Try to close other applications using the camera."
 msgctxt "QrCodeScanner|"
 msgid ""
 "Camera busy\n"
@@ -1658,73 +1612,46 @@ msgstr ""
 "Спробуйте завершити роботу інших програм, які користуються відеокамерою."
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "Контакт додано — перейдіть до кроку 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "У QR-коді не міститься даних контакту"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for other own device - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr "Рішення щодо довіри для іншого пристрою — перейдіть до кроку 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr "Рішення щодо довіри для контакту — перейдіть до кроку 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your other device"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Цей QR-код не є кодом вашого іншого пристрою"
 
 #: src/qml/elements/QrCodeScanningArea.qml:88
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Цей QR-код не є кодом вашого контакту"
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for trust decisions"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Цей QR-код не годиться для рішень щодо довіри"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Making trust decisions…"
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Вирішуємо щодо довіри…"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Додавання контакту…"
@@ -1909,126 +1836,90 @@ msgid "Settings"
 msgstr "Параметри"
 
 #: src/qml/KeyAuthenticationPage.qml:28
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr "Пристрої у мережі"
+msgstr "Перевірити пристрої"
 
 #: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
 msgstr "Показати пояснення"
 
 #: src/qml/KeyAuthenticationPage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
 msgstr "Сканування QR-кодів"
 
 #: src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Register manually"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr "Реєстрація вручну"
+msgstr "Перевірити вручну"
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgstr "Крок 1: скануйте QR-код вашого <b>іншого пристрою</b>"
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Крок 1: скануйте QR-код вашого <b>контакту</b>"
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr "Крок 2: скануйте вашим іншим пристроєм QR-код <b>цього пристрою</b>"
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Крок 2: передайте вашому контакту <b>ваш</b> QR-код"
 
 #: src/qml/KeyAuthenticationPage.qml:63
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "Пристрої у мережі"
+msgstr "Неперевірені власні пристрої"
 
 #: src/qml/KeyAuthenticationPage.qml:63
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "Неперевірені пристрої контактів"
 
 #: src/qml/KeyAuthenticationPage.qml:92
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr "Перемкнути пристрій"
+msgstr "Перевірити пристрій"
 
 #: src/qml/KeyAuthenticationPage.qml:110
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices on Servers"
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr "Пристрої на серверах"
+msgstr "Пристрій перевірено"
 
 #: src/qml/KeyAuthenticationPage.qml:112
 msgctxt "KeyAuthenticationPage|"
 msgid "Device does not exist or is already verified"
-msgstr ""
+msgstr "Пристрою не існує або його вже перевірено"
 
 #: src/qml/KeyAuthenticationPage.qml:117
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
-msgstr ""
+msgstr "Відбиток має складатися з 64 символів — цифр і літер від a до f"
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "Перевірені власні пристрої"
 
 #: src/qml/KeyAuthenticationPage.qml:175
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "Копіювати відбиток"
 
 #: src/qml/KeyAuthenticationPage.qml:182
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr "Дані контакту скопійовано до буфера даних"
+msgstr "Відбиток скопійовано до буфера даних"
 
 #: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
 msgctxt "LoginPage|"
