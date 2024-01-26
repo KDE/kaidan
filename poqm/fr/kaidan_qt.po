@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2022, 2023 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2023-12-24 16:14+0100\n"
+"PO-Revision-Date: 2024-01-25 13:23+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr "Erreur lors de la recherche de la blocklist : %1"
+msgstr "Erreur lors de la recherche de la liste des blocages : %1"
 
 #: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
@@ -389,12 +389,9 @@ msgstr ""
 "Le paramétrage du chiffrement de bout en bout grâce à OMEMO2 est impossible."
 
 #: src/OmemoModel.cpp:126
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "OmemoModel|"
 msgid "This device"
-msgstr "Changer de périphérique"
+msgstr "Ce périphérique"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -922,12 +919,9 @@ msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Lire les codes « QR » de <b>vos</b> périphériques pour les chiffrer."
+msgstr "Vérifier <b>vos</b> périphériques pour les chiffrer."
 
 #: src/qml/details/ContactDetailsContent.qml:96
 msgctxt "ContactDetailsContent|"
@@ -942,23 +936,14 @@ msgstr ""
 "<b>Vous</b> ne possédez aucun périphérique prenant en charge « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:105
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
-msgstr ""
-"Lire les codes « QR » de <b>vos</b> périphériques pour un niveau maximum de "
-"sécurité."
+msgstr "Vérifier <b>vos</b> périphériques pour un niveau maximum de sécurité."
 
 #: src/qml/details/ContactDetailsContent.qml:147
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
-msgstr ""
-"Lire les codes « QR » de vos <b>contact</b> pour autoriser le chiffrement."
+msgstr "Vérifier vos <b>contact</b> pour autoriser leur chiffrement."
 
 #: src/qml/details/ContactDetailsContent.qml:150
 msgctxt "ContactDetailsContent|"
@@ -966,25 +951,15 @@ msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Votre <b>contact</b> n'utilise pas « OMEMO 2 »."
 
 #: src/qml/details/ContactDetailsContent.qml:153
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgstr ""
-"Lire les codes « QR » des périphériques de vos <b>contacts</b>pour les "
-"chiffrer."
+"Vérifier les périphériques de vos <b>contacts</b>pour leur chiffrement."
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
-msgstr ""
-"Lire les codes « QR » de vos<b>contacts</b> pour un niveau maximum de "
-"sécurité."
+msgstr "Vérifier vos<b>contacts</b> pour un niveau maximum de sécurité."
 
 #: src/qml/details/ContactDetailsContent.qml:194
 msgctxt "ContactDetailsContent|"
@@ -1476,41 +1451,26 @@ msgid "Add contact"
 msgstr "Ajouter un contact"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
-#, fuzzy
-#| msgctxt "ContactAdditionDialog|"
-#| msgid "Add contact"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
 msgstr "Ajouter un contact"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
 msgstr "Lire un code « QR »"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
 msgstr "Afficher une explication"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "Étape 1 : lire vos codes « QR » de vos <b>contacts</b>"
+msgstr "Étape 1 : lire les codes « QR » de vos <b>contacts</b>"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Étape 2 : laisser votre contact lire <b>votre</b> code « QR »"
@@ -1650,19 +1610,11 @@ msgid "Loading camera…"
 msgstr "Chargement de la caméra..."
 
 #: src/qml/elements/QrCodeScanner.qml:161
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "QrCodeScanner|"
 msgid "No camera available"
-msgstr "Aucun appareil photo n'est disponible."
+msgstr "Aucun appareil photo disponible"
 
 #: src/qml/elements/QrCodeScanner.qml:164
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Your camera is busy.\n"
-#| "Try to close other applications using the camera."
 msgctxt "QrCodeScanner|"
 msgid ""
 "Camera busy\n"
@@ -1672,77 +1624,49 @@ msgstr ""
 "Veuillez essayer de fermer les autres applications l'utilisant."
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "Contact ajouté - Continuer avec l'étape 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "Ce code « QR » ne contient aucun contact."
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for other own device - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
-"Décisions de confiance effectuées pour un autre périphérique - Veuillez "
-"continuer avec l'état 2"
+"Décisions de confiance effectuées pour un périphérique personnel - Veuillez "
+"continuer avec l'étape 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
 msgstr ""
-"Décisions de confiance effectuées pour le contact - Continuez avec l'étape "
-"2 !"
+"Décisions de confiance effectuées pour le contact - Continuez avec l'étape 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your other device"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "Ce code « QR » ne s'applique pas à votre autre périphérique."
 
 #: src/qml/elements/QrCodeScanningArea.qml:88
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "Ce code « QR » ne s'applique pas à votre contact."
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for trust decisions"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "Ce code « QR » ne s'applique pas à des décisions de confiance."
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Making trust decisions…"
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Réalisation de décisions de confiance..."
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Ajout d'un contact..."
@@ -1928,128 +1852,94 @@ msgid "Settings"
 msgstr "Configuration"
 
 #: src/qml/KeyAuthenticationPage.qml:28
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr "Périphériques en ligne"
+msgstr "Vérifier des périphériques"
 
 #: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
 msgstr "Afficher une explication"
 
 #: src/qml/KeyAuthenticationPage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
 msgstr "Lire un code « QR »"
 
 #: src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Register manually"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr "S'inscrire manuellement"
+msgstr "Vérifier manuellement"
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "Étape 1 : lire le code « QR » de votre <b>autre périphérique</b>."
+msgstr "Étape 1 : lire les codes « QR » de vos <b>autres périphériques</b>."
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "Étape 1 : lire vos codes « QR » de vos <b>contacts</b>"
+msgstr "Étape 1 : lire les codes « QR » de vos <b>contacts</b>"
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr ""
-"Étape 2 : lire le code « QR » de votre <b>périphériques</b> avec votre autre "
+"Étape 2 : lire le code « QR » de ce <b>périphérique</b> avec votre autre "
 "périphérique."
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Étape 2 : laisser votre contact lire <b>votre</b> code « QR »"
 
 #: src/qml/KeyAuthenticationPage.qml:63
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "Périphériques en ligne"
+msgstr "Périphériques personnels non vérifiés"
 
 #: src/qml/KeyAuthenticationPage.qml:63
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "Périphériques de contacts non vérifiés"
 
 #: src/qml/KeyAuthenticationPage.qml:92
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr "Changer de périphérique"
+msgstr "Vérifier un périphérique"
 
 #: src/qml/KeyAuthenticationPage.qml:110
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices on Servers"
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr "Périphériques des serveurs "
+msgstr "Périphérique vérifié"
 
 #: src/qml/KeyAuthenticationPage.qml:112
 msgctxt "KeyAuthenticationPage|"
 msgid "Device does not exist or is already verified"
-msgstr ""
+msgstr "Le périphérique n'existe pas ou a déjà été vérifié."
 
 #: src/qml/KeyAuthenticationPage.qml:117
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
+"L'empreinte numérique doit avoir 64 caractères avec des chiffres et des "
+"lettres de « a » à « f »."
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "Périphériques personnes vérifiés"
 
 #: src/qml/KeyAuthenticationPage.qml:175
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "Copier l'empreinte numérique"
 
 #: src/qml/KeyAuthenticationPage.qml:182
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr "Le contact a été copié dans le presse-papier."
+msgstr "Empreinte digitale copiée dans le presse-papier"
 
 #: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
 msgctxt "LoginPage|"
