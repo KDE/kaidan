@@ -100,6 +100,9 @@ constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
  */
 #define PROVIDER_COMPLETION_LIST_FILE_PATH QStringLiteral(":/data/providers-completion.json")
 
+constexpr QStringView DEFAULT_LANGUAGE_CODE = u"EN";
+constexpr QStringView DEFAULT_COUNTRY_CODE = u"US";
+
 /**
  * Number of providers required in a country so that only providers from that country are
  * randomly selected.

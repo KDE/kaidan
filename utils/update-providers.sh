@@ -11,14 +11,16 @@
 # It should be run before each new release.
 #
 
+XMPP_PROVIDERS_VERSION=2
+XMPP_PROVIDERS_ROOT_URL="https://data.xmpp.net/providers/v${XMPP_PROVIDERS_VERSION}"
 KAIDAN_SOURCES=$(dirname "$(readlink -f "${0}")")/..
 
 curl \
 	-L \
-	"https://data.xmpp.net/providers/v1/providers-B.json" \
+	"${XMPP_PROVIDERS_ROOT_URL}/providers-B.json" \
 	> "${KAIDAN_SOURCES}/data/providers.json"
 
 curl \
 	-L \
-	"https://data.xmpp.net/providers/v1/providers-Ds.json" \
+	"${XMPP_PROVIDERS_ROOT_URL}/providers-Ds.json" \
 	> "${KAIDAN_SOURCES}/data/providers-completion.json"

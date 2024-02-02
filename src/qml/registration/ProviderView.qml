@@ -22,10 +22,10 @@ FieldView {
 	imageSource: "provider"
 
 	property string text: customProviderSelected ? field.text : providerListModel.data(comboBox.currentIndex, ProviderListModel.JidRole)
-	property string website: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
+	property url website: providerListModel.data(comboBox.currentIndex, ProviderListModel.WebsiteRole)
 	property bool customProviderSelected: providerListModel.data(comboBox.currentIndex, ProviderListModel.IsCustomProviderRole)
 	property bool inBandRegistrationSupported: providerListModel.data(comboBox.currentIndex, ProviderListModel.SupportsInBandRegistrationRole)
-	property string registrationWebPage: providerListModel.data(comboBox.currentIndex, ProviderListModel.RegistrationWebPageRole)
+	property url registrationWebPage: providerListModel.data(comboBox.currentIndex, ProviderListModel.RegistrationWebPageRole)
 	property bool shouldWebRegistrationViewBeShown: !customProviderSelected && !inBandRegistrationSupported
 	property string outOfBandUrl
 

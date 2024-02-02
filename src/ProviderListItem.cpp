@@ -14,36 +14,6 @@
 
 #define REGIONAL_INDICATOR_SYMBOL_BASE 0x1F1A5
 
-template<typename T>
-struct LanguageMap
-{
-	T pickBySystemLocale() const
-	{
-		auto languageCode = QLocale::system().name().split(u'_').first();
-
-		// Use the system-wide language chat support jid if available.
-		auto resultItr = values.find(languageCode);
-		if (resultItr != values.end() && !resultItr->second.isEmpty()) {
-			return resultItr->second;
-		}
-
-		// Use the English chat support jid if no system-wide language chat support jid is available but English is.
-		resultItr = values.find(QStringLiteral("EN"));
-		if (resultItr != values.end() && !resultItr->second.isEmpty()) {
-			return resultItr->second;
-		}
-
-		// Use the first chat support jid if also no English version is available but another one is.
-		if (!values.empty()) {
-			return values.begin()->second;
-		}
-
-		return {};
-	}
-
-	std::unordered_map<QString, T> values;
-};
-
 class ProviderListItemPrivate : public QSharedData
 {
 public:
@@ -52,15 +22,15 @@ public:
 	bool isCustomProvider;
 	QString jid;
 	bool supportsInBandRegistration;
-	QUrl registrationWebPage;
+	ProviderListItem::LanguageVariants<QUrl> registrationWebPages;
 	QVector<QString> languages;
 	QVector<QString> countries;
-	QMap<QString, QUrl> websites;
+	ProviderListItem::LanguageVariants<QUrl> websites;
 	int onlineSince;
 	int httpUploadSize;
 	int messageStorageDuration;
-	LanguageMap<QVector<QString>> chatSupport;
-	LanguageMap<QVector<QString>> groupChatSupport;
+	ProviderListItem::LanguageVariants<QVector<QString>> chatSupport;
+	ProviderListItem::LanguageVariants<QVector<QString>> groupChatSupport;
 };
 
 ProviderListItemPrivate::ProviderListItemPrivate()
@@ -74,7 +44,7 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	item.setIsCustomProvider(false);
 	item.setJid(object.value(QLatin1String("jid")).toString());
 	item.setSupportsInBandRegistration(object.value(QLatin1String("inBandRegistration")).toBool());
-	item.setRegistrationWebPage(QUrl(object.value(QLatin1String("registrationWebPage")).toString()));
+	item.setRegistrationWebPages(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("registrationWebPage")).toObject()));
 
 	const auto serverLocations = object.value(QLatin1String("serverLocations")).toArray();
 	QVector<QString> countries;
@@ -83,34 +53,12 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	}
 	item.setCountries(countries);
 
-	const auto websiteLanguageVersions = object.value(QLatin1String("website")).toObject();
-	QMap<QString, QUrl> websites;
-	for (auto itr = websiteLanguageVersions.constBegin(); itr != websiteLanguageVersions.constEnd(); ++itr) {
-		const auto language = itr.key().toUpper();
-		const QUrl url = { itr.value().toString() };
-		websites.insert(language, url);
-	}
-	item.setWebsites(websites);
-
+	item.setWebsites(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("website")).toObject()));
 	item.setOnlineSince(object.value(QLatin1String("since")).toInt(-1));
 	item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
 	item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
-
-	const auto chatSupportLanguageAddresses = object.value(QLatin1String("chatSupport")).toObject();
-	for (auto itr = chatSupportLanguageAddresses.constBegin(); itr != chatSupportLanguageAddresses.constEnd(); ++itr) {
-		item.d->chatSupport.values.insert_or_assign(
-			itr.key().toUpper(),
-			transform(itr.value().toArray(), [](auto item) { return item.toString(); })
-		);
-	}
-
-	const auto groupChatSupportLanguageAddresses = object.value(QLatin1String("groupChatSupport")).toObject();
-	for (auto itr = groupChatSupportLanguageAddresses.constBegin(); itr != groupChatSupportLanguageAddresses.constEnd(); ++itr) {
-		item.d->groupChatSupport.values.insert_or_assign(
-			itr.key().toUpper(),
-			transform(itr.value().toArray(), [](auto item) { return item.toString(); })
-		);
-	}
+	item.setChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("chatSupport")).toObject()));
+	item.setGroupChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("groupChatSupport")).toObject()));
 
 	return item;
 }
@@ -157,14 +105,14 @@ void ProviderListItem::setSupportsInBandRegistration(bool supportsInBandRegistra
 	d->supportsInBandRegistration = supportsInBandRegistration;
 }
 
-QUrl ProviderListItem::registrationWebPage() const
+ProviderListItem::LanguageVariants<QUrl> ProviderListItem::registrationWebPages() const
 {
-	return d->registrationWebPage;
+	return d->registrationWebPages;
 }
 
-void ProviderListItem::setRegistrationWebPage(const QUrl &registrationWebPage)
+void ProviderListItem::setRegistrationWebPages(const LanguageVariants<QUrl> &registrationWebPages)
 {
-	d->registrationWebPage = registrationWebPage;
+	d->registrationWebPages = registrationWebPages;
 }
 
 QVector<QString> ProviderListItem::languages() const
@@ -230,14 +178,19 @@ QVector<QString> ProviderListItem::flags() const
 	return flags;
 }
 
-QMap<QString, QUrl> ProviderListItem::websites() const
+ProviderListItem::LanguageVariants<QUrl> ProviderListItem::websites() const
 {
 	return d->websites;
 }
 
-void ProviderListItem::setWebsites(const QMap<QString, QUrl> &websites)
+void ProviderListItem::setWebsites(const LanguageVariants<QUrl> &websites)
 {
 	d->websites = websites;
+}
+
+QUrl ProviderListItem::chosenWebsite() const
+{
+	return websites().pickBySystemLocale();
 }
 
 int ProviderListItem::onlineSince() const
@@ -270,24 +223,34 @@ void ProviderListItem::setMessageStorageDuration(int messageStorageDuration)
 	d->messageStorageDuration = messageStorageDuration;
 }
 
-QVector<QString> ProviderListItem::chatSupport() const
+ProviderListItem::LanguageVariants<QVector<QString>> ProviderListItem::chatSupport() const
 {
-	return d->chatSupport.pickBySystemLocale();
+	return d->chatSupport;
 }
 
-void ProviderListItem::setChatSupport(std::unordered_map<QString, QVector<QString>> &&chatSupport)
+void ProviderListItem::setChatSupport(const LanguageVariants<QVector<QString>> &chatSupport)
 {
-	d->chatSupport.values = std::move(chatSupport);
+	d->chatSupport = chatSupport;
 }
 
-QVector<QString> ProviderListItem::groupChatSupport() const
+QVector<QString> ProviderListItem::chosenChatSupport() const
 {
-	return d->groupChatSupport.pickBySystemLocale();
+	return chatSupport().pickBySystemLocale();
 }
 
-void ProviderListItem::setGroupChatSupport(std::unordered_map<QString, QVector<QString>> &&groupChatSupport)
+ProviderListItem::LanguageVariants<QVector<QString>> ProviderListItem::groupChatSupport() const
 {
-	d->groupChatSupport.values = std::move(groupChatSupport);
+	return d->groupChatSupport;
+}
+
+void ProviderListItem::setGroupChatSupport(const LanguageVariants<QVector<QString>> &groupChatSupport)
+{
+	d->groupChatSupport = groupChatSupport;
+}
+
+QVector<QString> ProviderListItem::chosenGroupChatSupport() const
+{
+	return groupChatSupport().pickBySystemLocale();
 }
 
 bool ProviderListItem::operator<(const ProviderListItem& other) const
@@ -313,4 +276,34 @@ bool ProviderListItem::operator>=(const ProviderListItem& other) const
 bool ProviderListItem::operator==(const ProviderListItem& other) const
 {
 	return d == other.d;
+}
+
+template<typename T>
+ProviderListItem::LanguageVariants<T> ProviderListItem::parseStringLanguageVariants(const QJsonObject &stringLanguageVariants)
+{
+	return parseLanguageVariants<T>(stringLanguageVariants, [](const QJsonValue &value) {
+		return T { value.toString() };
+	});
+}
+
+template<typename T>
+ProviderListItem::LanguageVariants<T> ProviderListItem::parseStringListLanguageVariants(const QJsonObject &stringListLanguageVariants)
+{
+	return parseLanguageVariants<T>(stringListLanguageVariants, [](const QJsonValue &value) {
+		return T { transform(value.toArray(), [](const QJsonValue &item) { return item.toString(); }) };
+	});
+}
+
+template<typename T>
+ProviderListItem::LanguageVariants<T> ProviderListItem::parseLanguageVariants(const QJsonObject &languageVariants, const std::function<T (const QJsonValue &)> &convertToTargetType)
+{
+	ProviderListItem::LanguageVariants<T> parsedLanguageVariants;
+
+	for (auto itr = languageVariants.constBegin(); itr != languageVariants.constEnd(); ++itr) {
+		const auto language = itr.key().toUpper();
+		const T languageVariant = convertToTargetType(itr.value());
+		parsedLanguageVariants.insert(language, languageVariant);
+	}
+
+	return parsedLanguageVariants;
 }

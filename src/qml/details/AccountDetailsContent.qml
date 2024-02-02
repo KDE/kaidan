@@ -277,15 +277,9 @@ DetailsContent {
 	MobileForm.FormCard {
 		id: providerArea
 
-		readonly property string providerUrl: {
-			const domain = root.jid.split('@')[1]
-			const provider = providerListModel.provider(domain)
-
-			return providerListModel.chooseWebsite(provider.websites)
-		}
-
-		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chatSupport
-		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).groupChatSupport
+		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite
+		readonly property var chatSupportList: providerListModel.providerFromBareJid(root.jid).chosenChatSupport
+		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).chosenGroupChatSupport
 
 		Layout.fillWidth: true
 		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
