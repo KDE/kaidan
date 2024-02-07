@@ -384,6 +384,9 @@ void MessageHandler::retrieveCatchUpMessages(const QString &latestMessageStanzaI
 			Kaidan::instance()->database()->startTransaction();
 			for (const auto &message : std::as_const(messages.messages)) {
 				handleMessage(message, MessageOrigin::MamCatchUp);
+
+				// Send delivery receipts for catched up messages.
+				m_receiptManager.handleMessage(message);
 			}
 			Kaidan::instance()->database()->commitTransaction();
 		}
