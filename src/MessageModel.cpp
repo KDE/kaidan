@@ -188,11 +188,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case IsEdited:
 		return !msg.replaceId.isEmpty();
 	case Date:
-		return formatDate(msg.timestamp.date());
+		return formatDate(msg.timestamp.toLocalTime().date());
 	case NextDate:
 		return formatDate(searchNextDate(row));
 	case Time:
-		return QLocale::system().toString(msg.timestamp.time(), QLocale::ShortFormat);
+		return QLocale::system().toString(msg.timestamp.toLocalTime().time(), QLocale::ShortFormat);
 	case Body:
 		return msg.body;
 	case Encryption:
