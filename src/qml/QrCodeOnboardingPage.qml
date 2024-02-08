@@ -28,15 +28,12 @@ ExplanationTogglePage {
 			scanner.cameraEnabled = true
 		}
 	}
-	secondaryButton.text: qsTr("Continue without QR code")
-	secondaryButton.onClicked: pageStack.layers.push(registrationLoginDecisionPage)
-	secondaryButton.flat: Style.isMaterial ? explanationArea.visible : false
 	explanation: ColumnLayout {
 		width: parent.width
 		height: parent.height
 
 		CenteredAdaptiveText {
-			text: qsTr("Scan the QR code from your existing device to transfer your account.")
+			text: qsTr("Scan your old device's QR code")
 			Layout.topMargin: 10
 			scaleFactor: 1.5
 		}
@@ -56,16 +53,18 @@ ExplanationTogglePage {
 
 		cornersRounded: false
 		anchors.fill: parent
-		zoomSliderArea.anchors.bottomMargin: Kirigami.Units.largeSpacing * 11
+		zoomSliderArea.anchors.bottomMargin: Kirigami.Units.largeSpacing * 9
 		zoomSliderArea.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
 		filter.onScanningSucceeded: {
 			if (acceptResult) {
 				// Try to log in by the data from the decoded QR code.
 				switch (Kaidan.logInByUri(result)) {
 				case Enums.Connecting:
+					acceptResult = false
 					break
 				case Enums.PasswordNeeded:
-					pageStack.layers.push(loginPage)
+					acceptResult = false
+					popLayersAboveLowest()
 					break
 				case Enums.InvalidLoginUri:
 					acceptResult = false

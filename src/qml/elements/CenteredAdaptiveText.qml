@@ -12,8 +12,7 @@ import org.kde.kirigami 2.19 as Kirigami
  * This is a centered and adaptive text.
  */
 ScalableText {
-	Layout.fillWidth: true
 	horizontalAlignment: Text.AlignHCenter
-	wrapMode: Text.WordWrap
-	elide: Text.ElideRight
+	wrapMode: Text.Wrap
+	Layout.fillWidth: true
 }

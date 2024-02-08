@@ -94,11 +94,8 @@ Kirigami.ApplicationWindow {
 
 	// components for all main pages
 	Component {id: startPage; StartPage {}}
-	Component {id: registrationLoginDecisionPage; RegistrationLoginDecisionPage {}}
-	Component {id: registrationDecisionPage; RegistrationDecisionPage {}}
 	Component {id: automaticRegistrationPage; AutomaticRegistrationPage {}}
 	Component {id: manualRegistrationPage; ManualRegistrationPage {}}
-	Component {id: loginPage; LoginPage {}}
 	Component {id: rosterPage; RosterPage {}}
 	Component {id: chatPage; ChatPage {}}
 	Component {id: emptyChatPage; EmptyChatPage {}}

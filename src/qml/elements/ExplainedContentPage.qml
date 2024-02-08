@@ -65,13 +65,14 @@ Kirigami.Page {
 	}
 
 	// background of overlay
-	RoundedRectangle {
+	Rectangle {
 		id: explanationAreaBackground
 		z: 1
 		anchors.fill: overlay
 		anchors.margins: -8
 		color: Kirigami.Theme.backgroundColor
 		opacity: 0.9
+		radius: roundedCornersRadius
 		visible: explanationArea.visible
 	}
 
@@ -92,6 +93,7 @@ Kirigami.Page {
 			id: buttonArea
 			Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
+			Layout.bottomMargin: secondaryButton.visible ? 0 : Kirigami.Units.largeSpacing
 
 			CenteredAdaptiveHighlightedButton {
 				id: primaryButton
@@ -99,6 +101,7 @@ Kirigami.Page {
 
 			CenteredAdaptiveButton {
 				id: secondaryButton
+				visible: text
 			}
 		}
 	}

@@ -6,6 +6,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -16,54 +17,122 @@ import "elements"
  *
  * It is displayed if no account is available.
  */
-Kirigami.Page {
+Kirigami.ScrollablePage {
 	title: "Kaidan"
+	background: Rectangle {
+		color: secondaryBackgroundColor
+
+		Image {
+			source: Utils.getResourcePath("images/chat-page-background.svg")
+			anchors.fill: parent
+			fillMode: Image.Tile
+			horizontalAlignment: Image.AlignLeft
+			verticalAlignment: Image.AlignTop
+		}
+	}
 
 	ColumnLayout {
-		anchors.fill: parent
+		Item {
+			Layout.fillHeight: true
+		}
 
 		Image {
 			source: Utils.getResourcePath("images/kaidan.svg")
-			Layout.alignment: Qt.AlignCenter
-			Layout.fillWidth: true
-			Layout.fillHeight: true
 			fillMode: Image.PreserveAspectFit
 			mipmap: true
 			sourceSize.width: width
 			sourceSize.height: height
-			Layout.bottomMargin: Kirigami.Units.gridUnit * 1.5
+			Layout.alignment: Qt.AlignHCenter
 		}
 
 		CenteredAdaptiveText {
 			text: "Kaidan"
-			scaleFactor: 6
+			scaleFactor: 4
 		}
 
 		CenteredAdaptiveText {
 			text: qsTr("Enjoy free communication on every device!")
-			scaleFactor: 2
+			Layout.bottomMargin: Kirigami.Units.largeSpacing * 4
+			scaleFactor: 1.5
 		}
 
-		// placeholder
-		Item {
-			Layout.fillHeight: true
-			Layout.minimumHeight: root.height * 0.08
-		}
-
-		ColumnLayout {
+		MobileForm.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
 
-			CenteredAdaptiveHighlightedButton {
-				id: startButton
-				text: qsTr("Let's start")
-				onClicked: pageStack.layers.push(qrCodeOnboardingPage)
-			}
+				MobileForm.FormCardHeader {
+					title: qsTr("Login")
+				}
 
-			// placeholder
-			Item {
-				height: startButton.height
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Enter your credentials")
+					checkable: true
+					onClicked: loginArea.visible = !loginArea.visible
+				}
+
+				LoginArea {
+					id: loginArea
+					visible: false
+					onVisibleChanged: {
+						if (visible) {
+							initialize()
+						} else {
+							reset()
+						}
+					}
+
+					Connections {
+						target: pageStack.layers
+
+						function onCurrentItemChanged() {
+							if (AccountManager.jid) {
+								loginArea.visible = true
+							}
+						}
+					}
+				}
+
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Scan login QR code of old device")
+					onClicked: openPage(qrCodeOnboardingPage)
+				}
 			}
+		}
+
+		Kirigami.Heading {
+			text: qsTr("or")
+			horizontalAlignment: Text.AlignHCenter
+			Layout.fillWidth: true
+		}
+
+		MobileForm.FormCard {
+			Layout.alignment: Qt.AlignHCenter
+			Layout.maximumWidth: largeButtonWidth
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Register")
+				}
+
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Generate account automatically")
+					onClicked: openPage(automaticRegistrationPage)
+				}
+
+				MobileForm.FormButtonDelegate {
+					text: qsTr("Create account manually")
+					onClicked: openPage(manualRegistrationPage)
+				}
+			}
+		}
+
+		Item {
+			Layout.fillHeight: true
 		}
 	}
 

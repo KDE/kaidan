@@ -359,13 +359,9 @@ def main():
 		CopyrightTarget(
 			files = [
 				"data/images/onboarding/account-transfer.svg",
-				"data/images/onboarding/automatic-registration.svg",
 				"data/images/onboarding/custom-form.svg",
 				"data/images/onboarding/display-name.svg",
-				"data/images/onboarding/login.svg",
-				"data/images/onboarding/manual-registration.svg",
 				"data/images/onboarding/password.svg",
-				"data/images/onboarding/registration.svg",
 				"data/images/onboarding/result.svg",
 				"data/images/onboarding/server.svg",
 				"data/images/onboarding/username.svg",
