@@ -164,7 +164,6 @@ void ClientWorker::logIn()
 			config.setResource(AccountManager::instance()->jidResource());
 			config.setPassword(AccountManager::instance()->password());
 			config.setAutoAcceptSubscriptions(false);
-			config.setStreamSecurityMode(QXmppConfiguration::TLSRequired);
 
 			connectToServer(config);
 		}
