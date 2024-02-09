@@ -313,7 +313,7 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 
 void OmemoManager::retrieveKeysForRequestedJids(const QList<QString> &jids)
 {
-	if (std::search(jids.cbegin(), jids.cend(), m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend()) != jids.cend()) {
+	if (std::search(m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend(), jids.cbegin(), jids.cend()) != m_lastRequestedKeyOwnerJids.cend()) {
 		retrieveKeys(m_lastRequestedKeyOwnerJids);
 	}
 }
