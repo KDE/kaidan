@@ -74,6 +74,13 @@ ConfirmationArea {
 			placeholderText: qsTr("Hello, I'm…")
 			inputMethodHints: Qt.ImhPreferUppercase
 			wrapMode: TextEdit.Wrap
+			Keys.onPressed: (event) => {
+				// If there is no message entered, add the contact by clicking the "Return" key.
+				if (event.key === Qt.Key_Return && !text) {
+					confirmationButton.clicked()
+					event.accepted = true
+				}
+			}
 			Layout.fillWidth: true
 			Layout.minimumHeight: Kirigami.Units.gridUnit * 4
 		}
