@@ -276,9 +276,6 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 
 	auto future = m_manager->ownKey();
 	future.then(this, [this, interface, keys = std::move(keys)](QByteArray key) mutable {
-		keys.insert(AccountManager::instance()->jid(), { { key, QXmpp::TrustLevel::Authenticated } });
-		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
-
 		for (auto itr = keys.cbegin(); itr != keys.cend(); ++itr) {
 			using KeyIds = QList<QString>;
 			KeyIds authenticatableKeys;
@@ -300,6 +297,13 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 
 			updateCachedKeys(jid, authenticatableKeys, authenticatedKeys);
 		}
+
+		const auto ownJid = AccountManager::instance()->jid();
+
+		OmemoCache::instance()->setAuthenticatedKeys(ownJid, { key.toHex() });
+
+		keys.insert(ownJid, { { key, QXmpp::TrustLevel::Authenticated } });
+		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
 
 		interface.reportFinished();
 	});
