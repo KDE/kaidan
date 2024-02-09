@@ -32,7 +32,7 @@ void OmemoCache::setAuthenticatableKeys(const QString &jid, const QList<QString>
 		auto keyFound = false;
 
 		for (const auto &authenticatableDevice : authenticatableDevices) {
-			if (authenticatableDevice.keyId == authenticatableKey || m_ownDevice.keyId == authenticatableKey) {
+			if (authenticatableDevice.keyId == authenticatableKey) {
 				keyFound = true;
 				break;
 			}
@@ -64,14 +64,14 @@ void OmemoCache::setAuthenticatedKeys(const QString &jid, const QList<QString> &
 		auto keyFound = false;
 
 		for (const auto &authenticatedDevice : authenticatedDevices) {
-			if (authenticatedDevice.keyId == authenticatedKey || m_ownDevice.keyId == authenticatedKey) {
+			if (authenticatedDevice.keyId == authenticatedKey) {
 				keyFound = true;
 				break;
 			}
 		}
 
 		// Add a key for whom no device is stored as a new device without a label.
-		if (!keyFound) {
+		if (!keyFound && m_ownDevice.keyId != authenticatedKey) {
 			authenticatedDevices.append({ {}, authenticatedKey });
 
 			if (!devicesChanged) {
