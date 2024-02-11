@@ -447,7 +447,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "오프라인"
 
-#: src/ProviderListModel.cpp:28
+#: src/ProviderListModel.cpp:25
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "사용자 정의 공급자"
@@ -455,12 +455,12 @@ msgstr "사용자 정의 공급자"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:96 src/ProviderListModel.cpp:106
+#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "무제한"
 
-#: src/ProviderListModel.cpp:108
+#: src/ProviderListModel.cpp:105
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -578,32 +578,32 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "레이블 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "공급자"
 
-#: src/qml/details/AccountDetailsContent.qml:309
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "웹사이트 방문"
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "웹사이트 주소 복사"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:315
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -611,32 +611,32 @@ msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "클립보드에 초대 링크 복사됨"
 
-#: src/qml/details/AccountDetailsContent.qml:326
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:321
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "지원"
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:339
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:363
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -644,19 +644,19 @@ msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "대화 주소"
 
-#: src/qml/details/AccountDetailsContent.qml:373
+#: src/qml/details/AccountDetailsContent.qml:367
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:393
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -664,7 +664,7 @@ msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:414
+#: src/qml/details/AccountDetailsContent.qml:408
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -672,7 +672,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "대화 주소 복사"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:476
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -680,27 +680,27 @@ msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "대화 주소 복사"
 
-#: src/qml/details/AccountDetailsContent.qml:511
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:538
+#: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:543
+#: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:578
+#: src/qml/details/AccountDetailsContent.qml:572
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -708,7 +708,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "암호"
 
-#: src/qml/details/AccountDetailsContent.qml:582
+#: src/qml/details/AccountDetailsContent.qml:576
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid ""
@@ -720,7 +720,7 @@ msgid ""
 "devices!"
 msgstr "암호를 변경한 후에는 다른 장치에도 변경한 암호를 입력해야 합니다."
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:592
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password is invalid."
@@ -728,7 +728,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "현재 암호가 잘못되었습니다."
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:593
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -736,7 +736,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "현재 암호:"
 
-#: src/qml/details/AccountDetailsContent.qml:600
+#: src/qml/details/AccountDetailsContent.qml:594
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -744,7 +744,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "현재 암호:"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -752,12 +752,12 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "새 암호:"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "암호"
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:617
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Current password:"
@@ -765,12 +765,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "현재 암호:"
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:638
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "Change password"
@@ -778,18 +778,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "암호 변경"
 
-#: src/qml/details/AccountDetailsContent.qml:691
+#: src/qml/details/AccountDetailsContent.qml:685
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "암호를 변경할 수 없음: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:697
+#: src/qml/details/AccountDetailsContent.qml:691
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "암호가 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:708
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -797,7 +797,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "암호"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -806,7 +806,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:716
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -814,7 +814,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "암호를 텍스트로 표시하지 않기"
 
-#: src/qml/details/AccountDetailsContent.qml:723
+#: src/qml/details/AccountDetailsContent.qml:717
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -827,20 +827,20 @@ msgid ""
 msgstr ""
 "암호를 표시하지 않고 로그인 QR 코드를 통해서 장치를 추가할 수 있습니다."
 
-#: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:750
-#: src/qml/details/AccountDetailsContent.qml:910
-#: src/qml/details/AccountDetailsContent.qml:935
+#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "확인"
 
-#: src/qml/details/AccountDetailsContent.qml:741
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "암호를 노출하지 않음"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:736
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -852,12 +852,12 @@ msgid ""
 "password"
 msgstr "로그인 QR 코드나 암호 표시를 통한 새 장치 추가를 허용하지 않습니다."
 
-#: src/qml/details/AccountDetailsContent.qml:773
+#: src/qml/details/AccountDetailsContent.qml:767
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "연결"
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:771
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -867,7 +867,7 @@ msgid ""
 "values)"
 msgstr "연결할 호스트 이름과 포트 설정"
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:790
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -875,7 +875,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "연결 설정"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:799
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -883,7 +883,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "연결 설정이 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:848
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -891,12 +891,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "연결 설정을 변경할 수 없음"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "연결 설정이 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:887
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -904,7 +904,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:901
+#: src/qml/details/AccountDetailsContent.qml:895
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -912,14 +912,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan에서 계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:902
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:926
+#: src/qml/details/AccountDetailsContent.qml:920
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -927,7 +927,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "완전히 계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:921
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1732,6 +1732,30 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "녹음 중…"
 
+#: src/qml/elements/LoginArea.qml:34
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "LoginArea|"
+msgid "Connection settings"
+msgstr "연결 설정"
+
+#: src/qml/elements/LoginArea.qml:67
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
+msgctxt "LoginArea|"
+msgid "Log in"
+msgstr "로그인"
+
+#: src/qml/elements/LoginArea.qml:74
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
+msgctxt "LoginArea|"
+msgid "Connecting…"
+msgstr "연결 중..."
+
 #: src/qml/elements/MessageBackground.qml:108
 #, fuzzy
 #| msgctxt "ChatMessage|"
@@ -2276,26 +2300,6 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "클립보드에 초대 링크 복사됨"
 
-#: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
-msgctxt "LoginPage|"
-msgid "Log in"
-msgstr "로그인"
-
-#: src/qml/LoginPage.qml:28
-msgctxt "LoginPage|"
-msgid "Log in to your XMPP account"
-msgstr "XMPP 계정에 로그인"
-
-#: src/qml/LoginPage.qml:54
-msgctxt "LoginPage|"
-msgid "Connection settings"
-msgstr "연결 설정"
-
-#: src/qml/LoginPage.qml:93
-msgctxt "LoginPage|"
-msgid "Connecting…"
-msgstr "연결 중..."
-
 #: src/qml/main.qml:81
 #, qt-format
 msgctxt "main|"
@@ -2329,22 +2333,20 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "설명 보기"
 
-#: src/qml/QrCodeOnboardingPage.qml:31
+#: src/qml/QrCodeOnboardingPage.qml:36
+#, fuzzy
+#| msgctxt "QrCodePage|"
+#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Continue without QR code"
-msgstr "QR 코드 없이 진행"
+msgid "Scan your old device's QR code"
+msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
-#: src/qml/QrCodeOnboardingPage.qml:39
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan the QR code from your existing device to transfer your account."
-msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
-
-#: src/qml/QrCodeOnboardingPage.qml:73
+#: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "QR 코드가 올바른 로그인 QR 코드가 아닙니다."
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:79
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "연결 중..."
@@ -2437,14 +2439,9 @@ msgstr "새 무작위 사용자 이름이 생성되었습니다."
 #: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
 msgid ""
-"Your password is used to log in to your account.\n"
-"If you don't enter a password, the randomly generated and already displayed "
-"one is used.\n"
-"Don't use passwords you're already using somewhere else!"
+"You can provide a password for your account. If you don't, a password will "
+"be generated that you can find later in the app."
 msgstr ""
-"계정에 로그인할 때 사용할 암호입니다.\n"
-"암호를 입력하지 않으면 미리 표시된 무작위 생성된 암호를 사용합니다.\n"
-"다른 곳에서 사용 중인 암호를 사용하지 마십시오!"
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2519,21 +2516,6 @@ msgstr "웹사이트 주소 복사"
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "등록"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:16
-msgctxt "RegistrationDecisionPage|"
-msgid "Register"
-msgstr "등록"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:22
-msgctxt "RegistrationDecisionPage|"
-msgid "Generate an account automatically"
-msgstr "자동으로 계정 생성"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:27
-msgctxt "RegistrationDecisionPage|"
-msgid "Create an account manually"
-msgstr "수동으로 계정 생성"
 
 #: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
@@ -2611,21 +2593,6 @@ msgstr "등록 웹 페이지 주소 복사"
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "새 계정으로 로그인"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:16
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Set up"
-msgstr "설정"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:22
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Register a new account"
-msgstr "새 계정 등록"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:27
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Use an existing account"
-msgstr "기존 계정 사용"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -2782,15 +2749,60 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "설정"
 
-#: src/qml/StartPage.qml:43
+#: src/qml/StartPage.qml:54
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "모든 장치에서 자유롭게 대화하십시오!"
 
-#: src/qml/StartPage.qml:59
+#: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
-msgid "Let's start"
-msgstr "시작하기"
+msgid "Login"
+msgstr ""
+
+#: src/qml/StartPage.qml:71
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "StartPage|"
+msgid "Enter your credentials"
+msgstr "현재 암호:"
+
+#: src/qml/StartPage.qml:99
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Scan QR codes"
+msgctxt "StartPage|"
+msgid "Scan login QR code of old device"
+msgstr "QR 코드 스캔"
+
+#: src/qml/StartPage.qml:106
+msgctxt "StartPage|"
+msgid "or"
+msgstr ""
+
+#: src/qml/StartPage.qml:119
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "StartPage|"
+msgid "Register"
+msgstr "등록"
+
+#: src/qml/StartPage.qml:123
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Generate an account automatically"
+msgctxt "StartPage|"
+msgid "Generate account automatically"
+msgstr "자동으로 계정 생성"
+
+#: src/qml/StartPage.qml:128
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Create an account manually"
+msgctxt "StartPage|"
+msgid "Create account manually"
+msgstr "수동으로 계정 생성"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"
@@ -2950,6 +2962,53 @@ msgstr "생일"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "XMPP 계정에 로그인"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "연결 중..."
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "QR 코드 없이 진행"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "Your password is used to log in to your account.\n"
+#~ "If you don't enter a password, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Don't use passwords you're already using somewhere else!"
+#~ msgstr ""
+#~ "계정에 로그인할 때 사용할 암호입니다.\n"
+#~ "암호를 입력하지 않으면 미리 표시된 무작위 생성된 암호를 사용합니다.\n"
+#~ "다른 곳에서 사용 중인 암호를 사용하지 마십시오!"
+
+#~ msgctxt "RegistrationDecisionPage|"
+#~ msgid "Register"
+#~ msgstr "등록"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "설정"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "새 계정 등록"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "기존 계정 사용"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "시작하기"
 
 #~ msgctxt "QrCodePage|"
 #~ msgid "Show explanation"
@@ -3444,13 +3503,6 @@ msgstr "웹사이트"
 #~| msgid "Scan QR code"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Scan contact's QR code"
-#~ msgstr "QR 코드 스캔"
-
-#, fuzzy
-#~| msgctxt "GlobalDrawer|"
-#~| msgid "Scan QR codes"
-#~ msgctxt "UserProfileSheet|"
-#~ msgid "Scan own QR codes"
 #~ msgstr "QR 코드 스캔"
 
 #~ msgctxt "ChatPage|"

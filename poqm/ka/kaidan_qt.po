@@ -420,7 +420,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "გათიშული"
 
-#: src/ProviderListModel.cpp:28
+#: src/ProviderListModel.cpp:25
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "მორგებული მომწოდებელი"
@@ -428,12 +428,12 @@ msgstr "მორგებული მომწოდებელი"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:96 src/ProviderListModel.cpp:106
+#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "შეუზღუდავი"
 
-#: src/ProviderListModel.cpp:108
+#: src/ProviderListModel.cpp:105
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -547,67 +547,67 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "ჭდის წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "სერვისის მომწოდებელი"
 
-#: src/qml/details/AccountDetailsContent.qml:309
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "ვებგვერდის ნახვა"
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "გახსენით თქვენი სერვისის მომწოდებლის ვებგვერდი ბრაუზერში"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "ვეგბვერდის მისამართის კოპირება"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "თქვენი სერვისის მომწოდებლის ვების მისამართის ბუფერში კოპირება"
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "ვებგვერდის მისამართი კოპირებულია ბუფერში"
 
-#: src/qml/details/AccountDetailsContent.qml:326
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "მხარდაჭერის ჩატის გახსნა"
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:321
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "დაიწყეთ საუბარი თქვენი სერვისის მომწოდებლის მხარდაჭერის კონტაქტთან"
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "მხარდაჭერა"
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:339
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "მხარდაჭერის გუნდის გახსნა"
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "შეუერთდით თქვენი სერვისის მომწოდებლის საჯარო დახმარების ჯგუფს"
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:363
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "დაბლოკილი ჩატის მისამართები"
 
-#: src/qml/details/AccountDetailsContent.qml:373
+#: src/qml/details/AccountDetailsContent.qml:367
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -616,55 +616,55 @@ msgstr ""
 "დაბლოკეთ ერთი მომხმარებელი (მაგ: user@example.org) ან ამ სერვერზე მყოფი "
 "ყველა მომხმარებელი (მაგ: example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "ჩატის მისამართების დასაბლოკად ან ბლოკის მოსახსნელად სერვერთან უნდა "
 "ბრძანდებოდეთ მიერთებული"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:414
+#: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "ჩატის მისამართის დაბლოკვა"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:476
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "ჩატის მისამართის შეცვლა…"
 
-#: src/qml/details/AccountDetailsContent.qml:511
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "განბლოკვა"
 
-#: src/qml/details/AccountDetailsContent.qml:538
+#: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: src/qml/details/AccountDetailsContent.qml:543
+#: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "ჩატის დამატება შენიშვნებისთვის"
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "დამატეთ ჩატი თქვენი შენიშვნების ყველა თქვენს მოწყობილობაზე სინქრონიზაციისთვის"
 
-#: src/qml/details/AccountDetailsContent.qml:578
+#: src/qml/details/AccountDetailsContent.qml:572
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "პაროლის შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:582
+#: src/qml/details/AccountDetailsContent.qml:576
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -673,63 +673,63 @@ msgstr ""
 "შეცვალეთ თქვენი პაროლი. ახალი პაროლის შეყვანა თქვენს ყველა სხვა "
 "მოწყობილობაზე მოგიწევთ!"
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "მიმდინარე პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:593
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:600
+#: src/qml/details/AccountDetailsContent.qml:594
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "შეიყვანეთ სწორი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "ახალი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "შეიყვანეთ თქვენი ახალი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "შესაცვლელად სხვა პაროლი შეიყვანეთ"
 
-#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "პაროლის შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:691
+#: src/qml/details/AccountDetailsContent.qml:685
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "პაროლის შეცვლის შეცდომა: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:697
+#: src/qml/details/AccountDetailsContent.qml:691
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "პაროლი წარმატებით შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:708
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "პაროლის ხილვადობა"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -742,12 +742,12 @@ msgstr ""
 "თქვენი ანგარიში სხვა მოწყობილობაზე გამოიყენოთ, <b>სჯობს პაროლი შეცვალოთ. "
 "ქმედება შეუქცევადია!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "პაროლი ტექსტად არ გამოჩნდება"
 
-#: src/qml/details/AccountDetailsContent.qml:723
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -756,20 +756,20 @@ msgstr ""
 "დაუშვით დამატებითი მოწყობილობების დამატება ამ შესვლის QR კოდით, მაგრამ "
 "პაროლი არასოდეს აჩვენოთ"
 
-#: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:750
-#: src/qml/details/AccountDetailsContent.qml:910
-#: src/qml/details/AccountDetailsContent.qml:935
+#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "დადასტურება"
 
-#: src/qml/details/AccountDetailsContent.qml:741
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "პაროლი არც ერთ შემთხვევაში არ გამოჩნდება"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:736
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -778,12 +778,12 @@ msgstr ""
 "არც დამატებითი მოწყობილობის დამატება იქნებ შესაძლებელი შესვლის QR კოდით, არც "
 "პაროლები იქნება ნაჩვენები"
 
-#: src/qml/details/AccountDetailsContent.qml:773
+#: src/qml/details/AccountDetailsContent.qml:767
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "კავშირი"
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:771
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -792,38 +792,38 @@ msgstr ""
 "მოირგეთ ჰოსტის სახელი და პორტი, რომელსაც გნებავთ, დაუკავშირდეთ (ცარიელი "
 "ველები ნაგულისხმებ მნიშვნელობებს ნიშნავს)"
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "შეერთების პარამეტრების შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:799
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "მიერთების პარამეტრები შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:848
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "მიერთების პარამეტრების შეცვლა შეუძლებელია: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "მიერთების პარამეტრები შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:887
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:901
+#: src/qml/details/AccountDetailsContent.qml:895
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan-დან წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:902
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -832,12 +832,12 @@ msgstr ""
 "ანგარიშის წაშლა ამ აპიდან. დაამარქაფეთ თქვენი ავტორიზაციის დეტალები და ჩატის "
 "ისტორია, თუ ეს საჭიროა!"
 
-#: src/qml/details/AccountDetailsContent.qml:926
+#: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "სრულად წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:921
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1489,6 +1489,30 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
+#: src/qml/elements/LoginArea.qml:34
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "LoginArea|"
+msgid "Connection settings"
+msgstr "შეერთების მორგება"
+
+#: src/qml/elements/LoginArea.qml:67
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
+msgctxt "LoginArea|"
+msgid "Log in"
+msgstr "შესვლა"
+
+#: src/qml/elements/LoginArea.qml:74
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
+msgctxt "LoginArea|"
+msgid "Connecting…"
+msgstr "დაკავშირება…"
+
 #: src/qml/elements/MessageBackground.qml:108
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
@@ -1918,26 +1942,6 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "თითის ანაბეჭდი წარმატებით დაკოპირდა ბუფერში"
 
-#: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
-msgctxt "LoginPage|"
-msgid "Log in"
-msgstr "შესვლა"
-
-#: src/qml/LoginPage.qml:28
-msgctxt "LoginPage|"
-msgid "Log in to your XMPP account"
-msgstr "XMPP-ის თქვენს ანგარიშში შესვლა"
-
-#: src/qml/LoginPage.qml:54
-msgctxt "LoginPage|"
-msgid "Connection settings"
-msgstr "შეერთების მორგება"
-
-#: src/qml/LoginPage.qml:93
-msgctxt "LoginPage|"
-msgid "Connecting…"
-msgstr "დაკავშირება…"
-
 #: src/qml/main.qml:81
 #, qt-format
 msgctxt "main|"
@@ -1971,24 +1975,20 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "ახსნის ჩვენება"
 
-#: src/qml/QrCodeOnboardingPage.qml:31
+#: src/qml/QrCodeOnboardingPage.qml:36
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Continue without QR code"
-msgstr "QR კოდის გარეშე გაგრძელება"
+msgid "Scan your old device's QR code"
+msgstr "ნაბიჯი 1: დაასკანერეთ თქვენი <b>სხვა მოწყობილობის</b> QR კოდი"
 
-#: src/qml/QrCodeOnboardingPage.qml:39
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan the QR code from your existing device to transfer your account."
-msgstr ""
-"თქვენი ანგარიშის გადმოსატანად დაასკანერეთ QR კოდი თქვენი არსებული "
-"მოწყობილობიდან."
-
-#: src/qml/QrCodeOnboardingPage.qml:73
+#: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "ეს QR კოდი შესვლის QR კოდი არაა."
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:79
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
@@ -2082,14 +2082,9 @@ msgstr "გენერირებულია ახალი შემთხ�
 #: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
 msgid ""
-"Your password is used to log in to your account.\n"
-"If you don't enter a password, the randomly generated and already displayed "
-"one is used.\n"
-"Don't use passwords you're already using somewhere else!"
+"You can provide a password for your account. If you don't, a password will "
+"be generated that you can find later in the app."
 msgstr ""
-"პაროლი თქვენს ანგარიშში შესასვლელად გამოიყენება.\n"
-"თუ პაროლს არ შეიყვანთ, შემთხვევითი პაროლი იქნება ნაჩვენები და გამოყენებული.\n"
-"ნუ გამოიყენებთ პაროლებს, რომლებსაც სხვაგან უკვე იყენებთ!"
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2164,21 +2159,6 @@ msgstr "ვეგბვერდის მისამართის კოპ�
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "რესგისტრაცია"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:16
-msgctxt "RegistrationDecisionPage|"
-msgid "Register"
-msgstr "რესგისტრაცია"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:22
-msgctxt "RegistrationDecisionPage|"
-msgid "Generate an account automatically"
-msgstr "ანგარიშის ავტომატური გენერაცია"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:27
-msgctxt "RegistrationDecisionPage|"
-msgid "Create an account manually"
-msgstr "ანგარიშის ხელით შექმნა"
 
 #: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
@@ -2260,21 +2240,6 @@ msgstr "რეგისტრაციის ვებგვერდის მ�
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "შედით თქვენი ახალი ანგარიშით"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:16
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Set up"
-msgstr "მორგება"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:22
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Register a new account"
-msgstr "ახალი ანგარიშის რეგისტრაცია"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:27
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Use an existing account"
-msgstr "არსებული ანგარიშის გამოყენება"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -2433,15 +2398,60 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "მორგება"
 
-#: src/qml/StartPage.qml:43
+#: src/qml/StartPage.qml:54
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "ისიამოვნეთ ყველა მოწყობილობასთან უფასო ურთიერთბით!"
 
-#: src/qml/StartPage.qml:59
+#: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
-msgid "Let's start"
-msgstr "დავიწყოთ"
+msgid "Login"
+msgstr ""
+
+#: src/qml/StartPage.qml:71
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "StartPage|"
+msgid "Enter your credentials"
+msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
+
+#: src/qml/StartPage.qml:99
+#, fuzzy
+#| msgctxt "UserProfileSheet|"
+#| msgid "Scan own QR codes"
+msgctxt "StartPage|"
+msgid "Scan login QR code of old device"
+msgstr "საკუთარი QR კოდების სკანირება"
+
+#: src/qml/StartPage.qml:106
+msgctxt "StartPage|"
+msgid "or"
+msgstr ""
+
+#: src/qml/StartPage.qml:119
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "StartPage|"
+msgid "Register"
+msgstr "რესგისტრაცია"
+
+#: src/qml/StartPage.qml:123
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Generate an account automatically"
+msgctxt "StartPage|"
+msgid "Generate account automatically"
+msgstr "ანგარიშის ავტომატური გენერაცია"
+
+#: src/qml/StartPage.qml:128
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Create an account manually"
+msgctxt "StartPage|"
+msgid "Create account manually"
+msgstr "ანგარიშის ხელით შექმნა"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"
@@ -2605,6 +2615,56 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "XMPP-ის თქვენს ანგარიშში შესვლა"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "დაკავშირება…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "QR კოდის გარეშე გაგრძელება"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr ""
+#~ "თქვენი ანგარიშის გადმოსატანად დაასკანერეთ QR კოდი თქვენი არსებული "
+#~ "მოწყობილობიდან."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "Your password is used to log in to your account.\n"
+#~ "If you don't enter a password, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Don't use passwords you're already using somewhere else!"
+#~ msgstr ""
+#~ "პაროლი თქვენს ანგარიშში შესასვლელად გამოიყენება.\n"
+#~ "თუ პაროლს არ შეიყვანთ, შემთხვევითი პაროლი იქნება ნაჩვენები და "
+#~ "გამოყენებული.\n"
+#~ "ნუ გამოიყენებთ პაროლებს, რომლებსაც სხვაგან უკვე იყენებთ!"
+
+#~ msgctxt "RegistrationDecisionPage|"
+#~ msgid "Register"
+#~ msgstr "რესგისტრაცია"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "მორგება"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "ახალი ანგარიშის რეგისტრაცია"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "არსებული ანგარიშის გამოყენება"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "დავიწყოთ"
 
 #~ msgctxt "QrCodePage|"
 #~ msgid "Show explanation"
@@ -2973,10 +3033,6 @@ msgstr "ვებსაიტი"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Scan contact's QR code"
 #~ msgstr "კონტაქტის QR კოდის სკანირება"
-
-#~ msgctxt "UserProfileSheet|"
-#~ msgid "Scan own QR codes"
-#~ msgstr "საკუთარი QR კოდების სკანირება"
 
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "No devices connected"

@@ -419,7 +419,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#: src/ProviderListModel.cpp:28
+#: src/ProviderListModel.cpp:25
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Özel sağlayıcı"
@@ -427,12 +427,12 @@ msgstr "Özel sağlayıcı"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:96 src/ProviderListModel.cpp:106
+#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Sınırsız"
 
-#: src/ProviderListModel.cpp:108
+#: src/ProviderListModel.cpp:105
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -544,67 +544,67 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Etiketi kaldır"
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Sağlayıcı"
 
-#: src/qml/details/AccountDetailsContent.qml:309
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Web sitesini aç"
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Sağlayıcınızın web sayfasını bir tarayıcıda aç"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Web sitesi adresini kopyala"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Sağlayıcınızın web adresini panoya kopyala"
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Web sitesi adresi panoya kopyalandı."
 
-#: src/qml/details/AccountDetailsContent.qml:326
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Destek sohbeti aç"
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:321
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Sağlayıcınızın destek sayfasıyla yazışmaya başla"
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Destek"
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:339
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Destek grubu aç"
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Sağlayıcınızın destek grubuna katıl"
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:363
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Engell Sohbet Adresleri"
 
-#: src/qml/details/AccountDetailsContent.qml:373
+#: src/qml/details/AccountDetailsContent.qml:367
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -613,54 +613,54 @@ msgstr ""
 "Belirli bir kullanıcıyı engelle (örn. kullanıcı@örnek.org) veya bir "
 "sunucunun tüm kullanıcılarını engelle (örn. örnek.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "Sohbet adreslerini engellemek veya engelini kaldırmak için bağlı olmalısınız"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "kullanıcı@örnek.org"
 
-#: src/qml/details/AccountDetailsContent.qml:414
+#: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Sohbet adresini engelle"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:476
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Sohbet adresini değiştir…"
 
-#: src/qml/details/AccountDetailsContent.qml:511
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Engeli Kaldır"
 
-#: src/qml/details/AccountDetailsContent.qml:538
+#: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Notlar"
 
-#: src/qml/details/AccountDetailsContent.qml:543
+#: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Not sohbeti ekle"
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "Notlarınızı tüm aygıtlarınız arasında eşzamanlamak için bir sohbet ekleyin"
 
-#: src/qml/details/AccountDetailsContent.qml:578
+#: src/qml/details/AccountDetailsContent.qml:572
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Parolayı Değiştir"
 
-#: src/qml/details/AccountDetailsContent.qml:582
+#: src/qml/details/AccountDetailsContent.qml:576
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -669,63 +669,63 @@ msgstr ""
 "Parolanızı değiştirin. Diğer tüm aygıtlarınızda yeniden girmeniz "
 "gerekecektir!"
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Geçerli parola"
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:593
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Geçerli parolanızı girin"
 
-#: src/qml/details/AccountDetailsContent.qml:600
+#: src/qml/details/AccountDetailsContent.qml:594
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Doğru parolayı gir"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Yeni parola"
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Parola"
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Yeni parolanızı girin"
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Değiştirmek için farklı bir parola gir"
 
-#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Parolayı değiştir"
 
-#: src/qml/details/AccountDetailsContent.qml:691
+#: src/qml/details/AccountDetailsContent.qml:685
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Parola değiştirilemedi: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:697
+#: src/qml/details/AccountDetailsContent.qml:691
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Parola başarıyla değiştirildi"
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:708
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Parola Görünürlüğü"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -738,12 +738,12 @@ msgstr ""
 "hesabınızı başka bir aygıtta kullanmak isterseniz <b>şifreyi başka bir yerde "
 "saklamayı düşünün. Bu geri alınamaz!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Parolayı metin olarak gösterme"
 
-#: src/qml/details/AccountDetailsContent.qml:723
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -752,20 +752,20 @@ msgstr ""
 "Oturum açma kare kodunu kullanarak yeni aygıtlar eklemeye izin ver; ancak "
 "parolayı hiçbir zaman gösterme"
 
-#: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:750
-#: src/qml/details/AccountDetailsContent.qml:910
-#: src/qml/details/AccountDetailsContent.qml:935
+#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Onayla"
 
-#: src/qml/details/AccountDetailsContent.qml:741
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Parolayı hiçbir biçimde açığa çıkarma"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:736
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -774,12 +774,12 @@ msgstr ""
 "Hem oturum açma kare koduyla yeni aygıtlar eklemeye izin verme hem de "
 "parolayı gösterme"
 
-#: src/qml/details/AccountDetailsContent.qml:773
+#: src/qml/details/AccountDetailsContent.qml:767
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Bağlantı"
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:771
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -788,38 +788,38 @@ msgstr ""
 "Bağlanılacak makine adını ve kapıyı yapılandır (öntanımlı değerler için boş "
 "bırak)"
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Bağlantı ayarlarını değiştir"
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:799
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Bağlantı ayarlarını değiştirmek için farklı değerler gir"
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:848
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Bağlantı ayarları değiştirilemedi: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Bağlantı ayarları değiştirildi"
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:887
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Kaldırma"
 
-#: src/qml/details/AccountDetailsContent.qml:901
+#: src/qml/details/AccountDetailsContent.qml:895
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan'dan kaldır"
 
-#: src/qml/details/AccountDetailsContent.qml:902
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -828,12 +828,12 @@ msgstr ""
 "Bu uygulamadan hesabı kaldırın. Gerekirse kimlik bilgilerinizi ve sohbet "
 "geçmişinizi yedekleyin!"
 
-#: src/qml/details/AccountDetailsContent.qml:926
+#: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Tümüyle sil"
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:921
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1481,6 +1481,30 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
+#: src/qml/elements/LoginArea.qml:34
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "LoginArea|"
+msgid "Connection settings"
+msgstr "Bağlantı ayarları"
+
+#: src/qml/elements/LoginArea.qml:67
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
+msgctxt "LoginArea|"
+msgid "Log in"
+msgstr "Oturum aç"
+
+#: src/qml/elements/LoginArea.qml:74
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Connecting…"
+msgctxt "LoginArea|"
+msgid "Connecting…"
+msgstr "Bağlanıyor…"
+
 #: src/qml/elements/MessageBackground.qml:108
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
@@ -1905,26 +1929,6 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "Parmak izi panoya kopyalandı"
 
-#: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
-msgctxt "LoginPage|"
-msgid "Log in"
-msgstr "Oturum aç"
-
-#: src/qml/LoginPage.qml:28
-msgctxt "LoginPage|"
-msgid "Log in to your XMPP account"
-msgstr "XMPP hesabınıza oturum açın"
-
-#: src/qml/LoginPage.qml:54
-msgctxt "LoginPage|"
-msgid "Connection settings"
-msgstr "Bağlantı ayarları"
-
-#: src/qml/LoginPage.qml:93
-msgctxt "LoginPage|"
-msgid "Connecting…"
-msgstr "Bağlanıyor…"
-
 #: src/qml/main.qml:81
 #, qt-format
 msgctxt "main|"
@@ -1958,22 +1962,20 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Açıklama göster"
 
-#: src/qml/QrCodeOnboardingPage.qml:31
+#: src/qml/QrCodeOnboardingPage.qml:36
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
-msgid "Continue without QR code"
-msgstr "Kare kod olmadan sürdür"
+msgid "Scan your old device's QR code"
+msgstr "1. Adım: <b>Diğer aygıtınızın</b> kare kodunu tarayın"
 
-#: src/qml/QrCodeOnboardingPage.qml:39
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan the QR code from your existing device to transfer your account."
-msgstr "Hesabınızı aktarmak için mevcut aygıtınızdaki kare kodu tarayın."
-
-#: src/qml/QrCodeOnboardingPage.qml:73
+#: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Bu kare kod, geçerli bir oturum açmak kare kodu değil."
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:79
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
@@ -2066,15 +2068,9 @@ msgstr "Yeni bir rastgele kullanıcı adı oluşturuldu."
 #: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
 msgid ""
-"Your password is used to log in to your account.\n"
-"If you don't enter a password, the randomly generated and already displayed "
-"one is used.\n"
-"Don't use passwords you're already using somewhere else!"
+"You can provide a password for your account. If you don't, a password will "
+"be generated that you can find later in the app."
 msgstr ""
-"Parolanız, hesabınıza oturum açmak için kullanılır.\n"
-"Eğer bir parola girmezseniz ekrandaki rastgele oluşturulan parola "
-"kullanılacaktır.\n"
-"Başka yerlerde kullandığınız parolaları kullanmayın!"
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2149,21 +2145,6 @@ msgstr "Web sitesi adresini kopyala"
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Kayıt ol"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:16
-msgctxt "RegistrationDecisionPage|"
-msgid "Register"
-msgstr "Kayıt ol"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:22
-msgctxt "RegistrationDecisionPage|"
-msgid "Generate an account automatically"
-msgstr "Kendiliğinden bir hesap oluştur"
-
-#: src/qml/registration/RegistrationDecisionPage.qml:27
-msgctxt "RegistrationDecisionPage|"
-msgid "Create an account manually"
-msgstr "El ile bir hesap oluştur"
 
 #: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
@@ -2245,21 +2226,6 @@ msgstr "Kayıt web sitesi adresini kopyala"
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "Yeni hesabınızla oturum açın"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:16
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Set up"
-msgstr "Kurulum"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:22
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Register a new account"
-msgstr "Yeni bir hesap kaydet"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:27
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Use an existing account"
-msgstr "Var olan bir hesabı kullan"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -2417,15 +2383,57 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/qml/StartPage.qml:43
+#: src/qml/StartPage.qml:54
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Her aygıtta özgür iletişimin keyfini çıkarın!"
 
-#: src/qml/StartPage.qml:59
+#: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
-msgid "Let's start"
-msgstr "Başlayalım"
+msgid "Login"
+msgstr ""
+
+#: src/qml/StartPage.qml:71
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter your current password"
+msgctxt "StartPage|"
+msgid "Enter your credentials"
+msgstr "Geçerli parolanızı girin"
+
+#: src/qml/StartPage.qml:99
+msgctxt "StartPage|"
+msgid "Scan login QR code of old device"
+msgstr ""
+
+#: src/qml/StartPage.qml:106
+msgctxt "StartPage|"
+msgid "or"
+msgstr ""
+
+#: src/qml/StartPage.qml:119
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "StartPage|"
+msgid "Register"
+msgstr "Kayıt ol"
+
+#: src/qml/StartPage.qml:123
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Generate an account automatically"
+msgctxt "StartPage|"
+msgid "Generate account automatically"
+msgstr "Kendiliğinden bir hesap oluştur"
+
+#: src/qml/StartPage.qml:128
+#, fuzzy
+#| msgctxt "RegistrationDecisionPage|"
+#| msgid "Create an account manually"
+msgctxt "StartPage|"
+msgid "Create account manually"
+msgstr "El ile bir hesap oluştur"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"
@@ -2589,6 +2597,54 @@ msgstr "Doğum günü"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Log in to your XMPP account"
+#~ msgstr "XMPP hesabınıza oturum açın"
+
+#~ msgctxt "LoginPage|"
+#~ msgid "Connecting…"
+#~ msgstr "Bağlanıyor…"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Continue without QR code"
+#~ msgstr "Kare kod olmadan sürdür"
+
+#~ msgctxt "QrCodeOnboardingPage|"
+#~ msgid "Scan the QR code from your existing device to transfer your account."
+#~ msgstr "Hesabınızı aktarmak için mevcut aygıtınızdaki kare kodu tarayın."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "Your password is used to log in to your account.\n"
+#~ "If you don't enter a password, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Don't use passwords you're already using somewhere else!"
+#~ msgstr ""
+#~ "Parolanız, hesabınıza oturum açmak için kullanılır.\n"
+#~ "Eğer bir parola girmezseniz ekrandaki rastgele oluşturulan parola "
+#~ "kullanılacaktır.\n"
+#~ "Başka yerlerde kullandığınız parolaları kullanmayın!"
+
+#~ msgctxt "RegistrationDecisionPage|"
+#~ msgid "Register"
+#~ msgstr "Kayıt ol"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Set up"
+#~ msgstr "Kurulum"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Register a new account"
+#~ msgstr "Yeni bir hesap kaydet"
+
+#~ msgctxt "RegistrationLoginDecisionPage|"
+#~ msgid "Use an existing account"
+#~ msgstr "Var olan bir hesabı kullan"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Let's start"
+#~ msgstr "Başlayalım"
 
 #~ msgctxt "QrCodePage|"
 #~ msgid "Show explanation"
