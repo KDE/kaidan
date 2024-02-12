@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-01-21 10:46+0100\n"
+"PO-Revision-Date: 2024-02-11 07:41+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1491,25 +1491,16 @@ msgid "Loading…"
 msgstr "Nalaganje…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Nastavitve povezave"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Prijava"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
@@ -1616,7 +1607,7 @@ msgstr "Nalaganje kamere…"
 #: src/qml/elements/QrCodeScanner.qml:161
 msgctxt "QrCodeScanner|"
 msgid "No camera available"
-msgstr "Nobene kamere ni na voljo."
+msgstr "Nobene kamere ni na voljo"
 
 #: src/qml/elements/QrCodeScanner.qml:164
 msgctxt "QrCodeScanner|"
@@ -1973,12 +1964,9 @@ msgid "Show explanation"
 msgstr "Prikaži pojasnilo"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "1. korak: Optično preberite kodo QR <b>druge naprave</b>"
+msgstr "Optično preberite kodo QR stare naprave"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2081,6 +2069,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Za svoj račun lahko vnesete geslo. Če tega ne storite, bo ustvarjeno geslo, "
+"ki ga lahko najdete pozneje v aplikaciji."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2396,52 +2386,37 @@ msgstr "Uživajte v prostem komuniciranju na vsaki napravi!"
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Prijava"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Vnesite vaše trenutno geslo"
+msgstr "Vnesite vaše poverilnice"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "Optično preberite lastne kode QR"
+msgstr "Skenirajte kodo QR za prijavo stare naprave"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "ali"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registriraj"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr "Samodejno izdelaj račun"
+msgstr "Samodejno generiraj račun"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr "Ročno izdelaj račun"
+msgstr "Ročno ustvari račun"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-01-21 09:14+0200\n"
+"PO-Revision-Date: 2024-02-11 08:35+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -1499,25 +1499,16 @@ msgid "Loading…"
 msgstr "Завантаження…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Параметри з'єднання"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Увійти"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
@@ -1979,12 +1970,9 @@ msgid "Show explanation"
 msgstr "Показати пояснення"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "Крок 1: скануйте QR-код вашого <b>іншого пристрою</b>"
+msgstr "Скануйте QR-код вашого старого пристрою"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2091,6 +2079,9 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Ви можете надати пароль до вашого облікового запису. Якщо ви цього не "
+"зробите, пароль буде створено автоматично; ви зможете побачити його пізніше "
+"у програмі."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2415,49 +2406,34 @@ msgstr "Насолоджуйтеся вільним спілкуванням н�
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Увійти"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Введіть ваш поточний пароль"
+msgstr "Введіть ваші реєстраційні дані"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "Kaidan|"
-#| msgid "No valid login QR code found."
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "Не знайдено коректного коду QR для входу."
+msgstr "Скануйте QR-код для входу з вашого старого пристрою"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "або"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
-msgstr "Зареєструвати"
+msgstr "Реєстрація"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Створити обліковий запис автоматично"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-01-21 14:31+0100\n"
+"PO-Revision-Date: 2024-02-11 16:28+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1492,25 +1492,16 @@ msgid "Loading…"
 msgstr "Bezig met laden…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Verbindingsinstellingen"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr "Log in"
+msgstr "Aanmelden"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Bezig met verbinden…"
@@ -1976,12 +1967,9 @@ msgid "Show explanation"
 msgstr "Uitleg tonen"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "Stap 1: Scan de QR-code van uw <b>andere apparaat</b>"
+msgstr "Scan de QR-code van uw <b>oude apparaat</b>"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2088,6 +2076,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"U kunt een wachtwoord voor uw account aanleveren. Zo niet, dan zal een "
+"wachtwoord gegenereerd worden dat u later in de app kunt vinden."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2407,52 +2397,37 @@ msgstr "Van vrije communicatie genieten op elk apparaat!"
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Aanmelden"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Uw huidige wachtwoord invoeren"
+msgstr "Uw credentials invoeren"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "Eigen QR-codes scannen"
+msgstr "QR-code van aanmelden van het oude apparaat scannen"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "of"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registreren"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr "Een account automatisch genereren"
+msgstr "Account automatisch genereren"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr "Een account handmatig aanmaken"
+msgstr "Account handmatig aanmaken"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"
