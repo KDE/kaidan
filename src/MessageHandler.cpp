@@ -522,8 +522,14 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		// Add the message's sender to the roster if not already done and only for direct messages.
 		// Otherwise, the chat could only be opened via the message's notification and could not be
 		// opened again later.
-		if (msg.type() != QXmppMessage::GroupChat && !RosterModel::instance()->hasItem(senderJid)) {
-			m_clientWorker->rosterManager()->addContact(senderJid);
+		if (msg.type() != QXmppMessage::GroupChat) {
+			runOnThread(RosterModel::instance(), [senderJid]() {
+				return RosterModel::instance()->hasItem(senderJid);
+			}, this, [this, senderJid](bool hasItem) mutable {
+				if (!hasItem) {
+					m_clientWorker->rosterManager()->addContact(senderJid);
+				}
+			});
 		}
 	} else {
 		const auto replaceId = msg.replaceId();
