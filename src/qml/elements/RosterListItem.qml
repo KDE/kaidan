@@ -47,8 +47,9 @@ UserListItem {
 				elide: Text.ElideRight
 				maximumLineCount: 1
 				level: 4
-				Layout.fillWidth: true
+				Layout.preferredWidth: parent.width * 0.85
 				Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
+				Layout.fillWidth: true
 			}
 
 			// last (exchanged/draft) message date/time
