@@ -1116,13 +1116,15 @@ void MessageModel::handleMessageUpdated(const Message &message)
 		if ((!oldId.isEmpty() && oldId == message.id) ||
 			(!oldId.isEmpty() && oldId == message.replaceId) ||
 			(!oldReplaceId.isEmpty() && oldReplaceId == message.replaceId)) {
+			const auto oldMessageTimestamp = m_messages.at(i).timestamp;
+
 			beginRemoveRows(QModelIndex(), i, i);
 			m_messages.removeAt(i);
 			endRemoveRows();
 
 			// Insert the message at its original position if the date is unchanged.
 			// Otherwise, move it to its new position.
-			if (!m_messages.isEmpty() && (message.timestamp == m_messages.at(i).timestamp)) {
+			if (!m_messages.isEmpty() && (message.timestamp == oldMessageTimestamp)) {
 				insertMessage(i, message);
 			} else {
 				addMessage(message);
