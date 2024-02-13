@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-01-25 02:11+0100\n"
+"PO-Revision-Date: 2024-02-12 15:47+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1493,25 +1493,16 @@ msgid "Loading…"
 msgstr "Cargando..."
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Preferencias de la conexión"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Iniciar sesión"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Conectando..."
@@ -1980,12 +1971,9 @@ msgid "Show explanation"
 msgstr "Mostrar explicación"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "Paso 1: Escanee el código QR <b>del otro dispositivo</b>"
+msgstr "Escanee el código QR del dispositivo antiguo"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2090,6 +2078,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Puede proporcionar una contraseña para la cuenta. Si no lo hace, se generará "
+"una contraseña que podrá encontrar posteriormente en la aplicación."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2409,52 +2399,37 @@ msgstr "Disfrute de comunicación libre en cualquier dispositivo"
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Inicio de sesión"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Introduzca su contraseña actual"
+msgstr "Introduzca sus credenciales"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "Escanear códigos QR propios"
+msgstr "Escanear código QR de inicio de sesión del dispositivo antiguo"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registrarse"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr "Generar una cuenta automáticamente"
+msgstr "Generar cuenta automáticamente"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr "Crear una cuenta manualmente"
+msgstr "Crear cuenta manualmente"
 
 #: src/QmlUtils.cpp:52
 msgctxt "QmlUtils|"

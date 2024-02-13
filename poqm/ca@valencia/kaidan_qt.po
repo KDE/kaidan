@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-01-28 19:33+0100\n"
+"PO-Revision-Date: 2024-02-11 11:18+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1505,25 +1505,16 @@ msgid "Loading…"
 msgstr "S'està carregant…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Configureu la connexió"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Inici de sessió"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
@@ -1994,12 +1985,9 @@ msgid "Show explanation"
 msgstr "Mostra una explicació"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "Pas 1: Escanegeu el codi QR del <b>dispositiu de l'altre</b>"
+msgstr "Escanegeu el codi QR del dispositiu antic"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2105,6 +2093,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Podeu proporcionar una contrasenya per al vostre compte. Si no ho feu, es "
+"generarà una contrasenya que podreu trobar a l'aplicació més avant."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2426,46 +2416,34 @@ msgstr "Gaudiu de la comunicació lliure en tots els dispositius!"
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Inici de sessió"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Introduïu la contrasenya actual"
+msgstr "Introduïu les vostres credencials"
 
 #: src/qml/StartPage.qml:99
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr ""
+msgstr "Escanegeu el codi QR del dispositiu antic"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
-msgstr "Registra"
+msgstr "Registreu"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Genera un compte automàticament"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crea un compte manualment"
@@ -2637,53 +2615,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Log in to your XMPP account"
-#~ msgstr "Inici de sessió al vostre compte XMPP"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Connecting…"
-#~ msgstr "S'està connectant…"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Continue without QR code"
-#~ msgstr "Continua sense codi QR"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Scan the QR code from your existing device to transfer your account."
-#~ msgstr ""
-#~ "Escanegeu el codi QR des del dispositiu existent per a transferir el "
-#~ "vostre compte."
-
-#~ msgctxt "PasswordView|"
-#~ msgid ""
-#~ "Your password is used to log in to your account.\n"
-#~ "If you don't enter a password, the randomly generated and already "
-#~ "displayed one is used.\n"
-#~ "Don't use passwords you're already using somewhere else!"
-#~ msgstr ""
-#~ "La contrasenya s'utilitza per a iniciar la sessió al vostre compte.\n"
-#~ "Si no introduïu cap contrasenya, s'utilitza la generada aleatòriament i "
-#~ "que ja es mostra.\n"
-#~ "No utilitzeu contrasenyes que ja utilitzeu en un altre lloc!"
-
-#~ msgctxt "RegistrationDecisionPage|"
-#~ msgid "Register"
-#~ msgstr "Registra"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Set up"
-#~ msgstr "Configura"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Registreu un compte nou"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Use an existing account"
-#~ msgstr "Utilitza un compte existent"
-
-#~ msgctxt "StartPage|"
-#~ msgid "Let's start"
-#~ msgstr "Comencem"
