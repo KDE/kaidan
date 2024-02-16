@@ -152,6 +152,27 @@ SettingsPageBase {
 						}
 					}
 				}
+
+				MobileForm.AbstractFormDelegate {
+					Layout.fillWidth: true
+					background: Item {}
+					contentItem: ColumnLayout {
+						Controls.Label {
+							text: "Kaidan is a project of the international free software community KDE"
+							textFormat: Text.PlainText
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
+						}
+
+						Controls.Label {
+							text: "Community"
+							font: Kirigami.Theme.smallFont
+							color: Kirigami.Theme.disabledTextColor
+							wrapMode: Text.WordWrap
+							Layout.fillWidth: true
+						}
+					}
+				}
 			}
 		}
 
