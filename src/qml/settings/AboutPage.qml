@@ -137,7 +137,7 @@ SettingsPageBase {
 					background: Item {}
 					contentItem: ColumnLayout {
 						Controls.Label {
-							text: "© 2016-2023 Kaidan developers and contributors"
+							text: "© 2016-2024 Kaidan developers and contributors"
 							textFormat: Text.PlainText
 							wrapMode: Text.WordWrap
 							Layout.fillWidth: true
