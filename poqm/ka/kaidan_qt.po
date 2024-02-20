@@ -1490,25 +1490,16 @@ msgid "Loading…"
 msgstr "ჩატვირთვა…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "შეერთების მორგება"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "შესვლა"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
@@ -1976,12 +1967,9 @@ msgid "Show explanation"
 msgstr "ახსნის ჩვენება"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "ნაბიჯი 1: დაასკანერეთ თქვენი <b>სხვა მოწყობილობის</b> QR კოდი"
+msgstr "დაასკანერეთ თქვენი ძველი მოწყობილობის QR კოდი"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2085,6 +2073,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"შეგიძლიათ, თქვენი ანგარიშის პაროლი შეიყვანოთ. თუ ამას არ იზამთ, პაროლი "
+"დაგენერირებული იქნება და მას მოგვიანებით გადმოგცემთ."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2406,49 +2396,34 @@ msgstr "ისიამოვნეთ ყველა მოწყობილ�
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "შესვლა"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
+msgstr "შეიყვანეთ ავტორიზაციის დეტალები"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "საკუთარი QR კოდების სკანირება"
+msgstr "დაასკანერეთ თქვენი ძველი მოწყობილობის შესვლის QR კოდი"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "ან"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
-msgstr "რესგისტრაცია"
+msgstr "რეგისტრაცია"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "ანგარიშის ავტომატური გენერაცია"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "ანგარიშის ხელით შექმნა"
