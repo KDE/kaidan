@@ -1,0 +1,2504 @@
+# translation of kaidan_qt.pot to Esperanto
+# Copyright (C) 2024 Free Software Foundation, Inc.
+# This file is distributed under the same license as the kaidan package.
+# Oliver Kellogg <okellogg@users.sourceforge.net>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kaidan\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-11-05 13:43+0100\n"
+"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"Language-Team: Esperanto <kde-i18n-eo.org>\n"
+"Language: eo\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Qt-Contexts: true\n"
+"X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: src/Blocking.cpp:203
+#, qt-format
+msgctxt "BlockingController|"
+msgid "Error fetching blocklist: %1"
+msgstr ""
+
+#: src/Blocking.cpp:321
+msgctxt "BlockingModel|"
+msgid "Devices"
+msgstr "Aparatoj"
+
+#: src/Blocking.cpp:323
+msgctxt "BlockingModel|"
+msgid "Users"
+msgstr "Uzantoj"
+
+#: src/Blocking.cpp:325
+msgctxt "BlockingModel|"
+msgid "Servers"
+msgstr "Serviloj"
+
+#: src/Blocking.cpp:327
+msgctxt "BlockingModel|"
+msgid "Devices on Servers"
+msgstr ""
+
+#: src/ChatHintModel.cpp:206
+msgctxt "ChatHintModel|"
+msgid "You are not connected - Messages are sent and received once connected"
+msgstr ""
+
+#: src/ChatHintModel.cpp:207
+msgctxt "ChatHintModel|"
+msgid "Dismiss"
+msgstr "Forĵeti"
+
+#: src/ChatHintModel.cpp:208
+msgctxt "ChatHintModel|"
+msgid "Connect"
+msgstr "Konekti"
+
+#: src/ChatHintModel.cpp:210
+msgctxt "ChatHintModel|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/ChatHintModel.cpp:222
+#, qt-format
+msgctxt "ChatHintModel|"
+msgid ""
+"%1 would like to receive your personal data such as availability, devices "
+"and other personal information%2"
+msgstr ""
+
+#: src/ChatHintModel.cpp:223
+msgctxt "ChatHintModel|"
+msgid "Refuse"
+msgstr ""
+
+#: src/ChatHintModel.cpp:224
+msgctxt "ChatHintModel|"
+msgid "Allow"
+msgstr "Permesi"
+
+#: src/ChatHintModel.cpp:226
+msgctxt "ChatHintModel|"
+msgid "Allowing…"
+msgstr ""
+
+#: src/ClientWorker.cpp:290
+#, qt-format
+msgctxt "ClientWorker|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+
+#: src/FileSharingController.cpp:361
+#, qt-format
+msgctxt "FileSharingController|"
+msgid "Couldn't download file: %1"
+msgstr ""
+
+#: src/Kaidan.cpp:139
+msgctxt "Kaidan|"
+msgid "Online"
+msgstr "Rete"
+
+#: src/Kaidan.cpp:141
+msgctxt "Kaidan|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/Kaidan.cpp:143
+msgctxt "Kaidan|"
+msgid "Offline"
+msgstr "Senrete"
+
+#: src/Kaidan.cpp:183
+msgctxt "Kaidan|"
+msgid "The link will be opened after you have connected."
+msgstr ""
+
+#: src/MediaRecorder.cpp:1163 src/MediaRecorder.cpp:1171
+#: src/MediaRecorder.cpp:1186 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1203 src/MediaRecorder.cpp:1212
+#: src/MediaRecorder.cpp:1220
+msgctxt "MediaRecorder|"
+msgid "Default"
+msgstr "Defaŭlta"
+
+#: src/MediaSettings.cpp:137
+msgctxt "CommonEncoderSettings|"
+msgid "Very low"
+msgstr ""
+
+#: src/MediaSettings.cpp:139
+msgctxt "CommonEncoderSettings|"
+msgid "Low"
+msgstr "Malalta"
+
+#: src/MediaSettings.cpp:141
+msgctxt "CommonEncoderSettings|"
+msgid "Normal"
+msgstr "Normala"
+
+#: src/MediaSettings.cpp:143
+msgctxt "CommonEncoderSettings|"
+msgid "High"
+msgstr "Alta"
+
+#: src/MediaSettings.cpp:145
+msgctxt "CommonEncoderSettings|"
+msgid "Very high"
+msgstr ""
+
+#: src/MediaSettings.cpp:156
+msgctxt "CommonEncoderSettings|"
+msgid "Constant quality"
+msgstr ""
+
+#: src/MediaSettings.cpp:158
+msgctxt "CommonEncoderSettings|"
+msgid "Constant bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:160
+msgctxt "CommonEncoderSettings|"
+msgid "Average bit rate"
+msgstr ""
+
+#: src/MediaSettings.cpp:162
+msgctxt "CommonEncoderSettings|"
+msgid "Two pass"
+msgstr ""
+
+#: src/MediaUtils.cpp:229
+msgctxt "MediaUtils|"
+msgid "Audio"
+msgstr "Aŭdaĵo"
+
+#: src/MediaUtils.cpp:231
+msgctxt "MediaUtils|"
+msgid "Document"
+msgstr "Dokumento"
+
+#: src/MediaUtils.cpp:233
+msgctxt "MediaUtils|"
+msgid "Location"
+msgstr "Loko"
+
+#: src/MediaUtils.cpp:235
+msgctxt "MediaUtils|"
+msgid "Image"
+msgstr "Bildo"
+
+#: src/MediaUtils.cpp:237
+msgctxt "MediaUtils|"
+msgid "Video"
+msgstr "Video"
+
+#: src/MediaUtils.cpp:241
+msgctxt "MediaUtils|"
+msgid "File"
+msgstr "Dosiero"
+
+#: src/MediaUtils.cpp:250
+msgctxt "MediaUtils|"
+msgid "Take picture"
+msgstr ""
+
+#: src/MediaUtils.cpp:252
+msgctxt "MediaUtils|"
+msgid "Record video"
+msgstr ""
+
+#: src/MediaUtils.cpp:254
+msgctxt "MediaUtils|"
+msgid "Record voice"
+msgstr ""
+
+#: src/MediaUtils.cpp:256
+msgctxt "MediaUtils|"
+msgid "Send location"
+msgstr ""
+
+#: src/MediaUtils.cpp:294
+msgctxt "MediaUtils|"
+msgid "Choose file"
+msgstr "Elekti dosieron"
+
+#: src/MediaUtils.cpp:296
+msgctxt "MediaUtils|"
+msgid "Choose image"
+msgstr "Elekti bildon"
+
+#: src/MediaUtils.cpp:298
+msgctxt "MediaUtils|"
+msgid "Choose video"
+msgstr ""
+
+#: src/MediaUtils.cpp:300
+msgctxt "MediaUtils|"
+msgid "Choose audio file"
+msgstr ""
+
+#: src/MediaUtils.cpp:302
+msgctxt "MediaUtils|"
+msgid "Choose document"
+msgstr ""
+
+#: src/MediaUtils.cpp:324
+msgctxt "MediaUtils|"
+msgid "All files"
+msgstr "Ĉiuj dosieroj"
+
+#: src/MediaUtils.cpp:326
+msgctxt "MediaUtils|"
+msgid "Images"
+msgstr "Bildoj"
+
+#: src/MediaUtils.cpp:328
+msgctxt "MediaUtils|"
+msgid "Videos"
+msgstr "Videoj"
+
+#: src/MediaUtils.cpp:330
+msgctxt "MediaUtils|"
+msgid "Audio files"
+msgstr "Sondosieroj"
+
+#: src/MediaUtils.cpp:332
+msgctxt "MediaUtils|"
+msgid "Documents"
+msgstr "Dokumentoj"
+
+#: src/MediaUtils.cpp:357
+#, qt-format
+msgctxt "MediaUtils|"
+msgid "%1 (%2)"
+msgstr "%1 (%2)"
+
+#: src/Message.cpp:138
+msgctxt "QObject|"
+msgid "dd MMM at hh:mm"
+msgstr ""
+
+#: src/Message.cpp:145
+msgctxt "QObject|"
+msgid "No information"
+msgstr ""
+
+#: src/Message.cpp:211
+msgctxt "Message|"
+msgid "Spoiler"
+msgstr ""
+
+#: src/MessageComposition.cpp:181
+#, qt-format
+msgctxt "MessageComposition|"
+msgid "Upload failed: %1"
+msgstr ""
+
+#: src/MessageComposition.cpp:301
+msgctxt "FileSelectionModel|"
+msgid "Unknown size"
+msgstr "Nekonata grandeco"
+
+#: src/MessageHandler.cpp:174
+msgctxt "MessageHandler|"
+msgid "Message correction was not successful"
+msgstr ""
+
+#: src/MessageHandler.cpp:226
+msgctxt "MessageHandler|"
+msgid "Message could not be sent."
+msgstr ""
+
+#: src/MessageHandler.cpp:490
+#, qt-format
+msgctxt "MessageHandler|"
+msgid "This message is encrypted with %1 but could not be decrypted"
+msgstr ""
+
+#: src/MessageModel.cpp:227
+msgctxt "MessageModel|"
+msgid "Pending"
+msgstr "Pritraktota"
+
+#: src/MessageModel.cpp:229
+msgctxt "MessageModel|"
+msgid "Sent"
+msgstr "Sendita"
+
+#: src/MessageModel.cpp:231
+msgctxt "MessageModel|"
+msgid "Delivered"
+msgstr ""
+
+#: src/MessageModel.cpp:233
+msgctxt "MessageModel|"
+msgid "Error"
+msgstr "Eraro"
+
+#: src/MessageModel.cpp:656 src/MessageModel.cpp:729 src/MessageModel.cpp:864
+#, qt-format
+msgctxt "MessageModel|"
+msgid "Reaction could not be sent: %1"
+msgstr ""
+
+#: src/MessageModel.cpp:807
+#, qt-format
+msgctxt "MessageModel|"
+msgid "Reactions could not be sent: %1"
+msgstr ""
+
+#: src/MessageModel.cpp:1525
+msgctxt "MessageModel|"
+msgid "Today"
+msgstr "Hodiaŭ"
+
+#: src/MessageModel.cpp:1528
+msgctxt "MessageModel|"
+msgid "Yesterday"
+msgstr "Hieraŭ"
+
+#: src/Notifications.cpp:157 src/Notifications.cpp:240
+msgctxt "Notifications|"
+msgid "Open"
+msgstr "Malfermi"
+
+#: src/Notifications.cpp:158
+msgctxt "Notifications|"
+msgid "Mark as read"
+msgstr ""
+
+#: src/Notifications.cpp:222
+msgctxt "Notifications|"
+msgid "Requests to receive your personal data"
+msgstr ""
+
+#: src/OmemoManager.cpp:126
+msgctxt "OmemoManager|"
+msgid "End-to-end encryption via OMEMO 2 could not be set up"
+msgstr ""
+
+#: src/OmemoModel.cpp:126
+msgctxt "OmemoModel|"
+msgid "This device"
+msgstr ""
+
+#: src/PresenceCache.cpp:39
+msgctxt "QObject|"
+msgid "Available"
+msgstr "Disponebla"
+
+#: src/PresenceCache.cpp:41
+msgctxt "QObject|"
+msgid "Free for chat"
+msgstr ""
+
+#: src/PresenceCache.cpp:43
+msgctxt "QObject|"
+msgid "Away"
+msgstr "For"
+
+#: src/PresenceCache.cpp:45
+msgctxt "QObject|"
+msgid "Do not disturb"
+msgstr "Ne ĝenu"
+
+#: src/PresenceCache.cpp:47
+msgctxt "QObject|"
+msgid "Away for longer"
+msgstr ""
+
+#: src/PresenceCache.cpp:49
+msgctxt "QObject|"
+msgid "Offline"
+msgstr "Senrete"
+
+#: src/ProviderListModel.cpp:25
+msgctxt "ProviderListModel|"
+msgid "Custom provider"
+msgstr ""
+
+#. Unlimited file size for uploading
+#. ----------
+#. Deletion of message history stored on provider
+#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
+msgctxt "ProviderListModel|"
+msgid "Unlimited"
+msgstr "Senlima"
+
+#: src/ProviderListModel.cpp:105
+#, qt-format
+msgctxt "ProviderListModel|"
+msgid "%1 days"
+msgstr "%1 tagoj"
+
+#: src/qml/AboutDialog.qml:54
+msgctxt "AboutDialog|"
+msgid "A simple, user-friendly Jabber/XMPP client"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:62
+msgctxt "AboutDialog|"
+msgid "License:"
+msgstr "Permesilo:"
+
+#: src/qml/AboutDialog.qml:79
+msgctxt "AboutDialog|"
+msgid "Report problems"
+msgstr ""
+
+#: src/qml/AboutDialog.qml:84
+msgctxt "AboutDialog|"
+msgid "View source code online"
+msgstr ""
+
+#: src/qml/ChatPage.qml:93
+msgctxt "ChatPage|"
+msgid "Details…"
+msgstr "Detaloj…"
+
+#: src/qml/ChatPage.qml:99
+msgctxt "ChatPage|"
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/qml/ChatPage.qml:112
+msgctxt "ChatPage|"
+msgid "Add hidden message part"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:25
+msgctxt "AccountDetailsContent|"
+msgid "Never"
+msgstr "Neniam"
+
+#: src/qml/details/AccountDetailsContent.qml:29
+msgctxt "AccountDetailsContent|"
+msgid "If personal data is shared"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:33
+msgctxt "AccountDetailsContent|"
+msgid "Always"
+msgstr "Ĉiam"
+
+#: src/qml/details/AccountDetailsContent.qml:65
+msgctxt "AccountDetailsContent|"
+msgid "Empty"
+msgstr "Malplena"
+
+#: src/qml/details/AccountDetailsContent.qml:85
+msgctxt "AccountDetailsContent|"
+msgid "Set value"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:142
+msgctxt "AccountDetailsContent|"
+msgid "Encryption"
+msgstr "Ĉifrado"
+
+#: src/qml/details/AccountDetailsContent.qml:146
+msgctxt "AccountDetailsContent|"
+msgid "OMEMO 2"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:147
+msgctxt "AccountDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:166
+#: src/qml/details/AccountDetailsContent.qml:172
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:168
+msgctxt "AccountDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:175
+msgctxt "AccountDetailsContent|"
+msgid "Scan the QR codes of <b>your</b> devices for maximum security"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:234
+msgctxt "AccountDetailsContent|"
+msgid "Change label…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:263
+msgctxt "AccountDetailsContent|"
+msgid "Remove label"
+msgstr "Forigi etikedon"
+
+#: src/qml/details/AccountDetailsContent.qml:299
+msgctxt "AccountDetailsContent|"
+msgid "Provider"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:303
+msgctxt "AccountDetailsContent|"
+msgid "Visit website"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:304
+msgctxt "AccountDetailsContent|"
+msgid "Open your provider's website in a web browser"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:310
+msgctxt "AccountDetailsContent|"
+msgid "Copy website address"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:311
+msgctxt "AccountDetailsContent|"
+msgid "Copy your provider's web address to the clipboard"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:315
+msgctxt "AccountDetailsContent|"
+msgid "Website address copied to clipboard"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:320
+msgctxt "AccountDetailsContent|"
+msgid "Open support chat"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:321
+msgctxt "AccountDetailsContent|"
+msgid "Start chat with your provider's support contact"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:327
+msgctxt "AccountDetailsContent|"
+msgid "Support"
+msgstr "Subteno"
+
+#: src/qml/details/AccountDetailsContent.qml:339
+msgctxt "AccountDetailsContent|"
+msgid "Open support group"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:340
+msgctxt "AccountDetailsContent|"
+msgid "Join your provider's public support group"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:363
+msgctxt "AccountDetailsContent|"
+msgid "Blocked Chat Addresses"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:367
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Block a specific user (e.g., user@example.org) or all users of the same "
+"server (e.g., example.org)"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:386
+msgctxt "AccountDetailsContent|"
+msgid "You must be connected to block or unblock chat addresses"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:393
+msgctxt "AccountDetailsContent|"
+msgid "user@example.org"
+msgstr "uzul@ekzemplo.org"
+
+#: src/qml/details/AccountDetailsContent.qml:408
+msgctxt "AccountDetailsContent|"
+msgid "Block chat address"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:476
+msgctxt "AccountDetailsContent|"
+msgid "Change chat address…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:505
+msgctxt "AccountDetailsContent|"
+msgid "Unblock"
+msgstr "Malbloki"
+
+#: src/qml/details/AccountDetailsContent.qml:532
+msgctxt "AccountDetailsContent|"
+msgid "Notes"
+msgstr "Notoj"
+
+#: src/qml/details/AccountDetailsContent.qml:537
+msgctxt "AccountDetailsContent|"
+msgid "Add chat for notes"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:538
+msgctxt "AccountDetailsContent|"
+msgid "Add a chat for synchronizing your notes across all your devices"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:572
+msgctxt "AccountDetailsContent|"
+msgid "Password Change"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:576
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Change your password. You need to enter the new password on all your other "
+"devices!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:592
+msgctxt "AccountDetailsContent|"
+msgid "Current password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:593
+msgctxt "AccountDetailsContent|"
+msgid "Enter your current password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:594
+msgctxt "AccountDetailsContent|"
+msgid "Enter correct password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:616
+msgctxt "AccountDetailsContent|"
+msgid "New password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:616
+msgctxt "AccountDetailsContent|"
+msgid "Password"
+msgstr "Pasvorto"
+
+#: src/qml/details/AccountDetailsContent.qml:617
+msgctxt "AccountDetailsContent|"
+msgid "Enter your new password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:618
+msgctxt "AccountDetailsContent|"
+msgid "Enter different password to change it"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:638
+msgctxt "AccountDetailsContent|"
+msgid "Change password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:685
+#, qt-format
+msgctxt "AccountDetailsContent|"
+msgid "Failed to change password: %1"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:691
+msgctxt "AccountDetailsContent|"
+msgid "Password changed successfully"
+msgstr "Pasvorto ŝanĝiĝis sukcese"
+
+#: src/qml/details/AccountDetailsContent.qml:708
+msgctxt "AccountDetailsContent|"
+msgid "Password Visibility"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:712
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Configure this device to not expose your password for changing it or "
+"switching to another device. If you want to change your password or use your "
+"account on another device later, <b>consider storing the password somewhere "
+"else. This cannot be undone!</b>"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:716
+msgctxt "AccountDetailsContent|"
+msgid "Don't show password as text"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:717
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Allow to add additional devices using the login QR code but never show the "
+"password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:929
+msgctxt "AccountDetailsContent|"
+msgid "Confirm"
+msgstr "Konfirmi"
+
+#: src/qml/details/AccountDetailsContent.qml:735
+msgctxt "AccountDetailsContent|"
+msgid "Don't expose password in any way"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:736
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Neither allow to add additional devices using the login QR code nor show the "
+"password"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:767
+msgctxt "AccountDetailsContent|"
+msgid "Connection"
+msgstr "Konekto"
+
+#: src/qml/details/AccountDetailsContent.qml:771
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Configure the hostname and port to connect to (empty fields for default "
+"values)"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:790
+msgctxt "AccountDetailsContent|"
+msgid "Change connection settings"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:799
+msgctxt "AccountDetailsContent|"
+msgid "Enter different connection settings to change them"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:848
+#, qt-format
+msgctxt "AccountDetailsContent|"
+msgid "Connection settings could not be changed: %1"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:863
+msgctxt "AccountDetailsContent|"
+msgid "Connection settings changed"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:887
+msgctxt "AccountDetailsContent|"
+msgid "Removal"
+msgstr "Forigo"
+
+#: src/qml/details/AccountDetailsContent.qml:895
+msgctxt "AccountDetailsContent|"
+msgid "Remove from Kaidan"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:896
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Remove account from this app. Back up your credentials and chat history if "
+"needed!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:920
+msgctxt "AccountDetailsContent|"
+msgid "Delete completely"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:921
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Delete account from provider. You will not be able to use your account again!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsHeader.qml:17
+msgctxt "AccountDetailsHeader|"
+msgid "Change your profile image"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:25
+msgctxt "AvatarChangePage|"
+msgid "Change profile image"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:38
+msgctxt "AvatarChangePage|"
+msgid "Choose profile image"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:116
+msgctxt "AvatarChangePage|"
+msgid "Open image…"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:121
+msgctxt "AvatarChangePage|"
+msgid "Remove current profile image"
+msgstr ""
+
+#: src/qml/details/AvatarChangePage.qml:127
+msgctxt "AvatarChangePage|"
+msgid "Save selection"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:25
+msgctxt "ContactDetailsContent|"
+msgid "Account default"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:29
+msgctxt "ContactDetailsContent|"
+msgid "Never"
+msgstr "Neniam"
+
+#: src/qml/details/ContactDetailsContent.qml:33
+msgctxt "ContactDetailsContent|"
+msgid "Always"
+msgstr "Ĉiam"
+
+#: src/qml/details/ContactDetailsContent.qml:77
+msgctxt "ContactDetailsContent|"
+msgid "Encryption"
+msgstr "Ĉifrado"
+
+#: src/qml/details/ContactDetailsContent.qml:81
+msgctxt "ContactDetailsContent|"
+msgid "OMEMO 2"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:82
+msgctxt "ContactDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:94
+#: src/qml/details/ContactDetailsContent.qml:102
+msgctxt "ContactDetailsContent|"
+msgid "Verify <b>your</b> devices to encrypt for them"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:96
+msgctxt "ContactDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:98
+msgctxt "ContactDetailsContent|"
+msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:105
+msgctxt "ContactDetailsContent|"
+msgid "Verify <b>your</b> devices for maximum security"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:147
+msgctxt "ContactDetailsContent|"
+msgid "Verify your <b>contact</b> to enable encryption"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:150
+msgctxt "ContactDetailsContent|"
+msgid "Your <b>contact</b> doesn't use OMEMO 2"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:153
+msgctxt "ContactDetailsContent|"
+msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:156
+msgctxt "ContactDetailsContent|"
+msgid "Verify your <b>contact</b> for maximum security"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:194
+msgctxt "ContactDetailsContent|"
+msgid "New label"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:208
+msgctxt "ContactDetailsContent|"
+msgid "Add label"
+msgstr "Aldoni etikedon"
+
+#: src/qml/details/ContactDetailsContent.qml:291
+msgctxt "ContactDetailsContent|"
+msgid "Sharing"
+msgstr "Kunhavigado"
+
+#: src/qml/details/ContactDetailsContent.qml:295
+msgctxt "ContactDetailsContent|"
+msgid "Show QR code"
+msgstr "Montri QR-kodon"
+
+#: src/qml/details/ContactDetailsContent.qml:296
+msgctxt "ContactDetailsContent|"
+msgid "Share this contact's chat address via QR code"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:322
+msgctxt "ContactDetailsContent|"
+msgid "Copy chat address"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:323
+msgctxt "ContactDetailsContent|"
+msgid "Share this contact's chat address via text"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:327
+msgctxt "ContactDetailsContent|"
+msgid "Contact copied to clipboard"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:340
+msgctxt "ContactDetailsContent|"
+msgid "Notifications"
+msgstr "Sciigoj"
+
+#: src/qml/details/ContactDetailsContent.qml:344
+msgctxt "ContactDetailsContent|"
+msgid "Incoming messages"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:345
+msgctxt "ContactDetailsContent|"
+msgid "Show notification and play sound on message arrival"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:364
+msgctxt "ContactDetailsContent|"
+msgid "Privacy"
+msgstr "Privateco"
+
+#: src/qml/details/ContactDetailsContent.qml:368
+msgctxt "ContactDetailsContent|"
+msgid "Request personal data"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:369
+msgctxt "ContactDetailsContent|"
+msgid ""
+"Ask your contact to share the availability, devices and other personal "
+"information"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:375
+msgctxt "ContactDetailsContent|"
+msgid "Cancel personal data sharing"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:376
+msgctxt "ContactDetailsContent|"
+msgid "Stop sharing your availability, devices and other personal information"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:382
+msgctxt "ContactDetailsContent|"
+msgid "Send typing notifications"
+msgstr "Sendi tajpajn sciigojn"
+
+#: src/qml/details/ContactDetailsContent.qml:383
+msgctxt "ContactDetailsContent|"
+msgid ""
+"Indicate when you have this conversation open, are typing and stopped typing"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:394
+msgctxt "ContactDetailsContent|"
+msgid "Send read notifications"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:395
+msgctxt "ContactDetailsContent|"
+msgid "Indicate which messages you have read"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:406
+msgctxt "ContactDetailsContent|"
+msgid "Block"
+msgstr "Bloki"
+
+#: src/qml/details/ContactDetailsContent.qml:407
+msgctxt "ContactDetailsContent|"
+msgid "Block all communication including status and notifications"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:433
+msgctxt "ContactDetailsContent|"
+msgid "Removal"
+msgstr "Forigo"
+
+#: src/qml/details/ContactDetailsContent.qml:441
+msgctxt "ContactDetailsContent|"
+msgid "Remove"
+msgstr "Forigi"
+
+#: src/qml/details/ContactDetailsContent.qml:442
+msgctxt "ContactDetailsContent|"
+msgid "Remove contact and complete chat history"
+msgstr ""
+
+#: src/qml/details/ContactDetailsContent.qml:450
+msgctxt "ContactDetailsContent|"
+msgid "Confirm"
+msgstr "Konfirmi"
+
+#: src/qml/details/ContactDetailsHeader.qml:18
+msgctxt "ContactDetailsHeader|"
+msgid "Maximize avatar"
+msgstr ""
+
+#: src/qml/details/ContactDetailsHeader.qml:25
+msgctxt "ContactDetailsHeader|"
+msgid "Messages in this chat are synchronized as notes across all your devices"
+msgstr ""
+
+#: src/qml/details/DetailsContent.qml:50
+msgctxt "DetailsContent|"
+msgid "Media"
+msgstr "Komunikaĵoj"
+
+#: src/qml/details/DetailsContent.qml:55
+msgctxt "DetailsContent|"
+msgid "Automatic Downloads"
+msgstr ""
+
+#: src/qml/details/DetailsContent.qml:56
+msgctxt "DetailsContent|"
+msgid "Download media automatically"
+msgstr ""
+
+#: src/qml/details/DetailsContent.qml:124
+msgctxt "DetailsContent|"
+msgid "Profile"
+msgstr "Profilo"
+
+#: src/qml/details/DetailsContent.qml:148
+msgctxt "DetailsContent|"
+msgid "Labels"
+msgstr "Etikedoj"
+
+#: src/qml/details/DetailsContent.qml:172
+msgctxt "DetailsContent|"
+msgid "Connected Devices"
+msgstr "Konektitaj Aparatoj"
+
+#: src/qml/details/DetailsHeader.qml:94
+msgctxt "DetailsHeader|"
+msgid "Change name…"
+msgstr ""
+
+#: src/qml/details/MediaOverview.qml:72
+msgctxt "MediaOverview|"
+msgid "Images"
+msgstr "Bildoj"
+
+#: src/qml/details/MediaOverview.qml:89
+msgctxt "MediaOverview|"
+msgid "Videos"
+msgstr "Videoj"
+
+#: src/qml/details/MediaOverview.qml:107
+msgctxt "MediaOverview|"
+msgid "Other"
+msgstr "Alia"
+
+#: src/qml/details/MediaOverview.qml:174
+#, qt-format
+msgctxt "MediaOverview|"
+msgid "%1/%2 selected"
+msgstr ""
+
+#: src/qml/details/MediaOverview.qml:256
+#, qt-format
+msgctxt "MediaOverview|"
+msgid ""
+"Not all files could be deleted:\n"
+"%1"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:24
+msgctxt "DeviceSwitchingPage|"
+msgid "Transfer account to another device"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:25
+msgctxt "DeviceSwitchingPage|"
+msgid "Hide QR code"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:25
+msgctxt "DeviceSwitchingPage|"
+msgid "Show as QR code"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:26
+msgctxt "DeviceSwitchingPage|"
+msgid "Hide text"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:26
+msgctxt "DeviceSwitchingPage|"
+msgid "Show as text"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:28
+msgctxt "DeviceSwitchingPage|"
+msgid ""
+"Scan the QR code or enter the credentials as text on another device to log "
+"in on it.\n"
+"\n"
+"Attention:\n"
+"Never show this QR code to anyone else. It would allow unlimited access to "
+"your account!"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:44
+msgctxt "DeviceSwitchingPage|"
+msgid "Chat address:"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:53
+msgctxt "DeviceSwitchingPage|"
+msgid "Copy chat address"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:63
+msgctxt "DeviceSwitchingPage|"
+msgid "Password:"
+msgstr "Pasvorto:"
+
+#: src/qml/DeviceSwitchingPage.qml:73
+msgctxt "DeviceSwitchingPage|"
+msgid "Copy password"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:151
+msgctxt "ChatMessage|"
+msgid "Spoiler"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:295
+#, qt-format
+msgctxt "ChatMessage|"
+msgid "%1 has read up to this point"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:24
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy message"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:35
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit message"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:41
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy download URL"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:47
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote message"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:54
+msgctxt "ChatMessageContextMenu|"
+msgid "Delete file"
+msgstr "Forigi dosieron"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:62
+msgctxt "ChatMessageContextMenu|"
+msgid "Mark as first unread"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:72
+msgctxt "ChatMessageContextMenu|"
+msgid "Remove from this device"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:47
+msgctxt "ChatPageSearchView|"
+msgid "Close message search bar"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:83
+msgctxt "ChatPageSearchView|"
+msgid "Search up"
+msgstr ""
+
+#: src/qml/elements/ChatPageSearchView.qml:94
+msgctxt "ChatPageSearchView|"
+msgid "Search down"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:68
+msgctxt "ChatPageSendingPane|"
+msgid "Visible message part"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:75
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel adding hidden message part"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:115
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>encrypted </b> message with hidden part"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:115
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>unencrypted</b> message with hidden part"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:117
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>encrypted</b> message"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:117
+msgctxt "ChatPageSendingPane|"
+msgid "Compose <b>unencrypted</b> message"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:231
+msgctxt "ChatPageSendingPane|"
+msgid "Media"
+msgstr "Komunikaĵoj"
+
+#: src/qml/elements/ChatPageSendingPane.qml:287
+msgctxt "ChatPageSendingPane|"
+msgid "Take picture"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:288
+msgctxt "ChatPageSendingPane|"
+msgid "Take a picture using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:299
+msgctxt "ChatPageSendingPane|"
+msgid "Record video"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:300
+msgctxt "ChatPageSendingPane|"
+msgid "Record a video using your camera"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:311
+msgctxt "ChatPageSendingPane|"
+msgid "Share files"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:312
+msgctxt "ChatPageSendingPane|"
+msgid "Share files from your device"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:323
+msgctxt "ChatPageSendingPane|"
+msgid "Share location"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:324
+msgctxt "ChatPageSendingPane|"
+msgid "Send your location"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:21
+msgctxt "ChatSupportSheet|"
+msgid "Support Group"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:21
+msgctxt "ChatSupportSheet|"
+msgid "Support"
+msgstr "Subteno"
+
+#: src/qml/elements/ChatSupportSheet.qml:34
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Group Support %1"
+msgstr ""
+
+#: src/qml/elements/ChatSupportSheet.qml:34
+#, qt-format
+msgctxt "ChatSupportSheet|"
+msgid "Support %1"
+msgstr ""
+
+#: src/qml/elements/ConfirmationPage.qml:24
+msgctxt "ConfirmationPage|"
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: src/qml/elements/ContactAdditionContent.qml:28
+msgctxt "ContactAdditionContent|"
+msgid "Add"
+msgstr "Aldoni"
+
+#: src/qml/elements/ContactAdditionContent.qml:33
+msgctxt "ContactAdditionContent|"
+msgid "Contact already exists"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:35
+msgctxt "ContactAdditionContent|"
+msgid "Open chat"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:48
+msgctxt "ContactAdditionContent|"
+msgid "Adding contact…"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:59
+msgctxt "ContactAdditionContent|"
+msgid "Name (optional):"
+msgstr "Nomo (laŭvola):"
+
+#: src/qml/elements/ContactAdditionContent.qml:67
+msgctxt "ContactAdditionContent|"
+msgid "Message (optional):"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionContent.qml:74
+msgctxt "ContactAdditionContent|"
+msgid "Hello, I'm…"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionDialog.qml:16
+msgctxt "ContactAdditionDialog|"
+msgid "Add contact"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionPage.qml:14
+msgctxt "ContactAdditionPage|"
+msgid "Add contact"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionQrCodePage.qml:14
+msgctxt "ContactAdditionQrCodePage|"
+msgid "Add contact"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionQrCodePage.qml:15
+msgctxt "ContactAdditionQrCodePage|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionQrCodePage.qml:15
+msgctxt "ContactAdditionQrCodePage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionQrCodePage.qml:28
+msgctxt "ContactAdditionQrCodePage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr ""
+
+#: src/qml/elements/ContactAdditionQrCodePage.qml:30
+msgctxt "ContactAdditionQrCodePage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:19
+msgctxt "JidField|"
+msgid "Chat address"
+msgstr ""
+
+#: src/qml/elements/fields/JidField.qml:20
+msgctxt "JidField|"
+msgid "user@example.org"
+msgstr "uzul@ekzemplo.org"
+
+#: src/qml/elements/fields/JidField.qml:22
+msgctxt "JidField|"
+msgid "The chat address must have the form <b>username@server</b>"
+msgstr ""
+
+#: src/qml/elements/fields/PasswordField.qml:15
+msgctxt "PasswordField|"
+msgid "Password"
+msgstr "Pasvorto"
+
+#: src/qml/elements/fields/PasswordField.qml:16
+msgctxt "PasswordField|"
+msgid "Please enter a valid password"
+msgstr ""
+
+#: src/qml/elements/LoadingArea.qml:34
+msgctxt "LoadingArea|"
+msgid "Loading…"
+msgstr "Ŝargante…"
+
+#: src/qml/elements/LoginArea.qml:34
+msgctxt "LoginArea|"
+msgid "Connection settings"
+msgstr ""
+
+#: src/qml/elements/LoginArea.qml:67
+msgctxt "LoginArea|"
+msgid "Log in"
+msgstr "Ensaluti"
+
+#: src/qml/elements/LoginArea.qml:74
+msgctxt "LoginArea|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/qml/elements/MessageBackground.qml:108
+msgctxt "MessageBackground|"
+msgid "Unencrypted"
+msgstr "Malĉifrita"
+
+#: src/qml/elements/MessageBackground.qml:113
+msgctxt "MessageBackground|"
+msgid "Untrusted"
+msgstr "Nefidinda"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:27
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Reactions"
+msgstr "Reagoj"
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:50
+msgctxt "MessageReactionDetailsSheet|"
+msgid "Own:"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:71
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be added once you are connected"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:74
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 will be removed once you are connected"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:76
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be added"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:79
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 could not be removed"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:81
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been sent"
+msgstr ""
+
+#: src/qml/elements/MessageReactionDetailsSheet.qml:83
+#, qt-format
+msgctxt "MessageReactionDetailsSheet|"
+msgid "%1 has been delivered"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
+msgctxt "NewMedia|"
+msgid "Initializing…"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:206
+msgctxt "NewMedia|"
+msgid "Unavailable"
+msgstr "Nedisponebla"
+
+#: src/qml/elements/NewMedia.qml:216
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Paused %1"
+msgstr ""
+
+#: src/qml/elements/NewMedia.qml:231
+#, qt-format
+msgctxt "NewMedia|"
+msgid "Recording… %1"
+msgstr ""
+
+#: src/qml/elements/NewMediaSheet.qml:77
+msgctxt "NewMediaSheet|"
+msgid "Cancel"
+msgstr "Nuligi"
+
+#: src/qml/elements/NewMediaSheet.qml:91
+msgctxt "NewMediaSheet|"
+msgid "Send"
+msgstr "Sendi"
+
+#: src/qml/elements/QrCodeScanner.qml:69
+#, qt-format
+msgctxt "QrCodeScanner|"
+msgid "The camera format '%1' is not supported."
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:154
+msgctxt "QrCodeScanner|"
+msgid "Loading camera…"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:161
+msgctxt "QrCodeScanner|"
+msgid "No camera available"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanner.qml:164
+msgctxt "QrCodeScanner|"
+msgid ""
+"Camera busy\n"
+"Try to close other applications using the camera"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:113
+msgctxt "QrCodeScanningArea|"
+msgid "Making trust decisions…"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:113
+msgctxt "QrCodeScanningArea|"
+msgid "Adding contact…"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:29
+msgctxt "RosterFilteringArea|"
+msgid "Filter by availability"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:30
+msgctxt "RosterFilteringArea|"
+msgid "Show only available contacts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:48
+msgctxt "RosterFilteringArea|"
+msgid "Filter by accounts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:49
+msgctxt "RosterFilteringArea|"
+msgid "Show only chats of selected accounts"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:126
+msgctxt "RosterFilteringArea|"
+msgid "Filter by labels"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:127
+msgctxt "RosterFilteringArea|"
+msgid "Show only chats with selected labels"
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:74
+msgctxt "RosterListItem|"
+msgid "Draft:"
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:82
+msgctxt "RosterListItem|"
+msgid "Me:"
+msgstr ""
+
+#: src/qml/elements/RosterListItem.qml:85
+#, qt-format
+msgctxt "RosterListItem|"
+msgid "%1:"
+msgstr "%1:"
+
+#: src/qml/elements/RosterListItemContextMenu.qml:21
+msgctxt "RosterListItemContextMenu|"
+msgid "Unpin"
+msgstr ""
+
+#: src/qml/elements/RosterListItemContextMenu.qml:21
+msgctxt "RosterListItemContextMenu|"
+msgid "Pin"
+msgstr "Pinglo"
+
+#: src/qml/elements/SearchBarPage.qml:28
+msgctxt "SearchBarPage|"
+msgid "Search"
+msgstr "Serĉi"
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:24
+#, qt-format
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search public groups (%1)"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:46
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Search…"
+msgstr "Serĉi…"
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:167
+#, qt-format
+msgctxt "SearchPublicGroupChatSheet|"
+msgid ""
+"The public groups could not be retrieved, try again.\n"
+"\n"
+"%1"
+msgstr ""
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:173
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Downloading…"
+msgstr "Elŝutante…"
+
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:228
+msgctxt "SearchPublicGroupChatSheet|"
+msgid "Retry"
+msgstr "Reprovi"
+
+#: src/qml/elements/SendMediaSheet.qml:29
+msgctxt "SendMediaSheet|"
+msgid "Share files"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:79
+msgctxt "SendMediaSheet|"
+msgid "Choose files"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:124
+msgctxt "SendMediaSheet|"
+msgid "Enter description…"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:132
+msgctxt "SendMediaSheet|"
+msgid "Remove file"
+msgstr ""
+
+#: src/qml/elements/SendMediaSheet.qml:146
+msgctxt "SendMediaSheet|"
+msgid "Compose message"
+msgstr "Verki mesaĝon"
+
+#: src/qml/elements/SendMediaSheet.qml:153
+msgctxt "SendMediaSheet|"
+msgid "Add"
+msgstr "Aldoni"
+
+#: src/qml/elements/SendMediaSheet.qml:164
+msgctxt "SendMediaSheet|"
+msgid "Send"
+msgstr "Sendi"
+
+#: src/qml/EmptyChatPage.qml:13
+msgctxt "EmptyChatPage|"
+msgid "Select a chat to start messaging"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:59
+msgctxt "GlobalDrawer|"
+msgid "Accounts"
+msgstr "Kontoj"
+
+#: src/qml/GlobalDrawer.qml:121
+msgctxt "GlobalDrawer|"
+msgid "Actions"
+msgstr "Agoj"
+
+#: src/qml/GlobalDrawer.qml:125
+msgctxt "GlobalDrawer|"
+msgid "Add contact by QR code"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:131
+msgctxt "GlobalDrawer|"
+msgid "Add contact by chat address"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:138
+msgctxt "GlobalDrawer|"
+msgid "Search public groups"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:149
+msgctxt "GlobalDrawer|"
+msgid "Invite friends"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:153
+msgctxt "GlobalDrawer|"
+msgid "Invitation link copied to clipboard"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:158
+msgctxt "GlobalDrawer|"
+msgid "Switch device"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:164
+msgctxt "GlobalDrawer|"
+msgid "Settings"
+msgstr "Agordoj"
+
+#: src/qml/KeyAuthenticationPage.qml:28
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify devices"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
+msgctxt "KeyAuthenticationPage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:30
+msgctxt "KeyAuthenticationPage|"
+msgid "Scan QR codes"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:41
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify manually"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:43
+msgctxt "KeyAuthenticationPage|"
+msgid "Step 1: Scan your <b>other device's</b> QR code"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:43
+msgctxt "KeyAuthenticationPage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:45
+msgctxt "KeyAuthenticationPage|"
+msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:45
+msgctxt "KeyAuthenticationPage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:63
+msgctxt "KeyAuthenticationPage|"
+msgid "Unverified own devices"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:63
+msgctxt "KeyAuthenticationPage|"
+msgid "Unverified contact devices"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:92
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify device"
+msgstr "Konfirmi aparaton"
+
+#: src/qml/KeyAuthenticationPage.qml:110
+msgctxt "KeyAuthenticationPage|"
+msgid "Device verified"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:112
+msgctxt "KeyAuthenticationPage|"
+msgid "Device does not exist or is already verified"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:117
+msgctxt "KeyAuthenticationPage|"
+msgid ""
+"The fingerprint must have 64 characters with digits and letters from a to f"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:153
+msgctxt "KeyAuthenticationPage|"
+msgid "Verified own devices"
+msgstr ""
+
+#: src/qml/KeyAuthenticationPage.qml:175
+msgctxt "KeyAuthenticationPage|"
+msgid "Copy fingerprint"
+msgstr "Kopii fingrospuron"
+
+#: src/qml/KeyAuthenticationPage.qml:182
+msgctxt "KeyAuthenticationPage|"
+msgid "Fingerprint copied to clipboard"
+msgstr ""
+
+#: src/qml/main.qml:81
+#, qt-format
+msgctxt "main|"
+msgid "Unblocked %1"
+msgstr ""
+
+#: src/qml/main.qml:81
+msgctxt "main|"
+msgid "Undo"
+msgstr "Malfari"
+
+#: src/qml/main.qml:88
+#, qt-format
+msgctxt "main|"
+msgid "Could not block %1: %2"
+msgstr ""
+
+#: src/qml/main.qml:90
+#, qt-format
+msgctxt "main|"
+msgid "Could not unblock %1: %2"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:24
+msgctxt "QrCodeOnboardingPage|"
+msgid "Show explanation"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:36
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan your old device's QR code"
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:72
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:79
+msgctxt "QrCodeOnboardingPage|"
+msgid "Connecting…"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:24
+msgctxt "AutomaticRegistrationPage|"
+msgid "Register automatically"
+msgstr ""
+
+#: src/qml/registration/AutomaticRegistrationPage.qml:81
+msgctxt "AutomaticRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/CustomFormView.qml:14
+msgctxt "CustomFormView|"
+msgid ""
+"The server has requested more information.\n"
+"Not everything may be required.\n"
+"If a CAPTCHA is shown, the displayed text must be entered."
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:14
+msgctxt "DisplayNameView|"
+msgid ""
+"Your display name is what your contacts will see.\n"
+"In case you don't want to use a display name, you can leave this field "
+"empty.\n"
+"Using a display name may let new contacts recognize you easier but also "
+"could decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/DisplayNameView.qml:22
+msgctxt "DisplayNameView|"
+msgid "Display Name"
+msgstr "Montra Nomo"
+
+#: src/qml/registration/LoadingView.qml:16
+msgctxt "LoadingView|"
+msgid "Requesting the server…"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:21
+msgctxt "ManualRegistrationPage|"
+msgid "Register manually"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:171
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:214
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:214
+msgctxt "ManualRegistrationPage|"
+msgid "The provider does currently not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:218
+msgctxt "ManualRegistrationPage|"
+msgid "But you can use the provider's web registration."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:222
+msgctxt "ManualRegistrationPage|"
+msgid "A new provider has been randomly selected."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:237
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:241
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr ""
+
+#: src/qml/registration/PasswordView.qml:19
+msgctxt "PasswordView|"
+msgid ""
+"You can provide a password for your account. If you don't, a password will "
+"be generated that you can find later in the app."
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:21
+msgctxt "ProviderView|"
+msgid ""
+"The provider is where your account is located.\n"
+"The selectable providers are hand-picked by our community!"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:39
+msgctxt "ProviderView|"
+msgid "Provider"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:76
+msgctxt "ProviderView|"
+msgid "Connection settings"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:119
+msgctxt "ProviderView|"
+msgid "Web registration only:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:120
+msgctxt "ProviderView|"
+msgid "No"
+msgstr "Ne"
+
+#: src/qml/registration/ProviderView.qml:120
+msgctxt "ProviderView|"
+msgid "Yes"
+msgstr "Jes"
+
+#: src/qml/registration/ProviderView.qml:125
+msgctxt "ProviderView|"
+msgid "Server locations:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:131
+msgctxt "ProviderView|"
+msgid "Languages:"
+msgstr "Lingvoj:"
+
+#: src/qml/registration/ProviderView.qml:137
+msgctxt "ProviderView|"
+msgid "Online since:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:143
+msgctxt "ProviderView|"
+msgid "Allows to share media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:149
+msgctxt "ProviderView|"
+msgid "Stores shared media up to:"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:157
+msgctxt "ProviderView|"
+msgid "Open website"
+msgstr ""
+
+#: src/qml/registration/ProviderView.qml:163
+msgctxt "ProviderView|"
+msgid "Copy website address"
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:12
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr "Registriĝi"
+
+#: src/qml/registration/RegistrationPage.qml:55
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:64
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:73
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr ""
+
+#: src/qml/registration/ResultView.qml:17
+msgctxt "ResultView|"
+msgid ""
+"Your chat address is used to chat with you, like your email address is used "
+"to exchange email messages.\n"
+"\n"
+"Your chat address will be:"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:18
+msgctxt "UsernameView|"
+msgid ""
+"Your username is used to log in to your account and to chat with you.\n"
+"If you don't enter a username, the randomly generated and already displayed "
+"one is used.\n"
+"Using an own username may let it be more recognizable but also could "
+"decrease your privacy!"
+msgstr ""
+
+#: src/qml/registration/UsernameView.qml:35
+msgctxt "UsernameView|"
+msgid "Username"
+msgstr "Uzantnomo"
+
+#: src/qml/registration/UsernameView.qml:42
+msgctxt "UsernameView|"
+msgid ""
+"Please enter a valid username or leave the field empty for a random one."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:18
+msgctxt "WebRegistrationView|"
+msgid ""
+"The selected provider only provides web registration. After creating an "
+"account via the web page, you can log in via Kaidan."
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:25
+msgctxt "WebRegistrationView|"
+msgid "Open registration web page"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:30
+msgctxt "WebRegistrationView|"
+msgid "Copy registration web page address"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationView.qml:36
+msgctxt "WebRegistrationView|"
+msgid "Log in with your new account"
+msgstr ""
+
+#: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
+#: src/qml/RosterPage.qml:47
+msgctxt "RosterPage|"
+msgid "Filter"
+msgstr "Filtri"
+
+#: src/qml/settings/AboutPage.qml:16
+msgctxt "AboutPage|"
+msgid "About Kaidan"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:58
+msgctxt "AboutPage|"
+msgid "User-friendly and modern chat app for every device"
+msgstr "Uz-afabla kaj moderna retbabililo por ĉiu aparato"
+
+#: src/qml/settings/AboutPage.qml:74
+msgctxt "AboutPage|"
+msgid "Visit website"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:75
+msgctxt "AboutPage|"
+msgid "Open Kaidan's website in a web browser"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:81
+msgctxt "AboutPage|"
+msgid "Follow on Mastodon"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:82
+msgctxt "AboutPage|"
+msgid "Open Kaidan's Mastodon page in a web browser"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:88
+msgctxt "AboutPage|"
+msgid "Donate"
+msgstr "Doni"
+
+#: src/qml/settings/AboutPage.qml:89
+msgctxt "AboutPage|"
+msgid "Support Kaidan's development and infrastructure by a donation"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:95
+msgctxt "AboutPage|"
+msgid "Report problems"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:96
+msgctxt "AboutPage|"
+msgid "Report issues with Kaidan to the developers"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:102
+msgctxt "AboutPage|"
+msgid "View source code"
+msgstr ""
+
+#: src/qml/settings/AboutPage.qml:103
+msgctxt "AboutPage|"
+msgid "View Kaidan's source code online and contribute to the project"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:25
+msgctxt "CustomConnectionSettings|"
+msgid "Hostname:"
+msgstr "Komputilo:"
+
+#: src/qml/settings/CustomConnectionSettings.qml:29
+msgctxt "CustomConnectionSettings|"
+msgid "The hostname must not contain blank spaces"
+msgstr ""
+
+#: src/qml/settings/CustomConnectionSettings.qml:53
+msgctxt "CustomConnectionSettings|"
+msgid "Port:"
+msgstr "Pordo:"
+
+#: src/qml/settings/MultimediaSettings.qml:21
+msgctxt "MultimediaSettings|"
+msgid "Multimedia Settings"
+msgstr "Plurmedia Agordo"
+
+#: src/qml/settings/MultimediaSettings.qml:41
+msgctxt "MultimediaSettings|"
+msgid "Select Sources"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:46
+msgctxt "MultimediaSettings|"
+msgid "Camera"
+msgstr "Fotilo"
+
+#: src/qml/settings/MultimediaSettings.qml:76
+msgctxt "MultimediaSettings|"
+msgid "Audio Input"
+msgstr "Aŭd-Enigo"
+
+#: src/qml/settings/MultimediaSettings.qml:109
+msgctxt "MultimediaSettings|"
+msgid "Video Output"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:159
+msgctxt "MultimediaSettings|"
+msgid "Reset to defaults"
+msgstr "Restarigi al defaŭltoj"
+
+#: src/qml/settings/MultimediaSettings.qml:178
+msgctxt "MultimediaSettings|"
+msgid "Reset User Settings"
+msgstr ""
+
+#: src/qml/settings/MultimediaSettings.qml:199
+msgctxt "MultimediaSettings|"
+msgid "Save"
+msgstr "Konservi"
+
+#: src/qml/settings/SettingsContent.qml:20
+msgctxt "SettingsContent|"
+msgid "Settings"
+msgstr "Agordoj"
+
+#: src/qml/settings/SettingsContent.qml:30
+msgctxt "SettingsContent|"
+msgid "Multimedia Settings"
+msgstr "Plurmedia Agordo"
+
+#: src/qml/settings/SettingsContent.qml:31
+msgctxt "SettingsContent|"
+msgid "Configure photo, video and audio recording settings"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:37
+msgctxt "SettingsContent|"
+msgid "About Kaidan"
+msgstr ""
+
+#: src/qml/settings/SettingsContent.qml:38
+msgctxt "SettingsContent|"
+msgid ""
+"Learn about the current Kaidan version, view the source code and contribute"
+msgstr ""
+
+#: src/qml/settings/SettingsPage.qml:10
+msgctxt "SettingsPage|"
+msgid "Settings"
+msgstr "Agordoj"
+
+#: src/qml/StartPage.qml:54
+msgctxt "StartPage|"
+msgid "Enjoy free communication on every device!"
+msgstr ""
+
+#: src/qml/StartPage.qml:67
+msgctxt "StartPage|"
+msgid "Login"
+msgstr "Ensaluti"
+
+#: src/qml/StartPage.qml:71
+msgctxt "StartPage|"
+msgid "Enter your credentials"
+msgstr ""
+
+#: src/qml/StartPage.qml:99
+msgctxt "StartPage|"
+msgid "Scan login QR code of old device"
+msgstr ""
+
+#: src/qml/StartPage.qml:106
+msgctxt "StartPage|"
+msgid "or"
+msgstr "aŭ"
+
+#: src/qml/StartPage.qml:119
+msgctxt "StartPage|"
+msgid "Register"
+msgstr "Registriĝi"
+
+#: src/qml/StartPage.qml:123
+msgctxt "StartPage|"
+msgid "Generate account automatically"
+msgstr ""
+
+#: src/qml/StartPage.qml:128
+msgctxt "StartPage|"
+msgid "Create account manually"
+msgstr ""
+
+#: src/QmlUtils.cpp:52
+msgctxt "QmlUtils|"
+msgid "Invalid username or password."
+msgstr ""
+
+#: src/QmlUtils.cpp:54
+msgctxt "QmlUtils|"
+msgid "Cannot connect to the server. Please check your internet connection."
+msgstr ""
+
+#: src/QmlUtils.cpp:56
+msgctxt "QmlUtils|"
+msgid "Error while trying to connect securely."
+msgstr ""
+
+#: src/QmlUtils.cpp:58
+msgctxt "QmlUtils|"
+msgid "The server doesn't support secure connections."
+msgstr ""
+
+#: src/QmlUtils.cpp:60
+msgctxt "QmlUtils|"
+msgid ""
+"Could not connect to the server. Please check your internet connection or "
+"your server name."
+msgstr ""
+
+#: src/QmlUtils.cpp:62
+msgctxt "QmlUtils|"
+msgid "The server is offline or blocked by a firewall."
+msgstr ""
+
+#: src/QmlUtils.cpp:64
+msgctxt "QmlUtils|"
+msgid "Authentification protocol not supported by the server."
+msgstr ""
+
+#: src/QmlUtils.cpp:66
+msgctxt "QmlUtils|"
+msgid "The connection could not be refreshed."
+msgstr ""
+
+#: src/QmlUtils.cpp:68
+msgctxt "QmlUtils|"
+msgid ""
+"The internet access is not permitted. Please check your system's internet "
+"access configuration."
+msgstr ""
+
+#: src/QmlUtils.cpp:70
+msgctxt "QmlUtils|"
+msgid "This server does not support registration."
+msgstr ""
+
+#: src/QmlUtils.cpp:215
+msgctxt "QmlUtils|"
+msgid "Unknown size"
+msgstr "Nekonata grandeco"
+
+#: src/QmlUtils.cpp:289
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is online"
+msgstr ""
+
+#: src/QmlUtils.cpp:291
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 is typing…"
+msgstr ""
+
+#: src/QmlUtils.cpp:293
+#, qt-format
+msgctxt "QmlUtils|"
+msgid "%1 paused typing"
+msgstr ""
+
+#: src/QrCodeGenerator.cpp:67
+#, qt-format
+msgctxt "QrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr ""
+
+#: src/RosterItem.cpp:22
+msgctxt "QObject|"
+msgid "Notes"
+msgstr "Notoj"
+
+#: src/RosterManager.cpp:161
+msgctxt "RosterManager|"
+msgid "Could not add contact, as a result of not being connected."
+msgstr ""
+
+#: src/RosterManager.cpp:174
+msgctxt "RosterManager|"
+msgid "Could not remove contact, as a result of not being connected."
+msgstr ""
+
+#: src/RosterManager.cpp:187
+msgctxt "RosterManager|"
+msgid "Could not rename contact, as a result of not being connected."
+msgstr ""
+
+#: src/RosterManager.cpp:198
+#, qt-format
+msgctxt "RosterManager|"
+msgid ""
+"Requesting to see the personal data of %1 failed because of a connection "
+"problem: %2"
+msgstr ""
+
+#: src/RosterManager.cpp:208
+#, qt-format
+msgctxt "RosterManager|"
+msgid "Allowing %1 to see your personal data failed"
+msgstr ""
+
+#: src/RosterManager.cpp:217
+#, qt-format
+msgctxt "RosterManager|"
+msgid "Stopping %1 to see your personal data failed"
+msgstr ""
+
+#: src/RosterModel.cpp:846
+msgctxt "RosterModel|"
+msgid "Yesterday"
+msgstr "Hieraŭ"
+
+#: src/VCardModel.cpp:127
+msgctxt "VCardModel|"
+msgid "Name"
+msgstr "Nomo"
+
+#: src/VCardModel.cpp:128
+msgctxt "VCardModel|"
+msgid "Nickname"
+msgstr "Kromnomo"
+
+#: src/VCardModel.cpp:129
+msgctxt "VCardModel|"
+msgid "About"
+msgstr "Pri"
+
+#: src/VCardModel.cpp:130
+msgctxt "VCardModel|"
+msgid "Email"
+msgstr "Retpoŝto"
+
+#: src/VCardModel.cpp:131
+msgctxt "VCardModel|"
+msgid "Birthday"
+msgstr "Naskiĝtago"
+
+#: src/VCardModel.cpp:135
+msgctxt "VCardModel|"
+msgid "Website"
+msgstr "Retejo"
