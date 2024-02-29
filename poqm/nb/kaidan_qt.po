@@ -88,7 +88,7 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr ""
 
-#: src/ClientWorker.cpp:291
+#: src/ClientWorker.cpp:290
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -319,7 +319,7 @@ msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Meldingen kunne ikke sendes."
 
-#: src/MessageHandler.cpp:487
+#: src/MessageHandler.cpp:490
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -427,7 +427,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Frakoblet"
 
-#: src/ProviderListModel.cpp:28
+#: src/ProviderListModel.cpp:25
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr ""
@@ -435,12 +435,12 @@ msgstr ""
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:96 src/ProviderListModel.cpp:106
+#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:108
+#: src/ProviderListModel.cpp:105
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -549,182 +549,182 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:309
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:326
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:321
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:333
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:339
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:340
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:369
+#: src/qml/details/AccountDetailsContent.qml:363
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:373
+#: src/qml/details/AccountDetailsContent.qml:367
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:414
+#: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:476
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:511
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:538
+#: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:543
+#: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:538
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:578
+#: src/qml/details/AccountDetailsContent.qml:572
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:582
+#: src/qml/details/AccountDetailsContent.qml:576
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:593
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:600
+#: src/qml/details/AccountDetailsContent.qml:594
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:622
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:624
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:644
+#: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:691
+#: src/qml/details/AccountDetailsContent.qml:685
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:697
+#: src/qml/details/AccountDetailsContent.qml:691
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:708
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:712
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -733,94 +733,94 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:722
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:723
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:731
-#: src/qml/details/AccountDetailsContent.qml:750
-#: src/qml/details/AccountDetailsContent.qml:910
-#: src/qml/details/AccountDetailsContent.qml:935
+#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:904
+#: src/qml/details/AccountDetailsContent.qml:929
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:741
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:736
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:773
+#: src/qml/details/AccountDetailsContent.qml:767
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:771
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:799
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:854
+#: src/qml/details/AccountDetailsContent.qml:848
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:887
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:901
+#: src/qml/details/AccountDetailsContent.qml:895
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:902
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:926
+#: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:927
+#: src/qml/details/AccountDetailsContent.qml:921
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1455,6 +1455,21 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr ""
 
+#: src/qml/elements/LoginArea.qml:34
+msgctxt "LoginArea|"
+msgid "Connection settings"
+msgstr ""
+
+#: src/qml/elements/LoginArea.qml:67
+msgctxt "LoginArea|"
+msgid "Log in"
+msgstr ""
+
+#: src/qml/elements/LoginArea.qml:74
+msgctxt "LoginArea|"
+msgid "Connecting…"
+msgstr ""
+
 #: src/qml/elements/MessageBackground.qml:108
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
@@ -1873,26 +1888,6 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr ""
 
-#: src/qml/LoginPage.qml:22 src/qml/LoginPage.qml:85
-msgctxt "LoginPage|"
-msgid "Log in"
-msgstr "Logg inn"
-
-#: src/qml/LoginPage.qml:28
-msgctxt "LoginPage|"
-msgid "Log in to your XMPP account"
-msgstr "Logg inn på din XMPP-konto"
-
-#: src/qml/LoginPage.qml:54
-msgctxt "LoginPage|"
-msgid "Connection settings"
-msgstr "Tilkoblingsinnstillinger"
-
-#: src/qml/LoginPage.qml:93
-msgctxt "LoginPage|"
-msgid "Connecting…"
-msgstr "Kobler til…"
-
 #: src/qml/main.qml:81
 #, qt-format
 msgctxt "main|"
@@ -1928,24 +1923,17 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Vis forklaring"
 
-#: src/qml/QrCodeOnboardingPage.qml:31
-#, fuzzy
+#: src/qml/QrCodeOnboardingPage.qml:36
 msgctxt "QrCodeOnboardingPage|"
-msgid "Continue without QR code"
-msgstr "Fortsett uten QR-kode"
+msgid "Scan your old device's QR code"
+msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:39
-#, fuzzy
-msgctxt "QrCodeOnboardingPage|"
-msgid "Scan the QR code from your existing device to transfer your account."
-msgstr "Skann QR-koden fra din eksisterende enhet for å overføre kontoen din."
-
-#: src/qml/QrCodeOnboardingPage.qml:73
+#: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Denne QR-koden er ikke en gylding innloggings-QR-kode."
 
-#: src/qml/QrCodeOnboardingPage.qml:80
+#: src/qml/QrCodeOnboardingPage.qml:79
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
@@ -2032,10 +2020,8 @@ msgstr ""
 #: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
 msgid ""
-"Your password is used to log in to your account.\n"
-"If you don't enter a password, the randomly generated and already displayed "
-"one is used.\n"
-"Don't use passwords you're already using somewhere else!"
+"You can provide a password for your account. If you don't, a password will "
+"be generated that you can find later in the app."
 msgstr ""
 
 #: src/qml/registration/ProviderView.qml:21
@@ -2110,21 +2096,6 @@ msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/registration/RegistrationDecisionPage.qml:16
-msgctxt "RegistrationDecisionPage|"
-msgid "Register"
-msgstr ""
-
-#: src/qml/registration/RegistrationDecisionPage.qml:22
-msgctxt "RegistrationDecisionPage|"
-msgid "Generate an account automatically"
-msgstr ""
-
-#: src/qml/registration/RegistrationDecisionPage.qml:27
-msgctxt "RegistrationDecisionPage|"
-msgid "Create an account manually"
-msgstr ""
-
 #: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
@@ -2191,21 +2162,6 @@ msgstr ""
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr ""
-
-#: src/qml/RegistrationLoginDecisionPage.qml:16
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Set up"
-msgstr "Sett opp"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:22
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Register a new account"
-msgstr "Registrer ny konto"
-
-#: src/qml/RegistrationLoginDecisionPage.qml:27
-msgctxt "RegistrationLoginDecisionPage|"
-msgid "Use an existing account"
-msgstr "Bruk eksisterende konto"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -2361,15 +2317,45 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: src/qml/StartPage.qml:43
+#: src/qml/StartPage.qml:54
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Nyt fri kommunikasjon på alle enheter."
 
-#: src/qml/StartPage.qml:59
+#: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
-msgid "Let's start"
-msgstr "La oss begynne"
+msgid "Login"
+msgstr ""
+
+#: src/qml/StartPage.qml:71
+msgctxt "StartPage|"
+msgid "Enter your credentials"
+msgstr ""
+
+#: src/qml/StartPage.qml:99
+msgctxt "StartPage|"
+msgid "Scan login QR code of old device"
+msgstr ""
+
+#: src/qml/StartPage.qml:106
+msgctxt "StartPage|"
+msgid "or"
+msgstr ""
+
+#: src/qml/StartPage.qml:119
+msgctxt "StartPage|"
+msgid "Register"
+msgstr ""
+
+#: src/qml/StartPage.qml:123
+msgctxt "StartPage|"
+msgid "Generate account automatically"
+msgstr ""
+
+#: src/qml/StartPage.qml:128
+msgctxt "StartPage|"
+msgid "Create account manually"
+msgstr ""
 
 #: src/QmlUtils.cpp:52
 #, fuzzy
