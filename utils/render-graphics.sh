@@ -31,9 +31,13 @@ render_mastodon_header() {
 # $5: margin
 render_svg_with_margin() {
     input_file_path="${KAIDAN_DIRECTORY}/${1}"
+    temporary_file_name=$(basename "${1}")
+    temporary_file_path="${OUTPUT_DIRECTORY}/tmp-${temporary_file_name}"
     output_file_path="${OUTPUT_DIRECTORY}/${2}"
-    inkscape -o "${output_file_path}" -w "${3}" -h "${4}" --export-margin="${5}" "${input_file_path}" >/dev/null && \
-    "${OPTIMIZE_PNG_SCRIPT}" "${output_file_path}" && \
+    inkscape -o "${temporary_file_path}" -w "${3}" -h "${4}" --export-margin="${5}" "${input_file_path}"
+    inkscape -o "${output_file_path}" -w "${3}" -h "${4}" "${temporary_file_path}"
+    rm "${temporary_file_path}"
+    "${OPTIMIZE_PNG_SCRIPT}" "${output_file_path}"
     echo "Created ${output_file_path}"
 }
 
@@ -44,8 +48,8 @@ render_svg_with_margin() {
 render_svg() {
     input_file_path="${KAIDAN_DIRECTORY}/${1}"
     output_file_path="${OUTPUT_DIRECTORY}/${2}"
-    inkscape -o "${output_file_path}" -w "${3}" -h "${4}" "${input_file_path}" >/dev/null && \
-    "${OPTIMIZE_PNG_SCRIPT}" "${output_file_path}" && \
+    inkscape -o "${output_file_path}" -w "${3}" -h "${4}" "${input_file_path}"
+    "${OPTIMIZE_PNG_SCRIPT}" "${output_file_path}"
     echo "Created ${output_file_path}"
 }
 
