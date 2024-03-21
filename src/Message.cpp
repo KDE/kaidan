@@ -122,7 +122,7 @@ MessageType File::type() const
 
 QString File::details() const
 {
-	const auto formattedSize = [this]() {
+	auto formattedSize = [this]() {
 		if (size) {
 			return QLocale::system().formattedDataSize(*size);
 		}
@@ -133,7 +133,7 @@ QString File::details() const
 
 		return QString();
 	}();
-	const auto formattedDateTime = [this]() {
+	auto formattedDateTime = [this]() {
 		if (lastModified.isValid()) {
 			return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
 		}
