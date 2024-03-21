@@ -30,6 +30,8 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 	  m_omemoStorage(new OmemoDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppOmemoManager>(m_omemoStorage.get()))
 {
+	client->setEncryptionExtension(m_manager);
+
 	connect(this, &OmemoManager::retrieveOwnKeyRequested, this, [this, client]() {
 		m_lastRequestedKeyOwnerJids = { client->configuration().jidBare() };
 		retrieveOwnKey();
