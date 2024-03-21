@@ -10,6 +10,7 @@
 
 #include "MessageHandler.h"
 // std
+#include <ranges>
 // Qt
 #include <QUrl>
 #include <QRandomGenerator>
@@ -18,6 +19,9 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
 #include <QXmppEncryptedFileSource.h>
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+#include <QXmppFallback.h>
+#endif
 #include <QXmppFileMetadata.h>
 #include <QXmppHash.h>
 #include <QXmppHttpFileSource.h>
@@ -35,6 +39,7 @@
 #include "ClientWorker.h"
 #include "Database.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "Message.h"
 #include "MessageDb.h"
@@ -47,6 +52,8 @@
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
+
+using std::ranges::find;
 
 MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
@@ -470,6 +477,14 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty() && msg.sharedFiles().isEmpty()) {
 		return;
 	}
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+	// file sharing messages for backwards-compatibility are ignored
+	if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) != msg.fallbackMarkers().end() &&
+		msg.sharedFiles().empty()) {
+		return;
+	}
+#endif
 
 	// Close a notification for messages to which the user replied via another own resource.
 	if (message.isOwn()) {

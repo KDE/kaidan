@@ -130,4 +130,7 @@ constexpr int ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE = 8;
 // Separator between grouped encryption key ID characters to be displayed for better readability
 constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
 
+// XMPP
+inline constexpr QStringView XMLNS_SFS = u"urn:xmpp:sfs:0";
+
 #endif // GLOBALS_H
