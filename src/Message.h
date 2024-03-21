@@ -205,6 +205,7 @@ public:
 	bool removed = false;
 
 	[[nodiscard]] QXmppMessage toQXmpp() const;
+	[[nodiscard]] QVector<QXmppMessage> fallbackMessages() const;
 
 	// Returns whether this message is an own one (i.e., sent by the accountJid).
 	bool isOwn() const;
@@ -212,6 +213,9 @@ public:
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
 	QString previewText() const;
+
+private:
+	bool includeFileFallbackInMainMessage() const;
 };
 
 Q_DECLARE_METATYPE(Message)

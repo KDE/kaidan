@@ -9,10 +9,15 @@
 #include "Algorithms.h"
 #include "MediaUtils.h"
 #include "Message.h"
+#include "Globals.h"
+
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppBitsOfBinaryData.h>
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+#include <QXmppFallback.h>
+#endif
 #include <QXmppFileMetadata.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
@@ -185,18 +190,78 @@ QXmppMessage Message::toQXmpp() const
 	}));
 
 	// compat for clients without Stateless File Sharing
-	msg.setOutOfBandUrls(transformFilter(files, [](const File &file) -> std::optional<QXmppOutOfBandUrl> {
+	if (!files.empty() && includeFileFallbackInMainMessage() && !files.first().httpSources.empty()) {
+		auto url = files.first().httpSources.first().url.toString();
+
+		// body
+		msg.setBody(url);
+
+		// Out-of-band url
+		QXmppOutOfBandUrl oobUrl;
+		oobUrl.setUrl(url);
+		oobUrl.setDescription(files.first().description);
+		msg.setOutOfBandUrls({ oobUrl });
+
+		// fallback indication for SFS
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+		msg.setFallbackMarkers({ QXmppFallback {
+			XMLNS_SFS.toString(),
+			{ QXmppFallback::Reference { QXmppFallback::Body, {} } },
+		}});
+#else
+		msg.setIsFallback(true);
+#endif
+	}
+
+	return msg;
+}
+
+QVector<QXmppMessage> Message::fallbackMessages() const
+{
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+	if (files.empty() || includeFileFallbackInMainMessage()) {
+		return {};
+	}
+
+	// generate fallback messages for each file
+	int i = 0;
+	return transformFilter(files, [&](const File &file) -> std::optional<QXmppMessage> {
 		if (file.httpSources.empty()) {
 			return {};
 		}
 
-		QXmppOutOfBandUrl data;
-		data.setUrl(file.httpSources.front().url.toString());
-		data.setDescription(file.description.value_or(QString()));
-		return data;
-	}));
+		QXmppMessage m;
+		m.setFrom(isOwn() ? accountJid : chatJid);
+		m.setTo(isOwn() ? chatJid : accountJid);
+		m.setId(id % u'_' % QString::number(++i));
+		// if the original message was a spoiler, this should be too if not recognized as fallback
+		m.setIsSpoiler(isSpoiler);
+		m.setSpoilerHint(spoilerHint);
 
-	return msg;
+		auto url = files.first().httpSources.first().url.toString();
+
+		// body
+		m.setBody(url);
+
+		// Out-of-band url
+		QXmppOutOfBandUrl oobUrl;
+		oobUrl.setUrl(url);
+		oobUrl.setDescription(files.first().description);
+		m.setOutOfBandUrls({ oobUrl });
+
+		// fallback indication for SFS
+		m.setFallbackMarkers({ QXmppFallback {
+			XMLNS_SFS.toString(),
+			{ QXmppFallback::Reference { QXmppFallback::Body, {} } },
+		}});
+
+		// reference to original message
+		m.setAttachId(id);
+		return m;
+	});
+#else
+	return {};
+#endif
 }
 
 bool Message::isOwn() const
@@ -225,4 +290,9 @@ QString Message::previewText() const
 		return text % QStringLiteral(": ") % body;
 	}
 	return text;
+}
+
+bool Message::includeFileFallbackInMainMessage() const
+{
+	return files.size() == 1 && body.isEmpty();
 }

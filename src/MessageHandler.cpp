@@ -242,6 +242,13 @@ void MessageHandler::sendPendingMessage(Message message)
 				});
 			}
 		});
+
+		for (auto &fallbackMessage : message.fallbackMessages()) {
+			// TODO: Track sending of fallback messages individually
+			// Needed for the case when the success differs between the main message
+			// and the fallback messages.
+			send(std::move(fallbackMessage));
+		}
 	}
 }
 
