@@ -62,36 +62,7 @@ SPDX-License-Identifier: CC0-1.0
   <summary xml:lang="zh-CN">对每个设备用户友好的现代的聊天应用</summary>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <developer_name>Kaidan Developers &amp; Contributors</developer_name>
-  <developer_name xml:lang="ca">Els desenvolupadors i col·laboradors del Kaidan</developer_name>
-  <developer_name xml:lang="ca-valencia">Els desenvolupadors i col·laboradors de Kaidan</developer_name>
-  <developer_name xml:lang="de">Kaidan-Entwickler &amp; -Mitwirkende</developer_name>
-  <developer_name xml:lang="el">Οι προγραμματιστές &amp; οι συνεισφέροντες στο Kaidan</developer_name>
-  <developer_name xml:lang="en-GB">Kaidan Developers &amp; Contributors</developer_name>
-  <developer_name xml:lang="eo">Kaidan-Evoluistoj &amp; Kontribuantoj</developer_name>
-  <developer_name xml:lang="es">Desarrolladores y colaboradores de Kaidan</developer_name>
-  <developer_name xml:lang="eu">Kaidan garatzaileak eta kolaboratzaileak</developer_name>
-  <developer_name xml:lang="fi">Kaidan-kehittäjät ja -avustajat</developer_name>
-  <developer_name xml:lang="fr">Les développeurs et les contributeurs de Kaidan</developer_name>
-  <developer_name xml:lang="gl">Desenvolvemento de Kaidan &amp; Colaboracións</developer_name>
-  <developer_name xml:lang="hi">कैदान विकासकर्ता एवं अंशदाता</developer_name>
-  <developer_name xml:lang="id">Para Kontributor &amp; Pengembang Kaidan</developer_name>
-  <developer_name xml:lang="ie">Developatores e contributores de Kaidan</developer_name>
-  <developer_name xml:lang="it">Sviluppatori e collaboratori di Kaidan</developer_name>
-  <developer_name xml:lang="ka">Kaidan -ის პროგრამისტები და შემომწირავები</developer_name>
-  <developer_name xml:lang="ko">Kaidan 개발자와 기여자</developer_name>
-  <developer_name xml:lang="nl">Ontwikkelaars &amp; medewerkers van Kaidan </developer_name>
-  <developer_name xml:lang="nn">Kaiden-utviklarar og -bidragsytarar</developer_name>
-  <developer_name xml:lang="pl">Programiści &amp; współtwórcy Kaidan</developer_name>
-  <developer_name xml:lang="pt">Programadores &amp; Colaboradores do Kaidan</developer_name>
-  <developer_name xml:lang="pt-BR">Desenvolvedores e contribuintes do Kaidan</developer_name>
-  <developer_name xml:lang="sk">Kaidan vývojári &amp; prispievatelia</developer_name>
-  <developer_name xml:lang="sl">Razvijalci in sodelavci Kaidana</developer_name>
-  <developer_name xml:lang="sv">Kaidan utvecklare och bidragsgivare</developer_name>
-  <developer_name xml:lang="tr">Kaidan Geliştiricileri ve Katkıcıları</developer_name>
-  <developer_name xml:lang="uk">Розробники і учасники команди Kaidan</developer_name>
-  <developer_name xml:lang="x-test">xxKaidan Developers &amp; Contributorsxx</developer_name>
-  <developer_name xml:lang="zh-CN">Kaidan 开发者及贡献者</developer_name>
+  <developer_name translate="no">KDE</developer_name>
   <description>
     <p>Kaidan is a user-friendly and modern chat app for every device. It uses the open communication protocol XMPP (Jabber). Unlike other chat apps, you are not dependent on one specific service provider.</p>
     <p xml:lang="ca">El Kaidan és una aplicació de xat fàcil d'emprar i moderna per a tots els dispositius. Fa servir el protocol obert de comunicacions XMPP (Jabber). A diferència d'altres aplicacions de xat, no dependreu d'un proveïdor de serveis en concret.</p>
@@ -141,6 +112,7 @@ SPDX-License-Identifier: CC0-1.0
   <url type="bugtracker">https://invent.kde.org/network/kaidan/-/issues</url>
   <url type="help">https://invent.kde.org/network/kaidan/-/wikis/home</url>
   <url type="translate">https://l10n.kde.org/stats/gui/trunk-kf5/package/kaidan/</url>
+  <url type="vcs-browser">https://invent.kde.org/network/kaidan</url>
   <categories>
     <category>Network</category>
   </categories>
@@ -149,7 +121,7 @@ SPDX-License-Identifier: CC0-1.0
   </provides>
   <translation type="qt">KDE Localization</translation>
   <screenshots>
-    <screenshot>
+    <screenshot type="default">
       <caption>Chat on a desktop and mobile device</caption>
       <caption xml:lang="ca">Xat en un escriptori i en un dispositiu mòbil</caption>
       <caption xml:lang="ca-valencia">Xat en un escriptori i en un dispositiu mòbil</caption>
