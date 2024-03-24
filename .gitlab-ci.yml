@@ -21,12 +21,6 @@ qmllint:
   variables:
     QT_SELECT: 5
 
-xmllint:
-  stage: build
-  image: ghcr.io/kaidanim/debian
-  script:
-    - apt update && apt install -y libxml2-utils && xmllint --noout $(find . -type f -name *.xml -or -name *.xml.in)
-
 flatpak:
   variables:
     KDE_FLATPAK_APP_ID: im.kaidan.kaidan
@@ -70,6 +64,7 @@ include:
   - project: sysadmin/ci-utilities
     file:
       - /gitlab-templates/reuse-lint.yml
+      - /gitlab-templates/xml-lint.yml
       - /gitlab-templates/json-validation.yml
       - /gitlab-templates/flatpak.yml
       - /gitlab-templates/linux.yml
