@@ -263,7 +263,6 @@ auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids
 		if (trustLevels != 0) {
 			// causes possible sql injection, but the output from trustFlagsListString() is safe
 			// binding the value is not possible as it would be inserted as a string (we need a condition)
-			const auto trustFlagsCondition = trustFlagsToString(trustLevels);
 			prepareQuery(
 				query,
 				QStringLiteral(R"(

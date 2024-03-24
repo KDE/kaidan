@@ -10,9 +10,9 @@ clazy:
   stage: build
   image: ghcr.io/kaidanim/debian
   variables:
-    CMAKE_CXX_COMPILER: clazy
-  script: utils/travis/build.sh
-  allow_failure: true
+    CC: clang
+    CXX: clazy
+  script: apt update && apt install -y clang libc++-dev libc++abi-dev && utils/travis/build.sh
 
 qmllint:
   stage: build

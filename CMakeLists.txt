@@ -13,6 +13,10 @@ endif()
 
 project(kaidan)
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+	add_compile_options("-stdlib=libc++")
+endif()
+
 # application information
 set(APPLICATION_ID "im.kaidan.kaidan")
 set(APPLICATION_NAME "kaidan")

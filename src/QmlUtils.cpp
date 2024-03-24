@@ -177,7 +177,8 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
 {
-	return QRegularExpression("^[0-9A-F]{64}$", QRegularExpression::CaseInsensitiveOption).match(keyId).hasMatch();
+	static QRegularExpression re("^[0-9A-F]{64}$", QRegularExpression::CaseInsensitiveOption);
+	return re.match(keyId).hasMatch();
 }
 
 QString QmlUtils::displayableEncryptionKeyId(QString keyId)

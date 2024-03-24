@@ -497,7 +497,7 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 	);
 	job->setAutoDelete(true);
 
-	connect(job, &KIO::PreviewJob::gotPreview, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
+	connect(job, &KIO::PreviewJob::gotPreview, job, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
 		QByteArray thumbnailData;
 		QBuffer thumbnailBuffer(&thumbnailData);
 		image.save(&thumbnailBuffer, "JPG", JPEG_EXPORT_QUALITY);

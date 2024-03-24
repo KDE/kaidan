@@ -15,7 +15,11 @@
 
 #include <ZXing/ReadBarcode.h>
 #include <ZXing/BarcodeFormat.h>
+#if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
 #include <ZXing/DecodeHints.h>
+#else
+#include <ZXing/ReaderOptions.h>
+#endif
 #include <ZXing/Result.h>
 #include <ZXing/TextUtfEncoding.h>
 
@@ -29,8 +33,13 @@ QrCodeDecoder::QrCodeDecoder(QObject *parent)
 void QrCodeDecoder::decodeImage(const QImage &image)
 {
 	// Advise the decoder to check for QR codes and to try decoding rotated versions of the image.
+#if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
 	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
 	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
+#else
+	auto options = ReaderOptions().setFormats(BarcodeFormat::QRCode);
+	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, options);
+#endif
 
 	// FIXME: `this` is not supposed to become nullptr in well-defined C++ code,
 	//        so if we are unlucky, the compiler may optimize the entire check away.
