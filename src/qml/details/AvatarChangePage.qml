@@ -8,7 +8,6 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import QtQuick.Dialogs as QQD
-// TODO import QtGraphicalEffects 1.14
 
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
@@ -38,7 +37,7 @@ Kirigami.Page {
 		title: qsTr("Choose profile image")
         // TODO folder: shortcuts.home
 
-        // TOOD selectMultiple: false
+        // TODO selectMultiple: false
 
 		onAccepted: {
 			imageDoc.path = fileDialog.fileUrl

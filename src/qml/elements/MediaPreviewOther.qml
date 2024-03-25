@@ -13,7 +13,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-// TODO import QtGraphicalEffects 1.14
+import Qt5Compat.GraphicalEffects
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -92,7 +92,7 @@ Rectangle {
 					}
 
 					layer.enabled: true
-                    /* TODO layer.effect: OpacityMask {
+                    layer.effect: OpacityMask {
 						maskSource: Item {
 							width: thumbnailIcon.paintedWidth
 							height: thumbnailIcon.paintedHeight
@@ -103,7 +103,7 @@ Rectangle {
 								height: width
 							}
 						}
-                    }*/
+                    }
 
 					Kirigami.Icon {
 						source: "download"
