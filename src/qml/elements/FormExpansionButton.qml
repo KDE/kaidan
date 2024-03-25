@@ -12,7 +12,7 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 /**
  * Used to expand and collapse form entries.
  */
-MobileForm.AbstractFormDelegate {
+AbstractFormDelegate {
 	id: root
 	leftPadding: 0
 	rightPadding: 0

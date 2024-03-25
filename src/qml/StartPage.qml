@@ -6,7 +6,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -56,18 +56,18 @@ Kirigami.ScrollablePage {
 			scaleFactor: 1.5
 		}
 
-        /* TODO MobileForm.FormCard {
+        FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
+            /* TODO contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                MobileForm.FormCardHeader {
 					title: qsTr("Login")
-				}
+                }
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					text: qsTr("Enter your credentials")
 					checkable: true
 					onClicked: loginArea.visible = !loginArea.visible
@@ -95,12 +95,12 @@ Kirigami.ScrollablePage {
 					}
 				}
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					text: qsTr("Scan login QR code of old device")
 					onClicked: openPage(qrCodeOnboardingPage)
 				}
-			}
-        }*/
+            }*/
+        }
 
 		Kirigami.Heading {
 			text: qsTr("or")
@@ -108,28 +108,28 @@ Kirigami.ScrollablePage {
 			Layout.fillWidth: true
 		}
 
-        /* TODO MobileForm.FormCard {
+        FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
+            /* TODO contentItem: ColumnLayout {
 				spacing: 0
 
 				MobileForm.FormCardHeader {
 					title: qsTr("Register")
 				}
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					text: qsTr("Generate account automatically")
 					onClicked: openPage(automaticRegistrationPage)
 				}
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					text: qsTr("Create account manually")
 					onClicked: openPage(manualRegistrationPage)
 				}
-			}
-        }*/
+            }*/
+        }
 
 		Item {
 			Layout.fillHeight: true

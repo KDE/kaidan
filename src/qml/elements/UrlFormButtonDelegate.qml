@@ -13,7 +13,7 @@ import im.kaidan.kaidan 1.0
  * Its main purpose is to open the URL externally when the button is clicked.
  * It includes a secondary button for copying the URL instead of opening it.
  */
-MobileForm.FormTextDelegate {
+FormTextDelegate {
 	required property string url
 
 	background: MobileForm.FormDelegateBackground { control: parent }

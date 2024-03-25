@@ -8,7 +8,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -41,16 +41,16 @@ Controls.Control {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
 
-        /* TODO MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
+            /*contentItem: ColumnLayout {
 				spacing: 0
 
 				MobileForm.FormCardHeader {
 					title: qsTr("Media")
 				}
 
-				MobileForm.FormComboBoxDelegate {
+                FormComboBoxDelegate {
 					id: automaticMediaDownloadsDelegate
 					text: qsTr("Automatic Downloads")
 					description: qsTr("Download media automatically")
@@ -110,13 +110,13 @@ Controls.Control {
 						}
 					}
 				}
-			}
+            }*/
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			visible: vCardRepeater.count || vCardRepeater.model.jid === AccountManager.jid
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
+            /* TODO contentItem: ColumnLayout {
 				id: vCardArea
 				spacing: 0
 
@@ -128,20 +128,20 @@ Controls.Control {
 					id: vCardRepeater
 					Layout.fillHeight: true
 				}
-			}
+            }*/
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
-			contentItem: root.encryptionArea
+            // TODO contentItem: root.encryptionArea
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			// Hide this if there are no items and no header.
 			visible: rosterGoupListView.count || rosterGoupListView.headerItem
 			Layout.fillWidth: true
 
-			contentItem: ColumnLayout {
+            /* TODO contentItem: ColumnLayout {
 				spacing: 0
 
 				MobileForm.FormCardHeader {
@@ -159,13 +159,13 @@ Controls.Control {
 				FormExpansionButton {
 					id: rosterGroupExpansionButton
 				}
-			}
+            }*/
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			visible: deviceRepeater.count
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
+            /* TODO contentItem: ColumnLayout {
 				spacing: 0
 
 				MobileForm.FormCardHeader {
@@ -178,7 +178,7 @@ Controls.Control {
 					model: UserDevicesModel {
 						jid: root.jid
 					}
-					delegate: MobileForm.AbstractFormDelegate {
+                    delegate: AbstractFormDelegate {
 						visible: deviceExpansionButton.checked
 						background: Item {}
 						contentItem: ColumnLayout {
@@ -212,8 +212,8 @@ Controls.Control {
 				FormExpansionButton {
 					id: deviceExpansionButton
 				}
-			}
-        }*/
+            }*/
+        }
 	}
 
 	function openKeyAuthenticationPage(keyAuthenticationPageComponent, accountJid, chatJid) {

@@ -64,7 +64,7 @@ Controls.Control {
 				visible: !root.selectionMode
 				spacing: 0
 
-				MobileForm.AbstractFormDelegate {
+				AbstractFormDelegate {
 					id: imagesTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -81,7 +81,7 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 
-				MobileForm.AbstractFormDelegate {
+				AbstractFormDelegate {
 					id: videosTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -99,7 +99,7 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 
-				MobileForm.AbstractFormDelegate {
+				AbstractFormDelegate {
 					id: otherTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -156,7 +156,7 @@ Controls.Control {
 				Layout.maximumHeight: Layout.minimumHeight
 				Layout.rightMargin: Kirigami.Units.largeSpacing
 
-				MobileForm.AbstractFormDelegate {
+				AbstractFormDelegate {
 					Layout.fillHeight: true
 					Layout.fillWidth: false
 					contentItem: Kirigami.Icon {

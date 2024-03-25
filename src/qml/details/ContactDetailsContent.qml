@@ -7,7 +7,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -47,7 +47,7 @@ DetailsContent {
 		model: VCardModel {
 			jid: root.jid
 		}
-        delegate: MobileForm.FormButtonDelegate {
+        delegate: FormButtonDelegate {
 			text: model.value
 			description: model.key
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
@@ -77,7 +77,7 @@ DetailsContent {
 			title: qsTr("Encryption")
 		}
 
-		MobileForm.FormSwitchDelegate {
+        FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 			enabled: MessageModel.usableOmemoDevices.length
@@ -87,7 +87,7 @@ DetailsContent {
 			onClicked: MessageModel.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		}
 
-		MobileForm.FormButtonDelegate {
+        FormButtonDelegate {
 			text: {
 				if (!MessageModel.usableOmemoDevices.length) {
 					if (accountOmemoWatcher.distrustedDevices.length) {
@@ -136,7 +136,7 @@ DetailsContent {
 			}
 		}
 
-		MobileForm.FormButtonDelegate {
+        FormButtonDelegate {
 			text: {
 				if(root.isChatWithOneself) {
 					return ""
@@ -181,10 +181,10 @@ DetailsContent {
         }*/
 	}
     /* TODO rosterGoupListView {
-        header: MobileForm.FormCard {
+        header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.AbstractFormDelegate {
+            contentItem: AbstractFormDelegate {
 				background: Item {}
 				contentItem: RowLayout {
 					spacing: Kirigami.Units.largeSpacing * 3
@@ -250,7 +250,7 @@ DetailsContent {
 				}
 			}
 		}
-        delegate: MobileForm.FormSwitchDelegate {
+        delegate: FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
 			checked: contactWatcher.item.groups.includes(modelData)
@@ -273,7 +273,7 @@ DetailsContent {
 
 				function onGroupsChanged() {
 					// Update the "checked" value of "rosterGroupDelegate" as a work
-					// around because "MobileForm.FormSwitchDelegate" does not listen to
+                    // around because "FormSwitchDelegate" does not listen to
 					// changes of "contactWatcher.item.groups".
 					rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
 				}
@@ -281,17 +281,17 @@ DetailsContent {
         }
     }*/
 
-    /* TODO MobileForm.FormCard {
+    FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
+        /* TODO contentItem: ColumnLayout {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Sharing")
 			}
 
-			MobileForm.FormButtonDelegate {
+            FormButtonDelegate {
 				text: qsTr("Show QR code")
 				description: qsTr("Share this contact's chat address via QR code")
 				icon.name: "view-barcode-qr"
@@ -299,7 +299,7 @@ DetailsContent {
 				onClicked: qrCodeArea.visible = !qrCodeArea.visible
 			}
 
-			MobileForm.AbstractFormDelegate {
+            AbstractFormDelegate {
 				id: qrCodeArea
 				visible: false
 				background: Rectangle {
@@ -318,7 +318,7 @@ DetailsContent {
 				Layout.preferredHeight: Layout.preferredWidth
 			}
 
-			MobileForm.FormButtonDelegate {
+            FormButtonDelegate {
 				text: qsTr("Copy chat address")
 				description: qsTr("Share this contact's chat address via text")
 				icon.name: "send-to-symbolic"
@@ -327,20 +327,20 @@ DetailsContent {
 					passiveNotification(qsTr("Contact copied to clipboard"))
 				}
 			}
-		}
+        }*/
 	}
 
-	MobileForm.FormCard {
+    FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
+        /* TODO contentItem: ColumnLayout {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Notifications")
 			}
 
-			MobileForm.FormSwitchDelegate {
+            FormSwitchDelegate {
 				text: qsTr("Incoming messages")
 				description: qsTr("Show notification and play sound on message arrival")
 				checked: !contactWatcher.item.notificationsMuted
@@ -351,34 +351,34 @@ DetailsContent {
 						!checked)
 				}
 			}
-		}
+        }*/
 	}
 
-	MobileForm.FormCard {
+    FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
+        /* TODO contentItem: ColumnLayout {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Privacy")
 			}
 
-			MobileForm.FormButtonDelegate {
+            FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
 				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && !contactWatcher.item.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
 			}
 
-			MobileForm.FormButtonDelegate {
+            FormButtonDelegate {
 				text: qsTr("Cancel personal data sharing")
 				description: qsTr("Stop sharing your availability, devices and other personal information")
 				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && contactWatcher.item.receivingPresence
 				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
 			}
 
-			MobileForm.FormSwitchDelegate {
+            FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
 				checked: contactWatcher.item.chatStateSendingEnabled
@@ -390,7 +390,7 @@ DetailsContent {
 				}
 			}
 
-			MobileForm.FormSwitchDelegate {
+            FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
 				checked: contactWatcher.item.readMarkerSendingEnabled
@@ -402,7 +402,7 @@ DetailsContent {
 				}
 			}
 
-			MobileForm.FormSwitchDelegate {
+            FormSwitchDelegate {
 				text: qsTr("Block")
 				description: qsTr("Block all communication including status and notifications")
 				enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
@@ -420,13 +420,13 @@ DetailsContent {
 					jid: root.jid
 				}
 			}
-		}
+        }*/
 	}
 
-	MobileForm.FormCard {
+    FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
+        /* TODO contentItem: ColumnLayout {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
@@ -436,7 +436,7 @@ DetailsContent {
 			ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					id: contactRemovalButton
 					text: qsTr("Remove")
 					description: qsTr("Remove contact and complete chat history")
@@ -445,7 +445,7 @@ DetailsContent {
 					onClicked: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
 				}
 
-				MobileForm.FormButtonDelegate {
+                FormButtonDelegate {
 					id: contactRemovalConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
@@ -457,8 +457,8 @@ DetailsContent {
 					}
 				}
 			}
-		}
-    }*/
+        }*/
+    }
 
 	// This needs to be placed after the notification section.
 	// Otherwise, notifications will not be shown as muted after switching chats.

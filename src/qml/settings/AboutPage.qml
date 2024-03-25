@@ -24,12 +24,12 @@ SettingsPageBase {
 
 		Layout.preferredWidth: 600
 
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
 
 			contentItem: ColumnLayout {
 				spacing: 0
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					background: Item {}
 					contentItem: RowLayout {
@@ -66,7 +66,7 @@ SettingsPageBase {
 				}
 			}
 		}
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
 
 			contentItem: ColumnLayout {
@@ -107,11 +107,11 @@ SettingsPageBase {
 			}
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
 
 			contentItem: ColumnLayout {
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					background: Item {}
 					contentItem: ColumnLayout {
@@ -132,7 +132,7 @@ SettingsPageBase {
 					}
 				}
 
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					background: Item {}
 					contentItem: ColumnLayout {
@@ -153,7 +153,7 @@ SettingsPageBase {
 					}
 				}
 
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					background: Item {}
 					contentItem: ColumnLayout {

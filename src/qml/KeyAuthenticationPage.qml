@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -64,10 +64,10 @@ ExplanationOptionsTogglePage {
             /* TODO listView.model: OmemoModel {
 				jid: root.chatJid
             }*/
-            /* TODO listView.header: MobileForm.FormCard {
+            /* TODO listView.header: FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: MobileForm.AbstractFormDelegate {
+                contentItem: AbstractFormDelegate {
 					background: Item {}
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3
@@ -130,8 +130,8 @@ ExplanationOptionsTogglePage {
 						}
 					}
 				}
-			}
-			listView.delegate: MobileForm.FormTextDelegate {
+            }
+            listView.delegate: FormTextDelegate {
 				text: model.label
 				description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 				descriptionItem.textFormat: Text.MarkdownText
@@ -155,13 +155,13 @@ ExplanationOptionsTogglePage {
 				jid: root.accountJid
 				ownAuthenticatedKeysProcessed: true
             }*/
-            /* TODO listView.delegate: MobileForm.AbstractFormDelegate {
+            /* TODO listView.delegate: AbstractFormDelegate {
 				id: encryptionKeyDelegate
 				width: ListView.view.width
 				leftPadding: 0
 				verticalPadding: 0
 				contentItem: RowLayout {
-					MobileForm.FormTextDelegate {
+                    FormTextDelegate {
 						id: encryptionKeyText
 						text: model.label
 						description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"

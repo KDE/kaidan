@@ -32,7 +32,7 @@ SettingsPageBase {
 		Layout.preferredWidth: 600
 		anchors.fill: parent
 
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
@@ -41,10 +41,10 @@ SettingsPageBase {
 					title: qsTr("Select Sources")
 				}
 
-				MobileForm.FormComboBoxDelegate {
+                FormComboBoxDelegate {
 					id: camerasComboBox
 					text: qsTr('Camera')
-					displayMode: MobileForm.FormComboBoxDelegate.Dialog
+                    displayMode: FormComboBoxDelegate.Dialog
 					dialog:Controls.Menu {
 						z:60000
 						width: parent.width
@@ -69,9 +69,9 @@ SettingsPageBase {
 					displayText: camerasInstanciator.model.currentCamera.description
 					Layout.fillWidth: true
 				}
-				MobileForm.FormComboBoxDelegate {
+                FormComboBoxDelegate {
 					id: audioInputsComboBox
-					displayMode: MobileForm.FormComboBoxDelegate.Dialog
+                    displayMode: FormComboBoxDelegate.Dialog
 
 					text: qsTr('Audio Input')
 					dialog:Controls.Menu {
@@ -100,7 +100,7 @@ SettingsPageBase {
 				}
 			}
 		}
-		MobileForm.FormCard {
+        FormCard {
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
@@ -140,13 +140,13 @@ SettingsPageBase {
 			Layout.fillHeight: true
 		}
 
-		MobileForm.FormCard {
+        FormCard {
 			id: card
 			Layout.fillWidth: true
 
 			contentItem: RowLayout {
 				spacing: 0
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					implicitWidth: (card.width / 3) - 1
 					onClicked: recorder.resetSettingsToDefaults()
@@ -165,7 +165,7 @@ SettingsPageBase {
 				Kirigami.Separator {
 					Layout.fillHeight: true
 				}
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					implicitWidth: (card.width / 3) - 1
 					onClicked: resetUserSettings()
@@ -183,7 +183,7 @@ SettingsPageBase {
 				Kirigami.Separator {
 					Layout.fillHeight: true
 				}
-				MobileForm.AbstractFormDelegate {
+                AbstractFormDelegate {
 					Layout.fillWidth: true
 					implicitWidth: (card.width / 3) - 1
 					onClicked: {

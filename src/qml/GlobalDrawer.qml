@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-//TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -49,10 +49,10 @@ Kirigami.GlobalDrawer {
 			spacing: Kirigami.Units.largeSpacing
 			Layout.margins: -3
 
-            /*TODO MobileForm.FormCard {
+            FormCard {
 				Layout.fillWidth: true
 
-				contentItem: ColumnLayout {
+                /*contentItem: ColumnLayout {
 					spacing: 0
 
 					MobileForm.FormCardHeader {
@@ -65,7 +65,7 @@ Kirigami.GlobalDrawer {
 						delegate: ColumnLayout {
 							spacing: 0
 
-							MobileForm.FormTextDelegate {
+                            FormTextDelegate {
 								id: accountArea
 
 								property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
@@ -108,32 +108,32 @@ Kirigami.GlobalDrawer {
 							}
 						}
 					}
-				}
+                }*/
 			}
 
-			MobileForm.FormCard {
+            FormCard {
 				Layout.fillWidth: true
 
-				contentItem: ColumnLayout {
+                /*contentItem: ColumnLayout {
 					spacing: 0
 
 					MobileForm.FormCardHeader {
 						title: qsTr("Actions")
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						text: qsTr("Add contact by QR code")
 						icon.name: "view-barcode-qr"
 						onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						text: qsTr("Add contact by chat address")
 						icon.name: "contact-new-symbolic"
 						onClicked: openContactAdditionView()
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						id: publicGroupChatSearchButton
 						text: qsTr("Search public groups")
 						icon.name: "system-search-symbolic"
@@ -145,7 +145,7 @@ Kirigami.GlobalDrawer {
 						}
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						text: qsTr("Invite friends")
 						icon.name: "mail-message-new-symbolic"
 						onClicked: {
@@ -154,19 +154,19 @@ Kirigami.GlobalDrawer {
 						}
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						text: qsTr("Switch device")
 						icon.name: "send-to-symbolic"
 						onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
 					}
 
-					MobileForm.FormButtonDelegate {
+                    FormButtonDelegate {
 						text: qsTr("Settings")
 						icon.name: "preferences-system-symbolic"
 						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsSheet)
 					}
-				}
-            }*/
+                }*/
+            }
 
 			// placeholder to keep topContent at the top
 			Item {

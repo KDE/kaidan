@@ -11,15 +11,15 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
 import "fields"
 import "../settings"
 
-MobileForm.FormCard {
-	contentItem: MobileForm.AbstractFormDelegate {
+FormCard {
+    contentItem: AbstractFormDelegate {
 		background: Item {}
 		contentItem: ColumnLayout {
 			Layout.fillWidth: true
@@ -57,12 +57,12 @@ MobileForm.FormCard {
 				inputField.onAccepted: loginButton.clicked()
 			}
 
-			MobileForm.FormCard {
+            FormCard {
 				Layout.topMargin: Kirigami.Units.largeSpacing
 				Layout.bottomMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-				contentItem: MobileForm.FormButtonDelegate {
+                contentItem: FormButtonDelegate {
 					id: loginButton
 					text: qsTr("Log in")
 					state: Kaidan.connectionState !== Enums.StateDisconnected ? "connecting" : ""
