@@ -5,23 +5,23 @@
 
 #pragma once
 
-#include <QCameraInfo>
+#include <QCamera>
+#include <QCameraDevice>
 #include <QAbstractListModel>
 
-class CameraInfo : public QCameraInfo {
+class CameraInfo : public QCameraDevice {
 	Q_GADGET
 
 	Q_PROPERTY(bool isNull READ isNull CONSTANT)
-	Q_PROPERTY(QString deviceName READ deviceName CONSTANT)
+	// TODO Q_PROPERTY(QString deviceName READ deviceName CONSTANT)
 	Q_PROPERTY(QString description READ description CONSTANT)
-	Q_PROPERTY(QCamera::Position position READ position CONSTANT)
-	Q_PROPERTY(int orientation READ orientation CONSTANT)
+	Q_PROPERTY(QCameraDevice::Position position READ position CONSTANT)
+	// TDOO Q_PROPERTY(int orientation READ orientation CONSTANT)
 
 public:
-	using QCameraInfo::QCameraInfo;
 	explicit CameraInfo(const QString &deviceName);
 	CameraInfo() = default;
-	CameraInfo(const QCameraInfo &other);
+	CameraInfo(const QCameraDevice &other);
 };
 
 class CameraModel : public QAbstractListModel
@@ -29,7 +29,7 @@ class CameraModel : public QAbstractListModel
 	Q_OBJECT
 
 	Q_PROPERTY(int rowCount READ rowCount NOTIFY camerasChanged)
-	Q_PROPERTY(QList<QCameraInfo> cameras READ cameras NOTIFY camerasChanged)
+	Q_PROPERTY(QList<QCameraDevice> cameras READ cameras NOTIFY camerasChanged)
 	Q_PROPERTY(CameraInfo defaultCamera READ defaultCamera NOTIFY camerasChanged)
 	Q_PROPERTY(int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged)
 	Q_PROPERTY(CameraInfo currentCamera READ currentCamera WRITE setCurrentCamera NOTIFY currentIndexChanged)
@@ -50,7 +50,7 @@ public:
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 	QHash<int, QByteArray> roleNames() const override;
 
-	QList<QCameraInfo> cameras() const;
+	QList<QCameraDevice> cameras() const;
 	static CameraInfo defaultCamera();
 
 	int currentIndex() const;
@@ -63,7 +63,7 @@ public:
 	Q_INVOKABLE int indexOf(const QString &deviceName) const;
 
 	static CameraInfo camera(const QString &deviceName);
-	static CameraInfo camera(QCamera::Position position);
+	static CameraInfo camera(QCameraDevice::Position position);
 
 	Q_INVOKABLE void refresh();
 
@@ -71,7 +71,7 @@ public:
 	Q_SIGNAL void currentIndexChanged();
 
 private:
-	QList<QCameraInfo> m_cameras;
+	QList<QCameraDevice> m_cameras;
 	int m_currentIndex = -1;
 };
 

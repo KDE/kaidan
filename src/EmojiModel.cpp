@@ -1528,12 +1528,12 @@ void EmojiProxyModel::setGroup(Emoji::Group group)
 
 QString EmojiProxyModel::filter() const
 {
-	return filterRegExp().pattern();
+	return filterRegularExpression().pattern();
 }
 
 void EmojiProxyModel::setFilter(const QString &filter)
 {
-	if (filterRegExp().pattern() == filter) {
+	if (filterRegularExpression().pattern() == filter) {
 		return;
 	}
 
@@ -1574,5 +1574,5 @@ bool EmojiProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
 		return emoji.group() == m_group;
 	}
 
-	return filterRegExp().isEmpty() ? true : filterRegExp().indexIn(emoji.shortName()) != -1;
+	return filterRegularExpression().pattern().isEmpty() ? true : filterRegularExpression().match(emoji.shortName()).hasMatch();
 }

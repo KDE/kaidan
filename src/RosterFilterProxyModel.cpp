@@ -86,6 +86,6 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 		return false;
 	}
 
-	return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegExp()) ||
-		   sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
+	return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegularExpression()) ||
+		   sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegularExpression());
 }

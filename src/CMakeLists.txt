@@ -124,8 +124,9 @@ target_sources(${PROJECT_NAME} PRIVATE
 	QrCodeDecoder.h
 	QrCodeGenerator.cpp
 	QrCodeGenerator.h
-	QrCodeScannerFilter.cpp
-	QrCodeScannerFilter.h
+        # TODO: use QML ShaderEffect
+        #QrCodeScannerFilter.cpp
+        #QrCodeScannerFilter.h
 	QrCodeVideoFrame.cpp
 	QrCodeVideoFrame.h
 	# kaidan QXmpp extensions (need to be merged into QXmpp upstream)

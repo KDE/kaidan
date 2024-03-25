@@ -5,11 +5,13 @@
 
 #include "AudioDeviceModel.h"
 
-static AudioDeviceInfo audioDeviceByDeviceName(QAudio::Mode mode, const QString &deviceName) {
-	const auto audioDevices(QAudioDeviceInfo::availableDevices(mode));
+#include <QMediaDevices>
+
+static AudioDeviceInfo audioDeviceByDeviceName(QAudioDevice::Mode mode, const QString &deviceName) {
+	const auto audioDevices(QMediaDevices::audioInputs()); // TODO mode
 
 	for (const auto &audioDevice: audioDevices) {
-		if (audioDevice.deviceName() == deviceName) {
+		if (audioDevice.description() == deviceName) {
 			return AudioDeviceInfo(audioDevice);
 		}
 	}
@@ -17,14 +19,14 @@ static AudioDeviceInfo audioDeviceByDeviceName(QAudio::Mode mode, const QString 
 	return AudioDeviceInfo();
 }
 
-AudioDeviceInfo::AudioDeviceInfo(const QAudioDeviceInfo &other)
-	: QAudioDeviceInfo(other)
+AudioDeviceInfo::AudioDeviceInfo(const QAudioDevice &other)
+	: QAudioDevice(other)
 {
 }
 
 QString AudioDeviceInfo::description() const
 {
-	return description(deviceName());
+	return QStringLiteral(""); // TODO: description(deviceName());
 }
 
 QString AudioDeviceInfo::description(const QString &deviceName)
@@ -58,19 +60,19 @@ QVariant AudioDeviceModel::data(const QModelIndex &index, int role) const
 		case AudioDeviceModel::CustomRoles::IsNullRole:
 			return audioDeviceInfo.isNull();
 		case AudioDeviceModel::CustomRoles::DeviceNameRole:
-			return audioDeviceInfo.deviceName();
+			return ""; // TODO audioDeviceInfo.deviceName();
 		case AudioDeviceModel::CustomRoles::DescriptionRole:
-			return AudioDeviceInfo::description(audioDeviceInfo.deviceName());
+			return ""; // TODO AudioDeviceInfo::description(audioDeviceInfo.deviceName());
 		case AudioDeviceModel::CustomRoles::SupportedCodecsRole:
-			return audioDeviceInfo.supportedCodecs();
+			return ""; // TODO audioDeviceInfo.supportedCodecs();
 		case AudioDeviceModel::CustomRoles::SupportedSampleRatesRole:
-			return QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
+			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
 		case AudioDeviceModel::CustomRoles::SupportedChannelCountsRole:
-			return QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
+			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
 		case AudioDeviceModel::CustomRoles::SupportedSampleSizesRole:
-			return QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
+			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
 		case AudioDeviceModel::CustomRoles::AudioDeviceInfoRole:
-			return QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
+			return ""; // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
 		}
 	}
 
@@ -108,7 +110,7 @@ void AudioDeviceModel::setMode(AudioDeviceModel::Mode mode)
 	Q_EMIT modeChanged();
 }
 
-QList<QAudioDeviceInfo> AudioDeviceModel::audioDevices() const
+QList<QAudioDevice> AudioDeviceModel::audioDevices() const
 {
 	return m_audioDevices;
 }
@@ -166,7 +168,7 @@ int AudioDeviceModel::indexOf(const QString &deviceName) const
 	for (int i = 0; i < m_audioDevices.count(); ++i) {
 		const auto &audioDevice(m_audioDevices[i]);
 
-		if (audioDevice.deviceName() == deviceName) {
+		if (audioDevice.description() == deviceName) {
 			return i;
 		}
 	}
@@ -176,37 +178,37 @@ int AudioDeviceModel::indexOf(const QString &deviceName) const
 
 AudioDeviceInfo AudioDeviceModel::defaultAudioInputDevice()
 {
-	return AudioDeviceInfo(QAudioDeviceInfo::defaultInputDevice());
+	return AudioDeviceInfo(QMediaDevices::defaultAudioInput());
 }
 
 AudioDeviceInfo AudioDeviceModel::audioInputDevice(const QString &deviceName)
 {
-	return audioDeviceByDeviceName(QAudio::AudioInput, deviceName);
+	return audioDeviceByDeviceName(QAudioDevice::Input, deviceName);
 }
 
 AudioDeviceInfo AudioDeviceModel::defaultAudioOutputDevice()
 {
-	return AudioDeviceInfo(QAudioDeviceInfo::defaultOutputDevice());
+	return AudioDeviceInfo(QMediaDevices::defaultAudioOutput());
 }
 
 AudioDeviceInfo AudioDeviceModel::audioOutputDevice(const QString &deviceName)
 {
-	return audioDeviceByDeviceName(QAudio::AudioOutput, deviceName);
+	return audioDeviceByDeviceName(QAudioDevice::Output, deviceName);
 }
 
 void AudioDeviceModel::refresh()
 {
-	const auto audioDevices = QAudioDeviceInfo::availableDevices(static_cast<QAudio::Mode>(m_mode));
+	const auto audioDevices = QMediaDevices::audioInputs(); // TODO QAudioDevice::availableDevices(static_cast<QAudio::Mode>(m_mode));
 
 	if (m_audioDevices == audioDevices) {
 		return;
 	}
 
 	beginResetModel();
-	const QString currentDeviceName = currentAudioDevice().deviceName();
+	const QString currentDeviceName = currentAudioDevice().description();
 	const auto it = std::find_if(m_audioDevices.constBegin(), m_audioDevices.constEnd(),
-		[&currentDeviceName](const QAudioDeviceInfo &deviceInfo) {
-			return deviceInfo.deviceName() == currentDeviceName;
+		[&currentDeviceName](const QAudioDevice &deviceInfo) {
+			return deviceInfo.description() == currentDeviceName;
 		});
 
 	m_audioDevices = audioDevices;

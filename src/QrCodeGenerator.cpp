@@ -36,7 +36,7 @@ QImage QrCodeGenerator::generateLoginUriQrCode(int edgePixelCount)
 	uri.setJid(AccountManager::instance()->jid());
 	uri.setAction(QXmppUri::Login);
 
-	if (Kaidan::instance()->settings()->authPasswordVisibility() != Kaidan::PasswordInvisible)
+	if (Kaidan::instance()->settings()->authPasswordVisibility() != Enums::PasswordInvisible)
 		uri.setPassword(AccountManager::instance()->password());
 
 	return generateQrCode(edgePixelCount, uri.toString());

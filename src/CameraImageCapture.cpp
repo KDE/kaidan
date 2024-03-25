@@ -5,15 +5,15 @@
 
 #include "CameraImageCapture.h"
 
-CameraImageCapture::CameraImageCapture(QMediaObject *mediaObject, QObject *parent)
-	: QCameraImageCapture(mediaObject, parent)
+CameraImageCapture::CameraImageCapture(QMediaCaptureSession *mediaObject, QObject *parent)
+	: QImageCapture() // TODO QImageCapture(mediaObject, parent)
 {
-	connect(this, &QCameraImageCapture::imageSaved,
+	/* TODO connect(this, &QImageCaptureeSaved,
 		this, [this](int id, const QString &filePath) {
 			Q_UNUSED(id);
 			m_actualLocation = QUrl::fromLocalFile(filePath);
 			Q_EMIT actualLocationChanged(m_actualLocation);
-		});
+		});*/
 }
 
 QUrl CameraImageCapture::actualLocation() const
@@ -21,10 +21,10 @@ QUrl CameraImageCapture::actualLocation() const
 	return m_actualLocation;
 }
 
-bool CameraImageCapture::setMediaObject(QMediaObject *mediaObject)
+bool CameraImageCapture::setMediaObject(QMediaCaptureSession *mediaObject)
 {
-	const QMultimedia::AvailabilityStatus previousAvailability = availability();
-	const bool result = QCameraImageCapture::setMediaObject(mediaObject);
+	/* TODO const QMultimedia::AvailabilityStatus previousAvailability = availability();
+	const bool result = QImageCapture::setMediaObject(mediaObject);
 
 	if (previousAvailability != availability()) {
 		QMetaObject::invokeMethod(this, [this]() {
@@ -32,5 +32,6 @@ bool CameraImageCapture::setMediaObject(QMediaObject *mediaObject)
 			}, Qt::QueuedConnection);
 	}
 
-	return result;
+	return result;*/
+	return false;
 }

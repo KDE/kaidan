@@ -69,8 +69,8 @@ void MediaSettings::saveSettings(QSettings *settings)
 void MediaSettings::dumpProperties(const QString &context) const
 {
 	qDebug("%s - %s", Q_FUNC_INFO, qUtf8Printable(context));
-	qDebug("Camera: %s", qUtf8Printable(camera.deviceName()));
-	qDebug("Audio Input Device: %s", qUtf8Printable(audioInputDevice.deviceName()));
+	qDebug("Camera: %s", qUtf8Printable(camera.description()));
+	qDebug("Audio Input Device: %s", qUtf8Printable(audioInputDevice.description()));
 	qDebug("Container: %s", qUtf8Printable(container));
 }
 
@@ -166,11 +166,14 @@ QString CommonEncoderSettings::toString(CommonEncoderSettings::EncodingMode mode
 	return { };
 }
 
-ImageEncoderSettings::ImageEncoderSettings(const QImageEncoderSettings &settings)
-	: CommonEncoderSettings(settings.codec(),
+ImageEncoderSettings::ImageEncoderSettings(const QMediaFormat &settings)
+	/* TODO : CommonEncoderSettings(settings.videoCodec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
-		  settings.encodingOptions())
-	  , resolution(settings.resolution())
+		  settings.encodingOptions()),
+	  resolution(settings.resolution())*/
+	:  CommonEncoderSettings("vp8",
+	   CommonEncoderSettings::EncodingQuality::HighQuality,
+	   QVariantMap())
 {
 }
 
@@ -218,24 +221,27 @@ bool ImageEncoderSettings::operator!=(const ImageEncoderSettings &other) const
 	return !operator==(other);
 }
 
-QImageEncoderSettings ImageEncoderSettings::toQImageEncoderSettings() const
+QMediaFormat ImageEncoderSettings::toQMediaFormat() const
 {
-	QImageEncoderSettings settings;
-	settings.setCodec(codec);
-	settings.setQuality(static_cast<QMultimedia::EncodingQuality>(quality));
+	QMediaFormat settings;
+	/* TODO	settings.setCodec(codec);
+	settings.setQuality(static_cast<QMediaRecorder::Quality>(quality));
 	settings.setEncodingOptions(options);
-	settings.setResolution(resolution);
+	settings.setResolution(resolution);*/
 	return settings;
 }
 
-AudioEncoderSettings::AudioEncoderSettings(const QAudioEncoderSettings &settings)
-	: CommonEncoderSettings(settings.codec(),
+AudioEncoderSettings::AudioEncoderSettings(const QMediaFormat &settings)
+	/* TODO : CommonEncoderSettings(/settings.codec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
 		  settings.encodingOptions())
 	  , mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode()))
 	  , bitRate(settings.bitRate())
 	  , sampleRate(settings.sampleRate())
-	  , channelCount(settings.channelCount())
+	  , channelCount(settings.channelCount())*/
+	: CommonEncoderSettings("vp8",
+	  CommonEncoderSettings::EncodingQuality::HighQuality,
+	  QVariantMap())
 {
 }
 
@@ -305,27 +311,30 @@ bool AudioEncoderSettings::operator!=(const AudioEncoderSettings &other) const
 	return !operator==(other);
 }
 
-QAudioEncoderSettings AudioEncoderSettings::toQAudioEncoderSettings() const
+QMediaFormat AudioEncoderSettings::toQMediaFormat() const
 {
-	QAudioEncoderSettings settings;
-	settings.setCodec(codec);
+	QMediaFormat settings;
+	/* TODO settings.setCodec(codec);
 	settings.setQuality(static_cast<QMultimedia::EncodingQuality>(quality));
 	settings.setEncodingOptions(options);
 	settings.setEncodingMode(static_cast<QMultimedia::EncodingMode>(mode));
 	settings.setBitRate(bitRate);
 	settings.setSampleRate(sampleRate);
-	settings.setChannelCount(channelCount);
+	settings.setChannelCount(channelCount);*/
 	return settings;
 }
 
-VideoEncoderSettings::VideoEncoderSettings(const QVideoEncoderSettings &settings)
-	: CommonEncoderSettings(settings.codec(),
+VideoEncoderSettings::VideoEncoderSettings(const QMediaFormat &settings)
+	/* TODO : CommonEncoderSettings(settings.codec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
 		  settings.encodingOptions())
 	  , mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode()))
 	  , bitRate(settings.bitRate())
 	  , frameRate(settings.frameRate())
-	  , resolution(settings.resolution())
+	  , resolution(settings.resolution())*/
+	: CommonEncoderSettings("vp8",
+	  CommonEncoderSettings::EncodingQuality::HighQuality,
+	  QVariantMap())
 {
 }
 
@@ -395,15 +404,15 @@ bool VideoEncoderSettings::operator!=(const VideoEncoderSettings &other) const
 	return !operator==(other);
 }
 
-QVideoEncoderSettings VideoEncoderSettings::toQVideoEncoderSettings() const
+QMediaFormat VideoEncoderSettings::toQMediaFormat() const
 {
-	QVideoEncoderSettings settings;
-	settings.setCodec(codec);
+	QMediaFormat settings;
+	/* TODO settings.setCodec(codec);
 	settings.setQuality(static_cast<QMultimedia::EncodingQuality>(quality));
 	settings.setEncodingOptions(options);
 	settings.setEncodingMode(static_cast<QMultimedia::EncodingMode>(mode));
 	settings.setBitRate(bitRate);
 	settings.setFrameRate(frameRate);
-	settings.setResolution(resolution);
+	settings.setResolution(resolution);*/
 	return settings;
 }

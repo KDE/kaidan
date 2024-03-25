@@ -702,7 +702,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 		await(future, this, [=, this, chatJid = m_currentChatJid]() {
 			if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
 				auto &reactionSenders = itr->reactionSenders;
-				auto &reactions = reactionSenders[senderJid].reactions;
+				auto reactions = reactionSenders[senderJid].reactions;
 				QVector<QString> emojis;
 
 				for (auto &reaction : reactions) {
@@ -1268,11 +1268,11 @@ void MessageModel::removeMessage(const QString &messageId)
 		return message.id == messageId;
 	};
 
-	const Message *const itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
+	const auto itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
 
 	// Update the roster item of the current chat.
 	if (itr != m_messages.cend()) {
-		int readMessageIndex = std::distance(m_messages.cbegin(), itr);
+		int readMessageIndex = std::distance(m_messages.begin(), itr);
 
 		const QString &lastReadContactMessageId = m_rosterItemWatcher.item().lastReadContactMessageId;
 		const QString &lastReadOwnMessageId = m_rosterItemWatcher.item().lastReadOwnMessageId;

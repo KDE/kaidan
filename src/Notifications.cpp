@@ -154,10 +154,10 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 #ifdef Q_OS_ANDROID
 	notification->setIconName("kaidan-bw");
 #endif
-	notification->setDefaultAction(tr("Open"));
-	notification->setActions({ tr("Mark as read") });
+	notification->addDefaultAction(tr("Open"));
+	notification->addAction({ tr("Mark as read") });
 
-	connect(notification, &KNotification::defaultActivated, this, [=] {
+	/* TODO connect(notification, &KNotification::defaultActivated, this, [=] {
 		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 	});
@@ -172,7 +172,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 				Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
 			});
 		}
-	});
+	});*/
 
 	connect(notification, &KNotification::closed, this, [=, this]() {
 		auto notificationWrapperItr = std::find_if(m_openMessageNotifications.begin(), m_openMessageNotifications.end(), [accountJid, chatJid](const MessageNotificationWrapper &notificationWrapper) {
@@ -237,13 +237,13 @@ void Notifications::sendPresenceSubscriptionRequestNotification(const QString &a
 	notification->setIconName("kaidan-bw");
 #endif
 
-	notification->setDefaultAction(tr("Open"));
+	notification->addDefaultAction(tr("Open"));
 
-	connect(notification, &KNotification::defaultActivated, this, [=] {
+	/* TODO connect(notification, &KNotification::defaultActivated, this, [=] {
 		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
 		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 		notification->close();
-	});
+	});*/
 
 	connect(notification, &KNotification::closed, this, [=, this]() {
 		auto notificationWrapperItr = std::find_if(m_openPresenceSubscriptionRequestNotifications.begin(), m_openPresenceSubscriptionRequestNotifications.end(), [accountJid, chatJid](const PresenceSubscriptionRequestNotificationWrapper &notificationWrapper) {

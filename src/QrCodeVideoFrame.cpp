@@ -136,15 +136,15 @@ static QImage* rgbDataToGrayscale(
 
 void QrCodeVideoFrame::setData(QVideoFrame &frame)
 {
-	frame.map(QAbstractVideoBuffer::ReadOnly);
+	// TODO frame.map(QAbstractVideoBuffer::ReadOnly);
 
 	// Copy video frame bytes to this.data.
 	// This is made to try to get a better performance (less memory allocation, faster unmap)
 	// Any other task is performed in a QFuture task, as we want to leave the UI thread asap.
-	if (m_data.size() != frame.mappedBytes()) {
+	/* TODO if (m_data.size() != frame.mappedBytes()) {
 		m_data.resize(frame.mappedBytes());
-	}
-	memcpy(m_data.data(), frame.bits(), frame.mappedBytes());
+	}*/
+	// TODO memcpy(m_data.data(), frame.bits(), frame.mappedBytes());
 	m_size = frame.size();
 	m_pixelFormat = frame.pixelFormat();
 
@@ -162,48 +162,48 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
 	int wh_54;
 
 	QImage *image;
-	switch (m_pixelFormat) {
-	case QVideoFrame::Format_ARGB32:
+	/* TODO switch (m_pixelFormat) {
+	case QVideoFrameFormat::PixelFormat::Format_ARGB32:
 		image = rgbDataToGrayscale(data, captureRect, 0, 1, 2, 3);
 		break;
-	case QVideoFrame::Format_ARGB32_Premultiplied:
+	case QVideoFrameFormat::PixelFormat::Format_ARGB32_Premultiplied:
 		image = rgbDataToGrayscale(data, captureRect, 0, 1, 2, 3, true);
 		break;
-	case QVideoFrame::Format_RGB32:
+	case QVideoFrameFormat::PixelFormat::Format_RGB32:
 		image = rgbDataToGrayscale(data, captureRect, 0, 1, 2, 3);
 		break;
-	case QVideoFrame::Format_RGB24:
+	case QVideoFrameFormat::PixelFormat::Format_RGB24:
 		image = rgbDataToGrayscale(data, captureRect, -1, 0, 1, 2);
 		break;
-	// TODO: QVideoFrame::Format_RGB565
-	// TODO: QVideoFrame::Format_RGB555
-	// TODO: QVideoFrame::Format_ARGB8565_Premultiplied
-	case QVideoFrame::Format_BGRA32:
+	// TODO: QVideoFrameFormat::PixelFormat::Format_RGB565
+	// TODO: QVideoFrameFormat::PixelFormat::Format_RGB555
+	// TODO: QVideoFrameFormat::PixelFormat::Format_ARGB8565_Premultiplied
+	case QVideoFrameFormat::PixelFormat::Format_BGRA32:
 		image = rgbDataToGrayscale(data, captureRect, 3, 2, 1, 0);
 		break;
-	case QVideoFrame::Format_BGRA32_Premultiplied:
+	case QVideoFrameFormat::PixelFormat::Format_BGRA32_Premultiplied:
 		image = rgbDataToGrayscale(data, captureRect, 3, 2, 1, 0, true);
 		break;
-	case QVideoFrame::Format_ABGR32:
+	case QVideoFrameFormat::PixelFormat::Format_ABGR32:
 		image = rgbDataToGrayscale(data, captureRect, 0, 3, 2, 1);
 		break;
-	case QVideoFrame::Format_BGR32:
+	case QVideoFrameFormat::PixelFormat::Format_BGR32:
 		image = rgbDataToGrayscale(data, captureRect, 3, 2, 1, 0);
 		break;
-	case QVideoFrame::Format_BGR24:
+	case QVideoFrameFormat::PixelFormat::Format_BGR24:
 		image = rgbDataToGrayscale(data, captureRect, -1, 2, 1, 0);
 		break;
-	case QVideoFrame::Format_BGR565:
+	case QVideoFrameFormat::PixelFormat::Format_BGR565:
 		/// This is a forced "conversion", colors end up swapped.
 		image = new QImage(data, m_size.width(), m_size.height(), QImage::Format_RGB16);
 		break;
-	case QVideoFrame::Format_BGR555:
+	case QVideoFrameFormat::PixelFormat::Format_BGR555:
 		/// This is a forced "conversion", colors end up swapped.
 		image = new QImage(data, m_size.width(), m_size.height(), QImage::Format_RGB555);
 		break;
-	// TODO: QVideoFrame::Format_BGRA5658_Premultiplied
-	case QVideoFrame::Format_YUV420P:
-	case QVideoFrame::Format_NV12:
+	// TODO: QVideoFrameFormat::PixelFormat::Format_BGRA5658_Premultiplied
+	case QVideoFrameFormat::PixelFormat::Format_YUV420P:
+	case QVideoFrameFormat::PixelFormat::Format_NV12:
 		/// nv12 format, encountered on macOS
 		image = new QImage(captureRect.targetWidth, captureRect.targetHeight, QImage::Format_Grayscale8);
 		pixel = image->bits();
@@ -226,12 +226,12 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
 			}
 		}
 		break;
-	case QVideoFrame::Format_NV21:
+	case QVideoFrameFormat::PixelFormat::Format_NV21:
 		/// nv21 format, default on android
 		/// image starts with a complete Y image, which we can use directly
 		image = new QImage(data, captureRect.targetWidth, captureRect.targetHeight, QImage::Format_Grayscale8);
 		break;
-	case QVideoFrame::Format_YUYV:
+	case QVideoFrameFormat::PixelFormat::Format_YUYV:
 		image = new QImage(captureRect.targetWidth, captureRect.targetHeight, QImage::Format_Grayscale8);
 		pixel = image->bits();
 
@@ -253,19 +253,19 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
 		}
 
 		break;
-	// TODO: QVideoFrame::Format_IMC*
-	// TODO: QVideoFrame::Format_*YUV*
-	// TODO: QVideoFrame::Format_Y*
-	// TODO: QVideoFrame::Format_Jpeg (needed?)
+	// TODO: QVideoFrameFormat::PixelFormat::Format_IMC*
+	// TODO: QVideoFrameFormat::PixelFormat::Format_*YUV*
+	// TODO: QVideoFrameFormat::PixelFormat::Format_Y*
+	// TODO: QVideoFrameFormat::PixelFormat::Format_Jpeg (needed?)
 	default:
 		image = new QImage(
 			data,
 			m_size.width(),
 			m_size.height(),
-			QVideoFrame::imageFormatFromPixelFormat(m_pixelFormat)
+			QVideoFrameFormat::PixelFormat::imageFormatFromPixelFormat(m_pixelFormat)
 		);
 		break;
-	}
+	}*/
 	return image;
 }
 
@@ -279,7 +279,7 @@ QSize QrCodeVideoFrame::size() const
 	return m_size;
 }
 
-QVideoFrame::PixelFormat QrCodeVideoFrame::pixelFormat() const
+QVideoFrameFormat::PixelFormat QrCodeVideoFrame::pixelFormat() const
 {
 	return m_pixelFormat;
 }

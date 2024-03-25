@@ -8,7 +8,7 @@
 
 #include <QDebug>
 #include <QCamera>
-#include <QCameraInfo>
+#include <QCameraDevice>
 #include <QCameraViewfinderSettings>
 #include <QtConcurrent/QtConcurrent>
 
@@ -47,7 +47,7 @@ void QrCodeScannerFilter::setCameraDefaultVideoFormat(QObject *qmlCamera)
 		QCameraViewfinderSettings settings = camera->viewfinderSettings();
 		// Set "m_videoFrameMirrored" according to the camera position in order to mirror the
 		// video frame later.
-		if (QCameraInfo(*camera).position() != QCamera::BackFace) {
+		if (QCameraDevice(*camera).position() != QCamera::BackFace) {
 			m_videoFrameMirrored = true;
 		}
 		settings.setPixelFormat(QVideoFrame::Format_RGB24);

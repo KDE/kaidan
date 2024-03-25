@@ -72,7 +72,7 @@
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
 #include "QrCodeGenerator.h"
-#include "QrCodeScannerFilter.h"
+//#include "QrCodeScannerFilter.h"
 #include "RecentPicturesModel.h"
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationManager.h"
@@ -413,7 +413,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
 	qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");
 	qmlRegisterType<EmojiProxyModel>("EmojiModel", 0, 1, "EmojiProxyModel");
-	qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
+	//qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
 	qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
 	qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
 	qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");

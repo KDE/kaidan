@@ -7,7 +7,8 @@
 
 #pragma once
 
-#include <QAudioRecorder>
+#include <QMediaRecorder>
+#include <QMediaCaptureSession>
 
 #include "AudioDeviceModel.h"
 #include "CameraImageCapture.h"
@@ -24,7 +25,7 @@ class MediaSettingsAudioSampleRateModel;
 class MediaSettingsVideoCodecModel;
 class MediaSettingsVideoFrameRateModel;
 
-class MediaRecorder : public QObject, public QMediaBindableInterface
+class MediaRecorder : public QMediaRecorder
 {
 	friend MediaSettingsContainerModel;
 	friend MediaSettingsQualityModel;
@@ -35,11 +36,10 @@ class MediaRecorder : public QObject, public QMediaBindableInterface
 	friend MediaSettingsVideoCodecModel;
 	friend MediaSettingsVideoFrameRateModel;
 
-	Q_OBJECT
-	Q_INTERFACES(QMediaBindableInterface)
+Q_OBJECT
 
 	Q_PROPERTY(MediaRecorder::Type type READ type WRITE setType NOTIFY typeChanged)
-	Q_PROPERTY(QMediaObject *mediaObject READ mediaObject NOTIFY typeChanged)
+	Q_PROPERTY(QMediaCaptureSession *mediaObject READ mediaObject NOTIFY typeChanged)
 	Q_PROPERTY(QString currentSettingsKey READ currentSettingsKey NOTIFY typeChanged)
 
 	Q_PROPERTY(MediaRecorder::AvailabilityStatus availabilityStatus READ availabilityStatus NOTIFY availabilityStatusChanged)
@@ -86,10 +86,10 @@ public:
 	Q_ENUM(Type)
 
 	enum class AvailabilityStatus {
-		Available = QMultimedia::Available,
-		ServiceMissing = QMultimedia::ServiceMissing,
-		Busy = QMultimedia::Busy,
-		AvailabilityResourceError = QMultimedia::ResourceError
+		Available,// = QMultimedia::Available,
+		ServiceMissing,// = QMultimedia::ServiceMissing,
+		Busy,// = QMultimedia::Busy,
+		AvailabilityResourceError,// = QMultimedia::ResourceError
 	};
 	Q_ENUM(AvailabilityStatus)
 
@@ -101,24 +101,24 @@ public:
 	Q_ENUM(State)
 
 	enum class Status {
-		UnavailableStatus = QMediaRecorder::UnavailableStatus,
-		UnloadedStatus = QMediaRecorder::UnloadedStatus,
-		LoadingStatus = QMediaRecorder::LoadingStatus,
-		LoadedStatus = QMediaRecorder::LoadedStatus,
-		StartingStatus = QMediaRecorder::StartingStatus,
-		RecordingStatus = QMediaRecorder::RecordingStatus,
-		PausedStatus = QMediaRecorder::PausedStatus,
-		FinalizingStatus = QMediaRecorder::FinalizingStatus
+		UnavailableStatus,// = QMediaRecorder::UnavailableStatus,
+		UnloadedStatus,// = QMediaRecorder::UnloadedStatus,
+		LoadingStatus,// = QMediaRecorder::LoadingStatus,
+		LoadedStatus,// = QMediaRecorder::LoadedStatus,
+		StartingStatus,// = QMediaRecorder::StartingStatus,
+		RecordingStatus,// = QMediaRecorder::RecordingState,
+		PausedStatus,// = QMediaRecorder::PausedState,
+		FinalizingStatus,// = QMediaRecorder::FinalizingStatus
 	};
 	Q_ENUM(Status)
 
 	enum class Error {
-		NoError = QCameraImageCapture::NoError,
-		NotReadyError = QCameraImageCapture::NotReadyError,
-		ResourceError = QCameraImageCapture::ResourceError,
-		OutOfSpaceError = QCameraImageCapture::OutOfSpaceError,
-		NotSupportedFeatureError = QCameraImageCapture::NotSupportedFeatureError,
-		FormatError = QCameraImageCapture::FormatError
+		NoError = QImageCapture::NoError,
+		NotReadyError = QImageCapture::NotReadyError,
+		ResourceError = QImageCapture::ResourceError,
+		OutOfSpaceError = QImageCapture::OutOfSpaceError,
+		NotSupportedFeatureError = QImageCapture::NotSupportedFeatureError,
+		FormatError = QImageCapture::FormatError
 	};
 	Q_ENUM(Error)
 
@@ -128,7 +128,7 @@ public:
 	MediaRecorder::Type type() const;
 	void setType(MediaRecorder::Type type);
 
-	QMediaObject *mediaObject() const override;
+	QMediaCaptureSession *mediaObject() const;
 	QString currentSettingsKey() const;
 
 	MediaRecorder::AvailabilityStatus availabilityStatus() const;
@@ -188,7 +188,7 @@ signals:
 	void videoEncoderSettingsChanged();
 
 protected:
-	bool setMediaObject(QMediaObject *object) override;
+	bool setMediaObject(QMediaCaptureSession *object);
 
 	QString settingsKey(MediaRecorder::Type type, const QString &deviceName) const;
 	CameraInfo userDefaultCamera() const;
@@ -217,7 +217,7 @@ private:
 	bool m_initializing = false;
 	QCamera *m_camera = nullptr;
 	CameraImageCapture  *m_imageCapturer = nullptr;
-	QAudioRecorder *m_audioRecorder = nullptr;
+	QMediaRecorder *m_audioRecorder = nullptr;
 	QMediaRecorder *m_videoRecorder = nullptr;
 
 	MediaSettings m_mediaSettings;

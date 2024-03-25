@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include <QAudioEncoderSettings>
 #include <QCoreApplication>
-#include <QImageEncoderSettings>
-#include <QVideoEncoderSettings>
+#include <QImageCapture>
+#include <QMediaFormat>
+#include <QMediaRecorder>
 
 #include "AudioDeviceModel.h"
 #include "CameraModel.h"
@@ -51,19 +51,19 @@ class CommonEncoderSettings
 
 public:
 	enum class EncodingQuality {
-		VeryLowQuality = QMultimedia::EncodingQuality::VeryLowQuality,
-		LowQuality = QMultimedia::EncodingQuality::LowQuality,
-		NormalQuality = QMultimedia::EncodingQuality::NormalQuality,
-		HighQuality = QMultimedia::EncodingQuality::HighQuality,
-		VeryHighQuality = QMultimedia::EncodingQuality::VeryHighQuality
+		VeryLowQuality = QImageCapture::Quality::VeryLowQuality,
+		LowQuality = QImageCapture::Quality::LowQuality,
+		NormalQuality = QImageCapture::Quality::NormalQuality,
+		HighQuality = QImageCapture::Quality::HighQuality,
+		VeryHighQuality = QImageCapture::Quality::VeryHighQuality
 	};
 	Q_ENUM(EncodingQuality)
 
 	enum class EncodingMode {
-		ConstantQualityEncoding = QMultimedia::EncodingMode::ConstantQualityEncoding,
-		ConstantBitRateEncoding = QMultimedia::EncodingMode::ConstantBitRateEncoding,
-		AverageBitRateEncoding = QMultimedia::EncodingMode::AverageBitRateEncoding,
-		TwoPassEncoding = QMultimedia::EncodingMode::TwoPassEncoding
+		ConstantQualityEncoding = QMediaRecorder::EncodingMode::ConstantQualityEncoding,
+		ConstantBitRateEncoding = QMediaRecorder::EncodingMode::ConstantBitRateEncoding,
+		AverageBitRateEncoding = QMediaRecorder::EncodingMode::AverageBitRateEncoding,
+		TwoPassEncoding = QMediaRecorder::EncodingMode::TwoPassEncoding
 	};
 	Q_ENUM(EncodingMode)
 
@@ -94,7 +94,7 @@ class ImageEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(QSize resolution MEMBER resolution)
 
 public:
-	explicit ImageEncoderSettings(const QImageEncoderSettings &settings = { });
+	explicit ImageEncoderSettings(const QMediaFormat &settings = { });
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;
@@ -103,7 +103,7 @@ public:
 	bool operator==(const ImageEncoderSettings &other) const;
 	bool operator!=(const ImageEncoderSettings &other) const;
 
-	QImageEncoderSettings toQImageEncoderSettings() const;
+	QMediaFormat toQMediaFormat() const;
 
 	QSize resolution;
 };
@@ -118,7 +118,7 @@ class AudioEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(int channelCount MEMBER channelCount)
 
 public:
-	explicit AudioEncoderSettings(const QAudioEncoderSettings &settings = { });
+	explicit AudioEncoderSettings(const QMediaFormat &settings = { });
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;
@@ -127,7 +127,7 @@ public:
 	bool operator==(const AudioEncoderSettings &other) const;
 	bool operator!=(const AudioEncoderSettings &other) const;
 
-	QAudioEncoderSettings toQAudioEncoderSettings() const;
+	QMediaFormat toQMediaFormat() const;
 
 	CommonEncoderSettings::EncodingMode mode;
 	int bitRate;
@@ -145,7 +145,7 @@ class VideoEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(QSize resolution MEMBER resolution)
 
 public:
-	explicit VideoEncoderSettings(const QVideoEncoderSettings &settings = { });
+	explicit VideoEncoderSettings(const QMediaFormat &settings = { });
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;
@@ -154,7 +154,7 @@ public:
 	bool operator==(const VideoEncoderSettings &other) const;
 	bool operator!=(const VideoEncoderSettings &other) const;
 
-	QVideoEncoderSettings toQVideoEncoderSettings() const;
+	QMediaFormat toQMediaFormat() const;
 
 	CommonEncoderSettings::EncodingMode mode;
 	int bitRate;

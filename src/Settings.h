@@ -16,7 +16,7 @@
 
 #include "AccountManager.h"
 #include "Encryption.h"
-#include "Kaidan.h"
+#include "Enums.h"
 
 #include <optional>
 
@@ -31,7 +31,7 @@ class Settings : public QObject
 {
 	Q_OBJECT
 
-	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
+	Q_PROPERTY(Enums::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
 	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
 	Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible WRITE setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
 	Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible WRITE setKeyAuthenticationPageExplanationVisible NOTIFY keyAuthenticationPageExplanationVisibleChanged)
@@ -69,8 +69,8 @@ public:
 	void resetAuthPort();
 	bool isDefaultAuthPort() const;
 
-	Kaidan::PasswordVisibility authPasswordVisibility() const;
-	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
+	Enums::PasswordVisibility authPasswordVisibility() const;
+	void setAuthPasswordVisibility(Enums::PasswordVisibility visibility);
 
 	Encryption::Enum encryption() const;
 	void setEncryption(Encryption::Enum encryption);

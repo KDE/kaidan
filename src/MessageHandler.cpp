@@ -649,7 +649,7 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 					const auto &bobData = message.bitsOfBinaryData();
 					if (!file.metadata().thumbnails().empty()) {
 						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
-						const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
+						const auto thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
 							return bobBlob.cid() == cid;
 						});
 

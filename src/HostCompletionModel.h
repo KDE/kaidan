@@ -6,7 +6,7 @@
 
 #include <QAbstractListModel>
 
-class RosterModel;
+#include "RosterModel.h"
 
 class HostCompletionModel : public QAbstractListModel
 {

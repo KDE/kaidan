@@ -5,23 +5,23 @@
 
 #pragma once
 
-#include <QAudioDeviceInfo>
+#include <QAudio>
+#include <QAudioDevice>
 #include <QAbstractListModel>
 
-class AudioDeviceInfo : public QAudioDeviceInfo {
+class AudioDeviceInfo : public QAudioDevice {
 	Q_GADGET
 
 	Q_PROPERTY(bool isNull READ isNull CONSTANT)
-	Q_PROPERTY(QString deviceName READ deviceName CONSTANT)
+	// TODO Q_PROPERTY(QString deviceName READ deviceName CONSTANT)
 	Q_PROPERTY(QString description READ description CONSTANT)
-	Q_PROPERTY(QStringList supportedCodecs READ supportedCodecs CONSTANT)
-	Q_PROPERTY(QList<int> supportedSampleRates READ supportedSampleRates CONSTANT)
-	Q_PROPERTY(QList<int> supportedChannelCounts READ supportedChannelCounts CONSTANT)
-	Q_PROPERTY(QList<int> supportedSampleSizes READ supportedSampleSizes CONSTANT)
+	// TODO Q_PROPERTY(QStringList supportedCodecs READ supportedCodecs CONSTANT)
+	// TODO Q_PROPERTY(QList<int> supportedSampleRates READ supportedSampleRates CONSTANT)
+	// TODO Q_PROPERTY(QList<int> supportedChannelCounts READ supportedChannelCounts CONSTANT)
+	// TODO Q_PROPERTY(QList<int> supportedSampleSizes READ supportedSampleSizes CONSTANT)
 
 public:
-	using QAudioDeviceInfo::QAudioDeviceInfo;
-	AudioDeviceInfo(const QAudioDeviceInfo &other);
+	AudioDeviceInfo(const QAudioDevice &other);
 	AudioDeviceInfo() = default;
 
 	QString description() const;
@@ -35,15 +35,15 @@ class AudioDeviceModel : public QAbstractListModel
 
 	Q_PROPERTY(AudioDeviceModel::Mode mode READ mode WRITE setMode NOTIFY modeChanged)
 	Q_PROPERTY(int rowCount READ rowCount NOTIFY audioDevicesChanged)
-	Q_PROPERTY(QList<QAudioDeviceInfo> audioDevices READ audioDevices NOTIFY audioDevicesChanged)
+	Q_PROPERTY(QList<QAudioDevice> audioDevices READ audioDevices NOTIFY audioDevicesChanged)
 	Q_PROPERTY(AudioDeviceInfo defaultAudioDevice READ defaultAudioDevice NOTIFY audioDevicesChanged)
 	Q_PROPERTY(int currentIndex READ currentIndex WRITE setCurrentIndex NOTIFY currentIndexChanged)
 	Q_PROPERTY(AudioDeviceInfo currentAudioDevice READ currentAudioDevice WRITE setCurrentAudioDevice NOTIFY currentIndexChanged)
 
 public:
 	enum Mode {
-		AudioInput = QAudio::Mode::AudioInput,
-		AudioOutput = QAudio::Mode::AudioOutput
+		AudioInput = QAudioDevice::Mode::Input,
+		AudioOutput = QAudioDevice::Mode::Output
 	};
 	Q_ENUM(Mode)
 
@@ -67,7 +67,7 @@ public:
 	AudioDeviceModel::Mode mode() const;
 	void setMode(AudioDeviceModel::Mode mode);
 
-	QList<QAudioDeviceInfo> audioDevices() const;
+	QList<QAudioDevice> audioDevices() const;
 	AudioDeviceInfo defaultAudioDevice() const;
 
 	int currentIndex() const;
@@ -95,7 +95,7 @@ signals:
 
 private:
 	AudioDeviceModel::Mode m_mode = AudioDeviceModel::Mode::AudioInput;
-	QList<QAudioDeviceInfo> m_audioDevices;
+	QList<QAudioDevice> m_audioDevices;
 	int m_currentIndex = -1;
 };
 

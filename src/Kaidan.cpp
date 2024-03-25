@@ -209,7 +209,7 @@ quint8 Kaidan::logInByUri(const QString &uri)
 	return quint8(LoginByUriState::Connecting);
 }
 
-Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid)
+TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid)
 {
 	if (QXmppUri::isXmppUri(uri)) {
 		auto parsedUri = QXmppUri(uri);

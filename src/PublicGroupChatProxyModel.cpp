@@ -57,9 +57,9 @@ bool PublicGroupChatProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
 	}
 
 	if (filterRole() == static_cast<int>(PublicGroupChatModel::CustomRole::GlobalSearch)) {
-		return groupChat.name().contains(filterRegExp()) ||
-		       groupChat.description().contains(filterRegExp()) ||
-		       groupChat.address().contains(filterRegExp());
+		return groupChat.name().contains(filterRegularExpression()) ||
+		       groupChat.description().contains(filterRegularExpression()) ||
+		       groupChat.address().contains(filterRegularExpression());
 	}
 
 	return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);

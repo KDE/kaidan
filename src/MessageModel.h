@@ -70,7 +70,7 @@ public:
 	QString senderJid;
 	QStringList emojis;
 
-	bool operator<(const DetailedMessageReaction &other) const;
+	// TODO bool operator<(const DetailedMessageReaction &other) const;
 };
 
 Q_DECLARE_METATYPE(DetailedMessageReaction)

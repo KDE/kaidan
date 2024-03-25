@@ -5,13 +5,15 @@
 
 #include "CameraModel.h"
 
+#include <QMediaDevices>
+
 CameraInfo::CameraInfo(const QString &deviceName)
-	: QCameraInfo(deviceName.toLocal8Bit())
+	// TODO : QCameraDevice(deviceName.toLocal8Bit())
 {
 }
 
-CameraInfo::CameraInfo(const QCameraInfo &other)
-	: QCameraInfo(other)
+CameraInfo::CameraInfo(const QCameraDevice &other)
+	: QCameraDevice(other)
 {
 }
 
@@ -35,13 +37,13 @@ QVariant CameraModel::data(const QModelIndex &index, int role) const
 		case CameraModel::CustomRoles::IsNullRole:
 			return cameraInfo.isNull();
 		case CameraModel::CustomRoles::DeviceNameRole:
-			return cameraInfo.deviceName();
+			return ""; // TODO cameraInfo.deviceName();
 		case CameraModel::CustomRoles::DescriptionRole:
 			return cameraInfo.description();
 		case CameraModel::CustomRoles::PositionRole:
 			return cameraInfo.position();
 		case CameraModel::CustomRoles::OrientationRole:
-			return cameraInfo.orientation();
+			return ""; // TODO cameraInfo.orientation();
 		case CameraModel::CustomRoles::CameraInfoRole:
 			return QVariant::fromValue(CameraInfo(cameraInfo));
 		}
@@ -64,14 +66,14 @@ QHash<int, QByteArray> CameraModel::roleNames() const
 	return roles;
 }
 
-QList<QCameraInfo> CameraModel::cameras() const
+QList<QCameraDevice> CameraModel::cameras() const
 {
 	return m_cameras;
 }
 
 CameraInfo CameraModel::defaultCamera()
 {
-	return CameraInfo(QCameraInfo::defaultCamera());
+	return CameraInfo(QMediaDevices::defaultVideoInput());
 }
 
 int CameraModel::currentIndex() const
@@ -114,7 +116,7 @@ int CameraModel::indexOf(const QString &deviceName) const
 	for (int i = 0; i < m_cameras.count(); ++i) {
 		const auto &camera(m_cameras[i]);
 
-		if (camera.deviceName() == deviceName) {
+		if (camera.description() == deviceName) {
 			return i;
 		}
 	}
@@ -127,25 +129,25 @@ CameraInfo CameraModel::camera(const QString &deviceName)
 	return CameraInfo(deviceName);
 }
 
-CameraInfo CameraModel::camera(QCamera::Position position)
+CameraInfo CameraModel::camera(QCameraDevice::Position position)
 {
-	const auto cameras = QCameraInfo::availableCameras(position);
+	const auto cameras = QMediaDevices::videoInputs(); // TODO position
 	return cameras.isEmpty() ? CameraInfo() : CameraInfo(cameras.first());
 }
 
 void CameraModel::refresh()
 {
-	const auto cameras = QCameraInfo::availableCameras();
+	const auto cameras = QMediaDevices::videoInputs();
 
 	if (m_cameras == cameras) {
 		return;
 	}
 
 	beginResetModel();
-	const QString currentDeviceName = currentCamera().deviceName();
+	const QString currentDeviceName = currentCamera().description();
 	const auto it = std::find_if(m_cameras.constBegin(), m_cameras.constEnd(),
-		[&currentDeviceName](const QCameraInfo &deviceInfo) {
-			return deviceInfo.deviceName() == currentDeviceName;
+		[&currentDeviceName](const QCameraDevice &deviceInfo) {
+			return deviceInfo.description() == currentDeviceName;
 		});
 
 	m_cameras = cameras;

@@ -7,7 +7,7 @@
 #include "FileModel.h"
 
 #include <QFile>
-#include <QtConcurrentRun>
+#include <QtConcurrent/QtConcurrentRun>
 
 FileProxyModel::FileProxyModel(QObject *parent)
 	: QSortFilterProxyModel(parent)

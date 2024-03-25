@@ -5,30 +5,30 @@
 
 #pragma once
 
-#include <QCameraImageCapture>
+#include <QImageCapture>
 #include <QUrl>
 
-// A QCameraImageCapture that mimic api of QMediaRecorder
+// A QImageCapture that mimic api of QMediaRecorder
 
-class CameraImageCapture : public QCameraImageCapture
+class CameraImageCapture : public QImageCapture
 {
 	Q_OBJECT
 
 	Q_PROPERTY(QUrl actualLocation READ actualLocation NOTIFY actualLocationChanged)
-	Q_PROPERTY(QMultimedia::AvailabilityStatus availability READ availability NOTIFY availabilityChanged)
+	// TODO Q_PROPERTY(QMultimedia::AvailabilityStatus availability READ availability NOTIFY availabilityChanged)
 	Q_PROPERTY(bool isAvailable READ isAvailable NOTIFY availabilityChanged)
 
 public:
-	CameraImageCapture(QMediaObject *mediaObject, QObject *parent = nullptr);
+	CameraImageCapture(QMediaCaptureSession *mediaObject, QObject *parent = nullptr);
 
 	QUrl actualLocation() const;
 
 signals:
-	void availabilityChanged(QMultimedia::AvailabilityStatus availability);
+	void availabilityChanged(QImageCapture::Error availability);
 	void actualLocationChanged(const QUrl &location);
 
 protected:
-	bool setMediaObject(QMediaObject *mediaObject) override;
+	bool setMediaObject(QMediaCaptureSession *mediaObject);
 
 private:
 	QUrl m_actualLocation;

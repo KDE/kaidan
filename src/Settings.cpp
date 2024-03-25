@@ -10,6 +10,7 @@
 #include <QMutexLocker>
 
 #include "Globals.h"
+#include "Kaidan.h"
 
 Settings::Settings(QObject *parent)
 	: QObject(parent), m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
@@ -97,12 +98,12 @@ bool Settings::isDefaultAuthPort() const
 	return authPort() == PORT_AUTODETECT;
 }
 
-Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
+Enums::PasswordVisibility Settings::authPasswordVisibility() const
 {
-	return value<Kaidan::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible);
+	return value<Enums::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Enums::PasswordVisible);
 }
 
-void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
+void Settings::setAuthPasswordVisibility(Enums::PasswordVisibility visibility)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), visibility, &Settings::authPasswordVisibilityChanged);
 }

@@ -14,6 +14,7 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
+#include <QStringList>
 #include <QVector>
 // Kaidan
 #include "RosterItem.h"

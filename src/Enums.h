@@ -76,6 +76,28 @@ namespace Enums {
 	};
 	Q_ENUM_NS(LoginByUriState)
 
+	/**
+	* Result for making trust decisions by an XMPP URI specifying how the URI
+	* is used
+	*/
+	enum TrustDecisionByUriResult {
+		MakingTrustDecisions,   ///< The trust decisions are being made.
+		JidUnexpected,          ///< The URI's JID is not the expected one.
+		InvalidUri              ///< The URI cannot be used for trust decisions.
+	};
+	Q_ENUM_NS(TrustDecisionByUriResult)
+
+	/**
+	* State which specifies in which way a password is shown on the account transfer page
+	*/
+	enum PasswordVisibility {
+		PasswordVisible, ///< The password is included in the QR code and shown as plain text.
+		PasswordVisibleQrOnly, ///< The password is included in the QR code but not shown as plain text.
+		PasswordInvisible ///< The password is neither included in the QR code nor shown as plain text.
+	};
+	Q_ENUM_NS(PasswordVisibility)
+
+
 	template <typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
 	QString toString(const T flag) {
 		static const QMetaEnum e = QMetaEnum::fromType<T>();

@@ -61,14 +61,15 @@ Item {
 	}
 
 	// filter which converts the video frames to images and decodes a containing QR code
-	QrCodeScannerFilter {
+	// TODO: use ShaderEffect
+	/*QrCodeScannerFilter {
 		id: filter
 
 		onUnsupportedFormatReceived: {
 			pageStack.layers.pop()
 			passiveNotification(qsTr("The camera format '%1' is not supported.").arg(format))
 		}
-	}
+	}*/
 
 	// video output from the camera which is shown on the screen and decoded by a filter
 	VideoOutput {

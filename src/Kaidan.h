@@ -15,7 +15,12 @@
 #pragma once
 
 // Kaidan
+#include "AvatarFileStorage.h"
+#include "Blocking.h"
 #include "ClientWorker.h"
+#include "FileSharingController.h"
+#include "ServerFeaturesCache.h"
+#include "Settings.h"
 
 class QSize;
 class AccountDb;
@@ -24,8 +29,6 @@ class DataFormModel;
 class Notifications;
 class RosterDb;
 class MessageDb;
-class BlockingController;
-class FileSharingController;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -51,26 +54,6 @@ class Kaidan : public QObject
 	Q_PROPERTY(quint8 connectionError READ connectionError NOTIFY connectionErrorChanged)
 
 public:
-	/**
-	 * Result for making trust decisions by an XMPP URI specifying how the URI
-	 * is used
-	 */
-	enum TrustDecisionByUriResult {
-		MakingTrustDecisions,   ///< The trust decisions are being made.
-		JidUnexpected,          ///< The URI's JID is not the expected one.
-		InvalidUri              ///< The URI cannot be used for trust decisions.
-	};
-	Q_ENUM(TrustDecisionByUriResult)
-
-	/**
-	 * State which specifies in which way a password is shown on the account transfer page
-	 */
-	enum PasswordVisibility {
-		PasswordVisible, ///< The password is included in the QR code and shown as plain text.
-		PasswordVisibleQrOnly, ///< The password is included in the QR code but not shown as plain text.
-		PasswordInvisible ///< The password is neither included in the QR code nor shown as plain text.
-	};
-	Q_ENUM(PasswordVisibility)
 
 	static Kaidan *instance() { return s_instance; }
 
@@ -176,7 +159,7 @@ public:
 	 * @param expectedJid JID of the key owner whose keys are expected to be
 	 *        authenticated or none to allow all JIDs
 	 */
-	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
+	Q_INVOKABLE TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
 
 	/**
 	 * Emitted when a data form for registration is received from the server.
