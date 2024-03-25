@@ -60,10 +60,10 @@ Kirigami.ScrollablePage {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-            /* TODO contentItem: ColumnLayout {
+            delegates: ColumnLayout {
 				spacing: 0
 
-                MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Login")
                 }
 
@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
 					text: qsTr("Scan login QR code of old device")
 					onClicked: openPage(qrCodeOnboardingPage)
 				}
-            }*/
+            }
         }
 
 		Kirigami.Heading {
@@ -112,10 +112,10 @@ Kirigami.ScrollablePage {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-            /* TODO contentItem: ColumnLayout {
+            delegates: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Register")
 				}
 
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
 					text: qsTr("Create account manually")
 					onClicked: openPage(manualRegistrationPage)
 				}
-            }*/
+            }
         }
 
 		Item {

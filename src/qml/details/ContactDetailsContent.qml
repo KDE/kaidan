@@ -73,7 +73,7 @@ DetailsContent {
 			jid: root.jid
 		}
 
-        /* TODO MobileForm.FormCardHeader {
+        /* TODO FormHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -284,10 +284,10 @@ DetailsContent {
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Sharing")
 			}
 
@@ -327,16 +327,16 @@ DetailsContent {
 					passiveNotification(qsTr("Contact copied to clipboard"))
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Notifications")
 			}
 
@@ -351,16 +351,16 @@ DetailsContent {
 						!checked)
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Privacy")
 			}
 
@@ -420,16 +420,16 @@ DetailsContent {
 					jid: root.jid
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Removal")
 			}
 
@@ -457,7 +457,7 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
     }
 
 	// This needs to be placed after the notification section.

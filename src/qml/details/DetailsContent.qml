@@ -46,7 +46,7 @@ Controls.Control {
             /*contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Media")
 				}
 
@@ -116,11 +116,11 @@ Controls.Control {
         FormCard {
 			visible: vCardRepeater.count || vCardRepeater.model.jid === AccountManager.jid
 			Layout.fillWidth: true
-            /* TODO contentItem: ColumnLayout {
+            delegates: ColumnLayout {
 				id: vCardArea
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Profile")
 				}
 
@@ -128,7 +128,7 @@ Controls.Control {
 					id: vCardRepeater
 					Layout.fillHeight: true
 				}
-            }*/
+            }
 		}
 
         FormCard {
@@ -141,10 +141,10 @@ Controls.Control {
 			visible: rosterGoupListView.count || rosterGoupListView.headerItem
 			Layout.fillWidth: true
 
-            /* TODO contentItem: ColumnLayout {
+            delegates: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Labels")
 				}
 
@@ -159,16 +159,16 @@ Controls.Control {
 				FormExpansionButton {
 					id: rosterGroupExpansionButton
 				}
-            }*/
+            }
 		}
 
         FormCard {
 			visible: deviceRepeater.count
 			Layout.fillWidth: true
-            /* TODO contentItem: ColumnLayout {
+            delegates: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Connected Devices")
 				}
 
@@ -212,7 +212,7 @@ Controls.Control {
 				FormExpansionButton {
 					id: deviceExpansionButton
 				}
-            }*/
+            }
         }
 	}
 

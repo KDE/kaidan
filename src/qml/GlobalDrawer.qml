@@ -55,7 +55,7 @@ Kirigami.GlobalDrawer {
                 /*contentItem: ColumnLayout {
 					spacing: 0
 
-					MobileForm.FormCardHeader {
+                    FormHeader {
 						title: qsTr("Accounts")
 					}
 
@@ -117,7 +117,7 @@ Kirigami.GlobalDrawer {
                 /*contentItem: ColumnLayout {
 					spacing: 0
 
-					MobileForm.FormCardHeader {
+                    FormHeader {
 						title: qsTr("Actions")
 					}
 

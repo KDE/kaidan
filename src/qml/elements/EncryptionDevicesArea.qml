@@ -21,10 +21,10 @@ GridLayout {
 		Layout.maximumHeight: parent.height
 		Layout.alignment: Qt.AlignCenter
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				id: header
 			}
 
@@ -39,6 +39,6 @@ GridLayout {
 					id: listView
 				}
 			}
-        }*/
+        }
     }
 }

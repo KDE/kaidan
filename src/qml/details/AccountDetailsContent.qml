@@ -138,7 +138,7 @@ DetailsContent {
 			jid: root.jid
 		}
 
-        /* TODO MobileForm.FormCardHeader {
+        /* TODO FormHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -283,7 +283,7 @@ DetailsContent {
 
 		Layout.fillWidth: true
 		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
 			ProviderListModel {
@@ -295,7 +295,7 @@ DetailsContent {
 				chatSupportList: providerArea.chatSupportList
 			}
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Provider")
 			}
 
@@ -351,15 +351,15 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Blocked Chat Addresses")
 			}
 
@@ -377,7 +377,7 @@ DetailsContent {
                 header: FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                    contentItem: AbstractFormDelegate {
+                    delegates: AbstractFormDelegate {
 						background: Item {}
 						contentItem: RowLayout {
 							spacing: Kirigami.Units.largeSpacing * 3
@@ -517,7 +517,7 @@ DetailsContent {
 			FormExpansionButton {
 				id: blockingExpansionButton
 			}
-        }*/
+        }
 	}
 
     FormCard {
@@ -525,10 +525,10 @@ DetailsContent {
 		visible: !RosterModel.hasItem(root.jid)
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Notes")
 			}
 
@@ -558,17 +558,17 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Password Change")
 			}
 
@@ -579,7 +579,7 @@ DetailsContent {
             FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                contentItem: AbstractFormDelegate {
+                delegates: AbstractFormDelegate {
 					background: Item {}
 					contentItem: ColumnLayout {
 						Component.onCompleted: {
@@ -694,17 +694,17 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Password Visibility")
 			}
 
@@ -754,16 +754,16 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Connection")
 			}
 
@@ -774,7 +774,7 @@ DetailsContent {
             FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                contentItem: AbstractFormDelegate {
+                delegates: AbstractFormDelegate {
 					background: Item {}
 					contentItem: ColumnLayout {
 						id: connectionSettings
@@ -874,16 +874,16 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
 	}
 
     FormCard {
 		Layout.fillWidth: true
 
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+            FormHeader {
 				title: qsTr("Removal")
 			}
 
@@ -937,6 +937,6 @@ DetailsContent {
 					}
 				}
 			}
-        }*/
+        }
     }
 }

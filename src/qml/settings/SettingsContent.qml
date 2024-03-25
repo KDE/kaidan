@@ -23,7 +23,7 @@ ColumnLayout {
 
     FormCard {
 		Layout.fillWidth: true
-        /* TODO contentItem: ColumnLayout {
+        delegates: ColumnLayout {
 			spacing: 0
 
             FormButtonDelegate {
@@ -39,6 +39,6 @@ ColumnLayout {
 				onClicked: stack.push("qrc:/qml/settings/AboutPage.qml")
 				icon.name: "help-about-symbolic"
 			}
-        }*/
+        }
     }
 }

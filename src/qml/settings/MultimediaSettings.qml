@@ -37,7 +37,7 @@ SettingsPageBase {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Select Sources")
 				}
 
@@ -105,7 +105,7 @@ SettingsPageBase {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+                FormHeader {
 					title: qsTr("Video Output")
 				}
 				Controls.ItemDelegate {

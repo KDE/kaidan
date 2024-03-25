@@ -24,13 +24,13 @@ ColumnLayout {
 		implicitWidth: 570
 		Layout.fillWidth: true
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        /* TODO contentItem: FormSwitchDelegate {
+        delegates: FormSwitchDelegate {
 			id: chatFilteringSwitch
 			text: qsTr("Filter by availability")
 			description: qsTr("Show only available contacts")
 			checked: root.rosterFilterProxyModel.onlyAvailableContactsShown
 			onToggled: root.rosterFilterProxyModel.onlyAvailableContactsShown = checked
-        }*/
+        }
     }
 
 	ListView {
@@ -43,7 +43,7 @@ ColumnLayout {
         header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            /* TODO contentItem: FormSwitchDelegate {
+            delegates: FormSwitchDelegate {
 				id: accountFilteringSwitch
 				text: qsTr("Filter by accounts")
 				description: qsTr("Show only chats of selected accounts")
@@ -62,7 +62,7 @@ ColumnLayout {
 						accountFilteringSwitch.checked = root.rosterFilterProxyModel.selectedAccountJids.length
 					}
 				}
-            }*/
+            }
 		}
         delegate: FormSwitchDelegate {
 			id: accountDelegate
@@ -121,7 +121,7 @@ ColumnLayout {
         header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            /* TODO contentItem: FormSwitchDelegate {
+            delegates: FormSwitchDelegate {
 				id: groupFilteringSwitch
 				text: qsTr("Filter by labels")
 				description: qsTr("Show only chats with selected labels")
@@ -140,7 +140,7 @@ ColumnLayout {
 						groupFilteringSwitch.checked = root.rosterFilterProxyModel.selectedGroups.length
 					}
 				}
-            }*/
+            }
 		}
         delegate: FormSwitchDelegate {
 			id: groupDelegate
