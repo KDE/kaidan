@@ -11,20 +11,20 @@ import org.kde.kirigamiaddons.formcard
  * This area is used to interact with encryption devices and their keys.
  */
 GridLayout {
-    // TODO property alias header: header
-    // TODO property alias listView: listView
+	// TODO property alias header: header
+	// TODO property alias listView: listView
 
 	Layout.maximumHeight: parent.flow === GridLayout.LeftToRight ? parent.height : parent.height / 2 - parent.rowSpacing * 2
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 		Layout.maximumHeight: parent.height
 		Layout.alignment: Qt.AlignCenter
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				id: header
 			}
 
@@ -39,6 +39,6 @@ GridLayout {
 					id: listView
 				}
 			}
-        }
-    }
+		}
+	}
 }

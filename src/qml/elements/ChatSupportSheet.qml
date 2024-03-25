@@ -27,7 +27,7 @@ Kirigami.OverlaySheet {
 		clip: true
 		model: Array.from(chatSupportList)
 
-        delegate: Controls.ItemDelegate {
+		delegate: Controls.ItemDelegate {
 			required property int index
 			required property string modelData
 			readonly property string chatName: {

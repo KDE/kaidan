@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import QtMultimedia 5.14 as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard
 
 import im.kaidan.kaidan 1.0
 
@@ -347,7 +347,7 @@ Controls.Control {
 
 				Multimedia.Video {
 					source: model.file.localFileUrl
-					autoPlay: true
+					// TODO autoPlay: true
 					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
 					anchors.fill: parent
 
@@ -365,12 +365,12 @@ Controls.Control {
 							preview.clicked()
 						}
 					}
-					onStatusChanged: {
+					/* TODO onStatusChanged: {
 						// Display a thumbnail by playing the first frame and pausing afterwards.
 						if (status === Multimedia.MediaPlayer.Buffered) {
 							pause()
 						}
-					}
+					}*/
 				}
 			}
 		}

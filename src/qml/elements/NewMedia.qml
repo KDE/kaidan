@@ -87,7 +87,7 @@ MediaPreview {
 		}
 
 		Multimedia.VideoOutput {
-            // TODO source: recorder
+			// TODO source: recorder
 			focus : visible // to receive focus and capture key events when visible
 			visible: !previewLoader.visible
 

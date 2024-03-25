@@ -43,7 +43,7 @@ GridLayout {
 		Layout.alignment: Qt.AlignCenter
 
 		// Use the data from the decoded QR code.
-        /* TODO filter.onScanningSucceeded: {
+		/* TODO filter.onScanningSucceeded: {
 			if (isAcceptingResult) {
 				isBusy = true
 				let processTrust = true
@@ -100,7 +100,7 @@ GridLayout {
 				isAcceptingResult = false
 				resetAcceptResultTimer.start()
 			}
-        }*/
+		}*/
 
 		// timer to accept the result again after an invalid URI was scanned
 		Timer {

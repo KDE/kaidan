@@ -76,13 +76,13 @@ Item {
 			}
 		}
 	}
-    OpacityMask {
+	OpacityMask {
 		visible: showTail
 		anchors.fill: tailBase
 		source: tailBase
 		maskSource: tailMask
 		invert: true
-    }
+	}
 	Rectangle {
 		id: mainBG
 		radius: roundedCornersRadius

@@ -52,12 +52,12 @@ Kirigami.OverlaySheet {
 		}
 	}
 
-    /* TODO onSheetOpenChanged: {
+	/* TODO onSheetOpenChanged: {
 		if (!sheetOpen) {
 			root.composition.fileSelectionModel.clear()
 			messageText.text = ""
 		}
-    }*/
+	}*/
 
 	Item {
 		Connections {
@@ -85,7 +85,7 @@ Kirigami.OverlaySheet {
 			id: fileList
 			model: root.composition.fileSelectionModel
 
-            delegate: Controls.ItemDelegate {
+			delegate: Controls.ItemDelegate {
 				id: delegateRoot
 
 				contentItem: RowLayout {

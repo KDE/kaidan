@@ -38,19 +38,19 @@ MediaPreview {
 
 			plugin: Location.Plugin {
 				name: "osm"
-                /* TODO Location.PluginParameter {
+				/* TODO Location.PluginParameter {
 					name: "osm.useragent"
 					value: Utils.osmUserAgent()
 				}
 				Location.PluginParameter {
 					name: "osm.mapping.providersrepository.address"
 					value: "https://autoconfig.kde.org/qtlocation/"
-                }*/
+				}*/
 			}
 
-            /* TODO gesture {
+			/* TODO gesture {
 				enabled: false
-            }*/
+			}*/
 
 			Layout.fillHeight: true
 			Layout.fillWidth: true

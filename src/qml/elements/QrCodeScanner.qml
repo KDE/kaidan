@@ -20,7 +20,7 @@ Item {
 
 	property bool cameraEnabled: false
 	property Camera camera
-    // TODO property alias filter: filter
+	// TODO property alias filter: filter
 	property alias zoomSliderArea: zoomSliderArea
 	property bool cornersRounded: true
 
@@ -32,15 +32,15 @@ Item {
 		// camera with continuous focus in the center of the video
 		Camera {
 			// Show camera input if this page is visible and the camera enabled.
-            /* TODO cameraState: {
+			/* TODO cameraState: {
 				if (root.visible && cameraEnabled) {
 					return Camera.ActiveState
 				}
 
 				return Camera.LoadedState
-            }*/
-            // TODO digitalZoom: zoomSlider.value
-            // TODO onError: reloadingCameraTimer.start()
+			}*/
+			// TODO digitalZoom: zoomSlider.value
+			// TODO onError: reloadingCameraTimer.start()
 			Component.onCompleted: {
 				root.camera = this
 
@@ -75,9 +75,9 @@ Item {
 	VideoOutput {
 		visible: camera.cameraStatus === Camera.ActiveStatus
 		fillMode: VideoOutput.PreserveAspectCrop
-        // TODO source: root.camera
-        // TODO autoOrientation: true
-        // TODO filters: [filter]
+		// TODO source: root.camera
+		// TODO autoOrientation: true
+		// TODO filters: [filter]
 		anchors.fill: parent
 
 		Rectangle {

@@ -23,7 +23,7 @@ MediaPreviewAudio {
 	Layout.maximumWidth: message ? messageSize : -1
 
 	placeHolder: Multimedia.VideoOutput {
-        // TODO source: root.player
+		// TODO source: root.player
 		fillMode: Image.PreserveAspectFit
 
 		anchors {

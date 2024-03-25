@@ -60,14 +60,14 @@ ExplanationOptionsTogglePage {
 
 		EncryptionDevicesArea {
 			id: contactDevicesArea
-            // TODO header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
-            /* TODO listView.model: OmemoModel {
+			// TODO header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
+			/* TODO listView.model: OmemoModel {
 				jid: root.chatJid
-            }*/
-            /* TODO listView.header: FormCard {
+			}*/
+			/* TODO listView.header: FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                contentItem: AbstractFormDelegate {
+				delegates: AbstractFormDelegate {
 					background: Item {}
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3
@@ -130,13 +130,13 @@ ExplanationOptionsTogglePage {
 						}
 					}
 				}
-            }
-            listView.delegate: FormTextDelegate {
+			}
+			listView.delegate: FormTextDelegate {
 				text: model.label
 				description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 				descriptionItem.textFormat: Text.MarkdownText
 				width: ListView.view.width
-            }*/
+			}*/
 		}
 
 		Kirigami.Separator {
@@ -150,18 +150,18 @@ ExplanationOptionsTogglePage {
 		}
 
 		EncryptionDevicesArea {
-            // TODO header.title: qsTr("Verified own devices")
-            /* TODO listView.model: OmemoModel {
+			// TODO header.title: qsTr("Verified own devices")
+			/* TODO listView.model: OmemoModel {
 				jid: root.accountJid
 				ownAuthenticatedKeysProcessed: true
-            }*/
-            /* TODO listView.delegate: AbstractFormDelegate {
+			}*/
+			/* TODO listView.delegate: AbstractFormDelegate {
 				id: encryptionKeyDelegate
 				width: ListView.view.width
 				leftPadding: 0
 				verticalPadding: 0
 				contentItem: RowLayout {
-                    FormTextDelegate {
+					FormTextDelegate {
 						id: encryptionKeyText
 						text: model.label
 						description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
@@ -183,7 +183,7 @@ ExplanationOptionsTogglePage {
 						}
 					}
 				}
-            }*/
+			}*/
 		}
 	}
 

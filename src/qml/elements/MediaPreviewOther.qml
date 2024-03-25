@@ -92,7 +92,7 @@ Rectangle {
 					}
 
 					layer.enabled: true
-                    layer.effect: OpacityMask {
+					layer.effect: OpacityMask {
 						maskSource: Item {
 							width: thumbnailIcon.paintedWidth
 							height: thumbnailIcon.paintedHeight
@@ -103,7 +103,7 @@ Rectangle {
 								height: width
 							}
 						}
-                    }
+					}
 
 					Kirigami.Icon {
 						source: "download"

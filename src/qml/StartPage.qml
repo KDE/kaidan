@@ -56,18 +56,18 @@ Kirigami.ScrollablePage {
 			scaleFactor: 1.5
 		}
 
-        FormCard {
+		FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-            delegates: ColumnLayout {
+			delegates: ColumnLayout {
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Login")
-                }
+				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					text: qsTr("Enter your credentials")
 					checkable: true
 					onClicked: loginArea.visible = !loginArea.visible
@@ -95,12 +95,12 @@ Kirigami.ScrollablePage {
 					}
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					text: qsTr("Scan login QR code of old device")
 					onClicked: openPage(qrCodeOnboardingPage)
 				}
-            }
-        }
+			}
+		}
 
 		Kirigami.Heading {
 			text: qsTr("or")
@@ -108,28 +108,28 @@ Kirigami.ScrollablePage {
 			Layout.fillWidth: true
 		}
 
-        FormCard {
+		FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-            delegates: ColumnLayout {
+			delegates: ColumnLayout {
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Register")
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					text: qsTr("Generate account automatically")
 					onClicked: openPage(automaticRegistrationPage)
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					text: qsTr("Create account manually")
 					onClicked: openPage(manualRegistrationPage)
 				}
-            }
-        }
+			}
+		}
 
 		Item {
 			Layout.fillHeight: true

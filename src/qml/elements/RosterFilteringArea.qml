@@ -20,18 +20,18 @@ ColumnLayout {
 
 	spacing: 0
 
-    FormCard {
+	FormCard {
 		implicitWidth: 570
 		Layout.fillWidth: true
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
-        delegates: FormSwitchDelegate {
+		delegates: FormSwitchDelegate {
 			id: chatFilteringSwitch
 			text: qsTr("Filter by availability")
 			description: qsTr("Show only available contacts")
 			checked: root.rosterFilterProxyModel.onlyAvailableContactsShown
 			onToggled: root.rosterFilterProxyModel.onlyAvailableContactsShown = checked
-        }
-    }
+		}
+	}
 
 	ListView {
 		id: accountListView
@@ -40,10 +40,10 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-        header: FormCard {
+		header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            delegates: FormSwitchDelegate {
+			delegates: FormSwitchDelegate {
 				id: accountFilteringSwitch
 				text: qsTr("Filter by accounts")
 				description: qsTr("Show only chats of selected accounts")
@@ -53,7 +53,7 @@ ColumnLayout {
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a work around to reset the switch because
-                // "FormSwitchDelegate" does not listen to changes of
+				// "FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
 					target: root.rosterFilterProxyModel
@@ -62,9 +62,9 @@ ColumnLayout {
 						accountFilteringSwitch.checked = root.rosterFilterProxyModel.selectedAccountJids.length
 					}
 				}
-            }
+			}
 		}
-        delegate: FormSwitchDelegate {
+		delegate: FormSwitchDelegate {
 			id: accountDelegate
 			text: modelData
 			checked: root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
@@ -79,7 +79,7 @@ ColumnLayout {
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a work around to reset the switch because
-            // "FormSwitchDelegate" does not listen to changes of
+			// "FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
 				target: root.rosterFilterProxyModel
@@ -88,7 +88,7 @@ ColumnLayout {
 					accountDelegate.checked = root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
 				}
 			}
-        }
+		}
 
 		Connections {
 			target: RosterModel
@@ -118,10 +118,10 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-        header: FormCard {
+		header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            delegates: FormSwitchDelegate {
+			delegates: FormSwitchDelegate {
 				id: groupFilteringSwitch
 				text: qsTr("Filter by labels")
 				description: qsTr("Show only chats with selected labels")
@@ -131,7 +131,7 @@ ColumnLayout {
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a work around to reset the switch because
-                // "FormSwitchDelegate" does not listen to changes of
+				// "FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
 					target: root.rosterFilterProxyModel
@@ -140,9 +140,9 @@ ColumnLayout {
 						groupFilteringSwitch.checked = root.rosterFilterProxyModel.selectedGroups.length
 					}
 				}
-            }
+			}
 		}
-        delegate: FormSwitchDelegate {
+		delegate: FormSwitchDelegate {
 			id: groupDelegate
 			text: modelData
 			checked: root.rosterFilterProxyModel.selectedGroups.includes(modelData)
@@ -157,7 +157,7 @@ ColumnLayout {
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a work around to reset the switch because
-            // "FormSwitchDelegate" does not listen to changes of
+			// "FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
 				target: root.rosterFilterProxyModel
@@ -166,7 +166,7 @@ ColumnLayout {
 					groupDelegate.checked = root.rosterFilterProxyModel.selectedGroups.includes(modelData)
 				}
 			}
-        }
+		}
 
 		Connections {
 			target: RosterModel

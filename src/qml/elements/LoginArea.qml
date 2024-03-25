@@ -19,7 +19,7 @@ import "fields"
 import "../settings"
 
 FormCard {
-    delegates: AbstractFormDelegate {
+	delegates: AbstractFormDelegate {
 		background: Item {}
 		contentItem: ColumnLayout {
 			Layout.fillWidth: true
@@ -57,12 +57,12 @@ FormCard {
 				inputField.onAccepted: loginButton.clicked()
 			}
 
-            FormCard {
+			FormCard {
 				Layout.topMargin: Kirigami.Units.largeSpacing
 				Layout.bottomMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-                delegates: FormButtonDelegate {
+				delegates: FormButtonDelegate {
 					id: loginButton
 					text: qsTr("Log in")
 					state: Kaidan.connectionState !== Enums.StateDisconnected ? "connecting" : ""

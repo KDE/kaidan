@@ -23,8 +23,8 @@ Kirigami.ScrollablePage {
 	background: Rectangle {
 		color: primaryBackgroundColor
 	}
-    /* TODO actions {
-        main: Kirigami.Action {
+	/* TODO actions {
+		main: Kirigami.Action {
 			text: qsTr("Search")
 			icon.name: "system-search-symbolic"
 			visible: isSearchActionShown
@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
 				}
 			}
 		}
-    }*/
+	}*/
 
 	Component {
 		id: desktopSearchBarComponent

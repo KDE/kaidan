@@ -19,7 +19,7 @@ DetailsContent {
 	required property string accountJid
 	readonly property bool isChatWithOneself: accountJid === jid
 
-    /* TODO automaticMediaDownloadsDelegate {
+	/* TODO automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Account default"),
@@ -38,16 +38,16 @@ DetailsContent {
 		valueRole: "value"
 		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
 		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
-    }*/
-    /* TODO mediaOverview {
+	}*/
+	/* TODO mediaOverview {
 		accountJid: root.accountJid
 		chatJid: root.jid
-    }*/
-    /* TODO vCardRepeater {
+	}*/
+	/* TODO vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
 		}
-        delegate: FormButtonDelegate {
+		delegate: FormButtonDelegate {
 			text: model.value
 			description: model.key
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
@@ -58,8 +58,8 @@ DetailsContent {
 					Qt.openUrlExternally(model.value)
 				}
 			}
-        }
-    }*/
+		}
+	}*/
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
@@ -73,11 +73,11 @@ DetailsContent {
 			jid: root.jid
 		}
 
-        /* TODO FormHeader {
+		/* TODO FormHeader {
 			title: qsTr("Encryption")
 		}
 
-        FormSwitchDelegate {
+		FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 			enabled: MessageModel.usableOmemoDevices.length
@@ -87,7 +87,7 @@ DetailsContent {
 			onClicked: MessageModel.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		}
 
-        FormButtonDelegate {
+		FormButtonDelegate {
 			text: {
 				if (!MessageModel.usableOmemoDevices.length) {
 					if (accountOmemoWatcher.distrustedDevices.length) {
@@ -125,7 +125,7 @@ DetailsContent {
 				}
 
 				return ""
-            }
+			}
 			visible: text
 			enabled: accountOmemoWatcher.authenticatableDevices.length
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.accountJid)
@@ -136,7 +136,7 @@ DetailsContent {
 			}
 		}
 
-        FormButtonDelegate {
+		FormButtonDelegate {
 			text: {
 				if(root.isChatWithOneself) {
 					return ""
@@ -178,13 +178,13 @@ DetailsContent {
 			visible: text
 			enabled: contactOmemoWatcher.authenticatableDevices.length
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
-        }*/
+		}*/
 	}
-    /* TODO rosterGoupListView {
-        header: FormCard {
+	/* TODO rosterGoupListView {
+		header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-            contentItem: AbstractFormDelegate {
+			delegates: AbstractFormDelegate {
 				background: Item {}
 				contentItem: RowLayout {
 					spacing: Kirigami.Units.largeSpacing * 3
@@ -250,7 +250,7 @@ DetailsContent {
 				}
 			}
 		}
-        delegate: FormSwitchDelegate {
+		delegate: FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
 			checked: contactWatcher.item.groups.includes(modelData)
@@ -273,25 +273,25 @@ DetailsContent {
 
 				function onGroupsChanged() {
 					// Update the "checked" value of "rosterGroupDelegate" as a work
-                    // around because "FormSwitchDelegate" does not listen to
+					// around because "FormSwitchDelegate" does not listen to
 					// changes of "contactWatcher.item.groups".
 					rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
 				}
 			}
-        }
-    }*/
+		}
+	}*/
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Sharing")
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Show QR code")
 				description: qsTr("Share this contact's chat address via QR code")
 				icon.name: "view-barcode-qr"
@@ -299,7 +299,7 @@ DetailsContent {
 				onClicked: qrCodeArea.visible = !qrCodeArea.visible
 			}
 
-            AbstractFormDelegate {
+			AbstractFormDelegate {
 				id: qrCodeArea
 				visible: false
 				background: Rectangle {
@@ -318,7 +318,7 @@ DetailsContent {
 				Layout.preferredHeight: Layout.preferredWidth
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Copy chat address")
 				description: qsTr("Share this contact's chat address via text")
 				icon.name: "send-to-symbolic"
@@ -327,20 +327,20 @@ DetailsContent {
 					passiveNotification(qsTr("Contact copied to clipboard"))
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Notifications")
 			}
 
-            FormSwitchDelegate {
+			FormSwitchDelegate {
 				text: qsTr("Incoming messages")
 				description: qsTr("Show notification and play sound on message arrival")
 				checked: !contactWatcher.item.notificationsMuted
@@ -351,34 +351,34 @@ DetailsContent {
 						!checked)
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Privacy")
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
 				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && !contactWatcher.item.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Cancel personal data sharing")
 				description: qsTr("Stop sharing your availability, devices and other personal information")
 				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && contactWatcher.item.receivingPresence
 				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
 			}
 
-            FormSwitchDelegate {
+			FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
 				checked: contactWatcher.item.chatStateSendingEnabled
@@ -390,7 +390,7 @@ DetailsContent {
 				}
 			}
 
-            FormSwitchDelegate {
+			FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
 				checked: contactWatcher.item.readMarkerSendingEnabled
@@ -402,7 +402,7 @@ DetailsContent {
 				}
 			}
 
-            FormSwitchDelegate {
+			FormSwitchDelegate {
 				text: qsTr("Block")
 				description: qsTr("Block all communication including status and notifications")
 				enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
@@ -420,23 +420,23 @@ DetailsContent {
 					jid: root.jid
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Removal")
 			}
 
 			ColumnLayout {
 				spacing: 0
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: contactRemovalButton
 					text: qsTr("Remove")
 					description: qsTr("Remove contact and complete chat history")
@@ -445,7 +445,7 @@ DetailsContent {
 					onClicked: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: contactRemovalConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
@@ -457,8 +457,8 @@ DetailsContent {
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 
 	// This needs to be placed after the notification section.
 	// Otherwise, notifications will not be shown as muted after switching chats.

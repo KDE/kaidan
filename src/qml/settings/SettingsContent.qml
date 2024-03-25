@@ -21,24 +21,24 @@ ColumnLayout {
 
 	Layout.fillHeight: true
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Multimedia Settings")
 				description: qsTr("Configure photo, video and audio recording settings")
 				onClicked: stack.push("qrc:/qml/settings/MultimediaSettings.qml")
 				icon.name: "emblem-system-symbolic"
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("About Kaidan")
 				description: qsTr("Learn about the current Kaidan version, view the source code and contribute")
 				onClicked: stack.push("qrc:/qml/settings/AboutPage.qml")
 				icon.name: "help-about-symbolic"
 			}
-        }
-    }
+		}
+	}
 }

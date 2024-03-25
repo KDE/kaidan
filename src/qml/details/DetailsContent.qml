@@ -21,12 +21,12 @@ Controls.Control {
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
 	required property string jid
-    // TODO property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
-    // TODO property alias mediaOverview: mediaOverview
-    // TODO property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
-    // TODO property alias vCardArea: vCardArea.data
-    // TODO property alias vCardRepeater: vCardRepeater
-    // TODO property alias rosterGoupListView: rosterGoupListView
+	// TODO property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
+	// TODO property alias mediaOverview: mediaOverview
+	// TODO property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
+	// TODO property alias vCardArea: vCardArea.data
+	// TODO property alias vCardRepeater: vCardRepeater
+	// TODO property alias rosterGoupListView: rosterGoupListView
 	required property ColumnLayout encryptionArea
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
@@ -41,16 +41,16 @@ Controls.Control {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
 
-        FormCard {
+		FormCard {
 			Layout.fillWidth: true
-            /*contentItem: ColumnLayout {
+			delegates: ColumnLayout {
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Media")
 				}
 
-                FormComboBoxDelegate {
+				FormComboBoxDelegate {
 					id: automaticMediaDownloadsDelegate
 					text: qsTr("Automatic Downloads")
 					description: qsTr("Download media automatically")
@@ -110,17 +110,17 @@ Controls.Control {
 						}
 					}
 				}
-            }*/
+			}
 		}
 
-        FormCard {
+		FormCard {
 			visible: vCardRepeater.count || vCardRepeater.model.jid === AccountManager.jid
 			Layout.fillWidth: true
-            delegates: ColumnLayout {
+			delegates: ColumnLayout {
 				id: vCardArea
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Profile")
 				}
 
@@ -128,23 +128,23 @@ Controls.Control {
 					id: vCardRepeater
 					Layout.fillHeight: true
 				}
-            }
+			}
 		}
 
-        FormCard {
+		FormCard {
 			Layout.fillWidth: true
-            // TODO contentItem: root.encryptionArea
+			delegates: root.encryptionArea
 		}
 
-        FormCard {
+		FormCard {
 			// Hide this if there are no items and no header.
 			visible: rosterGoupListView.count || rosterGoupListView.headerItem
 			Layout.fillWidth: true
 
-            delegates: ColumnLayout {
+			delegates: ColumnLayout {
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Labels")
 				}
 
@@ -159,16 +159,16 @@ Controls.Control {
 				FormExpansionButton {
 					id: rosterGroupExpansionButton
 				}
-            }
+			}
 		}
 
-        FormCard {
+		FormCard {
 			visible: deviceRepeater.count
 			Layout.fillWidth: true
-            delegates: ColumnLayout {
+			delegates: ColumnLayout {
 				spacing: 0
 
-                FormHeader {
+				FormHeader {
 					title: qsTr("Connected Devices")
 				}
 
@@ -178,7 +178,7 @@ Controls.Control {
 					model: UserDevicesModel {
 						jid: root.jid
 					}
-                    delegate: AbstractFormDelegate {
+					delegate: AbstractFormDelegate {
 						visible: deviceExpansionButton.checked
 						background: Item {}
 						contentItem: ColumnLayout {
@@ -212,8 +212,8 @@ Controls.Control {
 				FormExpansionButton {
 					id: deviceExpansionButton
 				}
-            }
-        }
+			}
+		}
 	}
 
 	function openKeyAuthenticationPage(keyAuthenticationPageComponent, accountJid, chatJid) {

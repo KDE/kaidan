@@ -36,9 +36,9 @@ MediaPreview {
 		id: mediaPlayer
 
 		source: root.mediaSource
-        // TODO volume: volumePlayer.volume
+		// TODO volume: volumePlayer.volume
 
-        // TODO onStopped: seek(0)
+		// TODO onStopped: seek(0)
 	}
 
 	ColumnLayout {

@@ -19,7 +19,7 @@ import "../settings"
 
 DetailsContent {
 	id: root
-    /* TODO automaticMediaDownloadsDelegate {
+	/* TODO automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Never"),
@@ -55,7 +55,7 @@ DetailsContent {
 		model: VCardModel {
 			jid: root.jid
 		}
-        delegate: AbstractFormDelegate {
+		delegate: AbstractFormDelegate {
 			id: vCardDelegate
 
 			property bool editing: false
@@ -123,7 +123,7 @@ DetailsContent {
 				editing = !editing
 			}
 		}
-    }*/
+	}*/
 	encryptionArea: ColumnLayout {
 		spacing: 0
 		Component.onCompleted: {
@@ -138,11 +138,11 @@ DetailsContent {
 			jid: root.jid
 		}
 
-        /* TODO FormHeader {
+		FormHeader {
 			title: qsTr("Encryption")
 		}
 
-        FormSwitchDelegate {
+		FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 			checked: Kaidan.settings.encryption === Encryption.Omemo2
@@ -159,7 +159,7 @@ DetailsContent {
 			}
 		}
 
-        FormButtonDelegate {
+		FormButtonDelegate {
 			text: {
 				if (!omemoWatcher.usableDevices.length) {
 					if (omemoWatcher.distrustedDevices.length) {
@@ -202,10 +202,10 @@ DetailsContent {
 				id: ownResourcesWatcher
 				jid: root.jid
 			}
-        }*/
+		}
 	}
-    /* TODO rosterGoupListView {
-        delegate: AbstractFormDelegate {
+	/* TODO rosterGoupListView {
+		delegate: AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
 			onClicked: rosterGroupEditingButton.toggled()
@@ -272,9 +272,9 @@ DetailsContent {
 				}
 			}
 		}
-    }*/
+	}*/
 
-    FormCard {
+	FormCard {
 		id: providerArea
 
 		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite
@@ -283,7 +283,7 @@ DetailsContent {
 
 		Layout.fillWidth: true
 		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
 			ProviderListModel {
@@ -295,18 +295,18 @@ DetailsContent {
 				chatSupportList: providerArea.chatSupportList
 			}
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Provider")
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Visit website")
 				description: qsTr("Open your provider's website in a web browser")
 				visible: providerArea.providerUrl
 				onClicked: Qt.openUrlExternally(providerArea.providerUrl)
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Copy website address")
 				description: qsTr("Copy your provider's web address to the clipboard")
 				visible: providerArea.providerUrl
@@ -316,7 +316,7 @@ DetailsContent {
 				}
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Open support chat")
 				description: qsTr("Start chat with your provider's support contact")
 				visible: providerArea.chatSupportList.length > 0
@@ -335,7 +335,7 @@ DetailsContent {
 				}
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Open support group")
 				description: qsTr("Join your provider's public support group")
 				visible: providerArea.groupChatSupportList.length > 0
@@ -351,19 +351,19 @@ DetailsContent {
 					}
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Blocked Chat Addresses")
 			}
 
-            FormSectionText {
+			FormSectionText {
 				text: qsTr("Block a specific user (e.g., user@example.org) or all users of the same server (e.g., example.org)")
 				visible: blockingExpansionButton.checked
 			}
@@ -374,10 +374,10 @@ DetailsContent {
 				visible: blockingExpansionButton.checked
 				implicitHeight: contentHeight
 				Layout.fillWidth: true
-                header: FormCard {
+				header: FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                    delegates: AbstractFormDelegate {
+					delegates: AbstractFormDelegate {
 						background: Item {}
 						contentItem: RowLayout {
 							spacing: Kirigami.Units.largeSpacing * 3
@@ -436,7 +436,7 @@ DetailsContent {
 					}
 				}
 				section.property: "type"
-                section.delegate: FormSectionText {
+				section.delegate: FormSectionText {
 					text: section
 					padding: Kirigami.Units.largeSpacing
 					leftPadding: Kirigami.Units.largeSpacing * 3
@@ -447,7 +447,7 @@ DetailsContent {
 						color: tertiaryBackgroundColor
 					}
 				}
-                delegate: AbstractFormDelegate {
+				delegate: AbstractFormDelegate {
 					id: blockingDelegate
 					width: ListView.view.width
 					onClicked: blockingEditingButton.toggled()
@@ -517,23 +517,23 @@ DetailsContent {
 			FormExpansionButton {
 				id: blockingExpansionButton
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		id: notesAdditionArea
 		visible: !RosterModel.hasItem(root.jid)
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Notes")
 			}
 
 			// TODO: Find a solution (hide button or add local-only chat) to servers not allowing to add oneself to the roster (such as Prosody)
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Add chat for notes")
 				description: qsTr("Add a chat for synchronizing your notes across all your devices")
 				icon.name: "note-symbolic"
@@ -558,28 +558,28 @@ DetailsContent {
 					}
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Password Change")
 			}
 
-            FormSectionText {
+			FormSectionText {
 				text: qsTr("Change your password. You need to enter the new password on all your other devices!")
 			}
 
-            FormCard {
+			FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                delegates: AbstractFormDelegate {
+				delegates: AbstractFormDelegate {
 					background: Item {}
 					contentItem: ColumnLayout {
 						Component.onCompleted: {
@@ -694,25 +694,25 @@ DetailsContent {
 					}
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Password Visibility")
 			}
 
-            FormSectionText {
+			FormSectionText {
 				text: qsTr("Configure this device to not expose your password for changing it or switching to another device. If you want to change your password or use your account on another device later, <b>consider storing the password somewhere else. This cannot be undone!</b>")
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Don't show password as text")
 				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
 				icon.name: "security-medium-symbolic"
@@ -720,7 +720,7 @@ DetailsContent {
 				onClicked: passwordRemovalFromQrCodeConfirmationButton.visible = !passwordRemovalFromQrCodeConfirmationButton.visible
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				id: passwordRemovalFromQrCodeConfirmationButton
 				text: qsTr("Confirm")
 				visible: false
@@ -731,7 +731,7 @@ DetailsContent {
 				}
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				text: qsTr("Don't expose password in any way")
 				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
 				icon.name: "security-high-symbolic"
@@ -739,7 +739,7 @@ DetailsContent {
 				onClicked: passwordRemovalConfirmationButton.visible = !passwordRemovalConfirmationButton.visible
 			}
 
-            FormButtonDelegate {
+			FormButtonDelegate {
 				id: passwordRemovalConfirmationButton
 				text: qsTr("Confirm")
 				visible: false
@@ -754,27 +754,27 @@ DetailsContent {
 					}
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Connection")
 			}
 
-            FormSectionText {
+			FormSectionText {
 				text: qsTr("Configure the hostname and port to connect to (empty fields for default values)")
 			}
 
-            FormCard {
+			FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-                delegates: AbstractFormDelegate {
+				delegates: AbstractFormDelegate {
 					background: Item {}
 					contentItem: ColumnLayout {
 						id: connectionSettings
@@ -874,23 +874,23 @@ DetailsContent {
 					}
 				}
 			}
-        }
+		}
 	}
 
-    FormCard {
+	FormCard {
 		Layout.fillWidth: true
 
-        delegates: ColumnLayout {
+		delegates: ColumnLayout {
 			spacing: 0
 
-            FormHeader {
+			FormHeader {
 				title: qsTr("Removal")
 			}
 
 			ColumnLayout {
 				spacing: 0
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: accountRemovalButton
 					text: qsTr("Remove from Kaidan")
 					description: qsTr("Remove account from this app. Back up your credentials and chat history if needed!")
@@ -899,7 +899,7 @@ DetailsContent {
 					onClicked: accountRemovalConfirmationButton.visible = !accountRemovalConfirmationButton.visible
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: accountRemovalConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
@@ -915,7 +915,7 @@ DetailsContent {
 			ColumnLayout {
 				spacing: 0
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: accountDeletionButton
 					text: qsTr("Delete completely")
 					description: qsTr("Delete account from provider. You will not be able to use your account again!")
@@ -924,7 +924,7 @@ DetailsContent {
 					onClicked: accountDeletionConfirmationButton.visible = !accountDeletionConfirmationButton.visible
 				}
 
-                FormButtonDelegate {
+				FormButtonDelegate {
 					id: accountDeletionConfirmationButton
 					text: qsTr("Confirm")
 					visible: false
@@ -937,6 +937,6 @@ DetailsContent {
 					}
 				}
 			}
-        }
-    }
+		}
+	}
 }
