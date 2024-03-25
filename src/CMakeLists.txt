@@ -233,12 +233,12 @@ target_link_libraries(${PROJECT_NAME}
 	Qt::Positioning
 	Qt::Location
 	Qt::QuickControls2
-	KF5::CoreAddons
-	KF5::KIOCore
-	KF5::KIOWidgets
+	KF${QT_MAJOR_VERSION}::CoreAddons
+	KF${QT_MAJOR_VERSION}::KIOCore
+	KF${QT_MAJOR_VERSION}::KIOWidgets
 	QXmpp::QXmpp QXmpp::Omemo
-	${__Qt5Widgets_LIBRARIES}
-	${__KF5Notifications_LIBRARIES}
+	${__QtWidgets_LIBRARIES}
+	${__KFNotifications_LIBRARIES}
 )
 
 if(TARGET ZXing::ZXing)
@@ -248,13 +248,13 @@ elseif(TARGET ZXing::Core)
 endif()
 
 if(ANDROID OR IOS)
-	target_link_libraries(${PROJECT_NAME} Qt5::QuickControls2 KF5::Kirigami2)
+	target_link_libraries(${PROJECT_NAME} Qt::QuickControls2 KF${QT_MAJOR_VERSION}::Kirigami2)
 endif()
 
 if(ANDROID)
-	target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
+	target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
 else()
-	target_link_libraries(${PROJECT_NAME} KF5::KIOFileWidgets)
+	target_link_libraries(${PROJECT_NAME} KF${QT_MAJOR_VERSION}::KIOFileWidgets)
 endif()
 
 if(STATIC_BUILD)
@@ -267,12 +267,12 @@ if(STATIC_BUILD)
 		file(REMOVE ${STATIC_DEPENDENCIES_CMAKE_FILE})
 	endif()
 
-	get_target_property(QT_LIBDIR Qt5::Core LOCATION)
+	get_target_property(QT_LIBDIR Qt::Core LOCATION)
 	get_filename_component(QT_LIBDIR ${QT_LIBDIR} DIRECTORY)
 
 	macro(CONVERT_PRL_LIBS_TO_CMAKE _qt_component)
-		if(TARGET Qt5::${_qt_component})
-			get_target_property(_lib_location Qt5::${_qt_component} LOCATION)
+		if(TARGET Qt::${_qt_component})
+			get_target_property(_lib_location Qt::${_qt_component} LOCATION)
 			execute_process(COMMAND ${PERL_EXECUTABLE} ${CMAKE_SOURCE_DIR}/utils/convert-prl-libs-to-cmake.pl
 				--lib ${_lib_location}
 				--libdir ${QT_LIBDIR}
@@ -283,7 +283,7 @@ if(STATIC_BUILD)
 		endif()
 	endmacro()
 
-	link_directories(${_qt5_install_prefix}/../)
+	link_directories(${_qt_install_prefix}/../)
 
 	foreach(qt_module Gui Quick QuickControls2 Network Qml Svg Sql QSQLiteDriverPlugin
              QJpegPlugin QGifPlugin QSvgPlugin QSvgIconPlugin QICOPlugin QGenericEnginePlugin
@@ -303,7 +303,7 @@ if(STATIC_BUILD)
 	endif()
 	include(${STATIC_DEPENDENCIES_CMAKE_FILE})
 
-	set(QT_QML_PATH ${_qt5Quick_install_prefix})
+	set(QT_QML_PATH ${_qtQuick_install_prefix})
 
 	find_library(KIRIGAMI_PLUGIN kirigamiplugin PATHS ${Kirigami2_INSTALL_PREFIX}/${KDE_INSTALL_QMLDIR}/org/kde/kirigami.2)
 	find_library(QUICK_PLUGIN qtquick2plugin PATHS ${QT_QML_PATH}/qml/QtQuick.2)
@@ -317,20 +317,20 @@ if(STATIC_BUILD)
 	find_library(QDIALOGS_PLUGIN qquickdialogsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Dialogs)
 	find_library(QWINDOW_PLUGIN windowplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Window.2)
 	find_library(QSHAPES_PLUGIN qmlshapesplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Shapes)
-	find_library(QUICKSHAPES Qt5QuickShapes PATHS ${QT_LIBDIR})
+	find_library(QUICKSHAPES Qt${QT_MAJOR_VERSION}QuickShapes PATHS ${QT_LIBDIR})
 	find_library(QTEMPLATES_PLUGIN qtquicktemplates2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Templates.2)
 	find_library(QMODELS_PLUGIN modelsplugin PATHS ${QT_QML_PATH}/qml/QtQml/Models.2)
 	target_link_libraries(${PROJECT_NAME}
 		${plugin_libs}
-		Qt5::QSQLiteDriverPlugin
-		Qt5::QJpegPlugin
-		Qt5::QGifPlugin
-		Qt5::QSvgPlugin
-		Qt5::QSvgIconPlugin
-		Qt5::QICOPlugin
-		Qt5::QGenericEnginePlugin
-		Qt5::QLocalClientConnectionFactory
-		Qt5::QTcpServerConnectionFactory
+		Qt::QSQLiteDriverPlugin
+		Qt::QJpegPlugin
+		Qt::QGifPlugin
+		Qt::QSvgPlugin
+		Qt::QSvgIconPlugin
+		Qt::QICOPlugin
+		Qt::QGenericEnginePlugin
+		Qt::QLocalClientConnectionFactory
+		Qt::QTcpServerConnectionFactory
 		${KIRIGAMI_PLUGIN}
 		${QUICK_PLUGIN}
 		${LABS_PLATFORM_PLUGIN}
@@ -346,19 +346,19 @@ if(STATIC_BUILD)
 		${QUICKSHAPES}
 		${QTEMPLATES_PLUGIN}
 		${QMODELS_PLUGIN}
-		${__Qt5Widgets_LIBRARIES}
+		${__QtWidgets_LIBRARIES}
 	)
 
 	if(IOS)
 		target_link_libraries(${PROJECT_NAME}
-			Qt5::QIOSIntegrationPlugin
-			Qt5::QMacHeifPlugin
-			Qt5::QMacJp2Plugin
-			Qt5::QICNSPlugin
-			Qt5::QTgaPlugin
-			Qt5::QTiffPlugin
-			Qt5::QWbmpPlugin
-			Qt5::QWebpPlugin
+			Qt::QIOSIntegrationPlugin
+			Qt::QMacHeifPlugin
+			Qt::QMacJp2Plugin
+			Qt::QICNSPlugin
+			Qt::QTgaPlugin
+			Qt::QTiffPlugin
+			Qt::QWbmpPlugin
+			Qt::QWebpPlugin
 		)
 	endif()
 endif()
