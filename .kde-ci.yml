@@ -3,22 +3,7 @@
 
 Dependencies:
   - 'on':
-      - Android/Qt5
-      - FreeBSD/Qt5
-      - Linux/Qt5
-      - Windows/Qt5
-    require:
-      frameworks/extra-cmake-modules: '@stable'
-      frameworks/kcoreaddons: '@stable'
-      frameworks/kio: '@stable'
-      frameworks/kirigami: '@stable'
-      libraries/kirigami-addons: '@stable'
-      libraries/kquickimageeditor: '@stable'
-  - 'on':
-      - Android/Qt6
-      - FreeBSD/Qt6
-      - Linux/Qt6
-      - Windows/Qt6
+      - '@all'
     require:
       frameworks/extra-cmake-modules: '@latest-kf6'
       frameworks/kcoreaddons: '@latest-kf6'
