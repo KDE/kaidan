@@ -55,7 +55,7 @@ ExplanationTogglePage {
 		anchors.fill: parent
 		zoomSliderArea.anchors.bottomMargin: Kirigami.Units.largeSpacing * 9
 		zoomSliderArea.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
-		filter.onScanningSucceeded: {
+        /* TODO filter.onScanningSucceeded: {
 			if (acceptResult) {
 				// Try to log in by the data from the decoded QR code.
 				switch (Kaidan.logInByUri(result)) {
@@ -72,7 +72,7 @@ ExplanationTogglePage {
 					showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
 				}
 			}
-		}
+        }*/
 
 		LoadingArea {
 			anchors.centerIn: parent

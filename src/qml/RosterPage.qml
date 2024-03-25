@@ -20,12 +20,12 @@ import "elements"
 
 SearchBarPage {
 	listView: rosterListView
-	rightAction: Kirigami.Action {
+    /* TODO rightAction: Kirigami.Action {
 		text: qsTr("Filter")
 		icon.name: "filter-symbolic"
 		displayHint: Kirigami.DisplayHint.IconOnly
 		onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
-	}
+    }*/
 
 	Component {
 		id: rosterFilteringDialog
@@ -98,10 +98,10 @@ SearchBarPage {
 		// Without the DelegateRecycler, the reordering of pinned items does not work.
 		// But it is not clear why the DelegateRecycler is needed for that purpose because the
 		// ListView would manage the recycling by itself if enabled/needed.
-		delegate: Kirigami.DelegateRecycler {
+        /*delegate: Kirigami.DelegateRecycler {
 			width: rosterListView.width
 			sourceComponent: delegateComponent
-		}
+        }*/
 
 		moveDisplaced: Transition {
 			YAnimator {

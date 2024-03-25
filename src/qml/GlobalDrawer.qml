@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+//TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -49,7 +49,7 @@ Kirigami.GlobalDrawer {
 			spacing: Kirigami.Units.largeSpacing
 			Layout.margins: -3
 
-			MobileForm.FormCard {
+            /*TODO MobileForm.FormCard {
 				Layout.fillWidth: true
 
 				contentItem: ColumnLayout {
@@ -166,7 +166,7 @@ Kirigami.GlobalDrawer {
 						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsSheet)
 					}
 				}
-			}
+            }*/
 
 			// placeholder to keep topContent at the top
 			Item {

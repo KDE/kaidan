@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -60,11 +60,11 @@ ExplanationOptionsTogglePage {
 
 		EncryptionDevicesArea {
 			id: contactDevicesArea
-			header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
-			listView.model: OmemoModel {
+            // TODO header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
+            /* TODO listView.model: OmemoModel {
 				jid: root.chatJid
-			}
-			listView.header: MobileForm.FormCard {
+            }*/
+            /* TODO listView.header: MobileForm.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 				contentItem: MobileForm.AbstractFormDelegate {
@@ -136,7 +136,7 @@ ExplanationOptionsTogglePage {
 				description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 				descriptionItem.textFormat: Text.MarkdownText
 				width: ListView.view.width
-			}
+            }*/
 		}
 
 		Kirigami.Separator {
@@ -150,12 +150,12 @@ ExplanationOptionsTogglePage {
 		}
 
 		EncryptionDevicesArea {
-			header.title: qsTr("Verified own devices")
-			listView.model: OmemoModel {
+            // TODO header.title: qsTr("Verified own devices")
+            /* TODO listView.model: OmemoModel {
 				jid: root.accountJid
 				ownAuthenticatedKeysProcessed: true
-			}
-			listView.delegate: MobileForm.AbstractFormDelegate {
+            }*/
+            /* TODO listView.delegate: MobileForm.AbstractFormDelegate {
 				id: encryptionKeyDelegate
 				width: ListView.view.width
 				leftPadding: 0
@@ -183,7 +183,7 @@ ExplanationOptionsTogglePage {
 						}
 					}
 				}
-			}
+            }*/
 		}
 	}
 

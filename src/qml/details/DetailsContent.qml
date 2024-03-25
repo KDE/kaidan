@@ -8,7 +8,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -21,12 +21,12 @@ Controls.Control {
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
 	required property string jid
-	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
-	property alias mediaOverview: mediaOverview
-	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
-	property alias vCardArea: vCardArea.data
-	property alias vCardRepeater: vCardRepeater
-	property alias rosterGoupListView: rosterGoupListView
+    // TODO property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
+    // TODO property alias mediaOverview: mediaOverview
+    // TODO property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
+    // TODO property alias vCardArea: vCardArea.data
+    // TODO property alias vCardRepeater: vCardRepeater
+    // TODO property alias rosterGoupListView: rosterGoupListView
 	required property ColumnLayout encryptionArea
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
@@ -41,7 +41,7 @@ Controls.Control {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
 
-		MobileForm.FormCard {
+        /* TODO MobileForm.FormCard {
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
@@ -213,7 +213,7 @@ Controls.Control {
 					id: deviceExpansionButton
 				}
 			}
-		}
+        }*/
 	}
 
 	function openKeyAuthenticationPage(keyAuthenticationPageComponent, accountJid, chatJid) {

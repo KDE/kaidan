@@ -6,7 +6,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -56,7 +56,7 @@ Kirigami.ScrollablePage {
 			scaleFactor: 1.5
 		}
 
-		MobileForm.FormCard {
+        /* TODO MobileForm.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
@@ -100,7 +100,7 @@ Kirigami.ScrollablePage {
 					onClicked: openPage(qrCodeOnboardingPage)
 				}
 			}
-		}
+        }*/
 
 		Kirigami.Heading {
 			text: qsTr("or")
@@ -108,7 +108,7 @@ Kirigami.ScrollablePage {
 			Layout.fillWidth: true
 		}
 
-		MobileForm.FormCard {
+        /* TODO MobileForm.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
@@ -129,7 +129,7 @@ Kirigami.ScrollablePage {
 					onClicked: openPage(manualRegistrationPage)
 				}
 			}
-		}
+        }*/
 
 		Item {
 			Layout.fillHeight: true

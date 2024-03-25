@@ -9,7 +9,7 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
-import QtGraphicalEffects 1.14
+// TODO import QtGraphicalEffects 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
@@ -76,13 +76,13 @@ Item {
 			}
 		}
 	}
-	OpacityMask {
+    /* TODO OpacityMask {
 		visible: showTail
 		anchors.fill: tailBase
 		source: tailBase
 		maskSource: tailMask
 		invert: true
-	}
+    }*/
 	Rectangle {
 		id: mainBG
 		radius: roundedCornersRadius

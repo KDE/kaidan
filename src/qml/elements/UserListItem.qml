@@ -5,12 +5,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.14
+import QtQuick.Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.AbstractListItem {
+ItemDelegate {
 	id: root
 
 	default property alias __data: content.data

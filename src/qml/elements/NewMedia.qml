@@ -13,7 +13,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-import QtMultimedia 5.14 as Multimedia
+import QtMultimedia as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -87,7 +87,7 @@ MediaPreview {
 		}
 
 		Multimedia.VideoOutput {
-			source: recorder
+            // TODO source: recorder
 			focus : visible // to receive focus and capture key events when visible
 			visible: !previewLoader.visible
 

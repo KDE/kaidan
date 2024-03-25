@@ -46,9 +46,9 @@ Kirigami.OverlaySheet {
 		initialItem: SettingsContent {}
 		clip: true
 	}
-	onSheetOpenChanged: {
+    /* TODO onSheetOpenChanged: {
 		if (!sheetOpen) {
 			destroy()
 		}
-	}
+    }*/
 }

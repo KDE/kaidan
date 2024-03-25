@@ -46,20 +46,20 @@ MediaPreview {
 
 			plugin: Location.Plugin {
 				name: "osm"
-				Location.PluginParameter {
+                /* TODO Location.PluginParameter {
 					name: "osm.useragent"
 					value: Utils.osmUserAgent()
 				}
 				Location.PluginParameter {
 					name: "osm.mapping.providersrepository.address"
 					value: "https://autoconfig.kde.org/qtlocation/"
-				}
+                }*/
 			}
 
-			gesture {
+            /* TODO gesture {
 				flickDeceleration: 3000
 				enabled: !root.message
-			}
+            }*/
 
 			Layout.fillHeight: true
 			Layout.fillWidth: true
@@ -111,9 +111,9 @@ MediaPreview {
 					}
 				}
 
-				onUpdateTimeout: {
+                /* TODO onUpdateTimeout: {
 					console.log("***", "Position lookup timeout.")
-				}
+                }*/
 			}
 
 			Location.MapQuickItem {

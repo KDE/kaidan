@@ -9,7 +9,7 @@ import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
 import im.kaidan.kaidan 1.0
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 /**
  * The settings page contains options to configure Kaidan.
@@ -21,7 +21,7 @@ ColumnLayout {
 
 	Layout.fillHeight: true
 
-	MobileForm.FormCard {
+    /* TODO MobileForm.FormCard {
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
@@ -40,5 +40,5 @@ ColumnLayout {
 				icon.name: "help-about-symbolic"
 			}
 		}
-	}
+    }*/
 }

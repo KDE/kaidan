@@ -13,7 +13,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-import QtMultimedia 5.14 as Multimedia
+import QtMultimedia as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 import MediaUtils 0.1
@@ -36,9 +36,9 @@ MediaPreview {
 		id: mediaPlayer
 
 		source: root.mediaSource
-		volume: volumePlayer.volume
+        // TODO volume: volumePlayer.volume
 
-		onStopped: seek(0)
+        // TODO onStopped: seek(0)
 	}
 
 	ColumnLayout {

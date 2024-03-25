@@ -7,7 +7,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -19,7 +19,7 @@ DetailsContent {
 	required property string accountJid
 	readonly property bool isChatWithOneself: accountJid === jid
 
-	automaticMediaDownloadsDelegate {
+    /* TODO automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Account default"),
@@ -38,16 +38,16 @@ DetailsContent {
 		valueRole: "value"
 		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
 		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
-	}
-	mediaOverview {
+    }*/
+    /* TODO mediaOverview {
 		accountJid: root.accountJid
 		chatJid: root.jid
-	}
-	vCardRepeater {
+    }*/
+    /* TODO vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
 		}
-		delegate: MobileForm.FormButtonDelegate {
+        delegate: MobileForm.FormButtonDelegate {
 			text: model.value
 			description: model.key
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
@@ -58,8 +58,8 @@ DetailsContent {
 					Qt.openUrlExternally(model.value)
 				}
 			}
-		}
-	}
+        }
+    }*/
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
@@ -73,7 +73,7 @@ DetailsContent {
 			jid: root.jid
 		}
 
-		MobileForm.FormCardHeader {
+        /* TODO MobileForm.FormCardHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -125,7 +125,7 @@ DetailsContent {
 				}
 
 				return ""
-			}
+            }
 			visible: text
 			enabled: accountOmemoWatcher.authenticatableDevices.length
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.accountJid)
@@ -178,10 +178,10 @@ DetailsContent {
 			visible: text
 			enabled: contactOmemoWatcher.authenticatableDevices.length
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
-		}
+        }*/
 	}
-	rosterGoupListView {
-		header: MobileForm.FormCard {
+    /* TODO rosterGoupListView {
+        header: MobileForm.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
 			contentItem: MobileForm.AbstractFormDelegate {
@@ -250,7 +250,7 @@ DetailsContent {
 				}
 			}
 		}
-		delegate: MobileForm.FormSwitchDelegate {
+        delegate: MobileForm.FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
 			checked: contactWatcher.item.groups.includes(modelData)
@@ -278,10 +278,10 @@ DetailsContent {
 					rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
 				}
 			}
-		}
-	}
+        }
+    }*/
 
-	MobileForm.FormCard {
+    /* TODO MobileForm.FormCard {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
@@ -458,7 +458,7 @@ DetailsContent {
 				}
 			}
 		}
-	}
+    }*/
 
 	// This needs to be placed after the notification section.
 	// Otherwise, notifications will not be shown as muted after switching chats.

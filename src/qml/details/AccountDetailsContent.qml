@@ -9,7 +9,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -19,7 +19,7 @@ import "../settings"
 
 DetailsContent {
 	id: root
-	automaticMediaDownloadsDelegate {
+    /* TODO automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Never"),
@@ -123,7 +123,7 @@ DetailsContent {
 				editing = !editing
 			}
 		}
-	}
+    }*/
 	encryptionArea: ColumnLayout {
 		spacing: 0
 		Component.onCompleted: {
@@ -138,7 +138,7 @@ DetailsContent {
 			jid: root.jid
 		}
 
-		MobileForm.FormCardHeader {
+        /* TODO MobileForm.FormCardHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -202,9 +202,9 @@ DetailsContent {
 				id: ownResourcesWatcher
 				jid: root.jid
 			}
-		}
+        }*/
 	}
-	rosterGoupListView {
+    /* TODO rosterGoupListView {
 		delegate: MobileForm.AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
@@ -938,5 +938,5 @@ DetailsContent {
 				}
 			}
 		}
-	}
+    }*/
 }

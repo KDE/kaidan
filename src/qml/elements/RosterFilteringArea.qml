@@ -6,7 +6,7 @@ import QtQuick 2.14
 import QtQuick.Controls 2.14 as Controls
 import QtQuick.Layouts 1.14
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+// TODO import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -20,7 +20,7 @@ ColumnLayout {
 
 	spacing: 0
 
-	MobileForm.FormCard {
+    /* TODO MobileForm.FormCard {
 		implicitWidth: 570
 		Layout.fillWidth: true
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -31,7 +31,7 @@ ColumnLayout {
 			checked: root.rosterFilterProxyModel.onlyAvailableContactsShown
 			onToggled: root.rosterFilterProxyModel.onlyAvailableContactsShown = checked
 		}
-	}
+    }*/
 
 	ListView {
 		id: accountListView
@@ -40,7 +40,7 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		header: MobileForm.FormCard {
+        /* TODO header: MobileForm.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
 			contentItem: MobileForm.FormSwitchDelegate {
@@ -88,7 +88,7 @@ ColumnLayout {
 					accountDelegate.checked = root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
 				}
 			}
-		}
+        }*/
 
 		Connections {
 			target: RosterModel
@@ -118,7 +118,7 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		header: MobileForm.FormCard {
+        /* TODO header: MobileForm.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
 			contentItem: MobileForm.FormSwitchDelegate {
@@ -166,7 +166,7 @@ ColumnLayout {
 					groupDelegate.checked = root.rosterFilterProxyModel.selectedGroups.includes(modelData)
 				}
 			}
-		}
+        }*/
 
 		Connections {
 			target: RosterModel

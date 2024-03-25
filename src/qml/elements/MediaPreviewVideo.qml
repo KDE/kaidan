@@ -12,7 +12,7 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
-import QtMultimedia 5.14 as Multimedia
+import QtMultimedia as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 MediaPreviewAudio {
@@ -23,7 +23,7 @@ MediaPreviewAudio {
 	Layout.maximumWidth: message ? messageSize : -1
 
 	placeHolder: Multimedia.VideoOutput {
-		source: root.player
+        // TODO source: root.player
 		fillMode: Image.PreserveAspectFit
 
 		anchors {

@@ -7,7 +7,7 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
-import QtMultimedia 5.14
+import QtMultimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -20,7 +20,7 @@ Item {
 
 	property bool cameraEnabled: false
 	property Camera camera
-	property alias filter: filter
+    // TODO property alias filter: filter
 	property alias zoomSliderArea: zoomSliderArea
 	property bool cornersRounded: true
 
@@ -32,15 +32,15 @@ Item {
 		// camera with continuous focus in the center of the video
 		Camera {
 			// Show camera input if this page is visible and the camera enabled.
-			cameraState: {
+            /* TODO cameraState: {
 				if (root.visible && cameraEnabled) {
 					return Camera.ActiveState
 				}
 
 				return Camera.LoadedState
-			}
-			digitalZoom: zoomSlider.value
-			onError: reloadingCameraTimer.start()
+            }*/
+            // TODO digitalZoom: zoomSlider.value
+            // TODO onError: reloadingCameraTimer.start()
 			Component.onCompleted: {
 				root.camera = this
 
@@ -75,9 +75,9 @@ Item {
 	VideoOutput {
 		visible: camera.cameraStatus === Camera.ActiveStatus
 		fillMode: VideoOutput.PreserveAspectCrop
-		source: root.camera
-		autoOrientation: true
-		filters: [filter]
+        // TODO source: root.camera
+        // TODO autoOrientation: true
+        // TODO filters: [filter]
 		anchors.fill: parent
 
 		Rectangle {
