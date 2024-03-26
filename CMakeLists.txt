@@ -85,7 +85,7 @@ kde_enable_exceptions()
 # Find packages
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
 find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami)
-find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.0 REQUIRED)
+find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 1.0.1 REQUIRED)
 find_package(ZXing REQUIRED)
 find_package(QXmpp 1.6.0 REQUIRED NAMES QXmpp QXmppQt{QT_MAJOR_VERSION} COMPONENTS Omemo)
 
