@@ -89,6 +89,11 @@ find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 1.0.1 REQUIRED)
 find_package(ZXing REQUIRED)
 find_package(QXmpp 1.6.0 REQUIRED NAMES QXmpp QXmppQt{QT_MAJOR_VERSION} COMPONENTS Omemo)
 
+# Format
+include(KDEClangFormat)
+file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h *.hpp *.c)
+kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
+
 # QML modules
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
 
