@@ -142,7 +142,7 @@ QString QmlUtils::trustMessageUriString(const QString &jid)
 	QList<QString> distrustedKeys;
 
 	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
-const auto key = QString::fromUtf8(itr.key().toHex());
+		const auto key = QString::fromUtf8(itr.key().toHex());
 		const auto trustLevel = itr.value();
 
 		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
@@ -253,7 +253,7 @@ QString QmlUtils::downloadPath(const QString &filename)
 	const QDir directory(
 			QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
 				QDir::separator() %
-	QStringLiteral(APPLICATION_DISPLAY_NAME));
+				QStringLiteral(APPLICATION_DISPLAY_NAME));
 	// create directory if it doesn't exist
 	if (!directory.mkpath(QStringLiteral(".")))
 		return {};
@@ -317,7 +317,7 @@ QString QmlUtils::processMsgFormatting(const QStringList &list, bool isFirst)
 		return (isFirst ? QString() : QStringLiteral(" ")) + QString(list.first()).replace(QStringLiteral("\n"), QStringLiteral("<br>"))
 		       + processMsgFormatting(list.mid(1), false);
 
-	return (isFirst ? QString() :QStringLiteral(" ")) + list.first() + processMsgFormatting(list.mid(1), false);
+	return (isFirst ? QString() : QStringLiteral(" ")) + list.first() + processMsgFormatting(list.mid(1), false);
 }
 
 QString QmlUtils::osmUserAgent()
