@@ -147,7 +147,7 @@ public:
 	Q_INVOKABLE void setNotificationsMuted(const QString &accountJid, const QString &jid, bool notificationsMuted);
 	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
-signals:
+Q_SIGNALS:
 	void addItemRequested(const RosterItem &item);
 	void updateItemRequested(const QString &jid,
 	                         const std::function<void (RosterItem &)> &updateItem);

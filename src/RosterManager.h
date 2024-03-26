@@ -38,7 +38,7 @@ public:
 	void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});
 	Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Add a contact to your roster
 	 *

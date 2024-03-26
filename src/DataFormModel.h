@@ -56,7 +56,7 @@ public:
 	QString title() const;
 	QString instructions() const;
 
-signals:
+Q_SIGNALS:
 	void formChanged();
 
 protected:

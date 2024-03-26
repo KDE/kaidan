@@ -44,7 +44,7 @@ public:
 	 */
 	Q_INVOKABLE void setCameraDefaultVideoFormat(QObject *qmlCamera);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when the scanning of an image did not succeed, i.e. no valid QR code was found.
 	 */

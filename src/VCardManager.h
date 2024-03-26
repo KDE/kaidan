@@ -73,7 +73,7 @@ public:
 	 */
 	bool executePendingAvatarChange();
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when any vCard is received.
 	 *

@@ -52,7 +52,7 @@ public:
 	 */
 	void deleteAccount();
 
-signals:
+Q_SIGNALS:
 	void changePasswordRequested(const QString &newPassword);
 
 	/**

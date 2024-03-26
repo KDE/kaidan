@@ -199,7 +199,7 @@ void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::Blockli
 			handleBlocklist({ Blocklist::Xmpp, QVector<QString>() });
 		}
 
-		emit Kaidan::instance()->passiveNotificationRequested(
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 			tr("Error fetching blocklist: %1").arg(error->description));
 		debug() << "Error fetching blocklist:" << error->description;
 	} else {
@@ -228,7 +228,7 @@ void BlockingController::handleBlocklist(Blocklist blocklist)
 				model->handleReset(m_blocklist->jids);
 			}
 
-			emit blocklistChanged();
+			Q_EMIT blocklistChanged();
 		}
 	}
 }
@@ -256,7 +256,7 @@ void BlockingController::onJidsBlocked(const QVector<QString> &jids)
 	for (auto *model : m_registeredModels) {
 		model->handleBlocked(jids);
 	}
-	emit blocklistChanged();
+	Q_EMIT blocklistChanged();
 }
 
 void BlockingController::onJidsUnblocked(const QVector<QString> &jids)
@@ -274,7 +274,7 @@ void BlockingController::onJidsUnblocked(const QVector<QString> &jids)
 	for (auto *model : m_registeredModels) {
 		model->handleUnblocked(jids);
 	}
-	emit blocklistChanged();
+	Q_EMIT blocklistChanged();
 }
 
 BlockingModel::BlockingModel(QObject *parent) : QAbstractListModel(parent)
@@ -397,7 +397,7 @@ void BlockingWatcher::setJid(const QString &jid)
 
 	if (m_jid != jid) {
 		m_jid = jid;
-		emit jidChanged();
+		Q_EMIT jidChanged();
 
 		refreshState();
 	}
@@ -419,10 +419,10 @@ void BlockingWatcher::refreshState()
 	} else {
 		m_state = QXmppBlocklist::NotBlocked();
 	}
-	emit stateChanged();
+	Q_EMIT stateChanged();
 
 	if (blockedOld != blocked()) {
-		emit blockedChanged();
+		Q_EMIT blockedChanged();
 	}
 }
 
@@ -443,10 +443,10 @@ void BlockingAction::block(const QString &jid)
 		this,
 		[this, jid](auto result) {
 			if (auto *error = std::get_if<QXmppError>(&result)) {
-				emit errorOccurred(jid, true, error->description);
+				Q_EMIT errorOccurred(jid, true, error->description);
 			} else {
 				debug() << "Blocked" << jid;
-				emit succeeded(jid, true);
+				Q_EMIT succeeded(jid, true);
 			}
 
 			setRunning(m_running - 1);
@@ -466,10 +466,10 @@ void BlockingAction::unblock(const QString &jid)
 		this,
 		[this, jid](auto result) {
 			if (auto *error = std::get_if<QXmppError>(&result)) {
-				emit errorOccurred(jid, false, error->description);
+				Q_EMIT errorOccurred(jid, false, error->description);
 			} else {
 				debug() << "Unblocked" << jid;
-				emit succeeded(jid, false);
+				Q_EMIT succeeded(jid, false);
 			}
 
 			setRunning(m_running - 1);
@@ -482,6 +482,6 @@ void BlockingAction::setRunning(uint running)
 	m_running = running;
 
 	if (loading() != loadingOld) {
-		emit loadingChanged();
+		Q_EMIT loadingChanged();
 	}
 }
