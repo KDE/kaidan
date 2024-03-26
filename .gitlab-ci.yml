@@ -69,7 +69,7 @@ variables:
 include:
   - project: sysadmin/ci-utilities
     file:
-      - /gitlab-templates/clang-format.yml
+     #- /gitlab-templates/clang-format.yml
       - /gitlab-templates/reuse-lint.yml
       - /gitlab-templates/json-validation.yml
       - /gitlab-templates/flatpak.yml
