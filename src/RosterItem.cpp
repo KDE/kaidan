@@ -12,7 +12,7 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
 	: accountJid(accountJid), jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType())
 {
 	const auto rosterGroups = item.groups();
-	groups = QVector(rosterGroups.cbegin(), rosterGroups.cend());
+	groups = QVector<QString>(rosterGroups.cbegin(), rosterGroups.cend());
 }
 
 QString RosterItem::displayName() const
