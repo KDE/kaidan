@@ -53,7 +53,7 @@ QFuture<QVector<QString>> BlockingDb::blockedJids(const QString &accountJid)
 {
 	return run([this, accountJid]() {
 		auto query = createQuery();
-		execQuery(query, "SELECT jid FROM blocked WHERE accountJid = :accountJid", { { u":accountJid", accountJid } });
+		execQuery(query, QStringLiteral("SELECT jid FROM blocked WHERE accountJid = :accountJid"), { { u":accountJid", accountJid } });
 		QVector<QString> blockedJids;
 		while (query.next()) {
 			blockedJids.append(query.value(0).toString());
@@ -66,9 +66,9 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QVec
 {
 	return run([this, accountJid, blockedJids]() {
 		auto query = createQuery();
-		execQuery(query, "DELETE FROM blocked WHERE accountJid = :accountJid", { { u":accountJid", accountJid } });
+		execQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"), { { u":accountJid", accountJid } });
 
-		prepareQuery(query, "INSERT INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)");
+		prepareQuery(query, QStringLiteral("INSERT INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
 		for (const auto &jid : blockedJids) {
 			bindValues(query, { { u":accountJid", accountJid }, { u":jid", jid } });
 			execQuery(query);
@@ -80,7 +80,7 @@ QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QVe
 {
 	return run([this, accountJid, blockedJids]() {
 		auto query = createQuery();
-		prepareQuery(query, "DELETE FROM blocked WHERE accountJid = :accountJid AND jid = :jid");
+		prepareQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid AND jid = :jid"));
 		for (const auto &jid : blockedJids) {
 			bindValues(query, { { u":accountJid", accountJid }, { u":jid", jid } });
 			execQuery(query);
@@ -93,7 +93,7 @@ QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QVecto
 	return run([this, accountJid, blockedJids]() {
 		auto query = createQuery();
 		prepareQuery(
-			query, "INSERT OR REPLACE INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)");
+			query, QStringLiteral("INSERT OR REPLACE INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
 		for (const auto &jid : blockedJids) {
 			bindValues(query, { { u":accountJid", accountJid }, { u":jid", jid } });
 			execQuery(query);
@@ -355,7 +355,7 @@ void BlockingModel::handleBlocked(const QVector<QString> &jids)
 	for (const auto &jid : jids) {
 		Entry e { determineJidType(jid), jid };
 
-		auto *itr = std::upper_bound(m_entries.begin(), m_entries.end(), e);
+		auto itr = std::upper_bound(m_entries.begin(), m_entries.end(), e);
 		auto index = std::distance(m_entries.begin(), itr);
 
 		beginInsertRows({}, index, index);
@@ -367,7 +367,7 @@ void BlockingModel::handleBlocked(const QVector<QString> &jids)
 void BlockingModel::handleUnblocked(const QVector<QString> &jids)
 {
 	for (const auto &jid : jids) {
-		auto *itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {
+		auto itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {
 			return e.jid == jid;
 		});
 		auto index = std::distance(m_entries.begin(), itr);
