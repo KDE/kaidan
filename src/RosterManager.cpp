@@ -53,7 +53,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QO
 			item.subscription = updatedItem.subscriptionType();
 
 			const auto groups = updatedItem.groups();
-			item.groups = QVector(groups.cbegin(), groups.cend());
+			item.groups = QVector<QString>(groups.cbegin(), groups.cend());
 		});
 
 		if (m_isItemBeingChanged) {
