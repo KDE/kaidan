@@ -39,7 +39,7 @@ public:
 	bool httpUploadSupported();
 	void setHttpUploadSupported(bool supported);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when In-Band Registration support changed.
 	 */

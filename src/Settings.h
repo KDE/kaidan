@@ -95,7 +95,7 @@ public:
 
 	void remove(const QStringList &keys);
 
-signals:
+Q_SIGNALS:
 	void authOnlineChanged();
 	void authJidChanged();
 	void authJidResourcePrefixChanged();

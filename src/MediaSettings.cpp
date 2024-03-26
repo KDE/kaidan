@@ -171,7 +171,7 @@ ImageEncoderSettings::ImageEncoderSettings(const QMediaFormat &settings)
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
 		  settings.encodingOptions()),
 	  resolution(settings.resolution())*/
-	:  CommonEncoderSettings("vp8",
+:  CommonEncoderSettings(QStringLiteral("vp8"),
 	   CommonEncoderSettings::EncodingQuality::HighQuality,
 	   QVariantMap())
 {
@@ -239,7 +239,7 @@ AudioEncoderSettings::AudioEncoderSettings(const QMediaFormat &settings)
 	  , bitRate(settings.bitRate())
 	  , sampleRate(settings.sampleRate())
 	  , channelCount(settings.channelCount())*/
-	: CommonEncoderSettings("vp8",
+: CommonEncoderSettings(QStringLiteral("vp8"),
 	  CommonEncoderSettings::EncodingQuality::HighQuality,
 	  QVariantMap())
 {
@@ -332,7 +332,7 @@ VideoEncoderSettings::VideoEncoderSettings(const QMediaFormat &settings)
 	  , bitRate(settings.bitRate())
 	  , frameRate(settings.frameRate())
 	  , resolution(settings.resolution())*/
-	: CommonEncoderSettings("vp8",
+: CommonEncoderSettings(QStringLiteral("vp8"),
 	  CommonEncoderSettings::EncodingQuality::HighQuality,
 	  QVariantMap())
 {

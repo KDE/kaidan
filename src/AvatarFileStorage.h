@@ -70,7 +70,7 @@ public:
 	 */
 	Q_INVOKABLE QString getAvatarUrl(const QString &jid) const;
 
-signals:
+Q_SIGNALS:
 	void avatarIdsChanged();
 
 private:

@@ -60,19 +60,19 @@ QVariant AudioDeviceModel::data(const QModelIndex &index, int role) const
 		case AudioDeviceModel::CustomRoles::IsNullRole:
 			return audioDeviceInfo.isNull();
 		case AudioDeviceModel::CustomRoles::DeviceNameRole:
-			return ""; // TODO audioDeviceInfo.deviceName();
+return QVariant(); // TODO audioDeviceInfo.deviceName();
 		case AudioDeviceModel::CustomRoles::DescriptionRole:
-			return ""; // TODO AudioDeviceInfo::description(audioDeviceInfo.deviceName());
+return QVariant(); // TODO AudioDeviceInfo::description(audioDeviceInfo.deviceName());
 		case AudioDeviceModel::CustomRoles::SupportedCodecsRole:
-			return ""; // TODO audioDeviceInfo.supportedCodecs();
+return QVariant(); // TODO audioDeviceInfo.supportedCodecs();
 		case AudioDeviceModel::CustomRoles::SupportedSampleRatesRole:
-			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
+return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
 		case AudioDeviceModel::CustomRoles::SupportedChannelCountsRole:
-			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
+return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
 		case AudioDeviceModel::CustomRoles::SupportedSampleSizesRole:
-			return ""; // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
+return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
 		case AudioDeviceModel::CustomRoles::AudioDeviceInfoRole:
-			return ""; // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
+return QVariant(); // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
 		}
 	}
 

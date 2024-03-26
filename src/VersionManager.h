@@ -23,7 +23,7 @@ public:
 	 */
 	Q_INVOKABLE void fetchVersions(const QString &bareJid, const QString &resource);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when a client version information was received
 	 */

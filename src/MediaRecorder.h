@@ -171,7 +171,7 @@ public:
 	Q_INVOKABLE void stop();
 	Q_INVOKABLE void cancel();
 
-signals:
+Q_SIGNALS:
 	void typeChanged();
 	void availabilityStatusChanged();
 	void stateChanged();

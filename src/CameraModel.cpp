@@ -37,13 +37,13 @@ QVariant CameraModel::data(const QModelIndex &index, int role) const
 		case CameraModel::CustomRoles::IsNullRole:
 			return cameraInfo.isNull();
 		case CameraModel::CustomRoles::DeviceNameRole:
-			return ""; // TODO cameraInfo.deviceName();
+return QVariant(); // TODO cameraInfo.deviceName();
 		case CameraModel::CustomRoles::DescriptionRole:
 			return cameraInfo.description();
 		case CameraModel::CustomRoles::PositionRole:
 			return cameraInfo.position();
 		case CameraModel::CustomRoles::OrientationRole:
-			return ""; // TODO cameraInfo.orientation();
+return QVariant(); // TODO cameraInfo.orientation();
 		case CameraModel::CustomRoles::CameraInfoRole:
 			return QVariant::fromValue(CameraInfo(cameraInfo));
 		}

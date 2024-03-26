@@ -35,7 +35,7 @@ public:
 	QString jid() const;
 	void setJid(const QString &jid);
 
-signals:
+Q_SIGNALS:
 	void jidChanged();
 	void clientVersionsRequested(const QString &bareJid, const QString &resource = {});
 

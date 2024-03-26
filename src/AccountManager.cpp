@@ -243,12 +243,12 @@ void AccountManager::storeConnectionData()
 void AccountManager::deleteCredentials()
 {
 	m_settings->remove({
-		KAIDAN_SETTINGS_AUTH_JID,
-		KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX,
-		KAIDAN_SETTINGS_AUTH_PASSWD,
-		KAIDAN_SETTINGS_AUTH_HOST,
-		KAIDAN_SETTINGS_AUTH_PORT,
-		KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY)
 	});
 
 	setJid({});
@@ -263,11 +263,11 @@ void AccountManager::deleteCredentials()
 void AccountManager::deleteSettings()
 {
 	m_settings->remove({
-		KAIDAN_SETTINGS_AUTH_ONLINE,
-		KAIDAN_SETTINGS_NOTIFICATIONS_MUTED,
-		KAIDAN_SETTINGS_FAVORITE_EMOJIS,
-		KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE,
-		KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE,
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE),
+		QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED),
+		QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
 	});
 }
 
@@ -282,5 +282,5 @@ void AccountManager::removeAccount(const QString &accountJid)
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
 {
-	return m_jidResourcePrefix % "." % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
+	return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
 }

@@ -23,7 +23,7 @@ public:
 
 	QUrl actualLocation() const;
 
-signals:
+Q_SIGNALS:
 	void availabilityChanged(QImageCapture::Error availability);
 	void actualLocationChanged(const QUrl &location);
 
