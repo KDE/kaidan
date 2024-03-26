@@ -94,7 +94,7 @@ QString QXmppUri::toString()
 
 	url.setQuery(query);
 
-	return QString::fromUtf8(url.toEncoded(QUrl::FullyEncoded).toStdString());
+	return QString::fromUtf8(url.toEncoded(QUrl::FullyEncoded));
 }
 
 ///
