@@ -75,13 +75,13 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 QString QmlUtils::getResourcePath(const QString &name)
 {
 	// We generally prefer to first search for files in application resources
-if (QFile::exists(QStringLiteral(":/") + name))
-return QStringLiteral("qrc:/") + name;
+	if (QFile::exists(QStringLiteral(":/") + name))
+		return QStringLiteral("qrc:/") + name;
 
 	// list of file paths where to search for the resource file
 	QStringList pathList;
 	// add relative path from binary (only works if installed)
-pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
+	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
 	// get the standard app data locations for current platform
 	pathList << QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 #ifdef UBUNTU_TOUCH
@@ -90,7 +90,7 @@ pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/"
 #ifndef NDEBUG
 #ifdef DEBUG_SOURCE_PATH
 	// add source directory (only for debug builds)
-pathList << QStringLiteral(DEBUG_SOURCE_PATH) + QStringLiteral("/data");
+	pathList << QStringLiteral(DEBUG_SOURCE_PATH) + QStringLiteral("/data");
 #endif
 #endif
 
@@ -112,27 +112,27 @@ pathList << QStringLiteral(DEBUG_SOURCE_PATH) + QStringLiteral("/data");
 
 QUrl QmlUtils::applicationWebsiteUrl()
 {
-return QUrl(QStringLiteral(APPLICATION_WEBSITE_URL));
+	return QUrl(QStringLiteral(APPLICATION_WEBSITE_URL));
 }
 
 QUrl QmlUtils::issueTrackingUrl()
 {
-return QUrl(QStringLiteral(ISSUE_TRACKING_URL));
+	return QUrl(QStringLiteral(ISSUE_TRACKING_URL));
 }
 
 QUrl QmlUtils::donationUrl()
 {
-return QUrl(QStringLiteral(DONATION_URL));
+	return QUrl(QStringLiteral(DONATION_URL));
 }
 
 QUrl QmlUtils::mastodonUrl()
 {
-return QUrl(QStringLiteral(MASTODON_URL));
+	return QUrl(QStringLiteral(MASTODON_URL));
 }
 
 QUrl QmlUtils::trustMessageUri(const QString &jid)
 {
-return QUrl(trustMessageUriString(jid));
+	return QUrl(trustMessageUriString(jid));
 }
 
 QString QmlUtils::trustMessageUriString(const QString &jid)
@@ -172,12 +172,12 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 	QXmppUri uri;
 	uri.setJid(groupChatJid);
 	uri.setAction(QXmppUri::Join);
-return QUrl(uri.toString());
+	return QUrl(uri.toString());
 }
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
 {
-static QRegularExpression re(QStringLiteral("^[0-9A-F]{64}$"), QRegularExpression::CaseInsensitiveOption);
+	static QRegularExpression re(QStringLiteral("^[0-9A-F]{64}$"), QRegularExpression::CaseInsensitiveOption);
 	return re.match(keyId).hasMatch();
 }
 
@@ -197,7 +197,7 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 bool QmlUtils::isImageFile(const QUrl &fileUrl)
 {
 	QMimeType type = QMimeDatabase().mimeTypeForUrl(fileUrl);
-return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
+	return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
 }
 
 void QmlUtils::copyToClipboard(const QString &text)
@@ -223,7 +223,7 @@ QString QmlUtils::formatMessage(const QString &message)
 {
 	// escape all special XML chars (like '<' and '>')
 	// and spilt into words for processing
-return processMsgFormatting(message.toHtmlEscaped().split(QStringLiteral(" ")));
+	return processMsgFormatting(message.toHtmlEscaped().split(QStringLiteral(" ")));
 }
 
 QColor QmlUtils::getUserColor(const QString &nickName)
@@ -253,9 +253,9 @@ QString QmlUtils::downloadPath(const QString &filename)
 	const QDir directory(
 			QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
 				QDir::separator() %
-QStringLiteral(APPLICATION_DISPLAY_NAME));
+	QStringLiteral(APPLICATION_DISPLAY_NAME));
 	// create directory if it doesn't exist
-if (!directory.mkpath(QStringLiteral(".")))
+	if (!directory.mkpath(QStringLiteral(".")))
 		return {};
 
 	// check whether a file with this name already exists
@@ -308,19 +308,19 @@ QString QmlUtils::processMsgFormatting(const QStringList &list, bool isFirst)
 		return QString();
 
 	// link highlighting
-if (list.first().startsWith(QStringLiteral("https://")) || list.first().startsWith(QStringLiteral("http://")))
-return (isFirst ? QString() : QStringLiteral(" ")) + QStringLiteral("<a href='%1'>%1</a>").arg(list.first())
+	if (list.first().startsWith(QStringLiteral("https://")) || list.first().startsWith(QStringLiteral("http://")))
+		return (isFirst ? QString() : QStringLiteral(" ")) + QStringLiteral("<a href='%1'>%1</a>").arg(list.first())
 		       + processMsgFormatting(list.mid(1), false);
 
 	// preserve newlines
-if (list.first().contains(QStringLiteral("\n")))
-return (isFirst ? QString() : QStringLiteral(" ")) + QString(list.first()).replace(QStringLiteral("\n"), QStringLiteral("<br>"))
+	if (list.first().contains(QStringLiteral("\n")))
+		return (isFirst ? QString() : QStringLiteral(" ")) + QString(list.first()).replace(QStringLiteral("\n"), QStringLiteral("<br>"))
 		       + processMsgFormatting(list.mid(1), false);
 
-return (isFirst ? QString() :QStringLiteral(" ")) + list.first() + processMsgFormatting(list.mid(1), false);
+	return (isFirst ? QString() :QStringLiteral(" ")) + list.first() + processMsgFormatting(list.mid(1), false);
 }
 
 QString QmlUtils::osmUserAgent()
 {
-return u"" APPLICATION_NAME % QChar(u'/') % u"" VERSION_STRING;
+	return u"" APPLICATION_NAME % QChar(u'/') % u"" VERSION_STRING;
 }

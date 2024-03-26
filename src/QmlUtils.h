@@ -76,7 +76,7 @@ public:
 	 */
 	static QUrl applicationSourceCodeUrl()
 	{
-return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
+		return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
 	}
 
 	/**
@@ -99,7 +99,7 @@ return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
 	 */
 	Q_INVOKABLE static QUrl invitationUrl(const QString &jid)
 	{
-return QUrl(QStringLiteral(INVITATION_URL) + jid);
+		return QUrl(QStringLiteral(INVITATION_URL) + jid);
 	}
 
 	/**
