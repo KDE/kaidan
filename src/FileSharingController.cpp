@@ -81,7 +81,7 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
 		QLatin1Char('*'),
 #else
 		// Microsoft says these are invalid.
-QLatin1Char('.'), QLatin1Char('<'), QLatin1Char('>'), QLatin1Char(':'), QLatin1Char('"'), QLatin1Char('/'), QLatin1Char('\\'), QLatin1Char('|'), QLatin1Char('?'), QLatin1Char(QLatin1Char('*'),
+QLatin1Char('.'), QLatin1Char('<'), QLatin1Char('>'), QLatin1Char(':'), QLatin1Char('"'), QLatin1Char('/'), QLatin1Char('\\'), QLatin1Char('|'), QLatin1Char('?'), QLatin1Char('*'),
 
 		// `cmd.exe` treats these specially.
 QLatin1Char(','), QLatin1Char(';'), QLatin1Char('='),
