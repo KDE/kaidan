@@ -86,7 +86,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONEN
 find_package(KF${QT_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami)
 find_package(KF${QT_MAJOR_VERSION}KirigamiAddons 0.7.0 REQUIRED)
 find_package(ZXing REQUIRED)
-find_package(QXmpp 1.6.0 REQUIRED COMPONENTS Omemo)
+find_package(QXmpp 1.6.0 REQUIRED NAMES QXmpp QXmppQt{QT_MAJOR_VERSION} COMPONENTS Omemo)
 
 # QML modules
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
