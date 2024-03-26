@@ -40,7 +40,7 @@ AvatarFileStorage::AvatarFileStorage(QObject *parent) : QObject(parent)
 			QString line = stream.readLine();
 			while (!line.isNull()) {
 				// get hash and jid from line (seperated by a blank)
-				QStringList list = line.split(' ', Qt::SkipEmptyParts);
+				QStringList list = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
 
 				// set the hash for the jid
 				m_jidAvatarMap[list.at(1)] = list.at(0);
@@ -60,8 +60,8 @@ AvatarFileStorage::AddAvatarResult AvatarFileStorage::addAvatar(const QString &j
 	AddAvatarResult result;
 
 	// generate a hexadecimal hash of the raw avatar
-	result.hash = QString(QCryptographicHash::hash(avatar, QCryptographicHash::Sha1).toHex());
-	QString oldHash = m_jidAvatarMap[jid];
+	result.hash = QString::fromUtf8(QCryptographicHash::hash(avatar, QCryptographicHash::Sha1).toHex());
+	QString oldHash = QString::fromUtf8(m_jidAvatarMap[jid].toUtf8());
 
 	// set the new hash and the `hasChanged` tag
 	if (oldHash != result.hash) {

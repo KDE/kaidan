@@ -56,7 +56,7 @@ using namespace SqlUtils;
 #define SQL_BLOB_NOT_NULL "BLOB NOT NULL"
 
 #define SQL_CREATE_TABLE(tableName, contents) \
-	"CREATE TABLE '" tableName "' (" contents ")"
+	QStringLiteral("CREATE TABLE '" tableName "' (" contents ")")
 
 #define SQL_LAST_ATTRIBUTE(name, dataType) \
 	"'" QT_STRINGIFY(name) "' " dataType
@@ -262,9 +262,9 @@ void Database::loadDatabaseInfo()
 {
 	auto db = currentDatabase();
 	const auto tables = db.tables();
-	if (!tables.contains(DB_TABLE_INFO)) {
-		if (tables.contains("Messages") &&
-			tables.contains("Roster")) {
+	if (!tables.contains(QStringLiteral(DB_TABLE_INFO))) {
+		if (tables.contains(QStringLiteral("Messages")) &&
+			tables.contains(QStringLiteral("Roster"))) {
 			// old Kaidan v0.1/v0.2 table
 			d->version = DbOldVersion;
 		} else {
@@ -275,10 +275,10 @@ void Database::loadDatabaseInfo()
 	}
 
 	QSqlQuery query(db);
-	execQuery(query, "SELECT version FROM " DB_TABLE_INFO);
+	execQuery(query, QStringLiteral("SELECT version FROM " DB_TABLE_INFO));
 
 	QSqlRecord record = query.record();
-	int versionCol = record.indexOf("version");
+	int versionCol = record.indexOf(QStringLiteral("version"));
 
 	while (query.next()) {
 		d->version = query.value(versionCol).toInt();
@@ -292,7 +292,7 @@ void Database::saveDatabaseInfo()
 	}
 
 	QSqlRecord updateRecord;
-	updateRecord.append(createSqlField("version", d->version));
+	updateRecord.append(createSqlField(QStringLiteral("version"), d->version));
 
 	auto db = currentDatabase();
 	QSqlQuery query(db);
@@ -300,7 +300,7 @@ void Database::saveDatabaseInfo()
 		query,
 		db.driver()->sqlStatement(
 			QSqlDriver::UpdateStatement,
-			DB_TABLE_INFO,
+			QStringLiteral(DB_TABLE_INFO),
 			updateRecord,
 			false
 		)
@@ -349,12 +349,12 @@ void Database::createNewDatabase()
 	);
 
 	QSqlRecord insertRecord;
-	insertRecord.append(createSqlField("version", DATABASE_LATEST_VERSION));
+	insertRecord.append(createSqlField(QStringLiteral("version"), DATABASE_LATEST_VERSION));
 	execQuery(
 		query,
 		db.driver()->sqlStatement(
 			QSqlDriver::InsertStatement,
-			DB_TABLE_INFO,
+			QStringLiteral(DB_TABLE_INFO),
 			insertRecord,
 			false
 		)
@@ -611,10 +611,10 @@ void Database::createNewDatabase()
 		)
 	);
 
-	execQuery(query, "CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
-					 " WHERE deliveryState != 4 AND removed != 1");
-	execQuery(query, "CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
-					 " WHERE deliveryState = 4");
+	execQuery(query, QStringLiteral("CREATE VIEW " DB_VIEW_CHAT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
+					 " WHERE deliveryState != 4 AND removed != 1"));
+	execQuery(query, QStringLiteral("CREATE VIEW " DB_VIEW_DRAFT_MESSAGES " AS SELECT * FROM " DB_TABLE_MESSAGES
+					 " WHERE deliveryState = 4"));
 
 	d->version = DATABASE_LATEST_VERSION;
 }
@@ -630,7 +630,7 @@ void Database::convertDatabaseToV2()
 			SQL_LAST_ATTRIBUTE(version, SQL_INTEGER_NOT_NULL)
 		)
 	);
-	execQuery(query, "INSERT INTO dbinfo VALUES (:version)", {{ u":version", 2 }});
+	execQuery(query, QStringLiteral("INSERT INTO dbinfo VALUES (:version)"), {{ u":version", 2 }});
 	d->version = 2;
 }
 
@@ -638,7 +638,7 @@ void Database::convertDatabaseToV3()
 {
 	DATABASE_CONVERT_TO_VERSION(2);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD avatarHash " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD avatarHash " SQL_TEXT));
 	d->version = 3;
 }
 
@@ -649,17 +649,17 @@ void Database::convertDatabaseToV4()
 	// SQLite doesn't support the ALTER TABLE drop columns feature, so we have to use a workaround.
 	// we copy all rows into a back-up table (but without `avatarHash`), and then delete the old table
 	// and copy everything to the normal table again
-	execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged,"
-							"unreadMessages, lastMessage, lastOnline, activity, status, mood)");
-	execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages,"
-							"lastMessage, lastOnline, activity, status, mood FROM " DB_TABLE_ROSTER);
-	execQuery(query, "DROP TABLE Roster");
-	execQuery(query, "CREATE TABLE Roster (jid " SQL_TEXT_NOT_NULL ", name " SQL_TEXT_NOT_NULL ","
+	execQuery(query, QStringLiteral("CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged,"
+							"unreadMessages, lastMessage, lastOnline, activity, status, mood)"));
+	execQuery(query, QStringLiteral("INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages,"
+							"lastMessage, lastOnline, activity, status, mood FROM " DB_TABLE_ROSTER));
+	execQuery(query, QStringLiteral("DROP TABLE Roster"));
+	execQuery(query, QStringLiteral("CREATE TABLE Roster (jid " SQL_TEXT_NOT_NULL ", name " SQL_TEXT_NOT_NULL ","
 							"lastExchanged " SQL_TEXT_NOT_NULL ", unreadMessages " SQL_INTEGER ", lastMessage  " SQL_TEXT ","
-							"lastOnline " SQL_TEXT ", activity " SQL_TEXT ", status " SQL_TEXT ", mood " SQL_TEXT ")");
-	execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages,"
-							"lastMessage, lastOnline, activity, status, mood FROM Roster_backup");
-	execQuery(query, "DROP TABLE Roster_backup");
+							"lastOnline " SQL_TEXT ", activity " SQL_TEXT ", status " SQL_TEXT ", mood " SQL_TEXT ")"));
+	execQuery(query, QStringLiteral("INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages,"
+							"lastMessage, lastOnline, activity, status, mood FROM Roster_backup"));
+	execQuery(query, QStringLiteral("DROP TABLE Roster_backup"));
 	d->version = 4;
 }
 
@@ -667,9 +667,9 @@ void Database::convertDatabaseToV5()
 {
 	DATABASE_CONVERT_TO_VERSION(4);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD type " SQL_INTEGER);
-	execQuery(query, "UPDATE Messages SET type = 0 WHERE type IS NULL");
-	execQuery(query, "ALTER TABLE Messages ADD mediaUrl " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD type " SQL_INTEGER));
+	execQuery(query, QStringLiteral("UPDATE Messages SET type = 0 WHERE type IS NULL"));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD mediaUrl " SQL_TEXT));
 	d->version = 5;
 }
 
@@ -693,8 +693,8 @@ void Database::convertDatabaseToV7()
 {
 	DATABASE_CONVERT_TO_VERSION(6);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD mediaThumb " SQL_BLOB);
-	execQuery(query, "ALTER TABLE Messages ADD mediaHashes " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD mediaThumb " SQL_BLOB));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD mediaHashes " SQL_TEXT));
 	d->version = 7;
 }
 
@@ -702,9 +702,9 @@ void Database::convertDatabaseToV8()
 {
 	DATABASE_CONVERT_TO_VERSION(7);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged, unreadMessages, lastMessage)");
-	execQuery(query, "INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster");
-	execQuery(query, "DROP TABLE Roster");
+	execQuery(query, QStringLiteral("CREATE TEMPORARY TABLE roster_backup(jid, name, lastExchanged, unreadMessages, lastMessage)"));
+	execQuery(query, QStringLiteral("INSERT INTO roster_backup SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster"));
+	execQuery(query, QStringLiteral("DROP TABLE Roster"));
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -717,8 +717,8 @@ void Database::convertDatabaseToV8()
 		)
 	);
 
-	execQuery(query, "INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster_backup");
-	execQuery(query, "DROP TABLE roster_backup");
+	execQuery(query, QStringLiteral("INSERT INTO Roster SELECT jid, name, lastExchanged, unreadMessages, lastMessage FROM Roster_backup"));
+	execQuery(query, QStringLiteral("DROP TABLE roster_backup"));
 	d->version = 8;
 }
 
@@ -726,7 +726,7 @@ void Database::convertDatabaseToV9()
 {
 	DATABASE_CONVERT_TO_VERSION(8);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD edited " SQL_BOOL);
+	execQuery(query,QStringLiteral( "ALTER TABLE Messages ADD edited " SQL_BOOL));
 	d->version = 9;
 }
 
@@ -734,8 +734,8 @@ void Database::convertDatabaseToV10()
 {
 	DATABASE_CONVERT_TO_VERSION(9);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD isSpoiler " SQL_BOOL);
-	execQuery(query, "ALTER TABLE Messages ADD spoilerHint " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD isSpoiler " SQL_BOOL));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD spoilerHint " SQL_TEXT));
 	d->version = 10;
 }
 
@@ -743,10 +743,10 @@ void Database::convertDatabaseToV11()
 {
 	DATABASE_CONVERT_TO_VERSION(10);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD deliveryState " SQL_INTEGER);
-	execQuery(query, "UPDATE Messages SET deliveryState = 2 WHERE isDelivered = 1");
-	execQuery(query, "UPDATE Messages SET deliveryState = 1 WHERE deliveryState IS NULL");
-	execQuery(query, "ALTER TABLE Messages ADD errorText " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD deliveryState " SQL_INTEGER));
+	execQuery(query, QStringLiteral("UPDATE Messages SET deliveryState = 2 WHERE isDelivered = 1"));
+	execQuery(query, QStringLiteral("UPDATE Messages SET deliveryState = 1 WHERE deliveryState IS NULL"));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD errorText " SQL_TEXT));
 	d->version = 11;
 }
 
@@ -754,7 +754,7 @@ void Database::convertDatabaseToV12()
 {
 	DATABASE_CONVERT_TO_VERSION(11);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD replaceId " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD replaceId " SQL_TEXT));
 	d->version = 12;
 }
 
@@ -762,8 +762,8 @@ void Database::convertDatabaseToV13()
 {
 	DATABASE_CONVERT_TO_VERSION(12);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Messages ADD stanzaId " SQL_TEXT);
-	execQuery(query, "ALTER TABLE Messages ADD originId " SQL_TEXT);
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD stanzaId " SQL_TEXT));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD originId " SQL_TEXT));
 	d->version = 13;
 }
 
@@ -771,10 +771,10 @@ void Database::convertDatabaseToV14()
 {
 	DATABASE_CONVERT_TO_VERSION(13);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD subscription " SQL_INTEGER);
-	execQuery(query, "ALTER TABLE Roster ADD encryption " SQL_INTEGER);
-	execQuery(query, "ALTER TABLE Messages ADD encryption " SQL_INTEGER);
-	execQuery(query, "ALTER TABLE Messages ADD senderKey " SQL_BLOB);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD subscription " SQL_INTEGER));
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD encryption " SQL_INTEGER));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD encryption " SQL_INTEGER));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD senderKey " SQL_BLOB));
 	d->version = 14;
 }
 
@@ -894,9 +894,9 @@ void Database::convertDatabaseToV17()
 {
 	DATABASE_CONVERT_TO_VERSION(16);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD lastReadOwnMessageId " SQL_TEXT);
-	execQuery(query, "ALTER TABLE Roster ADD lastReadContactMessageId " SQL_TEXT);
-	execQuery(query, "ALTER TABLE Messages ADD isMarkable " SQL_BOOL);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD lastReadOwnMessageId " SQL_TEXT));
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD lastReadContactMessageId " SQL_TEXT));
+	execQuery(query, QStringLiteral("ALTER TABLE Messages ADD isMarkable " SQL_BOOL));
 	d->version = 17;
 }
 
@@ -936,12 +936,12 @@ void Database::convertDatabaseToV18()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT author, recipient, timestamp, message, id, encryption, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT author, recipient, timestamp, message, id, encryption, "
 		"senderKey, deliveryState, isMarkable, mediaUrl, mediaLocation, edited, spoilerHint, "
-		"isSpoiler, errorText, replaceId, originId, stanzaId, NULL FROM Messages"
+		"isSpoiler, errorText, replaceId, originId, stanzaId, NULL FROM Messages")
 	);
 
-	execQuery(query, "DROP TABLE Messages");
+	execQuery(query, QStringLiteral("DROP TABLE Messages"));
 
 	execQuery(
 		query,
@@ -971,8 +971,8 @@ void Database::convertDatabaseToV18()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 18;
 }
@@ -1062,12 +1062,12 @@ void Database::convertDatabaseToV19()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
 		"senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
-		"replaceId, originId, stanzaId, file_group_id FROM messages"
+		"replaceId, originId, stanzaId, file_group_id FROM messages")
 	);
 
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 
 	execQuery(
 		query,
@@ -1095,8 +1095,8 @@ void Database::convertDatabaseToV19()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 19;
 }
@@ -1105,7 +1105,7 @@ void Database::convertDatabaseToV20()
 {
 	DATABASE_CONVERT_TO_VERSION(19);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD readMarkerPending " SQL_BOOL);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD readMarkerPending " SQL_BOOL));
 	d->version = 20;
 }
 
@@ -1113,7 +1113,7 @@ void Database::convertDatabaseToV21()
 {
 	DATABASE_CONVERT_TO_VERSION(20);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD pinningPosition " SQL_INTEGER);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD pinningPosition " SQL_INTEGER));
 	d->version = 21;
 }
 
@@ -1164,12 +1164,12 @@ void Database::convertDatabaseToV23()
 
 	execQuery(
 		query,
-		"INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
+		QStringLiteral("INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
 		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition "
-		" FROM Roster"
+		" FROM Roster")
 	);
 
-	execQuery(query, "DROP TABLE Roster");
+	execQuery(query, QStringLiteral("DROP TABLE Roster"));
 
 	execQuery(
 		query,
@@ -1187,8 +1187,8 @@ void Database::convertDatabaseToV23()
 		)
 	);
 
-	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
-	execQuery(query, "DROP TABLE roster_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
 
 	// Adapt the foreign keys of table "messages" to new table name "roster".
 	execQuery(
@@ -1219,12 +1219,12 @@ void Database::convertDatabaseToV23()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
 		"senderKey, deliveryState, isMarkable, isEdited, spoilerHint, isSpoiler, errorText, "
-		"replaceId, originId, stanzaId, file_group_id FROM messages"
+		"replaceId, originId, stanzaId, file_group_id FROM messages")
 	);
 
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 
 	execQuery(
 		query,
@@ -1252,63 +1252,63 @@ void Database::convertDatabaseToV23()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	// Use camelCase for all tables.
 
-	execQuery(query, "ALTER TABLE messages RENAME COLUMN file_group_id TO fileGroupId");
+	execQuery(query, QStringLiteral("ALTER TABLE messages RENAME COLUMN file_group_id TO fileGroupId"));
 
-	execQuery(query, "ALTER TABLE files RENAME COLUMN file_group_id TO fileGroupId");
-	execQuery(query, "ALTER TABLE files RENAME COLUMN mime_type TO mimeType");
-	execQuery(query, "ALTER TABLE files RENAME COLUMN last_modified TO lastModified");
-	execQuery(query, "ALTER TABLE files RENAME COLUMN local_file_path TO localFilePath");
+	execQuery(query, QStringLiteral("ALTER TABLE files RENAME COLUMN file_group_id TO fileGroupId"));
+	execQuery(query, QStringLiteral("ALTER TABLE files RENAME COLUMN mime_type TO mimeType"));
+	execQuery(query, QStringLiteral("ALTER TABLE files RENAME COLUMN last_modified TO lastModified"));
+	execQuery(query, QStringLiteral("ALTER TABLE files RENAME COLUMN local_file_path TO localFilePath"));
 
-	execQuery(query, "ALTER TABLE file_hashes RENAME TO fileHashes");
-	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN data_id TO dataId");
-	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN hash_type TO hashType");
-	execQuery(query, "ALTER TABLE fileHashes RENAME COLUMN hash_value TO hashValue");
+	execQuery(query, QStringLiteral("ALTER TABLE file_hashes RENAME TO fileHashes"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileHashes RENAME COLUMN data_id TO dataId"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileHashes RENAME COLUMN hash_type TO hashType"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileHashes RENAME COLUMN hash_value TO hashValue"));
 
-	execQuery(query, "ALTER TABLE file_http_sources RENAME TO fileHttpSources");
-	execQuery(query, "ALTER TABLE fileHttpSources RENAME COLUMN file_id TO fileId");
+	execQuery(query, QStringLiteral("ALTER TABLE file_http_sources RENAME TO fileHttpSources"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileHttpSources RENAME COLUMN file_id TO fileId"));
 
-	execQuery(query, "ALTER TABLE file_encrypted_sources RENAME TO fileEncryptedSources");
-	execQuery(query, "ALTER TABLE fileEncryptedSources RENAME COLUMN file_id TO fileId");
-	execQuery(query, "ALTER TABLE fileEncryptedSources RENAME COLUMN encrypted_data_id TO encryptedDataId");
+	execQuery(query, QStringLiteral("ALTER TABLE file_encrypted_sources RENAME TO fileEncryptedSources"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileEncryptedSources RENAME COLUMN file_id TO fileId"));
+	execQuery(query, QStringLiteral("ALTER TABLE fileEncryptedSources RENAME COLUMN encrypted_data_id TO encryptedDataId"));
 
-	execQuery(query, "ALTER TABLE trust_security_policies RENAME TO trustSecurityPolicies");
-	execQuery(query, "ALTER TABLE trustSecurityPolicies RENAME COLUMN security_policy TO securityPolicy");
+	execQuery(query, QStringLiteral("ALTER TABLE trust_security_policies RENAME TO trustSecurityPolicies"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustSecurityPolicies RENAME COLUMN security_policy TO securityPolicy"));
 
-	execQuery(query, "ALTER TABLE trust_own_keys RENAME TO trustOwnKeys");
-	execQuery(query, "ALTER TABLE trustOwnKeys RENAME COLUMN key_id TO keyId");
+	execQuery(query, QStringLiteral("ALTER TABLE trust_own_keys RENAME TO trustOwnKeys"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustOwnKeys RENAME COLUMN key_id TO keyId"));
 
-	execQuery(query, "ALTER TABLE trust_keys RENAME TO trustKeys");
-	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN owner_jid TO ownerJid");
-	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN key_id TO keyId");
-	execQuery(query, "ALTER TABLE trustKeys RENAME COLUMN trust_level TO trustLevel");
+	execQuery(query, QStringLiteral("ALTER TABLE trust_keys RENAME TO trustKeys"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeys RENAME COLUMN owner_jid TO ownerJid"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeys RENAME COLUMN key_id TO keyId"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeys RENAME COLUMN trust_level TO trustLevel"));
 
-	execQuery(query, "ALTER TABLE trust_keys_unprocessed RENAME TO trustKeysUnprocessed");
-	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN sender_key_id TO senderKeyId");
-	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN owner_jid TO ownerJid");
-	execQuery(query, "ALTER TABLE trustKeysUnprocessed RENAME COLUMN key_id TO keyId");
+	execQuery(query, QStringLiteral("ALTER TABLE trust_keys_unprocessed RENAME TO trustKeysUnprocessed"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeysUnprocessed RENAME COLUMN sender_key_id TO senderKeyId"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeysUnprocessed RENAME COLUMN owner_jid TO ownerJid"));
+	execQuery(query, QStringLiteral("ALTER TABLE trustKeysUnprocessed RENAME COLUMN key_id TO keyId"));
 
-	execQuery(query, "ALTER TABLE omemo_devices_own RENAME TO omemoDevicesOwn");
-	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN private_key TO privateKey");
-	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN public_key TO publicKey");
-	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_signed_pre_key_id TO latestSignedPreKeyId");
-	execQuery(query, "ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_pre_key_id TO latestPreKeyId");
+	execQuery(query, QStringLiteral("ALTER TABLE omemo_devices_own RENAME TO omemoDevicesOwn"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevicesOwn RENAME COLUMN private_key TO privateKey"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevicesOwn RENAME COLUMN public_key TO publicKey"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_signed_pre_key_id TO latestSignedPreKeyId"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevicesOwn RENAME COLUMN latest_pre_key_id TO latestPreKeyId"));
 
-	execQuery(query, "ALTER TABLE omemo_devices RENAME TO omemoDevices");
-	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN user_jid TO userJid");
-	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN key_id TO keyId");
-	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_sent TO unrespondedStanzasSent");
-	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_received TO unrespondedStanzasReceived");
-	execQuery(query, "ALTER TABLE omemoDevices RENAME COLUMN removal_timestamp TO removalTimestamp");
+	execQuery(query, QStringLiteral("ALTER TABLE omemo_devices RENAME TO omemoDevices"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevices RENAME COLUMN user_jid TO userJid"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevices RENAME COLUMN key_id TO keyId"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_sent TO unrespondedStanzasSent"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevices RENAME COLUMN unresponded_stanzas_received TO unrespondedStanzasReceived"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoDevices RENAME COLUMN removal_timestamp TO removalTimestamp"));
 
-	execQuery(query, "ALTER TABLE omemo_pre_key_pairs RENAME TO omemoPreKeyPairs");
+	execQuery(query, QStringLiteral("ALTER TABLE omemo_pre_key_pairs RENAME TO omemoPreKeyPairs"));
 
-	execQuery(query, "ALTER TABLE omemo_pre_key_pairs_signed RENAME TO omemoPreKeyPairsSigned");
-	execQuery(query, "ALTER TABLE omemoPreKeyPairsSigned RENAME COLUMN creation_timestamp TO creationTimestamp");
+	execQuery(query, QStringLiteral("ALTER TABLE omemo_pre_key_pairs_signed RENAME TO omemoPreKeyPairsSigned"));
+	execQuery(query, QStringLiteral("ALTER TABLE omemoPreKeyPairsSigned RENAME COLUMN creation_timestamp TO creationTimestamp"));
 
 	d->version = 23;
 }
@@ -1317,8 +1317,8 @@ void Database::convertDatabaseToV24()
 {
 	DATABASE_CONVERT_TO_VERSION(23);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD chatStateSendingEnabled " SQL_BOOL);
-	execQuery(query, "ALTER TABLE Roster ADD readMarkerSendingEnabled " SQL_BOOL);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD chatStateSendingEnabled " SQL_BOOL));
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD readMarkerSendingEnabled " SQL_BOOL));
 	d->version = 24;
 }
 
@@ -1355,12 +1355,12 @@ void Database::convertDatabaseToV25()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, message, id, encryption, "
 		"senderKey, deliveryState, isEdited, spoilerHint, isSpoiler, errorText, replaceId, "
-		"originId, stanzaId, fileGroupId FROM messages"
+		"originId, stanzaId, fileGroupId FROM messages")
 	);
 
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 
 	execQuery(
 		query,
@@ -1387,8 +1387,8 @@ void Database::convertDatabaseToV25()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 25;
 }
@@ -1419,13 +1419,13 @@ void Database::convertDatabaseToV26()
 
 	execQuery(
 		query,
-		"INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
+		QStringLiteral("INSERT INTO roster_tmp SELECT jid, name, subscription, encryption, unreadMessages, "
 		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition, "
-		"chatStateSendingEnabled, readMarkerSendingEnabled FROM roster"
+		"chatStateSendingEnabled, readMarkerSendingEnabled FROM roster")
 	);
 
-	execQuery(query, "UPDATE roster_tmp SET pinningPosition = -1 WHERE pinningPosition IS NULL");
-	execQuery(query, "DROP TABLE roster");
+	execQuery(query, QStringLiteral("UPDATE roster_tmp SET pinningPosition = -1 WHERE pinningPosition IS NULL"));
+	execQuery(query, QStringLiteral("DROP TABLE roster"));
 
 	execQuery(
 		query,
@@ -1445,8 +1445,8 @@ void Database::convertDatabaseToV26()
 		)
 	);
 
-	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
-	execQuery(query, "DROP TABLE roster_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
 
 	d->version = 26;
 }
@@ -1455,9 +1455,9 @@ void Database::convertDatabaseToV27()
 {
 	DATABASE_CONVERT_TO_VERSION(26);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE roster ADD draftMessageId " SQL_TEXT " REFERENCES messages (id)");
-	execQuery(query, "CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4");
-	execQuery(query, "CREATE VIEW draftMessages AS SELECT * FROM messages WHERE deliveryState = 4");
+	execQuery(query, QStringLiteral("ALTER TABLE roster ADD draftMessageId " SQL_TEXT " REFERENCES messages (id)"));
+	execQuery(query, QStringLiteral("CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4"));
+	execQuery(query, QStringLiteral("CREATE VIEW draftMessages AS SELECT * FROM messages WHERE deliveryState = 4"));
 	d->version = 27;
 }
 
@@ -1465,7 +1465,7 @@ void Database::convertDatabaseToV28()
 {
 	DATABASE_CONVERT_TO_VERSION(27);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE roster ADD notificationsMuted " SQL_BOOL);
+	execQuery(query, QStringLiteral("ALTER TABLE roster ADD notificationsMuted " SQL_BOOL));
 	d->version = 28;
 }
 
@@ -1492,11 +1492,11 @@ void Database::convertDatabaseToV29()
 
 	execQuery(
 		query,
-		"INSERT INTO messageReactions_tmp SELECT messageSender, messageRecipient, messageId, "
-		"senderJid, emoji, timestamp, NULL FROM messageReactions"
+		QStringLiteral("INSERT INTO messageReactions_tmp SELECT messageSender, messageRecipient, messageId, "
+		"senderJid, emoji, timestamp, NULL FROM messageReactions")
 	);
 
-	execQuery(query, "DROP TABLE messageReactions");
+	execQuery(query, QStringLiteral("DROP TABLE messageReactions"));
 
 	execQuery(
 		query,
@@ -1513,8 +1513,8 @@ void Database::convertDatabaseToV29()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messageReactions SELECT * FROM messageReactions_tmp");
-	execQuery(query, "DROP TABLE messageReactions_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messageReactions SELECT * FROM messageReactions_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messageReactions_tmp"));
 
 	d->version = 29;
 }
@@ -1523,9 +1523,9 @@ void Database::convertDatabaseToV30()
 {
 	DATABASE_CONVERT_TO_VERSION(29);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE messages ADD removed " SQL_BOOL_NOT_NULL " DEFAULT 0");
-	execQuery(query, "DROP VIEW chatMessages");
-	execQuery(query, "CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4 AND removed != 1");
+	execQuery(query, QStringLiteral("ALTER TABLE messages ADD removed " SQL_BOOL_NOT_NULL " DEFAULT 0"));
+	execQuery(query, QStringLiteral("DROP VIEW chatMessages"));
+	execQuery(query, QStringLiteral("CREATE VIEW chatMessages AS SELECT * FROM messages WHERE deliveryState != 4 AND removed != 1"));
 	d->version = 30;
 }
 
@@ -1533,7 +1533,7 @@ void Database::convertDatabaseToV31()
 {
 	DATABASE_CONVERT_TO_VERSION(30);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE messages RENAME COLUMN message TO body");
+	execQuery(query, QStringLiteral("ALTER TABLE messages RENAME COLUMN message TO body"));
 	d->version = 31;
 }
 
@@ -1570,12 +1570,12 @@ void Database::convertDatabaseToV32()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT sender, recipient, timestamp, body, id, encryption, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT sender, recipient, timestamp, body, id, encryption, "
 		"senderKey, deliveryState, spoilerHint, isSpoiler, errorText, replaceId, "
-		"originId, stanzaId, fileGroupId, removed FROM messages"
+		"originId, stanzaId, fileGroupId, removed FROM messages")
 	);
 
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 
 	execQuery(
 		query,
@@ -1602,8 +1602,8 @@ void Database::convertDatabaseToV32()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 32;
 }
@@ -1618,7 +1618,7 @@ void Database::convertDatabaseToV33()
 	// Thus, the table "roster" is removed and recreated in order to store the latest values from
 	// the server (e.g., "name") in the database again and include the new "accountJid".
 	// Unfortunately, all data not stored on the server (e.g., "encryption") is lost.
-	execQuery(query, "DROP TABLE roster");
+	execQuery(query, QStringLiteral("DROP TABLE roster"));
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -1695,12 +1695,12 @@ void Database::convertDatabaseToV35()
 
 	execQuery(
 		query,
-		"INSERT INTO roster_tmp SELECT accountJid, jid, name, subscription, encryption, unreadMessages, "
+		QStringLiteral("INSERT INTO roster_tmp SELECT accountJid, jid, name, subscription, encryption, unreadMessages, "
 		"lastReadOwnMessageId, lastReadContactMessageId, readMarkerPending, pinningPosition, "
-		"chatStateSendingEnabled, readMarkerSendingEnabled, notificationsMuted FROM roster"
+		"chatStateSendingEnabled, readMarkerSendingEnabled, notificationsMuted FROM roster")
 	);
 
-	execQuery(query, "DROP TABLE roster");
+	execQuery(query, QStringLiteral("DROP TABLE roster"));
 
 	execQuery(
 		query,
@@ -1723,8 +1723,8 @@ void Database::convertDatabaseToV35()
 		)
 	);
 
-	execQuery(query, "INSERT INTO roster SELECT * FROM roster_tmp");
-	execQuery(query, "DROP TABLE roster_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
 
 	d->version = 35;
 }
@@ -1740,7 +1740,7 @@ void Database::convertDatabaseToV36()
 	// Thus, the table "messages" is removed and recreated in order to store the latest values from
 	// the server in the database again and include the values for the new columns.
 	// Unfortunately, all data not stored on the server (e.g., "removed") is lost.
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -1773,7 +1773,7 @@ void Database::convertDatabaseToV36()
 	// Thus, the table "messageReactions" is removed and recreated in order to store the latest
 	// values from the server in the database again and include the values for the new columns.
 	// Unfortunately, all data not stored on the server (e.g., "deliveryState") is lost.
-	execQuery(query, "DROP TABLE messageReactions");
+	execQuery(query, QStringLiteral("DROP TABLE messageReactions"));
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -1826,12 +1826,12 @@ void Database::convertDatabaseToV37()
 
 	execQuery(
 		query,
-		"INSERT INTO messages_tmp SELECT accountJid, chatJid, senderId, id, originId, stanzaId, "
+		QStringLiteral("INSERT INTO messages_tmp SELECT accountJid, chatJid, senderId, id, originId, stanzaId, "
 		"replaceId, timestamp, body, encryption, senderKey, deliveryState, isSpoiler, spoilerHint, "
-		"fileGroupId, errorText, removed FROM messages"
+		"fileGroupId, errorText, removed FROM messages")
 	);
 
-	execQuery(query, "DROP TABLE messages");
+	execQuery(query, QStringLiteral("DROP TABLE messages"));
 	execQuery(
 		query,
 		SQL_CREATE_TABLE(
@@ -1857,8 +1857,8 @@ void Database::convertDatabaseToV37()
 		)
 	);
 
-	execQuery(query, "INSERT INTO messages SELECT * FROM messages_tmp");
-	execQuery(query, "DROP TABLE messages_tmp");
+	execQuery(query, QStringLiteral("INSERT INTO messages SELECT * FROM messages_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 37;
 }
@@ -1867,7 +1867,7 @@ void Database::convertDatabaseToV38()
 {
 	DATABASE_CONVERT_TO_VERSION(37);
 	QSqlQuery query(currentDatabase());
-	execQuery(query, "ALTER TABLE Roster ADD automaticMediaDownloadsRule " SQL_INTEGER);
+	execQuery(query, QStringLiteral("ALTER TABLE Roster ADD automaticMediaDownloadsRule " SQL_INTEGER));
 	d->version = 38;
 }
 

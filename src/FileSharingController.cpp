@@ -62,19 +62,19 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
 	constexpr std::array bad_chars = {
 #ifdef Q_OS_UNIX
 		// These have special meaning in a file name.
-		'.', '/', '\\',
+		QLatin1Char('.'), QLatin1Char('/'), QLatin1Char('\\'),
 
 		// These are treated specially by shells.
-		'<', '>', '|', ':', '(', ')', '&', ';', '#', '?', '*',
+		QLatin1Char('<'), QLatin1Char('>'), QLatin1Char('|'), QLatin1Char(':'), QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char(';'), QLatin1Char('#'), QLatin1Char('?'), QLatin1Char('*'),
 #else
 		// Microsoft says these are invalid.
-		'.', '<', '>', ':', '"', '/', '\\', '|', '?', '*',
+		QLatin1Char('.'), QLatin1Char('<'), QLatin1Char('>'), QLatin1Char(':'), QLatin1Char('"'), QLatin1Char('/'), QLatin1Char('\\'), QLatin1Char('|'), QLatin1Char('?'), QLatin1Char('*'),
 
 		// `cmd.exe` treats these specially.
-		',', ';', '=',
+		QLatin1Char(','), QLatin1Char(';'), QLatin1Char('='),
 
 		// These are treated specially by unix-like shells.
-		'(', ')', '&', '#',
+		QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char('#'),
 #endif
 	};
 
@@ -293,7 +293,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 
 	runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
 		QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) +
-						  QDir::separator() + APPLICATION_DISPLAY_NAME;
+						  QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 
 		if (auto dir = QDir(dirPath); !dir.exists()) {
 			dir.mkpath(QStringLiteral("."));
@@ -322,7 +322,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 		}();
 
 		auto makeFileName = [&]() -> QString {
-			return dirPath % QDir::separator() % filename % "." % fileExtension;
+			return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension;
 		};
 
 		QString filePath = makeFileName();
@@ -392,7 +392,7 @@ void FileSharingController::deleteFile(const QString &messageId, const File &fil
 	});
 
 	// don't delete files not downloaded by us
-	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + APPLICATION_DISPLAY_NAME;
+	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 	if (file.localFilePath.startsWith(downloadsFolder)) {
 		QFile::remove(file.localFilePath);
 	}

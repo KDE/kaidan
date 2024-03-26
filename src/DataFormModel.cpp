@@ -138,7 +138,7 @@ QString DataFormModel::mediaSourceUri(const QXmppDataForm::Field &field) const
 		// Prefer Bits of Binary URIs.
 		// In most cases, the data has been received already then.
 		if (QXmppBitsOfBinaryContentId::isBitsOfBinaryContentId(mediaSourceUri, true))
-			return QStringLiteral("image://%1/%2").arg(BITS_OF_BINARY_IMAGE_PROVIDER_NAME, mediaSourceUri);
+			return QStringLiteral("image://%1/%2").arg(QStringLiteral(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), mediaSourceUri);
 	}
 
 	return mediaSourceUri;

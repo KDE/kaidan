@@ -69,7 +69,7 @@ QString LogHandler::makeXmlPretty(QString xmlIn)
 	}
 
 	// remove xml header
-	xmlOut.replace("<?xml version=\"1.0\"?>", "");
+	xmlOut.replace(QStringLiteral("<?xml version=\"1.0\"?>"), QStringLiteral(""));
 
 	// remove first & last char (\n)
 	// first char is needed due to header replacement

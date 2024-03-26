@@ -215,7 +215,7 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestText)
 {
 	const auto displayName = m_messageModel->rosterItemWatcher().item().displayName();
-	const auto appendedText = requestText.isEmpty() ? QString() : QString(": %1").arg(requestText);
+	const auto appendedText = requestText.isEmpty() ? QString() : QStringLiteral(": %1").arg(requestText);
 
 	return addChatHint(
 		ChatHint {

@@ -256,7 +256,7 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 		.mimeType = [&name] {
 			const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
 			if (possibleMimeTypes.empty()) {
-				return MediaUtils::mimeDatabase().mimeTypeForName("application/octet-stream");
+				return MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
 			}
 
 			return possibleMimeTypes.front();
@@ -269,7 +269,7 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 		.httpSources = {
 			HttpSource {
 				.fileId = id,
-				.url = url.url()
+				.url = QUrl(url.url())
 			}
 		},
 		.encryptedSources = {}
@@ -402,7 +402,7 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 	using Mam = QXmppMamManager;
 
 	QXmppResultSetQuery queryLimit;
-	queryLimit.setBefore("");
+	queryLimit.setBefore(QStringLiteral(""));
 	queryLimit.setMax(MAM_BACKLOG_FETCH_COUNT);
 
 	m_mamManager->retrieveMessages({}, {}, jid, {}, stamp, queryLimit).then(this, [this, jid, stamp](auto result) {

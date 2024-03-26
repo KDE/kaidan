@@ -74,23 +74,23 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 
 	// get indexes of attributes
 	QSqlRecord rec = query.record();
-	int idxAccountJid = rec.indexOf("accountJid");
-	int idxChatJid = rec.indexOf("chatJid");
-	int idxSenderId = rec.indexOf("senderId");
-	int idxId = rec.indexOf("id");
-	int idxOriginId = rec.indexOf("originId");
-	int idxStanzaId = rec.indexOf("stanzaId");
-	int idxReplaceId = rec.indexOf("replaceId");
-	int idxTimestamp = rec.indexOf("timestamp");
-	int idxBody = rec.indexOf("body");
-	int idxEncryption = rec.indexOf("encryption");
-	int idxSenderKey = rec.indexOf("senderKey");
-	int idxDeliveryState = rec.indexOf("deliveryState");
-	int idxIsSpoiler = rec.indexOf("isSpoiler");
-	int idxSpoilerHint = rec.indexOf("spoilerHint");
-	int idxFileGroupId = rec.indexOf("fileGroupId");
-	int idxErrorText = rec.indexOf("errorText");
-	int idxRemoved = rec.indexOf("removed");
+	int idxAccountJid = rec.indexOf(QStringLiteral("accountJid"));
+	int idxChatJid = rec.indexOf(QStringLiteral("chatJid"));
+	int idxSenderId = rec.indexOf(QStringLiteral("senderId"));
+	int idxId = rec.indexOf(QStringLiteral("id"));
+	int idxOriginId = rec.indexOf(QStringLiteral("originId"));
+	int idxStanzaId = rec.indexOf(QStringLiteral("stanzaId"));
+	int idxReplaceId = rec.indexOf(QStringLiteral("replaceId"));
+	int idxTimestamp = rec.indexOf(QStringLiteral("timestamp"));
+	int idxBody = rec.indexOf(QStringLiteral("body"));
+	int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
+	int idxSenderKey = rec.indexOf(QStringLiteral("senderKey"));
+	int idxDeliveryState = rec.indexOf(QStringLiteral("deliveryState"));
+	int idxIsSpoiler = rec.indexOf(QStringLiteral("isSpoiler"));
+	int idxSpoilerHint = rec.indexOf(QStringLiteral("spoilerHint"));
+	int idxFileGroupId = rec.indexOf(QStringLiteral("fileGroupId"));
+	int idxErrorText = rec.indexOf(QStringLiteral("errorText"));
+	int idxRemoved = rec.indexOf(QStringLiteral("removed"));
 
 	reserve(messages, query);
 	while (query.next()) {
@@ -129,55 +129,55 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	QSqlRecord rec;
 
 	if (oldMsg.accountJid != newMsg.accountJid) {
-		rec.append(createSqlField("accountJid", newMsg.accountJid));
+		rec.append(createSqlField(QStringLiteral("accountJid"), newMsg.accountJid));
 	}
 	if (oldMsg.chatJid != newMsg.chatJid) {
-		rec.append(createSqlField("chatJid", newMsg.chatJid));
+		rec.append(createSqlField(QStringLiteral("chatJid"), newMsg.chatJid));
 	}
 	if (oldMsg.senderId != newMsg.senderId) {
-		rec.append(createSqlField("senderId", newMsg.senderId));
+		rec.append(createSqlField(QStringLiteral("senderId"), newMsg.senderId));
 	}
 	if (oldMsg.id != newMsg.id) {
-		rec.append(createSqlField("id", newMsg.id));
+		rec.append(createSqlField(QStringLiteral("id"), newMsg.id));
 	}
 	if (oldMsg.originId != newMsg.originId) {
-		rec.append(createSqlField("originId", newMsg.originId));
+		rec.append(createSqlField(QStringLiteral("originId"), newMsg.originId));
 	}
 	if (oldMsg.stanzaId != newMsg.stanzaId) {
-		rec.append(createSqlField("stanzaId", newMsg.stanzaId));
+		rec.append(createSqlField(QStringLiteral("stanzaId"), newMsg.stanzaId));
 	}
 	if (oldMsg.replaceId != newMsg.replaceId) {
-		rec.append(createSqlField("replaceId", newMsg.replaceId));
+		rec.append(createSqlField(QStringLiteral("replaceId"), newMsg.replaceId));
 	}
 	if (oldMsg.timestamp != newMsg.timestamp) {
-		rec.append(createSqlField("timestamp", newMsg.timestamp.toString(Qt::ISODateWithMs)));
+		rec.append(createSqlField(QStringLiteral("timestamp"), newMsg.timestamp.toString(Qt::ISODateWithMs)));
 	}
 	if (oldMsg.body != newMsg.body) {
-		rec.append(createSqlField("body", newMsg.body));
+		rec.append(createSqlField(QStringLiteral("body"), newMsg.body));
 	}
 	if (oldMsg.encryption != newMsg.encryption) {
-		rec.append(createSqlField("encryption", newMsg.encryption));
+		rec.append(createSqlField(QStringLiteral("encryption"), newMsg.encryption));
 	}
 	if (oldMsg.senderKey != newMsg.senderKey) {
-		rec.append(createSqlField("senderKey", newMsg.senderKey));
+		rec.append(createSqlField(QStringLiteral("senderKey"), newMsg.senderKey));
 	}
 	if (oldMsg.deliveryState != newMsg.deliveryState) {
-		rec.append(createSqlField("deliveryState", int(newMsg.deliveryState)));
+		rec.append(createSqlField(QStringLiteral("deliveryState"), int(newMsg.deliveryState)));
 	}
 	if (oldMsg.isSpoiler != newMsg.isSpoiler) {
-		rec.append(createSqlField("isSpoiler", newMsg.isSpoiler));
+		rec.append(createSqlField(QStringLiteral("isSpoiler"), newMsg.isSpoiler));
 	}
 	if (oldMsg.spoilerHint != newMsg.spoilerHint) {
-		rec.append(createSqlField("spoilerHint", newMsg.spoilerHint));
+		rec.append(createSqlField(QStringLiteral("spoilerHint"), newMsg.spoilerHint));
 	}
 	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
-		rec.append(createSqlField("fileGroupId", optionalToVariant(newMsg.fileGroupId)));
+		rec.append(createSqlField(QStringLiteral("fileGroupId"), optionalToVariant(newMsg.fileGroupId)));
 	}
 	if (oldMsg.errorText != newMsg.errorText) {
-		rec.append(createSqlField("errorText", newMsg.errorText));
+		rec.append(createSqlField(QStringLiteral("errorText"), newMsg.errorText));
 	}
 	if (oldMsg.removed != newMsg.removed) {
-		rec.append(createSqlField("removed", newMsg.removed));
+		rec.append(createSqlField(QStringLiteral("removed"), newMsg.removed));
 	}
 
 	return rec;
@@ -361,7 +361,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				// '%' is intended here as a placeholder inside the query for SQL statement "LIKE".
-				{ u":queryString", "%" + queryString + "%" },
+				{ u":queryString", QString(QLatin1Char('%') + queryString + QLatin1Char('%')) },
 			}
 		);
 
@@ -800,11 +800,11 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 						query,
 						driver.sqlStatement(
 							QSqlDriver::UpdateStatement,
-							DB_TABLE_MESSAGES,
+							QStringLiteral(DB_TABLE_MESSAGES),
 							rec,
 							false
 						) +
-						simpleWhereStatement(&driver, "id", oldMessage.id)
+						simpleWhereStatement(&driver, QStringLiteral("id"), oldMessage.id)
 					);
 				}
 
@@ -875,11 +875,11 @@ QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QSt
 					query,
 					driver.sqlStatement(
 						QSqlDriver::UpdateStatement,
-						DB_TABLE_MESSAGES,
+						QStringLiteral(DB_TABLE_MESSAGES),
 						rec,
 						false
 					) +
-					simpleWhereStatement(&driver, "id", newMessage.id)
+					simpleWhereStatement(&driver, QStringLiteral("id"), newMessage.id)
 				);
 
 				Q_EMIT draftMessageUpdated(newMessage);
@@ -1154,7 +1154,7 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM files WHERE id = :fileId");
+	prepareQuery(query, QStringLiteral("DELETE FROM files WHERE id = :fileId"));
 	for (auto fileId : fileIds) {
 		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
@@ -1164,7 +1164,7 @@ void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileHashes WHERE dataId = :fileId");
+	prepareQuery(query, QStringLiteral("DELETE FROM fileHashes WHERE dataId = :fileId"));
 	for (auto fileId : fileIds) {
 		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
@@ -1174,7 +1174,7 @@ void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileHttpSources WHERE fileId = :fileId");
+	prepareQuery(query, QStringLiteral("DELETE FROM fileHttpSources WHERE fileId = :fileId"));
 	for (auto fileId : fileIds) {
 		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
@@ -1184,7 +1184,7 @@ void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
 {
 	auto query = createQuery();
-	prepareQuery(query, "DELETE FROM fileEncryptedSources WHERE fileId = :fileId");
+	prepareQuery(query, QStringLiteral("DELETE FROM fileEncryptedSources WHERE fileId = :fileId"));
 	for (auto fileId : fileIds) {
 		bindValues(query, {{ u":fileId", fileId }});
 		execQuery(query);
@@ -1255,9 +1255,9 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
 		prepareQuery(q,
-			"SELECT id, name, description, mimeType, size, lastModified, disposition, "
+			QStringLiteral("SELECT id, name, description, mimeType, size, lastModified, disposition, "
 			"thumbnail, localFilePath FROM files "
-			"WHERE fileGroupId = :fileGroupId");
+			"WHERE fileGroupId = :fileGroupId"));
 		return q;
 	}();
 
@@ -1292,7 +1292,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 	enum { HashType, HashValue };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT hashType, hashValue FROM fileHashes WHERE dataId = :fileId");
+		prepareQuery(q, QStringLiteral("SELECT hashType, hashValue FROM fileHashes WHERE dataId = :fileId"));
 		return q;
 	}();
 
@@ -1316,7 +1316,7 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 	enum { Url };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
-		prepareQuery(q, "SELECT url FROM fileHttpSources WHERE fileId = :fileId");
+		prepareQuery(q, QStringLiteral("SELECT url FROM fileHttpSources WHERE fileId = :fileId"));
 		return q;
 	}();
 
@@ -1340,8 +1340,8 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
 		prepareQuery(q,
-			"SELECT url, cipher, key, iv, encryptedDataId FROM fileEncryptedSources "
-			"WHERE fileId = :fileId");
+			QStringLiteral("SELECT url, cipher, key, iv, encryptedDataId FROM fileEncryptedSources "
+			"WHERE fileId = :fileId"));
 		return q;
 	}();
 

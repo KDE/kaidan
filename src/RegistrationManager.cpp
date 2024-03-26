@@ -140,7 +140,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 
 void RegistrationManager::handleRegistrationSucceeded()
 {
-	AccountManager::instance()->setJid(m_dataFormModel->extractUsername().append('@').append(m_client->configuration().domain()));
+	AccountManager::instance()->setJid(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()));
 	AccountManager::instance()->setPassword(m_dataFormModel->extractPassword());
 
 	m_client->disconnectFromServer();
@@ -164,20 +164,20 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 			registrationError = RegistrationError::InBandRegistrationNotSupported;
 		else if (error.condition() == QXmppStanza::Error::Conflict)
 			registrationError = RegistrationError::UsernameConflict;
-		else if (error.condition() == QXmppStanza::Error::NotAllowed && error.text().contains("captcha", Qt::CaseInsensitive))
+		else if (error.condition() == QXmppStanza::Error::NotAllowed && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive))
 			registrationError = RegistrationError::CaptchaVerificationFailed;
 		break;
 	case QXmppStanza::Error::Modify:
 		if (error.condition() == QXmppStanza::Error::NotAcceptable) {
 			// TODO: Check error text in English (needs QXmpp change)
-			if (error.text().contains("password", Qt::CaseInsensitive) && (error.text().contains("weak", Qt::CaseInsensitive) || error.text().contains("short", Qt::CaseInsensitive)))
+			if (error.text().contains(QStringLiteral("password"), Qt::CaseInsensitive) && (error.text().contains(QStringLiteral("weak"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("short"), Qt::CaseInsensitive)))
 				registrationError = RegistrationError::PasswordTooWeak;
-			else if (error.text().contains("ip", Qt::CaseInsensitive) || error.text().contains("quickly", Qt::CaseInsensitive)
+			else if (error.text().contains(QStringLiteral("ip"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("quickly"), Qt::CaseInsensitive)
 )
 				registrationError = RegistrationError::TemporarilyBlocked;
 			else
 				registrationError = RegistrationError::RequiredInformationMissing;
-		} else if (error.condition() == QXmppStanza::Error::BadRequest && error.text().contains("captcha", Qt::CaseInsensitive)) {
+		} else if (error.condition() == QXmppStanza::Error::BadRequest && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive)) {
 			registrationError = RegistrationError::CaptchaVerificationFailed;
 		}
 		break;

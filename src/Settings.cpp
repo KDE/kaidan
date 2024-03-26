@@ -44,7 +44,7 @@ void Settings::setAuthJid(const QString &jid)
 
 QString Settings::authJidResourcePrefix() const
 {
-	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), KAIDAN_JID_RESOURCE_DEFAULT_PREFIX);
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
 }
 
 void Settings::setAuthJidResourcePrefix(const QString &prefix)
@@ -54,7 +54,7 @@ void Settings::setAuthJidResourcePrefix(const QString &prefix)
 
 QString Settings::authPassword() const
 {
-	return QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8());
+	return QString::fromUtf8(QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
 }
 
 void Settings::setAuthPassword(const QString &password)
