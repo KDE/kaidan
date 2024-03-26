@@ -13,7 +13,8 @@
 #include <QXmppClient.h>
 #include <QXmppLogger.h>
 
-LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent) : QObject(parent), m_client(client)
+LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
+	: QObject(parent), m_client(client)
 {
 	client->logger()->setLoggingType(QXmppLogger::SignalLogging);
 	enableLogging(enable);
@@ -38,11 +39,15 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
 	switch (type) {
 	case QXmppLogger::ReceivedMessage:
-		qDebug() << "[client] [incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+		qDebug()
+			<< "[client] [incoming] "
+			   "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
 		qDebug().noquote() << makeXmlPretty(text);
 		break;
 	case QXmppLogger::SentMessage:
-		qDebug() << "[client] [outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+		qDebug()
+			<< "[client] [outgoing] "
+			   ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
 		qDebug().noquote() << makeXmlPretty(text);
 		break;
 	case QXmppLogger::WarningMessage:
@@ -69,7 +74,7 @@ QString LogHandler::makeXmlPretty(QString xmlIn)
 	}
 
 	// remove xml header
-xmlOut.replace(QStringLiteral("<?xml version=\"1.0\"?>"), QStringLiteral(""));
+	xmlOut.replace(QStringLiteral("<?xml version=\"1.0\"?>"), QStringLiteral(""));
 
 	// remove first & last char (\n)
 	// first char is needed due to header replacement

@@ -6,7 +6,7 @@
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationDataFormModel.h"
 
-RegistrationDataFormFilterModel::RegistrationDataFormFilterModel(QObject* parent)
+RegistrationDataFormFilterModel::RegistrationDataFormFilterModel(QObject *parent)
 	: QSortFilterProxyModel(parent)
 {
 }
@@ -20,7 +20,7 @@ void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceM
 {
 	m_filteredRows.clear();
 
-	auto *dataFormModel = qobject_cast<RegistrationDataFormModel*>(sourceModel);
+	auto *dataFormModel = qobject_cast<RegistrationDataFormModel *>(sourceModel);
 	if (dataFormModel)
 		m_filteredRows = dataFormModel->indiciesToFilter();
 

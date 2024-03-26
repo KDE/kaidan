@@ -20,9 +20,7 @@
 #include <QXmppRosterManager.h>
 #include <QXmppTask.h>
 
-RosterManager::RosterManager(ClientWorker *clientWorker,
-                             QXmppClient *client,
-                             QObject *parent)
+RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
 	  m_clientWorker(clientWorker),
 	  m_client(client),
@@ -32,8 +30,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 {
 	connect(m_manager, &QXmppRosterManager::rosterReceived, this, &RosterManager::populateRoster);
 
-	connect(m_manager, &QXmppRosterManager::itemAdded,
-		this, [this](const QString &jid) {
+	connect(m_manager, &QXmppRosterManager::itemAdded, this, [this](const QString &jid) {
 		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
@@ -49,8 +46,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		}
 	});
 
-	connect(m_manager, &QXmppRosterManager::itemChanged,
-		this, [this] (const QString &jid) {
+	connect(m_manager, &QXmppRosterManager::itemChanged, this, [this](const QString &jid) {
 		Q_EMIT RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
 			item.name = updatedItem.name();
@@ -96,7 +92,7 @@ void RosterManager::populateRoster()
 	const QStringList bareJids = m_manager->getRosterBareJids();
 
 	for (const auto &jid : bareJids) {
-		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid)};
+		RosterItem rosterItem { m_client->configuration().jidBare(), m_manager->getRosterEntry(jid) };
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 		items.insert(jid, rosterItem);
@@ -105,8 +101,8 @@ void RosterManager::populateRoster()
 			m_vCardManager->requestVCard(jid);
 		}
 
-		// Process subscription requests from roster items that were received before the roster was
-		// received.
+		// Process subscription requests from roster items that were received before the
+		// roster was received.
 		if (m_unprocessedSubscriptionRequests.contains(jid)) {
 			addUnrespondedSubscriptionRequest(jid, m_unprocessedSubscriptionRequests.take(jid));
 		}
@@ -117,7 +113,8 @@ void RosterManager::populateRoster()
 
 	// Process subscription requests from strangers that were received before the roster was
 	// received.
-	for (auto itr = m_unprocessedSubscriptionRequests.begin(); itr != m_unprocessedSubscriptionRequests.end();) {
+	for (auto itr = m_unprocessedSubscriptionRequests.begin();
+		itr != m_unprocessedSubscriptionRequests.end();) {
 		processSubscriptionRequestFromStranger(itr.key(), itr.value());
 		itr = m_unprocessedSubscriptionRequests.erase(itr);
 	}
@@ -148,7 +145,8 @@ void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJ
 {
 	m_unrespondedSubscriptionRequests.insert(subscriberJid, requestText);
 	const auto accountJid = m_client->configuration().jidBare();
-	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, subscriberJid, requestText);
+	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(
+		accountJid, subscriberJid, requestText);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &msg)
@@ -158,10 +156,9 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
 		m_manager->subscribe(jid, msg);
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-			tr("Could not add contact, as a result of not being connected.")
-		);
+			tr("Could not add contact, as a result of not being connected."));
 		qWarning() << "[client] [RosterManager] Could not add contact, as a result of "
-		              "not being connected.";
+			      "not being connected.";
 	}
 }
 
@@ -171,10 +168,9 @@ void RosterManager::removeContact(const QString &jid)
 		m_manager->removeItem(jid);
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-			tr("Could not remove contact, as a result of not being connected.")
-		);
+			tr("Could not remove contact, as a result of not being connected."));
 		qWarning() << "[client] [RosterManager] Could not remove contact, as a result of "
-		              "not being connected.";
+			      "not being connected.";
 	}
 }
 
@@ -184,10 +180,9 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
 		m_manager->renameItem(jid, newContactName);
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-			tr("Could not rename contact, as a result of not being connected.")
-		);
+			tr("Could not rename contact, as a result of not being connected."));
 		qWarning() << "[client] [RosterManager] Could not rename contact, as a result of "
-		              "not being connected.";
+			      "not being connected.";
 	}
 }
 
@@ -195,7 +190,10 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 {
 	m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
 		if (const auto error = std::get_if<QXmppError>(&result)) {
-			Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Requesting to see the personal data of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
+			Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+				tr("Requesting to see the personal data of %1 failed because of a "
+				   "connection problem: %2")
+					.arg(contactJid, error->description));
 		}
 	});
 }
@@ -205,7 +203,8 @@ void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
 	if (m_manager->acceptSubscription(contactJid)) {
 		m_unrespondedSubscriptionRequests.remove(contactJid);
 	} else {
-		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+			tr("Allowing %1 to see your personal data failed").arg(contactJid));
 	}
 }
 
@@ -214,7 +213,8 @@ void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 	if (m_manager->refuseSubscription(contactJid)) {
 		m_unrespondedSubscriptionRequests.remove(contactJid);
 	} else {
-		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+			tr("Stopping %1 to see your personal data failed").arg(contactJid));
 	}
 }
 
@@ -227,10 +227,8 @@ void RosterManager::updateGroups(const QString &jid, const QString &name, const 
 {
 	m_isItemBeingChanged = true;
 
-	m_clientWorker->startTask(
-		[this, jid, name, groups] {
-			// TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
-			m_manager->addItem(jid, name, QSet(groups.cbegin(), groups.cend()));
-		}
-	);
+	m_clientWorker->startTask([this, jid, name, groups] {
+		// TODO: Add updating only groups to QXmppRosterManager without the need to pass the unmodified name
+		m_manager->addItem(jid, name, QSet(groups.cbegin(), groups.cend()));
+	});
 }

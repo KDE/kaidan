@@ -17,8 +17,7 @@ using namespace SqlUtils;
 
 AccountDb *AccountDb::s_instance = nullptr;
 
-AccountDb::AccountDb(Database *db, QObject *parent)
-        : DatabaseComponent(db, parent)
+AccountDb::AccountDb(Database *db, QObject *parent) : DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!AccountDb::s_instance);
 	s_instance = this;
@@ -38,8 +37,7 @@ QFuture<void> AccountDb::addAccount(const QString &jid)
 {
 	return run([this, jid] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				INSERT OR IGNORE INTO accounts (
 					jid
@@ -50,18 +48,16 @@ QFuture<void> AccountDb::addAccount(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 	});
 }
 
-QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount)
+QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount)
 {
 	return run([this, jid, updateAccount]() {
 		// Load the account from the database.
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM accounts
@@ -69,8 +65,7 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		QVector<Account> accounts;
 		parseAccountsFromQuery(query, accounts);
@@ -83,7 +78,8 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 
 			// Replace the old account's values with the updated ones if the item has changed.
 			if (oldAccount != newAccount) {
-				if (auto record = createUpdateRecord(oldAccount, newAccount); !record.isEmpty()) {
+				if (auto record = createUpdateRecord(oldAccount, newAccount);
+					!record.isEmpty()) {
 					// Create an SQL record containing only the differences.
 					updateAccountByRecord(jid, record);
 				}
@@ -96,8 +92,7 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 {
 	return run([this, jid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT latestMessageStanzaId
 				FROM accounts
@@ -105,8 +100,7 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		QString stanzaId;
 
@@ -165,18 +159,9 @@ void AccountDb::updateAccountByRecord(const QString &jid, const QSqlRecord &reco
 	auto query = createQuery();
 	auto &driver = sqlDriver();
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ QStringLiteral("jid"), jid }
-	};
+	QMap<QString, QVariant> keyValuePairs = { { QStringLiteral("jid"), jid } };
 
-	execQuery(
-		query,
-		driver.sqlStatement(
-			QSqlDriver::UpdateStatement,
-			QStringLiteral(DB_TABLE_ACCOUNTS),
-			record,
-			false
-		) +
-		simpleWhereStatement(&driver, keyValuePairs)
-	);
+	execQuery(query,
+		driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false) +
+			simpleWhereStatement(&driver, keyValuePairs));
 }

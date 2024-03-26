@@ -7,10 +7,11 @@
 
 #include <QMediaDevices>
 
-static AudioDeviceInfo audioDeviceByDeviceName(QAudioDevice::Mode mode, const QString &deviceName) {
+static AudioDeviceInfo audioDeviceByDeviceName(QAudioDevice::Mode mode, const QString &deviceName)
+{
 	const auto audioDevices(QMediaDevices::audioInputs()); // TODO mode
 
-	for (const auto &audioDevice: audioDevices) {
+	for (const auto &audioDevice : audioDevices) {
 		if (audioDevice.description() == deviceName) {
 			return AudioDeviceInfo(audioDevice);
 		}
@@ -19,8 +20,7 @@ static AudioDeviceInfo audioDeviceByDeviceName(QAudioDevice::Mode mode, const QS
 	return AudioDeviceInfo();
 }
 
-AudioDeviceInfo::AudioDeviceInfo(const QAudioDevice &other)
-	: QAudioDevice(other)
+AudioDeviceInfo::AudioDeviceInfo(const QAudioDevice &other) : QAudioDevice(other)
 {
 }
 
@@ -38,8 +38,7 @@ QString AudioDeviceInfo::description(const QString &deviceName)
 		.trimmed();
 }
 
-AudioDeviceModel::AudioDeviceModel(QObject *parent)
-	: QAbstractListModel(parent)
+AudioDeviceModel::AudioDeviceModel(QObject *parent) : QAbstractListModel(parent)
 {
 	refresh();
 
@@ -60,19 +59,19 @@ QVariant AudioDeviceModel::data(const QModelIndex &index, int role) const
 		case AudioDeviceModel::CustomRoles::IsNullRole:
 			return audioDeviceInfo.isNull();
 		case AudioDeviceModel::CustomRoles::DeviceNameRole:
-return QVariant(); // TODO audioDeviceInfo.deviceName();
+			return QVariant(); // TODO audioDeviceInfo.deviceName();
 		case AudioDeviceModel::CustomRoles::DescriptionRole:
-return QVariant(); // TODO AudioDeviceInfo::description(audioDeviceInfo.deviceName());
+			return QVariant(); // TODO AudioDeviceInfo::description(audioDeviceInfo.deviceName());
 		case AudioDeviceModel::CustomRoles::SupportedCodecsRole:
-return QVariant(); // TODO audioDeviceInfo.supportedCodecs();
+			return QVariant(); // TODO audioDeviceInfo.supportedCodecs();
 		case AudioDeviceModel::CustomRoles::SupportedSampleRatesRole:
-return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
+			return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleRates());
 		case AudioDeviceModel::CustomRoles::SupportedChannelCountsRole:
-return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
+			return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedChannelCounts());
 		case AudioDeviceModel::CustomRoles::SupportedSampleSizesRole:
-return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
+			return QVariant(); // TODO QVariant::fromValue(audioDeviceInfo.supportedSampleSizes());
 		case AudioDeviceModel::CustomRoles::AudioDeviceInfoRole:
-return QVariant(); // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
+			return QVariant(); // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo));
 		}
 	}
 
@@ -81,16 +80,14 @@ return QVariant(); // TODO QVariant::fromValue(AudioDeviceInfo(audioDeviceInfo))
 
 QHash<int, QByteArray> AudioDeviceModel::roleNames() const
 {
-	static const QHash<int, QByteArray> roles {
-		{ IsNullRole, QByteArrayLiteral("isNull") },
+	static const QHash<int, QByteArray> roles { { IsNullRole, QByteArrayLiteral("isNull") },
 		{ DeviceNameRole, QByteArrayLiteral("deviceName") },
 		{ DescriptionRole, QByteArrayLiteral("description") },
 		{ SupportedCodecsRole, QByteArrayLiteral("supportedCodecs") },
 		{ SupportedSampleRatesRole, QByteArrayLiteral("supportedSampleRates") },
 		{ SupportedChannelCountsRole, QByteArrayLiteral("supportedChannelCounts") },
 		{ SupportedSampleSizesRole, QByteArrayLiteral("supportedSampleSizes") },
-		{ AudioDeviceInfoRole, QByteArrayLiteral("audioDeviceInfo") }
-	};
+		{ AudioDeviceInfoRole, QByteArrayLiteral("audioDeviceInfo") } };
 
 	return roles;
 }
@@ -135,8 +132,7 @@ int AudioDeviceModel::currentIndex() const
 
 void AudioDeviceModel::setCurrentIndex(int currentIndex)
 {
-	if (currentIndex < 0 || currentIndex >= m_audioDevices.count()
-		|| m_currentIndex == currentIndex) {
+	if (currentIndex < 0 || currentIndex >= m_audioDevices.count() || m_currentIndex == currentIndex) {
 		return;
 	}
 
@@ -158,9 +154,7 @@ void AudioDeviceModel::setCurrentAudioDevice(const AudioDeviceInfo &currentAudio
 
 AudioDeviceInfo AudioDeviceModel::audioDevice(int row) const
 {
-	return hasIndex(row, 0)
-		       ? AudioDeviceInfo(m_audioDevices[row])
-		       : AudioDeviceInfo();
+	return hasIndex(row, 0) ? AudioDeviceInfo(m_audioDevices[row]) : AudioDeviceInfo();
 }
 
 int AudioDeviceModel::indexOf(const QString &deviceName) const
@@ -206,7 +200,8 @@ void AudioDeviceModel::refresh()
 
 	beginResetModel();
 	const QString currentDeviceName = currentAudioDevice().description();
-	const auto it = std::find_if(m_audioDevices.constBegin(), m_audioDevices.constEnd(),
+	const auto it = std::find_if(m_audioDevices.constBegin(),
+		m_audioDevices.constEnd(),
 		[&currentDeviceName](const QAudioDevice &deviceInfo) {
 			return deviceInfo.description() == currentDeviceName;
 		});

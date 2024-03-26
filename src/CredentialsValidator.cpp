@@ -8,14 +8,14 @@
 
 #include <QXmppUtils.h>
 
-CredentialsValidator::CredentialsValidator(QObject *parent)
-        : QObject(parent)
+CredentialsValidator::CredentialsValidator(QObject *parent) : QObject(parent)
 {
 }
 
 bool CredentialsValidator::isUserJidValid(const QString &jid)
 {
-return jid.count(QLatin1Char('@')) == 1 && isUsernameValid(QXmppUtils::jidToUser(jid)) && isServerValid(QXmppUtils::jidToDomain(jid));
+	return jid.count(QLatin1Char('@')) == 1 && isUsernameValid(QXmppUtils::jidToUser(jid)) &&
+	       isServerValid(QXmppUtils::jidToDomain(jid));
 }
 
 bool CredentialsValidator::isUsernameValid(const QString &username)

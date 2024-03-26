@@ -17,8 +17,7 @@ constexpr QChar QUERY_ITEM_KEY_DELIMITER = u'=';
 
 // Query types representing actions, e.g. "join" in
 // "xmpp:group@example.org?join" for joining a group chat
-constexpr std::array<QStringView, 18> QUERY_TYPES = {
-	QStringView(),
+constexpr std::array<QStringView, 18> QUERY_TYPES = { QStringView(),
 	u"command",
 	u"disco",
 	u"invite",
@@ -35,17 +34,14 @@ constexpr std::array<QStringView, 18> QUERY_TYPES = {
 	u"trust-message",
 	u"unregister",
 	u"unsubscribe",
-	u"vcard"
-};
+	u"vcard" };
 
 // QXmppMessage types as strings
-constexpr std::array<QStringView, 5> MESSAGE_TYPES = {
-	u"error",
+constexpr std::array<QStringView, 5> MESSAGE_TYPES = { u"error",
 	u"normal",
 	u"chat",
 	u"groupchat",
-	u"headline"
-};
+	u"headline" };
 
 ///
 /// Parses the URI from a string.
@@ -94,7 +90,7 @@ QString QXmppUri::toString()
 
 	url.setQuery(query);
 
-return QString::fromUtf8(url.toEncoded(QUrl::FullyEncoded).toStdString());
+	return QString::fromUtf8(url.toEncoded(QUrl::FullyEncoded).toStdString());
 }
 
 ///
@@ -291,7 +287,8 @@ bool QXmppUri::setAction(const QUrlQuery &query)
 	auto queryItems = query.queryItems();
 	auto firstQueryItem = queryItems.first();
 
-	const auto queryTypeIndex = std::find(QUERY_TYPES.cbegin(), QUERY_TYPES.cend(), firstQueryItem.first);
+	const auto queryTypeIndex =
+		std::find(QUERY_TYPES.cbegin(), QUERY_TYPES.cend(), firstQueryItem.first);
 
 	// Check if the first query item is a valid action (i.e. a query item
 	// with a query type as its key and without a value).
@@ -321,26 +318,29 @@ void QXmppUri::setQueryKeyValuePairs(const QUrlQuery &query)
 {
 	switch (m_action) {
 	case Message:
-m_message.setSubject(queryItemValue(query, QStringLiteral("subject")));
-m_message.setBody(queryItemValue(query, QStringLiteral("body")));
-m_message.setThread(queryItemValue(query, QStringLiteral("thread")));
-m_message.setId(queryItemValue(query, QStringLiteral("id")));
-m_message.setFrom(queryItemValue(query, QStringLiteral("from")));
-if (!queryItemValue(query, QStringLiteral("type")).isEmpty()) {
-const auto itr = std::find(MESSAGE_TYPES.cbegin(), MESSAGE_TYPES.cend(), queryItemValue(query, QStringLiteral("type")));
+		m_message.setSubject(queryItemValue(query, QStringLiteral("subject")));
+		m_message.setBody(queryItemValue(query, QStringLiteral("body")));
+		m_message.setThread(queryItemValue(query, QStringLiteral("thread")));
+		m_message.setId(queryItemValue(query, QStringLiteral("id")));
+		m_message.setFrom(queryItemValue(query, QStringLiteral("from")));
+		if (!queryItemValue(query, QStringLiteral("type")).isEmpty()) {
+			const auto itr = std::find(MESSAGE_TYPES.cbegin(),
+				MESSAGE_TYPES.cend(),
+				queryItemValue(query, QStringLiteral("type")));
 			if (itr != MESSAGE_TYPES.cend())
-				m_message.setType(QXmppMessage::Type(std::distance(MESSAGE_TYPES.cbegin(), itr)));
+				m_message.setType(
+					QXmppMessage::Type(std::distance(MESSAGE_TYPES.cbegin(), itr)));
 		} else {
 			m_hasMessageType = false;
 		}
 		break;
 	case Login:
-m_password = queryItemValue(query, QStringLiteral("password"));
+		m_password = queryItemValue(query, QStringLiteral("password"));
 		break;
 	case TrustMessage: {
-m_encryption = queryItemValue(query, QStringLiteral("encryption"));
-m_trustedKeysIds = query.allQueryItemValues(QStringLiteral("trust"), QUrl::FullyDecoded);
-m_distrustedKeysIds = query.allQueryItemValues(QStringLiteral("distrust"), QUrl::FullyDecoded);
+		m_encryption = queryItemValue(query, QStringLiteral("encryption"));
+		m_trustedKeysIds = query.allQueryItemValues(QStringLiteral("trust"), QUrl::FullyDecoded);
+		m_distrustedKeysIds = query.allQueryItemValues(QStringLiteral("distrust"), QUrl::FullyDecoded);
 	}
 	default:
 		break;
@@ -360,26 +360,27 @@ void QXmppUri::addItemsToQuery(QUrlQuery &query) const
 	// Add all remaining query items that are the key-value pairs.
 	switch (m_action) {
 	case Message:
-addKeyValuePairToQuery(query, QStringLiteral("from"), m_message.from());
-addKeyValuePairToQuery(query, QStringLiteral("id"), m_message.id());
+		addKeyValuePairToQuery(query, QStringLiteral("from"), m_message.from());
+		addKeyValuePairToQuery(query, QStringLiteral("id"), m_message.id());
 		if (m_hasMessageType)
-addKeyValuePairToQuery(query, QStringLiteral("type"), MESSAGE_TYPES[int(m_message.type())]);
-addKeyValuePairToQuery(query, QStringLiteral("subject"), m_message.subject());
-addKeyValuePairToQuery(query, QStringLiteral("body"), m_message.body());
-addKeyValuePairToQuery(query, QStringLiteral("thread"), m_message.thread());
+			addKeyValuePairToQuery(
+				query, QStringLiteral("type"), MESSAGE_TYPES[int(m_message.type())]);
+		addKeyValuePairToQuery(query, QStringLiteral("subject"), m_message.subject());
+		addKeyValuePairToQuery(query, QStringLiteral("body"), m_message.body());
+		addKeyValuePairToQuery(query, QStringLiteral("thread"), m_message.thread());
 		break;
 	case Login:
-addKeyValuePairToQuery(query, QStringLiteral("password"), m_password);
+		addKeyValuePairToQuery(query, QStringLiteral("password"), m_password);
 		break;
 	case TrustMessage: {
-addKeyValuePairToQuery(query, QStringLiteral("encryption"), m_encryption);
+		addKeyValuePairToQuery(query, QStringLiteral("encryption"), m_encryption);
 
 		for (auto &identifier : m_trustedKeysIds) {
-addKeyValuePairToQuery(query, QStringLiteral("trust"), identifier);
+			addKeyValuePairToQuery(query, QStringLiteral("trust"), identifier);
 		}
 
 		for (auto &identifier : m_distrustedKeysIds) {
-addKeyValuePairToQuery(query, QStringLiteral("distrust"), identifier);
+			addKeyValuePairToQuery(query, QStringLiteral("distrust"), identifier);
 		}
 	}
 	default:

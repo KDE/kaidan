@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include <QObject>
 #include <QMutex>
+#include <QObject>
 
 /**
  * @brief The ServerFeaturesCache class temporarily stores the features of a server. This

@@ -20,7 +20,7 @@ public:
 	static AccountDb *instance();
 
 	QFuture<void> addAccount(const QString &jid);
-	QFuture<void> updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount);
+	QFuture<void> updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount);
 
 	/**
 	 * Fetches the stanza ID of the latest locally stored (existing or removed) message.

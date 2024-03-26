@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 class AvatarFileStorage : public QObject
 {

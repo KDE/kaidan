@@ -41,9 +41,12 @@ OmemoManager::OmemoManager(QXmppClient *client, Database *database, QObject *par
 		initializeChat(accountJid, accountJid);
 	});
 
-	connect(m_manager, &QXmppOmemoManager::trustLevelsChanged, this, [this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
-		retrieveKeysForRequestedJids(modifiedKeys.keys());
-	});
+	connect(m_manager,
+		&QXmppOmemoManager::trustLevelsChanged,
+		this,
+		[this](const QMultiHash<QString, QByteArray> &modifiedKeys) {
+			retrieveKeysForRequestedJids(modifiedKeys.keys());
+		});
 
 	connect(m_manager, &QXmppOmemoManager::deviceAdded, this, [this](const QString &jid, uint32_t) {
 		retrieveDevicesForRequestedJids(jid);
@@ -83,8 +86,13 @@ QFuture<void> OmemoManager::load()
 		auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
 		future.then(this, [this, interface]() mutable {
 			const auto productName = QSysInfo::prettyProductName();
-const QString productNameWithoutVersion = productName.contains(QStringLiteral(" ")) ? productName.section(QStringLiteral(" "), 0, -2) : productName;
-auto future = m_manager->changeDeviceLabel(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % productNameWithoutVersion);
+			const QString productNameWithoutVersion =
+				productName.contains(QStringLiteral(" "))
+					? productName.section(QStringLiteral(" "), 0, -2)
+					: productName;
+			auto future = m_manager->changeDeviceLabel(
+				QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") %
+				productNameWithoutVersion);
 			future.then(this, [this, interface](bool) mutable {
 				auto future = m_manager->load();
 				future.then(this, [this, interface](bool isLoaded) mutable {
@@ -108,15 +116,17 @@ QFuture<void> OmemoManager::setUp()
 		auto future = m_manager->setUp();
 		future.then(this, [this, interface](bool isSetUp) mutable {
 			if (isSetUp) {
-				// Enabling the session building for new devices is delayed after all (or at least
-				// most) devices are automatically received from the servers.
-				// That way, the sessions for those devices, which are only new during this setup,
-				// are not built at once.
-				// Instead, only sessions for devices that are received after this setup are built
-				// when opening a chat (i.e., even before sending the first message).
-				// The default behavior would otherwise build sessions not before sending a message
-				// which leads to longer waiting times.
-				QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL, this, &OmemoManager::enableSessionBuildingForNewDevices);
+				// Enabling the session building for new devices is delayed after
+				// all (or at least most) devices are automatically received from
+				// the servers. That way, the sessions for those devices, which are
+				// only new during this setup, are not built at once. Instead, only
+				// sessions for devices that are received after this setup are built
+				// when opening a chat (i.e., even before sending the first
+				// message). The default behavior would otherwise build sessions not
+				// before sending a message which leads to longer waiting times.
+				QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL,
+					this,
+					&OmemoManager::enableSessionBuildingForNewDevices);
 
 				// Retrieve the own key before opening the first chat.
 				// It can be used when presenting the own QR code.
@@ -125,7 +135,8 @@ QFuture<void> OmemoManager::setUp()
 					interface.reportFinished();
 				});
 			} else {
-				Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
+				Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr(
+					"End-to-end encryption via OMEMO 2 could not be set up"));
 				interface.reportFinished();
 			}
 		});
@@ -138,12 +149,10 @@ QFuture<void> OmemoManager::retrieveKeys(const QList<QString> &jids)
 {
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
-	auto future = m_manager->keys(jids, ~ QXmpp::TrustLevels { QXmpp::TrustLevel::Undecided });
+	auto future = m_manager->keys(jids, ~QXmpp::TrustLevels { QXmpp::TrustLevel::Undecided });
 	future.then(this, [this, interface](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
 		auto future = retrieveOwnKey(std::move(keys));
-		await(future, this, [interface]() mutable {
-			interface.reportFinished();
-		});
+		await(future, this, [interface]() mutable { interface.reportFinished(); });
 	});
 
 	return interface.future();
@@ -158,7 +167,8 @@ QFuture<bool> OmemoManager::hasUsableDevices(const QList<QString> &jids)
 		for (const auto &device : std::as_const(devices)) {
 			const auto trustLevel = device.trustLevel();
 
-			if (!(QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted).testFlag(trustLevel)) {
+			if (!(QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted)
+					.testFlag(trustLevel)) {
 				reportFinishedResult(interface, true);
 				return;
 			}
@@ -175,9 +185,7 @@ QFuture<void> OmemoManager::requestDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->requestDeviceLists(jids);
-	future.then(this, [interface](auto &&) mutable {
-		interface.reportFinished();
-	});
+	future.then(this, [interface](auto &&) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -187,9 +195,7 @@ QFuture<void> OmemoManager::subscribeToDeviceLists(const QList<QString> &jids)
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->subscribeToDeviceLists(jids);
-	future.then(this, [interface](auto &&) mutable {
-		interface.reportFinished();
-	});
+	future.then(this, [interface](auto &&) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -199,9 +205,7 @@ QFuture<void> OmemoManager::unsubscribeFromDeviceLists()
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
 
 	auto future = m_manager->unsubscribeFromDeviceLists();
-	future.then(this, [interface](auto &&) mutable {
-		interface.reportFinished();
-	});
+	future.then(this, [interface](auto &&) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -232,35 +236,38 @@ QFuture<void> OmemoManager::initializeChat(const QString &accountJid, const QStr
 		});
 	};
 
-	// Make it possible to use OMEMO encryption with the chat partner even if the chat partner has
-	// no presence subscription or is offline.
+	// Make it possible to use OMEMO encryption with the chat partner even if the chat partner
+	// has no presence subscription or is offline.
 	if (accountJid == chatJid) {
 		initializeSessionsKeysAndDevices();
 	} else {
-		// Subscribe to the OMEMO device list of the current chat partner if it is not automatically
-		// requested via PEP's presence-based subscription ("auto-subscribe").
-		// If there is a subscription but the chat partner is offline, the device list is requested
-		// manually because it could result in the server not distributing the device list via PEP's
-		// presence-based subscription.
-		runOnThread(RosterModel::instance(), [accountJid, chatJid]() {
-			return std::tuple {
-				RosterModel::instance()->isPresenceSubscribedByItem(accountJid, chatJid),
-				PresenceCache::instance()->resourcesCount(chatJid)
-			};
-		}, this, [=, this](std::tuple<bool, int> result) mutable {
-			auto [isPresenceSubscribed, resourcesCount] = result;
-			if (isPresenceSubscribed) {
-				if (resourcesCount == 0) {
-					auto future = requestDeviceLists({ chatJid });
-					await(future, this, initializeSessionsKeysAndDevices);
+		// Subscribe to the OMEMO device list of the current chat partner if it is not
+		// automatically requested via PEP's presence-based subscription ("auto-subscribe").
+		// If there is a subscription but the chat partner is offline, the device list is
+		// requested manually because it could result in the server not distributing the
+		// device list via PEP's presence-based subscription.
+		runOnThread(
+			RosterModel::instance(),
+			[accountJid, chatJid]() {
+				return std::tuple { RosterModel::instance()->isPresenceSubscribedByItem(
+							    accountJid, chatJid),
+					PresenceCache::instance()->resourcesCount(chatJid) };
+			},
+			this,
+			[=, this](std::tuple<bool, int> result) mutable {
+				auto [isPresenceSubscribed, resourcesCount] = result;
+				if (isPresenceSubscribed) {
+					if (resourcesCount == 0) {
+						auto future = requestDeviceLists({ chatJid });
+						await(future, this, initializeSessionsKeysAndDevices);
+					} else {
+						initializeSessionsKeysAndDevices();
+					}
 				} else {
-					initializeSessionsKeysAndDevices();
+					auto future = subscribeToDeviceLists({ chatJid });
+					await(future, this, initializeSessionsKeysAndDevices);
 				}
-			} else {
-				auto future = subscribeToDeviceLists({ chatJid });
-				await(future, this, initializeSessionsKeysAndDevices);
-			}
-		});
+			});
 	}
 
 	return interface.future();
@@ -288,14 +295,15 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 			const auto jid = itr.key();
 			const auto trustLevels = itr.value();
 
-			for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend(); ++trustLevelItr) {
+			for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend();
+				++trustLevelItr) {
 				const auto keyId = trustLevelItr.key();
 				const auto trustLevel = trustLevelItr.value();
 
 				if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-authenticatedKeys.append(QString::fromUtf8(keyId.toHex()));
+					authenticatedKeys.append(QString::fromUtf8(keyId.toHex()));
 				} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
-authenticatableKeys.append(QString::fromUtf8(keyId.toHex()));
+					authenticatableKeys.append(QString::fromUtf8(keyId.toHex()));
 				}
 			}
 
@@ -310,7 +318,10 @@ authenticatableKeys.append(QString::fromUtf8(keyId.toHex()));
 
 void OmemoManager::retrieveKeysForRequestedJids(const QList<QString> &jids)
 {
-	if (std::search(jids.cbegin(), jids.cend(), m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend()) != jids.cend()) {
+	if (std::search(jids.cbegin(),
+		    jids.cend(),
+		    m_lastRequestedKeyOwnerJids.cbegin(),
+		    m_lastRequestedKeyOwnerJids.cend()) != jids.cend()) {
 		retrieveKeys(m_lastRequestedKeyOwnerJids);
 	}
 }
@@ -338,35 +349,48 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 			const auto keyId = device.keyId();
 			const auto trustLevel = device.trustLevel();
 
-			if ((QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted).testFlag(trustLevel)) {
-distrustedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
+			if ((QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted)
+					.testFlag(trustLevel)) {
+				distrustedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			} else {
-usableDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
+				usableDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			}
 
 			if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-authenticatedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
+				authenticatedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
-authenticatableDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
+				authenticatableDevices.insert(
+					jid, { label, QString::fromUtf8(keyId.toHex()) });
 			}
 		}
 
 		for (const auto &jid : jids) {
-			updateCachedDevices(jid, distrustedDevices.values(jid), usableDevices.values(jid), authenticatableDevices.values(jid), authenticatedDevices.values(jid));
+			updateCachedDevices(jid,
+				distrustedDevices.values(jid),
+				usableDevices.values(jid),
+				authenticatableDevices.values(jid),
+				authenticatedDevices.values(jid));
 		}
 
 		const auto ownDevice = m_manager->ownDevice();
-OmemoCache::instance()->setOwnDevice({ ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex()) });
+		OmemoCache::instance()->setOwnDevice(
+			{ ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex()) });
 	});
 }
 
-void OmemoManager::updateCachedKeys(const QString &jid, const QList<QString> &authenticatableKeys, const QList<QString> &authenticatedKeys)
+void OmemoManager::updateCachedKeys(const QString &jid,
+	const QList<QString> &authenticatableKeys,
+	const QList<QString> &authenticatedKeys)
 {
 	OmemoCache::instance()->setAuthenticatableKeys(jid, authenticatableKeys);
 	OmemoCache::instance()->setAuthenticatedKeys(jid, authenticatedKeys);
 }
 
-void OmemoManager::updateCachedDevices(const QString &jid, const QList<Device> &distrustedDevices, const QList<Device> &usableDevices, const QList<Device> &authenticatableDevices, const QList<Device> &authenticatedDevices)
+void OmemoManager::updateCachedDevices(const QString &jid,
+	const QList<Device> &distrustedDevices,
+	const QList<Device> &usableDevices,
+	const QList<Device> &authenticatableDevices,
+	const QList<Device> &authenticatedDevices)
 {
 	OmemoCache::instance()->setDistrustedDevices(jid, distrustedDevices);
 	OmemoCache::instance()->setUsableDevices(jid, usableDevices);

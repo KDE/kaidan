@@ -6,7 +6,8 @@
 
 #include <QAbstractItemModel>
 
-class ChatHintButton {
+class ChatHintButton
+{
 	Q_GADGET
 
 	Q_PROPERTY(ChatHintButton::Type type MEMBER type)
@@ -53,7 +54,9 @@ public:
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 	Q_INVOKABLE void handleButtonClicked(int i, ChatHintButton::Type type);
 
-	Q_SIGNAL void presenceSubscriptionRequestReceivedRequested(const QString &accountJid, const QString &subscriberJid, const QString &requestText);
+	Q_SIGNAL void presenceSubscriptionRequestReceivedRequested(const QString &accountJid,
+		const QString &subscriberJid,
+		const QString &requestText);
 
 private:
 	struct ChatHint {
@@ -71,15 +74,17 @@ private:
 
 	void handleRosterItemPresenceSubscription();
 	void handleUnrespondedPresenceSubscriptionRequests();
-	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText);
+	void handlePresenceSubscriptionRequestReceived(const QString &accountJid,
+		const QString &subscriberJid,
+		const QString &requestText);
 
 	int addConnectToServerChatHint(bool loading = false);
 	int addAllowPresenceSubscriptionChatHint(const QString &requestText);
 
 	int addChatHint(const ChatHint &chatHint);
 	void insertChatHint(int i, const ChatHint &chatHint);
-	void updateChatHint(ChatHintButton::Type buttonType, const std::function<void (ChatHint &)> &updateChatHint);
-	void updateChatHint(int i, const std::function<void (ChatHint &)> &updateChatHint);
+	void updateChatHint(ChatHintButton::Type buttonType, const std::function<void(ChatHint &)> &updateChatHint);
+	void updateChatHint(int i, const std::function<void(ChatHint &)> &updateChatHint);
 	void removeChatHint(ChatHintButton::Type buttonType);
 	void removeChatHint(int i);
 

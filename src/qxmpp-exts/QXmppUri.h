@@ -74,7 +74,7 @@ public:
 
 	// message
 	QXmppMessage message() const;
-	void setMessage(const QXmppMessage&);
+	void setMessage(const QXmppMessage &);
 
 	bool hasMessageType() const;
 	void setHasMessageType(bool hasMessageType);

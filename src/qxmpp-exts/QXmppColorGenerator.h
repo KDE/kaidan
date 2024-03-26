@@ -11,20 +11,15 @@
 class QXmppColorGenerator
 {
 public:
-    struct RGBColor {
-        quint8 red = 0;
-        quint8 green = 0;
-        quint8 blue = 0;
-    };
+	struct RGBColor {
+		quint8 red = 0;
+		quint8 green = 0;
+		quint8 blue = 0;
+	};
 
-    enum ColorVisionDeficiency {
-        NoDeficiency,
-        RedGreenBlindness,
-        BlueBlindness
-    };
+	enum ColorVisionDeficiency { NoDeficiency, RedGreenBlindness, BlueBlindness };
 
-    static RGBColor generateColor(const QString&,
-                                  ColorVisionDeficiency = NoDeficiency);
+	static RGBColor generateColor(const QString &, ColorVisionDeficiency = NoDeficiency);
 };
 
 #endif // QXMPPCOLORGENERATOR_H

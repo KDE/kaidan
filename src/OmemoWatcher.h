@@ -38,7 +38,8 @@ public:
 private:
 	void handleDistrustedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices);
 	void handleUsableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &usableDevices);
-	void handleAuthenticatableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices);
+	void handleAuthenticatableDevicesUpdated(const QString &jid,
+		const QList<OmemoManager::Device> &authenticatableDevices);
 
 	QString m_jid;
 
@@ -46,4 +47,3 @@ private:
 	QList<OmemoManager::Device> m_usableDevices;
 	QList<OmemoManager::Device> m_authenticatableDevices;
 };
-

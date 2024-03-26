@@ -33,7 +33,8 @@ public:
 
 	void setDistrustedDevices(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices);
 	QList<OmemoManager::Device> distrustedDevices(const QString &jid);
-	Q_SIGNAL void distrustedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &distrustedDevices);
+	Q_SIGNAL void distrustedDevicesUpdated(const QString &jid,
+		const QList<OmemoManager::Device> &distrustedDevices);
 
 	void setUsableDevices(const QString &jid, const QList<OmemoManager::Device> &usableDevices);
 	QList<OmemoManager::Device> usableDevices(const QString &jid);
@@ -41,11 +42,13 @@ public:
 
 	void setAuthenticatableDevices(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices);
 	QList<OmemoManager::Device> authenticatableDevices(const QString &jid);
-	Q_SIGNAL void authenticatableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices);
+	Q_SIGNAL void authenticatableDevicesUpdated(const QString &jid,
+		const QList<OmemoManager::Device> &authenticatableDevices);
 
 	void setAuthenticatedDevices(const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices);
 	QList<OmemoManager::Device> authenticatedDevices(const QString &jid);
-	Q_SIGNAL void authenticatedDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices);
+	Q_SIGNAL void authenticatedDevicesUpdated(const QString &jid,
+		const QList<OmemoManager::Device> &authenticatedDevices);
 
 private:
 	QMutex m_mutex;

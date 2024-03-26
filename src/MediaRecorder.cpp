@@ -7,9 +7,9 @@
 #include "MediaRecorder.h"
 #include "Kaidan.h"
 
-#include <QUrl>
 #include <QFile>
 #include <QSettings>
+#include <QUrl>
 
 #include "Settings.h"
 
@@ -24,19 +24,23 @@
 #define SETTING_DEFAULT_CAMERA_DEVICE_NAME QStringLiteral("Camera Device Name")
 #define SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME QStringLiteral("Audio Input Device Name")
 
-static void connectCamera(QCamera *camera, MediaRecorder *receiver) {
+static void connectCamera(QCamera *camera, MediaRecorder *receiver)
+{
 	// TODO QObject::connect(camera, &QCamera::statusChanged, receiver, &MediaRecorder::readyChanged);
 }
 
-static void connectImageCapturer(CameraImageCapture *capturer, MediaRecorder *receiver) {
+static void connectImageCapturer(CameraImageCapture *capturer, MediaRecorder *receiver)
+{
 	QObject::connect(capturer, &CameraImageCapture::availabilityChanged, receiver, &MediaRecorder::availabilityStatusChanged);
-	// TODO QObject::connect(capturer, QOverload<int, QImageCapture::Error, const QString&>::of(&CameraImageCapture::error), receiver, &MediaRecorder::errorChanged);
+	// TODO QObject::connect(capturer, QOverload<int, QImageCapture::Error, const
+	// QString&>::of(&CameraImageCapture::error), receiver, &MediaRecorder::errorChanged);
 	QObject::connect(capturer, &CameraImageCapture::actualLocationChanged, receiver, &MediaRecorder::actualLocationChanged);
 	QObject::connect(capturer, &CameraImageCapture::readyForCaptureChanged, receiver, &MediaRecorder::readyChanged);
 }
 
-template <typename T>
-static void connectMediaRecorder(T *recorder, MediaRecorder *receiver) {
+template<typename T>
+static void connectMediaRecorder(T *recorder, MediaRecorder *receiver)
+{
 	// TODO QObject::connect(recorder, QOverload<QMultimedia::AvailabilityStatus>::of(&T::availabilityChanged), receiver, &MediaRecorder::availabilityStatusChanged);
 	QObject::connect(recorder, &T::stateChanged, receiver, &MediaRecorder::stateChanged);
 	QObject::connect(recorder, &T::statusChanged, receiver, &MediaRecorder::statusChanged);
@@ -49,20 +53,25 @@ static void connectMediaRecorder(T *recorder, MediaRecorder *receiver) {
 	QObject::connect(recorder, &T::statusChanged, receiver, &MediaRecorder::readyChanged);
 }
 
-template <>
-void connectMediaRecorder<QMediaRecorder>(QMediaRecorder *recorder, MediaRecorder *receiver) {
+template<>
+void connectMediaRecorder<QMediaRecorder>(QMediaRecorder *recorder, MediaRecorder *receiver)
+{
 	connectMediaRecorder(qobject_cast<QMediaRecorder *>(recorder), receiver);
 }
 
-template <typename F>
-static QStringList buildCodecList(const QStringList &codecs, F toString,
-	MediaRecorder *recorder, const QString &startsWith = QString()) {
+template<typename F>
+static QStringList
+buildCodecList(const QStringList &codecs, F toString, MediaRecorder *recorder, const QString &startsWith = QString())
+{
 	QStringList entries(codecs);
 
 	if (!startsWith.isEmpty()) {
-		entries.erase(std::remove_if(entries.begin(), entries.end(), [&startsWith](const QString &entry) {
-			return !entry.startsWith(startsWith, Qt::CaseInsensitive);
-		}), entries.end());
+		entries.erase(std::remove_if(entries.begin(),
+				      entries.end(),
+				      [&startsWith](const QString &entry) {
+					      return !entry.startsWith(startsWith, Qt::CaseInsensitive);
+				      }),
+			entries.end());
 	}
 
 	std::sort(entries.begin(), entries.end(), [&toString, recorder](const QString &left, const QString &right) {
@@ -74,13 +83,13 @@ static QStringList buildCodecList(const QStringList &codecs, F toString,
 	return entries;
 }
 
-static QList<QSize> buildResolutionList(const QList<QSize> &resolutions) {
+static QList<QSize> buildResolutionList(const QList<QSize> &resolutions)
+{
 	QList<QSize> entries(resolutions);
 
 	std::sort(entries.begin(), entries.end(), [](const QSize &left, const QSize &right) {
-		return left.width() == right.width()
-			       ? left.height() < right.height()
-			       : left.width() < right.width();
+		return left.width() == right.width() ? left.height() < right.height()
+						     : left.width() < right.width();
 	});
 
 	entries.prepend(QSize());
@@ -88,33 +97,23 @@ static QList<QSize> buildResolutionList(const QList<QSize> &resolutions) {
 	return entries;
 }
 
-static QList<CommonEncoderSettings::EncodingQuality> buildQualityList() {
-	const QList<CommonEncoderSettings::EncodingQuality> entries {
-		CommonEncoderSettings::EncodingQuality::VeryLowQuality,
+static QList<CommonEncoderSettings::EncodingQuality> buildQualityList()
+{
+	const QList<CommonEncoderSettings::EncodingQuality> entries { CommonEncoderSettings::EncodingQuality::VeryLowQuality,
 		CommonEncoderSettings::EncodingQuality::LowQuality,
 		CommonEncoderSettings::EncodingQuality::NormalQuality,
 		CommonEncoderSettings::EncodingQuality::HighQuality,
-		CommonEncoderSettings::EncodingQuality::VeryHighQuality
-	};
+		CommonEncoderSettings::EncodingQuality::VeryHighQuality };
 
 	return entries;
 }
 
-static QList<int> buildSampleRateList(const QList<int> &sampleRates) {
+static QList<int> buildSampleRateList(const QList<int> &sampleRates)
+{
 	QList<int> entries(sampleRates);
 
 	if (entries.isEmpty()) {
-		entries = {
-			8000,
-			16000,
-			22050,
-			32000,
-			37800,
-			44100,
-			48000,
-			96000,
-			192000
-		};
+		entries = { 8000, 16000, 22050, 32000, 37800, 44100, 48000, 96000, 192000 };
 	}
 
 	std::sort(entries.begin(), entries.end(), [](const int left, const int right) {
@@ -126,7 +125,8 @@ static QList<int> buildSampleRateList(const QList<int> &sampleRates) {
 	return entries;
 }
 
-static QList<qreal> buildFrameRateList(const QList<qreal> &frameRates) {
+static QList<qreal> buildFrameRateList(const QList<qreal> &frameRates)
+{
 	QList<qreal> entries(frameRates);
 
 	std::sort(entries.begin(), entries.end(), [](const qreal left, const qreal right) {
@@ -139,19 +139,19 @@ static QList<qreal> buildFrameRateList(const QList<qreal> &frameRates) {
 }
 
 MediaRecorder::MediaRecorder(QObject *parent)
-	: m_cameraModel(new CameraModel(this))
-	  , m_audioDeviceModel(new AudioDeviceModel(this))
-	  , m_containerModel(new MediaSettingsContainerModel(this, this))
-	  , m_imageCodecModel(new MediaSettingsImageCodecModel(this, this))
-	  , m_imageResolutionModel(new MediaSettingsResolutionModel(this, this))
-	  , m_imageQualityModel(new MediaSettingsQualityModel(this, this))
-	  , m_audioCodecModel(new MediaSettingsAudioCodecModel(this, this))
-	  , m_audioSampleRateModel(new MediaSettingsAudioSampleRateModel(this, this))
-	  , m_audioQualityModel(new MediaSettingsQualityModel(this, this))
-	  , m_videoCodecModel(new MediaSettingsVideoCodecModel(this, this))
-	  , m_videoResolutionModel(new MediaSettingsResolutionModel(this, this))
-	  , m_videoFrameRateModel(new MediaSettingsVideoFrameRateModel(this, this))
-	  , m_videoQualityModel(new MediaSettingsQualityModel(this, this))
+	: m_cameraModel(new CameraModel(this)),
+	  m_audioDeviceModel(new AudioDeviceModel(this)),
+	  m_containerModel(new MediaSettingsContainerModel(this, this)),
+	  m_imageCodecModel(new MediaSettingsImageCodecModel(this, this)),
+	  m_imageResolutionModel(new MediaSettingsResolutionModel(this, this)),
+	  m_imageQualityModel(new MediaSettingsQualityModel(this, this)),
+	  m_audioCodecModel(new MediaSettingsAudioCodecModel(this, this)),
+	  m_audioSampleRateModel(new MediaSettingsAudioSampleRateModel(this, this)),
+	  m_audioQualityModel(new MediaSettingsQualityModel(this, this)),
+	  m_videoCodecModel(new MediaSettingsVideoCodecModel(this, this)),
+	  m_videoResolutionModel(new MediaSettingsResolutionModel(this, this)),
+	  m_videoFrameRateModel(new MediaSettingsVideoFrameRateModel(this, this)),
+	  m_videoQualityModel(new MediaSettingsQualityModel(this, this))
 {
 	connect(this, &MediaRecorder::readyChanged, this, [this]() {
 		if (!isReady()) {
@@ -186,48 +186,50 @@ MediaRecorder::MediaRecorder(QObject *parent)
 			Q_UNREACHABLE();
 			break;
 		}
-		/* TODO case MediaRecorder::Type::Image: {
-			m_cameraModel->setCurrentCamera(m_mediaSettings.camera);
-			m_imageCodecModel->setValuesAndCurrentValue(buildCodecList(m_imageCapturer->supportedImageCodecs(), imageEncoderCodec, this),
-				m_imageEncoderSettings.codec);
-			m_imageResolutionModel->setValuesAndCurrentValue(buildResolutionList(m_imageCapturer->supportedResolutions()),
-				m_imageEncoderSettings.resolution);
-			m_imageQualityModel->setValuesAndCurrentValue(buildQualityList(),
-				m_imageEncoderSettings.quality);
-			break;
-		}
-		case MediaRecorder::Type::Audio: {
-			m_audioDeviceModel->setCurrentAudioDevice(m_mediaSettings.audioInputDevice);
-			m_containerModel->setValuesAndCurrentValue(buildCodecList(m_audioRecorder->supportedContainers(), encoderContainer, this, QStringLiteral("audio")),
-				m_mediaSettings.container);
-			m_audioCodecModel->setValuesAndCurrentValue(buildCodecList(m_audioRecorder->supportedAudioCodecs(), audioEncoderCodec, this),
-				m_audioEncoderSettings.codec);
-			m_audioSampleRateModel->setValuesAndCurrentValue(buildSampleRateList(m_audioRecorder->supportedAudioSampleRates()),
-				m_audioEncoderSettings.sampleRate);
-			m_audioQualityModel->setValuesAndCurrentValue(buildQualityList(),
-				m_audioEncoderSettings.quality);
-			break;
-		}
-		case MediaRecorder::Type::Video: {
-			m_cameraModel->setCurrentCamera(m_mediaSettings.camera);
-			m_containerModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedContainers(), encoderContainer, this, QStringLiteral("video")),
-				m_mediaSettings.container);
-			m_audioCodecModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedAudioCodecs(), audioEncoderCodec, this),
-				m_audioEncoderSettings.codec);
-			m_audioSampleRateModel->setValuesAndCurrentValue(buildSampleRateList(m_videoRecorder->supportedAudioSampleRates()),
-				m_audioEncoderSettings.sampleRate);
-			m_audioQualityModel->setValuesAndCurrentValue(buildQualityList(),
-				m_audioEncoderSettings.quality);
-			m_videoCodecModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedVideoCodecs(), videoEncoderCodec, this),
-				m_videoEncoderSettings.codec);
-			m_videoResolutionModel->setValuesAndCurrentValue(buildResolutionList(m_videoRecorder->supportedResolutions()),
-				m_videoEncoderSettings.resolution);
-			m_videoFrameRateModel->setValuesAndCurrentValue(buildFrameRateList(m_videoRecorder->supportedFrameRates()),
-				m_videoEncoderSettings.frameRate);
-			m_videoQualityModel->setValuesAndCurrentValue(buildQualityList(),
-				m_videoEncoderSettings.quality);
-			break;
-		}*/
+			/* TODO case MediaRecorder::Type::Image: {
+				m_cameraModel->setCurrentCamera(m_mediaSettings.camera);
+				m_imageCodecModel->setValuesAndCurrentValue(buildCodecList(m_imageCapturer->supportedImageCodecs(),
+			imageEncoderCodec, this), m_imageEncoderSettings.codec);
+				m_imageResolutionModel->setValuesAndCurrentValue(buildResolutionList(m_imageCapturer->supportedResolutions()),
+					m_imageEncoderSettings.resolution);
+				m_imageQualityModel->setValuesAndCurrentValue(buildQualityList(),
+					m_imageEncoderSettings.quality);
+				break;
+			}
+			case MediaRecorder::Type::Audio: {
+				m_audioDeviceModel->setCurrentAudioDevice(m_mediaSettings.audioInputDevice);
+				m_containerModel->setValuesAndCurrentValue(buildCodecList(m_audioRecorder->supportedContainers(),
+			encoderContainer, this, QStringLiteral("audio")),
+					m_mediaSettings.container);
+				m_audioCodecModel->setValuesAndCurrentValue(buildCodecList(m_audioRecorder->supportedAudioCodecs(),
+			audioEncoderCodec, this), m_audioEncoderSettings.codec);
+				m_audioSampleRateModel->setValuesAndCurrentValue(buildSampleRateList(m_audioRecorder->supportedAudioSampleRates()),
+					m_audioEncoderSettings.sampleRate);
+				m_audioQualityModel->setValuesAndCurrentValue(buildQualityList(),
+					m_audioEncoderSettings.quality);
+				break;
+			}
+			case MediaRecorder::Type::Video: {
+				m_cameraModel->setCurrentCamera(m_mediaSettings.camera);
+				m_containerModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedContainers(),
+			encoderContainer, this, QStringLiteral("video")),
+					m_mediaSettings.container);
+				m_audioCodecModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedAudioCodecs(),
+			audioEncoderCodec, this), m_audioEncoderSettings.codec);
+				m_audioSampleRateModel->setValuesAndCurrentValue(buildSampleRateList(m_videoRecorder->supportedAudioSampleRates()),
+					m_audioEncoderSettings.sampleRate);
+				m_audioQualityModel->setValuesAndCurrentValue(buildQualityList(),
+					m_audioEncoderSettings.quality);
+				m_videoCodecModel->setValuesAndCurrentValue(buildCodecList(m_videoRecorder->supportedVideoCodecs(),
+			videoEncoderCodec, this), m_videoEncoderSettings.codec);
+				m_videoResolutionModel->setValuesAndCurrentValue(buildResolutionList(m_videoRecorder->supportedResolutions()),
+					m_videoEncoderSettings.resolution);
+				m_videoFrameRateModel->setValuesAndCurrentValue(buildFrameRateList(m_videoRecorder->supportedFrameRates()),
+					m_videoEncoderSettings.frameRate);
+				m_videoQualityModel->setValuesAndCurrentValue(buildQualityList(),
+					m_videoEncoderSettings.quality);
+				break;
+			}*/
 		}
 
 #if ENABLE_DEBUG
@@ -287,7 +289,7 @@ QString MediaRecorder::currentSettingsKey() const
 		return settingsKey(m_type, m_mediaSettings.camera.description());
 	}
 
-	return { };
+	return {};
 }
 
 MediaRecorder::AvailabilityStatus MediaRecorder::availabilityStatus() const
@@ -360,14 +362,13 @@ bool MediaRecorder::isReady() const
 	case MediaRecorder::Type::Image:
 		return m_imageCapturer->isReadyForCapture();
 	case MediaRecorder::Type::Audio:
-		return isAvailable()
-		       && status() >= MediaRecorder::Status::UnloadedStatus
-		       && status() <= MediaRecorder::Status::LoadedStatus;
+		return isAvailable() && status() >= MediaRecorder::Status::UnloadedStatus &&
+		       status() <= MediaRecorder::Status::LoadedStatus;
 	case MediaRecorder::Type::Video:
 		return isAvailable()
-		      // TODO && m_camera->status() == QCamera::Status::ActiveStatus
-		       && status() >= MediaRecorder::Status::UnloadedStatus
-		       && status() <= MediaRecorder::Status::LoadedStatus;
+		       // TODO && m_camera->status() == QCamera::Status::ActiveStatus
+		       && status() >= MediaRecorder::Status::UnloadedStatus &&
+		       status() <= MediaRecorder::Status::LoadedStatus;
 	}
 
 	return false;
@@ -426,7 +427,7 @@ QString MediaRecorder::errorString() const
 		return m_videoRecorder->errorString();
 	}
 
-	return { };
+	return {};
 }
 
 QUrl MediaRecorder::actualLocation() const
@@ -451,7 +452,7 @@ QUrl MediaRecorder::actualLocation() const
 		return urlExists(m_videoRecorder->actualLocation());
 	}
 
-	return { };
+	return {};
 }
 
 qint64 MediaRecorder::duration() const
@@ -475,9 +476,9 @@ bool MediaRecorder::isMuted() const
 	case MediaRecorder::Type::Invalid:
 	case MediaRecorder::Type::Image:
 		break;
-	// case MediaRecorder::Type::Audio:
+		// case MediaRecorder::Type::Audio:
 		// TODO return m_audioRecorder->isMuted();
-	// case MediaRecorder::Type::Video:
+		// case MediaRecorder::Type::Video:
 		// TODO return m_videoRecorder->isMuted();
 	}
 
@@ -506,9 +507,9 @@ qreal MediaRecorder::volume() const
 	case MediaRecorder::Type::Invalid:
 	case MediaRecorder::Type::Image:
 		break;
-	// case MediaRecorder::Type::Audio:
+		// case MediaRecorder::Type::Audio:
 		// TODO	return m_audioRecorder->volume();
-	// case MediaRecorder::Type::Video:
+		// case MediaRecorder::Type::Video:
 		// TODO	return m_videoRecorder->volume();
 	}
 
@@ -577,7 +578,7 @@ void MediaRecorder::setMediaSettings(const MediaSettings &settings)
 		case MediaRecorder::Type::Video:
 			if (oldSettings.camera != settings.camera) {
 				setupRecorder(m_type);
-			}  else {
+			} else {
 				// TODO m_videoRecorder->setContainerFormat(m_mediaSettings.container);
 			}
 
@@ -769,7 +770,8 @@ void MediaRecorder::saveUserSettings()
 		QSettings &settings(Kaidan::instance()->settings()->raw());
 
 		settings.beginGroup(settingsKey(m_type, SETTING_USER_DEFAULT));
-		settings.setValue(SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME, m_mediaSettings.audioInputDevice.description());
+		settings.setValue(SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME,
+			m_mediaSettings.audioInputDevice.description());
 		settings.endGroup();
 
 		settings.beginGroup(currentSettingsKey());
@@ -938,7 +940,8 @@ AudioDeviceInfo MediaRecorder::userDefaultAudioInput() const
 	settings.beginGroup(settingsKey(m_type, SETTING_USER_DEFAULT));
 
 	if (settings.contains(SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME)) {
-		const AudioDeviceInfo userAudioInput(AudioDeviceModel::audioInputDevice(settings.value(SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME).toString()));
+		const AudioDeviceInfo userAudioInput(AudioDeviceModel::audioInputDevice(
+			settings.value(SETTING_DEFAULT_AUDIO_INPUT_DEVICE_NAME).toString()));
 
 		if (!userAudioInput.isNull()) {
 			audioInput = userAudioInput;
@@ -1048,7 +1051,7 @@ void MediaRecorder::setupCapturer()
 	/* TODO if (m_camera)
 		m_imageCapturer = new CameraImageCapture(m_camera, this);
 	else*/
-		m_imageCapturer = new CameraImageCapture({});
+	m_imageCapturer = new CameraImageCapture({});
 
 	// TODO m_imageCapturer->setEncodingSettings(m_imageEncoderSettings.toQMediaFormat());
 
@@ -1085,10 +1088,14 @@ void MediaRecorder::setupRecorder(MediaRecorder::Type type)
 		cancel();
 	}
 
-	delete m_imageCapturer; m_imageCapturer = nullptr;
-	delete m_audioRecorder; m_audioRecorder = nullptr;
-	delete m_videoRecorder; m_videoRecorder = nullptr;
-	delete m_camera; m_camera = nullptr;
+	delete m_imageCapturer;
+	m_imageCapturer = nullptr;
+	delete m_audioRecorder;
+	m_audioRecorder = nullptr;
+	delete m_videoRecorder;
+	m_videoRecorder = nullptr;
+	delete m_camera;
+	m_camera = nullptr;
 
 	if (m_type != type) {
 		m_type = type;
@@ -1159,16 +1166,17 @@ QString MediaRecorder::encoderContainer(const QString &container, const void *us
 	const auto *recorder = static_cast<const MediaRecorder *>(userData);
 	const auto *mediaRecorder = recorder->m_audioRecorder ? recorder->m_audioRecorder : recorder->m_videoRecorder;
 	return /* TODO container.isEmpty()
-		       ? */tr("Default");
-		       //: QString::fromLatin1("%1 (%2)").arg(mediaRecorder->containerDescription(container), container);
+		       ? */
+		tr("Default");
+	//: QString::fromLatin1("%1 (%2)").arg(mediaRecorder->containerDescription(container), container);
 }
 
 QString MediaRecorder::encoderResolution(const QSize &size, const void *userData)
 {
 	Q_UNUSED(userData);
-	return size.isEmpty()
-		       ? tr("Default")
-		       : QString::fromLatin1("%1x%2").arg(QString::number(size.width()), QString::number(size.height()));
+	return size.isEmpty() ? tr("Default")
+			      : QString::fromLatin1("%1x%2").arg(QString::number(size.width()),
+					QString::number(size.height()));
 }
 
 QString MediaRecorder::encoderQuality(const CommonEncoderSettings::EncodingQuality quality, const void *userData)
@@ -1182,8 +1190,9 @@ QString MediaRecorder::imageEncoderCodec(const QString &codec, const void *userD
 	const auto *recorder = static_cast<const MediaRecorder *>(userData);
 	const auto *capturer = recorder->m_imageCapturer;
 	return /* TODO codec.isEmpty()
-		       ?*/ tr("Default");
-		      // : QString::fromLatin1("%1 (%2)").arg(capturer->imageCodecDescription(codec), codec);
+		       ?*/
+		tr("Default");
+	// : QString::fromLatin1("%1 (%2)").arg(capturer->imageCodecDescription(codec), codec);
 }
 
 QString MediaRecorder::audioEncoderCodec(const QString &codec, const void *userData)
@@ -1191,16 +1200,15 @@ QString MediaRecorder::audioEncoderCodec(const QString &codec, const void *userD
 	const auto *recorder = static_cast<const MediaRecorder *>(userData);
 	const auto *mediaRecorder = recorder->m_audioRecorder ? recorder->m_audioRecorder : recorder->m_videoRecorder;
 	return /* TODO codec.isEmpty()
-		       ?*/ tr("Default");
-		       //: QString::fromLatin1("%1 (%2)").arg(mediaRecorder->audioCodecDescription(codec), codec);
+		       ?*/
+		tr("Default");
+	//: QString::fromLatin1("%1 (%2)").arg(mediaRecorder->audioCodecDescription(codec), codec);
 }
 
 QString MediaRecorder::audioEncoderSampleRate(const int sampleRate, const void *userData)
 {
 	Q_UNUSED(userData);
-	return sampleRate == -1
-		       ? tr("Default")
-		       : QString::fromLatin1("%1 Hz").arg(sampleRate);
+	return sampleRate == -1 ? tr("Default") : QString::fromLatin1("%1 Hz").arg(sampleRate);
 }
 
 QString MediaRecorder::videoEncoderCodec(const QString &codec, const void *userData)
@@ -1208,14 +1216,13 @@ QString MediaRecorder::videoEncoderCodec(const QString &codec, const void *userD
 	const auto *recorder = static_cast<const MediaRecorder *>(userData);
 	const auto *videoRecorder = recorder->m_videoRecorder;
 	return /* TODO codec.isEmpty()
-		       ?*/ tr("Default");
-		       //: QString::fromLatin1("%1 (%2)").arg(videoRecorder->videoCodecDescription(codec), codec);
+		       ?*/
+		tr("Default");
+	//: QString::fromLatin1("%1 (%2)").arg(videoRecorder->videoCodecDescription(codec), codec);
 }
 
 QString MediaRecorder::videoEncoderFrameRate(const qreal frameRate, const void *userData)
 {
 	Q_UNUSED(userData);
-	return qIsNull(frameRate)
-		       ? tr("Default")
-		       : QString::fromLatin1("%1 FPS").arg(frameRate);
+	return qIsNull(frameRate) ? tr("Default") : QString::fromLatin1("%1 FPS").arg(frameRate);
 }

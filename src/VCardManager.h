@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include <QObject>
 #include <QImage>
+#include <QObject>
 
 class AvatarFileStorage;
 class ClientWorker;

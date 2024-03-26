@@ -72,8 +72,7 @@ QColor Presence::availabilityToColor(Availability type)
 	return {};
 }
 
-PresenceCache::PresenceCache(QObject *parent)
-	: QObject(parent)
+PresenceCache::PresenceCache(QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -225,8 +224,7 @@ UserPresenceWatcher::UserPresenceWatcher(QObject *parent)
 Presence::Availability UserPresenceWatcher::availability() const
 {
 	if (const auto presence = PresenceCache::instance()->presence(m_jid, m_resource)) {
-		return Presence::availabilityFromAvailabilityStatusType(
-			presence->availableStatusType());
+		return Presence::availabilityFromAvailabilityStatusType(presence->availableStatusType());
 	}
 	return Presence::Offline;
 }
@@ -279,9 +277,7 @@ QString UserPresenceWatcher::resource() const
 	return m_resource;
 }
 
-void UserPresenceWatcher::handlePresenceChanged(PresenceCache::ChangeType type,
-	const QString &jid,
-	const QString &resource)
+void UserPresenceWatcher::handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource)
 {
 	if (m_jid == jid) {
 		if (m_resourceAutoPicked) {
@@ -348,8 +344,7 @@ bool UserPresenceWatcher::setResource(const QString &resource, bool autoPicked)
  */
 bool UserPresenceWatcher::autoPickResource()
 {
-	if (const auto resource = PresenceCache::instance()->pickIdealResource(m_jid);
-		!resource.isNull()) {
+	if (const auto resource = PresenceCache::instance()->pickIdealResource(m_jid); !resource.isNull()) {
 		return setResource(resource, true);
 	} else if (!m_resource.isNull()) {
 		// currently no resource available :'(
@@ -358,16 +353,16 @@ bool UserPresenceWatcher::autoPickResource()
 	return false;
 }
 
-UserResourcesWatcher::UserResourcesWatcher(QObject *parent)
-	: QObject(parent)
+UserResourcesWatcher::UserResourcesWatcher(QObject *parent) : QObject(parent)
 {
-	connect(PresenceCache::instance(), &PresenceCache::presenceChanged,
-	        this, [this](PresenceCache::ChangeType, const QString &, const QString &) {
-		Q_EMIT resourcesCountChanged();
-	});
+	connect(PresenceCache::instance(),
+		&PresenceCache::presenceChanged,
+		this,
+		[this](PresenceCache::ChangeType, const QString &, const QString &) {
+			Q_EMIT resourcesCountChanged();
+		});
 
-	connect(PresenceCache::instance(), &PresenceCache::presencesCleared,
-	        this, &UserResourcesWatcher::resourcesCountChanged);
+	connect(PresenceCache::instance(), &PresenceCache::presencesCleared, this, &UserResourcesWatcher::resourcesCountChanged);
 }
 
 /**

@@ -10,33 +10,33 @@
 
 #include <QDir>
 #include <QFile>
+#include <QImage>
 #include <QMimeDatabase>
 #include <QRandomGenerator>
-#include <QImage>
 #include <QStandardPaths>
 #include <QStringBuilder>
 
+#include <QXmppBitsOfBinaryDataList.h>
+#include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppError.h>
 #include <QXmppFileMetadata.h>
 #include <QXmppFileSharingManager.h>
-#include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHash.h>
-#include <QXmppEncryptedFileSharingProvider.h>
+#include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHttpFileSource.h>
-#include <QXmppUtils.h>
 #include <QXmppMessage.h>
-#include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppOutOfBandUrl.h>
-#include <QXmppUploadRequestManager.h>
 #include <QXmppPromise.h>
+#include <QXmppUploadRequestManager.h>
+#include <QXmppUtils.h>
 
 #include <KFileUtils>
 
-#include "Kaidan.h"
-#include "FutureUtils.h"
-#include "FileProgressCache.h"
-#include "MessageDb.h"
 #include "Algorithms.h"
+#include "FileProgressCache.h"
+#include "FutureUtils.h"
+#include "Kaidan.h"
+#include "MessageDb.h"
 #include "ServerFeaturesCache.h"
 
 template<typename T, typename Lambda>
@@ -58,14 +58,27 @@ auto find(T &container, Value value)
 ///
 /// A file extension can be added again by infering it from the mime type if one is needed.
 ///
-static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView fileName) {
+static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView fileName)
+{
 	constexpr std::array bad_chars = {
 #ifdef Q_OS_UNIX
 		// These have special meaning in a file name.
-QLatin1Char('.'), QLatin1Char('/'), QLatin1Char('\\'),
+		QLatin1Char('.'),
+		QLatin1Char('/'),
+		QLatin1Char('\\'),
 
 		// These are treated specially by shells.
-QLatin1Char('<'), QLatin1Char('>'), QLatin1Char('|'), QLatin1Char(':'), QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char(';'), QLatin1Char('#'), QLatin1Char('?'), QLatin1Char('*'),
+		QLatin1Char('<'),
+		QLatin1Char('>'),
+		QLatin1Char('|'),
+		QLatin1Char(':'),
+		QLatin1Char('('),
+		QLatin1Char(')'),
+		QLatin1Char('&'),
+		QLatin1Char(';'),
+		QLatin1Char('#'),
+		QLatin1Char('?'),
+		QLatin1Char('*'),
 #else
 		// Microsoft says these are invalid.
 QLatin1Char('.'), QLatin1Char('<'), QLatin1Char('>'), QLatin1Char(':'), QLatin1Char('"'), QLatin1Char('/'), QLatin1Char('\\'), QLatin1Char('|'), QLatin1Char('?'), QLatin1Char(QLatin1Char('*'),
@@ -80,9 +93,28 @@ QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char('#'),
 
 	constexpr std::initializer_list<QStringView> bad_names = {
 #ifndef Q_OS_UNIX
-		u"CON", u"PRN", u"AUX", u"NUL", u"COM1", u"COM2", u"COM3", u"COM4",
-		u"COM5", u"COM6", u"COM7", u"COM8", u"COM9", u"LPT1", u"LPT2",
-		u"LPT3", u"LPT4", u"LPT5", u"LPT6", u"LPT7", u"LPT8", u"LPT9",
+		u"CON",
+		u"PRN",
+		u"AUX",
+		u"NUL",
+		u"COM1",
+		u"COM2",
+		u"COM3",
+		u"COM4",
+		u"COM5",
+		u"COM6",
+		u"COM7",
+		u"COM8",
+		u"COM9",
+		u"LPT1",
+		u"LPT2",
+		u"LPT3",
+		u"LPT4",
+		u"LPT5",
+		u"LPT6",
+		u"LPT7",
+		u"LPT8",
+		u"LPT9",
 #endif
 	};
 
@@ -108,9 +140,7 @@ QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char('#'),
 		filenameParts.push_back(substr);
 	}
 
-	auto relevantPart = find_if(filenameParts, [](const auto &part) {
-		return !part.isEmpty();
-	});
+	auto relevantPart = find_if(filenameParts, [](const auto &part) { return !part.isEmpty(); });
 
 	// No substring we can use, filename only contains bad chars
 	if (relevantPart == filenameParts.end()) {
@@ -118,9 +148,7 @@ QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char('#'),
 	}
 
 	QString fileExtension;
-	for (auto itr = --filenameParts.end();
-		 itr != relevantPart;
-		 itr--) {
+	for (auto itr = --filenameParts.end(); itr != relevantPart; itr--) {
 		if (!itr->isEmpty()) {
 			fileExtension = *itr;
 			break;
@@ -153,17 +181,14 @@ qint64 FileSharingController::generateFileId()
 	return QRandomGenerator::system()->generate64();
 }
 
-auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
-	-> QXmppTask<SendFilesResult>
+auto FileSharingController::sendFiles(QVector<File> files, bool encrypt) -> QXmppTask<SendFilesResult>
 {
 	Q_ASSERT(!files.empty());
 
 	QXmppPromise<SendFilesResult> promise;
 	auto task = promise.task();
 
-	auto futures = transform(files, [&](auto &file) {
-		return sendFile(file, encrypt);
-	});
+	auto futures = transform(files, [&](auto &file) { return sendFile(file, encrypt); });
 
 	await(join(this, std::move(futures)), this, [promise = std::move(promise), files = std::move(files)](auto &&uploadResults) mutable {
 		// Check if any of the uploads failed
@@ -201,37 +226,40 @@ auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
 				file.thumbnail = fileResult->second.dataBlobs.first().data();
 			}
 
-			file.httpSources = transform(fileResult->second.fileShare.httpSources(), [&](const auto &s) {
-				return HttpSource { file.id, s.url() };
-			});
+			file.httpSources =
+				transform(fileResult->second.fileShare.httpSources(), [&](const auto &s) {
+					return HttpSource { file.id, s.url() };
+				});
 
-			file.encryptedSources = transform(fileResult->second.fileShare.encryptedSources(), [&](const auto &s) {
-				QUrl sourceUrl;
-				if (!s.httpSources().empty()) {
-					sourceUrl = s.httpSources().first().url();
-				}
+			file.encryptedSources = transform(
+				fileResult->second.fileShare.encryptedSources(), [&](const auto &s) {
+					QUrl sourceUrl;
+					if (!s.httpSources().empty()) {
+						sourceUrl = s.httpSources().first().url();
+					}
 
-				std::optional<qint64> encryptedDataId;
-				if (!s.hashes().empty()) {
-					encryptedDataId = generateFileId();
-				}
+					std::optional<qint64> encryptedDataId;
+					if (!s.hashes().empty()) {
+						encryptedDataId = generateFileId();
+					}
 
-				return EncryptedSource {
-					file.id,
-					sourceUrl,
-					s.cipher(),
-					s.key(),
-					s.iv(),
-					encryptedDataId,
-					transform(s.hashes(), [&](const auto &hash) {
-						return FileHash { encryptedDataId.value(), hash.algorithm(), hash.hash() };
-					})
-				};
-			});
+					return EncryptedSource { file.id,
+						sourceUrl,
+						s.cipher(),
+						s.key(),
+						s.iv(),
+						encryptedDataId,
+						transform(s.hashes(), [&](const auto &hash) {
+							return FileHash { encryptedDataId.value(),
+								hash.algorithm(),
+								hash.hash() };
+						}) };
+				});
 
-			file.hashes = transform(fileResult->second.fileShare.metadata().hashes(), [&](const auto &hash) {
-				return FileHash { file.id, hash.algorithm(), hash.hash() };
-			});
+			file.hashes = transform(fileResult->second.fileShare.metadata().hashes(),
+				[&](const auto &hash) {
+					return FileHash { file.id, hash.algorithm(), hash.hash() };
+				});
 		}
 
 		promise.finish(std::move(files));
@@ -240,31 +268,31 @@ auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
 	return task;
 }
 
-auto FileSharingController::sendFile(const File &file, bool encrypt)
-	-> QFuture<UploadResult>
+auto FileSharingController::sendFile(const File &file, bool encrypt) -> QFuture<UploadResult>
 {
 	QFutureInterface<UploadResult> interface;
 
 	auto *client = Kaidan::instance()->client();
 
 	runOnThread(client, [this, client, file, encrypt, interface]() mutable {
-		auto provider = encrypt
-				? std::static_pointer_cast<QXmppFileSharingProvider>(client->encryptedHttpFileSharingProvider())
-				: std::static_pointer_cast<QXmppFileSharingProvider>(client->httpFileSharingProvider());
+		auto provider = encrypt ? std::static_pointer_cast<QXmppFileSharingProvider>(
+						  client->encryptedHttpFileSharingProvider())
+					: std::static_pointer_cast<QXmppFileSharingProvider>(
+						  client->httpFileSharingProvider());
 
 		auto upload = client->fileSharingManager()->uploadFile(
-					provider,
-					file.localFilePath,
-					file.description);
+			provider, file.localFilePath, file.description);
 
-		FileProgressCache::instance()
-			.reportProgress(file.id, FileProgress { 0, quint64(upload->bytesTotal()), 0.0F });
+		FileProgressCache::instance().reportProgress(
+			file.id, FileProgress { 0, quint64(upload->bytesTotal()), 0.0F });
 
 		std::weak_ptr<QXmppFileUpload> uploadPtr = upload;
 		connect(upload.get(), &QXmppFileUpload::progressChanged, this, [id = file.id, uploadPtr] {
 			if (auto upload = uploadPtr.lock()) {
-				FileProgressCache::instance()
-					.reportProgress(id, FileProgress { upload->bytesTransferred(), quint64(upload->bytesTotal()), upload->progress() });
+				FileProgressCache::instance().reportProgress(id,
+					FileProgress { upload->bytesTransferred(),
+						quint64(upload->bytesTotal()),
+						upload->progress() });
 			}
 		});
 
@@ -277,7 +305,7 @@ auto FileSharingController::sendFile(const File &file, bool encrypt)
 				Q_EMIT errorOccured(id, std::get<QXmppError>(result));
 			}
 
-			interface.reportResult({id, result});
+			interface.reportResult({ id, result });
 			interface.reportFinished();
 			// reduce ref count
 			upload.reset();
@@ -293,7 +321,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 
 	runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
 		QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) +
-QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+				  QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 
 		if (auto dir = QDir(dirPath); !dir.exists()) {
 			dir.mkpath(QStringLiteral("."));
@@ -322,7 +350,7 @@ QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 		}();
 
 		auto makeFileName = [&]() -> QString {
-return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension;
+			return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension;
 		};
 
 		QString filePath = makeFileName();
@@ -346,8 +374,10 @@ return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension
 		std::weak_ptr<QXmppFileDownload> downloadPtr = download;
 		connect(download.get(), &QXmppFileDownload::progressChanged, this, [=]() {
 			if (auto download = downloadPtr.lock()) {
-				FileProgressCache::instance()
-					.reportProgress(fileId, FileProgress { download->bytesTransferred(), quint64(download->bytesTotal()), download->progress() });
+				FileProgressCache::instance().reportProgress(fileId,
+					FileProgress { download->bytesTransferred(),
+						quint64(download->bytesTotal()),
+						download->progress() });
 			}
 		});
 
@@ -361,9 +391,8 @@ return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension
 					tr("Couldn't download file: %1").arg(errorText));
 			} else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
 				MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
-					auto file = find_if(message.files, [=](const auto &file) {
-						return file.id == fileId;
-					});
+					auto file = find_if(message.files,
+						[=](const auto &file) { return file.id == fileId; });
 
 					if (file != message.files.cend()) {
 						file->localFilePath = filePath;
@@ -383,16 +412,16 @@ return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension
 void FileSharingController::deleteFile(const QString &messageId, const File &file)
 {
 	MessageDb::instance()->updateMessage(messageId, [fileId = file.id](Message &message) {
-		auto it = find_if(message.files, [fileId](const auto &file) {
-			return file.id == fileId;
-		});
+		auto it = find_if(
+			message.files, [fileId](const auto &file) { return file.id == fileId; });
 		if (it != message.files.cend()) {
 			it->localFilePath.clear();
 		}
 	});
 
 	// don't delete files not downloaded by us
-const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) +
+				     QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 	if (file.localFilePath.startsWith(downloadsFolder)) {
 		QFile::remove(file.localFilePath);
 	}

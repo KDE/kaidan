@@ -8,25 +8,32 @@
 #ifndef ENUMS_H
 #define ENUMS_H
 
-#include <QtGlobal>
-#include <QObject>
 #include <QMetaEnum>
+#include <QObject>
 #include <QXmppClient.h>
+#include <QtGlobal>
 
-#define ENABLE_IF(...) typename std::enable_if<__VA_ARGS__>::type* = nullptr
+#define ENABLE_IF(...) typename std::enable_if<__VA_ARGS__>::type * = nullptr
 
-template <typename... Ts> struct make_void { typedef void type; };
-template <typename... Ts> using void_t = typename make_void<Ts...>::type;
+template<typename... Ts>
+struct make_void {
+	typedef void type;
+};
+template<typename... Ts>
+using void_t = typename make_void<Ts...>::type;
 
 // primary template handles types that have no nested ::enum_type member, like standard enum
-template <typename, typename = void_t<>>
-struct has_enum_type : std::false_type { };
+template<typename, typename = void_t<>>
+struct has_enum_type : std::false_type {
+};
 
 // specialization recognizes types that do have a nested ::enum_type member, like QFlags enum
-template <typename T>
-struct has_enum_type<T, void_t<typename T::enum_type>> : std::true_type { };
+template<typename T>
+struct has_enum_type<T, void_t<typename T::enum_type>> : std::true_type {
+};
 
-namespace Enums {
+namespace Enums
+{
 	Q_NAMESPACE
 
 	/**
@@ -57,39 +64,33 @@ namespace Enums {
 	/**
 	 * Enumeration of different message delivery states
 	 */
-	enum class DeliveryState {
-		Pending,
-		Sent,
-		Delivered,
-		Error,
-		Draft
-	};
+	enum class DeliveryState { Pending, Sent, Delivered, Error, Draft };
 	Q_ENUM_NS(DeliveryState)
 
 	/**
 	 * State which specifies how the XMPP login URI was used
 	 */
 	enum class LoginByUriState {
-		Connecting,         ///< The JID and password are included in the URI and the client is connecting.
-		PasswordNeeded,     ///< The JID is included in the URI but not the password.
-		InvalidLoginUri     ///< The URI cannot be used to log in.
+		Connecting, ///< The JID and password are included in the URI and the client is connecting.
+		PasswordNeeded, ///< The JID is included in the URI but not the password.
+		InvalidLoginUri ///< The URI cannot be used to log in.
 	};
 	Q_ENUM_NS(LoginByUriState)
 
 	/**
-	* Result for making trust decisions by an XMPP URI specifying how the URI
-	* is used
-	*/
+	 * Result for making trust decisions by an XMPP URI specifying how the URI
+	 * is used
+	 */
 	enum TrustDecisionByUriResult {
-		MakingTrustDecisions,   ///< The trust decisions are being made.
-		JidUnexpected,          ///< The URI's JID is not the expected one.
-		InvalidUri              ///< The URI cannot be used for trust decisions.
+		MakingTrustDecisions, ///< The trust decisions are being made.
+		JidUnexpected,        ///< The URI's JID is not the expected one.
+		InvalidUri            ///< The URI cannot be used for trust decisions.
 	};
 	Q_ENUM_NS(TrustDecisionByUriResult)
 
 	/**
-	* State which specifies in which way a password is shown on the account transfer page
-	*/
+	 * State which specifies in which way a password is shown on the account transfer page
+	 */
 	enum PasswordVisibility {
 		PasswordVisible, ///< The password is included in the QR code and shown as plain text.
 		PasswordVisibleQrOnly, ///< The password is included in the QR code but not shown as plain text.
@@ -97,19 +98,20 @@ namespace Enums {
 	};
 	Q_ENUM_NS(PasswordVisibility)
 
-
-	template <typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
-	QString toString(const T flag) {
+	template<typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
+	QString toString(const T flag)
+	{
 		static const QMetaEnum e = QMetaEnum::fromType<T>();
 		return QString::fromLatin1(e.valueToKey(static_cast<int>(flag)));
 	}
 
-	template <typename T, ENABLE_IF(has_enum_type<T>::value)>
-	QString toString(const T flags) {
+	template<typename T, ENABLE_IF(has_enum_type<T>::value)>
+	QString toString(const T flags)
+	{
 		static const QMetaEnum e = QMetaEnum::fromType<T>();
 		return QString::fromLatin1(e.valueToKeys(static_cast<int>(flags)));
 	}
-}
+} // namespace Enums
 
 // Needed workaround to trigger older CMake auto moc versions to generate moc
 // sources for this file (it only contains Q_NAMESPACE, which is new).

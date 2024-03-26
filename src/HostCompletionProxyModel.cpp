@@ -4,7 +4,8 @@
 
 #include "HostCompletionProxyModel.h"
 
-HostCompletionProxyModel::HostCompletionProxyModel(QObject *parent) : QSortFilterProxyModel {parent}
+HostCompletionProxyModel::HostCompletionProxyModel(QObject *parent)
+	: QSortFilterProxyModel { parent }
 {
 	setSortCaseSensitivity(Qt::CaseInsensitive);
 

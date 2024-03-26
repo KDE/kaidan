@@ -19,12 +19,7 @@ class UserDevicesModel : public QAbstractListModel
 	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 
 public:
-	enum Roles {
-		Resource = Qt::UserRole + 1,
-		Name,
-		Version,
-		OS
-	};
+	enum Roles { Resource = Qt::UserRole + 1, Name, Version, OS };
 
 	explicit UserDevicesModel(QObject *parent = nullptr);
 
@@ -41,9 +36,7 @@ Q_SIGNALS:
 
 private:
 	void handleClientVersionReceived(const QXmppVersionIq &versionIq);
-	void handlePresenceChanged(PresenceCache::ChangeType type,
-	                           const QString &jid,
-	                           const QString &resource);
+	void handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
 	void handlePresencesCleared();
 
 	struct DeviceInfo {

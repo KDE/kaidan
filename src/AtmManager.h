@@ -24,7 +24,6 @@ public:
 	AtmManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
 	~AtmManager();
 
-
 	/**
 	 * Sets the JID of the current account used to store the corresponding data
 	 * for a specific account.
@@ -40,8 +39,12 @@ public:
 	 * @param uri Trust Message URI
 	 */
 	void makeTrustDecisionsByUri(const QXmppUri &uri);
-	void makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting);
-	Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
+	void makeTrustDecisions(const QString &jid,
+		const QList<QByteArray> &keyIdsForAuthentication,
+		const QList<QByteArray> &keyIdsForDistrusting);
+	Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid,
+		const QList<QString> &keyIdsForAuthentication,
+		const QList<QString> &keyIdsForDistrusting);
 
 private:
 	QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);

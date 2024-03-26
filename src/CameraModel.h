@@ -5,11 +5,12 @@
 
 #pragma once
 
+#include <QAbstractListModel>
 #include <QCamera>
 #include <QCameraDevice>
-#include <QAbstractListModel>
 
-class CameraInfo : public QCameraDevice {
+class CameraInfo : public QCameraDevice
+{
 	Q_GADGET
 
 	Q_PROPERTY(bool isNull READ isNull CONSTANT)

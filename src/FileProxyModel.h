@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <QSortFilterProxyModel>
 #include <QSet>
+#include <QSortFilterProxyModel>
 
 struct File;
 
@@ -18,20 +18,14 @@ class FileProxyModel : public QSortFilterProxyModel
 	Q_PROPERTY(int rowCount READ rowCount NOTIFY rowCountChanged)
 
 public:
-	enum class Mode {
-		All,
-		Images,
-		Videos,
-		Other
-	};
+	enum class Mode { All, Images, Videos, Other };
 	Q_ENUM(Mode)
 
 	explicit FileProxyModel(QObject *parent = nullptr);
 
-	Qt::ItemFlags flags(const QModelIndex& index) const override;
+	Qt::ItemFlags flags(const QModelIndex &index) const override;
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-	bool setData(const QModelIndex &index, const QVariant &value,
-				 int role = Qt::EditRole) override;
+	bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 	QHash<int, QByteArray> roleNames() const override;
 
 	Mode mode() const;
@@ -64,4 +58,3 @@ private:
 };
 
 Q_DECLARE_METATYPE(FileProxyModel::Mode)
-

@@ -7,8 +7,7 @@
 #include "RecentPicturesModel.h"
 
 #ifdef Q_OS_ANDROID
-RecentPicturesModel::RecentPicturesModel(QObject *parent)
-	: QAbstractListModel(parent)
+RecentPicturesModel::RecentPicturesModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -25,25 +24,25 @@ QVariant RecentPicturesModel::data(const QModelIndex &, int) const
 #include <KDirLister>
 #include <KDirModel>
 
-RecentPicturesModel::RecentPicturesModel(QObject *parent)
-    : KDirSortFilterProxyModel{parent}
+RecentPicturesModel::RecentPicturesModel(QObject *parent) : KDirSortFilterProxyModel { parent }
 {
 	auto *dirModel = new KDirModel(this);
 	setSourceModel(dirModel);
-	dirModel->dirLister()->setMimeFilter({QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
-dirModel->openUrl(QUrl(QStringLiteral("recentlyused:/files/")));
+	dirModel->dirLister()->setMimeFilter({ QStringLiteral("image/png"), QStringLiteral("image/jpeg") });
+	dirModel->openUrl(QUrl(QStringLiteral("recentlyused:/files/")));
 	dirModel->dirLister()->setAutoErrorHandlingEnabled(false);
 }
 
-QHash<int, QByteArray> RecentPicturesModel::roleNames() const {
-	return {
-		{Role::FilePath, "filePath"}
-	};
+QHash<int, QByteArray> RecentPicturesModel::roleNames() const
+{
+	return { { Role::FilePath, "filePath" } };
 }
 
-QVariant RecentPicturesModel::data(const QModelIndex &index, int role) const {
+QVariant RecentPicturesModel::data(const QModelIndex &index, int role) const
+{
 	if (role == Role::FilePath) {
-		auto fileItem = KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole).value<KFileItem>();
+		auto fileItem =
+			KDirSortFilterProxyModel::data(index, KDirModel::FileItemRole).value<KFileItem>();
 		return fileItem.mostLocalUrl();
 	}
 

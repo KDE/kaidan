@@ -15,7 +15,6 @@
 Settings::Settings(QObject *parent)
 	: QObject(parent), m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
 {
-
 }
 
 QSettings &Settings::raw()
@@ -45,7 +44,8 @@ void Settings::setAuthJid(const QString &jid)
 
 QString Settings::authJidResourcePrefix() const
 {
-return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
+		QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
 }
 
 void Settings::setAuthJidResourcePrefix(const QString &prefix)
@@ -55,12 +55,15 @@ void Settings::setAuthJidResourcePrefix(const QString &prefix)
 
 QString Settings::authPassword() const
 {
-return QString::fromUtf8(QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
+	return QString::fromUtf8(QByteArray::fromBase64(
+		value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
 }
 
 void Settings::setAuthPassword(const QString &password)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()), &Settings::authPasswordChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
+		QString::fromUtf8(password.toUtf8().toBase64()),
+		&Settings::authPasswordChanged);
 }
 
 QString Settings::authHost() const
@@ -100,7 +103,8 @@ bool Settings::isDefaultAuthPort() const
 
 Enums::PasswordVisibility Settings::authPasswordVisibility() const
 {
-	return value<Enums::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Enums::PasswordVisible);
+	return value<Enums::PasswordVisibility>(
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Enums::PasswordVisible);
 }
 
 void Settings::setAuthPasswordVisibility(Enums::PasswordVisibility visibility)
@@ -120,12 +124,15 @@ void Settings::setEncryption(Encryption::Enum encryption)
 
 bool Settings::contactAdditionQrCodePageExplanationVisible() const
 {
-	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), true);
+	return value<bool>(
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), true);
 }
 
 void Settings::setContactAdditionQrCodePageExplanationVisible(bool visible)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), visible, &Settings::contactAdditionQrCodePageExplanationVisibleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
+		visible,
+		&Settings::contactAdditionQrCodePageExplanationVisibleChanged);
 }
 
 bool Settings::keyAuthenticationPageExplanationVisible() const
@@ -135,7 +142,9 @@ bool Settings::keyAuthenticationPageExplanationVisible() const
 
 void Settings::setKeyAuthenticationPageExplanationVisible(bool visible)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE), visible, &Settings::keyAuthenticationPageExplanationVisibleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
+		visible,
+		&Settings::keyAuthenticationPageExplanationVisibleChanged);
 }
 
 QStringList Settings::favoriteEmojis() const
@@ -170,12 +179,16 @@ void Settings::setWindowSize(const QSize &windowSize)
 
 AccountManager::AutomaticMediaDownloadsRule Settings::automaticMediaDownloadsRule() const
 {
-	return value<AccountManager::AutomaticMediaDownloadsRule>(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), AccountManager::AutomaticMediaDownloadsRule::Default);
+	return value<AccountManager::AutomaticMediaDownloadsRule>(
+		QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
+		AccountManager::AutomaticMediaDownloadsRule::Default);
 }
 
 void Settings::setAutomaticMediaDownloadsRule(AccountManager::AutomaticMediaDownloadsRule rule)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), rule, &Settings::automaticMediaDownloadsRuleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
+		rule,
+		&Settings::automaticMediaDownloadsRuleChanged);
 }
 
 void Settings::remove(const QStringList &keys)

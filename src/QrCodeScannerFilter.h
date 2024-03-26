@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include <QObject>
 #include <QAbstractVideoFilter>
 #include <QFuture>
+#include <QObject>
 
 #include "QrCodeDecoder.h"
 #include "QrCodeVideoFrame.h"
@@ -55,14 +55,14 @@ signals:
 	 *
 	 * @param result decoded content of the QR code
 	 */
-	void scanningSucceeded(const QString& result);
+	void scanningSucceeded(const QString &result);
 
 	/**
 	 * Emitted when a video frame with an unsupported format is received.
 	 *
 	 * @param format format of the video frame which is not supported
 	 */
-	void unsupportedFormatReceived(const QString& format);
+	void unsupportedFormatReceived(const QString &format);
 
 private:
 	bool m_videoFrameMirrored = false;

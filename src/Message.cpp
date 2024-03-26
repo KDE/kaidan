@@ -6,9 +6,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include "Message.h"
 #include "Algorithms.h"
 #include "MediaUtils.h"
-#include "Message.h"
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppBitsOfBinaryData.h>
 #include <QXmppBitsOfBinaryDataList.h>
@@ -20,8 +20,8 @@
 #include <QFileInfo>
 #include <QStringBuilder>
 
-#include <QXmppHttpFileSource.h>
 #include <QXmppEncryptedFileSource.h>
+#include <QXmppHttpFileSource.h>
 
 QXmppHash FileHash::toQXmpp() const
 {
@@ -44,13 +44,12 @@ QXmppEncryptedFileSource EncryptedSource::toQXmpp() const
 	encryptedHttpSource.setUrl(url);
 
 	QXmppEncryptedFileSource source;
-	source.setHttpSources({encryptedHttpSource});
+	source.setHttpSources({ encryptedHttpSource });
 	source.setCipher(cipher);
 	source.setIv(iv);
 	source.setKey(key);
-	source.setHashes(transform(encryptedHashes, [](const auto &fileHash) {
-		return fileHash.toQXmpp();
-	}));
+	source.setHashes(
+		transform(encryptedHashes, [](const auto &fileHash) { return fileHash.toQXmpp(); }));
 	return source;
 }
 
@@ -60,9 +59,8 @@ QXmppFileShare File::toQXmpp() const
 	metadata.setFilename(name);
 	metadata.setDescription(description);
 	metadata.setMediaType(mimeType);
-	metadata.setHashes(transform(hashes, [](const FileHash &fileHash) {
-		return fileHash.toQXmpp();
-	}));
+	metadata.setHashes(
+		transform(hashes, [](const FileHash &fileHash) { return fileHash.toQXmpp(); }));
 	metadata.setLastModified(lastModified);
 	metadata.setMediaType(mimeType);
 	metadata.setSize(size);
@@ -70,17 +68,15 @@ QXmppFileShare File::toQXmpp() const
 	QXmppThumbnail thumb;
 	thumb.setMediaType(QMimeDatabase().mimeTypeForData(thumbnail));
 	thumb.setUri(QXmppBitsOfBinaryData::fromByteArray(thumbnail).cid().toCidUrl());
-	metadata.setThumbnails({thumb});
+	metadata.setThumbnails({ thumb });
 
 	QXmppFileShare fs;
 	fs.setDisposition(disposition);
 	fs.setMetadata(metadata);
-	fs.setHttpSources(transform(httpSources, [](const HttpSource &fileSource) {
-		return fileSource.toQXmpp();
-	}));
-	fs.setEncryptedSourecs(transform(encryptedSources, [](const EncryptedSource &fileSource) {
-		return fileSource.toQXmpp();
-	}));
+	fs.setHttpSources(transform(
+		httpSources, [](const HttpSource &fileSource) { return fileSource.toQXmpp(); }));
+	fs.setEncryptedSourecs(transform(encryptedSources,
+		[](const EncryptedSource &fileSource) { return fileSource.toQXmpp(); }));
 	return fs;
 }
 
@@ -175,14 +171,11 @@ QXmppMessage Message::toQXmpp() const
 	msg.setReceiptRequested(receiptRequested);
 
 	// attached files
-	msg.setSharedFiles(transform(files, [](const File &file) {
-		return file.toQXmpp();
-	}));
+	msg.setSharedFiles(transform(files, [](const File &file) { return file.toQXmpp(); }));
 
 	// attach data for thumbnails
-	msg.setBitsOfBinaryData(transform(files, [](const File &file) {
-		return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
-	}));
+	msg.setBitsOfBinaryData(transform(files,
+		[](const File &file) { return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail); }));
 
 	// compat for clients without Stateless File Sharing
 	msg.setOutOfBandUrls(transformFilter(files, [](const File &file) -> std::optional<QXmppOutOfBandUrl> {

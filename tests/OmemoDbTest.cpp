@@ -86,7 +86,7 @@ void OmemoDbTest::testSignedPreKeyPairs()
 		.creationDate = QDateTime(QDate(2022, 01, 02), QTime()),
 		.data = "jsrj4UYQqaHJrlysNu0uoHgmAU8ffknPpwKJhdqLYgIU",
 	};
-	signedPreKeyPairs = {{1, pair1}, {2, pair2}};
+	signedPreKeyPairs = { { 1, pair1 }, { 2, pair2 } };
 
 	// check values have been added
 	storage.addSignedPreKeyPair(1, pair1);
@@ -107,14 +107,14 @@ void OmemoDbTest::testPreKeyPairs()
 	QCOMPARE(data.preKeyPairs, Storage::PreKeyPairs());
 
 	const std::array<std::pair<uint32_t, QByteArray>, 3> pairs = {
-		std::pair {1, "RZLgD0lmL2WpJbskbGKFRMZL4zqSSvU0rElmO7UwGSVt"},
-		std::pair {2, "3PGPNsf9P7pPitp9dt2uvZYT4HkxdHJAbWqLvOPXUeca"},
-		std::pair {3, "LpLBVXejfU4d0qcPOJCRNDDg9IMbOujpV3UTYtZU9LTy"},
+		std::pair { 1, "RZLgD0lmL2WpJbskbGKFRMZL4zqSSvU0rElmO7UwGSVt" },
+		std::pair { 2, "3PGPNsf9P7pPitp9dt2uvZYT4HkxdHJAbWqLvOPXUeca" },
+		std::pair { 3, "LpLBVXejfU4d0qcPOJCRNDDg9IMbOujpV3UTYtZU9LTy" },
 	};
 	Storage::PreKeyPairs preKeyPairs(pairs.begin(), pairs.end());
 
-	storage.addPreKeyPairs({pairs[0], pairs[1]});
-	storage.addPreKeyPairs({pairs[2]});
+	storage.addPreKeyPairs({ pairs[0], pairs[1] });
+	storage.addPreKeyPairs({ pairs[2] });
 	QCOMPARE(wait(this, storage.allData()).preKeyPairs, preKeyPairs);
 
 	preKeyPairs.remove(1);
@@ -127,7 +127,7 @@ void OmemoDbTest::testDevices()
 	// empty check
 	QCOMPARE(wait(this, storage.allData()).devices, Storage::Devices());
 
-	Storage::Device deviceAlice = {.label = "Desktop",
+	Storage::Device deviceAlice = { .label = "Desktop",
 		.keyId = QByteArray::fromBase64("bEFLaDRQRkFlYXdyakE2aURoN0wyMzk2NTJEM2hRMgo="),
 		.session = QByteArray::fromBase64(
 			"Cs8CCAQSIQWIhBRMdJ80tLVT7ius0H1LutRLeXBid68NH90M/kwhGxohBT+2kM/wV"
@@ -139,7 +139,7 @@ void OmemoDbTest::testDevices()
 			"bfZFCnf1jsR2AAaiEFPxj3VK+knGrndOjcgMXI4wEfH/0VrbgJqobGWbewYyA="),
 		.unrespondedSentStanzasCount = 10,
 		.unrespondedReceivedStanzasCount = 11,
-		.removalFromDeviceListDate = QDateTime(QDate(2022, 01, 01), QTime())};
+		.removalFromDeviceListDate = QDateTime(QDate(2022, 01, 01), QTime()) };
 
 	Storage::Device deviceBob1;
 	deviceBob1.label = ("Phone");
@@ -388,8 +388,8 @@ void OmemoDbTest::testResetAll()
 	};
 	storage.addSignedPreKeyPair(1, signedPreKeyPair);
 
-	storage.addPreKeyPairs({{1, ("RZLgD0lmL2WpJbskbGKFRMZL4zqSSvU0rElmO7UwGSVt")},
-		{2, ("3PGPNsf9P7pPitp9dt2uvZYT4HkxdHJAbWqLvOPXUeca")}});
+	storage.addPreKeyPairs({ { 1, ("RZLgD0lmL2WpJbskbGKFRMZL4zqSSvU0rElmO7UwGSVt") },
+		{ 2, ("3PGPNsf9P7pPitp9dt2uvZYT4HkxdHJAbWqLvOPXUeca") } });
 
 	auto device = Storage::Device();
 	device.keyId = "r4nd0m1d";

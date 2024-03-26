@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include <unordered_map>
 #include <optional>
+#include <unordered_map>
 
 #include <QString>
 
@@ -18,6 +18,7 @@ class AbstractNotifier
 {
 	using Notifier = AbstractNotifier<Key, Value>;
 	using Watcher = AbstractWatcher<Key, Value>;
+
 public:
 	static Notifier &instance()
 	{
@@ -27,9 +28,7 @@ public:
 	void notifyWatchers(const Key &key, const Value &item)
 	{
 		auto [keyBegin, keyEnd] = m_itemWatchers.equal_range(key);
-		std::for_each(keyBegin, keyEnd, [&](const auto &pair) {
-			pair.second->notify(item);
-		});
+		std::for_each(keyBegin, keyEnd, [&](const auto &pair) { pair.second->notify(item); });
 	}
 	void registerWatcher(const Key &key, Watcher *watcher)
 	{
@@ -82,4 +81,3 @@ protected:
 
 	std::optional<Key> m_key;
 };
-

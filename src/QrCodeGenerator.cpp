@@ -24,8 +24,7 @@
 #define COLOR_TABLE_INDEX_FOR_WHITE 0
 #define COLOR_TABLE_INDEX_FOR_BLACK 1
 
-QrCodeGenerator::QrCodeGenerator(QObject *parent)
-	: QObject(parent)
+QrCodeGenerator::QrCodeGenerator(QObject *parent) : QObject(parent)
 {
 }
 
@@ -61,10 +60,12 @@ QImage QrCodeGenerator::generateQrCode(int edgePixelCount, const QString &text)
 {
 	try {
 		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-		const ZXing::BitMatrix &bitMatrix = writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
+		const ZXing::BitMatrix &bitMatrix =
+			writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
 		return toImage(bitMatrix);
 	} catch (const std::invalid_argument &e) {
-Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
+		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+			tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
 	}
 
 	return {};
@@ -78,7 +79,8 @@ QImage QrCodeGenerator::toImage(const ZXing::BitMatrix &bitMatrix)
 
 	for (int y = 0; y < bitMatrix.height(); ++y) {
 		for (int x = 0; x < bitMatrix.width(); ++x) {
-			int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK : COLOR_TABLE_INDEX_FOR_WHITE;
+			int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK
+								  : COLOR_TABLE_INDEX_FOR_WHITE;
 			monochromeImage.setPixel(y, x, colorTableIndex);
 		}
 	}

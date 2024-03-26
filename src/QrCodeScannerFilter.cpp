@@ -6,20 +6,17 @@
 
 #include "QrCodeScannerFilter.h"
 
-#include <QDebug>
 #include <QCamera>
 #include <QCameraDevice>
 #include <QCameraViewfinderSettings>
+#include <QDebug>
 #include <QtConcurrent/QtConcurrent>
 
 QrCodeScannerFilter::QrCodeScannerFilter(QObject *parent)
-	: QAbstractVideoFilter(parent),
-	  m_decoder(new QrCodeDecoder(this))
+	: QAbstractVideoFilter(parent), m_decoder(new QrCodeDecoder(this))
 {
-	connect(m_decoder, &QrCodeDecoder::decodingFailed,
-			this, &QrCodeScannerFilter::scanningFailed);
-	connect(m_decoder, &QrCodeDecoder::decodingSucceeded,
-			this, &QrCodeScannerFilter::scanningSucceeded);
+	connect(m_decoder, &QrCodeDecoder::decodingFailed, this, &QrCodeScannerFilter::scanningFailed);
+	connect(m_decoder, &QrCodeDecoder::decodingSucceeded, this, &QrCodeScannerFilter::scanningSucceeded);
 }
 
 QrCodeScannerFilter::~QrCodeScannerFilter()
@@ -42,11 +39,11 @@ QVideoFilterRunnable *QrCodeScannerFilter::createFilterRunnable()
 
 void QrCodeScannerFilter::setCameraDefaultVideoFormat(QObject *qmlCamera)
 {
-	QCamera *camera = qvariant_cast<QCamera*>(qmlCamera->property("mediaObject"));
+	QCamera *camera = qvariant_cast<QCamera *>(qmlCamera->property("mediaObject"));
 	if (camera) {
 		QCameraViewfinderSettings settings = camera->viewfinderSettings();
-		// Set "m_videoFrameMirrored" according to the camera position in order to mirror the
-		// video frame later.
+		// Set "m_videoFrameMirrored" according to the camera position in order to mirror
+		// the video frame later.
 		if (QCameraDevice(*camera).position() != QCamera::BackFace) {
 			m_videoFrameMirrored = true;
 		}
@@ -58,20 +55,14 @@ void QrCodeScannerFilter::setCameraDefaultVideoFormat(QObject *qmlCamera)
 }
 
 QrCodeScannerFilterRunnable::QrCodeScannerFilterRunnable(QrCodeScannerFilter *filter)
-	: QObject(nullptr),
-	m_filter(filter)
+	: QObject(nullptr), m_filter(filter)
 {
 }
 
-QVideoFrame QrCodeScannerFilterRunnable::run(
-		QVideoFrame *input,
-		const QVideoSurfaceFormat &,
-		RunFlags
-) {
+QVideoFrame QrCodeScannerFilterRunnable::run(QVideoFrame *input, const QVideoSurfaceFormat &, RunFlags)
+{
 	// Only one frame is processed at a time.
-	if (input == nullptr
-			|| !input->isValid()
-			|| !m_filter->m_processThread.isFinished()) {
+	if (input == nullptr || !input->isValid() || !m_filter->m_processThread.isFinished()) {
 		return *input;
 	}
 
@@ -80,11 +71,7 @@ QVideoFrame QrCodeScannerFilterRunnable::run(
 
 	// Run a separate thread for processing the data.
 	m_filter->m_processThread = QtConcurrent::run(
-			this,
-			&QrCodeScannerFilterRunnable::processVideoFrameProbed,
-			m_filter->m_frame,
-			m_filter
-	);
+		this, &QrCodeScannerFilterRunnable::processVideoFrameProbed, m_filter->m_frame, m_filter);
 
 	// Create a mirrored video frame on devices without a rear camera.
 	// That way, the QR code can be easily placed in front of the webcam of a desktop device.
@@ -92,10 +79,8 @@ QVideoFrame QrCodeScannerFilterRunnable::run(
 	return m_filter->m_videoFrameMirrored ? QVideoFrame(input->image().mirrored(true, false)) : *input;
 }
 
-void QrCodeScannerFilterRunnable::processVideoFrameProbed(
-		QrCodeVideoFrame videoFrame,
-		QrCodeScannerFilter *filter
-) {
+void QrCodeScannerFilterRunnable::processVideoFrameProbed(QrCodeVideoFrame videoFrame, QrCodeScannerFilter *filter)
+{
 	// Return if the frame is empty.
 	if (videoFrame.data().isEmpty())
 		return;
@@ -110,11 +95,12 @@ void QrCodeScannerFilterRunnable::processVideoFrameProbed(
 		QString format;
 		QDebug(&format).nospace() << videoFrame.pixelFormat();
 
-		qDebug() << "QrCodeScannerFilterRunnable error: Cannot create image file to process.";
+		qDebug() << "QrCodeScannerFilterRunnable error: Cannot create image file to "
+			    "process.";
 		qDebug() << "Maybe it was a format conversion problem.";
 		qDebug() << "VideoFrame format:" << format;
 		qDebug() << "Image corresponding format:"
-		         << QVideoFrame::imageFormatFromPixelFormat(videoFrame.pixelFormat());
+			 << QVideoFrame::imageFormatFromPixelFormat(videoFrame.pixelFormat());
 
 		Q_EMIT filter->unsupportedFormatReceived(format);
 		return;

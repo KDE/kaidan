@@ -8,17 +8,15 @@
 #include <QMediaDevices>
 
 CameraInfo::CameraInfo(const QString &deviceName)
-	// TODO : QCameraDevice(deviceName.toLocal8Bit())
+// TODO : QCameraDevice(deviceName.toLocal8Bit())
 {
 }
 
-CameraInfo::CameraInfo(const QCameraDevice &other)
-	: QCameraDevice(other)
+CameraInfo::CameraInfo(const QCameraDevice &other) : QCameraDevice(other)
 {
 }
 
-CameraModel::CameraModel(QObject *parent)
-: QAbstractListModel(parent)
+CameraModel::CameraModel(QObject *parent) : QAbstractListModel(parent)
 {
 	refresh();
 }
@@ -37,13 +35,13 @@ QVariant CameraModel::data(const QModelIndex &index, int role) const
 		case CameraModel::CustomRoles::IsNullRole:
 			return cameraInfo.isNull();
 		case CameraModel::CustomRoles::DeviceNameRole:
-return QVariant(); // TODO cameraInfo.deviceName();
+			return QVariant(); // TODO cameraInfo.deviceName();
 		case CameraModel::CustomRoles::DescriptionRole:
 			return cameraInfo.description();
 		case CameraModel::CustomRoles::PositionRole:
 			return cameraInfo.position();
 		case CameraModel::CustomRoles::OrientationRole:
-return QVariant(); // TODO cameraInfo.orientation();
+			return QVariant(); // TODO cameraInfo.orientation();
 		case CameraModel::CustomRoles::CameraInfoRole:
 			return QVariant::fromValue(CameraInfo(cameraInfo));
 		}
@@ -54,14 +52,12 @@ return QVariant(); // TODO cameraInfo.orientation();
 
 QHash<int, QByteArray> CameraModel::roleNames() const
 {
-	static const QHash<int, QByteArray> roles {
-		{ IsNullRole, QByteArrayLiteral("isNull") },
+	static const QHash<int, QByteArray> roles { { IsNullRole, QByteArrayLiteral("isNull") },
 		{ DeviceNameRole, QByteArrayLiteral("deviceName") },
 		{ DescriptionRole, QByteArrayLiteral("description") },
 		{ PositionRole, QByteArrayLiteral("position") },
 		{ OrientationRole, QByteArrayLiteral("orientation") },
-		{ CameraInfoRole, QByteArrayLiteral("cameraInfo") }
-	};
+		{ CameraInfoRole, QByteArrayLiteral("cameraInfo") } };
 
 	return roles;
 }
@@ -83,8 +79,7 @@ int CameraModel::currentIndex() const
 
 void CameraModel::setCurrentIndex(int currentIndex)
 {
-	if (currentIndex < 0 || currentIndex >= m_cameras.count()
-		|| m_currentIndex == currentIndex) {
+	if (currentIndex < 0 || currentIndex >= m_cameras.count() || m_currentIndex == currentIndex) {
 		return;
 	}
 
@@ -106,9 +101,7 @@ void CameraModel::setCurrentCamera(const CameraInfo &currentCamera)
 
 CameraInfo CameraModel::camera(int row) const
 {
-	return hasIndex(row, 0)
-		       ? CameraInfo(m_cameras[row])
-		       : CameraInfo();
+	return hasIndex(row, 0) ? CameraInfo(m_cameras[row]) : CameraInfo();
 }
 
 int CameraModel::indexOf(const QString &deviceName) const
@@ -145,7 +138,8 @@ void CameraModel::refresh()
 
 	beginResetModel();
 	const QString currentDeviceName = currentCamera().description();
-	const auto it = std::find_if(m_cameras.constBegin(), m_cameras.constEnd(),
+	const auto it = std::find_if(m_cameras.constBegin(),
+		m_cameras.constEnd(),
 		[&currentDeviceName](const QCameraDevice &deviceInfo) {
 			return deviceInfo.description() == currentDeviceName;
 		});

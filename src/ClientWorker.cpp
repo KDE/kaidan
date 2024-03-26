@@ -8,8 +8,8 @@
 #include "ClientWorker.h"
 // Qt
 #include <QGuiApplication>
-#include <QSettings>
 #include <QNetworkAccessManager>
+#include <QSettings>
 // QXmpp
 #include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
@@ -32,6 +32,7 @@
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "LogHandler.h"
+#include "MediaUtils.h"
 #include "MessageHandler.h"
 #include "MessageModel.h"
 #include "OmemoCache.h"
@@ -41,11 +42,10 @@
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
+#include "Settings.h"
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
-#include "Settings.h"
-#include "MediaUtils.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
 	: settings(new Settings(parent)),
@@ -61,7 +61,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 {
 }
 
-ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject* parent)
+ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent)
 	: QObject(parent),
 	  m_caches(caches),
 	  m_client(new QXmppClient(this)),
@@ -89,7 +89,8 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
 	m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
 	m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(uploadManager, m_networkManager);
-	m_encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
+	m_encryptedProvider =
+		std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
 	m_fileSharingManager->registerProvider(m_httpProvider);
 	m_fileSharingManager->registerProvider(m_encryptedProvider);
 
@@ -122,7 +123,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	connect(Kaidan::instance(), &Kaidan::deleteAccountFromClientAndServer, this, &ClientWorker::deleteAccountFromClientAndServer);
 }
 
-void ClientWorker::startTask(const std::function<void ()> &task)
+void ClientWorker::startTask(const std::function<void()> &task)
 {
 	if (m_client->isAuthenticated()) {
 		task();
@@ -186,7 +187,8 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		qDebug() << "[main] Tried to connect even if already connecting! Nothing is done.";
 		break;
 	case QXmppClient::ConnectedState:
-		qDebug() << "[main] Tried to connect even if already connected! Disconnecting first and connecting afterwards.";
+		qDebug() << "[main] Tried to connect even if already connected! Disconnecting "
+			    "first and connecting afterwards.";
 		m_isReconnecting = true;
 		m_configToBeUsedOnNextConnect = config;
 		logOut();
@@ -233,7 +235,8 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 	case QXmppClient::DisconnectedState:
 		break;
 	case QXmppClient::ConnectingState:
-		qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
+		qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for "
+			    "connecting to succeed and disconnect afterwards.";
 		m_isDisconnecting = true;
 		break;
 	case QXmppClient::ConnectedState:
@@ -287,7 +290,10 @@ void ClientWorker::handleAccountDeletedFromServer()
 
 void ClientWorker::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
 {
-	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
+	Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+		tr("Your account could not be deleted from the server. Therefore, it was also not "
+		   "removed from this app: %1")
+			.arg(error.text()));
 
 	m_isAccountToBeDeletedFromClientAndServer = false;
 
@@ -324,7 +330,8 @@ void ClientWorker::onConnected()
 	}
 
 	// The following tasks are only done after a login with new credentials or connection settings.
-	if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
+	if (AccountManager::instance()->hasNewCredentials() ||
+		AccountManager::instance()->hasNewConnectionSettings()) {
 		if (AccountManager::instance()->hasNewCredentials()) {
 			Q_EMIT loggedInWithNewCredentials();
 		}
@@ -363,7 +370,8 @@ void ClientWorker::onDisconnected()
 
 	// Delete the account from the client if the client was connected and had to
 	// disconnect first or if the account was deleted from the server.
-	if (m_isAccountToBeDeletedFromClient || (m_isAccountToBeDeletedFromClientAndServer && m_isAccountDeletedFromServer)) {
+	if (m_isAccountToBeDeletedFromClient ||
+		(m_isAccountToBeDeletedFromClientAndServer && m_isAccountDeletedFromServer)) {
 		m_isAccountToBeDeletedFromClientAndServer = false;
 		m_isAccountDeletedFromServer = false;
 

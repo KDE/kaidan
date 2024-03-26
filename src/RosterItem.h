@@ -17,8 +17,7 @@
 /**
  * Item containing one contact / conversation.
  */
-struct RosterItem
-{
+struct RosterItem {
 	Q_GADGET
 
 	Q_PROPERTY(QString accountJid MEMBER jid)
@@ -122,7 +121,8 @@ public:
 	bool notificationsMuted = false;
 
 	// Wheither files get downloaded automatically
-	RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
+	RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule =
+		RosterItem::AutomaticMediaDownloadsRule::Default;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

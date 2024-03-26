@@ -74,14 +74,14 @@ private Q_SLOTS:
 		groupChat.setUsers(42);
 		groupChat.setIsOpen(false);
 		groupChat.setName(QStringLiteral("Kaidan Group Chat"));
-		groupChat.setLanguages({QStringLiteral("en")});
+		groupChat.setLanguages({ QStringLiteral("en") });
 
 		const QJsonObject object = QJsonObject {
-			{PublicGroupChat::Address.toString(), QStringLiteral("address@jabber.com")},
-			{PublicGroupChat::Users.toString(), 42},
-			{PublicGroupChat::IsOpen.toString(), false},
-			{PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat")},
-			{PublicGroupChat::Language.toString(), QStringLiteral("en")},
+			{ PublicGroupChat::Address.toString(), QStringLiteral("address@jabber.com") },
+			{ PublicGroupChat::Users.toString(), 42 },
+			{ PublicGroupChat::IsOpen.toString(), false },
+			{ PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat") },
+			{ PublicGroupChat::Language.toString(), QStringLiteral("en") },
 		};
 
 		QVERIFY(groupChat.toJson() == object);
@@ -96,7 +96,7 @@ private Q_SLOTS:
 		groupChat1.setUsers(42);
 		groupChat1.setIsOpen(false);
 		groupChat1.setName(QStringLiteral("Kaidan Group Chat English"));
-		groupChat1.setLanguages({QStringLiteral("en")});
+		groupChat1.setLanguages({ QStringLiteral("en") });
 
 		PublicGroupChat groupChat2;
 
@@ -104,30 +104,31 @@ private Q_SLOTS:
 		groupChat2.setUsers(42);
 		groupChat2.setIsOpen(false);
 		groupChat2.setName(QStringLiteral("Kaidan Group Chat French"));
-		groupChat2.setLanguages({QStringLiteral("fr")});
+		groupChat2.setLanguages({ QStringLiteral("fr") });
 
 		const PublicGroupChats groupChats {
 			groupChat1,
 			groupChat2,
 		};
 		const QJsonObject object1 = QJsonObject {
-			{PublicGroupChat::Address.toString(), QStringLiteral("address.en@jabber.com")},
-			{PublicGroupChat::Users.toString(), 42},
-			{PublicGroupChat::IsOpen.toString(), false},
-			{PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat English")},
-			{PublicGroupChat::Language.toString(), QStringLiteral("en")},
+			{ PublicGroupChat::Address.toString(), QStringLiteral("address.en@jabber.com") },
+			{ PublicGroupChat::Users.toString(), 42 },
+			{ PublicGroupChat::IsOpen.toString(), false },
+			{ PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat English") },
+			{ PublicGroupChat::Language.toString(), QStringLiteral("en") },
 		};
 		const QJsonObject object2 = QJsonObject {
-			{PublicGroupChat::Address.toString(), QStringLiteral("address.fr@jabber.com")},
-			{PublicGroupChat::Users.toString(), 42},
-			{PublicGroupChat::IsOpen.toString(), false},
-			{PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat French")},
-			{PublicGroupChat::Language.toString(), QStringLiteral("fr")},
+			{ PublicGroupChat::Address.toString(), QStringLiteral("address.fr@jabber.com") },
+			{ PublicGroupChat::Users.toString(), 42 },
+			{ PublicGroupChat::IsOpen.toString(), false },
+			{ PublicGroupChat::Name.toString(), QStringLiteral("Kaidan Group Chat French") },
+			{ PublicGroupChat::Language.toString(), QStringLiteral("fr") },
 		};
 
 		QVERIFY(groupChat1 != groupChat2);
-		QVERIFY(PublicGroupChat::toJson(groupChats) == QJsonArray({object1, object2}));
-		QVERIFY(groupChats == (PublicGroupChats {PublicGroupChat {object1}, PublicGroupChat {object2}}));
+		QVERIFY(PublicGroupChat::toJson(groupChats) == QJsonArray({ object1, object2 }));
+		QVERIFY(groupChats ==
+			(PublicGroupChats { PublicGroupChat { object1 }, PublicGroupChat { object2 } }));
 	}
 
 	void test_GroupChatSearchManager_GroupChatModel()
@@ -404,9 +405,9 @@ private Q_SLOTS:
 			<< Role::Languages << Role::Languages << QStringLiteral("fr")
 			<< QVector<QStringList> {
 				   {
-					   QStringList {"Bookri"},
-					   QStringList {"bookri@jabber.com"},
-					   QStringList {"fr"},
+					   QStringList { "Bookri" },
+					   QStringList { "bookri@jabber.com" },
+					   QStringList { "fr" },
 				   },
 			   };
 
@@ -494,27 +495,27 @@ private Q_SLOTS:
 
 		proxy.setSourceModel(&model);
 
-		model.setGroupChats({PublicGroupChat {QJsonObject {
-					     {PublicGroupChat::Address.toString(), QStringLiteral("pasnox@jabber.com")},
-					     {PublicGroupChat::Users.toString(), 42},
-					     {PublicGroupChat::IsOpen.toString(), true},
-					     {PublicGroupChat::Name.toString(), QStringLiteral("PasNox")},
-					     {PublicGroupChat::Language.toString(), QStringLiteral("en")},
-				     }},
-			PublicGroupChat {QJsonObject {
-				{PublicGroupChat::Address.toString(), QStringLiteral("bookri@jabber.com")},
-				{PublicGroupChat::Users.toString(), 43},
-				{PublicGroupChat::IsOpen.toString(), true},
-				{PublicGroupChat::Name.toString(), QStringLiteral("Bookri")},
-				{PublicGroupChat::Language.toString(), QStringLiteral("fr")},
-			}},
-			PublicGroupChat {QJsonObject {
-				{PublicGroupChat::Address.toString(), QStringLiteral("zynox@jabber.com")},
-				{PublicGroupChat::Users.toString(), 45},
-				{PublicGroupChat::IsOpen.toString(), true},
-				{PublicGroupChat::Name.toString(), QStringLiteral("ZyNox")},
-				{PublicGroupChat::Language.toString(), QStringLiteral("de")},
-			}}});
+		model.setGroupChats({ PublicGroupChat { QJsonObject {
+					      { PublicGroupChat::Address.toString(), QStringLiteral("pasnox@jabber.com") },
+					      { PublicGroupChat::Users.toString(), 42 },
+					      { PublicGroupChat::IsOpen.toString(), true },
+					      { PublicGroupChat::Name.toString(), QStringLiteral("PasNox") },
+					      { PublicGroupChat::Language.toString(), QStringLiteral("en") },
+				      } },
+			PublicGroupChat { QJsonObject {
+				{ PublicGroupChat::Address.toString(), QStringLiteral("bookri@jabber.com") },
+				{ PublicGroupChat::Users.toString(), 43 },
+				{ PublicGroupChat::IsOpen.toString(), true },
+				{ PublicGroupChat::Name.toString(), QStringLiteral("Bookri") },
+				{ PublicGroupChat::Language.toString(), QStringLiteral("fr") },
+			} },
+			PublicGroupChat { QJsonObject {
+				{ PublicGroupChat::Address.toString(), QStringLiteral("zynox@jabber.com") },
+				{ PublicGroupChat::Users.toString(), 45 },
+				{ PublicGroupChat::IsOpen.toString(), true },
+				{ PublicGroupChat::Name.toString(), QStringLiteral("ZyNox") },
+				{ PublicGroupChat::Language.toString(), QStringLiteral("de") },
+			} } });
 
 		QCOMPARE(proxy.sortColumn(), 0);
 

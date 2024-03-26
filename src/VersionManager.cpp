@@ -8,24 +8,21 @@
 #include <QStringBuilder>
 
 #include <QXmppClient.h>
-#include <QXmppVersionManager.h>
-#include <QXmppRosterManager.h>
 #include <QXmppPresence.h>
+#include <QXmppRosterManager.h>
+#include <QXmppVersionManager.h>
 
 VersionManager::VersionManager(QXmppClient *client, QObject *parent)
-	: QObject(parent),
-	  m_manager(client->findExtension<QXmppVersionManager>()),
-	  m_client(client)
+	: QObject(parent), m_manager(client->findExtension<QXmppVersionManager>()), m_client(client)
 {
 	Q_ASSERT(m_manager);
 
 	// publish kaidan version
-m_manager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
-m_manager->setClientVersion(QStringLiteral(VERSION_STRING));
+	m_manager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
+	m_manager->setClientVersion(QStringLiteral(VERSION_STRING));
 	m_manager->setClientOs(QSysInfo::prettyProductName());
 
-	connect(m_manager, &QXmppVersionManager::versionReceived,
-		this, &VersionManager::clientVersionReceived);
+	connect(m_manager, &QXmppVersionManager::versionReceived, this, &VersionManager::clientVersionReceived);
 }
 
 void VersionManager::fetchVersions(const QString &bareJid, const QString &resource)

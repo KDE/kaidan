@@ -7,8 +7,7 @@
 // Qt
 #include <QMutexLocker>
 
-ServerFeaturesCache::ServerFeaturesCache(QObject *parent)
-    : QObject(parent)
+ServerFeaturesCache::ServerFeaturesCache(QObject *parent) : QObject(parent)
 {
 }
 

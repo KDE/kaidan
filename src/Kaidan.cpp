@@ -12,12 +12,12 @@
 #include "Kaidan.h"
 
 // Qt
+#include <QFile>
 #include <QGuiApplication>
 #include <QSettings>
 #include <QStringBuilder>
 #include <QThread>
 #include <QTimer>
-#include <QFile>
 // QXmpp
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
@@ -38,8 +38,7 @@
 
 Kaidan *Kaidan::s_instance;
 
-Kaidan::Kaidan(bool enableLogging, QObject *parent)
-	: QObject(parent)
+Kaidan::Kaidan(bool enableLogging, QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -105,7 +104,9 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 					case AccountManager::AutomaticMediaDownloadsRule::Never:
 						return false;
 					case AccountManager::AutomaticMediaDownloadsRule::PresenceOnly:
-						return message.isOwn() || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
+						return message.isOwn() ||
+						       RosterModel::instance()->isPresenceSubscribedByItem(
+							       message.accountJid, message.chatJid);
 					case AccountManager::AutomaticMediaDownloadsRule::Always:
 						return true;
 					}
@@ -115,7 +116,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 				if (automaticDownloadDesired) {
 					for (const auto &file : message.files) {
-						if (file.localFilePath.isEmpty() || !QFile::exists(file.localFilePath)) {
+						if (file.localFilePath.isEmpty() ||
+							!QFile::exists(file.localFilePath)) {
 							m_fileSharingController->downloadFile(message.id, file);
 						}
 					}
@@ -157,7 +159,7 @@ void Kaidan::setConnectionState(Enums::ConnectionState connectionState)
 			// delay is needed because sometimes the RosterPage needs to be loaded first
 			QTimer::singleShot(300, this, [this] {
 				Q_EMIT xmppUriReceived(m_openUriCache);
-m_openUriCache = QStringLiteral("");
+				m_openUriCache = QStringLiteral("");
 			});
 		}
 	}
@@ -180,7 +182,8 @@ void Kaidan::addOpenUri(const QString &uri)
 	if (m_connectionState == ConnectionState::StateConnected) {
 		Q_EMIT xmppUriReceived(uri);
 	} else {
-		Q_EMIT passiveNotificationRequested(tr("The link will be opened after you have connected."));
+		Q_EMIT passiveNotificationRequested(
+			tr("The link will be opened after you have connected."));
 		m_openUriCache = uri;
 	}
 }
@@ -199,7 +202,8 @@ quint8 Kaidan::logInByUri(const QString &uri)
 
 	AccountManager::instance()->setJid(parsedUri.jid());
 
-	if (parsedUri.action() != QXmppUri::Login || !CredentialsValidator::isPasswordValid(parsedUri.password())) {
+	if (parsedUri.action() != QXmppUri::Login ||
+		!CredentialsValidator::isPasswordValid(parsedUri.password())) {
 		return quint8(LoginByUriState::PasswordNeeded);
 	}
 
@@ -215,7 +219,9 @@ TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uri, con
 		auto parsedUri = QXmppUri(uri);
 
 		if (expectedJid.isEmpty() || parsedUri.jid() == expectedJid) {
-			if (parsedUri.action() != QXmppUri::TrustMessage || parsedUri.encryption().isEmpty() || (parsedUri.trustedKeysIds().isEmpty() && parsedUri.distrustedKeysIds().isEmpty())) {
+			if (parsedUri.action() != QXmppUri::TrustMessage || parsedUri.encryption().isEmpty() ||
+				(parsedUri.trustedKeysIds().isEmpty() &&
+					parsedUri.distrustedKeysIds().isEmpty())) {
 				return InvalidUri;
 			}
 
@@ -274,7 +280,7 @@ QString configFileBaseName()
 
 QStringList oldDatabaseFilenames()
 {
-	return {u"messages" % applicationProfileSuffix() % u".sqlite3"};
+	return { u"messages" % applicationProfileSuffix() % u".sqlite3" };
 }
 
 QString databaseFilename()

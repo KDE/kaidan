@@ -7,8 +7,7 @@
 #include "Kaidan.h"
 #include "OmemoCache.h"
 
-OmemoModel::OmemoModel(QObject *parent)
-	: QAbstractListModel(parent)
+OmemoModel::OmemoModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -82,14 +81,13 @@ void OmemoModel::setOwnAuthenticatedKeysProcessed(bool ownAuthenticatedKeysProce
 			setUp();
 		}
 	}
-
 }
 
 bool OmemoModel::contains(const QString &keyId)
 {
-	return std::any_of(m_devices.cbegin(), m_devices.cend(), [keyId](const OmemoManager::Device &device) {
-		return device.keyId == keyId;
-	});
+	return std::any_of(m_devices.cbegin(),
+		m_devices.cend(),
+		[keyId](const OmemoManager::Device &device) { return device.keyId == keyId; });
 }
 
 void OmemoModel::setUp()
@@ -97,25 +95,32 @@ void OmemoModel::setUp()
 	disconnect(Kaidan::instance()->client()->caches()->omemoCache, nullptr, this, nullptr);
 
 	if (m_ownAuthenticatedKeysProcessed) {
-		connect(Kaidan::instance()->client()->caches()->omemoCache, &OmemoCache::ownDeviceUpdated, this, [this](const OmemoManager::Device &ownDevice) {
-			setOwnDevice(ownDevice);
-		});
+		connect(Kaidan::instance()->client()->caches()->omemoCache,
+			&OmemoCache::ownDeviceUpdated,
+			this,
+			[this](const OmemoManager::Device &ownDevice) { setOwnDevice(ownDevice); });
 
 		setOwnDevice(OmemoCache::instance()->ownDevice());
 
-		connect(Kaidan::instance()->client()->caches()->omemoCache, &OmemoCache::authenticatedDevicesUpdated, this, [this](const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices) {
-			if (jid == m_jid) {
-				setDevices(authenticatedDevices);
-			}
-		});
+		connect(Kaidan::instance()->client()->caches()->omemoCache,
+			&OmemoCache::authenticatedDevicesUpdated,
+			this,
+			[this](const QString &jid, const QList<OmemoManager::Device> &authenticatedDevices) {
+				if (jid == m_jid) {
+					setDevices(authenticatedDevices);
+				}
+			});
 
 		setDevices(OmemoCache::instance()->authenticatedDevices(m_jid));
 	} else {
-		connect(Kaidan::instance()->client()->caches()->omemoCache, &OmemoCache::authenticatableDevicesUpdated, this, [this](const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices) {
-			if (jid == m_jid) {
-				setDevices(authenticatableDevices);
-			}
-		});
+		connect(Kaidan::instance()->client()->caches()->omemoCache,
+			&OmemoCache::authenticatableDevicesUpdated,
+			this,
+			[this](const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices) {
+				if (jid == m_jid) {
+					setDevices(authenticatableDevices);
+				}
+			});
 
 		setDevices(OmemoCache::instance()->authenticatableDevices(m_jid));
 	}
@@ -123,7 +128,7 @@ void OmemoModel::setUp()
 
 void OmemoModel::setOwnDevice(OmemoManager::Device ownDevice)
 {
-ownDevice.label += QStringLiteral(" · ") + tr("This device");
+	ownDevice.label += QStringLiteral(" · ") + tr("This device");
 	beginInsertRows(QModelIndex(), 0, 0);
 	m_ownDevice = ownDevice;
 	endInsertRows();
