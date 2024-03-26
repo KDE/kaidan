@@ -35,7 +35,7 @@ void QrCodeDecoder::decodeImage(const QImage &image)
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
 	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
 	const auto result = ReadBarcode(
-		{ image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine() },
+		{ image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, static_cast<int>(image.bytesPerLine()) },
 		decodeHints);
 #else
 	auto options = ReaderOptions().setFormats(BarcodeFormat::QRCode);
