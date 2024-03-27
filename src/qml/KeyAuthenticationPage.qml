@@ -60,11 +60,11 @@ ExplanationOptionsTogglePage {
 
 		EncryptionDevicesArea {
 			id: contactDevicesArea
-			// TODO header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
-			/* TODO listView.model: OmemoModel {
+			header.title: root.forOwnDevices ? qsTr("Unverified own devices") : qsTr("Unverified contact devices")
+			listView.model: OmemoModel {
 				jid: root.chatJid
-			}*/
-			/* TODO listView.header: FormCard {
+			}
+			listView.header: FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 				delegates: AbstractFormDelegate {
@@ -136,7 +136,7 @@ ExplanationOptionsTogglePage {
 				description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 				descriptionItem.textFormat: Text.MarkdownText
 				width: ListView.view.width
-			}*/
+			}
 		}
 
 		Kirigami.Separator {
@@ -150,12 +150,12 @@ ExplanationOptionsTogglePage {
 		}
 
 		EncryptionDevicesArea {
-			// TODO header.title: qsTr("Verified own devices")
-			/* TODO listView.model: OmemoModel {
+			header.title: qsTr("Verified own devices")
+			listView.model: OmemoModel {
 				jid: root.accountJid
 				ownAuthenticatedKeysProcessed: true
-			}*/
-			/* TODO listView.delegate: AbstractFormDelegate {
+			}
+			listView.delegate: AbstractFormDelegate {
 				id: encryptionKeyDelegate
 				width: ListView.view.width
 				leftPadding: 0
@@ -183,7 +183,7 @@ ExplanationOptionsTogglePage {
 						}
 					}
 				}
-			}*/
+			}
 		}
 	}
 
