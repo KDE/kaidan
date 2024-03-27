@@ -364,7 +364,7 @@ Kirigami.ActionTextField {
 				readonly property string value: model[root.role]
 
 				width: ListView.view.width - ListView.view.ScrollBar.vertical.width
-				// TODO label: highlightCompletion(value, root.input)
+				text: highlightCompletion(value, root.input)
 
 				// Background coloring should be used only for the selected item.
 				//   (Also, a lighter colored background automatically appears on mouse-over.)
