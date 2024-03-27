@@ -86,7 +86,7 @@ ChatPageBase {
 		onClicked: openOverlay(contactDetailsSheet)
 	}
 	keyboardNavigationEnabled: true
-	/* TODO contextualActions: [
+	actions: [
 		Kirigami.Action {
 			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"
@@ -113,7 +113,7 @@ ChatPageBase {
 			displayHint: Kirigami.DisplayHint.IconOnly
 			onTriggered: sendingPane.composition.isSpoiler = true
 		}
-	]*/
+	]
 
 	// Message search bar
 	header: ChatPageSearchView {

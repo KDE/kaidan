@@ -20,12 +20,14 @@ import "elements"
 
 SearchBarPage {
 	listView: rosterListView
-	/* TODO rightAction: Kirigami.Action {
-		text: qsTr("Filter")
-		icon.name: "filter-symbolic"
-		displayHint: Kirigami.DisplayHint.IconOnly
-		onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
-	}*/
+	actions: [
+		Kirigami.Action {
+			text: qsTr("Filter")
+			icon.name: "filter-symbolic"
+			displayHint: Kirigami.DisplayHint.IconOnly
+			onTriggered: openView(rosterFilteringDialog, rosterFilteringPage)
+		}
+	]
 
 	Component {
 		id: rosterFilteringDialog
