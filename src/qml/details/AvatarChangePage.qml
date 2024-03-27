@@ -35,9 +35,7 @@ Kirigami.Page {
 	QQD.FileDialog {
 		id: fileDialog
 		title: qsTr("Choose profile image")
-		// TODO folder: shortcuts.home
-
-		// TODO selectMultiple: false
+		currentFolder: shortcuts.home
 
 		onAccepted: {
 			imageDoc.path = fileDialog.fileUrl
