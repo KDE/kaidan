@@ -19,7 +19,7 @@ DetailsContent {
 	required property string accountJid
 	readonly property bool isChatWithOneself: accountJid === jid
 
-	/* TODO automaticMediaDownloadsDelegate {
+	automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Account default"),
@@ -38,12 +38,12 @@ DetailsContent {
 		valueRole: "value"
 		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
 		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
-	}*/
-	/* TODO mediaOverview {
+	}
+	mediaOverview {
 		accountJid: root.accountJid
 		chatJid: root.jid
-	}*/
-	/* TODO vCardRepeater {
+	}
+	vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
 		}
@@ -59,7 +59,7 @@ DetailsContent {
 				}
 			}
 		}
-	}*/
+	}
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
@@ -180,7 +180,7 @@ DetailsContent {
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
 		}
 	}
-	/* TODO rosterGoupListView {
+	rosterGoupListView {
 		header: FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
@@ -279,7 +279,7 @@ DetailsContent {
 				}
 			}
 		}
-	}*/
+	}
 
 	FormCard {
 		Layout.fillWidth: true

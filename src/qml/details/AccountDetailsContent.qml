@@ -19,7 +19,7 @@ import "../settings"
 
 DetailsContent {
 	id: root
-	/* TODO automaticMediaDownloadsDelegate {
+	automaticMediaDownloadsDelegate {
 		model: [
 			{
 				display: qsTr("Never"),
@@ -123,7 +123,7 @@ DetailsContent {
 				editing = !editing
 			}
 		}
-	}*/
+	}
 	encryptionArea: ColumnLayout {
 		spacing: 0
 		Component.onCompleted: {
@@ -204,7 +204,7 @@ DetailsContent {
 			}
 		}
 	}
-	/* TODO rosterGoupListView {
+	rosterGoupListView {
 		delegate: AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
@@ -272,7 +272,7 @@ DetailsContent {
 				}
 			}
 		}
-	}*/
+	}
 
 	FormCard {
 		id: providerArea

@@ -21,12 +21,12 @@ Controls.Control {
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
 	required property string jid
-	// TODO property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
-	// TODO property alias mediaOverview: mediaOverview
-	// TODO property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
-	// TODO property alias vCardArea: vCardArea.data
-	// TODO property alias vCardRepeater: vCardRepeater
-	// TODO property alias rosterGoupListView: rosterGoupListView
+	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
+	property alias mediaOverview: mediaOverview
+	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
+	property alias vCardArea: vCardArea.data
+	property alias vCardRepeater: vCardRepeater
+	property alias rosterGoupListView: rosterGoupListView
 	required property ColumnLayout encryptionArea
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
