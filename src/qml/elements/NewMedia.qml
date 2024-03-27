@@ -86,8 +86,8 @@ MediaPreview {
 			fill: parent
 		}
 
-		Multimedia.VideoOutput {
-			// TODO source: recorder
+		Multimedia.Video {
+			source: recorder
 			focus : visible // to receive focus and capture key events when visible
 			visible: !previewLoader.visible
 
