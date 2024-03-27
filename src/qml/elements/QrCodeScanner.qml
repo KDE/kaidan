@@ -68,11 +68,10 @@ Item {
 	}*/
 
 	// video output from the camera which is shown on the screen and decoded by a filter
-	VideoOutput {
+	Video {
 		visible: camera.cameraStatus === Camera.ActiveStatus
 		fillMode: VideoOutput.PreserveAspectCrop
-		// TODO source: root.camera
-		// TODO autoOrientation: true
+		source: root.camera
 		// TODO filters: [filter]
 		anchors.fill: parent
 
