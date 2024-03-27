@@ -73,7 +73,7 @@ DetailsContent {
 			jid: root.jid
 		}
 
-		/* TODO FormHeader {
+		FormHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -178,7 +178,7 @@ DetailsContent {
 			visible: text
 			enabled: contactOmemoWatcher.authenticatableDevices.length
 			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
-		}*/
+		}
 	}
 	/* TODO rosterGoupListView {
 		header: FormCard {
