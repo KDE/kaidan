@@ -347,7 +347,6 @@ Controls.Control {
 
 				Multimedia.Video {
 					source: model.file.localFileUrl
-					// TODO autoPlay: true
 					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
 					anchors.fill: parent
 
@@ -365,12 +364,13 @@ Controls.Control {
 							preview.clicked()
 						}
 					}
-					/* TODO onStatusChanged: {
+					onBufferProgressChanged: {
 						// Display a thumbnail by playing the first frame and pausing afterwards.
-						if (status === Multimedia.MediaPlayer.Buffered) {
+						if (bufferProgress > 0) {
 							pause()
 						}
-					}*/
+					}
+					Component.onCompleted: play()
 				}
 			}
 		}
