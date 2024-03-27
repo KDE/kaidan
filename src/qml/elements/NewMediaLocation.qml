@@ -13,7 +13,7 @@ import QtQuick 2.14
 import QtQuick.Layouts 1.14
 import QtQuick.Controls 2.14 as Controls
 import QtPositioning 5.14 as Positioning
-import QtLocation 5.14 as Location
+import QtLocation as Location
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -46,20 +46,17 @@ MediaPreview {
 
 			plugin: Location.Plugin {
 				name: "osm"
-				/* TODO Location.PluginParameter {
-					name: "osm.useragent"
-					value: Utils.osmUserAgent()
-				}
-				Location.PluginParameter {
-					name: "osm.mapping.providersrepository.address"
-					value: "https://autoconfig.kde.org/qtlocation/"
-				}*/
+				parameters: [
+					Location.PluginParameter {
+						name: "osm.useragent"
+						value: Utils.osmUserAgent()
+					},
+					Location.PluginParameter {
+						name: "osm.mapping.providersrepository.address"
+						value: "https://autoconfig.kde.org/qtlocation/"
+					}
+				]
 			}
-
-			/* TODO gesture {
-				flickDeceleration: 3000
-				enabled: !root.message
-			}*/
 
 			Layout.fillHeight: true
 			Layout.fillWidth: true
