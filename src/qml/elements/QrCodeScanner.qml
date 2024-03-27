@@ -32,15 +32,11 @@ Item {
 		// camera with continuous focus in the center of the video
 		Camera {
 			// Show camera input if this page is visible and the camera enabled.
-			/* TODO cameraState: {
-				if (root.visible && cameraEnabled) {
-					return Camera.ActiveState
-				}
-
-				return Camera.LoadedState
-			}*/
-			// TODO digitalZoom: zoomSlider.value
-			// TODO onError: reloadingCameraTimer.start()
+			active: root.visible && cameraEnabled
+			zoomFactor: zoomSlider.value
+			onErrorOccurred: (error, errorString) => {
+				reloadingCameraTimer.start()
+			}
 			Component.onCompleted: {
 				root.camera = this
 
