@@ -22,8 +22,8 @@ MediaPreviewAudio {
 	Layout.preferredWidth: Kirigami.Units.gridUnit * 32
 	Layout.maximumWidth: message ? messageSize : -1
 
-	placeHolder: Multimedia.VideoOutput {
-		// TODO source: root.player
+	placeHolder: Multimedia.Video {
+		source: root.player
 		fillMode: Image.PreserveAspectFit
 
 		anchors {
