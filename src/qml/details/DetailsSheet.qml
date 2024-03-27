@@ -18,11 +18,9 @@ Kirigami.OverlaySheet {
 	leftPadding: 0
 	rightPadding: 0
 	Kirigami.Theme.colorSet: Kirigami.Theme.Header
-	/* TODO onSheetOpenChanged: {
-		if (!sheetOpen) {
-			destroy()
-		}
-	}*/
+	onClosed: {
+		destroy()
+	}
 
 	ColumnLayout {
 		id: mainArea

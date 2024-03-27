@@ -52,12 +52,10 @@ Kirigami.OverlaySheet {
 		}
 	}
 
-	/* TODO onSheetOpenChanged: {
-		if (!sheetOpen) {
-			root.composition.fileSelectionModel.clear()
-			messageText.text = ""
-		}
-	}*/
+	onClosed: {
+		root.composition.fileSelectionModel.clear()
+		messageText.text = ""
+	}
 
 	Item {
 		Connections {

@@ -27,14 +27,14 @@ Kirigami.OverlaySheet {
 		wrapMode: Text.WordWrap
 	}
 
-	/* TODO onSheetOpenChanged: {
-		if (sheetOpen) {
-			root.forceActiveFocus();
-			root.requestAll();
-		} else {
-			filterField.clear();
-		}
-	}*/
+	onOpened: {
+		root.forceActiveFocus();
+		root.requestAll();
+	}
+
+	onClosed: {
+		filterField.clear();
+	}
 
 	ColumnLayout {
 		enabled: !groupChatsManager.isRunning

@@ -108,11 +108,9 @@ Kirigami.OverlaySheet {
 		}
 	}
 
-	/* TODO onSheetOpenChanged: {
-		if (!sheetOpen) {
-			sourceType = Enums.MessageType.MessageUnknown
-		}
-	}*/
+	onClosed: {
+		sourceType = Enums.MessageType.MessageUnknown
+	}
 
 	function sendMessageType(jid, type) {
 		sourceType = type
