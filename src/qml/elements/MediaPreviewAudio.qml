@@ -36,9 +36,14 @@ MediaPreview {
 		id: mediaPlayer
 
 		source: root.mediaSource
-		// TODO volume: volumePlayer.volume
+		audioOutput: Multimedia.AudioOutput {
+			volume: volumePlayer.volume
+		}
 
-		// TODO onStopped: seek(0)
+		onPlayingChanged: {
+			if (!playing)
+				seek(0)
+		}
 	}
 
 	ColumnLayout {
