@@ -106,7 +106,7 @@ ExplanationOptionsTogglePage {
 									if (contactDevicesArea.listView.model.contains(keyId)) {
 										Kaidan.client.atmManager.makeTrustDecisionsRequested(contactDevicesArea.listView.model.jid, [keyId], [])
 
-										encryptionKeyField.text = ""
+										encryptionKeyField.clear()
 										passiveNotification(qsTr("Device verified"))
 									} else {
 										passiveNotification(qsTr("Device does not exist or is already verified"))

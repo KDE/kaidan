@@ -123,7 +123,7 @@ SearchBarPage {
 				if (Kirigami.Settings.isMobile) {
 					toggleSearchBar()
 				} else {
-					searchField.text = ""
+					searchField.clear()
 				}
 
 				MessageModel.setCurrentChat(accountJid, chatJid)

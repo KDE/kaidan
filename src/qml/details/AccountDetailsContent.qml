@@ -397,7 +397,7 @@ DetailsContent {
 								onAccepted: blockingButton.clicked()
 								onVisibleChanged: {
 									if (visible) {
-										text = ""
+										clear()
 										forceActiveFocus()
 									}
 								}
@@ -416,10 +416,10 @@ DetailsContent {
 								onClicked: {
 									const jid = blockingTextField.text
 									if (blockingListView.model.contains(jid)) {
-										blockingTextField.text = ""
+										blockingTextField.clear()
 									} else if (enabled) {
 										blockingAction.block(jid)
-										blockingTextField.text = ""
+										blockingTextField.clear()
 									} else {
 										blockingTextField.forceActiveFocus()
 									}
@@ -604,7 +604,7 @@ DetailsContent {
 							function initialize() {
 								showPassword = false
 								invalidHintMayBeShown = false
-								text = ""
+								inputField.clear()
 							}
 						}
 

@@ -55,7 +55,7 @@ Item {
 			id: searchField
 			Layout.fillWidth: true
 			focusSequence: ""
-			onVisibleChanged: text = ""
+			onVisibleChanged: clear()
 			onTextChanged: searchUpwardsFromBottom()
 			onAccepted: searchFromCurrentIndex(true)
 			Keys.onUpPressed: searchFromCurrentIndex(true)

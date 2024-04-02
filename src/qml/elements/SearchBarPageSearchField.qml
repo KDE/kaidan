@@ -16,7 +16,7 @@ Kirigami.SearchField {
 	property ListView listView
 
 	onTextChanged: listView.model.setFilterFixedString(text.toLowerCase())
-	Keys.onEscapePressed: text = ""
+	Keys.onEscapePressed: clear()
 
 	onActiveFocusChanged: {
 		if (activeFocus) {
@@ -27,7 +27,7 @@ Kirigami.SearchField {
 	Keys.onPressed: {
 		switch (event.key) {
 		case Qt.Key_Escape:
-			text = ""
+			clear()
 			break
 		case Qt.Key_Return:
 		case Qt.Key_Enter:

@@ -55,7 +55,7 @@ Kirigami.OverlaySheet {
 	onSheetOpenChanged: {
 		if (!sheetOpen) {
 			root.composition.fileSelectionModel.clear()
-			messageText.text = ""
+			messageText.clear()
 		}
 	}
 

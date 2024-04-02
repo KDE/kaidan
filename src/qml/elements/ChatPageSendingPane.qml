@@ -79,7 +79,7 @@ Controls.Pane {
 
 				onClicked: {
 					composition.isSpoiler = false
-					spoilerHintField.text = ""
+					spoilerHintField.clear()
 				}
 			}
 		}
@@ -442,9 +442,9 @@ Controls.Pane {
 	}
 
 	function clearMessageArea() {
-		messageArea.text = ""
+		messageArea.clear()
 		composition.isSpoiler = false
-		spoilerHintField.text = ""
+		spoilerHintField.clear()
 		messageToCorrect = ""
 		messageArea.state = "compose"
 	}

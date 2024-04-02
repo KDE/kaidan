@@ -157,7 +157,7 @@ void Kaidan::setConnectionState(Enums::ConnectionState connectionState)
 			// delay is needed because sometimes the RosterPage needs to be loaded first
 			QTimer::singleShot(300, this, [this] {
 				Q_EMIT xmppUriReceived(m_openUriCache);
-				m_openUriCache = QStringLiteral("");
+				m_openUriCache.clear();
 			});
 		}
 	}

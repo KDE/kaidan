@@ -27,7 +27,7 @@ EmojiPicker {
 			if (text.length) {
 				MessageModel.addMessageReaction(root.messageId, text.trim())
 			}
-			text = ""
+			clear()
 		}
 	}
 }

@@ -134,7 +134,7 @@ Kirigami.ScrollablePage {
 
 	function toggleSearchBar() {
 		if (header) {
-			searchField.text = ""
+			searchField.clear()
 			header.close()
 		} else {
 			header = mobileSearchBarComponent.createObject()

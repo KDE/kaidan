@@ -47,8 +47,7 @@ FieldView {
 			}
 			textRole: "display"
 			currentIndex: indexOfRandomlySelectedProvider()
-			onCurrentIndexChanged: field.text = ""
-
+			onCurrentIndexChanged: field.inputField.clear()
 			onActivated: {
 				if (index === 0) {
 					editText = ""
