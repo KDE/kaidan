@@ -19,30 +19,40 @@ Kirigami.AbstractListItem {
 	property string accountJid
 	property string jid
 	property string name
-	property bool isSelected: false
+	property bool selected: false
 
 	topPadding: 0
 	leftPadding: 0
 	bottomPadding: 0
 	height: 65
+	background: Rectangle {
+		color: {
+			let colorOpacity = 0
 
-	onIsSelectedChanged: {
-		backgroundColorAnimation.restart()
+			if (!root.enabled) {
+				colorOpacity = 0
+			} else if (root.pressed) {
+				colorOpacity = 0.2
+			} else if (root.visualFocus) {
+				colorOpacity = 0.1
+			} else if (!Kirigami.Settings.tabletMode && root.hovered) {
+				colorOpacity = 0.07
+			} else if (root.selected) {
+				colorOpacity = 0.05
+			}
+
+			const textColor = Kirigami.Theme.textColor
+			return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
+		}
+
+		Behavior on color {
+			ColorAnimation { duration: Kirigami.Units.shortDuration }
+		}
 	}
 
 	RowLayout {
 		id: content
 		spacing: Kirigami.Units.gridUnit * 0.5
-
-		// fading background colors
-		ColorAnimation {
-			id: backgroundColorAnimation
-			targets: [root]
-			property: "backgroundColor"
-			to: root.isSelected ? Kirigami.Theme.backgroundColor : Kirigami.Theme.highlightColor
-			duration: Kirigami.Units.shortDuration
-			running: false
-		}
 
 		// left border: presence
 		Rectangle {

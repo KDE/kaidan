@@ -27,7 +27,7 @@ UserListItem {
 	property bool pinned
 	property bool notificationsMuted
 
-	isSelected: {
+	selected: {
 		return !Kirigami.Settings.isMobile &&
 			MessageModel.currentAccountJid === accountJid &&
 			MessageModel.currentChatJid === jid
@@ -103,31 +103,6 @@ UserListItem {
 				font.weight: Font.Light
 			}
 		}
-	}
-
-	onIsSelectedChanged: {
-		lastMessageInfoColorAnimation.restart()
-		textColorAnimation.restart()
-	}
-
-	// fading text colors
-	ColorAnimation {
-		id: lastMessageInfoColorAnimation
-		targets: [lastMessageDateTimeText, lastMessagePrefix]
-		property: "color"
-		to: root.isSelected ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.highlightedTextColor
-		duration: Kirigami.Units.shortDuration
-		running: false
-	}
-
-	// fading text colors
-	ColorAnimation {
-		id: textColorAnimation
-		targets: [nameText, lastMessageText]
-		property: "color"
-		to: root.isSelected ? Kirigami.Theme.textColor : Kirigami.Theme.highlightedTextColor
-		duration: Kirigami.Units.shortDuration
-		running: false
 	}
 
 	// right: icon for muted contact
