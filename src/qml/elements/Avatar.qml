@@ -13,5 +13,5 @@ Components.Avatar {
 	property string jid
 
 	source: jid ? Kaidan.avatarStorage.getAvatarUrl(jid) : ""
-	color: Qt.lighter(Utils.getUserColor(jid ? jid : name))
+	color: Utils.userColor(jid, name)
 }

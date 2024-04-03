@@ -181,7 +181,7 @@ public:
 	/**
 	 * Returns a consistent user color generated from the nickname.
 	 */
-	Q_INVOKABLE static QColor getUserColor(const QString &nickName);
+	Q_INVOKABLE static QColor userColor(const QString &id, const QString &name);
 
 	/**
 	 * Reads an image from the clipboard and returns the URL of the saved image.
