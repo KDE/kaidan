@@ -229,11 +229,7 @@ QString QmlUtils::formatMessage(const QString &message)
 QColor QmlUtils::userColor(const QString &id, const QString &name)
 {
 	QXmppColorGenerator::RGBColor rgbColor = QXmppColorGenerator::generateColor(id.isEmpty() ? name : id);
-
-	QColor color = { rgbColor.red, rgbColor.green, rgbColor.blue };
-	color = color.lighter();
-
-	return color;
+	return { rgbColor.red, rgbColor.green, rgbColor.blue };
 }
 
 QUrl QmlUtils::pasteImage()
