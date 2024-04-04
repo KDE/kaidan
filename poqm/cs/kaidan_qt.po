@@ -1,16 +1,16 @@
-# SPDX-FileCopyrightText: 2022, 2023 Vit Pelcak <vit@pelcak.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Vit Pelcak <vit@pelcak.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-11-10 16:30+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-04-03 11:41+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.2\n"
+"X-Generator: Lokalize 24.02.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -22,17 +22,17 @@ msgstr ""
 #: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "Zařízení"
 
 #: src/Blocking.cpp:323
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr ""
+msgstr "Uživatelé"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "Servery"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
@@ -75,7 +75,7 @@ msgstr ""
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "Povolit"
 
 #: src/ChatHintModel.cpp:226
 msgctxt "ChatHintModel|"
@@ -362,12 +362,12 @@ msgstr "Včera"
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
 msgctxt "Notifications|"
 msgid "Open"
-msgstr ""
+msgstr "Otevřít"
 
 #: src/Notifications.cpp:158
 msgctxt "Notifications|"
 msgid "Mark as read"
-msgstr ""
+msgstr "Označit jako přečtené"
 
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
@@ -382,7 +382,7 @@ msgstr "Šifrování veškeré komunikace pomocí OMEMO 2 nelze nastavit"
 #: src/OmemoModel.cpp:126
 msgctxt "OmemoModel|"
 msgid "This device"
-msgstr ""
+msgstr "Toto zařízení"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -611,7 +611,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
-msgstr ""
+msgstr "uzivatel@priklad.cz"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -626,12 +626,12 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "Odblokovat"
 
 #: src/qml/details/AccountDetailsContent.qml:532
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
@@ -1022,7 +1022,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:406
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "Blokovat"
 
 #: src/qml/details/ContactDetailsContent.qml:407
 msgctxt "ContactDetailsContent|"
@@ -1062,7 +1062,7 @@ msgstr ""
 #: src/qml/details/DetailsContent.qml:50
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "Média"
 
 #: src/qml/details/DetailsContent.qml:55
 msgctxt "DetailsContent|"
@@ -1082,7 +1082,7 @@ msgstr "Profil"
 #: src/qml/details/DetailsContent.qml:148
 msgctxt "DetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "Popisky"
 
 #: src/qml/details/DetailsContent.qml:172
 msgctxt "DetailsContent|"
@@ -1097,23 +1097,23 @@ msgstr "Změnit název…"
 #: src/qml/details/MediaOverview.qml:72
 msgctxt "MediaOverview|"
 msgid "Images"
-msgstr ""
+msgstr "Obrázky"
 
 #: src/qml/details/MediaOverview.qml:89
 msgctxt "MediaOverview|"
 msgid "Videos"
-msgstr ""
+msgstr "Videa"
 
 #: src/qml/details/MediaOverview.qml:107
 msgctxt "MediaOverview|"
 msgid "Other"
-msgstr ""
+msgstr "Jiné"
 
 #: src/qml/details/MediaOverview.qml:174
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "%1/%2 vybráno"
 
 #: src/qml/details/MediaOverview.qml:256
 #, qt-format
@@ -1172,7 +1172,7 @@ msgstr ""
 #: src/qml/DeviceSwitchingPage.qml:63
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
-msgstr ""
+msgstr "Heslo:"
 
 #: src/qml/DeviceSwitchingPage.qml:73
 msgctxt "DeviceSwitchingPage|"
@@ -1273,7 +1273,7 @@ msgstr "Napsat <b>nešifrovanou</b> zprávu"
 #: src/qml/elements/ChatPageSendingPane.qml:231
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "Média"
 
 #: src/qml/elements/ChatPageSendingPane.qml:287
 msgctxt "ChatPageSendingPane|"
@@ -1390,7 +1390,7 @@ msgstr "Přidat kontakt"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
-msgstr ""
+msgstr "Přidat kontakt"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
@@ -1445,27 +1445,27 @@ msgstr "Probíhá načítání…"
 #: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr ""
+msgstr "Přihlásit"
 
 #: src/qml/elements/LoginArea.qml:74
 msgctxt "LoginArea|"
 msgid "Connecting…"
-msgstr ""
+msgstr "Navazuji spojení…"
 
 #: src/qml/elements/MessageBackground.qml:108
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "Nezašifrováno"
 
 #: src/qml/elements/MessageBackground.qml:113
 msgctxt "MessageBackground|"
 msgid "Untrusted"
-msgstr ""
+msgstr "Nedůvěryhodný"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
@@ -1576,7 +1576,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:62
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "QR kód neobsahuje žádné kontakty"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
 msgctxt "QrCodeScanningArea|"
@@ -1611,7 +1611,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "Přidávám kontakt…"
 
 #: src/qml/elements/RosterFilteringArea.qml:29
 msgctxt "RosterFilteringArea|"
@@ -1651,13 +1651,13 @@ msgstr "Koncept:"
 #: src/qml/elements/RosterListItem.qml:82
 msgctxt "RosterListItem|"
 msgid "Me:"
-msgstr ""
+msgstr "Já:"
 
 #: src/qml/elements/RosterListItem.qml:85
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
-msgstr ""
+msgstr "%1:"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
@@ -1697,7 +1697,7 @@ msgstr ""
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
-msgstr ""
+msgstr "Stahuji…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:228
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1884,7 +1884,7 @@ msgstr ""
 #: src/qml/main.qml:81
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "Zpět"
 
 #: src/qml/main.qml:88
 #, qt-format
@@ -2309,7 +2309,7 @@ msgstr ""
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Přihlášení"
 
 #: src/qml/StartPage.qml:71
 msgctxt "StartPage|"
@@ -2324,12 +2324,12 @@ msgstr ""
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "nebo"
 
 #: src/qml/StartPage.qml:119
 msgctxt "StartPage|"
 msgid "Register"
-msgstr ""
+msgstr "Registrovat"
 
 #: src/qml/StartPage.qml:123
 msgctxt "StartPage|"
@@ -2427,7 +2427,7 @@ msgstr ""
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "Poznámky"
 
 #: src/RosterManager.cpp:161
 msgctxt "RosterManager|"
@@ -2467,7 +2467,7 @@ msgstr ""
 #: src/RosterModel.cpp:846
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "Včera"
 
 #: src/VCardModel.cpp:127
 msgctxt "VCardModel|"
