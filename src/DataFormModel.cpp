@@ -11,8 +11,7 @@
 // Kaidan
 #include "Globals.h"
 
-DataFormModel::DataFormModel(QObject *parent)
-	: QAbstractListModel(parent)
+DataFormModel::DataFormModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -41,7 +40,7 @@ QVariant DataFormModel::data(const QModelIndex &index, int role) const
 	auto fields = m_form.fields();
 	const auto &field = fields.at(index.row());
 
-	switch(role) {
+	switch (role) {
 	case Key:
 		return field.key();
 	case Type:
@@ -68,7 +67,7 @@ bool DataFormModel::setData(const QModelIndex &index, const QVariant &value, int
 
 	QXmppDataForm::Field field = m_form.fields().at(index.row());
 
-	switch(role) {
+	switch (role) {
 	case Key:
 		field.setKey(value.toString());
 		break;
@@ -98,15 +97,13 @@ bool DataFormModel::setData(const QModelIndex &index, const QVariant &value, int
 
 QHash<int, QByteArray> DataFormModel::roleNames() const
 {
-	return {
-		{Key, QByteArrayLiteral("key")},
-		{Type, QByteArrayLiteral("type")},
-		{Label, QByteArrayLiteral("label")},
-		{IsRequired, QByteArrayLiteral("isRequired")},
-		{Value, QByteArrayLiteral("value")},
-		{Description, QByteArrayLiteral("description")},
-		{MediaUrl, QByteArrayLiteral("mediaUrl")}
-	};
+	return { { Key, QByteArrayLiteral("key") },
+		{ Type, QByteArrayLiteral("type") },
+		{ Label, QByteArrayLiteral("label") },
+		{ IsRequired, QByteArrayLiteral("isRequired") },
+		{ Value, QByteArrayLiteral("value") },
+		{ Description, QByteArrayLiteral("description") },
+		{ MediaUrl, QByteArrayLiteral("mediaUrl") } };
 }
 
 QXmppDataForm DataFormModel::form() const

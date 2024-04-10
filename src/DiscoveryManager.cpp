@@ -6,8 +6,8 @@
 
 #include "DiscoveryManager.h"
 // QXmpp
-#include <QXmppDiscoveryManager.h>
 #include <QXmppDiscoveryIq.h>
+#include <QXmppDiscoveryManager.h>
 
 DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
 	: QObject(parent), m_client(client), m_manager(client->findExtension<QXmppDiscoveryManager>())
@@ -28,8 +28,7 @@ DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
 #endif
 
 	connect(client, &QXmppClient::connected, this, &DiscoveryManager::handleConnection);
-	connect(m_manager, &QXmppDiscoveryManager::itemsReceived,
-	        this, &DiscoveryManager::handleItems);
+	connect(m_manager, &QXmppDiscoveryManager::itemsReceived, this, &DiscoveryManager::handleItems);
 }
 
 DiscoveryManager::~DiscoveryManager()

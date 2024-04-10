@@ -21,8 +21,7 @@ public:
 	enum Availability { Offline, Online, Away, XA, DND, Chat };
 	Q_ENUM(Availability)
 
-	static constexpr Availability availabilityFromAvailabilityStatusType(
-		QXmppPresence::AvailableStatusType type)
+	static constexpr Availability availabilityFromAvailabilityStatusType(QXmppPresence::AvailableStatusType type)
 	{
 		switch (type) {
 		case QXmppPresence::Online:
@@ -130,9 +129,7 @@ public:
 	Q_SIGNAL void presencePropertiesChanged();
 
 private:
-	Q_SLOT void handlePresenceChanged(PresenceCache::ChangeType type,
-		const QString &jid,
-		const QString &resource);
+	Q_SLOT void handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
 	Q_SLOT void handlePresencesCleared();
 
 	bool autoPickResource();

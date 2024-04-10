@@ -49,9 +49,9 @@ public:
 	 * Result for adding a contact by an XMPP URI specifying how the URI is used
 	 */
 	enum AddContactByUriResult {
-		AddingContact,  ///< The contact is being added to the roster.
-		ContactExists,  ///< The contact is already in the roster.
-		InvalidUri      ///< The URI cannot be used for contact addition.
+		AddingContact, ///< The contact is being added to the roster.
+		ContactExists, ///< The contact is already in the roster.
+		InvalidUri     ///< The URI cannot be used for contact addition.
 	};
 	Q_ENUM(AddContactByUriResult)
 
@@ -113,7 +113,8 @@ public:
 	 *
 	 * @param uriString XMPP URI string that contains only a JID
 	 */
-	Q_INVOKABLE RosterModel::AddContactByUriResult addContactByUri(const QString &accountJid, const QString &uriString);
+	Q_INVOKABLE RosterModel::AddContactByUriResult
+	addContactByUri(const QString &accountJid, const QString &uriString);
 
 	QString lastReadOwnMessageId(const QString &accountJid, const QString &jid) const;
 	QString lastReadContactMessageId(const QString &accountJid, const QString &jid) const;
@@ -136,21 +137,23 @@ public:
 
 	const QVector<RosterItem> &items() const;
 
-	void updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+	void updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
 
 	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
-	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
+	Q_INVOKABLE void
+	reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
 
 	Q_INVOKABLE void setChatStateSendingEnabled(const QString &accountJid, const QString &jid, bool chatStateSendingEnabled);
 	Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &accountJid, const QString &jid, bool readMarkerSendingEnabled);
 	Q_INVOKABLE void setNotificationsMuted(const QString &accountJid, const QString &jid, bool notificationsMuted);
-	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
+	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid,
+		const QString &jid,
+		RosterItem::AutomaticMediaDownloadsRule rule);
 
 Q_SIGNALS:
 	void addItemRequested(const RosterItem &item);
-	void updateItemRequested(const QString &jid,
-	                         const std::function<void (RosterItem &)> &updateItem);
+	void updateItemRequested(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
 	void replaceItemsRequested(const QHash<QString, RosterItem> &items);
 
 	/**
@@ -168,9 +171,9 @@ private:
 	void replaceItems(const QHash<QString, RosterItem> &items);
 
 	void updateLastMessage(QVector<RosterItem>::Iterator &itr,
-						   const Message &message,
-						   QVector<int> &changedRoles,
-						   bool onlyUpdateIfNewerOrAtSameAge = true);
+		const Message &message,
+		QVector<int> &changedRoles,
+		bool onlyUpdateIfNewerOrAtSameAge = true);
 
 	/**
 	 * Removes all roster items of an account or a specific roster item.
@@ -191,7 +194,7 @@ private:
 	void updateItemPosition(int currentIndex);
 	int positionToAdd(const RosterItem &item);
 	int positionToMove(int currentIndex);
-	
+
 	QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
 
 	QVector<RosterItem> m_items;

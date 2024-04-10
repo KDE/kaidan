@@ -31,13 +31,17 @@ class Settings : public QObject
 {
 	Q_OBJECT
 
-	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
+	Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE
+			setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
 	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
-	Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible WRITE setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
-	Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible WRITE setKeyAuthenticationPageExplanationVisible NOTIFY keyAuthenticationPageExplanationVisibleChanged)
+	Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible
+			WRITE setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
+	Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible
+			WRITE setKeyAuthenticationPageExplanationVisible NOTIFY keyAuthenticationPageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
-	Q_PROPERTY(AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
+	Q_PROPERTY(AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule
+			WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
 
 public:
 	explicit Settings(QObject *parent = nullptr);
@@ -113,7 +117,8 @@ Q_SIGNALS:
 
 private:
 	template<typename T>
-	T value(const QString &key, const std::optional<T> &defaultValue = {}) const {
+	T value(const QString &key, const std::optional<T> &defaultValue = {}) const
+	{
 		QMutexLocker locker(&m_mutex);
 
 		if (defaultValue) {
@@ -124,7 +129,8 @@ private:
 	}
 
 	template<typename T, typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) <= 1, T> * = nullptr>
-	void setValue(const QString &key, const T &value, S s) {
+	void setValue(const QString &key, const T &value, S s)
+	{
 		QMutexLocker locker(&m_mutex);
 		if constexpr (!has_enum_type<T>::value && std::is_enum<T>::value) {
 			m_settings.setValue(key, static_cast<std::underlying_type_t<T>>(value));
@@ -143,7 +149,8 @@ private:
 	}
 
 	template<typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) == 0, S> * = nullptr>
-	void remove(const QString &key, S s) {
+	void remove(const QString &key, S s)
+	{
 		QMutexLocker locker(&m_mutex);
 		m_settings.remove(key);
 		locker.unlock();

@@ -25,8 +25,10 @@
 #define KAIDAN_SETTINGS_WINDOW_POSITION "window/position"
 #define KAIDAN_SETTINGS_WINDOW_SIZE "window/size"
 #define KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE "media/automaticDownloadsRule"
-#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE "explanationVisibility/contactAdditionQrCodePage"
-#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE "explanationVisibility/keyAuthenticationPage"
+#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE \
+	"explanationVisibility/contactAdditionQrCodePage"
+#define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE \
+	"explanationVisibility/keyAuthenticationPage"
 
 #define KAIDAN_JID_RESOURCE_DEFAULT_PREFIX APPLICATION_DISPLAY_NAME
 
@@ -79,13 +81,13 @@ constexpr auto GENERATED_PASSWORD_LENGTH_LOWER_BOUND = 20;
 constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
 
 // Characters used for password generation
-#define GENERATED_PASSWORD_ALPHABET QLatin1String( \
-	"abcdefghijklmnopqrstuvwxyz" \
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-	"`1234567890-=" \
-	"~!@#$%^&*()_+" \
-	"[];'\\,./{}:\"|<>?" \
-)
+#define GENERATED_PASSWORD_ALPHABET \
+	QLatin1String( \
+		"abcdefghijklmnopqrstuvwxyz" \
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
+		"`1234567890-=" \
+		"~!@#$%^&*()_+" \
+		"[];'\\,./{}:\"|<>?")
 
 // Number of characters used for password generation
 #define GENERATED_PASSWORD_ALPHABET_LENGTH GENERATED_PASSWORD_ALPHABET.size()

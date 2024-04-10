@@ -7,8 +7,7 @@
 
 #include <QCoreApplication>
 
-FileProgressWatcher::FileProgressWatcher(QObject *parent)
-	: QObject(parent)
+FileProgressWatcher::FileProgressWatcher(QObject *parent) : QObject(parent)
 {
 }
 

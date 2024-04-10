@@ -17,9 +17,12 @@ AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
 	  m_trustStorage(new TrustDb(database, this, {}, this)),
 	  m_manager(client->addNewExtension<QXmppAtmManager>(m_trustStorage.get()))
 {
-	connect(this, &AtmManager::makeTrustDecisionsRequested, this, [this](const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting) {
-		makeTrustDecisions(jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
-	});
+	connect(this,
+		&AtmManager::makeTrustDecisionsRequested,
+		this,
+		[this](const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting) {
+			makeTrustDecisions(jid, keyIdsFromHex(keyIdsForAuthentication), keyIdsFromHex(keyIdsForDistrusting));
+		});
 }
 
 AtmManager::~AtmManager() = default;
@@ -31,12 +34,18 @@ void AtmManager::setAccountJid(const QString &accountJid)
 
 void AtmManager::makeTrustDecisionsByUri(const QXmppUri &uri)
 {
-	m_manager->makeTrustDecisions(uri.encryption(), uri.jid(), keyIdsFromHex(uri.trustedKeysIds()), keyIdsFromHex(uri.distrustedKeysIds()));
+	m_manager->makeTrustDecisions(uri.encryption(),
+		uri.jid(),
+		keyIdsFromHex(uri.trustedKeysIds()),
+		keyIdsFromHex(uri.distrustedKeysIds()));
 }
 
-void AtmManager::makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting)
+void AtmManager::makeTrustDecisions(const QString &jid,
+	const QList<QByteArray> &keyIdsForAuthentication,
+	const QList<QByteArray> &keyIdsForDistrusting)
 {
-	m_manager->makeTrustDecisions(QStringLiteral("urn:xmpp:omemo:2"), jid, keyIdsForAuthentication, keyIdsForDistrusting);
+	m_manager->makeTrustDecisions(
+		QStringLiteral("urn:xmpp:omemo:2"), jid, keyIdsForAuthentication, keyIdsForDistrusting);
 }
 
 QList<QByteArray> AtmManager::keyIdsFromHex(const QList<QString> &keyIds)

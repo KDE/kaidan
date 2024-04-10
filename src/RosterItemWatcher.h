@@ -4,9 +4,9 @@
 
 #pragma once
 
+#include <QObject>
 #include <optional>
 #include <unordered_map>
-#include <QObject>
 
 #include "RosterItem.h"
 

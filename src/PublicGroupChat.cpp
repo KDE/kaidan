@@ -135,7 +135,7 @@ QStringList PublicGroupChat::splitLanguages(const QString &languages)
 PublicGroupChats PublicGroupChat::fromJson(const QJsonArray &array)
 {
 	return transform<PublicGroupChats>(
-		array, [](const auto &value) { return PublicGroupChat {value.toObject()}; });
+		array, [](const auto &value) { return PublicGroupChat { value.toObject() }; });
 }
 
 QJsonArray PublicGroupChat::toJson(const PublicGroupChats &groupChats)

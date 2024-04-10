@@ -62,12 +62,12 @@ struct PublicGroupChat {
 	QJsonObject toJson() const
 	{
 		return {
-			{Address.toString(), address},
-			{Users.toString(), nusers},
-			{IsOpen.toString(), is_open},
-			{Name.toString(), name},
-			{Description.toString(), description},
-			{Language.toString(), language},
+			{ Address.toString(), address },
+			{ Users.toString(), nusers },
+			{ IsOpen.toString(), is_open },
+			{ Name.toString(), name },
+			{ Description.toString(), description },
+			{ Language.toString(), language },
 		};
 	}
 
@@ -78,7 +78,7 @@ struct PublicGroupChat {
 		groups.reserve(array.count());
 
 		for (const auto &value : array) {
-			groups.append(PublicGroupChat {value.toObject()});
+			groups.append(PublicGroupChat { value.toObject() });
 		}
 
 		return groups;

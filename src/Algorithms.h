@@ -56,9 +56,9 @@ auto transformMap(const T &input, Converter convert)
 template<typename T, typename Condition>
 auto filter(T &&input, Condition condition)
 {
-	auto it = std::remove_if(input.begin(), input.end(), [condition = std::move(condition)](const auto &item) {
-		return !condition(item);
-	});
+	auto it = std::remove_if(input.begin(),
+		input.end(),
+		[condition = std::move(condition)](const auto &item) { return !condition(item); });
 
 	input.erase(it, input.end());
 
@@ -80,8 +80,9 @@ auto transformFilter(const T &input, ConditionalConverter conditionalConverter)
 	return output;
 }
 
-template <typename T, typename Func>
-auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T> {
+template<typename T, typename Func>
+auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T>
+{
 	if (option) {
 		return func(*option);
 	} else {
@@ -89,7 +90,7 @@ auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func,
 	}
 }
 
-template <typename T, typename Func>
+template<typename T, typename Func>
 auto sum(const QVector<T> &input)
 {
 	using Output = std::decay_t<decltype(convert(input.front()))>;

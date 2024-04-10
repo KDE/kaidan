@@ -28,19 +28,19 @@
 /**
  * rectangle of the video frame which may contain a QR code
  */
-struct CaptureRect
-{
-	CaptureRect(const QRect& captureRect, int sourceWidth, int sourceHeight)
+struct CaptureRect {
+	CaptureRect(const QRect &captureRect, int sourceWidth, int sourceHeight)
 		: isValid(captureRect.x() >= 0 && captureRect.y() >= 0 && captureRect.isValid()),
-		sourceWidth(sourceWidth),
-		sourceHeight(sourceHeight),
-		startX(isValid ? captureRect.x() : 0),
-		targetWidth(isValid ? captureRect.width() : sourceWidth),
-		endX(startX + targetWidth),
-		startY(isValid ? captureRect.y() : 0),
-		targetHeight(isValid ? captureRect.height() : sourceHeight),
-		endY(startY + targetHeight)
-	{}
+		  sourceWidth(sourceWidth),
+		  sourceHeight(sourceHeight),
+		  startX(isValid ? captureRect.x() : 0),
+		  targetWidth(isValid ? captureRect.width() : sourceWidth),
+		  endX(startX + targetWidth),
+		  startY(isValid ? captureRect.y() : 0),
+		  targetHeight(isValid ? captureRect.height() : sourceHeight),
+		  endY(startY + targetHeight)
+	{
+	}
 
 	bool isValid;
 
@@ -58,21 +58,16 @@ struct CaptureRect
 
 uchar gray(uchar r, uchar g, uchar b)
 {
-	return (306 * (r & 0xFF) +
-			601 * (g & 0xFF) +
-			117 * (b & 0xFF) +
-			0x200) >> 10;
+	return (306 * (r & 0xFF) + 601 * (g & 0xFF) + 117 * (b & 0xFF) + 0x200) >> 10;
 }
 uchar yuvToGray(uchar Y, uchar U, uchar V)
 {
 	const int C = int(Y) - 16;
 	const int D = int(U) - 128;
 	const int E = int(V) - 128;
-	return gray(
-		qBound<uchar>(0, uchar((298 * C + 409 * E + 128) >> 8), 255),
+	return gray(qBound<uchar>(0, uchar((298 * C + 409 * E + 128) >> 8), 255),
 		qBound<uchar>(0, uchar((298 * C - 100 * D - 208 * E + 128) >> 8), 255),
-		qBound<uchar>(0, uchar((298 * C + 516 * D + 128) >> 8), 255)
-	);
+		qBound<uchar>(0, uchar((298 * C + 516 * D + 128) >> 8), 255));
 }
 
 uchar yuvToGray2(uchar y, uchar u, uchar v)
@@ -81,37 +76,34 @@ uchar yuvToGray2(uchar y, uchar u, uchar v)
 	double gD = y - 0.3455 * (u - 128) - (0.7169 * (v - 128));
 	double bD = y + 1.7790 * (u - 128);
 
-	return gray(
-		qBound<uchar>(0, uchar(floor(rD)), 255),
+	return gray(qBound<uchar>(0, uchar(floor(rD)), 255),
 		qBound<uchar>(0, uchar(floor(gD)), 255),
-		qBound<uchar>(0, uchar(floor(bD)), 255)
-	);
+		qBound<uchar>(0, uchar(floor(bD)), 255));
 }
 
-static QImage* rgbDataToGrayscale(
-		const uchar* data,
-		const CaptureRect &captureRect,
-		const int alpha,
-		const int red,
-		const int green,
-		const int blue,
-		const bool isPremultiplied = false
-) {
+static QImage *rgbDataToGrayscale(const uchar *data,
+	const CaptureRect &captureRect,
+	const int alpha,
+	const int red,
+	const int green,
+	const int blue,
+	const bool isPremultiplied = false)
+{
 	const int stride = (alpha < 0) ? 3 : 4;
 
 	const int endX = captureRect.sourceWidth - captureRect.startX - captureRect.targetWidth;
 	const int skipX = (endX + captureRect.startX) * stride;
 
 	QImage *image_ptr = new QImage(captureRect.targetWidth, captureRect.targetHeight, QImage::Format_Grayscale8);
-	uchar* pixelInit = image_ptr->bits();
+	uchar *pixelInit = image_ptr->bits();
 	data += (captureRect.startY * captureRect.sourceWidth + captureRect.startX) * stride;
 
 	for (int y = 1; y <= captureRect.targetHeight; ++y) {
 		// Quick fix for iOS devices. Will be handled better in the future
 #ifdef Q_OS_IOS
-		uchar* pixel = pixelInit + (y - 1) * captureRect.targetWidth;
+		uchar *pixel = pixelInit + (y - 1) * captureRect.targetWidth;
 #else
-		uchar* pixel = pixelInit + (captureRect.targetHeight - y) * captureRect.targetWidth;
+		uchar *pixel = pixelInit + (captureRect.targetHeight - y) * captureRect.targetWidth;
 #endif
 
 		for (int x = 0; x < captureRect.targetWidth; ++x) {
@@ -154,7 +146,7 @@ void QrCodeVideoFrame::setData(QVideoFrame &frame)
 QImage *QrCodeVideoFrame::toGrayscaleImage()
 {
 	const CaptureRect captureRect(QRect(), m_size.width(), m_size.height());
-	const auto* data = reinterpret_cast<const uchar *>(m_data.constData());
+	const auto *data = reinterpret_cast<const uchar *>(m_data.constData());
 	const auto *yuvPtr = reinterpret_cast<const uint32_t *>(data);
 	uchar *pixel;
 	int wh;
@@ -235,14 +227,14 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
 		image = new QImage(captureRect.targetWidth, captureRect.targetHeight, QImage::Format_Grayscale8);
 		pixel = image->bits();
 
-		for (int y = captureRect.startY; y < captureRect.endY; y++){
-			const uint32_t *row = &yuvPtr[y*(m_size.width()/2)];
-			int end = captureRect.startX/2 + (captureRect.endX - captureRect.startX)/2;
-			for (int x = captureRect.startX/2; x < end; x++){
+		for (int y = captureRect.startY; y < captureRect.endY; y++) {
+			const uint32_t *row = &yuvPtr[y * (m_size.width() / 2)];
+			int end = captureRect.startX / 2 + (captureRect.endX - captureRect.startX) / 2;
+			for (int x = captureRect.startX / 2; x < end; x++) {
 				const uint8_t *pxl = reinterpret_cast<const uint8_t *>(&row[x]);
 				const uint8_t y0 = pxl[0];
-				const uint8_t u  = pxl[1];
-				const uint8_t v  = pxl[3];
+				const uint8_t u = pxl[1];
+				const uint8_t v = pxl[3];
 				const uint8_t y1 = pxl[2];
 
 				*pixel = yuvToGray2(y0, u, v);
@@ -259,11 +251,7 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
 	// TODO: QVideoFrame::Format_Jpeg (needed?)
 	default:
 		image = new QImage(
-			data,
-			m_size.width(),
-			m_size.height(),
-			QVideoFrame::imageFormatFromPixelFormat(m_pixelFormat)
-		);
+			data, m_size.width(), m_size.height(), QVideoFrame::imageFormatFromPixelFormat(m_pixelFormat));
 		break;
 	}
 	return image;

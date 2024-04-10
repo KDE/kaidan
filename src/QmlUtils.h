@@ -202,7 +202,8 @@ public:
 	/**
 	 * Returns a human-readable string describing the state of the chat.
 	 */
-	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
+	Q_INVOKABLE static QString
+	chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
 	Q_INVOKABLE static QString osmUserAgent();
 

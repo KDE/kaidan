@@ -9,8 +9,7 @@
 #include <QFile>
 #include <QtConcurrentRun>
 
-FileProxyModel::FileProxyModel(QObject *parent)
-	: QSortFilterProxyModel(parent)
+FileProxyModel::FileProxyModel(QObject *parent) : QSortFilterProxyModel(parent)
 {
 }
 
@@ -145,13 +144,15 @@ void FileProxyModel::deleteChecked()
 
 				if (!file.remove()) {
 					files.removeAt(i);
-					errors.append(QStringLiteral("%1: %2").arg(file.fileName(), file.errorString()));
+					errors.append(QStringLiteral("%1: %2").arg(
+						file.fileName(), file.errorString()));
 				}
 			}
 
-			QMetaObject::invokeMethod(this, [this, files = std::move(files), errors = std::move(errors)]() {
-				_filesDeleted(files, errors);
-			});
+			QMetaObject::invokeMethod(this,
+				[this, files = std::move(files), errors = std::move(errors)]() {
+					_filesDeleted(files, errors);
+				});
 		});
 	}
 }

@@ -44,14 +44,14 @@ class PresenceCache;
 class ClientWorker : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(RegistrationManager* registrationManager READ registrationManager CONSTANT)
-	Q_PROPERTY(VCardManager* vCardManager READ vCardManager CONSTANT)
-	Q_PROPERTY(RosterManager* rosterManager READ rosterManager CONSTANT)
-	Q_PROPERTY(MessageHandler* messageHandler READ messageHandler CONSTANT)
-	Q_PROPERTY(DiscoveryManager* discoveryManager READ discoveryManager CONSTANT)
-	Q_PROPERTY(VersionManager* versionManager READ versionManager CONSTANT)
-	Q_PROPERTY(AtmManager* atmManager READ atmManager CONSTANT)
-	Q_PROPERTY(OmemoManager* omemoManager READ omemoManager CONSTANT)
+	Q_PROPERTY(RegistrationManager *registrationManager READ registrationManager CONSTANT)
+	Q_PROPERTY(VCardManager *vCardManager READ vCardManager CONSTANT)
+	Q_PROPERTY(RosterManager *rosterManager READ rosterManager CONSTANT)
+	Q_PROPERTY(MessageHandler *messageHandler READ messageHandler CONSTANT)
+	Q_PROPERTY(DiscoveryManager *discoveryManager READ discoveryManager CONSTANT)
+	Q_PROPERTY(VersionManager *versionManager READ versionManager CONSTANT)
+	Q_PROPERTY(AtmManager *atmManager READ atmManager CONSTANT)
+	Q_PROPERTY(OmemoManager *omemoManager READ omemoManager CONSTANT)
 
 public:
 	/**
@@ -174,7 +174,7 @@ public:
 	 * @param task task which is run directly if the user is logged in or enqueued to be
 	 * run after an automatic login
 	 */
-	void startTask(const std::function<void ()> &task);
+	void startTask(const std::function<void()> &task);
 
 	/**
 	 * Finishes a task started by "startTask()".
@@ -311,7 +311,7 @@ private:
 	QXmppFileSharingManager *m_fileSharingManager;
 	std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;
 	std::shared_ptr<QXmppEncryptedFileSharingProvider> m_encryptedProvider;
-	QList<std::function<void ()>> m_pendingTasks;
+	QList<std::function<void()>> m_pendingTasks;
 	uint m_activeTasks = 0;
 
 	bool m_isFirstLoginAfterStart = true;

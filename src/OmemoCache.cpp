@@ -10,8 +10,7 @@
 
 OmemoCache *OmemoCache::s_instance = nullptr;
 
-OmemoCache::OmemoCache(QObject *parent)
-	: QObject(parent)
+OmemoCache::OmemoCache(QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -32,7 +31,8 @@ void OmemoCache::setAuthenticatableKeys(const QString &jid, const QList<QString>
 		auto keyFound = false;
 
 		for (const auto &authenticatableDevice : authenticatableDevices) {
-			if (authenticatableDevice.keyId == authenticatableKey || m_ownDevice.keyId == authenticatableKey) {
+			if (authenticatableDevice.keyId == authenticatableKey ||
+				m_ownDevice.keyId == authenticatableKey) {
 				keyFound = true;
 				break;
 			}

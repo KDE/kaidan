@@ -30,9 +30,7 @@ AccountManager *AccountManager::instance()
 }
 
 AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *parent)
-	: QObject(parent),
-	  m_settings(settings),
-	  m_port(PORT_AUTODETECT)
+	: QObject(parent), m_settings(settings), m_port(PORT_AUTODETECT)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -242,14 +240,12 @@ void AccountManager::storeConnectionData()
 
 void AccountManager::deleteCredentials()
 {
-	m_settings->remove({
-		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID),
+	m_settings->remove({ QStringLiteral(KAIDAN_SETTINGS_AUTH_JID),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT),
-		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY)
-	});
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY) });
 
 	setJid({});
 	m_jidResourcePrefix.clear();
@@ -282,5 +278,6 @@ void AccountManager::removeAccount(const QString &accountJid)
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
 {
-	return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
+	return m_jidResourcePrefix % QLatin1Char('.') %
+	       QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
 }

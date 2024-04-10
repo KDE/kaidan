@@ -24,22 +24,26 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
 	  m_manager(client->addNewExtension<QXmppRegistrationManager>()),
 	  m_dataFormModel(new RegistrationDataFormModel())
 {
-	connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationManager::handleInBandRegistrationSupportedChanged);
+	connect(m_manager,
+		&QXmppRegistrationManager::supportedByServerChanged,
+		this,
+		&RegistrationManager::handleInBandRegistrationSupportedChanged);
 
 	// account creation
-	connect(this, &RegistrationManager::sendRegistrationFormRequested,
-		this, &RegistrationManager::sendRegistrationForm);
+	connect(this, &RegistrationManager::sendRegistrationFormRequested, this, &RegistrationManager::sendRegistrationForm);
 	connect(m_manager, &QXmppRegistrationManager::registrationFormReceived, this, &RegistrationManager::handleRegistrationFormReceived);
 	connect(m_manager, &QXmppRegistrationManager::registrationSucceeded, this, &RegistrationManager::handleRegistrationSucceeded);
 	connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationManager::handleRegistrationFailed);
 
 	// account deletion
-	connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, m_clientWorker, &ClientWorker::handleAccountDeletionFromServerFailed);
+	connect(m_manager,
+		&QXmppRegistrationManager::accountDeletionFailed,
+		m_clientWorker,
+		&ClientWorker::handleAccountDeletionFromServerFailed);
 	connect(m_manager, &QXmppRegistrationManager::accountDeleted, m_clientWorker, &ClientWorker::handleAccountDeletedFromServer);
 
 	// password change
-	connect(this, &RegistrationManager::changePasswordRequested,
-		this, &RegistrationManager::changePassword);
+	connect(this, &RegistrationManager::changePasswordRequested, this, &RegistrationManager::changePassword);
 	connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationManager::handlePasswordChanged);
 	connect(m_manager, &QXmppRegistrationManager::passwordChangeFailed, this, &RegistrationManager::handlePasswordChangeFailed);
 }
@@ -72,17 +76,14 @@ void RegistrationManager::sendRegistrationForm()
 
 void RegistrationManager::changePassword(const QString &newPassword)
 {
-	m_clientWorker->startTask(
-		[this, newPassword] {
-			m_manager->changePassword(newPassword);
-		}
-	);
+	m_clientWorker->startTask([this, newPassword] { m_manager->changePassword(newPassword); });
 }
 
 void RegistrationManager::handleInBandRegistrationSupportedChanged()
 {
 	if (m_client->isConnected()) {
-		m_clientWorker->caches()->serverFeaturesCache->setInBandRegistrationSupported(m_manager->supportedByServer());
+		m_clientWorker->caches()->serverFeaturesCache->setInBandRegistrationSupported(
+			m_manager->supportedByServer());
 	}
 }
 
@@ -140,7 +141,9 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 
 void RegistrationManager::handleRegistrationSucceeded()
 {
-	AccountManager::instance()->setJid(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()));
+	AccountManager::instance()->setJid(m_dataFormModel->extractUsername()
+						   .append(QLatin1Char('@'))
+						   .append(m_client->configuration().domain()));
 	AccountManager::instance()->setPassword(m_dataFormModel->extractPassword());
 
 	m_client->disconnectFromServer();
@@ -158,26 +161,30 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 
 	RegistrationError registrationError = RegistrationError::UnknownError;
 
-	switch(error.type()) {
+	switch (error.type()) {
 	case QXmppStanza::Error::Cancel:
 		if (error.condition() == QXmppStanza::Error::FeatureNotImplemented)
 			registrationError = RegistrationError::InBandRegistrationNotSupported;
 		else if (error.condition() == QXmppStanza::Error::Conflict)
 			registrationError = RegistrationError::UsernameConflict;
-		else if (error.condition() == QXmppStanza::Error::NotAllowed && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive))
+		else if (error.condition() == QXmppStanza::Error::NotAllowed &&
+			 error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive))
 			registrationError = RegistrationError::CaptchaVerificationFailed;
 		break;
 	case QXmppStanza::Error::Modify:
 		if (error.condition() == QXmppStanza::Error::NotAcceptable) {
 			// TODO: Check error text in English (needs QXmpp change)
-			if (error.text().contains(QStringLiteral("password"), Qt::CaseInsensitive) && (error.text().contains(QStringLiteral("weak"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("short"), Qt::CaseInsensitive)))
+			if (error.text().contains(QStringLiteral("password"), Qt::CaseInsensitive) &&
+				(error.text().contains(QStringLiteral("weak"), Qt::CaseInsensitive) ||
+					error.text().contains(QStringLiteral("short"), Qt::CaseInsensitive)))
 				registrationError = RegistrationError::PasswordTooWeak;
-			else if (error.text().contains(QStringLiteral("ip"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("quickly"), Qt::CaseInsensitive)
-)
+			else if (error.text().contains(QStringLiteral("ip"), Qt::CaseInsensitive) ||
+				 error.text().contains(QStringLiteral("quickly"), Qt::CaseInsensitive))
 				registrationError = RegistrationError::TemporarilyBlocked;
 			else
 				registrationError = RegistrationError::RequiredInformationMissing;
-		} else if (error.condition() == QXmppStanza::Error::BadRequest && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive)) {
+		} else if (error.condition() == QXmppStanza::Error::BadRequest &&
+			   error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive)) {
 			registrationError = RegistrationError::CaptchaVerificationFailed;
 		}
 		break;
@@ -203,7 +210,7 @@ void RegistrationManager::handlePasswordChangeFailed(const QXmppStanza::Error &e
 	m_clientWorker->finishTask();
 }
 
-QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegisterIq& iq, bool &isFakeForm)
+QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm)
 {
 	QXmppDataForm newDataForm = iq.form();
 	if (newDataForm.fields().isEmpty()) {
@@ -241,7 +248,7 @@ QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegister
 	return newDataForm;
 }
 
-void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm& newForm)
+void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm)
 {
 	// Copy values from the last form.
 	const QList<QXmppDataForm::Field> oldFields = oldForm.fields();

@@ -53,7 +53,8 @@ public:
 private:
 	void readItemsFromJsonFile(const QString &filePath);
 	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
-	QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
+	QVector<ProviderListItem> providersWithSystemLocale(
+		const QVector<ProviderListItem> &preSelectedProviders) const;
 	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
 
 	QString systemLanguageCode() const;

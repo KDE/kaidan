@@ -41,8 +41,7 @@ public:
 
 Q_DECLARE_METATYPE(ChatState::State)
 
-struct DisplayedMessageReaction
-{
+struct DisplayedMessageReaction {
 	Q_GADGET
 	Q_PROPERTY(QString emoji MEMBER emoji)
 	Q_PROPERTY(int count MEMBER count)
@@ -60,8 +59,7 @@ public:
 
 Q_DECLARE_METATYPE(DisplayedMessageReaction)
 
-struct DetailedMessageReaction
-{
+struct DetailedMessageReaction {
 	Q_GADGET
 	Q_PROPERTY(QString senderJid MEMBER senderJid)
 	Q_PROPERTY(QStringList emojis MEMBER emojis)
@@ -200,7 +198,7 @@ public:
 
 	/**
 	 * Removes a message locally.
-	 * 
+	 *
 	 * @param messageId ID of the message
 	 */
 	Q_INVOKABLE void removeMessage(const QString &messageId);
@@ -230,13 +228,13 @@ public:
 	Q_INVOKABLE int searchForMessageFromOldToNew(const QString &searchString, int startIndex = -1);
 
 	/**
-	  * Returns the current chat state
-	  */
+	 * Returns the current chat state
+	 */
 	QXmppMessage::State chatState() const;
 
 	/**
-	  * Sends the chat state notification
-	  */
+	 * Sends the chat state notification
+	 */
 	void sendChatState(QXmppMessage::State state);
 	Q_INVOKABLE void sendChatState(ChatState::State state);
 
@@ -314,8 +312,8 @@ private:
 	 * Undoes a pending or failed removal of a message reaction.
 	 *
 	 * This should only be called if the removal of the reaction could not be submitted (yet).
-	 * That is either the case if Kaidan has not been connected since the user removed the reaction
-	 * or when there was an error on sending the change.
+	 * That is either the case if Kaidan has not been connected since the user removed the
+	 * reaction or when there was an error on sending the change.
 	 *
 	 * @param messageId ID of the message to react to
 	 * @param senderJid JID of the reaction's sender
@@ -324,14 +322,17 @@ private:
 	 *
 	 * @return whether the message reaction's removal has been undone
 	 */
-	bool undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions);
+	bool undoMessageReactionRemoval(const QString &messageId,
+		const QString &senderJid,
+		const QString &emoji,
+		const QVector<MessageReaction> &reactions);
 
 	/**
 	 * Undoes a pending or failed addition of a message reaction.
 	 *
 	 * This should only be called if the addition of the reaction could not be submitted (yet).
-	 * That is either the case if Kaidan has not been connected since the user added the reaction
-	 * or when there was an error on sending the change.
+	 * That is either the case if Kaidan has not been connected since the user added the
+	 * reaction or when there was an error on sending the change.
 	 *
 	 * @param messageId ID of the message to react to
 	 * @param senderJid JID of the reaction's sender
@@ -340,7 +341,10 @@ private:
 	 *
 	 * @return whether the message reaction's addition has been undone
 	 */
-	bool undoMessageReactionAddition(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions);
+	bool undoMessageReactionAddition(const QString &messageId,
+		const QString &senderJid,
+		const QString &emoji,
+		const QVector<MessageReaction> &reactions);
 
 	void updateMessageReactionsAfterSending(const QString &messageId, const QString &senderJid);
 

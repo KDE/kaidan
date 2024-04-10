@@ -30,8 +30,14 @@ ChatHintModel::ChatHintModel(QObject *parent)
 	connect(Kaidan::instance(), &Kaidan::connectionStateChanged, this, &ChatHintModel::handleConnectionStateChanged);
 	connect(Kaidan::instance(), &Kaidan::connectionErrorChanged, this, qOverload<>(&ChatHintModel::handleConnectionErrorChanged));
 
-	connect(this, &ChatHintModel::presenceSubscriptionRequestReceivedRequested, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
-	connect(&m_messageModel->rosterItemWatcher(), &RosterItemWatcher::itemChanged, this, &ChatHintModel::handleRosterItemPresenceSubscription);
+	connect(this,
+		&ChatHintModel::presenceSubscriptionRequestReceivedRequested,
+		this,
+		&ChatHintModel::handlePresenceSubscriptionRequestReceived);
+	connect(&m_messageModel->rosterItemWatcher(),
+		&RosterItemWatcher::itemChanged,
+		this,
+		&ChatHintModel::handleRosterItemPresenceSubscription);
 
 	connect(Kaidan::instance(), &Kaidan::openChatPageRequested, this, [this]() {
 		handleConnectionStateChanged();
@@ -81,25 +87,23 @@ QVariant ChatHintModel::data(const QModelIndex &index, int role) const
 
 void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
 {
-	switch(type) {
+	switch (type) {
 	case ChatHintButton::Dismiss:
 		if (i == chatHintIndex(ChatHintButton::AllowPresenceSubscription)) {
-			Q_EMIT Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresenceRequested(m_messageModel->currentChatJid());
+			Q_EMIT Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresenceRequested(
+				m_messageModel->currentChatJid());
 		}
 
 		removeChatHint(i);
 		return;
 	case ChatHintButton::ConnectToServer:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
-		});
+		updateChatHint(i, [](ChatHint &chatHint) { chatHint.loading = true; });
 		Kaidan::instance()->logIn();
 		return;
 	case ChatHintButton::AllowPresenceSubscription:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
-		});
-		Q_EMIT Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresenceRequested(m_messageModel->currentChatJid());
+		updateChatHint(i, [](ChatHint &chatHint) { chatHint.loading = true; });
+		Q_EMIT Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresenceRequested(
+			m_messageModel->currentChatJid());
 		return;
 	default:
 		return;
@@ -113,9 +117,7 @@ void ChatHintModel::handleConnectionStateChanged()
 		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer); i == -1) {
 			handleConnectionErrorChanged(addConnectToServerChatHint(false));
 		} else {
-			updateChatHint(i, [](ChatHint &chatHint) {
-				chatHint.loading = false;
-			});
+			updateChatHint(i, [](ChatHint &chatHint) { chatHint.loading = false; });
 
 			handleConnectionErrorChanged(i);
 		}
@@ -125,9 +127,7 @@ void ChatHintModel::handleConnectionStateChanged()
 		if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer); i == -1) {
 			addConnectToServerChatHint(true);
 		} else {
-			updateChatHint(i, [](ChatHint &chatHint) {
-				chatHint.loading = true;
-			});
+			updateChatHint(i, [](ChatHint &chatHint) { chatHint.loading = true; });
 		}
 
 		return;
@@ -142,7 +142,8 @@ void ChatHintModel::handleConnectionStateChanged()
 void ChatHintModel::handleConnectionErrorChanged()
 {
 	updateChatHint(ChatHintButton::ConnectToServer, [](ChatHint &chatHint) {
-		if (const auto error = ClientWorker::ConnectionError(Kaidan::instance()->connectionError()); error != ClientWorker::NoError) {
+		if (const auto error = ClientWorker::ConnectionError(Kaidan::instance()->connectionError());
+			error != ClientWorker::NoError) {
 			chatHint.text = QmlUtils::connectionErrorMessage(error);
 		}
 	});
@@ -151,7 +152,8 @@ void ChatHintModel::handleConnectionErrorChanged()
 void ChatHintModel::handleConnectionErrorChanged(int i)
 {
 	updateChatHint(i, [](ChatHint &chatHint) {
-		if (const auto error = ClientWorker::ConnectionError(Kaidan::instance()->connectionError()); error != ClientWorker::NoError) {
+		if (const auto error = ClientWorker::ConnectionError(Kaidan::instance()->connectionError());
+			error != ClientWorker::NoError) {
 			chatHint.text = QmlUtils::connectionErrorMessage(error);
 		}
 	});
@@ -160,13 +162,13 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 void ChatHintModel::handleRosterItemPresenceSubscription()
 {
 	const auto subscription = m_messageModel->rosterItemWatcher().item().subscription;
-	const auto subscriptionAllowed =
-			subscription == QXmppRosterIq::Item::SubscriptionType::From ||
-			subscription == QXmppRosterIq::Item::SubscriptionType::Both;
+	const auto subscriptionAllowed = subscription == QXmppRosterIq::Item::SubscriptionType::From ||
+					 subscription == QXmppRosterIq::Item::SubscriptionType::Both;
 
 	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription); i != -1 && subscriptionAllowed) {
 		removeChatHint(i);
-		Notifications::instance()->closePresenceSubscriptionRequestNotification(m_messageModel->currentAccountJid(), m_messageModel->currentChatJid());
+		Notifications::instance()->closePresenceSubscriptionRequestNotification(
+			m_messageModel->currentAccountJid(), m_messageModel->currentChatJid());
 	}
 }
 
@@ -174,17 +176,25 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 {
 	const auto rosterManager = Kaidan::instance()->client()->rosterManager();
 
-	runOnThread(rosterManager, [this, rosterManager, accountJid = m_messageModel->currentAccountJid(), chatJid = m_messageModel->currentChatJid()]() {
-		if (const auto unrespondedPresenceSubscriptionRequests = rosterManager->unrespondedPresenceSubscriptionRequests();
-			unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
-			runOnThread(this, [this, requestText = unrespondedPresenceSubscriptionRequests.value(chatJid)]() {
-				this->addAllowPresenceSubscriptionChatHint(requestText);
-			});
-		}
-	});
+	runOnThread(rosterManager,
+		[this,
+			rosterManager,
+			accountJid = m_messageModel->currentAccountJid(),
+			chatJid = m_messageModel->currentChatJid()]() {
+			if (const auto unrespondedPresenceSubscriptionRequests =
+					rosterManager->unrespondedPresenceSubscriptionRequests();
+				unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
+				runOnThread(this,
+					[this, requestText = unrespondedPresenceSubscriptionRequests.value(chatJid)]() {
+						this->addAllowPresenceSubscriptionChatHint(requestText);
+					});
+			}
+		});
 }
 
-void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText)
+void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid,
+	const QString &subscriberJid,
+	const QString &requestText)
 {
 	bool userMuted = m_messageModel->rosterItemWatcher().item().notificationsMuted;
 	bool requestForCurrentChat = subscriberJid == m_messageModel->currentChatJid();
@@ -201,15 +211,13 @@ void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &acc
 
 int ChatHintModel::addConnectToServerChatHint(bool loading)
 {
-	return addChatHint(
-		ChatHint {
-			tr("You are not connected - Messages are sent and received once connected"),
-			{ ChatHintButton { ChatHintButton::Dismiss, tr("Dismiss") },
-			  ChatHintButton { ChatHintButton::ConnectToServer, tr("Connect") } },
-			loading,
-			tr("Connecting…"),
-		}
-	);
+	return addChatHint(ChatHint {
+		tr("You are not connected - Messages are sent and received once connected"),
+		{ ChatHintButton { ChatHintButton::Dismiss, tr("Dismiss") },
+			ChatHintButton { ChatHintButton::ConnectToServer, tr("Connect") } },
+		loading,
+		tr("Connecting…"),
+	});
 }
 
 int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestText)
@@ -217,15 +225,15 @@ int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestTe
 	const auto displayName = m_messageModel->rosterItemWatcher().item().displayName();
 	const auto appendedText = requestText.isEmpty() ? QString() : QStringLiteral(": %1").arg(requestText);
 
-	return addChatHint(
-		ChatHint {
-			tr("%1 would like to receive your personal data such as availability, devices and other personal information%2").arg(displayName, appendedText),
-			{ ChatHintButton { ChatHintButton::Dismiss, tr("Refuse") },
-			  ChatHintButton { ChatHintButton::AllowPresenceSubscription, tr("Allow") } },
-			false,
-			tr("Allowing…"),
-		}
-	);
+	return addChatHint(ChatHint {
+		tr("%1 would like to receive your personal data such as availability, devices and "
+		   "other personal information%2")
+			.arg(displayName, appendedText),
+		{ ChatHintButton { ChatHintButton::Dismiss, tr("Refuse") },
+			ChatHintButton { ChatHintButton::AllowPresenceSubscription, tr("Allow") } },
+		false,
+		tr("Allowing…"),
+	});
 }
 
 int ChatHintModel::addChatHint(const ChatHint &chatHint)
@@ -242,26 +250,27 @@ void ChatHintModel::insertChatHint(int i, const ChatHint &chatHint)
 	endInsertRows();
 }
 
-void ChatHintModel::updateChatHint(ChatHintButton::Type buttonType, const std::function<void (ChatHint &)> &updateChatHint)
+void ChatHintModel::updateChatHint(ChatHintButton::Type buttonType,
+	const std::function<void(ChatHint &)> &updateChatHint)
 {
 	if (const auto i = chatHintIndex(buttonType); i != -1) {
 		this->updateChatHint(i, updateChatHint);
 	}
 }
 
-void ChatHintModel::updateChatHint(int i, const std::function<void (ChatHint &)> &updateChatHint)
+void ChatHintModel::updateChatHint(int i, const std::function<void(ChatHint &)> &updateChatHint)
 {
-		auto chatHint = m_chatHints.at(i);
-		updateChatHint(chatHint);
+	auto chatHint = m_chatHints.at(i);
+	updateChatHint(chatHint);
 
-		// Skip further processing in case of no changes.
-		if (m_chatHints.at(i) == chatHint) {
-			return;
-		}
+	// Skip further processing in case of no changes.
+	if (m_chatHints.at(i) == chatHint) {
+		return;
+	}
 
-		m_chatHints.replace(i, chatHint);
-		const auto modelIndex = index(i);
-		Q_EMIT dataChanged(modelIndex, modelIndex);
+	m_chatHints.replace(i, chatHint);
+	const auto modelIndex = index(i);
+	Q_EMIT dataChanged(modelIndex, modelIndex);
 }
 
 void ChatHintModel::removeChatHint(ChatHintButton::Type buttonType)

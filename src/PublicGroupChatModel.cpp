@@ -44,14 +44,14 @@ QVariant PublicGroupChatModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> PublicGroupChatModel::roleNames() const
 {
 	static const QHash<int, QByteArray> roles = {
-		{static_cast<int>(CustomRole::Name), QByteArrayLiteral("name")},
-		{static_cast<int>(CustomRole::Description), QByteArrayLiteral("description")},
-		{static_cast<int>(CustomRole::Address), QByteArrayLiteral("address")},
-		{static_cast<int>(CustomRole::Users), QByteArrayLiteral("users")},
-		{static_cast<int>(CustomRole::IsOpen), QByteArrayLiteral("isOpen")},
-		{static_cast<int>(CustomRole::Languages), QByteArrayLiteral("languages")},
-		{static_cast<int>(CustomRole::GlobalSearch), QByteArrayLiteral("globalSearch")},
-		{static_cast<int>(CustomRole::GroupChat), QByteArrayLiteral("groupChat")},
+		{ static_cast<int>(CustomRole::Name), QByteArrayLiteral("name") },
+		{ static_cast<int>(CustomRole::Description), QByteArrayLiteral("description") },
+		{ static_cast<int>(CustomRole::Address), QByteArrayLiteral("address") },
+		{ static_cast<int>(CustomRole::Users), QByteArrayLiteral("users") },
+		{ static_cast<int>(CustomRole::IsOpen), QByteArrayLiteral("isOpen") },
+		{ static_cast<int>(CustomRole::Languages), QByteArrayLiteral("languages") },
+		{ static_cast<int>(CustomRole::GlobalSearch), QByteArrayLiteral("globalSearch") },
+		{ static_cast<int>(CustomRole::GroupChat), QByteArrayLiteral("groupChat") },
 	};
 
 	return roles;

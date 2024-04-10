@@ -13,15 +13,13 @@
 
 using namespace SqlUtils;
 
-constexpr std::initializer_list<QStringView> OMEMO_TABLES = {u"omemoDevicesOwn",
+constexpr std::initializer_list<QStringView> OMEMO_TABLES = { u"omemoDevicesOwn",
 	u"omemoDevices",
 	u"omemoPreKeyPairs",
-	u"omemoPreKeyPairsSigned"};
+	u"omemoPreKeyPairsSigned" };
 
 OmemoDb::OmemoDb(Database *db, QObject *xmppContext, QString accountJid, QObject *parent)
-	: DatabaseComponent(db, parent),
-	  m_xmppContext(xmppContext),
-	  m_accountJid(std::move(accountJid))
+	: DatabaseComponent(db, parent), m_xmppContext(xmppContext), m_accountJid(std::move(accountJid))
 {
 }
 
@@ -42,15 +40,14 @@ auto OmemoDb::resetAll() -> QXmppTask<void>
 	return runTask([this] {
 		auto query = createQuery();
 		for (auto table : OMEMO_TABLES) {
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					DELETE FROM %1 WHERE account = :accountJid
-				)").arg(table),
+				)")
+					.arg(table),
 				{
 					{ u":accountJid", accountJid() },
-				}
-			);
+				});
 		}
 	});
 }
@@ -61,8 +58,7 @@ auto OmemoDb::setOwnDevice(const std::optional<OwnDevice> &device) -> QXmppTask<
 		// set new device
 		return runTask([this, device = *device] {
 			auto query = createQuery();
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					INSERT OR REPLACE INTO omemoDevicesOwn (
 						account,
@@ -91,30 +87,26 @@ auto OmemoDb::setOwnDevice(const std::optional<OwnDevice> &device) -> QXmppTask<
 					{ u":publicKey", device.publicIdentityKey },
 					{ u":latestSignedPreKeyId", device.latestSignedPreKeyId },
 					{ u":latestPreKeyId", device.latestPreKeyId },
-				}
-			);
+				});
 		});
 	}
 	// remove old own device
 	return runTask([this] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM omemoDevicesOwn WHERE account = :accountJid
 			)"),
 			{
 				{ u":accountJid", accountJid() },
-			}
-		);
+			});
 	});
 }
 
 auto OmemoDb::_ownDevice() -> std::optional<OwnDevice>
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT id, label, privateKey, publicKey, latestSignedPreKeyId, latestPreKeyId
 			FROM omemoDevicesOwn
@@ -122,8 +114,7 @@ auto OmemoDb::_ownDevice() -> std::optional<OwnDevice>
 		)"),
 		{
 			{ u":accountJid", accountJid() },
-		}
-	);
+		});
 
 	enum { Id, Label, PrivateKey, PublicKey, LatestSignedPreKeyId, LatestPreKeyId };
 	auto parse = [&query] {
@@ -146,8 +137,7 @@ auto OmemoDb::addSignedPreKeyPair(uint32_t keyId, const SignedPreKeyPair &keyPai
 {
 	return runTask([this, keyId, keyPair] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				INSERT OR REPLACE INTO omemoPreKeyPairsSigned (
 					account,
@@ -167,8 +157,7 @@ auto OmemoDb::addSignedPreKeyPair(uint32_t keyId, const SignedPreKeyPair &keyPai
 				{ u":keyId", keyId },
 				{ u":data", keyPair.data },
 				{ u":creationTimestamp", serialize(keyPair.creationDate) },
-			}
-		);
+			});
 	});
 }
 
@@ -176,24 +165,21 @@ auto OmemoDb::removeSignedPreKeyPair(uint32_t keyId) -> QXmppTask<void>
 {
 	return runTask([this, keyId] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM omemoPreKeyPairsSigned WHERE account = :accountJid AND id = :keyId
 			)"),
 			{
 				{ u":accountJid", accountJid() },
 				{ u":keyId", keyId },
-			}
-		);
+			});
 	});
 }
 
 auto OmemoDb::_signedPreKeyPairs() -> QHash<uint32_t, SignedPreKeyPair>
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT id, data, creationTimestamp
 			FROM omemoPreKeyPairsSigned
@@ -201,8 +187,7 @@ auto OmemoDb::_signedPreKeyPairs() -> QHash<uint32_t, SignedPreKeyPair>
 		)"),
 		{
 			{ u":accountJid", accountJid() },
-		}
-	);
+		});
 
 	enum { Id, Data, CreationTimestamp };
 	auto parse = [](auto &query) {
@@ -223,9 +208,7 @@ auto OmemoDb::addPreKeyPairs(const QHash<uint32_t, QByteArray> &keyPairs) -> QXm
 {
 	return runTask([this, keyPairs] {
 		auto query = createQuery();
-		prepareQuery(
-			query,
-			QStringLiteral(R"(
+		prepareQuery(query, QStringLiteral(R"(
 				INSERT OR REPLACE INTO omemoPreKeyPairs (
 					account,
 					id,
@@ -236,18 +219,15 @@ auto OmemoDb::addPreKeyPairs(const QHash<uint32_t, QByteArray> &keyPairs) -> QXm
 					:id,
 					:data
 				)
-			)")
-		);
+			)"));
 
 		for (auto itr = keyPairs.begin(); itr != keyPairs.end(); itr++) {
-			bindValues(
-				query,
+			bindValues(query,
 				{
 					{ u":account", accountJid() },
 					{ u":id", itr.key() },
 					{ u":data", itr.value() },
-				}
-			);
+				});
 			execQuery(query);
 		}
 	});
@@ -257,24 +237,21 @@ auto OmemoDb::removePreKeyPair(uint32_t keyId) -> QXmppTask<void>
 {
 	return runTask([this, keyId] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM omemoPreKeyPairs WHERE account = :accountJid AND id = :keyId
 			)"),
 			{
 				{ u":accountJid", accountJid() },
 				{ u":keyId", keyId },
-			}
-		);
+			});
 	});
 }
 
 auto OmemoDb::_preKeyPairs() -> QHash<uint32_t, QByteArray>
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT id, data
 			FROM omemoPreKeyPairs
@@ -282,8 +259,7 @@ auto OmemoDb::_preKeyPairs() -> QHash<uint32_t, QByteArray>
 		)"),
 		{
 			{ u":accountJid", accountJid() },
-		}
-	);
+		});
 
 	enum { Id, Data };
 	QHash<uint32_t, QByteArray> output;
@@ -297,8 +273,7 @@ auto OmemoDb::addDevice(const QString &jid, uint32_t deviceId, const Device &dev
 {
 	return runTask([this, jid, deviceId, dev] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				INSERT OR REPLACE INTO omemoDevices (
 					account,
@@ -333,8 +308,7 @@ auto OmemoDb::addDevice(const QString &jid, uint32_t deviceId, const Device &dev
 				{ u":unrespondedStanzasSent", dev.unrespondedSentStanzasCount },
 				{ u":unrespondedStanzasReceived", dev.unrespondedReceivedStanzasCount },
 				{ u":removalTimestamp", serialize(dev.removalFromDeviceListDate) },
-			}
-		);
+			});
 	});
 }
 
@@ -342,8 +316,7 @@ auto OmemoDb::removeDevice(const QString &jid, uint32_t deviceId) -> QXmppTask<v
 {
 	return runTask([this, jid, deviceId] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM omemoDevices WHERE account = :accountJid AND userJid = :jid AND id = :deviceId
 			)"),
@@ -351,8 +324,7 @@ auto OmemoDb::removeDevice(const QString &jid, uint32_t deviceId) -> QXmppTask<v
 				{ u":accountJid", accountJid() },
 				{ u":jid", jid },
 				{ u":deviceId", deviceId },
-			}
-		);
+			});
 	});
 }
 
@@ -360,24 +332,21 @@ auto OmemoDb::removeDevices(const QString &jid) -> QXmppTask<void>
 {
 	return runTask([this, jid] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM omemoDevices WHERE account = :accountJid AND userJid = :jid
 			)"),
 			{
 				{ u":accountJid", accountJid() },
 				{ u":jid", jid },
-			}
-		);
+			});
 	});
 }
 
 auto OmemoDb::_devices() -> QHash<QString, QHash<uint32_t, Device>>
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT userJid, id, label, keyId, session, unrespondedStanzasSent, unrespondedStanzasReceived, removalTimestamp
 			FROM omemoDevices
@@ -385,10 +354,18 @@ auto OmemoDb::_devices() -> QHash<QString, QHash<uint32_t, Device>>
 		)"),
 		{
 			{ u":accountJid", accountJid() },
-		}
-	);
+		});
 
-	enum { UserJid, Id, Label, KeyId, Session, UnrespondedSent, UnrespondedRecv, RemovalTimestamp };
+	enum {
+		UserJid,
+		Id,
+		Label,
+		KeyId,
+		Session,
+		UnrespondedSent,
+		UnrespondedRecv,
+		RemovalTimestamp
+	};
 	auto parse = [&query] {
 		return Device {
 			.label = query.value(Label).toString(),

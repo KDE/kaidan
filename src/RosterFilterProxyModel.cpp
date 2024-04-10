@@ -8,8 +8,7 @@
 #include "PresenceCache.h"
 #include "RosterModel.h"
 
-RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent)
-	: QSortFilterProxyModel(parent)
+RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent) : QSortFilterProxyModel(parent)
 {
 }
 
@@ -34,7 +33,6 @@ void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &sele
 		invalidate();
 		Q_EMIT selectedAccountJidsChanged();
 	}
-
 }
 
 QVector<QString> RosterFilterProxyModel::selectedAccountJids() const
@@ -49,7 +47,6 @@ void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedG
 		invalidate();
 		Q_EMIT selectedGroupsChanged();
 	}
-
 }
 
 QVector<QString> RosterFilterProxyModel::selectedGroups() const
@@ -65,7 +62,8 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 		auto *presenceCache = PresenceCache::instance();
 		const auto chatJid = sourceModel()->data(index, RosterModel::JidRole).toString();
 
-		if (const auto contactPresence = presenceCache->presence(chatJid, presenceCache->pickIdealResource(chatJid))) {
+		if (const auto contactPresence = presenceCache->presence(
+			    chatJid, presenceCache->pickIdealResource(chatJid))) {
 			if (contactPresence->type() != QXmppPresence::Available) {
 				return false;
 			}
@@ -80,12 +78,13 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 	}
 
 	if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QVector<QString>>();
-		!m_selectedGroups.isEmpty() && std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
-		return m_selectedGroups.contains(group);
-	})) {
+		!m_selectedGroups.isEmpty() &&
+		std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
+			return m_selectedGroups.contains(group);
+		})) {
 		return false;
 	}
 
 	return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegExp()) ||
-		   sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
+	       sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
 }

@@ -8,14 +8,14 @@
 
 using namespace std;
 
-template <typename T, typename Converter>
+template<typename T, typename Converter>
 auto transform(vector<T> &input, Converter convert)
 {
-    using Output = decay_t<decltype(convert(input.front()))>;
-    vector<Output> output;
-    output.reserve(input.size());
-    transform(input.begin(), input.end(), back_inserter(output), std::move(convert));
-    return output;
+	using Output = decay_t<decltype(convert(input.front()))>;
+	vector<Output> output;
+	output.reserve(input.size());
+	transform(input.begin(), input.end(), back_inserter(output), std::move(convert));
+	return output;
 }
 
 class RosterItemWatcherTest : public QObject
@@ -26,8 +26,7 @@ private:
 	Q_SLOT void notifications();
 };
 
-struct SpyCountPair
-{
+struct SpyCountPair {
 	std::unique_ptr<QSignalSpy> spy;
 	int count;
 };
@@ -35,10 +34,8 @@ struct SpyCountPair
 void checkEmitted(vector<pair<RosterItemWatcher *, int>> watchers, function<void()> trigger)
 {
 	auto spies = transform(watchers, [](pair<RosterItemWatcher *, int> &input) {
-		return SpyCountPair {
-			std::make_unique<QSignalSpy>(input.first, &RosterItemWatcher::itemChanged),
-			input.second
-		};
+		return SpyCountPair { std::make_unique<QSignalSpy>(input.first, &RosterItemWatcher::itemChanged),
+			input.second };
 	});
 	trigger();
 	for_each(spies.begin(), spies.end(), [](auto &pair) {
@@ -58,11 +55,8 @@ void RosterItemWatcherTest::notifications()
 	RosterItemWatcher watcher3;
 	watcher3.setJid("user@kaidan.im");
 
-	vector<pair<RosterItemWatcher *, int>> expected({
-		{ pair { &watcher1, 2 } },
-		{ pair { &watcher2, 2 } },
-		{ pair { &watcher3, 1 } }
-	});
+	vector<pair<RosterItemWatcher *, int>> expected(
+		{ { pair { &watcher1, 2 } }, { pair { &watcher2, 2 } }, { pair { &watcher3, 1 } } });
 	checkEmitted(expected, [&]() {
 		notifier.notifyWatchers("hello@kaidan.im", item);
 		notifier.notifyWatchers("not-found", item);

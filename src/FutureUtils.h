@@ -10,8 +10,8 @@
 #include <QFuture>
 #include <QFutureWatcher>
 // QXmpp
-#include <QXmppTask.h>
 #include <QXmppPromise.h>
+#include <QXmppTask.h>
 
 template<typename ValueType>
 auto qFutureValueType(QFuture<ValueType>) -> ValueType;
@@ -46,16 +46,16 @@ template<typename T, typename Handler>
 void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
 	auto *watcher = new QFutureWatcher<T>(context);
-	QObject::connect(watcher, &QFutureWatcherBase::finished,
-	                 context, [watcher, handler = std::move(handler)]() mutable {
-		if constexpr (std::is_same_v<T, void> || std::is_invocable<Handler>::value) {
-			handler();
-		}
-		if constexpr (!std::is_same_v<T, void> && !std::is_invocable<Handler>::value) {
-			handler(watcher->result());
-		}
-		watcher->deleteLater();
-	});
+	QObject::connect(
+		watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
+			if constexpr (std::is_same_v<T, void> || std::is_invocable<Handler>::value) {
+				handler();
+			}
+			if constexpr (!std::is_same_v<T, void> && !std::is_invocable<Handler>::value) {
+				handler(watcher->result());
+			}
+			watcher->deleteLater();
+		});
 	watcher->setFuture(future);
 }
 
@@ -66,8 +66,7 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
 	using Result = QFutureValueType<std::invoke_result_t<Functor>>;
 
 	auto *watcher = new QFutureWatcher<Result>(context);
-	QObject::connect(watcher, &QFutureWatcherBase::finished,
-	                 context, [watcher, handler = std::move(handler)]() mutable {
+	QObject::connect(watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
 		if constexpr (std::is_same_v<Result, void> || std::is_invocable<Handler>::value) {
 			handler();
 		}
@@ -118,19 +117,21 @@ auto runAsyncTask(QObject *callerObject, QObject *targetObject, Function functio
 
 	QXmppPromise<ValueType> promise;
 	auto task = promise.task();
-	QMetaObject::invokeMethod(targetObject, [callerObject, promise = std::move(promise), function = std::move(function)]() mutable {
-		if constexpr (std::is_same_v<ValueType, void>) {
-			function();
-			QMetaObject::invokeMethod(callerObject, [promise = std::move(promise)]() mutable {
-				promise.finish();
-			});
-		} else {
-			auto value = function();
-			QMetaObject::invokeMethod(callerObject, [promise = std::move(promise), value = std::move(value)]() mutable {
-				promise.finish(std::move(value));
-			});
-		}
-	});
+	QMetaObject::invokeMethod(targetObject,
+		[callerObject, promise = std::move(promise), function = std::move(function)]() mutable {
+			if constexpr (std::is_same_v<ValueType, void>) {
+				function();
+				QMetaObject::invokeMethod(callerObject, [promise = std::move(promise)]() mutable {
+					promise.finish();
+				});
+			} else {
+				auto value = function();
+				QMetaObject::invokeMethod(callerObject,
+					[promise = std::move(promise), value = std::move(value)]() mutable {
+						promise.finish(std::move(value));
+					});
+			}
+		});
 	return task;
 }
 
@@ -147,23 +148,20 @@ auto runOnThread(QObject *targetObject, Function function, QObject *caller, Hand
 {
 	using ValueType = std::invoke_result_t<Function>;
 
-	QMetaObject::invokeMethod(targetObject, [function = std::move(function), caller, handler = std::move(handler)]() mutable {
-		if constexpr (std::is_same_v<ValueType, void>) {
-			function();
-			QMetaObject::invokeMethod(
-						caller,
-						[handler = std::move(handler)]() mutable {
-				handler();
-			});
-		} else {
-			auto result = function();
-			QMetaObject::invokeMethod(
-						caller,
-						[result = std::move(result), handler = std::move(handler)]() mutable {
-				handler(std::move(result));
-			});
-		}
-	});
+	QMetaObject::invokeMethod(targetObject,
+		[function = std::move(function), caller, handler = std::move(handler)]() mutable {
+			if constexpr (std::is_same_v<ValueType, void>) {
+				function();
+				QMetaObject::invokeMethod(caller,
+					[handler = std::move(handler)]() mutable { handler(); });
+			} else {
+				auto result = function();
+				QMetaObject::invokeMethod(caller,
+					[result = std::move(result), handler = std::move(handler)]() mutable {
+						handler(std::move(result));
+					});
+			}
+		});
 }
 
 // Calls a function returning a QXmppTask on a remote thread and handles the result on the caller's
@@ -181,7 +179,7 @@ auto callRemoteTask(QObject *target, Function function, QObject *caller, Handler
 }
 
 // Creates a future with the results from all given futures.
-template <typename T>
+template<typename T>
 QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
 {
 	auto results = std::make_shared<QVector<T>>();

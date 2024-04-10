@@ -60,7 +60,8 @@ void OmemoWatcher::handleUsableDevicesUpdated(const QString &jid, const QList<Om
 	}
 }
 
-void OmemoWatcher::handleAuthenticatableDevicesUpdated(const QString &jid, const QList<OmemoManager::Device> &authenticatableDevices)
+void OmemoWatcher::handleAuthenticatableDevicesUpdated(const QString &jid,
+	const QList<OmemoManager::Device> &authenticatableDevices)
 {
 	if (jid == m_jid) {
 		m_authenticatableDevices = authenticatableDevices;

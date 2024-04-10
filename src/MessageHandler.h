@@ -54,7 +54,8 @@ public:
 	 */
 	void sendReadMarker(const QString &chatJid, const QString &messageId);
 
-	QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
+	QFuture<QXmpp::SendResult>
+	sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
 
 	void sendPendingMessage(Message message);
 
@@ -68,8 +69,8 @@ private:
 	/**
 	 * Retrieves one message before offsetMessageId with a body or shared files.
 	 *
-	 * offsetMessageId must be "" instead of a default-consctructed string to retrieve the latest
-	 * message with the given JID
+	 * offsetMessageId must be "" instead of a default-consctructed string to retrieve the
+	 * latest message with the given JID
 	 */
 	void retrieveInitialMessage(const QString &jid, const QString &offsetMessageId = QLatin1String(""));
 	void retrieveCatchUpMessages(const QString &latestMessageStanzaId);
@@ -85,7 +86,10 @@ private:
 	 *
 	 * @return whether the message is handled because it contains a read marker
 	 */
-	bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
+	bool handleReadMarker(const QXmppMessage &message,
+		const QString &senderJid,
+		const QString &recipientJid,
+		bool isOwnMessage);
 
 	bool handleReaction(const QXmppMessage &message, const QString &senderJid);
 

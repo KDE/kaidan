@@ -20,7 +20,6 @@ public:
 
 	int rowCount(const QModelIndex &) const override;
 	QVariant data(const QModelIndex &, int) const override;
-
 };
 #else
 #include <KDirSortFilterProxyModel>
@@ -29,17 +28,15 @@ class RecentPicturesModel : public KDirSortFilterProxyModel
 {
 	Q_OBJECT
 
-	enum Role {
-		FilePath = Qt::UserRole + 1
-	};
+	enum Role { FilePath = Qt::UserRole + 1 };
 
 public:
 	explicit RecentPicturesModel(QObject *parent = nullptr);
 
-    QHash<int, QByteArray> roleNames() const override;
+	QHash<int, QByteArray> roleNames() const override;
 
-    QVariant data(const QModelIndex &index, int role) const override;
+	QVariant data(const QModelIndex &index, int role) const override;
 
-    bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
+	bool subSortLessThan(const QModelIndex &left, const QModelIndex &right) const override;
 };
 #endif

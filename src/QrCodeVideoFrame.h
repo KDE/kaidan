@@ -37,10 +37,9 @@ public:
 	/**
 	 * Instantiates an empty video frame
 	 */
-	QrCodeVideoFrame()
-	    : m_size{0,0},
-	      m_pixelFormat{QVideoFrame::Format_Invalid}
-	{}
+	QrCodeVideoFrame() : m_size { 0, 0 }, m_pixelFormat { QVideoFrame::Format_Invalid }
+	{
+	}
 
 	/**
 	 * Sets the frame.

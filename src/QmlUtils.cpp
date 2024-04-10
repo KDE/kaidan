@@ -31,8 +31,7 @@ QmlUtils *QmlUtils::instance()
 	return s_instance;
 }
 
-QmlUtils::QmlUtils(QObject *parent)
-	: QObject(parent)
+QmlUtils::QmlUtils(QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -57,7 +56,9 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	case ClientWorker::TlsNotAvailable:
 		return tr("The server doesn't support secure connections.");
 	case ClientWorker::DnsError:
-		return tr("Could not connect to the server. Please check your internet connection or your server name.");
+		return tr(
+			"Could not connect to the server. Please check your internet connection or "
+			"your server name.");
 	case ClientWorker::ConnectionRefused:
 		return tr("The server is offline or blocked by a firewall.");
 	case ClientWorker::NoSupportedAuth:
@@ -65,7 +66,9 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	case ClientWorker::KeepAliveError:
 		return tr("The connection could not be refreshed.");
 	case ClientWorker::NoNetworkPermission:
-		return tr("The internet access is not permitted. Please check your system's internet access configuration.");
+		return tr(
+			"The internet access is not permitted. Please check your system's internet "
+			"access configuration.");
 	case ClientWorker::RegistrationUnsupported:
 		return tr("This server does not support registration.");
 	}
@@ -81,7 +84,8 @@ QString QmlUtils::getResourcePath(const QString &name)
 	// list of file paths where to search for the resource file
 	QStringList pathList;
 	// add relative path from binary (only works if installed)
-	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
+	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") +
+			    QStringLiteral(APPLICATION_NAME);
 	// get the standard app data locations for current platform
 	pathList << QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 #ifdef UBUNTU_TOUCH
@@ -188,7 +192,8 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 	QStringList keyIdParts;
 
 	for (int i = 0; i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE < keyId.size(); i++) {
-		keyIdParts.append(keyId.mid(i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE, ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE));
+		keyIdParts.append(keyId.mid(i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE,
+			ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE));
 	}
 
 	return keyIdParts.join(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR);
@@ -197,7 +202,8 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 bool QmlUtils::isImageFile(const QUrl &fileUrl)
 {
 	QMimeType type = QMimeDatabase().mimeTypeForUrl(fileUrl);
-	return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
+	return type.inherits(QStringLiteral("image/jpeg")) ||
+	       type.inherits(QStringLiteral("image/png"));
 }
 
 void QmlUtils::copyToClipboard(const QString &text)
@@ -229,7 +235,7 @@ QString QmlUtils::formatMessage(const QString &message)
 QColor QmlUtils::getUserColor(const QString &nickName)
 {
 	QXmppColorGenerator::RGBColor color = QXmppColorGenerator::generateColor(nickName);
-	return {color.red, color.green, color.blue};
+	return { color.red, color.green, color.blue };
 }
 
 QUrl QmlUtils::pasteImage()
@@ -250,10 +256,8 @@ QUrl QmlUtils::pasteImage()
 QString QmlUtils::downloadPath(const QString &filename)
 {
 	// Kaidan download directory
-	const QDir directory(
-			QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
-				QDir::separator() %
-				QStringLiteral(APPLICATION_DISPLAY_NAME));
+	const QDir directory(QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
+			     QDir::separator() % QStringLiteral(APPLICATION_DISPLAY_NAME));
 	// create directory if it doesn't exist
 	if (!directory.mkpath(QStringLiteral(".")))
 		return {};
@@ -308,16 +312,20 @@ QString QmlUtils::processMsgFormatting(const QStringList &list, bool isFirst)
 		return QString();
 
 	// link highlighting
-	if (list.first().startsWith(QStringLiteral("https://")) || list.first().startsWith(QStringLiteral("http://")))
-		return (isFirst ? QString() : QStringLiteral(" ")) + QStringLiteral("<a href='%1'>%1</a>").arg(list.first())
-		       + processMsgFormatting(list.mid(1), false);
+	if (list.first().startsWith(QStringLiteral("https://")) ||
+		list.first().startsWith(QStringLiteral("http://")))
+		return (isFirst ? QString() : QStringLiteral(" ")) +
+		       QStringLiteral("<a href='%1'>%1</a>").arg(list.first()) +
+		       processMsgFormatting(list.mid(1), false);
 
 	// preserve newlines
 	if (list.first().contains(QStringLiteral("\n")))
-		return (isFirst ? QString() : QStringLiteral(" ")) + QString(list.first()).replace(QStringLiteral("\n"), QStringLiteral("<br>"))
-		       + processMsgFormatting(list.mid(1), false);
+		return (isFirst ? QString() : QStringLiteral(" ")) +
+		       QString(list.first()).replace(QStringLiteral("\n"), QStringLiteral("<br>")) +
+		       processMsgFormatting(list.mid(1), false);
 
-	return (isFirst ? QString() : QStringLiteral(" ")) + list.first() + processMsgFormatting(list.mid(1), false);
+	return (isFirst ? QString() : QStringLiteral(" ")) + list.first() +
+	       processMsgFormatting(list.mid(1), false);
 }
 
 QString QmlUtils::osmUserAgent()

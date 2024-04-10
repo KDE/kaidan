@@ -9,12 +9,12 @@
 
 // Qt
 #include <QCoreApplication>
-#include <QUrl>
 #include <QImage>
 #include <QMimeType>
+#include <QUrl>
 // QXmpp
-#include <QXmppMessage.h>
 #include <QXmppHash.h>
+#include <QXmppMessage.h>
 // Kaidan
 #include "Encryption.h"
 #include "Enums.h"
@@ -23,8 +23,7 @@ class QMimeType;
 
 using namespace Enums;
 
-struct FileHash
-{
+struct FileHash {
 	qint64 dataId;
 	QXmpp::HashAlgorithm hashType;
 	QByteArray hashValue;
@@ -34,8 +33,7 @@ struct FileHash
 	bool operator==(const FileHash &other) const = default;
 };
 
-struct HttpSource
-{
+struct HttpSource {
 	qint64 fileId;
 	QUrl url;
 
@@ -44,8 +42,7 @@ struct HttpSource
 	bool operator==(const HttpSource &other) const = default;
 };
 
-struct EncryptedSource
-{
+struct EncryptedSource {
 	qint64 fileId;
 	QUrl url;
 	QXmpp::Cipher cipher;
@@ -59,8 +56,7 @@ struct EncryptedSource
 	bool operator==(const EncryptedSource &other) const = default;
 };
 
-struct File
-{
+struct File {
 	Q_GADGET
 	Q_PROPERTY(QString fileId READ fileId CONSTANT)
 	Q_PROPERTY(qint64 fileGroupId MEMBER fileGroupId)
@@ -100,19 +96,46 @@ public:
 	bool operator==(const File &other) const = default;
 
 private:
-	[[nodiscard]] QString _name() const { return name.value_or(QString()); }
-	[[nodiscard]] QString _description() const { return description.value_or(QString()); }
-	[[nodiscard]] QString mimeTypeName() const { return mimeType.name(); }
-	[[nodiscard]] QString mimeTypeIcon() const { return mimeType.iconName(); }
-	[[nodiscard]] qint64 _size() const { return size.value_or(-1); }
-	[[nodiscard]] bool displayInline() const { return disposition == QXmppFileShare::Inline; }
-	[[nodiscard]] bool hasThumbnail() const { return !thumbnail.isEmpty(); }
-	[[nodiscard]] QImage thumbnailImage() const { return QImage::fromData(thumbnail); }
+	[[nodiscard]] QString _name() const
+	{
+		return name.value_or(QString());
+	}
+	[[nodiscard]] QString _description() const
+	{
+		return description.value_or(QString());
+	}
+	[[nodiscard]] QString mimeTypeName() const
+	{
+		return mimeType.name();
+	}
+	[[nodiscard]] QString mimeTypeIcon() const
+	{
+		return mimeType.iconName();
+	}
+	[[nodiscard]] qint64 _size() const
+	{
+		return size.value_or(-1);
+	}
+	[[nodiscard]] bool displayInline() const
+	{
+		return disposition == QXmppFileShare::Inline;
+	}
+	[[nodiscard]] bool hasThumbnail() const
+	{
+		return !thumbnail.isEmpty();
+	}
+	[[nodiscard]] QImage thumbnailImage() const
+	{
+		return QImage::fromData(thumbnail);
+	}
 	[[nodiscard]] QImage thumbnailSquareImage() const;
 	[[nodiscard]] QUrl downloadUrl() const;
 	[[nodiscard]] QUrl localFileUrl() const;
 	[[nodiscard]] Enums::MessageType type() const;
-	[[nodiscard]] QString fileId() const { return QString::number(id); }
+	[[nodiscard]] QString fileId() const
+	{
+		return QString::number(id);
+	}
 	[[nodiscard]] QString details() const;
 };
 
@@ -134,8 +157,7 @@ public:
 	Q_ENUM(Enum)
 };
 
-struct MessageReaction
-{
+struct MessageReaction {
 	Q_GADGET
 	Q_PROPERTY(QString emoji MEMBER emoji)
 	Q_PROPERTY(MessageReactionDeliveryState::Enum deliveryState MEMBER deliveryState)
@@ -149,8 +171,7 @@ public:
 
 Q_DECLARE_METATYPE(MessageReaction)
 
-struct MessageReactionSender
-{
+struct MessageReactionSender {
 	QDateTime latestTimestamp;
 	QVector<MessageReaction> reactions;
 
@@ -162,8 +183,7 @@ struct MessageReactionSender
  * the @c MessageModel. The class inherits from @c QXmppMessage and most
  * properties are shared.
  */
-struct Message
-{
+struct Message {
 	Q_DECLARE_TR_FUNCTIONS(Message)
 
 public:

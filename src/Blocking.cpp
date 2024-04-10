@@ -53,7 +53,9 @@ QFuture<QVector<QString>> BlockingDb::blockedJids(const QString &accountJid)
 {
 	return run([this, accountJid]() {
 		auto query = createQuery();
-		execQuery(query, QStringLiteral("SELECT jid FROM blocked WHERE accountJid = :accountJid"), { { u":accountJid", accountJid } });
+		execQuery(query,
+			QStringLiteral("SELECT jid FROM blocked WHERE accountJid = :accountJid"),
+			{ { u":accountJid", accountJid } });
 		QVector<QString> blockedJids;
 		while (query.next()) {
 			blockedJids.append(query.value(0).toString());
@@ -66,7 +68,9 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QVec
 {
 	return run([this, accountJid, blockedJids]() {
 		auto query = createQuery();
-		execQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"), { { u":accountJid", accountJid } });
+		execQuery(query,
+			QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"),
+			{ { u":accountJid", accountJid } });
 
 		prepareQuery(query, QStringLiteral("INSERT INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
 		for (const auto &jid : blockedJids) {
@@ -92,8 +96,7 @@ QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QVecto
 {
 	return run([this, accountJid, blockedJids]() {
 		auto query = createQuery();
-		prepareQuery(
-			query, QStringLiteral("INSERT OR REPLACE INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
+		prepareQuery(query, QStringLiteral("INSERT OR REPLACE INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
 		for (const auto &jid : blockedJids) {
 			bindValues(query, { { u":accountJid", accountJid }, { u":jid", jid } });
 			execQuery(query);
@@ -144,7 +147,8 @@ void BlockingController::subscribeToBlocklist()
 		callRemoteTask(
 			client,
 			[]() {
-				auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
+				auto *manager =
+					Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
 				Q_ASSERT(manager);
 
 				return std::pair { manager->fetchBlocklist(), manager };
@@ -155,7 +159,8 @@ void BlockingController::subscribeToBlocklist()
 
 	// connect to signals
 	runOnThread(client, [this]() {
-		auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
+		auto *manager =
+			Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
 
 		connect(manager, &QXmppBlockingManager::blocked, this, &BlockingController::onJidsBlocked);
 		connect(manager, &QXmppBlockingManager::unblocked, this, &BlockingController::onJidsUnblocked);
@@ -169,7 +174,8 @@ void BlockingController::subscribeToBlocklist()
 
 		// connected again
 		runOnThread(Kaidan::instance()->client(), [this]() {
-			auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
+			auto *manager =
+				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
 			if (manager->isSubscribed()) {
 				return;
 			}
@@ -290,8 +296,8 @@ BlockingModel::~BlockingModel()
 QHash<int, QByteArray> BlockingModel::roleNames() const
 {
 	static const QHash<int, QByteArray> roles = {
-		{static_cast<int>(Role::Jid), QByteArrayLiteral("jid")},
-		{static_cast<int>(Role::Type), QByteArrayLiteral("type")},
+		{ static_cast<int>(Role::Jid), QByteArrayLiteral("jid") },
+		{ static_cast<int>(Role::Type), QByteArrayLiteral("type") },
 	};
 
 	return roles;
@@ -437,7 +443,8 @@ void BlockingAction::block(const QString &jid)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jid]() {
-			auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
+			auto *manager =
+				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
 			return std::pair { manager->block(jid), this };
 		},
 		this,
@@ -460,7 +467,8 @@ void BlockingAction::unblock(const QString &jid)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jid]() {
-			auto *manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
+			auto *manager =
+				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppBlockingManager>();
 			return std::pair { manager->unblock(jid), this };
 		},
 		this,

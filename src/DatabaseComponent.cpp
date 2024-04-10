@@ -12,8 +12,7 @@
 #include "Database.h"
 
 DatabaseComponent::DatabaseComponent(Database *database, QObject *parent)
-	: QObject(parent),
-	  m_database(database)
+	: QObject(parent), m_database(database)
 {
 }
 

@@ -7,13 +7,13 @@
 #include "MessageComposition.h"
 
 // Kaidan
-#include "MessageHandler.h"
-#include "Kaidan.h"
-#include "FileSharingController.h"
 #include "Algorithms.h"
-#include "MessageModel.h"
+#include "FileSharingController.h"
+#include "Kaidan.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
+#include "MessageHandler.h"
+#include "MessageModel.h"
 
 // Qt
 #include <QFileDialog>
@@ -23,17 +23,14 @@
 // QXmpp
 #include <QXmppUtils.h>
 // KF
-#include <KIO/PreviewJob>
 #include <KFileItem>
+#include <KIO/PreviewJob>
 
 constexpr auto THUMBNAIL_SIZE = 200;
 
-MessageComposition::MessageComposition()
-	: m_fileSelectionModel(new FileSelectionModel(this))
+MessageComposition::MessageComposition() : m_fileSelectionModel(new FileSelectionModel(this))
 {
-	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
-		saveDraft();
-	});
+	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() { saveDraft(); });
 }
 
 void MessageComposition::setAccountJid(const QString &accountJid)
@@ -164,13 +161,15 @@ void MessageComposition::send()
 				message.files = std::move(*files);
 
 				// update message in database
-				MessageDb::instance()->updateMessage(message.id, [files = message.files](auto &message) {
-					message.files = files;
-				});
+				MessageDb::instance()->updateMessage(
+					message.id, [files = message.files](auto &message) {
+						message.files = files;
+					});
 
 				// send message with file sources
 				runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
-					Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
+					Kaidan::instance()->client()->messageHandler()->sendPendingMessage(
+						std::move(message));
 				});
 			} else {
 				// uploading did not succeed
@@ -223,13 +222,14 @@ void MessageComposition::saveDraft()
 
 	if (m_isDraft) {
 		if (savingNeeded) {
-			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this](Message &message) {
-				message.replaceId = m_replaceId;
-				message.timestamp = QDateTime::currentDateTimeUtc();
-				message.body = m_body;
-				message.isSpoiler = m_spoiler;
-				message.spoilerHint = m_spoilerHint;
-			});
+			MessageDb::instance()->updateDraftMessage(
+				m_accountJid, m_chatJid, [this](Message &message) {
+					message.replaceId = m_replaceId;
+					message.timestamp = QDateTime::currentDateTimeUtc();
+					message.body = m_body;
+					message.isSpoiler = m_spoiler;
+					message.spoilerHint = m_spoilerHint;
+				});
 		} else {
 			MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
 		}
@@ -248,8 +248,7 @@ void MessageComposition::saveDraft()
 	}
 }
 
-FileSelectionModel::FileSelectionModel(QObject *parent)
-	: QAbstractListModel(parent)
+FileSelectionModel::FileSelectionModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -257,12 +256,10 @@ FileSelectionModel::~FileSelectionModel() = default;
 
 QHash<int, QByteArray> FileSelectionModel::roleNames() const
 {
-	static const QHash<int, QByteArray> roles {
-		{ Filename, QByteArrayLiteral("fileName") },
+	static const QHash<int, QByteArray> roles { { Filename, QByteArrayLiteral("fileName") },
 		{ Thumbnail, QByteArrayLiteral("thumbnail") },
 		{ Description, QByteArrayLiteral("description") },
-		{ FileSize, QByteArrayLiteral("fileSize") }
-	};
+		{ FileSize, QByteArrayLiteral("fileSize") } };
 	return roles;
 }
 
@@ -316,9 +313,7 @@ void FileSelectionModel::selectFile()
 			addFile(QUrl::fromLocalFile(file));
 		}
 	});
-	connect(dialog, &QDialog::finished, this, [dialog](auto) {
-		dialog->deleteLater();
-	});
+	connect(dialog, &QDialog::finished, this, [dialog](auto) { dialog->deleteLater(); });
 
 	dialog->open();
 }
@@ -327,9 +322,8 @@ void FileSelectionModel::addFile(const QUrl &localFilePath)
 {
 	auto localPath = localFilePath.toLocalFile();
 
-	bool alreadyAdded = containsIf(m_files, [=](const auto &file) {
-		return file.localFilePath == localPath;
-	});
+	bool alreadyAdded =
+		containsIf(m_files, [=](const auto &file) { return file.localFilePath == localPath; });
 
 	if (alreadyAdded) {
 		return;
@@ -380,12 +374,10 @@ bool FileSelectionModel::setData(const QModelIndex &index, const QVariant &value
 void FileSelectionModel::generateThumbnail(const File &file)
 {
 	static auto allPlugins = KIO::PreviewJob::availablePlugins();
-	KFileItemList items {
-		KFileItem {
-			QUrl::fromLocalFile(file.localFilePath),
-			QMimeDatabase().mimeTypeForFile(file.localFilePath).name(),
-		}
-	};
+	KFileItemList items { KFileItem {
+		QUrl::fromLocalFile(file.localFilePath),
+		QMimeDatabase().mimeTypeForFile(file.localFilePath).name(),
+	} };
 	auto *job = new KIO::PreviewJob(items, QSize(THUMBNAIL_SIZE, THUMBNAIL_SIZE), &allPlugins);
 	job->setAutoDelete(true);
 

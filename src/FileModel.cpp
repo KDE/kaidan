@@ -32,8 +32,8 @@ QVariant FileModel::data(const QModelIndex &index, int role) const
 		switch (role) {
 		case Qt::DisplayRole:
 			return file.httpSources.isEmpty()
-					? QString()
-					: file.httpSources.constBegin()->url.toDisplayString();
+				       ? QString()
+				       : file.httpSources.constBegin()->url.toDisplayString();
 		case static_cast<int>(Role::Id):
 			return file.id;
 		case static_cast<int>(Role::File):
@@ -105,7 +105,7 @@ void FileModel::loadFiles()
 
 	if (m_accountJid.isEmpty()) {
 		qWarning("FileModel: Trying to call loadFiles() but m_accountJid is empty.");
-	} else if (m_chatJid.isEmpty()){
+	} else if (m_chatJid.isEmpty()) {
 		m_watcher.setFuture(MessageDb::instance()->fetchFiles(m_accountJid));
 	} else {
 		m_watcher.setFuture(MessageDb::instance()->fetchFiles(m_accountJid, m_chatJid));
@@ -120,7 +120,7 @@ void FileModel::loadDownloadedFiles()
 		qWarning(
 			"FileModel: Trying to call loadDownloadedFiles() but m_accountJid is "
 			"empty.");
-	} else if (m_chatJid.isEmpty()){
+	} else if (m_chatJid.isEmpty()) {
 		m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid));
 	} else {
 		m_watcher.setFuture(MessageDb::instance()->fetchDownloadedFiles(m_accountJid, m_chatJid));

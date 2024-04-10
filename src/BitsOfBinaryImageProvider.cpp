@@ -39,9 +39,9 @@ QImage BitsOfBinaryImageProvider::requestImage(const QString &id, QSize *size, c
 {
 	QMutexLocker locker(&m_cacheMutex);
 
-	const auto item = std::find_if(m_cache.begin(), m_cache.end(), [&](const QXmppBitsOfBinaryData &item) {
-		return item.cid().toCidUrl() == id;
-	});
+	const auto item = std::find_if(m_cache.begin(),
+		m_cache.end(),
+		[&](const QXmppBitsOfBinaryData &item) { return item.cid().toCidUrl() == id; });
 
 	if (item == m_cache.end())
 		return {};
@@ -72,9 +72,9 @@ bool BitsOfBinaryImageProvider::removeImage(const QXmppBitsOfBinaryContentId &ci
 {
 	QMutexLocker locker(&m_cacheMutex);
 
-	auto endItr = std::remove_if(m_cache.begin(), m_cache.end(), [&](const QXmppBitsOfBinaryData &item) {
-		return item.cid() == cid;
-	});
+	auto endItr = std::remove_if(m_cache.begin(),
+		m_cache.end(),
+		[&](const QXmppBitsOfBinaryData &item) { return item.cid() == cid; });
 	// check whether anything was removed
 	bool success = endItr != m_cache.end();
 	// resize container

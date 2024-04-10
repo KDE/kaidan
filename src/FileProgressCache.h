@@ -10,8 +10,7 @@
 
 #include "AbstractNotifier.h"
 
-struct FileProgress
-{
+struct FileProgress {
 	quint64 bytesSent = 0;
 	quint64 bytesTotal = 0;
 	float progress = 0;
@@ -37,10 +36,22 @@ public:
 	void setFileId(const QString &fileId);
 	Q_SIGNAL void fileIdChanged();
 
-	[[nodiscard]] bool isLoading() const { return m_loading; }
-	[[nodiscard]] quint64 bytesSent() const { return m_progress.bytesSent; }
-	[[nodiscard]] quint64 bytesTotal() const { return m_progress.bytesTotal; }
-	[[nodiscard]] float progress() const { return m_progress.progress; }
+	[[nodiscard]] bool isLoading() const
+	{
+		return m_loading;
+	}
+	[[nodiscard]] quint64 bytesSent() const
+	{
+		return m_progress.bytesSent;
+	}
+	[[nodiscard]] quint64 bytesTotal() const
+	{
+		return m_progress.bytesTotal;
+	}
+	[[nodiscard]] float progress() const
+	{
+		return m_progress.progress;
+	}
 
 	Q_SIGNAL void progressChanged();
 

@@ -10,7 +10,7 @@
 
 class FileSelectionModel;
 class QFileDialog;
-template <typename T>
+template<typename T>
 class QFutureWatcher;
 
 class MessageComposition : public QObject
@@ -29,19 +29,40 @@ public:
 	MessageComposition();
 	~MessageComposition() override = default;
 
-	[[nodiscard]] QString accountJid() const { return m_accountJid; }
+	[[nodiscard]] QString accountJid() const
+	{
+		return m_accountJid;
+	}
 	void setAccountJid(const QString &accountJid);
-	[[nodiscard]] QString chatJid() const { return m_chatJid; }
+	[[nodiscard]] QString chatJid() const
+	{
+		return m_chatJid;
+	}
 	void setChatJid(const QString &chatJid);
-	[[nodiscard]] QString replaceId() const { return m_replaceId; }
+	[[nodiscard]] QString replaceId() const
+	{
+		return m_replaceId;
+	}
 	void setReplaceId(const QString &replaceId);
-	[[nodiscard]] QString body() const { return m_body; }
+	[[nodiscard]] QString body() const
+	{
+		return m_body;
+	}
 	void setBody(const QString &body);
-	[[nodiscard]] bool isSpoiler() const { return m_spoiler; }
+	[[nodiscard]] bool isSpoiler() const
+	{
+		return m_spoiler;
+	}
 	void setSpoiler(bool spoiler);
-	[[nodiscard]] QString spoilerHint() const { return m_spoilerHint; }
+	[[nodiscard]] QString spoilerHint() const
+	{
+		return m_spoilerHint;
+	}
 	void setSpoilerHint(const QString &spoilerHint);
-	[[nodiscard]] bool isDraft() const { return m_isDraft; }
+	[[nodiscard]] bool isDraft() const
+	{
+		return m_isDraft;
+	}
 	void setIsDraft(bool isDraft);
 
 	Q_INVOKABLE void send();
@@ -94,7 +115,8 @@ public:
 	bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 	const QVector<File> &files() const;
-	bool hasFiles() const {
+	bool hasFiles() const
+	{
 		return !m_files.empty();
 	}
 

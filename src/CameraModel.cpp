@@ -5,18 +5,15 @@
 
 #include "CameraModel.h"
 
-CameraInfo::CameraInfo(const QString &deviceName)
-	: QCameraInfo(deviceName.toLocal8Bit())
+CameraInfo::CameraInfo(const QString &deviceName) : QCameraInfo(deviceName.toLocal8Bit())
 {
 }
 
-CameraInfo::CameraInfo(const QCameraInfo &other)
-	: QCameraInfo(other)
+CameraInfo::CameraInfo(const QCameraInfo &other) : QCameraInfo(other)
 {
 }
 
-CameraModel::CameraModel(QObject *parent)
-: QAbstractListModel(parent)
+CameraModel::CameraModel(QObject *parent) : QAbstractListModel(parent)
 {
 	refresh();
 }
@@ -52,14 +49,12 @@ QVariant CameraModel::data(const QModelIndex &index, int role) const
 
 QHash<int, QByteArray> CameraModel::roleNames() const
 {
-	static const QHash<int, QByteArray> roles {
-		{ IsNullRole, QByteArrayLiteral("isNull") },
+	static const QHash<int, QByteArray> roles { { IsNullRole, QByteArrayLiteral("isNull") },
 		{ DeviceNameRole, QByteArrayLiteral("deviceName") },
 		{ DescriptionRole, QByteArrayLiteral("description") },
 		{ PositionRole, QByteArrayLiteral("position") },
 		{ OrientationRole, QByteArrayLiteral("orientation") },
-		{ CameraInfoRole, QByteArrayLiteral("cameraInfo") }
-	};
+		{ CameraInfoRole, QByteArrayLiteral("cameraInfo") } };
 
 	return roles;
 }
@@ -81,8 +76,7 @@ int CameraModel::currentIndex() const
 
 void CameraModel::setCurrentIndex(int currentIndex)
 {
-	if (currentIndex < 0 || currentIndex >= m_cameras.count()
-		|| m_currentIndex == currentIndex) {
+	if (currentIndex < 0 || currentIndex >= m_cameras.count() || m_currentIndex == currentIndex) {
 		return;
 	}
 
@@ -104,9 +98,7 @@ void CameraModel::setCurrentCamera(const CameraInfo &currentCamera)
 
 CameraInfo CameraModel::camera(int row) const
 {
-	return hasIndex(row, 0)
-		       ? CameraInfo(m_cameras[row])
-		       : CameraInfo();
+	return hasIndex(row, 0) ? CameraInfo(m_cameras[row]) : CameraInfo();
 }
 
 int CameraModel::indexOf(const QString &deviceName) const
@@ -143,8 +135,8 @@ void CameraModel::refresh()
 
 	beginResetModel();
 	const QString currentDeviceName = currentCamera().deviceName();
-	const auto it = std::find_if(m_cameras.constBegin(), m_cameras.constEnd(),
-		[&currentDeviceName](const QCameraInfo &deviceInfo) {
+	const auto it = std::find_if(
+		m_cameras.constBegin(), m_cameras.constEnd(), [&currentDeviceName](const QCameraInfo &deviceInfo) {
 			return deviceInfo.deviceName() == currentDeviceName;
 		});
 

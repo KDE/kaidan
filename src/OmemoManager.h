@@ -68,8 +68,14 @@ private:
 
 	void retrieveDevices(const QList<QString> &jids);
 
-	void updateCachedKeys(const QString &jid, const QList<QString> &authenticatableKeys, const QList<QString> &authenticatedKeys);
-	void updateCachedDevices(const QString &jid, const QList<Device> &distrustedDevices, const QList<Device> &usableDevices, const QList<Device> &authenticatableDevices, const QList<Device> &authenticatedDevices);
+	void updateCachedKeys(const QString &jid,
+		const QList<QString> &authenticatableKeys,
+		const QList<QString> &authenticatedKeys);
+	void updateCachedDevices(const QString &jid,
+		const QList<Device> &distrustedDevices,
+		const QList<Device> &usableDevices,
+		const QList<Device> &authenticatableDevices,
+		const QList<Device> &authenticatedDevices);
 
 	std::unique_ptr<OmemoDb> m_omemoStorage;
 	QXmppOmemoManager *const m_manager;

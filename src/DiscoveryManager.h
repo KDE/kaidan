@@ -30,7 +30,7 @@ public:
 	/**
 	 * Handles incoming results of disco item requests
 	 */
-	void handleItems(const QXmppDiscoveryIq&);
+	void handleItems(const QXmppDiscoveryIq &);
 
 private:
 	QXmppClient *m_client;
