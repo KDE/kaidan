@@ -24,82 +24,78 @@ class QXmppResultSetReply;
  */
 class MessageHandler : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
+    MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 
-	QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
+    QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
 
-	/**
-	 * Sends pending messages again after searching them in the database.
-	 */
-	void sendPendingMessages();
+    /**
+     * Sends pending messages again after searching them in the database.
+     */
+    void sendPendingMessages();
 
-	/**
-	 * Sends a chat state notification to the server.
-	 */
-	void sendChatState(const QString &toJid, const QXmppMessage::State state);
+    /**
+     * Sends a chat state notification to the server.
+     */
+    void sendChatState(const QString &toJid, const QXmppMessage::State state);
 
-	/**
-	 * Sends the corrected version of a message.
-	 */
-	void sendCorrectedMessage(Message msg);
+    /**
+     * Sends the corrected version of a message.
+     */
+    void sendCorrectedMessage(Message msg);
 
-	/**
-	 * Sends a chat marker for a read message.
-	 *
-	 * @param chatJid bare JID of the chat that contains the read message
-	 * @param messageId ID of the read message
-	 */
-	void sendReadMarker(const QString &chatJid, const QString &messageId);
+    /**
+     * Sends a chat marker for a read message.
+     *
+     * @param chatJid bare JID of the chat that contains the read message
+     * @param messageId ID of the read message
+     */
+    void sendReadMarker(const QString &chatJid, const QString &messageId);
 
-	QFuture<QXmpp::SendResult>
-	sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
+    QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, const QVector<QString> &emojis);
 
-	void sendPendingMessage(Message message);
+    void sendPendingMessage(Message message);
 
-	Q_SIGNAL void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
+    Q_SIGNAL void retrieveBacklogMessagesRequested(const QString &jid, const QDateTime &stamp);
 
 private:
-	void handleConnected();
-	void handleRosterReceived();
-	void retrieveInitialMessages();
+    void handleConnected();
+    void handleRosterReceived();
+    void retrieveInitialMessages();
 
-	/**
-	 * Retrieves one message before offsetMessageId with a body or shared files.
-	 *
-	 * offsetMessageId must be "" instead of a default-consctructed string to retrieve the
-	 * latest message with the given JID
-	 */
-	void retrieveInitialMessage(const QString &jid, const QString &offsetMessageId = QLatin1String(""));
-	void retrieveCatchUpMessages(const QString &latestMessageStanzaId);
-	void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
+    /**
+     * Retrieves one message before offsetMessageId with a body or shared files.
+     *
+     * offsetMessageId must be "" instead of a default-consctructed string to retrieve the
+     * latest message with the given JID
+     */
+    void retrieveInitialMessage(const QString &jid, const QString &offsetMessageId = QLatin1String(""));
+    void retrieveCatchUpMessages(const QString &latestMessageStanzaId);
+    void retrieveBacklogMessages(const QString &jid, const QDateTime &last);
 
-	/**
-	 * Handles incoming messages from the server.
-	 */
-	void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
+    /**
+     * Handles incoming messages from the server.
+     */
+    void handleMessage(const QXmppMessage &msg, MessageOrigin origin);
 
-	/**
-	 * Handles a message that may contain a read marker.
-	 *
-	 * @return whether the message is handled because it contains a read marker
-	 */
-	bool handleReadMarker(const QXmppMessage &message,
-		const QString &senderJid,
-		const QString &recipientJid,
-		bool isOwnMessage);
+    /**
+     * Handles a message that may contain a read marker.
+     *
+     * @return whether the message is handled because it contains a read marker
+     */
+    bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
 
-	bool handleReaction(const QXmppMessage &message, const QString &senderJid);
+    bool handleReaction(const QXmppMessage &message, const QString &senderJid);
 
-	static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
-	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
+    static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
+    static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 
-	ClientWorker *m_clientWorker;
-	QXmppClient *m_client;
-	QXmppMessageReceiptManager m_receiptManager;
-	QXmppMamManager *m_mamManager;
+    ClientWorker *m_clientWorker;
+    QXmppClient *m_client;
+    QXmppMessageReceiptManager m_receiptManager;
+    QXmppMamManager *m_mamManager;
 
-	uint m_runningInitialMessageQueries = 0;
+    uint m_runningInitialMessageQueries = 0;
 };

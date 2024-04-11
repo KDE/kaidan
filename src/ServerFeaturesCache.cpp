@@ -7,38 +7,39 @@
 // Qt
 #include <QMutexLocker>
 
-ServerFeaturesCache::ServerFeaturesCache(QObject *parent) : QObject(parent)
+ServerFeaturesCache::ServerFeaturesCache(QObject *parent)
+    : QObject(parent)
 {
 }
 
 bool ServerFeaturesCache::inBandRegistrationSupported()
 {
-	QMutexLocker locker(&m_mutex);
-	return m_inBandRegistrationSupported;
+    QMutexLocker locker(&m_mutex);
+    return m_inBandRegistrationSupported;
 }
 
 void ServerFeaturesCache::setInBandRegistrationSupported(bool supported)
 {
-	QMutexLocker locker(&m_mutex);
-	if (m_inBandRegistrationSupported != supported) {
-		m_inBandRegistrationSupported = supported;
-		locker.unlock();
-		Q_EMIT inBandRegistrationSupportedChanged();
-	}
+    QMutexLocker locker(&m_mutex);
+    if (m_inBandRegistrationSupported != supported) {
+        m_inBandRegistrationSupported = supported;
+        locker.unlock();
+        Q_EMIT inBandRegistrationSupportedChanged();
+    }
 }
 
 bool ServerFeaturesCache::httpUploadSupported()
 {
-	QMutexLocker locker(&m_mutex);
-	return m_httpUploadSupported;
+    QMutexLocker locker(&m_mutex);
+    return m_httpUploadSupported;
 }
 
 void ServerFeaturesCache::setHttpUploadSupported(bool supported)
 {
-	QMutexLocker locker(&m_mutex);
-	if (m_httpUploadSupported != supported) {
-		m_httpUploadSupported = supported;
-		locker.unlock();
-		Q_EMIT httpUploadSupportedChanged();
-	}
+    QMutexLocker locker(&m_mutex);
+    if (m_httpUploadSupported != supported) {
+        m_httpUploadSupported = supported;
+        locker.unlock();
+        Q_EMIT httpUploadSupportedChanged();
+    }
 }

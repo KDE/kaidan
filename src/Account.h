@@ -10,23 +10,23 @@
 
 class Account
 {
-	Q_GADGET
+    Q_GADGET
 
 public:
-	Account() = default;
+    Account() = default;
 
-	bool operator==(const Account &other) const = default;
-	bool operator!=(const Account &other) const = default;
+    bool operator==(const Account &other) const = default;
+    bool operator!=(const Account &other) const = default;
 
-	bool operator<(const Account &other) const;
-	bool operator>(const Account &other) const;
-	bool operator<=(const Account &other) const;
-	bool operator>=(const Account &other) const;
+    bool operator<(const Account &other) const;
+    bool operator>(const Account &other) const;
+    bool operator<=(const Account &other) const;
+    bool operator>=(const Account &other) const;
 
-	QString jid;
-	QString name;
-	QString latestMessageStanzaId;
-	QDateTime latestMessageTimestamp;
+    QString jid;
+    QString name;
+    QString latestMessageStanzaId;
+    QDateTime latestMessageTimestamp;
 };
 
 Q_DECLARE_METATYPE(Account)

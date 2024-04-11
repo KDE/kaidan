@@ -9,70 +9,70 @@
 
 namespace Json
 {
-	// value
+// value
 
-	template<typename T>
-	T value(const QJsonObject &object, QStringView key);
+template<typename T>
+T value(const QJsonObject &object, QStringView key);
 
-	template<>
-	QString value(const QJsonObject &object, QStringView key)
-	{
-		Q_ASSERT(!key.isEmpty());
-		return object.value(key).toString();
-	}
+template<>
+QString value(const QJsonObject &object, QStringView key)
+{
+    Q_ASSERT(!key.isEmpty());
+    return object.value(key).toString();
+}
 
-	template<>
-	int value(const QJsonObject &object, QStringView key)
-	{
-		Q_ASSERT(!key.isEmpty());
-		return static_cast<int>(object.value(key).toDouble());
-	}
+template<>
+int value(const QJsonObject &object, QStringView key)
+{
+    Q_ASSERT(!key.isEmpty());
+    return static_cast<int>(object.value(key).toDouble());
+}
 
-	template<>
-	bool value(const QJsonObject &object, QStringView key)
-	{
-		Q_ASSERT(!key.isEmpty());
-		return object.value(key).toBool();
-	}
+template<>
+bool value(const QJsonObject &object, QStringView key)
+{
+    Q_ASSERT(!key.isEmpty());
+    return object.value(key).toBool();
+}
 
-	// addValue
+// addValue
 
-	template<typename T>
-	void addValue(QJsonObject &object, QStringView key, const T &value);
+template<typename T>
+void addValue(QJsonObject &object, QStringView key, const T &value);
 
-	template<>
-	void addValue(QJsonObject &object, QStringView key, const QString &value)
-	{
-		Q_ASSERT(!key.isEmpty());
+template<>
+void addValue(QJsonObject &object, QStringView key, const QString &value)
+{
+    Q_ASSERT(!key.isEmpty());
 
-		if (!value.isEmpty()) {
-			object.insert(key, value);
-		}
-	}
+    if (!value.isEmpty()) {
+        object.insert(key, value);
+    }
+}
 
-	template<>
-	void addValue(QJsonObject &object, QStringView key, const int &value)
-	{
-		Q_ASSERT(!key.isEmpty());
-		object.insert(key, value);
-	}
+template<>
+void addValue(QJsonObject &object, QStringView key, const int &value)
+{
+    Q_ASSERT(!key.isEmpty());
+    object.insert(key, value);
+}
 
-	template<>
-	void addValue(QJsonObject &object, QStringView key, const bool &value)
-	{
-		Q_ASSERT(!key.isEmpty());
-		object.insert(key, value);
-	}
+template<>
+void addValue(QJsonObject &object, QStringView key, const bool &value)
+{
+    Q_ASSERT(!key.isEmpty());
+    object.insert(key, value);
+}
 
-	template<>
-	void addValue(QJsonObject &object, QStringView key, const QStringList &value)
-	{
-		Q_ASSERT(!key.isEmpty());
+template<>
+void addValue(QJsonObject &object, QStringView key, const QStringList &value)
+{
+    Q_ASSERT(!key.isEmpty());
 
-		if (!value.isEmpty()) {
-			object.insert(key, value.join(QLatin1Char(',')));
-		}
-	}
+    if (!value.isEmpty()) {
+        object.insert(key, value.join(QLatin1Char(',')));
+    }
+}
 } // namespace Json
 
 #define JSON_VALUE(TYPE, KEY) Json::value<TYPE>(object, KEY)

@@ -12,36 +12,37 @@
 #include "Database.h"
 
 DatabaseComponent::DatabaseComponent(Database *database, QObject *parent)
-	: QObject(parent), m_database(database)
+    : QObject(parent)
+    , m_database(database)
 {
 }
 
 QSqlQuery DatabaseComponent::createQuery()
 {
-	return m_database->createQuery();
+    return m_database->createQuery();
 }
 
 QSqlDriver &DatabaseComponent::sqlDriver()
 {
-	return *m_database->currentDatabase().driver();
+    return *m_database->currentDatabase().driver();
 }
 
 QSqlRecord DatabaseComponent::sqlRecord(const QString &tableName)
 {
-	return m_database->currentDatabase().record(tableName);
+    return m_database->currentDatabase().record(tableName);
 }
 
 void DatabaseComponent::transaction()
 {
-	m_database->transaction();
+    m_database->transaction();
 }
 
 void DatabaseComponent::commit()
 {
-	m_database->commit();
+    m_database->commit();
 }
 
 QObject *DatabaseComponent::dbWorker() const
 {
-	return m_database->dbWorker();
+    return m_database->dbWorker();
 }

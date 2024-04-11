@@ -13,38 +13,38 @@
 
 class OmemoModel : public QAbstractListModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QString jid MEMBER m_jid WRITE setJid)
-	Q_PROPERTY(bool ownAuthenticatedKeysProcessed MEMBER m_ownAuthenticatedKeysProcessed WRITE setOwnAuthenticatedKeysProcessed)
+    Q_PROPERTY(QString jid MEMBER m_jid WRITE setJid)
+    Q_PROPERTY(bool ownAuthenticatedKeysProcessed MEMBER m_ownAuthenticatedKeysProcessed WRITE setOwnAuthenticatedKeysProcessed)
 
 public:
-	enum class Role {
-		Label = Qt::DisplayRole,
-		KeyId,
-	};
+    enum class Role {
+        Label = Qt::DisplayRole,
+        KeyId,
+    };
 
-	explicit OmemoModel(QObject *parent = nullptr);
-	~OmemoModel() override;
+    explicit OmemoModel(QObject *parent = nullptr);
+    ~OmemoModel() override;
 
-	[[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
-	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-	[[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = {}) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-	void setJid(const QString &jid);
-	void setOwnAuthenticatedKeysProcessed(bool ownAuthenticatedKeysProcessed);
+    void setJid(const QString &jid);
+    void setOwnAuthenticatedKeysProcessed(bool ownAuthenticatedKeysProcessed);
 
-	Q_INVOKABLE bool contains(const QString &keyId);
+    Q_INVOKABLE bool contains(const QString &keyId);
 
 private:
-	void setUp();
+    void setUp();
 
-	void setOwnDevice(OmemoManager::Device ownDevice);
-	void setDevices(const QList<OmemoManager::Device> &devices);
+    void setOwnDevice(OmemoManager::Device ownDevice);
+    void setDevices(const QList<OmemoManager::Device> &devices);
 
-	QString m_jid;
-	bool m_ownAuthenticatedKeysProcessed = false;
+    QString m_jid;
+    bool m_ownAuthenticatedKeysProcessed = false;
 
-	std::optional<OmemoManager::Device> m_ownDevice;
-	QList<OmemoManager::Device> m_devices;
+    std::optional<OmemoManager::Device> m_ownDevice;
+    QList<OmemoManager::Device> m_devices;
 };

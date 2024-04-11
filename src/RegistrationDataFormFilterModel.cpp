@@ -7,22 +7,22 @@
 #include "RegistrationDataFormModel.h"
 
 RegistrationDataFormFilterModel::RegistrationDataFormFilterModel(QObject *parent)
-	: QSortFilterProxyModel(parent)
+    : QSortFilterProxyModel(parent)
 {
 }
 
 bool RegistrationDataFormFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &) const
 {
-	return !m_filteredRows.contains(sourceRow);
+    return !m_filteredRows.contains(sourceRow);
 }
 
 void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceModel)
 {
-	m_filteredRows.clear();
+    m_filteredRows.clear();
 
-	auto *dataFormModel = qobject_cast<RegistrationDataFormModel *>(sourceModel);
-	if (dataFormModel)
-		m_filteredRows = dataFormModel->indiciesToFilter();
+    auto *dataFormModel = qobject_cast<RegistrationDataFormModel *>(sourceModel);
+    if (dataFormModel)
+        m_filteredRows = dataFormModel->indiciesToFilter();
 
-	QSortFilterProxyModel::setSourceModel(sourceModel);
+    QSortFilterProxyModel::setSourceModel(sourceModel);
 }

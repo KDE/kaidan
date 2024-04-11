@@ -31,19 +31,19 @@
 
 class StatusBar : public QObject
 {
-	Q_OBJECT
-	Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
-	Q_PROPERTY(bool available READ isAvailable CONSTANT)
+    Q_OBJECT
+    Q_PROPERTY(QColor color READ color WRITE setColor NOTIFY colorChanged)
+    Q_PROPERTY(bool available READ isAvailable CONSTANT)
 
 public:
-	explicit StatusBar(QObject *parent = nullptr);
+    explicit StatusBar(QObject *parent = nullptr);
 
-	QColor color() const;
-	void setColor(const QColor &color);
-	Q_SIGNAL void colorChanged();
+    QColor color() const;
+    void setColor(const QColor &color);
+    Q_SIGNAL void colorChanged();
 
-	bool isAvailable() const;
+    bool isAvailable() const;
 
 private:
-	QColor m_color;
+    QColor m_color;
 };
