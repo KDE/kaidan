@@ -9,82 +9,85 @@
 #include <QXmppUtils.h>
 
 RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item)
-	: accountJid(accountJid), jid(item.bareJid()), name(item.name()), subscription(item.subscriptionType())
+    : accountJid(accountJid)
+    , jid(item.bareJid())
+    , name(item.name())
+    , subscription(item.subscriptionType())
 {
-	const auto rosterGroups = item.groups();
-	groups = QVector<QString>(rosterGroups.cbegin(), rosterGroups.cend());
+    const auto rosterGroups = item.groups();
+    groups = QVector<QString>(rosterGroups.cbegin(), rosterGroups.cend());
 }
 
 QString RosterItem::displayName() const
 {
-	if (name.isEmpty()) {
-		if (jid == accountJid) {
-			return QObject::tr("Notes");
-		}
+    if (name.isEmpty()) {
+        if (jid == accountJid) {
+            return QObject::tr("Notes");
+        }
 
-		const auto username = QXmppUtils::jidToUser(jid);
+        const auto username = QXmppUtils::jidToUser(jid);
 
-		// Return the domain in case of a server as a roster item (for service announcements).
-		if (username.isEmpty()) {
-			return QXmppUtils::jidToDomain(jid);
-		}
+        // Return the domain in case of a server as a roster item (for service announcements).
+        if (username.isEmpty()) {
+            return QXmppUtils::jidToDomain(jid);
+        }
 
-		return username;
-	}
+        return username;
+    }
 
-	return name;
+    return name;
 }
 
 bool RosterItem::isSendingPresence() const
 {
-	return subscription == QXmppRosterIq::Item::To || subscription == QXmppRosterIq::Item::Both;
+    return subscription == QXmppRosterIq::Item::To || subscription == QXmppRosterIq::Item::Both;
 }
 
 bool RosterItem::isReceivingPresence() const
 {
-	return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
+    return subscription == QXmppRosterIq::Item::From || subscription == QXmppRosterIq::Item::Both;
 }
 
 bool RosterItem::operator<(const RosterItem &other) const
 {
-	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastMessageDateTime != other.lastMessageDateTime) {
-			return lastMessageDateTime > other.lastMessageDateTime;
-		}
-		return displayName().toUpper() < other.displayName().toUpper();
-	}
-	return pinningPosition > other.pinningPosition;
+    if (pinningPosition == -1 && other.pinningPosition == -1) {
+        if (lastMessageDateTime != other.lastMessageDateTime) {
+            return lastMessageDateTime > other.lastMessageDateTime;
+        }
+        return displayName().toUpper() < other.displayName().toUpper();
+    }
+    return pinningPosition > other.pinningPosition;
 }
 
 bool RosterItem::operator>(const RosterItem &other) const
 {
-	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastMessageDateTime != other.lastMessageDateTime) {
-			return lastMessageDateTime < other.lastMessageDateTime;
-		}
-		return displayName().toUpper() > other.displayName().toUpper();
-	}
-	return pinningPosition < other.pinningPosition;
+    if (pinningPosition == -1 && other.pinningPosition == -1) {
+        if (lastMessageDateTime != other.lastMessageDateTime) {
+            return lastMessageDateTime < other.lastMessageDateTime;
+        }
+        return displayName().toUpper() > other.displayName().toUpper();
+    }
+    return pinningPosition < other.pinningPosition;
 }
 
 bool RosterItem::operator<=(const RosterItem &other) const
 {
-	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastMessageDateTime != other.lastMessageDateTime) {
-			return lastMessageDateTime >= other.lastMessageDateTime;
-		}
-		return displayName().toUpper() <= other.displayName().toUpper();
-	}
-	return pinningPosition >= other.pinningPosition;
+    if (pinningPosition == -1 && other.pinningPosition == -1) {
+        if (lastMessageDateTime != other.lastMessageDateTime) {
+            return lastMessageDateTime >= other.lastMessageDateTime;
+        }
+        return displayName().toUpper() <= other.displayName().toUpper();
+    }
+    return pinningPosition >= other.pinningPosition;
 }
 
 bool RosterItem::operator>=(const RosterItem &other) const
 {
-	if (pinningPosition == -1 && other.pinningPosition == -1) {
-		if (lastMessageDateTime != other.lastMessageDateTime) {
-			return lastMessageDateTime <= other.lastMessageDateTime;
-		}
-		return displayName().toUpper() >= other.displayName().toUpper();
-	}
-	return pinningPosition <= other.pinningPosition;
+    if (pinningPosition == -1 && other.pinningPosition == -1) {
+        if (lastMessageDateTime != other.lastMessageDateTime) {
+            return lastMessageDateTime <= other.lastMessageDateTime;
+        }
+        return displayName().toUpper() >= other.displayName().toUpper();
+    }
+    return pinningPosition <= other.pinningPosition;
 }

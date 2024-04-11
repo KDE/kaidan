@@ -18,21 +18,21 @@ class QXmppDiscoveryManager;
 class DiscoveryManager : public QObject
 {
 public:
-	DiscoveryManager(QXmppClient *client, QObject *parent = nullptr);
+    DiscoveryManager(QXmppClient *client, QObject *parent = nullptr);
 
-	~DiscoveryManager();
+    ~DiscoveryManager();
 
-	/**
-	 * Will request disco info and items from the server (on connection)
-	 */
-	void handleConnection();
+    /**
+     * Will request disco info and items from the server (on connection)
+     */
+    void handleConnection();
 
-	/**
-	 * Handles incoming results of disco item requests
-	 */
-	void handleItems(const QXmppDiscoveryIq &);
+    /**
+     * Handles incoming results of disco item requests
+     */
+    void handleItems(const QXmppDiscoveryIq &);
 
 private:
-	QXmppClient *m_client;
-	QXmppDiscoveryManager *m_manager;
+    QXmppClient *m_client;
+    QXmppDiscoveryManager *m_manager;
 };

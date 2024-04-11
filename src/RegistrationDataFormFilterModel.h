@@ -12,15 +12,15 @@
  */
 class RegistrationDataFormFilterModel : public QSortFilterProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	RegistrationDataFormFilterModel(QObject *parent = nullptr);
+    RegistrationDataFormFilterModel(QObject *parent = nullptr);
 
-	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
-	void setSourceModel(QAbstractItemModel *sourceModel) override;
+    void setSourceModel(QAbstractItemModel *sourceModel) override;
 
 private:
-	QVector<int> m_filteredRows;
+    QVector<int> m_filteredRows;
 };

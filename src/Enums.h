@@ -17,7 +17,7 @@
 
 template<typename... Ts>
 struct make_void {
-	typedef void type;
+    typedef void type;
 };
 template<typename... Ts>
 using void_t = typename make_void<Ts...>::type;
@@ -34,83 +34,74 @@ struct has_enum_type<T, void_t<typename T::enum_type>> : std::true_type {
 
 namespace Enums
 {
-	Q_NAMESPACE
+Q_NAMESPACE
 
-	/**
-	 * Enumeration of possible connection states.
-	 */
-	enum class ConnectionState {
-		StateDisconnected = QXmppClient::DisconnectedState,
-		StateConnecting = QXmppClient::ConnectingState,
-		StateConnected = QXmppClient::ConnectedState
-	};
-	Q_ENUM_NS(ConnectionState)
+/**
+ * Enumeration of possible connection states.
+ */
+enum class ConnectionState {
+    StateDisconnected = QXmppClient::DisconnectedState,
+    StateConnecting = QXmppClient::ConnectingState,
+    StateConnected = QXmppClient::ConnectedState
+};
+Q_ENUM_NS(ConnectionState)
 
-	/**
-	 * Enumeration of different media/message types
-	 */
-	enum class MessageType {
-		MessageUnknown = -1,
-		MessageText,
-		MessageFile,
-		MessageImage,
-		MessageVideo,
-		MessageAudio,
-		MessageDocument,
-		MessageGeoLocation
-	};
-	Q_ENUM_NS(MessageType)
+/**
+ * Enumeration of different media/message types
+ */
+enum class MessageType { MessageUnknown = -1, MessageText, MessageFile, MessageImage, MessageVideo, MessageAudio, MessageDocument, MessageGeoLocation };
+Q_ENUM_NS(MessageType)
 
-	/**
-	 * Enumeration of different message delivery states
-	 */
-	enum class DeliveryState { Pending, Sent, Delivered, Error, Draft };
-	Q_ENUM_NS(DeliveryState)
+/**
+ * Enumeration of different message delivery states
+ */
+enum class DeliveryState { Pending, Sent, Delivered, Error, Draft };
+Q_ENUM_NS(DeliveryState)
 
-	/**
-	 * State which specifies how the XMPP login URI was used
-	 */
-	enum class LoginByUriState {
-		Connecting, ///< The JID and password are included in the URI and the client is connecting.
-		PasswordNeeded, ///< The JID is included in the URI but not the password.
-		InvalidLoginUri ///< The URI cannot be used to log in.
-	};
-	Q_ENUM_NS(LoginByUriState)
+/**
+ * State which specifies how the XMPP login URI was used
+ */
+enum class LoginByUriState {
+    Connecting, ///< The JID and password are included in the URI and the client is connecting.
+    PasswordNeeded, ///< The JID is included in the URI but not the password.
+    InvalidLoginUri ///< The URI cannot be used to log in.
+};
+Q_ENUM_NS(LoginByUriState)
 
-	/**
-	 * Result for making trust decisions by an XMPP URI specifying how the URI
-	 * is used
-	 */
-	enum TrustDecisionByUriResult {
-		MakingTrustDecisions, ///< The trust decisions are being made.
-		JidUnexpected,        ///< The URI's JID is not the expected one.
-		InvalidUri            ///< The URI cannot be used for trust decisions.
-	};
-	Q_ENUM_NS(TrustDecisionByUriResult)
+/**
+ * Result for making trust decisions by an XMPP URI specifying how the URI
+ * is used
+ */
+enum TrustDecisionByUriResult {
+    MakingTrustDecisions, ///< The trust decisions are being made.
+    JidUnexpected, ///< The URI's JID is not the expected one.
+    InvalidUri ///< The URI cannot be used for trust decisions.
+};
+Q_ENUM_NS(TrustDecisionByUriResult)
 
-	/**
-	 * State which specifies in which way a password is shown on the account transfer page
-	 */
-	enum PasswordVisibility {
-		PasswordVisible, ///< The password is included in the QR code and shown as plain text.
-		PasswordVisibleQrOnly, ///< The password is included in the QR code but not shown as plain text.
-		PasswordInvisible ///< The password is neither included in the QR code nor shown as plain text.
-	};
-	Q_ENUM_NS(PasswordVisibility)
+/**
+ * State which specifies in which way a password is shown on the account transfer page
+ */
+enum PasswordVisibility {
+    PasswordVisible, ///< The password is included in the QR code and shown as plain text.
+    PasswordVisibleQrOnly, ///< The password is included in the QR code but not shown as plain text.
+    PasswordInvisible ///< The password is neither included in the QR code nor shown as plain text.
+};
+Q_ENUM_NS(PasswordVisibility)
 
-	template<typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
-	QString toString(const T flag)
-	{
-		static const QMetaEnum e = QMetaEnum::fromType<T>();
-		return QString::fromLatin1(e.valueToKey(static_cast<int>(flag)));
-	}
+template<typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
+QString toString(const T flag)
+{
+    static const QMetaEnum e = QMetaEnum::fromType<T>();
+    return QString::fromLatin1(e.valueToKey(static_cast<int>(flag)));
+}
 
-	template<typename T, ENABLE_IF(has_enum_type<T>::value)>
-	QString toString(const T flags)
-	{
-		static const QMetaEnum e = QMetaEnum::fromType<T>();
-		return QString::fromLatin1(e.valueToKeys(static_cast<int>(flags)));
-	}
+template<typename T, ENABLE_IF(has_enum_type<T>::value)>
+QString toString(const T flags)
+{
+    static const QMetaEnum e = QMetaEnum::fromType<T>();
+    return QString::fromLatin1(e.valueToKeys(static_cast<int>(flags)));
+}
 } // namespace Enums
 
 // Needed workaround to trigger older CMake auto moc versions to generate moc

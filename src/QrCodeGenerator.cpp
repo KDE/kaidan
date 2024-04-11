@@ -24,72 +24,70 @@
 #define COLOR_TABLE_INDEX_FOR_WHITE 0
 #define COLOR_TABLE_INDEX_FOR_BLACK 1
 
-QrCodeGenerator::QrCodeGenerator(QObject *parent) : QObject(parent)
+QrCodeGenerator::QrCodeGenerator(QObject *parent)
+    : QObject(parent)
 {
 }
 
 QImage QrCodeGenerator::generateLoginUriQrCode(int edgePixelCount)
 {
-	QXmppUri uri;
+    QXmppUri uri;
 
-	uri.setJid(AccountManager::instance()->jid());
-	uri.setAction(QXmppUri::Login);
+    uri.setJid(AccountManager::instance()->jid());
+    uri.setAction(QXmppUri::Login);
 
-	if (Kaidan::instance()->settings()->authPasswordVisibility() != Enums::PasswordInvisible)
-		uri.setPassword(AccountManager::instance()->password());
+    if (Kaidan::instance()->settings()->authPasswordVisibility() != Enums::PasswordInvisible)
+        uri.setPassword(AccountManager::instance()->password());
 
-	return generateQrCode(edgePixelCount, uri.toString());
+    return generateQrCode(edgePixelCount, uri.toString());
 }
 
 QImage QrCodeGenerator::generateOwnTrustMessageQrCode(int edgePixelCount)
 {
-	return generateTrustMessageQrCode(edgePixelCount, AccountManager::instance()->jid());
+    return generateTrustMessageQrCode(edgePixelCount, AccountManager::instance()->jid());
 }
 
 QImage QrCodeGenerator::generateContactTrustMessageQrCode(int edgePixelCount, const QString &contactJid)
 {
-	return generateTrustMessageQrCode(edgePixelCount, contactJid);
+    return generateTrustMessageQrCode(edgePixelCount, contactJid);
 }
 
 QImage QrCodeGenerator::generateTrustMessageQrCode(int edgePixelCount, const QString &jid)
 {
-	return generateQrCode(edgePixelCount, QmlUtils::trustMessageUriString(jid));
+    return generateQrCode(edgePixelCount, QmlUtils::trustMessageUriString(jid));
 }
 
 QImage QrCodeGenerator::generateQrCode(int edgePixelCount, const QString &text)
 {
-	try {
-		ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-		const ZXing::BitMatrix &bitMatrix =
-			writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
-		return toImage(bitMatrix);
-	} catch (const std::invalid_argument &e) {
-		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-			tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
-	}
+    try {
+        ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
+        const ZXing::BitMatrix &bitMatrix = writer.encode(text.toStdWString(), edgePixelCount, edgePixelCount);
+        return toImage(bitMatrix);
+    } catch (const std::invalid_argument &e) {
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
+    }
 
-	return {};
+    return {};
 }
 
 QImage QrCodeGenerator::toImage(const ZXing::BitMatrix &bitMatrix)
 {
-	QImage monochromeImage(bitMatrix.width(), bitMatrix.height(), QImage::Format_Mono);
+    QImage monochromeImage(bitMatrix.width(), bitMatrix.height(), QImage::Format_Mono);
 
-	createColorTable(monochromeImage);
+    createColorTable(monochromeImage);
 
-	for (int y = 0; y < bitMatrix.height(); ++y) {
-		for (int x = 0; x < bitMatrix.width(); ++x) {
-			int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK
-								  : COLOR_TABLE_INDEX_FOR_WHITE;
-			monochromeImage.setPixel(y, x, colorTableIndex);
-		}
-	}
+    for (int y = 0; y < bitMatrix.height(); ++y) {
+        for (int x = 0; x < bitMatrix.width(); ++x) {
+            int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK : COLOR_TABLE_INDEX_FOR_WHITE;
+            monochromeImage.setPixel(y, x, colorTableIndex);
+        }
+    }
 
-	return monochromeImage;
+    return monochromeImage;
 }
 
 void QrCodeGenerator::createColorTable(QImage &blackAndWhiteImage)
 {
-	blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_WHITE, qRgb(255, 255, 255));
-	blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_BLACK, qRgb(0, 0, 0));
+    blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_WHITE, qRgb(255, 255, 255));
+    blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_BLACK, qRgb(0, 0, 0));
 }

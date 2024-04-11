@@ -19,37 +19,37 @@
 
 QXmppColorGenerator::RGBColor QXmppColorGenerator::generateColor(const QString &name, ColorVisionDeficiency deficiency)
 {
-	QByteArray input = name.toUtf8();
+    QByteArray input = name.toUtf8();
 
-	// hash input through SHA-1
-	QCryptographicHash hash(QCryptographicHash::Sha1);
-	hash.addData(input);
+    // hash input through SHA-1
+    QCryptographicHash hash(QCryptographicHash::Sha1);
+    hash.addData(input);
 
-	// the first two bytes are used to calculate the angle/hue
-	int angle = hash.result().at(0) + hash.result().at(1) * 256;
+    // the first two bytes are used to calculate the angle/hue
+    int angle = hash.result().at(0) + hash.result().at(1) * 256;
 
-	double hue = double(angle) / 65536.0 * 360.0;
-	double saturation = 100.0;
-	double lightness = 50.0;
+    double hue = double(angle) / 65536.0 * 360.0;
+    double saturation = 100.0;
+    double lightness = 50.0;
 
-	// Corrections for Color Vision Deficiencies
-	// this uses floating point modulo (fmod)
-	if (deficiency == RedGreenBlindness) {
-		hue += 90.0;
-		hue = fmod(hue, 180);
-		hue -= 90.0;
-		hue = fmod(hue, 360);
-	} else if (deficiency == BlueBlindness) {
-		hue = fmod(hue, 180);
-	}
+    // Corrections for Color Vision Deficiencies
+    // this uses floating point modulo (fmod)
+    if (deficiency == RedGreenBlindness) {
+        hue += 90.0;
+        hue = fmod(hue, 180);
+        hue -= 90.0;
+        hue = fmod(hue, 360);
+    } else if (deficiency == BlueBlindness) {
+        hue = fmod(hue, 180);
+    }
 
-	// convert to rgb values (values are between 0.0 and 1.0)
-	double red, green, blue = 0.0;
-	hsluv2rgb(hue, saturation, lightness, &red, &green, &blue);
+    // convert to rgb values (values are between 0.0 and 1.0)
+    double red, green, blue = 0.0;
+    hsluv2rgb(hue, saturation, lightness, &red, &green, &blue);
 
-	RGBColor color;
-	color.red = quint8(red * 255.0);
-	color.green = quint8(green * 255.0);
-	color.blue = quint8(blue * 255.0);
-	return color;
+    RGBColor color;
+    color.red = quint8(red * 255.0);
+    color.green = quint8(green * 255.0);
+    color.blue = quint8(blue * 255.0);
+    return color;
 }

@@ -13,23 +13,23 @@ class QXmppVersionManager;
 
 class VersionManager : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit VersionManager(QXmppClient *client, QObject *parent = nullptr);
+    explicit VersionManager(QXmppClient *client, QObject *parent = nullptr);
 
-	/**
-	 * Fetches the version information of all resources of the given  bare JID
-	 */
-	Q_INVOKABLE void fetchVersions(const QString &bareJid, const QString &resource);
+    /**
+     * Fetches the version information of all resources of the given  bare JID
+     */
+    Q_INVOKABLE void fetchVersions(const QString &bareJid, const QString &resource);
 
 Q_SIGNALS:
-	/**
-	 * Emitted when a client version information was received
-	 */
-	void clientVersionReceived(const QXmppVersionIq &versionIq);
+    /**
+     * Emitted when a client version information was received
+     */
+    void clientVersionReceived(const QXmppVersionIq &versionIq);
 
 private:
-	QXmppVersionManager *m_manager;
-	QXmppClient *m_client;
+    QXmppVersionManager *m_manager;
+    QXmppClient *m_client;
 };

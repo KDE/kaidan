@@ -36,82 +36,82 @@
 class QXmppUri
 {
 public:
-	enum Action {
-		None,
-		Command,
-		Disco,
-		Invite,
-		Join,
-		Login,
-		Message,
-		PubSub,
-		RecvFile,
-		Register,
-		Remove,
-		Roster,
-		SendFile,
-		Subscribe,
-		TrustMessage,
-		Unregister,
-		Unsubscribe,
-		VCard,
-	};
+    enum Action {
+        None,
+        Command,
+        Disco,
+        Invite,
+        Join,
+        Login,
+        Message,
+        PubSub,
+        RecvFile,
+        Register,
+        Remove,
+        Roster,
+        SendFile,
+        Subscribe,
+        TrustMessage,
+        Unregister,
+        Unsubscribe,
+        VCard,
+    };
 
-	QXmppUri() = default;
-	QXmppUri(QString uri);
+    QXmppUri() = default;
+    QXmppUri(QString uri);
 
-	QString toString();
+    QString toString();
 
-	QString jid() const;
-	void setJid(const QString &jid);
+    QString jid() const;
+    void setJid(const QString &jid);
 
-	Action action() const;
-	void setAction(const Action &action);
+    Action action() const;
+    void setAction(const Action &action);
 
-	// login
-	QString password() const;
-	void setPassword(const QString &password);
+    // login
+    QString password() const;
+    void setPassword(const QString &password);
 
-	// message
-	QXmppMessage message() const;
-	void setMessage(const QXmppMessage &);
+    // message
+    QXmppMessage message() const;
+    void setMessage(const QXmppMessage &);
 
-	bool hasMessageType() const;
-	void setHasMessageType(bool hasMessageType);
+    bool hasMessageType() const;
+    void setHasMessageType(bool hasMessageType);
 
-	// trust-message
-	QString encryption() const;
-	void setEncryption(const QString &encryption);
-	QList<QString> trustedKeysIds() const;
-	void setTrustedKeysIds(const QList<QString> &keyIds);
-	QList<QString> distrustedKeysIds() const;
-	void setDistrustedKeysIds(const QList<QString> &keyIds);
+    // trust-message
+    QString encryption() const;
+    void setEncryption(const QString &encryption);
+    QList<QString> trustedKeysIds() const;
+    void setTrustedKeysIds(const QList<QString> &keyIds);
+    QList<QString> distrustedKeysIds() const;
+    void setDistrustedKeysIds(const QList<QString> &keyIds);
 
-	static bool isXmppUri(const QString &uri);
+    static bool isXmppUri(const QString &uri);
 
 private:
-	bool setAction(const QUrlQuery &query);
-	QString queryType() const;
-	void setQueryKeyValuePairs(const QUrlQuery &query);
-	void addItemsToQuery(QUrlQuery &query) const;
+    bool setAction(const QUrlQuery &query);
+    QString queryType() const;
+    void setQueryKeyValuePairs(const QUrlQuery &query);
+    void addItemsToQuery(QUrlQuery &query) const;
 
-	static void addKeyValuePairToQuery(QUrlQuery &query, const QString &key, QStringView val);
-	static QString queryItemValue(const QUrlQuery &query, const QString &key);
+    static void addKeyValuePairToQuery(QUrlQuery &query, const QString &key, QStringView val);
+    static QString queryItemValue(const QUrlQuery &query, const QString &key);
 
-	QString m_jid;
-	Action m_action = None;
+    QString m_jid;
+    Action m_action = None;
 
-	// login
-	QString m_password;
+    // login
+    QString m_password;
 
-	// message
-	QXmppMessage m_message;
-	bool m_hasMessageType = false;
+    // message
+    QXmppMessage m_message;
+    bool m_hasMessageType = false;
 
-	// trust-message
-	QString m_encryption;
-	QList<QString> m_trustedKeysIds;
-	QList<QString> m_distrustedKeysIds;
+    // trust-message
+    QString m_encryption;
+    QList<QString> m_trustedKeysIds;
+    QList<QString> m_distrustedKeysIds;
 };
 
 #endif // QXMPPURI_H

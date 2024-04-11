@@ -13,53 +13,52 @@
 
 class ProviderListModel : public QAbstractListModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	enum Role {
-		DisplayRole = Qt::DisplayRole,
-		JidRole = Qt::UserRole + 1,
-		SupportsInBandRegistrationRole,
-		RegistrationWebPageRole,
-		LanguagesRole,
-		CountriesRole,
-		FlagsRole,
-		IsCustomProviderRole,
-		WebsiteRole,
-		OnlineSinceRole,
-		HttpUploadSizeRole,
-		MessageStorageDurationRole
-	};
-	Q_ENUM(Role)
+    enum Role {
+        DisplayRole = Qt::DisplayRole,
+        JidRole = Qt::UserRole + 1,
+        SupportsInBandRegistrationRole,
+        RegistrationWebPageRole,
+        LanguagesRole,
+        CountriesRole,
+        FlagsRole,
+        IsCustomProviderRole,
+        WebsiteRole,
+        OnlineSinceRole,
+        HttpUploadSizeRole,
+        MessageStorageDurationRole
+    };
+    Q_ENUM(Role)
 
-	struct Locale {
-		QString languageCode;
-		QString countryCode;
-	};
+    struct Locale {
+        QString languageCode;
+        QString countryCode;
+    };
 
-	explicit ProviderListModel(QObject *parent = nullptr);
+    explicit ProviderListModel(QObject *parent = nullptr);
 
-	QHash<int, QByteArray> roleNames() const override;
-	int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-	// overloaded method for QML
-	Q_INVOKABLE QVariant data(int row, ProviderListModel::Role role) const;
-	Q_INVOKABLE ProviderListItem provider(const QString &jid) const;
-	Q_INVOKABLE ProviderListItem providerFromBareJid(const QString &jid) const;
+    // overloaded method for QML
+    Q_INVOKABLE QVariant data(int row, ProviderListModel::Role role) const;
+    Q_INVOKABLE ProviderListItem provider(const QString &jid) const;
+    Q_INVOKABLE ProviderListItem providerFromBareJid(const QString &jid) const;
 
-	Q_INVOKABLE int randomlyChooseIndex() const;
+    Q_INVOKABLE int randomlyChooseIndex() const;
 
 private:
-	void readItemsFromJsonFile(const QString &filePath);
-	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
-	QVector<ProviderListItem> providersWithSystemLocale(
-		const QVector<ProviderListItem> &preSelectedProviders) const;
-	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
+    void readItemsFromJsonFile(const QString &filePath);
+    QVector<ProviderListItem> providersSupportingInBandRegistration() const;
+    QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
+    int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
 
-	QString systemLanguageCode() const;
-	QString systemCountryCode() const;
-	Locale systemLocale() const;
+    QString systemLanguageCode() const;
+    QString systemCountryCode() const;
+    Locale systemLocale() const;
 
-	QVector<ProviderListItem> m_items;
+    QVector<ProviderListItem> m_items;
 };
