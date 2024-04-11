@@ -151,6 +151,8 @@ install_manifest.txt
 
 *.swp
 .cache/
+.clang-format
+!3rdparty/.clang-format
 .vscode/
 .directory
 .DS_Store
