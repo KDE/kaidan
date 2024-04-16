@@ -174,12 +174,12 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 {
 	const auto rosterManager = Kaidan::instance()->client()->rosterManager();
 
-	runOnThread(rosterManager, [this, rosterManager, accountJid = m_messageModel->currentAccountJid(), chatJid = m_messageModel->currentChatJid()]() {
-		if (const auto unrespondedPresenceSubscriptionRequests = rosterManager->unrespondedPresenceSubscriptionRequests();
-			unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
-			runOnThread(this, [this, requestText = unrespondedPresenceSubscriptionRequests.value(chatJid)]() {
-				this->addAllowPresenceSubscriptionChatHint(requestText);
-			});
+	runOnThread(rosterManager, [rosterManager]() {
+		return rosterManager->unrespondedPresenceSubscriptionRequests();
+	}, this, [this, chatJid = MessageModel::instance()->currentChatJid()](QMap<QString, QString> &&unrespondedPresenceSubscriptionRequests) {
+		if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
+			const auto requestText = unrespondedPresenceSubscriptionRequests.value(chatJid);
+			addAllowPresenceSubscriptionChatHint(requestText);
 		}
 	});
 }
