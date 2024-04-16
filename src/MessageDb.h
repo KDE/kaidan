@@ -55,7 +55,7 @@ public:
 	                                     const Message &newMsg);
 
 	/**
-	 * Fetches more entries from the database and emits messagesFetched() with the results.
+	 * Fetches messages.
 	 *
 	 * @param accountJid bare JID of the user's account
 	 * @param chatJid bare Jid of the chat
@@ -104,8 +104,7 @@ public:
 	QFuture<QVector<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
 
 	/**
-	 * Fetches entries until the first message of chatJid from the database and emits
-	 * messagesFetched() with the results.
+	 * Fetches messages until the first message of a specific chat.
 	 *
 	 * Entries are fetched until a message from chatJid is found.
 	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
@@ -120,8 +119,7 @@ public:
 	QFuture<QVector<Message>> fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
-	 * Fetches entries until a specific ID from the database and emits messagesFetched() with the
-	 * results.
+	 * Fetches messages until a specific ID.
 	 *
 	 * Entries are fetched until a message with messageId is found.
 	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
@@ -137,10 +135,8 @@ public:
 	 */
 	QFuture<QVector<Message>> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId);
 
-	Q_SIGNAL void messagesFetched(const QVector<Message> &messages);
-
 	/**
-	 * Fetches more entries from the database and emits messagesFetched() with the results.
+	 * Fetches messages until a message with a specific query string.
 	 *
 	 * Entries are fetched until a message with queryString is found.
 	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.

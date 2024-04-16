@@ -207,7 +207,6 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -282,7 +281,6 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -322,7 +320,6 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchReactions(messages);
 
-		Q_EMIT messagesFetched(messages);
 		return messages;
 	});
 }
@@ -398,8 +395,6 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 		};
 
 		_fetchReactions(result.messages);
-
-		Q_EMIT messagesFetched(result.messages);
 
 		return result;
 	});

@@ -103,8 +103,6 @@ MessageModel::MessageModel(QObject *parent)
 		Q_EMIT chatStateChanged();
 	});
 
-	connect(MessageDb::instance(), &MessageDb::messagesFetched, this, &MessageModel::handleMessagesFetched);
-
 	// addMessage requests are forwarded to the MessageDb, are deduplicated there and
 	// added if MessageDb::messageAdded is emitted
 	connect(MessageDb::instance(), &MessageDb::messageAdded, this, &MessageModel::handleMessage);
@@ -320,19 +318,23 @@ void MessageModel::fetchMore(const QModelIndex &)
 				// lastReadContactMessageId can be empty if there is no contact message stored or
 				// the oldest stored contact message is marked as first unread.
 				if (lastReadContactMessageId.isEmpty()) {
-					MessageDb::instance()->fetchMessagesUntilFirstContactMessage(
-							AccountManager::instance()->jid(), m_currentChatJid, 0);
+					await(MessageDb::instance()->fetchMessagesUntilFirstContactMessage(AccountManager::instance()->jid(), m_currentChatJid, 0), this, [this](QVector<Message> &&messages) {
+						handleMessagesFetched(messages);
+					});
 				} else {
-					MessageDb::instance()->fetchMessagesUntilId(
-							AccountManager::instance()->jid(), m_currentChatJid, 0, lastReadContactMessageId);
+					await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(), m_currentChatJid, 0, lastReadContactMessageId), this, [this](QVector<Message> &&messages) {
+						handleMessagesFetched(messages);
+					});
 				}
 			} else {
-				MessageDb::instance()->fetchMessages(
-						AccountManager::instance()->jid(), m_currentChatJid, 0);
+				await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), m_currentChatJid, 0), this, [this](QVector<Message> &&messages) {
+					handleMessagesFetched(messages);
+				});
 			}
 		} else {
-			MessageDb::instance()->fetchMessages(
-					AccountManager::instance()->jid(), m_currentChatJid, m_messages.size());
+			await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), m_currentChatJid, m_messages.size()), this, [this](QVector<Message> &&messages) {
+				handleMessagesFetched(messages);
+			});
 		}
 	} else if (!m_fetchedAllFromMam) {
 		// use earliest timestamp
@@ -1151,7 +1153,8 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
 		await(
 			MessageDb::instance()->fetchMessagesUntilQueryString(AccountManager::instance()->jid(), m_currentChatJid, foundIndex, searchString),
 			this,
-			[this](auto result) {
+			[this](MessageDb::MessageResult &&result) {
+				handleMessagesFetched(result.messages);
 				Q_EMIT messageSearchFinished(result.queryIndex);
 			}
 		);
