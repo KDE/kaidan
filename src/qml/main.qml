@@ -260,6 +260,9 @@ Kirigami.ApplicationWindow {
 			if (latestSize.width > 0) {
 				root.width = latestSize.width
 				root.height = latestSize.height
+			} else {
+				root.width = Kirigami.Units.gridUnit * 85
+				root.height = Kirigami.Units.gridUnit * 55
 			}
 		}
 
