@@ -282,7 +282,7 @@ DetailsContent {
 		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).chosenGroupChatSupport
 
 		Layout.fillWidth: true
-		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
+		visible: providerUrl.toString() || chatSupportList.length || groupChatSupportList.length
 		contentItem: ColumnLayout {
 			spacing: 0
 
@@ -302,14 +302,14 @@ DetailsContent {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Visit website")
 				description: qsTr("Open your provider's website in a web browser")
-				visible: providerArea.providerUrl
+				visible: providerArea.providerUrl.toString()
 				onClicked: Qt.openUrlExternally(providerArea.providerUrl)
 			}
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Copy website address")
 				description: qsTr("Copy your provider's web address to the clipboard")
-				visible: providerArea.providerUrl
+				visible: providerArea.providerUrl.toString()
 				onClicked: {
 					Utils.copyToClipboard(providerArea.providerUrl)
 					passiveNotification(qsTr("Website address copied to clipboard"))
