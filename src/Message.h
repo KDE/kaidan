@@ -73,6 +73,7 @@ struct File
 	Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
 	Q_PROPERTY(QString localFilePath MEMBER localFilePath)
 	Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
+	Q_PROPERTY(QString externalId MEMBER externalId)
 	Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
 	Q_PROPERTY(QImage thumbnail READ thumbnailImage CONSTANT)
 	Q_PROPERTY(QImage thumbnailSquare READ thumbnailSquareImage CONSTANT)
@@ -90,6 +91,7 @@ public:
 	QDateTime lastModified;
 	QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
 	QString localFilePath;
+	QString externalId;
 	QVector<FileHash> hashes;
 	QByteArray thumbnail;
 	QVector<HttpSource> httpSources;

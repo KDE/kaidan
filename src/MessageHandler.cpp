@@ -278,6 +278,7 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 		.size = {},
 		.lastModified = {},
 		.localFilePath = {},
+		.externalId = {},
 		.hashes = {},
 		.thumbnail = {},
 		.httpSources = {
@@ -666,6 +667,11 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
 				.disposition = file.disposition(),
 				.localFilePath = {},
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+				.externalId = file.id(),
+#else
+				.externalId = {},
+#endif
 				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
 					return FileHash {
 						.dataId = fileId,

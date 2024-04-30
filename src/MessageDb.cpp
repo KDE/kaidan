@@ -990,7 +990,8 @@ void MessageDb::_setFiles(const QVector<File> &files)
 					lastModified,
 					disposition,
 					thumbnail,
-					localFilePath
+					localFilePath,
+					externalId
 				)
 				VALUES (
 					:id,
@@ -1002,7 +1003,8 @@ void MessageDb::_setFiles(const QVector<File> &files)
 					:lastModified,
 					:disposition,
 					:thumbnail,
-					:localFilePath
+					:localFilePath,
+					:externalId
 				)
 			)")
 		);
@@ -1023,6 +1025,7 @@ void MessageDb::_setFiles(const QVector<File> &files)
 				{ u":disposition", int(file.disposition) },
 				{ u":thumbnail", file.thumbnail },
 				{ u":localFilePath", file.localFilePath },
+				{ u":externalId", file.externalId },
 			}
 		);
 		execQuery(query);
@@ -1246,12 +1249,12 @@ void MessageDb::_extractDownloadedFiles(QVector<File> &files)
 
 QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 {
-	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath };
+	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath, ExternalId };
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
 		prepareQuery(q,
 			QStringLiteral("SELECT id, name, description, mimeType, size, lastModified, disposition, "
-			"thumbnail, localFilePath FROM files "
+			"thumbnail, localFilePath, externalId FROM files "
 			"WHERE fileGroupId = :fileGroupId"));
 		return q;
 	}();
@@ -1273,6 +1276,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 			parseDateTime(query, LastModified),
 			query.value(Disposition).value<QXmppFileShare::Disposition>(),
 			query.value(LocalFilePath).toString(),
+			query.value(ExternalId).toString(),
 			_fetchFileHashes(id),
 			query.value(Thumbnail).toByteArray(),
 			_fetchHttpSource(id),

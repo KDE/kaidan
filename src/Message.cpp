@@ -80,6 +80,9 @@ QXmppFileShare File::toQXmpp() const
 	QXmppFileShare fs;
 	fs.setDisposition(disposition);
 	fs.setMetadata(metadata);
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+	fs.setId(externalId);
+#endif
 	fs.setHttpSources(transform(httpSources, [](const HttpSource &fileSource) {
 		return fileSource.toQXmpp();
 	}));
