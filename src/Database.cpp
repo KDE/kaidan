@@ -43,8 +43,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 40
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(40)
+#define DATABASE_LATEST_VERSION 41
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(41)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -464,6 +464,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(disposition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(thumbnail, SQL_BLOB)
 			SQL_ATTRIBUTE(localFilePath, SQL_TEXT)
+			SQL_ATTRIBUTE(externalId, SQL_TEXT)
 			"PRIMARY KEY(id)"
 		)
 	);
@@ -1908,4 +1909,17 @@ void Database::convertDatabaseToV40()
 	);
 
 	d->version = 40;
+}
+
+void Database::convertDatabaseToV41()
+{
+	DATABASE_CONVERT_TO_VERSION(40)
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		QStringLiteral("ALTER TABLE files ADD externalId TEXT")
+	);
+
+	d->version = 41;
 }
