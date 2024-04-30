@@ -8,6 +8,8 @@
 
 #include "MessageDb.h"
 
+// C++
+#include <ranges>
 // Qt
 #include <QSqlDatabase>
 #include <QSqlDriver>
@@ -29,6 +31,13 @@ Q_DECLARE_METATYPE(QXmpp::HashAlgorithm)
 Q_DECLARE_METATYPE(QXmppFileShare::Disposition)
 
 #define CHECK_MESSAGE_EXISTS_DEPTH_LIMIT "20"
+
+using std::ranges::find;
+
+static auto debug()
+{
+	return qDebug() << "[MessageDb]";
+}
 
 template<typename T>
 QVariant optionalToVariant(std::optional<T> value)
@@ -819,6 +828,55 @@ QFuture<void> MessageDb::updateMessage(const QString &id,
 				// add new files, replace changed files
 				_setFiles(newMessage.files);
 			}
+		}
+	});
+}
+
+QFuture<void> MessageDb::attachFileSources(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &externalFileId, const QVector<HttpSource> &httpSources, const QVector<EncryptedSource> &encryptedSources)
+{
+	return run([=, this] {
+		// fetch message
+		auto query = createQuery();
+		execQuery(
+			query,
+			QStringLiteral("SELECT * FROM chatMessages WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :id"),
+			{ { u":accountJid", accountJid }, { u":chatJid", chatJid }, { u":id", messageId } }
+		);
+		auto msgs = _fetchMessagesFromQuery(query);
+		if (msgs.empty()) {
+			debug() << "Could not find message with ID" << messageId << "to attach file sources.";
+			return;
+		}
+		_fetchReactions(msgs);
+
+		auto message = msgs.takeFirst();
+
+		// find file with external ID
+		auto fileItr = find(message.files, externalFileId, &File::externalId);
+		if (fileItr == message.files.end()) {
+			debug() << "Could not attach sources to message with ID" << messageId << ": No file with external ID of" << externalFileId << "found.";
+			return;
+		}
+		auto &file = *fileItr;
+
+		// append new sources and set correct database file ID
+		std::ranges::transform(httpSources, std::back_inserter(file.httpSources), [&](auto s) {
+			s.fileId = file.id;
+			return s;
+		});
+		std::ranges::transform(encryptedSources, std::back_inserter(file.encryptedSources), [&](auto s) {
+			s.fileId = file.id;
+			return s;
+		});
+
+		Q_EMIT messageUpdated(message);
+
+		// add sources to DB
+		if (!httpSources.empty()) {
+			_setHttpSources(file.httpSources);
+		}
+		if (!encryptedSources.empty()) {
+			_setEncryptedSources(file.encryptedSources);
 		}
 	});
 }

@@ -237,6 +237,14 @@ public:
 	Q_SIGNAL void messageUpdated(const Message &message);
 
 	/**
+	 * Adds additional file sources to a file.
+	 *
+	 * The DB file IDs in the sources are overriden and may e.g. be set to 0 if unknown.
+	 * The whole message is fetched and messageUpdated() is emitted.
+	 */
+	QFuture<void> attachFileSources(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &fileId, const QVector<HttpSource> &httpSources, const QVector<EncryptedSource> &encryptedSources);
+
+	/**
 	 * Fetches a draft message from the database.
 	 */
 	QFuture<std::optional<Message>> fetchDraftMessage(const QString &accountJid, const QString &chatJid);
