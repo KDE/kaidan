@@ -34,6 +34,15 @@ ecm_add_test(
 )
 
 ecm_add_test(
+	DatabaseTest.cpp
+	../src/Database.cpp
+	../src/SqlUtils.cpp
+	TEST_NAME DatabaseTest
+	LINK_LIBRARIES Qt::Test Qt::Sql QXmpp::QXmpp
+)
+target_compile_definitions(DatabaseTest PUBLIC DB_UNIT_TEST)
+
+ecm_add_test(
 	TrustDbTest.cpp
 	utils.h
 	../src/Database.cpp

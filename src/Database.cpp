@@ -158,6 +158,7 @@ Database::Database(QObject *parent)
 #ifdef DB_UNIT_TEST
 	QFile file(TEST_DB_FILENAME);
 	if (file.exists()) {
+		qDebug() << "Removing old database file" << TEST_DB_FILENAME;
 		file.remove();
 	}
 #endif
@@ -183,6 +184,56 @@ void Database::createTables()
 		convertDatabase();
 
 	d->tablesCreated = true;
+}
+
+void Database::createV3Database()
+{
+	QSqlQuery query(currentDatabase());
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			DB_TABLE_INFO,
+			SQL_LAST_ATTRIBUTE(version, SQL_INTEGER_NOT_NULL)
+		)
+	);
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"Roster",
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(lastExchanged, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastMessage, SQL_TEXT)
+			SQL_ATTRIBUTE(lastOnline, SQL_TEXT)
+			SQL_ATTRIBUTE(activity, SQL_TEXT)
+			SQL_ATTRIBUTE(status, SQL_TEXT)
+			SQL_ATTRIBUTE(mood, SQL_TEXT)
+			SQL_LAST_ATTRIBUTE(avatarHash, SQL_TEXT)
+		)
+	);
+
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"Messages",
+			SQL_ATTRIBUTE(author, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(author_resource, SQL_TEXT)
+			SQL_ATTRIBUTE(recipient, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(recipient_resource, SQL_TEXT)
+			SQL_ATTRIBUTE(timestamp, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(message, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(id, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(isSent, SQL_BOOL)
+			SQL_ATTRIBUTE(isDelivered, SQL_BOOL)
+			"FOREIGN KEY('author') REFERENCES Roster ('jid'),"
+			"FOREIGN KEY('recipient') REFERENCES Roster ('jid')"
+		)
+	);
+
+	d->version = 3;
 }
 
 void Database::startTransaction()

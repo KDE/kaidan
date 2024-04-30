@@ -37,6 +37,9 @@ public:
 	 */
 	void createTables();
 
+	// used in unit tests
+	void createV3Database();
+
 	/// Transaction on random thread from the thread pool (should be replaced in the
 	/// future).
 	void startTransaction();
@@ -125,4 +128,6 @@ private:
 	void convertDatabaseToV41();
 
 	std::unique_ptr<DatabasePrivate> d;
+
+	friend class DatabaseTest;
 };
