@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023 Stefan Asserhäll <stefan.asserhall@bredband.net>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Stefan Asserhäll <stefan.asserhall@bredband.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-12-28 21:13+0100\n"
+"PO-Revision-Date: 2024-05-03 09:36+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -385,12 +385,9 @@ msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Kryptering hela vägen via OMEMO 2 kunde inte ställas in"
 
 #: src/OmemoModel.cpp:126
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "OmemoModel|"
 msgid "This device"
-msgstr "Byt apparat"
+msgstr "Den här apparaten"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -911,12 +908,9 @@ msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Läs av QR-koderna för <b>dina</b> apparater för att kryptera för dem"
+msgstr "Verifiera <b>dina</b> apparater för att kryptera för dem"
 
 #: src/qml/details/ContactDetailsContent.qml:96
 msgctxt "ContactDetailsContent|"
@@ -929,21 +923,14 @@ msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgstr "<b>Du</b> har inga andra apparater som stöder OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:105
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR codes of <b>your</b> devices for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
-msgstr ""
-"Läs av QR-koderna för <b>dina</b> apparater för maximalt säker kryptering"
+msgstr "Verifiera <b>dina</b> apparater för maximal säkerhet"
 
 #: src/qml/details/ContactDetailsContent.qml:147
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> to enable encryption"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
-msgstr "Läs av QR-koden för din <b>kontakt</b> för att aktivera kryptering"
+msgstr "Verifiera din <b>kontakt</b> för att möjliggöra kryptering"
 
 #: src/qml/details/ContactDetailsContent.qml:150
 msgctxt "ContactDetailsContent|"
@@ -951,23 +938,14 @@ msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Din <b>kontakt</b> använder inte OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:153
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid ""
-#| "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
-msgstr ""
-"Läs av QR-koderna för dina kontakters <b>apparater</b> för att kryptera för "
-"dem"
+msgstr "Verifiera dina <b>kontakters</b> apparater för att kryptera för dem"
 
 #: src/qml/details/ContactDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Scan the QR code of your <b>contact</b> for maximum security"
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
-msgstr "Läs av QR-koden för din <b>kontakt</b> för maximalt säker kryptering"
+msgstr "Verifiera din <b>kontakt</b> för maximal säkerhet"
 
 #: src/qml/details/ContactDetailsContent.qml:194
 msgctxt "ContactDetailsContent|"
@@ -1455,41 +1433,26 @@ msgid "Add contact"
 msgstr "Lägg till kontakt"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
-#, fuzzy
-#| msgctxt "ContactAdditionDialog|"
-#| msgid "Add contact"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
 msgstr "Lägg till kontakt"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
 msgstr "Läs QR-koder"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
 msgstr "Visa förklaring"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Steg 1: Läs av <b>kontaktens</b> QR-kod"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Steg 2: Låt kontakten läsa <b>din</b> QR-kod"
@@ -1525,25 +1488,16 @@ msgid "Loading…"
 msgstr "Läser in…"
 
 #: src/qml/elements/LoginArea.qml:34
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Anslutningsinställningar"
 
 #: src/qml/elements/LoginArea.qml:67
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Logga in"
 
 #: src/qml/elements/LoginArea.qml:74
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Ansluter…"
@@ -1648,19 +1602,11 @@ msgid "Loading camera…"
 msgstr "Laddar kamera…"
 
 #: src/qml/elements/QrCodeScanner.qml:161
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "There is no camera available."
 msgctxt "QrCodeScanner|"
 msgid "No camera available"
-msgstr "Det finns ingen kamera tillgänglig."
+msgstr "Ingen kamera tillgänglig"
 
 #: src/qml/elements/QrCodeScanner.qml:164
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Your camera is busy.\n"
-#| "Try to close other applications using the camera."
 msgctxt "QrCodeScanner|"
 msgid ""
 "Camera busy\n"
@@ -1670,73 +1616,46 @@ msgstr ""
 "Försök stänga andra program som använder kameran."
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Contact added - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
 msgstr "Kontakt tillagd: fortsätt med steg 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code does not contain a contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
 msgstr "QR-koden innehåller inte en kontakt"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for other own device - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
-msgstr "Lita på beslut gjorda med andra apparater - Fortsätt med steg 2"
+msgstr "Lita på beslut gjorda med dina andra apparater: fortsätt med steg 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Trust decisions made for contact - Continue with step 2"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "Lita på beslut gjorda för kontakt - Fortsätt med steg 2"
+msgstr "Lita på beslut gjorda för kontakten: fortsätt med steg 2"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your other device"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
 msgstr "QR-koden är inte för din andra apparat"
 
 #: src/qml/elements/QrCodeScanningArea.qml:88
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for your contact"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
 msgstr "QR-koden är inte för din kontakt"
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "This QR code is not for trust decisions"
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
 msgstr "QR-koden är inte för beslut om pålitlighet"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Making trust decisions…"
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
 msgstr "Ta beslut om pålitlighet…"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Lägger till kontakt…"
@@ -1921,126 +1840,91 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: src/qml/KeyAuthenticationPage.qml:28
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr "Uppkopplade apparater"
+msgstr "Verifiera apparater"
 
 #: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
 msgstr "Visa förklaring"
 
 #: src/qml/KeyAuthenticationPage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
 msgstr "Läs QR-koder"
 
 #: src/qml/KeyAuthenticationPage.qml:41
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "Register manually"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr "Registrera manuellt"
+msgstr "Verifiera manuellt"
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgstr "Steg 1: läs av din <b>andra apparats</b> QR-kod"
 
 #: src/qml/KeyAuthenticationPage.qml:43
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "Steg 1: Läs av <b>kontaktens</b> QR-kod"
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
 msgstr "Steg 2: Läs in <b>den här apparatens</b> QR-kod med din andra apparat"
 
 #: src/qml/KeyAuthenticationPage.qml:45
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Steg 2: Låt kontakten läsa <b>din</b> QR-kod"
 
 #: src/qml/KeyAuthenticationPage.qml:63
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr "Uppkopplade apparater"
+msgstr "Overifierad egna apparater"
 
 #: src/qml/KeyAuthenticationPage.qml:63
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "Overifierad kontakters apparater"
 
 #: src/qml/KeyAuthenticationPage.qml:92
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr "Byt apparat"
+msgstr "Verifiera enheter"
 
 #: src/qml/KeyAuthenticationPage.qml:110
-#, fuzzy
-#| msgctxt "BlockingModel|"
-#| msgid "Devices on Servers"
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr "Enheter på servrar"
+msgstr "Enhet verifierad"
 
 #: src/qml/KeyAuthenticationPage.qml:112
 msgctxt "KeyAuthenticationPage|"
 msgid "Device does not exist or is already verified"
-msgstr ""
+msgstr "Enheten finns inte eller är redan verifierad"
 
 #: src/qml/KeyAuthenticationPage.qml:117
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
+"Fingeravtrycket måste ha 64 tecken med siffror och bokstäver från a till f"
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "Verifierade egna apparater"
 
 #: src/qml/KeyAuthenticationPage.qml:175
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "Kopiera fingeravtryck"
 
 #: src/qml/KeyAuthenticationPage.qml:182
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Contact copied to clipboard"
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr "Kontakt kopierad till klippbordet"
+msgstr "Fingeravtryck kopierat till klippbordet"
 
 #: src/qml/main.qml:81
 #, qt-format
@@ -2076,12 +1960,9 @@ msgid "Show explanation"
 msgstr "Visa förklaring"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>other device's</b> QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "Steg 1: läs av din <b>andra apparats</b> QR-kod"
+msgstr "Läs av din gamla apparats QR-kod"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
@@ -2186,6 +2067,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Du kan ange ett lösenord för ditt konto. Om du inte gör det, genereras ett "
+"lösenord som du senare kan finna i applikationen."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2502,49 +2385,34 @@ msgstr "Njut av fri kommunikation på alla apparater!"
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "Logga in"
 
 #: src/qml/StartPage.qml:71
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr "Ange ditt nuvarande lösenord"
+msgstr "Ange inloggningsinformation"
 
 #: src/qml/StartPage.qml:99
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr "Läs av egna QR-koder"
+msgstr "Läs av den gamla apparatens QR-koden för inloggning"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "eller"
 
 #: src/qml/StartPage.qml:119
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registrera"
 
 #: src/qml/StartPage.qml:123
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Generate an account automatically"
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Skapa ett konto automatiskt"
 
 #: src/qml/StartPage.qml:128
-#, fuzzy
-#| msgctxt "RegistrationDecisionPage|"
-#| msgid "Create an account manually"
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Skapa ett konto manuellt"
