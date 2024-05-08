@@ -78,7 +78,9 @@ Kirigami.GlobalDrawer {
 									name: AccountManager.displayName
 								}
 								leadingPadding: 10
-								text: AccountManager.displayName
+								// The placeholder text is used while the display name is not yet
+								// loaded to avoid a binding loop for the property "implicitHeight".
+								text: AccountManager.displayName ? AccountManager.displayName : " "
 								description: {
 									const color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
 									return "<font color='" + color + "'>" + Kaidan.connectionStateText + "</font>"
