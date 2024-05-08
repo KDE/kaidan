@@ -165,7 +165,7 @@ Kirigami.GlobalDrawer {
 					MobileForm.FormButtonDelegate {
 						text: qsTr("Settings")
 						icon.name: "preferences-system-symbolic"
-						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsSheet)
+						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsPage)
 					}
 				}
 			}
