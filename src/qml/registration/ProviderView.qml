@@ -27,7 +27,7 @@ FieldView {
 	property bool inBandRegistrationSupported: providerListModel.data(comboBox.currentIndex, ProviderListModel.SupportsInBandRegistrationRole)
 	property url registrationWebPage: providerListModel.data(comboBox.currentIndex, ProviderListModel.RegistrationWebPageRole)
 	property bool shouldWebRegistrationViewBeShown: !customProviderSelected && !inBandRegistrationSupported
-	property string outOfBandUrl
+	property url outOfBandUrl
 
 	property alias customConnectionSettings: customConnectionSettings
 

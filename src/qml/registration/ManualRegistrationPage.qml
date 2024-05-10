@@ -213,7 +213,7 @@ RegistrationPage {
 	function handleInBandRegistrationNotSupported() {
 		let notificationText = providerView.customProviderSelected ? qsTr("The provider does not support registration via this app.") : qsTr("The provider does currently not support registration via this app.")
 
-		if (providerView.registrationWebPage || providerView.outOfBandUrl) {
+		if (providerView.registrationWebPage.toString() || providerView.outOfBandUrl.toString()) {
 			addWebRegistrationView()
 			notificationText += " " + qsTr("But you can use the provider's web registration.")
 		} else {

@@ -97,7 +97,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 	if (newDataForm.fields().isEmpty()) {
 		// If there is a standardized out-of-band URL, use that.
 		if (!iq.outOfBandUrl().isEmpty()) {
-			Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(iq.outOfBandUrl());
+			Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived({ iq.outOfBandUrl() });
 			setRegisterOnConnectEnabled(false);
 			return;
 		}
@@ -107,7 +107,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		const auto words = iq.instructions().split(u' ');
 		for (const auto &instructionPart : words) {
 			if (instructionPart.startsWith(u"https://")) {
-				Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(instructionPart);
+				Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived({ instructionPart });
 				setRegisterOnConnectEnabled(false);
 				return;
 			}

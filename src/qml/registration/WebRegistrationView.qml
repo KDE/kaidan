@@ -23,12 +23,14 @@ View {
 
 		CenteredAdaptiveHighlightedButton {
 			text: qsTr("Open registration web page")
-			onClicked: Qt.openUrlExternally(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			onClicked: {
+				Qt.openUrlExternally(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			}
 		}
 
 		CenteredAdaptiveButton {
 			text: qsTr("Copy registration web page address")
-			onClicked: Utils.copyToClipboard(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			onClicked: Utils.copyToClipboard(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
 		}
 
 		CenteredAdaptiveHighlightedButton {
