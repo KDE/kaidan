@@ -22,6 +22,9 @@
 #include <QXmppPubSubManager.h>
 #include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+#include <QXmppSasl2UserAgent.h>
+#endif
 // Kaidan
 #include "AccountManager.h"
 #include "AtmManager.h"
@@ -197,6 +200,9 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		config.setIgnoreSslErrors(m_caches->settings->authTlsErrorsIgnored());
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
 		config.setResourcePrefix(m_caches->settings->authJidResourcePrefix());
+#endif
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+		config.setSasl2UserAgent(m_caches->accountManager->userAgent());
 #endif
 
 		auto host = AccountManager::instance()->host();

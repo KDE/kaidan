@@ -9,9 +9,12 @@
 // Qt
 #include <QMutex>
 #include <QObject>
+// QXmpp
+#include <QXmppGlobal.h>
 
 class Settings;
 class VCardCache;
+class QXmppSasl2UserAgent;
 
 /**
  * This class manages account-related settings.
@@ -184,6 +187,13 @@ public:
 	 * @param hasNewConnectionSettings whether the settings are new
 	 */
 	void setHasNewConnectionSettings(bool hasNewConnectionSettings);
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+	/**
+	 * Returns the user agent of the current account (thread-safe).
+	 */
+	QXmppSasl2UserAgent userAgent();
+#endif
 
 	/**
 	 * Loads all credentials and connection settings used to connect to the server.

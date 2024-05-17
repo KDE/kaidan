@@ -8,6 +8,7 @@
 #include "Settings.h"
 
 #include <QMutexLocker>
+#include <QUuid>
 
 #include "Globals.h"
 
@@ -16,7 +17,6 @@ Q_DECLARE_METATYPE(QXmppConfiguration::StreamSecurityMode)
 Settings::Settings(QObject *parent)
 	: QObject(parent), m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
 {
-
 }
 
 QSettings &Settings::raw()
@@ -127,6 +127,16 @@ Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
 void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), visibility, &Settings::authPasswordVisibilityChanged);
+}
+
+QUuid Settings::userAgentDeviceId() const
+{
+	return value<QUuid>(KAIDAN_SETTINGS_AUTH_DEVICE_ID);
+}
+
+void Settings::setUserAgentDeviceId(QUuid deviceId)
+{
+	setValue(KAIDAN_SETTINGS_AUTH_DEVICE_ID, deviceId);
 }
 
 Encryption::Enum Settings::encryption() const

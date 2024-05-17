@@ -21,6 +21,7 @@
 #define KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED "auth/tlsErrorsIgnored"
 #define KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT "auth/tlsRequirement"
 #define KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY "auth/passwordVisibility"
+#define KAIDAN_SETTINGS_AUTH_DEVICE_ID "auth/userAgentDeviceId"
 #define KAIDAN_SETTINGS_ENCRYPTION "encryption"
 #define KAIDAN_SETTINGS_NOTIFICATIONS_MUTED "muted/"
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"

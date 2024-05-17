@@ -78,6 +78,9 @@ public:
 	Kaidan::PasswordVisibility authPasswordVisibility() const;
 	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
 
+	QUuid userAgentDeviceId() const;
+	void setUserAgentDeviceId(QUuid deviceId);
+
 	Encryption::Enum encryption() const;
 	void setEncryption(Encryption::Enum encryption);
 

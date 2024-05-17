@@ -12,14 +12,17 @@
 #include <QStringBuilder>
 // QXmpp
 #include <QXmppUtils.h>
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+#include <QXmppSasl2UserAgent.h>
+#endif
 // Kaidan
-#include "Account.h"
 #include "AccountDb.h"
 #include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
+#include "SystemUtils.h"
 #include "VCardCache.h"
 
 AccountManager *AccountManager::s_instance = nullptr;
@@ -180,6 +183,18 @@ void AccountManager::setHasNewConnectionSettings(bool hasNewConnectionSettings)
 {
 	m_hasNewConnectionSettings = hasNewConnectionSettings;
 }
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+QXmppSasl2UserAgent AccountManager::userAgent()
+{
+	auto deviceId = m_settings->userAgentDeviceId();
+	if (deviceId.isNull()) {
+		deviceId = QUuid::createUuid();
+		m_settings->setUserAgentDeviceId(deviceId);
+	}
+	return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
+}
+#endif
 
 bool AccountManager::loadConnectionData()
 {
