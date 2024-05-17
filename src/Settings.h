@@ -69,6 +69,12 @@ public:
 	void resetAuthPort();
 	bool isDefaultAuthPort() const;
 
+	bool authTlsErrorsIgnored() const;
+	void setAuthTlsErrorsIgnored(bool enabled);
+
+	QXmppConfiguration::StreamSecurityMode authTlsRequirement() const;
+	void setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode);
+
 	Kaidan::PasswordVisibility authPasswordVisibility() const;
 	void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
 
@@ -102,6 +108,8 @@ Q_SIGNALS:
 	void authPasswordChanged();
 	void authHostChanged();
 	void authPortChanged();
+	void authIgnoreTlsErrosChanged();
+	void authTlsRequirementChanged();
 	void authPasswordVisibilityChanged();
 	void encryptionChanged();
 	void contactAdditionQrCodePageExplanationVisibleChanged();

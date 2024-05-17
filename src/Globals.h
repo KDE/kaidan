@@ -18,6 +18,8 @@
 #define KAIDAN_SETTINGS_AUTH_PASSWD "auth/password"
 #define KAIDAN_SETTINGS_AUTH_HOST "auth/host"
 #define KAIDAN_SETTINGS_AUTH_PORT "auth/port"
+#define KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED "auth/tlsErrorsIgnored"
+#define KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT "auth/tlsRequirement"
 #define KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY "auth/passwordVisibility"
 #define KAIDAN_SETTINGS_ENCRYPTION "encryption"
 #define KAIDAN_SETTINGS_NOTIFICATIONS_MUTED "muted/"

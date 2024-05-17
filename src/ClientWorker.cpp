@@ -193,7 +193,8 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		break;
 	case QXmppClient::DisconnectedState:
 		config.setJid(AccountManager::instance()->jid());
-		config.setStreamSecurityMode(QXmppConfiguration::TLSRequired);
+		config.setStreamSecurityMode(m_caches->settings->authTlsRequirement());
+		config.setIgnoreSslErrors(m_caches->settings->authTlsErrorsIgnored());
 
 		auto host = AccountManager::instance()->host();
 		if (!host.isEmpty())
