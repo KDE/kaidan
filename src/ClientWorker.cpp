@@ -195,6 +195,9 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		config.setJid(AccountManager::instance()->jid());
 		config.setStreamSecurityMode(m_caches->settings->authTlsRequirement());
 		config.setIgnoreSslErrors(m_caches->settings->authTlsErrorsIgnored());
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+		config.setResourcePrefix(m_caches->settings->authJidResourcePrefix());
+#endif
 
 		auto host = AccountManager::instance()->host();
 		if (!host.isEmpty())
