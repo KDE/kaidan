@@ -131,8 +131,9 @@ private:
 		return m_settings.value(key).template value<T>();
 	}
 
-	template<typename T, typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) <= 1, T> * = nullptr>
-	void setValue(const QString &key, const T &value, S s) {
+
+	template<typename T>
+	void setValue(const QString &key, const T &value) {
 		QMutexLocker locker(&m_mutex);
 		if constexpr (!has_enum_type<T>::value && std::is_enum<T>::value) {
 			m_settings.setValue(key, static_cast<std::underlying_type_t<T>>(value));
@@ -141,7 +142,11 @@ private:
 		} else {
 			m_settings.setValue(key, QVariant::fromValue(value));
 		}
-		locker.unlock();
+	}
+
+	template<typename T, typename S, typename std::enable_if<int(QtPrivate::FunctionPointer<S>::ArgumentCount) <= 1, T> * = nullptr>
+	void setValue(const QString &key, const T &value, S s) {
+		setValue(key, value);
 
 		if constexpr (int(QtPrivate::FunctionPointer<S>::ArgumentCount) == 0) {
 			Q_EMIT(this->*s)();
