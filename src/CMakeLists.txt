@@ -162,6 +162,8 @@ target_sources(${PROJECT_NAME} PRIVATE
 	static_plugins.h
 	StatusBar.cpp
 	StatusBar.h
+	SystemUtils.cpp
+	SystemUtils.h
 	TrustDb.cpp
 	TrustDb.h
 	UserDevicesModel.cpp

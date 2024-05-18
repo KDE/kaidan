@@ -19,6 +19,7 @@
 #include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
+#include "SystemUtils.h"
 
 using namespace std::chrono_literals;
 
@@ -82,9 +83,7 @@ QFuture<void> OmemoManager::load()
 	} else {
 		auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
 		future.then(this, [this, interface]() mutable {
-			const auto productName = QSysInfo::prettyProductName();
-			const QString productNameWithoutVersion = productName.contains(QStringLiteral(" ")) ? productName.section(QStringLiteral(" "), 0, -2) : productName;
-			auto future = m_manager->changeDeviceLabel(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % productNameWithoutVersion);
+			auto future = m_manager->changeDeviceLabel(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % SystemUtils::productName());
 			future.then(this, [this, interface](bool) mutable {
 				auto future = m_manager->load();
 				future.then(this, [this, interface](bool isLoaded) mutable {
