@@ -76,6 +76,15 @@ It stores, for example, contacts and messages.
 On Linux, you can find it at `.local/kaidan/kaidan.sqlite3`.
 To open it, you need an SQLite application (e.g., `sqlitebrowser`, use `sudo apt install sqlitebrowser` to install it on Debian-based systems)
 
+### Configuration Options
+
+There are some configuration options that cannot be set via the user interface and that are mostly useful for testing.
+
+| Name | Type | Description |
+|--|--|--|
+| `auth/tlsErrorsIgnored` | `bool` | If enabled, invalid certificates are also accepted. |
+| `auth/tlsRequirement` | `int` | `0`: Use TLS if available, `1`: Disable TLS, `2`: Require TLS |
+
 ## Testing
 
 The environment variable `KAIDAN_PROFILE` can be set to run Kaidan with custom configuration and database files.
