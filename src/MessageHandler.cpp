@@ -720,7 +720,7 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 				.fileGroupId = fgid.value(),
 				.name = file.metadata().filename(),
 				.description = file.metadata().description().value_or(QString()),
-				.mimeType = file.metadata().mediaType().value_or(QMimeType()),
+				.mimeType = file.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"))),
 				.size = file.metadata().size(),
 				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
 				.disposition = file.disposition(),
