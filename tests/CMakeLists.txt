@@ -114,3 +114,10 @@ target_link_libraries(PublicGroupChatSearch
 	PRIVATE
 		Qt::Core Qt::Network
 )
+
+add_executable(SendFileSourcesAttachment
+	manual/SendFileSourcesAttachment.cpp
+)
+target_link_libraries(SendFileSourcesAttachment
+	PRIVATE Qt::Core QXmpp::QXmpp
+)
