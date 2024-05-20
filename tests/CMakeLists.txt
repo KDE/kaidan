@@ -108,7 +108,7 @@ target_compile_definitions(FileModelTest PRIVATE BUILD_TESTS)
 # Manual tests
 
 add_executable(PublicGroupChatSearch
-	manual/public-group-chat-search.cpp
+	manual/PublicGroupChatSearch.cpp
 )
 target_link_libraries(PublicGroupChatSearch
 	PRIVATE
