@@ -327,44 +327,44 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "To sporočilo je šifrirano s %1, a ga ni bilo mogoče dešifrirati"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "V teku"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Poslano"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Dostavljeno"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/MessageModel.cpp:656 src/MessageModel.cpp:729 src/MessageModel.cpp:864
+#: src/MessageModel.cpp:658 src/MessageModel.cpp:731 src/MessageModel.cpp:866
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:807
+#: src/MessageModel.cpp:809
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Odzivov ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:1525
+#: src/MessageModel.cpp:1530
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Danes"
 
-#: src/MessageModel.cpp:1528
+#: src/MessageModel.cpp:1533
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -1166,9 +1166,12 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
-msgid "Transfer account to another device"
-msgstr "Prenesi račun na drugo napravo"
+msgid "Switch device"
+msgstr "Zamenjaj napravo"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
@@ -1190,13 +1193,45 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Prikaži kot besedilo"
 
-#: src/qml/DeviceSwitchingPage.qml:28
+#: src/qml/DeviceSwitchingPage.qml:36
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
-"in on it.\n"
+"in on it."
+msgstr ""
+"Skenirajte QR-kodo ali vnesite poverilnice kot besedilo v drugo napravo, da "
+"se na njej prijavite.\n"
 "\n"
-"Attention:\n"
+"Pozor:\n"
+"Nikoli ne pokažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
+"dostop do vašega računa!"
+
+#: src/qml/DeviceSwitchingPage.qml:41
+msgctxt "DeviceSwitchingPage|"
+msgid "Attention:"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:48
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "DeviceSwitchingPage|"
+msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
@@ -1207,22 +1242,22 @@ msgstr ""
 "Nikoli ne pokažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
 "dostop do vašega računa!"
 
-#: src/qml/DeviceSwitchingPage.qml:44
+#: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Naslov klepeta:"
 
-#: src/qml/DeviceSwitchingPage.qml:53
+#: src/qml/DeviceSwitchingPage.qml:78
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Kopiraj naslov klepeta"
 
-#: src/qml/DeviceSwitchingPage.qml:63
+#: src/qml/DeviceSwitchingPage.qml:88
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Geslo:"
 
-#: src/qml/DeviceSwitchingPage.qml:73
+#: src/qml/DeviceSwitchingPage.qml:98
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Kopiraj geslo"
@@ -1694,17 +1729,17 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Prikaži samo klepete z izbranimi oznakami"
 
-#: src/qml/elements/RosterListItem.qml:74
+#: src/qml/elements/RosterListItem.qml:75
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr "Osnutek:"
 
-#: src/qml/elements/RosterListItem.qml:82
+#: src/qml/elements/RosterListItem.qml:83
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr "Jaz:"
 
-#: src/qml/elements/RosterListItem.qml:85
+#: src/qml/elements/RosterListItem.qml:86
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -1803,42 +1838,42 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Dejavnosti"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:127
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Dodaj stik prek kode QR"
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:133
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Dodaj stik prek naslova klepeta"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:140
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Preišči javne grupe"
 
-#: src/qml/GlobalDrawer.qml:149
+#: src/qml/GlobalDrawer.qml:151
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Povabi prijatelje"
 
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:155
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Povezava za povabilo kopirana v odložišče"
 
-#: src/qml/GlobalDrawer.qml:158
+#: src/qml/GlobalDrawer.qml:160
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Zamenjaj napravo"
 
-#: src/qml/GlobalDrawer.qml:164
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Nastavitve"
@@ -2086,57 +2121,57 @@ msgctxt "ProviderView|"
 msgid "Provider"
 msgstr "Ponudnik"
 
-#: src/qml/registration/ProviderView.qml:76
+#: src/qml/registration/ProviderView.qml:75
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Nastavitve povezave"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:118
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr "Samo spletna registracija:"
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "No"
 msgstr "Ne"
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr "Da"
 
-#: src/qml/registration/ProviderView.qml:125
+#: src/qml/registration/ProviderView.qml:124
 msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr "Mesta strežnikov:"
 
-#: src/qml/registration/ProviderView.qml:131
+#: src/qml/registration/ProviderView.qml:130
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr "Jeziki:"
 
-#: src/qml/registration/ProviderView.qml:137
+#: src/qml/registration/ProviderView.qml:136
 msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr "V omrežju od:"
 
-#: src/qml/registration/ProviderView.qml:143
+#: src/qml/registration/ProviderView.qml:142
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr "Omogoča skupno rabo predstavnosti do:"
 
-#: src/qml/registration/ProviderView.qml:149
+#: src/qml/registration/ProviderView.qml:148
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr "Hrani predstavnost v skupni rabi do:"
 
-#: src/qml/registration/ProviderView.qml:157
+#: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Open website"
 msgstr "Odpri spletišče"
 
-#: src/qml/registration/ProviderView.qml:163
+#: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Copy website address"
 msgstr "Kopiraj naslov spletišča"
@@ -2215,12 +2250,12 @@ msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr "Odpri spletno stran za registracijo"
 
-#: src/qml/registration/WebRegistrationView.qml:30
+#: src/qml/registration/WebRegistrationView.qml:32
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr "Kopiraj naslov spletne strani registracije"
 
-#: src/qml/registration/WebRegistrationView.qml:36
+#: src/qml/registration/WebRegistrationView.qml:38
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "Prijavite se s svojim novim računom"
@@ -2547,7 +2582,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Zaustavitev %1 ogleda vaših osebnih podatkov ni uspela"
 
-#: src/RosterModel.cpp:846
+#: src/RosterModel.cpp:848
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -2581,6 +2616,10 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Prenesi račun na drugo napravo"
 
 #~ msgctxt "LoginPage|"
 #~ msgid "Log in to your XMPP account"

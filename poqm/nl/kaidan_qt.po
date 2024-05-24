@@ -324,44 +324,44 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Dit bericht is versleuteld met %1, maar kon niet ontcijferd worden"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In behandeling"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Verzonden"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Afgeleverd"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
 
-#: src/MessageModel.cpp:656 src/MessageModel.cpp:729 src/MessageModel.cpp:864
+#: src/MessageModel.cpp:658 src/MessageModel.cpp:731 src/MessageModel.cpp:866
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reactie kon niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:807
+#: src/MessageModel.cpp:809
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reacties konden niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:1525
+#: src/MessageModel.cpp:1530
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/MessageModel.cpp:1528
+#: src/MessageModel.cpp:1533
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -1167,9 +1167,12 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
-msgid "Transfer account to another device"
-msgstr "Account naar een ander apparaat overbrengen"
+msgid "Switch device"
+msgstr "Wissel van apparaat"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
@@ -1191,13 +1194,45 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Als tekst tonen"
 
-#: src/qml/DeviceSwitchingPage.qml:28
+#: src/qml/DeviceSwitchingPage.qml:36
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
-"in on it.\n"
+"in on it."
+msgstr ""
+"De QR-code scannen of de credentials als tekst invoeren op een ander "
+"apparaat om u er op aan te melden.\n"
 "\n"
-"Attention:\n"
+"Attentie:\n"
+"Deze QR-code nooit aan iemand anders tonen. Het zou ongelimiteerde toegang "
+"bieden tot uw account!"
+
+#: src/qml/DeviceSwitchingPage.qml:41
+msgctxt "DeviceSwitchingPage|"
+msgid "Attention:"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:48
+#, fuzzy
+#| msgctxt "DeviceSwitchingPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "DeviceSwitchingPage|"
+msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
@@ -1208,22 +1243,22 @@ msgstr ""
 "Deze QR-code nooit aan iemand anders tonen. Het zou ongelimiteerde toegang "
 "bieden tot uw account!"
 
-#: src/qml/DeviceSwitchingPage.qml:44
+#: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Chatadres:"
 
-#: src/qml/DeviceSwitchingPage.qml:53
+#: src/qml/DeviceSwitchingPage.qml:78
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Chatadres kopiëren"
 
-#: src/qml/DeviceSwitchingPage.qml:63
+#: src/qml/DeviceSwitchingPage.qml:88
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Wachtwoord:"
 
-#: src/qml/DeviceSwitchingPage.qml:73
+#: src/qml/DeviceSwitchingPage.qml:98
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Wachtwoord kopiëren"
@@ -1697,17 +1732,17 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Alleen chats met geselecteerde labels tonen"
 
-#: src/qml/elements/RosterListItem.qml:74
+#: src/qml/elements/RosterListItem.qml:75
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr "Concept:"
 
-#: src/qml/elements/RosterListItem.qml:82
+#: src/qml/elements/RosterListItem.qml:83
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr "Mij:"
 
-#: src/qml/elements/RosterListItem.qml:85
+#: src/qml/elements/RosterListItem.qml:86
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -1806,42 +1841,42 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Accounts"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:123
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Acties"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:127
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Contactpersoon toevoegen met QR-code"
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:133
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Contactpersoon toevoegen met chat-adres"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:140
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Publieke groepen doorzoeken"
 
-#: src/qml/GlobalDrawer.qml:149
+#: src/qml/GlobalDrawer.qml:151
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Nodig vrienden uit"
 
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:155
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Uitnodigingslink gekopieerd naar klembord"
 
-#: src/qml/GlobalDrawer.qml:158
+#: src/qml/GlobalDrawer.qml:160
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Wissel van apparaat"
 
-#: src/qml/GlobalDrawer.qml:164
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Instellingen"
@@ -2093,57 +2128,57 @@ msgctxt "ProviderView|"
 msgid "Provider"
 msgstr "Provider"
 
-#: src/qml/registration/ProviderView.qml:76
+#: src/qml/registration/ProviderView.qml:75
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Verbindingsinstellingen"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:118
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr "Alleen registratie via het web:"
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "No"
 msgstr "Nee"
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr "Ja"
 
-#: src/qml/registration/ProviderView.qml:125
+#: src/qml/registration/ProviderView.qml:124
 msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr "Serverlocaties:"
 
-#: src/qml/registration/ProviderView.qml:131
+#: src/qml/registration/ProviderView.qml:130
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr "Talen:"
 
-#: src/qml/registration/ProviderView.qml:137
+#: src/qml/registration/ProviderView.qml:136
 msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr "Online sinds:"
 
-#: src/qml/registration/ProviderView.qml:143
+#: src/qml/registration/ProviderView.qml:142
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr "Staat delen van media toe tot op:"
 
-#: src/qml/registration/ProviderView.qml:149
+#: src/qml/registration/ProviderView.qml:148
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr "Slaat gedeelde media op tot op:"
 
-#: src/qml/registration/ProviderView.qml:157
+#: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Open website"
 msgstr "Website openen"
 
-#: src/qml/registration/ProviderView.qml:163
+#: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Copy website address"
 msgstr "Website-adres kopiëren"
@@ -2224,12 +2259,12 @@ msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr "Webpagina voor registratie openen"
 
-#: src/qml/registration/WebRegistrationView.qml:30
+#: src/qml/registration/WebRegistrationView.qml:32
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr "Webpagina-adres voor registratie kopiëren"
 
-#: src/qml/registration/WebRegistrationView.qml:36
+#: src/qml/registration/WebRegistrationView.qml:38
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "Meldt u aan met uw nieuwe account"
@@ -2561,7 +2596,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterModel.cpp:846
+#: src/RosterModel.cpp:848
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -2595,6 +2630,10 @@ msgstr "Verjaardag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Account naar een ander apparaat overbrengen"
 
 #~ msgctxt "LoginPage|"
 #~ msgid "Log in to your XMPP account"

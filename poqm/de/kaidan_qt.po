@@ -345,27 +345,27 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ausstehend"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Versendet"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Ausgeliefert"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/MessageModel.cpp:656 src/MessageModel.cpp:729 src/MessageModel.cpp:864
+#: src/MessageModel.cpp:658 src/MessageModel.cpp:731 src/MessageModel.cpp:866
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -373,7 +373,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:807
+#: src/MessageModel.cpp:809
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -381,12 +381,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:1525
+#: src/MessageModel.cpp:1530
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1528
+#: src/MessageModel.cpp:1533
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -1261,8 +1261,8 @@ msgstr ""
 #: src/qml/DeviceSwitchingPage.qml:24
 #, fuzzy
 msgctxt "DeviceSwitchingPage|"
-msgid "Transfer account to another device"
-msgstr "Konto auf ein anderes Gerät übertragen"
+msgid "Switch device"
+msgstr "Gerät wechseln"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 #, fuzzy
@@ -1296,14 +1296,29 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Als Text anzeigen"
 
-#: src/qml/DeviceSwitchingPage.qml:28
+#: src/qml/DeviceSwitchingPage.qml:36
 #, fuzzy
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
-"in on it.\n"
+"in on it."
+msgstr ""
+"Scannen Sie den QR-Code oder geben Sie die Anmeldedaten als Text auf einem "
+"anderen Gerät ein, um sich dort anzumelden.\n"
 "\n"
-"Attention:\n"
+"Achtung!\n"
+"Zeigen Sie diesen QR-Code niemals anderen Personen. Er würde unbegrenzten "
+"Zugang zu Ihrem Konto ermöglichen!"
+
+#: src/qml/DeviceSwitchingPage.qml:41
+msgctxt "DeviceSwitchingPage|"
+msgid "Attention:"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:48
+#, fuzzy
+msgctxt "DeviceSwitchingPage|"
+msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
@@ -1314,13 +1329,13 @@ msgstr ""
 "Zeigen Sie diesen QR-Code niemals anderen Personen. Er würde unbegrenzten "
 "Zugang zu Ihrem Konto ermöglichen!"
 
-#: src/qml/DeviceSwitchingPage.qml:44
+#: src/qml/DeviceSwitchingPage.qml:69
 #, fuzzy
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Chat-Adresse:"
 
-#: src/qml/DeviceSwitchingPage.qml:53
+#: src/qml/DeviceSwitchingPage.qml:78
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1328,7 +1343,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Chat-Adresse kopieren"
 
-#: src/qml/DeviceSwitchingPage.qml:63
+#: src/qml/DeviceSwitchingPage.qml:88
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1336,7 +1351,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: src/qml/DeviceSwitchingPage.qml:73
+#: src/qml/DeviceSwitchingPage.qml:98
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -1904,17 +1919,17 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:74
+#: src/qml/elements/RosterListItem.qml:75
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:82
+#: src/qml/elements/RosterListItem.qml:83
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:85
+#: src/qml/elements/RosterListItem.qml:86
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -2039,7 +2054,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Konto-Sicherheit"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:123
 #, fuzzy
 #| msgctxt "ContextDrawer|"
 #| msgid "Actions"
@@ -2047,7 +2062,7 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:127
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add Contact"
@@ -2055,7 +2070,7 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Kontakt hinzufügen"
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:133
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Add Contact"
@@ -2063,7 +2078,7 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Kontakt hinzufügen"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:140
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -2071,25 +2086,25 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Weiter oben suchen"
 
-#: src/qml/GlobalDrawer.qml:149
+#: src/qml/GlobalDrawer.qml:151
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Freunde einladen"
 
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:155
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Einladungslink wurde in die Zwischenablage kopiert"
 
-#: src/qml/GlobalDrawer.qml:158
+#: src/qml/GlobalDrawer.qml:160
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Gerät wechseln"
 
-#: src/qml/GlobalDrawer.qml:164
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Einstellungen"
@@ -2355,27 +2370,27 @@ msgctxt "ProviderView|"
 msgid "Provider"
 msgstr "Anbieter"
 
-#: src/qml/registration/ProviderView.qml:76
+#: src/qml/registration/ProviderView.qml:75
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Verbindungseinstellungen"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:118
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "No"
 msgstr "Nein"
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr "Ja"
 
-#: src/qml/registration/ProviderView.qml:125
+#: src/qml/registration/ProviderView.qml:124
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2383,27 +2398,27 @@ msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr "Standort senden"
 
-#: src/qml/registration/ProviderView.qml:131
+#: src/qml/registration/ProviderView.qml:130
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr "Sprachen:"
 
-#: src/qml/registration/ProviderView.qml:137
+#: src/qml/registration/ProviderView.qml:136
 msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr "Online seit:"
 
-#: src/qml/registration/ProviderView.qml:143
+#: src/qml/registration/ProviderView.qml:142
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:149
+#: src/qml/registration/ProviderView.qml:148
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:157
+#: src/qml/registration/ProviderView.qml:156
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "Website"
@@ -2411,7 +2426,7 @@ msgctxt "ProviderView|"
 msgid "Open website"
 msgstr "Website"
 
-#: src/qml/registration/ProviderView.qml:163
+#: src/qml/registration/ProviderView.qml:162
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -2481,12 +2496,12 @@ msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:30
+#: src/qml/registration/WebRegistrationView.qml:32
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:36
+#: src/qml/registration/WebRegistrationView.qml:38
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in to your XMPP account"
@@ -2856,7 +2871,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterModel.cpp:846
+#: src/RosterModel.cpp:848
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2890,6 +2905,11 @@ msgstr "Geburtstag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
+
+#, fuzzy
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Konto auf ein anderes Gerät übertragen"
 
 #, fuzzy
 #~ msgctxt "LoginPage|"

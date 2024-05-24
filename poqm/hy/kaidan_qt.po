@@ -345,27 +345,27 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ընթացքում է"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Ուղարկված"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:229
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Առաքված"
 
-#: src/MessageModel.cpp:233
+#: src/MessageModel.cpp:231
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ձախողված"
 
-#: src/MessageModel.cpp:656 src/MessageModel.cpp:729 src/MessageModel.cpp:864
+#: src/MessageModel.cpp:658 src/MessageModel.cpp:731 src/MessageModel.cpp:866
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -373,7 +373,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageModel.cpp:807
+#: src/MessageModel.cpp:809
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -381,12 +381,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/MessageModel.cpp:1525
+#: src/MessageModel.cpp:1530
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1528
+#: src/MessageModel.cpp:1533
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -1373,11 +1373,11 @@ msgstr ""
 
 #: src/qml/DeviceSwitchingPage.qml:24
 #, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Transfer account to another device"
+#| msgctxt "GlobalDrawer|"
+#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
-msgid "Transfer account to another device"
-msgstr "Փոխանցել հաշիվը այլ սարք"
+msgid "Switch device"
+msgstr "Փոխել սարքը"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 #, fuzzy
@@ -1411,7 +1411,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "Ցույց տալ տեքստային տվյալները"
 
-#: src/qml/DeviceSwitchingPage.qml:28
+#: src/qml/DeviceSwitchingPage.qml:36
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid ""
@@ -1424,9 +1424,32 @@ msgstr "Ցույց տալ տեքստային տվյալները"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
-"in on it.\n"
+"in on it."
+msgstr ""
+"Սկանավորեք QR կոդը կամ ներմուծեք տեքստային տվյալները այլ սարքի մեջ՝ մուտք "
+"գործելու համար։\n"
 "\n"
-"Attention:\n"
+"Ուշադրություն՝\n"
+"Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
+"մուտք գործել Ձեր հաշիվ։"
+
+#: src/qml/DeviceSwitchingPage.qml:41
+msgctxt "DeviceSwitchingPage|"
+msgid "Attention:"
+msgstr ""
+
+#: src/qml/DeviceSwitchingPage.qml:48
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid ""
+#| "Scan the QR code or enter the credentials as text on another device to "
+#| "log in on it.\n"
+#| "\n"
+#| "Attention:\n"
+#| "Never show this QR code to anyone else. It would allow unlimited access "
+#| "to your account!"
+msgctxt "DeviceSwitchingPage|"
+msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
@@ -1437,7 +1460,7 @@ msgstr ""
 "Այս QR կոդը պետք է հասանելի լինի միայն Ձեզ։ Այն անվերապահորեն թույլատրում է "
 "մուտք գործել Ձեր հաշիվ։"
 
-#: src/qml/DeviceSwitchingPage.qml:44
+#: src/qml/DeviceSwitchingPage.qml:69
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -1445,7 +1468,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "Զրույցի հասցե:"
 
-#: src/qml/DeviceSwitchingPage.qml:53
+#: src/qml/DeviceSwitchingPage.qml:78
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -1453,7 +1476,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/DeviceSwitchingPage.qml:63
+#: src/qml/DeviceSwitchingPage.qml:88
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Password:"
@@ -1461,7 +1484,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "Գաղտնաբառ:"
 
-#: src/qml/DeviceSwitchingPage.qml:73
+#: src/qml/DeviceSwitchingPage.qml:98
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy password"
@@ -2074,17 +2097,17 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:74
+#: src/qml/elements/RosterListItem.qml:75
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:82
+#: src/qml/elements/RosterListItem.qml:83
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr ""
 
-#: src/qml/elements/RosterListItem.qml:85
+#: src/qml/elements/RosterListItem.qml:86
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -2210,7 +2233,7 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Հաշվի Անվտանգություն"
 
-#: src/qml/GlobalDrawer.qml:121
+#: src/qml/GlobalDrawer.qml:123
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -2218,12 +2241,12 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Տեղադրություն"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:127
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:131
+#: src/qml/GlobalDrawer.qml:133
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -2231,7 +2254,7 @@ msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Պատճենել զրույցի հասցեն"
 
-#: src/qml/GlobalDrawer.qml:138
+#: src/qml/GlobalDrawer.qml:140
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search up"
@@ -2239,22 +2262,22 @@ msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Որոնել վերևում"
 
-#: src/qml/GlobalDrawer.qml:149
+#: src/qml/GlobalDrawer.qml:151
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
 msgstr "Հրավիրել ընկերներին"
 
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:155
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
 msgstr "Հրավերի հղումը պատճենվել է"
 
-#: src/qml/GlobalDrawer.qml:158
+#: src/qml/GlobalDrawer.qml:160
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Փոխել սարքը"
 
-#: src/qml/GlobalDrawer.qml:164
+#: src/qml/GlobalDrawer.qml:166
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Կարգավորումներ"
@@ -2532,7 +2555,7 @@ msgctxt "ProviderView|"
 msgid "Provider"
 msgstr "Այլ սերվեր"
 
-#: src/qml/registration/ProviderView.qml:76
+#: src/qml/registration/ProviderView.qml:75
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings"
@@ -2540,22 +2563,22 @@ msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Կապի կարգավորումներ"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:118
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "No"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:120
+#: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:125
+#: src/qml/registration/ProviderView.qml:124
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2563,12 +2586,12 @@ msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/registration/ProviderView.qml:131
+#: src/qml/registration/ProviderView.qml:130
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:137
+#: src/qml/registration/ProviderView.qml:136
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Online devices"
@@ -2576,17 +2599,17 @@ msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr "Հասանելի սարքեր"
 
-#: src/qml/registration/ProviderView.qml:143
+#: src/qml/registration/ProviderView.qml:142
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:149
+#: src/qml/registration/ProviderView.qml:148
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:157
+#: src/qml/registration/ProviderView.qml:156
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "Website"
@@ -2594,7 +2617,7 @@ msgctxt "ProviderView|"
 msgid "Open website"
 msgstr "Վեբ-կայք"
 
-#: src/qml/registration/ProviderView.qml:163
+#: src/qml/registration/ProviderView.qml:162
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Copy chat address"
@@ -2667,12 +2690,12 @@ msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:30
+#: src/qml/registration/WebRegistrationView.qml:32
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:36
+#: src/qml/registration/WebRegistrationView.qml:38
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in to your XMPP account"
@@ -3026,7 +3049,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterModel.cpp:846
+#: src/RosterModel.cpp:848
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""
@@ -3060,6 +3083,13 @@ msgstr "Ծննդյան ամսաթիվ"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Transfer account to another device"
+#~ msgctxt "DeviceSwitchingPage|"
+#~ msgid "Transfer account to another device"
+#~ msgstr "Փոխանցել հաշիվը այլ սարք"
 
 #~ msgctxt "LoginPage|"
 #~ msgid "Log in to your XMPP account"
