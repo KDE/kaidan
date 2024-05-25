@@ -504,7 +504,9 @@ ChatPageBase {
 		}
 		onCountChanged: {
 			// Make it possible to directly enter a message after chatHintListView is focused because of changes in its model.
-			sendingPane.forceActiveFocus()
+			if (root.sendingPane) {
+				root.sendingPane.forceActiveFocus()
+			}
 		}
 	}
 }
