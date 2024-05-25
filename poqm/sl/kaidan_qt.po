@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-02-11 07:41+0100\n"
+"PO-Revision-Date: 2024-05-24 06:26+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,7 +16,7 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1166,12 +1166,9 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
-msgstr "Zamenjaj napravo"
+msgstr "Preklopi napravo"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
@@ -1194,52 +1191,26 @@ msgid "Show as text"
 msgstr "Prikaži kot besedilo"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
 "Skenirajte QR-kodo ali vnesite poverilnice kot besedilo v drugo napravo, da "
-"se na njej prijavite.\n"
-"\n"
-"Pozor:\n"
-"Nikoli ne pokažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
-"dostop do vašega računa!"
+"se na njej prijavite."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Pozor:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Skenirajte QR-kodo ali vnesite poverilnice kot besedilo v drugo napravo, da "
-"se na njej prijavite.\n"
-"\n"
-"Pozor:\n"
-"Nikoli ne pokažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
+"Nikoli ne kažite te QR-kode nikomur drugemu. To bi mu omogočilo neomejen "
 "dostop do vašega računa!"
 
 #: src/qml/DeviceSwitchingPage.qml:69

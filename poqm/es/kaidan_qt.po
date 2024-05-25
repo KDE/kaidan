@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-02-12 15:47+0100\n"
+"PO-Revision-Date: 2024-05-25 00:07+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1168,9 +1168,6 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "Cambiar dispositivo"
@@ -1196,53 +1193,27 @@ msgid "Show as text"
 msgstr "Mostrar como texto"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
-"Escanee el código QR o proporcione las credenciales como texto en otro "
-"dispositivo para acceder a la cuenta.\n"
-"\n"
-"Atención:\n"
-"¡Jamás muestre este código QR a otras personas, dado que brinda acceso "
-"ilimitado a su cuenta!"
+"Escanee el código QR o introduzca las credenciales como texto en otro "
+"dispositivo para iniciar sesión en él."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Atención:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Escanee el código QR o proporcione las credenciales como texto en otro "
-"dispositivo para acceder a la cuenta.\n"
-"\n"
-"Atención:\n"
-"¡Jamás muestre este código QR a otras personas, dado que brinda acceso "
-"ilimitado a su cuenta!"
+"No muestre nunca este código QR a otras personas. ¡Podría proporcionar "
+"acceso ilimitado a su cuenta!"
 
 #: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
