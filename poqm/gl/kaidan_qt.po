@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-02-11 11:47+0100\n"
+"PO-Revision-Date: 2024-05-25 08:47+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1165,9 +1165,6 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "Cambiar de dispositivo"
@@ -1193,51 +1190,25 @@ msgid "Show as text"
 msgstr "Amosar como texto"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
 "Escanee o código QR ou escriba as credenciais noutro dispositivo para "
-"acceder desde el.\n"
-"\n"
-"Atención:\n"
-"Nunca lle amose este código QR a ninguén. Permitiríalle acceso ilimitado á "
-"súa conta!"
+"acceder desde el."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Atención:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Escanee o código QR ou escriba as credenciais noutro dispositivo para "
-"acceder desde el.\n"
-"\n"
-"Atención:\n"
 "Nunca lle amose este código QR a ninguén. Permitiríalle acceso ilimitado á "
 "súa conta!"
 

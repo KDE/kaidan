@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-03 09:36+0200\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
+"PO-Revision-Date: 2024-05-25 11:00+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -1163,9 +1163,6 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "Byt apparat"
@@ -1191,51 +1188,25 @@ msgid "Show as text"
 msgstr "Visa som text"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
 "Läs av QR-koden eller ange inloggningsinformation som text på en annan "
-"apparat för att logga in på den.\n"
-"\n"
-"Observera:\n"
-"Visa aldrig QR-koden för någon annan. Den kan ge obegränsad åtkomst till "
-"ditt konto!"
+"apparat för att logga in på den."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Observera:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"Läs av QR-koden eller ange inloggningsinformation som text på en annan "
-"apparat för att logga in på den.\n"
-"\n"
-"Observera:\n"
 "Visa aldrig QR-koden för någon annan. Den kan ge obegränsad åtkomst till "
 "ditt konto!"
 
