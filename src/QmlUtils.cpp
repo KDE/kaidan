@@ -252,6 +252,20 @@ QString QmlUtils::fileNameFromUrl(const QUrl &url)
 	return QUrl(url).fileName();
 }
 
+QString QmlUtils::localFilePath(const QUrl &url)
+{
+	return url.toLocalFile();
+}
+
+QString QmlUtils::prettyLocalFilePath(const QUrl &url)
+{
+	if (url.isLocalFile()) {
+		return url.toLocalFile();
+	}
+
+	return url.toString();
+}
+
 QString QmlUtils::formattedDataSize(qint64 fileSize)
 {
 	if (fileSize < 0) {

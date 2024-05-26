@@ -164,6 +164,16 @@ public:
 	 */
 	Q_INVOKABLE static QString fileNameFromUrl(const QUrl &url);
 
+	/**
+	 * Returns the local file path from a URL.
+	 */
+	Q_INVOKABLE static QString localFilePath(const QUrl &url);
+
+	/**
+	 * Returns the pretty local file path from a URL.
+	 */
+	Q_INVOKABLE static QString prettyLocalFilePath(const QUrl &url);
+
 	// Returns a pretty formatted, localized file size
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
