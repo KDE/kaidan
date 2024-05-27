@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-03-24 10:34+0100\n"
+"PO-Revision-Date: 2024-05-26 07:22+0200\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -74,6 +74,8 @@ msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
 msgstr ""
+"%1 ŝatus ricevi viajn personajn datumojn kiel haveblecon, aparatojn kaj "
+"aliajn personajn informojn%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
@@ -97,6 +99,8 @@ msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
+"Via konto ne povus esti forigita de la servilo. Tial ĝi ankaŭ ne estis "
+"forigita de ĉi tiu programo: %1"
 
 #: src/FileSharingController.cpp:361
 #, qt-format
@@ -517,6 +521,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
+"babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
 #: src/qml/details/AccountDetailsContent.qml:166
 #: src/qml/details/AccountDetailsContent.qml:172
@@ -610,6 +616,8 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"Bloki specifan uzanton (ekz., user@example.org) aŭ ĉiujn uzantojn de la sama "
+"servilo (ekz., example.org)"
 
 #: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
@@ -662,6 +670,8 @@ msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
+"Ŝanĝu vian pasvorton. Vi devas enigi la novan pasvorton en ĉiuj viaj aliaj "
+"aparatoj!"
 
 #: src/qml/details/AccountDetailsContent.qml:592
 msgctxt "AccountDetailsContent|"
@@ -727,6 +737,10 @@ msgid ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 msgstr ""
+"Agordu ĉi tiun aparaton por ne elmontri vian pasvorton por ŝanĝi ĝin aŭ "
+"ŝanĝi al alia aparato. Se vi volas ŝanĝi vian pasvorton aŭ uzi vian konton "
+"en alia aparato poste, <b>konsideru konservi la pasvorton aliloke. Ĉi tio ne "
+"povas esti malfarata!</b>"
 
 #: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
@@ -739,6 +753,8 @@ msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
+"Permesu aldoni pliajn aparatojn per la ensaluta QR-kodo sed neniam montru la "
+"pasvorton"
 
 #: src/qml/details/AccountDetailsContent.qml:725
 #: src/qml/details/AccountDetailsContent.qml:744
@@ -759,6 +775,8 @@ msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
+"Nek permesi aldoni pliajn aparatojn uzante la ensaluta QR-kodo ne montri la "
+"pasvorton"
 
 #: src/qml/details/AccountDetailsContent.qml:767
 msgctxt "AccountDetailsContent|"
@@ -771,6 +789,8 @@ msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
+"Agordu la gastigan nomon kaj pordon por konektiĝi (malplenaj kampoj por "
+"defaŭltaj valoroj)"
 
 #: src/qml/details/AccountDetailsContent.qml:790
 msgctxt "AccountDetailsContent|"
@@ -809,6 +829,8 @@ msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
+"Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
+"babilhistorion se necese!"
 
 #: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
@@ -819,7 +841,7 @@ msgstr "Forigi tute"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
-msgstr ""
+msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -882,6 +904,8 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
+"babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
@@ -995,6 +1019,8 @@ msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
+"Petu vian kontakton kunhavigi la haveblecon, aparatojn kaj aliajn personajn "
+"informojn"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
@@ -1017,6 +1043,8 @@ msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
+"Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
+"ĉesas tajpi"
 
 #: src/qml/details/ContactDetailsContent.qml:394
 msgctxt "ContactDetailsContent|"
@@ -1133,11 +1161,10 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"Ne eblis forigi ĉiujn dosierojn:\n"
+"%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "Ŝanĝi aparaton"
@@ -1160,7 +1187,7 @@ msgstr "Kaŝi tekston"
 #: src/qml/DeviceSwitchingPage.qml:26
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
-msgstr "Montri kiel tekston"
+msgstr "Montri kiel teksto"
 
 #: src/qml/DeviceSwitchingPage.qml:36
 msgctxt "DeviceSwitchingPage|"
@@ -1168,11 +1195,13 @@ msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
+"Skanu la QR-kodon aŭ enigu la akreditaĵojn kiel teksto sur alia aparato por "
+"ensaluti al ĝi."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "Atentu:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
 msgctxt "DeviceSwitchingPage|"
@@ -1180,6 +1209,8 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"Neniam montru ĉi tiun QR-kodon al iu ajn alia. Ĝi permesus senliman aliron "
+"al via konto!"
 
 #: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
@@ -1589,6 +1620,8 @@ msgid ""
 "Camera busy\n"
 "Try to close other applications using the camera"
 msgstr ""
+"Fotilo okupata\n"
+"Provu fermi aliajn aplikaĵojn per la fotilo"
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
 msgctxt "QrCodeScanningArea|"
@@ -1715,6 +1748,9 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
+"La publikaj grupoj ne povus esti retrovitaj, provu denove.\n"
+"\n"
+"%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
 msgctxt "SearchPublicGroupChatSheet|"
@@ -1881,6 +1917,7 @@ msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
+"La fingrospuro devas havi 64 signojn kun ciferoj kaj literoj de a ĝis f"
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
@@ -1962,6 +1999,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"La servilo petis pliajn informojn.\n"
+"e ĉio povas esti bezonata.\n"
+"Se montriĝas CAPTCHA, la montrita teksto devas esti enigita."
 
 #: src/qml/registration/DisplayNameView.qml:14
 msgctxt "DisplayNameView|"
@@ -1972,6 +2012,10 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"Via montra nomo estas tio, kion vidos viaj kontaktoj.\n"
+"Se vi ne volas uzi montran nomon, vi povas lasi ĉi tiun kampon malplena.\n"
+"Uzo de montra nomo eble lasos novajn kontaktojn rekoni vin pli facile sed "
+"ankaŭ povus malpliigi vian privatecon!"
 
 #: src/qml/registration/DisplayNameView.qml:22
 msgctxt "DisplayNameView|"
@@ -2029,6 +2073,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"Vi povas doni pasvorton por via konto. Se vi ne faras, pasvorto estos "
+"generita, kiun vi povas trovi poste en la programo."
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2036,6 +2082,8 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"La provizanto estas kie via konto situas.\n"
+"La elekteblaj provizantoj estas mane elektataj de nia komunumo!"
 
 #: src/qml/registration/ProviderView.qml:39
 msgctxt "ProviderView|"
@@ -2125,6 +2173,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"Via babileja adreso estas uzata por babili kun vi, kiel via retadreso estas "
+"uzata por interŝanĝi retmesaĝojn.\n"
+"\n"
+"Via babileja adreso estos:"
 
 #: src/qml/registration/UsernameView.qml:18
 msgctxt "UsernameView|"
@@ -2135,6 +2187,11 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"Via uzantnomo estas uzata por ensaluti al via konto kaj por babili kun vi.\n"
+"Se vi ne enigas uzantnomon, la hazarde generita kaj jam montrita estas "
+"uzata.\n"
+"Uzado de propra uzantnomo eble lasos ĝin esti pli rekonebla sed ankaŭ povus "
+"malpliigu vian privatecon!"
 
 #: src/qml/registration/UsernameView.qml:35
 msgctxt "UsernameView|"
@@ -2146,6 +2203,7 @@ msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
 msgstr ""
+"Bonvolu enigi validan uzantnomon aŭ lasi la kampon malplena por hazarda."
 
 #: src/qml/registration/WebRegistrationView.qml:18
 msgctxt "WebRegistrationView|"
@@ -2153,6 +2211,8 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"La elektita provizanto nur provizas retregistradon. Post kreado de konto per "
+"la retpaĝo, vi povas ensaluti per Kaidan."
 
 #: src/qml/registration/WebRegistrationView.qml:25
 msgctxt "WebRegistrationView|"
@@ -2314,7 +2374,7 @@ msgstr "Pri Kaidan"
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
-msgstr ""
+msgstr "Eksciu pri la nuna Kaidan-versio, rigardu la fontkodon kaj kontribuu"
 
 #: src/qml/settings/SettingsPage.qml:10
 msgctxt "SettingsPage|"
@@ -2388,6 +2448,8 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"Ne eblis konekti al la servilo. Bonvolu kontroli vian interretan konekton aŭ "
+"vian servilnomon."
 
 #: src/QmlUtils.cpp:62
 msgctxt "QmlUtils|"
@@ -2410,6 +2472,8 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"La interreta aliro ne estas permesita. Bonvolu kontroli la agordon de "
+"interreta aliro de via sistemo."
 
 #: src/QmlUtils.cpp:70
 msgctxt "QmlUtils|"
@@ -2472,6 +2536,7 @@ msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
+"Peto vidi la personajn datumojn de %1 malsukcesis pro koneksa problemo: %2"
 
 #: src/RosterManager.cpp:208
 #, qt-format
@@ -2519,7 +2584,3 @@ msgstr "Naskiĝtago"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Transfer account to another device"
-#~ msgstr "Transloki konton al alia aparato"
