@@ -17,9 +17,10 @@ MessageReactionButton {
 	id: root
 
 	property string messageId
+	property bool isOwnMessage
 	property MessageReactionEmojiPicker emojiPicker
 
-	primaryColor: secondaryBackgroundColor
+	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
 	contentItem: Kirigami.Icon {
 		source: "smiley-add"
 	}

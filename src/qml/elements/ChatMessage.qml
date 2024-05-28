@@ -255,14 +255,15 @@ Kirigami.SwipeListItem {
 
 						MessageReactionAdditionButton {
 							id: messageReactionAdditionButton
-							messageId: root.msgId
-							emojiPicker: root.reactionEmojiPicker
 							accentColor: bubble.backgroundColor
+							messageId: root.msgId
+							isOwnMessage: root.isOwn
+							emojiPicker: root.reactionEmojiPicker
 						}
 
 						MessageReactionDetailsButton {
-							messageId: root.msgId
 							accentColor: bubble.backgroundColor
+							messageId: root.msgId
 							isOwnMessage: root.isOwn
 							detailedReactions: root.detailedReactions
 							ownDetailedReactions: root.ownDetailedReactions

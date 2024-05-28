@@ -16,9 +16,9 @@ MessageReactionButton {
 	id: root
 
 	property string messageId
+	property bool isOwnMessage
 	property var detailedReactions
 	property var ownDetailedReactions
-	property bool isOwnMessage
 	property MessageReactionDetailsSheet detailsSheet
 
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
