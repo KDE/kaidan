@@ -239,6 +239,7 @@ target_link_libraries(${PROJECT_NAME}
     KF5::KIOCore
     KF5::KIOWidgets
     QXmpp::QXmpp QXmpp::Omemo
+    ICU::uc
     ${__Qt5Widgets_LIBRARIES}
     ${__KF5Notifications_LIBRARIES}
 )

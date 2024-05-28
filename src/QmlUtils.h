@@ -14,6 +14,8 @@
 #include "ClientWorker.h"
 #include "Globals.h"
 
+class QQuickTextDocument;
+
 /**
  * This class contains C++ utilities to be used in QML.
  */
@@ -27,6 +29,7 @@ class QmlUtils : public QObject
 	Q_PROPERTY(QUrl issueTrackingUrl READ issueTrackingUrl CONSTANT)
 	Q_PROPERTY(QUrl donationUrl READ donationUrl CONSTANT)
 	Q_PROPERTY(QUrl mastodonUrl READ mastodonUrl CONSTANT)
+	Q_PROPERTY(QChar paddingCharacter READ paddingCharacter CONSTANT)
 
 public:
 	static QmlUtils *instance();
@@ -172,11 +175,25 @@ public:
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
 	/**
-	 * Styles/Formats a message to be displayed.
+	 * Attaches formatting to a text document in order to format the text on each change with
+	 * minimal adjustments.
 	 *
-	 * This currently only adds some link highlighting
+	 * That results in displaying the text approriately.
+	 * For example, emojis are correctly formatted and a bit enlarged.
 	 */
-	Q_INVOKABLE static QString formatMessage(const QString &message);
+	Q_INVOKABLE static void attachTextFormatting(QQuickTextDocument *);
+
+	/**
+	 * Attaches formatting to a text document in order to format the text on each change with all
+	 * available filters.
+	 *
+	 * That results in displaying the text approriately.
+	 * For example, emojis are correctly formatted and enlarged depending on their count while links
+	 * are marked as such and appropriately highlighted.
+	 */
+	Q_INVOKABLE static void attachEnhancedTextFormatting(QQuickTextDocument *);
+
+	static QChar paddingCharacter();
 
 	/**
 	 * Returns a consistent user color generated from the nickname.
@@ -205,10 +222,4 @@ public:
 	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
 	Q_INVOKABLE static QString osmUserAgent();
-
-private:
-	/**
-	 * Highlights links in a list of words.
-	 */
-	static QString processMsgFormatting(const QStringList &words, bool isFirst = true);
 };

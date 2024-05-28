@@ -111,7 +111,7 @@ Kirigami.SwipeListItem {
 				id: bubble
 
 				readonly property string paddingText: {
-					"⠀".repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
+					Utils.paddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
 				}
 
 				readonly property alias backgroundColor: bubbleBackground.color
@@ -147,12 +147,16 @@ Kirigami.SwipeListItem {
 						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
 
 						RowLayout {
-							Controls.Label {
-								text: spoilerHint == "" ? qsTr("Spoiler") : Utils.formatMessage(spoilerHint)
-								textFormat: Text.StyledText
-								wrapMode: Text.Wrap
+							TextEdit {
+								text: root.spoilerHint ? root.spoilerHint : qsTr("Spoiler")
 								color: Kirigami.Theme.textColor
+								enabled: true
+								wrapMode: Text.Wrap
+								readOnly: true
+								activeFocusOnPress: false
+								onLinkActivated: Qt.openUrlExternally(link)
 								Layout.fillWidth: true
+								Component.onCompleted: Utils.attachEnhancedTextFormatting(textDocument)
 							}
 
 							ClickableIcon {
@@ -202,15 +206,18 @@ Kirigami.SwipeListItem {
 						}
 
 						// message body
-						Controls.Label {
+						TextEdit {
 							id: bodyLabel
-							visible: messageBody
-							text: Utils.formatMessage(messageBody) + bubble.paddingText
-							textFormat: Text.StyledText
-							wrapMode: Text.Wrap
+							text: root.messageBody + bubble.paddingText
 							color: Kirigami.Theme.textColor
+							visible: messageBody
+							enabled: true
+							wrapMode: Text.Wrap
+							readOnly: true
+							activeFocusOnPress: false
 							onLinkActivated: Qt.openUrlExternally(link)
 							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+							Component.onCompleted: Utils.attachEnhancedTextFormatting(textDocument)
 						}
 					}
 

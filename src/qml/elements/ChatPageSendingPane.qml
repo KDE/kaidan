@@ -64,11 +64,12 @@ Controls.Pane {
 
 			Controls.TextArea {
 				id: spoilerHintField
-				Layout.fillWidth: true
 				placeholderText: qsTr("Visible message part")
 				wrapMode: Controls.TextArea.Wrap
 				selectByMouse: true
 				background: Item {}
+				Layout.fillWidth: true
+				Component.onCompleted: Utils.attachTextFormatting(textDocument)
 			}
 
 			Controls.Button {
@@ -125,7 +126,15 @@ Controls.Pane {
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
 				state: "compose"
+				states: [
+					State {
+						name: "compose"
+					},
 
+					State {
+						name: "edit"
+					}
+				]
 				onTextChanged: {
 					handleShortcuts()
 
@@ -136,17 +145,6 @@ Controls.Pane {
 						MessageModel.sendChatState(ChatState.Active)
 					}
 				}
-
-				states: [
-					State {
-						name: "compose"
-					},
-
-					State {
-						name: "edit"
-					}
-				]
-
 				Keys.onReturnPressed: {
 					if (event.key === Qt.Key_Return) {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
@@ -157,6 +155,7 @@ Controls.Pane {
 						}
 					}
 				}
+				Component.onCompleted: Utils.attachTextFormatting(textDocument)
 
 				Connections {
 					target: chatPage.searchBar

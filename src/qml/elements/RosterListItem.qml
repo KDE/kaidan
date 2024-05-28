@@ -61,10 +61,26 @@ UserListItem {
 		}
 
 		RowLayout {
+			id: secondRow
+			width: parent.width
+
+			// placeholder if no messages have been exchanged yet
+			Controls.Label {
+				text: qsTr("No messages yet")
+				visible: !root.lastMessage
+				color: Kirigami.Theme.disabledTextColor
+				elide: Text.ElideRight
+				font {
+					weight: Font.Light
+					italic: true
+				}
+				Layout.fillWidth: true
+			}
+
 			// prefix of the last message
 			Controls.Label {
 				id: lastMessagePrefix
-				visible: text && (lastMessageIsDraft || lastMessageSenderId)
+				visible: root.lastMessage && text && (lastMessageIsDraft || lastMessageSenderId)
 				textFormat: Text.PlainText
 				text: {
 					if (lastMessageIsDraft) {
@@ -90,47 +106,60 @@ UserListItem {
 			}
 
 			// last message or error status message
-			Controls.Label {
+			TextEdit {
 				id: lastMessageText
-				Layout.fillWidth: true
-				elide: Text.ElideRight
-				maximumLineCount: 1
-				text: Utils.removeNewLinesFromString(lastMessage)
-				textFormat: Text.PlainText
+				text: lastMessageTextMetrics.elidedText
+				color: Kirigami.Theme.textColor
 				font.weight: Font.Light
+				enabled: false
+				readOnly: true
+				activeFocusOnPress: false
+				Layout.fillWidth: true
+				Component.onCompleted: Utils.attachTextFormatting(textDocument)
+
+				TextMetrics {
+					id: lastMessageTextMetrics
+					text: Utils.removeNewLinesFromString(root.lastMessage)
+					elide: Text.ElideRight
+					elideWidth: secondRow.width - secondRow.spacing - lastMessagePrefix.width - optionalItemArea.width
+				}
 			}
 
-			// icon for muted contact
-			Kirigami.Icon {
-				source: "notifications-disabled-symbolic"
-				visible: root.notificationsMuted
-				Layout.preferredWidth: Layout.preferredHeight
-				Layout.preferredHeight: counter.height
-			}
+			RowLayout {
+				id: optionalItemArea
 
-			// icon for pinned chat
-			Kirigami.Icon {
-				source: "window-pin-symbolic"
-				visible: root.pinned
-				Layout.preferredWidth: Layout.preferredHeight
-				Layout.preferredHeight: counter.height
-			}
+				// icon for muted contact
+				Kirigami.Icon {
+					source: "notifications-disabled-symbolic"
+					visible: root.notificationsMuted
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
 
-			// unread message counter
-			MessageCounter {
-				id: counter
-				count: root.unreadMessages
-				muted: root.notificationsMuted
-			}
+				// icon for pinned chat
+				Kirigami.Icon {
+					source: "window-pin-symbolic"
+					visible: root.pinned
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
 
-			// icon for reordering
-			Kirigami.ListItemDragHandle {
-				visible: root.pinned
-				listItem: root
-				listView: root.listView
-				onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
-				Layout.preferredWidth: Layout.preferredHeight
-				Layout.preferredHeight: counter.height
+				// unread message counter
+				MessageCounter {
+					id: counter
+					count: root.unreadMessages
+					muted: root.notificationsMuted
+				}
+
+				// icon for reordering
+				Kirigami.ListItemDragHandle {
+					visible: root.pinned
+					listItem: root
+					listView: root.listView
+					onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
 			}
 		}
 	}

@@ -54,6 +54,7 @@ Controls.Popup {
 
 					font.pointSize: 20
 					text: model.unicode
+					font.family: "emoji"
 				}
 
 				onClicked: {
@@ -102,6 +103,7 @@ Controls.Popup {
 
 						font.pointSize: 20
 						text: model.label
+						font.family: "emoji"
 					}
 
 					onClicked: emojiView.model.group = model.group

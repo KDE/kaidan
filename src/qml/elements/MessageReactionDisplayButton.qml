@@ -41,5 +41,7 @@ MessageReactionButton {
 	contentItem: Controls.Label {
 		text: root.text
 		horizontalAlignment: Text.AlignHCenter
+		font.family: "emoji"
+		font.pixelSize: root.height * 0.8
 	}
 }

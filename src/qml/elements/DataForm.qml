@@ -63,12 +63,15 @@ ColumnLayout {
 					}
 				}
 
-				Controls.Label {
+				TextEdit {
 					visible: !textField.visible
-					text: Utils.formatMessage(model.value)
-					textFormat: Text.StyledText
+					text: model.value
 					wrapMode: Text.WordWrap
+					enabled: false
+					readOnly: true
+					activeFocusOnPress: false
 					onLinkActivated: Qt.openUrlExternally(link)
+					Component.onCompleted: Utils.attachTextFormatting(textDocument)
 				}
 
 				Component {

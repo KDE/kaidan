@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 cmake_minimum_required(VERSION 3.16)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 23)
 set(QT_MIN_VERSION "5.15.0")
 set(KF5_MIN_VERSION "5.67.0")
 
@@ -87,6 +87,12 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami2
 find_package(KF5KirigamiAddons 0.7.0 REQUIRED)
 find_package(ZXing REQUIRED)
 find_package(QXmpp 1.6.0 REQUIRED COMPONENTS Omemo)
+
+find_package(ICU 61.0 COMPONENTS uc)
+set_package_properties(ICU PROPERTIES
+    TYPE REQUIRED
+    PURPOSE "Unicode library (used for emoji support)"
+)
 
 # Format
 include(KDEClangFormat)

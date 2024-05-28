@@ -114,8 +114,8 @@ Kirigami.OverlaySheet {
 						Controls.TextField {
 							text: model.description
 							placeholderText: qsTr("Enter description…")
-							Layout.fillWidth: true
 							onTextChanged: model.description = text
+							Layout.fillWidth: true
 						}
 					}
 
