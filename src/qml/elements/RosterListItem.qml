@@ -60,10 +60,8 @@ UserListItem {
 			}
 		}
 
-		// last message or error status message if available, otherwise not visible
 		RowLayout {
-			visible: lastMessageText.text
-
+			// prefix of the last message
 			Controls.Label {
 				id: lastMessagePrefix
 				visible: text && (lastMessageIsDraft || lastMessageSenderId)
@@ -91,6 +89,7 @@ UserListItem {
 				}
 			}
 
+			// last message or error status message
 			Controls.Label {
 				id: lastMessageText
 				Layout.fillWidth: true
@@ -100,40 +99,40 @@ UserListItem {
 				textFormat: Text.PlainText
 				font.weight: Font.Light
 			}
+
+			// icon for muted contact
+			Kirigami.Icon {
+				source: "notifications-disabled-symbolic"
+				visible: root.notificationsMuted
+				Layout.preferredWidth: Layout.preferredHeight
+				Layout.preferredHeight: counter.height
+			}
+
+			// icon for pinned chat
+			Kirigami.Icon {
+				source: "window-pin-symbolic"
+				visible: root.pinned
+				Layout.preferredWidth: Layout.preferredHeight
+				Layout.preferredHeight: counter.height
+			}
+
+			// unread message counter
+			MessageCounter {
+				id: counter
+				count: root.unreadMessages
+				muted: root.notificationsMuted
+			}
+
+			// icon for reordering
+			Kirigami.ListItemDragHandle {
+				visible: root.pinned
+				listItem: root
+				listView: root.listView
+				onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
+				Layout.preferredWidth: Layout.preferredHeight
+				Layout.preferredHeight: counter.height
+			}
 		}
-	}
-
-	// right: icon for muted contact
-	// Its size depends on the font's pixel size to be as large as the message counter.
-	Kirigami.Icon {
-		source: "notifications-disabled-symbolic"
-		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
-		Layout.preferredHeight: Layout.preferredWidth
-		visible: notificationsMuted
-	}
-
-	// right: icon for pinned chat
-	// Its size depends on the font's pixel size to be as large as the message counter.
-	Kirigami.Icon {
-		source: "window-pin-symbolic"
-		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
-		Layout.preferredHeight: Layout.preferredWidth
-		visible: pinned
-	}
-
-	// right: unread message counter
-	MessageCounter {
-		id: counter
-		count: unreadMessages
-		muted: notificationsMuted
-	}
-
-	// right: icon for reordering
-	Kirigami.ListItemDragHandle {
-		visible: pinned
-		listItem: root
-		listView: root.listView
-		onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
 	}
 
 	MouseArea {
