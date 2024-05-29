@@ -59,11 +59,11 @@ Kirigami.GlobalDrawer {
 						title: qsTr("Accounts")
 					}
 
-					Repeater {
+					ListView {
 						model: [ AccountManager.jid ]
-
 						delegate: ColumnLayout {
 							spacing: 0
+							width: ListView.view.width
 
 							MobileForm.FormTextDelegate {
 								id: accountArea
@@ -72,14 +72,14 @@ Kirigami.GlobalDrawer {
 								property bool connected: Kaidan.connectionState === Enums.StateConnected
 
 								background: MobileForm.FormDelegateBackground { control: accountArea }
-								leftPadding: 15
 								leading: Avatar {
-									jid: AccountManager.jid
+									jid: modelData
 									name: AccountManager.displayName
 								}
 								leadingPadding: 10
-								// The placeholder text is used while the display name is not yet
-								// loaded to avoid a binding loop for the property "implicitHeight".
+								// The placeholder text is used while "AccountManager.displayName"
+								// is not yet loaded to avoid a binding loop for the property
+								// "implicitHeight".
 								text: AccountManager.displayName ? AccountManager.displayName : " "
 								description: {
 									const color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
@@ -109,6 +109,8 @@ Kirigami.GlobalDrawer {
 								}
 							}
 						}
+						implicitHeight: contentHeight
+						Layout.fillWidth: true
 					}
 				}
 			}
