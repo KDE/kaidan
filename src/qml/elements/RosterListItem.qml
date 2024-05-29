@@ -56,6 +56,7 @@ UserListItem {
 				text: root.lastMessageDateTime
 				visible: text && root.lastMessage
 				color: Kirigami.Theme.disabledTextColor
+				font.weight: Font.Light
 			}
 		}
 
