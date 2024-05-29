@@ -84,10 +84,8 @@ Kirigami.OverlaySheet {
 		Repeater {
 			id: fileList
 			model: root.composition.fileSelectionModel
-
-			delegate: Kirigami.AbstractListItem {
-				id: delegateRoot
-
+			delegate: Controls.ItemDelegate {
+				Layout.fillWidth: true
 				contentItem: RowLayout {
 					// Icon
 					Kirigami.Icon {
@@ -97,19 +95,15 @@ Kirigami.OverlaySheet {
 					}
 
 					// spacer
-					Item {
-					}
+					Item {}
 
 					// File name and description
 					ColumnLayout {
-						Layout.fillWidth: true
-
 						RowLayout {
 							Kirigami.Heading {
-								Layout.fillWidth: true
-
-								level: 3
 								text: model.fileName
+								level: 3
+								Layout.fillWidth: true
 							}
 
 							Controls.Label {
@@ -118,11 +112,9 @@ Kirigami.OverlaySheet {
 						}
 
 						Controls.TextField {
-							Layout.fillWidth: true
-
 							text: model.description
 							placeholderText: qsTr("Enter description…")
-
+							Layout.fillWidth: true
 							onTextChanged: model.description = text
 						}
 					}

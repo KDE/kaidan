@@ -6,11 +6,12 @@
 
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
+import QtQuick.Controls 2.14 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.AbstractListItem {
+Controls.ItemDelegate {
 	id: root
 
 	default property alias __data: content.data
@@ -49,8 +50,7 @@ Kirigami.AbstractListItem {
 			ColorAnimation { duration: Kirigami.Units.shortDuration }
 		}
 	}
-
-	RowLayout {
+	contentItem: RowLayout {
 		id: content
 		spacing: Kirigami.Units.gridUnit * 0.5
 
@@ -68,17 +68,10 @@ Kirigami.AbstractListItem {
 		}
 
 		// left: avatar
-		Item {
-			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
-			Layout.preferredHeight: Layout.preferredWidth
-
-			Avatar {
-				id: avatar
-				anchors.fill: parent
-				jid: root.jid
-				name: root.name
-				width: height
-			}
+		Avatar {
+			id: avatar
+			jid: root.jid
+			name: root.name
 		}
 	}
 }

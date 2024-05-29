@@ -360,11 +360,11 @@ Kirigami.ActionTextField {
 			// A delegate renders one list item.
 			//   TODO: Use a basic QML component to not be tied to Kirigami. Or document what
 			//   can be used here when wanting to use it independent of Kirigami.
-			delegate: Kirigami.BasicListItem {
+			delegate: ItemDelegate {
 				readonly property string value: model[root.role]
 
 				width: ListView.view.width - ListView.view.ScrollBar.vertical.width
-				label: highlightCompletion(value, root.input)
+				text: highlightCompletion(value, root.input)
 
 				// Background coloring should be used only for the selected item.
 				//   (Also, a lighter colored background automatically appears on mouse-over.)
