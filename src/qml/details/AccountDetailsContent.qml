@@ -290,11 +290,6 @@ DetailsContent {
 				id: providerListModel
 			}
 
-			ChatSupportSheet {
-				id: chatSupportSheet
-				chatSupportList: providerArea.chatSupportList
-			}
-
 			MobileForm.FormCardHeader {
 				title: qsTr("Provider")
 			}
@@ -322,15 +317,46 @@ DetailsContent {
 				visible: providerArea.chatSupportList.length > 0
 				onClicked: {
 					if (providerArea.chatSupportList.length === 1) {
-						let contactAdditionContainer = openView(contactAdditionDialog, contactAdditionPage)
-						contactAdditionContainer.jid = providerArea.chatSupportList[0]
-						contactAdditionContainer.name = qsTr("Support")
+						let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
+						contactAdditionView.jid = providerArea.chatSupportList[0]
+						contactAdditionView.name = qsTr("Support")
 
 						if (root.sheet) {
 							root.sheet.close()
 						}
 					} else {
-						chatSupportSheet.open()
+						chatSupportListView.visible = !chatSupportListView.visible
+					}
+				}
+			}
+
+			ListView {
+				id: chatSupportListView
+				visible: false
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				clip: true
+				model: Array.from(providerArea.chatSupportList)
+				delegate: MobileForm.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: MobileForm.AbstractFormDelegate {
+						background: Item {}
+						horizontalPadding: 0
+						verticalPadding: 0
+						contentItem: MobileForm.FormButtonDelegate {
+							text: qsTr("Support %1").arg(index + 1)
+							description: modelData
+							onClicked: {
+								let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
+								contactAdditionView.jid = modelData
+								contactAdditionView.name = text
+
+								if (root.sheet) {
+									root.sheet.close()
+								}
+							}
+						}
 					}
 				}
 			}
@@ -343,10 +369,29 @@ DetailsContent {
 					if (providerArea.groupChatSupportList.length === 1) {
 						Qt.openUrlExternally(Utils.groupChatUri(providerArea.groupChatSupportList[0]))
 					} else {
-						chatSupportSheet.isGroupChatSupportSheet = true
+						groupChatSupportListView.visible = !groupChatSupportListView.visible
+					}
+				}
+			}
 
-						if (!chatSupportSheet.sheetOpen) {
-							chatSupportSheet.open()
+			ListView {
+				id: groupChatSupportListView
+				visible: false
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				clip: true
+				model: Array.from(providerArea.groupChatSupportList)
+				delegate: MobileForm.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: MobileForm.AbstractFormDelegate {
+						background: Item {}
+						horizontalPadding: 0
+						verticalPadding: 0
+						contentItem: MobileForm.FormButtonDelegate {
+							text: qsTr("Group Support %1").arg(index + 1)
+							description: modelData
+							onClicked: Qt.openUrlExternally(Utils.groupChatUri(modelData))
 						}
 					}
 				}
