@@ -36,7 +36,6 @@ UserListItem {
 	// middle
 	ColumnLayout {
 		spacing: Kirigami.Units.largeSpacing
-		Layout.fillWidth: true
 
 		RowLayout {
 			// name
@@ -63,7 +62,6 @@ UserListItem {
 		// last message or error status message if available, otherwise not visible
 		RowLayout {
 			visible: lastMessageText.text
-			Layout.fillWidth: true
 
 			Controls.Label {
 				id: lastMessagePrefix
