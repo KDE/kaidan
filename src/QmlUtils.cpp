@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: 2019 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2019 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
-// SPDX-FileCopyrightText: 2021 Carson Black <uhhadd@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -15,110 +14,14 @@
 #include <QGuiApplication>
 #include <QImage>
 #include <QMimeDatabase>
-#include <QPalette>
-#include <QQuickTextDocument>
 #include <QRegularExpression>
 #include <QStandardPaths>
 #include <QStringBuilder>
-#include <QTextBoundaryFinder>
-#include <QTextCursor>
 // QXmpp
 #include "qxmpp-exts/QXmppColorGenerator.h"
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
-#include "Algorithms.h"
 #include "MessageModel.h"
-
-const auto EMOJI_FONT_FAMILY = QStringLiteral("emoji");
-constexpr auto URL_PREFIX = u"https://";
-const auto PADDING_CHARACTER = u'⠀';
-constexpr auto SINGLE_EMOJI_SIZE_FACTOR = 3;
-constexpr auto MULTIPLE_EMOJIS_SIZE_FACTOR = 2;
-constexpr auto MIXED_TEXT_EMOJI_SIZE_FACTOR = 1.3;
-
-enum class TextType {
-	Mixed,
-	SingleEmoji,
-	MultipleEmojis,
-};
-
-static TextType determineTextType(const QString &text) {
-	QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
-	auto emojiCounter = 0;
-
-	for (auto start = 0, end = 0; finder.toNextBoundary() != -1; start = end) {
-		end = finder.position();
-		auto part = text.mid(start, end - start).toUcs4()[0];
-		const auto firstCodepoint = text[start];
-
-		if (firstCodepoint.isSpace() || firstCodepoint == PADDING_CHARACTER) {
-			continue;
-		}
-
-		if (u_hasBinaryProperty(part, UCHAR_EMOJI_PRESENTATION)) {
-			emojiCounter++;
-		} else {
-			return TextType::Mixed;
-		}
-	}
-
-	switch (emojiCounter) {
-	case 0:
-		return TextType::Mixed;
-	case 1:
-		return TextType::SingleEmoji;
-	default:
-		return TextType::MultipleEmojis;
-	}
-}
-
-static auto isTextSeparator(QChar character)
-{
-	return character.isSpace() || character == PADDING_CHARACTER;
-}
-
-// Formats emojis to use an appropriate emoji font that usually displays coloured emojis.
-static void formatEmojis(QTextCursor &cursor, const QString &text, double emojiFontSizeFactor)
-{
-	QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
-
-	for (auto start = 0, end = 0; finder.toNextBoundary() != -1; start = end) {
-		end = finder.position();
-		auto firstCodepoint = QStringView(text).mid(start, end - start).toUcs4()[0];
-
-		if (u_hasBinaryProperty(firstCodepoint, UCHAR_EMOJI_PRESENTATION)) {
-			cursor.setPosition(start, QTextCursor::MoveAnchor);
-			cursor.setPosition(end, QTextCursor::KeepAnchor);
-
-			auto font = QGuiApplication::font();
-			font.setFamily(EMOJI_FONT_FAMILY);
-			font.setPointSize(font.pointSize() * emojiFontSizeFactor);
-
-			QTextCharFormat format;
-			format.setFont(font);
-			cursor.setCharFormat(format);
-		}
-	}
-}
-
-// Marks and hightlights URLs to be displayed as links that can be opened.
-static void formatUrls(QTextCursor &cursor, const QString &text)
-{
-	processTextParts(text, isTextSeparator, [&cursor](qsizetype i, QStringView part) {
-		if (part.startsWith(URL_PREFIX)) {
-			cursor.setPosition(i, QTextCursor::MoveAnchor);
-			cursor.setPosition(i + part.size(), QTextCursor::KeepAnchor);
-
-			QTextCharFormat format;
-
-			format.setAnchor(true);
-			format.setAnchorHref(part.toString());
-			format.setForeground(QPalette().link());
-
-			cursor.setCharFormat(format);
-		}
-	});
-}
 
 static QmlUtils *s_instance;
 
@@ -128,27 +31,6 @@ QmlUtils *QmlUtils::instance()
 		return new QmlUtils(QGuiApplication::instance());
 
 	return s_instance;
-}
-
-template<typename FormatText>
-static void attachFormatting(QQuickTextDocument *document, double emojiFontSizeFactor, FormatText formatText) {
-	auto textDocument = document->textDocument();
-
-	// Avoid calling this function again and creating an infinite loop if this function modifies the
-	// text document.
-	QObject::disconnect(textDocument, &QTextDocument::contentsChanged, s_instance, nullptr);
-
-	QTextCursor cursor(textDocument);
-	auto text = textDocument->toRawText();
-
-	formatEmojis(cursor, text, emojiFontSizeFactor);
-	formatText(cursor, text);
-
-	// Connect this function in order to be called each time the text document is modified.
-	// That way, text changes via QML cause the formatting to be applied.
-	QObject::connect(textDocument, &QTextDocument::contentsChanged, s_instance, [document, emojiFontSizeFactor, formatText]() {
-		attachFormatting(document, emojiFontSizeFactor, formatText);
-	});
 }
 
 QmlUtils::QmlUtils(QObject *parent)
@@ -161,6 +43,11 @@ QmlUtils::QmlUtils(QObject *parent)
 QmlUtils::~QmlUtils()
 {
 	s_instance = nullptr;
+}
+
+QChar QmlUtils::messageBubblepaddingCharacter()
+{
+	return MESSAGE_BUBBLE_PADDING_CHARACTER;
 }
 
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
@@ -337,37 +224,6 @@ QString QmlUtils::formattedDataSize(qint64 fileSize)
 	}
 
 	return QLocale::system().formattedDataSize(fileSize);
-}
-
-void QmlUtils::attachTextFormatting(QQuickTextDocument *document)
-{
-	attachFormatting(document, MIXED_TEXT_EMOJI_SIZE_FACTOR, [](auto, auto) {});
-}
-
-void QmlUtils::attachEnhancedTextFormatting(QQuickTextDocument *document)
-{
-	double emojiFontSizeFactor;
-
-	switch (determineTextType(document->textDocument()->toRawText())) {
-	case TextType::Mixed:
-		emojiFontSizeFactor = MIXED_TEXT_EMOJI_SIZE_FACTOR;
-		break;
-	case TextType::SingleEmoji:
-		emojiFontSizeFactor = SINGLE_EMOJI_SIZE_FACTOR;
-		break;
-	case TextType::MultipleEmojis:
-		emojiFontSizeFactor = MULTIPLE_EMOJIS_SIZE_FACTOR;
-		break;
-	}
-
-	attachFormatting(document, emojiFontSizeFactor, [](QTextCursor &cursor, const QString &text) {
-		formatUrls(cursor, text);
-	});
-}
-
-QChar QmlUtils::paddingCharacter()
-{
-	return PADDING_CHARACTER;
 }
 
 QColor QmlUtils::userColor(const QString &id, const QString &name)

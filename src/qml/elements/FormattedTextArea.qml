@@ -15,6 +15,10 @@ import im.kaidan.kaidan 1.0
  * For displaying text only, use FormattedTextEdit.
  */
 Controls.TextArea {
+	id: root
 	wrapMode: Text.Wrap
-	Component.onCompleted: Utils.attachTextFormatting(textDocument)
+
+	TextFormatter {
+		textDocument: root.textDocument
+	}
 }

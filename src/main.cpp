@@ -82,6 +82,7 @@
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "StatusBar.h"
+#include "TextFormatter.h"
 #include "UserDevicesModel.h"
 #include "VCardManager.h"
 #include "VCardModel.h"
@@ -452,6 +453,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
 	qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
 	qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
+	qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));

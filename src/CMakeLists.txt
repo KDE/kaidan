@@ -164,6 +164,8 @@ target_sources(${PROJECT_NAME} PRIVATE
     StatusBar.h
     SystemUtils.cpp
     SystemUtils.h
+    TextFormatter.h
+    TextFormatter.cpp
     TrustDb.cpp
     TrustDb.h
     UserDevicesModel.cpp

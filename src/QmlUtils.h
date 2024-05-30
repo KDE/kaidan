@@ -14,7 +14,7 @@
 #include "ClientWorker.h"
 #include "Globals.h"
 
-class QQuickTextDocument;
+const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
 
 /**
  * This class contains C++ utilities to be used in QML.
@@ -22,6 +22,7 @@ class QQuickTextDocument;
 class QmlUtils : public QObject
 {
 	Q_OBJECT
+	Q_PROPERTY(QChar messageBubblepaddingCharacter READ messageBubblepaddingCharacter CONSTANT)
 	Q_PROPERTY(QString versionString READ versionString CONSTANT)
 	Q_PROPERTY(QString applicationDisplayName READ applicationDisplayName CONSTANT)
 	Q_PROPERTY(QUrl applicationWebsiteUrl READ applicationWebsiteUrl CONSTANT)
@@ -29,13 +30,14 @@ class QmlUtils : public QObject
 	Q_PROPERTY(QUrl issueTrackingUrl READ issueTrackingUrl CONSTANT)
 	Q_PROPERTY(QUrl donationUrl READ donationUrl CONSTANT)
 	Q_PROPERTY(QUrl mastodonUrl READ mastodonUrl CONSTANT)
-	Q_PROPERTY(QChar paddingCharacter READ paddingCharacter CONSTANT)
 
 public:
 	static QmlUtils *instance();
 
 	QmlUtils(QObject *parent = nullptr);
 	~QmlUtils();
+
+	static QChar messageBubblepaddingCharacter();
 
 	/**
 	 * Returns an error message for a connection error.
@@ -173,27 +175,6 @@ public:
 
 	// Returns a pretty formatted, localized file size
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
-
-	/**
-	 * Attaches formatting to a text document in order to format the text on each change with
-	 * minimal adjustments.
-	 *
-	 * That results in displaying the text approriately.
-	 * For example, emojis are correctly formatted and a bit enlarged.
-	 */
-	Q_INVOKABLE static void attachTextFormatting(QQuickTextDocument *);
-
-	/**
-	 * Attaches formatting to a text document in order to format the text on each change with all
-	 * available filters.
-	 *
-	 * That results in displaying the text approriately.
-	 * For example, emojis are correctly formatted and enlarged depending on their count while links
-	 * are marked as such and appropriately highlighted.
-	 */
-	Q_INVOKABLE static void attachEnhancedTextFormatting(QQuickTextDocument *);
-
-	static QChar paddingCharacter();
 
 	/**
 	 * Returns a consistent user color generated from the nickname.

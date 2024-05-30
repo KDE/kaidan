@@ -14,6 +14,8 @@ import im.kaidan.kaidan 1.0
  * For entering text, use FormattedTextArea.
  */
 TextEdit {
+	id: root
+
 	// Whether to apply an enhanced formatting (e.g., single emojis are enlarged and links are
 	// marked as such)
 	property bool enhancedFormatting: false
@@ -24,16 +26,14 @@ TextEdit {
 	readOnly: true
 	activeFocusOnPress: false
 	onLinkActivated: Qt.openUrlExternally(link)
-	Component.onCompleted: {
-		if (enhancedFormatting) {
-			Utils.attachEnhancedTextFormatting(textDocument)
-		} else {
-			Utils.attachTextFormatting(textDocument)
-		}
-	}
 
 	HoverHandler {
 		id: hoverHandler
 		cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+	}
+
+	TextFormatter {
+		textDocument: root.textDocument
+		enhancedFormatting: root.enhancedFormatting
 	}
 }
