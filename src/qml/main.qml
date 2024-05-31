@@ -11,8 +11,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls.Material 2.14 as Material
+import QtQuick 2.15
+import QtQuick.Controls.Material 2.15 as Material
 import org.kde.kirigami 2.19 as Kirigami
 import StatusBar 0.1
 

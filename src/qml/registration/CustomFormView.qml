@@ -3,7 +3,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick.Controls 2.14 as Controls
+import QtQuick.Controls 2.15 as Controls
 
 import "../elements"
 

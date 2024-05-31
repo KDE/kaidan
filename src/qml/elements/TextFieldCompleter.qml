@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 // Autocomplete widget with completion highlighting similar to a web search.

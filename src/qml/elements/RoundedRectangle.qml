@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
+import QtQuick 2.15
 
 /**
  * This is a rectangle with rounded corners having a radius relative to the rectangle's dimensions.

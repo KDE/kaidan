@@ -10,9 +10,9 @@
  * the user. It just displays the video in a rectangle.
  */
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtMultimedia 5.14 as Multimedia
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtMultimedia 5.15 as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 MediaPreviewAudio {
