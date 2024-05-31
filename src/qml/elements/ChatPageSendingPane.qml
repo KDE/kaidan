@@ -62,14 +62,12 @@ Controls.Pane {
 			visible: composition.isSpoiler
 			spacing: 0
 
-			Controls.TextArea {
+			FormattedTextArea {
 				id: spoilerHintField
 				placeholderText: qsTr("Visible message part")
-				wrapMode: Controls.TextArea.Wrap
 				selectByMouse: true
 				background: Item {}
 				Layout.fillWidth: true
-				Component.onCompleted: Utils.attachTextFormatting(textDocument)
 			}
 
 			Controls.Button {
@@ -109,7 +107,7 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
-			Controls.TextArea {
+			FormattedTextArea {
 				id: messageArea
 				placeholderText: {
 					if (root.composition.isSpoiler) {
@@ -119,7 +117,6 @@ Controls.Pane {
 					}
 				}
 				background: Item {}
-				wrapMode: TextEdit.Wrap
 				Layout.leftMargin: Style.isMaterial ? 6 : 0
 				Layout.rightMargin: Style.isMaterial ? 6 : 0
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
@@ -155,7 +152,6 @@ Controls.Pane {
 						}
 					}
 				}
-				Component.onCompleted: Utils.attachTextFormatting(textDocument)
 
 				Connections {
 					target: chatPage.searchBar

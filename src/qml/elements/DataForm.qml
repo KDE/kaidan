@@ -63,15 +63,9 @@ ColumnLayout {
 					}
 				}
 
-				TextEdit {
+				FormattedTextEdit {
 					visible: !textField.visible
 					text: model.value
-					wrapMode: Text.WordWrap
-					enabled: false
-					readOnly: true
-					activeFocusOnPress: false
-					onLinkActivated: Qt.openUrlExternally(link)
-					Component.onCompleted: Utils.attachTextFormatting(textDocument)
 				}
 
 				Component {

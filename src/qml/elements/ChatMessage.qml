@@ -147,16 +147,11 @@ Kirigami.SwipeListItem {
 						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
 
 						RowLayout {
-							TextEdit {
+							FormattedTextEdit {
 								text: root.spoilerHint ? root.spoilerHint : qsTr("Spoiler")
-								color: Kirigami.Theme.textColor
 								enabled: true
-								wrapMode: Text.Wrap
-								readOnly: true
-								activeFocusOnPress: false
-								onLinkActivated: Qt.openUrlExternally(link)
+								enhancedFormatting: true
 								Layout.fillWidth: true
-								Component.onCompleted: Utils.attachEnhancedTextFormatting(textDocument)
 							}
 
 							ClickableIcon {
@@ -206,18 +201,13 @@ Kirigami.SwipeListItem {
 						}
 
 						// message body
-						TextEdit {
+						FormattedTextEdit {
 							id: bodyLabel
 							text: root.messageBody + bubble.paddingText
-							color: Kirigami.Theme.textColor
-							visible: messageBody
 							enabled: true
-							wrapMode: Text.Wrap
-							readOnly: true
-							activeFocusOnPress: false
-							onLinkActivated: Qt.openUrlExternally(link)
+							visible: messageBody
+							enhancedFormatting: true
 							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
-							Component.onCompleted: Utils.attachEnhancedTextFormatting(textDocument)
 						}
 					}
 

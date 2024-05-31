@@ -106,16 +106,11 @@ UserListItem {
 			}
 
 			// last message or error status message
-			TextEdit {
+			FormattedTextEdit {
 				id: lastMessageText
 				text: lastMessageTextMetrics.elidedText
-				color: Kirigami.Theme.textColor
 				font.weight: Font.Light
-				enabled: false
-				readOnly: true
-				activeFocusOnPress: false
 				Layout.fillWidth: true
-				Component.onCompleted: Utils.attachTextFormatting(textDocument)
 
 				TextMetrics {
 					id: lastMessageTextMetrics
