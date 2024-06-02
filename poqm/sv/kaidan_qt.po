@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-25 11:00+0200\n"
+"PO-Revision-Date: 2024-06-01 06:53+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -590,9 +590,7 @@ msgid "Support"
 msgstr "Support"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Support %1"
@@ -608,9 +606,7 @@ msgid "Join your provider's public support group"
 msgstr "Gå med i leverantörens öppna supportgrupp"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Gruppsupport %1"
@@ -1691,12 +1687,9 @@ msgid "Show only chats with selected labels"
 msgstr "Visa bara chatter för valda etiketter"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Kopiera meddelande"
+msgstr "Inga meddelanden ännu"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-24 11:23+0200\n"
+"PO-Revision-Date: 2024-06-01 10:21+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -591,9 +591,7 @@ msgid "Support"
 msgstr "Ondersteuning"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Ondersteuning %1"
@@ -609,9 +607,7 @@ msgid "Join your provider's public support group"
 msgstr "Doe mee met de publieke ondersteuningsgroep van uw leverancier"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Groepsondersteuning %1"
@@ -1698,12 +1694,9 @@ msgid "Show only chats with selected labels"
 msgstr "Alleen chats met geselecteerde labels tonen"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Bericht kopiëren"
+msgstr "Nog geen berichten"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"

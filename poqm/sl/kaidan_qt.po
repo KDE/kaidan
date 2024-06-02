@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-05-24 06:26+0200\n"
+"PO-Revision-Date: 2024-06-01 07:41+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -596,9 +596,7 @@ msgid "Support"
 msgstr "Podpora"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Podpora %1"
@@ -614,9 +612,7 @@ msgid "Join your provider's public support group"
 msgstr "Pridruži se podporni skupini vašega ponudnika"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Skupinska podpora %1"
@@ -1695,12 +1691,9 @@ msgid "Show only chats with selected labels"
 msgstr "Prikaži samo klepete z izbranimi oznakami"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Kopiraj sporočilo"
+msgstr "Še ni sporočil"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"
