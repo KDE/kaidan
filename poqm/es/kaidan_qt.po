@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-25 00:07+0200\n"
+"PO-Revision-Date: 2024-06-03 00:58+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -592,9 +592,7 @@ msgid "Support"
 msgstr "Asistencia"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Asistencia de %1"
@@ -610,9 +608,7 @@ msgid "Join your provider's public support group"
 msgstr "Unirse al grupo de asistencia público de su proveedor"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Grupo de asistencia de %1"
@@ -1699,12 +1695,9 @@ msgid "Show only chats with selected labels"
 msgstr "Mostrar solo los chats con las etiquetas seleccionadas"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Copiar mensaje"
+msgstr "Todavía no hay mensajes"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"

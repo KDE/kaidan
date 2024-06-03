@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-24 19:42+0100\n"
+"PO-Revision-Date: 2024-06-02 11:37+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -588,9 +588,7 @@ msgid "Support"
 msgstr "Support"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Support %1"
@@ -606,9 +604,7 @@ msgid "Join your provider's public support group"
 msgstr "Join your provider's public support group"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Group Support %1"
@@ -1683,12 +1679,9 @@ msgid "Show only chats with selected labels"
 msgstr "Show only chats with selected labels"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Copy message"
+msgstr "No messages yet"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"

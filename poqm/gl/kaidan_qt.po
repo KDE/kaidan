@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-25 08:47+0200\n"
+"PO-Revision-Date: 2024-06-02 11:46+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -594,12 +594,10 @@ msgid "Support"
 msgstr "Asistencia"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr "Asistencia %1"
+msgstr "Dar asistencia a %1"
 
 #: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
@@ -612,9 +610,7 @@ msgid "Join your provider's public support group"
 msgstr "Únase ao grupo público de asistencia do seu provedor"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Asistencia de grupo %1"
@@ -1699,12 +1695,9 @@ msgid "Show only chats with selected labels"
 msgstr "Amosar só as charlas coas etiquetas seleccionadas."
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Copiar mensaxe"
+msgstr "Aínda non hai mensaxes."
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"
