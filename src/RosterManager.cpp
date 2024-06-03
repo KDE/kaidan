@@ -155,7 +155,10 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
 {
 	if (m_client->state() == QXmppClient::ConnectedState) {
 		m_manager->addItem(jid, name);
-		m_manager->subscribe(jid, msg);
+
+		if (jid != m_client->configuration().jidBare()) {
+			m_manager->subscribe(jid, msg);
+		}
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
 			tr("Could not add contact, as a result of not being connected.")
