@@ -26,7 +26,7 @@ class RosterManager : public QObject
 public:
 	RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 
-	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {});
+	void addContact(const QString &jid, const QString &name = {}, const QString &msg = {}, bool automaticInitialAddition = false);
 	void removeContact(const QString &jid);
 	void renameContact(const QString &jid, const QString &newContactName);
 
@@ -45,8 +45,9 @@ Q_SIGNALS:
 	 * @param nick A simple nick name for the new contact, which should be
 	 *             used to display in the roster.
 	 * @param msg message presented to the added contact
+	 * @param automaticInitialAddition whether the contact is added after a first received message
 	 */
-	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &msg = {});
+	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &msg = {}, bool automaticInitialAddition = false);
 
 	/**
 	 * Remove a contact from your roster
@@ -78,5 +79,6 @@ private:
 	QMap<QString, QString> m_unprocessedSubscriptionRequests;
 	QMap<QString, QString> m_pendingSubscriptionRequests;
 	QMap<QString, QString> m_unrespondedSubscriptionRequests;
+	bool m_addingOwnJidToRosterAllowed = true;
 	bool m_isItemBeingChanged = false;
 };

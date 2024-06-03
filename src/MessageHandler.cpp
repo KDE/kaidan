@@ -527,7 +527,7 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 				return RosterModel::instance()->hasItem(senderJid);
 			}, this, [this, senderJid](bool hasItem) mutable {
 				if (!hasItem) {
-					m_clientWorker->rosterManager()->addContact(senderJid);
+					m_clientWorker->rosterManager()->addContact(senderJid, {}, {}, true);
 				}
 			});
 		}

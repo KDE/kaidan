@@ -151,13 +151,50 @@ void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJ
 	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, subscriberJid, requestText);
 }
 
-void RosterManager::addContact(const QString &jid, const QString &name, const QString &msg)
+void RosterManager::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
 {
 	if (m_client->state() == QXmppClient::ConnectedState) {
-		m_manager->addItem(jid, name);
+		auto notifyOnUnsupportedByServer = []() {
+			Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+				tr("The notes chat could not be added to your contact list because your server does not support that")
+			);
+		};
 
-		if (jid != m_client->configuration().jidBare()) {
-			m_manager->subscribe(jid, msg);
+		// Do not try to add the own JID to the roster mutiple times if the server does not support
+		// it.
+		if (const auto ownJidBeingAdded = jid == m_client->configuration().jidBare();
+			ownJidBeingAdded && !m_addingOwnJidToRosterAllowed) {
+			if (!automaticInitialAddition) {
+				notifyOnUnsupportedByServer();
+			}
+		} else {
+			m_manager->addRosterItem(jid, name).then(this, [this, jid, message, automaticInitialAddition, ownJidBeingAdded, notifyOnUnsupportedByServer](QXmppRosterManager::Result &&result) {
+				if (const auto error = std::get_if<QXmppError>(&result)) {
+					if (const auto stanzaError = error->takeValue<QXmppStanza::Error>();
+						ownJidBeingAdded &&
+						stanzaError &&
+						stanzaError->type() == QXmppStanza::Error::Cancel &&
+						stanzaError->condition() == QXmppStanza::Error::NotAllowed) {
+						m_addingOwnJidToRosterAllowed = false;
+
+						if (automaticInitialAddition) {
+							return;
+						}
+
+						notifyOnUnsupportedByServer();
+
+						return;
+					}
+
+					Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+						tr("%1 could not be added: %2").arg(jid, error->description)
+					);
+				} else {
+					if (!ownJidBeingAdded) {
+						m_manager->subscribeTo(jid, message);
+					}
+				}
+			});
 		}
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
