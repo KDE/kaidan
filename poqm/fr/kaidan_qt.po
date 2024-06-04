@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2024-05-25 10:01+0200\n"
+"PO-Revision-Date: 2024-06-02 09:49+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -600,12 +600,10 @@ msgid "Support"
 msgstr "Soutenir"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr "Soutenir %1"
+msgstr "Prendre en charge %1"
 
 #: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
@@ -618,12 +616,10 @@ msgid "Join your provider's public support group"
 msgstr "Veuillez contacter l'équipe de dépannage de de votre fournisseur"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr "Soutenir le groupe %1"
+msgstr "Regrouper ma prise en charge de %1"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -1717,12 +1713,9 @@ msgid "Show only chats with selected labels"
 msgstr "N'afficher que les discussions des étiquettes sélectionnées"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Copier un message"
+msgstr "Aucun message pour l'instant"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"

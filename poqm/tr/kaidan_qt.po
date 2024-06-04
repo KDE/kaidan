@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-24 06:05+0300\n"
+"PO-Revision-Date: 2024-06-04 01:05+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -590,9 +590,7 @@ msgid "Support"
 msgstr "Destek"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Destekle: %1"
@@ -608,9 +606,7 @@ msgid "Join your provider's public support group"
 msgstr "Sağlayıcınızın destek grubuna katıl"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Grup Olarak Destekle: %1"
@@ -1686,12 +1682,9 @@ msgid "Show only chats with selected labels"
 msgstr "Yalnızca seçili etiketlere iye olan sohbetleri göster"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "İletiyi kopyala"
+msgstr "Henüz bir ileti yok"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"
