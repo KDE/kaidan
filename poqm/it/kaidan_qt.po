@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-05-25 15:42+0200\n"
+"PO-Revision-Date: 2024-06-02 00:44+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -592,9 +592,7 @@ msgid "Support"
 msgstr "Supporto"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Supporta %1"
@@ -610,9 +608,7 @@ msgid "Join your provider's public support group"
 msgstr "Unisciti al gruppo di supporto pubblico del tuo fornitore"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Supporto gruppo %1"
@@ -1699,12 +1695,9 @@ msgid "Show only chats with selected labels"
 msgstr "Mostra solo le chat con le etichette selezionate"
 
 #: src/qml/elements/RosterListItem.qml:69
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Copia messaggio"
+msgstr "Ancora nessun messaggio"
 
 #: src/qml/elements/RosterListItem.qml:87
 msgctxt "RosterListItem|"
