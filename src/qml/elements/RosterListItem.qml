@@ -46,7 +46,6 @@ UserListItem {
 				elide: Text.ElideRight
 				maximumLineCount: 1
 				level: 4
-				Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
 				Layout.fillWidth: true
 			}
 
