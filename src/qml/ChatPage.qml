@@ -409,7 +409,7 @@ ChatPageBase {
 					// That is especially needed for the case that messages are fetched via MAM.
 					if (messageListView.visibleArea.yPosition >= 0 && oldestMessage) {
 						const spaceBetweenTopAndOldestMessage = messageListView.height + oldestMessage.y
-						return Math.max(minimalMargin, spaceBetweenTopAndOldestMessage - Kirigami.Units.smallSpacing * 13)
+						return Math.max(minimalMargin, spaceBetweenTopAndOldestMessage - Kirigami.Units.smallSpacing * 10)
 					}
 
 					return minimalMargin
