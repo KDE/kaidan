@@ -85,25 +85,16 @@ Kirigami.SwipeListItem {
 		RowLayout {
 			// Own messages are on the right, others on the left side.
 			layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
+			spacing: 0
 
-			// placeholder
-			Item {
-				Layout.preferredWidth: 5
-			}
-
-			Item {
-				visible: !isOwn
-				Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+			Avatar {
+				id: avatar
+				visible: !isOwn && isGroupBegin
+				jid: root.senderId
+				name: root.senderName
 				Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
-				Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
-
-				Avatar {
-					id: avatar
-					visible: !isOwn && isGroupBegin
-					anchors.fill: parent
-					jid: root.senderId
-					name: root.senderName
-				}
+				Layout.topMargin: - Kirigami.Units.gridUnit
+				Layout.bottomMargin: Layout.topMargin
 			}
 
 			// message bubble
@@ -120,6 +111,7 @@ Kirigami.SwipeListItem {
 				bottomPadding: Kirigami.Units.largeSpacing
 				leftPadding: Kirigami.Units.largeSpacing + background.tailSize
 				rightPadding: Kirigami.Units.largeSpacing
+				Layout.leftMargin: isOwn || avatar.visible ? 0 : avatar.width
 
 				background: MessageBackground {
 					id: bubbleBackground

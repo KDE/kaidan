@@ -35,4 +35,5 @@ Kirigami.ScrollablePage {
 			verticalAlignment: Image.AlignTop
 		}
 	}
+	bottomPadding: Kirigami.Units.largeSpacing
 }
