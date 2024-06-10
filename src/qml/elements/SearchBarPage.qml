@@ -23,6 +23,7 @@ Kirigami.ScrollablePage {
 	background: Rectangle {
 		color: primaryBackgroundColor
 	}
+	bottomPadding: 0
 	actions {
 		main: Kirigami.Action {
 			text: qsTr("Search")

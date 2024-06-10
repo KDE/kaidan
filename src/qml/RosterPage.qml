@@ -48,6 +48,7 @@ SearchBarPage {
 			background: Rectangle {
 				color: Kirigami.Theme.alternateBackgroundColor
 			}
+			bottomPadding: 0
 
 			RosterFilteringArea {
 				rosterFilterProxyModel: filterModel
