@@ -377,23 +377,17 @@ ChatPageBase {
 			anchors.horizontalCenter: parent.horizontalCenter
 			spacing: 0
 
-			Item {
-				height: Kirigami.Units.smallSpacing * 3
-			}
-
 			// date of the top-most (first) visible message shown at the top of the ChatPage
 			ChatInfo {
 				text: {
-					// The "yPosition" is checked in order to update/display the text once the
-					// ChatPage is opened and its messages loaded.
-					if (messageListView.visibleArea.yPosition >= 0) {
-						const contentY = messageListView.contentY
-
+					// "root.viewPositioned" is checked in order to update/display the text once the
+					// ChatPage is opened, its messages loaded and the view positioned.
+					if (root.viewPositioned && messageListView.count > 0) {
 						// Search until a message is found if there is a section label instead of a
 						// message at the top of the visible/content area.
 						// "i" is used as an offset.
-						for (let i = 0; i < 100; i++) {
-							const firstVisibleMessage = messageListView.itemAt(0, contentY + i)
+						for (let i = 0; i < messageListView.height; i++) {
+							const firstVisibleMessage = messageListView.itemAt(0, messageListView.contentY + i)
 
 							if (firstVisibleMessage) {
 								return firstVisibleMessage.date
@@ -406,22 +400,21 @@ ChatPageBase {
 					return ""
 				}
 				visible: text.length
-				Component.onCompleted: root.globalChatDate = this
-			}
+				Layout.topMargin: {
+					const minimalMargin = Kirigami.Units.smallSpacing * 3
+					const oldestMessage = messageListView.itemAtIndex(messageListView.count - 1)
 
-			Controls.BusyIndicator {
-				visible: opacity !== 0.0
-				height: visible ? undefined : Kirigami.Units.smallSpacing * 4
-				Layout.alignment: Qt.AlignHCenter
-				Layout.topMargin: Kirigami.Units.smallSpacing
-				padding: 0
-				opacity: MessageModel.mamLoading ? 1.0 : 0.0
-
-				Behavior on opacity {
-					NumberAnimation {
-						duration: Kirigami.Units.shortDuration
+					// "messageListView.visibleArea.yPosition" is checked in order to trigger the
+					// calculation when the ListView is scrolled.
+					// That is especially needed for the case that messages are fetched via MAM.
+					if (messageListView.visibleArea.yPosition >= 0 && oldestMessage) {
+						const spaceBetweenTopAndOldestMessage = messageListView.height + oldestMessage.y
+						return Math.max(minimalMargin, spaceBetweenTopAndOldestMessage - Kirigami.Units.smallSpacing * 13)
 					}
+
+					return minimalMargin
 				}
+				Component.onCompleted: root.globalChatDate = this
 			}
 
 			Item {
