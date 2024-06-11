@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -118,6 +119,32 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 	});
 }
 
+QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
+{
+	return run([this, jid]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				SELECT httpUploadLimit
+				FROM accounts
+				WHERE jid = :jid
+			)"),
+			{
+				{ u":jid", jid },
+			}
+		);
+
+		qint64 size = 0;
+
+		if (query.first()) {
+			size = query.value(0).toLongLong();
+		}
+
+		return size;
+	});
+}
+
 void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts)
 {
 	QSqlRecord rec = query.record();
@@ -126,6 +153,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxName = rec.indexOf(QStringLiteral("name"));
 	int idxLatestMessageStanzaId = rec.indexOf(QStringLiteral("latestMessageStanzaId"));
 	int idxLatestMessageTimestamp = rec.indexOf(QStringLiteral("latestMessageTimestamp"));
+	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
 
 	reserve(accounts, query);
 	while (query.next()) {
@@ -135,6 +163,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		account.name = query.value(idxName).toString();
 		account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
 		account.latestMessageTimestamp = query.value(idxLatestMessageTimestamp).toDateTime();
+		account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
 
 		accounts << std::move(account);
 	}
@@ -155,6 +184,9 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 	}
 	if (oldAccount.latestMessageTimestamp != newAccount.latestMessageTimestamp) {
 		rec.append(createSqlField(QStringLiteral("latestMessageTimestamp"), newAccount.latestMessageTimestamp));
+	}
+	if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
+		rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));
 	}
 
 	return rec;

@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -32,6 +33,8 @@
 
 #include <KFileUtils>
 
+#include "Account.h"
+#include "AccountDb.h"
 #include "Kaidan.h"
 #include "FutureUtils.h"
 #include "FileProgressCache.h"
@@ -141,9 +144,20 @@ FileSharingController::FileSharingController(QXmppClient *client)
 		auto reqMan = client->findExtension<QXmppUploadRequestManager>();
 		Q_ASSERT(reqMan);
 
-		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [reqMan]() {
+		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [client, reqMan]() {
 			bool supported = reqMan->serviceFound();
 			Kaidan::instance()->serverFeaturesCache()->setHttpUploadSupported(supported);
+
+			if (client->isConnected()) {
+				const auto services = reqMan->uploadServices();
+				const auto limit = services.isEmpty() ? 0 : services.constFirst().sizeLimit();
+
+				AccountDb::instance()->updateAccount(client->configuration().jidBare(), [limit](Account &account) {
+					account.httpUploadLimit = limit;
+				});
+
+				Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
+			}
 		});
 	});
 }

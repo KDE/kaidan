@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -26,6 +27,11 @@ public:
 	 * Fetches the stanza ID of the latest locally stored (existing or removed) message.
 	 */
 	QFuture<QString> fetchLatestMessageStanzaId(const QString &jid);
+
+	/**
+	 * Fetches the maximum size of each uploaded file (in bytes) allowed by the server.
+	 */
+	QFuture<qint64> fetchHttpUploadLimit(const QString &jid);
 
 private:
 	static void parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts);
