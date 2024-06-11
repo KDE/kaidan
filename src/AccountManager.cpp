@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -21,6 +22,7 @@
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "RosterModel.h"
+#include "ServerFeaturesCache.h"
 #include "Settings.h"
 #include "SystemUtils.h"
 #include "VCardCache.h"
@@ -62,6 +64,10 @@ void AccountManager::setJid(const QString &jid)
 		m_hasNewCredentials = true;
 
 		AccountDb::instance()->addAccount(jid);
+
+		await(AccountDb::instance()->fetchHttpUploadLimit(jid), this, [](qint64 &&limit) {
+			Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
+		});
 
 		locker.unlock();
 		Q_EMIT jidChanged();
