@@ -1260,12 +1260,12 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Copia la contrasenya"
 
-#: src/qml/elements/ChatMessage.qml:151
+#: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:293
+#: src/qml/elements/ChatMessage.qml:285
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1708,22 +1708,22 @@ msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Mostra només els xats amb les etiquetes seleccionades"
 
-#: src/qml/elements/RosterListItem.qml:69
+#: src/qml/elements/RosterListItem.qml:68
 msgctxt "RosterListItem|"
 msgid "No messages yet"
 msgstr "Encara no hi ha cap missatge"
 
-#: src/qml/elements/RosterListItem.qml:87
+#: src/qml/elements/RosterListItem.qml:86
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr "Esborrany:"
 
-#: src/qml/elements/RosterListItem.qml:95
+#: src/qml/elements/RosterListItem.qml:94
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr "Jo:"
 
-#: src/qml/elements/RosterListItem.qml:98
+#: src/qml/elements/RosterListItem.qml:97
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -1739,7 +1739,7 @@ msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
 msgstr "Fixa"
 
-#: src/qml/elements/SearchBarPage.qml:28
+#: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Cerca"
@@ -2542,23 +2542,38 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterManager.cpp:161
+#: src/RosterManager.cpp:159
+msgctxt "RosterManager|"
+msgid ""
+"The notes chat could not be added to your contact list because your server "
+"does not support that"
+msgstr ""
+
+#: src/RosterManager.cpp:190
+#, fuzzy, qt-format
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 could not be added"
+msgctxt "RosterManager|"
+msgid "%1 could not be added: %2"
+msgstr "No s'ha pogut afegir %1"
+
+#: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:174
+#: src/RosterManager.cpp:214
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:187
+#: src/RosterManager.cpp:227
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "No s'ha pogut reanomenar el contacte, com a resultat de no estar connectat."
 
-#: src/RosterManager.cpp:198
+#: src/RosterManager.cpp:238
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -2568,13 +2583,13 @@ msgstr ""
 "La sol·licitud de veure les dades personals de %1 ha fallat per un problema "
 "de connexió: %2"
 
-#: src/RosterManager.cpp:208
+#: src/RosterManager.cpp:248
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Ha fallat en permetre a %1 veure les vostres dades personals"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:257
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
