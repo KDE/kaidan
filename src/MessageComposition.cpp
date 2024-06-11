@@ -311,11 +311,17 @@ void FileSelectionModel::selectFile()
 	dialog->setFileMode(QFileDialog::ExistingFiles);
 
 	connect(dialog, &QFileDialog::filesSelected, this, [this, dialog]() {
-		Q_EMIT selectFileFinished();
-
 		const auto files = dialog->selectedFiles();
+		bool filesAdded = false;
+
 		for (const auto &file : files) {
-			addFile(QUrl::fromLocalFile(file));
+			if (addFile(QUrl::fromLocalFile(file))) {
+				filesAdded = true;
+			}
+		}
+
+		if (filesAdded) {
+			Q_EMIT selectFileFinished();
 		}
 	});
 	connect(dialog, &QDialog::finished, this, [dialog](auto) {
