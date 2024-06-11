@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -14,6 +15,7 @@
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
+#include "ServerFeaturesCache.h"
 
 // Qt
 #include <QFileDialog>
@@ -323,7 +325,7 @@ void FileSelectionModel::selectFile()
 	dialog->open();
 }
 
-void FileSelectionModel::addFile(const QUrl &localFilePath)
+bool FileSelectionModel::addFile(const QUrl &localFilePath)
 {
 	auto localPath = localFilePath.toLocalFile();
 
@@ -332,20 +334,30 @@ void FileSelectionModel::addFile(const QUrl &localFilePath)
 	});
 
 	if (alreadyAdded) {
-		return;
+		return false;
 	}
 
 	Q_ASSERT(localFilePath.isLocalFile());
+	const auto limit = Kaidan::instance()->serverFeaturesCache()->httpUploadLimit();
+	const QFileInfo fileInfo(localPath);
+
+	if (fileInfo.size() > limit) {
+		Kaidan::instance()->passiveNotificationRequested(tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
+		return false;
+	}
+
 	File file;
 	file.localFilePath = localPath;
 	file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
-	file.size = QFileInfo(localPath).size();
+	file.size = fileInfo.size();
 
 	generateThumbnail(file);
 
 	beginInsertRows({}, m_files.size(), m_files.size());
 	m_files.push_back(std::move(file));
 	endInsertRows();
+
+	return true;
 }
 
 void FileSelectionModel::removeFile(int index)

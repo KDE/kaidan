@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -88,7 +89,7 @@ public:
 	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	Q_INVOKABLE void selectFile();
-	Q_INVOKABLE void addFile(const QUrl &localFilePath);
+	Q_INVOKABLE bool addFile(const QUrl &localFilePath);
 	Q_INVOKABLE void removeFile(int index);
 	Q_INVOKABLE void clear();
 	bool setData(const QModelIndex &index, const QVariant &value, int role) override;

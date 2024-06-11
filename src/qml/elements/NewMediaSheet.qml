@@ -94,10 +94,11 @@ Kirigami.OverlaySheet {
 				Layout.fillWidth: true
 
 				onClicked: {
-					composition.fileSelectionModel.addFile(root.source)
-					composition.send()
-					close()
-					root.accepted()
+                    if (composition.fileSelectionModel.addFile(root.source)) {
+                        composition.send()
+                        close()
+                        root.accepted()
+                    }
 				}
 			}
 		}
