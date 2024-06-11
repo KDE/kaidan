@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -111,6 +112,7 @@ Kirigami.OverlaySheet {
 	onSheetOpenChanged: {
 		if (!sheetOpen) {
 			sourceType = Enums.MessageType.MessageUnknown
+            source = ""
 		}
 	}
 
