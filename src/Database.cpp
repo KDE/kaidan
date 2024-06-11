@@ -6,6 +6,7 @@
 // SPDX-FileCopyrightText: 2023 Sergey Smirnykh <sergey.smirnykh@siborgium.xyz>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -43,8 +44,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 41
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(41)
+#define DATABASE_LATEST_VERSION 42
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(42)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -420,6 +421,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(name, SQL_TEXT)
 			SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(latestMessageTimestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
 			"PRIMARY KEY(jid)"
 		)
 	);
@@ -1973,4 +1975,12 @@ void Database::convertDatabaseToV41()
 	);
 
 	d->version = 41;
+}
+
+void Database::convertDatabaseToV42()
+{
+	DATABASE_CONVERT_TO_VERSION(41)
+	QSqlQuery query(currentDatabase());
+	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD httpUploadLimit " SQL_INTEGER));
+	d->version = 42;
 }
