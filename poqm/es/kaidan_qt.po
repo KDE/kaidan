@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-03 00:58+0200\n"
+"PO-Revision-Date: 2024-06-12 00:52+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -2531,14 +2531,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Las notas de chat no se pueden añadir a su lista de contactos porque su "
+"servidor no lo permite"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "No se ha podido añadir %1"
+msgstr "No se ha podido añadir %1: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"

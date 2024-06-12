@@ -582,12 +582,10 @@ msgid "Support"
 msgstr "Podpora"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr "Podpora %1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
@@ -600,12 +598,10 @@ msgid "Join your provider's public support group"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr "Podpora %1"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -1646,12 +1642,9 @@ msgid "Show only chats with selected labels"
 msgstr ""
 
 #: src/qml/elements/RosterListItem.qml:68
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "Kopírovat zprávu"
+msgstr ""
 
 #: src/qml/elements/RosterListItem.qml:86
 msgctxt "RosterListItem|"
@@ -2447,12 +2440,10 @@ msgid ""
 msgstr ""
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 nelze přidat"
+msgstr ""
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
@@ -2523,7 +2514,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "ChatSupportSheet|"
-#~ msgid "Support"
-#~ msgstr "Podpora"

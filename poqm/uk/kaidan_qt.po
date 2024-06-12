@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-01 08:43+0300\n"
+"PO-Revision-Date: 2024-06-11 09:03+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -2539,14 +2539,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Список нотаток не може бути додано до вашого списку контактів, оскільки на "
+"вашому сервері не передбачено відповідної можливості"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "Не вдалося додати %1"
+msgstr "Не вдалося додати %1: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"

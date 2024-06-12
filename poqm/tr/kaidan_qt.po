@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-04 01:05+0300\n"
+"PO-Revision-Date: 2024-06-12 00:46+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -2511,14 +2511,13 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Notlar sohbeti kişi listenize eklenemedi; çünkü sunucunuz bunu desteklemiyor"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 eklenemedi"
+msgstr "%1 eklenemedi: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
