@@ -15,6 +15,7 @@ Controls.Label {
 	text: count > 9999 ? "9999+" : count
 	color: Kirigami.Theme.backgroundColor
 	font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.9
+	font.weight: Font.DemiBold
 	visible: count
 	leftPadding: font.pixelSize * 0.45
 	rightPadding: leftPadding

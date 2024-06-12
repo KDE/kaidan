@@ -60,7 +60,7 @@ UserListItem {
 				textFormat: Text.PlainText
 				elide: Text.ElideRight
 				maximumLineCount: 1
-				type: Kirigami.Heading.Type.Primary
+				type: root.unreadMessages ? Kirigami.Heading.Type.Primary : Kirigami.Heading.Type.Normal
 				level: 4
 				Layout.fillWidth: true
 			}
@@ -142,7 +142,7 @@ UserListItem {
 			FormattedTextEdit {
 				id: lastMessageText
 				text: lastMessageTextMetrics.elidedText
-				font.weight: Font.Light
+				font.weight: root.unreadMessages ? Font.Normal : Font.Light
 				Layout.fillWidth: true
 
 				TextMetrics {

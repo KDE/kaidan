@@ -949,6 +949,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		}
 
 		processMessage(msg);
+		updateLastReadOwnMessageId();
 		m_messages << msg;
 	}
 	endInsertRows();
