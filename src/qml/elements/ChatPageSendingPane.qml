@@ -95,7 +95,7 @@ Controls.Pane {
 
 			// emoji picker button
 			ClickableIcon {
-				source: "face-smile"
+				source: "smiley-add"
 				enabled: sendButton.enabled
 				onClicked: !emojiPicker.toggle()
 			}
