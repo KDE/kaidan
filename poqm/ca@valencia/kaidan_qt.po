@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-06-01 13:49+0200\n"
+"PO-Revision-Date: 2024-06-11 11:43+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -1763,7 +1763,7 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
-"No s'han pogut recuperar els grups públics, torneu-ho a intentar.\n"
+"No s'han pogut recuperar els grups públics, torneu-ho a provar.\n"
 "\n"
 "%1"
 
@@ -2550,14 +2550,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"No es pot afegir el xat de notes a la vostra llista de contactes perquè el "
+"servidor no ho permet"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "No s'ha pogut afegir %1"
+msgstr "No s'ha pogut afegir %1: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"

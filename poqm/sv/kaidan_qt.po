@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-01 06:53+0200\n"
+"PO-Revision-Date: 2024-06-12 20:40+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -2516,14 +2516,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Anteckningschatten kunde inte läggas till till i kontaktlistan eftersom "
+"servern inte stöder det"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 kunde inte läggas till"
+msgstr "%1 kunde inte läggas till: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
