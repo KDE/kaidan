@@ -71,7 +71,6 @@ Controls.Menu {
 	Controls.MenuItem {
 		text: qsTr("Remove from this device")
 		onTriggered: {
-			root.message.font.italic = true
 			MessageModel.removeMessage(root.message.msgId)
 
 			if (root.file && root.file.localFilePath) {
