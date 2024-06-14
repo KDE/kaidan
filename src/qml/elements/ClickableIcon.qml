@@ -11,10 +11,7 @@ import org.kde.kirigami 2.19 as Kirigami
  * This is a clickable icon changing its color on several events if possible.
  */
 Kirigami.Icon  {
-	width: Kirigami.Units.largeSpacing * 3.8
-	height: width
-
-	// Icons which cannot be colored (e.g. emojis) are highlighted in another way.
+	// Icons which cannot be colored (e.g., emojis) are highlighted in another way.
 	active: mouseArea.containsMouse
 
 	property alias mouseArea: mouseArea
