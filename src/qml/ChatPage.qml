@@ -271,7 +271,7 @@ ChatPageBase {
 						root.viewPositioned = true
 
 						// Trigger sending read markers manually as the view is ready.
-						messageListView.handleMessageRead()
+						messageListView.handleMessageReadOnPositionedView()
 					} else {
 						root.viewPositioned = true
 					}
@@ -299,12 +299,19 @@ ChatPageBase {
 		}
 
 		/**
-		 * Sends a read marker for the latest visible / read message.
+		 * Sends a read marker for the latest visible/read message if the view is positioned.
 		 */
 		function handleMessageRead() {
 			if (root.viewPositioned) {
-				MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
+				handleMessageReadOnPositionedView()
 			}
+		}
+
+		/**
+		 * Sends a read marker for the latest visible/read message.
+		 */
+		function handleMessageReadOnPositionedView() {
+			MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
 		}
 
 		ChatMessageContextMenu {
