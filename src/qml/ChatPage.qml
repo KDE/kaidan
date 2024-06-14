@@ -387,9 +387,11 @@ ChatPageBase {
 			// date of the top-most (first) visible message shown at the top of the ChatPage
 			ChatInfo {
 				text: {
-					// "root.viewPositioned" is checked in order to update/display the text once the
-					// ChatPage is opened, its messages loaded and the view positioned.
-					if (root.viewPositioned && messageListView.count > 0) {
+					// "root.viewPositioned" is checked in order to update/display the text when the
+					// ChatPage is opened or messages are fetched.
+					// "messageListView.contentHeight" is checked in order to update the margin when
+					// messages are added or updated (resulting in a larger height).
+					if (root.viewPositioned && messageListView.contentHeight && messageListView.count > 0) {
 						// Search until a message is found if there is a section label instead of a
 						// message at the top of the visible/content area.
 						// "i" is used as an offset.
@@ -411,12 +413,17 @@ ChatPageBase {
 					const minimalMargin = Kirigami.Units.smallSpacing * 3
 					const oldestMessage = messageListView.itemAtIndex(messageListView.count - 1)
 
-					// "messageListView.visibleArea.yPosition" is checked in order to trigger the
-					// calculation when the ListView is scrolled.
-					// That is especially needed for the case that messages are fetched via MAM.
-					if (messageListView.visibleArea.yPosition >= 0 && oldestMessage) {
+					// "root.viewPositioned" is checked in order to update the margin when the
+					// ChatPage is opened or messages are fetched.
+					// "messageListView.contentHeight" is checked in order to update the margin when
+					// messages are added or updated (resulting in a larger height).
+					// "messageListView.visibleArea.yPosition" is checked in order to update the
+					// margin when the ListView is scrolled.
+					// "oldestMessage" must be at the end of the condition (for unclear reasons).
+					// Otherwise, adding a message would always result in using "minimalMargin".
+					if (root.viewPositioned && messageListView.contentHeight && messageListView.visibleArea.yPosition >= 0 && oldestMessage) {
 						const spaceBetweenTopAndOldestMessage = messageListView.height + oldestMessage.y
-						return Math.max(minimalMargin, spaceBetweenTopAndOldestMessage - Kirigami.Units.smallSpacing * 10)
+						return Math.max(minimalMargin, spaceBetweenTopAndOldestMessage - Kirigami.Units.smallSpacing * 10 - messageListView.headerItem.height)
 					}
 
 					return minimalMargin
