@@ -452,17 +452,14 @@ ChatPageBase {
 			visible: ChatController.accountJid !== ChatController.chatJid
 			anchors.left: parent.left
 			anchors.right: parent.right
-			height: stateLabel.text ? 20 : 0
+			height: Kirigami.Units.largeSpacing * 3
 
+			// chat state
 			Controls.Label {
-				id: stateLabel
-				Layout.alignment: Qt.AlignCenter
-				Layout.maximumWidth: parent.width
-				height: !text ? 20 : 0
-				topPadding: text ? 10 : 0
-
 				text: Utils.chatStateDescription(ChatController.rosterItem.displayName, ChatController.chatState)
 				elide: Qt.ElideMiddle
+				Layout.alignment: Qt.AlignCenter
+				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
 			}
 		}
 
