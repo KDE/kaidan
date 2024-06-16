@@ -81,11 +81,6 @@ RosterModel::~RosterModel()
 	s_instance = nullptr;
 }
 
-bool RosterModel::isEmpty() const
-{
-	return m_items.isEmpty();
-}
-
 int RosterModel::rowCount(const QModelIndex&) const
 {
 	return m_items.length();

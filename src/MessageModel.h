@@ -119,7 +119,6 @@ public:
 	MessageModel(QObject *parent = nullptr);
 	~MessageModel();
 
-	[[nodiscard]] bool isEmpty() const;
 	[[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
 	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;

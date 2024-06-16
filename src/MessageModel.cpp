@@ -120,11 +120,6 @@ MessageModel::MessageModel(QObject *parent)
 
 MessageModel::~MessageModel() = default;
 
-bool MessageModel::isEmpty() const
-{
-	return m_messages.isEmpty();
-}
-
 int MessageModel::rowCount(const QModelIndex &) const
 {
 	return m_messages.length();
