@@ -82,7 +82,7 @@ RosterModel::~RosterModel()
 
 int RosterModel::rowCount(const QModelIndex&) const
 {
-	return m_items.length();
+	return m_items.size();
 }
 
 QHash<int, QByteArray> RosterModel::roleNames() const
@@ -348,7 +348,7 @@ void RosterModel::addItem(const RosterItem &item)
 void RosterModel::updateItem(const QString &jid,
                              const std::function<void (RosterItem &)> &updateItem)
 {
-	for (int i = 0; i < m_items.length(); i++) {
+	for (int i = 0; i < m_items.size(); i++) {
 		if (m_items.at(i).jid == jid) {
 			// update item
 			const auto oldItem = m_items.at(i);
@@ -550,7 +550,7 @@ void RosterModel::toggleSelected(const QString &, const QString &jid)
 
 void RosterModel::resetSelected()
 {
-	for (int i = 0; i < m_items.length(); i++) {
+	for (int i = 0; i < m_items.size(); i++) {
 		RosterItem &item = m_items[i];
 
 		if (item.selected) {

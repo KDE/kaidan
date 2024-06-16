@@ -66,7 +66,7 @@ MessageModel::~MessageModel()
 
 int MessageModel::rowCount(const QModelIndex &) const
 {
-	return m_messages.length();
+	return m_messages.size();
 }
 
 QHash<int, QByteArray> MessageModel::roleNames() const
@@ -818,10 +818,10 @@ void MessageModel::removeMessage(const QString &messageId)
 
 			// Get the previous message ID if possible.
 			const int newLastReadMessageIndex = readMessageIndex + 1;
-			const bool isNewLastReadMessageIdValid = m_messages.length() >= newLastReadMessageIndex;
+			const bool isNewLastReadMessageIdValid = m_messages.size() >= newLastReadMessageIndex;
 
 			const QString newLastReadMessageId {
-				isNewLastReadMessageIdValid && newLastReadMessageIndex < m_messages.length() ?
+				isNewLastReadMessageIdValid && newLastReadMessageIndex < m_messages.size() ?
 					m_messages.at(newLastReadMessageIndex).id :
 					QString()
 			};
@@ -927,7 +927,7 @@ void MessageModel::setMamLoading(bool mamLoading)
 
 void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 {
-	if (msgs.length() < DB_QUERY_LIMIT_MESSAGES)
+	if (msgs.size() < DB_QUERY_LIMIT_MESSAGES)
 		m_fetchedAllFromDb = true;
 
 	if (msgs.empty()) {
@@ -941,7 +941,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		return;
 	}
 
-	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.length() - 1);
+	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.size() - 1);
 	for (auto msg : msgs) {
 		// Skip messages that were not fetched for the current chat.
 		if (msg.accountJid != ChatController::instance()->accountJid() || msg.chatJid != ChatController::instance()->chatJid()) {
@@ -992,7 +992,7 @@ void MessageModel::handleMessage(Message msg, MessageOrigin origin)
 
 void MessageModel::handleMessageUpdated(Message message)
 {
-	for (int i = 0; i < m_messages.length(); i++) {
+	for (int i = 0; i < m_messages.size(); i++) {
 		const auto oldMessage = m_messages.at(i);
 		const auto oldId = oldMessage.id;
 		const auto oldReplaceId = oldMessage.replaceId;
