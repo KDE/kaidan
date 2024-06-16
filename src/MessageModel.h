@@ -119,10 +119,10 @@ public:
 	MessageModel(QObject *parent = nullptr);
 	~MessageModel();
 
-	Q_REQUIRED_RESULT bool isEmpty() const;
-	Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-	Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-	Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+	[[nodiscard]] bool isEmpty() const;
+	[[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	Q_INVOKABLE void fetchMore(const QModelIndex &parent) override;
 	Q_INVOKABLE bool canFetchMore(const QModelIndex &parent) const override;

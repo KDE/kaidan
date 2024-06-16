@@ -60,10 +60,10 @@ public:
 	RosterModel(QObject *parent = nullptr);
 	~RosterModel() override;
 
-	Q_REQUIRED_RESULT bool isEmpty() const;
-	Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-	Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-	Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+	[[nodiscard]] bool isEmpty() const;
+	[[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	/**
 	 * Returns whether this model has a roster item with the passed properties.
