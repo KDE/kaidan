@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-02 11:46+0200\n"
+"PO-Revision-Date: 2024-06-15 14:53+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -2526,14 +2526,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Non foi posíbel engadir a conversa de notas á lista de contactos porque o "
+"servidor non o permite."
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "Non foi posíbel engadir %1."
+msgstr "Non foi posíbel engadir %1: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
