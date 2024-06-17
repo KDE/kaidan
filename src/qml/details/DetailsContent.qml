@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -81,21 +82,28 @@ Controls.Control {
 
 				ColumnLayout {
 					visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
-					spacing: 0
 
-					Kirigami.Separator {
-						Layout.fillWidth: true
+					MobileForm.FormSectionText {
+						text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
 					}
 
-					MediaOverview {
-						id: mediaOverview
-						Layout.fillWidth: true
+					ColumnLayout {
+						visible: mediaOverview.totalFilesCount
+						spacing: 0
+
+						Kirigami.Separator {
+							Layout.fillWidth: true
+						}
+
+						MediaOverview {
+							id: mediaOverview
+							Layout.fillWidth: true
+						}
 					}
 				}
 
 				FormExpansionButton {
 					id: mediaOverviewExpansionButton
-					visible: mediaOverview.totalFilesCount
 					onCheckedChanged: {
 						if (checked) {
 							mediaOverview.selectionMode = false
