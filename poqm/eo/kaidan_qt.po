@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-06-01 10:51+0200\n"
+"PO-Revision-Date: 2024-06-16 07:39+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -2515,14 +2515,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"La notbabilado ne povis esti aldonita al via kontaktlisto ĉar via servilo ne "
+"subtenas tion"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 ne povis esti aldonita"
+msgstr "%1 ne povis esti aldonita: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-02 00:44+0200\n"
+"PO-Revision-Date: 2024-06-11 18:56+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -2537,14 +2537,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"Impossibile aggiungere la chat delle note al tuo elenco di contatti perché "
+"il tuo server non la supporta"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 non può essere aggiunto"
+msgstr "%1 non può essere aggiunto: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
