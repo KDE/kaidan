@@ -184,27 +184,25 @@ Controls.Pane {
 			ClickableIcon {
 				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
 				visible: messageArea.text === ""
-
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
+				}
+
+				Behavior on opacity {
+					NumberAnimation {}
 				}
 			}
 
 			// file sharing button
 			ClickableIcon {
+				property bool checked: false
+
 				source: "mail-attachment-symbolic"
 				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-
-				property bool checked: false
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					if (!checked) {
 						mediaPopup.open()
@@ -213,6 +211,10 @@ Controls.Pane {
 						mediaPopup.close()
 						checked = false
 					}
+				}
+
+				Behavior on opacity {
+					NumberAnimation {}
 				}
 			}
 
@@ -337,17 +339,19 @@ Controls.Pane {
 				id: sendButton
 				visible: messageArea.text !== ""
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
 				source: {
 					if (messageArea.state === "compose")
 						return "mail-send-symbolic"
 					else if (messageArea.state === "edit")
 						return "document-edit-symbolic"
 				}
-
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: sendMessage()
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
 			}
 		}
 	}
