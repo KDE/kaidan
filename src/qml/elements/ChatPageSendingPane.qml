@@ -20,12 +20,18 @@ import MediaUtils 0.1
  */
 Controls.Pane {
 	id: root
-	padding: 6
-
+	bottomInset: Kirigami.Units.largeSpacing
+	leftInset: bottomInset
+	rightInset: bottomInset
+	topPadding: topInset + Kirigami.Units.mediumSpacing
+	bottomPadding: bottomInset + Kirigami.Units.mediumSpacing
+	leftPadding: leftInset + Kirigami.Units.mediumSpacing
+	rightPadding: rightInset + Kirigami.Units.mediumSpacing
 	background: Kirigami.ShadowedRectangle {
 		shadow.color: Qt.darker(color, 1.2)
 		shadow.size: 4
 		color: Kirigami.Theme.backgroundColor
+		radius: Kirigami.Units.gridUnit * 1.2
 	}
 
 	property QtObject chatPage
