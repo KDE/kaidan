@@ -25,6 +25,7 @@ Controls.Popup {
 
 		GridView {
 			id: emojiView
+			snapMode: GridView.SnapToRow
 
 			Layout.fillWidth: true
 			Layout.fillHeight: true
