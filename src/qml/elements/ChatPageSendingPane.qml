@@ -37,6 +37,7 @@ Controls.Pane {
 	property QtObject chatPage
 	property alias messageArea: messageArea
 	property string replaceId
+	property string originalBody
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
 		accountJid: ChatController.accountJid
@@ -183,7 +184,7 @@ Controls.Pane {
 			// Voice message button
 			ClickableIcon {
 				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: messageArea.text === ""
+				visible: messageArea.text === "" && messageArea.state === "compose"
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
@@ -200,7 +201,7 @@ Controls.Pane {
 				property bool checked: false
 
 				source: "mail-attachment-symbolic"
-				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""
+				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""  && messageArea.state === "compose"
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
@@ -336,9 +337,22 @@ Controls.Pane {
 				}
 			}
 
+			// button for canceling message correction
+			ClickableIcon {
+				visible: messageArea.state === "edit"
+				opacity: visible ? 1 : 0
+				source: "dialog-cancel"
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+				onClicked: clearMessageArea()
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+			}
+
 			ClickableIcon {
 				id: sendButton
-				visible: messageArea.text !== ""
+				visible: messageArea.text !== "" && (messageArea.state === "compose" || messageArea.text !== root.originalBody)
 				opacity: visible ? 1 : 0
 				source: {
 					if (messageArea.state === "compose")
@@ -352,7 +366,6 @@ Controls.Pane {
 				Behavior on opacity {
 					NumberAnimation {}
 				}
-
 			}
 		}
 	}
@@ -370,6 +383,7 @@ Controls.Pane {
 
 	function prepareMessageCorrection(replaceId, body, spoilerHint) {
 		root.replaceId = replaceId
+		root.originalBody = body
 		messageArea.text = body
 		composition.isSpoiler = spoilerHint.length
 		spoilerHintField.text = spoilerHint
@@ -394,7 +408,7 @@ Controls.Pane {
 		// Send the message.
 		if (messageArea.state === "compose") {
 			composition.send()
-		} else if (messageArea.state === "edit") {
+		} else if (messageArea.state === "edit" && messageArea.text !== root.originalBody) {
 			composition.correct()
 			composition.isDraft = false
 		}
@@ -452,6 +466,7 @@ Controls.Pane {
 		composition.isSpoiler = false
 		spoilerHintField.clear()
 		replaceId = ""
+		originalBody = ""
 		messageArea.state = "compose"
 	}
 }
