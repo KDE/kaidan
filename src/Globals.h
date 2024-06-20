@@ -16,6 +16,7 @@
 #define KAIDAN_SETTINGS_AUTH_JID "auth/jid"
 #define KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX "auth/jidResourcePrefix"
 #define KAIDAN_SETTINGS_AUTH_PASSWD "auth/password"
+#define KAIDAN_SETTINGS_AUTH_CREDENTIALS "auth/credentials"
 #define KAIDAN_SETTINGS_AUTH_HOST "auth/host"
 #define KAIDAN_SETTINGS_AUTH_PORT "auth/port"
 #define KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED "auth/tlsErrorsIgnored"

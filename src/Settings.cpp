@@ -10,6 +10,10 @@
 #include <QMutexLocker>
 #include <QUuid>
 
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+#include <QXmppCredentials.h>
+#endif
+
 #include "Globals.h"
 
 Q_DECLARE_METATYPE(QXmppConfiguration::StreamSecurityMode)
@@ -63,6 +67,26 @@ void Settings::setAuthPassword(const QString &password)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()), &Settings::authPasswordChanged);
 }
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+QXmppCredentials Settings::authCredentials() const
+{
+	auto xml = value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS));
+
+	QXmlStreamReader r(xml);
+	r.readNextStartElement();
+	return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
+}
+
+void Settings::setAuthCredentials(const QXmppCredentials &credentials)
+{
+	QString xml;
+	QXmlStreamWriter writer(&xml);
+	credentials.toXml(writer);
+
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS), xml);
+}
+#endif
 
 QString Settings::authHost() const
 {

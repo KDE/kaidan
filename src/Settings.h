@@ -60,6 +60,11 @@ public:
 	QString authPassword() const;
 	void setAuthPassword(const QString &password);
 
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+	QXmppCredentials authCredentials() const;
+	void setAuthCredentials(const QXmppCredentials &credentials);
+#endif
+
 	QString authHost() const;
 	void setAuthHost(const QString &host);
 	void resetAuthHost();
