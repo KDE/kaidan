@@ -20,6 +20,7 @@
 // Kaidan
 #include "AccountManager.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "MessageHandler.h"

@@ -125,9 +125,24 @@ QString QmlUtils::getResourcePath(const QString &name)
 	return QString();
 }
 
+QString QmlUtils::versionString()
+{
+	return QStringLiteral(VERSION_STRING);
+}
+
+QString QmlUtils::applicationDisplayName()
+{
+	return QStringLiteral(APPLICATION_DISPLAY_NAME);
+}
+
 QUrl QmlUtils::applicationWebsiteUrl()
 {
 	return QUrl(QStringLiteral(APPLICATION_WEBSITE_URL));
+}
+
+QUrl QmlUtils::applicationSourceCodeUrl()
+{
+	return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
 }
 
 QUrl QmlUtils::issueTrackingUrl()
@@ -143,6 +158,11 @@ QUrl QmlUtils::donationUrl()
 QUrl QmlUtils::mastodonUrl()
 {
 	return QUrl(QStringLiteral(MASTODON_URL));
+}
+
+QUrl QmlUtils::invitationUrl(const QString &jid)
+{
+	return QUrl(QStringLiteral(INVITATION_URL) + jid);
 }
 
 #ifndef BUILD_TESTS
@@ -209,6 +229,11 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 	}
 
 	return keyIdParts.join(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR);
+}
+
+QString QmlUtils::removeNewLinesFromString(const QString &input)
+{
+	return input.simplified();
 }
 
 bool QmlUtils::isImageFile(const QUrl &fileUrl)

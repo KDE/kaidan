@@ -62,18 +62,12 @@ public:
 	/**
 	 * Returns the version of the current build.
 	 */
-	static QString versionString()
-	{
-		return QStringLiteral(VERSION_STRING);
-	}
+	static QString versionString();
 
 	/**
 	 * Returns the name of this application as it should be displayed to users.
 	 */
-	static QString applicationDisplayName()
-	{
-		return QStringLiteral(APPLICATION_DISPLAY_NAME);
-	}
+	static QString applicationDisplayName();
 
 	/**
 	 * Returns the URL of this application's website.
@@ -83,10 +77,7 @@ public:
 	/**
 	 * Returns the URL where the source code of this application can be found.
 	 */
-	static QUrl applicationSourceCodeUrl()
-	{
-		return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
-	}
+	static QUrl applicationSourceCodeUrl();
 
 	/**
 	 * Returns the URL to view and report issues.
@@ -106,10 +97,7 @@ public:
 	/**
 	 * Returns an invitation URL to the given JID.
 	 */
-	Q_INVOKABLE static QUrl invitationUrl(const QString &jid)
-	{
-		return QUrl(QStringLiteral(INVITATION_URL) + jid);
-	}
+	Q_INVOKABLE static QUrl invitationUrl(const QString &jid);
 
 #ifndef BUILD_TESTS
 	/**
@@ -157,10 +145,7 @@ public:
 	 *
 	 * See QString::simplified for more information.
 	 */
-	Q_INVOKABLE static QString removeNewLinesFromString(const QString &input)
-	{
-		return input.simplified();
-	}
+	Q_INVOKABLE static QString removeNewLinesFromString(const QString &input);
 
 	/**
 	 * Checks whether a file is an image and could be displayed as such.
