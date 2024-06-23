@@ -18,7 +18,14 @@ import "elements"
  * It is displayed if no account is available.
  */
 Kirigami.ScrollablePage {
-	title: "Kaidan"
+	title: {
+		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			return qsTr("Account Migration")
+		}
+
+		return "Kaidan"
+	}
+
 	background: Rectangle {
 		color: secondaryBackgroundColor
 
@@ -88,8 +95,12 @@ Kirigami.ScrollablePage {
 						target: pageStack.layers
 
 						function onCurrentItemChanged() {
-							if (AccountManager.jid) {
-								loginArea.visible = true
+							if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+								if (AccountManager.jid) {
+									loginArea.visible = true
+								}
+							} else {
+								loginArea.reset();
 							}
 						}
 					}
@@ -143,5 +154,9 @@ Kirigami.ScrollablePage {
 			if (Kaidan.connectionError !== ClientWorker.NoError)
 				passiveNotification(Utils.connectionErrorMessage(Kaidan.connectionError))
 		}
+	}
+
+	onBackRequested: function (event) {
+		Kaidan.cancelAccountMigration();
 	}
 }

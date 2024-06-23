@@ -285,6 +285,10 @@ RegistrationPage {
 		addPasswordView(++indexToInsert)
 		addCustomFormView(++indexToInsert)
 		addResultView(++indexToInsert)
+
+		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			swipeView.removeItem(displayNameView)
+		}
 	}
 
 	/**
@@ -388,7 +392,17 @@ RegistrationPage {
 		addLoadingView(swipeView.currentIndex + 1)
 		jumpToNextView()
 
-		Kaidan.client.vCardManager.changeNicknameRequested(displayName)
+		if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			Kaidan.client.vCardManager.changeNicknameRequested(displayName)
+		}
+
 		sendRegistrationForm()
+	}
+
+	onBackRequested: function (event) {
+		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			event.accepted = true
+			Kaidan.openStartPageRequested()
+		}
 	}
 }

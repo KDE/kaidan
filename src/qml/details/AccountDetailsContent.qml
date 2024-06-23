@@ -929,6 +929,34 @@ DetailsContent {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
+				title: qsTr("Migration")
+			}
+
+			ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormButtonDelegate {
+					id: migrateButton
+					text: qsTr("Migrate account")
+					description: qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
+					icon.name: "edit-copy-symbolic"
+					icon.color: Kirigami.Theme.neutralTextColor
+					onClicked: {
+						root.sheet.close()
+						Kaidan.startAccountMigration()
+					}
+				}
+			}
+		}
+	}
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
 				title: qsTr("Removal")
 			}
 

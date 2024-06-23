@@ -211,4 +211,11 @@ RegistrationPage {
 		if (!customFormFieldsAvailable())
 			pageStack.layers.pop()
 	}
+
+	onBackRequested: function (event) {
+		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			event.accepted = true
+			Kaidan.openStartPageRequested()
+		}
+	}
 }

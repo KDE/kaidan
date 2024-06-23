@@ -87,4 +87,11 @@ ExplanationTogglePage {
 			onTriggered: scanner.acceptResult = true
 		}
 	}
+
+	onBackRequested: function (event) {
+		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			event.accepted = true
+			Kaidan.openStartPageRequested()
+		}
+	}
 }
