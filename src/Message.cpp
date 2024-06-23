@@ -6,27 +6,29 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "Algorithms.h"
-#include "MediaUtils.h"
 #include "Message.h"
-#include "Globals.h"
+
+#include <QFileInfo>
+#include <QStringBuilder>
 
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppBitsOfBinaryData.h>
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
+#include <QXmppEncryptedFileSource.h>
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppFallback.h>
 #endif
+
 #include <QXmppFileMetadata.h>
+#include <QXmppHttpFileSource.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
 
-#include <QFileInfo>
-#include <QStringBuilder>
-
-#include <QXmppHttpFileSource.h>
-#include <QXmppEncryptedFileSource.h>
+#include "Algorithms.h"
+#include "Globals.h"
+#include "MediaUtils.h"
+#include "QmlUtils.h"
 
 QXmppHash FileHash::toQXmpp() const
 {
@@ -132,11 +134,11 @@ QString File::details() const
 {
 	auto formattedSize = [this]() {
 		if (size) {
-			return QLocale::system().formattedDataSize(*size);
+			return QmlUtils::formattedDataSize(*size);
 		}
 
 		if (const QFileInfo fileInfo(localFilePath); fileInfo.exists()) {
-			return QLocale::system().formattedDataSize(fileInfo.size());
+			return QmlUtils::formattedDataSize(fileInfo.size());
 		}
 
 		return QString();

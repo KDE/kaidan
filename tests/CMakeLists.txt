@@ -102,6 +102,8 @@ ecm_add_test(
 	../src/FileModel.h
 	../src/FileProxyModel.cpp
 	../src/FileProxyModel.h
+    ../src/QmlUtils.cpp
+    ../src/QmlUtils.h
 	TEST_NAME FileModelTest
 	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Sql Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
 )

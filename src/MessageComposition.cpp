@@ -8,13 +8,14 @@
 #include "MessageComposition.h"
 
 // Kaidan
-#include "MessageHandler.h"
-#include "Kaidan.h"
-#include "FileSharingController.h"
 #include "Algorithms.h"
+#include "FileSharingController.h"
+#include "Kaidan.h"
+#include "MessageHandler.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
+#include "QmlUtils.h"
 #include "ServerFeaturesCache.h"
 
 // Qt
@@ -298,7 +299,7 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
 		return file.mimeType.iconName();
 	case FileSize:
 		if (file.size) {
-			return QLocale::system().formattedDataSize(*file.size);
+			return QmlUtils::formattedDataSize(*file.size);
 		}
 		return tr("Unknown size");
 	}

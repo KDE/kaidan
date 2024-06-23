@@ -10,6 +10,7 @@
 // Qt
 #include <QClipboard>
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QGuiApplication>
 #include <QImage>
@@ -18,10 +19,15 @@
 #include <QStandardPaths>
 #include <QStringBuilder>
 // QXmpp
+#ifndef BUILD_TESTS
 #include "qxmpp-exts/QXmppColorGenerator.h"
 #include "qxmpp-exts/QXmppUri.h"
+#endif
 // Kaidan
+#include "Globals.h"
+#ifndef BUILD_TESTS
 #include "MessageModel.h"
+#endif
 
 static QmlUtils *s_instance;
 
@@ -50,6 +56,7 @@ QChar QmlUtils::messageBubblepaddingCharacter()
 	return MESSAGE_BUBBLE_PADDING_CHARACTER;
 }
 
+#ifndef BUILD_TESTS
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 {
 	switch (error) {
@@ -78,6 +85,7 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	}
 	Q_UNREACHABLE();
 }
+#endif
 
 QString QmlUtils::getResourcePath(const QString &name)
 {
@@ -137,6 +145,7 @@ QUrl QmlUtils::mastodonUrl()
 	return QUrl(QStringLiteral(MASTODON_URL));
 }
 
+#ifndef BUILD_TESTS
 QUrl QmlUtils::trustMessageUri(const QString &jid)
 {
 	return QUrl(trustMessageUriString(jid));
@@ -181,6 +190,7 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 	uri.setAction(QXmppUri::Join);
 	return QUrl(uri.toString());
 }
+#endif
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
 {
@@ -223,13 +233,19 @@ QString QmlUtils::formattedDataSize(qint64 fileSize)
 		return tr("Unknown size");
 	}
 
-	return QLocale::system().formattedDataSize(fileSize);
+	return QLocale::system().formattedDataSize(fileSize, 0, QLocale::DataSizeSIFormat);
 }
 
 QColor QmlUtils::userColor(const QString &id, const QString &name)
 {
+#ifndef BUILD_TESTS
 	QXmppColorGenerator::RGBColor rgbColor = QXmppColorGenerator::generateColor(id.isEmpty() ? name : id);
 	return { rgbColor.red, rgbColor.green, rgbColor.blue };
+#else
+	Q_UNUSED(id)
+	Q_UNUSED(name)
+	return QColor(Qt::black);
+#endif
 }
 
 QUrl QmlUtils::pasteImage()

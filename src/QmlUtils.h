@@ -11,7 +11,9 @@
 
 #include <QXmppMessage.h>
 
+#ifndef BUILD_TESTS
 #include "ClientWorker.h"
+#endif
 #include "Globals.h"
 
 const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
@@ -39,12 +41,14 @@ public:
 
 	static QChar messageBubblepaddingCharacter();
 
+#ifndef BUILD_TESTS
 	/**
 	 * Returns an error message for a connection error.
 	 *
 	 * @param error error for which an error message should be returned
 	 */
 	Q_INVOKABLE static QString connectionErrorMessage(ClientWorker::ConnectionError error);
+#endif
 
 	/**
 	 * Returns a URL to a given resource file name
@@ -107,6 +111,7 @@ public:
 		return QUrl(QStringLiteral(INVITATION_URL) + jid);
 	}
 
+#ifndef BUILD_TESTS
 	/**
 	 * Returns an XMPP Trust Message URI.
 	 *
@@ -127,6 +132,7 @@ public:
 	 * @param groupChatJid JID of the group chat
 	 */
 	Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
+#endif
 
 	/**
 	 * Validates the ID of an encryption key.
