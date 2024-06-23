@@ -52,6 +52,11 @@ public:
 	 */
 	void deleteAccount();
 
+	/**
+	 * Clears any pending data, restores the account settings from the settings file and logs in.
+	 */
+	void cancelRegistration();
+
 Q_SIGNALS:
 	void changePasswordRequested(const QString &newPassword);
 

@@ -54,6 +54,22 @@ void RegistrationManager::deleteAccount()
 	m_manager->deleteAccount();
 }
 
+void RegistrationManager::cancelRegistration()
+{
+	AccountManager::instance()->setJid({});
+	AccountManager::instance()->setPassword({});
+
+	m_client->disconnectFromServer();
+	setRegisterOnConnectEnabled(false);
+
+	if (AccountManager::instance()->loadConnectionData()) {
+		m_clientWorker->logIn();
+	}
+
+	cleanUpLastForm();
+	m_dataFormModel = new RegistrationDataFormModel();
+}
+
 void RegistrationManager::sendRegistrationForm()
 {
 	if (m_dataFormModel->isFakeForm()) {
