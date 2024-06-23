@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-02 11:37+0100\n"
+"PO-Revision-Date: 2024-06-22 13:20+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.0\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -279,17 +279,17 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:138
+#: src/Message.cpp:146
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM at hh:mm"
 
-#: src/Message.cpp:145
+#: src/Message.cpp:153
 msgctxt "QObject|"
 msgid "No information"
 msgstr "No information"
 
-#: src/Message.cpp:211
+#: src/Message.cpp:279
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
@@ -305,17 +305,17 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Unknown size"
 
-#: src/MessageHandler.cpp:174
+#: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
 msgstr "Message correction was not successful"
 
-#: src/MessageHandler.cpp:226
+#: src/MessageHandler.cpp:234
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
 msgstr "Message could not be sent."
 
-#: src/MessageHandler.cpp:490
+#: src/MessageHandler.cpp:518
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -2506,14 +2506,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"The notes chat could not be added to your contact list because your server "
+"does not support that"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1 could not be added"
+msgstr "%1 could not be added: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
