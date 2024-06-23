@@ -9,12 +9,14 @@
 // SPDX-FileCopyrightText: 2020 Mathis Brüchert <mbblp@protonmail.ch>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
 // Kaidan
+#include "AccountMigrationManager.h"
 #include "ClientWorker.h"
 
 class QSize;
@@ -26,6 +28,7 @@ class RosterDb;
 class MessageDb;
 class BlockingController;
 class FileSharingController;
+class ClientThread;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -177,6 +180,16 @@ public:
 	 *        authenticated or none to allow all JIDs
 	 */
 	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
+
+	Q_SLOT void startAccountMigration();
+	Q_SLOT void continueAccountMigration(const QVariant &userData = {});
+	Q_SLOT void cancelAccountMigration();
+	Q_SIGNAL void accountMigrationStateChanged(AccountMigrationManager::MigrationState state);
+
+	Q_INVOKABLE bool testAccountMigrationState(AccountMigrationManager::MigrationState state);
+
+	Q_SIGNAL void accountErrorOccurred(const QString &msg);
+	Q_SIGNAL void accountBusyChanged(bool busy);
 
 	/**
 	 * Emitted when a data form for registration is received from the server.
@@ -340,12 +353,14 @@ public:
 	}
 
 private:
+	void initializeAccountMigration();
+
 	Notifications *m_notifications;
 	Database *m_database;
 	AccountDb *m_accountDb;
 	MessageDb *m_msgDb;
 	RosterDb *m_rosterDb;
-	QThread *m_cltThrd;
+	ClientThread *m_cltThrd;
 	ClientWorker::Caches *m_caches;
 	ClientWorker *m_client;
 	std::unique_ptr<BlockingController> m_blockingController;

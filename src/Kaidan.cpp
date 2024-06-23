@@ -6,18 +6,20 @@
 // SPDX-FileCopyrightText: 2019 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2019 Robert Maerkisch <zatrox@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "Kaidan.h"
 
 // Qt
+#include <QFile>
 #include <QGuiApplication>
 #include <QSettings>
 #include <QStringBuilder>
 #include <QThread>
 #include <QTimer>
-#include <QFile>
+#include <QWaitCondition>
 // QXmpp
 #include "qxmpp-exts/QXmppUri.h"
 // Kaidan
@@ -37,6 +39,64 @@
 #include "Settings.h"
 
 Kaidan *Kaidan::s_instance;
+
+/**
+ * Allows to run a function and waits for the thread to be started before returning to the calling
+ * thread.
+ *
+ * This is needed because QXmppMigrationManager expects the classes of the import/export functions
+ * to be registered while they are running in the right/final thread.
+ */
+class ClientThread : public QThread
+{
+public:
+	explicit ClientThread(std::future<void> &&future) : m_future(std::move(future))
+	{
+	}
+
+	~ClientThread() override
+	{
+		requestInterruption();
+		quit();
+		wait();
+	}
+
+	void waitForStarted(QThread::Priority priority = InheritPriority)
+	{
+		if (isRunning()) {
+			return;
+		}
+
+		QMutexLocker locker(&m_mutex);
+		QThread::start(priority);
+		m_condition.wait(&m_mutex);
+	}
+
+	template<typename Function, typename... Args>
+	static ClientThread *create(Function &&f, Args &&...args)
+	{
+		using DecayedFunction = typename std::decay<Function>::type;
+		auto threadFunction = [f = static_cast<DecayedFunction>(std::forward<Function>(f))](
+					      auto &&...largs) mutable -> void {
+			(void) std::invoke(std::move(f), std::forward<decltype(largs)>(largs)...);
+		};
+		return new ClientThread(std::move(std::async(
+			std::launch::deferred, std::move(threadFunction), std::forward<Args>(args)...)));
+	}
+
+protected:
+	void run() override
+	{
+		m_future.get();
+		m_condition.wakeOne();
+		QThread::exec();
+	}
+
+private:
+	QWaitCondition m_condition;
+	QMutex m_mutex;
+	std::future<void> m_future;
+};
 
 Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	: QObject(parent)
@@ -59,23 +119,22 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 
 	// create xmpp thread
-	m_cltThrd = new QThread();
+	m_cltThrd = ClientThread::create([&] {
+		m_client = new ClientWorker(m_caches, m_database, enableLogging);
+	});
 	m_cltThrd->setObjectName("XmppClient");
-
-	m_client = new ClientWorker(m_caches, m_database, enableLogging);
-	m_client->moveToThread(m_cltThrd);
+	m_cltThrd->waitForStarted();
 
 	connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
-
 	connect(m_client, &ClientWorker::loggedInWithNewCredentials, this, &Kaidan::openChatViewRequested);
 	connect(m_client, &ClientWorker::connectionStateChanged, this, &Kaidan::setConnectionState);
 	connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
 
-	m_cltThrd->start();
-
 	// create controllers
 	m_blockingController = std::make_unique<BlockingController>(m_database);
 	m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
+
+	initializeAccountMigration();
 
 	// Log out of the server when the application window is closed.
 	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
@@ -171,6 +230,45 @@ void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
 	}
 }
 
+void Kaidan::initializeAccountMigration()
+{
+	auto migrationManager = m_client->accountMigrationManager();
+
+	connect(migrationManager, &AccountMigrationManager::migrationStateChanged, this, &Kaidan::accountMigrationStateChanged);
+	connect(migrationManager, &AccountMigrationManager::busyChanged, this, &Kaidan::accountBusyChanged);
+	connect(migrationManager, &AccountMigrationManager::errorOccurred, this, &Kaidan::accountErrorOccurred);
+
+	connect(migrationManager, &AccountMigrationManager::migrationStateChanged, this, [this, migrationManager](AccountMigrationManager::MigrationState state) {
+		switch (state) {
+		case AccountMigrationManager::MigrationState::Idle:
+		case AccountMigrationManager::MigrationState::Exporting:
+		case AccountMigrationManager::MigrationState::Importing:
+			break;
+		case AccountMigrationManager::MigrationState::Started:
+		case AccountMigrationManager::MigrationState::Finished:
+			migrationManager->continueMigration();
+			break;
+		case AccountMigrationManager::MigrationState::Registering:
+			Q_EMIT openStartPageRequested();
+			break;
+		}
+	});
+
+	connect(migrationManager, &AccountMigrationManager::errorOccurred, this, [this, migrationManager](const QString &error) {
+		switch (migrationManager->migrationState()) {
+		case AccountMigrationManager::MigrationState::Idle:
+		case AccountMigrationManager::MigrationState::Exporting:
+		case AccountMigrationManager::MigrationState::Registering:
+		case AccountMigrationManager::MigrationState::Importing:
+			Q_EMIT passiveNotificationRequested(error);
+			break;
+		case AccountMigrationManager::MigrationState::Started:
+		case AccountMigrationManager::MigrationState::Finished:
+			break;
+		}
+	});
+}
+
 void Kaidan::addOpenUri(const QString &uri)
 {
 	// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as long as Kaidan does not support that.
@@ -229,6 +327,39 @@ Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &
 	}
 
 	return InvalidUri;
+}
+
+void Kaidan::startAccountMigration()
+{
+	QMetaObject::invokeMethod(m_client->accountMigrationManager(), &AccountMigrationManager::startMigration);
+}
+
+void Kaidan::continueAccountMigration(const QVariant &userData)
+{
+	QMetaObject::invokeMethod(m_client->accountMigrationManager(), [this, userData]() {
+		m_client->accountMigrationManager()->continueMigration(userData);
+	});
+}
+
+void Kaidan::cancelAccountMigration()
+{
+	QMetaObject::invokeMethod(m_client->accountMigrationManager(), &AccountMigrationManager::cancelMigration);
+}
+
+bool Kaidan::testAccountMigrationState(AccountMigrationManager::MigrationState state)
+{
+	bool ret;
+	if (QMetaObject::invokeMethod(
+		    m_client->accountMigrationManager(),
+		    [this, state]() {
+			    return m_client->accountMigrationManager()->migrationState() == state;
+		    },
+		    Qt::BlockingQueuedConnection,
+		    &ret)) {
+		return ret;
+	}
+
+	return false;
 }
 
 #ifdef NDEBUG
