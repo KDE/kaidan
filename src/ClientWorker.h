@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2017 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -14,6 +15,7 @@
 #include "Enums.h"
 
 class AccountManager;
+class AccountMigrationManager;
 class AtmManager;
 class AvatarFileStorage;
 class ChatHintModel;
@@ -44,6 +46,7 @@ class PresenceCache;
 class ClientWorker : public QObject
 {
 	Q_OBJECT
+	Q_PROPERTY(AccountMigrationManager* accountMigrationManager READ accountMigrationManager CONSTANT)
 	Q_PROPERTY(RegistrationManager* registrationManager READ registrationManager CONSTANT)
 	Q_PROPERTY(VCardManager* vCardManager READ vCardManager CONSTANT)
 	Q_PROPERTY(RosterManager* rosterManager READ rosterManager CONSTANT)
@@ -97,6 +100,11 @@ public:
 	RegistrationManager *registrationManager() const
 	{
 		return m_registrationManager;
+	}
+
+	AccountMigrationManager *accountMigrationManager() const
+	{
+		return m_accountMigrationManager;
 	}
 
 	VCardManager *vCardManager() const
@@ -300,6 +308,7 @@ private:
 	QNetworkAccessManager *m_networkManager;
 
 	RegistrationManager *m_registrationManager;
+	AccountMigrationManager *m_accountMigrationManager;
 	VCardManager *m_vCardManager;
 	RosterManager *m_rosterManager;
 	AtmManager *m_atmManager;

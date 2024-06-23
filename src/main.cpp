@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2020 Yury Gubich <blue@macaw.me>
 // SPDX-FileCopyrightText: 2022 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -35,6 +36,7 @@
 
 // Kaidan
 #include "AccountManager.h"
+#include "AccountMigrationManager.h"
 #include "AudioDeviceModel.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
@@ -255,6 +257,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<VCardManager*>();
 	qRegisterMetaType<VersionManager*>();
 	qRegisterMetaType<RegistrationManager*>();
+	qRegisterMetaType<AccountMigrationManager*>();
 	qRegisterMetaType<FileSharingController *>();
 	qRegisterMetaType<OmemoManager *>();
 	qRegisterMetaType<OmemoManager::Device>();
@@ -310,6 +313,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<FileProxyModel::Mode>();
 	qRegisterMetaType<AccountManager::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
+	qRegisterMetaType<AccountMigrationManager::MigrationState>();
 
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
@@ -469,6 +473,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<Presence>(APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<RegistrationManager>(APPLICATION_ID, 1, 0, "RegistrationManager", QStringLiteral("Cannot create object; only enums defined!"));
+	qmlRegisterUncreatableType<AccountMigrationManager>(APPLICATION_ID, 1, 0, "AccountMigrationManager", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
 	qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", QStringLiteral("ServerFeaturesCache type usable"));

@@ -16,6 +16,8 @@ target_sources(${PROJECT_NAME} PRIVATE
     AccountDb.h
     AccountManager.cpp
     AccountManager.h
+    AccountMigrationManager.cpp
+    AccountMigrationManager.h
     Algorithms.h
     AtmManager.cpp
     AtmManager.h

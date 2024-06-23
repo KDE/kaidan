@@ -2,6 +2,7 @@
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2020 Yury Gubich <blue@macaw.me>
 // SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -11,17 +12,23 @@
 #include <QSettings>
 #include <QNetworkAccessManager>
 // QXmpp
+#include <QXmppAccountMigrationManager.h>
 #include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
+#include <QXmppDiscoveryManager.h>
 #include <QXmppEncryptedFileSharingProvider.h>
+#include <QXmppEntityTimeManager.h>
 #include <QXmppFileSharingManager.h>
 #include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
 #include <QXmppMamManager.h>
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
+#include <QXmppRosterManager.h>
 #include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
+#include <QXmppVCardManager.h>
+#include <QXmppVersionManager.h>
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppSasl2UserAgent.h>
 #endif
@@ -30,6 +37,7 @@
 #endif
 // Kaidan
 #include "AccountManager.h"
+#include "AccountMigrationManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "ChatHintModel.h"
@@ -70,11 +78,17 @@ ClientWorker::Caches::Caches(QObject *parent)
 ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject* parent)
 	: QObject(parent),
 	  m_caches(caches),
-	  m_client(new QXmppClient(this)),
+	  m_client(new QXmppClient(QXmppClient::NoExtensions, this)),
 	  m_logger(new LogHandler(m_client, enableLogging, this)),
 	  m_enableLogging(enableLogging),
 	  m_networkManager(new QNetworkAccessManager(this))
 {
+	m_client->addNewExtension<QXmppAccountMigrationManager>();
+	m_client->addNewExtension<QXmppRosterManager>(m_client);
+	m_client->addNewExtension<QXmppVCardManager>();
+	m_client->addNewExtension<QXmppVersionManager>();
+	m_client->addNewExtension<QXmppEntityTimeManager>();
+	m_client->addNewExtension<QXmppDiscoveryManager>();
 	m_client->addNewExtension<QXmppCarbonManagerV2>();
 	m_client->addNewExtension<QXmppMamManager>();
 	m_client->addNewExtension<QXmppPubSubManager>();
@@ -90,6 +104,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_omemoManager = new OmemoManager(m_client, database, this);
 	m_discoveryManager = new DiscoveryManager(m_client, this);
 	m_versionManager = new VersionManager(m_client, this);
+	m_accountMigrationManager = new AccountMigrationManager(this, this);
 
 	// file sharing manager
 	m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
