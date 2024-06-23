@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2020 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2020 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Bhavy Airi <airiraghav@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -318,7 +319,12 @@ RegistrationPage {
 	 * @param index position in the swipe view to insert the username view
 	 */
 	function addUsernameView(index) {
-		usernameView = usernameViewComponent.createObject(swipeView)
+		usernameView = usernameViewComponent.createObject(swipeView, {
+															  // Set the display name as the entered text while replacing all whitespaces by dots.
+															  "enteredText": Qt.binding(function() {
+																  return displayNameView ? displayNameView.text.replace(/ /g, ".").toLowerCase() : ""
+															  })
+														  })
 		swipeView.insertItem(index, usernameView)
 	}
 
