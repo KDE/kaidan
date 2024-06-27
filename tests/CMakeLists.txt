@@ -6,6 +6,9 @@ include(ECMAddTests)
 
 find_package(Qt5Test REQUIRED)
 
+# Include build directory to use GlobalsGen.h
+include_directories(PUBLIC "${CMAKE_BINARY_DIR}")
+
 ecm_add_test(
 	PresenceCacheTest.cpp
 	../src/PresenceCache.cpp

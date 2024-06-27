@@ -1,0 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+#pragma once
+
+#cmakedefine VERSION "${PROJECT_VERSION}"
+#cmakedefine VERSION_STRING "${VERSION_STRING}"
+
+#cmakedefine APPLICATION_ID "${APPLICATION_ID}"
+#cmakedefine APPLICATION_NAME "${APPLICATION_NAME}"
+#cmakedefine APPLICATION_DISPLAY_NAME "${APPLICATION_DISPLAY_NAME}"
+#cmakedefine APPLICATION_DESCRIPTION "${APPLICATION_DESCRIPTION}"

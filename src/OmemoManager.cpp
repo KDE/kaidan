@@ -13,6 +13,7 @@
 
 #include "AccountManager.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "MessageModel.h"
 #include "OmemoCache.h"

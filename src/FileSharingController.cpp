@@ -35,6 +35,7 @@
 
 #include "Account.h"
 #include "AccountDb.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "FutureUtils.h"
 #include "FileProgressCache.h"

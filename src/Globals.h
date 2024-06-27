@@ -9,6 +9,8 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#include <GlobalsGen.h>
+
 #include <QLatin1String>
 
 // Kaidan settings

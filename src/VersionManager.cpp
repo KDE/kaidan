@@ -12,6 +12,8 @@
 #include <QXmppRosterManager.h>
 #include <QXmppPresence.h>
 
+#include "Globals.h"
+
 VersionManager::VersionManager(QXmppClient *client, QObject *parent)
 	: QObject(parent),
 	  m_manager(client->findExtension<QXmppVersionManager>()),
