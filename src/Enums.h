@@ -87,6 +87,16 @@ namespace Enums {
 		static const QMetaEnum e = QMetaEnum::fromType<T>();
 		return QString::fromLatin1(e.valueToKeys(static_cast<int>(flags)));
 	}
+
+	template <typename T, ENABLE_IF(!has_enum_type<T>::value && std::is_enum<T>::value)>
+	auto toIntegral(const T flag) {
+		return static_cast<std::underlying_type_t<T>>(flag);
+	}
+
+	template <typename T, ENABLE_IF(has_enum_type<T>::value)>
+	auto toIntegral(const T flags) {
+		return static_cast<T::Int>(flags);
+	}
 }
 
 // Needed workaround to trigger older CMake auto moc versions to generate moc
