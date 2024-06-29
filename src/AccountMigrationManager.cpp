@@ -164,14 +164,8 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 	const auto serializeData = [](const ClientSettings &data, QXmlStreamWriter &writer) {
 		data.toXml(writer);
 	};
-	const auto importData = [this](const ClientSettings &data) {
-		return importClientSettingsTask(data);
-	};
-	const auto exportData = [this]() { return exportClientSettingsTask(); };
 
-	QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(
-		s_client_settings, s_qxmpp_export_ns);
-	m_manager->registerExportData<ClientSettings>(importData, exportData);
+	QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(s_client_settings, s_qxmpp_export_ns);
 
 	connect(this, &AccountMigrationManager::migrationStateChanged, this, [this]() {
 		Q_EMIT busyChanged(isBusy());
@@ -256,7 +250,17 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 				} else {
 					m_migrationData->account =
 						std::move(std::get<QXmppExportData>(std::move(result)));
-					continueMigration();
+
+					exportClientSettingsTask().then(this, [this, fail](auto &&result) {
+						if (std::holds_alternative<QXmppError>(result)) {
+							const auto error = std::get<QXmppError>(std::move(result));
+							fail(error.description);
+						} else {
+							m_migrationData->account.setExtension(std::move(std::get<ClientSettings>(std::move(result))));
+
+							continueMigration();
+						}
+					});
 				}
 			});
 
@@ -276,7 +280,20 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 						QFile::remove(filePath);
 					}
 
-					continueMigration();
+					const auto clientSettings = m_migrationData->account.extension<ClientSettings>();
+
+					if (clientSettings) {
+						importClientSettingsTask(*clientSettings).then(this, [this, fail](auto &&result) {
+							if (std::holds_alternative<QXmppError>(result)) {
+								const auto error = std::get<QXmppError>(std::move(result));
+								fail(error.description);
+							} else {
+								continueMigration();
+							}
+						});
+					} else {
+						continueMigration();
+					}
 				}
 			});
 
