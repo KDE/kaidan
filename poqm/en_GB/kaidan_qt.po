@@ -94,7 +94,7 @@ msgstr ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 
-#: src/FileSharingController.cpp:361
+#: src/FileSharingController.cpp:376
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -279,31 +279,37 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:146
+#: src/Message.cpp:148
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM at hh:mm"
 
-#: src/Message.cpp:153
+#: src/Message.cpp:155
 msgctxt "QObject|"
 msgid "No information"
 msgstr "No information"
 
-#: src/Message.cpp:279
+#: src/Message.cpp:281
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:181
+#: src/MessageComposition.cpp:184
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Upload failed: %1"
 
-#: src/MessageComposition.cpp:301
+#: src/MessageComposition.cpp:304
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Unknown size"
+
+#: src/MessageComposition.cpp:352
+#, qt-format
+msgctxt "FileSelectionModel|"
+msgid "'%1' cannot be sent because it is larger than %2"
+msgstr ""
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -321,44 +327,44 @@ msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "This message is encrypted with %1 but could not be decrypted"
 
-#: src/MessageModel.cpp:225
+#: src/MessageModel.cpp:221
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pending"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:223
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Sent"
 
-#: src/MessageModel.cpp:229
+#: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Delivered"
 
-#: src/MessageModel.cpp:231
+#: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Error"
 
-#: src/MessageModel.cpp:658 src/MessageModel.cpp:731 src/MessageModel.cpp:866
+#: src/MessageModel.cpp:654 src/MessageModel.cpp:727 src/MessageModel.cpp:862
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaction could not be sent: %1"
 
-#: src/MessageModel.cpp:809
+#: src/MessageModel.cpp:805
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reactions could not be sent: %1"
 
-#: src/MessageModel.cpp:1530
+#: src/MessageModel.cpp:1526
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Today"
 
-#: src/MessageModel.cpp:1533
+#: src/MessageModel.cpp:1529
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Yesterday"
@@ -378,7 +384,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Requests to receive your personal data"
 
-#: src/OmemoManager.cpp:127
+#: src/OmemoManager.cpp:128
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "End-to-end encryption via OMEMO 2 could not be set up"
@@ -418,7 +424,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Offline"
 
-#: src/ProviderListModel.cpp:25
+#: src/ProviderListModel.cpp:26
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Custom provider"
@@ -426,12 +432,12 @@ msgstr "Custom provider"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:93 src/ProviderListModel.cpp:103
+#: src/ProviderListModel.cpp:94 src/ProviderListModel.cpp:104
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Unlimited"
 
-#: src/ProviderListModel.cpp:105
+#: src/ProviderListModel.cpp:106
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1100,32 +1106,40 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
 "Messages in this chat are synchronised as notes across all your devices"
 
-#: src/qml/details/DetailsContent.qml:50
+#: src/qml/details/DetailsContent.qml:51
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/details/DetailsContent.qml:55
+#: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "Automatic Downloads"
 
-#: src/qml/details/DetailsContent.qml:56
+#: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Download media automatically"
 
-#: src/qml/details/DetailsContent.qml:124
+#: src/qml/details/DetailsContent.qml:87
+#, fuzzy, qt-format
+#| msgctxt "ProviderView|"
+#| msgid "Allows to share media up to:"
+msgctxt "DetailsContent|"
+msgid "You can share media up to %1."
+msgstr "Allows to share media up to:"
+
+#: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profile"
 
-#: src/qml/details/DetailsContent.qml:148
+#: src/qml/details/DetailsContent.qml:156
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Labels"
 
-#: src/qml/details/DetailsContent.qml:172
+#: src/qml/details/DetailsContent.qml:180
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Connected Devices"
@@ -1295,77 +1309,77 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Search down"
 
-#: src/qml/elements/ChatPageSendingPane.qml:67
+#: src/qml/elements/ChatPageSendingPane.qml:73
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Visible message part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:74
+#: src/qml/elements/ChatPageSendingPane.qml:80
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancel adding hidden message part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:114
+#: src/qml/elements/ChatPageSendingPane.qml:120
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Compose <b>encrypted </b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:114
+#: src/qml/elements/ChatPageSendingPane.qml:120
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Compose <b>unencrypted</b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:116
+#: src/qml/elements/ChatPageSendingPane.qml:122
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Compose <b>encrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:116
+#: src/qml/elements/ChatPageSendingPane.qml:122
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Compose <b>unencrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:226
+#: src/qml/elements/ChatPageSendingPane.qml:234
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/elements/ChatPageSendingPane.qml:282
+#: src/qml/elements/ChatPageSendingPane.qml:290
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Take picture"
 
-#: src/qml/elements/ChatPageSendingPane.qml:283
+#: src/qml/elements/ChatPageSendingPane.qml:291
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Take a picture using your camera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:302
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Record video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:295
+#: src/qml/elements/ChatPageSendingPane.qml:303
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Record a video using your camera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:306
+#: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Share files"
 
-#: src/qml/elements/ChatPageSendingPane.qml:307
+#: src/qml/elements/ChatPageSendingPane.qml:315
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Share files from your device"
 
-#: src/qml/elements/ChatPageSendingPane.qml:318
+#: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Share location"
 
-#: src/qml/elements/ChatPageSendingPane.qml:319
+#: src/qml/elements/ChatPageSendingPane.qml:327
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Send your location"
@@ -1568,12 +1582,12 @@ msgctxt "NewMedia|"
 msgid "Recording… %1"
 msgstr "Recording… %1"
 
-#: src/qml/elements/NewMediaSheet.qml:77
+#: src/qml/elements/NewMediaSheet.qml:78
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/qml/elements/NewMediaSheet.qml:91
+#: src/qml/elements/NewMediaSheet.qml:92
 msgctxt "NewMediaSheet|"
 msgid "Send"
 msgstr "Send"
@@ -2408,27 +2422,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Create account manually"
 
-#: src/QmlUtils.cpp:59
+#: src/QmlUtils.cpp:66
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Invalid username or password."
 
-#: src/QmlUtils.cpp:61
+#: src/QmlUtils.cpp:68
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Cannot connect to the server. Please check your internet connection."
 
-#: src/QmlUtils.cpp:63
+#: src/QmlUtils.cpp:70
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Error while trying to connect securely."
 
-#: src/QmlUtils.cpp:65
+#: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "The server doesn't support secure connections."
 
-#: src/QmlUtils.cpp:67
+#: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2437,22 +2451,22 @@ msgstr ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 
-#: src/QmlUtils.cpp:69
+#: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "The server is offline or blocked by a firewall."
 
-#: src/QmlUtils.cpp:71
+#: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Authentication protocol not supported by the server."
 
-#: src/QmlUtils.cpp:73
+#: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "The connection could not be refreshed."
 
-#: src/QmlUtils.cpp:75
+#: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2461,29 +2475,29 @@ msgstr ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 
-#: src/QmlUtils.cpp:77
+#: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "This server does not support registration."
 
-#: src/QmlUtils.cpp:223
+#: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Unknown size"
 
-#: src/QmlUtils.cpp:290
+#: src/QmlUtils.cpp:331
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 is online"
 
-#: src/QmlUtils.cpp:292
+#: src/QmlUtils.cpp:333
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 is typing…"
 
-#: src/QmlUtils.cpp:294
+#: src/QmlUtils.cpp:335
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -2552,7 +2566,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Stopping %1 to see your personal data failed"
 
-#: src/RosterModel.cpp:848
+#: src/RosterModel.cpp:843
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Yesterday"
