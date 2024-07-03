@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-12 20:40+0200\n"
-"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"PO-Revision-Date: 2024-07-02 22:05+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
@@ -310,7 +310,7 @@ msgstr "Okänd storlek"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "'%1' kan inte skickas eftersom det är större än %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1130,12 +1130,10 @@ msgid "Download media automatically"
 msgstr "Ladda automatiskt ner media"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Tillåter att dela media upp till:"
+msgstr "Tillåter att dela media upp till %1."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"

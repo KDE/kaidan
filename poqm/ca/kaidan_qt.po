@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-06-27 13:58+0200\n"
+"PO-Revision-Date: 2024-07-02 10:03+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -323,7 +323,7 @@ msgstr "Mida desconeguda"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "No s'ha pogut enviar «%1» perquè és més gran que %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1148,12 +1148,10 @@ msgid "Download media automatically"
 msgstr "Baixa automàticament els elements multimèdia"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Permet compartir els multimèdia fins a:"
+msgstr "Podeu compartir elements multimèdia fins a %1."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"

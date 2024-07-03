@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-06-11 07:43+0200\n"
+"PO-Revision-Date: 2024-07-02 06:55+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -315,7 +315,7 @@ msgstr "Neznana velikost"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "'%1' ni mogoče poslati, ker je večji kot %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1133,12 +1133,10 @@ msgid "Download media automatically"
 msgstr "Samodejno prenesi medij"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Omogoča skupno rabo predstavnosti do:"
+msgstr "Omogoča skupno rabo predstavnosti do: %1"
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"

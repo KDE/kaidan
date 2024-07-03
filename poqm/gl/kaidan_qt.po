@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-15 14:53+0200\n"
+"PO-Revision-Date: 2024-07-02 17:48+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -311,7 +311,7 @@ msgstr "Tamaño descoñecido"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "Non é posíbel enviar «%1» porque supera os %2."
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1132,12 +1132,10 @@ msgid "Download media automatically"
 msgstr "Descargar o contido multimedia automaticamente"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Permite compartir multimedia ata:"
+msgstr "Pode compartir ata %1 de contido multimedia."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"

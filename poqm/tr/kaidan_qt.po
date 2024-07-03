@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-12 00:46+0300\n"
+"PO-Revision-Date: 2024-07-02 13:55+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -43,7 +43,7 @@ msgstr "Sunuculardaki Aygıtlar"
 #: src/ChatHintModel.cpp:206
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
-msgstr "Bağlı değilsiniz - İletiler bağlantı olduğunda gönderilir ve alınır"
+msgstr "Bağlı değilsiniz — İletiler bağlandığınızda gönderilir ve alınır"
 
 #: src/ChatHintModel.cpp:207
 msgctxt "ChatHintModel|"
@@ -310,7 +310,7 @@ msgstr "Bilinmeyen boyut"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "“%1” gönderilemiyor; çünkü %2 boyutundan büyük"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -521,7 +521,7 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "OMEMO 2 ile uçtan uca şifreleme, siz ve sohbet arkadaşlarınızdan başka "
-"kimsenin değiş-tokuş yaptığınız veriyi okuyup değiştirmesine izin vermez."
+"kimsenin değiş–tokuş yaptığınız veriyi okuyup değiştirmesine izin vermez."
 
 #: src/qml/details/AccountDetailsContent.qml:166
 #: src/qml/details/AccountDetailsContent.qml:172
@@ -835,7 +835,7 @@ msgstr "Kaldırma"
 #: src/qml/details/AccountDetailsContent.qml:940
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
-msgstr "Kaidan'dan kaldır"
+msgstr "Kaidan’dan kaldır"
 
 #: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
@@ -919,7 +919,7 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "OMEMO 2 ile uçtan uca şifreleme, siz ve sohbet arkadaşlarınızdan başka "
-"kimsenin değiş-tokuş yaptığınız veriyi okuyup değiştirmesine izin vermez."
+"kimsenin değiş–tokuş yaptığınız veriyi okuyup değiştirmesine izin vermez."
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
@@ -1124,12 +1124,10 @@ msgid "Download media automatically"
 msgstr "Ortamı kendiliğinden indir"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Ortam paylaşma ölçütü sayısı:"
+msgstr "%1 boyutuna kadar ortam paylaşabilirsiniz."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
@@ -1274,7 +1272,7 @@ msgstr "İletiyi düzenle"
 #: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr "İndirme URL'sini kopyala"
+msgstr "İndirme URL’sini kopyala"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
@@ -1454,7 +1452,7 @@ msgstr "Açıklama göster"
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "1. Adım: <b>Kişi</b>'nin kare kodunu tara"
+msgstr "1. Adım: <b>Kişi</b>’nin kare kodunu tara"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
@@ -1598,7 +1596,7 @@ msgstr "Gönder"
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr "'%1' kamera biçimi desteklenmiyor."
+msgstr "Kamera biçimi “%1” desteklenmiyor.c"
 
 #: src/qml/elements/QrCodeScanner.qml:154
 msgctxt "QrCodeScanner|"
@@ -1622,7 +1620,7 @@ msgstr ""
 #: src/qml/elements/QrCodeScanningArea.qml:55
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr "Kişi eklendi - 2. adımla sürdürün"
+msgstr "Kişi eklendi — 2. adımla sürdürün"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
 msgctxt "QrCodeScanningArea|"
@@ -1633,12 +1631,12 @@ msgstr "Bu kare kod, bir kişi içermiyor"
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
 msgstr ""
-"Diğer kendi aygıtınız için güvenme kararı verildi - İkinci adımla sürdürün"
+"Diğer kendi aygıtınız için güvenme kararı verildi — İkinci adımla sürdürün"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr "Kişi için güven kararı verildi - 2. adımla sürdürün"
+msgstr "Kişiye güvenme kararı verildi — 2. adımla sürdürün"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
@@ -1877,7 +1875,7 @@ msgstr "1. Adım: <b>Diğer aygıtınızın</b> kare kodunu tarayın"
 #: src/qml/KeyAuthenticationPage.qml:43
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "1. Adım: <b>Kişi</b>'nin kare kodunu tara"
+msgstr "1. Adım: <b>Kişi</b>’nin kare kodunu tara"
 
 #: src/qml/KeyAuthenticationPage.qml:45
 msgctxt "KeyAuthenticationPage|"
@@ -1918,7 +1916,7 @@ msgstr "Aygıt yok veya halihazırda doğrulanmış"
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
-msgstr "Parmak izi 64 karakter ve a-f arası harfler ve sayılardan oluşmalıdır"
+msgstr "Parmak izi 64 karakter ve a–f arası harfler ve sayılardan oluşmalıdır"
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
@@ -2174,7 +2172,7 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
-"Sohbet adresiniz, sizinle sohbet etmek için kullanılır. E-posta'nız gibi "
+"Sohbet adresiniz, sizinle sohbet etmek için kullanılır. E-postanız gibi "
 "düşünün.\n"
 "\n"
 "Sohbet adresiniz şudur:"
@@ -2256,17 +2254,17 @@ msgstr "Web sitesini ziyaret et"
 #: src/qml/settings/AboutPage.qml:75
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr "Kaidan'ın web sayfasını bir tarayıcıda aç"
+msgstr "Kaidan’ın web sayfasını bir tarayıcıda aç"
 
 #: src/qml/settings/AboutPage.qml:81
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr "Mastodon'da Takip Et"
+msgstr "Mastodon’da Takip Et"
 
 #: src/qml/settings/AboutPage.qml:82
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr "Kaidan'ın Mastodon sayfasını bir tarayıcıda aç"
+msgstr "Kaidan’ın Mastodon sayfasını bir tarayıcıda aç"
 
 #: src/qml/settings/AboutPage.qml:88
 msgctxt "AboutPage|"
@@ -2276,7 +2274,7 @@ msgstr "Bağış Yap"
 #: src/qml/settings/AboutPage.qml:89
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr "Bir bağış ile, Kaidan'ın geliştirilmesini ve altyapısını destekleyin"
+msgstr "Bir bağış ile, Kaidan’ın geliştirilmesini ve altyapısını destekleyin"
 
 #: src/qml/settings/AboutPage.qml:95
 msgctxt "AboutPage|"
@@ -2297,7 +2295,7 @@ msgstr "Kaynak kodunu görüntüleyin"
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
-"Kaidan'ın kaynak kodunu çevrimiçi olarak görüntüleyin ve projeye katkıda "
+"Kaidan’ın kaynak kodunu çevrimiçi olarak görüntüleyin ve projeye katkıda "
 "bulunun"
 
 #: src/qml/settings/CustomConnectionSettings.qml:25
