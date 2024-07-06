@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-22 13:20+0100\n"
+"PO-Revision-Date: 2024-07-05 14:13+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -309,7 +309,7 @@ msgstr "Unknown size"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "'%1' cannot be sent because it is larger than %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1122,12 +1122,10 @@ msgid "Download media automatically"
 msgstr "Download media automatically"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Allows to share media up to:"
+msgstr "You can share media up to %1."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
