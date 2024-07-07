@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 13:43+0100\n"
-"PO-Revision-Date: 2024-06-16 07:39+0200\n"
+"PO-Revision-Date: 2024-07-06 16:50+0200\n"
 "Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-doc@kde.org>\n"
 "Language: eo\n"
@@ -317,7 +317,7 @@ msgstr "Nekonata grandeco"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "'%1' ne povas sendiĝi ĉar ĝi estas pli granda ol %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1132,12 +1132,10 @@ msgid "Download media automatically"
 msgstr "Elŝuti aŭdvidaĵon aŭtomate"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Permesas kunhavigi aŭdvidaĵon ĝis:"
+msgstr "Vi povas kunhavigi aŭdvidaĵon ĝis %1."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
