@@ -311,7 +311,7 @@ msgstr "უცნობი ზომა"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "'%1'-ის გაგზავნა შეუძლებელია, რადგან ის %2-ზე დიდია"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -599,9 +599,7 @@ msgid "Support"
 msgstr "მხარდაჭერა"
 
 #: src/qml/details/AccountDetailsContent.qml:348
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "%1-ის მხარდაჭერა"
@@ -617,12 +615,10 @@ msgid "Join your provider's public support group"
 msgstr "შეუერთდით თქვენი სერვისის მომწოდებლის საჯარო დახმარების ჯგუფს"
 
 #: src/qml/details/AccountDetailsContent.qml:392
-#, fuzzy, qt-format
-#| msgctxt "ChatSupportSheet|"
-#| msgid "Group Support %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr "ჯგუფური მხარდაჭერა %1"
+msgstr "ჯგუფის მხარდაჭერა %1"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
@@ -1135,12 +1131,10 @@ msgid "Download media automatically"
 msgstr "მედიის ავტომატური გადმოწერა"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "მედიის გაზიარება:"
+msgstr "მედია %1-მდე შეგიძლიათ, გააზიაროთ."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
@@ -1194,9 +1188,6 @@ msgstr ""
 "%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "მოწყობილობის შეცვლა"
@@ -1222,51 +1213,25 @@ msgid "Show as text"
 msgstr "ტექსტის სახით ჩვენება"
 
 #: src/qml/DeviceSwitchingPage.qml:36
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
 "სხვა მოწყობილობიდან შესასვლელად დაასკანერეთ QR კოდი ან შეიყვანეთ "
-"ავტორიზაციის დეტალები.\n"
-"\n"
-"გაფრთხილება:\n"
-"ეს QR კოდი არავის აჩვენოთ, არასდროს. ის მათ თქვენს ანგარიშზე შეუზღუდავ "
-"წვდომას მისცემს!"
+"ავტორიზაციის დეტალები."
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "ყურადღება:"
 
 #: src/qml/DeviceSwitchingPage.qml:48
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid ""
-#| "Scan the QR code or enter the credentials as text on another device to "
-#| "log in on it.\n"
-#| "\n"
-#| "Attention:\n"
-#| "Never show this QR code to anyone else. It would allow unlimited access "
-#| "to your account!"
 msgctxt "DeviceSwitchingPage|"
 msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
-"სხვა მოწყობილობიდან შესასვლელად დაასკანერეთ QR კოდი ან შეიყვანეთ "
-"ავტორიზაციის დეტალები.\n"
-"\n"
-"გაფრთხილება:\n"
 "ეს QR კოდი არავის აჩვენოთ, არასდროს. ის მათ თქვენს ანგარიშზე შეუზღუდავ "
 "წვდომას მისცემს!"
 
@@ -1739,12 +1704,9 @@ msgid "Show only chats with selected labels"
 msgstr "მხოლოდ მონიშნული ჭდეების მქონე ჩატებს ჩვენება"
 
 #: src/qml/elements/RosterListItem.qml:68
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "შეტყობინების კოპირება"
+msgstr "ჯერ შეტყობინებები არაა"
 
 #: src/qml/elements/RosterListItem.qml:86
 msgctxt "RosterListItem|"
@@ -2577,14 +2539,14 @@ msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
+"თქვენი კონტაქტების სიისთვის შენიშვნების დამატება შეუძლებელია, რადგან თქვენს "
+"სერვერს ამის მხარდაჭერა არ გააჩნია"
 
 #: src/RosterManager.cpp:190
-#, fuzzy, qt-format
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "%1-ის დამატება შეუძლებელია"
+msgstr "%1-ის დამატება შეუძლებელია: %2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
