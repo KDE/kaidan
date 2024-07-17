@@ -102,6 +102,7 @@ Name[tr]=Yeni İleti
 Name[uk]=Нове повідомлення
 Name[x-test]=xxNew Messagexx
 Name[zh_CN]=新建消息
+Name[zh_TW]=新訊息
 Comment=New message received
 Comment[ar]=وصلت رسالة جديدة
 Comment[ca]=S'ha rebut un missatge nou
@@ -127,6 +128,7 @@ Comment[tr]=Yeni ileti alındı
 Comment[uk]=Отримано нове повідомлення
 Comment[x-test]=xxNew message receivedxx
 Comment[zh_CN]=已收到新消息
+Comment[zh_TW]=收到新訊息
 Action=Sound|Popup
 
 [Event/new-subsequent-message]
@@ -153,6 +155,7 @@ Name[tr]=Yeni İzleyen İleti
 Name[uk]=Нове послідовне повідомлення
 Name[x-test]=xxNew Subsequent Messagexx
 Name[zh_CN]=新的后续消息
+Name[zh_TW]=新的後續訊息
 Comment=New message received in quick succession to a previous one from the same chat
 Comment[ar]=وصلت رسالة جديدة في تتابع سريع لرسالة سابقة من نفس الدردشة
 Comment[ca]=S'ha rebut un missatge nou en ràpida successió a un anterior del mateix xat
@@ -176,6 +179,7 @@ Comment[tr]=Aynı sohbetteki bir önceki iletiye yanıt olarak hızlıca bir ile
 Comment[uk]=Отримано нове повідомлення одразу після попереднього з того самого спілкування
 Comment[x-test]=xxNew message received in quick succession to a previous one from the same chatxx
 Comment[zh_CN]=从同一聊天中快速接连收到新消息
+Comment[zh_TW]=收到新訊息，其與上一個訊息時間距離不大且來自同一個聊天室
 Action=Popup
 
 [Event/presence-subscription-request]
@@ -197,6 +201,7 @@ Name[sv]=Begäran om att dela personlig information
 Name[tr]=Kişisel Veri Paylaşma İsteği
 Name[uk]=Надсилання запиту щодо надання особистих даних
 Name[x-test]=xxRequest to share personal dataxx
+Name[zh_TW]=請求分享個人資料
 Comment=A contact asks for receiving personal data
 Comment[ar]=يطلبك المتراسل  تلقي البيانات الشخصية
 Comment[ca]=Un contacte demana rebre dades personals
@@ -215,4 +220,5 @@ Comment[sv]=En kontakt ber att få personlig information
 Comment[tr]=Bir kişi, kişisel veri alma isteğinden bulunuyor
 Comment[uk]=Контакт надіслав запит щодо отримання особистих даних
 Comment[x-test]=xxA contact asks for receiving personal dataxx
+Comment[zh_TW]=有聯絡人請求收取個人資料
 Action=Sound|Popup
