@@ -1,60 +1,63 @@
+# SPDX-FileCopyrightText: 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: pan 93412\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2024-07-17 01:56+0900\n"
+"Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 24.04.70\n"
 
 #: src/Blocking.cpp:203
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
-msgstr ""
+msgstr "取得封鎖清單時發生錯誤：%1"
 
 #: src/Blocking.cpp:321
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "裝置"
 
 #: src/Blocking.cpp:323
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr ""
+msgstr "使用者"
 
 #: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "伺服器"
 
 #: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
-msgstr ""
+msgstr "伺服器上的裝置"
 
 #: src/ChatHintModel.cpp:206
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
-msgstr ""
+msgstr "您未連線 — 訊息將在連線後傳送或接收"
 
 #: src/ChatHintModel.cpp:207
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
-msgstr ""
+msgstr "忽略"
 
 #: src/ChatHintModel.cpp:208
 msgctxt "ChatHintModel|"
 msgid "Connect"
-msgstr ""
+msgstr "連線"
 
 #: src/ChatHintModel.cpp:210
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
-msgstr ""
+msgstr "連線中…"
 
 #: src/ChatHintModel.cpp:222
 #, qt-format
@@ -62,22 +65,22 @@ msgctxt "ChatHintModel|"
 msgid ""
 "%1 would like to receive your personal data such as availability, devices "
 "and other personal information%2"
-msgstr ""
+msgstr "%1 希望取得您的個人資訊，例如上線狀態、裝置以及其他個人資訊%2"
 
 #: src/ChatHintModel.cpp:223
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "拒絕"
 
 #: src/ChatHintModel.cpp:224
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "允許"
 
 #: src/ChatHintModel.cpp:226
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
-msgstr ""
+msgstr "允許中…"
 
 #: src/ClientWorker.cpp:311
 #, qt-format
@@ -85,33 +88,33 @@ msgctxt "ClientWorker|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
-msgstr ""
+msgstr "無法從伺服器上刪除您的帳號。因此它也未從此應用程式移除：%1"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
-msgstr ""
+msgstr "無法下載檔案：%1"
 
 #: src/Kaidan.cpp:139
 msgctxt "Kaidan|"
 msgid "Online"
-msgstr ""
+msgstr "上線"
 
 #: src/Kaidan.cpp:141
 msgctxt "Kaidan|"
 msgid "Connecting…"
-msgstr ""
+msgstr "連線中…"
 
 #: src/Kaidan.cpp:143
 msgctxt "Kaidan|"
 msgid "Offline"
-msgstr ""
+msgstr "離線"
 
 #: src/Kaidan.cpp:183
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
-msgstr ""
+msgstr "連結會在您連線之後開啟。"
 
 #: src/MediaRecorder.cpp:1163 src/MediaRecorder.cpp:1171
 #: src/MediaRecorder.cpp:1186 src/MediaRecorder.cpp:1195
@@ -119,308 +122,308 @@ msgstr ""
 #: src/MediaRecorder.cpp:1220
 msgctxt "MediaRecorder|"
 msgid "Default"
-msgstr ""
+msgstr "預設"
 
 #: src/MediaSettings.cpp:137
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
-msgstr ""
+msgstr "非常低"
 
 #: src/MediaSettings.cpp:139
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 #: src/MediaSettings.cpp:141
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
-msgstr ""
+msgstr "一般"
 
 #: src/MediaSettings.cpp:143
 msgctxt "CommonEncoderSettings|"
 msgid "High"
-msgstr ""
+msgstr "高"
 
 #: src/MediaSettings.cpp:145
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
-msgstr ""
+msgstr "非常高"
 
 #: src/MediaSettings.cpp:156
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr ""
+msgstr "固定品質"
 
 #: src/MediaSettings.cpp:158
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
-msgstr ""
+msgstr "固定位元率"
 
 #: src/MediaSettings.cpp:160
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
-msgstr ""
+msgstr "平均位元率"
 
 #: src/MediaSettings.cpp:162
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
-msgstr ""
+msgstr "兩輪"
 
 #: src/MediaUtils.cpp:229
 msgctxt "MediaUtils|"
 msgid "Audio"
-msgstr ""
+msgstr "音訊"
 
 #: src/MediaUtils.cpp:231
 msgctxt "MediaUtils|"
 msgid "Document"
-msgstr ""
+msgstr "文件"
 
 #: src/MediaUtils.cpp:233
 msgctxt "MediaUtils|"
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/MediaUtils.cpp:235
 msgctxt "MediaUtils|"
 msgid "Image"
-msgstr ""
+msgstr "影像"
 
 #: src/MediaUtils.cpp:237
 msgctxt "MediaUtils|"
 msgid "Video"
-msgstr ""
+msgstr "影片"
 
 #: src/MediaUtils.cpp:241
 msgctxt "MediaUtils|"
 msgid "File"
-msgstr ""
+msgstr "檔案"
 
 #: src/MediaUtils.cpp:250
 msgctxt "MediaUtils|"
 msgid "Take picture"
-msgstr ""
+msgstr "拍照"
 
 #: src/MediaUtils.cpp:252
 msgctxt "MediaUtils|"
 msgid "Record video"
-msgstr ""
+msgstr "錄製影片"
 
 #: src/MediaUtils.cpp:254
 msgctxt "MediaUtils|"
 msgid "Record voice"
-msgstr ""
+msgstr "錄製聲音"
 
 #: src/MediaUtils.cpp:256
 msgctxt "MediaUtils|"
 msgid "Send location"
-msgstr ""
+msgstr "傳送位置"
 
 #: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Choose file"
-msgstr ""
+msgstr "選擇檔案…"
 
 #: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Choose image"
-msgstr ""
+msgstr "選擇影像"
 
 #: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Choose video"
-msgstr ""
+msgstr "選擇影片"
 
 #: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
-msgstr ""
+msgstr "選擇音效檔"
 
 #: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Choose document"
-msgstr ""
+msgstr "選擇文件"
 
 #: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr ""
+msgstr "所有檔案"
 
 #: src/MediaUtils.cpp:326
 msgctxt "MediaUtils|"
 msgid "Images"
-msgstr ""
+msgstr "影像"
 
 #: src/MediaUtils.cpp:328
 msgctxt "MediaUtils|"
 msgid "Videos"
-msgstr ""
+msgstr "影片"
 
 #: src/MediaUtils.cpp:330
 msgctxt "MediaUtils|"
 msgid "Audio files"
-msgstr ""
+msgstr "音效檔"
 
 #: src/MediaUtils.cpp:332
 msgctxt "MediaUtils|"
 msgid "Documents"
-msgstr ""
+msgstr "文件"
 
 #: src/MediaUtils.cpp:357
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
-msgstr ""
+msgstr "%1 (%2)"
 
 #: src/Message.cpp:148
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
-msgstr ""
+msgstr "M月d日 hh:mm"
 
 #: src/Message.cpp:155
 msgctxt "QObject|"
 msgid "No information"
-msgstr ""
+msgstr "沒有資訊"
 
 #: src/Message.cpp:281
 msgctxt "Message|"
 msgid "Spoiler"
-msgstr ""
+msgstr "暴雷"
 
 #: src/MessageComposition.cpp:184
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
-msgstr ""
+msgstr "上傳失敗：%1"
 
 #: src/MessageComposition.cpp:304
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
-msgstr ""
+msgstr "未知的大小"
 
 #: src/MessageComposition.cpp:352
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "「%1」無法傳送，因為它比 %2 還大"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
 msgid "Message correction was not successful"
-msgstr ""
+msgstr "訊息修正不成功"
 
 #: src/MessageHandler.cpp:234
 msgctxt "MessageHandler|"
 msgid "Message could not be sent."
-msgstr ""
+msgstr "訊息無法傳送。"
 
 #: src/MessageHandler.cpp:518
 #, qt-format
 msgctxt "MessageHandler|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr ""
+msgstr "此訊息已用 %1 加密但無法解密"
 
 #: src/MessageModel.cpp:221
 msgctxt "MessageModel|"
 msgid "Pending"
-msgstr ""
+msgstr "待處理"
 
 #: src/MessageModel.cpp:223
 msgctxt "MessageModel|"
 msgid "Sent"
-msgstr ""
+msgstr "已傳送"
 
 #: src/MessageModel.cpp:225
 msgctxt "MessageModel|"
 msgid "Delivered"
-msgstr ""
+msgstr "已傳達"
 
 #: src/MessageModel.cpp:227
 msgctxt "MessageModel|"
 msgid "Error"
-msgstr ""
+msgstr "錯誤"
 
 #: src/MessageModel.cpp:654 src/MessageModel.cpp:727 src/MessageModel.cpp:862
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
-msgstr ""
+msgstr "無法傳送反應：%1"
 
 #: src/MessageModel.cpp:805
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
-msgstr ""
+msgstr "無法傳送反應：%1"
 
 #: src/MessageModel.cpp:1526
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "今天"
 
 #: src/MessageModel.cpp:1529
 msgctxt "MessageModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #: src/Notifications.cpp:157 src/Notifications.cpp:240
 msgctxt "Notifications|"
 msgid "Open"
-msgstr ""
+msgstr "開啟"
 
 #: src/Notifications.cpp:158
 msgctxt "Notifications|"
 msgid "Mark as read"
-msgstr ""
+msgstr "標記為已讀"
 
 #: src/Notifications.cpp:222
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
-msgstr ""
+msgstr "請求接收您的個人資料"
 
 #: src/OmemoManager.cpp:128
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr ""
+msgstr "無法設定 OMEMO 2 端對端加密"
 
 #: src/OmemoModel.cpp:126
 msgctxt "OmemoModel|"
 msgid "This device"
-msgstr ""
+msgstr "這台裝置"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
 msgid "Available"
-msgstr ""
+msgstr "線上"
 
 #: src/PresenceCache.cpp:41
 msgctxt "QObject|"
 msgid "Free for chat"
-msgstr ""
+msgstr "能夠聊天"
 
 #: src/PresenceCache.cpp:43
 msgctxt "QObject|"
 msgid "Away"
-msgstr ""
+msgstr "離開"
 
 #: src/PresenceCache.cpp:45
 msgctxt "QObject|"
 msgid "Do not disturb"
-msgstr ""
+msgstr "請勿打擾"
 
 #: src/PresenceCache.cpp:47
 msgctxt "QObject|"
 msgid "Away for longer"
-msgstr ""
+msgstr "離開較久"
 
 #: src/PresenceCache.cpp:49
 msgctxt "QObject|"
 msgid "Offline"
-msgstr ""
+msgstr "離線"
 
 #: src/ProviderListModel.cpp:26
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
-msgstr ""
+msgstr "自訂提供者"
 
 #. Unlimited file size for uploading
 #. ----------
@@ -428,83 +431,83 @@ msgstr ""
 #: src/ProviderListModel.cpp:94 src/ProviderListModel.cpp:104
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
-msgstr ""
+msgstr "無限制"
 
 #: src/ProviderListModel.cpp:106
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
-msgstr ""
+msgstr "%1 天"
 
 #: src/qml/AboutDialog.qml:54
 msgctxt "AboutDialog|"
 msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr ""
+msgstr "簡潔且友善的 Jabber/XMPP 用戶端"
 
 #: src/qml/AboutDialog.qml:62
 msgctxt "AboutDialog|"
 msgid "License:"
-msgstr ""
+msgstr "授權條款："
 
 #: src/qml/AboutDialog.qml:79
 msgctxt "AboutDialog|"
 msgid "Report problems"
-msgstr ""
+msgstr "回報問題"
 
 #: src/qml/AboutDialog.qml:84
 msgctxt "AboutDialog|"
 msgid "View source code online"
-msgstr ""
+msgstr "在網路上瀏覽原始碼"
 
 #: src/qml/ChatPage.qml:93
 msgctxt "ChatPage|"
 msgid "Details…"
-msgstr ""
+msgstr "詳細資訊…"
 
 #: src/qml/ChatPage.qml:99
 msgctxt "ChatPage|"
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: src/qml/ChatPage.qml:112
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "新增隱藏訊息部分"
 
 #: src/qml/details/AccountDetailsContent.qml:25
 msgctxt "AccountDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: src/qml/details/AccountDetailsContent.qml:29
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
-msgstr ""
+msgstr "個人資料是否分享"
 
 #: src/qml/details/AccountDetailsContent.qml:33
 msgctxt "AccountDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "總是"
 
 #: src/qml/details/AccountDetailsContent.qml:65
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
-msgstr ""
+msgstr "空白"
 
 #: src/qml/details/AccountDetailsContent.qml:85
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
-msgstr ""
+msgstr "設定數值"
 
 #: src/qml/details/AccountDetailsContent.qml:142
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "加密"
 
 #: src/qml/details/AccountDetailsContent.qml:146
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/AccountDetailsContent.qml:147
 msgctxt "AccountDetailsContent|"
@@ -512,104 +515,106 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"OMEMO 2 是一種端對端加密的方式，確保除了您與聊天對象以外沒有任何人能讀取或修"
+"改您們之間交換的資料。"
 
 #: src/qml/details/AccountDetailsContent.qml:166
 #: src/qml/details/AccountDetailsContent.qml:172
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr ""
+msgstr "掃描<b>您的</b>裝置的 QR code 來為它們加密"
 
 #: src/qml/details/AccountDetailsContent.qml:168
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr ""
+msgstr "<b>您的</b>其他裝置未使用 OMEMO 2"
 
 #: src/qml/details/AccountDetailsContent.qml:175
 msgctxt "AccountDetailsContent|"
 msgid "Scan the QR codes of <b>your</b> devices for maximum security"
-msgstr ""
+msgstr "掃描<b>您的</b>裝置的 QR code 以改善安全性"
 
 #: src/qml/details/AccountDetailsContent.qml:234
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
-msgstr ""
+msgstr "變更標籤…"
 
 #: src/qml/details/AccountDetailsContent.qml:263
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
-msgstr ""
+msgstr "移除標籤"
 
 #: src/qml/details/AccountDetailsContent.qml:294
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
-msgstr ""
+msgstr "提供者："
 
 #: src/qml/details/AccountDetailsContent.qml:298
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
-msgstr ""
+msgstr "造訪網站"
 
 #: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
-msgstr ""
+msgstr "在瀏覽器中開啟您的提供者的網站"
 
 #: src/qml/details/AccountDetailsContent.qml:305
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
-msgstr ""
+msgstr "複製網站位址"
 
 #: src/qml/details/AccountDetailsContent.qml:306
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
-msgstr ""
+msgstr "將您的提供者的網路位址複製到剪貼簿"
 
 #: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
-msgstr ""
+msgstr "網站位址已複製到剪貼簿"
 
 #: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
-msgstr ""
+msgstr "開啟支援聊天"
 
 #: src/qml/details/AccountDetailsContent.qml:316
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
-msgstr ""
+msgstr "與您的使用者支援聯絡人開始聊天"
 
 #: src/qml/details/AccountDetailsContent.qml:322
 msgctxt "AccountDetailsContent|"
 msgid "Support"
-msgstr ""
+msgstr "支援"
 
 #: src/qml/details/AccountDetailsContent.qml:348
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
-msgstr ""
+msgstr "支援 %1"
 
 #: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
-msgstr ""
+msgstr "開啟支援群組"
 
 #: src/qml/details/AccountDetailsContent.qml:366
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
-msgstr ""
+msgstr "加入您的提供者的公開支援群組"
 
 #: src/qml/details/AccountDetailsContent.qml:392
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
-msgstr ""
+msgstr "群組支援 %1"
 
 #: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
-msgstr ""
+msgstr "已封鎖的聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:412
 msgctxt "AccountDetailsContent|"
@@ -617,114 +622,116 @@ msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
+"封鎖某個使用者（例如 user@example.org）或是某個伺服器上的所有使用者（例如 "
+"example.org）"
 
 #: src/qml/details/AccountDetailsContent.qml:431
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
-msgstr ""
+msgstr "您必須已連線才能封鎖或解除封鎖聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:438
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
-msgstr ""
+msgstr "user@example.org"
 
 #: src/qml/details/AccountDetailsContent.qml:453
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
-msgstr ""
+msgstr "封鎖聊天位址"
 
 #: src/qml/details/AccountDetailsContent.qml:521
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
-msgstr ""
+msgstr "變更聊天位址…"
 
 #: src/qml/details/AccountDetailsContent.qml:550
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "解除封鎖"
 
 #: src/qml/details/AccountDetailsContent.qml:577
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
-msgstr ""
+msgstr "筆記本"
 
 #: src/qml/details/AccountDetailsContent.qml:582
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr ""
+msgstr "新增筆記用的聊天室"
 
 #: src/qml/details/AccountDetailsContent.qml:583
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
-msgstr ""
+msgstr "新增將筆記在您所有裝置間同步用的聊天室"
 
 #: src/qml/details/AccountDetailsContent.qml:617
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
-msgstr ""
+msgstr "密碼變更"
 
 #: src/qml/details/AccountDetailsContent.qml:621
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
-msgstr ""
+msgstr "變更您的密碼。您將須在所有其他的裝置上輸入您的密碼！"
 
 #: src/qml/details/AccountDetailsContent.qml:637
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
-msgstr ""
+msgstr "目前密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:638
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
-msgstr ""
+msgstr "輸入您目前的密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:639
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
-msgstr ""
+msgstr "輸入目前密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:661
 msgctxt "AccountDetailsContent|"
 msgid "New password"
-msgstr ""
+msgstr "新密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:661
 msgctxt "AccountDetailsContent|"
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:662
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
-msgstr ""
+msgstr "輸入您的新密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:663
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
-msgstr ""
+msgstr "輸入不同的密碼來變更密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:683
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
-msgstr ""
+msgstr "變更密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:730
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
-msgstr ""
+msgstr "變更密碼失敗：%1"
 
 #: src/qml/details/AccountDetailsContent.qml:736
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
-msgstr ""
+msgstr "密碼已成功變更"
 
 #: src/qml/details/AccountDetailsContent.qml:753
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
-msgstr ""
+msgstr "密碼可見性"
 
 #: src/qml/details/AccountDetailsContent.qml:757
 msgctxt "AccountDetailsContent|"
@@ -734,18 +741,21 @@ msgid ""
 "account on another device later, <b>consider storing the password somewhere "
 "else. This cannot be undone!</b>"
 msgstr ""
+"將此裝置設定為不顯示您的密碼供變更，或是供切換至另一個裝置。如果您希望之後能"
+"夠變更密碼或是在別的裝置上使用您的帳號，<b>請考慮將密碼存在別的地方。這個動作"
+"無法復原！</b>"
 
 #: src/qml/details/AccountDetailsContent.qml:761
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
-msgstr ""
+msgstr "不要將密碼作為文字顯示"
 
 #: src/qml/details/AccountDetailsContent.qml:762
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
-msgstr ""
+msgstr "允許利用登入 QR code 新增額外裝置，但不顯示密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:770
 #: src/qml/details/AccountDetailsContent.qml:789
@@ -753,135 +763,135 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:974
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 #: src/qml/details/AccountDetailsContent.qml:780
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
-msgstr ""
+msgstr "不要用任何方式顯示密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:781
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
-msgstr ""
+msgstr "不允許使用登入 QR code 新增額外裝置，也不顯示密碼"
 
 #: src/qml/details/AccountDetailsContent.qml:812
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
-msgstr ""
+msgstr "連線"
 
 #: src/qml/details/AccountDetailsContent.qml:816
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
-msgstr ""
+msgstr "設定要連線到的主機名稱與連接埠（留空以使用預設值）"
 
 #: src/qml/details/AccountDetailsContent.qml:835
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
-msgstr ""
+msgstr "變更連線設定"
 
 #: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
-msgstr ""
+msgstr "輸入不同的連線設定來變更它"
 
 #: src/qml/details/AccountDetailsContent.qml:893
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
-msgstr ""
+msgstr "無法變更連線設定：%1"
 
 #: src/qml/details/AccountDetailsContent.qml:908
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
-msgstr ""
+msgstr "連線設定已變更"
 
 #: src/qml/details/AccountDetailsContent.qml:932
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "移除"
 
 #: src/qml/details/AccountDetailsContent.qml:940
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
-msgstr ""
+msgstr "從 Kaidan 移除"
 
 #: src/qml/details/AccountDetailsContent.qml:941
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
-msgstr ""
+msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
 #: src/qml/details/AccountDetailsContent.qml:965
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
-msgstr ""
+msgstr "完全刪除"
 
 #: src/qml/details/AccountDetailsContent.qml:966
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
-msgstr ""
+msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
-msgstr ""
+msgstr "變更您的大頭貼影像"
 
 #: src/qml/details/AvatarChangePage.qml:25
 msgctxt "AvatarChangePage|"
 msgid "Change profile image"
-msgstr ""
+msgstr "變更大頭貼影像"
 
 #: src/qml/details/AvatarChangePage.qml:38
 msgctxt "AvatarChangePage|"
 msgid "Choose profile image"
-msgstr ""
+msgstr "選擇大頭貼影像"
 
 #: src/qml/details/AvatarChangePage.qml:116
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
-msgstr ""
+msgstr "開啟影像…"
 
 #: src/qml/details/AvatarChangePage.qml:121
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
-msgstr ""
+msgstr "移除目前的大頭貼影像"
 
 #: src/qml/details/AvatarChangePage.qml:127
 msgctxt "AvatarChangePage|"
 msgid "Save selection"
-msgstr ""
+msgstr "儲存選擇"
 
 #: src/qml/details/ContactDetailsContent.qml:25
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr ""
+msgstr "帳號預設"
 
 #: src/qml/details/ContactDetailsContent.qml:29
 msgctxt "ContactDetailsContent|"
 msgid "Never"
-msgstr ""
+msgstr "永不"
 
 #: src/qml/details/ContactDetailsContent.qml:33
 msgctxt "ContactDetailsContent|"
 msgid "Always"
-msgstr ""
+msgstr "總是"
 
 #: src/qml/details/ContactDetailsContent.qml:77
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
-msgstr ""
+msgstr "加密"
 
 #: src/qml/details/ContactDetailsContent.qml:81
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
-msgstr ""
+msgstr "OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:82
 msgctxt "ContactDetailsContent|"
@@ -889,252 +899,254 @@ msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
+"OMEMO 2 是一種端對端加密的方式，確保除了您與聊天對象以外沒有任何人能讀取或修"
+"改您們之間交換的資料。"
 
 #: src/qml/details/ContactDetailsContent.qml:94
 #: src/qml/details/ContactDetailsContent.qml:102
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr ""
+msgstr "驗證<b>您的</b>裝置來為它們加密"
 
 #: src/qml/details/ContactDetailsContent.qml:96
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr ""
+msgstr "<b>您的</b>其他裝置未使用 OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:98
 msgctxt "ContactDetailsContent|"
 msgid "<b>You</b> have no other devices supporting OMEMO 2"
-msgstr ""
+msgstr "<b>您</b>沒有任何其他裝置支援 OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:105
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
-msgstr ""
+msgstr "驗證<b>您的</b>裝置來改善安全性"
 
 #: src/qml/details/ContactDetailsContent.qml:147
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
-msgstr ""
+msgstr "驗證您的<b>聯絡人</b>來啟用加密"
 
 #: src/qml/details/ContactDetailsContent.qml:150
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
-msgstr ""
+msgstr "您的<b>聯絡人</b>不使用 OMEMO 2"
 
 #: src/qml/details/ContactDetailsContent.qml:153
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
-msgstr ""
+msgstr "驗證您的<b>聯絡人的</b>裝置來為它們加密"
 
 #: src/qml/details/ContactDetailsContent.qml:156
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
-msgstr ""
+msgstr "驗證您的<b>聯絡人</b>來改善安全性"
 
 #: src/qml/details/ContactDetailsContent.qml:194
 msgctxt "ContactDetailsContent|"
 msgid "New label"
-msgstr ""
+msgstr "新標籤"
 
 #: src/qml/details/ContactDetailsContent.qml:208
 msgctxt "ContactDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "新增標籤"
 
 #: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Sharing"
-msgstr ""
+msgstr "分享"
 
 #: src/qml/details/ContactDetailsContent.qml:295
 msgctxt "ContactDetailsContent|"
 msgid "Show QR code"
-msgstr ""
+msgstr "顯示 QR 碼"
 
 #: src/qml/details/ContactDetailsContent.qml:296
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
-msgstr ""
+msgstr "透過 QR code 分享這個聯絡人的聊天位址"
 
 #: src/qml/details/ContactDetailsContent.qml:322
 msgctxt "ContactDetailsContent|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "複製聊天位址"
 
 #: src/qml/details/ContactDetailsContent.qml:323
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
-msgstr ""
+msgstr "透過文字分享這個聯絡人的聊天位址"
 
 #: src/qml/details/ContactDetailsContent.qml:327
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
-msgstr ""
+msgstr "聯絡人已複製到剪貼簿"
 
 #: src/qml/details/ContactDetailsContent.qml:340
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 #: src/qml/details/ContactDetailsContent.qml:344
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
-msgstr ""
+msgstr "接收訊息"
 
 #: src/qml/details/ContactDetailsContent.qml:345
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
-msgstr ""
+msgstr "收到訊息時顯示通知並播放聲音"
 
 #: src/qml/details/ContactDetailsContent.qml:364
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
-msgstr ""
+msgstr "隱私"
 
 #: src/qml/details/ContactDetailsContent.qml:368
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
-msgstr ""
+msgstr "請求個人資料"
 
 #: src/qml/details/ContactDetailsContent.qml:369
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
-msgstr ""
+msgstr "請求您的聯絡人分享上線狀態、裝置與其他個人資訊"
 
 #: src/qml/details/ContactDetailsContent.qml:375
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
-msgstr ""
+msgstr "取消分享個人資料"
 
 #: src/qml/details/ContactDetailsContent.qml:376
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
-msgstr ""
+msgstr "停止分享上線狀態、裝置與其他個人資訊"
 
 #: src/qml/details/ContactDetailsContent.qml:382
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr ""
+msgstr "傳送輸入中通知"
 
 #: src/qml/details/ContactDetailsContent.qml:383
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
-msgstr ""
+msgstr "提供您已開啟此對話、正在打字或是已停止打字的資訊"
 
 #: src/qml/details/ContactDetailsContent.qml:394
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
-msgstr ""
+msgstr "傳送已讀通知"
 
 #: src/qml/details/ContactDetailsContent.qml:395
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
-msgstr ""
+msgstr "提供您已讀過哪些訊息的資訊"
 
 #: src/qml/details/ContactDetailsContent.qml:406
 msgctxt "ContactDetailsContent|"
 msgid "Block"
-msgstr ""
+msgstr "封鎖"
 
 #: src/qml/details/ContactDetailsContent.qml:407
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
-msgstr ""
+msgstr "封鎖所有通訊，包含狀態與通知"
 
 #: src/qml/details/ContactDetailsContent.qml:433
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
-msgstr ""
+msgstr "移除"
 
 #: src/qml/details/ContactDetailsContent.qml:441
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: src/qml/details/ContactDetailsContent.qml:442
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
-msgstr ""
+msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
 #: src/qml/details/ContactDetailsContent.qml:450
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 #: src/qml/details/ContactDetailsHeader.qml:18
 msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
-msgstr ""
+msgstr "最大化大頭貼"
 
 #: src/qml/details/ContactDetailsHeader.qml:25
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr ""
+msgstr "此聊天室中的訊息會在您的所有裝置中作為筆記進行同步"
 
 #: src/qml/details/DetailsContent.qml:51
 msgctxt "DetailsContent|"
 msgid "Media"
-msgstr ""
+msgstr "媒體"
 
 #: src/qml/details/DetailsContent.qml:56
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
-msgstr ""
+msgstr "自動下載"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
-msgstr ""
+msgstr "自動下載媒體"
 
 #: src/qml/details/DetailsContent.qml:87
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr ""
+msgstr "您可以分享最大 %1 的媒體。"
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
 msgid "Profile"
-msgstr ""
+msgstr "個人資料"
 
 #: src/qml/details/DetailsContent.qml:156
 msgctxt "DetailsContent|"
 msgid "Labels"
-msgstr ""
+msgstr "標籤"
 
 #: src/qml/details/DetailsContent.qml:180
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
-msgstr ""
+msgstr "連線裝置"
 
 #: src/qml/details/DetailsHeader.qml:94
 msgctxt "DetailsHeader|"
 msgid "Change name…"
-msgstr ""
+msgstr "變更名稱…"
 
 #: src/qml/details/MediaOverview.qml:72
 msgctxt "MediaOverview|"
 msgid "Images"
-msgstr ""
+msgstr "影像"
 
 #: src/qml/details/MediaOverview.qml:89
 msgctxt "MediaOverview|"
 msgid "Videos"
-msgstr ""
+msgstr "影片"
 
 #: src/qml/details/MediaOverview.qml:107
 msgctxt "MediaOverview|"
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 #: src/qml/details/MediaOverview.qml:174
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
-msgstr ""
+msgstr "已選取 %1/%2"
 
 #: src/qml/details/MediaOverview.qml:256
 #, qt-format
@@ -1143,31 +1155,33 @@ msgid ""
 "Not all files could be deleted:\n"
 "%1"
 msgstr ""
+"不是所有檔案都能刪除：\n"
+"%1"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
-msgstr ""
+msgstr "切換裝置"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
-msgstr ""
+msgstr "隱藏 QR code"
 
 #: src/qml/DeviceSwitchingPage.qml:25
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
-msgstr ""
+msgstr "作為 QR code 顯示"
 
 #: src/qml/DeviceSwitchingPage.qml:26
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
-msgstr ""
+msgstr "隱藏文字"
 
 #: src/qml/DeviceSwitchingPage.qml:26
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
-msgstr ""
+msgstr "作為文字顯示"
 
 #: src/qml/DeviceSwitchingPage.qml:36
 msgctxt "DeviceSwitchingPage|"
@@ -1175,11 +1189,12 @@ msgid ""
 "Scan the QR code or enter the credentials as text on another device to log "
 "in on it."
 msgstr ""
+"在另一台裝置上掃描該 QR code 或是用文字方式輸入認證資訊來在該裝置上登入。"
 
 #: src/qml/DeviceSwitchingPage.qml:41
 msgctxt "DeviceSwitchingPage|"
 msgid "Attention:"
-msgstr ""
+msgstr "注意："
 
 #: src/qml/DeviceSwitchingPage.qml:48
 msgctxt "DeviceSwitchingPage|"
@@ -1187,386 +1202,388 @@ msgid ""
 "Never show this QR code to anyone else. It would allow unlimited access to "
 "your account!"
 msgstr ""
+"不要將這個 QR code 顯示給別人。任何看得到這個 QR code 的人都能無限制地存取您"
+"的帳號！"
 
 #: src/qml/DeviceSwitchingPage.qml:69
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
-msgstr ""
+msgstr "聊天位址："
 
 #: src/qml/DeviceSwitchingPage.qml:78
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
-msgstr ""
+msgstr "複製聊天位址"
 
 #: src/qml/DeviceSwitchingPage.qml:88
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
-msgstr ""
+msgstr "密碼："
 
 #: src/qml/DeviceSwitchingPage.qml:98
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
-msgstr ""
+msgstr "複製密碼"
 
 #: src/qml/elements/ChatMessage.qml:143
 msgctxt "ChatMessage|"
 msgid "Spoiler"
-msgstr ""
+msgstr "暴雷"
 
 #: src/qml/elements/ChatMessage.qml:285
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
-msgstr ""
+msgstr "%1 已閱讀到此處"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:24
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
-msgstr ""
+msgstr "複製訊息"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:35
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
-msgstr ""
+msgstr "編輯訊息"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:41
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
-msgstr ""
+msgstr "複製下載網址"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:47
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
-msgstr ""
+msgstr "引用訊息"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:54
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
-msgstr ""
+msgstr "刪除檔案"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:62
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
-msgstr ""
+msgstr "標記為第一未讀"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:72
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
-msgstr ""
+msgstr "從此裝置移除"
 
 #: src/qml/elements/ChatPageSearchView.qml:47
 msgctxt "ChatPageSearchView|"
 msgid "Close message search bar"
-msgstr ""
+msgstr "關閉訊息搜尋列"
 
 #: src/qml/elements/ChatPageSearchView.qml:83
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
-msgstr ""
+msgstr "往上搜尋"
 
 #: src/qml/elements/ChatPageSearchView.qml:94
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
-msgstr ""
+msgstr "往下搜尋"
 
 #: src/qml/elements/ChatPageSendingPane.qml:73
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
-msgstr ""
+msgstr "可見訊息部分"
 
 #: src/qml/elements/ChatPageSendingPane.qml:80
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
-msgstr ""
+msgstr "取消加入隱藏訊息部分"
 
 #: src/qml/elements/ChatPageSendingPane.qml:120
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
-msgstr ""
+msgstr "撰寫包含隱藏部分的<b>加密</b>訊息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:120
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
-msgstr ""
+msgstr "撰寫包含隱藏部分的<b>未加密</b>訊息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:122
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
-msgstr ""
+msgstr "撰寫<b>加密</b>訊息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:122
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
-msgstr ""
+msgstr "撰寫<b>未加密</b>訊息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:234
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
-msgstr ""
+msgstr "媒體"
 
 #: src/qml/elements/ChatPageSendingPane.qml:290
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
-msgstr ""
+msgstr "拍照"
 
 #: src/qml/elements/ChatPageSendingPane.qml:291
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
-msgstr ""
+msgstr "用您的相機拍張照"
 
 #: src/qml/elements/ChatPageSendingPane.qml:302
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
-msgstr ""
+msgstr "錄製影片"
 
 #: src/qml/elements/ChatPageSendingPane.qml:303
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
-msgstr ""
+msgstr "用您的相機錄製影片"
 
 #: src/qml/elements/ChatPageSendingPane.qml:314
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
-msgstr ""
+msgstr "分享檔案"
 
 #: src/qml/elements/ChatPageSendingPane.qml:315
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
-msgstr ""
+msgstr "分享來自您的裝置的檔案"
 
 #: src/qml/elements/ChatPageSendingPane.qml:326
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
-msgstr ""
+msgstr "分享位置"
 
 #: src/qml/elements/ChatPageSendingPane.qml:327
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
-msgstr ""
+msgstr "傳送您的位置"
 
 #: src/qml/elements/ConfirmationPage.qml:24
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/qml/elements/ContactAdditionContent.qml:28
 msgctxt "ContactAdditionContent|"
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: src/qml/elements/ContactAdditionContent.qml:33
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
-msgstr ""
+msgstr "聯絡人已存在"
 
 #: src/qml/elements/ContactAdditionContent.qml:35
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
-msgstr ""
+msgstr "開啟聊天"
 
 #: src/qml/elements/ContactAdditionContent.qml:48
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "正在新增聯絡人…"
 
 #: src/qml/elements/ContactAdditionContent.qml:59
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
-msgstr ""
+msgstr "名稱（可選）："
 
 #: src/qml/elements/ContactAdditionContent.qml:67
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
-msgstr ""
+msgstr "訊息（可選）："
 
 #: src/qml/elements/ContactAdditionContent.qml:74
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "嗨，我是…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
 msgctxt "ContactAdditionDialog|"
 msgid "Add contact"
-msgstr ""
+msgstr "新增聯絡人"
 
 #: src/qml/elements/ContactAdditionPage.qml:14
 msgctxt "ContactAdditionPage|"
 msgid "Add contact"
-msgstr ""
+msgstr "新增聯絡人"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:14
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Add contact"
-msgstr ""
+msgstr "新增聯絡人"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "掃描 QR code"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "顯示說明"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "第一步：掃描您的<b>聯絡人的</b> QR code"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "第二步：讓您的聯絡人掃描<b>您的</b> QR code"
 
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "Chat address"
-msgstr ""
+msgstr "聊天位址"
 
 #: src/qml/elements/fields/JidField.qml:20
 msgctxt "JidField|"
 msgid "user@example.org"
-msgstr ""
+msgstr "user@example.org"
 
 #: src/qml/elements/fields/JidField.qml:22
 msgctxt "JidField|"
 msgid "The chat address must have the form <b>username@server</b>"
-msgstr ""
+msgstr "聊天位址格式必須是 <b>使用者名稱@伺服器</b>"
 
 #: src/qml/elements/fields/PasswordField.qml:15
 msgctxt "PasswordField|"
 msgid "Password"
-msgstr ""
+msgstr "密碼"
 
 #: src/qml/elements/fields/PasswordField.qml:16
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
-msgstr ""
+msgstr "請輸入有效的密碼"
 
 #: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
 msgid "Loading…"
-msgstr ""
+msgstr "載入中…"
 
 #: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
-msgstr ""
+msgstr "連線設定"
 
 #: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr ""
+msgstr "登入"
 
 #: src/qml/elements/LoginArea.qml:74
 msgctxt "LoginArea|"
 msgid "Connecting…"
-msgstr ""
+msgstr "連線中…"
 
 #: src/qml/elements/MessageBackground.qml:108
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
-msgstr ""
+msgstr "已解密"
 
 #: src/qml/elements/MessageBackground.qml:113
 msgctxt "MessageBackground|"
 msgid "Untrusted"
-msgstr ""
+msgstr "不受信任的"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:27
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Reactions"
-msgstr ""
+msgstr "反應"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:50
 msgctxt "MessageReactionDetailsSheet|"
 msgid "Own:"
-msgstr ""
+msgstr "自己的："
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:71
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be added once you are connected"
-msgstr ""
+msgstr "%1 將會在您連線後新增"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:74
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 will be removed once you are connected"
-msgstr ""
+msgstr "%1 將會在您連線後移除"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:76
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be added"
-msgstr ""
+msgstr "%1 無法新增"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:79
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 could not be removed"
-msgstr ""
+msgstr "%1 無法移除"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:81
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been sent"
-msgstr ""
+msgstr "%1 已被傳送"
 
 #: src/qml/elements/MessageReactionDetailsSheet.qml:83
 #, qt-format
 msgctxt "MessageReactionDetailsSheet|"
 msgid "%1 has been delivered"
-msgstr ""
+msgstr "%1 已傳遞到目的地"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
 msgid "Initializing…"
-msgstr ""
+msgstr "初始化中…"
 
 #: src/qml/elements/NewMedia.qml:206
 msgctxt "NewMedia|"
 msgid "Unavailable"
-msgstr ""
+msgstr "無法使用"
 
 #: src/qml/elements/NewMedia.qml:216
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Paused %1"
-msgstr ""
+msgstr "已暫停 %1"
 
 #: src/qml/elements/NewMedia.qml:231
 #, qt-format
 msgctxt "NewMedia|"
 msgid "Recording… %1"
-msgstr ""
+msgstr "錄製中… %1"
 
 #: src/qml/elements/NewMediaSheet.qml:78
 msgctxt "NewMediaSheet|"
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/qml/elements/NewMediaSheet.qml:92
 msgctxt "NewMediaSheet|"
 msgid "Send"
-msgstr ""
+msgstr "傳送"
 
 #: src/qml/elements/QrCodeScanner.qml:69
 #, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
-msgstr ""
+msgstr "相機格式「%1」不支援。"
 
 #: src/qml/elements/QrCodeScanner.qml:154
 msgctxt "QrCodeScanner|"
 msgid "Loading camera…"
-msgstr ""
+msgstr "相機載入中…"
 
 #: src/qml/elements/QrCodeScanner.qml:161
 msgctxt "QrCodeScanner|"
 msgid "No camera available"
-msgstr ""
+msgstr "無相機可用"
 
 #: src/qml/elements/QrCodeScanner.qml:164
 msgctxt "QrCodeScanner|"
@@ -1574,128 +1591,130 @@ msgid ""
 "Camera busy\n"
 "Try to close other applications using the camera"
 msgstr ""
+"相機忙碌中\n"
+"請嘗試關閉其他使用相機的應用程式"
 
 #: src/qml/elements/QrCodeScanningArea.qml:55
 msgctxt "QrCodeScanningArea|"
 msgid "Contact added - Continue with step 2"
-msgstr ""
+msgstr "聯絡人已新增 — 請繼續進行第二步"
 
 #: src/qml/elements/QrCodeScanningArea.qml:62
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code does not contain a contact"
-msgstr ""
+msgstr "這個 QR code 內不含聯絡人資訊"
 
 #: src/qml/elements/QrCodeScanningArea.qml:77
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for other own device - Continue with step 2"
-msgstr ""
+msgstr "信任為自己的另一個裝置進行的決定 — 請繼續進行第二步"
 
 #: src/qml/elements/QrCodeScanningArea.qml:79
 msgctxt "QrCodeScanningArea|"
 msgid "Trust decisions made for contact - Continue with step 2"
-msgstr ""
+msgstr "信任為聯絡人進行的決定 — 請繼續進行第二步"
 
 #: src/qml/elements/QrCodeScanningArea.qml:86
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your other device"
-msgstr ""
+msgstr "這個 QR code 不是您的其他裝置用的"
 
 #: src/qml/elements/QrCodeScanningArea.qml:88
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for your contact"
-msgstr ""
+msgstr "這個 QR code 不是您的聯絡人用的"
 
 #: src/qml/elements/QrCodeScanningArea.qml:94
 msgctxt "QrCodeScanningArea|"
 msgid "This QR code is not for trust decisions"
-msgstr ""
+msgstr "這個 QR code 不是信任決定用的"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
-msgstr ""
+msgstr "正在進行信任決定…"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr ""
+msgstr "正在新增聯絡人…"
 
 #: src/qml/elements/RosterFilteringArea.qml:29
 msgctxt "RosterFilteringArea|"
 msgid "Filter by availability"
-msgstr ""
+msgstr "依上線狀態過濾"
 
 #: src/qml/elements/RosterFilteringArea.qml:30
 msgctxt "RosterFilteringArea|"
 msgid "Show only available contacts"
-msgstr ""
+msgstr "只顯示目前在線上的聯絡人"
 
 #: src/qml/elements/RosterFilteringArea.qml:48
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr ""
+msgstr "依帳號過濾"
 
 #: src/qml/elements/RosterFilteringArea.qml:49
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
-msgstr ""
+msgstr "只顯示所選帳號的聊天"
 
 #: src/qml/elements/RosterFilteringArea.qml:126
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
-msgstr ""
+msgstr "依標籤過濾"
 
 #: src/qml/elements/RosterFilteringArea.qml:127
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
-msgstr ""
+msgstr "只顯示有所選標籤的聊天"
 
 #: src/qml/elements/RosterListItem.qml:68
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr ""
+msgstr "還沒有訊息"
 
 #: src/qml/elements/RosterListItem.qml:86
 msgctxt "RosterListItem|"
 msgid "Draft:"
-msgstr ""
+msgstr "草稿："
 
 #: src/qml/elements/RosterListItem.qml:94
 msgctxt "RosterListItem|"
 msgid "Me:"
-msgstr ""
+msgstr "我："
 
 #: src/qml/elements/RosterListItem.qml:97
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
-msgstr ""
+msgstr "%1："
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Unpin"
-msgstr ""
+msgstr "取消釘選"
 
 #: src/qml/elements/RosterListItemContextMenu.qml:21
 msgctxt "RosterListItemContextMenu|"
 msgid "Pin"
-msgstr ""
+msgstr "釘選"
 
 #: src/qml/elements/SearchBarPage.qml:29
 msgctxt "SearchBarPage|"
 msgid "Search"
-msgstr ""
+msgstr "搜尋"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:24
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
-msgstr ""
+msgstr "搜尋公開群組 (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:46
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
-msgstr ""
+msgstr "搜尋…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:167
 #, qt-format
@@ -1705,245 +1724,248 @@ msgid ""
 "\n"
 "%1"
 msgstr ""
+"無法取得公開群組，請重試。\n"
+"\n"
+"%1"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:173
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
-msgstr ""
+msgstr "下載中…"
 
 #: src/qml/elements/SearchPublicGroupChatSheet.qml:228
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
-msgstr ""
+msgstr "重試"
 
 #: src/qml/elements/SendMediaSheet.qml:29
 msgctxt "SendMediaSheet|"
 msgid "Share files"
-msgstr ""
+msgstr "分享檔案"
 
 #: src/qml/elements/SendMediaSheet.qml:79
 msgctxt "SendMediaSheet|"
 msgid "Choose files"
-msgstr ""
+msgstr "選擇檔案"
 
 #: src/qml/elements/SendMediaSheet.qml:116
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
-msgstr ""
+msgstr "輸入描述…"
 
 #: src/qml/elements/SendMediaSheet.qml:124
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
-msgstr ""
+msgstr "移除檔案"
 
 #: src/qml/elements/SendMediaSheet.qml:138
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
-msgstr ""
+msgstr "撰寫訊息"
 
 #: src/qml/elements/SendMediaSheet.qml:145
 msgctxt "SendMediaSheet|"
 msgid "Add"
-msgstr ""
+msgstr "新增"
 
 #: src/qml/elements/SendMediaSheet.qml:156
 msgctxt "SendMediaSheet|"
 msgid "Send"
-msgstr ""
+msgstr "傳送"
 
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
-msgstr ""
+msgstr "選擇聊天室來開始傳訊息"
 
 #: src/qml/GlobalDrawer.qml:59
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
-msgstr ""
+msgstr "帳號"
 
 #: src/qml/GlobalDrawer.qml:125
 msgctxt "GlobalDrawer|"
 msgid "Actions"
-msgstr ""
+msgstr "動作"
 
 #: src/qml/GlobalDrawer.qml:129
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
-msgstr ""
+msgstr "用 QR code 新增聯絡人"
 
 #: src/qml/GlobalDrawer.qml:135
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr ""
+msgstr "依聊天位址新增聯絡人"
 
 #: src/qml/GlobalDrawer.qml:142
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
-msgstr ""
+msgstr "搜尋公開群組"
 
 #: src/qml/GlobalDrawer.qml:153
 msgctxt "GlobalDrawer|"
 msgid "Invite friends"
-msgstr ""
+msgstr "邀請朋友"
 
 #: src/qml/GlobalDrawer.qml:157
 msgctxt "GlobalDrawer|"
 msgid "Invitation link copied to clipboard"
-msgstr ""
+msgstr "邀請連結已複製到剪貼簿"
 
 #: src/qml/GlobalDrawer.qml:162
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
-msgstr ""
+msgstr "切換裝置"
 
 #: src/qml/GlobalDrawer.qml:168
 msgctxt "GlobalDrawer|"
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/qml/KeyAuthenticationPage.qml:28
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify devices"
-msgstr ""
+msgstr "驗證裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "顯示說明"
 
 #: src/qml/KeyAuthenticationPage.qml:30
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr ""
+msgstr "掃描 QR code"
 
 #: src/qml/KeyAuthenticationPage.qml:41
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify manually"
-msgstr ""
+msgstr "手動驗證"
 
 #: src/qml/KeyAuthenticationPage.qml:43
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr ""
+msgstr "第一步：掃描您<b>另一台裝置</b>的 QR code"
 
 #: src/qml/KeyAuthenticationPage.qml:43
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr ""
+msgstr "第一步：掃描您的<b>聯絡人的</b> QR code"
 
 #: src/qml/KeyAuthenticationPage.qml:45
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr ""
+msgstr "第二步：用您的另一台裝置掃描<b>本裝置的</b> QR code"
 
 #: src/qml/KeyAuthenticationPage.qml:45
 msgctxt "KeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr ""
+msgstr "第二步：讓您的聯絡人掃描<b>您的</b> QR code"
 
 #: src/qml/KeyAuthenticationPage.qml:63
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified own devices"
-msgstr ""
+msgstr "未驗證的自己的裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:63
 msgctxt "KeyAuthenticationPage|"
 msgid "Unverified contact devices"
-msgstr ""
+msgstr "未驗證的聯絡人的裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:92
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr ""
+msgstr "驗證裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:110
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
-msgstr ""
+msgstr "已驗證裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:112
 msgctxt "KeyAuthenticationPage|"
 msgid "Device does not exist or is already verified"
-msgstr ""
+msgstr "裝置不存在或是已驗證"
 
 #: src/qml/KeyAuthenticationPage.qml:117
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
-msgstr ""
+msgstr "指紋必須有 64 個字元，且各字元必須是十六進位數字（0-9，a-f）"
 
 #: src/qml/KeyAuthenticationPage.qml:153
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
-msgstr ""
+msgstr "已驗證的自己的裝置"
 
 #: src/qml/KeyAuthenticationPage.qml:175
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "複製指紋"
 
 #: src/qml/KeyAuthenticationPage.qml:182
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
-msgstr ""
+msgstr "已將指紋複製到剪貼簿"
 
 #: src/qml/main.qml:81
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
-msgstr ""
+msgstr "已解除封鎖 %1"
 
 #: src/qml/main.qml:81
 msgctxt "main|"
 msgid "Undo"
-msgstr ""
+msgstr "復原"
 
 #: src/qml/main.qml:88
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
-msgstr ""
+msgstr "無法封鎖 %1：%2"
 
 #: src/qml/main.qml:90
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
-msgstr ""
+msgstr "無法解除封鎖 %1：%2"
 
 #: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
-msgstr ""
+msgstr "掃描 QR code"
 
 #: src/qml/QrCodeOnboardingPage.qml:24
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
-msgstr ""
+msgstr "顯示說明"
 
 #: src/qml/QrCodeOnboardingPage.qml:36
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr ""
+msgstr "掃描您的舊裝置的 QR code"
 
 #: src/qml/QrCodeOnboardingPage.qml:72
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
-msgstr ""
+msgstr "這個 QR code 不是有效的登入 QR code。"
 
 #: src/qml/QrCodeOnboardingPage.qml:79
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
-msgstr ""
+msgstr "連線中…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:24
 msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
-msgstr ""
+msgstr "自動註冊"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:81
 msgctxt "AutomaticRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr ""
+msgstr "提供者目前不支援透過此應用程式進行註冊。"
 
 #: src/qml/registration/CustomFormView.qml:14
 msgctxt "CustomFormView|"
@@ -1952,6 +1974,9 @@ msgid ""
 "Not everything may be required.\n"
 "If a CAPTCHA is shown, the displayed text must be entered."
 msgstr ""
+"伺服器已請求更多資訊。\n"
+"不是所有東西都一定是必要的。\n"
+"如果有顯示 CAPTCHA 驗證碼的話，則必須要輸入螢幕所顯示的驗證碼。"
 
 #: src/qml/registration/DisplayNameView.qml:14
 msgctxt "DisplayNameView|"
@@ -1962,56 +1987,59 @@ msgid ""
 "Using a display name may let new contacts recognize you easier but also "
 "could decrease your privacy!"
 msgstr ""
+"您的顯示名稱是聯絡人會看到的名字。\n"
+"不希望使用顯示名稱的時候，可以將此欄位留空。\n"
+"使用顯示名稱能讓新聯絡人更容易認出您，但也會降低您的隱私！"
 
 #: src/qml/registration/DisplayNameView.qml:22
 msgctxt "DisplayNameView|"
 msgid "Display Name"
-msgstr ""
+msgstr "顯示名稱"
 
 #: src/qml/registration/LoadingView.qml:16
 msgctxt "LoadingView|"
 msgid "Requesting the server…"
-msgstr ""
+msgstr "正在與伺服器請求中…"
 
 #: src/qml/registration/ManualRegistrationPage.qml:21
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
-msgstr ""
+msgstr "手動註冊"
 
 #: src/qml/registration/ManualRegistrationPage.qml:171
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
-msgstr ""
+msgstr "提供者要求更高強度的密碼。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:214
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
-msgstr ""
+msgstr "提供者不支援透過此應用程式進行註冊。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:214
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
-msgstr ""
+msgstr "提供者目前不支援透過此應用程式進行註冊。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:218
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
-msgstr ""
+msgstr "但您可以使用提供者的網路註冊功能。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:222
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
-msgstr ""
+msgstr "已隨機選擇一個新的提供者。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:237
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
-msgstr ""
+msgstr "該使用者名稱已被使用。"
 
 #: src/qml/registration/ManualRegistrationPage.qml:241
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
-msgstr ""
+msgstr "已產生新的隨機使用者名稱。"
 
 #: src/qml/registration/PasswordView.qml:19
 msgctxt "PasswordView|"
@@ -2019,6 +2047,8 @@ msgid ""
 "You can provide a password for your account. If you don't, a password will "
 "be generated that you can find later in the app."
 msgstr ""
+"您可以提供您的帳號的密碼。如果您不提供，會為您產生一個密碼，之後您可以在應用"
+"程式中找到它。"
 
 #: src/qml/registration/ProviderView.qml:21
 msgctxt "ProviderView|"
@@ -2026,86 +2056,88 @@ msgid ""
 "The provider is where your account is located.\n"
 "The selectable providers are hand-picked by our community!"
 msgstr ""
+"提供者是您的帳號所屬的地方。\n"
+"可選擇的提供者是由我們的社群所精選的！"
 
 #: src/qml/registration/ProviderView.qml:39
 msgctxt "ProviderView|"
 msgid "Provider"
-msgstr ""
+msgstr "提供者："
 
 #: src/qml/registration/ProviderView.qml:75
 msgctxt "ProviderView|"
 msgid "Connection settings"
-msgstr ""
+msgstr "連線設定"
 
 #: src/qml/registration/ProviderView.qml:118
 msgctxt "ProviderView|"
 msgid "Web registration only:"
-msgstr ""
+msgstr "僅網路註冊："
 
 #: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: src/qml/registration/ProviderView.qml:119
 msgctxt "ProviderView|"
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: src/qml/registration/ProviderView.qml:124
 msgctxt "ProviderView|"
 msgid "Server locations:"
-msgstr ""
+msgstr "伺服器位置："
 
 #: src/qml/registration/ProviderView.qml:130
 msgctxt "ProviderView|"
 msgid "Languages:"
-msgstr ""
+msgstr "語言："
 
 #: src/qml/registration/ProviderView.qml:136
 msgctxt "ProviderView|"
 msgid "Online since:"
-msgstr ""
+msgstr "上線時間："
 
 #: src/qml/registration/ProviderView.qml:142
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
-msgstr ""
+msgstr "允許分享媒體大小限制："
 
 #: src/qml/registration/ProviderView.qml:148
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
-msgstr ""
+msgstr "已分享媒體的儲存空間上限："
 
 #: src/qml/registration/ProviderView.qml:156
 msgctxt "ProviderView|"
 msgid "Open website"
-msgstr ""
+msgstr "開啟網站"
 
 #: src/qml/registration/ProviderView.qml:162
 msgctxt "ProviderView|"
 msgid "Copy website address"
-msgstr ""
+msgstr "複製網站位址"
 
 #: src/qml/registration/RegistrationButton.qml:12
 msgctxt "RegistrationButton|"
 msgid "Register"
-msgstr ""
+msgstr "註冊"
 
 #: src/qml/registration/RegistrationPage.qml:55
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "CAPTCHA 輸入錯誤"
 
 #: src/qml/registration/RegistrationPage.qml:64
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "缺乏必須的資訊："
 
 #: src/qml/registration/RegistrationPage.qml:73
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr ""
+msgstr "註冊失敗："
 
 #: src/qml/registration/ResultView.qml:17
 msgctxt "ResultView|"
@@ -2115,6 +2147,10 @@ msgid ""
 "\n"
 "Your chat address will be:"
 msgstr ""
+"您的聊天位址能用來與您聊天，就如同您的電子郵件位址能用來進行電子郵件通訊一"
+"樣。\n"
+"\n"
+"您的聊天位址將會是："
 
 #: src/qml/registration/UsernameView.qml:18
 msgctxt "UsernameView|"
@@ -2125,17 +2161,20 @@ msgid ""
 "Using an own username may let it be more recognizable but also could "
 "decrease your privacy!"
 msgstr ""
+"您的使用者名稱會用來登入您的帳號以及用來與您聊天。\n"
+"如果您不輸入一個使用者名稱，將會使用已經顯示的隨機名稱。\n"
+"使用自己的使用者名稱會讓您更容易被其他人認識，但也會降低您的隱私！"
 
 #: src/qml/registration/UsernameView.qml:35
 msgctxt "UsernameView|"
 msgid "Username"
-msgstr ""
+msgstr "使用者名稱"
 
 #: src/qml/registration/UsernameView.qml:42
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
-msgstr ""
+msgstr "請輸入有效的使用者名稱，或是留空來使用隨機產生的名稱。"
 
 #: src/qml/registration/WebRegistrationView.qml:18
 msgctxt "WebRegistrationView|"
@@ -2143,329 +2182,330 @@ msgid ""
 "The selected provider only provides web registration. After creating an "
 "account via the web page, you can log in via Kaidan."
 msgstr ""
+"所選的提供者只提供網路註冊。您可以在透過網頁建立帳號之後再透過 Kaidan 登入。"
 
 #: src/qml/registration/WebRegistrationView.qml:25
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
-msgstr ""
+msgstr "開啟註冊網頁位址"
 
 #: src/qml/registration/WebRegistrationView.qml:32
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
-msgstr ""
+msgstr "複製註冊網頁位址"
 
 #: src/qml/registration/WebRegistrationView.qml:38
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
-msgstr ""
+msgstr "用您的新帳號登入"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
 msgctxt "RosterPage|"
 msgid "Filter"
-msgstr ""
+msgstr "過濾"
 
 #: src/qml/settings/AboutPage.qml:16
 msgctxt "AboutPage|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "關於 Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
 msgctxt "AboutPage|"
 msgid "User-friendly and modern chat app for every device"
-msgstr ""
+msgstr "支援任何裝置的友善且現代化的聊天應用程式"
 
 #: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
 msgid "Visit website"
-msgstr ""
+msgstr "造訪網站"
 
 #: src/qml/settings/AboutPage.qml:75
 msgctxt "AboutPage|"
 msgid "Open Kaidan's website in a web browser"
-msgstr ""
+msgstr "在瀏覽器中開啟 Kaidan 的網站"
 
 #: src/qml/settings/AboutPage.qml:81
 msgctxt "AboutPage|"
 msgid "Follow on Mastodon"
-msgstr ""
+msgstr "在 Mastodon 上跟隨"
 
 #: src/qml/settings/AboutPage.qml:82
 msgctxt "AboutPage|"
 msgid "Open Kaidan's Mastodon page in a web browser"
-msgstr ""
+msgstr "在瀏覽器中開啟 Kaidan 的 Mastodon 頁面"
 
 #: src/qml/settings/AboutPage.qml:88
 msgctxt "AboutPage|"
 msgid "Donate"
-msgstr ""
+msgstr "贊助"
 
 #: src/qml/settings/AboutPage.qml:89
 msgctxt "AboutPage|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr ""
+msgstr "透過捐款支持 Kaidan 的開發"
 
 #: src/qml/settings/AboutPage.qml:95
 msgctxt "AboutPage|"
 msgid "Report problems"
-msgstr ""
+msgstr "回報問題"
 
 #: src/qml/settings/AboutPage.qml:96
 msgctxt "AboutPage|"
 msgid "Report issues with Kaidan to the developers"
-msgstr ""
+msgstr "回報 Kaidan 的問題給開發者"
 
 #: src/qml/settings/AboutPage.qml:102
 msgctxt "AboutPage|"
 msgid "View source code"
-msgstr ""
+msgstr "檢視原始碼"
 
 #: src/qml/settings/AboutPage.qml:103
 msgctxt "AboutPage|"
 msgid "View Kaidan's source code online and contribute to the project"
-msgstr ""
+msgstr "在網路上瀏覽 Kaidan 的原始碼並參與此專案"
 
 #: src/qml/settings/CustomConnectionSettings.qml:25
 msgctxt "CustomConnectionSettings|"
 msgid "Hostname:"
-msgstr ""
+msgstr "主機名稱："
 
 #: src/qml/settings/CustomConnectionSettings.qml:29
 msgctxt "CustomConnectionSettings|"
 msgid "The hostname must not contain blank spaces"
-msgstr ""
+msgstr "主機名稱不能包含空格"
 
 #: src/qml/settings/CustomConnectionSettings.qml:53
 msgctxt "CustomConnectionSettings|"
 msgid "Port:"
-msgstr ""
+msgstr "連接埠："
 
 #: src/qml/settings/MultimediaSettings.qml:21
 msgctxt "MultimediaSettings|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "多媒體設定"
 
 #: src/qml/settings/MultimediaSettings.qml:41
 msgctxt "MultimediaSettings|"
 msgid "Select Sources"
-msgstr ""
+msgstr "選擇來源"
 
 #: src/qml/settings/MultimediaSettings.qml:46
 msgctxt "MultimediaSettings|"
 msgid "Camera"
-msgstr ""
+msgstr "相機"
 
 #: src/qml/settings/MultimediaSettings.qml:76
 msgctxt "MultimediaSettings|"
 msgid "Audio Input"
-msgstr ""
+msgstr "音訊輸入"
 
 #: src/qml/settings/MultimediaSettings.qml:109
 msgctxt "MultimediaSettings|"
 msgid "Video Output"
-msgstr ""
+msgstr "視訊輸出"
 
 #: src/qml/settings/MultimediaSettings.qml:159
 msgctxt "MultimediaSettings|"
 msgid "Reset to defaults"
-msgstr ""
+msgstr "重設為預設值"
 
 #: src/qml/settings/MultimediaSettings.qml:178
 msgctxt "MultimediaSettings|"
 msgid "Reset User Settings"
-msgstr ""
+msgstr "重設使用者設定"
 
 #: src/qml/settings/MultimediaSettings.qml:199
 msgctxt "MultimediaSettings|"
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/qml/settings/SettingsContent.qml:20
 msgctxt "SettingsContent|"
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/qml/settings/SettingsContent.qml:30
 msgctxt "SettingsContent|"
 msgid "Multimedia Settings"
-msgstr ""
+msgstr "多媒體設定"
 
 #: src/qml/settings/SettingsContent.qml:31
 msgctxt "SettingsContent|"
 msgid "Configure photo, video and audio recording settings"
-msgstr ""
+msgstr "調整相片、影片與音訊錄製設定"
 
 #: src/qml/settings/SettingsContent.qml:37
 msgctxt "SettingsContent|"
 msgid "About Kaidan"
-msgstr ""
+msgstr "關於 Kaidan"
 
 #: src/qml/settings/SettingsContent.qml:38
 msgctxt "SettingsContent|"
 msgid ""
 "Learn about the current Kaidan version, view the source code and contribute"
-msgstr ""
+msgstr "瞭解更多關於目前 Kaidan 版本的資訊、瀏覽原始碼並參與貢獻"
 
 #: src/qml/settings/SettingsPage.qml:10
 msgctxt "SettingsPage|"
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: src/qml/StartPage.qml:54
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr ""
+msgstr "在任何裝置上享受自由通訊！"
 
 #: src/qml/StartPage.qml:67
 msgctxt "StartPage|"
 msgid "Login"
-msgstr ""
+msgstr "登入"
 
 #: src/qml/StartPage.qml:71
 msgctxt "StartPage|"
 msgid "Enter your credentials"
-msgstr ""
+msgstr "輸入您的認證資訊"
 
 #: src/qml/StartPage.qml:99
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
-msgstr ""
+msgstr "掃描舊裝置的登入 QR code"
 
 #: src/qml/StartPage.qml:106
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "或"
 
 #: src/qml/StartPage.qml:119
 msgctxt "StartPage|"
 msgid "Register"
-msgstr ""
+msgstr "註冊"
 
 #: src/qml/StartPage.qml:123
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr ""
+msgstr "自動產生帳號"
 
 #: src/qml/StartPage.qml:128
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr ""
+msgstr "手動建立帳號"
 
 #: src/QmlUtils.cpp:66
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr ""
+msgstr "無效的使用者名稱或密碼。"
 
 #: src/QmlUtils.cpp:68
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
-msgstr ""
+msgstr "無法連線到伺服器。請檢查您的網路連線。"
 
 #: src/QmlUtils.cpp:70
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr ""
+msgstr "嘗試安全連線時發生錯誤。"
 
 #: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr ""
+msgstr "伺服器不支援安全連線。"
 
 #: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
-msgstr ""
+msgstr "無法連線到伺服器。請檢查您的網路連線與伺服器名稱。"
 
 #: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "伺服器處於離線狀態或是連線被防火牆擋住了。"
 
 #: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr ""
+msgstr "驗證協定不受伺服器支援。"
 
 #: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "連線無法重新整理。"
 
 #: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
-msgstr ""
+msgstr "網際網路連線不被允許。請檢查您的系統的網際網路存取設定。"
 
 #: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "這個伺服器不支援新註冊。"
 
 #: src/QmlUtils.cpp:258
 msgctxt "QmlUtils|"
 msgid "Unknown size"
-msgstr ""
+msgstr "未知的大小"
 
 #: src/QmlUtils.cpp:331
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr ""
+msgstr "%1 在線上"
 
 #: src/QmlUtils.cpp:333
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr ""
+msgstr "%1 正在輸入…"
 
 #: src/QmlUtils.cpp:335
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1 暫時停止輸入"
 
 #: src/QrCodeGenerator.cpp:67
 #, qt-format
 msgctxt "QrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr ""
+msgstr "產生 QR code 失敗：%1"
 
 #: src/RosterItem.cpp:22
 msgctxt "QObject|"
 msgid "Notes"
-msgstr ""
+msgstr "筆記"
 
 #: src/RosterManager.cpp:159
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
-msgstr ""
+msgstr "筆記聊天無法加入您的聯絡人清單中，因為您的伺服器不支援"
 
 #: src/RosterManager.cpp:190
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr ""
+msgstr "無法新增 %1：%2"
 
 #: src/RosterManager.cpp:201
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr ""
+msgstr "無法新增聯絡人，由於未連線。"
 
 #: src/RosterManager.cpp:214
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr ""
+msgstr "無法移除聯絡人，由於未連線。"
 
 #: src/RosterManager.cpp:227
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
-msgstr ""
+msgstr "無法重新命名聯絡人，由於未連線。"
 
 #: src/RosterManager.cpp:238
 #, qt-format
@@ -2473,51 +2513,51 @@ msgctxt "RosterManager|"
 msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
-msgstr ""
+msgstr "請求檢視 %1 的個人資料時失敗，原因是連線問題：%2"
 
 #: src/RosterManager.cpp:248
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr ""
+msgstr "允許 %1 檢視您的個人資料時失敗"
 
 #: src/RosterManager.cpp:257
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr ""
+msgstr "停止允許 %1 檢視您的個人資料時失敗"
 
 #: src/RosterModel.cpp:843
 msgctxt "RosterModel|"
 msgid "Yesterday"
-msgstr ""
+msgstr "昨天"
 
 #: src/VCardModel.cpp:127
 msgctxt "VCardModel|"
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 #: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
 msgid "Nickname"
-msgstr ""
+msgstr "暱稱"
 
 #: src/VCardModel.cpp:129
 msgctxt "VCardModel|"
 msgid "About"
-msgstr ""
+msgstr "關於"
 
 #: src/VCardModel.cpp:130
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr ""
+msgstr "電子郵件"
 
 #: src/VCardModel.cpp:131
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr ""
+msgstr "生日"
 
 #: src/VCardModel.cpp:135
 msgctxt "VCardModel|"
 msgid "Website"
-msgstr ""
+msgstr "網站"
