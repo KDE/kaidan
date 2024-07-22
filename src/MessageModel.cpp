@@ -75,7 +75,8 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[SenderId] = "senderId";
 	roles[SenderName] = "senderName";
 	roles[Id] = "id";
-	roles[IsLastRead] = "isLastRead";
+	roles[IsLastReadOwnMessage] = "isLastReadOwnMessage";
+	roles[IsLastReadContactMessage] = "isLastReadContactMessage";
 	roles[IsEdited] = "isEdited";
 	roles[Date] = "date";
 	roles[NextDate] = "nextDate";
@@ -146,11 +147,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	}
 	case Id:
 		return msg.relevantId();
-	case IsLastRead:
-		// A read marker text is only displayed if the message is the last read message and no
-		// message is received by the contact after it.
+	case IsLastReadOwnMessage:
+		// A read marker text is only displayed if the message is the last read own message and
+		// there is no more recent message from the contact.
 		if (msg.id == m_lastReadOwnMessageId) {
-			for (auto i = index.row(); i >= 0; --i) {
+			for (auto i = row; i >= 0; --i) {
 				if (!m_messages.at(i).isOwn) {
 					return false;
 				}
@@ -158,6 +159,10 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return true;
 		}
 		return false;
+	case IsLastReadContactMessage:
+		// A read marker text is only displayed if the message is not the last one, it is the last
+		// read contact message and there is no more recent own message.
+		return row != 0 && msg.id == ChatController::instance()->rosterItem().lastReadContactMessageId && !m_messages.at(row -1).isOwn;
 	case IsEdited:
 		return !msg.replaceId.isEmpty();
 	case Date:
@@ -485,7 +490,7 @@ void MessageModel::updateLastReadOwnMessageId()
 			formerLastReadOwnMessageIndex = i;
 
 			const auto modelIndex = index(formerLastReadOwnMessageIndex);
-			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastRead });
+			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastReadOwnMessage });
 
 			if (lastReadOwnMessageIndex != -1) {
 				break;
@@ -494,7 +499,7 @@ void MessageModel::updateLastReadOwnMessageId()
 			lastReadOwnMessageIndex = i;
 
 			const auto modelIndex = index(lastReadOwnMessageIndex);
-			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastRead });
+			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastReadOwnMessage });
 
 			if (formerLastReadOwnMessageIndex != -1) {
 				break;

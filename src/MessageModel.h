@@ -62,7 +62,8 @@ public:
 		SenderId = Qt::UserRole + 1,
 		SenderName,
 		Id,
-		IsLastRead,
+		IsLastReadOwnMessage,
+		IsLastReadContactMessage,
 		IsEdited,
 		Date,
 		NextDate,
@@ -261,6 +262,7 @@ private:
 
 	QVector<Message> m_messages;
 	QString m_lastReadOwnMessageId;
+	QString m_lastReadContactMessageId;
 	bool m_fetchedAllFromDb = false;
 	bool m_fetchedAllFromMam = false;
 	bool m_mamLoading = false;

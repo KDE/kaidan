@@ -42,7 +42,8 @@ Kirigami.SwipeListItem {
 	property int deliveryState
 	property string deliveryStateName
 	property url deliveryStateIcon
-	property bool isLastRead
+	property bool isLastReadOwnMessage
+	property bool isLastReadContactMessage
 	property bool edited
 	property bool isSpoiler
 	property string spoilerHint
@@ -385,9 +386,38 @@ Kirigami.SwipeListItem {
 			}
 		}
 
+		// Read marker text for contact message
+		RowLayout {
+			visible: root.isLastReadContactMessage && ChatController.accountJid !== ChatController.chatJid
+			spacing: Kirigami.Units.smallSpacing * 3
+			Layout.topMargin: spacing
+			Layout.leftMargin: spacing
+			Layout.rightMargin: spacing
+
+			Kirigami.Separator {
+				color: Kirigami.Theme.highlightColor
+				opacity: 0.8
+				Layout.fillWidth: true
+			}
+
+			ScalableText {
+				text: qsTr("New")
+				color: Kirigami.Theme.highlightColor
+				scaleFactor: 0.9
+				elide: Text.ElideMiddle
+				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 10
+			}
+
+			Kirigami.Separator {
+				color: Kirigami.Theme.highlightColor
+				opacity: 0.8
+				Layout.fillWidth: true
+			}
+		}
+
 		// Read marker text for own message
 		RowLayout {
-			visible: root.isLastRead && ChatController.accountJid !== ChatController.chatJid
+			visible: root.isLastReadOwnMessage && ChatController.accountJid !== ChatController.chatJid
 			spacing: Kirigami.Units.smallSpacing * 3
 			Layout.topMargin: spacing
 			Layout.leftMargin: spacing
