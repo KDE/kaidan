@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-06-11 18:56+0200\n"
+"PO-Revision-Date: 2024-07-02 15:31+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/Blocking.cpp:203
@@ -310,7 +310,7 @@ msgstr "Dimensione sconosciuta"
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
-msgstr ""
+msgstr "«%1» non può essere inviato poiché è più grande di %2"
 
 #: src/MessageHandler.cpp:182
 msgctxt "MessageHandler|"
@@ -1134,12 +1134,10 @@ msgid "Download media automatically"
 msgstr "Scarica i contenuti multimediali automaticamente"
 
 #: src/qml/details/DetailsContent.qml:87
-#, fuzzy, qt-format
-#| msgctxt "ProviderView|"
-#| msgid "Allows to share media up to:"
+#, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
-msgstr "Consente di condividere file multimediali fino a:"
+msgstr "Puoi condividere file multimediali fino %1."
 
 #: src/qml/details/DetailsContent.qml:132
 msgctxt "DetailsContent|"
