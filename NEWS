@@ -1,3 +1,15 @@
+Version 0.9.2
+~~~~~~~~~~~~~
+Released: 2024-07-24
+
+Bugfixes:
+ * Fix file extension for downloads when mime type is empty (lnj)
+ * Fix file downloads without a source URL could be started (lnj)
+ * Fix file messages are never marked as sent (lnj)
+ * Fix message body of previous file selection was used (lnj)
+ * Fix missing receipt request (for green checkmark) on media messages (lnj)
+ * Fix outgoing encrypted media messages are displayed as unencrypted (lnj)
+
 Version 0.9.1
 ~~~~~~~~~~~~~
 Released: 2023-05-07
