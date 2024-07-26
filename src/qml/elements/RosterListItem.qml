@@ -7,9 +7,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -27,7 +27,7 @@ UserListItem {
 	property bool pinned
 	property bool notificationsMuted
 
-	isSelected: {
+	selected: {
 		return !Kirigami.Settings.isMobile &&
 			MessageModel.currentAccountJid === accountJid &&
 			MessageModel.currentChatJid === jid
@@ -36,7 +36,6 @@ UserListItem {
 	// middle
 	ColumnLayout {
 		spacing: Kirigami.Units.largeSpacing
-		Layout.fillWidth: true
 
 		RowLayout {
 			// name
@@ -48,7 +47,6 @@ UserListItem {
 				maximumLineCount: 1
 				level: 4
 				Layout.fillWidth: true
-				Layout.maximumHeight: Kirigami.Units.gridUnit * 1.5
 			}
 
 			// last (exchanged/draft) message date/time
@@ -57,17 +55,31 @@ UserListItem {
 				text: root.lastMessageDateTime
 				visible: text && root.lastMessage
 				color: Kirigami.Theme.disabledTextColor
+				font.weight: Font.Light
 			}
 		}
 
-		// last message or error status message if available, otherwise not visible
 		RowLayout {
-			visible: lastMessageText.text
-			Layout.fillWidth: true
+			id: secondRow
+			width: parent.width
 
+			// placeholder if no messages have been exchanged yet
+			Controls.Label {
+				text: qsTr("No messages yet")
+				visible: !root.lastMessage
+				color: Kirigami.Theme.disabledTextColor
+				elide: Text.ElideRight
+				font {
+					weight: Font.Light
+					italic: true
+				}
+				Layout.fillWidth: true
+			}
+
+			// prefix of the last message
 			Controls.Label {
 				id: lastMessagePrefix
-				visible: text && (lastMessageIsDraft || lastMessageSenderId)
+				visible: root.lastMessage && text && (lastMessageIsDraft || lastMessageSenderId)
 				textFormat: Text.PlainText
 				text: {
 					if (lastMessageIsDraft) {
@@ -92,74 +104,58 @@ UserListItem {
 				}
 			}
 
-			Controls.Label {
+			// last message or error status message
+			FormattedTextEdit {
 				id: lastMessageText
-				Layout.fillWidth: true
-				elide: Text.ElideRight
-				maximumLineCount: 1
-				text: Utils.removeNewLinesFromString(lastMessage)
-				textFormat: Text.PlainText
+				text: lastMessageTextMetrics.elidedText
 				font.weight: Font.Light
+				Layout.fillWidth: true
+
+				TextMetrics {
+					id: lastMessageTextMetrics
+					text: Utils.removeNewLinesFromString(root.lastMessage)
+					elide: Text.ElideRight
+					elideWidth: secondRow.width - secondRow.spacing - lastMessagePrefix.width - optionalItemArea.width
+				}
+			}
+
+			RowLayout {
+				id: optionalItemArea
+
+				// icon for muted contact
+				Kirigami.Icon {
+					source: "notifications-disabled-symbolic"
+					visible: root.notificationsMuted
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
+
+				// icon for pinned chat
+				Kirigami.Icon {
+					source: "window-pin-symbolic"
+					visible: root.pinned
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
+
+				// unread message counter
+				MessageCounter {
+					id: counter
+					count: root.unreadMessages
+					muted: root.notificationsMuted
+				}
+
+				// icon for reordering
+				Kirigami.ListItemDragHandle {
+					visible: root.pinned
+					listItem: root
+					listView: root.listView
+					onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
+					Layout.preferredWidth: Layout.preferredHeight
+					Layout.preferredHeight: counter.height
+				}
 			}
 		}
-	}
-
-	onIsSelectedChanged: {
-		lastMessageInfoColorAnimation.restart()
-		textColorAnimation.restart()
-	}
-
-	// fading text colors
-	ColorAnimation {
-		id: lastMessageInfoColorAnimation
-		targets: [lastMessageDateTimeText, lastMessagePrefix]
-		property: "color"
-		to: root.isSelected ? Kirigami.Theme.disabledTextColor : Kirigami.Theme.highlightedTextColor
-		duration: Kirigami.Units.shortDuration
-		running: false
-	}
-
-	// fading text colors
-	ColorAnimation {
-		id: textColorAnimation
-		targets: [nameText, lastMessageText]
-		property: "color"
-		to: root.isSelected ? Kirigami.Theme.textColor : Kirigami.Theme.highlightedTextColor
-		duration: Kirigami.Units.shortDuration
-		running: false
-	}
-
-	// right: icon for muted contact
-	// Its size depends on the font's pixel size to be as large as the message counter.
-	Kirigami.Icon {
-		source: "notifications-disabled-symbolic"
-		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
-		Layout.preferredHeight: Layout.preferredWidth
-		visible: notificationsMuted
-	}
-
-	// right: icon for pinned chat
-	// Its size depends on the font's pixel size to be as large as the message counter.
-	Kirigami.Icon {
-		source: "window-pin-symbolic"
-		Layout.preferredWidth: Kirigami.Theme.defaultFont.pixelSize * 1.3
-		Layout.preferredHeight: Layout.preferredWidth
-		visible: pinned
-	}
-
-	// right: unread message counter
-	MessageCounter {
-		id: counter
-		count: unreadMessages
-		muted: notificationsMuted
-	}
-
-	// right: icon for reordering
-	Kirigami.ListItemDragHandle {
-		visible: pinned
-		listItem: root
-		listView: root.listView
-		onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
 	}
 
 	MouseArea {

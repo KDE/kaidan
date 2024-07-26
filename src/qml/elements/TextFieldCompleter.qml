@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: MIT
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 // Autocomplete widget with completion highlighting similar to a web search.
@@ -360,11 +360,11 @@ Kirigami.ActionTextField {
 			// A delegate renders one list item.
 			//   TODO: Use a basic QML component to not be tied to Kirigami. Or document what
 			//   can be used here when wanting to use it independent of Kirigami.
-			delegate: Kirigami.BasicListItem {
+			delegate: ItemDelegate {
 				readonly property string value: model[root.role]
 
 				width: ListView.view.width - ListView.view.ScrollBar.vertical.width
-				label: highlightCompletion(value, root.input)
+				text: highlightCompletion(value, root.input)
 
 				// Background coloring should be used only for the selected item.
 				//   (Also, a lighter colored background automatically appears on mouse-over.)

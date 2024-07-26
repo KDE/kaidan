@@ -23,7 +23,7 @@ public:
 
 	QUrl actualLocation() const;
 
-signals:
+Q_SIGNALS:
 	void availabilityChanged(QMultimedia::AvailabilityStatus availability);
 	void actualLocationChanged(const QUrl &location);
 

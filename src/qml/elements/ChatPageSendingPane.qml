@@ -7,9 +7,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -20,12 +20,18 @@ import MediaUtils 0.1
  */
 Controls.Pane {
 	id: root
-	padding: 6
-
+	bottomInset: Kirigami.Units.largeSpacing
+	leftInset: bottomInset
+	rightInset: bottomInset
+	topPadding: topInset + Kirigami.Units.mediumSpacing
+	bottomPadding: bottomInset + Kirigami.Units.mediumSpacing
+	leftPadding: leftInset + Kirigami.Units.mediumSpacing
+	rightPadding: rightInset + Kirigami.Units.mediumSpacing
 	background: Kirigami.ShadowedRectangle {
 		shadow.color: Qt.darker(color, 1.2)
 		shadow.size: 4
 		color: Kirigami.Theme.backgroundColor
+		radius: Kirigami.Units.gridUnit * 1.2
 	}
 
 	property QtObject chatPage
@@ -62,13 +68,12 @@ Controls.Pane {
 			visible: composition.isSpoiler
 			spacing: 0
 
-			Controls.TextArea {
+			FormattedTextArea {
 				id: spoilerHintField
-				Layout.fillWidth: true
 				placeholderText: qsTr("Visible message part")
-				wrapMode: Controls.TextArea.Wrap
 				selectByMouse: true
 				background: Item {}
+				Layout.fillWidth: true
 			}
 
 			Controls.Button {
@@ -79,7 +84,7 @@ Controls.Pane {
 
 				onClicked: {
 					composition.isSpoiler = false
-					spoilerHintField.text = ""
+					spoilerHintField.clear()
 				}
 			}
 		}
@@ -96,7 +101,7 @@ Controls.Pane {
 
 			// emoji picker button
 			ClickableIcon {
-				source: "face-smile"
+				source: "smiley-add"
 				enabled: sendButton.enabled
 				onClicked: !emojiPicker.toggle()
 			}
@@ -108,7 +113,7 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
-			Controls.TextArea {
+			FormattedTextArea {
 				id: messageArea
 				placeholderText: {
 					if (root.composition.isSpoiler) {
@@ -118,14 +123,21 @@ Controls.Pane {
 					}
 				}
 				background: Item {}
-				wrapMode: TextEdit.Wrap
 				Layout.leftMargin: Style.isMaterial ? 6 : 0
 				Layout.rightMargin: Style.isMaterial ? 6 : 0
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
 				state: "compose"
+				states: [
+					State {
+						name: "compose"
+					},
 
+					State {
+						name: "edit"
+					}
+				]
 				onTextChanged: {
 					handleShortcuts()
 
@@ -136,17 +148,6 @@ Controls.Pane {
 						MessageModel.sendChatState(ChatState.Active)
 					}
 				}
-
-				states: [
-					State {
-						name: "compose"
-					},
-
-					State {
-						name: "edit"
-					}
-				]
-
 				Keys.onReturnPressed: {
 					if (event.key === Qt.Key_Return) {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
@@ -183,27 +184,25 @@ Controls.Pane {
 			ClickableIcon {
 				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
 				visible: messageArea.text === ""
-
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
+				}
+
+				Behavior on opacity {
+					NumberAnimation {}
 				}
 			}
 
 			// file sharing button
 			ClickableIcon {
+				property bool checked: false
+
 				source: "mail-attachment-symbolic"
 				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-
-				property bool checked: false
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					if (!checked) {
 						mediaPopup.open()
@@ -212,6 +211,10 @@ Controls.Pane {
 						mediaPopup.close()
 						checked = false
 					}
+				}
+
+				Behavior on opacity {
+					NumberAnimation {}
 				}
 			}
 
@@ -336,17 +339,19 @@ Controls.Pane {
 				id: sendButton
 				visible: messageArea.text !== ""
 				opacity: visible ? 1 : 0
-				Behavior on opacity {
-					NumberAnimation {}
-				}
 				source: {
 					if (messageArea.state === "compose")
 						return "mail-send-symbolic"
 					else if (messageArea.state === "edit")
 						return "document-edit-symbolic"
 				}
-
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: sendMessage()
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
 			}
 		}
 	}
@@ -442,9 +447,9 @@ Controls.Pane {
 	}
 
 	function clearMessageArea() {
-		messageArea.text = ""
+		messageArea.clear()
 		composition.isSpoiler = false
-		spoilerHintField.text = ""
+		spoilerHintField.clear()
 		messageToCorrect = ""
 		messageArea.state = "compose"
 	}

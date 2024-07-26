@@ -4,13 +4,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.AbstractListItem {
+Controls.ItemDelegate {
 	id: root
 
 	default property alias __data: content.data
@@ -19,30 +20,39 @@ Kirigami.AbstractListItem {
 	property string accountJid
 	property string jid
 	property string name
-	property bool isSelected: false
+	property bool selected: false
 
 	topPadding: 0
 	leftPadding: 0
 	bottomPadding: 0
 	height: 65
+	background: Rectangle {
+		color: {
+			let colorOpacity = 0
 
-	onIsSelectedChanged: {
-		backgroundColorAnimation.restart()
+			if (!root.enabled) {
+				colorOpacity = 0
+			} else if (root.pressed) {
+				colorOpacity = 0.2
+			} else if (root.visualFocus) {
+				colorOpacity = 0.1
+			} else if (!Kirigami.Settings.tabletMode && root.hovered) {
+				colorOpacity = 0.07
+			} else if (root.selected) {
+				colorOpacity = 0.05
+			}
+
+			const textColor = Kirigami.Theme.textColor
+			return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
+		}
+
+		Behavior on color {
+			ColorAnimation { duration: Kirigami.Units.shortDuration }
+		}
 	}
-
-	RowLayout {
+	contentItem: RowLayout {
 		id: content
 		spacing: Kirigami.Units.gridUnit * 0.5
-
-		// fading background colors
-		ColorAnimation {
-			id: backgroundColorAnimation
-			targets: [root]
-			property: "backgroundColor"
-			to: root.isSelected ? Kirigami.Theme.backgroundColor : Kirigami.Theme.highlightColor
-			duration: Kirigami.Units.shortDuration
-			running: false
-		}
 
 		// left border: presence
 		Rectangle {
@@ -58,17 +68,10 @@ Kirigami.AbstractListItem {
 		}
 
 		// left: avatar
-		Item {
-			Layout.preferredWidth: parent.height - Kirigami.Units.gridUnit * 0.8
-			Layout.preferredHeight: Layout.preferredWidth
-
-			Avatar {
-				id: avatar
-				anchors.fill: parent
-				jid: root.jid
-				name: root.name
-				width: height
-			}
+		Avatar {
+			id: avatar
+			jid: root.jid
+			name: root.name
 		}
 	}
 }

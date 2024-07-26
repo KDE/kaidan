@@ -83,7 +83,7 @@ public:
 	 */
 	void clear();
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Notifies about changed presences
 	 */

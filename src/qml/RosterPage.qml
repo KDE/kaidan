@@ -11,7 +11,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
+import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -48,6 +48,7 @@ SearchBarPage {
 			background: Rectangle {
 				color: Kirigami.Theme.alternateBackgroundColor
 			}
+			bottomPadding: 0
 
 			RosterFilteringArea {
 				rosterFilterProxyModel: filterModel
@@ -87,7 +88,7 @@ SearchBarPage {
 				onClicked: {
 					// Open the chatPage only if it is not yet open.
 					// Emitting the signal is needed because there are slots in other places.
-					if (!isSelected || !wideScreen) {
+					if (!selected || !wideScreen) {
 						Kaidan.openChatPageRequested(accountJid, jid)
 					}
 				}
@@ -123,7 +124,7 @@ SearchBarPage {
 				if (Kirigami.Settings.isMobile) {
 					toggleSearchBar()
 				} else {
-					searchField.text = ""
+					searchField.clear()
 				}
 
 				MessageModel.setCurrentChat(accountJid, chatJid)

@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
@@ -59,11 +59,11 @@ Kirigami.GlobalDrawer {
 						title: qsTr("Accounts")
 					}
 
-					Repeater {
+					ListView {
 						model: [ AccountManager.jid ]
-
 						delegate: ColumnLayout {
 							spacing: 0
+							width: ListView.view.width
 
 							MobileForm.FormTextDelegate {
 								id: accountArea
@@ -72,13 +72,15 @@ Kirigami.GlobalDrawer {
 								property bool connected: Kaidan.connectionState === Enums.StateConnected
 
 								background: MobileForm.FormDelegateBackground { control: accountArea }
-								leftPadding: 15
 								leading: Avatar {
-									jid: AccountManager.jid
+									jid: modelData
 									name: AccountManager.displayName
 								}
 								leadingPadding: 10
-								text: AccountManager.displayName
+								// The placeholder text is used while "AccountManager.displayName"
+								// is not yet loaded to avoid a binding loop for the property
+								// "implicitHeight".
+								text: AccountManager.displayName ? AccountManager.displayName : " "
 								description: {
 									const color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
 									return "<font color='" + color + "'>" + Kaidan.connectionStateText + "</font>"
@@ -107,6 +109,8 @@ Kirigami.GlobalDrawer {
 								}
 							}
 						}
+						implicitHeight: contentHeight
+						Layout.fillWidth: true
 					}
 				}
 			}
@@ -163,7 +167,7 @@ Kirigami.GlobalDrawer {
 					MobileForm.FormButtonDelegate {
 						text: qsTr("Settings")
 						icon.name: "preferences-system-symbolic"
-						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsSheet)
+						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsPage)
 					}
 				}
 			}

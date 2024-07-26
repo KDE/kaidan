@@ -4,8 +4,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
@@ -23,12 +23,14 @@ View {
 
 		CenteredAdaptiveHighlightedButton {
 			text: qsTr("Open registration web page")
-			onClicked: Qt.openUrlExternally(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			onClicked: {
+				Qt.openUrlExternally(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			}
 		}
 
 		CenteredAdaptiveButton {
 			text: qsTr("Copy registration web page address")
-			onClicked: Utils.copyToClipboard(providerView.registrationWebPage ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			onClicked: Utils.copyToClipboard(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
 		}
 
 		CenteredAdaptiveHighlightedButton {

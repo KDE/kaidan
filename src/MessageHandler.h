@@ -88,7 +88,9 @@ private:
 	bool handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage);
 
 	bool handleReaction(const QXmppMessage &message, const QString &senderJid);
+	bool handleFileSourcesAttachments(const QXmppMessage &message, const QString &chatJid);
 
+	static std::optional<EncryptedSource> parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source);
 	static void parseSharedFiles(const QXmppMessage &message, Message &messageToEdit);
 	static std::optional<File> parseOobUrl(const QXmppOutOfBandUrl &url, qint64 fileGroupId);
 

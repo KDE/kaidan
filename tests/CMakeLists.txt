@@ -6,6 +6,9 @@ include(ECMAddTests)
 
 find_package(Qt5Test REQUIRED)
 
+# Include build directory to use GlobalsGen.h
+include_directories(PUBLIC "${CMAKE_BINARY_DIR}")
+
 ecm_add_test(
 	PresenceCacheTest.cpp
 	../src/PresenceCache.cpp
@@ -32,6 +35,15 @@ ecm_add_test(
 	TEST_NAME UserPresenceWatcherTest
 	LINK_LIBRARIES Qt::Test Qt::Gui QXmpp::QXmpp
 )
+
+ecm_add_test(
+	DatabaseTest.cpp
+	../src/Database.cpp
+	../src/SqlUtils.cpp
+	TEST_NAME DatabaseTest
+	LINK_LIBRARIES Qt::Test Qt::Sql QXmpp::QXmpp
+)
+target_compile_definitions(DatabaseTest PUBLIC DB_UNIT_TEST)
 
 ecm_add_test(
 	TrustDbTest.cpp
@@ -90,6 +102,8 @@ ecm_add_test(
 	../src/FileModel.h
 	../src/FileProxyModel.cpp
 	../src/FileProxyModel.h
+    ../src/QmlUtils.cpp
+    ../src/QmlUtils.h
 	TEST_NAME FileModelTest
 	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Sql Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
 )
@@ -99,9 +113,16 @@ target_compile_definitions(FileModelTest PRIVATE BUILD_TESTS)
 # Manual tests
 
 add_executable(PublicGroupChatSearch
-	manual/public-group-chat-search.cpp
+	manual/PublicGroupChatSearch.cpp
 )
 target_link_libraries(PublicGroupChatSearch
 	PRIVATE
 		Qt::Core Qt::Network
+)
+
+add_executable(SendFileSourcesAttachment
+	manual/SendFileSourcesAttachment.cpp
+)
+target_link_libraries(SendFileSourcesAttachment
+	PRIVATE Qt::Core QXmpp::QXmpp
 )

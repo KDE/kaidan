@@ -123,7 +123,7 @@ void OmemoModel::setUp()
 
 void OmemoModel::setOwnDevice(OmemoManager::Device ownDevice)
 {
-	ownDevice.label += " · " + tr("This device");
+	ownDevice.label += QStringLiteral(" · ") + tr("This device");
 	beginInsertRows(QModelIndex(), 0, 0);
 	m_ownDevice = ownDevice;
 	endInsertRows();

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,6 +28,7 @@ public:
 	QString name;
 	QString latestMessageStanzaId;
 	QDateTime latestMessageTimestamp;
+	qint64 httpUploadLimit = 0;
 };
 
 Q_DECLARE_METATYPE(Account)

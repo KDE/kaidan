@@ -23,7 +23,7 @@ public:
 	 */
 	explicit QrCodeDecoder(QObject *parent = nullptr);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when the decoding failed.
 	 */
@@ -36,7 +36,7 @@ signals:
 	 */
 	void decodingSucceeded(const QString &tag);
 
-public slots:
+public Q_SLOTS:
 	/**
 	 * Tries to decode the QR code from the given image. When decoding has
 	 * finished @c decodingFinished() will be emitted. In case a QR code was found,

@@ -81,11 +81,6 @@ RosterModel::~RosterModel()
 	s_instance = nullptr;
 }
 
-bool RosterModel::isEmpty() const
-{
-	return m_items.isEmpty();
-}
-
 int RosterModel::rowCount(const QModelIndex&) const
 {
 	return m_items.length();
@@ -425,7 +420,9 @@ void RosterModel::updateLastMessage(
 	// The new message is only set as the current last message if they are different and there
 	// is no draft message.
 	if (const auto lastMessage = message.previewText();
-		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft && itr->lastMessage != lastMessage)
+		(itr->lastMessage != lastMessage ||
+		itr->lastMessageDateTime != message.timestamp) &&
+		itr->lastMessageDeliveryState != Enums::DeliveryState::Draft)
 	{
 		itr->lastMessageDateTime = message.timestamp;
 		itr->lastMessage = lastMessage;

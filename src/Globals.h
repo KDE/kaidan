@@ -9,6 +9,8 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
+#include <GlobalsGen.h>
+
 #include <QLatin1String>
 
 // Kaidan settings
@@ -16,9 +18,13 @@
 #define KAIDAN_SETTINGS_AUTH_JID "auth/jid"
 #define KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX "auth/jidResourcePrefix"
 #define KAIDAN_SETTINGS_AUTH_PASSWD "auth/password"
+#define KAIDAN_SETTINGS_AUTH_CREDENTIALS "auth/credentials"
 #define KAIDAN_SETTINGS_AUTH_HOST "auth/host"
 #define KAIDAN_SETTINGS_AUTH_PORT "auth/port"
+#define KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED "auth/tlsErrorsIgnored"
+#define KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT "auth/tlsRequirement"
 #define KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY "auth/passwordVisibility"
+#define KAIDAN_SETTINGS_AUTH_DEVICE_ID "auth/userAgentDeviceId"
 #define KAIDAN_SETTINGS_ENCRYPTION "encryption"
 #define KAIDAN_SETTINGS_NOTIFICATIONS_MUTED "muted/"
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"
@@ -126,5 +132,8 @@ constexpr int ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE = 8;
 
 // Separator between grouped encryption key ID characters to be displayed for better readability
 constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
+
+// XMPP
+inline constexpr QStringView XMLNS_SFS = u"urn:xmpp:sfs:0";
 
 #endif // GLOBALS_H

@@ -1,4 +1,5 @@
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -118,14 +119,41 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 	});
 }
 
+QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
+{
+	return run([this, jid]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				SELECT httpUploadLimit
+				FROM accounts
+				WHERE jid = :jid
+			)"),
+			{
+				{ u":jid", jid },
+			}
+		);
+
+		qint64 size = 0;
+
+		if (query.first()) {
+			size = query.value(0).toLongLong();
+		}
+
+		return size;
+	});
+}
+
 void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts)
 {
 	QSqlRecord rec = query.record();
 
-	int idxJid = rec.indexOf("jid");
-	int idxName = rec.indexOf("name");
-	int idxLatestMessageStanzaId = rec.indexOf("latestMessageStanzaId");
-	int idxLatestMessageTimestamp = rec.indexOf("latestMessageTimestamp");
+	int idxJid = rec.indexOf(QStringLiteral("jid"));
+	int idxName = rec.indexOf(QStringLiteral("name"));
+	int idxLatestMessageStanzaId = rec.indexOf(QStringLiteral("latestMessageStanzaId"));
+	int idxLatestMessageTimestamp = rec.indexOf(QStringLiteral("latestMessageTimestamp"));
+	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
 
 	reserve(accounts, query);
 	while (query.next()) {
@@ -135,6 +163,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		account.name = query.value(idxName).toString();
 		account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
 		account.latestMessageTimestamp = query.value(idxLatestMessageTimestamp).toDateTime();
+		account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
 
 		accounts << std::move(account);
 	}
@@ -145,16 +174,19 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 	QSqlRecord rec;
 
 	if (oldAccount.jid != newAccount.jid) {
-		rec.append(createSqlField("jid", newAccount.jid));
+		rec.append(createSqlField(QStringLiteral("jid"), newAccount.jid));
 	}
 	if (oldAccount.name != newAccount.name) {
-		rec.append(createSqlField("name", newAccount.name));
+		rec.append(createSqlField(QStringLiteral("name"), newAccount.name));
 	}
 	if (oldAccount.latestMessageStanzaId != newAccount.latestMessageStanzaId) {
-		rec.append(createSqlField("latestMessageStanzaId", newAccount.latestMessageStanzaId));
+		rec.append(createSqlField(QStringLiteral("latestMessageStanzaId"), newAccount.latestMessageStanzaId));
 	}
 	if (oldAccount.latestMessageTimestamp != newAccount.latestMessageTimestamp) {
-		rec.append(createSqlField("latestMessageTimestamp", newAccount.latestMessageTimestamp));
+		rec.append(createSqlField(QStringLiteral("latestMessageTimestamp"), newAccount.latestMessageTimestamp));
+	}
+	if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
+		rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));
 	}
 
 	return rec;
@@ -166,14 +198,14 @@ void AccountDb::updateAccountByRecord(const QString &jid, const QSqlRecord &reco
 	auto &driver = sqlDriver();
 
 	QMap<QString, QVariant> keyValuePairs = {
-		{ "jid", jid }
+		{ QStringLiteral("jid"), jid }
 	};
 
 	execQuery(
 		query,
 		driver.sqlStatement(
 			QSqlDriver::UpdateStatement,
-			DB_TABLE_ACCOUNTS,
+			QStringLiteral(DB_TABLE_ACCOUNTS),
 			record,
 			false
 		) +

@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
@@ -106,7 +106,7 @@ ExplanationOptionsTogglePage {
 									if (contactDevicesArea.listView.model.contains(keyId)) {
 										Kaidan.client.atmManager.makeTrustDecisionsRequested(contactDevicesArea.listView.model.jid, [keyId], [])
 
-										encryptionKeyField.text = ""
+										encryptionKeyField.clear()
 										passiveNotification(qsTr("Device verified"))
 									} else {
 										passiveNotification(qsTr("Device does not exist or is already verified"))

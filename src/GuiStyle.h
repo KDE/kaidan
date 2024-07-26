@@ -29,13 +29,13 @@ public:
 
 	inline static bool isMaterial()
 	{
-		static const bool isMaterial = name().compare("Material", Qt::CaseInsensitive) == 0;
+		static const bool isMaterial = name().compare(QStringLiteral("Material"), Qt::CaseInsensitive) == 0;
 		return isMaterial;
 	}
 
 	// Not all styles actually support coloring buttons.
 	inline static bool buttonColoringEnabled()
 	{
-		return name() == "Material" || name() == "org.kde.desktop";
+		return name() == QStringLiteral("Material") || name() == QStringLiteral("org.kde.desktop");
 	}
 };

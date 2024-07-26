@@ -85,10 +85,10 @@ public:
 	static AudioDeviceInfo defaultAudioOutputDevice();
 	static AudioDeviceInfo audioOutputDevice(const QString &deviceName);
 
-public slots:
+public Q_SLOTS:
 	void refresh();
 
-signals:
+Q_SIGNALS:
 	void modeChanged();
 	void audioDevicesChanged();
 	void currentIndexChanged();

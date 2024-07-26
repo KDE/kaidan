@@ -17,6 +17,7 @@
 // Kaidan
 #include "ProviderListItem.h"
 #include "Globals.h"
+#include "QmlUtils.h"
 
 ProviderListModel::ProviderListModel(QObject *parent)
 	: QAbstractListModel(parent)
@@ -92,7 +93,7 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 			//: Unlimited file size for uploading
 			return tr("Unlimited");
 		default:
-			return QLocale::system().formattedDataSize(item.httpUploadSize() * 1000 * 1000, 0, QLocale::DataSizeSIFormat);
+			return QmlUtils::formattedDataSize(item.httpUploadSize() * 1000 * 1000);
 		}
 	case MessageStorageDurationRole:
 		switch (item.messageStorageDuration()) {

@@ -11,8 +11,12 @@
 
 #include <QXmppMessage.h>
 
+#ifndef BUILD_TESTS
 #include "ClientWorker.h"
+#endif
 #include "Globals.h"
+
+const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
 
 /**
  * This class contains C++ utilities to be used in QML.
@@ -20,6 +24,7 @@
 class QmlUtils : public QObject
 {
 	Q_OBJECT
+	Q_PROPERTY(QChar messageBubblepaddingCharacter READ messageBubblepaddingCharacter CONSTANT)
 	Q_PROPERTY(QString versionString READ versionString CONSTANT)
 	Q_PROPERTY(QString applicationDisplayName READ applicationDisplayName CONSTANT)
 	Q_PROPERTY(QUrl applicationWebsiteUrl READ applicationWebsiteUrl CONSTANT)
@@ -34,12 +39,16 @@ public:
 	QmlUtils(QObject *parent = nullptr);
 	~QmlUtils();
 
+	static QChar messageBubblepaddingCharacter();
+
+#ifndef BUILD_TESTS
 	/**
 	 * Returns an error message for a connection error.
 	 *
 	 * @param error error for which an error message should be returned
 	 */
 	Q_INVOKABLE static QString connectionErrorMessage(ClientWorker::ConnectionError error);
+#endif
 
 	/**
 	 * Returns a URL to a given resource file name
@@ -53,18 +62,12 @@ public:
 	/**
 	 * Returns the version of the current build.
 	 */
-	static QString versionString()
-	{
-		return QStringLiteral(VERSION_STRING);
-	}
+	static QString versionString();
 
 	/**
 	 * Returns the name of this application as it should be displayed to users.
 	 */
-	static QString applicationDisplayName()
-	{
-		return QStringLiteral(APPLICATION_DISPLAY_NAME);
-	}
+	static QString applicationDisplayName();
 
 	/**
 	 * Returns the URL of this application's website.
@@ -74,10 +77,7 @@ public:
 	/**
 	 * Returns the URL where the source code of this application can be found.
 	 */
-	static QUrl applicationSourceCodeUrl()
-	{
-		return { QStringLiteral(APPLICATION_SOURCE_CODE_URL) };
-	}
+	static QUrl applicationSourceCodeUrl();
 
 	/**
 	 * Returns the URL to view and report issues.
@@ -97,11 +97,9 @@ public:
 	/**
 	 * Returns an invitation URL to the given JID.
 	 */
-	Q_INVOKABLE static QUrl invitationUrl(const QString &jid)
-	{
-		return { QStringLiteral(INVITATION_URL) + jid };
-	}
+	Q_INVOKABLE static QUrl invitationUrl(const QString &jid);
 
+#ifndef BUILD_TESTS
 	/**
 	 * Returns an XMPP Trust Message URI.
 	 *
@@ -122,6 +120,7 @@ public:
 	 * @param groupChatJid JID of the group chat
 	 */
 	Q_INVOKABLE static QUrl groupChatUri(const QString &groupChatJid);
+#endif
 
 	/**
 	 * Validates the ID of an encryption key.
@@ -146,10 +145,7 @@ public:
 	 *
 	 * See QString::simplified for more information.
 	 */
-	Q_INVOKABLE static QString removeNewLinesFromString(const QString &input)
-	{
-		return input.simplified();
-	}
+	Q_INVOKABLE static QString removeNewLinesFromString(const QString &input);
 
 	/**
 	 * Checks whether a file is an image and could be displayed as such.
@@ -172,16 +168,9 @@ public:
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
 	/**
-	 * Styles/Formats a message to be displayed.
-	 *
-	 * This currently only adds some link highlighting
-	 */
-	Q_INVOKABLE static QString formatMessage(const QString &message);
-
-	/**
 	 * Returns a consistent user color generated from the nickname.
 	 */
-	Q_INVOKABLE static QColor getUserColor(const QString &nickName);
+	Q_INVOKABLE static QColor userColor(const QString &id, const QString &name);
 
 	/**
 	 * Reads an image from the clipboard and returns the URL of the saved image.
@@ -205,10 +194,4 @@ public:
 	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
 	Q_INVOKABLE static QString osmUserAgent();
-
-private:
-	/**
-	 * Highlights links in a list of words.
-	 */
-	static QString processMsgFormatting(const QStringList &words, bool isFirst = true);
 };

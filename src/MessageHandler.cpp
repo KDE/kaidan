@@ -10,6 +10,7 @@
 
 #include "MessageHandler.h"
 // std
+#include <ranges>
 // Qt
 #include <QUrl>
 #include <QRandomGenerator>
@@ -18,6 +19,9 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
 #include <QXmppEncryptedFileSource.h>
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+#include <QXmppFallback.h>
+#endif
 #include <QXmppFileMetadata.h>
 #include <QXmppHash.h>
 #include <QXmppHttpFileSource.h>
@@ -35,6 +39,7 @@
 #include "ClientWorker.h"
 #include "Database.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "Message.h"
 #include "MessageDb.h"
@@ -47,6 +52,9 @@
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
+
+using namespace std::placeholders;
+using std::ranges::find;
 
 MessageHandler::MessageHandler(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
@@ -235,6 +243,13 @@ void MessageHandler::sendPendingMessage(Message message)
 				});
 			}
 		});
+
+		for (auto &fallbackMessage : message.fallbackMessages()) {
+			// TODO: Track sending of fallback messages individually
+			// Needed for the case when the success differs between the main message
+			// and the fallback messages.
+			send(std::move(fallbackMessage));
+		}
 	}
 }
 
@@ -256,7 +271,7 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 		.mimeType = [&name] {
 			const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
 			if (possibleMimeTypes.empty()) {
-				return MediaUtils::mimeDatabase().mimeTypeForName("application/octet-stream");
+				return MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
 			}
 
 			return possibleMimeTypes.front();
@@ -264,12 +279,13 @@ std::optional<File> MessageHandler::parseOobUrl(const QXmppOutOfBandUrl &url, qi
 		.size = {},
 		.lastModified = {},
 		.localFilePath = {},
+		.externalId = {},
 		.hashes = {},
 		.thumbnail = {},
 		.httpSources = {
 			HttpSource {
 				.fileId = id,
-				.url = url.url()
+				.url = QUrl(url.url())
 			}
 		},
 		.encryptedSources = {}
@@ -402,7 +418,7 @@ void MessageHandler::retrieveBacklogMessages(const QString &jid, const QDateTime
 	using Mam = QXmppMamManager;
 
 	QXmppResultSetQuery queryLimit;
-	queryLimit.setBefore("");
+	queryLimit.setBefore(QStringLiteral(""));
 	queryLimit.setMax(MAM_BACKLOG_FETCH_COUNT);
 
 	m_mamManager->retrieveMessages({}, {}, jid, {}, stamp, queryLimit).then(this, [this, jid, stamp](auto result) {
@@ -467,9 +483,21 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		return;
 	}
 
+	if (handleFileSourcesAttachments(msg, message.chatJid)) {
+		return;
+	}
+
 	if (msg.body().isEmpty() && msg.outOfBandUrl().isEmpty() && msg.sharedFiles().isEmpty()) {
 		return;
 	}
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+	// file sharing messages for backwards-compatibility are ignored
+	if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) != msg.fallbackMarkers().end() &&
+		msg.sharedFiles().empty()) {
+		return;
+	}
+#endif
 
 	// Close a notification for messages to which the user replied via another own resource.
 	if (message.isOwn()) {
@@ -522,8 +550,14 @@ void MessageHandler::handleMessage(const QXmppMessage &msg, MessageOrigin origin
 		// Add the message's sender to the roster if not already done and only for direct messages.
 		// Otherwise, the chat could only be opened via the message's notification and could not be
 		// opened again later.
-		if (msg.type() != QXmppMessage::GroupChat && !RosterModel::instance()->hasItem(senderJid)) {
-			m_clientWorker->rosterManager()->addContact(senderJid);
+		if (msg.type() != QXmppMessage::GroupChat) {
+			runOnThread(RosterModel::instance(), [senderJid]() {
+				return RosterModel::instance()->hasItem(senderJid);
+			}, this, [this, senderJid](bool hasItem) mutable {
+				if (!hasItem) {
+					m_clientWorker->rosterManager()->addContact(senderJid, {}, {}, true);
+				}
+			});
 		}
 	} else {
 		const auto replaceId = msg.replaceId();
@@ -622,6 +656,59 @@ bool MessageHandler::handleReaction(const QXmppMessage &message, const QString &
 	return false;
 }
 
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+bool MessageHandler::handleFileSourcesAttachments(const QXmppMessage &message, const QString &chatJid)
+{
+	if (message.attachId().isEmpty()) {
+		return false;
+	}
+
+	const auto attachments = message.fileSourcesAttachments();
+	for (const auto &attachment : attachments) {
+		// set DB file ID of 0, attachFileSources will replace this with the correct ID
+		auto httpSources = transform(attachment.httpSources(), [](const auto &s) {
+			return HttpSource { 0, s.url() };
+		});
+		auto encryptedSources = transformFilter(attachment.encryptedSources(), std::bind(&MessageHandler::parseEncryptedSource, 0, _1));
+		MessageDb::instance()->attachFileSources(
+			AccountManager::instance()->jid(),
+			chatJid,
+			message.attachId(),
+			attachment.id(),
+			httpSources,
+			encryptedSources);
+	}
+	return !attachments.empty();
+}
+#else
+bool MessageHandler::handleFileSourcesAttachments(const QXmppMessage &, const QString &)
+{
+	return false;
+}
+#endif
+
+std::optional<EncryptedSource> MessageHandler::parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source)
+{
+	if (source.httpSources().empty()) {
+		return {};
+	}
+	std::optional<qint64> encryptedDataId;
+	if (!source.hashes().empty()) {
+		encryptedDataId = QRandomGenerator::system()->generate64();
+	}
+	return EncryptedSource {
+		fileId,
+		source.httpSources().front().url(),
+		source.cipher(),
+		source.key(),
+		source.iv(),
+		encryptedDataId,
+		transform(source.hashes(), [&](const QXmppHash &h) {
+			return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
+		})
+	};
+}
+
 void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &messageToEdit)
 {
 	if (const auto sharedFiles = message.sharedFiles(); !sharedFiles.empty()) {
@@ -633,11 +720,16 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 				.fileGroupId = fgid.value(),
 				.name = file.metadata().filename(),
 				.description = file.metadata().description().value_or(QString()),
-				.mimeType = file.metadata().mediaType().value_or(QMimeType()),
+				.mimeType = file.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"))),
 				.size = file.metadata().size(),
 				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
 				.disposition = file.disposition(),
 				.localFilePath = {},
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
+				.externalId = file.id(),
+#else
+				.externalId = {},
+#endif
 				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
 					return FileHash {
 						.dataId = fileId,
@@ -662,26 +754,7 @@ void MessageHandler::parseSharedFiles(const QXmppMessage &message, Message &mess
 				.httpSources = transform(file.httpSources(), [&](const auto &source) {
 					return HttpSource { fileId, source.url() };
 				}),
-				.encryptedSources = transformFilter(file.encryptedSources(), [&](const QXmppEncryptedFileSource &source) -> std::optional<EncryptedSource> {
-					if (source.httpSources().empty()) {
-						return {};
-					}
-					std::optional<qint64> encryptedDataId;
-					if (!source.hashes().empty()) {
-						encryptedDataId = QRandomGenerator::system()->generate64();
-					}
-					return EncryptedSource {
-						fileId,
-						source.httpSources().front().url(),
-						source.cipher(),
-						source.key(),
-						source.iv(),
-						encryptedDataId,
-						transform(source.hashes(), [&](const QXmppHash &h) {
-							return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
-						})
-					};
-				}),
+				.encryptedSources = transformFilter(file.encryptedSources(), std::bind(MessageHandler::parseEncryptedSource, fileId, _1)),
 			};
 		});
 	} else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {

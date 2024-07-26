@@ -5,6 +5,7 @@
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -36,6 +37,9 @@ public:
 	 * been created.
 	 */
 	void createTables();
+
+	// used in unit tests
+	void createV3Database();
 
 	/// Transaction on random thread from the thread pool (should be replaced in the
 	/// future).
@@ -122,6 +126,10 @@ private:
 	void convertDatabaseToV38();
 	void convertDatabaseToV39();
 	void convertDatabaseToV40();
+	void convertDatabaseToV41();
+	void convertDatabaseToV42();
 
 	std::unique_ptr<DatabasePrivate> d;
+
+	friend class DatabaseTest;
 };

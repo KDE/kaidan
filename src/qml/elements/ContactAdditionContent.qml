@@ -9,9 +9,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
+import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -74,6 +74,13 @@ ConfirmationArea {
 			placeholderText: qsTr("Hello, I'm…")
 			inputMethodHints: Qt.ImhPreferUppercase
 			wrapMode: TextEdit.Wrap
+			Keys.onPressed: (event) => {
+				// If there is no message entered, add the contact by clicking the "Return" key.
+				if (event.key === Qt.Key_Return && !text) {
+					confirmationButton.clicked()
+					event.accepted = true
+				}
+			}
 			Layout.fillWidth: true
 			Layout.minimumHeight: Kirigami.Units.gridUnit * 4
 		}

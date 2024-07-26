@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
@@ -282,17 +282,12 @@ DetailsContent {
 		readonly property var groupChatSupportList: providerListModel.providerFromBareJid(root.jid).chosenGroupChatSupport
 
 		Layout.fillWidth: true
-		visible: providerUrl  || chatSupportList.length || groupChatSupportList.length
+		visible: providerUrl.toString() || chatSupportList.length || groupChatSupportList.length
 		contentItem: ColumnLayout {
 			spacing: 0
 
 			ProviderListModel {
 				id: providerListModel
-			}
-
-			ChatSupportSheet {
-				id: chatSupportSheet
-				chatSupportList: providerArea.chatSupportList
 			}
 
 			MobileForm.FormCardHeader {
@@ -302,14 +297,14 @@ DetailsContent {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Visit website")
 				description: qsTr("Open your provider's website in a web browser")
-				visible: providerArea.providerUrl
+				visible: providerArea.providerUrl.toString()
 				onClicked: Qt.openUrlExternally(providerArea.providerUrl)
 			}
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Copy website address")
 				description: qsTr("Copy your provider's web address to the clipboard")
-				visible: providerArea.providerUrl
+				visible: providerArea.providerUrl.toString()
 				onClicked: {
 					Utils.copyToClipboard(providerArea.providerUrl)
 					passiveNotification(qsTr("Website address copied to clipboard"))
@@ -322,15 +317,46 @@ DetailsContent {
 				visible: providerArea.chatSupportList.length > 0
 				onClicked: {
 					if (providerArea.chatSupportList.length === 1) {
-						let contactAdditionContainer = openView(contactAdditionDialog, contactAdditionPage)
-						contactAdditionContainer.jid = providerArea.chatSupportList[0]
-						contactAdditionContainer.name = qsTr("Support")
+						let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
+						contactAdditionView.jid = providerArea.chatSupportList[0]
+						contactAdditionView.name = qsTr("Support")
 
 						if (root.sheet) {
 							root.sheet.close()
 						}
 					} else {
-						chatSupportSheet.open()
+						chatSupportListView.visible = !chatSupportListView.visible
+					}
+				}
+			}
+
+			ListView {
+				id: chatSupportListView
+				visible: false
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				clip: true
+				model: Array.from(providerArea.chatSupportList)
+				delegate: MobileForm.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: MobileForm.AbstractFormDelegate {
+						background: Item {}
+						horizontalPadding: 0
+						verticalPadding: 0
+						contentItem: MobileForm.FormButtonDelegate {
+							text: qsTr("Support %1").arg(index + 1)
+							description: modelData
+							onClicked: {
+								let contactAdditionView = openView(contactAdditionDialog, contactAdditionPage)
+								contactAdditionView.jid = modelData
+								contactAdditionView.name = text
+
+								if (root.sheet) {
+									root.sheet.close()
+								}
+							}
+						}
 					}
 				}
 			}
@@ -343,10 +369,29 @@ DetailsContent {
 					if (providerArea.groupChatSupportList.length === 1) {
 						Qt.openUrlExternally(Utils.groupChatUri(providerArea.groupChatSupportList[0]))
 					} else {
-						chatSupportSheet.isGroupChatSupportSheet = true
+						groupChatSupportListView.visible = !groupChatSupportListView.visible
+					}
+				}
+			}
 
-						if (!chatSupportSheet.sheetOpen) {
-							chatSupportSheet.open()
+			ListView {
+				id: groupChatSupportListView
+				visible: false
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				clip: true
+				model: Array.from(providerArea.groupChatSupportList)
+				delegate: MobileForm.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: MobileForm.AbstractFormDelegate {
+						background: Item {}
+						horizontalPadding: 0
+						verticalPadding: 0
+						contentItem: MobileForm.FormButtonDelegate {
+							text: qsTr("Group Support %1").arg(index + 1)
+							description: modelData
+							onClicked: Qt.openUrlExternally(Utils.groupChatUri(modelData))
 						}
 					}
 				}
@@ -397,7 +442,7 @@ DetailsContent {
 								onAccepted: blockingButton.clicked()
 								onVisibleChanged: {
 									if (visible) {
-										text = ""
+										clear()
 										forceActiveFocus()
 									}
 								}
@@ -416,10 +461,10 @@ DetailsContent {
 								onClicked: {
 									const jid = blockingTextField.text
 									if (blockingListView.model.contains(jid)) {
-										blockingTextField.text = ""
+										blockingTextField.clear()
 									} else if (enabled) {
 										blockingAction.block(jid)
-										blockingTextField.text = ""
+										blockingTextField.clear()
 									} else {
 										blockingTextField.forceActiveFocus()
 									}
@@ -604,7 +649,7 @@ DetailsContent {
 							function initialize() {
 								showPassword = false
 								invalidHintMayBeShown = false
-								text = ""
+								inputField.clear()
 							}
 						}
 

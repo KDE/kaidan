@@ -11,10 +11,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
-import QtGraphicalEffects 1.14
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
+import QtGraphicalEffects 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -85,25 +85,16 @@ Kirigami.SwipeListItem {
 		RowLayout {
 			// Own messages are on the right, others on the left side.
 			layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
+			spacing: 0
 
-			// placeholder
-			Item {
-				Layout.preferredWidth: 5
-			}
-
-			Item {
-				visible: !isOwn
-				Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+			Avatar {
+				id: avatar
+				visible: !isOwn && isGroupBegin
+				jid: root.senderId
+				name: root.senderName
 				Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
-				Layout.preferredWidth: Kirigami.Units.gridUnit * 2.2
-
-				Avatar {
-					id: avatar
-					visible: !isOwn && isGroupBegin
-					anchors.fill: parent
-					jid: root.senderId
-					name: root.senderName
-				}
+				Layout.topMargin: - Kirigami.Units.gridUnit
+				Layout.bottomMargin: Layout.topMargin
 			}
 
 			// message bubble
@@ -111,7 +102,7 @@ Kirigami.SwipeListItem {
 				id: bubble
 
 				readonly property string paddingText: {
-					"⠀".repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
+					Utils.messageBubblepaddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
 				}
 
 				readonly property alias backgroundColor: bubbleBackground.color
@@ -120,6 +111,7 @@ Kirigami.SwipeListItem {
 				bottomPadding: Kirigami.Units.largeSpacing
 				leftPadding: Kirigami.Units.largeSpacing + background.tailSize
 				rightPadding: Kirigami.Units.largeSpacing
+				Layout.leftMargin: isOwn || avatar.visible ? 0 : avatar.width
 
 				background: MessageBackground {
 					id: bubbleBackground
@@ -147,11 +139,10 @@ Kirigami.SwipeListItem {
 						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
 
 						RowLayout {
-							Controls.Label {
-								text: spoilerHint == "" ? qsTr("Spoiler") : Utils.formatMessage(spoilerHint)
-								textFormat: Text.StyledText
-								wrapMode: Text.Wrap
-								color: Kirigami.Theme.textColor
+							FormattedTextEdit {
+								text: root.spoilerHint ? root.spoilerHint : qsTr("Spoiler")
+								enabled: true
+								enhancedFormatting: true
 								Layout.fillWidth: true
 							}
 
@@ -202,14 +193,12 @@ Kirigami.SwipeListItem {
 						}
 
 						// message body
-						Controls.Label {
+						FormattedTextEdit {
 							id: bodyLabel
+							text: root.messageBody + bubble.paddingText
+							enabled: true
 							visible: messageBody
-							text: Utils.formatMessage(messageBody) + bubble.paddingText
-							textFormat: Text.StyledText
-							wrapMode: Text.Wrap
-							color: Kirigami.Theme.textColor
-							onLinkActivated: Qt.openUrlExternally(link)
+							enhancedFormatting: true
 							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
 						}
 					}
@@ -255,14 +244,15 @@ Kirigami.SwipeListItem {
 
 						MessageReactionAdditionButton {
 							id: messageReactionAdditionButton
-							messageId: root.msgId
-							emojiPicker: root.reactionEmojiPicker
 							accentColor: bubble.backgroundColor
+							messageId: root.msgId
+							isOwnMessage: root.isOwn
+							emojiPicker: root.reactionEmojiPicker
 						}
 
 						MessageReactionDetailsButton {
-							messageId: root.msgId
 							accentColor: bubble.backgroundColor
+							messageId: root.msgId
 							isOwnMessage: root.isOwn
 							detailedReactions: root.detailedReactions
 							ownDetailedReactions: root.ownDetailedReactions

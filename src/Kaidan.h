@@ -191,7 +191,7 @@ public:
 	 *
 	 * @param outOfBandUrl URL used for out-of-band registration
 	 */
-	Q_SIGNAL void registrationOutOfBandUrlReceived(const QString &outOfBandUrl);
+	Q_SIGNAL void registrationOutOfBandUrlReceived(const QUrl &outOfBandUrl);
 
 	/**
 	 * Emitted to request a registration form from the server which is set as the
@@ -331,7 +331,7 @@ public:
 	Q_INVOKABLE void receiveMessage(quint32, const QByteArray &msg)
 	{
 		// currently we only send XMPP URIs
-		addOpenUri(msg);
+		addOpenUri(QString::fromUtf8(msg));
 	}
 
 private:

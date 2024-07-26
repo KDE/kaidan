@@ -11,3 +11,6 @@ Dependencies:
       frameworks/kirigami: '@stable'
       libraries/kirigami-addons: '@stable'
       libraries/kquickimageeditor: '@stable'
+
+Options:
+  require-passing-tests-on: ['Linux', 'FreeBSD', 'Windows']

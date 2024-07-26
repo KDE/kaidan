@@ -60,10 +60,9 @@ public:
 	RosterModel(QObject *parent = nullptr);
 	~RosterModel() override;
 
-	Q_REQUIRED_RESULT bool isEmpty() const;
-	Q_REQUIRED_RESULT int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-	Q_REQUIRED_RESULT QHash<int, QByteArray> roleNames() const override;
-	Q_REQUIRED_RESULT QVariant data(const QModelIndex &index, int role) const override;
+	[[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	/**
 	 * Returns whether this model has a roster item with the passed properties.
@@ -147,7 +146,7 @@ public:
 	Q_INVOKABLE void setNotificationsMuted(const QString &accountJid, const QString &jid, bool notificationsMuted);
 	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
-signals:
+Q_SIGNALS:
 	void addItemRequested(const RosterItem &item);
 	void updateItemRequested(const QString &jid,
 	                         const std::function<void (RosterItem &)> &updateItem);

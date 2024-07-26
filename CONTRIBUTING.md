@@ -76,6 +76,15 @@ It stores, for example, contacts and messages.
 On Linux, you can find it at `.local/kaidan/kaidan.sqlite3`.
 To open it, you need an SQLite application (e.g., `sqlitebrowser`, use `sudo apt install sqlitebrowser` to install it on Debian-based systems)
 
+### Configuration Options
+
+There are some configuration options that cannot be set via the user interface and that are mostly useful for testing.
+
+| Name | Type | Description |
+|--|--|--|
+| `auth/tlsErrorsIgnored` | `bool` | If enabled, invalid certificates are also accepted. |
+| `auth/tlsRequirement` | `int` | `0`: Use TLS if available, `1`: Disable TLS, `2`: Require TLS |
+
 ## Testing
 
 The environment variable `KAIDAN_PROFILE` can be set to run Kaidan with custom configuration and database files.
@@ -204,9 +213,12 @@ On a daily basis, Kaidan is automatically built for various systems.
 Those *nightly builds* are based on Kaidan's [`master` branch](https://invent.kde.org/network/kaidan/-/tree/master).
 
 Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
-For distributions supporting Flatpak, there is a [Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) and its [reference](https://invent.kde.org/packaging/flatpak-kde-applications/-/blob/master/im.kaidan.kaidan.remoteapp) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
+For distributions supporting Flatpak, there is a [Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
+The builds are created by including a corresponding file in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) which triggers the `flatpak` job.
 There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
-In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows, macOS and Android builds](https://binary-factory.kde.org/search/?q=kaidan).
+See [KDE's Flatpak documentation](https://develop.kde.org/docs/packaging/flatpak/publishing/) for more information.
+
+In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/.kde-ci-packages/?job=craft_windows_qt515_x86_64).
 
 Dependencies are mainly managed by Kaidan's [root CMakeLists file](CMakeLists.txt).
 When you add or remove dependencies, update the [README](README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.

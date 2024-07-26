@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -32,6 +33,9 @@
 
 #include <KFileUtils>
 
+#include "Account.h"
+#include "AccountDb.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "FutureUtils.h"
 #include "FileProgressCache.h"
@@ -62,19 +66,19 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
 	constexpr std::array bad_chars = {
 #ifdef Q_OS_UNIX
 		// These have special meaning in a file name.
-		'.', '/', '\\',
+		QLatin1Char('.'), QLatin1Char('/'), QLatin1Char('\\'),
 
 		// These are treated specially by shells.
-		'<', '>', '|', ':', '(', ')', '&', ';', '#', '?', '*',
+		QLatin1Char('<'), QLatin1Char('>'), QLatin1Char('|'), QLatin1Char(':'), QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char(';'), QLatin1Char('#'), QLatin1Char('?'), QLatin1Char('*'),
 #else
 		// Microsoft says these are invalid.
-		'.', '<', '>', ':', '"', '/', '\\', '|', '?', '*',
+		QLatin1Char('.'), QLatin1Char('<'), QLatin1Char('>'), QLatin1Char(':'), QLatin1Char('"'), QLatin1Char('/'), QLatin1Char('\\'), QLatin1Char('|'), QLatin1Char('?'), QLatin1Char('*'),
 
 		// `cmd.exe` treats these specially.
-		',', ';', '=',
+		QLatin1Char(','), QLatin1Char(';'), QLatin1Char('='),
 
 		// These are treated specially by unix-like shells.
-		'(', ')', '&', '#',
+		QLatin1Char('('), QLatin1Char(')'), QLatin1Char('&'), QLatin1Char('#'),
 #endif
 	};
 
@@ -141,9 +145,20 @@ FileSharingController::FileSharingController(QXmppClient *client)
 		auto reqMan = client->findExtension<QXmppUploadRequestManager>();
 		Q_ASSERT(reqMan);
 
-		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [reqMan]() {
+		connect(reqMan, &QXmppUploadRequestManager::serviceFoundChanged, Kaidan::instance(), [client, reqMan]() {
 			bool supported = reqMan->serviceFound();
 			Kaidan::instance()->serverFeaturesCache()->setHttpUploadSupported(supported);
+
+			if (client->isConnected()) {
+				const auto services = reqMan->uploadServices();
+				const auto limit = services.isEmpty() ? 0 : services.constFirst().sizeLimit();
+
+				AccountDb::instance()->updateAccount(client->configuration().jidBare(), [limit](Account &account) {
+					account.httpUploadLimit = limit;
+				});
+
+				Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
+			}
 		});
 	});
 }
@@ -293,7 +308,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 
 	runOnThread(client, [this, client, messageId, fileId = file.id, fileShare = file.toQXmpp()] {
 		QString dirPath = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) +
-						  QDir::separator() + APPLICATION_DISPLAY_NAME;
+						  QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 
 		if (auto dir = QDir(dirPath); !dir.exists()) {
 			dir.mkpath(QStringLiteral("."));
@@ -322,7 +337,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 		}();
 
 		auto makeFileName = [&]() -> QString {
-			return dirPath % QDir::separator() % filename % "." % fileExtension;
+			return dirPath % QDir::separator() % filename % QLatin1Char('.') % fileExtension;
 		};
 
 		QString filePath = makeFileName();
@@ -392,7 +407,7 @@ void FileSharingController::deleteFile(const QString &messageId, const File &fil
 	});
 
 	// don't delete files not downloaded by us
-	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + APPLICATION_DISPLAY_NAME;
+	const auto downloadsFolder = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 	if (file.localFilePath.startsWith(downloadsFolder)) {
 		QFile::remove(file.localFilePath);
 	}

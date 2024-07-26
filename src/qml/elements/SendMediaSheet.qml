@@ -5,9 +5,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Layouts 1.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -55,7 +55,7 @@ Kirigami.OverlaySheet {
 	onSheetOpenChanged: {
 		if (!sheetOpen) {
 			root.composition.fileSelectionModel.clear()
-			messageText.text = ""
+			messageText.clear()
 		}
 	}
 
@@ -84,10 +84,8 @@ Kirigami.OverlaySheet {
 		Repeater {
 			id: fileList
 			model: root.composition.fileSelectionModel
-
-			delegate: Kirigami.AbstractListItem {
-				id: delegateRoot
-
+			delegate: Controls.ItemDelegate {
+				Layout.fillWidth: true
 				contentItem: RowLayout {
 					// Icon
 					Kirigami.Icon {
@@ -97,19 +95,15 @@ Kirigami.OverlaySheet {
 					}
 
 					// spacer
-					Item {
-					}
+					Item {}
 
 					// File name and description
 					ColumnLayout {
-						Layout.fillWidth: true
-
 						RowLayout {
 							Kirigami.Heading {
-								Layout.fillWidth: true
-
-								level: 3
 								text: model.fileName
+								level: 3
+								Layout.fillWidth: true
 							}
 
 							Controls.Label {
@@ -118,12 +112,10 @@ Kirigami.OverlaySheet {
 						}
 
 						Controls.TextField {
-							Layout.fillWidth: true
-
 							text: model.description
 							placeholderText: qsTr("Enter description…")
-
 							onTextChanged: model.description = text
+							Layout.fillWidth: true
 						}
 					}
 

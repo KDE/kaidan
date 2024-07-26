@@ -322,6 +322,30 @@ SPDX-License-Identifier: CC0-1.0
     </implements>
     <implements>
       <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0386.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.0.0</xmpp:version>
+        <xmpp:since>0.10</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0388.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.0.1</xmpp:version>
+        <xmpp:since>0.10</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0392.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.7</xmpp:version>
+        <xmpp:since>0.4</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0405.html'/>
         <xmpp:status>planned</xmpp:status>
         <xmpp:version>0.5</xmpp:version>
@@ -353,8 +377,8 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0428.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.1</xmpp:version>
-        <xmpp:since>0.9</xmpp:since>
+        <xmpp:version>0.2.1</xmpp:version>
+        <xmpp:since>0.10</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -385,7 +409,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0447.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.2</xmpp:version>
+        <xmpp:version>0.3.1</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -405,6 +429,28 @@ SPDX-License-Identifier: CC0-1.0
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0484.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>0.1.0</xmpp:version>
+        <xmpp:since>0.10</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <release>
+      <Version>
+        <revision>0.9.1</revision>
+        <created>2023-05-07</created>
+        <file-release rdf:resource='https://invent.kde.org/network/kaidan/-/archive/v0.9.1/kaidan-v0.9.1.tar.gz'/>
+      </Version>
+    </release>
+    <release>
+      <Version>
+        <revision>0.9.0</revision>
+        <created>2023-04-30</created>
+        <file-release rdf:resource='https://invent.kde.org/network/kaidan/-/archive/v0.9.0/kaidan-v0.9.0.tar.gz'/>
+      </Version>
+    </release>
     <release>
       <Version>
         <revision>0.8.0</revision>

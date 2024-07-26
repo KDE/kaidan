@@ -149,9 +149,11 @@ install_manifest.txt
 ################# Other #######################
 
 *.swp
+.cache/
 .vscode/
 .directory
 .DS_Store
+compile_commands.json
 misc/rendered-graphics
 src/tags
 

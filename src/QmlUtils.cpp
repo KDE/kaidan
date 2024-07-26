@@ -5,9 +5,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "QmlUtils.h"
+// ICU
+#include <unicode/uchar.h>
 // Qt
 #include <QClipboard>
 #include <QDateTime>
+#include <QDebug>
 #include <QDir>
 #include <QGuiApplication>
 #include <QImage>
@@ -16,10 +19,15 @@
 #include <QStandardPaths>
 #include <QStringBuilder>
 // QXmpp
+#ifndef BUILD_TESTS
 #include "qxmpp-exts/QXmppColorGenerator.h"
 #include "qxmpp-exts/QXmppUri.h"
+#endif
 // Kaidan
+#include "Globals.h"
+#ifndef BUILD_TESTS
 #include "MessageModel.h"
+#endif
 
 static QmlUtils *s_instance;
 
@@ -43,6 +51,12 @@ QmlUtils::~QmlUtils()
 	s_instance = nullptr;
 }
 
+QChar QmlUtils::messageBubblepaddingCharacter()
+{
+	return MESSAGE_BUBBLE_PADDING_CHARACTER;
+}
+
+#ifndef BUILD_TESTS
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 {
 	switch (error) {
@@ -71,17 +85,18 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	}
 	Q_UNREACHABLE();
 }
+#endif
 
 QString QmlUtils::getResourcePath(const QString &name)
 {
 	// We generally prefer to first search for files in application resources
-	if (QFile::exists(":/" + name))
-		return QString("qrc:/" + name);
+	if (QFile::exists(QStringLiteral(":/") + name))
+		return QStringLiteral("qrc:/") + name;
 
 	// list of file paths where to search for the resource file
 	QStringList pathList;
 	// add relative path from binary (only works if installed)
-	pathList << QCoreApplication::applicationDirPath() + QString("/../share/") + QString(APPLICATION_NAME);
+	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
 	// get the standard app data locations for current platform
 	pathList << QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 #ifdef UBUNTU_TOUCH
@@ -90,7 +105,7 @@ QString QmlUtils::getResourcePath(const QString &name)
 #ifndef NDEBUG
 #ifdef DEBUG_SOURCE_PATH
 	// add source directory (only for debug builds)
-	pathList << QString(DEBUG_SOURCE_PATH) + QString("/data");
+	pathList << QStringLiteral(DEBUG_SOURCE_PATH) + QStringLiteral("/data");
 #endif
 #endif
 
@@ -110,29 +125,50 @@ QString QmlUtils::getResourcePath(const QString &name)
 	return QString();
 }
 
+QString QmlUtils::versionString()
+{
+	return QStringLiteral(VERSION_STRING);
+}
+
+QString QmlUtils::applicationDisplayName()
+{
+	return QStringLiteral(APPLICATION_DISPLAY_NAME);
+}
+
 QUrl QmlUtils::applicationWebsiteUrl()
 {
-	return { QStringLiteral(APPLICATION_WEBSITE_URL) };
+	return QUrl(QStringLiteral(APPLICATION_WEBSITE_URL));
+}
+
+QUrl QmlUtils::applicationSourceCodeUrl()
+{
+	return QUrl(QStringLiteral(APPLICATION_SOURCE_CODE_URL));
 }
 
 QUrl QmlUtils::issueTrackingUrl()
 {
-	return { QStringLiteral(ISSUE_TRACKING_URL) };
+	return QUrl(QStringLiteral(ISSUE_TRACKING_URL));
 }
 
 QUrl QmlUtils::donationUrl()
 {
-	return { QStringLiteral(DONATION_URL) };
+	return QUrl(QStringLiteral(DONATION_URL));
 }
 
 QUrl QmlUtils::mastodonUrl()
 {
-	return { QStringLiteral(MASTODON_URL) };
+	return QUrl(QStringLiteral(MASTODON_URL));
 }
 
+QUrl QmlUtils::invitationUrl(const QString &jid)
+{
+	return QUrl(QStringLiteral(INVITATION_URL) + jid);
+}
+
+#ifndef BUILD_TESTS
 QUrl QmlUtils::trustMessageUri(const QString &jid)
 {
-	return { trustMessageUriString(jid) };
+	return QUrl(trustMessageUriString(jid));
 }
 
 QString QmlUtils::trustMessageUriString(const QString &jid)
@@ -142,7 +178,7 @@ QString QmlUtils::trustMessageUriString(const QString &jid)
 	QList<QString> distrustedKeys;
 
 	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
-		const auto key = itr.key().toHex();
+		const auto key = QString::fromUtf8(itr.key().toHex());
 		const auto trustLevel = itr.value();
 
 		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
@@ -172,12 +208,13 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 	QXmppUri uri;
 	uri.setJid(groupChatJid);
 	uri.setAction(QXmppUri::Join);
-	return { uri.toString() };
+	return QUrl(uri.toString());
 }
+#endif
 
 bool QmlUtils::validateEncryptionKeyId(const QString &keyId)
 {
-	static QRegularExpression re("^[0-9A-F]{64}$", QRegularExpression::CaseInsensitiveOption);
+	static QRegularExpression re(QStringLiteral("^[0-9A-F]{64}$"), QRegularExpression::CaseInsensitiveOption);
 	return re.match(keyId).hasMatch();
 }
 
@@ -194,10 +231,15 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 	return keyIdParts.join(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR);
 }
 
+QString QmlUtils::removeNewLinesFromString(const QString &input)
+{
+	return input.simplified();
+}
+
 bool QmlUtils::isImageFile(const QUrl &fileUrl)
 {
 	QMimeType type = QMimeDatabase().mimeTypeForUrl(fileUrl);
-	return type.inherits("image/jpeg") || type.inherits("image/png");
+	return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
 }
 
 void QmlUtils::copyToClipboard(const QString &text)
@@ -216,20 +258,19 @@ QString QmlUtils::formattedDataSize(qint64 fileSize)
 		return tr("Unknown size");
 	}
 
-	return QLocale::system().formattedDataSize(fileSize);
+	return QLocale::system().formattedDataSize(fileSize, 0, QLocale::DataSizeSIFormat);
 }
 
-QString QmlUtils::formatMessage(const QString &message)
+QColor QmlUtils::userColor(const QString &id, const QString &name)
 {
-	// escape all special XML chars (like '<' and '>')
-	// and spilt into words for processing
-	return processMsgFormatting(message.toHtmlEscaped().split(" "));
-}
-
-QColor QmlUtils::getUserColor(const QString &nickName)
-{
-	QXmppColorGenerator::RGBColor color = QXmppColorGenerator::generateColor(nickName);
-	return {color.red, color.green, color.blue};
+#ifndef BUILD_TESTS
+	QXmppColorGenerator::RGBColor rgbColor = QXmppColorGenerator::generateColor(id.isEmpty() ? name : id);
+	return { rgbColor.red, rgbColor.green, rgbColor.blue };
+#else
+	Q_UNUSED(id)
+	Q_UNUSED(name)
+	return QColor(Qt::black);
+#endif
 }
 
 QUrl QmlUtils::pasteImage()
@@ -253,9 +294,9 @@ QString QmlUtils::downloadPath(const QString &filename)
 	const QDir directory(
 			QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
 				QDir::separator() %
-				APPLICATION_DISPLAY_NAME);
+				QStringLiteral(APPLICATION_DISPLAY_NAME));
 	// create directory if it doesn't exist
-	if (!directory.mkpath("."))
+	if (!directory.mkpath(QStringLiteral(".")))
 		return {};
 
 	// check whether a file with this name already exists
@@ -300,24 +341,6 @@ QString QmlUtils::chatStateDescription(const QString &displayName, const QXmppMe
 	};
 
 	return {};
-}
-
-QString QmlUtils::processMsgFormatting(const QStringList &list, bool isFirst)
-{
-	if (list.isEmpty())
-		return QString();
-
-	// link highlighting
-	if (list.first().startsWith("https://") || list.first().startsWith("http://"))
-		return (isFirst ? QString() : " ") + QString("<a href='%1'>%1</a>").arg(list.first())
-		       + processMsgFormatting(list.mid(1), false);
-
-	// preserve newlines
-	if (list.first().contains("\n"))
-		return (isFirst ? QString() : " ") + QString(list.first()).replace("\n", "<br>")
-		       + processMsgFormatting(list.mid(1), false);
-
-	return (isFirst ? QString() : " ") + list.first() + processMsgFormatting(list.mid(1), false);
 }
 
 QString QmlUtils::osmUserAgent()

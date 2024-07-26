@@ -1,19 +1,22 @@
 // SPDX-FileCopyrightText: 2022 Linus Jahn <lnj@kaidan.im>
 // SPDX-FileCopyrightText: 2022 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageComposition.h"
 
 // Kaidan
-#include "MessageHandler.h"
-#include "Kaidan.h"
-#include "FileSharingController.h"
 #include "Algorithms.h"
+#include "FileSharingController.h"
+#include "Kaidan.h"
+#include "MessageHandler.h"
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "MessageDb.h"
+#include "QmlUtils.h"
+#include "ServerFeaturesCache.h"
 
 // Qt
 #include <QFileDialog>
@@ -296,7 +299,7 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
 		return file.mimeType.iconName();
 	case FileSize:
 		if (file.size) {
-			return QLocale::system().formattedDataSize(*file.size);
+			return QmlUtils::formattedDataSize(*file.size);
 		}
 		return tr("Unknown size");
 	}
@@ -309,11 +312,17 @@ void FileSelectionModel::selectFile()
 	dialog->setFileMode(QFileDialog::ExistingFiles);
 
 	connect(dialog, &QFileDialog::filesSelected, this, [this, dialog]() {
-		Q_EMIT selectFileFinished();
-
 		const auto files = dialog->selectedFiles();
+		bool filesAdded = false;
+
 		for (const auto &file : files) {
-			addFile(QUrl::fromLocalFile(file));
+			if (addFile(QUrl::fromLocalFile(file))) {
+				filesAdded = true;
+			}
+		}
+
+		if (filesAdded) {
+			Q_EMIT selectFileFinished();
 		}
 	});
 	connect(dialog, &QDialog::finished, this, [dialog](auto) {
@@ -323,7 +332,7 @@ void FileSelectionModel::selectFile()
 	dialog->open();
 }
 
-void FileSelectionModel::addFile(const QUrl &localFilePath)
+bool FileSelectionModel::addFile(const QUrl &localFilePath)
 {
 	auto localPath = localFilePath.toLocalFile();
 
@@ -332,20 +341,30 @@ void FileSelectionModel::addFile(const QUrl &localFilePath)
 	});
 
 	if (alreadyAdded) {
-		return;
+		return false;
 	}
 
 	Q_ASSERT(localFilePath.isLocalFile());
+	const auto limit = Kaidan::instance()->serverFeaturesCache()->httpUploadLimit();
+	const QFileInfo fileInfo(localPath);
+
+	if (fileInfo.size() > limit) {
+		Kaidan::instance()->passiveNotificationRequested(tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
+		return false;
+	}
+
 	File file;
 	file.localFilePath = localPath;
 	file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
-	file.size = QFileInfo(localPath).size();
+	file.size = fileInfo.size();
 
 	generateThumbnail(file);
 
 	beginInsertRows({}, m_files.size(), m_files.size());
 	m_files.push_back(std::move(file));
 	endInsertRows();
+
+	return true;
 }
 
 void FileSelectionModel::removeFile(int index)

@@ -10,6 +10,9 @@
 #include <algorithm>
 #include <optional>
 #include <unordered_map>
+#if __has_include(<__cpp_lib_ranges_enumerate>)                // Check for a standard library
+#include <ranges>
+#endif
 
 #include <QVector>
 
@@ -135,4 +138,40 @@ static void makeUnique(Container &container)
 {
 	std::sort(container.begin(), container.end());
 	container.erase(std::unique(container.begin(), container.end()), container.end());
+}
+
+/**
+ * Runs a function on all parts of a text.
+ *
+ * @param text text that is split into parts
+ * @param isSeparator function returning whether a character passed to it should split the text
+ * @param processPart function run on each text part
+ */
+template<typename IsSeparator, typename ProcessPart>
+auto processTextParts(QStringView text, IsSeparator isSeparator, ProcessPart processPart) {
+	qsizetype start = 0;
+
+#if __has_include(<__cpp_lib_ranges_enumerate>)
+	for (auto [i, character] : std::views::enumerate(text)) {
+		if (const auto atEnd = i == text.size() - 1; isSeparator(character) || atEnd) {
+			auto end = atEnd ? text.size() : i;
+			auto part = QStringView(text).mid(start, end - start);
+
+			processPart(start, part);
+
+			start = i + 1;
+		}
+	}
+#else
+	for (auto i = 0; i < text.size(); i++) {
+		if (const auto atEnd = i == text.size() - 1; isSeparator(text.at(i)) || atEnd) {
+			auto end = atEnd ? text.size() : i;
+			auto part = QStringView(text).mid(start, end - start);
+
+			processPart(start, part);
+
+			start = i + 1;
+		}
+	}
+#endif
 }

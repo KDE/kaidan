@@ -12,6 +12,8 @@
 #include <QXmppRosterManager.h>
 #include <QXmppPresence.h>
 
+#include "Globals.h"
+
 VersionManager::VersionManager(QXmppClient *client, QObject *parent)
 	: QObject(parent),
 	  m_manager(client->findExtension<QXmppVersionManager>()),
@@ -20,8 +22,8 @@ VersionManager::VersionManager(QXmppClient *client, QObject *parent)
 	Q_ASSERT(m_manager);
 
 	// publish kaidan version
-	m_manager->setClientName(APPLICATION_DISPLAY_NAME);
-	m_manager->setClientVersion(VERSION_STRING);
+	m_manager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
+	m_manager->setClientVersion(QStringLiteral(VERSION_STRING));
 	m_manager->setClientOs(QSysInfo::prettyProductName());
 
 	connect(m_manager, &QXmppVersionManager::versionReceived,

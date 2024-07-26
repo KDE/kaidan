@@ -73,6 +73,7 @@ struct File
 	Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
 	Q_PROPERTY(QString localFilePath MEMBER localFilePath)
 	Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
+	Q_PROPERTY(QString externalId MEMBER externalId)
 	Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
 	Q_PROPERTY(QImage thumbnail READ thumbnailImage CONSTANT)
 	Q_PROPERTY(QImage thumbnailSquare READ thumbnailSquareImage CONSTANT)
@@ -90,6 +91,7 @@ public:
 	QDateTime lastModified;
 	QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
 	QString localFilePath;
+	QString externalId;
 	QVector<FileHash> hashes;
 	QByteArray thumbnail;
 	QVector<HttpSource> httpSources;
@@ -205,6 +207,7 @@ public:
 	bool removed = false;
 
 	[[nodiscard]] QXmppMessage toQXmpp() const;
+	[[nodiscard]] QVector<QXmppMessage> fallbackMessages() const;
 
 	// Returns whether this message is an own one (i.e., sent by the accountJid).
 	bool isOwn() const;
@@ -212,6 +215,9 @@ public:
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
 	QString previewText() const;
+
+private:
+	bool includeFileFallbackInMainMessage() const;
 };
 
 Q_DECLARE_METATYPE(Message)

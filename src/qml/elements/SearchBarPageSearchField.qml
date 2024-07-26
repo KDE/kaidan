@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
+import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -16,7 +16,7 @@ Kirigami.SearchField {
 	property ListView listView
 
 	onTextChanged: listView.model.setFilterFixedString(text.toLowerCase())
-	Keys.onEscapePressed: text = ""
+	Keys.onEscapePressed: clear()
 
 	onActiveFocusChanged: {
 		if (activeFocus) {
@@ -27,7 +27,7 @@ Kirigami.SearchField {
 	Keys.onPressed: {
 		switch (event.key) {
 		case Qt.Key_Escape:
-			text = ""
+			clear()
 			break
 		case Qt.Key_Return:
 		case Qt.Key_Enter:

@@ -8,13 +8,19 @@
 #include "Settings.h"
 
 #include <QMutexLocker>
+#include <QUuid>
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+#include <QXmppCredentials.h>
+#endif
 
 #include "Globals.h"
+
+Q_DECLARE_METATYPE(QXmppConfiguration::StreamSecurityMode)
 
 Settings::Settings(QObject *parent)
 	: QObject(parent), m_settings(QStringLiteral(APPLICATION_NAME), configFileBaseName())
 {
-
 }
 
 QSettings &Settings::raw()
@@ -44,7 +50,7 @@ void Settings::setAuthJid(const QString &jid)
 
 QString Settings::authJidResourcePrefix() const
 {
-	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), KAIDAN_JID_RESOURCE_DEFAULT_PREFIX);
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
 }
 
 void Settings::setAuthJidResourcePrefix(const QString &prefix)
@@ -54,13 +60,33 @@ void Settings::setAuthJidResourcePrefix(const QString &prefix)
 
 QString Settings::authPassword() const
 {
-	return QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8());
+	return QString::fromUtf8(QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
 }
 
 void Settings::setAuthPassword(const QString &password)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()), &Settings::authPasswordChanged);
 }
+
+#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+QXmppCredentials Settings::authCredentials() const
+{
+	auto xml = value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS));
+
+	QXmlStreamReader r(xml);
+	r.readNextStartElement();
+	return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
+}
+
+void Settings::setAuthCredentials(const QXmppCredentials &credentials)
+{
+	QString xml;
+	QXmlStreamWriter writer(&xml);
+	credentials.toXml(writer);
+
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS), xml);
+}
+#endif
 
 QString Settings::authHost() const
 {
@@ -97,6 +123,26 @@ bool Settings::isDefaultAuthPort() const
 	return authPort() == PORT_AUTODETECT;
 }
 
+bool Settings::authTlsErrorsIgnored() const
+{
+	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED), false);
+}
+
+void Settings::setAuthTlsErrorsIgnored(bool enabled)
+{
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED), enabled, &Settings::authIgnoreTlsErrosChanged);
+}
+
+QXmppConfiguration::StreamSecurityMode Settings::authTlsRequirement() const
+{
+	return value<QXmppConfiguration::StreamSecurityMode>(QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT), QXmppConfiguration::TLSRequired);
+}
+
+void Settings::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode)
+{
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT), mode, &Settings::authTlsRequirementChanged);
+}
+
 Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
 {
 	return value<Kaidan::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible);
@@ -105,6 +151,16 @@ Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
 void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), visibility, &Settings::authPasswordVisibilityChanged);
+}
+
+QUuid Settings::userAgentDeviceId() const
+{
+	return value<QUuid>(KAIDAN_SETTINGS_AUTH_DEVICE_ID);
+}
+
+void Settings::setUserAgentDeviceId(QUuid deviceId)
+{
+	setValue(KAIDAN_SETTINGS_AUTH_DEVICE_ID, deviceId);
 }
 
 Encryption::Enum Settings::encryption() const

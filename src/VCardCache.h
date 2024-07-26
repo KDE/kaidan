@@ -40,7 +40,7 @@ public:
 	 */
 	void setVCard(const QString &jid, const QXmppVCardIq &vCard);
 
-signals:
+Q_SIGNALS:
 	/**
 	 * Emitted when a vCard changed.
 	 *

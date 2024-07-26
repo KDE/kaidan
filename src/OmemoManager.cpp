@@ -13,12 +13,14 @@
 
 #include "AccountManager.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "MessageModel.h"
 #include "OmemoCache.h"
 #include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RosterModel.h"
+#include "SystemUtils.h"
 
 using namespace std::chrono_literals;
 
@@ -82,9 +84,7 @@ QFuture<void> OmemoManager::load()
 	} else {
 		auto future = m_manager->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa);
 		future.then(this, [this, interface]() mutable {
-			const auto productName = QSysInfo::prettyProductName();
-			const QString productNameWithoutVersion = productName.contains(" ") ? productName.section(" ", 0, -2) : productName;
-			auto future = m_manager->changeDeviceLabel(APPLICATION_DISPLAY_NAME % QStringLiteral(" - ") % productNameWithoutVersion);
+			auto future = m_manager->changeDeviceLabel(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % SystemUtils::productName());
 			future.then(this, [this, interface](bool) mutable {
 				auto future = m_manager->load();
 				future.then(this, [this, interface](bool isLoaded) mutable {
@@ -277,9 +277,6 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 
 	auto future = m_manager->ownKey();
 	future.then(this, [this, interface, keys = std::move(keys)](QByteArray key) mutable {
-		keys.insert(AccountManager::instance()->jid(), { { key, QXmpp::TrustLevel::Authenticated } });
-		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
-
 		for (auto itr = keys.cbegin(); itr != keys.cend(); ++itr) {
 			using KeyIds = QList<QString>;
 			KeyIds authenticatableKeys;
@@ -293,14 +290,21 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 				const auto trustLevel = trustLevelItr.value();
 
 				if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-					authenticatedKeys.append(keyId.toHex());
+					authenticatedKeys.append(QString::fromUtf8(keyId.toHex()));
 				} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
-					authenticatableKeys.append(keyId.toHex());
+					authenticatableKeys.append(QString::fromUtf8(keyId.toHex()));
 				}
 			}
 
 			updateCachedKeys(jid, authenticatableKeys, authenticatedKeys);
 		}
+
+		const auto ownJid = AccountManager::instance()->jid();
+
+		OmemoCache::instance()->setAuthenticatedKeys(ownJid, { key.toHex() });
+
+		keys.insert(ownJid, { { key, QXmpp::TrustLevel::Authenticated } });
+		Q_EMIT MessageModel::instance()->keysRetrieved(keys);
 
 		interface.reportFinished();
 	});
@@ -310,7 +314,7 @@ QFuture<void> OmemoManager::retrieveOwnKey(QHash<QString, QHash<QByteArray, QXmp
 
 void OmemoManager::retrieveKeysForRequestedJids(const QList<QString> &jids)
 {
-	if (std::search(jids.cbegin(), jids.cend(), m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend()) != jids.cend()) {
+	if (std::search(m_lastRequestedKeyOwnerJids.cbegin(), m_lastRequestedKeyOwnerJids.cend(), jids.cbegin(), jids.cend()) != m_lastRequestedKeyOwnerJids.cend()) {
 		retrieveKeys(m_lastRequestedKeyOwnerJids);
 	}
 }
@@ -339,15 +343,15 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 			const auto trustLevel = device.trustLevel();
 
 			if ((QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted).testFlag(trustLevel)) {
-				distrustedDevices.insert(jid, { label, keyId.toHex() });
+				distrustedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			} else {
-				usableDevices.insert(jid, { label, keyId.toHex() });
+				usableDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			}
 
 			if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-				authenticatedDevices.insert(jid, { label, keyId.toHex() });
+				authenticatedDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			} else if (trustLevel != QXmpp::TrustLevel::Undecided) {
-				authenticatableDevices.insert(jid, { label, keyId.toHex() });
+				authenticatableDevices.insert(jid, { label, QString::fromUtf8(keyId.toHex()) });
 			}
 		}
 
@@ -356,7 +360,7 @@ void OmemoManager::retrieveDevices(const QList<QString> &jids)
 		}
 
 		const auto ownDevice = m_manager->ownDevice();
-		OmemoCache::instance()->setOwnDevice({ ownDevice.label(), ownDevice.keyId().toHex() });
+		OmemoCache::instance()->setOwnDevice({ ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex()) });
 	});
 }
 

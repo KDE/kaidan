@@ -59,7 +59,7 @@ Notifications::Notifications(QObject *parent)
 void Notifications::sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &messageBody)
 {
 #ifdef DESKTOP_LINUX_ALIKE_OS
-	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains("GNOME", Qt::CaseInsensitive);
+	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
 #endif
 
 	KNotification *notification = nullptr;
@@ -205,7 +205,7 @@ void Notifications::closeMessageNotification(const QString &accountJid, const QS
 void Notifications::sendPresenceSubscriptionRequestNotification(const QString &accountJid, const QString &chatJid)
 {
 #ifdef DESKTOP_LINUX_ALIKE_OS
-	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains("GNOME", Qt::CaseInsensitive);
+	static bool IS_USING_GNOME = qEnvironmentVariable("XDG_CURRENT_DESKTOP").contains(QStringLiteral("GNOME"), Qt::CaseInsensitive);
 #endif
 
 	auto notificationWrapperItr = std::find_if(m_openMessageNotifications.begin(), m_openMessageNotifications.end(), [&accountJid, &chatJid](const auto &notificationWrapper) {

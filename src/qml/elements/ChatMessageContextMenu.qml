@@ -6,8 +6,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
 
 import im.kaidan.kaidan 1.0
 
@@ -71,7 +71,6 @@ Controls.Menu {
 	Controls.MenuItem {
 		text: qsTr("Remove from this device")
 		onTriggered: {
-			root.message.font.italic = true
 			MessageModel.removeMessage(root.message.msgId)
 
 			if (root.file && root.file.localFilePath) {

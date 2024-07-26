@@ -31,7 +31,7 @@ RecentPicturesModel::RecentPicturesModel(QObject *parent)
 	auto *dirModel = new KDirModel(this);
 	setSourceModel(dirModel);
 	dirModel->dirLister()->setMimeFilter({QStringLiteral("image/png"), QStringLiteral("image/jpeg")});
-	dirModel->openUrl(QStringLiteral("recentlyused:/files/"));
+	dirModel->openUrl(QUrl(QStringLiteral("recentlyused:/files/")));
 	dirModel->dirLister()->setAutoErrorHandlingEnabled(false);
 }
 
