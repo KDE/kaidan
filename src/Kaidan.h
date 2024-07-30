@@ -279,7 +279,7 @@ public:
 	/**
 	 * Show passive notification
 	 */
-	Q_SIGNAL void passiveNotificationRequested(QString text);
+	Q_SIGNAL void passiveNotificationRequested(QString text, const QString duration = {});
 
 	/**
 	 * XMPP URI received

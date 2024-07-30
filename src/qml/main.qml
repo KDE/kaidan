@@ -8,6 +8,7 @@
 // SPDX-FileCopyrightText: 2023 Bhavy Airi <airiraghav@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
+// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -233,8 +234,12 @@ Kirigami.ApplicationWindow {
 			}
 		}
 
-		function onPassiveNotificationRequested(text) {
-			passiveNotification(text)
+		function onPassiveNotificationRequested(text, duration) {
+			if (duration.length) {
+				showPassiveNotification(text, duration)
+			} else {
+				passiveNotification(text)
+			}
 		}
 
 		function onCredentialsNeeded() {
