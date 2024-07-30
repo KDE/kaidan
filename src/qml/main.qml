@@ -246,6 +246,10 @@ Kirigami.ApplicationWindow {
 			openStartPage()
 		}
 
+		function onOpenStartPageRequested() {
+			openPage(startPage)
+		}
+
 		function onOpenChatViewRequested() {
 			openChatView()
 		}

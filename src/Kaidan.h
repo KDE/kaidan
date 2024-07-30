@@ -254,6 +254,11 @@ public:
 	Q_SIGNAL void raiseWindowRequested();
 
 	/**
+	 * Opens the start page on top of any existing pages on the lowest layer.
+	 */
+	Q_SIGNAL void openStartPageRequested();
+
+	/**
 	 * Opens the view with the roster and empty chat page.
 	 */
 	Q_SIGNAL void openChatViewRequested();
