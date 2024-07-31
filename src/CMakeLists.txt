@@ -178,6 +178,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     VCardModel.h
     VersionManager.cpp
     VersionManager.h
+    XmlUtils.h
 
     ${CMAKE_SOURCE_DIR}/data/data.qrc
     ${CMAKE_SOURCE_DIR}/misc/misc.qrc
