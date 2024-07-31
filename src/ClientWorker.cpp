@@ -309,7 +309,7 @@ void ClientWorker::deleteAccountFromClient()
 		AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
 		m_isAccountToBeDeletedFromClient = false;
 	} else {
-		m_omemoManager->resetOwnDevice().then(this, [this](auto &&) {
+		await(m_omemoManager->reset(), this, [this]() {
 			m_isAccountToBeDeletedFromClient = true;
 			logOut();
 		});

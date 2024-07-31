@@ -134,6 +134,18 @@ QFuture<void> OmemoManager::setUp()
 	return interface.future();
 }
 
+QFuture<void> OmemoManager::reset()
+{
+	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+
+	m_manager->resetOwnDevice().then(this, [this, interface](auto &&) mutable {
+		m_isLoaded = false;
+		interface.reportFinished();
+	});
+
+	return interface.future();
+}
+
 QFuture<void> OmemoManager::retrieveKeys(const QList<QString> &jids)
 {
 	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
@@ -204,11 +216,6 @@ QFuture<void> OmemoManager::unsubscribeFromDeviceLists()
 	});
 
 	return interface.future();
-}
-
-QXmppTask<bool> OmemoManager::resetOwnDevice()
-{
-	return m_manager->resetOwnDevice();
 }
 
 void OmemoManager::enableSessionBuildingForNewDevices()

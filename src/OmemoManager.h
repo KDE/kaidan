@@ -40,6 +40,7 @@ public:
 
 	QFuture<void> load();
 	QFuture<void> setUp();
+	QFuture<void> reset();
 
 	QFuture<void> retrieveKeys(const QList<QString> &jids);
 	QFuture<bool> hasUsableDevices(const QList<QString> &jids);
@@ -47,7 +48,6 @@ public:
 	QFuture<void> requestDeviceLists(const QList<QString> &jids);
 	QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
 	QFuture<void> unsubscribeFromDeviceLists();
-	QXmppTask<bool> resetOwnDevice();
 
 	QFuture<void> initializeChat(const QString &accountJid, const QString &chatJid);
 	void removeContactDevices(const QString &jid);
