@@ -5,9 +5,12 @@
 #include "AccountMigrationManager.h"
 #include "Algorithms.h"
 #include "Encryption.h"
+#include "FutureUtils.h"
 #include "RegistrationManager.h"
 #include "RosterItem.h"
+#include "RosterModel.h"
 #include "Settings.h"
+#include "XmlUtils.h"
 
 #include <QDir>
 #include <QDomDocument>
@@ -17,6 +20,20 @@
 #include <QUrl>
 
 #include <QXmppAccountMigrationManager.h>
+
+#define readRosterSettingsElement(NAME) \
+	if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), settings.NAME)) { \
+		return QXmppError { QStringLiteral("Invalid NAME element."), {} }; \
+	}
+
+#define writeRosterSettingsElement(NAME) \
+	XmlUtils::Writer::text(&writer, QStringLiteral(#NAME), NAME)
+
+static constexpr QStringView s_kaidan_ns = u"kaidan";
+static constexpr QStringView s_client_settings = u"client-settings";
+static constexpr QStringView s_roster = u"roster";
+static constexpr QStringView s_item = u"item";
+static constexpr QStringView s_qxmpp_export_ns = u"org.qxmpp.export";
 
 struct ClientRosterItemSettings {
 	ClientRosterItemSettings() = default;
@@ -31,20 +48,108 @@ struct ClientRosterItemSettings {
 		automaticMediaDownloadsRule = item.automaticMediaDownloadsRule;
 	}
 
+	static std::variant<ClientRosterItemSettings, QXmppError> fromDom(const QDomElement &rootElement)
+	{
+		Q_ASSERT(rootElement.tagName() == s_item);
+		Q_ASSERT(rootElement.namespaceURI() == s_kaidan_ns);
+
+		ClientRosterItemSettings settings;
+
+		if (const auto element = rootElement.firstChildElement(QStringLiteral("bareJid")); true) {
+			settings.bareJid = element.text();
+
+			if (settings.bareJid.isEmpty()) {
+				return QXmppError {
+					QStringLiteral("Missing required bareJid element."), {}
+				};
+			}
+		}
+
+		readRosterSettingsElement(encryption);
+		readRosterSettingsElement(notificationsMuted);
+		readRosterSettingsElement(chatStateSendingEnabled);
+		readRosterSettingsElement(readMarkerSendingEnabled);
+		readRosterSettingsElement(pinningPosition);
+		readRosterSettingsElement(automaticMediaDownloadsRule);
+
+		return settings;
+	}
+
+	void toXml(QXmlStreamWriter &writer) const
+	{
+		writer.writeStartElement(s_item.toString());
+		writeRosterSettingsElement(bareJid);
+		writeRosterSettingsElement(encryption);
+		writeRosterSettingsElement(notificationsMuted);
+		writeRosterSettingsElement(chatStateSendingEnabled);
+		writeRosterSettingsElement(readMarkerSendingEnabled);
+		writeRosterSettingsElement(pinningPosition);
+		writeRosterSettingsElement(automaticMediaDownloadsRule);
+		writer.writeEndElement();
+	}
+
 	QString bareJid;
-	Encryption::Enum encryption;
-	bool notificationsMuted;
-	bool chatStateSendingEnabled;
-	bool readMarkerSendingEnabled;
-	int pinningPosition;
-	RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule;
+	std::optional<Encryption::Enum> encryption;
+	std::optional<bool> notificationsMuted;
+	std::optional<bool> chatStateSendingEnabled;
+	std::optional<bool> readMarkerSendingEnabled;
+	std::optional<int> pinningPosition;
+	std::optional<RosterItem::AutomaticMediaDownloadsRule> automaticMediaDownloadsRule;
 };
 
 struct ClientSettings {
-	explicit ClientSettings(Settings *settings = nullptr, const QVector<RosterItem> &rosterItems = {})
+	ClientSettings() = default;
+	explicit ClientSettings(Settings *settings, const QVector<RosterItem> &rosterItems)
 		: roster(transform(rosterItems,
 			  [](const RosterItem &item) { return ClientRosterItemSettings(item); }))
 	{
+		Q_UNUSED(settings)
+	}
+
+	static std::variant<ClientSettings, QXmppError> fromDom(const QDomElement &rootElement)
+	{
+		Q_ASSERT(rootElement.tagName() == s_client_settings);
+		Q_ASSERT(rootElement.namespaceURI() == s_qxmpp_export_ns);
+
+		const auto rosterElement = rootElement.firstChildElement(s_roster.toString());
+		ClientSettings settings;
+
+		if (rosterElement.namespaceURI() == s_kaidan_ns) {
+			settings.roster.reserve(rosterElement.childNodes().count());
+
+			for (QDomNode node = rosterElement.firstChild(); !node.isNull();
+				node = node.nextSibling()) {
+				if (!node.isElement()) {
+					continue;
+				}
+
+				const auto element = node.toElement();
+
+				if (element.tagName() == s_item) {
+					const auto result = ClientRosterItemSettings::fromDom(element);
+
+					if (std::holds_alternative<QXmppError>(result)) {
+						return std::get<QXmppError>(result);
+					}
+
+					settings.roster.append(std::get<ClientRosterItemSettings>(result));
+				}
+			}
+		}
+
+		return settings;
+	}
+
+	void toXml(QXmlStreamWriter &writer) const
+	{
+		writer.writeStartElement(s_client_settings.toString());
+		writer.writeStartElement(s_roster.toString());
+		writer.writeDefaultNamespace(s_kaidan_ns.toString());
+		for (const auto &entry : roster) {
+			entry.toXml(writer);
+		}
+		writer.writeEndElement();
+		writer.writeEndElement();
 	}
 
 	QVector<ClientRosterItemSettings> roster;
@@ -55,6 +160,19 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 	  m_worker(clientWorker),
 	  m_manager(clientWorker->xmppClient()->findExtension<QXmppAccountMigrationManager>())
 {
+	constexpr const auto parseData = &ClientSettings::fromDom;
+	const auto serializeData = [](const ClientSettings &data, QXmlStreamWriter &writer) {
+		data.toXml(writer);
+	};
+	const auto importData = [this](const ClientSettings &data) {
+		return importClientSettingsTask(data);
+	};
+	const auto exportData = [this]() { return exportClientSettingsTask(); };
+
+	QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(
+		s_client_settings, s_qxmpp_export_ns);
+	m_manager->registerExportData<ClientSettings>(importData, exportData);
+
 	connect(this, &AccountMigrationManager::migrationStateChanged, this, [this]() {
 		Q_EMIT busyChanged(isBusy());
 	});
@@ -66,7 +184,10 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 	});
 }
 
-AccountMigrationManager::~AccountMigrationManager() = default;
+AccountMigrationManager::~AccountMigrationManager()
+{
+	m_manager->unregisterExportData<ClientSettings>();
+}
 
 AccountMigrationManager::MigrationState AccountMigrationManager::migrationState() const
 {
@@ -249,4 +370,32 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 	data = std::move(std::get<QXmppExportData>(result));
 
 	return true;
+}
+
+QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::importClientSettingsTask(
+	const ClientSettings &settings)
+{
+	return runAsyncTask(this, Kaidan::instance(), [settings]() -> ImportResult {
+		auto model = RosterModel::instance();
+
+		for (const ClientRosterItemSettings &itemSettings : settings.roster) {
+			model->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
+				item.encryption = itemSettings.encryption.value_or(item.encryption);
+				item.notificationsMuted = itemSettings.notificationsMuted.value_or(item.notificationsMuted);
+				item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
+				item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
+				item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
+				item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
+			});
+		}
+
+		return QXmpp::Success {};
+	});
+}
+
+QXmppTask<AccountMigrationManager::ExportResult> AccountMigrationManager::exportClientSettingsTask()
+{
+	return runAsyncTask(this, Kaidan::instance(), [settings = m_worker->caches()->settings]() -> ExportResult {
+		return ClientSettings(settings, RosterModel::instance()->items());
+	});
 }

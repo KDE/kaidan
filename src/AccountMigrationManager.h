@@ -15,6 +15,7 @@
 class ClientWorker;
 class RosterItem;
 class Settings;
+struct ClientSettings;
 
 class AccountMigrationManager : public QObject
 {
@@ -53,6 +54,12 @@ private:
 	QString diskAccountFilePath() const;
 	bool saveAccountDataToDisk(const QXmppExportData &data);
 	bool restoreAccountDataFromDisk(QXmppExportData &data);
+
+	using ImportResult = std::variant<QXmpp::Success, QXmppError>;
+	using ExportResult = std::variant<ClientSettings, QXmppError>;
+
+	QXmppTask<ImportResult> importClientSettingsTask(const ClientSettings &settings);
+	QXmppTask<ExportResult> exportClientSettingsTask();
 
 	template<typename Enum>
 	struct AbstractData {
