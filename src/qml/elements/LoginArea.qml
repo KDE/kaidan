@@ -65,7 +65,7 @@ MobileForm.FormCard {
 				contentItem: MobileForm.FormButtonDelegate {
 					id: loginButton
 					text: qsTr("Log in")
-					state: Kaidan.connectionState !== Enums.StateDisconnected ? "connecting" : ""
+					state: Kaidan.connectionState === Enums.StateConnecting ? "connecting" : ""
 					states: [
 						State {
 							name: "connecting"
