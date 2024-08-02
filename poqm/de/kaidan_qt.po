@@ -13,6 +13,21 @@ msgstr ""
 "X-Generator: Lokalize 23.07.70\n"
 "X-Qt-Contexts: true\n"
 
+#: src/AccountMigrationManager.cpp:195
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: Another migration is already in progress"
+msgstr ""
+
+#: src/AccountMigrationManager.cpp:206
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: Could not load exported account data"
+msgstr ""
+
+#: src/AccountMigrationManager.cpp:215
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: You need to be connected"
+msgstr ""
+
 #: src/Blocking.cpp:203
 #, qt-format
 msgctxt "BlockingController|"
@@ -97,7 +112,7 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Aufnahme läuft ..."
 
-#: src/ClientWorker.cpp:311
+#: src/ClientWorker.cpp:326
 #, fuzzy, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -113,22 +128,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Die Datei „%1“ kann nicht heruntergeladen werden"
 
-#: src/Kaidan.cpp:139
+#: src/Kaidan.cpp:198
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Online"
 
-#: src/Kaidan.cpp:141
+#: src/Kaidan.cpp:200
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Verbindung wird aufgebaut ..."
 
-#: src/Kaidan.cpp:143
+#: src/Kaidan.cpp:202
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Offline"
 
-#: src/Kaidan.cpp:183
+#: src/Kaidan.cpp:281
 #, fuzzy
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
@@ -847,8 +862,8 @@ msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:770
 #: src/qml/details/AccountDetailsContent.qml:789
-#: src/qml/details/AccountDetailsContent.qml:949
-#: src/qml/details/AccountDetailsContent.qml:974
+#: src/qml/details/AccountDetailsContent.qml:977
+#: src/qml/details/AccountDetailsContent.qml:1002
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Bestätigen"
@@ -904,28 +919,50 @@ msgid "Connection settings changed"
 msgstr "Verbindungseinstellungen geändert"
 
 #: src/qml/details/AccountDetailsContent.qml:932
+#, fuzzy
+msgctxt "AccountDetailsContent|"
+msgid "Migration"
+msgstr "Beschriftung"
+
+#: src/qml/details/AccountDetailsContent.qml:940
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Transfer account"
+msgctxt "AccountDetailsContent|"
+msgid "Migrate account"
+msgstr "Konto übertragen"
+
+#: src/qml/details/AccountDetailsContent.qml:941
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Migrate account data (except chat history) to another account. Your current "
+"account will be removed from this app. Back up your credentials and chat "
+"history if needed!"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:940
+#: src/qml/details/AccountDetailsContent.qml:968
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Aus Kaidan entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:969
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Vollständig löschen"
 
-#: src/qml/details/AccountDetailsContent.qml:966
+#: src/qml/details/AccountDetailsContent.qml:994
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -2219,24 +2256,24 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "Kontakt in die Zwischenablage kopiert"
 
-#: src/qml/main.qml:81
+#: src/qml/main.qml:82
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr ""
 
-#: src/qml/main.qml:81
+#: src/qml/main.qml:82
 msgctxt "main|"
 msgid "Undo"
 msgstr ""
 
-#: src/qml/main.qml:88
+#: src/qml/main.qml:89
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr ""
 
-#: src/qml/main.qml:90
+#: src/qml/main.qml:91
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -2312,7 +2349,7 @@ msgctxt "LoadingView|"
 msgid "Requesting the server…"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:21
+#: src/qml/registration/ManualRegistrationPage.qml:22
 #, fuzzy
 #| msgctxt "RegistrationLoginDecisionPage|"
 #| msgid "Register a new account"
@@ -2320,12 +2357,12 @@ msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
 msgstr "Ein neues Konto registrieren"
 
-#: src/qml/registration/ManualRegistrationPage.qml:171
+#: src/qml/registration/ManualRegistrationPage.qml:172
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:214
+#: src/qml/registration/ManualRegistrationPage.qml:215
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -2333,7 +2370,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Dieser Server unterstützt keine Registrierung."
 
-#: src/qml/registration/ManualRegistrationPage.qml:214
+#: src/qml/registration/ManualRegistrationPage.qml:215
 #, fuzzy
 #| msgctxt "QmlUtils|"
 #| msgid "This server does not support registration."
@@ -2341,22 +2378,22 @@ msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr "Dieser Server unterstützt keine Registrierung."
 
-#: src/qml/registration/ManualRegistrationPage.qml:218
+#: src/qml/registration/ManualRegistrationPage.qml:219
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:222
+#: src/qml/registration/ManualRegistrationPage.qml:223
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:237
+#: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:241
+#: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
@@ -2473,7 +2510,7 @@ msgid ""
 "Your chat address will be:"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:18
+#: src/qml/registration/UsernameView.qml:19
 msgctxt "UsernameView|"
 msgid ""
 "Your username is used to log in to your account and to chat with you.\n"
@@ -2483,12 +2520,12 @@ msgid ""
 "decrease your privacy!"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:35
+#: src/qml/registration/UsernameView.qml:36
 msgctxt "UsernameView|"
 msgid "Username"
 msgstr "Benutzername"
 
-#: src/qml/registration/UsernameView.qml:42
+#: src/qml/registration/UsernameView.qml:40
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
@@ -2684,18 +2721,24 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/qml/StartPage.qml:54
+#: src/qml/StartPage.qml:23
+#, fuzzy
+msgctxt "StartPage|"
+msgid "Account Migration"
+msgstr "Konto-Sicherheit"
+
+#: src/qml/StartPage.qml:61
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Genießen Sie freie Kommunikation auf jedem Gerät!"
 
-#: src/qml/StartPage.qml:67
+#: src/qml/StartPage.qml:74
 msgctxt "StartPage|"
 msgid "Login"
 msgstr ""
 
-#: src/qml/StartPage.qml:71
+#: src/qml/StartPage.qml:78
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Enter correct password"
@@ -2703,7 +2746,7 @@ msgctxt "StartPage|"
 msgid "Enter your credentials"
 msgstr "Richtiges Passwort eingeben"
 
-#: src/qml/StartPage.qml:99
+#: src/qml/StartPage.qml:110
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "No valid login QR code found."
@@ -2711,12 +2754,12 @@ msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
 msgstr "Kein gültiger QR-Code zum Anmelden gefunden."
 
-#: src/qml/StartPage.qml:106
+#: src/qml/StartPage.qml:117
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
 
-#: src/qml/StartPage.qml:119
+#: src/qml/StartPage.qml:130
 #, fuzzy
 #| msgctxt "RegistrationButton|"
 #| msgid "Register"
@@ -2724,7 +2767,7 @@ msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registrieren"
 
-#: src/qml/StartPage.qml:123
+#: src/qml/StartPage.qml:134
 #, fuzzy
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -2732,7 +2775,7 @@ msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Konto vollständig löschen"
 
-#: src/qml/StartPage.qml:128
+#: src/qml/StartPage.qml:139
 #, fuzzy
 #| msgctxt "AccountDeletionFromClientAndServerConfirmationPage|"
 #| msgid "Delete account completely"
@@ -2809,24 +2852,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Dieser Server unterstützt keine Registrierung."
 
-#: src/QmlUtils.cpp:258
+#: src/QmlUtils.cpp:272
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:331
+#: src/QmlUtils.cpp:345
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 ist online"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:347
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 schreibt gerade ..."
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:349
 #, fuzzy, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3168,11 +3211,6 @@ msgstr "Webseite"
 #~ msgctxt "AccountSecurity|"
 #~ msgid "Don't show password"
 #~ msgstr "Passwort nicht anzeigen"
-
-#, fuzzy
-#~ msgctxt "AccountSettings|"
-#~ msgid "Account settings"
-#~ msgstr "Konto-Sicherheit"
 
 #, fuzzy
 #~| msgctxt "ProviderView|"
@@ -3630,11 +3668,6 @@ msgstr "Webseite"
 #~ msgid "Rename contact"
 #~ msgstr "Kontakt umbenennen"
 
-#, fuzzy
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Caption"
-#~ msgstr "Beschriftung"
-
 #~ msgctxt "SendMediaSheet|"
 #~ msgid "Cancel"
 #~ msgstr "Abbrechen"
@@ -3951,10 +3984,6 @@ msgstr "Webseite"
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Back"
 #~ msgstr "Zurück"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Transfer account"
-#~ msgstr "Konto übertragen"
 
 #~ msgctxt "GlobalDrawer|"
 #~ msgid "Delete account"

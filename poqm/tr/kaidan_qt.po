@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 24.07.70\n"
 
+#: src/AccountMigrationManager.cpp:195
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: Another migration is already in progress"
+msgstr ""
+
+#: src/AccountMigrationManager.cpp:206
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: Could not load exported account data"
+msgstr ""
+
+#: src/AccountMigrationManager.cpp:215
+msgctxt "AccountMigrationManager|"
+msgid "Account could not be migrated: You need to be connected"
+msgstr ""
+
 #: src/Blocking.cpp:203
 #, qt-format
 msgctxt "BlockingController|"
@@ -85,7 +100,7 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "İzin veriliyor…"
 
-#: src/ClientWorker.cpp:311
+#: src/ClientWorker.cpp:326
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -101,22 +116,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Dosya indirilemedi: %1"
 
-#: src/Kaidan.cpp:139
+#: src/Kaidan.cpp:198
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Çevrimiçi"
 
-#: src/Kaidan.cpp:141
+#: src/Kaidan.cpp:200
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/Kaidan.cpp:143
+#: src/Kaidan.cpp:202
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Çevrimdışı"
 
-#: src/Kaidan.cpp:183
+#: src/Kaidan.cpp:281
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
@@ -772,8 +787,8 @@ msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:770
 #: src/qml/details/AccountDetailsContent.qml:789
-#: src/qml/details/AccountDetailsContent.qml:949
-#: src/qml/details/AccountDetailsContent.qml:974
+#: src/qml/details/AccountDetailsContent.qml:977
+#: src/qml/details/AccountDetailsContent.qml:1002
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Onayla"
@@ -828,16 +843,47 @@ msgid "Connection settings changed"
 msgstr "Bağlantı ayarları değiştirildi"
 
 #: src/qml/details/AccountDetailsContent.qml:932
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "AccountDetailsContent|"
+msgid "Migration"
+msgstr "Bilgi yok"
+
+#: src/qml/details/AccountDetailsContent.qml:940
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by accounts"
+msgctxt "AccountDetailsContent|"
+msgid "Migrate account"
+msgstr "Hesaplara Göre Süz"
+
+#: src/qml/details/AccountDetailsContent.qml:941
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Remove account from this app. Back up your credentials and chat history "
+#| "if needed!"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Migrate account data (except chat history) to another account. Your current "
+"account will be removed from this app. Back up your credentials and chat "
+"history if needed!"
+msgstr ""
+"Bu uygulamadan hesabı kaldırın. Gerekirse kimlik bilgilerinizi ve sohbet "
+"geçmişinizi yedekleyin!"
+
+#: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Kaldırma"
 
-#: src/qml/details/AccountDetailsContent.qml:940
+#: src/qml/details/AccountDetailsContent.qml:968
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan’dan kaldır"
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:969
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -846,12 +892,12 @@ msgstr ""
 "Bu uygulamadan hesabı kaldırın. Gerekirse kimlik bilgilerinizi ve sohbet "
 "geçmişinizi yedekleyin!"
 
-#: src/qml/details/AccountDetailsContent.qml:965
+#: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Tümüyle sil"
 
-#: src/qml/details/AccountDetailsContent.qml:966
+#: src/qml/details/AccountDetailsContent.qml:994
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1933,24 +1979,24 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "Parmak izi panoya kopyalandı"
 
-#: src/qml/main.qml:81
+#: src/qml/main.qml:82
 #, qt-format
 msgctxt "main|"
 msgid "Unblocked %1"
 msgstr "%1 engeli kaldırıldı"
 
-#: src/qml/main.qml:81
+#: src/qml/main.qml:82
 msgctxt "main|"
 msgid "Undo"
 msgstr "Geri Al"
 
-#: src/qml/main.qml:88
+#: src/qml/main.qml:89
 #, qt-format
 msgctxt "main|"
 msgid "Could not block %1: %2"
 msgstr "%1 engellenemedi: %2"
 
-#: src/qml/main.qml:90
+#: src/qml/main.qml:91
 #, qt-format
 msgctxt "main|"
 msgid "Could not unblock %1: %2"
@@ -2026,42 +2072,42 @@ msgctxt "LoadingView|"
 msgid "Requesting the server…"
 msgstr "Sunucu isteniyor…"
 
-#: src/qml/registration/ManualRegistrationPage.qml:21
+#: src/qml/registration/ManualRegistrationPage.qml:22
 msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
 msgstr "El ile kayıt ol"
 
-#: src/qml/registration/ManualRegistrationPage.qml:171
+#: src/qml/registration/ManualRegistrationPage.qml:172
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "Sağlayıcı, daha güçlü bir parola istiyor."
 
-#: src/qml/registration/ManualRegistrationPage.qml:214
+#: src/qml/registration/ManualRegistrationPage.qml:215
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Sağlayıcı, uygulama üzerinden kaydolmayı desteklemiyor."
 
-#: src/qml/registration/ManualRegistrationPage.qml:214
+#: src/qml/registration/ManualRegistrationPage.qml:215
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr "Sağlayıcı, şu anda uygulama üzerinden kaydolmayı desteklemiyor."
 
-#: src/qml/registration/ManualRegistrationPage.qml:218
+#: src/qml/registration/ManualRegistrationPage.qml:219
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
 msgstr "Ancak sağlayıcının web kayıt ekranını kullanabilirsiniz."
 
-#: src/qml/registration/ManualRegistrationPage.qml:222
+#: src/qml/registration/ManualRegistrationPage.qml:223
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
 msgstr "Yeni bir sağlayıcı rastgele seçildi."
 
-#: src/qml/registration/ManualRegistrationPage.qml:237
+#: src/qml/registration/ManualRegistrationPage.qml:238
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "Kullanıcı adı bir başkası tarafından alınmış."
 
-#: src/qml/registration/ManualRegistrationPage.qml:241
+#: src/qml/registration/ManualRegistrationPage.qml:242
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Yeni bir rastgele kullanıcı adı oluşturuldu."
@@ -2177,7 +2223,7 @@ msgstr ""
 "\n"
 "Sohbet adresiniz şudur:"
 
-#: src/qml/registration/UsernameView.qml:18
+#: src/qml/registration/UsernameView.qml:19
 msgctxt "UsernameView|"
 msgid ""
 "Your username is used to log in to your account and to chat with you.\n"
@@ -2193,12 +2239,12 @@ msgstr ""
 "Kendinizin seçeceği bir kullanıcı adı daha tanınır olabilir; ancak "
 "gizliliğinizi azaltabilir!"
 
-#: src/qml/registration/UsernameView.qml:35
+#: src/qml/registration/UsernameView.qml:36
 msgctxt "UsernameView|"
 msgid "Username"
 msgstr "Kullanıcı adı"
 
-#: src/qml/registration/UsernameView.qml:42
+#: src/qml/registration/UsernameView.qml:40
 msgctxt "UsernameView|"
 msgid ""
 "Please enter a valid username or leave the field empty for a random one."
@@ -2386,42 +2432,50 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: src/qml/StartPage.qml:54
+#: src/qml/StartPage.qml:23
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "StartPage|"
+msgid "Account Migration"
+msgstr "Hesap öntanımlısı"
+
+#: src/qml/StartPage.qml:61
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Her aygıtta özgür iletişimin keyfini çıkarın!"
 
-#: src/qml/StartPage.qml:67
+#: src/qml/StartPage.qml:74
 msgctxt "StartPage|"
 msgid "Login"
 msgstr "Oturum Aç"
 
-#: src/qml/StartPage.qml:71
+#: src/qml/StartPage.qml:78
 msgctxt "StartPage|"
 msgid "Enter your credentials"
 msgstr "Kimlik bilgilerinizi girin"
 
-#: src/qml/StartPage.qml:99
+#: src/qml/StartPage.qml:110
 msgctxt "StartPage|"
 msgid "Scan login QR code of old device"
 msgstr "Eski aygıtın oturum açma kare kodunu tara"
 
-#: src/qml/StartPage.qml:106
+#: src/qml/StartPage.qml:117
 msgctxt "StartPage|"
 msgid "or"
 msgstr "veya"
 
-#: src/qml/StartPage.qml:119
+#: src/qml/StartPage.qml:130
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Kayıt Ol"
 
-#: src/qml/StartPage.qml:123
+#: src/qml/StartPage.qml:134
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Kendiliğinden bir hesap oluştur"
 
-#: src/qml/StartPage.qml:128
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Elle hesap oluştur"
@@ -2483,24 +2537,24 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Bu sunucu, kaydolmayı desteklemiyor."
 
-#: src/QmlUtils.cpp:258
+#: src/QmlUtils.cpp:272
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Bilinmeyen boyut"
 
-#: src/QmlUtils.cpp:331
+#: src/QmlUtils.cpp:345
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 çevrimiçi"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:347
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 yazıyor…"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:349
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
