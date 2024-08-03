@@ -19,6 +19,7 @@ import "../settings"
 
 DetailsContent {
 	id: root
+
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
@@ -42,10 +43,11 @@ DetailsContent {
 		}
 	}
 	mediaOverview {
-		accountJid: AccountManager.jid
+		accountJid: root.jid
 		chatJid: ""
 	}
-	vCardArea: [
+	vCardArea.visible: true
+	vCardContentArea: [
 		FormExpansionButton {
 			checked: vCardRepeater.model.unsetEntriesProcessed
 			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
@@ -128,14 +130,15 @@ DetailsContent {
 		spacing: 0
 		Component.onCompleted: {
 			// Retrieve the own devices if they are not loaded yet.
-			if (MessageModel.currentAccountJid != root.jid) {
-				Kaidan.client.omemoManager.initializeChatRequested(root.jid)
+			if (ChatController.accountJid !== root.jid) {
+				EncryptionController.initializeAccount(root.jid)
 			}
 		}
 
-		OmemoWatcher {
-			id: omemoWatcher
-			jid: root.jid
+		EncryptionWatcher {
+			id: encryptionWatcher
+			accountJid: root.jid
+			jids: [root.jid]
 		}
 
 		MobileForm.FormCardHeader {
@@ -161,31 +164,35 @@ DetailsContent {
 
 		MobileForm.FormButtonDelegate {
 			text: {
-				if (!omemoWatcher.usableDevices.length) {
-					if (omemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
-					} else if (ownResourcesWatcher.resourcesCount > 1) {
-						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
-					}
-				} else if (omemoWatcher.authenticatableDevices.length) {
-					if (omemoWatcher.authenticatableDevices.length === omemoWatcher.distrustedDevices.length) {
-						return qsTr("Scan the QR codes of <b>your</b> devices to encrypt for them")
+				if (!encryptionWatcher.hasUsableDevices) {
+					if (encryptionWatcher.hasDistrustedDevices) {
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
 					}
 
-					return qsTr("Scan the QR codes of <b>your</b> devices for maximum security")
+					if (ownResourcesWatcher.resourcesCount > 1) {
+						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
+					}
+				} else if (encryptionWatcher.hasAuthenticatableDevices) {
+					if (encryptionWatcher.hasAuthenticatableDistrustedDevices) {
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
+					}
+
+					return qsTr("Verify <b>your</b> devices for maximum security")
 				}
 
 				return ""
 			}
 			icon.name: {
-				if (!omemoWatcher.usableDevices.length) {
-					if (omemoWatcher.distrustedDevices.length) {
+				if (!encryptionWatcher.hasUsableDevices) {
+					if (encryptionWatcher.hasDistrustedDevices) {
 						return "channel-secure-symbolic"
-					} else if (ownResourcesWatcher.resourcesCount > 1) {
+					}
+
+					if (ownResourcesWatcher.resourcesCount > 1) {
 						return "channel-insecure-symbolic"
 					}
-				} else if (omemoWatcher.authenticatableDevices.length) {
-					if (omemoWatcher.authenticatableDevices.length === omemoWatcher.distrustedDevices.length) {
+				} else if (encryptionWatcher.hasAuthenticatableDevices) {
+					if (encryptionWatcher.hasAuthenticatableDistrustedDevices) {
 						return "security-medium-symbolic"
 					}
 
@@ -195,8 +202,8 @@ DetailsContent {
 				return ""
 			}
 			visible: text
-			enabled: omemoWatcher.authenticatableDevices.length
-			onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage, root.jid, root.jid)
+			enabled: encryptionWatcher.hasAuthenticatableDevices
+			onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage).accountJid = root.jid
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
@@ -272,6 +279,25 @@ DetailsContent {
 				}
 			}
 		}
+	}
+	qrCodeExpansionButton.description: qsTr("Share this account's chat address via QR code")
+	qrCode: AccountQrCode {
+		jid: root.jid
+	}
+	qrCodeButton {
+		description: qsTr("Share this account's chat address via QR code")
+		onClicked: Utils.copyToClipboard(qrCode.source)
+	}
+	uriButton {
+		description: qsTr("Share this account's chat address via text")
+		onClicked: {
+			Utils.copyToClipboard(trustMessageUriGenerator.uri)
+			passiveNotification(qsTr("Account address copied to clipboard"))
+		}
+	}
+	invitationButton {
+		description: qsTr("Share this account's chat address via a web page with usage help")
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(trustMessageUriGenerator.uri))
 	}
 
 	MobileForm.FormCard {
@@ -481,17 +507,7 @@ DetailsContent {
 					}
 				}
 				section.property: "type"
-				section.delegate: MobileForm.FormSectionText {
-					text: section
-					padding: Kirigami.Units.largeSpacing
-					leftPadding: Kirigami.Units.largeSpacing * 3
-					font.weight: Font.Light
-					anchors.left: parent.left
-					anchors.right: parent.right
-					background: Rectangle {
-						color: tertiaryBackgroundColor
-					}
-				}
+				section.delegate: ListViewSectionDelegate {}
 				delegate: MobileForm.AbstractFormDelegate {
 					id: blockingDelegate
 					width: ListView.view.width
@@ -577,7 +593,7 @@ DetailsContent {
 				title: qsTr("Notes")
 			}
 
-			// TODO: Find a solution (hide button or add local-only chat) to servers not allowing to add oneself to the roster (such as Prosody)
+			// TODO: Find a solution (hide button or add local-only chat) for servers not allowing to add oneself to the roster (such as Prosody)
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Add chat for notes")
 				description: qsTr("Add a chat for synchronizing your notes across all your devices")
@@ -1011,5 +1027,10 @@ DetailsContent {
 				}
 			}
 		}
+	}
+
+	AccountTrustMessageUriGenerator {
+		id: trustMessageUriGenerator
+		jid: root.jid
 	}
 }

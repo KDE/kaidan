@@ -12,34 +12,12 @@
 
 // Qt
 #include <QAbstractListModel>
-// QXmpp
-#include <QXmppMessage.h>
 // Kaidan
 #include "Message.h"
-#include "OmemoWatcher.h"
-#include "PresenceCache.h"
-#include "RosterItemWatcher.h"
 
+class GroupChatUser;
 class QTimer;
 class Kaidan;
-
-class ChatState : public QObject
-{
-	Q_OBJECT
-
-public:
-	enum State {
-		None = QXmppMessage::None,
-		Active = QXmppMessage::Active,
-		Inactive = QXmppMessage::Inactive,
-		Gone = QXmppMessage::Gone,
-		Composing = QXmppMessage::Composing,
-		Paused = QXmppMessage::Paused
-	};
-	Q_ENUM(State)
-};
-
-Q_DECLARE_METATYPE(ChatState::State)
 
 struct DisplayedMessageReaction
 {
@@ -62,14 +40,12 @@ Q_DECLARE_METATYPE(DisplayedMessageReaction)
 
 struct DetailedMessageReaction
 {
-	Q_GADGET
-	Q_PROPERTY(QString senderJid MEMBER senderJid)
-	Q_PROPERTY(QStringList emojis MEMBER emojis)
-
-public:
+	QString senderId;
 	QString senderJid;
+	QString senderName;
 	QStringList emojis;
 
+	bool operator==(const DetailedMessageReaction &other) const = default;
 	bool operator<(const DetailedMessageReaction &other) const;
 };
 
@@ -79,18 +55,12 @@ class MessageModel : public QAbstractListModel
 {
 	Q_OBJECT
 
-	Q_PROPERTY(QString currentAccountJid READ currentAccountJid NOTIFY currentAccountJidChanged)
-	Q_PROPERTY(QString currentChatJid READ currentChatJid NOTIFY currentChatJidChanged)
-	Q_PROPERTY(bool isOmemoEncryptionEnabled READ isOmemoEncryptionEnabled NOTIFY isOmemoEncryptionEnabledChanged)
-	Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
-	Q_PROPERTY(QList<OmemoManager::Device> usableOmemoDevices READ usableOmemoDevices NOTIFY usableOmemoDevicesChanged)
-	Q_PROPERTY(QXmppMessage::State chatState READ chatState NOTIFY chatStateChanged)
 	Q_PROPERTY(bool mamLoading READ mamLoading NOTIFY mamLoadingChanged)
 
 public:
-	// Basically copy from QXmpp, but we need to expose this to QML
 	enum MessageRoles {
 		SenderId = Qt::UserRole + 1,
+		SenderName,
 		Id,
 		IsLastRead,
 		IsEdited,
@@ -99,7 +69,7 @@ public:
 		Time,
 		Body,
 		Encryption,
-		IsTrusted,
+		TrustLevel,
 		DeliveryState,
 		DeliveryStateIcon,
 		DeliveryStateName,
@@ -109,7 +79,8 @@ public:
 		Files,
 		DisplayedReactions,
 		DetailedReactions,
-		OwnDetailedReactions,
+		OwnReactionsFailed,
+		GroupChatInvitationJid,
 		ErrorText,
 	};
 	Q_ENUM(MessageRoles)
@@ -124,36 +95,8 @@ public:
 	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	Q_INVOKABLE void fetchMore(const QModelIndex &parent) override;
+	Q_SIGNAL void messageFetchingFinished();
 	Q_INVOKABLE bool canFetchMore(const QModelIndex &parent) const override;
-
-	QString currentAccountJid();
-	QString currentChatJid();
-	Q_INVOKABLE void setCurrentChat(const QString &accountJid, const QString &chatJid);
-	Q_INVOKABLE void resetCurrentChat();
-
-	/**
-	 * Determines whether a chat is the currently open chat.
-	 *
-	 * @param accountJid JID of the chat's account
-	 * @param chatJid JID of the chat
-	 *
-	 * @return true if the chat is currently open, otherwise false
-	 */
-	bool isChatCurrentChat(const QString &accountJid, const QString &chatJid) const;
-
-	const RosterItemWatcher &rosterItemWatcher() const;
-
-	QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> keys();
-
-	Encryption::Enum activeEncryption();
-	bool isOmemoEncryptionEnabled() const;
-
-	Encryption::Enum encryption() const;
-	void setEncryption(Encryption::Enum encryption);
-
-	QList<OmemoManager::Device> usableOmemoDevices() const;
-
-	Q_INVOKABLE void resetComposingChatState();
 
 	Q_INVOKABLE void handleMessageRead(int readMessageIndex);
 	Q_INVOKABLE int firstUnreadContactMessageIndex();
@@ -188,14 +131,7 @@ public:
 	 */
 	Q_INVOKABLE void resendMessageReactions(const QString &messageId);
 
-	void sendPendingMessageReactions(const QString &accountJid);
-
 	Q_INVOKABLE bool canCorrectMessage(int index) const;
-
-	/**
-	 * Correct the last message
-	 */
-	Q_INVOKABLE void correctMessage(const QString &replaceId, const QString &body, const QString &spoilerHint);
 
 	/**
 	 * Removes a message locally.
@@ -203,6 +139,8 @@ public:
 	 * @param messageId ID of the message
 	 */
 	Q_INVOKABLE void removeMessage(const QString &messageId);
+
+	void removeAllMessages();
 
 	/**
 	 * Searches from the most recent to the oldest message to find a given substring (case insensitive).
@@ -229,60 +167,27 @@ public:
 	Q_INVOKABLE int searchForMessageFromOldToNew(const QString &searchString, int startIndex = -1);
 
 	/**
-	  * Returns the current chat state
-	  */
-	QXmppMessage::State chatState() const;
-
-	/**
-	  * Sends the chat state notification
-	  */
-	void sendChatState(QXmppMessage::State state);
-	Q_INVOKABLE void sendChatState(ChatState::State state);
-
-	bool mamLoading() const;
-	void setMamLoading(bool mamLoading);
-
-Q_SIGNALS:
-	void currentAccountJidChanged(const QString &accountJid);
-	void currentChatJidChanged(const QString &currentChatJid);
-
-	void isOmemoEncryptionEnabledChanged();
-	void encryptionChanged();
-	void usableOmemoDevicesChanged();
-
-	void mamLoadingChanged();
-	void messageFetchingFinished();
-
-	void keysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
-	void keysChanged();
-
-	void sendCorrectedMessageRequested(const Message &msg);
-	void chatStateChanged();
-	void sendChatStateRequested(const QString &bareJid, QXmppMessage::State state);
-	void handleChatStateRequested(const QString &bareJid, QXmppMessage::State state);
-	void mamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete);
-
-	/**
 	 * Emitted when fetching messages for a query string is completed.
 	 *
 	 * @param queryStringMessageIndex message index of found query string
 	 */
-	void messageSearchFinished(int queryStringMessageIndex);
+	Q_SIGNAL void messageSearchFinished(int queryStringMessageIndex);
+
+	bool mamLoading() const;
+	void setMamLoading(bool mamLoading);
+	Q_SIGNAL void mamLoadingChanged();
 
 private:
-	void handleKeysRetrieved(const QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &keys);
-
 	void handleMessagesFetched(const QVector<Message> &m_messages);
-	void handleMamBacklogRetrieved(const QString &accountJid, const QString &jid, const QDateTime &lastStamp, bool complete);
-
-	void addMessage(const Message &msg);
+	void handleMamBacklogRetrieved(bool complete);
 
 	void handleMessage(Message msg, MessageOrigin origin);
-	void handleMessageUpdated(const Message &message);
-	void handleChatState(const QString &bareJid, QXmppMessage::State state);
-	void handleMessageRemoved(const QString &senderJid, const QString &recipientJid, const QString &messageId);
+	void handleMessageUpdated(Message message);
 
-	void resetCurrentChat(const QString &accountJid, const QString &chatJid);
+	void handleDevicesChanged(const QString &accountJid, QList<QString> jids);
+
+	void addMessage(const Message &msg);
+	void insertMessage(int i, const Message &msg);
 
 	/**
 	 * Removes all messages of an account or an account's chat.
@@ -291,10 +196,6 @@ private:
 	 * @param chatJid JID of the chat whose messages are being removed (optional)
 	 */
 	void removeMessages(const QString &accountJid, const QString &chatJid = {});
-
-	void removeAllMessages();
-
-	void insertMessage(int i, const Message &msg);
 
 	/**
 	 * Shortens messages to 10000 if longer to prevent DoS
@@ -341,8 +242,6 @@ private:
 	 */
 	bool undoMessageReactionAddition(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions);
 
-	void updateMessageReactionsAfterSending(const QString &messageId, const QString &senderJid);
-
 	/**
 	 * Searches a message with a more recent date and returns that date.
 	 *
@@ -358,29 +257,13 @@ private:
 	QDate searchNextDate(int messageStartIndex) const;
 
 	QString formatDate(QDate localDate) const;
+	QString determineGroupChatSenderName(const Message &message) const;
 
 	QVector<Message> m_messages;
-	QString m_currentAccountJid;
-	QString m_currentChatJid;
-	RosterItemWatcher m_rosterItemWatcher;
-	UserResourcesWatcher m_contactResourcesWatcher;
-	OmemoWatcher m_accountOmemoWatcher;
-	OmemoWatcher m_contactOmemoWatcher;
 	QString m_lastReadOwnMessageId;
 	bool m_fetchedAllFromDb = false;
 	bool m_fetchedAllFromMam = false;
 	bool m_mamLoading = false;
-	QDateTime m_mamBacklogLastStamp;
-
-	QXmppMessage::State m_chatPartnerChatState = QXmppMessage::State::None;
-	QXmppMessage::State m_ownChatState = QXmppMessage::State::None;
-	QTimer *m_composingTimer;
-	QTimer *m_stateTimeoutTimer;
-	QTimer *m_inactiveTimer;
-	QTimer *m_chatPartnerChatStateTimeout;
-	QMap<QString, QXmppMessage::State> m_chatStateCache;
-
-	QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> m_keys;
 
 	static MessageModel *s_instance;
 };

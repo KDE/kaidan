@@ -22,12 +22,20 @@ Controls.Control {
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
 	required property string jid
+	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaOverview: mediaOverview
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
-	property alias vCardArea: vCardArea.data
+	property alias vCardArea: vCardArea
+	property alias vCardContentArea: vCardContentArea.data
 	property alias vCardRepeater: vCardRepeater
 	property alias rosterGoupListView: rosterGoupListView
+	property alias sharingArea: sharingArea
+	property alias qrCodeExpansionButton: qrCodeExpansionButton
+	property alias qrCode: qrCodeArea.contentItem
+	property alias qrCodeButton: qrCodeButton
+	property alias uriButton: uriButton
+	property alias invitationButton: invitationButton
 	required property ColumnLayout encryptionArea
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
@@ -41,6 +49,10 @@ Controls.Control {
 	contentItem: ColumnLayout {
 		id: mainArea
 		spacing: Kirigami.Units.largeSpacing
+
+		ColumnLayout {
+			id: topArea
+		}
 
 		MobileForm.FormCard {
 			Layout.fillWidth: true
@@ -122,10 +134,10 @@ Controls.Control {
 		}
 
 		MobileForm.FormCard {
-			visible: vCardRepeater.count || vCardRepeater.model.jid === AccountManager.jid
+			id: vCardArea
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
-				id: vCardArea
+				id: vCardContentArea
 				spacing: 0
 
 				MobileForm.FormCardHeader {
@@ -166,6 +178,57 @@ Controls.Control {
 
 				FormExpansionButton {
 					id: rosterGroupExpansionButton
+				}
+			}
+		}
+
+		MobileForm.FormCard {
+			id: sharingArea
+			Layout.fillWidth: true
+
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Sharing")
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: qrCodeExpansionButton
+					text: qsTr("Show QR code")
+					icon.name: "view-barcode-qr"
+					// TODO: If possible, scroll down to show whole QR code
+					onClicked: qrCodeArea.visible = !qrCodeArea.visible
+				}
+
+				MobileForm.AbstractFormDelegate {
+					id: qrCodeArea
+					visible: false
+					background: Rectangle {
+						color: secondaryBackgroundColor
+					}
+					Layout.preferredWidth: parent.width
+					Layout.preferredHeight: Layout.preferredWidth
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: qrCodeButton
+					text: qsTr("Copy QR code")
+					icon.name: "send-to-symbolic"
+					onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: uriButton
+					text: qsTr("Copy chat address")
+					icon.name: "send-to-symbolic"
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: invitationButton
+					text: qsTr("Copy invitation link")
+					icon.name: "mail-message-new-symbolic"
+					onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
 				}
 			}
 		}
@@ -224,13 +287,11 @@ Controls.Control {
 		}
 	}
 
-	function openKeyAuthenticationPage(keyAuthenticationPageComponent, accountJid, chatJid) {
+	function openKeyAuthenticationPage(keyAuthenticationPageComponent) {
 		if (root.sheet) {
 			root.sheet.close()
 		}
 
-		var keyAuthenticationPage = openPage(keyAuthenticationPageComponent)
-		keyAuthenticationPage.accountJid = accountJid
-		keyAuthenticationPage.chatJid = chatJid
+		return openPage(keyAuthenticationPageComponent)
 	}
 }

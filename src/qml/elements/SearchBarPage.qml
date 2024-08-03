@@ -17,7 +17,7 @@ Kirigami.ScrollablePage {
 	id: root
 
 	property ListView listView
-	property SearchBarPageSearchField searchField
+	property ListViewSearchField searchField
 	property bool isSearchActionShown: true
 
 	background: Rectangle {
@@ -44,7 +44,7 @@ Kirigami.ScrollablePage {
 	Component {
 		id: desktopSearchBarComponent
 
-		SearchBarPageSearchField {
+		ListViewSearchField {
 			listView: root.listView
 			anchors.left: parent.left
 			width: root.actions.right ? parent.width - Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing : parent.width
@@ -104,7 +104,7 @@ Kirigami.ScrollablePage {
 				anchors.centerIn: parent
 				spacing: 10
 
-				SearchBarPageSearchField {
+				ListViewSearchField {
 					listView: root.listView
 					Layout.fillWidth: true
 					Component.onCompleted: {

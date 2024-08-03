@@ -10,19 +10,14 @@
 #include <QVariant>
 
 #include <optional>
-#include <vector>
 
 class QSqlDriver;
 class QSqlField;
 
 namespace SqlUtils {
 
-/// Key-value pair to be bound to a SqlQuery
-struct QueryBindValue
-{
-	QStringView key;
-	QVariant value;
-};
+/// Key-value pairs to be bound to an SqlQuery.
+using QueryBindValues = QMap<QStringView, QVariant>;
 
 /**
  * Prepares an SQL query for executing it by @c execQuery and handles possible
@@ -33,7 +28,8 @@ struct QueryBindValue
  */
 void prepareQuery(QSqlQuery &query, const QString &sql);
 
-void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values);
+void bindValues(QSqlQuery &query, const QueryBindValues &values);
+void bindOrderedValues(QSqlQuery &query, const QList<QVariant> &values);
 
 /**
  * Executes an SQL query and handles possible errors.
@@ -56,14 +52,31 @@ void execQuery(QSqlQuery &query, const QString &sql);
  *
  * @param query SQL query
  * @param sql SQL statement
- * @param bindValues values to be bound as key-value pairs
+ * @param values values to be bound as key-value pairs
  */
-inline void execQuery(QSqlQuery &query, const QString &sql, const std::vector<QueryBindValue> &values)
+inline void execQuery(QSqlQuery &query, const QString &sql, const QueryBindValues &values)
 {
 	prepareQuery(query, sql);
 	bindValues(query, values);
 	execQuery(query);
 }
+
+/**
+ * Prepares an SQL query, binds values by order, executes the query and handles possible errors.
+ *
+ * @param query SQL query
+ * @param sql SQL statement
+ * @param values values to be bound
+ */
+inline void execQueryWithOrderedValues(QSqlQuery &query, const QString &sql, const QList<QVariant> &values)
+{
+	prepareQuery(query, sql);
+	bindOrderedValues(query, values);
+	execQuery(query);
+}
+
+void addFieldsToRecord(QSqlRecord &record, const QueryBindValues &values);
+void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &columnNames);
 
 /**
  * Creates an SQL field that may be used for an SQL statement.
@@ -75,7 +88,7 @@ inline void execQuery(QSqlQuery &query, const QString &sql, const std::vector<Qu
 QSqlField createSqlField(const QString &key, const QVariant &val);
 
 /**
- * Creates a where clause with one parameter.
+ * Creates a where clause with one key-value pair.
  *
  * @param driver SQL database driver
  * @param key name of the where condition
@@ -86,7 +99,7 @@ QSqlField createSqlField(const QString &key, const QVariant &val);
 QString simpleWhereStatement(const QSqlDriver *driver, const QString &key, const QVariant &val);
 
 /**
- * Creates a where clause with multiple key value pairs.
+ * Creates a where clause with multiple key-value pairs.
  *
  * @param driver SQL database driver
  * @param keyValuePairs key-value pairs of the where clause

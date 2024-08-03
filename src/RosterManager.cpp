@@ -10,9 +10,10 @@
 // Kaidan
 #include "AvatarFileStorage.h"
 #include "ChatHintModel.h"
+#include "EncryptionController.h"
+#include "GroupChatController.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
-#include "OmemoManager.h"
 #include "RosterModel.h"
 #include "Settings.h"
 #include "VCardManager.h"
@@ -39,6 +40,15 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 		rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
 		Q_EMIT RosterModel::instance()->addItemRequested(rosterItem);
+
+		// Requesting the group chat's information is done here and not within the joining method of
+		// the group chat controller to cover both cases:
+		//   1. This client joined the group chat (could be done during joining).
+		//   2. Another own client joined the group chat (must be covered here).
+		if (rosterItem.isGroupChat()) {
+			GroupChatController::instance()->requestGroupChatAccessibility(rosterItem.accountJid, rosterItem.jid);
+			GroupChatController::instance()->requestChannelInformation(rosterItem.accountJid, rosterItem.jid);
+		}
 
 		if (m_client->state() == QXmppClient::ConnectedState) {
 			m_vCardManager->requestVCard(jid);
@@ -70,7 +80,10 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		const auto accountJid = m_client->configuration().jidBare();
 		MessageDb::instance()->removeAllMessagesFromChat(accountJid, jid);
 		Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid, jid);
-		m_clientWorker->omemoManager()->removeContactDevices(jid);
+
+		runOnThread(EncryptionController::instance(), [jid]() {
+			EncryptionController::instance()->removeContactDevices(jid);
+		});
 	});
 
 	connect(m_manager, &QXmppRosterManager::subscriptionRequestReceived, this, &RosterManager::handleSubscriptionRequest);

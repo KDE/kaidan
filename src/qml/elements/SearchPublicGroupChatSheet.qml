@@ -19,7 +19,6 @@ Kirigami.OverlaySheet {
 		groupChatsManager.requestAll();
 	}
 
-	parent: applicationWindow().overlay
 	header: Kirigami.Heading {
 		text: qsTr("Search public groups (%1)")
 				.arg("%1/%2".arg(groupChatsProxy.count).arg(groupChatsModel.count))

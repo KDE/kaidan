@@ -13,32 +13,11 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-DetailsContent {
+RosterItemDetailsContent {
 	id: root
 
 	required property string accountJid
-	readonly property bool isChatWithOneself: accountJid === jid
 
-	automaticMediaDownloadsDelegate {
-		model: [
-			{
-				display: qsTr("Account default"),
-				value: RosterItem.AutomaticMediaDownloadsRule.Account
-			},
-			{
-				display: qsTr("Never"),
-				value: RosterItem.AutomaticMediaDownloadsRule.Never
-			},
-			{
-				display: qsTr("Always"),
-				value: RosterItem.AutomaticMediaDownloadsRule.Always
-			}
-		]
-		textRole: "display"
-		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(contactWatcher.item.automaticMediaDownloadsRule)
-		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
-	}
 	mediaOverview {
 		accountJid: root.accountJid
 		chatJid: root.jid
@@ -63,16 +42,6 @@ DetailsContent {
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
-		OmemoWatcher {
-			id: accountOmemoWatcher
-			jid: root.accountJid
-		}
-
-		OmemoWatcher {
-			id: contactOmemoWatcher
-			jid: root.jid
-		}
-
 		MobileForm.FormCardHeader {
 			title: qsTr("Encryption")
 		}
@@ -80,25 +49,25 @@ DetailsContent {
 		MobileForm.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-			enabled: MessageModel.usableOmemoDevices.length
-			checked: MessageModel.isOmemoEncryptionEnabled
+			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
+			checked: enabled && ChatController.encryption === Encryption.Omemo2
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: MessageModel.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
+			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		}
 
 		MobileForm.FormButtonDelegate {
 			text: {
-				if (!MessageModel.usableOmemoDevices.length) {
-					if (accountOmemoWatcher.distrustedDevices.length) {
+				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
 						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					} else if (ownResourcesWatcher.resourcesCount > 1) {
-						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
-					} else if (root.isChatWithOneself) {
-						return qsTr("<b>You</b> have no other devices supporting OMEMO 2")
 					}
-				} else if (accountOmemoWatcher.authenticatableDevices.length) {
-					if (accountOmemoWatcher.authenticatableDevices.length === accountOmemoWatcher.distrustedDevices.length) {
+
+					if (ownResourcesWatcher.resourcesCount > 1) {
+						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
+					}
+				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
 						return qsTr("Verify <b>your</b> devices to encrypt for them")
 					}
 
@@ -108,16 +77,16 @@ DetailsContent {
 				return ""
 			}
 			icon.name: {
-				if (!MessageModel.usableOmemoDevices.length) {
-					if (accountOmemoWatcher.distrustedDevices.length) {
+				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
 						return "channel-secure-symbolic"
-					} else if (ownResourcesWatcher.resourcesCount > 1) {
-						return "channel-insecure-symbolic"
-					} else if (root.isChatWithOneself) {
+					}
+
+					if (ownResourcesWatcher.resourcesCount > 1) {
 						return "channel-insecure-symbolic"
 					}
-				} else if (accountOmemoWatcher.authenticatableDevices.length) {
-					if (accountOmemoWatcher.authenticatableDevices.length === accountOmemoWatcher.distrustedDevices.length) {
+				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
 						return "security-medium-symbolic"
 					}
 
@@ -127,8 +96,8 @@ DetailsContent {
 				return ""
 			}
 			visible: text
-			enabled: accountOmemoWatcher.authenticatableDevices.length
-			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.accountJid)
+			enabled: ChatController.accountEncryptionWatcher.hasAuthenticatableDevices
+			onClicked: root.openKeyAuthenticationPage(contactDetailsAccountKeyAuthenticationPage)
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
@@ -138,18 +107,16 @@ DetailsContent {
 
 		MobileForm.FormButtonDelegate {
 			text: {
-				if(root.isChatWithOneself) {
-					return ""
-				}
-
-				if (!MessageModel.usableOmemoDevices.length) {
-					if (contactOmemoWatcher.distrustedDevices.length) {
+				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasDistrustedDevices) {
 						return qsTr("Verify your <b>contact</b> to enable encryption")
 					}
 
 					return qsTr("Your <b>contact</b> doesn't use OMEMO 2")
-				} else if (contactOmemoWatcher.authenticatableDevices.length) {
-					if (contactOmemoWatcher.authenticatableDevices.length === contactOmemoWatcher.distrustedDevices.length) {
+				}
+
+				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
 						return qsTr("Verify your <b>contact's</b> devices to encrypt for them")
 					}
 
@@ -159,14 +126,16 @@ DetailsContent {
 				return ""
 			}
 			icon.name: {
-				if (!MessageModel.usableOmemoDevices.length) {
-					if (contactOmemoWatcher.distrustedDevices.length) {
+				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasDistrustedDevices) {
 						return "channel-secure-symbolic"
 					}
 
 					return "channel-insecure-symbolic"
-				} else if (contactOmemoWatcher.authenticatableDevices.length) {
-					if (contactOmemoWatcher.authenticatableDevices.length === contactOmemoWatcher.distrustedDevices.length) {
+				}
+
+				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
 						return "security-medium-symbolic"
 					}
 
@@ -176,182 +145,29 @@ DetailsContent {
 				return ""
 			}
 			visible: text
-			enabled: contactOmemoWatcher.authenticatableDevices.length
-			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage, root.accountJid, root.jid)
+			enabled: ChatController.chatEncryptionWatcher.hasAuthenticatableDevices
+			onClicked: root.openKeyAuthenticationPage(contactDetailsKeyAuthenticationPage)
 		}
 	}
-	rosterGoupListView {
-		header: MobileForm.FormCard {
-			width: ListView.view.width
-			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.AbstractFormDelegate {
-				background: Item {}
-				contentItem: RowLayout {
-					spacing: Kirigami.Units.largeSpacing * 3
-
-					Controls.TextField {
-						id: rosterGroupField
-						placeholderText: qsTr("New label")
-						enabled: !rosterGroupBusyIndicator.visible
-						Layout.fillWidth: true
-						onAccepted: rosterGroupAdditionButton.clicked()
-						onVisibleChanged: {
-							if (visible) {
-								text = ""
-								forceActiveFocus()
-							}
-						}
-					}
-
-					Button {
-						id: rosterGroupAdditionButton
-						Controls.ToolTip.text: qsTr("Add label")
-						icon.name: "list-add-symbolic"
-						enabled: rosterGroupField.text.length
-						visible: !rosterGroupBusyIndicator.visible
-						flat: !hovered
-						Layout.preferredWidth: Layout.preferredHeight
-						Layout.preferredHeight: rosterGroupField.implicitHeight
-						Layout.rightMargin: Kirigami.Units.largeSpacing
-						onClicked: {
-							let groups = contactWatcher.item.groups
-
-							if (groups.includes(rosterGroupField.text)) {
-								rosterGroupField.text = ""
-							} else if (enabled) {
-								rosterGroupBusyIndicator.visible = true
-
-								groups.push(rosterGroupField.text)
-								Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
-
-								rosterGroupField.text = ""
-							} else {
-								rosterGroupField.forceActiveFocus()
-							}
-						}
-					}
-
-					Controls.BusyIndicator {
-						id: rosterGroupBusyIndicator
-						visible: false
-						Layout.preferredWidth: rosterGroupAdditionButton.Layout.preferredWidth
-						Layout.preferredHeight: Layout.preferredWidth
-						Layout.rightMargin: rosterGroupAdditionButton.Layout.rightMargin
-					}
-
-					Connections {
-						target: RosterModel
-
-						function onGroupsChanged() {
-							rosterGroupBusyIndicator.visible = false
-							rosterGroupField.forceActiveFocus()
-						}
-					}
-				}
-			}
-		}
-		delegate: MobileForm.FormSwitchDelegate {
-			id: rosterGroupDelegate
-			text: modelData
-			checked: contactWatcher.item.groups.includes(modelData)
-			width: ListView.view.width
-			onToggled: {
-				let groups = contactWatcher.item.groups
-
-				if (checked) {
-					groups.push(modelData)
-				} else {
-					groups.splice(groups.indexOf(modelData), 1)
-				}
-
-				Kaidan.client.rosterManager.updateGroupsRequested(root.jid, contactWatcher.item.name, groups)
-			}
-
-			// TODO: Remove this and see TODO in RosterModel once fixed in Kirigami Addons.
-			Connections {
-				target: RosterModel
-
-				function onGroupsChanged() {
-					// Update the "checked" value of "rosterGroupDelegate" as a work
-					// around because "MobileForm.FormSwitchDelegate" does not listen to
-					// changes of "contactWatcher.item.groups".
-					rosterGroupDelegate.checked = contactWatcher.item.groups.includes(modelData)
-				}
-			}
+	qrCodeExpansionButton.description: qsTr("Share this contact's chat address via QR code")
+	qrCode: ContactQrCode {
+		accountJid: root.accountJid
+		jid: root.jid
+	}
+	qrCodeButton {
+		description: qsTr("Share this contact's chat address via QR code")
+		onClicked: Utils.copyToClipboard(qrCode.source)
+	}
+	uriButton {
+		description: qsTr("Share this contact's chat address via text")
+		onClicked: {
+			Utils.copyToClipboard(trustMessageUriGenerator.uri)
+			passiveNotification(qsTr("Contact copied to clipboard"))
 		}
 	}
-
-	MobileForm.FormCard {
-		Layout.fillWidth: true
-
-		contentItem: ColumnLayout {
-			spacing: 0
-
-			MobileForm.FormCardHeader {
-				title: qsTr("Sharing")
-			}
-
-			MobileForm.FormButtonDelegate {
-				text: qsTr("Show QR code")
-				description: qsTr("Share this contact's chat address via QR code")
-				icon.name: "view-barcode-qr"
-				// TODO: If possible, scroll down to show whole QR code
-				onClicked: qrCodeArea.visible = !qrCodeArea.visible
-			}
-
-			MobileForm.AbstractFormDelegate {
-				id: qrCodeArea
-				visible: false
-				background: Rectangle {
-					color: secondaryBackgroundColor
-				}
-				contentItem: QrCode {
-					jid: root.jid
-					Layout.fillHeight: true
-					Layout.fillWidth: true
-					Layout.preferredWidth: parent.width
-					Layout.preferredHeight: Layout.preferredWidth
-				}
-				Layout.fillHeight: true
-				Layout.fillWidth: true
-				Layout.preferredWidth: parent.width
-				Layout.preferredHeight: Layout.preferredWidth
-			}
-
-			MobileForm.FormButtonDelegate {
-				text: qsTr("Copy chat address")
-				description: qsTr("Share this contact's chat address via text")
-				icon.name: "send-to-symbolic"
-				onClicked: {
-					Utils.copyToClipboard(Utils.trustMessageUri(root.jid))
-					passiveNotification(qsTr("Contact copied to clipboard"))
-				}
-			}
-		}
-	}
-
-	MobileForm.FormCard {
-		Layout.fillWidth: true
-
-		contentItem: ColumnLayout {
-			spacing: 0
-
-			MobileForm.FormCardHeader {
-				title: qsTr("Notifications")
-			}
-
-			MobileForm.FormSwitchDelegate {
-				text: qsTr("Incoming messages")
-				description: qsTr("Show notification and play sound on message arrival")
-				checked: !contactWatcher.item.notificationsMuted
-				onToggled: {
-					RosterModel.setNotificationsMuted(
-						root.accountJid,
-						root.jid,
-						!checked)
-				}
-			}
-		}
+	invitationButton {
+		description: qsTr("Share this contact's chat address via a web page with usage help")
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(trustMessageUriGenerator.uri))
 	}
 
 	MobileForm.FormCard {
@@ -367,21 +183,21 @@ DetailsContent {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
-				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && !contactWatcher.item.sendingPresence
+				visible: Kaidan.connectionState === Enums.StateConnected && !root.rosterItemWatcher.item.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
 			}
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Cancel personal data sharing")
 				description: qsTr("Stop sharing your availability, devices and other personal information")
-				visible: !isChatWithOneself && Kaidan.connectionState === Enums.StateConnected && contactWatcher.item.receivingPresence
+				visible: Kaidan.connectionState === Enums.StateConnected && root.rosterItemWatcher.item.receivingPresence
 				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
 			}
 
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-				checked: contactWatcher.item.chatStateSendingEnabled
+				checked: root.rosterItemWatcher.item.chatStateSendingEnabled
 				onToggled: {
 					RosterModel.setChatStateSendingEnabled(
 						root.accountJid,
@@ -393,7 +209,7 @@ DetailsContent {
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
-				checked: contactWatcher.item.readMarkerSendingEnabled
+				checked: root.rosterItemWatcher.item.readMarkerSendingEnabled
 				onToggled: {
 					RosterModel.setReadMarkerSendingEnabled(
 						root.accountJid,
@@ -427,6 +243,7 @@ DetailsContent {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
+			id: removalArea
 			spacing: 0
 
 			MobileForm.FormCardHeader {
@@ -453,6 +270,7 @@ DetailsContent {
 					onClicked: {
 						visible = false
 						contactRemovalButton.enabled = false
+
 						Kaidan.client.rosterManager.removeContactRequested(jid)
 					}
 				}
@@ -460,11 +278,9 @@ DetailsContent {
 		}
 	}
 
-	// This needs to be placed after the notification section.
-	// Otherwise, notifications will not be shown as muted after switching chats.
-	// It is probably a bug in Kirigami Addons.
-	RosterItemWatcher {
-		id: contactWatcher
+	ContactTrustMessageUriGenerator {
+		id: trustMessageUriGenerator
+		accountJid: root.accountJid
 		jid: root.jid
 	}
 }

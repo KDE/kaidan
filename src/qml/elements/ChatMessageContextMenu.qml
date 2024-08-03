@@ -22,18 +22,19 @@ Controls.Menu {
 
 	Controls.MenuItem {
 		text: qsTr("Copy message")
-		visible: root.message && root.message.bodyLabel.visible
+		visible: root.message && (root.message.messageBody || root.message.spoilerHint)
 		onTriggered: {
-			if (root.message && !root.message.isSpoiler || message && root.message.isShowingSpoiler)
+			if (root.message && !root.message.isSpoiler || message && root.message.isShowingSpoiler) {
 				Utils.copyToClipboard(root.message && root.message.messageBody)
-			else
+			} else {
 				Utils.copyToClipboard(root.message && root.message.spoilerHint)
+			}
 		}
 	}
 
 	Controls.MenuItem {
 		text: qsTr("Edit message")
-		enabled: MessageModel.canCorrectMessage(root.message && root.message.modelIndex)
+		enabled: root.message && !root.message.groupChatInvitationJid && MessageModel.canCorrectMessage(root.message.modelIndex)
 		onTriggered: root.message.messageEditRequested(root.message.msgId, root.message.messageBody, root.message.spoilerHint)
 	}
 
@@ -45,6 +46,7 @@ Controls.Menu {
 
 	Controls.MenuItem {
 		text: qsTr("Quote message")
+		enabled: root.message && !root.message.groupChatInvitationJid
 		onTriggered: {
 			root.message.quoteRequested(root.message.messageBody)
 		}
@@ -63,7 +65,7 @@ Controls.Menu {
 		visible: root.message && !root.message.isOwn
 		onTriggered: {
 			MessageModel.markMessageAsFirstUnread(message.modelIndex);
-			MessageModel.resetCurrentChat()
+			ChatController.resetChat()
 			Kaidan.closeChatPageRequested()
 		}
 	}

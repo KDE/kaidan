@@ -27,7 +27,7 @@ public:
 	QString jid;
 	QString name;
 	QString latestMessageStanzaId;
-	QDateTime latestMessageTimestamp;
+	QDateTime latestMessageStanzaTimestamp;
 	qint64 httpUploadLimit = 0;
 };
 

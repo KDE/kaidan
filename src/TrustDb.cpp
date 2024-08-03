@@ -72,6 +72,20 @@ TrustDb::TrustDb(Database *database, QObject *xmppContext, QString accountJid, Q
 	  m_xmppContext(xmppContext),
 	  m_accountJid(std::move(accountJid))
 {
+	Q_ASSERT(!TrustDb::s_instance);
+	s_instance = this;
+}
+
+TrustDb *TrustDb::s_instance = nullptr;
+
+TrustDb::~TrustDb()
+{
+	s_instance = nullptr;
+}
+
+TrustDb *TrustDb::instance()
+{
+	return s_instance;
 }
 
 auto TrustDb::securityPolicy(const QString &encryption) -> QXmppTask<SecurityPolicy>
@@ -426,30 +440,35 @@ auto TrustDb::trustLevel(const QString &encryption, const QString &keyOwnerJid, 
 	-> QXmppTask<TrustLevel>
 {
 	return runTask([this, encryption, keyOwnerJid, keyId] {
-		auto query = createQuery();
-		execQuery(
-			query,
-			QStringLiteral(R"(
-				SELECT trustLevel
-				FROM trustKeys
-				WHERE account = :accountJid AND encryption = :encryption AND ownerJid = :keyOwnerJid AND keyId = :keyId
-			)"),
-			{
-				{ u":accountJid", m_accountJid },
-				{ u":encryption", encryption },
-				{ u":keyOwnerJid", keyOwnerJid },
-				{ u":keyId", keyId },
-			}
-		);
-
-		if (query.next()) {
-			bool ok = false;
-			if (const auto result = query.value(0).toInt(&ok); ok) {
-				return TrustLevel(result);
-			}
-		}
-		return TrustLevel::Undecided;
+		return _trustLevel(encryption, keyOwnerJid, keyId);
 	});
+}
+
+auto TrustDb::_trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId) -> QXmpp::TrustLevel
+{
+	auto query = createQuery();
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			SELECT trustLevel
+			FROM trustKeys
+			WHERE account = :accountJid AND encryption = :encryption AND ownerJid = :keyOwnerJid AND keyId = :keyId
+		)"),
+		{
+			{ u":accountJid", m_accountJid },
+			{ u":encryption", encryption },
+			{ u":keyOwnerJid", keyOwnerJid },
+			{ u":keyId", keyId },
+		}
+	);
+
+	if (query.next()) {
+		bool ok = false;
+		if (const auto result = query.value(0).toInt(&ok); ok) {
+			return TrustLevel(result);
+		}
+	}
+	return TrustLevel::Undecided;
 }
 
 auto TrustDb::setTrustLevel(const QString &encryption,

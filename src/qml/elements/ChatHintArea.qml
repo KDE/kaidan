@@ -82,8 +82,10 @@ Rectangle {
 					Repeater {
 						id: buttonArea
 						model: root.buttons
-						delegate: CenteredAdaptiveButton {
+						delegate: Button {
 							text: modelData.text
+							Layout.maximumWidth: parent.width / root.buttons.length
+							Layout.fillWidth: true
 							onClicked: ChatHintModel.handleButtonClicked(root.index, modelData.type)
 						}
 					}

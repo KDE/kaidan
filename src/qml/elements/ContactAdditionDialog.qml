@@ -14,7 +14,6 @@ Kirigami.Dialog {
 	property alias name: content.name
 
 	title: qsTr("Add contact")
-	parent: applicationWindow().overlay
 	standardButtons: Kirigami.Dialog.NoButton
 	padding: Kirigami.Units.mediumSpacing
 	preferredWidth: largeButtonWidth

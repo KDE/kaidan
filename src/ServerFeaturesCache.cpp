@@ -5,9 +5,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "ServerFeaturesCache.h"
-#include "QmlUtils.h"
+
 // Qt
 #include <QMutexLocker>
+// Kaidan
+#include "QmlUtils.h"
 
 ServerFeaturesCache::ServerFeaturesCache(QObject *parent)
     : QObject(parent)

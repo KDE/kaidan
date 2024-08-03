@@ -5,6 +5,7 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -14,95 +15,36 @@ import im.kaidan.kaidan 1.0
  * It provides information about the delivery state of own reactions and the functionality to resend
  * them in case of an error.
  */
-Kirigami.OverlaySheet {
+Kirigami.Dialog {
 	id: root
 
+	property string accountJid
+	property string chatJid
 	property string messageId
-	property bool isOwnMessage
-	property var detailedReactions
-	property var ownDetailedReactions
+	property alias reactions: messageReactionModel.reactions
 
-	showCloseButton: false
-	header: Kirigami.Heading {
-		text: qsTr("Reactions")
-	}
-
-	footer: Loader {
-		// Using an empty item is necessary because the sheet needs an item as its footer once the
-		// footer has been initialized and does not provide a way to reset the footer.
-		// If "undefined" instead of "emptyItemComponent" was used, the footer's height would be
-		// more than needed.
-		// If the footer was set to "null", an error would occur when the sheet tries to access the
-		// footer.
-		sourceComponent: root.ownDetailedReactions && root.ownDetailedReactions.length ? ownDetailedReactionsAreaComponent : emptyItemComponent
-
-		Component {
-			id: emptyItemComponent
-
-			Item {}
-		}
-
-		Component {
-			id: ownDetailedReactionsAreaComponent
-
-			RowLayout {
-				Kirigami.Heading {
-					text: qsTr("Own:")
-				}
-
-				Flow {
-					spacing: 4
-					Layout.fillWidth: true
-
-					Repeater {
-						model: root.ownDetailedReactions
-
-						MessageReactionDisplayButton {
-							accentColor: secondaryBackgroundColor
-							deliveryState: modelData.deliveryState
-							isOwnMessage: root.isOwnMessage
-							text: modelData.emoji
-							onClicked: {
-								const resendMessageReactions = function () {
-									MessageModel.resendMessageReactions(root.messageId)
-								}
-
-								if (deliveryState === MessageReactionDeliveryState.PendingAddition) {
-									passiveNotification(qsTr("%1 will be added once you are connected").arg(modelData.emoji))
-								} else if (deliveryState === MessageReactionDeliveryState.PendingRemovalAfterSent ||
-									deliveryState === MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
-									passiveNotification(qsTr("%1 will be removed once you are connected").arg(modelData.emoji))
-								} else if (deliveryState === MessageReactionDeliveryState.ErrorOnAddition) {
-									showPassiveNotification(qsTr("%1 could not be added").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
-								} else if (deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterSent ||
-									deliveryState === MessageReactionDeliveryState.ErrorOnRemovalAfterDelivered) {
-									showPassiveNotification(qsTr("%1 could not be removed").arg(modelData.emoji), "long", "Retry", resendMessageReactions)
-								} else if (deliveryState === MessageReactionDeliveryState.Sent) {
-									showPassiveNotification(qsTr("%1 has been sent").arg(modelData.emoji))
-								} else if (deliveryState === MessageReactionDeliveryState.Delivered) {
-									showPassiveNotification(qsTr("%1 has been delivered").arg(modelData.emoji))
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+	header: Item {}
+	footer: Item {}
 
 	ListView {
-		model: detailedReactions
 		implicitWidth: largeButtonWidth
+		implicitHeight: contentHeight
+		model: MessageReactionModel {
+			id: messageReactionModel
+			accountJid: root.accountJid
+			chatJid: root.chatJid
+			reactions: root.reactions
+		}
 		delegate: UserListItem {
-			id: sender
-			accountJid: AccountManager.jid
-			jid: modelData.senderJid
-			name: senderWatcher.item.displayName
+			id: messageReactionDelegate
 
-			RosterItemWatcher {
-				id: senderWatcher
-				jid: sender.jid
-			}
+			property var emojis: model.emojis
+
+			accountJid: root.accountJid
+			jid: model.senderJid
+			name: model.senderName
+			width: ListView.view.width
+			hoverEnabled: jid
 
 			// middle
 			ColumnLayout {
@@ -130,25 +72,24 @@ Kirigami.OverlaySheet {
 				}
 
 				Flow {
-					spacing: 4
+					spacing: Kirigami.Units.largeSpacing
 
 					Repeater {
-						model: modelData.emojis
+						model: messageReactionDelegate.emojis
 
 						Kirigami.Heading {
 							text: modelData
+							font.family: "emoji"
+							font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.75
 						}
 					}
 				}
 			}
-
 			onClicked: {
-				// Open the chatPage only if it is not yet open.
-				if (jid != MessageModel.currentChatJid) {
+				if (jid) {
 					Kaidan.openChatPageRequested(accountJid, jid)
+					root.close()
 				}
-
-				root.close()
 			}
 		}
 	}

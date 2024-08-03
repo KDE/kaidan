@@ -18,9 +18,9 @@ GridLayout {
 	property string accountJid
 
 	// Used for authenticating or distrusting keys via QR code scanning.
-	property string chatJid
-	readonly property bool forOwnDevices: accountJid === chatJid
-	readonly property bool onlyForTrustDecisions: forOwnDevices || chatJid
+	property string jid
+	readonly property bool forOwnDevices: accountJid === jid
+	readonly property bool onlyForTrustDecisions: forOwnDevices || jid
 
 	property alias scanner: scanner
 
@@ -68,7 +68,7 @@ GridLayout {
 					let expectedJid = ""
 
 					if (root.onlyForTrustDecisions) {
-						expectedJid = root.chatJid
+						expectedJid = root.jid
 					}
 
 					switch (Kaidan.makeTrustDecisionsByUri(result, expectedJid)) {
@@ -126,7 +126,8 @@ GridLayout {
 		Layout.alignment: Qt.AlignCenter
 	}
 
-	QrCode {
+	AccountQrCode {
+		jid: root.accountJid
 		Layout.fillWidth: parent.flow === GridLayout.TopToBottom
 		Layout.fillHeight: parent.flow === GridLayout.LeftToRight
 		Layout.preferredWidth: height

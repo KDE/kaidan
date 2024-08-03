@@ -7,9 +7,10 @@
 // Qt
 #include <QGuiApplication>
 // Kaidan
+#include "ChatController.h"
 #include "FutureUtils.h"
+#include "GroupChatController.h"
 #include "Kaidan.h"
-#include "MessageModel.h"
 #include "Notifications.h"
 #include "QmlUtils.h"
 #include "RosterManager.h"
@@ -22,7 +23,7 @@ ChatHintModel *ChatHintModel::instance()
 }
 
 ChatHintModel::ChatHintModel(QObject *parent)
-	: QAbstractListModel(parent), m_messageModel(MessageModel::instance())
+	: QAbstractListModel(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -31,11 +32,12 @@ ChatHintModel::ChatHintModel(QObject *parent)
 	connect(Kaidan::instance(), &Kaidan::connectionErrorChanged, this, qOverload<>(&ChatHintModel::handleConnectionErrorChanged));
 
 	connect(this, &ChatHintModel::presenceSubscriptionRequestReceivedRequested, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
-	connect(&m_messageModel->rosterItemWatcher(), &RosterItemWatcher::itemChanged, this, &ChatHintModel::handleRosterItemPresenceSubscription);
-
-	connect(Kaidan::instance(), &Kaidan::openChatPageRequested, this, [this]() {
+	connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &ChatHintModel::handleNoGroupChatUsers);
+	connect(ChatController::instance(), &ChatController::chatChanged, this, [this]() {
+		handleRosterItemPresenceSubscription();
 		handleConnectionStateChanged();
 		handleUnrespondedPresenceSubscriptionRequests();
+		handleNoGroupChatUsers();
 	});
 }
 
@@ -84,7 +86,7 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
 	switch(type) {
 	case ChatHintButton::Dismiss:
 		if (i == chatHintIndex(ChatHintButton::AllowPresenceSubscription)) {
-			Q_EMIT Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresenceRequested(m_messageModel->currentChatJid());
+			Q_EMIT Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresenceRequested(ChatController::instance()->chatJid());
 		}
 
 		removeChatHint(i);
@@ -99,7 +101,14 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
 		updateChatHint(i, [](ChatHint &chatHint) {
 			chatHint.loading = true;
 		});
-		Q_EMIT Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresenceRequested(m_messageModel->currentChatJid());
+		Q_EMIT Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresenceRequested(ChatController::instance()->chatJid());
+		return;
+	case ChatHintButton::InviteContacts:
+		updateChatHint(i, [](ChatHint &chatHint) {
+			chatHint.loading = true;
+		});
+		Q_EMIT GroupChatController::instance()->groupChatInviteeSelectionNeeded();
+		removeChatHint(i);
 		return;
 	default:
 		return;
@@ -159,14 +168,14 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 
 void ChatHintModel::handleRosterItemPresenceSubscription()
 {
-	const auto subscription = m_messageModel->rosterItemWatcher().item().subscription;
+	const auto subscription = ChatController::instance()->rosterItem().subscription;
 	const auto subscriptionAllowed =
 			subscription == QXmppRosterIq::Item::SubscriptionType::From ||
 			subscription == QXmppRosterIq::Item::SubscriptionType::Both;
 
 	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription); i != -1 && subscriptionAllowed) {
 		removeChatHint(i);
-		Notifications::instance()->closePresenceSubscriptionRequestNotification(m_messageModel->currentAccountJid(), m_messageModel->currentChatJid());
+		Notifications::instance()->closePresenceSubscriptionRequestNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
 	}
 }
 
@@ -176,7 +185,7 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 	runOnThread(rosterManager, [rosterManager]() {
 		return rosterManager->unrespondedPresenceSubscriptionRequests();
-	}, this, [this, chatJid = MessageModel::instance()->currentChatJid()](QMap<QString, QString> &&unrespondedPresenceSubscriptionRequests) {
+	}, this, [this, chatJid = ChatController::instance()->chatJid()](QMap<QString, QString> &&unrespondedPresenceSubscriptionRequests) {
 		if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
 			const auto requestText = unrespondedPresenceSubscriptionRequests.value(chatJid);
 			addAllowPresenceSubscriptionChatHint(requestText);
@@ -186,8 +195,8 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText)
 {
-	bool userMuted = m_messageModel->rosterItemWatcher().item().notificationsMuted;
-	bool requestForCurrentChat = subscriberJid == m_messageModel->currentChatJid();
+	bool userMuted = ChatController::instance()->rosterItem().notificationsMuted;
+	bool requestForCurrentChat = subscriberJid == ChatController::instance()->chatJid();
 	bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 	if (requestForCurrentChat) {
@@ -196,6 +205,23 @@ void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &acc
 
 	if (!userMuted && !chatActive) {
 		Notifications::instance()->sendPresenceSubscriptionRequestNotification(accountJid, subscriberJid);
+	}
+}
+
+void ChatHintModel::handleNoGroupChatUsers()
+{
+	auto chatController = ChatController::instance();
+
+	const auto currentGroupChatUserJids = GroupChatController::instance()->currentUserJids();
+	const auto groupChatHasOtherUsers = currentGroupChatUserJids.size() > 1;
+	const auto chatHintShouldBeShown = chatController->rosterItem().isGroupChat() && !groupChatHasOtherUsers;
+
+	if (const auto i = chatHintIndex(ChatHintButton::InviteContacts); i == -1) {
+		if (chatHintShouldBeShown) {
+			addInviteContactsChatHint();
+		}
+	} else if (!chatHintShouldBeShown) {
+		removeChatHint(i);
 	}
 }
 
@@ -214,7 +240,7 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 
 int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestText)
 {
-	const auto displayName = m_messageModel->rosterItemWatcher().item().displayName();
+	const auto displayName = ChatController::instance()->rosterItem().displayName();
 	const auto appendedText = requestText.isEmpty() ? QString() : QStringLiteral(": %1").arg(requestText);
 
 	return addChatHint(
@@ -225,7 +251,29 @@ int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestTe
 			false,
 			tr("Allowing…"),
 		}
-	);
+				);
+}
+
+int ChatHintModel::addInviteContactsChatHint()
+{
+	const auto chatHint = ChatHint {
+		tr("This group has no users"),
+		{ ChatHintButton { ChatHintButton::Dismiss, tr("Dismiss") },
+		  ChatHintButton { ChatHintButton::InviteContacts, tr("Invite contacts") } },
+		false,
+		tr("Opening invitation area"),
+	};
+
+	auto i = chatHintIndex(ChatHintButton::ConnectToServer);
+
+	if (i == -1) {
+		return addChatHint(chatHint);
+	}
+
+	// Ensure that the chat hint for connecting to the server is always on top.
+	insertChatHint(i, chatHint);
+
+	return i;
 }
 
 int ChatHintModel::addChatHint(const ChatHint &chatHint)

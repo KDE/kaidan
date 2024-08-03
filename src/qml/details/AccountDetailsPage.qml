@@ -11,11 +11,11 @@ DetailsPage {
 	id: root
 
 	AccountDetailsHeader {
-		jid: AccountManager.jid
+		jid: roo.jid
 	}
 
 	AccountDetailsContent {
-		jid: AccountManager.jid
+		jid: root.jid
 		Layout.fillWidth: true
 	}
 }

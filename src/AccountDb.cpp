@@ -152,7 +152,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxJid = rec.indexOf(QStringLiteral("jid"));
 	int idxName = rec.indexOf(QStringLiteral("name"));
 	int idxLatestMessageStanzaId = rec.indexOf(QStringLiteral("latestMessageStanzaId"));
-	int idxLatestMessageTimestamp = rec.indexOf(QStringLiteral("latestMessageTimestamp"));
+	int idxLatestMessageStanzaTimestamp = rec.indexOf(QStringLiteral("latestMessageStanzaTimestamp"));
 	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
 
 	reserve(accounts, query);
@@ -162,7 +162,7 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		account.jid = query.value(idxJid).toString();
 		account.name = query.value(idxName).toString();
 		account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
-		account.latestMessageTimestamp = query.value(idxLatestMessageTimestamp).toDateTime();
+		account.latestMessageStanzaTimestamp = query.value(idxLatestMessageStanzaTimestamp).toDateTime();
 		account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
 
 		accounts << std::move(account);
@@ -182,8 +182,8 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 	if (oldAccount.latestMessageStanzaId != newAccount.latestMessageStanzaId) {
 		rec.append(createSqlField(QStringLiteral("latestMessageStanzaId"), newAccount.latestMessageStanzaId));
 	}
-	if (oldAccount.latestMessageTimestamp != newAccount.latestMessageTimestamp) {
-		rec.append(createSqlField(QStringLiteral("latestMessageTimestamp"), newAccount.latestMessageTimestamp));
+	if (oldAccount.latestMessageStanzaTimestamp != newAccount.latestMessageStanzaTimestamp) {
+		rec.append(createSqlField(QStringLiteral("latestMessageStanzaTimestamp"), newAccount.latestMessageStanzaTimestamp));
 	}
 	if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
 		rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));

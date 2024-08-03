@@ -72,18 +72,26 @@ ChatPageBase {
 				Layout.leftMargin: Kirigami.Units.largeSpacing
 				Layout.preferredHeight: parent.height
 				Layout.preferredWidth: parent.height
-				jid: MessageModel.currentChatJid
-				name: chatItemWatcher.item.displayName
+				jid: ChatController.chatJid
+				name: ChatController.rosterItem.displayName
 			}
 			Kirigami.Heading {
 				Layout.fillWidth: true
 				Layout.leftMargin: Kirigami.Units.largeSpacing
 				Layout.rightMargin: Kirigami.Units.largeSpacing
-				text: chatItemWatcher.item.displayName
+				text: ChatController.rosterItem.displayName
 			}
 		}
 
-		onClicked: openOverlay(contactDetailsSheet)
+		onClicked: {
+			if (ChatController.accountJid === ChatController.chatJid) {
+				openOverlay(notesChatDetailsSheet)
+			} else if (ChatController.rosterItem.isGroupChat) {
+				openOverlay(groupChatDetailsSheet)
+			} else {
+				openOverlay(contactDetailsSheet)
+			}
+		}
 	}
 	keyboardNavigationEnabled: true
 	contextualActions: [
@@ -91,7 +99,15 @@ ChatPageBase {
 			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"
 			text: qsTr("Details…")
-			onTriggered: openPage(contactDetailsPage)
+			onTriggered: {
+				if (ChatController.accountJid === ChatController.chatJid) {
+					openPage(notesChatDetailsPage)
+				} else if (ChatController.rosterItem.isGroupChat) {
+					openPage(groupChatDetailsPage)
+				} else {
+					openPage(contactDetailsPage)
+				}
+			}
 		},
 		// Action to toggle the message search bar
 		Kirigami.Action {
@@ -120,17 +136,37 @@ ChatPageBase {
 		id: searchBar
 	}
 
-	RosterItemWatcher {
-		id: chatItemWatcher
-		jid: MessageModel.currentChatJid
+	Component {
+		id: notesChatDetailsSheet
+
+		NotesChatDetailsSheet {
+			jid: ChatController.accountJid
+		}
+	}
+
+	Component {
+		id: notesChatDetailsPage
+
+		NotesChatDetailsPage {
+			jid: ChatController.accountJid
+		}
+	}
+
+	Component {
+		id: notesChatDetailsKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
+			accountJid: ChatController.accountJid
+			Component.onDestruction: openView(notesChatDetailsSheet, notesChatDetailsPage)
+		}
 	}
 
 	Component {
 		id: contactDetailsSheet
 
 		ContactDetailsSheet {
-			accountJid: MessageModel.currentAccountJid
-			jid: MessageModel.currentChatJid
+			accountJid: ChatController.accountJid
+			jid: ChatController.chatJid
 		}
 	}
 
@@ -138,16 +174,63 @@ ChatPageBase {
 		id: contactDetailsPage
 
 		ContactDetailsPage {
-			accountJid: MessageModel.currentAccountJid
-			jid: MessageModel.currentChatJid
+			accountJid: ChatController.accountJid
+			jid: ChatController.chatJid
+		}
+	}
+
+	Component {
+		id: contactDetailsAccountKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
+			accountJid: ChatController.accountJid
+			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
 		}
 	}
 
 	Component {
 		id: contactDetailsKeyAuthenticationPage
 
-		KeyAuthenticationPage {
+		ContactKeyAuthenticationPage {
+			accountJid: ChatController.accountJid
+			jid: ChatController.chatJid
 			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
+		}
+	}
+
+	Component {
+		id: groupChatDetailsAccountKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
+			accountJid: ChatController.accountJid
+			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage)
+		}
+	}
+
+	Component {
+		id: groupChatDetailsSheet
+
+		GroupChatDetailsSheet {
+			accountJid: ChatController.accountJid
+			jid: ChatController.chatJid
+		}
+	}
+
+	Component {
+		id: groupChatDetailsPage
+
+		GroupChatDetailsPage {
+			accountJid: ChatController.accountJid
+			jid: ChatController.chatJid
+		}
+	}
+
+	Component {
+		id: groupChatDetailsKeyAuthenticationPage
+
+		GroupChatUserKeyAuthenticationPage {
+			accountJid: ChatController.accountJid
+			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage).openKeyAuthenticationUserListView()
 		}
 	}
 
@@ -168,6 +251,8 @@ ChatPageBase {
 
 	MessageReactionDetailsSheet {
 		id: messageReactionDetailsSheet
+		accountJid: ChatController.accountJid
+		chatJid: ChatController.chatJid
 	}
 
 	// View containing the messages
@@ -259,7 +344,7 @@ ChatPageBase {
 				// function positioned the view at firstUnreadContactMessageIndex and that is close
 				// to the end of the loaded messages.
 				if (!root.viewPositioned) {
-					let unreadMessageCount = chatItemWatcher.item.unreadMessageCount
+					let unreadMessageCount = ChatController.rosterItem.unreadMessageCount
 
 					if (unreadMessageCount) {
 						let firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
@@ -325,10 +410,11 @@ ChatPageBase {
 			modelIndex: index
 			msgId: model.id
 			senderId: model.senderId
-			senderName: model.isOwn ? "" : chatItemWatcher.item.displayName
-			chatName: chatItemWatcher.item.displayName
+			senderName: model.senderName
+			chatName: ChatController.rosterItem.displayName
 			encryption: model.encryption
-			isTrusted: model.isTrusted
+			trustLevel: model.trustLevel
+			isGroupChatMessage: ChatController.rosterItem.isGroupChat
 			isOwn: model.isOwn
 			messageBody: model.body
 			date: model.date
@@ -344,7 +430,8 @@ ChatPageBase {
 			files: model.files
 			displayedReactions: model.displayedReactions
 			detailedReactions: model.detailedReactions
-			ownDetailedReactions: model.ownDetailedReactions
+			ownReactionsFailed: model.ownReactionsFailed
+			groupChatInvitationJid: model.groupChatInvitationJid
 
 			onMessageEditRequested: (replaceId, body, spoilerHint) => sendingPane.prepareMessageCorrection(replaceId, body, spoilerHint)
 
@@ -362,7 +449,7 @@ ChatPageBase {
 
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
-			visible: MessageModel.currentAccountJid !== MessageModel.currentChatJid
+			visible: ChatController.accountJid !== ChatController.chatJid
 			anchors.left: parent.left
 			anchors.right: parent.right
 			height: stateLabel.text ? 20 : 0
@@ -374,7 +461,7 @@ ChatPageBase {
 				height: !text ? 20 : 0
 				topPadding: text ? 10 : 0
 
-				text: Utils.chatStateDescription(chatItemWatcher.item.displayName, MessageModel.chatState)
+				text: Utils.chatStateDescription(ChatController.rosterItem.displayName, ChatController.chatState)
 				elide: Qt.ElideMiddle
 			}
 		}
@@ -466,7 +553,7 @@ ChatPageBase {
 
 			MessageCounter {
 				id: unreadMessageCounter
-				count: chatItemWatcher.item.unreadMessageCount
+				count: ChatController.rosterItem.unreadMessageCount
 				anchors.horizontalCenter: parent.horizontalCenter
 				anchors.verticalCenter: parent.top
 				anchors.verticalCenterOffset: -2
@@ -514,6 +601,14 @@ ChatPageBase {
 			if (root.sendingPane) {
 				root.sendingPane.forceActiveFocus()
 			}
+		}
+	}
+
+	Connections {
+		target: Kaidan.groupChatController
+
+		function onGroupChatInviteeSelectionNeeded() {
+			openView(groupChatDetailsSheet, groupChatDetailsPage).openContactListView()
 		}
 	}
 }

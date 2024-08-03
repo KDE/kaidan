@@ -21,14 +21,21 @@
 
 class QSize;
 class AccountDb;
+class BlockingController;
+class ChatController;
+class ChatHintModel;
+class ClientThread;
 class Database;
 class DataFormModel;
+class EncryptionController;
+class FileSharingController;
+class GroupChatUserDb;
+class GroupChatController;
+class MessageController;
+class MessageDb;
+class MessageModel;
 class Notifications;
 class RosterDb;
-class MessageDb;
-class BlockingController;
-class FileSharingController;
-class ClientThread;
 
 /**
  * @class Kaidan Kaidan's Back-End Class
@@ -46,6 +53,7 @@ class Kaidan : public QObject
 	Q_PROPERTY(ClientWorker* client READ client CONSTANT)
 	Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
 	Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
+	Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
 	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
 	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
 	Q_PROPERTY(Settings* settings READ settings CONSTANT)
@@ -131,9 +139,11 @@ public:
 	ClientWorker *client() const { return m_client; }
 	BlockingController *blockingController() const { return m_blockingController.get(); }
 	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }
+	GroupChatController *groupChatController() const { return m_groupChatController; }
 	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
 	ServerFeaturesCache *serverFeaturesCache() const { return m_caches->serverFeaturesCache; }
 	VCardCache *vCardCache() const { return m_caches->vCardCache; }
+
 	Settings *settings() const { return m_caches->settings; }
 	Database *database() const { return m_database; }
 
@@ -356,15 +366,25 @@ private:
 	void initializeAccountMigration();
 
 	Notifications *m_notifications;
+
 	Database *m_database;
 	AccountDb *m_accountDb;
 	MessageDb *m_msgDb;
 	RosterDb *m_rosterDb;
+	GroupChatUserDb *m_groupChatUserDb;
+
 	ClientThread *m_cltThrd;
 	ClientWorker::Caches *m_caches;
 	ClientWorker *m_client;
 	std::unique_ptr<BlockingController> m_blockingController;
+	ChatController *m_chatController;
+	EncryptionController *m_encryptionController;
 	std::unique_ptr<FileSharingController> m_fileSharingController;
+	GroupChatController *m_groupChatController;
+	MessageController *m_messageController;
+
+	MessageModel *m_messageModel;
+	ChatHintModel *m_chatHintModel;
 
 	QString m_openUriCache;
 	Enums::ConnectionState m_connectionState = Enums::ConnectionState::StateDisconnected;

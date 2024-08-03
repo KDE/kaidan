@@ -13,7 +13,7 @@ import im.kaidan.kaidan 1.0
 /**
  * This is a button used for a reaction or for reacting to a message.
  */
-Controls.Button {
+Button {
 	id: root
 
 	property color primaryColor

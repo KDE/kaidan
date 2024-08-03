@@ -23,7 +23,7 @@ Kirigami.Page {
 	property string imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
 
 	title: qsTr("Change profile image")
-	Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
+	Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage).jid = AccountManager.jid
 
 	Controls.BusyIndicator {
 		id: busyIndicator

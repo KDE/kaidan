@@ -159,6 +159,20 @@ struct MessageReactionSender
 	bool operator==(const MessageReactionSender &other) const = default;
 };
 
+struct GroupChatInvitation
+{
+	QString inviterJid;
+	QString inviteeJid;
+	QString groupChatJid;
+	QString token;
+
+	[[nodiscard]] QXmppMixInvitation toQXmpp() const;
+
+	bool operator==(const GroupChatInvitation &other) const = default;
+};
+
+Q_DECLARE_METATYPE(GroupChatInvitation)
+
 /**
  * @brief This class is used to load messages from the database and use them in
  * the @c MessageModel. The class inherits from @c QXmppMessage and most
@@ -166,9 +180,17 @@ struct MessageReactionSender
  */
 struct Message
 {
+	Q_GADGET
 	Q_DECLARE_TR_FUNCTIONS(Message)
 
 public:
+	enum class TrustLevel {
+		Untrusted,
+		Trusted,
+		Authenticated,
+	};
+	Q_ENUM(TrustLevel)
+
 	/**
 	 * Compares another @c Message with this. Only attributes that are saved in the
 	 * database are checked.
@@ -178,17 +200,21 @@ public:
 
 	QString accountJid;
 	QString chatJid;
-	QString senderId;
+	bool isOwn;
+	QString groupChatSenderId;
+	QString groupChatSenderJid;
+	QString groupChatSenderName;
 	QString id;
 	QString originId;
 	QString stanzaId;
 	QString replaceId;
-	QDateTime timestamp = QDateTime::currentDateTimeUtc();
+	QDateTime timestamp;
 	QString body;
 	// End-to-end encryption used for this message.
 	Encryption::Enum encryption = Encryption::NoEncryption;
 	// ID of this message's sender's public long-term end-to-end encryption key.
 	QByteArray senderKey;
+	QXmpp::TrustLevel preciseTrustLevel;
 	// Delivery state of the message, like if it was sent successfully or if it was already delivered
 	DeliveryState deliveryState = DeliveryState::Delivered;
 	bool isSpoiler = false;
@@ -198,8 +224,9 @@ public:
 	QXmppMessage::Marker marker = QXmppMessage::NoMarker;
 	QString markerId;
 	bool receiptRequested = false;
-	// JIDs of senders mapped to the senders
+	// IDs (JIDs or group chat participant IDs) of senders mapped to the senders
 	QMap<QString, MessageReactionSender> reactionSenders;
+	std::optional<GroupChatInvitation> groupChatInvitation;
 
 	// Text description of an error if it ever happened to the message
 	QString errorText;
@@ -209,18 +236,23 @@ public:
 	[[nodiscard]] QXmppMessage toQXmpp() const;
 	[[nodiscard]] QVector<QXmppMessage> fallbackMessages() const;
 
-	// Returns whether this message is an own one (i.e., sent by the accountJid).
-	bool isOwn() const;
+	QString relevantId() const;
+	QString senderJid() const;
+	bool isGroupChatMessage() const;
 
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
-	QString previewText() const;
+	QString previewText(bool extended = false) const;
+
+	TrustLevel trustLevel() const;
 
 private:
 	bool includeFileFallbackInMainMessage() const;
+	QString groupChatInvitationText() const;
 };
 
 Q_DECLARE_METATYPE(Message)
+Q_DECLARE_METATYPE(Message::TrustLevel)
 
 enum class MessageOrigin : quint8 {
 	Stream,

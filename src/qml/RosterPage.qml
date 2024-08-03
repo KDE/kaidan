@@ -76,11 +76,15 @@ SearchBarPage {
 				contextMenu: itemContextMenu
 				accountJid: model ? model.accountJid : ""
 				jid: model ? model.jid : ""
-				name: model ? (model.name ? model.name : model.jid) : ""
+				name: model ? model.name : ""
+				isGroupChat: model ? model.isGroupChat : false
+				isPublicGroupChat: model ? model.isPublicGroupChat : false
+				isDeletedGroupChat: model ? model.isDeletedGroupChat : false
 				lastMessageDateTime: model ? model.lastMessageDateTime : ""
 				lastMessage: model ? model.lastMessage : ""
 				lastMessageIsDraft: model ? model.lastMessageIsDraft : false
-				lastMessageSenderId: model ? model.lastMessageSenderId : ""
+				lastMessageIsOwn: model ? model.lastMessageIsOwn : false
+				lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
 				notificationsMuted: model ? model.notificationsMuted : false
@@ -127,7 +131,7 @@ SearchBarPage {
 					searchField.clear()
 				}
 
-				MessageModel.setCurrentChat(accountJid, chatJid)
+				ChatController.setChat(accountJid, chatJid)
 
 				closePagesExceptRosterPage()
 				popLayersAboveLowest()

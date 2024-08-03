@@ -17,6 +17,7 @@ public:
 		Dismiss,
 		ConnectToServer,
 		AllowPresenceSubscription,
+		InviteContacts,
 	};
 	Q_ENUM(Type)
 
@@ -73,8 +74,11 @@ private:
 	void handleUnrespondedPresenceSubscriptionRequests();
 	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText);
 
+	void handleNoGroupChatUsers();
+
 	int addConnectToServerChatHint(bool loading = false);
 	int addAllowPresenceSubscriptionChatHint(const QString &requestText);
+	int addInviteContactsChatHint();
 
 	int addChatHint(const ChatHint &chatHint);
 	void insertChatHint(int i, const ChatHint &chatHint);
@@ -86,7 +90,6 @@ private:
 	int chatHintIndex(ChatHintButton::Type buttonType) const;
 	bool hasButton(int i, ChatHintButton::Type buttonType) const;
 
-	MessageModel *m_messageModel;
 	QVector<ChatHint> m_chatHints;
 
 	static ChatHintModel *s_instance;

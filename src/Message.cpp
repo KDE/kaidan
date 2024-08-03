@@ -19,9 +19,9 @@
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppFallback.h>
 #endif
-
 #include <QXmppFileMetadata.h>
 #include <QXmppHttpFileSource.h>
+#include <QXmppMixInvitation.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
 
@@ -166,14 +166,30 @@ QString File::details() const
 	return QStringLiteral("%1, %2").arg(formattedSize, formattedDateTime);
 }
 
+QXmppMixInvitation GroupChatInvitation::toQXmpp() const
+{
+	QXmppMixInvitation mixInvitation;
+
+	mixInvitation.setInviterJid(inviterJid);
+	mixInvitation.setInviteeJid(inviteeJid);
+	mixInvitation.setChannelJid(groupChatJid);
+	mixInvitation.setToken(token);
+
+	return mixInvitation;
+}
+
 QXmppMessage Message::toQXmpp() const
 {
 	QXmppMessage msg;
-	msg.setFrom(isOwn() ? accountJid : chatJid);
-	msg.setTo(isOwn() ? chatJid : accountJid);
+
+	if (isGroupChatMessage()) {
+		msg.setType(QXmppMessage::GroupChat);
+	}
+
+	msg.setFrom(isOwn ? accountJid : chatJid);
+	msg.setTo(isOwn ? chatJid : accountJid);
 	msg.setId(id);
 	msg.setOriginId(originId);
-	msg.setStanzaId(stanzaId);
 	msg.setReplaceId(replaceId);
 	msg.setStamp(timestamp);
 	msg.setBody(body);
@@ -182,7 +198,7 @@ QXmppMessage Message::toQXmpp() const
 	msg.setMarkable(true);
 	msg.setMarker(marker);
 	msg.setMarkerId(markerId);
-	msg.setReceiptRequested(receiptRequested);
+	msg.setReceiptRequested(!isGroupChatMessage());
 
 	// attached files
 	msg.setSharedFiles(transform(files, [](const File &file) {
@@ -218,6 +234,10 @@ QXmppMessage Message::toQXmpp() const
 #endif
 	}
 
+	if (groupChatInvitation) {
+		msg.setMixInvitation(groupChatInvitation->toQXmpp());
+	}
+
 	return msg;
 }
 
@@ -236,8 +256,8 @@ QVector<QXmppMessage> Message::fallbackMessages() const
 		}
 
 		QXmppMessage m;
-		m.setFrom(isOwn() ? accountJid : chatJid);
-		m.setTo(isOwn() ? chatJid : accountJid);
+		m.setFrom(isOwn ? accountJid : chatJid);
+		m.setTo(isOwn ? chatJid : accountJid);
 		m.setId(id % u'_' % QString::number(++i));
 		// if the original message was a spoiler, this should be too if not recognized as fallback
 		m.setIsSpoiler(isSpoiler);
@@ -269,12 +289,42 @@ QVector<QXmppMessage> Message::fallbackMessages() const
 #endif
 }
 
-bool Message::isOwn() const
+QString Message::relevantId() const
 {
-	return accountJid == senderId;
+	if (!replaceId.isEmpty()) {
+		return replaceId;
+	}
+
+	if (!stanzaId.isEmpty()) {
+		return stanzaId;
+	}
+
+	if (!originId.isEmpty()) {
+		return originId;
+	}
+
+	return id;
 }
 
-QString Message::previewText() const
+QString Message::senderJid() const
+{
+	if (isOwn) {
+		return accountJid;
+	}
+
+	if (isGroupChatMessage()) {
+		return groupChatSenderJid;
+	}
+
+	return chatJid;
+}
+
+bool Message::isGroupChatMessage() const
+{
+	return !groupChatSenderId.isEmpty();
+}
+
+QString Message::previewText(bool extended) const
 {
 	if (isSpoiler) {
 		if (spoilerHint.isEmpty()) {
@@ -283,21 +333,48 @@ QString Message::previewText() const
 		return spoilerHint;
 	}
 
+	if (groupChatInvitation) {
+		return groupChatInvitationText();
+	}
+
 	if (files.empty()) {
 		return body;
 	}
 
-	// Use first file for detection (could be improved with more complex logic)
-	auto mediaType = MediaUtils::messageType(files.front().mimeType);
-	auto text = MediaUtils::mediaTypeName(mediaType);
+	if (extended) {
+		// Use first file for detection (could be improved with more complex logic)
+		auto mediaType = MediaUtils::messageType(files.front().mimeType);
+		auto text = MediaUtils::mediaTypeName(mediaType);
 
-	if (!body.isEmpty()) {
-		return text % QStringLiteral(": ") % body;
+		if (!body.isEmpty()) {
+			return text % QStringLiteral(": ") % body;
+		}
+
+		return text;
 	}
-	return text;
+
+	return body;
+}
+
+Message::TrustLevel Message::trustLevel() const
+{
+	if (preciseTrustLevel == QXmpp::TrustLevel::Authenticated) {
+		return Message::TrustLevel::Authenticated;
+	}
+
+	if ((QXmpp::TrustLevel::AutomaticallyTrusted | QXmpp::TrustLevel::ManuallyTrusted).testFlag(preciseTrustLevel)) {
+		return Message::TrustLevel::Trusted;
+	}
+
+	return Message::TrustLevel::Untrusted;
 }
 
 bool Message::includeFileFallbackInMainMessage() const
 {
 	return files.size() == 1 && body.isEmpty();
+}
+
+QString Message::groupChatInvitationText() const
+{
+	return tr("Invitation to group %1").arg(groupChatInvitation->groupChatJid);
 }

@@ -25,9 +25,6 @@
 #endif
 // Kaidan
 #include "Globals.h"
-#ifndef BUILD_TESTS
-#include "MessageModel.h"
-#endif
 
 static QmlUtils *s_instance;
 
@@ -160,49 +157,13 @@ QUrl QmlUtils::mastodonUrl()
 	return QUrl(QStringLiteral(MASTODON_URL));
 }
 
-QUrl QmlUtils::invitationUrl(const QString &jid)
+QUrl QmlUtils::invitationUrl(const QString &uri)
 {
-	return QUrl(QStringLiteral(INVITATION_URL) + jid);
+	// "uri.mid(5)" removes "xmpp:".
+	return QUrl(QStringLiteral(INVITATION_URL) + uri.mid(5));
 }
 
 #ifndef BUILD_TESTS
-QUrl QmlUtils::trustMessageUri(const QString &jid)
-{
-	return QUrl(trustMessageUriString(jid));
-}
-
-QString QmlUtils::trustMessageUriString(const QString &jid)
-{
-	const auto keys = MessageModel::instance()->keys().value(jid);
-	QList<QString> authenticatedKeys;
-	QList<QString> distrustedKeys;
-
-	for (auto itr = keys.constBegin(); itr != keys.constEnd(); ++itr) {
-		const auto key = QString::fromUtf8(itr.key().toHex());
-		const auto trustLevel = itr.value();
-
-		if (trustLevel == QXmpp::TrustLevel::Authenticated) {
-			authenticatedKeys.append(key);
-		} else if (trustLevel == QXmpp::TrustLevel::ManuallyDistrusted) {
-			distrustedKeys.append(key);
-		}
-	}
-
-	QXmppUri uri;
-	uri.setJid(jid);
-
-	// Create a Trust Message URI only if there are keys for it.
-	if (!authenticatedKeys.isEmpty() || !distrustedKeys.isEmpty()) {
-		uri.setAction(QXmppUri::TrustMessage);
-		// TODO: Find solution to pass enum to "uri.setEncryption()" instead of string (see QXmppGlobal::encryptionToString())
-		uri.setEncryption(QStringLiteral("urn:xmpp:omemo:2"));
-		uri.setTrustedKeysIds(authenticatedKeys);
-		uri.setDistrustedKeysIds(distrustedKeys);
-	}
-
-	return uri.toString();
-}
-
 QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 {
 	QXmppUri uri;
@@ -242,9 +203,19 @@ bool QmlUtils::isImageFile(const QUrl &fileUrl)
 	return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
 }
 
+void QmlUtils::copyToClipboard(const QUrl &url)
+{
+	copyToClipboard(url.toString());
+}
+
 void QmlUtils::copyToClipboard(const QString &text)
 {
 	QGuiApplication::clipboard()->setText(text);
+}
+
+void QmlUtils::copyToClipboard(const QImage &image)
+{
+	QGuiApplication::clipboard()->setImage(image);
 }
 
 QString QmlUtils::fileNameFromUrl(const QUrl &url)

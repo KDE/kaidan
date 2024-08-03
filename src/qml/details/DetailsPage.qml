@@ -9,6 +9,7 @@ Kirigami.ScrollablePage {
 	id: root
 
 	default property alias __data: mainArea.data
+	property string jid
 
 	leftPadding: 0
 	rightPadding: 0

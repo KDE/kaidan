@@ -19,25 +19,40 @@ UserListItem {
 
 	property ListView listView
 	property Controls.Menu contextMenu
-	property bool lastMessageIsDraft
+	property bool isPublicGroupChat
+	property bool isDeletedGroupChat
 	property alias lastMessageDateTime: lastMessageDateTimeText.text
 	property string lastMessage
-	property string lastMessageSenderId
+	property bool lastMessageIsDraft
+	property bool lastMessageIsOwn
+	property string lastMessageGroupChatSenderName
 	property int unreadMessages
 	property bool pinned
 	property bool notificationsMuted
 
 	selected: {
 		return !Kirigami.Settings.isMobile &&
-			MessageModel.currentAccountJid === accountJid &&
-			MessageModel.currentChatJid === jid
+			ChatController.accountJid === accountJid &&
+			ChatController.chatJid === jid
 	}
 
 	// middle
 	ColumnLayout {
-		spacing: Kirigami.Units.largeSpacing
+		spacing: 0
+		Layout.topMargin: parent.spacing
+		Layout.bottomMargin: Layout.topMargin
 
 		RowLayout {
+			Layout.preferredHeight: parent.height / 2
+
+			// group chat icon
+			Kirigami.Icon {
+				source: "resource-group"
+				visible: root.isGroupChat
+				Layout.preferredWidth: Layout.preferredHeight
+				Layout.preferredHeight: nameText.height
+			}
+
 			// name
 			Kirigami.Heading {
 				id: nameText
@@ -45,6 +60,7 @@ UserListItem {
 				textFormat: Text.PlainText
 				elide: Text.ElideRight
 				maximumLineCount: 1
+				type: Kirigami.Heading.Type.Primary
 				level: 4
 				Layout.fillWidth: true
 			}
@@ -53,15 +69,28 @@ UserListItem {
 			Text {
 				id: lastMessageDateTimeText
 				text: root.lastMessageDateTime
-				visible: text && root.lastMessage
+				visible: text && root.lastMessage && !root.isDeletedGroupChat
 				color: Kirigami.Theme.disabledTextColor
 				font.weight: Font.Light
+				font.pixelSize: Kirigami.Theme.defaultFont.pixelSize * 0.95
 			}
+
+			Text {
+				text: isDeletedGroupChat ? qsTr("Deleted") : ""
+				visible: root.isDeletedGroupChat
+				color: Kirigami.Theme.negativeTextColor
+				font: lastMessageDateTimeText.font
+			}
+		}
+
+		Item {
+			Layout.fillHeight: true
 		}
 
 		RowLayout {
 			id: secondRow
 			width: parent.width
+			Layout.preferredHeight: parent.height / 2
 
 			// placeholder if no messages have been exchanged yet
 			Controls.Label {
@@ -79,29 +108,34 @@ UserListItem {
 			// prefix of the last message
 			Controls.Label {
 				id: lastMessagePrefix
-				visible: root.lastMessage && text && (lastMessageIsDraft || lastMessageSenderId)
-				textFormat: Text.PlainText
 				text: {
 					if (lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
-						// Omit the sender in case of the chat with oneself.
-						if (root.jid == root.accountJid) {
-							return ""
-						}
-
-						if (lastMessageSenderId === root.accountJid) {
+						if (root.lastMessageIsOwn) {
 							return qsTr("Me:")
 						}
 
-						return qsTr("%1:").arg(root.name)
+						if (root.lastMessageGroupChatSenderName) {
+							return qsTr("%1:").arg(root.lastMessageGroupChatSenderName)
+						}
+
+						return ""
 					}
 				}
+				visible: text
+				textFormat: Text.PlainText
 				color: Kirigami.Theme.disabledTextColor
 				font {
 					weight: Font.Light
-					italic: lastMessageIsDraft
+					italic: root.lastMessageIsDraft
 				}
+				elide: Text.ElideMiddle
+				Layout.preferredWidth: implicitWidth
+				Layout.maximumWidth: Kirigami.Units.gridUnit * 6
+				// Ensure the same spacing between lastMessagePrefix and lastMessageText regardless
+				// of whether lastMessagePrefix is elided.
+				Layout.rightMargin: implicitWidth > width ? - Kirigami.Units.mediumSpacing : 0
 			}
 
 			// last message or error status message
@@ -115,7 +149,7 @@ UserListItem {
 					id: lastMessageTextMetrics
 					text: Utils.removeNewLinesFromString(root.lastMessage)
 					elide: Text.ElideRight
-					elideWidth: secondRow.width - secondRow.spacing - lastMessagePrefix.width - optionalItemArea.width
+					elideWidth: secondRow.width - secondRow.spacing * 2 - lastMessagePrefix.width - optionalItemArea.width
 				}
 			}
 

@@ -36,13 +36,8 @@ public:
 	                const std::function<void (RosterItem &)> &updateItem);
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
 
-	/**
-	 * Removes all roster items of an account or a specific roster item.
-	 *
-	 * @param accountJid JID of the account whose roster items are being removed
-	 * @param jid JID of the roster item being removed (optional)
-	 */
-	QFuture<void> removeItems(const QString &accountJid, const QString &jid = {});
+	QFuture<void> removeItems(const QString &accountJid);
+	QFuture<void> removeItems(const QString &accountJid, const QString &jid);
 	QFuture<void> replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
 	QFuture<QVector<RosterItem>> fetchItems();
 

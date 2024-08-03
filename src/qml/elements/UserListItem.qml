@@ -20,6 +20,7 @@ Controls.ItemDelegate {
 	property string accountJid
 	property string jid
 	property string name
+	property bool isGroupChat
 	property bool selected: false
 
 	topPadding: 0
@@ -52,7 +53,7 @@ Controls.ItemDelegate {
 	}
 	contentItem: RowLayout {
 		id: content
-		spacing: Kirigami.Units.gridUnit * 0.5
+		spacing: Kirigami.Units.largeSpacing
 
 		// left border: presence
 		Rectangle {
@@ -72,6 +73,8 @@ Controls.ItemDelegate {
 			id: avatar
 			jid: root.jid
 			name: root.name
+			isGroupChat: root.isGroupChat
+			height: parent.height
 		}
 	}
 }

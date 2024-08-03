@@ -10,7 +10,6 @@ DetailsPage {
 	id: root
 
 	required property string accountJid
-	required property string jid
 
 	ContactDetailsHeader {
 		jid: root.jid

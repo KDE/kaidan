@@ -8,6 +8,7 @@
 #include <QObject>
 // Kaidan
 #include "FutureUtils.h"
+#include "SqlUtils.h"
 
 class QThreadPool;
 class QSqlQuery;
@@ -20,6 +21,11 @@ class DatabaseComponent : public QObject
 	Q_OBJECT
 public:
 	DatabaseComponent(Database *database, QObject *parent = nullptr);
+
+	void insert(const QString &tableName, const SqlUtils::QueryBindValues &values);
+
+	// Inserts a row that may contain binary fields (e.g., QByteArray) into a table.
+	void insertBinary(const QString &tableName, const SqlUtils::QueryBindValues &values);
 
 	QSqlQuery createQuery();
 	QSqlDriver &sqlDriver();

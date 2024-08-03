@@ -20,10 +20,6 @@ class QSqlRecord;
 
 using namespace SqlUtils;
 
-/**
- * @class The MessageDb is used to query the 'messages' database table. It's used by the
- * MessageModel to load messages and by the MessageHandler to insert messages.
- */
 class MessageDb : public DatabaseComponent
 {
 	Q_OBJECT
@@ -194,8 +190,13 @@ public:
 	/**
 	 * Adds a message to the database.
 	 */
-	QFuture<void> addMessage(const Message &msg, MessageOrigin origin);
+	QFuture<void> addMessage(const Message &message, MessageOrigin origin);
 	Q_SIGNAL void messageAdded(const Message &msg, MessageOrigin origin);
+
+	/**
+	 * Updates a stored message or adds it if it is not stored.
+	 */
+	QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const QString &originId, const std::function<void (Message &)> &updateMsg);
 
 	/**
 	 * Removes all messages from an account.
@@ -268,7 +269,9 @@ public:
 	Q_SIGNAL void draftMessageRemoved(const Message &newLastMessage);
 
 private:
+	void _addMessage(Message message, MessageOrigin origin);
 	void _addMessage(const Message &message);
+	void _updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 	// Setters do INSERT OR REPLACE INTO
 	void _setFiles(const QVector<File> &files);
@@ -282,7 +285,7 @@ private:
 	QVector<Message> _fetchMessagesFromQuery(QSqlQuery &query);
 	QVector<File> _fetchFiles(const QString &accountJid);
 	QVector<File> _fetchFiles(const QString &accountJid, const QString &chatJid);
-	QVector<File> _fetchFiles(const QString &statement, const std::vector<QueryBindValue> &bindValues);
+	QVector<File> _fetchFiles(const QString &statement, const QueryBindValues &bindValues);
 	void _extractDownloadedFiles(QVector<File> &files);
 	QVector<File> _fetchFiles(qint64 fileGroupId);
 	QVector<FileHash> _fetchFileHashes(qint64 dataId);
@@ -290,6 +293,10 @@ private:
 	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
 	void _fetchReactions(QVector<Message> &messages);
+	void _fetchGroupChatUsers(QVector<Message> &messages);
+	void _fetchGroupChatUser(Message &message);
+	void _fetchTrustLevels(QVector<Message> &messages);
+	void _fetchTrustLevel(Message &messages);
 	std::optional<Message> _fetchDraftMessage(const QString &accountJid, const QString &chatJid);
 
 	/**

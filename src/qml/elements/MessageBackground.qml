@@ -44,7 +44,7 @@ Item {
 			color: backgroundRoot.color
 
 			anchors.fill: parent
-			anchors.topMargin: 4
+			anchors.bottomMargin: 4
 			anchors.rightMargin: -backgroundRoot.tailSize
 		}
 	}
@@ -70,8 +70,8 @@ Item {
 
 			corners {
 				topLeftRadius: 0
-				topRightRadius: 0
-				bottomRightRadius: backgroundRoot.tailSize * 10
+				topRightRadius: backgroundRoot.tailSize * 10
+				bottomRightRadius: 0
 				bottomLeftRadius: 0
 			}
 		}
@@ -103,11 +103,11 @@ Item {
 		ScalableText {
 			text: {
 				if (backgroundRoot.message.encryption === Encryption.NoEncryption) {
-					if (MessageModel.isOmemoEncryptionEnabled) {
+					if (ChatController.isEncryptionEnabled) {
 						// Encryption is set for the current chat but this message is unencrypted.
 						return qsTr("Unencrypted")
 					}
-				} else if (MessageModel.encryption !== Encryption.NoEncryption && !backgroundRoot.message.isTrusted){
+				} else if (ChatController.encryption !== Encryption.NoEncryption && backgroundRoot.message.trustLevel === Message.TrustLevel.Untrusted){
 					// Encryption is set for the current chat but the key of this message's sender
 					// is not trusted.
 					return qsTr("Untrusted")
@@ -142,8 +142,19 @@ Item {
 		}
 
 		Kirigami.Icon {
-			// TODO: Use "security-low-symbolic" for distrusted, "security-medium-symbolic" for automatically trusted and "security-high-symbolic" for authenticated
-			source: backgroundRoot.message.isTrusted ? "security-high-symbolic" : "security-low-symbolic"
+			source: {
+				const trustLevel = backgroundRoot.message.trustLevel
+
+				if (trustLevel === Message.TrustLevel.Authenticated) {
+					return "security-high-symbolic"
+				}
+
+				if (trustLevel === Message.TrustLevel.Trusted) {
+					return "security-medium-symbolic"
+				}
+
+				return "security-low-symbolic"
+			}
 			visible: backgroundRoot.message.encryption !== Encryption.NoEncryption
 			Layout.preferredWidth: Kirigami.Units.iconSizes.small
 			Layout.preferredHeight: Layout.preferredWidth

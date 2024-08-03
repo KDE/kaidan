@@ -13,12 +13,12 @@ DetailsSheet {
 
 	AccountDetailsHeader {
 		sheet: root
-		jid: AccountManager.jid
+		jid: root.jid
 	}
 
 	AccountDetailsContent {
 		sheet: root
-		jid: AccountManager.jid
+		jid: root.jid
 		Layout.fillWidth: true
 	}
 

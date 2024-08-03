@@ -16,7 +16,7 @@ import "../elements"
 GridLayout {
 	id: root
 
-	default property alias __data: mainArea.data
+	default property alias __data: additionalInformationArea.data
 	required property string jid
 	required property string displayName
 	required property Kirigami.Action avatarAction
@@ -24,7 +24,7 @@ GridLayout {
 	flow: width > Kirigami.Units.gridUnit * 20 ? GridLayout.LeftToRight : GridLayout.TopToBottom
 	Layout.topMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 2
 	Layout.bottomMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing
-	Layout.leftMargin: Kirigami.Units.largeSpacing * 2
+	Layout.leftMargin: Kirigami.Units.largeSpacing * 3
 	Layout.rightMargin: Layout.leftMargin
 
 	Avatar {
@@ -82,8 +82,7 @@ GridLayout {
 	}
 
 	ColumnLayout {
-		id: mainArea
-		Layout.leftMargin: 15
+		Layout.leftMargin: root.flow === GridLayout.LeftToRight ? Kirigami.Units.largeSpacing * 2 : 0
 
 		RowLayout {
 			id: displayNameArea
@@ -119,7 +118,7 @@ GridLayout {
 				text: root.displayName
 				textFormat: Text.PlainText
 				maximumLineCount: 1
-				elide: Text.ElideRight
+				elide: Text.ElideMiddle
 				visible: !displayNameTextField.visible
 				Layout.alignment: Qt.AlignVCenter
 				Layout.fillWidth: true
@@ -146,14 +145,18 @@ GridLayout {
 			}
 		}
 
-		Controls.Label {
-			text: root.jid
-			color: Kirigami.Theme.disabledTextColor
-			textFormat: Text.PlainText
-			maximumLineCount: 1
-			elide: Text.ElideRight
-			Layout.fillWidth: true
+		ColumnLayout {
+			id: additionalInformationArea
 			Layout.leftMargin: displayNameEditingButton.Layout.preferredWidth + displayNameTextField.Layout.leftMargin
+
+			Controls.Label {
+				text: root.jid
+				color: Kirigami.Theme.disabledTextColor
+				textFormat: Text.PlainText
+				maximumLineCount: 1
+				elide: Text.ElideMiddle
+				Layout.fillWidth: true
+			}
 		}
 	}
 }

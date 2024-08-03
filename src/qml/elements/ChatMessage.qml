@@ -33,8 +33,9 @@ Kirigami.SwipeListItem {
 	property string senderName
 	property string chatName
 	property bool isOwn: true
+	property bool isGroupChatMessage
 	property int encryption
-	property bool isTrusted
+	property int trustLevel
 	property string messageBody
 	property string date
 	property string time
@@ -47,21 +48,19 @@ Kirigami.SwipeListItem {
 	property string spoilerHint
 	property bool isShowingSpoiler: false
 	property string errorText: ""
-	property alias bodyLabel: bodyLabel
 	property var files;
 	property var displayedReactions
 	property var detailedReactions
-	property var ownDetailedReactions
+	property bool ownReactionsFailed
+	property var groupChatInvitationJid
 
-	property bool isGroupBegin: {
-		return modelIndex < 1 ||
-			MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderId) !== senderId
-	}
+	property bool isGroupBegin: modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.SenderId) !== senderId
+	property bool isGroupEnd: modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderId) !== senderId
 
 	signal messageEditRequested(string replaceId, string body, string spoilerHint)
 	signal quoteRequested(string body)
 
-	height: messageArea.implicitHeight + (isGroupBegin ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
+	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 	alwaysVisibleActions: false
 
 	actions: [
@@ -70,7 +69,17 @@ Kirigami.SwipeListItem {
 		Kirigami.Action {
 			text: "Add message reaction"
 			icon.name: "smiley-add"
-			visible: !root.displayedReactions.length
+			visible: {
+				// Do not allow to send reactions if the message has not yet got a stanza ID from
+				// the server to be referenced by.
+				if (root.isGroupChatMessage &&
+					root.deliveryState !== Enums.Sent &&
+					root.deliveryState !== Enums.Delivered) {
+					return false
+				}
+
+				return !root.displayedReactions.length && !root.groupChatInvitationJid
+			}
 			onTriggered: {
 				root.reactionEmojiPicker.messageId = root.msgId
 				root.reactionEmojiPicker.open()
@@ -92,9 +101,8 @@ Kirigami.SwipeListItem {
 				visible: !isOwn && isGroupBegin
 				jid: root.senderId
 				name: root.senderName
-				Layout.preferredHeight: Kirigami.Units.gridUnit * 2.2
-				Layout.topMargin: - Kirigami.Units.gridUnit
-				Layout.bottomMargin: Layout.topMargin
+				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+				Layout.alignment: Qt.AlignTop
 			}
 
 			// message bubble
@@ -132,6 +140,13 @@ Kirigami.SwipeListItem {
 				}
 
 				contentItem: ColumnLayout {
+					Controls.Label {
+						text: root.senderName
+						color: Utils.userColor(root.senderId, root.senderName)
+						font.weight: Font.Medium
+						visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin && text.length
+					}
+
 					// spoiler hint area
 					ColumnLayout {
 						visible: isSpoiler
@@ -192,31 +207,118 @@ Kirigami.SwipeListItem {
 							}
 						}
 
-						// message body
-						FormattedTextEdit {
-							id: bodyLabel
-							text: root.messageBody + bubble.paddingText
-							enabled: true
-							visible: messageBody
-							enhancedFormatting: true
-							Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+						Loader {
+							sourceComponent: {
+								if (root.groupChatInvitationJid) {
+									return groupChatInvitationComponent
+								}
+
+								if (root.messageBody) {
+									return bodyComponent
+								}
+
+								return undefined
+							}
+
+							Component {
+								id: bodyComponent
+
+								RowLayout {
+									FormattedTextEdit {
+										text: root.messageBody + bubble.paddingText
+										enabled: true
+										visible: messageBody
+										enhancedFormatting: true
+										Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+									}
+								}
+							}
+
+							Component {
+								id: groupChatInvitationComponent
+
+								RowLayout {
+									id: groupChatInvitationArea
+
+									ClickableIcon {
+										id: groupChatInvitationButton
+										source: "resource-group"
+										width: Kirigami.Units.iconSizes.small
+										mouseArea.anchors.topMargin: - Kirigami.Units.smallSpacing * 2
+										mouseArea.anchors.leftMargin: - Kirigami.Units.smallSpacing * 2
+										mouseArea.anchors.rightMargin: - Kirigami.Units.smallSpacing * 1.3
+										mouseArea.anchors.bottomMargin: - Kirigami.Units.smallSpacing * 2
+										Controls.ToolTip.text: groupChatWatcher.item.isGroupChat ? qsTr("Open") : qsTr("Join…")
+										Layout.fillHeight: true
+										onClicked: {
+											if (groupChatWatcher.item.isGroupChat) {
+												Kaidan.openChatPageRequested(ChatController.accountJid, root.groupChatInvitationJid)
+											} else {
+												openView(groupChatJoiningDialog, groupChatJoiningPage).groupChatJid = root.groupChatInvitationJid
+											}
+										}
+									}
+
+									Kirigami.Separator {
+										id: groupChatInvitationSeparator
+										implicitWidth: 3
+										color: {
+											const accentColor = bubble.backgroundColor
+											Qt.tint(secondaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
+										}
+										Layout.topMargin: - Kirigami.Units.smallSpacing * 2
+										Layout.bottomMargin: - Kirigami.Units.smallSpacing * 2
+										Layout.rightMargin: Kirigami.Units.largeSpacing
+										Layout.fillHeight: true
+									}
+
+									Controls.Label {
+										text: root.messageBody + bubble.paddingText
+										wrapMode: Text.Wrap
+										Layout.maximumWidth: {
+											return root.width - Kirigami.Units.gridUnit * 6
+												- groupChatInvitationButton.width
+												- groupChatInvitationSeparator.implicitWidth
+												- groupChatInvitationSeparator.Layout.rightMargin
+												- groupChatInvitationArea.spacing * 2
+										}
+									}
+
+									RosterItemWatcher {
+										id: groupChatWatcher
+										jid: root.groupChatInvitationJid
+									}
+								}
+							}
 						}
 					}
 
 					// message reactions (emojis in reaction to this message)
 					Flow {
 						visible: displayedReactionsArea.count
-						spacing: 4
-						Layout.bottomMargin: 15
-						Layout.maximumWidth: bodyLabel.Layout.maximumWidth
+						spacing: Kirigami.Units.smallSpacing
+						Layout.bottomMargin: Kirigami.Units.smallSpacing * 5
+						Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
 						Layout.preferredWidth: {
+							const detailsButtonLoaded = messageReactionDetailsButtonLoader.status === Loader.Ready
+							var buttonCount = 1
+
+							if (messageReactionDetailsButtonLoader.status === Loader.Ready) {
+								buttonCount++
+							}
+
+							if (messageReactionRetryButtonLoader.status === Loader.Ready) {
+								buttonCount++
+							}
+
+							const totalSpacing = spacing * (displayedReactionsArea.count + buttonCount - 1)
 							var displayedReactionsWidth = 0
 
 							for (var i = 0; i < displayedReactionsArea.count; i++) {
 								displayedReactionsWidth += displayedReactionsArea.itemAt(i).width
 							}
 
-							return displayedReactionsWidth + (messageReactionAdditionButton.width * 2) + spacing * (displayedReactionsArea.count + 2)
+							return displayedReactionsWidth + (messageReactionAdditionButton.width * buttonCount) + totalSpacing
 						}
 
 						Repeater {
@@ -224,21 +326,13 @@ Kirigami.SwipeListItem {
 							model: root.displayedReactions
 
 							MessageReactionDisplayButton {
+								text: modelData.emoji
 								accentColor: bubble.backgroundColor
-								ownReactionIncluded: modelData.ownReactionIncluded
+								messageId: root.msgId
+								count: modelData.count
 								deliveryState: modelData.deliveryState
+								ownReactionIncluded: modelData.ownReactionIncluded
 								isOwnMessage: root.isOwn
-								text: modelData.count === 1 ? modelData.emoji : modelData.emoji + " " + modelData.count
-								width: smallButtonWidth + (text.length < 3 ? 0 : (text.length - 2) * Kirigami.Theme.defaultFont.pixelSize * 0.6)
-								onClicked: {
-									if (ownReactionIncluded &&
-										deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterSent &&
-										deliveryState !== MessageReactionDeliveryState.PendingRemovalAfterDelivered) {
-										MessageModel.removeMessageReaction(root.msgId, modelData.emoji)
-									} else {
-										MessageModel.addMessageReaction(root.msgId, modelData.emoji)
-									}
-								}
 							}
 						}
 
@@ -250,13 +344,36 @@ Kirigami.SwipeListItem {
 							emojiPicker: root.reactionEmojiPicker
 						}
 
-						MessageReactionDetailsButton {
-							accentColor: bubble.backgroundColor
-							messageId: root.msgId
-							isOwnMessage: root.isOwn
-							detailedReactions: root.detailedReactions
-							ownDetailedReactions: root.ownDetailedReactions
-							detailsSheet: root.reactionDetailsSheet
+						Loader {
+							id: messageReactionDetailsButtonLoader
+							sourceComponent: root.detailedReactions && root.detailedReactions.length ? messageReactionDetailsButton : undefined
+
+							Component {
+								id: messageReactionDetailsButton
+
+								MessageReactionDetailsButton {
+									accentColor: bubble.backgroundColor
+									messageId: root.msgId
+									isOwnMessage: root.isOwn
+									reactions: root.detailedReactions
+									detailsSheet: root.reactionDetailsSheet
+								}
+							}
+						}
+
+						Loader {
+							id: messageReactionRetryButtonLoader
+							sourceComponent: root.ownReactionsFailed ? messageReactionRetryButton : undefined
+
+							Component {
+								id: messageReactionRetryButton
+
+								MessageReactionRetryButton {
+									accentColor: bubble.backgroundColor
+									messageId: root.msgId
+									isOwnMessage: root.isOwn
+								}
+							}
 						}
 					}
 				}
@@ -270,7 +387,7 @@ Kirigami.SwipeListItem {
 
 		// Read marker text for own message
 		RowLayout {
-			visible: root.isLastRead && MessageModel.currentAccountJid !== MessageModel.currentChatJid
+			visible: root.isLastRead && ChatController.accountJid !== ChatController.chatJid
 			spacing: Kirigami.Units.smallSpacing * 3
 			Layout.topMargin: spacing
 			Layout.leftMargin: spacing

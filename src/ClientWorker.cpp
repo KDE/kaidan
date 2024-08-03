@@ -22,6 +22,8 @@
 #include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHttpUploadManager.h>
 #include <QXmppMamManager.h>
+#include <QXmppMixManager.h>
+#include "QXmppOmemoManager.h"
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppRosterManager.h>
@@ -40,16 +42,14 @@
 #include "AccountMigrationManager.h"
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
-#include "ChatHintModel.h"
 #include "DiscoveryManager.h"
+#include "EncryptionController.h"
 #include "Enums.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "LogHandler.h"
-#include "MessageHandler.h"
-#include "MessageModel.h"
-#include "OmemoCache.h"
-#include "OmemoManager.h"
+#include "MessageController.h"
+#include "OmemoDb.h"
 #include "PresenceCache.h"
 #include "RegistrationManager.h"
 #include "RosterManager.h"
@@ -66,10 +66,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 	  vCardCache(new VCardCache(parent)),
 	  accountManager(new AccountManager(settings, vCardCache, parent)),
 	  presenceCache(new PresenceCache(parent)),
-	  msgModel(new MessageModel(parent)),
 	  rosterModel(new RosterModel(parent)),
-	  chatHintModel(new ChatHintModel(parent)),
-	  omemoCache(new OmemoCache(parent)),
 	  avatarStorage(new AvatarFileStorage(parent)),
 	  serverFeaturesCache(new ServerFeaturesCache(parent))
 {
@@ -81,27 +78,30 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	  m_client(new QXmppClient(QXmppClient::NoExtensions, this)),
 	  m_logger(new LogHandler(m_client, enableLogging, this)),
 	  m_enableLogging(enableLogging),
-	  m_networkManager(new QNetworkAccessManager(this))
+	  m_networkManager(new QNetworkAccessManager(this)),
+	  m_omemoDb(new OmemoDb(database, this, {}, this))
 {
+	m_atmManager = new AtmManager(m_client, database, this);
+
 	m_client->addNewExtension<QXmppAccountMigrationManager>();
-	m_client->addNewExtension<QXmppRosterManager>(m_client);
-	m_client->addNewExtension<QXmppVCardManager>();
-	m_client->addNewExtension<QXmppVersionManager>();
-	m_client->addNewExtension<QXmppEntityTimeManager>();
-	m_client->addNewExtension<QXmppDiscoveryManager>();
+	m_client->addNewExtension<QXmppBlockingManager>();
 	m_client->addNewExtension<QXmppCarbonManagerV2>();
+	m_client->addNewExtension<QXmppDiscoveryManager>();
+	m_client->addNewExtension<QXmppEntityTimeManager>();
+	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 	m_client->addNewExtension<QXmppMamManager>();
 	m_client->addNewExtension<QXmppPubSubManager>();
+	m_client->addNewExtension<QXmppMixManager>();
+	m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
+	m_client->addNewExtension<QXmppMessageReceiptManager>();
+	m_client->addNewExtension<QXmppRosterManager>(m_client);
 	m_client->addNewExtension<QXmppUploadRequestManager>();
-	m_client->addNewExtension<QXmppBlockingManager>();
-	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
+	m_client->addNewExtension<QXmppVCardManager>();
+	m_client->addNewExtension<QXmppVersionManager>();
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
 	m_rosterManager = new RosterManager(this, m_client, this);
-	m_messageHandler = new MessageHandler(this, m_client, this);
-	m_atmManager = new AtmManager(m_client, database, this);
-	m_omemoManager = new OmemoManager(m_client, database, this);
 	m_discoveryManager = new DiscoveryManager(m_client, this);
 	m_versionManager = new VersionManager(m_client, this);
 	m_accountMigrationManager = new AccountMigrationManager(this, this);
@@ -179,26 +179,33 @@ void ClientWorker::logIn()
 {
 	const auto jid = AccountManager::instance()->jid();
 	m_atmManager->setAccountJid(jid);
-	m_omemoManager->setAccountJid(jid);
+	m_omemoDb->setAccountJid(jid);
 
-	await(m_omemoManager->load(), this, [this]() {
-		if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
-			// Store the latest online state which is restored when opening Kaidan again after closing.
-			m_caches->settings->setAuthOnline(true);
+	await(
+		EncryptionController::instance(),
+		[]() {
+			return EncryptionController::instance()->load();
+		},
+		this,
+		[this] () {
+			if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
+				// Store the latest online state which is restored when opening Kaidan again after closing.
+				m_caches->settings->setAuthOnline(true);
 
-			QXmppConfiguration config;
-			config.setResource(AccountManager::instance()->jidResource());
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
-			config.setCredentials(m_caches->settings->authCredentials());
-#endif
-			config.setPassword(AccountManager::instance()->password());
-			config.setAutoAcceptSubscriptions(false);
+				QXmppConfiguration config;
+				config.setResource(AccountManager::instance()->jidResource());
+	#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+				config.setCredentials(m_caches->settings->authCredentials());
+	#endif
+				config.setPassword(AccountManager::instance()->password());
+				config.setAutoAcceptSubscriptions(false);
 
-			connectToServer(config);
+				connectToServer(config);
+			}
+
+			m_isFirstLoginAfterStart = false;
 		}
-
-		m_isFirstLoginAfterStart = false;
-	});
+	);
 }
 
 void ClientWorker::connectToRegister()
@@ -281,9 +288,16 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 			AccountManager::instance()->setHasNewConnectionSettings(false);
 		}
 
-		await(m_omemoManager->unsubscribeFromDeviceLists(), this, [this] {
-			m_client->disconnectFromServer();
-		});
+		await(
+			EncryptionController::instance(),
+			[]() {
+				return EncryptionController::instance()->unload();
+			},
+			this,
+			[this]() {
+				m_client->disconnectFromServer();
+			}
+		);
 	}
 }
 
@@ -309,10 +323,17 @@ void ClientWorker::deleteAccountFromClient()
 		AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
 		m_isAccountToBeDeletedFromClient = false;
 	} else {
-		await(m_omemoManager->reset(), this, [this]() {
-			m_isAccountToBeDeletedFromClient = true;
-			logOut();
-		});
+		await(
+			EncryptionController::instance(),
+			[]() {
+				return EncryptionController::instance()->reset();
+			},
+			this,
+			[this]() {
+				m_isAccountToBeDeletedFromClient = true;
+				logOut();
+			}
+		);
 	}
 }
 
@@ -373,7 +394,10 @@ void ClientWorker::onConnected()
 	// automatically in case of a connection outage.
 	m_client->configuration().setAutoReconnectionEnabled(true);
 
-	m_messageHandler->sendPendingMessages();
+	// Send message that could not be sent yet because the client was offline.
+	runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+		MessageController::instance()->sendPendingMessages();
+	});
 
 	// Send read markers that could not be sent yet because the client was offline.
 	runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
@@ -381,11 +405,13 @@ void ClientWorker::onConnected()
 	});
 
 	// Send message reactions that could not be sent yet because the client was offline.
-	runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
-		MessageModel::instance()->sendPendingMessageReactions(jid);
+	runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+		MessageController::instance()->sendPendingMessageReactions(jid);
 	});
 
-	m_omemoManager->setUp();
+	runOnThread(EncryptionController::instance(), []() {
+		EncryptionController::instance()->setUp();
+	});
 }
 
 void ClientWorker::onDisconnected()

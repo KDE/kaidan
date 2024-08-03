@@ -9,15 +9,15 @@
 
 // Kaidan
 #include "Algorithms.h"
+#include "ChatController.h"
 #include "FileSharingController.h"
 #include "Kaidan.h"
-#include "MessageHandler.h"
-#include "MessageModel.h"
 #include "MediaUtils.h"
+#include "MessageController.h"
 #include "MessageDb.h"
 #include "QmlUtils.h"
+#include "RosterModel.h"
 #include "ServerFeaturesCache.h"
-
 // Qt
 #include <QFileDialog>
 #include <QFutureWatcher>
@@ -114,28 +114,28 @@ void MessageComposition::send()
 	Q_ASSERT(!m_accountJid.isNull());
 	Q_ASSERT(!m_chatJid.isNull());
 
-	Message message {
-		.accountJid = m_accountJid,
-		.chatJid = m_chatJid,
-		.senderId = m_accountJid,
-		.id = QXmppUtils::generateStanzaUuid(),
-		.originId = message.id,
-		.stanzaId = {},
-		.replaceId = {},
-		.timestamp = QDateTime::currentDateTimeUtc(),
-		.body = m_body,
-		.encryption = MessageModel::instance()->activeEncryption(),
-		.senderKey = {},
-		.deliveryState = DeliveryState::Pending,
-		.isSpoiler = m_spoiler,
-		.spoilerHint = m_spoilerHint,
-		.fileGroupId = {},
-		.files = m_fileSelectionModel->files(),
-		.markerId = {},
-		.receiptRequested = true,
-		.reactionSenders = {},
-		.errorText = {},
-	};
+	Message message;
+
+	message.accountJid = m_accountJid;
+	message.chatJid = m_chatJid;
+	message.isOwn = true;
+
+	if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid)) {
+		message.groupChatSenderId = rosterItem->groupChatParticipantId;
+	}
+
+	const auto originId = QXmppUtils::generateStanzaUuid();
+	message.id = originId;
+	message.originId = originId;
+
+	message.timestamp = QDateTime::currentDateTimeUtc();
+	message.body = m_body;
+	message.encryption = ChatController::instance()->activeEncryption();
+	message.deliveryState = DeliveryState::Pending;
+	message.isSpoiler = m_spoiler;
+	message.spoilerHint = m_spoilerHint;
+	message.files = m_fileSelectionModel->files();
+	message.receiptRequested = true;
 
 	// generate file IDs if needed
 	if (m_fileSelectionModel->hasFiles()) {
@@ -172,9 +172,7 @@ void MessageComposition::send()
 				});
 
 				// send message with file sources
-				runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
-					Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
-				});
+				MessageController::instance()->sendPendingMessage(std::move(message));
 			} else {
 				// uploading did not succeed
 				auto errorText = std::get<QXmppError>(std::move(result)).description;
@@ -188,14 +186,60 @@ void MessageComposition::send()
 		m_fileSelectionModel->clear();
 	} else {
 		// directly send message
-		runOnThread(Kaidan::instance()->client(), [message = std::move(message)]() mutable {
-			Kaidan::instance()->client()->messageHandler()->sendPendingMessage(std::move(message));
-		});
+		MessageController::instance()->sendPendingMessage(std::move(message));
 	}
 
 	// clean up
 	setSpoiler(false);
 	setIsDraft(false);
+}
+
+void MessageComposition::correct()
+{
+	MessageDb::instance()->updateMessage(m_replaceId, [this, replaceId = m_replaceId, body = m_body, spoilerHint = m_spoilerHint](Message &message) {
+		message.body = body;
+		message.isSpoiler = !spoilerHint.isEmpty();
+		message.spoilerHint = spoilerHint;
+
+		if (message.deliveryState != Enums::DeliveryState::Pending) {
+			message.id = QXmppUtils::generateStanzaUuid();
+
+			// Set "replaceId" only on first correction.
+			// That way, "replaceId" stays the ID of the originally corrected message.
+			if (message.replaceId.isEmpty()) {
+				message.replaceId = replaceId;
+			}
+
+			message.deliveryState = Enums::DeliveryState::Pending;
+
+			runOnThread(this, [this, message]() mutable {
+				if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
+					// the trick with the time is important for the servers
+					// this way they can tell which version of the message is the latest
+					message.timestamp = QDateTime::currentDateTimeUtc();
+
+					await(MessageController::instance()->send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult &&result) {
+						if (std::holds_alternative<QXmppError>(result)) {
+							// TODO store in the database only error codes, assign text messages right in the QML
+							Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
+
+							MessageDb::instance()->updateMessage(messageId, [](Message &message) {
+								message.deliveryState = DeliveryState::Error;
+								message.errorText = QStringLiteral("Message correction was not successful");
+							});
+						} else {
+							MessageDb::instance()->updateMessage(messageId, [](Message &message) {
+								message.deliveryState = DeliveryState::Sent;
+								message.errorText.clear();
+							});
+						}
+					});
+				}
+			});
+		} else if (message.replaceId.isEmpty()) {
+			message.timestamp = QDateTime::currentDateTimeUtc();
+		}
+	});
 }
 
 void MessageComposition::loadDraft()

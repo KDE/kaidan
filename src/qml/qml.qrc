@@ -5,7 +5,6 @@
         <file>DeviceSwitchingPage.qml</file>
         <file>EmptyChatPage.qml</file>
         <file>GlobalDrawer.qml</file>
-        <file>KeyAuthenticationPage.qml</file>
         <file>QrCodeOnboardingPage.qml</file>
         <file>RosterPage.qml</file>
         <file>SettingsStack.qml</file>
@@ -23,7 +22,18 @@
         <file>details/DetailsHeader.qml</file>
         <file>details/DetailsPage.qml</file>
         <file>details/DetailsSheet.qml</file>
+        <file>details/GroupChatDetailsContent.qml</file>
+        <file>details/GroupChatDetailsHeader.qml</file>
+        <file>details/GroupChatDetailsPage.qml</file>
+        <file>details/GroupChatDetailsSheet.qml</file>
         <file>details/MediaOverview.qml</file>
+        <file>details/NotesChatDetailsContent.qml</file>
+        <file>details/NotesChatDetailsPage.qml</file>
+        <file>details/NotesChatDetailsSheet.qml</file>
+        <file>details/RosterItemDetailsContent.qml</file>
+        <file>details/RosterItemDetailsHeader.qml</file>
+        <file>elements/AccountKeyAuthenticationPage.qml</file>
+        <file>elements/AccountQrCode.qml</file>
         <file>elements/Avatar.qml</file>
         <file>elements/BinaryDecisionPage.qml</file>
         <file>elements/Button.qml</file>
@@ -43,9 +53,11 @@
         <file>elements/ContactAdditionDialog.qml</file>
         <file>elements/ContactAdditionPage.qml</file>
         <file>elements/ContactAdditionQrCodePage.qml</file>
+        <file>elements/ContactKeyAuthenticationPage.qml</file>
+        <file>elements/ContactQrCode.qml</file>
         <file>elements/DataForm.qml</file>
         <file>elements/EmojiPicker.qml</file>
-        <file>elements/EncryptionDevicesArea.qml</file>
+        <file>elements/EncryptionKeysArea.qml</file>
         <file>elements/ExplainedContentPage.qml</file>
         <file>elements/ExplanationArea.qml</file>
         <file>elements/ExplanationOptionsTogglePage.qml</file>
@@ -53,10 +65,25 @@
         <file>elements/FormExpansionButton.qml</file>
         <file>elements/FormattedTextArea.qml</file>
         <file>elements/FormattedTextEdit.qml</file>
+        <file>elements/GroupChatContactInvitationItem.qml</file>
+        <file>elements/GroupChatCreationContent.qml</file>
+        <file>elements/GroupChatCreationDialog.qml</file>
+        <file>elements/GroupChatCreationPage.qml</file>
+        <file>elements/GroupChatJoiningContent.qml</file>
+        <file>elements/GroupChatJoiningDialog.qml</file>
+        <file>elements/GroupChatJoiningPage.qml</file>
+        <file>elements/GroupChatQrCode.qml</file>
+        <file>elements/GroupChatUserItem.qml</file>
+        <file>elements/GroupChatUserKeyAuthenticationPage.qml</file>
+        <file>elements/HorizontalSeparator.qml</file>
         <file>elements/IconTopButton.qml</file>
+        <file>elements/KeyAuthenticationPage.qml</file>
+        <file>elements/ListViewSearchField.qml</file>
+        <file>elements/ListViewSectionDelegate.qml</file>
         <file>elements/LoadingArea.qml</file>
         <file>elements/LoadingStackArea.qml</file>
         <file>elements/LoginArea.qml</file>
+        <file>elements/LoginQrCode.qml</file>
         <file>elements/MediaPreview.qml</file>
         <file>elements/MediaPreviewAudio.qml</file>
         <file>elements/MediaPreviewImage.qml</file>
@@ -68,9 +95,9 @@
         <file>elements/MessageCounter.qml</file>
         <file>elements/MessageReactionAdditionButton.qml</file>
         <file>elements/MessageReactionButton.qml</file>
+        <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionDetailsButton.qml</file>
         <file>elements/MessageReactionDetailsSheet.qml</file>
-        <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionEmojiPicker.qml</file>
         <file>elements/NewMedia.qml</file>
         <file>elements/NewMediaLoader.qml</file>
@@ -85,7 +112,6 @@
         <file>elements/RoundedRectangle.qml</file>
         <file>elements/ScalableText.qml</file>
         <file>elements/SearchBarPage.qml</file>
-        <file>elements/SearchBarPageSearchField.qml</file>
         <file>elements/SearchPublicGroupChatSheet.qml</file>
         <file>elements/SelectablePreview.qml</file>
         <file>elements/SelectionMarker.qml</file>
@@ -93,7 +119,9 @@
         <file>elements/TextFieldCompleter.qml</file>
         <file>elements/UrlFormButtonDelegate.qml</file>
         <file>elements/UserDeviceList.qml</file>
+        <file>elements/UserKeyAuthenticationPage.qml</file>
         <file>elements/UserListItem.qml</file>
+        <file>elements/UserListItemSelectionMarker.qml</file>
         <file>elements/fields/CredentialsField.qml</file>
         <file>elements/fields/Field.qml</file>
         <file>elements/fields/JidField.qml</file>
@@ -125,5 +153,6 @@
         <file>settings/SettingsPage.qml</file>
         <file>settings/SettingsPageBase.qml</file>
         <file>settings/SettingsSheet.qml</file>
+        <file>elements/MessageReactionRetryButton.qml</file>
     </qresource>
 </RCC>

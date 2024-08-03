@@ -27,6 +27,9 @@ struct RosterItem
 	Q_PROPERTY(QString displayName READ displayName CONSTANT)
 	Q_PROPERTY(bool sendingPresence READ isSendingPresence CONSTANT)
 	Q_PROPERTY(bool receivingPresence READ isReceivingPresence CONSTANT)
+	Q_PROPERTY(bool isGroupChat READ isGroupChat CONSTANT)
+	Q_PROPERTY(bool isPublicGroupChat READ isPublicGroupChat CONSTANT)
+	Q_PROPERTY(bool isDeletedGroupChat READ isDeletedGroupChat CONSTANT)
 	Q_PROPERTY(QVector<QString> groups MEMBER groups)
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
@@ -46,6 +49,16 @@ public:
 	};
 	Q_ENUM(AutomaticMediaDownloadsRule)
 
+	/**
+	 * Flag of a group chat.
+	 */
+	enum class GroupChatFlag {
+		Public = 1, ///< The roster item is a public group chat.
+		Deleted = 2 ///< The roster item is a deleted group chat.
+	};
+	Q_ENUM(GroupChatFlag)
+	Q_DECLARE_FLAGS(GroupChatFlags, GroupChatFlag)
+
 	RosterItem() = default;
 	RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item);
 
@@ -53,6 +66,10 @@ public:
 
 	bool isSendingPresence() const;
 	bool isReceivingPresence() const;
+
+	bool isGroupChat() const;
+	bool isPublicGroupChat() const;
+	bool isDeletedGroupChat() const;
 
 	bool operator==(const RosterItem &other) const = default;
 	bool operator!=(const RosterItem &other) const = default;
@@ -77,6 +94,18 @@ public:
 	// Roster groups (i.e., labels) used for filtering (e.g., "Family", "Friends" etc.).
 	QVector<QString> groups;
 
+	// ID in this group chat.
+	QString groupChatParticipantId;
+
+	// Name of this group chat.
+	QString groupChatName;
+
+	// Description of this group chat.
+	QString groupChatDescription;
+
+	// Flags of this group chat.
+	GroupChatFlags groupChatFlags;
+
 	// End-to-end encryption used for this roster item.
 	Encryption::Enum encryption = Encryption::Omemo2;
 
@@ -94,14 +123,27 @@ public:
 	// Delivery state of the last message.
 	Enums::DeliveryState lastMessageDeliveryState;
 
-	// JID of the Last message's sender.
-	QString lastMessageSenderId;
+	// Whether the last message is an own message.
+	bool lastMessageIsOwn = false;
 
-	// Last message i.e read by the receiver.
+	// Name of the last message's sender.
+	QString lastMessageGroupChatSenderName;
+
+	// ID of the last message read by the contact.
 	QString lastReadOwnMessageId;
 
-	// Last message i.e read by the user.
+	// ID of the last message read by the user.
 	QString lastReadContactMessageId;
+
+	// Stanza ID of the latest message stanza in a group chat.
+	// It can also be of a message stanza that is not displayed as a regular message (e.g., a read
+	// marker).
+	QString latestGroupChatMessageStanzaId;
+
+	// Timestamp of the latest message stanza in a group chat.
+	// It can also be of a message stanza that is not displayed as a regular message (e.g., a read
+	// marker).
+	QDateTime latestGroupChatMessageStanzaTimestamp;
 
 	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
 	bool readMarkerPending = false;
@@ -111,6 +153,9 @@ public:
 	// The first pinned item has the position 0.
 	// -1 is used for unpinned items.
 	int pinningPosition = -1;
+
+	// Whether the item is selected.
+	bool selected = false;
 
 	// Whether chat states are sent to this roster item.
 	bool chatStateSendingEnabled = true;
@@ -127,3 +172,4 @@ public:
 
 Q_DECLARE_METATYPE(RosterItem)
 Q_DECLARE_METATYPE(RosterItem::AutomaticMediaDownloadsRule)
+Q_DECLARE_METATYPE(RosterItem::GroupChatFlags)

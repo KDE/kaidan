@@ -17,25 +17,23 @@ MessageReactionButton {
 
 	property string messageId
 	property bool isOwnMessage
-	property var detailedReactions
-	property var ownDetailedReactions
+	property var reactions
 	property MessageReactionDetailsSheet detailsSheet
 
+	text: qsTr("Show details")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
 	contentItem: Kirigami.Icon {
 		source: "view-more-symbolic"
 	}
 	onClicked: {
 		detailsSheet.messageId = messageId
-		detailsSheet.isOwnMessage = isOwnMessage
-		detailsSheet.detailedReactions = detailedReactions
-		detailsSheet.ownDetailedReactions = ownDetailedReactions
+		detailsSheet.reactions = reactions
 		detailsSheet.open()
 	}
-	onDetailedReactionsChanged: {
-		detailsSheet.detailedReactions = detailedReactions
+	onReactionsChanged: {
+		if (detailsSheet.messageId === messageId) {
+			detailsSheet.reactions = reactions
+		}
 	}
-	onOwnDetailedReactionsChanged: {
-		detailsSheet.ownDetailedReactions = ownDetailedReactions
-	}
+	Controls.ToolTip.text: text
 }

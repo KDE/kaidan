@@ -56,11 +56,11 @@ ExplanationOptionsTogglePage {
 		}
 	}
 	explanationAreaBackground.opacity: 1
-	primaryArea: QrCode {
+	primaryArea: LoginQrCode {
+		jid: AccountManager.jid
 		width: Math.min(largeButtonWidth, parent.width, parent.height)
 		height: width
 		anchors.centerIn: parent
-		isForLogin: true
 	}
 	secondaryArea: Kirigami.FormLayout {
 		anchors.centerIn: parent

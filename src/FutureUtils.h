@@ -203,3 +203,23 @@ QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
 
 	return interface.future();
 }
+
+// Creates a future for multiple futures without a return value.
+template <typename T>
+QFuture<void> joinVoidFutures(QObject *context, QVector<QFuture<T>> &&futures)
+{
+	int futureCount = futures.size();
+	auto finishedFutureCount = std::make_shared<int>();
+
+	QFutureInterface<void> interface;
+
+	for (auto future : futures) {
+		await(future, context, [=]() mutable {
+			if(++(*finishedFutureCount) == futureCount) {
+				interface.reportFinished();
+			}
+		});
+	}
+
+	return interface.future();
+}

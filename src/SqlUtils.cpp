@@ -24,10 +24,17 @@ void prepareQuery(QSqlQuery &query, const QString &sql)
 	}
 }
 
-void bindValues(QSqlQuery &query, const std::vector<QueryBindValue> &values)
+void bindValues(QSqlQuery &query, const QueryBindValues &values)
 {
-	for (const auto &bindValue : values) {
-		query.bindValue(bindValue.key.toString(), bindValue.value);
+	for (auto itr = values.cbegin(); itr != values.cend(); ++itr) {
+		query.bindValue(itr.key().toString(), *itr);
+	}
+}
+
+void bindOrderedValues(QSqlQuery &query, const QList<QVariant> &values)
+{
+	for (const auto &value : values) {
+		query.addBindValue(value);
 	}
 }
 
@@ -43,6 +50,21 @@ void execQuery(QSqlQuery &query, const QString &sql)
 {
 	prepareQuery(query, sql);
 	execQuery(query);
+}
+
+void addFieldsToRecord(QSqlRecord &record, const QueryBindValues &values)
+{
+	for (auto itr = values.cbegin(); itr != values.cend(); ++itr) {
+		record.append(createSqlField(itr.key().toString(), *itr));
+	}
+}
+
+void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &columnNames)
+{
+	for (const auto &columnName : columnNames) {
+		const auto columnNameString = columnName.toString();
+		record.append(createSqlField(columnNameString, ':' + columnNameString));
+	}
 }
 
 QSqlField createSqlField(const QString &key, const QVariant &val)
@@ -114,4 +136,5 @@ QDateTime parseDateTime(QSqlQuery &query, int index)
 {
 	return parseOptDateTime(query, index).value_or(QDateTime());
 }
+
 }

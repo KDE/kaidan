@@ -20,17 +20,82 @@ ColumnLayout {
 
 	spacing: 0
 
-	MobileForm.FormCard {
+	ListView {
+		id: typeListView
+		model: [
+			{
+				display: qsTr("Unavailable contacts"),
+				value: RosterFilterProxyModel.Type.UnavailableContact
+			},
+			{
+				display: qsTr("Available contacts"),
+				value: RosterFilterProxyModel.Type.AvailableContact
+			},
+			{
+				display: qsTr("Private groups"),
+				value: RosterFilterProxyModel.Type.PrivateGroupChat
+			},
+			{
+				display: qsTr("Public groups"),
+				value: RosterFilterProxyModel.Type.PublicGroupChat
+			}
+		]
 		implicitWidth: 570
+		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		Kirigami.Theme.colorSet: Kirigami.Theme.Window
-		contentItem: MobileForm.FormSwitchDelegate {
-			id: chatFilteringSwitch
-			text: qsTr("Filter by availability")
-			description: qsTr("Show only available contacts")
-			checked: root.rosterFilterProxyModel.onlyAvailableContactsShown
-			onToggled: root.rosterFilterProxyModel.onlyAvailableContactsShown = checked
+		header: MobileForm.FormCard {
+			width: ListView.view.width
+			Kirigami.Theme.colorSet: Kirigami.Theme.Window
+			contentItem: MobileForm.FormSwitchDelegate {
+				id: typeFilteringSwitch
+				text: qsTr("Filter by type")
+				description: qsTr("Show only entries of specific types")
+				enabled: checked
+				checked: root.rosterFilterProxyModel.displayedTypes
+				onToggled: root.rosterFilterProxyModel.resetDisplayedTypes()
+
+				// TODO: Remove this once fixed in Kirigami Addons.
+				// Add a connection as a work around to reset the switch because
+				// "MobileForm.FormSwitchDelegate" does not listen to changes of
+				// "root.rosterFilterProxyModel".
+				Connections {
+					target: root.rosterFilterProxyModel
+
+					function onDisplayedTypesChanged() {
+						typeFilteringSwitch.checked = root.rosterFilterProxyModel.displayedTypes
+					}
+				}
+			}
 		}
+		delegate: MobileForm.FormSwitchDelegate {
+			id: typeDelegate
+			text: modelData.display
+			checked: root.rosterFilterProxyModel.displayedTypes & modelData.value
+			width: ListView.view.width
+			onToggled: {
+				if (checked) {
+					root.rosterFilterProxyModel.addDisplayedType(modelData.value)
+				} else {
+					root.rosterFilterProxyModel.removeDisplayedType(modelData.value)
+				}
+			}
+
+			// TODO: Remove this once fixed in Kirigami Addons.
+			// Add a connection as a work around to reset the switch because
+			// "MobileForm.FormSwitchDelegate" does not listen to changes of
+			// "root.rosterFilterProxyModel".
+			Connections {
+				target: root.rosterFilterProxyModel
+
+				function onDisplayedTypesChanged() {
+					typeDelegate.checked = root.rosterFilterProxyModel.displayedTypes & modelData.value
+				}
+			}
+		}
+	}
+
+	HorizontalSeparator {
+		visible: !Kirigami.Settings.isMobile && accountListView.visible
 	}
 
 	ListView {
@@ -105,10 +170,8 @@ ColumnLayout {
 		}
 	}
 
-	Kirigami.Separator {
-		visible: !Kirigami.Settings.isMobile
-		implicitHeight: Kirigami.Units.smallSpacing
-		Layout.fillWidth: true
+	HorizontalSeparator {
+		visible: !Kirigami.Settings.isMobile && groupListView.visible
 	}
 
 	ListView {

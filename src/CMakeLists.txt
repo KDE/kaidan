@@ -10,6 +10,8 @@ add_executable(${PROJECT_NAME} WIN32)
 
 target_sources(${PROJECT_NAME} PRIVATE
     AbstractNotifier.h
+    AbstractQrCodeGenerator.cpp
+    AbstractQrCodeGenerator.h
     Account.cpp
     Account.h
     AccountDb.cpp
@@ -18,11 +20,19 @@ target_sources(${PROJECT_NAME} PRIVATE
     AccountManager.h
     AccountMigrationManager.cpp
     AccountMigrationManager.h
+    AccountQrCodeGenerator.cpp
+    AccountQrCodeGenerator.h
+    AccountTrustMessageUriGenerator.cpp
+    AccountTrustMessageUriGenerator.h
     Algorithms.h
     AtmManager.cpp
     AtmManager.h
     AudioDeviceModel.cpp
     AudioDeviceModel.h
+    AuthenticatableEncryptionKeyModel.cpp
+    AuthenticatableEncryptionKeyModel.h
+    AuthenticatedEncryptionKeyModel.cpp
+    AuthenticatedEncryptionKeyModel.h
     AvatarFileStorage.cpp
     AvatarFileStorage.h
     BitsOfBinaryImageProvider.cpp
@@ -33,10 +43,16 @@ target_sources(${PROJECT_NAME} PRIVATE
     CameraImageCapture.h
     CameraModel.cpp
     CameraModel.h
+    ChatController.cpp
+    ChatController.h
     ChatHintModel.cpp
     ChatHintModel.h
     ClientWorker.cpp
     ClientWorker.h
+    ContactQrCodeGenerator.cpp
+    ContactQrCodeGenerator.h
+    ContactTrustMessageUriGenerator.cpp
+    ContactTrustMessageUriGenerator.h
     CredentialsGenerator.cpp
     CredentialsGenerator.h
     CredentialsValidator.cpp
@@ -52,6 +68,12 @@ target_sources(${PROJECT_NAME} PRIVATE
     EmojiModel.cpp
     EmojiModel.h
     Encryption.h
+    EncryptionController.cpp
+    EncryptionController.h
+    EncryptionKeyModel.cpp
+    EncryptionKeyModel.h
+    EncryptionWatcher.cpp
+    EncryptionWatcher.h
     Enums.h
     FileModel.cpp
     FileModel.h
@@ -63,6 +85,20 @@ target_sources(${PROJECT_NAME} PRIVATE
     FileSharingController.h
     FutureUtils.h
     Globals.h
+    GroupChatController.cpp
+    GroupChatController.h
+    GroupChatQrCodeGenerator.cpp
+    GroupChatQrCodeGenerator.h
+    GroupChatUser.cpp
+    GroupChatUser.h
+    GroupChatUserDb.cpp
+    GroupChatUserDb.h
+    GroupChatUserFilterModel.cpp
+    GroupChatUserFilterModel.h
+    GroupChatUserKeyAuthenticationFilterModel.cpp
+    GroupChatUserKeyAuthenticationFilterModel.h
+    GroupChatUserModel.cpp
+    GroupChatUserModel.h
     GuiStyle.h
     HostCompletionModel.cpp
     HostCompletionModel.h
@@ -74,6 +110,8 @@ target_sources(${PROJECT_NAME} PRIVATE
     JsonUtils.h
     Kaidan.cpp
     Kaidan.h
+    LoginQrCodeGenerator.cpp
+    LoginQrCodeGenerator.h
     LogHandler.cpp
     LogHandler.h
     main.cpp
@@ -90,22 +128,20 @@ target_sources(${PROJECT_NAME} PRIVATE
     MessageDb.cpp
     MessageDb.h
     Message.h
-    MessageHandler.cpp
-    MessageHandler.h
+    MessageController.cpp
+    MessageController.h
     MessageModel.cpp
     MessageModel.h
+    MessageReactionModel.cpp
+    MessageReactionModel.h
+    MixController.cpp
+    MixController.h
     Notifications.cpp
     Notifications.h
-    OmemoCache.cpp
-    OmemoCache.h
+    OmemoController.cpp
+    OmemoController.h
     OmemoDb.cpp
     OmemoDb.h
-    OmemoManager.cpp
-    OmemoManager.h
-    OmemoModel.cpp
-    OmemoModel.h
-    OmemoWatcher.cpp
-    OmemoWatcher.h
     PresenceCache.cpp
     PresenceCache.h
     ProviderListItem.cpp
@@ -124,8 +160,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     QmlUtils.h
     QrCodeDecoder.cpp
     QrCodeDecoder.h
-    QrCodeGenerator.cpp
-    QrCodeGenerator.h
     QrCodeScannerFilter.cpp
     QrCodeScannerFilter.h
     QrCodeVideoFrame.cpp
@@ -170,6 +204,8 @@ target_sources(${PROJECT_NAME} PRIVATE
     TextFormatter.cpp
     TrustDb.cpp
     TrustDb.h
+    TrustMessageUriGenerator.cpp
+    TrustMessageUriGenerator.h
     UserDevicesModel.cpp
     UserDevicesModel.h
     VCardCache.cpp

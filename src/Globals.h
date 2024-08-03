@@ -54,6 +54,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_MESSAGES "messages"
 #define DB_VIEW_CHAT_MESSAGES "chatMessages"
 #define DB_VIEW_DRAFT_MESSAGES "draftMessages"
+#define DB_TABLE_GROUP_CHAT_USERS "groupChatUsers"
 #define DB_TABLE_FILES "files"
 #define DB_TABLE_FILE_HASHES "fileHashes"
 #define DB_TABLE_FILE_HTTP_SOURCES "fileHttpSources"
@@ -70,6 +71,7 @@ constexpr auto MESSAGE_MAX_CHARS = 1e4;
 #define DB_TABLE_OMEMO_SIGNED_PRE_KEY_PAIRS "omemoPreKeyPairsSigned"
 #define DB_TABLE_ROSTER_GROUPS "rosterGroups"
 #define DB_QUERY_LIMIT_MESSAGES 20
+#define DB_QUERY_LIMIT_GROUP_CHAT_USERS 80
 
 //
 // Credential generation
@@ -134,6 +136,8 @@ constexpr int ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE = 8;
 constexpr QStringView ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR = u" ";
 
 // XMPP
+// TODO: Find a solution to not define namespaces in Kaidan
 inline constexpr QStringView XMLNS_SFS = u"urn:xmpp:sfs:0";
+const auto XMLNS_OMEMO_2 = QStringLiteral("urn:xmpp:omemo:2");
 
 #endif // GLOBALS_H

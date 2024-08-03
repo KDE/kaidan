@@ -11,16 +11,30 @@ class RosterFilterProxyModel : public QSortFilterProxyModel
 {
 	Q_OBJECT
 
-	Q_PROPERTY(bool onlyAvailableContactsShown READ onlyAvailableContactsShown WRITE setOnlyAvailableContactsShown NOTIFY onlyAvailableContactsShownChanged)
+	Q_PROPERTY(Types displayedTypes READ displayedTypes NOTIFY displayedTypesChanged)
 	Q_PROPERTY(QVector<QString> selectedAccountJids READ selectedAccountJids WRITE setSelectedAccountJids NOTIFY selectedAccountJidsChanged)
 	Q_PROPERTY(QVector<QString> selectedGroups READ selectedGroups WRITE setSelectedGroups NOTIFY selectedGroupsChanged)
+	Q_PROPERTY(bool groupChatsExcluded READ groupChatsExcluded WRITE setGroupChatsExcluded NOTIFY groupChatsExcludedChanged)
+	Q_PROPERTY(bool groupChatUsersExcluded READ groupChatUsersExcluded WRITE setGroupChatUsersExcluded NOTIFY groupChatUsersExcludedChanged)
 
 public:
+	enum class Type {
+		UnavailableContact = 1 << 0,
+		AvailableContact = 1 << 1,
+		PrivateGroupChat = 1 << 2,
+		PublicGroupChat = 1 << 3,
+	};
+	Q_ENUM(Type)
+	Q_DECLARE_FLAGS(Types, Type)
+	Q_FLAGS(Types)
+
 	RosterFilterProxyModel(QObject *parent = nullptr);
 
-	void setOnlyAvailableContactsShown(bool onlyAvailableContactsShown);
-	bool onlyAvailableContactsShown() const;
-	Q_SIGNAL void onlyAvailableContactsShownChanged();
+	Q_INVOKABLE void addDisplayedType(RosterFilterProxyModel::Type type);
+	Q_INVOKABLE void removeDisplayedType(RosterFilterProxyModel::Type type);
+	Q_INVOKABLE void resetDisplayedTypes();
+	Types displayedTypes() const;
+	Q_SIGNAL void displayedTypesChanged();
 
 	void setSelectedAccountJids(const QVector<QString> &selectedAccountJids);
 	QVector<QString> selectedAccountJids() const;
@@ -30,10 +44,23 @@ public:
 	QVector<QString> selectedGroups() const;
 	Q_SIGNAL void selectedGroupsChanged();
 
+	void setGroupChatsExcluded(bool groupChatsExcluded);
+	bool groupChatsExcluded();
+	Q_SIGNAL void groupChatsExcludedChanged();
+
+	void setGroupChatUsersExcluded(bool groupChatUsersExcluded);
+	bool groupChatUsersExcluded();
+	Q_SIGNAL void groupChatUsersExcludedChanged();
+
 	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
+	void updateGroupChatUserJids();
+
+	Types m_displayedTypes;
 	QVector<QString> m_selectedAccountJids;
 	QVector<QString> m_selectedGroups;
-	bool m_onlyAvailableContactsShown = false;
+	QVector<QString> m_groupChatUserJids;
+	bool m_groupChatsExcluded = false;
+	bool m_groupChatUsersExcluded = false;
 };

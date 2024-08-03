@@ -28,7 +28,9 @@ public:
 	using SecurityPolicy = QXmpp::TrustSecurityPolicy;
 
 	explicit TrustDb(Database *database, QObject *xmppContext, QString accountJid, QObject *parent = nullptr);
-	~TrustDb() override = default;
+	~TrustDb() override;
+
+	static TrustDb *instance();
 
 	// Not thread-safe (but this shouldn't be a problem if it's only used from one place)
 	inline QString accountJid() const
@@ -65,6 +67,8 @@ public:
 
 	auto trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
 		-> QXmppTask<QXmpp::TrustLevel> override;
+	auto _trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId)
+		-> QXmpp::TrustLevel;
 	auto setTrustLevel(const QString &encryption,
 		const QMultiHash<QString, QByteArray> &keyIds,
 		QXmpp::TrustLevel trustLevel) -> QXmppTask<TrustChanges> override;
@@ -103,4 +107,6 @@ private:
 
 	QObject *m_xmppContext;
 	QString m_accountJid;
+
+	static TrustDb *s_instance;
 };

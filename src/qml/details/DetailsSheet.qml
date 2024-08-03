@@ -12,6 +12,7 @@ Kirigami.OverlaySheet {
 	id: root
 
 	default property alias __data: mainArea.data
+	property string jid
 
 	topPadding: 0
 	bottomPadding: 0

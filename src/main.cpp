@@ -27,6 +27,8 @@
 // QXmpp
 #include <QXmppClient.h>
 #include <QXmppDiscoveryIq.h>
+#include <QXmppMixInfoItem.h>
+#include <QXmppMixParticipantItem.h>
 #include <QXmppVCardIq.h>
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
@@ -37,43 +39,53 @@
 // Kaidan
 #include "AccountManager.h"
 #include "AccountMigrationManager.h"
+#include "AccountQrCodeGenerator.h"
 #include "AudioDeviceModel.h"
 #include "AtmManager.h"
+#include "AuthenticatableEncryptionKeyModel.h"
+#include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarFileStorage.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "Blocking.h"
 #include "CameraModel.h"
+#include "ChatController.h"
 #include "ChatHintModel.h"
+#include "ContactQrCodeGenerator.h"
 #include "CredentialsGenerator.h"
 #include "CredentialsValidator.h"
 #include "DataFormModel.h"
 #include "DiscoveryManager.h"
 #include "EmojiModel.h"
 #include "Encryption.h"
+#include "EncryptionController.h"
+#include "EncryptionWatcher.h"
 #include "Enums.h"
 #include "FileModel.h"
 #include "FileProgressCache.h"
 #include "FileProxyModel.h"
 #include "FileSharingController.h"
+#include "GroupChatController.h"
+#include "GroupChatQrCodeGenerator.h"
+#include "GroupChatUser.h"
+#include "GroupChatUserFilterModel.h"
+#include "GroupChatUserKeyAuthenticationFilterModel.h"
+#include "GroupChatUserModel.h"
 #include "GuiStyle.h"
 #include "HostCompletionModel.h"
 #include "HostCompletionProxyModel.h"
 #include "Kaidan.h"
+#include "LoginQrCodeGenerator.h"
 #include "MediaRecorder.h"
 #include "MediaUtils.h"
 #include "Message.h"
 #include "MessageComposition.h"
-#include "MessageHandler.h"
 #include "MessageModel.h"
-#include "OmemoModel.h"
-#include "OmemoManager.h"
-#include "OmemoWatcher.h"
+#include "MessageReactionModel.h"
 #include "ProviderListModel.h"
 #include "PublicGroupChatModel.h"
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
-#include "QrCodeGenerator.h"
 #include "QrCodeScannerFilter.h"
 #include "RecentPicturesModel.h"
 #include "RegistrationDataFormFilterModel.h"
@@ -106,6 +118,7 @@ Q_DECLARE_METATYPE(QXmppVersionIq)
 Q_DECLARE_METATYPE(std::function<void()>)
 Q_DECLARE_METATYPE(std::function<void(RosterItem&)>)
 Q_DECLARE_METATYPE(std::function<void(Message&)>)
+Q_DECLARE_METATYPE(std::function<void(GroupChatUser&)>)
 
 Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 
@@ -252,15 +265,13 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<Message>();
 	qRegisterMetaType<MessageModel*>();
 	qRegisterMetaType<ChatHintModel*>();
-	qRegisterMetaType<MessageHandler*>();
 	qRegisterMetaType<DiscoveryManager*>();
 	qRegisterMetaType<VCardManager*>();
 	qRegisterMetaType<VersionManager*>();
 	qRegisterMetaType<RegistrationManager*>();
 	qRegisterMetaType<AccountMigrationManager*>();
 	qRegisterMetaType<FileSharingController *>();
-	qRegisterMetaType<OmemoManager *>();
-	qRegisterMetaType<OmemoManager::Device>();
+	qRegisterMetaType<EncryptionController *>();
 	qRegisterMetaType<AvatarFileStorage*>();
 	qRegisterMetaType<QmlUtils*>();
 	qRegisterMetaType<QVector<Message>>();
@@ -283,6 +294,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QMap<QString, QUrl>>();
 	qRegisterMetaType<std::shared_ptr<Message>>();
 	qRegisterMetaType<AtmManager*>();
+	qRegisterMetaType<GroupChatController*>();
+	qRegisterMetaType<GroupChatUser>();
+	qRegisterMetaType<QVector<GroupChatUser>>();
+	qRegisterMetaType<std::function<void(GroupChatUser&)>>();
+	qRegisterMetaType<GroupChatUserModel*>();
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();
@@ -314,6 +330,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<AccountManager::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<AccountMigrationManager::MigrationState>();
+	qRegisterMetaType<RosterItem::GroupChatFlag>();
+	qRegisterMetaType<RosterModel::RosterItemRoles>();
+	qRegisterMetaType<Message::TrustLevel>();
 
 	// QXmpp
 	qRegisterMetaType<QXmppResultSetReply>();
@@ -321,6 +340,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QXmppPresence>();
 	qRegisterMetaType<QXmppDiscoveryIq>();
 	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
+	qRegisterMetaType<QXmppMixInfoItem>();
+	qRegisterMetaType<QXmppMixParticipantItem>();
 
 	// Qt-Translator
 	QTranslator qtTranslator;
@@ -415,6 +436,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #ifdef STATIC_BUILD
 	KirigamiPlugin::getInstance().registerTypes();
 #endif
+	qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
 	qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
 	qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");
 	qmlRegisterType<EmojiProxyModel>("EmojiModel", 0, 1, "EmojiProxyModel");
@@ -424,10 +446,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
 	qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
 	qmlRegisterType<BlockingAction>(APPLICATION_ID, 1, 0, "BlockingAction");
+	qmlRegisterType<ContactQrCodeGenerator>(APPLICATION_ID, 1, 0, "ContactQrCodeGenerator");
 	qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
 	qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
 	qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
 	qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
+	qmlRegisterType<LoginQrCodeGenerator>(APPLICATION_ID, 1, 0, "LoginQrCodeGenerator");
 	qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
 	qmlRegisterType<MediaSettingsResolutionModel>(APPLICATION_ID, 1, 0, "MediaSettingsResolutionModel");
 	qmlRegisterType<MediaSettingsQualityModel>(APPLICATION_ID, 1, 0, "MediaSettingsQualityModel");
@@ -440,7 +464,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
 	qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
 	qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
-	qmlRegisterType<QrCodeGenerator>(APPLICATION_ID, 1, 0, "QrCodeGenerator");
 	qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
 	qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
 	qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
@@ -451,13 +474,21 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
 	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
-	qmlRegisterType<OmemoModel>(APPLICATION_ID, 1, 0, "OmemoModel");
-	qmlRegisterType<OmemoWatcher>(APPLICATION_ID, 1, 0, "OmemoWatcher");
+	qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
+	qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
+	qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");
 	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
 	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
 	qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
 	qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
 	qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
+	qmlRegisterType<GroupChatQrCodeGenerator>(APPLICATION_ID, 1, 0, "GroupChatQrCodeGenerator");
+	qmlRegisterType<GroupChatUserModel>(APPLICATION_ID, 1, 0, "GroupChatUserModel");
+	qmlRegisterType<GroupChatUserFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserFilterModel");
+	qmlRegisterType<GroupChatUserKeyAuthenticationFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserKeyAuthenticationFilterModel");
+	qmlRegisterType<AccountTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "AccountTrustMessageUriGenerator");
+	qmlRegisterType<ContactTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "ContactTrustMessageUriGenerator");
+	qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
 
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
@@ -483,6 +514,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<MessageReactionDeliveryState>(APPLICATION_ID, 1, 0, "MessageReactionDeliveryState", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<RosterItem>(APPLICATION_ID, 1, 0, "RosterItem", QStringLiteral("Cannot create object; only enums defined!"));
+	qmlRegisterUncreatableType<Message>(APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
 
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Can't create object; only enums defined!"));
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));
@@ -503,6 +535,15 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	});
 	qmlRegisterSingletonType<AccountManager>(APPLICATION_ID, 1, 0, "AccountManager", [](QQmlEngine *, QJSEngine *) {
 		return static_cast<QObject *>(AccountManager::instance());
+	});
+	qmlRegisterSingletonType<ChatController>(APPLICATION_ID, 1, 0, "ChatController", [](QQmlEngine *, QJSEngine *) {
+		return static_cast<QObject *>(ChatController::instance());
+	});
+	qmlRegisterSingletonType<GroupChatController>(APPLICATION_ID, 1, 0, "GroupChatController", [](QQmlEngine *, QJSEngine *) {
+		return static_cast<QObject *>(GroupChatController::instance());
+	});
+	qmlRegisterSingletonType<EncryptionController>(APPLICATION_ID, 1, 0, "EncryptionController", [](QQmlEngine *, QJSEngine *) {
+		return static_cast<QObject *>(EncryptionController::instance());
 	});
 	qmlRegisterSingletonType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", [](QQmlEngine *, QJSEngine *) {
 		return static_cast<QObject *>(RosterModel::instance());

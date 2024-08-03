@@ -36,14 +36,20 @@ public:
 		JidRole,
 		NameRole,
 		GroupsRole,
+		IsGroupChatRole,
+		IsPublicGroupChatRole,
+		IsDeletedGroupChatRole,
 		LastMessageDateTimeRole,
 		UnreadMessagesRole,
 		LastMessageRole,
 		LastMessageIsDraftRole,
-		LastMessageSenderIdRole,
+		LastMessageIsOwnRole,
+		LastMessageGroupChatSenderNameRole,
 		PinnedRole,
+		SelectedRole,
 		NotificationsMutedRole,
 	};
+	Q_ENUM(RosterItemRoles)
 
 	/**
 	 * Result for adding a contact by an XMPP URI specifying how the URI is used
@@ -141,6 +147,9 @@ public:
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
 
+	Q_INVOKABLE void toggleSelected(const QString &accountJid, const QString &jid);
+	Q_INVOKABLE void resetSelected();
+
 	Q_INVOKABLE void setChatStateSendingEnabled(const QString &accountJid, const QString &jid, bool chatStateSendingEnabled);
 	Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &accountJid, const QString &jid, bool readMarkerSendingEnabled);
 	Q_INVOKABLE void setNotificationsMuted(const QString &accountJid, const QString &jid, bool notificationsMuted);
@@ -166,9 +175,8 @@ private:
 	void addItem(const RosterItem &item);
 	void replaceItems(const QHash<QString, RosterItem> &items);
 
-	void updateLastMessage(QVector<RosterItem>::Iterator &itr,
+	QFuture<QVector<int>> updateLastMessage(QVector<RosterItem>::Iterator &itr,
 						   const Message &message,
-						   QVector<int> &changedRoles,
 						   bool onlyUpdateIfNewerOrAtSameAge = true);
 
 	/**
@@ -192,6 +200,7 @@ private:
 	int positionToMove(int currentIndex);
 	
 	QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
+	QString determineGroupChatSenderName(const Message &message) const;
 
 	QVector<RosterItem> m_items;
 

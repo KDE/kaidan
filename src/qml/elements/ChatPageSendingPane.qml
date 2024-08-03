@@ -36,12 +36,12 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
-	property string messageToCorrect
+	property string replaceId
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
-		accountJid: MessageModel.currentAccountJid
-		chatJid: MessageModel.currentChatJid
-		replaceId: messageToCorrect
+		accountJid: ChatController.accountJid
+		chatJid: ChatController.chatJid
+		replaceId: root.replaceId
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
 
@@ -117,9 +117,9 @@ Controls.Pane {
 				id: messageArea
 				placeholderText: {
 					if (root.composition.isSpoiler) {
-						return MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
+						return ChatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted </b> message with hidden part") : qsTr("Compose <b>unencrypted</b> message with hidden part")
 					} else {
-						return MessageModel.isOmemoEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
+						return ChatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 					}
 				}
 				background: Item {}
@@ -143,9 +143,9 @@ Controls.Pane {
 
 					// Skip events in which the text field was emptied (probably automatically after sending)
 					if (text) {
-						MessageModel.sendChatState(ChatState.Composing)
+						ChatController.sendChatState(ChatState.Composing)
 					} else {
-						MessageModel.sendChatState(ChatState.Active)
+						ChatController.sendChatState(ChatState.Active)
 					}
 				}
 				Keys.onReturnPressed: {
@@ -187,7 +187,7 @@ Controls.Pane {
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
-					chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageAudio)
+					chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageAudio)
 				}
 
 				Behavior on opacity {
@@ -291,7 +291,7 @@ Controls.Pane {
 								tooltipText: qsTr("Take a picture using your camera")
 
 								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageImage)
+									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageImage)
 									mediaPopup.close()
 								}
 							}
@@ -303,7 +303,7 @@ Controls.Pane {
 								tooltipText: qsTr("Record a video using your camera")
 
 								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageVideo)
+									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageVideo)
 									mediaPopup.close()
 								}
 							}
@@ -327,7 +327,7 @@ Controls.Pane {
 								tooltipText: qsTr("Send your location")
 
 								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(MessageModel.currentChatJid, Enums.MessageType.MessageGeoLocation)
+									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageGeoLocation)
 									mediaPopup.close()
 								}
 							}
@@ -335,6 +335,7 @@ Controls.Pane {
 					}
 				}
 			}
+
 			ClickableIcon {
 				id: sendButton
 				visible: messageArea.text !== ""
@@ -368,7 +369,7 @@ Controls.Pane {
 	}
 
 	function prepareMessageCorrection(replaceId, body, spoilerHint) {
-		messageToCorrect = replaceId
+		root.replaceId = replaceId
 		messageArea.text = body
 		composition.isSpoiler = spoilerHint.length
 		spoilerHintField.text = spoilerHint
@@ -394,10 +395,10 @@ Controls.Pane {
 		if (messageArea.state === "compose") {
 			composition.send()
 		} else if (messageArea.state === "edit") {
-			MessageModel.correctMessage(messageToCorrect, messageArea.text, spoilerHintField.text)
+			composition.correct()
 			composition.isDraft = false
 		}
-		MessageModel.resetComposingChatState();
+		ChatController.resetComposingChatState();
 
 		clearMessageArea()
 
@@ -450,7 +451,7 @@ Controls.Pane {
 		messageArea.clear()
 		composition.isSpoiler = false
 		spoilerHintField.clear()
-		messageToCorrect = ""
+		replaceId = ""
 		messageArea.state = "compose"
 	}
 }

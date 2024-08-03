@@ -28,11 +28,18 @@
 #include "AtmManager.h"
 #include "AvatarFileStorage.h"
 #include "Blocking.h"
+#include "ChatController.h"
+#include "ChatHintModel.h"
 #include "CredentialsValidator.h"
 #include "Database.h"
+#include "EncryptionController.h"
 #include "FileSharingController.h"
 #include "Globals.h"
+#include "GroupChatUserDb.h"
+#include "GroupChatController.h"
+#include "MessageController.h"
 #include "MessageDb.h"
+#include "MessageModel.h"
 #include "Notifications.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
@@ -111,6 +118,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	m_accountDb = new AccountDb(m_database, this);
 	m_msgDb = new MessageDb(m_database, this);
 	m_rosterDb = new RosterDb(m_database, this);
+	m_groupChatUserDb = new GroupChatUserDb(m_database, this);
 
 	// caches
 	m_caches = new ClientWorker::Caches(this);
@@ -132,7 +140,14 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 	// create controllers
 	m_blockingController = std::make_unique<BlockingController>(m_database);
+	m_chatController = new ChatController(this);
+	m_encryptionController = new EncryptionController(this);
 	m_fileSharingController = std::make_unique<FileSharingController>(m_client->xmppClient());
+	m_groupChatController = new GroupChatController(this);
+	m_messageController = new MessageController(this);
+
+	m_messageModel = new MessageModel(this);
+	m_chatHintModel = new ChatHintModel(this);
 
 	initializeAccountMigration();
 
@@ -142,7 +157,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	});
 
 	connect(m_msgDb, &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
-		if (origin != MessageOrigin::UserInput) {
+		if (origin != MessageOrigin::UserInput && !message.files.isEmpty()) {
 			if (const auto item = RosterModel::instance()->findItem(message.chatJid)) {
 				const auto contactRule = item->automaticMediaDownloadsRule;
 
@@ -164,7 +179,7 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 					case AccountManager::AutomaticMediaDownloadsRule::Never:
 						return false;
 					case AccountManager::AutomaticMediaDownloadsRule::PresenceOnly:
-						return message.isOwn() || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
+						return message.isOwn || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
 					case AccountManager::AutomaticMediaDownloadsRule::Always:
 						return true;
 					}

@@ -95,24 +95,66 @@ Kirigami.ApplicationWindow {
 
 	// components for all main pages
 	Component {id: startPage; StartPage {}}
+	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
 	Component {id: automaticRegistrationPage; AutomaticRegistrationPage {}}
 	Component {id: manualRegistrationPage; ManualRegistrationPage {}}
 	Component {id: rosterPage; RosterPage {}}
 	Component {id: chatPage; ChatPage {}}
 	Component {id: emptyChatPage; EmptyChatPage {}}
-	Component {id: settingsPage; SettingsPage {}}
-	Component {id: accountDetailsSheet; AccountDetailsSheet {}}
-	Component {id: accountDetailsPage; AccountDetailsPage {}}
-	Component {id: avatarChangePage; AvatarChangePage {}}
-	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
-	Component {id: contactAdditionPage; ContactAdditionPage {}}
-	Component {id: contactAdditionDialog; ContactAdditionDialog {}}
+
+	Component {
+		id: accountDetailsSheet
+
+		AccountDetailsSheet {}
+	}
+
+	Component {
+		id: accountDetailsPage
+
+		AccountDetailsPage {}
+	}
+
+	Component {
+		id: avatarChangePage
+
+		AvatarChangePage {}
+	}
 
 	Component {
 		id: accountDetailsKeyAuthenticationPage
 
-		KeyAuthenticationPage {
+		AccountKeyAuthenticationPage {
 			Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
+		}
+	}
+
+	Component {
+		id: contactAdditionDialog
+
+		ContactAdditionDialog {}
+	}
+
+	Component {
+		id: contactAdditionPage
+
+		ContactAdditionPage {}
+	}
+
+	Component {
+		id: groupChatJoiningDialog
+
+		GroupChatJoiningDialog {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
+		}
+	}
+
+	Component {
+		id: groupChatJoiningPage
+
+		GroupChatJoiningPage {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
 		}
 	}
 

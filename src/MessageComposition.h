@@ -46,6 +46,7 @@ public:
 	void setIsDraft(bool isDraft);
 
 	Q_INVOKABLE void send();
+	Q_INVOKABLE void correct();
 	void loadDraft();
 
 	Q_SIGNAL void accountJidChanged();

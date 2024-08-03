@@ -18,14 +18,10 @@ class AccountManager;
 class AccountMigrationManager;
 class AtmManager;
 class AvatarFileStorage;
-class ChatHintModel;
 class Database;
 class DiscoveryManager;
 class LogHandler;
-class MessageHandler;
-class MessageModel;
-class OmemoCache;
-class OmemoManager;
+class OmemoDb;
 class RegistrationManager;
 class RosterManager;
 class RosterModel;
@@ -50,11 +46,9 @@ class ClientWorker : public QObject
 	Q_PROPERTY(RegistrationManager* registrationManager READ registrationManager CONSTANT)
 	Q_PROPERTY(VCardManager* vCardManager READ vCardManager CONSTANT)
 	Q_PROPERTY(RosterManager* rosterManager READ rosterManager CONSTANT)
-	Q_PROPERTY(MessageHandler* messageHandler READ messageHandler CONSTANT)
 	Q_PROPERTY(DiscoveryManager* discoveryManager READ discoveryManager CONSTANT)
 	Q_PROPERTY(VersionManager* versionManager READ versionManager CONSTANT)
 	Q_PROPERTY(AtmManager* atmManager READ atmManager CONSTANT)
-	Q_PROPERTY(OmemoManager* omemoManager READ omemoManager CONSTANT)
 
 public:
 	/**
@@ -82,10 +76,7 @@ public:
 		VCardCache *vCardCache;
 		AccountManager *accountManager;
 		PresenceCache *presenceCache;
-		MessageModel *msgModel;
 		RosterModel *rosterModel;
-		ChatHintModel *chatHintModel;
-		OmemoCache *omemoCache;
 		AvatarFileStorage *avatarStorage;
 		ServerFeaturesCache *serverFeaturesCache;
 	};
@@ -117,11 +108,6 @@ public:
 		return m_rosterManager;
 	}
 
-	MessageHandler *messageHandler() const
-	{
-		return m_messageHandler;
-	}
-
 	DiscoveryManager *discoveryManager() const
 	{
 		return m_discoveryManager;
@@ -135,11 +121,6 @@ public:
 	AtmManager *atmManager() const
 	{
 		return m_atmManager;
-	}
-
-	OmemoManager *omemoManager() const
-	{
-		return m_omemoManager;
 	}
 
 	Caches *caches() const
@@ -312,10 +293,10 @@ private:
 	VCardManager *m_vCardManager;
 	RosterManager *m_rosterManager;
 	AtmManager *m_atmManager;
-	OmemoManager *m_omemoManager;
-	MessageHandler *m_messageHandler;
 	DiscoveryManager *m_discoveryManager;
 	VersionManager *m_versionManager;
+
+	OmemoDb *m_omemoDb;
 
 	QXmppFileSharingManager *m_fileSharingManager;
 	std::shared_ptr<QXmppHttpFileSharingProvider> m_httpProvider;

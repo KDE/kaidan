@@ -20,6 +20,7 @@ MessageReactionButton {
 	property bool isOwnMessage
 	property MessageReactionEmojiPicker emojiPicker
 
+	text: qsTr("Add reaction…")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
 	contentItem: Kirigami.Icon {
 		source: "smiley-add"
@@ -28,4 +29,5 @@ MessageReactionButton {
 		emojiPicker.messageId = root.messageId
 		emojiPicker.open()
 	}
+	Controls.ToolTip.text: text
 }

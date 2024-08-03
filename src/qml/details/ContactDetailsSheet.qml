@@ -16,8 +16,6 @@ DetailsSheet {
 	required property string accountJid
 	required property string jid
 
-	parent: applicationWindow().overlay
-
 	ContactDetailsHeader {
 		jid: root.jid
 	}

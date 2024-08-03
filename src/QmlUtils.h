@@ -95,25 +95,11 @@ public:
 	static QUrl mastodonUrl();
 
 	/**
-	 * Returns an invitation URL to the given JID.
+	 * Returns an invitation URL for the given XMPP URI.
 	 */
-	Q_INVOKABLE static QUrl invitationUrl(const QString &jid);
+	Q_INVOKABLE static QUrl invitationUrl(const QString &uri);
 
 #ifndef BUILD_TESTS
-	/**
-	 * Returns an XMPP Trust Message URI.
-	 *
-	 * @param jid JID of the trust message
-	 */
-	Q_INVOKABLE static QUrl trustMessageUri(const QString &jid);
-
-	/**
-	 * Returns an XMPP Trust Message URI string.
-	 *
-	 * @param jid JID of the trust message
-	 */
-	static QString trustMessageUriString(const QString &jid);
-
 	/**
 	 * Returns an XMPP URI for opening a group chat.
 	 *
@@ -155,9 +141,19 @@ public:
 	Q_INVOKABLE static bool isImageFile(const QUrl &fileUrl);
 
 	/**
-	 * Copies text to the clipboard.
+	 * Copies a URL to the clipboard.
+	 */
+	Q_INVOKABLE static void copyToClipboard(const QUrl &url);
+
+	/**
+	 * Copies a text to the clipboard.
 	 */
 	Q_INVOKABLE static void copyToClipboard(const QString &text);
+
+	/**
+	 * Copies an image to the clipboard.
+	 */
+	Q_INVOKABLE static void copyToClipboard(const QImage &image);
 
 	/**
 	 * Returns the filename from a URL.

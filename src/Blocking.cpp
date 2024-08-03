@@ -12,6 +12,7 @@
 #include "AccountManager.h"
 #include "Algorithms.h"
 #include "FutureUtils.h"
+#include "Globals.h"
 #include "Kaidan.h"
 #include "SqlUtils.h"
 
@@ -68,10 +69,14 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QVec
 		auto query = createQuery();
 		execQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"), { { u":accountJid", accountJid } });
 
-		prepareQuery(query, QStringLiteral("INSERT INTO blocked (accountJid, jid) VALUES (:accountJid, :jid)"));
 		for (const auto &jid : blockedJids) {
-			bindValues(query, { { u":accountJid", accountJid }, { u":jid", jid } });
-			execQuery(query);
+			insert(
+				DB_TABLE_BLOCKED,
+				{
+					{ u"accountJid", accountJid},
+					{ u"jid", jid},
+				}
+			);
 		}
 	});
 }

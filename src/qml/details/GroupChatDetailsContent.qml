@@ -1,0 +1,530 @@
+// SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
+// SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+import QtQuick 2.14
+import QtQuick.Layouts 1.14
+import QtQuick.Controls 2.14 as Controls
+import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+
+import im.kaidan.kaidan 1.0
+
+import "../elements"
+
+RosterItemDetailsContent {
+	id: root
+
+	required property string accountJid
+	property ListViewSearchField contactSearchField
+	property ListViewSearchField userSearchField
+	property ListViewSearchField keyAuthenticationUserSearchField
+	property int contactsBeingInvitedCount: 0
+
+	topArea: [
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Invite")
+				}
+
+				ListView {
+					id: contactListView
+					model: RosterFilterProxyModel {
+						sourceModel: RosterModel
+						groupChatsExcluded: true
+						groupChatUsersExcluded: true
+					}
+					visible: contactExpansionButton.checked
+					implicitHeight: contentHeight
+					Layout.fillWidth: true
+					header: MobileForm.FormCard {
+						width: ListView.view.width
+						Kirigami.Theme.colorSet: Kirigami.Theme.Window
+						contentItem: MobileForm.AbstractFormDelegate {
+							background: Item {}
+							contentItem: RowLayout {
+								spacing: Kirigami.Units.largeSpacing * 2
+
+								ListViewSearchField {
+									id: contactSearchField
+									listView: contactListView
+									enabled: contactButton.visible
+									Layout.fillWidth: true
+									onVisibleChanged: {
+										if (visible) {
+											clear()
+											forceActiveFocus()
+										}
+									}
+									Component.onCompleted: root.contactSearchField = this
+								}
+
+								Button {
+									id: contactButton
+									Controls.ToolTip.text: qsTr("Invite selected contacts")
+									icon.name: "go-next-symbolic"
+									flat: !hovered
+									Layout.preferredWidth: Layout.preferredHeight
+									Layout.preferredHeight: contactSearchField.implicitHeight
+									onClicked: {
+										visible = false
+										contactListView.inviteSelectedContacts()
+										visible = true
+									}
+								}
+
+								Controls.BusyIndicator {
+									visible: !contactButton.visible
+									Layout.preferredWidth: contactButton.Layout.preferredWidth
+									Layout.preferredHeight: Layout.preferredWidth
+									Layout.rightMargin: contactButton.Layout.rightMargin
+								}
+							}
+						}
+					}
+					delegate: GroupChatContactInvitationItem {
+						id: contactDelegate
+						accountJid: model.accountJid
+						jid: model.jid
+						name: model.name
+						selected: model.selected
+						width: ListView.view.width
+						onClicked: {
+							contactListView.model.sourceModel.toggleSelected(model.accountJid, model.jid)
+							root.contactSearchField.forceActiveFocus()
+						}
+						onActiveFocusChanged: {
+							if (activeFocus) {
+								root.contactSearchField.forceActiveFocus()
+							}
+						}
+					}
+					onVisibleChanged: {
+						if (visible) {
+							contactListView.model.sourceModel.resetSelected()
+						}
+					}
+
+					function inviteSelectedContacts() {
+						var groupChatPublic = root.rosterItemWatcher.item.groupChatFlags === RosterItem.GroupChatFlag.Public
+
+						for (var i = 0; i < contactListView.model.rowCount(); i++) {
+							if (contactListView.model.data(contactListView.model.index(i, 0), RosterModel.SelectedRole)) {
+								var inviteeJid = contactListView.model.data(contactListView.model.index(i, 0), RosterModel.JidRole)
+								GroupChatController.inviteContactToGroupChat(root.accountJid, root.jid, inviteeJid, groupChatPublic)
+								root.contactsBeingInvitedCount++
+							}
+						}
+
+						if (root.contactsBeingInvitedCount) {
+							contactExpansionButton.toggle()
+						} else {
+							root.contactSearchField.forceActiveFocus()
+							passiveNotification(qsTr("Select at least one contact"))
+						}
+					}
+				}
+
+				FormExpansionButton {
+					id: contactExpansionButton
+				}
+			}
+		},
+
+		MobileForm.FormCard {
+			Layout.fillWidth: true
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Participants")
+				}
+
+				MobileForm.FormSectionText {
+					text: qsTr("Allow a user (e.g., user@example.org) or all users of the same server (e.g., example.org) to participate")
+					visible: userExpansionButton.checked
+				}
+
+				ListView {
+					id: userListView
+					model: GroupChatUserFilterModel {
+						sourceModel: GroupChatUserModel {
+							accountJid: root.accountJid
+							chatJid: root.jid
+						}
+					}
+					visible: userExpansionButton.checked
+					clip: true
+					implicitHeight: contentHeight
+					Layout.fillWidth: true
+					header: MobileForm.FormCard {
+						width: ListView.view.width
+						Kirigami.Theme.colorSet: Kirigami.Theme.Window
+						contentItem: MobileForm.AbstractFormDelegate {
+							background: Item {}
+							contentItem: RowLayout {
+								Controls.Label {
+									text: qsTr("You must be connected to change the participants")
+									visible: Kaidan.connectionState !== Enums.StateConnected
+									Layout.fillWidth: true
+								}
+
+								ListViewSearchField {
+									listView: userListView
+									visible: Kaidan.connectionState === Enums.StateConnected
+									Layout.fillWidth: true
+									onVisibleChanged: {
+										if (visible) {
+											clear()
+											forceActiveFocus()
+										}
+									}
+									Component.onCompleted: root.userSearchField = this
+								}
+							}
+						}
+					}
+					section.property: "statusText"
+					section.delegate: ListViewSectionDelegate {}
+					delegate: GroupChatUserItem {
+						id: userDelegate
+						accountJid: root.accountJid
+						chatJid: root.jid
+						jid: model.jid
+						name: model.name
+						width: ListView.view.width
+						onActiveFocusChanged: {
+							if (activeFocus) {
+								root.userSearchField.forceActiveFocus()
+							}
+						}
+
+						Button {
+							text: qsTr("Ban")
+							icon.name: "edit-delete-symbolic"
+							visible: Kaidan.connectionState === Enums.StateConnected
+							display: Controls.AbstractButton.IconOnly
+							flat: !userDelegate.hovered
+							Controls.ToolTip.text: text
+							Layout.rightMargin: Kirigami.Units.smallSpacing * 3
+							onClicked: GroupChatController.banUser(root.accountJid, root.jid, userDelegate.jid)
+						}
+					}
+				}
+
+				FormExpansionButton {
+					id: userExpansionButton
+				}
+			}
+		}
+	]
+	mediaOverview {
+		accountJid: root.accountJid
+		chatJid: root.jid
+	}
+	encryptionArea: ColumnLayout {
+		spacing: 0
+
+		MobileForm.FormCardHeader {
+			title: qsTr("Encryption")
+		}
+
+		MobileForm.FormSwitchDelegate {
+			text: qsTr("OMEMO 2")
+			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
+			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
+			checked: enabled && ChatController.encryption === Encryption.Omemo2
+			// The switch is toggled by setting the user's preference on using encryption.
+			// Note that 'checked' has already the value after the button is clicked.
+			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
+		}
+
+		MobileForm.FormButtonDelegate {
+			text: {
+				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
+					}
+
+					if (ownResourcesWatcher.resourcesCount > 1) {
+						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
+					}
+				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
+						return qsTr("Verify <b>your</b> devices to encrypt for them")
+					}
+
+					return qsTr("Verify <b>your</b> devices for maximum security")
+				}
+
+				return ""
+			}
+			icon.name: {
+				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
+						return "channel-secure-symbolic"
+					}
+
+					if (ownResourcesWatcher.resourcesCount > 1) {
+						return "channel-insecure-symbolic"
+					}
+				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
+						return "security-medium-symbolic"
+					}
+
+					return "security-high-symbolic"
+				}
+
+				return ""
+			}
+			visible: text
+			enabled: ChatController.accountEncryptionWatcher.hasAuthenticatableDevices
+			onClicked: root.openKeyAuthenticationPage(groupChatDetailsAccountKeyAuthenticationPage)
+
+			UserResourcesWatcher {
+				id: ownResourcesWatcher
+				jid: root.accountJid
+			}
+		}
+
+		MobileForm.FormButtonDelegate {
+			id: keyAuthenticationButton
+			text: {
+				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasDistrustedContactDevices) {
+						return qsTr("Verify a <b>participant</b> to enable encryption")
+					}
+
+					return qsTr("No <b>participant</b> uses OMEMO 2")
+				}
+
+				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
+						return qsTr("Verify the <b>participants'</b> devices to encrypt for them")
+					}
+
+					return qsTr("Verify the <b>participants</b> for maximum security")
+				}
+
+				return ""
+			}
+			icon.name: {
+				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasDistrustedContactDevices) {
+						return "channel-secure-symbolic"
+					}
+
+					return "channel-insecure-symbolic"
+				}
+
+				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
+					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
+						return "security-medium-symbolic"
+					}
+
+					return "security-high-symbolic"
+				}
+
+				return ""
+			}
+			visible: text
+			enabled: ChatController.chatEncryptionWatcher.hasAuthenticatableDevices
+			checkable: true
+		}
+
+		ListView {
+			id: keyAuthenticationUserListView
+			model: GroupChatUserKeyAuthenticationFilterModel {
+				sourceModel: GroupChatUserModel {
+					accountJid: root.accountJid
+					chatJid: root.jid
+				}
+			}
+			visible: keyAuthenticationButton.checked
+			implicitHeight: contentHeight
+			Layout.fillWidth: true
+			header: MobileForm.FormCard {
+				width: ListView.view.width
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
+				contentItem: MobileForm.AbstractFormDelegate {
+					background: Item {}
+					contentItem: RowLayout {
+						spacing: Kirigami.Units.largeSpacing * 3
+
+						ListViewSearchField {
+							listView: keyAuthenticationUserListView
+							Layout.fillWidth: true
+							onVisibleChanged: {
+								if (visible) {
+									clear()
+									forceActiveFocus()
+								}
+							}
+							Component.onCompleted: root.keyAuthenticationUserSearchField = this
+						}
+					}
+				}
+			}
+			delegate: GroupChatUserItem {
+				id: keyAuthenticationUserDelegate
+				accountJid: root.accountJid
+				chatJid: root.jid
+				jid: model.jid
+				name: model.name
+				width: ListView.view.width
+				onActiveFocusChanged: {
+					if (activeFocus) {
+						root.keyAuthenticationUserSearchField.forceActiveFocus()
+					}
+				}
+				onClicked: root.openKeyAuthenticationPage(groupChatDetailsKeyAuthenticationPage).jid = jid
+			}
+		}
+	}
+	qrCodeExpansionButton.description: qsTr("Share this group's chat address via QR code")
+	qrCode: GroupChatQrCode {
+		jid: root.jid
+	}
+	qrCodeButton {
+		description: qsTr("Share this group's chat address via QR code")
+		onClicked: Utils.copyToClipboard(qrCode.source)
+	}
+	uriButton {
+		description: qsTr("Share this group's chat address via text")
+		onClicked: {
+			Utils.copyToClipboard(Utils.groupChatUri(root.jid))
+			passiveNotification(qsTr("Group address copied to clipboard"))
+		}
+	}
+	invitationButton {
+		description: qsTr("Share this group's chat address via a web page with usage help")
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(root.jid).toString()))
+	}
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Privacy")
+			}
+
+			MobileForm.FormSwitchDelegate {
+				text: qsTr("Send typing notifications")
+				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
+				checked: root.rosterItemWatcher.item.chatStateSendingEnabled
+				onToggled: {
+					RosterModel.setChatStateSendingEnabled(
+						root.accountJid,
+						root.jid,
+						checked)
+				}
+			}
+
+			MobileForm.FormSwitchDelegate {
+				text: qsTr("Send read notifications")
+				description: qsTr("Indicate which messages you have read")
+				checked: root.rosterItemWatcher.item.readMarkerSendingEnabled
+				onToggled: {
+					RosterModel.setReadMarkerSendingEnabled(
+						root.accountJid,
+						root.jid,
+						checked)
+				}
+			}
+		}
+	}
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			id: removalArea
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Leaving & Deletion")
+			}
+
+			ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormButtonDelegate {
+					id: groupChatLeavingButton
+					text: qsTr("Leave")
+					description: qsTr("Leave group and remove complete chat history")
+					icon.name: "edit-delete-symbolic"
+					onClicked: groupChatLeavingConfirmationButton.visible = !groupChatLeavingConfirmationButton.visible
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: groupChatLeavingConfirmationButton
+					text: qsTr("Confirm")
+					visible: false
+					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
+					onClicked: {
+						visible = false
+						groupChatLeavingButton.enabled = false
+						GroupChatController.leaveGroupChat(root.accountJid, root.jid)
+					}
+				}
+			}
+
+			ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormButtonDelegate {
+					id: groupChatDeletionButton
+					text: qsTr("Delete")
+					description: qsTr("Delete group. Nobody will be able to join the group again!")
+					icon.name: "edit-delete-symbolic"
+					icon.color: Kirigami.Theme.negativeTextColor
+					onClicked: groupChatDeletionConfirmationButton.visible = !groupChatDeletionConfirmationButton.visible
+				}
+
+				MobileForm.FormButtonDelegate {
+					id: groupChatDeletionConfirmationButton
+					text: qsTr("Confirm")
+					visible: false
+					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
+					onClicked: {
+						removalArea.toggleRemovalButtonInteractivity()
+						GroupChatController.deleteGroupChat(root.accountJid, root.jid)
+					}
+				}
+
+				Connections {
+					target: GroupChatController
+
+					function onGroupChatDeletionFailed(groupChatJid, errorMessage) {
+						passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+						removalArea.toggleRemovalButtonInteractivity()
+					}
+				}
+			}
+
+			function toggleRemovalButtonInteractivity() {
+				groupChatLeavingButton.enabled = !groupChatLeavingButton.enabled
+				groupChatLeavingConfirmationButton.enabled = !groupChatLeavingConfirmationButton.enabled
+				groupChatDeletionButton.enabled = !groupChatDeletionButton.enabled
+				groupChatDeletionConfirmationButton.enabled = !groupChatDeletionConfirmationButton.visible
+			}
+		}
+	}
+
+	function openContactListView() {
+		contactExpansionButton.toggle()
+	}
+
+	function openKeyAuthenticationUserListView() {
+		keyAuthenticationButton.toggle()
+	}
+}

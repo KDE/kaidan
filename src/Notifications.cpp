@@ -16,7 +16,7 @@
 // Kaidan
 #include "FutureUtils.h"
 #include "Kaidan.h"
-#include "MessageHandler.h"
+#include "MessageController.h"
 #include "RosterModel.h"
 
 #include <QStringBuilder>
@@ -51,8 +51,6 @@ Notifications::Notifications(QObject *parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
-
-	connect(this, &Notifications::closeMessageNotificationRequested, this, &Notifications::closeMessageNotification);
 }
 
 #ifdef HAVE_KNOTIFICATIONS
@@ -168,9 +166,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 		});
 
 		if (const auto item = RosterModel::instance()->findItem(chatJid); item && item->readMarkerSendingEnabled) {
-			runOnThread(Kaidan::instance()->client()->messageHandler(), [chatJid, messageId]() {
-				Kaidan::instance()->client()->messageHandler()->sendReadMarker(chatJid, messageId);
-			});
+			MessageController::instance()->sendReadMarker(chatJid, messageId);
 		}
 	});
 

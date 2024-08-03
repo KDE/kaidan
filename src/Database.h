@@ -128,6 +128,7 @@ private:
 	void convertDatabaseToV40();
 	void convertDatabaseToV41();
 	void convertDatabaseToV42();
+	void convertDatabaseToV43();
 
 	std::unique_ptr<DatabasePrivate> d;
 

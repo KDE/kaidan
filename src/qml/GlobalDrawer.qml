@@ -27,6 +27,24 @@ Kirigami.GlobalDrawer {
 	}
 
 	Component {
+		id: groupChatCreationDialog
+
+		GroupChatCreationDialog {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
+		}
+	}
+
+	Component {
+		id: groupChatCreationPage
+
+		GroupChatCreationPage {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
+		}
+	}
+
+	Component {
 		id: searchPublicGroupChatSheet
 
 		SearchPublicGroupChatSheet {}
@@ -42,6 +60,12 @@ Kirigami.GlobalDrawer {
 		id: settingsSheet
 
 		SettingsSheet {}
+	}
+
+	Component {
+		id: settingsPage
+
+		SettingsPage {}
 	}
 
 	topContent: [
@@ -91,7 +115,7 @@ Kirigami.GlobalDrawer {
 								}
 								onClicked: {
 									root.close()
-									openViewFromGlobalDrawer(accountDetailsSheet, accountDetailsPage)
+									openViewFromGlobalDrawer(accountDetailsSheet, accountDetailsPage).jid = modelData
 								}
 							}
 
@@ -138,6 +162,20 @@ Kirigami.GlobalDrawer {
 					}
 
 					MobileForm.FormButtonDelegate {
+						text: qsTr("Create group")
+						icon.name: "resource-group-new"
+						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatCreationSupported
+						onClicked: openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
+					}
+
+					MobileForm.FormButtonDelegate {
+						text: qsTr("Join group")
+						icon.name: "resource-group"
+						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
+						onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
+					}
+
+					MobileForm.FormButtonDelegate {
 						id: publicGroupChatSearchButton
 						text: qsTr("Search public groups")
 						icon.name: "system-search-symbolic"
@@ -146,15 +184,6 @@ Kirigami.GlobalDrawer {
 						Shortcut {
 							sequence: "Ctrl+G"
 							onActivated: publicGroupChatSearchButton.clicked()
-						}
-					}
-
-					MobileForm.FormButtonDelegate {
-						text: qsTr("Invite friends")
-						icon.name: "mail-message-new-symbolic"
-						onClicked: {
-							Utils.copyToClipboard(Utils.invitationUrl(AccountManager.jid))
-							passiveNotification(qsTr("Invitation link copied to clipboard"))
 						}
 					}
 
@@ -183,14 +212,6 @@ Kirigami.GlobalDrawer {
 		if (Kaidan.connectionState === Enums.StateConnected) {
 			// Request the user's current vCard which contains the user's nickname.
 			Kaidan.client.vCardManager.clientVCardRequested()
-		}
-
-		// Retrieve the user's own OMEMO key to be used while adding a contact via QR code.
-		// That is only done when no chat is already open.
-		// Otherwise, it would result in an unneccessary fetching and it would remove the cached
-		// keys for that chat while only keeping the own key in the cache.
-		if (!MessageModel.currentChatJid.length) {
-			Kaidan.client.omemoManager.retrieveOwnKeyRequested()
 		}
 	}
 

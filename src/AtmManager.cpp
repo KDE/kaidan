@@ -10,6 +10,7 @@
 
 #include "qxmpp-exts/QXmppUri.h"
 
+#include "Globals.h"
 #include "TrustDb.h"
 
 AtmManager::AtmManager(QXmppClient *client, Database *database, QObject *parent)
@@ -36,7 +37,7 @@ void AtmManager::makeTrustDecisionsByUri(const QXmppUri &uri)
 
 void AtmManager::makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting)
 {
-	m_manager->makeTrustDecisions(QStringLiteral("urn:xmpp:omemo:2"), jid, keyIdsForAuthentication, keyIdsForDistrusting);
+	m_manager->makeTrustDecisions(XMLNS_OMEMO_2, jid, keyIdsForAuthentication, keyIdsForDistrusting);
 }
 
 QList<QByteArray> AtmManager::keyIdsFromHex(const QList<QString> &keyIds)
