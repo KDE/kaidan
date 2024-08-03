@@ -83,6 +83,20 @@ auto transformFilter(const T &input, ConditionalConverter conditionalConverter)
 	return output;
 }
 
+template<typename TargetContainer, typename SourceContainer, typename ConditionalConverter>
+auto transformFilter(const SourceContainer &input, ConditionalConverter conditionalConverter)
+{
+	TargetContainer output;
+
+	for (const auto &item : input) {
+		if (auto result = conditionalConverter(item)) {
+			output.push_back(std::move(*result));
+		}
+	}
+
+	return output;
+}
+
 template <typename T, typename Func>
 auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T> {
 	if (option) {
