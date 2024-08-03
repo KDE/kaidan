@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-07-02 10:03+0200\n"
+"PO-Revision-Date: 2024-08-02 12:37+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,24 +21,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 24.05.2\n"
 "X-Language: ca\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "No s'ha pogut migrar el compte: ja hi ha una altra migració en curs"
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
+"No s'ha pogut migrar el compte: no s'han pogut carregar les dades de compte "
+"exportat"
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "No s'ha pogut migrar el compte: cal estar connectat"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -859,35 +861,25 @@ msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Sense informació"
+msgstr "Migració"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Filtra per comptes"
+msgstr "Migra el compte"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Elimina el compte d'aquesta aplicació. Feu una còpia de seguretat de les "
-"vostres credencials i historial de xat si cal!"
+"Migra les dades del compte (excepte l'historial de xat) a un altre compte. "
+"El compte actual s'eliminarà d'aquesta aplicació. Feu una còpia de seguretat "
+"de les vostres credencials i historial de xat si cal!"
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -2468,12 +2460,9 @@ msgid "Settings"
 msgstr "Configuració"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Compte predeterminat"
+msgstr "Migració del compte"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"

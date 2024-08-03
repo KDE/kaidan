@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-03 00:57+0200\n"
+"PO-Revision-Date: 2024-08-02 17:30+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -12,22 +12,24 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.05.1\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "No se puede migrar la cuenta: Ya hay otra migración en curso"
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
+"No se puede migrar la cuenta: No se pueden cargar los datos exportados de la "
+"cuenta"
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "No se puede migrar la cuenta: Debe estar conectado"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -537,7 +539,7 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de charla puedan leer o modificar los datos que "
+"usted y sus compañeros de chat puedan leer o modificar los datos que "
 "intercambie."
 
 #: src/qml/details/AccountDetailsContent.qml:166
@@ -843,35 +845,25 @@ msgid "Connection settings changed"
 msgstr "Se han modificado las preferencias de la conexión"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Título"
+msgstr "Migración"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Transfer account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Transferir cuenta"
+msgstr "Migrar cuenta"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Eliminar la cuenta de esta aplicación. Cree una copia de respaldo de sus "
-"credenciales y del historial de charla si es necesario."
+"Migrar los datos de la cuenta (excepto el historial de chat) a otra cuenta. "
+"Su cuenta actual se eliminará de esta aplicación. Cree una copia de "
+"seguridad de sus credenciales y del historial de chat si es necesario."
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -889,8 +881,8 @@ msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
-"Eliminar la cuenta de esta aplicación. Cree una copia de respaldo de sus "
-"credenciales y del historial de charla si es necesario."
+"Eliminar la cuenta de esta aplicación. Cree una copia de seguridad de sus "
+"credenciales y del historial de chat si es necesario."
 
 #: src/qml/details/AccountDetailsContent.qml:993
 msgctxt "AccountDetailsContent|"
@@ -967,7 +959,7 @@ msgid ""
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 "El cifrado de extremo a extremo con OMEMO 2 garantiza que nadie más que "
-"usted y sus compañeros de charla puedan leer o modificar los datos que "
+"usted y sus compañeros de chat puedan leer o modificar los datos que "
 "intercambie."
 
 #: src/qml/details/ContactDetailsContent.qml:94
@@ -2451,12 +2443,9 @@ msgid "Settings"
 msgstr "Preferencias"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Preferencias de la cuenta"
+msgstr "Migración de la cuenta"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"

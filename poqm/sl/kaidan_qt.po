@@ -1,11 +1,11 @@
 #
-# SPDX-FileCopyrightText: 2022, 2023 Matjaž Jeran <matjaz.jeran@amis.net>
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Matjaž Jeran <matjaz.jeran@amis.net>
 # Martin Srebotnjak <miles@filmsi.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-07-02 06:55+0200\n"
+"PO-Revision-Date: 2024-08-02 06:07+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -16,22 +16,23 @@ msgstr ""
 "%100<=4 ? 2 : 3);\n"
 "X-Language: sl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "Računa ni bilo mogoče preseliti: Še ena selitev je v teku"
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
+"Računa ni bilo mogoče preseliti: Ni bilo mogoče izvoziti podatkov računa"
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -848,35 +849,25 @@ msgid "Connection settings changed"
 msgstr "Nastavitve povezave so spremenjene"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Napis"
+msgstr "Selitev"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Izbriši račun"
+msgstr "Preseli račun"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Odstranite račun iz te aplikacije. Napravite varnostno kopijo vaših "
-"poverilnic in zgodovine klepetov, če je to potrebno!"
+"Preseli podatke računa (razen zgodovine klepetov) v drug račun. Vaš trenutni "
+"račun bo odstranjen iz te aplikacije. Izdelajte varovalno kopijo vaših "
+"poverilnic in zgodovine klepetov, če jih potrebujete."
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -2438,12 +2429,9 @@ msgid "Settings"
 msgstr "Nastavitve"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Nastavitve računa"
+msgstr "Selitev računa"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"

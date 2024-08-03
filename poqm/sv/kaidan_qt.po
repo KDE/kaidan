@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-02 22:05+0200\n"
+"PO-Revision-Date: 2024-08-02 08:09+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,22 +11,22 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "Kontot kunde inte överföras: En annan överföring pågår redan."
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "Kontot kunde inte överföras: Kunde inte läsa in exporterad kontodata."
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Kontot kunde inte överföras. Du måste vara ansluten."
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -845,35 +845,25 @@ msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Rubrik"
+msgstr "Överföring"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Ta bort konto"
+msgstr "Överför konto"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Ta bort konto från programmet. Säkerhetskopiera din inloggningsinformation "
-"och chatthistorik om det behövs."
+"Överför kontodata (förutom chatthistorik) till ett annat konto. Det "
+"nuvarande kontot kommer att tas bort från programmet. Säkerhetskopiera din "
+"inloggningsinformation och chatthistorik om det behövs."
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -2437,12 +2427,9 @@ msgid "Settings"
 msgstr "Inställningar"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Kontosäkerhet"
+msgstr "Kontoöverföring"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"
