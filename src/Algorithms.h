@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <optional>
 #include <unordered_map>
-#if __has_include(<__cpp_lib_ranges_enumerate>)                // Check for a standard library
+#if __has_include(<__cpp_lib_ranges_enumerate>)
 #include <ranges>
 #endif
 
