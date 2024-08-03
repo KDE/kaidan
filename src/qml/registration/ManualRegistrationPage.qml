@@ -251,7 +251,7 @@ RegistrationPage {
 	 * This is necessary to execute after a registration form is received because the normal focussing within FieldView does not work then.
 	 */
 	function focusFieldViews() {
-		if (swipeView.currentItem === usernameView || swipeView.currentIndex === passwordView || swipeView.currentIndex === customFormView)
+		if (swipeView.currentItem === usernameView || swipeView.currentItem === passwordView || swipeView.currentItem === customFormView)
 			swipeView.currentItem.forceActiveFocus()
 	}
 
