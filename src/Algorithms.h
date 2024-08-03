@@ -155,6 +155,15 @@ static void makeUnique(Container &container)
 }
 
 /**
+ * Returns whether two containers have at least one element in common.
+ */
+template<typename Container>
+static bool containCommonElement(Container &containerA, Container &containerB)
+{
+	return std::search(containerA.cbegin(), containerA.cend(), containerB.cbegin(), containerB.cend()) != containerA.cend();
+}
+
+/**
  * Runs a function on all parts of a text.
  *
  * @param text text that is split into parts
