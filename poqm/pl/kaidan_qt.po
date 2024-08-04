@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-27 09:59+0200\n"
+"PO-Revision-Date: 2024-08-03 11:52+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -18,17 +18,18 @@ msgstr ""
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
-msgstr ""
+msgstr "Nie można przenieść konta: Już trwa jakieś przenoszenie"
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
+"Nie można przenieść konta: Nie można wczytać wyeksportowanych danych konta"
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Nie można przenieść konta: Musisz być podłączonym"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -851,35 +852,25 @@ msgid "Connection settings changed"
 msgstr "Zmieniono ustawienia połączenia"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Podpis"
+msgstr "Przenoszenie"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Usuń konto"
+msgstr "Przenieś konto"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Usuń konto z tej aplikacji. Utwórz kopię zapasową swoich danych dostępowych "
-"oraz historii rozmów, jeśli potrzebujesz!"
+"Przenieś dane konta (poza historią rozmowy) na inne konto. Twoje obecne "
+"konto zostanie usunięte z tej aplikacji. Utwórz kopię zapasową swoich danych "
+"dostępowych oraz historii rozmów, jeśli potrzebujesz!"
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -2447,12 +2438,9 @@ msgid "Settings"
 msgstr "Ustawienia"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Bezpieczeństwo konta"
+msgstr "Przenoszenie konta"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"

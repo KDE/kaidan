@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-07-05 14:13+0100\n"
+"PO-Revision-Date: 2024-08-03 13:37+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -11,22 +11,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.0\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
+"Account could not be migrated: Another migration is already in progress"
 
 #: src/AccountMigrationManager.cpp:206
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
-msgstr ""
+msgstr "Account could not be migrated: Could not load exported account data"
 
 #: src/AccountMigrationManager.cpp:215
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
-msgstr ""
+msgstr "Account could not be migrated: You need to be connected"
 
 #: src/Blocking.cpp:203
 #, qt-format
@@ -839,35 +840,25 @@ msgid "Connection settings changed"
 msgstr "Connection settings changed"
 
 #: src/qml/details/AccountDetailsContent.qml:932
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "Caption"
+msgstr "Migration"
 
 #: src/qml/details/AccountDetailsContent.qml:940
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "Delete account"
+msgstr "Migrate account"
 
 #: src/qml/details/AccountDetailsContent.qml:941
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid ""
-#| "Remove account from this app. Back up your credentials and chat history "
-#| "if needed!"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
 "account will be removed from this app. Back up your credentials and chat "
 "history if needed!"
 msgstr ""
-"Remove account from this app. Back up your credentials and chat history if "
-"needed!"
+"Migrate account data (except chat history) to another account. Your current "
+"account will be removed from this app. Back up your credentials and chat "
+"history if needed!"
 
 #: src/qml/details/AccountDetailsContent.qml:960
 msgctxt "AccountDetailsContent|"
@@ -2427,12 +2418,9 @@ msgid "Settings"
 msgstr "Settings"
 
 #: src/qml/StartPage.qml:23
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Account settings"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Account settings"
+msgstr "Account Migration"
 
 #: src/qml/StartPage.qml:61
 msgctxt "StartPage|"
