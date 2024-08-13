@@ -223,12 +223,12 @@ void Settings::setWindowSize(const QSize &windowSize)
 	setValue(QStringLiteral(KAIDAN_SETTINGS_WINDOW_SIZE), windowSize, &Settings::windowSizeChanged);
 }
 
-AccountManager::AutomaticMediaDownloadsRule Settings::automaticMediaDownloadsRule() const
+Account::AutomaticMediaDownloadsRule Settings::automaticMediaDownloadsRule() const
 {
-	return value<AccountManager::AutomaticMediaDownloadsRule>(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), AccountManager::AutomaticMediaDownloadsRule::Default);
+	return value<Account::AutomaticMediaDownloadsRule>(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), Account::AutomaticMediaDownloadsRule::Default);
 }
 
-void Settings::setAutomaticMediaDownloadsRule(AccountManager::AutomaticMediaDownloadsRule rule)
+void Settings::setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule)
 {
 	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), rule, &Settings::automaticMediaDownloadsRuleChanged);
 }

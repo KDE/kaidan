@@ -14,6 +14,17 @@ class Account
 	Q_GADGET
 
 public:
+	/**
+	 * Default rule to automatically download media for all roster items of an account.
+	 */
+	enum class AutomaticMediaDownloadsRule {
+		Never,        ///< Never automatically download files.
+		PresenceOnly, ///< Automatically download files only for contacts receiving presence.
+		Always,       ///< Always automatically download files.
+		Default = PresenceOnly,
+	};
+	Q_ENUM(AutomaticMediaDownloadsRule)
+
 	Account() = default;
 
 	bool operator==(const Account &other) const = default;
@@ -32,3 +43,4 @@ public:
 };
 
 Q_DECLARE_METATYPE(Account)
+Q_DECLARE_METATYPE(Account::AutomaticMediaDownloadsRule)

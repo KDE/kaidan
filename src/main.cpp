@@ -37,6 +37,7 @@
 #include "qxmpp-exts/QXmppUri.h"
 
 // Kaidan
+#include "Account.h"
 #include "AccountManager.h"
 #include "AccountMigrationManager.h"
 #include "AccountQrCodeGenerator.h"
@@ -327,7 +328,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MessageReactionDeliveryState>();
 	qRegisterMetaType<FileModel::Role>();
 	qRegisterMetaType<FileProxyModel::Mode>();
-	qRegisterMetaType<AccountManager::AutomaticMediaDownloadsRule>();
+	qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<AccountMigrationManager::MigrationState>();
 	qRegisterMetaType<RosterItem::GroupChatFlag>();
@@ -490,6 +491,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<ContactTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "ContactTrustMessageUriGenerator");
 	qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
 
+	qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));
 	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
 	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
 	qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));

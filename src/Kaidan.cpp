@@ -161,14 +161,14 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 			if (const auto item = RosterModel::instance()->findItem(message.chatJid)) {
 				const auto contactRule = item->automaticMediaDownloadsRule;
 
-				const auto effectiveRule = [this, contactRule]() -> AccountManager::AutomaticMediaDownloadsRule {
+				const auto effectiveRule = [this, contactRule]() -> Account::AutomaticMediaDownloadsRule {
 					switch (contactRule) {
 					case RosterItem::AutomaticMediaDownloadsRule::Account:
 						return settings()->automaticMediaDownloadsRule();
 					case RosterItem::AutomaticMediaDownloadsRule::Never:
-						return AccountManager::AutomaticMediaDownloadsRule::Never;
+						return Account::AutomaticMediaDownloadsRule::Never;
 					case RosterItem::AutomaticMediaDownloadsRule::Always:
-						return AccountManager::AutomaticMediaDownloadsRule::Always;
+						return Account::AutomaticMediaDownloadsRule::Always;
 					}
 
 					Q_UNREACHABLE();
@@ -176,11 +176,11 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 				const auto automaticDownloadDesired = [effectiveRule, &message]() -> bool {
 					switch (effectiveRule) {
-					case AccountManager::AutomaticMediaDownloadsRule::Never:
+					case Account::AutomaticMediaDownloadsRule::Never:
 						return false;
-					case AccountManager::AutomaticMediaDownloadsRule::PresenceOnly:
+					case Account::AutomaticMediaDownloadsRule::PresenceOnly:
 						return message.isOwn || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
-					case AccountManager::AutomaticMediaDownloadsRule::Always:
+					case Account::AutomaticMediaDownloadsRule::Always:
 						return true;
 					}
 

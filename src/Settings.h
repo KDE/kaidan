@@ -14,7 +14,7 @@
 #include <QSettings>
 #include <QSize>
 
-#include "AccountManager.h"
+#include "Account.h"
 #include "Encryption.h"
 #include "Kaidan.h"
 
@@ -37,7 +37,7 @@ class Settings : public QObject
 	Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible WRITE setKeyAuthenticationPageExplanationVisible NOTIFY keyAuthenticationPageExplanationVisibleChanged)
 	Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
 	Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
-	Q_PROPERTY(AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
+	Q_PROPERTY(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY automaticMediaDownloadsRuleChanged)
 
 public:
 	explicit Settings(QObject *parent = nullptr);
@@ -104,8 +104,8 @@ public:
 	QSize windowSize() const;
 	void setWindowSize(const QSize &windowSize);
 
-	AccountManager::AutomaticMediaDownloadsRule automaticMediaDownloadsRule() const;
-	void setAutomaticMediaDownloadsRule(AccountManager::AutomaticMediaDownloadsRule rule);
+	Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule() const;
+	void setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule);
 
 	void remove(const QStringList &keys);
 

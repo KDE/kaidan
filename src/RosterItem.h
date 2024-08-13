@@ -39,12 +39,12 @@ struct RosterItem
 
 public:
 	/**
-	 * Rule to automatically download media for a roster item
+	 * Rule to automatically download media for a roster item.
 	 */
 	enum class AutomaticMediaDownloadsRule {
-		Account, ///< Use the account rule
-		Never,   ///< Never automatically download files
-		Always,  ///< Always automatically download files
+		Account, ///< Use the account rule.
+		Never,   ///< Never automatically download files.
+		Always,  ///< Always automatically download files.
 		Default = Account,
 	};
 	Q_ENUM(AutomaticMediaDownloadsRule)
@@ -166,8 +166,8 @@ public:
 	// Whether notifications are muted.
 	bool notificationsMuted = false;
 
-	// Wheither files get downloaded automatically
-	RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
+	// Whether files are downloaded automatically.
+	AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

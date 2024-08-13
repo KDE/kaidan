@@ -24,15 +24,15 @@ DetailsContent {
 		model: [
 			{
 				display: qsTr("Never"),
-				value: AccountManager.AutomaticMediaDownloadsRule.Never
+				value: Account.AutomaticMediaDownloadsRule.Never
 			},
 			{
 				display: qsTr("If personal data is shared"),
-				value: AccountManager.AutomaticMediaDownloadsRule.PresenceOnly
+				value: Account.AutomaticMediaDownloadsRule.PresenceOnly
 			},
 			{
 				display: qsTr("Always"),
-				value: AccountManager.AutomaticMediaDownloadsRule.Always
+				value: Account.AutomaticMediaDownloadsRule.Always
 			}
 		]
 		textRole: "display"
