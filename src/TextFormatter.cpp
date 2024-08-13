@@ -120,6 +120,23 @@ static void formatUrls(QTextCursor &cursor, const QString &text)
 	});
 }
 
+// Hightlights mentions of group chat users.
+static void formatGroupChatUserMentions(QTextCursor &cursor, const QString &text)
+{
+	processTextParts(text, isTextSeparator, [&cursor](qsizetype i, QStringView part) {
+		if (part.startsWith(GROUP_CHAT_USER_MENTION_PREFIX)) {
+			cursor.setPosition(i, QTextCursor::MoveAnchor);
+			cursor.setPosition(i + part.size(), QTextCursor::KeepAnchor);
+
+			QTextCharFormat format;
+
+			format.setFontWeight(QFont::DemiBold);
+
+			cursor.setCharFormat(format);
+		}
+	});
+}
+
 TextFormatter::TextFormatter(QObject *parent)
 	: QObject(parent)
 {
@@ -164,6 +181,7 @@ void TextFormatter::attachEnhancedTextFormatting()
 	attachFormatting([](QTextCursor &cursor, const QString &text) {
 		formatEmojis(cursor, text, determineEmojiFontSizeFactor(text));
 		formatUrls(cursor, text);
+		formatGroupChatUserMentions(cursor, text);
 	});
 }
 
