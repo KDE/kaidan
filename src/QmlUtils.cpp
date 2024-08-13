@@ -53,6 +53,11 @@ QChar QmlUtils::messageBubblepaddingCharacter()
 	return MESSAGE_BUBBLE_PADDING_CHARACTER;
 }
 
+QChar QmlUtils::groupChatUserMentionPrefix()
+{
+	return GROUP_CHAT_USER_MENTION_PREFIX;
+}
+
 #ifndef BUILD_TESTS
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 {

@@ -114,6 +114,15 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
+			GroupChatParticipantPicker {
+				id: participantPicker
+				x: root.chatPage.x + root.leftInset
+				y: root.chatPage.height - root.height - root.topPadding - contentHeight
+				accountJid: ChatController.accountJid
+				chatJid: ChatController.chatJid
+				textArea: messageArea
+			}
+
 			FormattedTextArea {
 				id: messageArea
 				placeholderText: {
@@ -149,12 +158,35 @@ Controls.Pane {
 						ChatController.sendChatState(ChatState.Active)
 					}
 				}
+				Keys.onDownPressed: {
+					if (participantPicker.visible) {
+						if (participantPicker.listView.currentIndex === participantPicker.listView.count - 1) {
+							participantPicker.listView.currentIndex = 0
+						} else {
+							participantPicker.listView.incrementCurrentIndex()
+						}
+					}
+				}
+				Keys.onUpPressed: {
+					if (participantPicker.visible) {
+						if (participantPicker.listView.currentIndex === 0) {
+							participantPicker.listView.currentIndex = participantPicker.listView.count - 1
+						} else {
+							participantPicker.listView.decrementCurrentIndex()
+						}
+					}
+				}
 				Keys.onReturnPressed: {
 					if (event.key === Qt.Key_Return) {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
 							messageArea.append("")
 						} else {
-							sendMessage()
+							if (participantPicker.visible) {
+								participantPicker.selectCurrentIndex()
+							} else {
+								sendMessage()
+							}
+
 							event.accepted = true
 						}
 					}
@@ -455,6 +487,33 @@ Controls.Pane {
 					emojiPicker.openForSearch(currentCharacter)
 					emojiPicker.search()
 				}
+			}
+		}
+
+		if (participantPicker.visible) {
+			if (participantPicker.searchedText === "" || currentCharacter === "" || currentCharacter === " ") {
+				participantPicker.close()
+				return
+			}
+
+			// Handle the deletion or addition of characters.
+			if (lastMessageLength >= messageArea.text.length) {
+				participantPicker.searchedText = participantPicker.searchedText.substr(0, participantPicker.searchedText.length - 1)
+			} else {
+				participantPicker.searchedText += currentCharacter
+			}
+
+			participantPicker.search()
+		} else if (ChatController.rosterItem.isGroupChat && currentCharacter === Utils.groupChatUserMentionPrefix) {
+			if (messageArea.cursorPosition !== 1) {
+				const predecessorOfCurrentCharacter = messageArea.getText(messageArea.cursorPosition - 2, messageArea.cursorPosition - 1)
+				if (predecessorOfCurrentCharacter === " " || predecessorOfCurrentCharacter === "\n") {
+					participantPicker.openForSearch(currentCharacter)
+					participantPicker.search()
+				}
+			} else {
+				participantPicker.openForSearch(currentCharacter)
+				participantPicker.search()
 			}
 		}
 
