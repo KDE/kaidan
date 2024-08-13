@@ -180,10 +180,10 @@ void GroupChatController::handleChatChanged()
 				//
 				// The encryption for group chats is initialized once all group chat user JIDs are
 				// fetched.
-				if (m_currentUserJids.isEmpty()) {
-					requestGroupChatUsers(accountJid, chatJid);
-				} else {
+				if (m_currentUserJids.contains(accountJid)) {
 					updateEncryption();
+				} else {
+					requestGroupChatUsers(accountJid, chatJid);
 				}
 			}
 		});
