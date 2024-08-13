@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: 2023 Mathis Brüchert <mbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
-// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -63,33 +62,11 @@ Controls.Control {
 					title: qsTr("Media")
 				}
 
-				MobileForm.FormComboBoxDelegate {
+				FormComboBoxDelegate {
 					id: automaticMediaDownloadsDelegate
 					text: qsTr("Automatic Downloads")
 					description: qsTr("Download media automatically")
-
-					// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based
-					// model.
-					// Thus, an own function is used.
-					function indexOf(value) {
-						if (Array.isArray(model)) {
-							return model.findIndex((entry) => entry[valueRole] === value)
-						}
-
-						return indexOfValue(value)
-					}
-
-					Component.onCompleted: {
-						// "Kirigami.OverlaySheet" uses a z-index of 101.
-						// In order to see the popup, it needs to have that z-index as well.
-						if (root.sheet) {
-							let comboBox = contentItem.children[2];
-
-							if (comboBox instanceof Controls.ComboBox) {
-								comboBox.popup.z = 101
-							}
-						}
-                    }
+					sheetUsed: root.sheet
 				}
 
 				ColumnLayout {
