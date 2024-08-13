@@ -12,8 +12,6 @@ import im.kaidan.kaidan 1.0
 UserListItem {
 	id: root
 
-	property string chatJid
-
 	Controls.Label {
 		id: userText
 		text: root.name

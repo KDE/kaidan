@@ -194,7 +194,6 @@ RosterItemDetailsContent {
 					delegate: GroupChatUserItem {
 						id: userDelegate
 						accountJid: root.accountJid
-						chatJid: root.jid
 						jid: model.jid
 						name: model.name
 						width: ListView.view.width
@@ -374,7 +373,6 @@ RosterItemDetailsContent {
 			delegate: GroupChatUserItem {
 				id: keyAuthenticationUserDelegate
 				accountJid: root.accountJid
-				chatJid: root.jid
 				jid: model.jid
 				name: model.name
 				width: ListView.view.width
