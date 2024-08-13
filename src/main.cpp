@@ -328,6 +328,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<MessageReactionDeliveryState>();
 	qRegisterMetaType<FileModel::Role>();
 	qRegisterMetaType<FileProxyModel::Mode>();
+	qRegisterMetaType<Account::ContactNotificationRule>();
+	qRegisterMetaType<Account::GroupChatNotificationRule>();
 	qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<AccountMigrationManager::MigrationState>();

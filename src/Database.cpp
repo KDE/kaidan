@@ -44,8 +44,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 43
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(43)
+#define DATABASE_LATEST_VERSION 44
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(44)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -422,6 +422,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
 			SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT)
 			SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
+			SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER)
+			SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
 			"PRIMARY KEY(jid)"
 		)
 	);
@@ -449,7 +451,7 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
 			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
 			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
-			SQL_ATTRIBUTE(notificationsMuted, SQL_BOOL)
+			SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
 			SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER)
 			"PRIMARY KEY(accountJid, jid)"
 		)
@@ -2242,4 +2244,105 @@ void Database::convertDatabaseToV43()
 	);
 
 	d->version = 43;
+}
+
+void Database::convertDatabaseToV44()
+{
+	DATABASE_CONVERT_TO_VERSION(43)
+	QSqlQuery query(currentDatabase());
+
+	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD contactNotificationRule " SQL_INTEGER));
+	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD groupChatNotificationRule " SQL_INTEGER));
+
+	// Replace the column "notificationsMuted" with "notificationRule".
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster_tmp",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+			SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER)
+			"PRIMARY KEY(accountJid, jid)"
+		)
+	);
+
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			INSERT INTO roster_tmp
+			SELECT accountJid, jid, name, subscription, groupChatParticipantId, groupChatName,
+			groupChatDescription, groupChatFlags, encryption, unreadMessages, lastReadOwnMessageId,
+			lastReadContactMessageId, latestGroupChatMessageStanzaId,
+			latestGroupChatMessageStanzaTimestamp, readMarkerPending, pinningPosition,
+			chatStateSendingEnabled, readMarkerSendingEnabled, 1,
+			automaticMediaDownloadsRule
+			FROM roster
+			WHERE notificationsMuted
+		)")
+	);
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			INSERT INTO roster_tmp
+			SELECT accountJid, jid, name, subscription, groupChatParticipantId, groupChatName,
+			groupChatDescription, groupChatFlags, encryption, unreadMessages, lastReadOwnMessageId,
+			lastReadContactMessageId, latestGroupChatMessageStanzaId,
+			latestGroupChatMessageStanzaTimestamp, readMarkerPending, pinningPosition,
+			chatStateSendingEnabled, readMarkerSendingEnabled, 0,
+			automaticMediaDownloadsRule
+			FROM roster
+			WHERE NOT notificationsMuted
+		)")
+	);
+
+	execQuery(query, QStringLiteral("DROP TABLE roster"));
+	execQuery(
+		query,
+		SQL_CREATE_TABLE(
+			"roster",
+			SQL_ATTRIBUTE(accountJid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL)
+			SQL_ATTRIBUTE(name, SQL_TEXT)
+			SQL_ATTRIBUTE(subscription, SQL_INTEGER)
+			SQL_ATTRIBUTE(groupChatParticipantId, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatName, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatDescription, SQL_TEXT)
+			SQL_ATTRIBUTE(groupChatFlags, SQL_INTEGER)
+			SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+			SQL_ATTRIBUTE(unreadMessages, SQL_INTEGER)
+			SQL_ATTRIBUTE(lastReadOwnMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(lastReadContactMessageId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestGroupChatMessageStanzaId, SQL_TEXT)
+			SQL_ATTRIBUTE(latestGroupChatMessageStanzaTimestamp, SQL_TEXT)
+			SQL_ATTRIBUTE(readMarkerPending, SQL_BOOL)
+			SQL_ATTRIBUTE(pinningPosition, SQL_INTEGER_NOT_NULL)
+			SQL_ATTRIBUTE(chatStateSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(readMarkerSendingEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(notificationRule, SQL_INTEGER)
+			SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER)
+			"PRIMARY KEY(accountJid, jid)"
+		)
+	);
+
+	execQuery(query, QStringLiteral("INSERT INTO roster SELECT * FROM roster_tmp"));
+	execQuery(query, QStringLiteral("DROP TABLE roster_tmp"));
+
+	d->version = 44;
 }

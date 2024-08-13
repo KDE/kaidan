@@ -195,7 +195,7 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText)
 {
-	bool userMuted = ChatController::instance()->rosterItem().notificationsMuted;
+	bool userMuted = ChatController::instance()->rosterItem().notificationRule == RosterItem::NotificationRule::Always;
 	bool requestForCurrentChat = subscriberJid == ChatController::instance()->chatJid();
 	bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
 

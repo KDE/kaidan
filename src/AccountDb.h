@@ -21,6 +21,7 @@ public:
 	static AccountDb *instance();
 
 	QFuture<void> addAccount(const QString &jid);
+	QFuture<Account> account(const QString &jid);
 	QFuture<void> updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount);
 
 	/**

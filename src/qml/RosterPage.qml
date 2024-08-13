@@ -87,7 +87,7 @@ SearchBarPage {
 				lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
 				unreadMessages: model ? model.unreadMessages : 0
 				pinned: model ? model.pinned : false
-				notificationsMuted: model ? model.notificationsMuted : false
+				notificationRule: model ? model.notificationRule : false
 
 				onClicked: {
 					// Open the chatPage only if it is not yet open.

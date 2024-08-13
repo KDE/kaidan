@@ -140,31 +140,6 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
-		Layout.fillWidth: true
-
-		contentItem: ColumnLayout {
-			spacing: 0
-
-			MobileForm.FormCardHeader {
-				title: qsTr("Notifications")
-			}
-
-			// TODO: Add option to notify only if mentioned within group chat
-			MobileForm.FormSwitchDelegate {
-				text: qsTr("Incoming messages")
-				description: qsTr("Show notification and play sound on message arrival")
-				checked: !rosterItemWatcher.item.notificationsMuted
-				onToggled: {
-					RosterModel.setNotificationsMuted(
-						root.accountJid,
-						root.jid,
-						!checked)
-				}
-			}
-		}
-	}
-
 	// This needs to be placed after the notification section.
 	// Otherwise, notifications will not be shown as muted after switching chats.
 	// It is probably a bug in Kirigami Addons.

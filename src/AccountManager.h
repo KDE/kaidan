@@ -11,6 +11,8 @@
 #include <QObject>
 // QXmpp
 #include <QXmppGlobal.h>
+// Kaidan
+#include "Account.h"
 
 class Settings;
 class VCardCache;
@@ -23,6 +25,7 @@ class AccountManager : public QObject
 {
 	Q_OBJECT
 
+	Q_PROPERTY(const Account &account READ account NOTIFY accountChanged)
 	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 	Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
 	Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
@@ -34,6 +37,12 @@ public:
 	static AccountManager *instance();
 
 	AccountManager(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
+
+	const Account &account() const;
+	Q_SIGNAL void accountChanged();
+
+	Q_INVOKABLE void setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule);
+	Q_INVOKABLE void setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule);
 
 	/**
 	 * Returns the bare JID of the account.
@@ -284,6 +293,8 @@ private:
 
 	QMutex m_mutex;
 	Settings *m_settings;
+
+	Account m_account;
 
 	QString m_jid;
 	QString m_jidResourcePrefix;

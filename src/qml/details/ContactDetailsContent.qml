@@ -177,6 +177,65 @@ RosterItemDetailsContent {
 			spacing: 0
 
 			MobileForm.FormCardHeader {
+				title: qsTr("Notifications")
+			}
+
+			MobileForm.FormComboBoxDelegate {
+				id: notificationDelegate
+				text: qsTr("Incoming messages")
+				description: qsTr("Show notification and play sound on message arrival")
+				model: [
+					{
+						display: qsTr("Account default"),
+						value: RosterItem.NotificationRule.Account
+					},
+					{
+						display: qsTr("Never"),
+						value: RosterItem.NotificationRule.Never
+					},
+					{
+						display: qsTr("Always"),
+						value: RosterItem.NotificationRule.Always
+					}
+				]
+				textRole: "display"
+				valueRole: "value"
+				currentIndex: notificationDelegate.indexOf(rosterItemWatcher.item.notificationRule)
+				onActivated: RosterModel.setNotificationRule(root.accountJid, root.jid, notificationDelegate.currentValue)
+
+				// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based
+				// model.
+				// Thus, an own function is used.
+				function indexOf(value) {
+					if (Array.isArray(model)) {
+						return model.findIndex((entry) => entry[valueRole] === value)
+					}
+
+					return indexOfValue(value)
+				}
+
+				Component.onCompleted: {
+					// "Kirigami.OverlaySheet" uses a z-index of 101.
+					// In order to see the popup, it needs to have that z-index as well.
+					if (root.sheet) {
+						let comboBox = contentItem.children[2];
+
+						if (comboBox instanceof Controls.ComboBox) {
+							comboBox.popup.z = 101
+						}
+					}
+				}
+			}
+		}
+	}
+
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
 				title: qsTr("Privacy")
 			}
 

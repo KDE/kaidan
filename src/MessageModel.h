@@ -209,7 +209,7 @@ private:
 	 *
 	 * @param message message for which a notification might be shown
 	 */
-	void showMessageNotification(const Message &message, MessageOrigin origin) const;
+	void showMessageNotification(const Message &message, MessageOrigin origin);
 
 	/**
 	 * Undoes a pending or failed removal of a message reaction.

@@ -65,6 +65,8 @@ RosterModel::RosterModel(QObject *parent)
 		});
 	});
 
+	connect(AccountManager::instance(), &AccountManager::accountChanged, this, &RosterModel::handleAccountChanged);
+
 	connect(this, &RosterModel::removeItemsRequested, this, [this](const QString &accountJid, const QString &chatJid) {
 		RosterDb::instance()->removeItems(accountJid, chatJid);
 		removeItems(accountJid, chatJid);
@@ -103,7 +105,7 @@ QHash<int, QByteArray> RosterModel::roleNames() const
 	roles[LastMessageGroupChatSenderNameRole] = "lastMessageGroupChatSenderName";
 	roles[PinnedRole] = "pinned";
 	roles[SelectedRole] = "selected";
-	roles[NotificationsMutedRole] = "notificationsMuted";
+	roles[NotificationRuleRole] = "notificationRule";
 	return roles;
 }
 
@@ -157,8 +159,34 @@ QVariant RosterModel::data(const QModelIndex &index, int role) const
 		return item.pinningPosition >= 0;
 	case SelectedRole:
 		return item.selected;
-	case NotificationsMutedRole:
-		return item.notificationsMuted;
+	case NotificationRuleRole:
+		if (item.notificationRule == RosterItem::NotificationRule::Account) {
+			if (item.isGroupChat()) {
+				switch (AccountManager::instance()->account().groupChatNotificationRule) {
+				case Account::GroupChatNotificationRule::Never:
+					return QVariant::fromValue(RosterItem::NotificationRule::Never);
+				case Account::GroupChatNotificationRule::Mentioned:
+					return QVariant::fromValue(RosterItem::NotificationRule::Mentioned);
+				case Account::GroupChatNotificationRule::Always:
+					return QVariant::fromValue(RosterItem::NotificationRule::Always);
+				}
+			}
+
+			switch (AccountManager::instance()->account().contactNotificationRule) {
+			case Account::ContactNotificationRule::Never:
+				return QVariant::fromValue(RosterItem::NotificationRule::Never);
+			case Account::ContactNotificationRule::PresenceOnly:
+				if (item.isReceivingPresence()) {
+					return QVariant::fromValue(RosterItem::NotificationRule::Always);
+				} else {
+					return QVariant::fromValue(RosterItem::NotificationRule::Never);
+				}
+			case Account::ContactNotificationRule::Always:
+				return QVariant::fromValue(RosterItem::NotificationRule::Always);
+			}
+		}
+
+		return QVariant::fromValue(item.notificationRule);
 	}
 	return {};
 }
@@ -414,7 +442,7 @@ void RosterModel::replaceItems(const QHash<QString, RosterItem> &items)
 			item.pinningPosition = oldItem->pinningPosition;
 			item.chatStateSendingEnabled = oldItem->chatStateSendingEnabled;
 			item.readMarkerSendingEnabled = oldItem->readMarkerSendingEnabled;
-			item.notificationsMuted = oldItem->notificationsMuted;
+			item.notificationRule = oldItem->notificationRule;
 			item.lastMessageDeliveryState = oldItem->lastMessageDeliveryState;
 			item.lastMessageIsOwn = oldItem->lastMessageIsOwn;
 			item.lastMessageGroupChatSenderName = oldItem->lastMessageGroupChatSenderName;
@@ -574,10 +602,10 @@ void RosterModel::setReadMarkerSendingEnabled(const QString &, const QString &ji
 	});
 }
 
-void RosterModel::setNotificationsMuted(const QString &, const QString &jid, bool notificationsMuted)
+void RosterModel::setNotificationRule(const QString &, const QString &jid, RosterItem::NotificationRule notificationRule)
 {
 	Q_EMIT updateItemRequested(jid, [=](RosterItem &item) {
-		item.notificationsMuted = notificationsMuted;
+		item.notificationRule = notificationRule;
 	});
 }
 
@@ -613,6 +641,11 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 			return;
 		}
 	}
+}
+
+void RosterModel::handleAccountChanged()
+{
+	Q_EMIT dataChanged(index(0), index(m_items.size() - 1), { NotificationRuleRole });
 }
 
 void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origin)

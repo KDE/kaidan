@@ -49,6 +49,45 @@ AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *p
 	});
 }
 
+const Account &AccountManager::account() const
+{
+	return m_account;
+}
+
+void AccountManager::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule)
+{
+	await(
+		AccountDb::instance()->updateAccount(
+			jid,
+			[rule](Account &account) {
+				account.contactNotificationRule = rule;
+			}
+		),
+		this,
+		[this, rule]() {
+			m_account.contactNotificationRule = rule;
+			Q_EMIT accountChanged();
+		}
+	);
+}
+
+void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule)
+{
+	await(
+		AccountDb::instance()->updateAccount(
+			jid,
+			[rule](Account &account) {
+				account.groupChatNotificationRule = rule;
+			}
+		),
+		this,
+		[this, rule]() {
+			m_account.groupChatNotificationRule = rule;
+			Q_EMIT accountChanged();
+		}
+	);
+}
+
 QString AccountManager::jid()
 {
 	QMutexLocker locker(&m_mutex);
@@ -64,6 +103,11 @@ void AccountManager::setJid(const QString &jid)
 		m_hasNewCredentials = true;
 
 		AccountDb::instance()->addAccount(jid);
+
+		await(AccountDb::instance()->account(jid), this, [this](Account &&account) {
+			m_account = std::move(account);
+			Q_EMIT accountChanged();
+		});
 
 		await(AccountDb::instance()->fetchHttpUploadLimit(jid), this, [](qint64 &&limit) {
 			Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);

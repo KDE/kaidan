@@ -28,7 +28,7 @@ UserListItem {
 	property string lastMessageGroupChatSenderName
 	property int unreadMessages
 	property bool pinned
-	property bool notificationsMuted
+	property int notificationRule
 
 	selected: {
 		return !Kirigami.Settings.isMobile &&
@@ -156,12 +156,21 @@ UserListItem {
 			RowLayout {
 				id: optionalItemArea
 
-				// icon for muted contact
+				// icon for muted roster item
 				Kirigami.Icon {
 					source: "notifications-disabled-symbolic"
-					visible: root.notificationsMuted
+					visible: root.notificationRule === RosterItem.NotificationRule.Never
 					Layout.preferredWidth: Layout.preferredHeight
 					Layout.preferredHeight: counter.height
+				}
+
+				// icon-like text for roster item that notifies only when user is mentioned in group
+				// chat
+				ScalableText {
+					text: "@"
+					visible: root.notificationRule === RosterItem.NotificationRule.Mentioned
+					scaleFactor: counter.height * 0.065
+					Layout.topMargin: - 2
 				}
 
 				// icon for pinned chat
@@ -176,7 +185,8 @@ UserListItem {
 				MessageCounter {
 					id: counter
 					count: root.unreadMessages
-					muted: root.notificationsMuted
+					muted: root.notificationRule === RosterItem.NotificationRule.Never ||
+						   root.notificationRule === RosterItem.NotificationRule.Mentioned
 				}
 
 				// icon for reordering

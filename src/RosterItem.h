@@ -34,10 +34,23 @@ struct RosterItem
 	Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
 	Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
 	Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
-	Q_PROPERTY(bool notificationsMuted MEMBER notificationsMuted)
+	Q_PROPERTY(RosterItem::NotificationRule notificationRule MEMBER notificationRule)
 	Q_PROPERTY(RosterItem::AutomaticMediaDownloadsRule automaticMediaDownloadsRule MEMBER automaticMediaDownloadsRule)
 
 public:
+	/**
+	 * Rule to inform the user about incoming messages.
+	 */
+	enum class NotificationRule {
+		Account,        ///< Use the account rule.
+		Never,          ///< Never notify.
+		PresenceOnly,   ///< Notify only for contacts receiving presence.
+		Mentioned,      ///< Notify only if the user is mentioned in a group chat.
+		Always,         ///< Always notify.
+		Default = Account,
+	};
+	Q_ENUM(NotificationRule)
+
 	/**
 	 * Rule to automatically download media for a roster item.
 	 */
@@ -163,13 +176,14 @@ public:
 	// Whether read markers are sent to this roster item.
 	bool readMarkerSendingEnabled = true;
 
-	// Whether notifications are muted.
-	bool notificationsMuted = false;
+	// Whether the user is informed about incoming messages.
+	NotificationRule notificationRule = NotificationRule::Default;
 
 	// Whether files are downloaded automatically.
 	AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 };
 
 Q_DECLARE_METATYPE(RosterItem)
+Q_DECLARE_METATYPE(RosterItem::NotificationRule)
 Q_DECLARE_METATYPE(RosterItem::AutomaticMediaDownloadsRule)
 Q_DECLARE_METATYPE(RosterItem::GroupChatFlags)

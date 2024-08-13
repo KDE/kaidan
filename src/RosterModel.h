@@ -47,7 +47,7 @@ public:
 		LastMessageGroupChatSenderNameRole,
 		PinnedRole,
 		SelectedRole,
-		NotificationsMutedRole,
+		NotificationRuleRole,
 	};
 	Q_ENUM(RosterItemRoles)
 
@@ -152,7 +152,7 @@ public:
 
 	Q_INVOKABLE void setChatStateSendingEnabled(const QString &accountJid, const QString &jid, bool chatStateSendingEnabled);
 	Q_INVOKABLE void setReadMarkerSendingEnabled(const QString &accountJid, const QString &jid, bool readMarkerSendingEnabled);
-	Q_INVOKABLE void setNotificationsMuted(const QString &accountJid, const QString &jid, bool notificationsMuted);
+	Q_INVOKABLE void setNotificationRule(const QString &accountJid, const QString &jid, RosterItem::NotificationRule notificationRule);
 	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
 Q_SIGNALS:
@@ -186,6 +186,8 @@ private:
 	 * @param jid JID of the roster item being removed (optional)
 	 */
 	void removeItems(const QString &accountJid, const QString &jid = {});
+
+	void handleAccountChanged();
 
 	void handleMessageAdded(const Message &message, MessageOrigin origin);
 	void handleMessageUpdated(const Message &message);

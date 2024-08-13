@@ -56,6 +56,29 @@ QFuture<void> AccountDb::addAccount(const QString &jid)
 	});
 }
 
+QFuture<Account> AccountDb::account(const QString &jid)
+{
+	return run([this, jid]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				SELECT *
+				FROM accounts
+				WHERE jid = :jid
+			)"),
+			{
+				{ u":jid", jid },
+			}
+		);
+
+		QVector<Account> accounts;
+		parseAccountsFromQuery(query, accounts);
+
+		return accounts.first();
+	});
+}
+
 QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount)
 {
 	return run([this, jid, updateAccount]() {
@@ -154,6 +177,8 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxLatestMessageStanzaId = rec.indexOf(QStringLiteral("latestMessageStanzaId"));
 	int idxLatestMessageStanzaTimestamp = rec.indexOf(QStringLiteral("latestMessageStanzaTimestamp"));
 	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
+	int idxContactNotificationRule = rec.indexOf(QStringLiteral("contactNotificationRule"));
+	int idxGroupChatNotificationRule = rec.indexOf(QStringLiteral("groupChatNotificationRule"));
 
 	reserve(accounts, query);
 	while (query.next()) {
@@ -164,6 +189,16 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
 		account.latestMessageStanzaTimestamp = query.value(idxLatestMessageStanzaTimestamp).toDateTime();
 		account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
+
+		if (const auto contactNotificationRule = query.value(idxContactNotificationRule);
+			!contactNotificationRule.isNull()) {
+			account.contactNotificationRule = query.value(idxContactNotificationRule).value<Account::ContactNotificationRule>();
+		}
+
+		if (const auto groupChatNotificationRule = query.value(idxGroupChatNotificationRule);
+			!groupChatNotificationRule.isNull()) {
+			account.groupChatNotificationRule = query.value(idxGroupChatNotificationRule).value<Account::GroupChatNotificationRule>();
+		}
 
 		accounts << std::move(account);
 	}
@@ -187,6 +222,12 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 	}
 	if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
 		rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));
+	}
+	if (oldAccount.contactNotificationRule != newAccount.contactNotificationRule) {
+		rec.append(createSqlField(QStringLiteral("contactNotificationRule"), static_cast<int>(newAccount.contactNotificationRule)));
+	}
+	if (oldAccount.groupChatNotificationRule != newAccount.groupChatNotificationRule) {
+		rec.append(createSqlField(QStringLiteral("groupChatNotificationRule"), static_cast<int>(newAccount.groupChatNotificationRule)));
 	}
 
 	return rec;

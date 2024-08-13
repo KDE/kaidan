@@ -41,7 +41,7 @@ struct ClientRosterItemSettings {
 	{
 		bareJid = item.jid;
 		encryption = item.encryption;
-		notificationsMuted = item.notificationsMuted;
+		notificationRule = item.notificationRule;
 		chatStateSendingEnabled = item.chatStateSendingEnabled;
 		readMarkerSendingEnabled = item.readMarkerSendingEnabled;
 		pinningPosition = item.pinningPosition;
@@ -66,7 +66,7 @@ struct ClientRosterItemSettings {
 		}
 
 		readRosterSettingsElement(encryption);
-		readRosterSettingsElement(notificationsMuted);
+		readRosterSettingsElement(notificationRule);
 		readRosterSettingsElement(chatStateSendingEnabled);
 		readRosterSettingsElement(readMarkerSendingEnabled);
 		readRosterSettingsElement(pinningPosition);
@@ -80,7 +80,7 @@ struct ClientRosterItemSettings {
 		writer.writeStartElement(s_item.toString());
 		writeRosterSettingsElement(bareJid);
 		writeRosterSettingsElement(encryption);
-		writeRosterSettingsElement(notificationsMuted);
+		writeRosterSettingsElement(notificationRule);
 		writeRosterSettingsElement(chatStateSendingEnabled);
 		writeRosterSettingsElement(readMarkerSendingEnabled);
 		writeRosterSettingsElement(pinningPosition);
@@ -90,7 +90,7 @@ struct ClientRosterItemSettings {
 
 	QString bareJid;
 	std::optional<Encryption::Enum> encryption;
-	std::optional<bool> notificationsMuted;
+	std::optional<RosterItem::NotificationRule> notificationRule;
 	std::optional<bool> chatStateSendingEnabled;
 	std::optional<bool> readMarkerSendingEnabled;
 	std::optional<int> pinningPosition;
@@ -412,7 +412,7 @@ QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::import
 		for (const ClientRosterItemSettings &itemSettings : settings.roster) {
 			model->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
 				item.encryption = itemSettings.encryption.value_or(item.encryption);
-				item.notificationsMuted = itemSettings.notificationsMuted.value_or(item.notificationsMuted);
+				item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
 				item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
 				item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
 				item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);

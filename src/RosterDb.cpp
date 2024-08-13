@@ -64,7 +64,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 	int idxPinningPosition = rec.indexOf(QStringLiteral("pinningPosition"));
 	int idxChateStateSendingEnabled = rec.indexOf(QStringLiteral("chatStateSendingEnabled"));
 	int idxReadMarkerSendingEnabled = rec.indexOf(QStringLiteral("readMarkerSendingEnabled"));
-	int idxNotificationsMuted = rec.indexOf(QStringLiteral("notificationsMuted"));
+	int idxNotificationRule = rec.indexOf(QStringLiteral("notificationRule"));
 	int idxAutomaticMediaDownloadsRule = rec.indexOf(QStringLiteral("automaticMediaDownloadsRule"));
 
 	while (query.next()) {
@@ -88,7 +88,7 @@ void RosterDb::parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 		item.pinningPosition = query.value(idxPinningPosition).toInt();
 		item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
 		item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
-		item.notificationsMuted = query.value(idxNotificationsMuted).toBool();
+		item.notificationRule = query.value(idxNotificationRule).value<RosterItem::NotificationRule>();
 		item.automaticMediaDownloadsRule = query.value(idxAutomaticMediaDownloadsRule).value<RosterItem::AutomaticMediaDownloadsRule>();
 
 		items << std::move(item);
@@ -134,8 +134,8 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 		rec.append(createSqlField(QStringLiteral("chatStateSendingEnabled"), newItem.chatStateSendingEnabled));
 	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
 		rec.append(createSqlField(QStringLiteral("readMarkerSendingEnabled"), newItem.readMarkerSendingEnabled));
-	if (oldItem.notificationsMuted != newItem.notificationsMuted)
-		rec.append(createSqlField(QStringLiteral("notificationsMuted"), newItem.notificationsMuted));
+	if (oldItem.notificationRule != newItem.notificationRule)
+		rec.append(createSqlField(QStringLiteral("notificationRule"), static_cast<int>(newItem.notificationRule)));
 	if (oldItem.automaticMediaDownloadsRule != newItem.automaticMediaDownloadsRule)
 		rec.append(createSqlField(QStringLiteral("automaticMediaDownloadsRule"), static_cast<int>(newItem.automaticMediaDownloadsRule)));
 
@@ -179,7 +179,7 @@ QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
 			query.addBindValue(item.pinningPosition);
 			query.addBindValue(item.chatStateSendingEnabled);
 			query.addBindValue(item.readMarkerSendingEnabled);
-			query.addBindValue(item.notificationsMuted);
+			query.addBindValue(static_cast<int>(item.notificationRule));
 			query.addBindValue(static_cast<int>(item.automaticMediaDownloadsRule));
 			execQuery(query);
 

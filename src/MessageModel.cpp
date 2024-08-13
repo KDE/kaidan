@@ -20,6 +20,7 @@
 #include "EncryptionController.h"
 #include "FutureUtils.h"
 #include "Globals.h"
+#include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
@@ -1093,12 +1094,12 @@ void MessageModel::processMessage(Message &msg)
 	}
 }
 
-void MessageModel::showMessageNotification(const Message &message, MessageOrigin origin) const
+void MessageModel::showMessageNotification(const Message &message, MessageOrigin origin)
 {
 	// Send a notification in the following cases:
 	// * The message was not sent by the user from another resource and
 	//   received via Message Carbons.
-	// * Notifications from the chat partner are not muted.
+	// * Notifications are allowed according to the set rule.
 	// * The corresponding chat is not opened while the application window
 	//   is active.
 
@@ -1117,15 +1118,77 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 		const auto accountJid = AccountManager::instance()->jid();
 		const auto chatJid = message.chatJid;
 
-		const auto userMuted = ChatController::instance()->rosterItem().notificationsMuted;
-		const auto chatActive =
-				ChatController::instance()->isChatCurrentChat(accountJid, chatJid) &&
-				QGuiApplication::applicationState() == Qt::ApplicationActive;
-		const auto previewText = message.previewText(true);
-		const auto notificationBody = message.isGroupChatMessage() ? determineGroupChatSenderName(message) + ": " + previewText : previewText;
+		const auto rosterItem = RosterModel::instance()->findItem(chatJid).value_or(RosterItem {});
 
-		if (!userMuted && !chatActive) {
-			Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, notificationBody);
+		// auto notificationsAllowedByRule = true;
+
+		auto sendNotification = [this, accountJid, chatJid, message]() {
+			const auto chatActive =
+					ChatController::instance()->isChatCurrentChat(accountJid, chatJid) &&
+					QGuiApplication::applicationState() == Qt::ApplicationActive;
+			const auto previewText = message.previewText(true);
+			const auto notificationBody = message.isGroupChatMessage() ? determineGroupChatSenderName(message) + ": " + previewText : previewText;
+
+			if (!chatActive) {
+				Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, notificationBody);
+			}
+		};
+
+		auto sendNotificationOnMention = [this, accountJid, chatJid, rosterItem, message, sendNotification]() {
+			await(
+				GroupChatUserDb::instance()->user(accountJid, chatJid, rosterItem.groupChatParticipantId),
+				this,
+				[body = message.body, sendNotification](const std::optional<GroupChatUser> user) {
+					if (user && (body.contains(user->id) || body.contains(user->jid) || body.contains(user->name))) {
+						sendNotification();
+					}
+				}
+			);
+		};
+
+		if (const auto notificationRule = rosterItem.notificationRule;
+			notificationRule == RosterItem::NotificationRule::Account) {
+			if (message.isGroupChatMessage()) {
+				switch (AccountManager::instance()->account().groupChatNotificationRule) {
+				case Account::GroupChatNotificationRule::Mentioned:
+					sendNotificationOnMention();
+					break;
+				case Account::GroupChatNotificationRule::Always:
+					sendNotification();
+					break;
+				default:
+					break;
+				}
+			} else {
+				switch (AccountManager::instance()->account().contactNotificationRule) {
+				case Account::ContactNotificationRule::PresenceOnly:
+					if (rosterItem.isReceivingPresence()) {
+						sendNotification();
+					}
+					break;
+				case Account::ContactNotificationRule::Always:
+					sendNotification();
+					break;
+				default:
+					break;
+				}
+			}
+		} else {
+			switch (notificationRule) {
+			case RosterItem::NotificationRule::PresenceOnly:
+				if (rosterItem.isReceivingPresence()) {
+					sendNotification();
+				}
+				break;
+			case RosterItem::NotificationRule::Mentioned:
+				sendNotificationOnMention();
+				break;
+			case RosterItem::NotificationRule::Always:
+				sendNotification();
+				break;
+			default:
+				break;
+			}
 		}
 	}
 }

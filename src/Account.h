@@ -13,7 +13,32 @@ class Account
 {
 	Q_GADGET
 
+	Q_PROPERTY(ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule)
+	Q_PROPERTY(GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule)
+
 public:
+	/**
+	 * Default rule to inform the user about incoming messages from contacts.
+	 */
+	enum class ContactNotificationRule {
+		Never,          ///< Never notify.
+		PresenceOnly,   ///< Notify only for contacts receiving presence.
+		Always,         ///< Always notify.
+		Default = Always,
+	};
+	Q_ENUM(ContactNotificationRule)
+
+	/**
+	 * Default rule to inform the user about incoming messages from group chats.
+	 */
+	enum class GroupChatNotificationRule {
+		Never,      ///< Never notify.
+		Mentioned,  ///< Notify only if the user is mentioned.
+		Always,     ///< Always notify.
+		Default = Always,
+	};
+	Q_ENUM(GroupChatNotificationRule)
+
 	/**
 	 * Default rule to automatically download media for all roster items of an account.
 	 */
@@ -40,7 +65,11 @@ public:
 	QString latestMessageStanzaId;
 	QDateTime latestMessageStanzaTimestamp;
 	qint64 httpUploadLimit = 0;
+	ContactNotificationRule contactNotificationRule = ContactNotificationRule::Default;
+	GroupChatNotificationRule groupChatNotificationRule = GroupChatNotificationRule::Default;
 };
 
 Q_DECLARE_METATYPE(Account)
+Q_DECLARE_METATYPE(Account::ContactNotificationRule)
+Q_DECLARE_METATYPE(Account::GroupChatNotificationRule)
 Q_DECLARE_METATYPE(Account::AutomaticMediaDownloadsRule)

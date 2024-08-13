@@ -301,6 +301,112 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		Layout.fillWidth: true
+
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Notifications")
+			}
+
+			MobileForm.FormComboBoxDelegate {
+				id: contactNotificationDelegate
+				text: qsTr("Incoming contact messages")
+				description: qsTr("Show notification and play sound on message arrival from a contact")
+				model: [
+					{
+						display: qsTr("Never"),
+						value: Account.ContactNotificationRule.Never
+					},
+					{
+						display: qsTr("If personal data is shared"),
+						value: Account.ContactNotificationRule.PresenceOnly
+					},
+					{
+						display: qsTr("Always"),
+						value: Account.ContactNotificationRule.Always
+					}
+				]
+				textRole: "display"
+				valueRole: "value"
+				currentIndex: contactNotificationDelegate.indexOf(AccountManager.account.contactNotificationRule)
+				onActivated: AccountManager.setContactNotificationRule(root.jid, contactNotificationDelegate.currentValue)
+
+				// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based
+				// model.
+				// Thus, an own function is used.
+				function indexOf(value) {
+					if (Array.isArray(model)) {
+						return model.findIndex((entry) => entry[valueRole] === value)
+					}
+
+					return indexOfValue(value)
+				}
+
+				Component.onCompleted: {
+					// "Kirigami.OverlaySheet" uses a z-index of 101.
+					// In order to see the popup, it needs to have that z-index as well.
+					if (root.sheet) {
+						let comboBox = contentItem.children[2];
+
+						if (comboBox instanceof Controls.ComboBox) {
+							comboBox.popup.z = 101
+						}
+					}
+				}
+			}
+
+			MobileForm.FormComboBoxDelegate {
+				id: groupChatNotificationDelegate
+				text: qsTr("Incoming group messages")
+				description: qsTr("Show notification and play sound on message arrival from a group")
+				model: [
+					{
+						display: qsTr("Never"),
+						value: Account.GroupChatNotificationRule.Never
+					},
+					{
+						display: qsTr("On mention"),
+						value: Account.GroupChatNotificationRule.Mentioned
+					},
+					{
+						display: qsTr("Always"),
+						value: Account.GroupChatNotificationRule.Always
+					}
+				]
+				textRole: "display"
+				valueRole: "value"
+				currentIndex: groupChatNotificationDelegate.indexOf(AccountManager.account.groupChatNotificationRule)
+				onActivated: AccountManager.setGroupChatNotificationRule(root.jid, groupChatNotificationDelegate.currentValue)
+
+				// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based
+				// model.
+				// Thus, an own function is used.
+				function indexOf(value) {
+					if (Array.isArray(model)) {
+						return model.findIndex((entry) => entry[valueRole] === value)
+					}
+
+					return indexOfValue(value)
+				}
+
+				Component.onCompleted: {
+					// "Kirigami.OverlaySheet" uses a z-index of 101.
+					// In order to see the popup, it needs to have that z-index as well.
+					if (root.sheet) {
+						let comboBox = contentItem.children[2];
+
+						if (comboBox instanceof Controls.ComboBox) {
+							comboBox.popup.z = 101
+						}
+					}
+				}
+			}
+		}
+	}
+
+	MobileForm.FormCard {
 		id: providerArea
 
 		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite
