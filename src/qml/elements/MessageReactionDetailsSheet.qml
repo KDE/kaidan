@@ -45,6 +45,12 @@ Kirigami.Dialog {
 			name: model.senderName
 			width: ListView.view.width
 			hoverEnabled: jid
+			onClicked: {
+				if (jid) {
+					Kaidan.openChatPageRequested(accountJid, jid)
+					root.close()
+				}
+			}
 
 			// middle
 			ColumnLayout {
@@ -83,12 +89,6 @@ Kirigami.Dialog {
 							font.pointSize: Kirigami.Theme.defaultFont.pointSize * 1.75
 						}
 					}
-				}
-			}
-			onClicked: {
-				if (jid) {
-					Kaidan.openChatPageRequested(accountJid, jid)
-					root.close()
 				}
 			}
 		}
