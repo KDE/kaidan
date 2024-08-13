@@ -18,6 +18,14 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.4.4\n"
 
+#: src/AbstractQrCodeGenerator.cpp:57
+#, fuzzy, qt-format
+#| msgctxt "QrCodeGenerator|"
+#| msgid "Generating the QR code failed: %1"
+msgctxt "AbstractQrCodeGenerator|"
+msgid "Generating the QR code failed: %1"
+msgstr "Ustvarjanje QR kode spodletelo: %1"
+
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
@@ -34,54 +42,62 @@ msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Računa ni bilo mogoče preseliti: Morate biti priklopljeni"
 
-#: src/Blocking.cpp:203
+#: src/AuthenticatedEncryptionKeyModel.cpp:84
+#, fuzzy
+#| msgctxt "OmemoModel|"
+#| msgid "This device"
+msgctxt "AuthenticatedEncryptionKeyModel|"
+msgid "This device"
+msgstr "Ta naprava"
+
+#: src/Blocking.cpp:208
 #, qt-format
 msgctxt "BlockingController|"
 msgid "Error fetching blocklist: %1"
 msgstr "Napaka pri pridobivanju seznama blokiranih: %1"
 
-#: src/Blocking.cpp:321
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Naprave"
 
-#: src/Blocking.cpp:323
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Uporabniki"
 
-#: src/Blocking.cpp:325
+#: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Strežniki"
 
-#: src/Blocking.cpp:327
+#: src/Blocking.cpp:332
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Naprave na strežnikih"
 
-#: src/ChatHintModel.cpp:206
+#: src/ChatHintModel.cpp:232
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Niste povezani - Sporočila lahko pošiljate in sprejemate, ko ste povezani"
 
-#: src/ChatHintModel.cpp:207
+#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Odpusti"
 
-#: src/ChatHintModel.cpp:208
+#: src/ChatHintModel.cpp:234
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Poveži"
 
-#: src/ChatHintModel.cpp:210
+#: src/ChatHintModel.cpp:236
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/ChatHintModel.cpp:222
+#: src/ChatHintModel.cpp:248
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -91,22 +107,43 @@ msgstr ""
 "%1 želi prejeti vaše osebne podatke, kot so razpoložljivost, naprave in "
 "drugi osebni podatki%2"
 
-#: src/ChatHintModel.cpp:223
+#: src/ChatHintModel.cpp:249
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Zavrni"
 
-#: src/ChatHintModel.cpp:224
+#: src/ChatHintModel.cpp:250
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Dovoli"
 
-#: src/ChatHintModel.cpp:226
+#: src/ChatHintModel.cpp:252
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Dovoljevanje…"
 
-#: src/ClientWorker.cpp:326
+#: src/ChatHintModel.cpp:260
+msgctxt "ChatHintModel|"
+msgid "This group has no users"
+msgstr ""
+
+#: src/ChatHintModel.cpp:262
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "ChatHintModel|"
+msgid "Invite contacts"
+msgstr "Izbriši stik"
+
+#: src/ChatHintModel.cpp:264
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ChatHintModel|"
+msgid "Opening invitation area"
+msgstr "Odpri spletno stran za registracijo"
+
+#: src/ClientWorker.cpp:347
 #, qt-format
 msgctxt "ClientWorker|"
 msgid ""
@@ -122,22 +159,42 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "Ni bilo mogoče pridobiti datoteke: %1"
 
-#: src/Kaidan.cpp:198
+#: src/GroupChatUserModel.cpp:52
+msgctxt "GroupChatUserModel|"
+msgid "Not joined"
+msgstr ""
+
+#: src/GroupChatUserModel.cpp:54
+msgctxt "GroupChatUserModel|"
+msgid "Joined"
+msgstr ""
+
+#: src/GroupChatUserModel.cpp:56
+msgctxt "GroupChatUserModel|"
+msgid "Left"
+msgstr ""
+
+#: src/GroupChatUserModel.cpp:58
+msgctxt "GroupChatUserModel|"
+msgid "Banned"
+msgstr ""
+
+#: src/Kaidan.cpp:213
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Povezan"
 
-#: src/Kaidan.cpp:200
+#: src/Kaidan.cpp:215
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/Kaidan.cpp:202
+#: src/Kaidan.cpp:217
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Nepovezan"
 
-#: src/Kaidan.cpp:281
+#: src/Kaidan.cpp:296
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Povezava se bo odprla, ko se povežete."
@@ -311,110 +368,228 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Ni informacij"
 
-#: src/Message.cpp:281
+#: src/Message.cpp:331
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/MessageComposition.cpp:184
+#: src/Message.cpp:379
+#, qt-format
+msgctxt "Message|"
+msgid "Invitation to group %1"
+msgstr ""
+
+#: src/MessageComposition.cpp:182
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Prenos tja je spodletel: %1"
 
-#: src/MessageComposition.cpp:304
+#: src/MessageComposition.cpp:224
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message correction was not successful"
+msgctxt "MessageComposition|"
+msgid "Message correction was not successful"
+msgstr "Popravljanje sporočila ni uspelo"
+
+#: src/MessageComposition.cpp:348
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neznana velikost"
 
-#: src/MessageComposition.cpp:352
+#: src/MessageComposition.cpp:396
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' ni mogoče poslati, ker je večji kot %2"
 
-#: src/MessageHandler.cpp:182
-msgctxt "MessageHandler|"
-msgid "Message correction was not successful"
-msgstr "Popravljanje sporočila ni uspelo"
+#: src/MessageController.cpp:225
+#, fuzzy, qt-format
+#| msgctxt "MessageModel|"
+#| msgid "Reaction could not be sent: %1"
+msgctxt "MessageController|"
+msgid "Reaction could not be sent: %1"
+msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageHandler.cpp:234
-msgctxt "MessageHandler|"
+#: src/MessageController.cpp:351
+#, fuzzy
+#| msgctxt "MessageHandler|"
+#| msgid "Message could not be sent."
+msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Pošiljanje sporočila ni uspelo."
 
-#: src/MessageHandler.cpp:518
-#, qt-format
-msgctxt "MessageHandler|"
+#: src/MessageController.cpp:667
+#, fuzzy, qt-format
+#| msgctxt "MessageHandler|"
+#| msgid "This message is encrypted with %1 but could not be decrypted"
+msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "To sporočilo je šifrirano s %1, a ga ni bilo mogoče dešifrirati"
 
-#: src/MessageModel.cpp:221
+#: src/MessageModel.cpp:199
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "V teku"
 
-#: src/MessageModel.cpp:223
+#: src/MessageModel.cpp:201
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Poslano"
 
-#: src/MessageModel.cpp:225
+#: src/MessageModel.cpp:203
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Dostavljeno"
 
-#: src/MessageModel.cpp:227
+#: src/MessageModel.cpp:205
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/MessageModel.cpp:654 src/MessageModel.cpp:727 src/MessageModel.cpp:862
+#: src/MessageModel.cpp:605 src/MessageModel.cpp:675
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:805
+#: src/MessageModel.cpp:750
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Odzivov ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:1526
+#: src/MessageModel.cpp:1226
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Danes"
 
-#: src/MessageModel.cpp:1529
+#: src/MessageModel.cpp:1229
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: src/Notifications.cpp:157 src/Notifications.cpp:240
+#: src/MixController.cpp:110
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Contact already exists"
+msgctxt "MixController|"
+msgid "The group already exists"
+msgstr "Stik že obstaja"
+
+#: src/MixController.cpp:135
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "Whether %1 is public could not be determined: %2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:152
+#, qt-format
+msgctxt "MixController|"
+msgid "Could not retrieve information of group %1: %2"
+msgstr ""
+
+#: src/MixController.cpp:166 src/MixController.cpp:174
+#, fuzzy, qt-format
+#| msgctxt "main|"
+#| msgid "Could not unblock %1: %2"
+msgctxt "MixController|"
+msgid "Could not rename group %1: %2"
+msgstr "Ni bilo mogoče deblokirati %1: %2"
+
+#: src/MixController.cpp:199
+msgctxt "MixController|"
+msgid "The group does not exist"
+msgstr ""
+
+#: src/MixController.cpp:202
+msgctxt "MixController|"
+msgid "You aren't allowed to join the group"
+msgstr ""
+
+#: src/MixController.cpp:281 src/MixController.cpp:289
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "%1 could not be invited to %2: %3"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:320
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "Nodes of %1 could not be retrieved: %2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:330
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "Allowed users of %1 could not be retrieved: %2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:347
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "Banned users of %1 could not be retrieved: %2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:366
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "Joined users of %1 could not be retrieved: %2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:385
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "MixController|"
+msgid "%1 could not be banned from %2: %3"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/MixController.cpp:437
+msgctxt "MixController|"
+msgid "You aren't allowed to delete the group"
+msgstr ""
+
+#: src/Notifications.cpp:155 src/Notifications.cpp:236
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "Odpri"
 
-#: src/Notifications.cpp:158
+#: src/Notifications.cpp:156
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Označi kot prebrano"
 
-#: src/Notifications.cpp:222
+#: src/Notifications.cpp:218
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Zahteva prejem vaših osebnih podatkov"
+
+#: src/OmemoController.cpp:107
+#, fuzzy
+#| msgctxt "OmemoManager|"
+#| msgid "End-to-end encryption via OMEMO 2 could not be set up"
+msgctxt "OmemoController|"
+msgid "End-to-end encryption via OMEMO 2 could not be set up"
+msgstr "Šifriranja od točke do točke z OMEMO ni bilo mogoče nastaviti"
 
 #: src/OmemoManager.cpp:128
 msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Šifriranja od točke do točke z OMEMO ni bilo mogoče nastaviti"
-
-#: src/OmemoModel.cpp:126
-msgctxt "OmemoModel|"
-msgid "This device"
-msgstr "Ta naprava"
 
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
@@ -485,57 +660,57 @@ msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Prikaži izvorno kodo na spletu"
 
-#: src/qml/ChatPage.qml:93
+#: src/qml/ChatPage.qml:101
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Podrobnosti…"
 
-#: src/qml/ChatPage.qml:99
+#: src/qml/ChatPage.qml:115
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Iskanje"
 
-#: src/qml/ChatPage.qml:112
+#: src/qml/ChatPage.qml:128
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
 msgstr "Dodajte skriti del sporočila"
 
-#: src/qml/details/AccountDetailsContent.qml:25
+#: src/qml/details/AccountDetailsContent.qml:26
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Nikoli"
 
-#: src/qml/details/AccountDetailsContent.qml:29
+#: src/qml/details/AccountDetailsContent.qml:30
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "Če se osebni podatki delijo"
 
-#: src/qml/details/AccountDetailsContent.qml:33
+#: src/qml/details/AccountDetailsContent.qml:34
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Vedno"
 
-#: src/qml/details/AccountDetailsContent.qml:65
+#: src/qml/details/AccountDetailsContent.qml:67
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr "Prazno"
 
-#: src/qml/details/AccountDetailsContent.qml:85
+#: src/qml/details/AccountDetailsContent.qml:87
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Nastavi vrednost"
 
-#: src/qml/details/AccountDetailsContent.qml:142
+#: src/qml/details/AccountDetailsContent.qml:145
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: src/qml/details/AccountDetailsContent.qml:146
+#: src/qml/details/AccountDetailsContent.qml:149
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:147
+#: src/qml/details/AccountDetailsContent.qml:150
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -545,106 +720,144 @@ msgstr ""
 "partnerja v klepetu ne more brati ali spreminjati podatkov, ki si jih "
 "izmenjujeta."
 
-#: src/qml/details/AccountDetailsContent.qml:166
-#: src/qml/details/AccountDetailsContent.qml:172
+#: src/qml/details/AccountDetailsContent.qml:169
+#: src/qml/details/AccountDetailsContent.qml:177
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountDetailsContent|"
-msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-msgstr "Optično preberite kodo QR <b>vaših</b> naprav, da šifrirate zanje"
+msgid "Verify <b>your</b> devices to encrypt for them"
+msgstr "Preverite <b>svoje</b> naprave, da jih šifrirate"
 
-#: src/qml/details/AccountDetailsContent.qml:168
+#: src/qml/details/AccountDetailsContent.qml:173
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Vaše</b> druge naprave ne uporabljajo OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:175
+#: src/qml/details/AccountDetailsContent.qml:180
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "AccountDetailsContent|"
-msgid "Scan the QR codes of <b>your</b> devices for maximum security"
-msgstr ""
-"Optično preberite kodo QR <b>vaših</b> naprav za kar najbolj varno šifriranje"
+msgid "Verify <b>your</b> devices for maximum security"
+msgstr "Preverite <b>svoje</b> naprave za največjo varnost"
 
-#: src/qml/details/AccountDetailsContent.qml:234
+#: src/qml/details/AccountDetailsContent.qml:241
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "Spremeni oznako…"
 
-#: src/qml/details/AccountDetailsContent.qml:263
+#: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Odstrani oznako"
 
-#: src/qml/details/AccountDetailsContent.qml:294
+#: src/qml/details/AccountDetailsContent.qml:283
+#: src/qml/details/AccountDetailsContent.qml:288
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via QR code"
+msgctxt "AccountDetailsContent|"
+msgid "Share this account's chat address via QR code"
+msgstr "Deli naslov za klepet vašega stika prek QR kode"
+
+#: src/qml/details/AccountDetailsContent.qml:292
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via text"
+msgctxt "AccountDetailsContent|"
+msgid "Share this account's chat address via text"
+msgstr "Deli naslov stika klepeta prek besedila"
+
+#: src/qml/details/AccountDetailsContent.qml:295
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Website address copied to clipboard"
+msgctxt "AccountDetailsContent|"
+msgid "Account address copied to clipboard"
+msgstr "Naslov spletišča prekopiran na odložišče"
+
+#: src/qml/details/AccountDetailsContent.qml:299
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via text"
+msgctxt "AccountDetailsContent|"
+msgid "Share this account's chat address via a web page with usage help"
+msgstr "Deli naslov stika klepeta prek besedila"
+
+#: src/qml/details/AccountDetailsContent.qml:320
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Ponudnik"
 
-#: src/qml/details/AccountDetailsContent.qml:298
+#: src/qml/details/AccountDetailsContent.qml:324
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Obišči spletišče"
 
-#: src/qml/details/AccountDetailsContent.qml:299
+#: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Odpri spletišče vašega ponudnika v brskalniku"
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopiraj naslov spletišča"
 
-#: src/qml/details/AccountDetailsContent.qml:306
+#: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Kopiraj spletni naslov ponudnika na odložišče"
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Naslov spletišča prekopiran na odložišče"
 
-#: src/qml/details/AccountDetailsContent.qml:315
+#: src/qml/details/AccountDetailsContent.qml:341
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Odpri klepet s podporo"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:342
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Začni klepet s stikom za podporo vašega ponudnika"
 
-#: src/qml/details/AccountDetailsContent.qml:322
+#: src/qml/details/AccountDetailsContent.qml:348
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Podpora"
 
-#: src/qml/details/AccountDetailsContent.qml:348
+#: src/qml/details/AccountDetailsContent.qml:374
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Podpora %1"
 
-#: src/qml/details/AccountDetailsContent.qml:365
+#: src/qml/details/AccountDetailsContent.qml:391
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Odpri skupino podpore"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:392
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Pridruži se podporni skupini vašega ponudnika"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:418
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Skupinska podpora %1"
 
-#: src/qml/details/AccountDetailsContent.qml:408
+#: src/qml/details/AccountDetailsContent.qml:434
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Blokirani naslovi za klepet"
 
-#: src/qml/details/AccountDetailsContent.qml:412
+#: src/qml/details/AccountDetailsContent.qml:438
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -653,53 +866,53 @@ msgstr ""
 "Blokiraj določenega uporabnika (npr. uporabnik@primer.org) ali vse "
 "uporabnike istega strežnika (npr. primer.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:431
+#: src/qml/details/AccountDetailsContent.qml:457
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "Biti morate povezani, če želite blokirati ali odblokirati naslove klepeta"
 
-#: src/qml/details/AccountDetailsContent.qml:438
+#: src/qml/details/AccountDetailsContent.qml:464
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "uporabnik@primer.org"
 
-#: src/qml/details/AccountDetailsContent.qml:453
+#: src/qml/details/AccountDetailsContent.qml:479
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Blokiraj naslov klepeta"
 
-#: src/qml/details/AccountDetailsContent.qml:521
+#: src/qml/details/AccountDetailsContent.qml:537
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Spremeni naslov klepeta…"
 
-#: src/qml/details/AccountDetailsContent.qml:550
+#: src/qml/details/AccountDetailsContent.qml:566
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Odblokiraj"
 
-#: src/qml/details/AccountDetailsContent.qml:577
+#: src/qml/details/AccountDetailsContent.qml:593
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Zaznamki"
 
-#: src/qml/details/AccountDetailsContent.qml:582
+#: src/qml/details/AccountDetailsContent.qml:598
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Dodaj klepet za zaznamke"
 
-#: src/qml/details/AccountDetailsContent.qml:583
+#: src/qml/details/AccountDetailsContent.qml:599
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Dodaj klepet za sinhronizacijo vseh zaznamkov po vseh vaših napravah"
 
-#: src/qml/details/AccountDetailsContent.qml:617
+#: src/qml/details/AccountDetailsContent.qml:633
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Sprememba gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:621
+#: src/qml/details/AccountDetailsContent.qml:637
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -708,63 +921,63 @@ msgstr ""
 "Spremeni vaše geslo. Novo geslo boste morali vnesti na vseh svojih drugih "
 "napravah!"
 
-#: src/qml/details/AccountDetailsContent.qml:637
+#: src/qml/details/AccountDetailsContent.qml:653
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Trenutno geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:638
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Vnesite vaše trenutno geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:639
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Vnesite pravilno geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:661
+#: src/qml/details/AccountDetailsContent.qml:677
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Novo geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:661
+#: src/qml/details/AccountDetailsContent.qml:677
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:662
+#: src/qml/details/AccountDetailsContent.qml:678
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Vnesite vaše novo geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:663
+#: src/qml/details/AccountDetailsContent.qml:679
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Vnesite drugačno geslo, da ga spremenite"
 
-#: src/qml/details/AccountDetailsContent.qml:683
+#: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Spremeni geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:730
+#: src/qml/details/AccountDetailsContent.qml:746
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Spreminjanje gesla spodletelo: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:736
+#: src/qml/details/AccountDetailsContent.qml:752
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Geslo uspešno spremenjeno"
 
-#: src/qml/details/AccountDetailsContent.qml:753
+#: src/qml/details/AccountDetailsContent.qml:769
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Vidnost gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:757
+#: src/qml/details/AccountDetailsContent.qml:773
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -777,12 +990,12 @@ msgstr ""
 "svoj račun na drugi napravi <b>razmislite o shranjevanju gesla nekje drugje. "
 "Tega ni mogoče razveljaviti!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:761
+#: src/qml/details/AccountDetailsContent.qml:777
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ne prikazuj gesla kot besedilo"
 
-#: src/qml/details/AccountDetailsContent.qml:762
+#: src/qml/details/AccountDetailsContent.qml:778
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -791,20 +1004,20 @@ msgstr ""
 "Dovoli dodajanje dodatnih naprav z uporabo prijavne QR kode, a nikoli ne "
 "prikazuj gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:770
-#: src/qml/details/AccountDetailsContent.qml:789
-#: src/qml/details/AccountDetailsContent.qml:977
-#: src/qml/details/AccountDetailsContent.qml:1002
+#: src/qml/details/AccountDetailsContent.qml:786
+#: src/qml/details/AccountDetailsContent.qml:805
+#: src/qml/details/AccountDetailsContent.qml:993
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Potrdite"
 
-#: src/qml/details/AccountDetailsContent.qml:780
+#: src/qml/details/AccountDetailsContent.qml:796
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne izpostavljajte gesla na kakršenkoli način"
 
-#: src/qml/details/AccountDetailsContent.qml:781
+#: src/qml/details/AccountDetailsContent.qml:797
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -813,12 +1026,12 @@ msgstr ""
 "Niti ne dovoli dodajanje dodatnih naprav z uporabo prijavne QR kode niti ne "
 "prikazuj gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:812
+#: src/qml/details/AccountDetailsContent.qml:828
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Povezava"
 
-#: src/qml/details/AccountDetailsContent.qml:816
+#: src/qml/details/AccountDetailsContent.qml:832
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -827,38 +1040,38 @@ msgstr ""
 "Nastavite ime strežnika in vrata za povezavo (privzete vrednosti so prazna "
 "polja)"
 
-#: src/qml/details/AccountDetailsContent.qml:835
+#: src/qml/details/AccountDetailsContent.qml:851
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Spremeni nastavitve povezave"
 
-#: src/qml/details/AccountDetailsContent.qml:844
+#: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Vnesite drugačne nastavitve povezave, da bi jih spremenili"
 
-#: src/qml/details/AccountDetailsContent.qml:893
+#: src/qml/details/AccountDetailsContent.qml:909
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nastavitev povezave ni bilo mogoče spremeniti: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:908
+#: src/qml/details/AccountDetailsContent.qml:924
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Nastavitve povezave so spremenjene"
 
-#: src/qml/details/AccountDetailsContent.qml:932
+#: src/qml/details/AccountDetailsContent.qml:948
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Selitev"
 
-#: src/qml/details/AccountDetailsContent.qml:940
+#: src/qml/details/AccountDetailsContent.qml:956
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Preseli račun"
 
-#: src/qml/details/AccountDetailsContent.qml:941
+#: src/qml/details/AccountDetailsContent.qml:957
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -869,17 +1082,17 @@ msgstr ""
 "račun bo odstranjen iz te aplikacije. Izdelajte varovalno kopijo vaših "
 "poverilnic in zgodovine klepetov, če jih potrebujete."
 
-#: src/qml/details/AccountDetailsContent.qml:960
+#: src/qml/details/AccountDetailsContent.qml:976
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Odstranitev"
 
-#: src/qml/details/AccountDetailsContent.qml:968
+#: src/qml/details/AccountDetailsContent.qml:984
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Odstrani iz Kaidana"
 
-#: src/qml/details/AccountDetailsContent.qml:969
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -888,12 +1101,12 @@ msgstr ""
 "Odstranite račun iz te aplikacije. Napravite varnostno kopijo vaših "
 "poverilnic in zgodovine klepetov, če je to potrebno!"
 
-#: src/qml/details/AccountDetailsContent.qml:993
+#: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Popolnoma izbriši"
 
-#: src/qml/details/AccountDetailsContent.qml:994
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -930,32 +1143,17 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Shrani izbiro"
 
-#: src/qml/details/ContactDetailsContent.qml:25
-msgctxt "ContactDetailsContent|"
-msgid "Account default"
-msgstr "Privzeta vrednost računa"
-
-#: src/qml/details/ContactDetailsContent.qml:29
-msgctxt "ContactDetailsContent|"
-msgid "Never"
-msgstr "Nikoli"
-
-#: src/qml/details/ContactDetailsContent.qml:33
-msgctxt "ContactDetailsContent|"
-msgid "Always"
-msgstr "Vedno"
-
-#: src/qml/details/ContactDetailsContent.qml:77
+#: src/qml/details/ContactDetailsContent.qml:46
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Šifriranje"
 
-#: src/qml/details/ContactDetailsContent.qml:81
+#: src/qml/details/ContactDetailsContent.qml:50
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:82
+#: src/qml/details/ContactDetailsContent.qml:51
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -965,113 +1163,77 @@ msgstr ""
 "partnerja v klepetu ne more brati ali spreminjati podatkov, ki si jih "
 "izmenjujeta."
 
-#: src/qml/details/ContactDetailsContent.qml:94
-#: src/qml/details/ContactDetailsContent.qml:102
+#: src/qml/details/ContactDetailsContent.qml:63
+#: src/qml/details/ContactDetailsContent.qml:71
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "Preverite <b>svoje</b> naprave, da jih šifrirate"
 
-#: src/qml/details/ContactDetailsContent.qml:96
+#: src/qml/details/ContactDetailsContent.qml:67
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>Vaše</b> druge naprave ne uporabljajo OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:98
-msgctxt "ContactDetailsContent|"
-msgid "<b>You</b> have no other devices supporting OMEMO 2"
-msgstr "<b>Vi</b> nimate drugih naprav, ki podpirajo OMEMO 2"
-
-#: src/qml/details/ContactDetailsContent.qml:105
+#: src/qml/details/ContactDetailsContent.qml:74
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Preverite <b>svoje</b> naprave za največjo varnost"
 
-#: src/qml/details/ContactDetailsContent.qml:147
+#: src/qml/details/ContactDetailsContent.qml:112
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
 msgstr "Preverite svoj <b>stik</b>, da omogočite šifriranje"
 
-#: src/qml/details/ContactDetailsContent.qml:150
+#: src/qml/details/ContactDetailsContent.qml:115
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "Vaš <b>stik</b> ne uporablja OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:153
+#: src/qml/details/ContactDetailsContent.qml:120
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgstr "Preverite naprave svojega <b>stika</b>, da jih šifrirate"
 
-#: src/qml/details/ContactDetailsContent.qml:156
+#: src/qml/details/ContactDetailsContent.qml:123
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
 msgstr "Preverite svoj <b>stik</b> za največjo varnost"
 
-#: src/qml/details/ContactDetailsContent.qml:194
-msgctxt "ContactDetailsContent|"
-msgid "New label"
-msgstr "Nova oznaka"
-
-#: src/qml/details/ContactDetailsContent.qml:208
-msgctxt "ContactDetailsContent|"
-msgid "Add label"
-msgstr "Dodaj oznako"
-
-#: src/qml/details/ContactDetailsContent.qml:291
-msgctxt "ContactDetailsContent|"
-msgid "Sharing"
-msgstr "Deljenje"
-
-#: src/qml/details/ContactDetailsContent.qml:295
-msgctxt "ContactDetailsContent|"
-msgid "Show QR code"
-msgstr "Prikaži QR kodo"
-
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:152
+#: src/qml/details/ContactDetailsContent.qml:158
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Deli naslov za klepet vašega stika prek QR kode"
 
-#: src/qml/details/ContactDetailsContent.qml:322
-msgctxt "ContactDetailsContent|"
-msgid "Copy chat address"
-msgstr "Kopiraj naslov klepeta"
-
-#: src/qml/details/ContactDetailsContent.qml:323
+#: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Deli naslov stika klepeta prek besedila"
 
-#: src/qml/details/ContactDetailsContent.qml:327
+#: src/qml/details/ContactDetailsContent.qml:165
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Stik prekopiran na odložišče"
 
-#: src/qml/details/ContactDetailsContent.qml:340
+#: src/qml/details/ContactDetailsContent.qml:169
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via text"
 msgctxt "ContactDetailsContent|"
-msgid "Notifications"
-msgstr "Obvestila"
+msgid "Share this contact's chat address via a web page with usage help"
+msgstr "Deli naslov stika klepeta prek besedila"
 
-#: src/qml/details/ContactDetailsContent.qml:344
-msgctxt "ContactDetailsContent|"
-msgid "Incoming messages"
-msgstr "Prejeta sporočila"
-
-#: src/qml/details/ContactDetailsContent.qml:345
-msgctxt "ContactDetailsContent|"
-msgid "Show notification and play sound on message arrival"
-msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
-
-#: src/qml/details/ContactDetailsContent.qml:364
+#: src/qml/details/ContactDetailsContent.qml:180
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Zasebnost"
 
-#: src/qml/details/ContactDetailsContent.qml:368
+#: src/qml/details/ContactDetailsContent.qml:184
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Zahtevaj osebne podatke"
 
-#: src/qml/details/ContactDetailsContent.qml:369
+#: src/qml/details/ContactDetailsContent.qml:185
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
@@ -1079,22 +1241,22 @@ msgid ""
 msgstr ""
 "Prosi svojega stika, da deli razpoložljivost, naprave in druge osebne podatke"
 
-#: src/qml/details/ContactDetailsContent.qml:375
+#: src/qml/details/ContactDetailsContent.qml:191
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "Prekliči deljenje osebnih podatkov"
 
-#: src/qml/details/ContactDetailsContent.qml:376
+#: src/qml/details/ContactDetailsContent.qml:192
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr "Prenehaj deliti svojo razpoložljivost, naprave in druge osebne podatke"
 
-#: src/qml/details/ContactDetailsContent.qml:382
+#: src/qml/details/ContactDetailsContent.qml:198
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Pošiljaj obvestila o tipkanju"
 
-#: src/qml/details/ContactDetailsContent.qml:383
+#: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -1102,98 +1264,454 @@ msgstr ""
 "Navedite, kdaj imate ta pogovor odprt, kdaj tipkate in kdaj ste nehali "
 "tipkati"
 
-#: src/qml/details/ContactDetailsContent.qml:394
+#: src/qml/details/ContactDetailsContent.qml:210
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Pošiljaj obvestila o branju"
 
-#: src/qml/details/ContactDetailsContent.qml:395
+#: src/qml/details/ContactDetailsContent.qml:211
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Navedite, katera sporočila ste prebrali"
 
-#: src/qml/details/ContactDetailsContent.qml:406
+#: src/qml/details/ContactDetailsContent.qml:222
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "Blokiraj"
 
-#: src/qml/details/ContactDetailsContent.qml:407
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Blokiraj vso komunikacijo vključno s stanjem in obvestili"
 
-#: src/qml/details/ContactDetailsContent.qml:433
+#: src/qml/details/ContactDetailsContent.qml:250
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Odstranjevanje"
 
-#: src/qml/details/ContactDetailsContent.qml:441
+#: src/qml/details/ContactDetailsContent.qml:258
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/details/ContactDetailsContent.qml:442
+#: src/qml/details/ContactDetailsContent.qml:259
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Odstrani stik in celotno zgodovino klepeta"
 
-#: src/qml/details/ContactDetailsContent.qml:450
+#: src/qml/details/ContactDetailsContent.qml:267
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "Potrdi"
 
-#: src/qml/details/ContactDetailsHeader.qml:18
+#: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maksimiziraj avatarja"
 
-#: src/qml/details/ContactDetailsHeader.qml:25
+#: src/qml/details/ContactDetailsHeader.qml:23
 msgctxt "ContactDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
 "Sporočila v tem klepetu so sinhronizirana kot zaznamki pri vseh vaših "
 "napravah"
 
-#: src/qml/details/DetailsContent.qml:51
+#: src/qml/details/DetailsContent.qml:63
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Medij"
 
-#: src/qml/details/DetailsContent.qml:56
+#: src/qml/details/DetailsContent.qml:68
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "Samodejni prenosi"
 
-#: src/qml/details/DetailsContent.qml:57
+#: src/qml/details/DetailsContent.qml:69
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Samodejno prenesi medij"
 
-#: src/qml/details/DetailsContent.qml:87
+#: src/qml/details/DetailsContent.qml:99
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Omogoča skupno rabo predstavnosti do %1."
 
-#: src/qml/details/DetailsContent.qml:132
+#: src/qml/details/DetailsContent.qml:144
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/qml/details/DetailsContent.qml:156
+#: src/qml/details/DetailsContent.qml:168
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Oznake"
 
-#: src/qml/details/DetailsContent.qml:180
+#: src/qml/details/DetailsContent.qml:193
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Sharing"
+msgctxt "DetailsContent|"
+msgid "Sharing"
+msgstr "Deljenje"
+
+#: src/qml/details/DetailsContent.qml:198
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show QR code"
+msgctxt "DetailsContent|"
+msgid "Show QR code"
+msgstr "Prikaži QR kodo"
+
+#: src/qml/details/DetailsContent.qml:216
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show QR code"
+msgctxt "DetailsContent|"
+msgid "Copy QR code"
+msgstr "Prikaži QR kodo"
+
+#: src/qml/details/DetailsContent.qml:218
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Contact copied to clipboard"
+msgctxt "DetailsContent|"
+msgid "QR code copied to clipboard"
+msgstr "Stik prekopiran na odložišče"
+
+#: src/qml/details/DetailsContent.qml:223
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Copy chat address"
+msgctxt "DetailsContent|"
+msgid "Copy chat address"
+msgstr "Kopiraj naslov klepeta"
+
+#: src/qml/details/DetailsContent.qml:229
+msgctxt "DetailsContent|"
+msgid "Copy invitation link"
+msgstr ""
+
+#: src/qml/details/DetailsContent.qml:231
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Invitation link copied to clipboard"
+msgctxt "DetailsContent|"
+msgid "Invitation link copied to clipboard"
+msgstr "Povezava za povabilo kopirana v odložišče"
+
+#: src/qml/details/DetailsContent.qml:243
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "Povezane naprave"
 
-#: src/qml/details/DetailsHeader.qml:94
+#: src/qml/details/DetailsHeader.qml:93
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Spremeni ime…"
+
+#: src/qml/details/GroupChatDetailsContent.qml:32
+msgctxt "GroupChatDetailsContent|"
+msgid "Invite"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:69
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "GroupChatDetailsContent|"
+msgid "Invite selected contacts"
+msgstr "Izbriši stik"
+
+#: src/qml/details/GroupChatDetailsContent.qml:128
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "GroupChatDetailsContent|"
+msgid "Select at least one contact"
+msgstr "Izbriši stik"
+
+#: src/qml/details/GroupChatDetailsContent.qml:145
+msgctxt "GroupChatDetailsContent|"
+msgid "Participants"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:149
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Block a specific user (e.g., user@example.org) or all users of the same "
+#| "server (e.g., example.org)"
+msgctxt "GroupChatDetailsContent|"
+msgid ""
+"Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
+"example.org) to participate"
+msgstr ""
+"Blokiraj določenega uporabnika (npr. uporabnik@primer.org) ali vse "
+"uporabnike istega strežnika (npr. primer.org)"
+
+#: src/qml/details/GroupChatDetailsContent.qml:172
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "You must be connected to block or unblock chat addresses"
+msgctxt "GroupChatDetailsContent|"
+msgid "You must be connected to change the participants"
+msgstr ""
+"Biti morate povezani, če želite blokirati ali odblokirati naslove klepeta"
+
+#: src/qml/details/GroupChatDetailsContent.qml:208
+msgctxt "GroupChatDetailsContent|"
+msgid "Ban"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:234
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Encryption"
+msgctxt "GroupChatDetailsContent|"
+msgid "Encryption"
+msgstr "Šifriranje"
+
+#: src/qml/details/GroupChatDetailsContent.qml:238
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "OMEMO 2"
+msgctxt "GroupChatDetailsContent|"
+msgid "OMEMO 2"
+msgstr "OMEMO 2"
+
+#: src/qml/details/GroupChatDetailsContent.qml:239
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "GroupChatDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+"your chat partners can read or modify the data you exchange."
+msgstr ""
+"Šifriranje od začetka do konca z OMEMO 2 zagotavlja, da nihče razen vašega "
+"partnerja v klepetu ne more brati ali spreminjati podatkov, ki si jih "
+"izmenjujeta."
+
+#: src/qml/details/GroupChatDetailsContent.qml:251
+#: src/qml/details/GroupChatDetailsContent.qml:259
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatDetailsContent|"
+msgid "Verify <b>your</b> devices to encrypt for them"
+msgstr "Preverite <b>svoje</b> naprave, da jih šifrirate"
+
+#: src/qml/details/GroupChatDetailsContent.qml:255
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgctxt "GroupChatDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr "<b>Vaše</b> druge naprave ne uporabljajo OMEMO 2"
+
+#: src/qml/details/GroupChatDetailsContent.qml:262
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices for maximum security"
+msgctxt "GroupChatDetailsContent|"
+msgid "Verify <b>your</b> devices for maximum security"
+msgstr "Preverite <b>svoje</b> naprave za največjo varnost"
+
+#: src/qml/details/GroupChatDetailsContent.qml:301
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact</b> to enable encryption"
+msgctxt "GroupChatDetailsContent|"
+msgid "Verify a <b>participant</b> to enable encryption"
+msgstr "Preverite svoj <b>stik</b>, da omogočite šifriranje"
+
+#: src/qml/details/GroupChatDetailsContent.qml:304
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Your <b>contact</b> doesn't use OMEMO 2"
+msgctxt "GroupChatDetailsContent|"
+msgid "No <b>participant</b> uses OMEMO 2"
+msgstr "Vaš <b>stik</b> ne uporablja OMEMO 2"
+
+#: src/qml/details/GroupChatDetailsContent.qml:309
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatDetailsContent|"
+msgid "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr "Preverite <b>svoje</b> naprave, da jih šifrirate"
+
+#: src/qml/details/GroupChatDetailsContent.qml:312
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact</b> for maximum security"
+msgctxt "GroupChatDetailsContent|"
+msgid "Verify the <b>participants</b> for maximum security"
+msgstr "Preverite svoj <b>stik</b> za največjo varnost"
+
+#: src/qml/details/GroupChatDetailsContent.qml:390
+#: src/qml/details/GroupChatDetailsContent.qml:395
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via QR code"
+msgctxt "GroupChatDetailsContent|"
+msgid "Share this group's chat address via QR code"
+msgstr "Deli naslov za klepet vašega stika prek QR kode"
+
+#: src/qml/details/GroupChatDetailsContent.qml:399
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via text"
+msgctxt "GroupChatDetailsContent|"
+msgid "Share this group's chat address via text"
+msgstr "Deli naslov stika klepeta prek besedila"
+
+#: src/qml/details/GroupChatDetailsContent.qml:402
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Website address copied to clipboard"
+msgctxt "GroupChatDetailsContent|"
+msgid "Group address copied to clipboard"
+msgstr "Naslov spletišča prekopiran na odložišče"
+
+#: src/qml/details/GroupChatDetailsContent.qml:406
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Share this contact's chat address via text"
+msgctxt "GroupChatDetailsContent|"
+msgid "Share this group's chat address via a web page with usage help"
+msgstr "Deli naslov stika klepeta prek besedila"
+
+#: src/qml/details/GroupChatDetailsContent.qml:417
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Privacy"
+msgctxt "GroupChatDetailsContent|"
+msgid "Privacy"
+msgstr "Zasebnost"
+
+#: src/qml/details/GroupChatDetailsContent.qml:421
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Send typing notifications"
+msgctxt "GroupChatDetailsContent|"
+msgid "Send typing notifications"
+msgstr "Pošiljaj obvestila o tipkanju"
+
+#: src/qml/details/GroupChatDetailsContent.qml:422
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid ""
+#| "Indicate when you have this conversation open, are typing and stopped "
+#| "typing"
+msgctxt "GroupChatDetailsContent|"
+msgid ""
+"Indicate when you have this conversation open, are typing and stopped typing"
+msgstr ""
+"Navedite, kdaj imate ta pogovor odprt, kdaj tipkate in kdaj ste nehali "
+"tipkati"
+
+#: src/qml/details/GroupChatDetailsContent.qml:433
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Send read notifications"
+msgctxt "GroupChatDetailsContent|"
+msgid "Send read notifications"
+msgstr "Pošiljaj obvestila o branju"
+
+#: src/qml/details/GroupChatDetailsContent.qml:434
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Indicate which messages you have read"
+msgctxt "GroupChatDetailsContent|"
+msgid "Indicate which messages you have read"
+msgstr "Navedite, katera sporočila ste prebrali"
+
+#: src/qml/details/GroupChatDetailsContent.qml:454
+#, fuzzy
+#| msgctxt "AvatarChangePage|"
+#| msgid "Save selection"
+msgctxt "GroupChatDetailsContent|"
+msgid "Leaving & Deletion"
+msgstr "Shrani izbiro"
+
+#: src/qml/details/GroupChatDetailsContent.qml:462
+msgctxt "GroupChatDetailsContent|"
+msgid "Leave"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:463
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove contact and complete chat history"
+msgctxt "GroupChatDetailsContent|"
+msgid "Leave group and remove complete chat history"
+msgstr "Odstrani stik in celotno zgodovino klepeta"
+
+#: src/qml/details/GroupChatDetailsContent.qml:470
+#: src/qml/details/GroupChatDetailsContent.qml:495
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Confirm"
+msgctxt "GroupChatDetailsContent|"
+msgid "Confirm"
+msgstr "Potrdite"
+
+#: src/qml/details/GroupChatDetailsContent.qml:486
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete"
+msgctxt "GroupChatDetailsContent|"
+msgid "Delete"
+msgstr "Izbriši"
+
+#: src/qml/details/GroupChatDetailsContent.qml:487
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "Delete account from provider. You will not be able to use your account "
+#| "again!"
+msgctxt "GroupChatDetailsContent|"
+msgid "Delete group. Nobody will be able to join the group again!"
+msgstr ""
+"Izbriši račun iz ponudnika. Svojega računa ne boste več mogli uporabljati!"
+
+#: src/qml/details/GroupChatDetailsContent.qml:508
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "GroupChatDetailsContent|"
+msgid "The group %1 could not be deleted%2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/qml/details/GroupChatDetailsHeader.qml:17
+#, fuzzy
+#| msgctxt "ContactDetailsHeader|"
+#| msgid "Maximize avatar"
+msgctxt "GroupChatDetailsHeader|"
+msgid "Maximize avatar"
+msgstr "Maksimiziraj avatarja"
+
+#: src/qml/details/GroupChatDetailsHeader.qml:22
+msgctxt "GroupChatDetailsHeader|"
+msgid "Public Group Chat"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsHeader.qml:22
+msgctxt "GroupChatDetailsHeader|"
+msgid "Private Group Chat"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsHeader.qml:25
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete"
+msgctxt "GroupChatDetailsHeader|"
+msgid "Deleted"
+msgstr "Izbriši"
 
 #: src/qml/details/MediaOverview.qml:72
 msgctxt "MediaOverview|"
@@ -1225,6 +1743,174 @@ msgid ""
 msgstr ""
 "Ni bilo mogoče izbrisati vseh datotek:\n"
 "%1"
+
+#: src/qml/details/NotesChatDetailsContent.qml:27
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Encryption"
+msgctxt "NotesChatDetailsContent|"
+msgid "Encryption"
+msgstr "Šifriranje"
+
+#: src/qml/details/NotesChatDetailsContent.qml:31
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "OMEMO 2"
+msgctxt "NotesChatDetailsContent|"
+msgid "OMEMO 2"
+msgstr "OMEMO 2"
+
+#: src/qml/details/NotesChatDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid ""
+#| "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
+#| "your chat partners can read or modify the data you exchange."
+msgctxt "NotesChatDetailsContent|"
+msgid ""
+"End-to-end encryption with OMEMO 2 ensures that nobody else than you can "
+"read or modify the data that is synchronized across your devices."
+msgstr ""
+"Šifriranje od začetka do konca z OMEMO 2 zagotavlja, da nihče razen vašega "
+"partnerja v klepetu ne more brati ali spreminjati podatkov, ki si jih "
+"izmenjujeta."
+
+#: src/qml/details/NotesChatDetailsContent.qml:44
+#: src/qml/details/NotesChatDetailsContent.qml:56
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "NotesChatDetailsContent|"
+msgid "Verify <b>your</b> devices to encrypt for them"
+msgstr "Preverite <b>svoje</b> naprave, da jih šifrirate"
+
+#: src/qml/details/NotesChatDetailsContent.qml:48
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgctxt "NotesChatDetailsContent|"
+msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgstr "<b>Vaše</b> druge naprave ne uporabljajo OMEMO 2"
+
+#: src/qml/details/NotesChatDetailsContent.qml:51
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgctxt "NotesChatDetailsContent|"
+msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgstr "<b>Vi</b> nimate drugih naprav, ki podpirajo OMEMO 2"
+
+#: src/qml/details/NotesChatDetailsContent.qml:59
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices for maximum security"
+msgctxt "NotesChatDetailsContent|"
+msgid "Verify <b>your</b> devices for maximum security"
+msgstr "Preverite <b>svoje</b> naprave za največjo varnost"
+
+#: src/qml/details/NotesChatDetailsContent.qml:107
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removal"
+msgctxt "NotesChatDetailsContent|"
+msgid "Removal"
+msgstr "Odstranitev"
+
+#: src/qml/details/NotesChatDetailsContent.qml:115
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove"
+msgctxt "NotesChatDetailsContent|"
+msgid "Remove"
+msgstr "Odstrani"
+
+#: src/qml/details/NotesChatDetailsContent.qml:116
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Remove contact and complete chat history"
+msgctxt "NotesChatDetailsContent|"
+msgid "Remove notes chat and complete chat history"
+msgstr "Odstrani stik in celotno zgodovino klepeta"
+
+#: src/qml/details/NotesChatDetailsContent.qml:124
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Confirm"
+msgctxt "NotesChatDetailsContent|"
+msgid "Confirm"
+msgstr "Potrdite"
+
+#: src/qml/details/RosterItemDetailsContent.qml:24
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "RosterItemDetailsContent|"
+msgid "Account default"
+msgstr "Privzeta vrednost računa"
+
+#: src/qml/details/RosterItemDetailsContent.qml:28
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Never"
+msgctxt "RosterItemDetailsContent|"
+msgid "Never"
+msgstr "Nikoli"
+
+#: src/qml/details/RosterItemDetailsContent.qml:32
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Always"
+msgctxt "RosterItemDetailsContent|"
+msgid "Always"
+msgstr "Vedno"
+
+#: src/qml/details/RosterItemDetailsContent.qml:53
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "New label"
+msgctxt "RosterItemDetailsContent|"
+msgid "New label"
+msgstr "Nova oznaka"
+
+#: src/qml/details/RosterItemDetailsContent.qml:67
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Add label"
+msgctxt "RosterItemDetailsContent|"
+msgid "Add label"
+msgstr "Dodaj oznako"
+
+#: src/qml/details/RosterItemDetailsContent.qml:150
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Notifications"
+msgctxt "RosterItemDetailsContent|"
+msgid "Notifications"
+msgstr "Obvestila"
+
+#: src/qml/details/RosterItemDetailsContent.qml:155
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
+msgctxt "RosterItemDetailsContent|"
+msgid "Incoming messages"
+msgstr "Prejeta sporočila"
+
+#: src/qml/details/RosterItemDetailsContent.qml:156
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show notification and play sound on message arrival"
+msgctxt "RosterItemDetailsContent|"
+msgid "Show notification and play sound on message arrival"
+msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
+
+#: src/qml/details/RosterItemDetailsHeader.qml:22
+#, fuzzy
+#| msgctxt "ContactDetailsHeader|"
+#| msgid "Maximize avatar"
+msgctxt "RosterItemDetailsHeader|"
+msgid "Maximize avatar"
+msgstr "Maksimiziraj avatarja"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
@@ -1294,12 +1980,55 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Kopiraj geslo"
 
-#: src/qml/elements/ChatMessage.qml:143
+#: src/qml/elements/AccountKeyAuthenticationPage.qml:23
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Step 1: Scan your <b>other device's</b> QR code"
+msgctxt "AccountKeyAuthenticationPage|"
+msgid "Step 1: Scan your <b>other device's</b> QR code"
+msgstr "1. korak: Optično preberite kodo QR <b>druge naprave</b>"
+
+#: src/qml/elements/AccountKeyAuthenticationPage.qml:25
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
+msgctxt "AccountKeyAuthenticationPage|"
+msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
+msgstr ""
+"2. korak: S svojo drugo napravo optično preberite kodo QR <b>te naprave</b>"
+
+#: src/qml/elements/AccountKeyAuthenticationPage.qml:28
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Unverified own devices"
+msgctxt "AccountKeyAuthenticationPage|"
+msgid "Unverified own devices"
+msgstr "Nepreverjene lastne naprave"
+
+#: src/qml/elements/ChatMessage.qml:159
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Razkritje"
 
-#: src/qml/elements/ChatMessage.qml:285
+#: src/qml/elements/ChatMessage.qml:252
+#, fuzzy
+#| msgctxt "Notifications|"
+#| msgid "Open"
+msgctxt "ChatMessage|"
+msgid "Open"
+msgstr "Odpri"
+
+#: src/qml/elements/ChatMessage.qml:252
+msgctxt "ChatMessage|"
+msgid "Join…"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:404
+msgctxt "ChatMessage|"
+msgid "New"
+msgstr ""
+
+#: src/qml/elements/ChatMessage.qml:432
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1310,32 +2039,32 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Copy message"
 msgstr "Kopiraj sporočilo"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:35
+#: src/qml/elements/ChatMessageContextMenu.qml:36
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit message"
 msgstr "Uredi sporočilo"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:41
+#: src/qml/elements/ChatMessageContextMenu.qml:42
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy download URL"
 msgstr "Kopiraj povezavo do prenosa"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:47
+#: src/qml/elements/ChatMessageContextMenu.qml:48
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote message"
 msgstr "Citiraj sporočilo"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:54
+#: src/qml/elements/ChatMessageContextMenu.qml:56
 msgctxt "ChatMessageContextMenu|"
 msgid "Delete file"
 msgstr "Izbriši datoteko"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:62
+#: src/qml/elements/ChatMessageContextMenu.qml:64
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Označi kot prvo neprebrano"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:72
+#: src/qml/elements/ChatMessageContextMenu.qml:74
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Odstrani iz te naprave"
@@ -1355,77 +2084,77 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Išči navzdol"
 
-#: src/qml/elements/ChatPageSendingPane.qml:73
+#: src/qml/elements/ChatPageSendingPane.qml:74
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Vidni del sporočila"
 
-#: src/qml/elements/ChatPageSendingPane.qml:80
+#: src/qml/elements/ChatPageSendingPane.qml:81
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Prekliči dodajanje skritega dela sporočila"
 
-#: src/qml/elements/ChatPageSendingPane.qml:120
+#: src/qml/elements/ChatPageSendingPane.qml:121
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Sestavi <b>šifrirano</b> sporočilo s skritim delom"
 
-#: src/qml/elements/ChatPageSendingPane.qml:120
+#: src/qml/elements/ChatPageSendingPane.qml:121
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Sestavi <b>nešifrirano</b>sporočilo s skritim delom"
 
-#: src/qml/elements/ChatPageSendingPane.qml:122
+#: src/qml/elements/ChatPageSendingPane.qml:123
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Sestavi <b>šifrirano</b> sporočilo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:122
+#: src/qml/elements/ChatPageSendingPane.qml:123
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Sestavi <b>nešifrirano</b>sporočilo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:234
+#: src/qml/elements/ChatPageSendingPane.qml:235
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Medij"
 
-#: src/qml/elements/ChatPageSendingPane.qml:290
+#: src/qml/elements/ChatPageSendingPane.qml:291
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Zajemi sliko"
 
-#: src/qml/elements/ChatPageSendingPane.qml:291
+#: src/qml/elements/ChatPageSendingPane.qml:292
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Zajemi sliko z vašo kamero"
 
-#: src/qml/elements/ChatPageSendingPane.qml:302
+#: src/qml/elements/ChatPageSendingPane.qml:303
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Snemaj videoposnetek"
 
-#: src/qml/elements/ChatPageSendingPane.qml:303
+#: src/qml/elements/ChatPageSendingPane.qml:304
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Posnemi video z vašo kamero"
 
-#: src/qml/elements/ChatPageSendingPane.qml:314
+#: src/qml/elements/ChatPageSendingPane.qml:315
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Deli datoteke"
 
-#: src/qml/elements/ChatPageSendingPane.qml:315
+#: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Deli datoteke iz vaše naprave"
 
-#: src/qml/elements/ChatPageSendingPane.qml:326
+#: src/qml/elements/ChatPageSendingPane.qml:327
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Deli lokacijo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:327
+#: src/qml/elements/ChatPageSendingPane.qml:328
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Pošlji vašo lokacijo"
@@ -1505,6 +2234,30 @@ msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "Korak 2: Dovolite stiku, da optično prebere <b>vašo</b> QR-kodo"
 
+#: src/qml/elements/ContactKeyAuthenticationPage.qml:19
+#, fuzzy
+#| msgctxt "ContactAdditionQrCodePage|"
+#| msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgctxt "ContactKeyAuthenticationPage|"
+msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgstr "Korak 1: Optično preberite QR-kodo svojega <b>stika</b>"
+
+#: src/qml/elements/ContactKeyAuthenticationPage.qml:21
+#, fuzzy
+#| msgctxt "ContactAdditionQrCodePage|"
+#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgctxt "ContactKeyAuthenticationPage|"
+msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgstr "Korak 2: Dovolite stiku, da optično prebere <b>vašo</b> QR-kodo"
+
+#: src/qml/elements/ContactKeyAuthenticationPage.qml:24
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Unverified contact devices"
+msgctxt "ContactKeyAuthenticationPage|"
+msgid "Unverified contact devices"
+msgstr "Nepreverjene naprave stika"
+
 #: src/qml/elements/fields/JidField.qml:19
 msgctxt "JidField|"
 msgid "Chat address"
@@ -1529,6 +2282,244 @@ msgstr "Geslo"
 msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Vnesite veljavno geslo"
+
+#: src/qml/elements/GroupChatCreationContent.qml:23
+msgctxt "GroupChatCreationContent|"
+msgid "Create"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:25
+msgctxt "GroupChatCreationContent|"
+msgid "Creating group chat…"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:29
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
+msgctxt "GroupChatCreationContent|"
+msgid "Group Name (optional)"
+msgstr "Ime (neobvezno):"
+
+#: src/qml/elements/GroupChatCreationContent.qml:30
+msgctxt "GroupChatCreationContent|"
+msgid "Example Group"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:38
+msgctxt "GroupChatCreationContent|"
+msgid "Public"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:44
+msgctxt "GroupChatCreationContent|"
+msgid "Group ID"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:47
+msgctxt "GroupChatCreationContent|"
+msgid "example-group"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:49
+msgctxt "GroupChatCreationContent|"
+msgid "Enter a valid group ID"
+msgstr ""
+
+#: src/qml/elements/GroupChatCreationContent.qml:81
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
+msgctxt "GroupChatCreationContent|"
+msgid "Nickname (optional):"
+msgstr "Ime (neobvezno):"
+
+#: src/qml/elements/GroupChatCreationContent.qml:97
+#, fuzzy, qt-format
+#| msgctxt "SearchPublicGroupChatSheet|"
+#| msgid ""
+#| "The public groups could not be retrieved, try again.\n"
+#| "\n"
+#| "%1"
+msgctxt "GroupChatCreationContent|"
+msgid "The group could not be created on %1%2"
+msgstr ""
+"Javnih skupin ni bilo mogoče pridobiti, poskusite ponovno.\n"
+"\n"
+"%1"
+
+#: src/qml/elements/GroupChatCreationContent.qml:102
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "GroupChatCreationContent|"
+msgid "The group %1 could not be created%2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/qml/elements/GroupChatCreationContent.qml:112
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "GroupChatCreationContent|"
+msgid "The group %1 could not be joined%2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/qml/elements/GroupChatCreationDialog.qml:17
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
+msgctxt "GroupChatCreationDialog|"
+msgid "Create group chat"
+msgstr "Dostopen za klepet"
+
+#: src/qml/elements/GroupChatCreationPage.qml:15
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
+msgctxt "GroupChatCreationPage|"
+msgid "Create group chat"
+msgstr "Dostopen za klepet"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:20
+msgctxt "GroupChatJoiningContent|"
+msgid "Join"
+msgstr ""
+
+#: src/qml/elements/GroupChatJoiningContent.qml:22
+msgctxt "GroupChatJoiningContent|"
+msgid "Joining group chat…"
+msgstr ""
+
+#: src/qml/elements/GroupChatJoiningContent.qml:26
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "Chat address"
+msgctxt "GroupChatJoiningContent|"
+msgid "Address"
+msgstr "Naslov klepeta"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:28
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "user@example.org"
+msgctxt "GroupChatJoiningContent|"
+msgid "group@groups.example.org"
+msgstr "uporabnik@primer.org"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:30
+#, fuzzy
+#| msgctxt "JidField|"
+#| msgid "The chat address must have the form <b>username@server</b>"
+msgctxt "GroupChatJoiningContent|"
+msgid "The address must have the form <b>group@server</b>"
+msgstr "Naslov klepeta mora imeti obliko <b>uporabnik@strežnik</b>"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:37
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Name (optional):"
+msgctxt "GroupChatJoiningContent|"
+msgid "Nickname (optional):"
+msgstr "Ime (neobvezno):"
+
+#: src/qml/elements/GroupChatJoiningContent.qml:52
+#, fuzzy, qt-format
+#| msgctxt "RosterManager|"
+#| msgid "%1 could not be added: %2"
+msgctxt "GroupChatJoiningContent|"
+msgid "The group %1 could not be joined%2"
+msgstr "%1 ni bilo mogoče dodati: %2"
+
+#: src/qml/elements/GroupChatJoiningDialog.qml:17
+msgctxt "GroupChatJoiningDialog|"
+msgid "Join group chat"
+msgstr ""
+
+#: src/qml/elements/GroupChatJoiningPage.qml:15
+msgctxt "GroupChatJoiningPage|"
+msgid "Join group chat"
+msgstr ""
+
+#: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
+#, fuzzy
+#| msgctxt "ContactAdditionQrCodePage|"
+#| msgid "Step 1: Scan your <b>contact's</b> QR code"
+msgctxt "GroupChatUserKeyAuthenticationPage|"
+msgid "Step 1: Scan the <b>participant's</b> QR code"
+msgstr "Korak 1: Optično preberite QR-kodo svojega <b>stika</b>"
+
+#: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:21
+#, fuzzy
+#| msgctxt "ContactAdditionQrCodePage|"
+#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
+msgctxt "GroupChatUserKeyAuthenticationPage|"
+msgid "Step 2: Let the participant scan <b>your</b> QR code"
+msgstr "Korak 2: Dovolite stiku, da optično prebere <b>vašo</b> QR-kodo"
+
+#: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Unverified contact devices"
+msgctxt "GroupChatUserKeyAuthenticationPage|"
+msgid "Unverified participant devices"
+msgstr "Nepreverjene naprave stika"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:26
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify devices"
+msgstr "Preverite naprave"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:28
+#: src/qml/elements/KeyAuthenticationPage.qml:39
+msgctxt "KeyAuthenticationPage|"
+msgid "Show explanation"
+msgstr "Prikaži pojasnilo"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:28
+msgctxt "KeyAuthenticationPage|"
+msgid "Scan QR codes"
+msgstr "Optično preberi QR-kode"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:39
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify manually"
+msgstr "Preveri ročno"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:80
+msgctxt "KeyAuthenticationPage|"
+msgid "Verify device"
+msgstr "Preverite napravo"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:96
+msgctxt "KeyAuthenticationPage|"
+msgid "Device verified"
+msgstr "Naprave preverjena"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:98
+msgctxt "KeyAuthenticationPage|"
+msgid "Device does not exist or is already verified"
+msgstr "Naprava ne obstaja ali je že preverjena"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:103
+msgctxt "KeyAuthenticationPage|"
+msgid ""
+"The fingerprint must have 64 characters with digits and letters from a to f"
+msgstr "Prstni odtis mora imeti 64 znakov s številkami in črkami od a do f"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:140
+msgctxt "KeyAuthenticationPage|"
+msgid "Verified own devices"
+msgstr "Preverjene lastne naprave"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:161
+msgctxt "KeyAuthenticationPage|"
+msgid "Copy fingerprint"
+msgstr "Kopiraj prstni odtis"
+
+#: src/qml/elements/KeyAuthenticationPage.qml:168
+msgctxt "KeyAuthenticationPage|"
+msgid "Fingerprint copied to clipboard"
+msgstr "Prstni odtis kopiran na odložišče"
 
 #: src/qml/elements/LoadingArea.qml:34
 msgctxt "LoadingArea|"
@@ -1560,51 +2551,74 @@ msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Nevredno zaupanja"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:27
-msgctxt "MessageReactionDetailsSheet|"
-msgid "Reactions"
-msgstr "Odzivi"
+#: src/qml/elements/MessageReactionAdditionButton.qml:23
+#, fuzzy
+#| msgctxt "MessageReactionSenderSheet|"
+#| msgid "Add own reaction"
+msgctxt "MessageReactionAdditionButton|"
+msgid "Add reaction…"
+msgstr "Dodaj lastni odziv"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:50
-msgctxt "MessageReactionDetailsSheet|"
-msgid "Own:"
-msgstr "Lastni:"
+#: src/qml/elements/MessageReactionDetailsButton.qml:23
+msgctxt "MessageReactionDetailsButton|"
+msgid "Show details"
+msgstr ""
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:71
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 will be added once you are connected"
+#: src/qml/elements/MessageReactionDisplayButton.qml:115
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 will be added once you are connected"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Will be added once you are connected"
 msgstr "%1 bo dodan, ko se povežete"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:74
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 will be removed once you are connected"
+#: src/qml/elements/MessageReactionDisplayButton.qml:120
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 will be removed once you are connected"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Will be removed once you are connected"
 msgstr "%1 bo odstranjen, ko se povežete"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:76
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 could not be added"
+#: src/qml/elements/MessageReactionDisplayButton.qml:124
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 could not be added"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Could not be added"
 msgstr "%1 ni bilo mogoče dodati"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:79
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 could not be removed"
+#: src/qml/elements/MessageReactionDisplayButton.qml:129
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "%1 could not be removed"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Could not be removed"
 msgstr "%1 ni bilo mogoče odstraniti"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:81
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 has been sent"
-msgstr "%1 je bilo poslano"
+#: src/qml/elements/MessageReactionDisplayButton.qml:133
+#, fuzzy
+#| msgctxt "MessageModel|"
+#| msgid "Sent"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Sent"
+msgstr "Poslano"
 
-#: src/qml/elements/MessageReactionDetailsSheet.qml:83
-#, qt-format
-msgctxt "MessageReactionDetailsSheet|"
-msgid "%1 has been delivered"
-msgstr "%1 je bilo dostavljeno"
+#: src/qml/elements/MessageReactionDisplayButton.qml:137
+#, fuzzy
+#| msgctxt "MessageModel|"
+#| msgid "Delivered"
+msgctxt "MessageReactionDisplayButton|"
+msgid "Delivered"
+msgstr "Dostavljeno"
+
+#: src/qml/elements/MessageReactionRetryButton.qml:22
+#, fuzzy
+#| msgctxt "MessageReactionSenderSheet|"
+#| msgid "Remove own reaction"
+msgctxt "MessageReactionRetryButton|"
+msgid "Retry updating reactions"
+msgstr "Odstrani lastni odziv"
 
 #: src/qml/elements/NewMedia.qml:201 src/qml/elements/NewMedia.qml:210
 msgctxt "NewMedia|"
@@ -1709,52 +2723,95 @@ msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Dodajanje stika…"
 
-#: src/qml/elements/RosterFilteringArea.qml:29
+#: src/qml/elements/RosterFilteringArea.qml:27
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only available contacts"
 msgctxt "RosterFilteringArea|"
-msgid "Filter by availability"
-msgstr "Filtriraj po razpoložljivosti"
-
-#: src/qml/elements/RosterFilteringArea.qml:30
-msgctxt "RosterFilteringArea|"
-msgid "Show only available contacts"
+msgid "Unavailable contacts"
 msgstr "Prikaži samo razpoložljive stike"
 
-#: src/qml/elements/RosterFilteringArea.qml:48
+#: src/qml/elements/RosterFilteringArea.qml:31
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only available contacts"
+msgctxt "RosterFilteringArea|"
+msgid "Available contacts"
+msgstr "Prikaži samo razpoložljive stike"
+
+#: src/qml/elements/RosterFilteringArea.qml:35
+msgctxt "RosterFilteringArea|"
+msgid "Private groups"
+msgstr ""
+
+#: src/qml/elements/RosterFilteringArea.qml:39
+#, fuzzy
+#| msgctxt "GlobalDrawer|"
+#| msgid "Search public groups"
+msgctxt "RosterFilteringArea|"
+msgid "Public groups"
+msgstr "Preišči javne grupe"
+
+#: src/qml/elements/RosterFilteringArea.qml:51
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Filter by labels"
+msgctxt "RosterFilteringArea|"
+msgid "Filter by type"
+msgstr "Filtriraj po oznakah"
+
+#: src/qml/elements/RosterFilteringArea.qml:52
+#, fuzzy
+#| msgctxt "RosterFilteringArea|"
+#| msgid "Show only chats of selected accounts"
+msgctxt "RosterFilteringArea|"
+msgid "Show only entries of specific types"
+msgstr "Prikaži samo klepete izbranih računov"
+
+#: src/qml/elements/RosterFilteringArea.qml:113
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
 msgstr "Filtriraj po računih"
 
-#: src/qml/elements/RosterFilteringArea.qml:49
+#: src/qml/elements/RosterFilteringArea.qml:114
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats of selected accounts"
 msgstr "Prikaži samo klepete izbranih računov"
 
-#: src/qml/elements/RosterFilteringArea.qml:126
+#: src/qml/elements/RosterFilteringArea.qml:189
 msgctxt "RosterFilteringArea|"
 msgid "Filter by labels"
 msgstr "Filtriraj po oznakah"
 
-#: src/qml/elements/RosterFilteringArea.qml:127
+#: src/qml/elements/RosterFilteringArea.qml:190
 msgctxt "RosterFilteringArea|"
 msgid "Show only chats with selected labels"
 msgstr "Prikaži samo klepete z izbranimi oznakami"
 
-#: src/qml/elements/RosterListItem.qml:68
+#: src/qml/elements/RosterListItem.qml:79
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete"
+msgctxt "RosterListItem|"
+msgid "Deleted"
+msgstr "Izbriši"
+
+#: src/qml/elements/RosterListItem.qml:97
 msgctxt "RosterListItem|"
 msgid "No messages yet"
 msgstr "Še ni sporočil"
 
-#: src/qml/elements/RosterListItem.qml:86
+#: src/qml/elements/RosterListItem.qml:113
 msgctxt "RosterListItem|"
 msgid "Draft:"
 msgstr "Osnutek:"
 
-#: src/qml/elements/RosterListItem.qml:94
+#: src/qml/elements/RosterListItem.qml:116
 msgctxt "RosterListItem|"
 msgid "Me:"
 msgstr "Jaz:"
 
-#: src/qml/elements/RosterListItem.qml:97
+#: src/qml/elements/RosterListItem.qml:120
 #, qt-format
 msgctxt "RosterListItem|"
 msgid "%1:"
@@ -1775,18 +2832,18 @@ msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "Išči"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:24
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:23
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search public groups (%1)"
 msgstr "Išči javne skupine (%1)"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:46
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:45
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Search…"
 msgstr "Išči…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:167
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:166
 #, qt-format
 msgctxt "SearchPublicGroupChatSheet|"
 msgid ""
@@ -1798,12 +2855,12 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:173
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:172
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Downloading…"
 msgstr "Prenašanje…"
 
-#: src/qml/elements/SearchPublicGroupChatSheet.qml:228
+#: src/qml/elements/SearchPublicGroupChatSheet.qml:227
 msgctxt "SearchPublicGroupChatSheet|"
 msgid "Retry"
 msgstr "Ponovni poskus"
@@ -1848,137 +2905,50 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Izberite klepet, da začnete s sporočanjem"
 
-#: src/qml/GlobalDrawer.qml:59
+#: src/qml/GlobalDrawer.qml:83
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Računi"
 
-#: src/qml/GlobalDrawer.qml:125
+#: src/qml/GlobalDrawer.qml:149
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Dejavnosti"
 
-#: src/qml/GlobalDrawer.qml:129
+#: src/qml/GlobalDrawer.qml:153
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Dodaj stik prek kode QR"
 
-#: src/qml/GlobalDrawer.qml:135
+#: src/qml/GlobalDrawer.qml:159
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Dodaj stik prek naslova klepeta"
 
-#: src/qml/GlobalDrawer.qml:142
+#: src/qml/GlobalDrawer.qml:165
+msgctxt "GlobalDrawer|"
+msgid "Create group"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:172
+msgctxt "GlobalDrawer|"
+msgid "Join group"
+msgstr ""
+
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Preišči javne grupe"
 
-#: src/qml/GlobalDrawer.qml:153
-msgctxt "GlobalDrawer|"
-msgid "Invite friends"
-msgstr "Povabi prijatelje"
-
-#: src/qml/GlobalDrawer.qml:157
-msgctxt "GlobalDrawer|"
-msgid "Invitation link copied to clipboard"
-msgstr "Povezava za povabilo kopirana v odložišče"
-
-#: src/qml/GlobalDrawer.qml:162
+#: src/qml/GlobalDrawer.qml:191
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Zamenjaj napravo"
 
-#: src/qml/GlobalDrawer.qml:168
+#: src/qml/GlobalDrawer.qml:197
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Nastavitve"
-
-#: src/qml/KeyAuthenticationPage.qml:28
-msgctxt "KeyAuthenticationPage|"
-msgid "Verify devices"
-msgstr "Preverite naprave"
-
-#: src/qml/KeyAuthenticationPage.qml:30 src/qml/KeyAuthenticationPage.qml:41
-msgctxt "KeyAuthenticationPage|"
-msgid "Show explanation"
-msgstr "Prikaži pojasnilo"
-
-#: src/qml/KeyAuthenticationPage.qml:30
-msgctxt "KeyAuthenticationPage|"
-msgid "Scan QR codes"
-msgstr "Optično preberi QR-kode"
-
-#: src/qml/KeyAuthenticationPage.qml:41
-msgctxt "KeyAuthenticationPage|"
-msgid "Verify manually"
-msgstr "Preveri ročno"
-
-#: src/qml/KeyAuthenticationPage.qml:43
-msgctxt "KeyAuthenticationPage|"
-msgid "Step 1: Scan your <b>other device's</b> QR code"
-msgstr "1. korak: Optično preberite kodo QR <b>druge naprave</b>"
-
-#: src/qml/KeyAuthenticationPage.qml:43
-msgctxt "KeyAuthenticationPage|"
-msgid "Step 1: Scan your <b>contact's</b> QR code"
-msgstr "1. korak: optično preberite kodo QR svojega <b>stika</b>"
-
-#: src/qml/KeyAuthenticationPage.qml:45
-msgctxt "KeyAuthenticationPage|"
-msgid "Step 2: Scan with your other device <b>this device's</b> QR code"
-msgstr ""
-"2. korak: S svojo drugo napravo optično preberite kodo QR <b>te naprave</b>"
-
-#: src/qml/KeyAuthenticationPage.qml:45
-msgctxt "KeyAuthenticationPage|"
-msgid "Step 2: Let your contact scan <b>your</b> QR code"
-msgstr "2. korak: Naj vaš stik optično prebere <b>vašo</b> kodo QR"
-
-#: src/qml/KeyAuthenticationPage.qml:63
-msgctxt "KeyAuthenticationPage|"
-msgid "Unverified own devices"
-msgstr "Nepreverjene lastne naprave"
-
-#: src/qml/KeyAuthenticationPage.qml:63
-msgctxt "KeyAuthenticationPage|"
-msgid "Unverified contact devices"
-msgstr "Nepreverjene naprave stika"
-
-#: src/qml/KeyAuthenticationPage.qml:92
-msgctxt "KeyAuthenticationPage|"
-msgid "Verify device"
-msgstr "Preverite napravo"
-
-#: src/qml/KeyAuthenticationPage.qml:110
-msgctxt "KeyAuthenticationPage|"
-msgid "Device verified"
-msgstr "Naprave preverjena"
-
-#: src/qml/KeyAuthenticationPage.qml:112
-msgctxt "KeyAuthenticationPage|"
-msgid "Device does not exist or is already verified"
-msgstr "Naprava ne obstaja ali je že preverjena"
-
-#: src/qml/KeyAuthenticationPage.qml:117
-msgctxt "KeyAuthenticationPage|"
-msgid ""
-"The fingerprint must have 64 characters with digits and letters from a to f"
-msgstr "Prstni odtis mora imeti 64 znakov s številkami in črkami od a do f"
-
-#: src/qml/KeyAuthenticationPage.qml:153
-msgctxt "KeyAuthenticationPage|"
-msgid "Verified own devices"
-msgstr "Preverjene lastne naprave"
-
-#: src/qml/KeyAuthenticationPage.qml:175
-msgctxt "KeyAuthenticationPage|"
-msgid "Copy fingerprint"
-msgstr "Kopiraj prstni odtis"
-
-#: src/qml/KeyAuthenticationPage.qml:182
-msgctxt "KeyAuthenticationPage|"
-msgid "Fingerprint copied to clipboard"
-msgstr "Prstni odtis kopiran na odložišče"
 
 #: src/qml/main.qml:82
 #, qt-format
@@ -2473,28 +3443,28 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Ročno ustvari račun"
 
-#: src/QmlUtils.cpp:66
+#: src/QmlUtils.cpp:63
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Napačno uporabniško ime ali geslo."
 
-#: src/QmlUtils.cpp:68
+#: src/QmlUtils.cpp:65
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Ni se mogoče povezati na strežnik. Prosimo, preverite svojo spletno povezavo."
 
-#: src/QmlUtils.cpp:70
+#: src/QmlUtils.cpp:67
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Napaka med poskusom varne povezave."
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:69
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Strežnik ne podpira varnih povezav."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:71
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -2503,22 +3473,22 @@ msgstr ""
 "Povezovanje na strežnik ni uspelo. Prosimo, preverite svojo spletno povezavo "
 "ali ime strežnika."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Strežnik ni povezan ali pa je blokiran s strani požarnega zidu."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Protokol za avtentikacijo na strežniku ni podprt."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Osveževanje povezave ni uspelo."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -2527,46 +3497,40 @@ msgstr ""
 "Spletni dostop ni dovoljen. Prosimo, preverite nastavitve spletnega dostopa "
 "na vašem sistemu."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Ta strežnik ne podpira registracije."
 
-#: src/QmlUtils.cpp:272
+#: src/QmlUtils.cpp:243
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neznana velikost"
 
-#: src/QmlUtils.cpp:345
+#: src/QmlUtils.cpp:316
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 je povezan"
 
-#: src/QmlUtils.cpp:347
+#: src/QmlUtils.cpp:318
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 tipka…"
 
-#: src/QmlUtils.cpp:349
+#: src/QmlUtils.cpp:320
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 je prekinil tipkanje"
 
-#: src/QrCodeGenerator.cpp:67
-#, qt-format
-msgctxt "QrCodeGenerator|"
-msgid "Generating the QR code failed: %1"
-msgstr "Ustvarjanje QR kode spodletelo: %1"
-
-#: src/RosterItem.cpp:22
+#: src/RosterItem.cpp:33
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Zaznamki"
 
-#: src/RosterManager.cpp:159
+#: src/RosterManager.cpp:172
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -2575,28 +3539,28 @@ msgstr ""
 "Opomb klepeta ni bilo mogoče dodati na vaš seznam stikov, ker vaš strežnik "
 "tega ne podpira"
 
-#: src/RosterManager.cpp:190
+#: src/RosterManager.cpp:203
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 ni bilo mogoče dodati: %2"
 
-#: src/RosterManager.cpp:201
+#: src/RosterManager.cpp:214
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Dodajanje stika ni uspelo, ker ste nepovezani."
 
-#: src/RosterManager.cpp:214
+#: src/RosterManager.cpp:227
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Odstranjevanje stika ni uspelo, ker ste nepovezani."
 
-#: src/RosterManager.cpp:227
+#: src/RosterManager.cpp:240
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Preimenovanje stika ni uspelo, ker ste nepovezani."
 
-#: src/RosterManager.cpp:238
+#: src/RosterManager.cpp:251
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -2605,19 +3569,19 @@ msgid ""
 msgstr ""
 "Zahteva za ogled osebnih podatkov %1 ni uspela zaradi težave s povezavo: %2"
 
-#: src/RosterManager.cpp:248
+#: src/RosterManager.cpp:261
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Dovoljevanje %1, vpogleda v vaše osebne podatke, ni uspelo"
 
-#: src/RosterManager.cpp:257
+#: src/RosterManager.cpp:270
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Zaustavitev %1 ogleda vaših osebnih podatkov ni uspela"
 
-#: src/RosterModel.cpp:843
+#: src/RosterModel.cpp:891
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -2651,6 +3615,56 @@ msgstr "Rojstni dan"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
+#~ msgstr "Optično preberite kodo QR <b>vaših</b> naprav, da šifrirate zanje"
+
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Scan the QR codes of <b>your</b> devices for maximum security"
+#~ msgstr ""
+#~ "Optično preberite kodo QR <b>vaših</b> naprav za kar najbolj varno "
+#~ "šifriranje"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Never"
+#~ msgstr "Nikoli"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Always"
+#~ msgstr "Vedno"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "Reactions"
+#~ msgstr "Odzivi"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "Own:"
+#~ msgstr "Lastni:"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "%1 has been sent"
+#~ msgstr "%1 je bilo poslano"
+
+#~ msgctxt "MessageReactionDetailsSheet|"
+#~ msgid "%1 has been delivered"
+#~ msgstr "%1 je bilo dostavljeno"
+
+#~ msgctxt "RosterFilteringArea|"
+#~ msgid "Filter by availability"
+#~ msgstr "Filtriraj po razpoložljivosti"
+
+#~ msgctxt "GlobalDrawer|"
+#~ msgid "Invite friends"
+#~ msgstr "Povabi prijatelje"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Step 1: Scan your <b>contact's</b> QR code"
+#~ msgstr "1. korak: optično preberite kodo QR svojega <b>stika</b>"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Step 2: Let your contact scan <b>your</b> QR code"
+#~ msgstr "2. korak: Naj vaš stik optično prebere <b>vašo</b> kodo QR"
 
 #~ msgctxt "ChatSupportSheet|"
 #~ msgid "Support Group"
@@ -2824,14 +3838,6 @@ msgstr "Spletni naslov"
 #~ msgid "Senders of %1"
 #~ msgstr "Pošiljatelji %1"
 
-#~ msgctxt "MessageReactionSenderSheet|"
-#~ msgid "Add own reaction"
-#~ msgstr "Dodaj lastni odziv"
-
-#~ msgctxt "MessageReactionSenderSheet|"
-#~ msgid "Remove own reaction"
-#~ msgstr "Odstrani lastni odziv"
-
 #~ msgctxt "RosterAddContactSheet|"
 #~ msgid "user@example.org"
 #~ msgstr "uporabnik@primer.org"
@@ -2868,10 +3874,6 @@ msgstr "Spletni naslov"
 #~ msgctxt "RosterRemoveContactSheet|"
 #~ msgid "Cancel"
 #~ msgstr "Prekliči"
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete"
-#~ msgstr "Izbriši"
 
 #~ msgctxt "RosterRenameContactSheet|"
 #~ msgid "Rename contact"
@@ -3268,10 +4270,6 @@ msgstr "Spletni naslov"
 #~ msgstr ""
 #~ "Spremeni geslo vašega računa. Ponovno ga boste morali vnesti na vaših "
 #~ "drugih napravah."
-
-#~ msgctxt "RosterRemoveContactSheet|"
-#~ msgid "Delete contact"
-#~ msgstr "Izbriši stik"
 
 #~ msgctxt "UserProfilePage|"
 #~ msgid "Profile"
