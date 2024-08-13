@@ -53,7 +53,7 @@ public:
 	void deleteAccount();
 
 	/**
-	 * Clears any pending data, restores the account settings from the settings file and logs in.
+	 * Clears any pending form data.
 	 */
 	void cancelRegistration();
 

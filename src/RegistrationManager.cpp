@@ -16,6 +16,7 @@
 #include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
+#include "Settings.h"
 
 RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
@@ -42,6 +43,8 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
 		this, &RegistrationManager::changePassword);
 	connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationManager::handlePasswordChanged);
 	connect(m_manager, &QXmppRegistrationManager::passwordChangeFailed, this, &RegistrationManager::handlePasswordChangeFailed);
+
+	connect(Kaidan::instance(), &Kaidan::cancelRegistrationRequested, this, &RegistrationManager::cancelRegistration);
 }
 
 void RegistrationManager::setRegisterOnConnectEnabled(bool registerOnConnect)
@@ -56,15 +59,7 @@ void RegistrationManager::deleteAccount()
 
 void RegistrationManager::cancelRegistration()
 {
-	AccountManager::instance()->setJid({});
-	AccountManager::instance()->setPassword({});
-
-	m_client->disconnectFromServer();
 	setRegisterOnConnectEnabled(false);
-
-	if (AccountManager::instance()->loadConnectionData()) {
-		m_clientWorker->logIn();
-	}
 
 	cleanUpLastForm();
 	m_dataFormModel = new RegistrationDataFormModel();

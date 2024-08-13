@@ -231,6 +231,11 @@ public:
 	Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
 
 	/**
+	 * Emitted when the account registration required canceling.
+	 */
+	Q_SIGNAL void cancelRegistrationRequested();
+
+	/**
 	 * Emitted to log in to the server with the set credentials.
 	 */
 	Q_SIGNAL void logInRequested();

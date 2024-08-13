@@ -308,7 +308,21 @@ void AccountMigrationManager::cancelMigration()
 	if (migrationState() != MigrationState::Idle) {
 		// Restore previous account settings and log in to the previous account.
 		if (m_migrationData->state == MigrationState::Registering) {
-			m_worker->registrationManager()->cancelRegistration();
+			const auto accountManager = AccountManager::instance();
+			const auto settings = m_worker->caches()->settings;
+
+			// If the account that is stored in the settings differs from the current one, clear everything
+			// and reconnect to the stored account.
+			if (accountManager->jid() != settings->authJid()) {
+				accountManager->setJid({});
+				accountManager->setPassword({});
+
+				m_worker->xmppClient()->disconnectFromServer();
+
+				if (accountManager->loadConnectionData()) {
+					m_worker->logIn();
+				}
+			}
 		}
 
 		m_migrationData.reset();

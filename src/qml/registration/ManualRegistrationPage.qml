@@ -402,7 +402,9 @@ RegistrationPage {
 	onBackRequested: function (event) {
 		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
 			event.accepted = true
+
 			Kaidan.openStartPageRequested()
+			Kaidan.cancelRegistrationRequested()
 		}
 	}
 }
