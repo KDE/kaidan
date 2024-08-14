@@ -36,13 +36,11 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
-	property string replaceId
 	property string originalBody
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
 		accountJid: ChatController.accountJid
 		chatJid: ChatController.chatJid
-		replaceId: root.replaceId
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
 
@@ -414,7 +412,7 @@ Controls.Pane {
 	}
 
 	function prepareMessageCorrection(replaceId, body, spoilerHint) {
-		root.replaceId = replaceId
+		composition.replaceId = replaceId
 		root.originalBody = body
 		messageArea.text = body
 		composition.isSpoiler = spoilerHint.length
@@ -524,7 +522,7 @@ Controls.Pane {
 		messageArea.clear()
 		composition.isSpoiler = false
 		spoilerHintField.clear()
-		replaceId = ""
+		composition.replaceId = ""
 		originalBody = ""
 		messageArea.state = "compose"
 	}
