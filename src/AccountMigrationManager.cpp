@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "AccountMigrationManager.h"
+
+#include "AccountManager.h"
 #include "Algorithms.h"
 #include "Encryption.h"
 #include "FutureUtils.h"
