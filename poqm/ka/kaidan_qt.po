@@ -423,44 +423,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "შეტყობინება %1-ითაა დაშიფრული, მაგრამ გაშიფვრა შეუძლებელია"
 
-#: src/MessageModel.cpp:199
+#: src/MessageModel.cpp:200
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "დარჩენილი"
 
-#: src/MessageModel.cpp:201
+#: src/MessageModel.cpp:202
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "გაგზავნილია"
 
-#: src/MessageModel.cpp:203
+#: src/MessageModel.cpp:204
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "მოწოდებულია"
 
-#: src/MessageModel.cpp:205
+#: src/MessageModel.cpp:206
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:605 src/MessageModel.cpp:675
+#: src/MessageModel.cpp:606 src/MessageModel.cpp:676
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:750
+#: src/MessageModel.cpp:751
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1226
+#: src/MessageModel.cpp:1289
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1229
+#: src/MessageModel.cpp:1292
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -671,16 +671,21 @@ msgid "Add hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატება"
 
 #: src/qml/details/AccountDetailsContent.qml:26
+#: src/qml/details/AccountDetailsContent.qml:320
+#: src/qml/details/AccountDetailsContent.qml:345
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "არასდროს"
 
 #: src/qml/details/AccountDetailsContent.qml:30
+#: src/qml/details/AccountDetailsContent.qml:324
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "თუ პირადი მონაცემები გაზიარებულია"
 
 #: src/qml/details/AccountDetailsContent.qml:34
+#: src/qml/details/AccountDetailsContent.qml:328
+#: src/qml/details/AccountDetailsContent.qml:353
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "ყოველთვის"
@@ -780,79 +785,127 @@ msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr "ამ კონტაქტის ჩატის მისამართის გაზიარება ტექსტით"
 
-#: src/qml/details/AccountDetailsContent.qml:320
+#: src/qml/details/AccountDetailsContent.qml:310
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Notifications"
+msgctxt "AccountDetailsContent|"
+msgid "Notifications"
+msgstr "გაფრთხილებები"
+
+#: src/qml/details/AccountDetailsContent.qml:315
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
+msgctxt "AccountDetailsContent|"
+msgid "Incoming contact messages"
+msgstr "შემომავალი შეტყობინებები"
+
+#: src/qml/details/AccountDetailsContent.qml:316
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show notification and play sound on message arrival"
+msgctxt "AccountDetailsContent|"
+msgid "Show notification and play sound on message arrival from a contact"
+msgstr "შეტყობინების მიღებისას გაფრთხილების ჩვენება და ხმის დაკვრა"
+
+#: src/qml/details/AccountDetailsContent.qml:340
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
+msgctxt "AccountDetailsContent|"
+msgid "Incoming group messages"
+msgstr "შემომავალი შეტყობინებები"
+
+#: src/qml/details/AccountDetailsContent.qml:341
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show notification and play sound on message arrival"
+msgctxt "AccountDetailsContent|"
+msgid "Show notification and play sound on message arrival from a group"
+msgstr "შეტყობინების მიღებისას გაფრთხილების ჩვენება და ხმის დაკვრა"
+
+#: src/qml/details/AccountDetailsContent.qml:349
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Connection"
+msgctxt "AccountDetailsContent|"
+msgid "On mention"
+msgstr "კავშირი"
+
+#: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "სერვისის მომწოდებელი"
 
-#: src/qml/details/AccountDetailsContent.qml:324
+#: src/qml/details/AccountDetailsContent.qml:386
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "ვებგვერდის ნახვა"
 
-#: src/qml/details/AccountDetailsContent.qml:325
+#: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "გახსენით თქვენი სერვისის მომწოდებლის ვებგვერდი ბრაუზერში"
 
-#: src/qml/details/AccountDetailsContent.qml:331
+#: src/qml/details/AccountDetailsContent.qml:393
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "ვეგბვერდის მისამართის კოპირება"
 
-#: src/qml/details/AccountDetailsContent.qml:332
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "თქვენი სერვისის მომწოდებლის ვების მისამართის ბუფერში კოპირება"
 
-#: src/qml/details/AccountDetailsContent.qml:336
+#: src/qml/details/AccountDetailsContent.qml:398
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "ვებგვერდის მისამართი კოპირებულია ბუფერში"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:403
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "მხარდაჭერის ჩატის გახსნა"
 
-#: src/qml/details/AccountDetailsContent.qml:342
+#: src/qml/details/AccountDetailsContent.qml:404
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "დაიწყეთ საუბარი თქვენი სერვისის მომწოდებლის მხარდაჭერის კონტაქტთან"
 
-#: src/qml/details/AccountDetailsContent.qml:348
+#: src/qml/details/AccountDetailsContent.qml:410
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "მხარდაჭერა"
 
-#: src/qml/details/AccountDetailsContent.qml:374
+#: src/qml/details/AccountDetailsContent.qml:436
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "%1-ის მხარდაჭერა"
 
-#: src/qml/details/AccountDetailsContent.qml:391
+#: src/qml/details/AccountDetailsContent.qml:453
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "მხარდაჭერის გუნდის გახსნა"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:454
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "შეუერთდით თქვენი სერვისის მომწოდებლის საჯარო დახმარების ჯგუფს"
 
-#: src/qml/details/AccountDetailsContent.qml:418
+#: src/qml/details/AccountDetailsContent.qml:480
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "ჯგუფის მხარდაჭერა %1"
 
-#: src/qml/details/AccountDetailsContent.qml:434
+#: src/qml/details/AccountDetailsContent.qml:496
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "დაბლოკილი ჩატის მისამართები"
 
-#: src/qml/details/AccountDetailsContent.qml:438
+#: src/qml/details/AccountDetailsContent.qml:500
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -861,55 +914,55 @@ msgstr ""
 "დაბლოკეთ ერთი მომხმარებელი (მაგ: user@example.org) ან ამ სერვერზე მყოფი "
 "ყველა მომხმარებელი (მაგ: example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:457
+#: src/qml/details/AccountDetailsContent.qml:519
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "ჩატის მისამართების დასაბლოკად ან ბლოკის მოსახსნელად სერვერთან უნდა "
 "ბრძანდებოდეთ მიერთებული"
 
-#: src/qml/details/AccountDetailsContent.qml:464
+#: src/qml/details/AccountDetailsContent.qml:526
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:479
+#: src/qml/details/AccountDetailsContent.qml:541
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "ჩატის მისამართის დაბლოკვა"
 
-#: src/qml/details/AccountDetailsContent.qml:537
+#: src/qml/details/AccountDetailsContent.qml:599
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "ჩატის მისამართის შეცვლა…"
 
-#: src/qml/details/AccountDetailsContent.qml:566
+#: src/qml/details/AccountDetailsContent.qml:628
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "განბლოკვა"
 
-#: src/qml/details/AccountDetailsContent.qml:593
+#: src/qml/details/AccountDetailsContent.qml:655
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: src/qml/details/AccountDetailsContent.qml:598
+#: src/qml/details/AccountDetailsContent.qml:660
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "ჩატის დამატება შენიშვნებისთვის"
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:661
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "დამატეთ ჩატი თქვენი შენიშვნების ყველა თქვენს მოწყობილობაზე სინქრონიზაციისთვის"
 
-#: src/qml/details/AccountDetailsContent.qml:633
+#: src/qml/details/AccountDetailsContent.qml:695
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "პაროლის შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:637
+#: src/qml/details/AccountDetailsContent.qml:699
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -918,63 +971,63 @@ msgstr ""
 "შეცვალეთ თქვენი პაროლი. ახალი პაროლის შეყვანა თქვენს ყველა სხვა "
 "მოწყობილობაზე მოგიწევთ!"
 
-#: src/qml/details/AccountDetailsContent.qml:653
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "მიმდინარე პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:654
+#: src/qml/details/AccountDetailsContent.qml:716
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "შეიყვანეთ თქვენი მიმდინარე პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:655
+#: src/qml/details/AccountDetailsContent.qml:717
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "შეიყვანეთ სწორი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:677
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "ახალი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:677
+#: src/qml/details/AccountDetailsContent.qml:739
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:678
+#: src/qml/details/AccountDetailsContent.qml:740
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "შეიყვანეთ თქვენი ახალი პაროლი"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:741
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "შესაცვლელად სხვა პაროლი შეიყვანეთ"
 
-#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:761
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "პაროლის შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:746
+#: src/qml/details/AccountDetailsContent.qml:808
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "პაროლის შეცვლის შეცდომა: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:752
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "პაროლი წარმატებით შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:769
+#: src/qml/details/AccountDetailsContent.qml:831
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "პაროლის ხილვადობა"
 
-#: src/qml/details/AccountDetailsContent.qml:773
+#: src/qml/details/AccountDetailsContent.qml:835
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -987,12 +1040,12 @@ msgstr ""
 "თქვენი ანგარიში სხვა მოწყობილობაზე გამოიყენოთ, <b>სჯობს პაროლი შეცვალოთ. "
 "ქმედება შეუქცევადია!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:839
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "პაროლი ტექსტად არ გამოჩნდება"
 
-#: src/qml/details/AccountDetailsContent.qml:778
+#: src/qml/details/AccountDetailsContent.qml:840
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1001,20 +1054,20 @@ msgstr ""
 "დაუშვით დამატებითი მოწყობილობების დამატება ამ შესვლის QR კოდით, მაგრამ "
 "პაროლი არასოდეს აჩვენოთ"
 
-#: src/qml/details/AccountDetailsContent.qml:786
-#: src/qml/details/AccountDetailsContent.qml:805
-#: src/qml/details/AccountDetailsContent.qml:993
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:848
+#: src/qml/details/AccountDetailsContent.qml:867
+#: src/qml/details/AccountDetailsContent.qml:1055
+#: src/qml/details/AccountDetailsContent.qml:1080
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "დადასტურება"
 
-#: src/qml/details/AccountDetailsContent.qml:796
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "პაროლი არც ერთ შემთხვევაში არ გამოჩნდება"
 
-#: src/qml/details/AccountDetailsContent.qml:797
+#: src/qml/details/AccountDetailsContent.qml:859
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1023,12 +1076,12 @@ msgstr ""
 "არც დამატებითი მოწყობილობის დამატება იქნებ შესაძლებელი შესვლის QR კოდით, არც "
 "პაროლები იქნება ნაჩვენები"
 
-#: src/qml/details/AccountDetailsContent.qml:828
+#: src/qml/details/AccountDetailsContent.qml:890
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "კავშირი"
 
-#: src/qml/details/AccountDetailsContent.qml:832
+#: src/qml/details/AccountDetailsContent.qml:894
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1037,28 +1090,28 @@ msgstr ""
 "მოირგეთ ჰოსტის სახელი და პორტი, რომელსაც გნებავთ, დაუკავშირდეთ (ცარიელი "
 "ველები ნაგულისხმებ მნიშვნელობებს ნიშნავს)"
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:913
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "შეერთების პარამეტრების შეცვლა"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:922
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "მიერთების პარამეტრები შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:909
+#: src/qml/details/AccountDetailsContent.qml:971
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "მიერთების პარამეტრების შეცვლა შეუძლებელია: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:986
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "მიერთების პარამეტრები შეიცვალა"
 
-#: src/qml/details/AccountDetailsContent.qml:948
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
@@ -1066,7 +1119,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "ინფორმაციის გარეშე"
 
-#: src/qml/details/AccountDetailsContent.qml:956
+#: src/qml/details/AccountDetailsContent.qml:1018
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1074,7 +1127,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "ანგარიშის წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:957
+#: src/qml/details/AccountDetailsContent.qml:1019
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1089,17 +1142,17 @@ msgstr ""
 "ანგარიშის წაშლა ამ აპიდან. დაამარქაფეთ თქვენი ავტორიზაციის დეტალები და ჩატის "
 "ისტორია, თუ ეს საჭიროა!"
 
-#: src/qml/details/AccountDetailsContent.qml:976
+#: src/qml/details/AccountDetailsContent.qml:1038
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan-დან წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:985
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1108,12 +1161,12 @@ msgstr ""
 "ანგარიშის წაშლა ამ აპიდან. დაამარქაფეთ თქვენი ავტორიზაციის დეტალები და ჩატის "
 "ისტორია, თუ ეს საჭიროა!"
 
-#: src/qml/details/AccountDetailsContent.qml:1009
+#: src/qml/details/AccountDetailsContent.qml:1071
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "სრულად წაშლა"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1072
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1231,16 +1284,58 @@ msgid "Share this contact's chat address via a web page with usage help"
 msgstr "ამ კონტაქტის ჩატის მისამართის გაზიარება ტექსტით"
 
 #: src/qml/details/ContactDetailsContent.qml:180
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Notifications"
+msgctxt "ContactDetailsContent|"
+msgid "Notifications"
+msgstr "გაფრთხილებები"
+
+#: src/qml/details/ContactDetailsContent.qml:185
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
+msgctxt "ContactDetailsContent|"
+msgid "Incoming messages"
+msgstr "შემომავალი შეტყობინებები"
+
+#: src/qml/details/ContactDetailsContent.qml:186
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show notification and play sound on message arrival"
+msgctxt "ContactDetailsContent|"
+msgid "Show notification and play sound on message arrival"
+msgstr "შეტყობინების მიღებისას გაფრთხილების ჩვენება და ხმის დაკვრა"
+
+#: src/qml/details/ContactDetailsContent.qml:190
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "ContactDetailsContent|"
+msgid "Account default"
+msgstr "ანგარიშის ნაგულისხმევი"
+
+#: src/qml/details/ContactDetailsContent.qml:194
+msgctxt "ContactDetailsContent|"
+msgid "Never"
+msgstr "არასდროს"
+
+#: src/qml/details/ContactDetailsContent.qml:198
+msgctxt "ContactDetailsContent|"
+msgid "Always"
+msgstr "ყოველთვის"
+
+#: src/qml/details/ContactDetailsContent.qml:217
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "პირადი ინფორმაცია"
 
-#: src/qml/details/ContactDetailsContent.qml:184
+#: src/qml/details/ContactDetailsContent.qml:221
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "პირადი ინფორმაციის მოთხოვნა"
 
-#: src/qml/details/ContactDetailsContent.qml:185
+#: src/qml/details/ContactDetailsContent.qml:222
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
@@ -1248,65 +1343,65 @@ msgid ""
 msgstr ""
 "კონტაქტის წვდომადობის, მოწყობილობებისა და სხვა პირადი ინფორმაციის გამოთხოვა"
 
-#: src/qml/details/ContactDetailsContent.qml:191
+#: src/qml/details/ContactDetailsContent.qml:228
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "პირადი მონაცემების გაზიარების გაუქმება"
 
-#: src/qml/details/ContactDetailsContent.qml:192
+#: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 "შეწყვიტეთ თქვენი წვდომადობის, მოწყობილობებისა ა სხვა პირადი ინფორმაციის "
 "გაზიარება"
 
-#: src/qml/details/ContactDetailsContent.qml:198
+#: src/qml/details/ContactDetailsContent.qml:235
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
 
-#: src/qml/details/ContactDetailsContent.qml:199
+#: src/qml/details/ContactDetailsContent.qml:236
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "მითითება, როცა საუბარი გახსნილი გაქვთ, კრეფთ ან შეწყვიტეთ კრეფა"
 
-#: src/qml/details/ContactDetailsContent.qml:210
+#: src/qml/details/ContactDetailsContent.qml:247
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "წაკითხულობის შეტყობინებების გაგზავნა"
 
-#: src/qml/details/ContactDetailsContent.qml:211
+#: src/qml/details/ContactDetailsContent.qml:248
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "მითითება, რომელი შეტყობინებები წაიკითხეთ"
 
-#: src/qml/details/ContactDetailsContent.qml:222
+#: src/qml/details/ContactDetailsContent.qml:259
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "დაბლოკვა"
 
-#: src/qml/details/ContactDetailsContent.qml:223
+#: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "დაბლოკეთ ურთიერთობა სტატუსებისა და გაფრთხილებების ჩათვლით"
 
-#: src/qml/details/ContactDetailsContent.qml:250
+#: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "წაშლა"
 
-#: src/qml/details/ContactDetailsContent.qml:258
+#: src/qml/details/ContactDetailsContent.qml:295
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "წაშლა"
 
-#: src/qml/details/ContactDetailsContent.qml:259
+#: src/qml/details/ContactDetailsContent.qml:296
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "კონტაქტისა და ჩატის ისტორიის სრული წაშლა"
 
-#: src/qml/details/ContactDetailsContent.qml:267
+#: src/qml/details/ContactDetailsContent.qml:304
 msgctxt "ContactDetailsContent|"
 msgid "Confirm"
 msgstr "დადასტურება"
@@ -1322,38 +1417,38 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
 "ამ ჩატში არსებული შეტყობინებები, ყველა, თქვენს მოწყობილობაზე დასინქრონდება"
 
-#: src/qml/details/DetailsContent.qml:63
+#: src/qml/details/DetailsContent.qml:62
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "მედია"
 
-#: src/qml/details/DetailsContent.qml:68
+#: src/qml/details/DetailsContent.qml:67
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "ავტომატური გადმოწერები"
 
-#: src/qml/details/DetailsContent.qml:69
+#: src/qml/details/DetailsContent.qml:68
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "მედიის ავტომატური გადმოწერა"
 
-#: src/qml/details/DetailsContent.qml:99
+#: src/qml/details/DetailsContent.qml:76
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "მედია %1-მდე შეგიძლიათ, გააზიაროთ."
 
-#: src/qml/details/DetailsContent.qml:144
+#: src/qml/details/DetailsContent.qml:121
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "პროფილი"
 
-#: src/qml/details/DetailsContent.qml:168
+#: src/qml/details/DetailsContent.qml:145
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "ჭდეები"
 
-#: src/qml/details/DetailsContent.qml:193
+#: src/qml/details/DetailsContent.qml:170
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Sharing"
@@ -1361,7 +1456,7 @@ msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "გაზიარება"
 
-#: src/qml/details/DetailsContent.qml:198
+#: src/qml/details/DetailsContent.qml:175
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show QR code"
@@ -1369,7 +1464,7 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "QR კოდის ჩვენება"
 
-#: src/qml/details/DetailsContent.qml:216
+#: src/qml/details/DetailsContent.qml:193
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show QR code"
@@ -1377,7 +1472,7 @@ msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "QR კოდის ჩვენება"
 
-#: src/qml/details/DetailsContent.qml:218
+#: src/qml/details/DetailsContent.qml:195
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Contact copied to clipboard"
@@ -1385,7 +1480,7 @@ msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "კონტაქტი წარმატებით დაკოპირდა ბუფერში"
 
-#: src/qml/details/DetailsContent.qml:223
+#: src/qml/details/DetailsContent.qml:200
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Copy chat address"
@@ -1393,12 +1488,12 @@ msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "ჩატის მისამართის კოპირება"
 
-#: src/qml/details/DetailsContent.qml:229
+#: src/qml/details/DetailsContent.qml:206
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:231
+#: src/qml/details/DetailsContent.qml:208
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Invitation link copied to clipboard"
@@ -1406,7 +1501,7 @@ msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "მოსაწვევი ბმული ბუფერში დაკოპირდა"
 
-#: src/qml/details/DetailsContent.qml:243
+#: src/qml/details/DetailsContent.qml:220
 msgctxt "DetailsContent|"
 msgid "Connected Devices"
 msgstr "მიერთებული მოწყობილობები"
@@ -1466,12 +1561,12 @@ msgstr ""
 "ჩატის მისამართების დასაბლოკად ან ბლოკის მოსახსნელად სერვერთან უნდა "
 "ბრძანდებოდეთ მიერთებული"
 
-#: src/qml/details/GroupChatDetailsContent.qml:208
+#: src/qml/details/GroupChatDetailsContent.qml:207
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:234
+#: src/qml/details/GroupChatDetailsContent.qml:233
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Encryption"
@@ -1479,7 +1574,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "დაშიფვრა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:238
+#: src/qml/details/GroupChatDetailsContent.qml:237
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "OMEMO 2"
@@ -1487,7 +1582,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:239
+#: src/qml/details/GroupChatDetailsContent.qml:238
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1502,8 +1597,8 @@ msgstr ""
 "პარტნიორების გარდა, შეეძლება თქვენს შორის მიმოცვლილი მონაცემების წაკითხვა ან "
 "შეცვლა."
 
-#: src/qml/details/GroupChatDetailsContent.qml:251
-#: src/qml/details/GroupChatDetailsContent.qml:259
+#: src/qml/details/GroupChatDetailsContent.qml:250
+#: src/qml/details/GroupChatDetailsContent.qml:258
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Verify <b>your</b> devices to encrypt for them"
@@ -1511,7 +1606,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "გადაამოწმეთ <b>თქვენი</b> მოწყობილობები, რომ მათთვის დაშიფროთ"
 
-#: src/qml/details/GroupChatDetailsContent.qml:255
+#: src/qml/details/GroupChatDetailsContent.qml:254
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "<b>Your</b> other devices don't use OMEMO 2"
@@ -1519,7 +1614,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>თქვენი</b> სხვა მოწყობილობები OMEMO 2-ს არ იყენებენ"
 
-#: src/qml/details/GroupChatDetailsContent.qml:262
+#: src/qml/details/GroupChatDetailsContent.qml:261
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Verify <b>your</b> devices for maximum security"
@@ -1527,7 +1622,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "გადაამოწმეთ <b>თქვენი</b> მოწყობილობები მაქსიმალური უსაფრთხოებისთვის"
 
-#: src/qml/details/GroupChatDetailsContent.qml:301
+#: src/qml/details/GroupChatDetailsContent.qml:300
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Verify your <b>contact</b> to enable encryption"
@@ -1535,7 +1630,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Verify a <b>participant</b> to enable encryption"
 msgstr "დაშიფვრის ჩასართავად გადაამოწმეთ თქვენი <b>კონტაქტი</b>"
 
-#: src/qml/details/GroupChatDetailsContent.qml:304
+#: src/qml/details/GroupChatDetailsContent.qml:303
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Your <b>contact</b> doesn't use OMEMO 2"
@@ -1543,7 +1638,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "No <b>participant</b> uses OMEMO 2"
 msgstr "თქვენი <b>კონტაქტი</b> OMEMO 2-ს არ იყენებს"
 
-#: src/qml/details/GroupChatDetailsContent.qml:309
+#: src/qml/details/GroupChatDetailsContent.qml:308
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Verify <b>your</b> devices to encrypt for them"
@@ -1551,7 +1646,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgstr "გადაამოწმეთ <b>თქვენი</b> მოწყობილობები, რომ მათთვის დაშიფროთ"
 
-#: src/qml/details/GroupChatDetailsContent.qml:312
+#: src/qml/details/GroupChatDetailsContent.qml:311
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Verify your <b>contact</b> for maximum security"
@@ -1559,8 +1654,8 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants</b> for maximum security"
 msgstr "გადაამოწმეთ თქვენი <b>კონტაქტი</b> მაქსიმალური უსაფრთხოებისთვის"
 
-#: src/qml/details/GroupChatDetailsContent.qml:390
-#: src/qml/details/GroupChatDetailsContent.qml:395
+#: src/qml/details/GroupChatDetailsContent.qml:388
+#: src/qml/details/GroupChatDetailsContent.qml:393
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via QR code"
@@ -1568,7 +1663,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "ამ კონტაქტის ჩატის მისამართის გაზიარება QR კოდით"
 
-#: src/qml/details/GroupChatDetailsContent.qml:399
+#: src/qml/details/GroupChatDetailsContent.qml:397
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -1576,7 +1671,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "ამ კონტაქტის ჩატის მისამართის გაზიარება ტექსტით"
 
-#: src/qml/details/GroupChatDetailsContent.qml:402
+#: src/qml/details/GroupChatDetailsContent.qml:400
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Website address copied to clipboard"
@@ -1584,7 +1679,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "ვებგვერდის მისამართი კოპირებულია ბუფერში"
 
-#: src/qml/details/GroupChatDetailsContent.qml:406
+#: src/qml/details/GroupChatDetailsContent.qml:404
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -1592,7 +1687,60 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "ამ კონტაქტის ჩატის მისამართის გაზიარება ტექსტით"
 
-#: src/qml/details/GroupChatDetailsContent.qml:417
+#: src/qml/details/GroupChatDetailsContent.qml:415
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Notifications"
+msgctxt "GroupChatDetailsContent|"
+msgid "Notifications"
+msgstr "გაფრთხილებები"
+
+#: src/qml/details/GroupChatDetailsContent.qml:420
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Incoming messages"
+msgctxt "GroupChatDetailsContent|"
+msgid "Incoming messages"
+msgstr "შემომავალი შეტყობინებები"
+
+#: src/qml/details/GroupChatDetailsContent.qml:421
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Show notification and play sound on message arrival"
+msgctxt "GroupChatDetailsContent|"
+msgid "Show notification and play sound on message arrival"
+msgstr "შეტყობინების მიღებისას გაფრთხილების ჩვენება და ხმის დაკვრა"
+
+#: src/qml/details/GroupChatDetailsContent.qml:425
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "GroupChatDetailsContent|"
+msgid "Account default"
+msgstr "ანგარიშის ნაგულისხმევი"
+
+#: src/qml/details/GroupChatDetailsContent.qml:429
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Never"
+msgctxt "GroupChatDetailsContent|"
+msgid "Never"
+msgstr "არასდროს"
+
+#: src/qml/details/GroupChatDetailsContent.qml:433
+msgctxt "GroupChatDetailsContent|"
+msgid "On mention"
+msgstr ""
+
+#: src/qml/details/GroupChatDetailsContent.qml:437
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Always"
+msgctxt "GroupChatDetailsContent|"
+msgid "Always"
+msgstr "ყოველთვის"
+
+#: src/qml/details/GroupChatDetailsContent.qml:456
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Privacy"
@@ -1600,7 +1748,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "პირადი ინფორმაცია"
 
-#: src/qml/details/GroupChatDetailsContent.qml:421
+#: src/qml/details/GroupChatDetailsContent.qml:460
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send typing notifications"
@@ -1608,7 +1756,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "კრეფის შეტყობინების გაგზავნა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:422
+#: src/qml/details/GroupChatDetailsContent.qml:461
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid ""
@@ -1619,7 +1767,7 @@ msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "მითითება, როცა საუბარი გახსნილი გაქვთ, კრეფთ ან შეწყვიტეთ კრეფა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:433
+#: src/qml/details/GroupChatDetailsContent.qml:472
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Send read notifications"
@@ -1627,7 +1775,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "წაკითხულობის შეტყობინებების გაგზავნა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:434
+#: src/qml/details/GroupChatDetailsContent.qml:473
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Indicate which messages you have read"
@@ -1635,7 +1783,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "მითითება, რომელი შეტყობინებები წაიკითხეთ"
 
-#: src/qml/details/GroupChatDetailsContent.qml:454
+#: src/qml/details/GroupChatDetailsContent.qml:493
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -1643,12 +1791,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "მონიშნულის შენახვა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:462
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:463
+#: src/qml/details/GroupChatDetailsContent.qml:502
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1656,8 +1804,8 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "კონტაქტისა და ჩატის ისტორიის სრული წაშლა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:470
-#: src/qml/details/GroupChatDetailsContent.qml:495
+#: src/qml/details/GroupChatDetailsContent.qml:509
+#: src/qml/details/GroupChatDetailsContent.qml:534
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -1665,7 +1813,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Confirm"
 msgstr "დადასტურება"
 
-#: src/qml/details/GroupChatDetailsContent.qml:486
+#: src/qml/details/GroupChatDetailsContent.qml:525
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1673,7 +1821,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "წაშლა"
 
-#: src/qml/details/GroupChatDetailsContent.qml:487
+#: src/qml/details/GroupChatDetailsContent.qml:526
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1683,7 +1831,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "ანგარიშის მომწოდებლის წაშლა. თქვენს ანგარიშს ვეღარ გამოიყენებთ!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:508
+#: src/qml/details/GroupChatDetailsContent.qml:547
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -1884,30 +2032,6 @@ msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "ჭდის დამატება"
 
-#: src/qml/details/RosterItemDetailsContent.qml:150
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
-msgctxt "RosterItemDetailsContent|"
-msgid "Notifications"
-msgstr "გაფრთხილებები"
-
-#: src/qml/details/RosterItemDetailsContent.qml:155
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
-msgctxt "RosterItemDetailsContent|"
-msgid "Incoming messages"
-msgstr "შემომავალი შეტყობინებები"
-
-#: src/qml/details/RosterItemDetailsContent.qml:156
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
-msgctxt "RosterItemDetailsContent|"
-msgid "Show notification and play sound on message arrival"
-msgstr "შეტყობინების მიღებისას გაფრთხილების ჩვენება და ხმის დაკვრა"
-
 #: src/qml/details/RosterItemDetailsHeader.qml:22
 #, fuzzy
 #| msgctxt "ContactDetailsHeader|"
@@ -2098,67 +2222,67 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "დამალული შეტყობინების ნაწილის დამატების გაუქმება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:121
+#: src/qml/elements/ChatPageSendingPane.qml:130
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:121
+#: src/qml/elements/ChatPageSendingPane.qml:130
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა დამალული ნაწილით"
 
-#: src/qml/elements/ChatPageSendingPane.qml:123
+#: src/qml/elements/ChatPageSendingPane.qml:132
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "<b>დაშიფრული</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:123
+#: src/qml/elements/ChatPageSendingPane.qml:132
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "<b>დაუშიფრავი</b> შეტყობინების შედგენა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:235
+#: src/qml/elements/ChatPageSendingPane.qml:267
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "მედია"
 
-#: src/qml/elements/ChatPageSendingPane.qml:291
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "სურათის გადაღება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:292
+#: src/qml/elements/ChatPageSendingPane.qml:324
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "კამერით სურათის გადაღება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:303
+#: src/qml/elements/ChatPageSendingPane.qml:335
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "ვიდეოს ჩაწერა"
 
-#: src/qml/elements/ChatPageSendingPane.qml:304
+#: src/qml/elements/ChatPageSendingPane.qml:336
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "კამერით ვიდეოს გადაღება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:315
+#: src/qml/elements/ChatPageSendingPane.qml:347
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "ფაილების გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:348
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "გააზიარეთ ფაილები თქვენი მოწყობილობიდან"
 
-#: src/qml/elements/ChatPageSendingPane.qml:327
+#: src/qml/elements/ChatPageSendingPane.qml:359
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "მდებარეობის გაზიარება"
 
-#: src/qml/elements/ChatPageSendingPane.qml:328
+#: src/qml/elements/ChatPageSendingPane.qml:360
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "თქვენი მდებარეობის გაგზავნა"
@@ -3463,27 +3587,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "ანგარიშის ხელით შექმნა"
 
-#: src/QmlUtils.cpp:63
+#: src/QmlUtils.cpp:68
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "მომხმარებელი ან პაროლი არასწორია."
 
-#: src/QmlUtils.cpp:65
+#: src/QmlUtils.cpp:70
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "სერვერთან მიერთების შეცდომა. გადაამოწმეთ თქვენი ინტერნეტ-კავშირი."
 
-#: src/QmlUtils.cpp:67
+#: src/QmlUtils.cpp:72
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "შეცდომა უსაფრთხოდ მიერთების მცდელობისას."
 
-#: src/QmlUtils.cpp:69
+#: src/QmlUtils.cpp:74
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "ამ სერვერს დაცული მიერთების მხარდაჭერა არ გააჩნია."
 
-#: src/QmlUtils.cpp:71
+#: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3492,22 +3616,22 @@ msgstr ""
 "სერვერთან მერთების პრობლემა. გადაამოწმეთ ინტერნეტკავშირი ან თქვენი სერვერის "
 "სახელი."
 
-#: src/QmlUtils.cpp:73
+#: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "სერვერი გამორთულია ან დაბლოკილია ბრანდმაუერით."
 
-#: src/QmlUtils.cpp:75
+#: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "ავთენტიკაციის პროტოკოლი მხარდაუჭერელია სერვერის მიერ."
 
-#: src/QmlUtils.cpp:77
+#: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "მიერთების განახლება შეუძლებელია."
 
-#: src/QmlUtils.cpp:79
+#: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3516,29 +3640,29 @@ msgstr ""
 "ინტერნეტთან წვდომა აკრძალულია. შეამოწმეთ თქვენ სისტემის ინტერნეტთან წვდომის "
 "კონფიგურაცია."
 
-#: src/QmlUtils.cpp:81
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "ამ სერვერს რეგისტრაციის მხარდაჭერა არ გააჩნია."
 
-#: src/QmlUtils.cpp:243
+#: src/QmlUtils.cpp:248
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "უცნობი ზომა"
 
-#: src/QmlUtils.cpp:316
+#: src/QmlUtils.cpp:321
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 ონლაინაა"
 
-#: src/QmlUtils.cpp:318
+#: src/QmlUtils.cpp:323
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 კრეფს…"
 
-#: src/QmlUtils.cpp:320
+#: src/QmlUtils.cpp:325
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3600,7 +3724,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების აკრძალვა ჩავარა"
 
-#: src/RosterModel.cpp:891
+#: src/RosterModel.cpp:924
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -3644,14 +3768,6 @@ msgstr "ვებსაიტი"
 #~ msgstr ""
 #~ "მაქსიმალური უსაფრთხოებისთვის დაასკანერეთ QR კოდები <b>თქვენი</b> "
 #~ "მოწყობილობებით"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Never"
-#~ msgstr "არასდროს"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Always"
-#~ msgstr "ყოველთვის"
 
 #~ msgctxt "MessageReactionDetailsSheet|"
 #~ msgid "Reactions"
