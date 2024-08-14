@@ -84,6 +84,7 @@ Controls.Pane {
 				onClicked: {
 					composition.isSpoiler = false
 					spoilerHintField.clear()
+					root.forceActiveFocus()
 				}
 			}
 		}
@@ -409,6 +410,11 @@ Controls.Pane {
 		if (!Kirigami.Settings.isMobile) {
 			messageArea.forceActiveFocus()
 		}
+	}
+
+	function prepareSpoiler() {
+		composition.isSpoiler = true
+		spoilerHintField.forceActiveFocus()
 	}
 
 	function prepareMessageCorrection(replaceId, body, spoilerHint) {

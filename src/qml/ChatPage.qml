@@ -127,7 +127,7 @@ ChatPageBase {
 			icon.name: "password-show-off"
 			text: qsTr("Add hidden message part")
 			displayHint: Kirigami.DisplayHint.IconOnly
-			onTriggered: sendingPane.composition.isSpoiler = true
+			onTriggered: sendingPane.prepareSpoiler()
 		}
 	]
 
