@@ -564,6 +564,7 @@ ChatPageBase {
 		height: contentHeight
 		verticalLayoutDirection: ListView.BottomToTop
 		interactive: false
+		headerPositioning: ListView.OverlayHeader
 		model: ChatHintModel
 		delegate: ChatHintArea {
 			id: chatHintArea
