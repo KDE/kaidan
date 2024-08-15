@@ -75,12 +75,10 @@ Controls.Pane {
 				Layout.fillWidth: true
 			}
 
-			Controls.Button {
-				text: qsTr("Cancel adding hidden message part")
-				icon.name: "window-close-symbolic"
-				display: Controls.Button.IconOnly
-				flat: true
-
+			ClickableIcon {
+				Controls.ToolTip.text: qsTr("Cancel adding hidden message part")
+				source: "window-close-symbolic"
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
 					composition.isSpoiler = false
 					spoilerHintField.clear()

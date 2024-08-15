@@ -43,12 +43,11 @@ Item {
 		anchors.bottom: parent.bottom
 		anchors.margins: Kirigami.Units.largeSpacing
 
-		Controls.Button {
-			text: qsTr("Close message search bar")
-			icon.name: "window-close-symbolic"
+		ClickableIcon {
+			Controls.ToolTip.text: qsTr("Close search")
+			source: "window-close-symbolic"
+			Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 			onClicked: searchBar.close()
-			display: Controls.Button.IconOnly
-			flat: true
 		}
 
 		Kirigami.SearchField {
