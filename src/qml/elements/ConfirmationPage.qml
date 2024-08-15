@@ -15,7 +15,7 @@ import org.kde.kirigami 2.19 as Kirigami
  */
 BinaryDecisionPage {
 	topImageSource: "emblem-ok-symbolic"
-	bottomImageSource: "dialog-cancel"
+	bottomImageSource: "window-close-symbolic"
 	topActionAsMainAction: true
 
 	signal canceled

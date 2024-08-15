@@ -370,7 +370,7 @@ Controls.Pane {
 			ClickableIcon {
 				visible: messageArea.state === "edit"
 				opacity: visible ? 1 : 0
-				source: "dialog-cancel"
+				source: "window-close-symbolic"
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: clearMessageArea()
 

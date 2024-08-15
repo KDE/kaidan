@@ -261,7 +261,7 @@ MediaPreview {
 				}
 
 				Controls.Button {
-					icon.name: 'dialog-cancel'
+					icon.name: 'window-close-symbolic'
 
 					onClicked: {
 						recorder.cancel()
