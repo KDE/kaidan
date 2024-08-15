@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-13 09:21+0200\n"
+"PO-Revision-Date: 2024-08-14 06:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -22,7 +22,7 @@ msgstr ""
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "Ustvarjanje QR kode je spodletelo: %1"
+msgstr "Ustvarjanje kode QR je spodletelo: %1"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
@@ -731,52 +731,34 @@ msgstr ""
 "Deli naslov klepeta tega računa prek spletne strani s pomočjo za uporabo"
 
 #: src/qml/details/AccountDetailsContent.qml:310
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Obvestila"
 
 #: src/qml/details/AccountDetailsContent.qml:315
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr "Prejeta sporočila"
+msgstr "Prejeta sporočila stikov"
 
 #: src/qml/details/AccountDetailsContent.qml:316
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
+msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila stika"
 
 #: src/qml/details/AccountDetailsContent.qml:340
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr "Prejeta sporočila"
+msgstr "Prejeta skupinska sporočila"
 
 #: src/qml/details/AccountDetailsContent.qml:341
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
+msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila skupine"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr "Povezava"
+msgstr "Ob omembi"
 
 #: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
@@ -1215,33 +1197,21 @@ msgstr ""
 "Deli naslov klepeta tega stika prek spletne strani s pomočjo za uporabo"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Obvestila"
 
 #: src/qml/details/ContactDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Prejeta sporočila"
 
 #: src/qml/details/ContactDetailsContent.qml:186
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
 
 #: src/qml/details/ContactDetailsContent.qml:190
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Privzeta vrednost računa"
@@ -1543,41 +1513,26 @@ msgstr ""
 "Deli naslov klepeta te skupine prek spletne strani s pomočjo za uporabo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Obvestila"
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Prejeta sporočila"
 
 #: src/qml/details/GroupChatDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Prikaži obvestilo in predvajaj zvok ob prihodu sporočila"
 
 #: src/qml/details/GroupChatDetailsContent.qml:425
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Privzeta vrednost računa"
 
 #: src/qml/details/GroupChatDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Nikoli"
@@ -1585,12 +1540,9 @@ msgstr "Nikoli"
 #: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Ob omembi"
 
 #: src/qml/details/GroupChatDetailsContent.qml:437
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Always"
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Vedno"

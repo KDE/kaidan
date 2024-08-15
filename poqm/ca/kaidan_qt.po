@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-08-13 22:33+0200\n"
+"PO-Revision-Date: 2024-08-14 10:09+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -740,52 +740,38 @@ msgstr ""
 "Compartiu aquesta adreça de xat del compte via una pàgina web amb ajuda d'ús"
 
 #: src/qml/details/AccountDetailsContent.qml:310
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
 #: src/qml/details/AccountDetailsContent.qml:315
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr "Missatges entrants"
+msgstr "Missatges entrants de contactes"
 
 #: src/qml/details/AccountDetailsContent.qml:316
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr "Mostra una notificació i reprodueix un so en l'arribada de missatges"
+msgstr ""
+"Mostra una notificació i reprodueix un so en l'arribada de missatges d'un "
+"contacte"
 
 #: src/qml/details/AccountDetailsContent.qml:340
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr "Missatges entrants"
+msgstr "Missatges entrants de grups"
 
 #: src/qml/details/AccountDetailsContent.qml:341
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr "Mostra una notificació i reprodueix un so en l'arribada de missatges"
+msgstr ""
+"Mostra una notificació i reprodueix un so en l'arribada de missatges d'un "
+"grup"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr "Connexió"
+msgstr "A les mencions"
 
 #: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
@@ -1228,36 +1214,24 @@ msgstr ""
 "ajuda d'ús"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
 #: src/qml/details/ContactDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Missatges entrants"
 
 #: src/qml/details/ContactDetailsContent.qml:186
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Mostra una notificació i reprodueix un so en l'arribada de missatges"
 
 #: src/qml/details/ContactDetailsContent.qml:190
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
-msgstr "Compte predeterminat"
+msgstr "Predeterminat del compte"
 
 #: src/qml/details/ContactDetailsContent.qml:194
 msgctxt "ContactDetailsContent|"
@@ -1559,41 +1533,26 @@ msgstr ""
 "Compartiu aquesta adreça de xat de grup via una pàgina web amb ajuda d'ús"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Missatges entrants"
 
 #: src/qml/details/GroupChatDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Mostra una notificació i reprodueix un so en l'arribada de missatges"
 
 #: src/qml/details/GroupChatDetailsContent.qml:425
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
-msgstr "Compte predeterminat"
+msgstr "Predeterminat del compte"
 
 #: src/qml/details/GroupChatDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Mai"
@@ -1601,12 +1560,9 @@ msgstr "Mai"
 #: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "A les mencions"
 
 #: src/qml/details/GroupChatDetailsContent.qml:437
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Always"
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
@@ -1789,7 +1745,7 @@ msgstr "Confirmeu"
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
-msgstr "Compte predeterminat"
+msgstr "Predeterminat del compte"
 
 #: src/qml/details/RosterItemDetailsContent.qml:28
 msgctxt "RosterItemDetailsContent|"

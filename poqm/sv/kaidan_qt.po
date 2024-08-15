@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-13 08:48+0200\n"
+"PO-Revision-Date: 2024-08-14 10:10+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -723,52 +723,36 @@ msgid "Share this account's chat address via a web page with usage help"
 msgstr "Dela kontots chattadress via en webbsida med användningshjälp"
 
 #: src/qml/details/AccountDetailsContent.qml:310
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Underrättelser"
 
 #: src/qml/details/AccountDetailsContent.qml:315
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
-msgstr "Inkommande meddelanden"
+msgstr "Inkommande kontaktmeddelanden"
 
 #: src/qml/details/AccountDetailsContent.qml:316
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
-msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
+msgstr ""
+"Visa underrättelser och spela ljud när meddelanden anländer från en kontakt"
 
 #: src/qml/details/AccountDetailsContent.qml:340
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
-msgstr "Inkommande meddelanden"
+msgstr "Inkommande gruppmeddelanden"
 
 #: src/qml/details/AccountDetailsContent.qml:341
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
-msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
+msgstr ""
+"Visa underrättelser och spela ljud när meddelanden anländer från en grupp"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Connection"
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
-msgstr "Anslutning"
+msgstr "Vid omnämnande"
 
 #: src/qml/details/AccountDetailsContent.qml:382
 msgctxt "AccountDetailsContent|"
@@ -1208,33 +1192,21 @@ msgid "Share this contact's chat address via a web page with usage help"
 msgstr "Dela kontaktens chattadress via  en webbsida med användningshjälp"
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Underrättelser"
 
 #: src/qml/details/ContactDetailsContent.qml:185
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Inkommande meddelanden"
 
 #: src/qml/details/ContactDetailsContent.qml:186
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
 
 #: src/qml/details/ContactDetailsContent.qml:190
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Kontoförval"
@@ -1535,41 +1507,26 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr "Dela gruppens chattadress via en webbsida med användningshjälp"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Underrättelser"
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Inkommande meddelanden"
 
 #: src/qml/details/GroupChatDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
 
 #: src/qml/details/GroupChatDetailsContent.qml:425
-#, fuzzy
-#| msgctxt "RosterItemDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Kontoförval"
 
 #: src/qml/details/GroupChatDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Aldrig"
@@ -1577,12 +1534,9 @@ msgstr "Aldrig"
 #: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Vid omnämnande"
 
 #: src/qml/details/GroupChatDetailsContent.qml:437
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Always"
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Alltid"
