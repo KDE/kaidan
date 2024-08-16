@@ -339,7 +339,9 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 						WHERE timestamp >= (
 							SELECT timestamp
 							FROM chatMessages
-							WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :id
+							WHERE
+								accountJid = :accountJid AND chatJid = :chatJid AND
+								(id = :id OR stanzaId = :id)
 						)
 					)
 			)"),
