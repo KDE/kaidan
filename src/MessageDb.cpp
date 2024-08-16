@@ -240,9 +240,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 		);
 
 		auto messages = _fetchMessagesFromQuery(query);
-		_fetchReactions(messages);
-		_fetchGroupChatUsers(messages);
-		_fetchTrustLevels(messages);
+		_fetchAdditionalData(messages);
 
 		return messages;
 	});
@@ -316,9 +314,7 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 		);
 
 		auto messages = _fetchMessagesFromQuery(query);
-		_fetchReactions(messages);
-		_fetchGroupChatUsers(messages);
-		_fetchTrustLevels(messages);
+		_fetchAdditionalData(messages);
 
 		return messages;
 	});
@@ -357,9 +353,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 		);
 
 		auto messages = _fetchMessagesFromQuery(query);
-		_fetchReactions(messages);
-		_fetchGroupChatUsers(messages);
-		_fetchTrustLevels(messages);
+		_fetchAdditionalData(messages);
 
 		return messages;
 	});
@@ -435,9 +429,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 			queryStringMessageIndex - 1
 		};
 
-		_fetchReactions(result.messages);
-		_fetchGroupChatUsers(result.messages);
-		_fetchTrustLevels(result.messages);
+		_fetchAdditionalData(result.messages);
 
 		return result;
 	});
@@ -742,7 +734,7 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid, const QStr
 			debug() << "Could not find message with ID" << messageId << "to attach file sources.";
 			return;
 		}
-		_fetchReactions(msgs);
+		_fetchAdditionalData(msgs);
 
 		auto message = msgs.takeFirst();
 
@@ -926,9 +918,7 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void (Mess
 	);
 
 	auto msgs = _fetchMessagesFromQuery(query);
-	_fetchReactions(msgs);
-	_fetchGroupChatUsers(msgs);
-	_fetchTrustLevels(msgs);
+	_fetchAdditionalData(msgs);
 
 	// update loaded item
 	if (!msgs.isEmpty()) {
@@ -1443,6 +1433,13 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 		};
 	}
 	return sources;
+}
+
+void MessageDb::_fetchAdditionalData(QVector<Message> &messages)
+{
+	_fetchReactions(messages);
+	_fetchGroupChatUsers(messages);
+	_fetchTrustLevels(messages);
 }
 
 void MessageDb::_fetchReactions(QVector<Message> &messages)

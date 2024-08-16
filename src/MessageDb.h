@@ -292,6 +292,7 @@ private:
 	QVector<HttpSource> _fetchHttpSource(qint64 fileId);
 	QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
+	void _fetchAdditionalData(QVector<Message> &messages);
 	void _fetchReactions(QVector<Message> &messages);
 	void _fetchGroupChatUsers(QVector<Message> &messages);
 	void _fetchGroupChatUser(Message &message);
