@@ -161,7 +161,7 @@ Item {
 		let newIndex = -1
 		const searchedString = searchField.text
 
-		if (searchedString.length > 0) {
+		if (searchedString) {
 			searchFieldBusyIndicator.running = true
 
 			if (searchUpwards) {
@@ -186,6 +186,8 @@ Item {
 
 				searchFieldBusyIndicator.running = false
 			}
+		} else {
+			messageListView.currentIndex = newIndex
 		}
 	}
 }
