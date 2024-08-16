@@ -139,14 +139,14 @@ public:
 	 * If no message with queryString could be found, no messages are returned.
 	 *
 	 * The returned query index is -1 if no message with queryString could be found,
-	 * otherwise index - 1.
+	 * otherwise the found message's index.
 	 *
 	 * @param accountJid bare JID of the user's account
 	 * @param chatJid bare Jid of the chat
 	 * @param index number of entries to be skipped, used for paging
 	 * @param queryString string to be queried
 	 *
-	 * @return the fetched messages and the found message index - 1
+	 * @return the fetched messages and the found message's index
 	 */
 	QFuture<MessageResult> fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString);
 
