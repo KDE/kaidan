@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-13 12:13+0200\n"
+"PO-Revision-Date: 2024-08-15 19:19+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,12 +15,10 @@ msgstr ""
 "X-Generator: Lokalize 24.05.2\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
-#, fuzzy, qt-format
-#| msgctxt "QrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "Ha fallado la generación del código QR: %1"
+msgstr "La generación del código QR ha fallado: %1"
 
 #: src/AccountMigrationManager.cpp:195
 msgctxt "AccountMigrationManager|"
@@ -160,12 +158,12 @@ msgstr "Unido"
 #: src/GroupChatUserModel.cpp:56
 msgctxt "GroupChatUserModel|"
 msgid "Left"
-msgstr ""
+msgstr "Salido"
 
 #: src/GroupChatUserModel.cpp:58
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
-msgstr ""
+msgstr "Prohibido"
 
 #: src/Kaidan.cpp:213
 msgctxt "Kaidan|"
@@ -365,7 +363,7 @@ msgstr "Espóiler"
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
-msgstr ""
+msgstr "Invitación al grupo %1"
 
 #: src/MessageComposition.cpp:182
 #, qt-format
@@ -374,9 +372,6 @@ msgid "Upload failed: %1"
 msgstr "El envío ha fallado: %1"
 
 #: src/MessageComposition.cpp:224
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful"
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "La corrección del mensaje ha fallado"
@@ -393,25 +388,18 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "No se puede enviar «%1» porque es mayor de %2"
 
 #: src/MessageController.cpp:225
-#, fuzzy, qt-format
-#| msgctxt "MessageModel|"
-#| msgid "Reaction could not be sent: %1"
+#, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "No se ha podido enviar la reacción: %1"
 
 #: src/MessageController.cpp:351
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent."
-msgstr "No se pudo enviar el mensaje."
+msgstr "No se ha podido enviar el mensaje."
 
 #: src/MessageController.cpp:667
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Este mensaje está cifrado con %1, pero no se puede descifrar"
@@ -475,7 +463,7 @@ msgstr "No se ha podido añadir %1: %2"
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
-msgstr ""
+msgstr "No se ha podido obtener información del grupo %1: %2"
 
 #: src/MixController.cpp:166 src/MixController.cpp:174
 #, fuzzy, qt-format
@@ -546,7 +534,7 @@ msgstr "No se ha podido añadir %1: %2"
 #: src/MixController.cpp:437
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
-msgstr ""
+msgstr "No tiene permiso para borrar el grupo"
 
 #: src/Notifications.cpp:155 src/Notifications.cpp:236
 msgctxt "Notifications|"
@@ -1528,7 +1516,7 @@ msgstr "Borrar contacto"
 #: src/qml/details/GroupChatDetailsContent.qml:145
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "Participantes"
 
 #: src/qml/details/GroupChatDetailsContent.qml:149
 #, fuzzy
@@ -1555,7 +1543,7 @@ msgstr "Necesita conectarse para cambiar su contraseña."
 #: src/qml/details/GroupChatDetailsContent.qml:207
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
-msgstr ""
+msgstr "Prohibir"
 
 #: src/qml/details/GroupChatDetailsContent.qml:233
 #, fuzzy
@@ -1679,42 +1667,27 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr "Compartir la dirección de chat de este contacto mediante texto"
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificaciones"
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Incoming messages"
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Mensajes entrantes"
 
 #: src/qml/details/GroupChatDetailsContent.qml:421
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show notification and play sound on message arrival"
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 "Mostrar una notificación y reproducir un sonido cuando llegue un mensaje"
 
 #: src/qml/details/GroupChatDetailsContent.qml:425
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Predeterminado de la cuenta"
 
 #: src/qml/details/GroupChatDetailsContent.qml:429
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Never"
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Nunca"
@@ -1722,7 +1695,7 @@ msgstr "Nunca"
 #: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
-msgstr ""
+msgstr "Al hacer mención"
 
 #: src/qml/details/GroupChatDetailsContent.qml:437
 #, fuzzy
@@ -1788,15 +1761,12 @@ msgstr "Guardar la selección"
 #: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "Abandonar"
 
 #: src/qml/details/GroupChatDetailsContent.qml:502
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Remove contact and complete chat history"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
-msgstr "Eliminar el contacto y el historial de chat completo"
+msgstr "Abandonar el grupo y eliminar el historial de chat completo"
 
 #: src/qml/details/GroupChatDetailsContent.qml:509
 #: src/qml/details/GroupChatDetailsContent.qml:534
@@ -1846,12 +1816,12 @@ msgstr "Maximizar el avatar"
 #: src/qml/details/GroupChatDetailsHeader.qml:22
 msgctxt "GroupChatDetailsHeader|"
 msgid "Public Group Chat"
-msgstr ""
+msgstr "Chat de grupo público"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:22
 msgctxt "GroupChatDetailsHeader|"
 msgid "Private Group Chat"
-msgstr ""
+msgstr "Chat de grupo privado"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:25
 #, fuzzy
@@ -2146,12 +2116,12 @@ msgstr "Abrir"
 #: src/qml/elements/ChatMessage.qml:252
 msgctxt "ChatMessage|"
 msgid "Join…"
-msgstr ""
+msgstr "Unirse..."
 
 #: src/qml/elements/ChatMessage.qml:404
 msgctxt "ChatMessage|"
 msgid "New"
-msgstr ""
+msgstr "Nuevo"
 
 #: src/qml/elements/ChatMessage.qml:432
 #, qt-format
@@ -2411,12 +2381,12 @@ msgstr "Introduzca una contraseña válida"
 #: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 #: src/qml/elements/GroupChatCreationContent.qml:25
 msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
-msgstr ""
+msgstr "Creando chat de grupo..."
 
 #: src/qml/elements/GroupChatCreationContent.qml:29
 #, fuzzy
@@ -2429,35 +2399,32 @@ msgstr "Nombre (opcional):"
 #: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
-msgstr ""
+msgstr "Grupo de ejemplo"
 
 #: src/qml/elements/GroupChatCreationContent.qml:38
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
-msgstr ""
+msgstr "Público"
 
 #: src/qml/elements/GroupChatCreationContent.qml:44
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
-msgstr ""
+msgstr "ID del grupo"
 
 #: src/qml/elements/GroupChatCreationContent.qml:47
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
-msgstr ""
+msgstr "grupo-de-ejemplo"
 
 #: src/qml/elements/GroupChatCreationContent.qml:49
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
-msgstr ""
+msgstr "Introduzca un ID de grupo válido"
 
 #: src/qml/elements/GroupChatCreationContent.qml:81
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
-msgstr "Nombre (opcional):"
+msgstr "Apodo (opcional):"
 
 #: src/qml/elements/GroupChatCreationContent.qml:97
 #, fuzzy, qt-format
@@ -2508,12 +2475,12 @@ msgstr "Libre para chatear"
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
 msgid "Join"
-msgstr ""
+msgstr "Unirse"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:22
 msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
-msgstr ""
+msgstr "Uniéndose al chat de grupo..."
 
 #: src/qml/elements/GroupChatJoiningContent.qml:26
 #, fuzzy
@@ -2540,12 +2507,9 @@ msgid "The address must have the form <b>group@server</b>"
 msgstr "La dirección para chatear debe tener la forma <b>usuario@servidor</b>"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:37
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Name (optional):"
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
-msgstr "Nombre (opcional):"
+msgstr "Apodo (opcional):"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:52
 #, fuzzy, qt-format
@@ -2558,12 +2522,12 @@ msgstr "No se ha podido añadir %1: %2"
 #: src/qml/elements/GroupChatJoiningDialog.qml:17
 msgctxt "GroupChatJoiningDialog|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Unirse al chat de grupo"
 
 #: src/qml/elements/GroupChatJoiningPage.qml:15
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
-msgstr ""
+msgstr "Unirse al chat de grupo"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -2582,12 +2546,9 @@ msgid "Step 2: Let the participant scan <b>your</b> QR code"
 msgstr "Paso 2: Permita que el contacto escanee <b>su</b> código QR"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:24
-#, fuzzy
-#| msgctxt "KeyAuthenticationPage|"
-#| msgid "Unverified contact devices"
 msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
-msgstr "Dispositivos del contacto sin verificar"
+msgstr "Dispositivos de participantes sin verificar"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2679,62 +2640,41 @@ msgid "Untrusted"
 msgstr "No es de confianza"
 
 #: src/qml/elements/MessageReactionAdditionButton.qml:23
-#, fuzzy
-#| msgctxt "MessageReactionSenderSheet|"
-#| msgid "Add own reaction"
 msgctxt "MessageReactionAdditionButton|"
 msgid "Add reaction…"
-msgstr "Añadir reacción propia"
+msgstr "Añadir reacción..."
 
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr ""
+msgstr "Mostrar detalles"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:115
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 will be added once you are connected"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be added once you are connected"
-msgstr "Se añadirá %1 cuando esté conectado"
+msgstr "Se añadirá cuando esté conectado"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:120
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 will be removed once you are connected"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Will be removed once you are connected"
-msgstr "Se eliminará %1 cuando esté conectado"
+msgstr "Se eliminará cuando esté conectado"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:124
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be added"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be added"
-msgstr "No se ha podido añadir %1"
+msgstr "No se puede añadir"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:129
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "%1 could not be removed"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be removed"
-msgstr "No se ha podido eliminar %1"
+msgstr "No se puede eliminar"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Sent"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
 msgstr "Enviado"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Delivered"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
 msgstr "Entregado"
@@ -2853,49 +2793,34 @@ msgid "Adding contact…"
 msgstr "Añadiendo contacto..."
 
 #: src/qml/elements/RosterFilteringArea.qml:27
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only available contacts"
 msgctxt "RosterFilteringArea|"
 msgid "Unavailable contacts"
-msgstr "Mostrar solo los contactos disponibles"
+msgstr "Contactos no disponibles"
 
 #: src/qml/elements/RosterFilteringArea.qml:31
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only available contacts"
 msgctxt "RosterFilteringArea|"
 msgid "Available contacts"
-msgstr "Mostrar solo los contactos disponibles"
+msgstr "Contactos disponibles"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
 msgid "Private groups"
-msgstr ""
+msgstr "Grupos privados"
 
 #: src/qml/elements/RosterFilteringArea.qml:39
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
 msgctxt "RosterFilteringArea|"
 msgid "Public groups"
-msgstr "Buscar grupos públicos"
+msgstr "Grupos públicos"
 
 #: src/qml/elements/RosterFilteringArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by labels"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "Filtrar por etiquetas"
+msgstr "Filtrar por tipo"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Show only chats of selected accounts"
 msgctxt "RosterFilteringArea|"
 msgid "Show only entries of specific types"
-msgstr "Mostrar solo los chats de las cuentas seleccionadas"
+msgstr "Mostrar solo entradas de tipos específicos"
 
 #: src/qml/elements/RosterFilteringArea.qml:113
 msgctxt "RosterFilteringArea|"
@@ -2918,12 +2843,9 @@ msgid "Show only chats with selected labels"
 msgstr "Mostrar solo los chats con las etiquetas seleccionadas"
 
 #: src/qml/elements/RosterListItem.qml:79
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterListItem|"
 msgid "Deleted"
-msgstr "Borrar"
+msgstr "Borrado"
 
 #: src/qml/elements/RosterListItem.qml:97
 msgctxt "RosterListItem|"
@@ -3057,12 +2979,12 @@ msgstr "Añadir contacto por dirección de chat"
 #: src/qml/GlobalDrawer.qml:165
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr ""
+msgstr "Crear grupo"
 
 #: src/qml/GlobalDrawer.qml:172
 msgctxt "GlobalDrawer|"
 msgid "Join group"
-msgstr ""
+msgstr "Unirse al grupo"
 
 #: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"

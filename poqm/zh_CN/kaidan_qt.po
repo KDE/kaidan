@@ -366,12 +366,9 @@ msgid "Upload failed: %1"
 msgstr ""
 
 #: src/MessageComposition.cpp:224
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message correction was not successful"
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
-msgstr "消息修正未成功"
+msgstr ""
 
 #: src/MessageComposition.cpp:348
 msgctxt "FileSelectionModel|"
@@ -385,28 +382,21 @@ msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
 #: src/MessageController.cpp:225
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
-msgstr "消息无法发送。"
+msgstr ""
 
 #: src/MessageController.cpp:351
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent."
-msgstr "消息无法发送。"
+msgstr ""
 
 #: src/MessageController.cpp:667
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "This message is encrypted with %1 but could not be decrypted"
+#, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
-msgstr "此消息使用 %1 加密，但无法解密"
+msgstr ""
 
 #: src/MessageModel.cpp:200
 msgctxt "MessageModel|"
@@ -728,12 +718,9 @@ msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:310
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:315
 msgctxt "AccountDetailsContent|"
@@ -1172,12 +1159,9 @@ msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:180
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:185
 msgctxt "ContactDetailsContent|"
@@ -1344,12 +1328,9 @@ msgid "QR code copied to clipboard"
 msgstr ""
 
 #: src/qml/details/DetailsContent.qml:200
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
-msgstr "复制链接地址"
+msgstr ""
 
 #: src/qml/details/DetailsContent.qml:206
 msgctxt "DetailsContent|"
@@ -1409,12 +1390,9 @@ msgid "Ban"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:233
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Encryption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
-msgstr "加密"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:237
 msgctxt "GroupChatDetailsContent|"
@@ -1486,12 +1464,9 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:415
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:420
 msgctxt "GroupChatDetailsContent|"
@@ -1529,12 +1504,9 @@ msgid "Privacy"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:460
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
-msgstr "发送位置"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:461
 msgctxt "GroupChatDetailsContent|"
@@ -1543,12 +1515,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:472
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
-msgstr "发送位置"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:473
 msgctxt "GroupChatDetailsContent|"
@@ -1572,12 +1541,9 @@ msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:509
 #: src/qml/details/GroupChatDetailsContent.qml:534
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "GroupChatDetailsContent|"
 msgid "Confirm"
-msgstr "确认"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:525
 msgctxt "GroupChatDetailsContent|"
@@ -1645,12 +1611,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Encryption"
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
-msgstr "加密"
+msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:31
 msgctxt "NotesChatDetailsContent|"
@@ -1701,12 +1664,9 @@ msgid "Remove notes chat and complete chat history"
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:124
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "NotesChatDetailsContent|"
 msgid "Confirm"
-msgstr "确认"
+msgstr ""
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -2335,20 +2295,14 @@ msgid "Could not be removed"
 msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Sent"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Sent"
-msgstr "已发送"
+msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Delivered"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
-msgstr "已送达"
+msgstr ""
 
 #: src/qml/elements/MessageReactionRetryButton.qml:22
 msgctxt "MessageReactionRetryButton|"
