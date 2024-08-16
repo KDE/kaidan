@@ -135,6 +135,7 @@ ChatPageBase {
 	// Message search bar
 	header: ChatPageSearchView {
 		id: searchBar
+		messageListView: root.messageListView
 	}
 
 	Component {
@@ -399,14 +400,6 @@ ChatPageBase {
 						root.viewPositioned = true
 					}
 				}
-			}
-
-			function onMessageSearchFinished(queryStringMessageIndex) {
-				if (queryStringMessageIndex !== -1) {
-					messageListView.currentIndex = queryStringMessageIndex
-				}
-
-				searchBar.searchFieldBusyIndicator.running = false
 			}
 		}
 

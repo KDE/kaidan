@@ -16,11 +16,12 @@ import im.kaidan.kaidan 1.0
  * This is a view for searching chat messages.
  */
 Item {
+	property ListView messageListView
+	property bool active: false
+
 	height: active ? searchField.height + 2 * Kirigami.Units.largeSpacing : 0
 	clip: true
 	visible: height != 0
-	property bool active: false
-	property alias searchFieldBusyIndicator: searchField.searchFieldBusyIndicator
 
 	Behavior on height {
 		SmoothedAnimation {
@@ -62,8 +63,6 @@ Item {
 			Keys.onEscapePressed: close()
 			autoAccept: false
 
-			property alias searchFieldBusyIndicator: searchFieldBusyIndicator
-
 			Controls.BusyIndicator {
 				id: searchFieldBusyIndicator
 
@@ -98,6 +97,18 @@ Item {
 				searchFromCurrentIndex(false)
 				searchField.forceActiveFocus()
 			}
+		}
+	}
+
+	Connections {
+		target: MessageModel
+
+		function onMessageSearchFinished(queryStringMessageIndex) {
+			if (queryStringMessageIndex !== -1) {
+				root.messageListView.currentIndex = queryStringMessageIndex
+			}
+
+			searchFieldBusyIndicator.running = false
 		}
 	}
 
