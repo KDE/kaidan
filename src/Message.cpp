@@ -295,7 +295,7 @@ QString Message::relevantId() const
 		return replaceId;
 	}
 
-	if (!stanzaId.isEmpty()) {
+	if (!stanzaId.isEmpty() && (isOwn || isGroupChatMessage())) {
 		return stanzaId;
 	}
 
