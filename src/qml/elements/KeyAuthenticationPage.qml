@@ -68,11 +68,11 @@ ExplanationOptionsTogglePage {
 							enabled: !encryptionKeyBusyIndicator.visible
 							Layout.fillWidth: true
 							onAccepted: encryptionKeyAuthenticationButton.clicked()
-								onVisibleChanged: {
-									if (visible) {
-										forceActiveFocus()
-									}
+							onVisibleChanged: {
+								if (visible) {
+									forceActiveFocus()
 								}
+							}
 						}
 
 						Button {
