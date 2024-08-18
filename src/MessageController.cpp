@@ -704,7 +704,9 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	// Otherwise, correct a stored message.
 	if (const auto replaceId = msg.replaceId(); replaceId.isEmpty()) {
 		// Add a new group chat user if none is stored for the received message.
-		if (receivedFromGroupChat && !isOwn) {
+		// "groupChatSenderId" is checked because it can be empty if the server uses an unsupported
+		// format for participants.
+		if (receivedFromGroupChat && !groupChatSenderId.isEmpty() && !isOwn) {
 			GroupChatUser sender;
 
 			sender.accountJid = accountJid;
