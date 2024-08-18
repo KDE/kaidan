@@ -564,7 +564,13 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	const auto groupChatSenderId = msg.mixParticipantId();
 
 	if (receivedFromGroupChat) {
-		isOwn = groupChatSenderId == RosterModel::instance()->findItem(senderJid)->groupChatParticipantId;
+		// Skip messages from group chats that the user is not participating in.
+		if (const auto groupChat = RosterModel::instance()->findItem(senderJid)) {
+			isOwn = groupChatSenderId == groupChat->groupChatParticipantId;
+		} else {
+			return;
+		}
+
 	} else {
 		isOwn = senderJid == accountJid;
 	}
