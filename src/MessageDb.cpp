@@ -794,13 +794,6 @@ QFuture<void> MessageDb::addDraftMessage(const Message &msg)
 			Q_EMIT draftMessageAdded(message);
 		};
 
-		if (msg.id.isEmpty()) {
-			auto copy = msg;
-			copy.id = QXmppUtils::generateStanzaUuid();
-
-			addMessage(copy);
-		}
-
 		addMessage(msg);
 	});
 }
