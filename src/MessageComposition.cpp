@@ -11,6 +11,8 @@
 #include "Algorithms.h"
 #include "ChatController.h"
 #include "FileSharingController.h"
+#include "GroupChatUser.h"
+#include "GroupChatUserDb.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
 #include "MessageController.h"
@@ -73,6 +75,46 @@ void MessageComposition::setReplaceId(const QString &replaceId)
 	}
 }
 
+void MessageComposition::setReplyToJid(const QString &replyToJid)
+{
+	if (m_replyToJid != replyToJid) {
+		m_replyToJid = replyToJid;
+		Q_EMIT replyToJidChanged();
+	}
+}
+
+void MessageComposition::setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId)
+{
+	if (m_replyToGroupChatParticipantId != replyToGroupChatParticipantId) {
+		m_replyToGroupChatParticipantId = replyToGroupChatParticipantId;
+		Q_EMIT replyToGroupChatParticipantIdChanged();
+	}
+}
+
+void MessageComposition::setReplyToName(const QString &replyToName)
+{
+	if (m_replyToName != replyToName) {
+		m_replyToName = replyToName;
+		Q_EMIT replyToNameChanged();
+	}
+}
+
+void MessageComposition::setReplyId(const QString &replyId)
+{
+	if (m_replyId != replyId) {
+		m_replyId = replyId;
+		Q_EMIT replyIdChanged();
+	}
+}
+
+void MessageComposition::setReplyQuote(const QString &replyQuote)
+{
+	if (m_replyQuote != replyQuote) {
+		m_replyQuote = replyQuote;
+		Q_EMIT replyQuoteChanged();
+	}
+}
+
 void MessageComposition::setBody(const QString &body)
 {
 	if (m_body != body) {
@@ -83,8 +125,8 @@ void MessageComposition::setBody(const QString &body)
 
 void MessageComposition::setSpoiler(bool spoiler)
 {
-	if (m_spoiler != spoiler) {
-		m_spoiler = spoiler;
+	if (m_isSpoiler != spoiler) {
+		m_isSpoiler = spoiler;
 		Q_EMIT isSpoilerChanged();
 	}
 }
@@ -120,7 +162,9 @@ void MessageComposition::send()
 	message.chatJid = m_chatJid;
 	message.isOwn = true;
 
-	if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid)) {
+	const auto rosterItem = RosterModel::instance()->findItem(m_chatJid);
+
+	if (rosterItem->isGroupChat()) {
 		message.groupChatSenderId = rosterItem->groupChatParticipantId;
 	}
 
@@ -128,11 +172,36 @@ void MessageComposition::send()
 	message.id = originId;
 	message.originId = originId;
 
+	if (!m_replyId.isEmpty()) {
+		Message::Reply reply;
+
+		// "m_replyToJid" and "m_replyToGroupChatParticipantId" are empty if the reply is to an own
+		// message.
+		if (m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty()) {
+			if (rosterItem->isGroupChat()) {
+				reply.toGroupChatparticipantId = rosterItem->groupChatParticipantId;
+			} else {
+				reply.toJid = m_accountJid;
+			}
+		} else {
+			if (rosterItem->isGroupChat()) {
+				reply.toGroupChatparticipantId = m_replyToGroupChatParticipantId;
+			} else {
+				reply.toJid = m_replyToJid;
+			}
+		}
+
+		reply.id = m_replyId;
+		reply.quote = m_replyQuote;
+
+		message.reply = reply;
+	}
+
 	message.timestamp = QDateTime::currentDateTimeUtc();
 	message.body = m_body;
 	message.encryption = ChatController::instance()->activeEncryption();
 	message.deliveryState = DeliveryState::Pending;
-	message.isSpoiler = m_spoiler;
+	message.isSpoiler = m_isSpoiler;
 	message.spoilerHint = m_spoilerHint;
 	message.files = m_fileSelectionModel->files();
 	message.receiptRequested = true;
@@ -192,11 +261,16 @@ void MessageComposition::send()
 	// clean up
 	setSpoiler(false);
 	setIsDraft(false);
+	setReplyToJid({});
+	setReplyToGroupChatParticipantId({});
+	setReplyId({});
+	setReplyQuote({});
 }
 
 void MessageComposition::correct()
 {
-	MessageDb::instance()->updateMessage(m_replaceId, [this, replaceId = m_replaceId, body = m_body, spoilerHint = m_spoilerHint](Message &message) {
+	MessageDb::instance()->updateMessage(m_replaceId, [this, replaceId = m_replaceId, replyToJid = m_replyToJid, replyToGroupChatParticipantId = m_replyToGroupChatParticipantId, replyId = m_replyId, replyQuote = m_replyQuote, body = m_body, spoilerHint = m_spoilerHint](Message &message) {
+		setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
 		message.body = body;
 		message.isSpoiler = !spoilerHint.isEmpty();
 		message.spoilerHint = spoilerHint;
@@ -252,12 +326,48 @@ void MessageComposition::loadDraft()
 	await(future, this, [this](std::optional<Message> message) {
 		if (message) {
 			setReplaceId(message->replaceId);
+
+			if (const auto reply = message->reply) {
+				setReplyToJid(reply->toJid);
+				setReplyToGroupChatParticipantId(reply->toGroupChatparticipantId);
+
+				// Only process if it is not a reply to an own message.
+				if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {
+					if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid); rosterItem->isGroupChat()) {
+						await(GroupChatUserDb::instance()->user(m_accountJid, m_chatJid, m_replyToGroupChatParticipantId), this, [this](const std::optional<GroupChatUser> &user) {
+							setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
+						});
+					} else {
+						setReplyToName(rosterItem->displayName());
+					}
+				}
+
+				setReplyId(reply->id);
+				setReplyQuote(reply->quote);
+			}
+
 			setBody(message->body);
 			setSpoiler(message->isSpoiler);
 			setSpoilerHint(message->spoilerHint);
 			setIsDraft(true);
 		}
 	});
+}
+
+void MessageComposition::setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote)
+{
+	if (replyId.isEmpty()) {
+		message.reply.reset();
+	} else {
+		Message::Reply reply;
+
+		reply.toJid = replyToJid;
+		reply.toGroupChatparticipantId = replyToGroupChatParticipantId;
+		reply.id = replyId;
+		reply.quote = replyQuote;
+
+		message.reply = reply;
+	}
 }
 
 void MessageComposition::saveDraft()
@@ -270,12 +380,13 @@ void MessageComposition::saveDraft()
 
 	if (m_isDraft) {
 		if (savingNeeded) {
-			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this](Message &message) {
-				message.replaceId = m_replaceId;
+			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this, replaceId = m_replaceId, replyToJid = m_replyToJid, replyToGroupChatParticipantId = m_replyToGroupChatParticipantId, replyId = m_replyId, replyQuote = m_replyQuote, body = m_body, isSpoiler = m_isSpoiler, spoilerHint = m_spoilerHint](Message &message) {
+				message.replaceId = replaceId;
+				setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
 				message.timestamp = QDateTime::currentDateTimeUtc();
-				message.body = m_body;
-				message.isSpoiler = m_spoiler;
-				message.spoilerHint = m_spoilerHint;
+				message.body = body;
+				message.isSpoiler = isSpoiler;
+				message.spoilerHint = spoilerHint;
 			});
 		} else {
 			MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
@@ -285,9 +396,10 @@ void MessageComposition::saveDraft()
 		message.accountJid = m_accountJid;
 		message.chatJid = m_chatJid;
 		message.replaceId = m_replaceId;
+		setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
 		message.timestamp = QDateTime::currentDateTimeUtc();
 		message.body = m_body;
-		message.isSpoiler = m_spoiler;
+		message.isSpoiler = m_isSpoiler;
 		message.spoilerHint = m_spoilerHint;
 		message.deliveryState = DeliveryState::Draft;
 

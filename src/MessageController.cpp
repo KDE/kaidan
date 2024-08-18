@@ -622,7 +622,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 		return;
 	}
 
-	const auto messageBody = msg.body();
+	const auto qxmppReply = msg.reply();
+	const auto messageBody = qxmppReply ? msg.readFallbackRemovedText(QXmppFallback::Element::Body, { XMLNS_MESSAGE_REPLIES.toString() }) : msg.body();
 	const auto encryptionName = msg.encryptionName();
 
 	// Determine whether the message could be encrypted for a group chat or the chat with oneself
@@ -646,6 +647,22 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	message.id = msg.id();
 	message.originId = msg.originId();
 	message.stanzaId = stanzaId;
+
+	if (qxmppReply) {
+		Message::Reply reply;
+
+		if (receivedFromGroupChat) {
+			reply.toGroupChatparticipantId = qxmppReply->to;
+		} else {
+			reply.toJid = qxmppReply->to;
+		}
+
+		reply.id = qxmppReply->id;
+		reply.quote = msg.readReplyQuoteFromBody();
+
+		message.reply = reply;
+	}
+
 	message.isSpoiler = msg.isSpoiler();
 	message.spoilerHint = msg.spoilerHint();
 
@@ -761,6 +778,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 				storedMessage.originId = message.originId;
 				storedMessage.stanzaId = message.stanzaId;
 				storedMessage.replaceId = message.replaceId;
+				storedMessage.reply = message.reply;
 				storedMessage.body = message.body;
 				storedMessage.encryption = message.encryption;
 				storedMessage.senderKey = message.senderKey;

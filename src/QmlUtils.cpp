@@ -26,6 +26,9 @@
 // Kaidan
 #include "Globals.h"
 
+const auto NEW_LINE = QStringLiteral("\n");
+const auto QUOTE_PREFIX = QStringLiteral("> ");
+
 static QmlUtils *s_instance;
 
 QmlUtils *QmlUtils::instance()
@@ -200,6 +203,11 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 QString QmlUtils::removeNewLinesFromString(const QString &input)
 {
 	return input.simplified();
+}
+
+QString QmlUtils::quote(QString text)
+{
+	return QUOTE_PREFIX + text.replace(NEW_LINE, NEW_LINE + QUOTE_PREFIX) + NEW_LINE;
 }
 
 bool QmlUtils::isImageFile(const QUrl &fileUrl)

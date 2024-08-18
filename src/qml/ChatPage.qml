@@ -55,6 +55,7 @@ ChatPageBase {
 	property alias newMediaSheet: newMediaSheet
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
 	property alias messageReactionDetailsSheet: messageReactionDetailsSheet
+	property alias messageListView: messageListView
 
 	property ChatPageSendingPane sendingPane
 	property ChatInfo globalChatDate
@@ -436,23 +437,26 @@ ChatPageBase {
 			MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
 		}
 
-		ChatMessageContextMenu {
-			id: messageContextMenu
-		}
-
 		delegate: ChatMessage {
-			contextMenu: messageContextMenu
+			messageListView: root.messageListView
+			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker
 			reactionDetailsSheet: root.messageReactionDetailsSheet
 			modelIndex: index
 			msgId: model.id
-			senderId: model.senderId
+			senderJid: model.senderJid
+			groupChatSenderId: model.groupChatSenderId
 			senderName: model.senderName
 			chatName: ChatController.rosterItem.displayName
 			encryption: model.encryption
 			trustLevel: model.trustLevel
 			isGroupChatMessage: ChatController.rosterItem.isGroupChat
 			isOwn: model.isOwn
+			replyToJid: model.replyToJid
+			replyToGroupChatParticipantId: model.replyToGroupChatParticipantId
+			replyToName: model.replyToName
+			replyId: model.replyId
+			replyQuote: model.replyQuote
 			messageBody: model.body
 			date: model.date
 			time: model.time
@@ -470,19 +474,6 @@ ChatPageBase {
 			detailedReactions: model.detailedReactions
 			ownReactionsFailed: model.ownReactionsFailed
 			groupChatInvitationJid: model.groupChatInvitationJid
-
-			onMessageEditRequested: (replaceId, body, spoilerHint) => sendingPane.prepareMessageCorrection(replaceId, body, spoilerHint)
-
-			onQuoteRequested: {
-				let quotedText = ""
-				const lines = body.split("\n")
-
-				for (let line in lines) {
-					quotedText += "> " + lines[line] + "\n"
-				}
-
-				sendingPane.messageArea.insert(0, quotedText)
-			}
 		}
 
 		// Everything is upside down, looks like a footer
@@ -593,6 +584,17 @@ ChatPageBase {
 				anchors.verticalCenter: parent.top
 				anchors.verticalCenterOffset: -2
 			}
+		}
+
+		Timer {
+			id: resetCurrentIndexTimer
+			interval: Kirigami.Units.veryLongDuration * 4
+			onTriggered: messageListView.currentIndex = -1
+		}
+
+		function highlightShortly(index) {
+			currentIndex = index
+			resetCurrentIndexTimer.restart()
 		}
 	}
 

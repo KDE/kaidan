@@ -119,17 +119,17 @@ public:
 	 *
 	 * Entries are fetched until a message with messageId is found.
 	 * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
-	 * If no message with messageId could be found, only DB_QUERY_LIMIT_MESSAGES entries are
-	 * returned.
 	 *
 	 * @param accountJid bare JID of the user's account
 	 * @param chatJid bare Jid of the chat
 	 * @param index number of entries to be skipped, used for paging
 	 * @param limitingId ID of the message until messages are fetched
+	 * @param fetchMessageMinimum whether to return a minimum of DB_QUERY_LIMIT_MESSAGES entries if
+	 *        no message with messageId could be found
 	 *
-	 * @return the fetched messages
+	 * @return the fetched messages and the found message's index
 	 */
-	QFuture<QVector<Message>> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId);
+	QFuture<MessageResult> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId, bool fetchMessageMinimum = true);
 
 	/**
 	 * Fetches messages until a message with a specific query string.
@@ -298,6 +298,9 @@ private:
 	void _fetchGroupChatUser(Message &message);
 	void _fetchTrustLevels(QVector<Message> &messages);
 	void _fetchTrustLevel(Message &messages);
+
+	void _fetchReply(Message &message);
+
 	std::optional<Message> _fetchDraftMessage(const QString &accountJid, const QString &chatJid);
 
 	/**

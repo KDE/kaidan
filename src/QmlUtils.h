@@ -136,6 +136,8 @@ public:
 	 */
 	Q_INVOKABLE static QString removeNewLinesFromString(const QString &input);
 
+	Q_INVOKABLE static QString quote(QString text);
+
 	/**
 	 * Checks whether a file is an image and could be displayed as such.
 	 *

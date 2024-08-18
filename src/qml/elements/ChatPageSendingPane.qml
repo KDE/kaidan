@@ -37,6 +37,7 @@ Controls.Pane {
 	property QtObject chatPage
 	property alias messageArea: messageArea
 	property string originalBody
+	property string originalReplyId
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
 		accountJid: ChatController.accountJid
@@ -47,7 +48,7 @@ Controls.Pane {
 		onIsDraftChanged: {
 			if (isDraft) {
 				if (replaceId) {
-					prepareMessageCorrection(replaceId, body, spoilerHint)
+					prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
 				} else {
 					messageArea.text = body
 					spoilerHintField.text = spoilerHint
@@ -62,6 +63,35 @@ Controls.Pane {
 	ColumnLayout {
 		anchors.fill: parent
 		spacing: 0
+
+		ReferencedMessage {
+			visible: composition.replyId
+			senderId: composition.replyToJid ? composition.replyToJid : composition.replyToGroupChatParticipantId
+			senderName: composition.replyToName
+			messageId: composition.replyId
+			body: composition.replyQuote
+			messageListView: root.chatPage.messageListView
+			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.rightPadding
+			maximumWidth: minimumWidth
+			backgroundRadius: Kirigami.Units.gridUnit * 1.2
+			quoteBarVisible: false
+			Layout.bottomMargin: Kirigami.Units.largeSpacing
+
+			ClickableIcon {
+				id: replyCancelingButton
+				Controls.ToolTip.text: qsTr("Cancel reply")
+				source: "window-close-symbolic"
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+				onClicked: {
+					composition.replyToJid = ""
+					composition.replyToGroupChatParticipantId = ""
+					composition.replyToName = ""
+					composition.replyId = ""
+					composition.replyQuote = ""
+					root.forceActiveFocus()
+				}
+			}
+		}
 
 		RowLayout {
 			visible: composition.isSpoiler
@@ -381,7 +411,7 @@ Controls.Pane {
 
 			ClickableIcon {
 				id: sendButton
-				visible: messageArea.text !== "" && (messageArea.state === "compose" || messageArea.text !== root.originalBody)
+				visible: messageArea.text !== "" && (messageArea.state === "compose" || messageArea.text !== root.originalBody || composition.replyId !== root.originalReplyId)
 				opacity: visible ? 1 : 0
 				source: {
 					if (messageArea.state === "compose")
@@ -415,8 +445,14 @@ Controls.Pane {
 		spoilerHintField.forceActiveFocus()
 	}
 
-	function prepareMessageCorrection(replaceId, body, spoilerHint) {
+	function prepareQuote(body) {
+		messageArea.insert(0, Utils.quote(body))
+	}
+
+	function prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
 		composition.replaceId = replaceId
+		root.originalReplyId = replyId
+		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
 		root.originalBody = body
 		messageArea.text = body
 		composition.isSpoiler = spoilerHint.length
@@ -426,6 +462,14 @@ Controls.Pane {
 		// Move the cursor to the end of the text being corrected and focus it.
 		messageArea.cursorPosition = messageArea.text.length
 		forceActiveFocus()
+	}
+
+	function prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote) {
+		composition.replyToJid = replyToJid
+		composition.replyToGroupChatParticipantId = replyToGroupChatParticipantId
+		composition.replyToName = replyToName
+		composition.replyId = replyId
+		composition.replyQuote = replyQuote
 	}
 
 	/**
@@ -442,7 +486,7 @@ Controls.Pane {
 		// Send the message.
 		if (messageArea.state === "compose") {
 			composition.send()
-		} else if (messageArea.state === "edit" && messageArea.text !== root.originalBody) {
+		} else if (messageArea.state === "edit" && (messageArea.text !== root.originalBody || composition.replyId !== root.originalReplyId)) {
 			composition.correct()
 			composition.isDraft = false
 		}
@@ -527,6 +571,10 @@ Controls.Pane {
 		composition.isSpoiler = false
 		spoilerHintField.clear()
 		composition.replaceId = ""
+		composition.replyToJid = ""
+		composition.replyToGroupChatParticipantId = ""
+		composition.replyId = ""
+		composition.replyQuote = ""
 		originalBody = ""
 		messageArea.state = "compose"
 	}

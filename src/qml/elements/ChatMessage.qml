@@ -23,17 +23,24 @@ import MediaUtils 0.1
 Kirigami.SwipeListItem {
 	id: root
 
-	property Controls.Menu contextMenu
 	property MessageReactionEmojiPicker reactionEmojiPicker
 	property MessageReactionDetailsSheet reactionDetailsSheet
+	property ListView messageListView
+	property ChatPageSendingPane sendingPane
 
 	property int modelIndex
 	property string msgId
-	property string senderId
+	property string senderJid
+	property string groupChatSenderId
 	property string senderName
 	property string chatName
 	property bool isOwn: true
 	property bool isGroupChatMessage
+	property string replyToJid
+	property string replyToGroupChatParticipantId
+	property string replyToName
+	property string replyId
+	property string replyQuote
 	property int encryption
 	property int trustLevel
 	property string messageBody
@@ -55,38 +62,23 @@ Kirigami.SwipeListItem {
 	property bool ownReactionsFailed
 	property var groupChatInvitationJid
 
-	property bool isGroupBegin: modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.SenderId) !== senderId
-	property bool isGroupEnd: modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderId) !== senderId
+	property bool isGroupBegin: {
+		if (senderJid) {
+			return modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.SenderJid) !== senderJid
+		}
 
-	signal messageEditRequested(string replaceId, string body, string spoilerHint)
-	signal quoteRequested(string body)
+		return modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.GroupChatSenderId) !== groupChatSenderId
+	}
+	property bool isGroupEnd: {
+		if (senderJid) {
+			return modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderJid) !== senderJid
+		}
+
+		return modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.GroupChatSenderId) !== groupChatSenderId
+	}
 
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 	alwaysVisibleActions: false
-
-	actions: [
-		// TODO: Move message to the left when action is displayed and message is too large or
-		// display all actions at the bottom / at the top of the message bubble
-		Kirigami.Action {
-			text: "Add message reaction"
-			icon.name: "smiley-add"
-			visible: {
-				// Do not allow to send reactions if the message has not yet got a stanza ID from
-				// the server to be referenced by.
-				if (root.isGroupChatMessage &&
-					root.deliveryState !== Enums.Sent &&
-					root.deliveryState !== Enums.Delivered) {
-					return false
-				}
-
-				return !root.displayedReactions.length && !root.groupChatInvitationJid
-			}
-			onTriggered: {
-				root.reactionEmojiPicker.messageId = root.msgId
-				root.reactionEmojiPicker.open()
-			}
-		}
-	]
 
 	ColumnLayout {
 		id: messageArea
@@ -100,7 +92,7 @@ Kirigami.SwipeListItem {
 			Avatar {
 				id: avatar
 				visible: !isOwn && isGroupBegin
-				jid: root.senderId
+				jid: root.senderJid ? root.senderJid : root.groupChatSenderId
 				name: root.senderName
 				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 				Layout.alignment: Qt.AlignTop
@@ -132,24 +124,44 @@ Kirigami.SwipeListItem {
 						acceptedButtons: Qt.LeftButton | Qt.RightButton
 
 						onClicked: {
-							if (mouse.button === Qt.RightButton)
-								showContextMenu()
+							if (mouse.button === Qt.RightButton) {
+								root.showContextMenu(this)
+							}
 						}
 
-						onPressAndHold: showContextMenu()
+						onPressAndHold: root.showContextMenu(this)
 					}
 				}
 
 				contentItem: ColumnLayout {
 					Controls.Label {
 						text: root.senderName
-						color: Utils.userColor(root.senderId, root.senderName)
+						color: Utils.userColor(root.senderJid ? root.senderJid : root.groupChatSenderId, root.senderName)
 						font.weight: Font.Medium
 						visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin && text.length
 					}
 
-					// spoiler hint area
+					Loader {
+						sourceComponent: root.replyId ? referencedMessage : undefined
+
+						Component {
+							id: referencedMessage
+
+							ReferencedMessage {
+								senderId: root.replyToJid ? root.replyToJid : root.replyToGroupChatParticipantId
+								senderName: root.replyToName
+								messageId: root.replyId
+								body: root.replyQuote
+								messageListView: root.messageListView
+								minimumWidth: Math.max(spoilerHintArea.width, mainArea.width, messageReactionArea.width)
+								maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+								backgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+							}
+						}
+					}
+
 					ColumnLayout {
+						id: spoilerHintArea
 						visible: isSpoiler
 						Layout.minimumWidth: bubbleBackground.metaInfoWidth
 						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
@@ -181,6 +193,7 @@ Kirigami.SwipeListItem {
 					}
 
 					ColumnLayout {
+						id: mainArea
 						visible: isSpoiler && isShowingSpoiler || !isSpoiler
 
 						Repeater {
@@ -296,6 +309,7 @@ Kirigami.SwipeListItem {
 
 					// message reactions (emojis in reaction to this message)
 					Flow {
+						id: messageReactionArea
 						visible: displayedReactionsArea.count
 						spacing: Kirigami.Units.smallSpacing
 						Layout.bottomMargin: Kirigami.Units.smallSpacing * 5
@@ -441,18 +455,17 @@ Kirigami.SwipeListItem {
 				Layout.fillWidth: true
 			}
 		}
+
+		Component {
+			id: contextMenu
+
+			ChatMessageContextMenu {
+				message: root
+			}
+		}
 	}
 
-	/**
-	 * Shows a context menu (if available) for this message.
-	 *
-	 * That is especially the case when this message is an element of the ChatPage.
-	 */
-	function showContextMenu() {
-		if (contextMenu) {
-			contextMenu.file = null
-			contextMenu.message = this
-			contextMenu.popup()
-		}
+	function showContextMenu(mouseArea, file) {
+		contextMenu.createObject().show(mouseArea, file)
 	}
 }

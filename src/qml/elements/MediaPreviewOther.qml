@@ -172,9 +172,7 @@ Rectangle {
 					Kaidan.fileSharingController.downloadFile(root.messageId, root.file)
 				}
 			} else if (event.button === Qt.RightButton) {
-				root.message.contextMenu.file = root.file
-				root.message.contextMenu.message = root.message
-				root.message.contextMenu.popup()
+				root.message.showContextMenu(this, root.file)
 			}
 		}
 

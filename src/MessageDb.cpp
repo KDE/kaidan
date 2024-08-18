@@ -94,6 +94,9 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 	int idxOriginId = rec.indexOf(QStringLiteral("originId"));
 	int idxStanzaId = rec.indexOf(QStringLiteral("stanzaId"));
 	int idxReplaceId = rec.indexOf(QStringLiteral("replaceId"));
+	int idxReplyTo = rec.indexOf(QStringLiteral("replyTo"));
+	int idxReplyId = rec.indexOf(QStringLiteral("replyId"));
+	int idxReplyQuote = rec.indexOf(QStringLiteral("replyQuote"));
 	int idxTimestamp = rec.indexOf(QStringLiteral("timestamp"));
 	int idxBody = rec.indexOf(QStringLiteral("body"));
 	int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
@@ -120,6 +123,28 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		msg.originId = query.value(idxOriginId).toString();
 		msg.stanzaId = query.value(idxStanzaId).toString();
 		msg.replaceId = query.value(idxReplaceId).toString();
+
+		if (const auto replyId = query.value(idxReplyId).toString(); !replyId.isEmpty()) {
+			Message::Reply reply;
+			const auto replyTo = query.value(idxReplyTo).toString();
+
+			if (msg.isGroupChatMessage()) {
+				if(const auto groupChatUser = GroupChatUserDb::instance()->_user(msg.accountJid, msg.chatJid, replyTo)) {
+					reply.toJid = groupChatUser->jid;
+					reply.toGroupChatParticipantName = groupChatUser->name;
+				}
+
+				reply.toGroupChatparticipantId = replyTo;
+			} else {
+				reply.toJid = replyTo;
+			}
+
+			reply.id = query.value(idxReplyId).toString();
+			reply.quote = query.value(idxReplyQuote).toString();
+
+			msg.reply = reply;
+		}
+
 		msg.timestamp = QDateTime::fromString(
 			query.value(idxTimestamp).toString(),
 			Qt::ISODate
@@ -177,6 +202,18 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	}
 	if (oldMsg.replaceId != newMsg.replaceId) {
 		rec.append(createSqlField(QStringLiteral("replaceId"), newMsg.replaceId));
+	}
+	if (const auto reply = newMsg.reply; oldMsg.reply != reply) {
+		if (reply) {
+			rec.append(createSqlField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatparticipantId : newMsg.reply->toJid));
+			rec.append(createSqlField(QStringLiteral("replyId"), newMsg.reply->id));
+			rec.append(createSqlField(QStringLiteral("replyQuote"),newMsg.reply->quote));
+		} else {
+			rec.append(createNullField(QStringLiteral("replyTo")));
+			rec.append(createNullField(QStringLiteral("replyId")));
+			rec.append(createNullField(QStringLiteral("replyQuote")));
+		}
+
 	}
 	if (oldMsg.timestamp != newMsg.timestamp) {
 		rec.append(createSqlField(QStringLiteral("timestamp"), newMsg.timestamp.toString(Qt::ISODateWithMs)));
@@ -327,10 +364,52 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 	});
 }
 
-QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId)
+QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId, bool fetchMessageMinimum)
 {
-	return run([this, accountJid, chatJid, index, limitingId]() {
+	return run([this, accountJid, chatJid, index, fetchMessageMinimum, limitingId]() -> MessageResult {
 		auto query = createQuery();
+
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				SELECT COUNT()
+				FROM chatMessages
+				WHERE
+					accountJid = :accountJid AND chatJid = :chatJid AND
+					timestamp >= (
+						SELECT timestamp
+						FROM chatMessages
+						WHERE
+							accountJid = :accountJid AND chatJid = :chatJid AND
+							(id = :limitingId OR stanzaId = :limitingId) AND
+							timestamp <= (
+								SELECT timestamp
+								FROM chatMessages
+								WHERE accountJid = :accountJid AND chatJid = :chatJid
+								ORDER BY timestamp DESC
+								LIMIT :index, 1
+							)
+						ORDER BY timestamp DESC
+						LIMIT 1
+					)
+			)"),
+			{
+				{ u":accountJid", accountJid },
+				{ u":chatJid", chatJid },
+				{ u":index", index },
+				{ u":limitingId", limitingId },
+			}
+		);
+
+		query.first();
+		const auto foundMessageIndex = query.value(0).toInt();
+		const auto messagesUntilFoundMessageCount = std::max(0, foundMessageIndex - index);
+
+		// Skip further processing if no message with limitingId could be found.
+		if (!messagesUntilFoundMessageCount && !fetchMessageMinimum) {
+			return {};
+		}
+
 		execQuery(
 			query,
 			QStringLiteral(R"(
@@ -338,33 +417,25 @@ QFuture<QVector<Message>> MessageDb::fetchMessagesUntilId(const QString &account
 				FROM chatMessages
 				WHERE accountJid = :accountJid AND chatJid = :chatJid
 				ORDER BY timestamp DESC
-				LIMIT
-					:index,
-					:limit + (
-						SELECT COUNT()
-						FROM chatMessages
-						WHERE timestamp >= (
-							SELECT timestamp
-							FROM chatMessages
-							WHERE
-								accountJid = :accountJid AND chatJid = :chatJid AND
-								(id = :id OR stanzaId = :id)
-						)
-					)
+				LIMIT :index, :limit
 			)"),
 			{
 				{ u":accountJid", accountJid },
 				{ u":chatJid", chatJid },
 				{ u":index", index },
-				{ u":limit", DB_QUERY_LIMIT_MESSAGES },
-				{ u":id", limitingId },
+				{ u":limit", messagesUntilFoundMessageCount + DB_QUERY_LIMIT_MESSAGES },
 			}
 		);
 
-		auto messages = _fetchMessagesFromQuery(query);
-		_fetchAdditionalData(messages);
+		MessageResult result {
+			_fetchMessagesFromQuery(query),
+			// Database index starts at 1, but message model index starts at 0.
+			foundMessageIndex - 1
+		};
 
-		return messages;
+		_fetchAdditionalData(result.messages);
+
+		return result;
 	});
 }
 
@@ -682,6 +753,9 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 				QStringLiteral(R"(
 					UPDATE messages
 					SET
+						replyTo = NULL,
+						replyId = NULL,
+						replyQuote = NULL,
 						body = NULL,
 						spoilerHint = NULL,
 						groupChatInviterJid = NULL,
@@ -855,6 +929,7 @@ void MessageDb::_addMessage(Message message, MessageOrigin origin)
 {
 	_fetchGroupChatUser(message);
 	_fetchTrustLevel(message);
+	_fetchReply(message);
 
 	Q_EMIT messageAdded(message, origin);
 
@@ -884,6 +959,14 @@ void MessageDb::_addMessage(const Message &message)
 		{ u"errorText", message.errorText },
 		{ u"removed", message.removed },
 	};
+
+	if (const auto reply = message.reply) {
+		values.insert({
+			{ u"replyTo", message.isGroupChatMessage() ? reply->toGroupChatparticipantId : reply->toJid },
+			{ u"replyId", reply->id },
+			{ u"replyQuote", reply->quote },
+		});
+	}
 
 	if (const auto groupChatInvitation = message.groupChatInvitation) {
 		values.insert({
@@ -1517,6 +1600,41 @@ void MessageDb::_fetchTrustLevel(Message &message)
 			message.preciseTrustLevel = QXmpp::TrustLevel::Authenticated;
 		} else {
 			message.preciseTrustLevel = TrustDb::instance()->_trustLevel(XMLNS_OMEMO_2, message.senderJid(), senderKey);
+		}
+	}
+}
+
+void MessageDb::_fetchReply(Message &message)
+{
+	if (auto &reply = message.reply; reply) {
+		if (message.isGroupChatMessage()) {
+			if(const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, reply->toGroupChatparticipantId)) {
+				const auto jid = groupChatUser->jid;
+				reply->toJid = jid;
+				reply->toGroupChatParticipantName = groupChatUser->name;
+			}
+		}
+
+		if (message.reply->quote.isEmpty()) {
+			auto query = createQuery();
+			execQuery(
+				query,
+				QStringLiteral(R"(
+					SELECT body
+					FROM chatMessages
+					WHERE accountJid = :accountJid AND chatJid = :chatJid AND
+						(id = :id OR stanzaId = :id)
+				)"),
+				{
+					{ u":accountJid", message.accountJid },
+					{ u":chatJid", message.chatJid },
+					{ u":id", reply->id },
+				}
+			);
+
+			if (query.first()) {
+				message.reply->quote = query.value(0).toString();
+			}
 		}
 	}
 }

@@ -191,6 +191,16 @@ public:
 	};
 	Q_ENUM(TrustLevel)
 
+	struct Reply {
+		QString toJid;
+		QString toGroupChatparticipantId;
+		QString toGroupChatParticipantName;
+		QString id;
+		QString quote;
+
+		bool operator==(const Reply &other) const;
+	};
+
 	/**
 	 * Compares another @c Message with this. Only attributes that are saved in the
 	 * database are checked.
@@ -208,6 +218,7 @@ public:
 	QString originId;
 	QString stanzaId;
 	QString replaceId;
+	std::optional<Reply> reply;
 	QDateTime timestamp;
 	QString body;
 	// End-to-end encryption used for this message.
@@ -240,9 +251,12 @@ public:
 	QString senderJid() const;
 	bool isGroupChatMessage() const;
 
+	// Text to be shown for the user depending on the message's content
+	QString text() const;
+
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
-	QString previewText(bool extended = false) const;
+	QString previewText() const;
 
 	TrustLevel trustLevel() const;
 

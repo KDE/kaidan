@@ -59,12 +59,18 @@ class MessageModel : public QAbstractListModel
 
 public:
 	enum MessageRoles {
-		SenderId = Qt::UserRole + 1,
+		SenderJid = Qt::UserRole + 1,
+		GroupChatSenderId,
 		SenderName,
 		Id,
 		IsLastReadOwnMessage,
 		IsLastReadContactMessage,
 		IsEdited,
+		ReplyToJid,
+		ReplyToGroupChatParticipantId,
+		ReplyToName,
+		ReplyId,
+		ReplyQuote,
 		Date,
 		NextDate,
 		Time,
@@ -142,6 +148,23 @@ public:
 	Q_INVOKABLE void removeMessage(const QString &messageId);
 
 	void removeAllMessages();
+
+	/**
+	 * Searches a message locally by its ID.
+	 *
+	 * @param messageId ID of the message
+	 *
+	 * @return index of the found message, otherwise -1
+	 */
+	Q_INVOKABLE int searchMessageById(const QString &messageId);
+
+	/**
+	 * Emitted when searching a message in the DB and if found, fetching all messages until the
+	 * found one, is finished.
+	 *
+	 * @param foundMessageIndex index of the found message, otherwise -1
+	 */
+	Q_SIGNAL void messageSearchByIdInDbFinished(int foundMessageIndex);
 
 	/**
 	 * Searches from the most recent to the oldest message to find a given substring (case insensitive).
@@ -259,6 +282,7 @@ private:
 
 	QString formatDate(QDate localDate) const;
 	QString determineGroupChatSenderName(const Message &message) const;
+	QString determineReplyToName(const Message::Reply &reply) const;
 
 	QVector<Message> m_messages;
 	QString m_lastReadOwnMessageId;

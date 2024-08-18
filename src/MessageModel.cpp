@@ -73,12 +73,18 @@ int MessageModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> MessageModel::roleNames() const
 {
 	QHash<int, QByteArray> roles;
-	roles[SenderId] = "senderId";
+	roles[SenderJid] = "senderJid";
+	roles[GroupChatSenderId] = "groupChatSenderId";
 	roles[SenderName] = "senderName";
 	roles[Id] = "id";
 	roles[IsLastReadOwnMessage] = "isLastReadOwnMessage";
 	roles[IsLastReadContactMessage] = "isLastReadContactMessage";
 	roles[IsEdited] = "isEdited";
+	roles[ReplyToJid] = "replyToJid";
+	roles[ReplyToGroupChatParticipantId] = "replyToGroupChatParticipantId";
+	roles[ReplyToName] = "replyToName";
+	roles[ReplyId] = "replyId";
+	roles[ReplyQuote] = "replyQuote";
 	roles[Date] = "date";
 	roles[NextDate] = "nextDate";
 	roles[Time] = "time";
@@ -111,24 +117,21 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	const Message &msg = m_messages.at(row);
 
 	switch (role) {
-	case SenderId: {
+	case SenderJid: {
 		// Return a default-constructed string for an own message.
 		if (msg.isOwn) {
 			return QString();
 		}
 
-		if (msg.isGroupChatMessage()) {
-			const auto groupChatSenderJid = msg.groupChatSenderJid;
-
-			if (groupChatSenderJid.isEmpty()) {
-				return msg.groupChatSenderId;
-			}
-
-			return groupChatSenderJid;
+		return msg.isGroupChatMessage() ? msg.groupChatSenderJid : msg.chatJid;
+	}
+	case GroupChatSenderId:
+		// Return a default-constructed string for an own message.
+		if (msg.isOwn) {
+			return QString();
 		}
 
-		return msg.chatJid;
-	}
+		return msg.groupChatSenderId;
 	case SenderName: {
 		// Return a default-constructed string for an own message.
 		if (msg.isOwn) {
@@ -166,6 +169,93 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		return row != 0 && msg.id == ChatController::instance()->rosterItem().lastReadContactMessageId && !m_messages.at(row -1).isOwn;
 	case IsEdited:
 		return !msg.replaceId.isEmpty();
+	case ReplyToJid: {
+		const auto reply = msg.reply;
+
+		if (!reply) {
+			return QString();
+		}
+
+		const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+
+		// On the first received message from a stranger, a new roster item is added.
+		Q_ASSERT(rosterItem);
+
+		if (msg.isGroupChatMessage()) {
+			// Return a default-constructed string for a reply to an own message.
+			if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+				return QString();
+			}
+
+			return reply->toJid;
+		}
+
+		// Return a default-constructed string for a reply to an own message.
+		if (reply->toJid == rosterItem->accountJid) {
+			return QString();
+		}
+
+		return reply->toJid;
+	}
+	case ReplyToGroupChatParticipantId: {
+		if (!msg.isGroupChatMessage()) {
+			return QString();
+		}
+
+		const auto reply = msg.reply;
+
+		if (!reply) {
+			return QString();
+		}
+
+		const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+
+		// On the first received message from a stranger, a new roster item is added.
+		Q_ASSERT(rosterItem);
+
+		// Return a default-constructed string for a reply to an own message.
+		if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+			return QString();
+		}
+
+		return reply->toGroupChatparticipantId;
+	}
+	case ReplyToName: {
+		const auto reply = msg.reply;
+
+		if (!reply) {
+			return QString();
+		}
+
+		const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+
+		// On the first received message from a stranger, a new roster item is added.
+		Q_ASSERT(rosterItem);
+
+		if (msg.isGroupChatMessage()) {
+			// Return a default-constructed string for a reply to an own message.
+			if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+				return QString();
+			}
+
+			return determineReplyToName(*reply);
+		}
+
+		// Return a default-constructed string for a reply to an own message.
+		if (reply->toJid == rosterItem->accountJid) {
+			return QString();
+		}
+
+		return rosterItem->displayName();
+	}
+	case ReplyId: {
+		const auto reply = msg.reply;
+		return reply ? reply->id : QString();
+	}
+	case ReplyQuote: {
+		const auto reply = msg.reply;
+		return reply ? reply->quote : QString();
+	}
 	case Date:
 		return formatDate(msg.timestamp.toLocalTime().date());
 	case NextDate:
@@ -173,7 +263,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case Time:
 		return QLocale::system().toString(msg.timestamp.toLocalTime().time(), QLocale::ShortFormat);
 	case Body:
-		return msg.previewText();
+		return msg.text();
 	case Encryption:
 		return msg.encryption;
 	case TrustLevel:
@@ -316,8 +406,8 @@ void MessageModel::fetchMore(const QModelIndex &)
 						handleMessagesFetched(messages);
 					});
 				} else {
-					await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), 0, lastReadContactMessageId), this, [this](QVector<Message> &&messages) {
-						handleMessagesFetched(messages);
+					await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), 0, lastReadContactMessageId), this, [this](MessageDb::MessageResult &&result) {
+						handleMessagesFetched(result.messages);
 					});
 				}
 			} else {
@@ -880,6 +970,31 @@ void MessageModel::removeAllMessages()
 	setMamLoading(false);
 }
 
+int MessageModel::searchMessageById(const QString &messageId)
+{
+	int i = 0;
+
+	for (; i < m_messages.size(); i++) {
+		if (m_messages.at(i).relevantId() == messageId) {
+			return i;
+		}
+	}
+
+	await(
+		MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), i, messageId, 0),
+		this,
+		[this](MessageDb::MessageResult &&result) {
+			if (const auto messages = result.messages; !messages.isEmpty()) {
+				handleMessagesFetched(messages);
+			}
+
+			Q_EMIT messageSearchByIdInDbFinished(result.queryIndex);
+		}
+	);
+
+	return -1;
+}
+
 int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int startIndex)
 {
 	int foundIndex = startIndex;
@@ -1126,7 +1241,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
 			const auto chatActive =
 					ChatController::instance()->isChatCurrentChat(accountJid, chatJid) &&
 					QGuiApplication::applicationState() == Qt::ApplicationActive;
-			const auto previewText = message.previewText(true);
+			const auto previewText = message.previewText();
 			const auto notificationBody = message.isGroupChatMessage() ? determineGroupChatSenderName(message) + ": " + previewText : previewText;
 
 			if (!chatActive) {
@@ -1310,4 +1425,15 @@ QString MessageModel::determineGroupChatSenderName(const Message &message) const
 	}
 
 	return message.groupChatSenderName;
+}
+
+QString MessageModel::determineReplyToName(const Message::Reply &reply) const
+{
+	if (const auto replyToJid = reply.toJid; !replyToJid.isEmpty()) {
+		if (const auto rosterItem = RosterModel::instance()->findItem(replyToJid)) {
+			return rosterItem->displayName();
+		}
+	}
+
+	return reply.toGroupChatParticipantName;
 }

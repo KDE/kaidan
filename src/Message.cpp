@@ -191,8 +191,31 @@ QXmppMessage Message::toQXmpp() const
 	msg.setId(id);
 	msg.setOriginId(originId);
 	msg.setReplaceId(replaceId);
+
+	if (reply) {
+		QXmpp::Reply qxmppReply;
+
+		qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatparticipantId  : reply->toJid;
+		qxmppReply.id = reply->id;
+
+		msg.setReply(qxmppReply);
+
+		if (!reply->quote.isEmpty()) {
+			const auto quote = QmlUtils::quote(reply->quote);
+
+			msg.setBody(quote + body);
+			msg.setFallbackMarkers({ QXmppFallback {
+				XMLNS_MESSAGE_REPLIES.toString(),
+				{ QXmppFallback::Reference { QXmppFallback::Body, QXmppFallback::Range { 0, uint32_t(quote.size()) } } },
+			}});
+		} else {
+			msg.setBody(body);
+		}
+	} else {
+		msg.setBody(body);
+	}
+
 	msg.setStamp(timestamp);
-	msg.setBody(body);
 	msg.setIsSpoiler(isSpoiler);
 	msg.setSpoilerHint(spoilerHint);
 	msg.setMarkable(true);
@@ -324,7 +347,20 @@ bool Message::isGroupChatMessage() const
 	return !groupChatSenderId.isEmpty();
 }
 
-QString Message::previewText(bool extended) const
+QString Message::text() const
+{
+	if (groupChatInvitation) {
+		return groupChatInvitationText();
+	}
+
+	if (files.isEmpty()) {
+		return body.isEmpty() ? QString() : body;
+	}
+
+	return {};
+}
+
+QString Message::previewText() const
 {
 	if (isSpoiler) {
 		if (spoilerHint.isEmpty()) {
@@ -337,23 +373,19 @@ QString Message::previewText(bool extended) const
 		return groupChatInvitationText();
 	}
 
-	if (files.empty()) {
+	if (files.isEmpty()) {
 		return body;
 	}
 
-	if (extended) {
-		// Use first file for detection (could be improved with more complex logic)
-		auto mediaType = MediaUtils::messageType(files.front().mimeType);
-		auto text = MediaUtils::mediaTypeName(mediaType);
+	// Use first file for detection (could be improved with more complex logic)
+	auto mediaType = MediaUtils::messageType(files.front().mimeType);
+	auto mediaPreviewText = MediaUtils::mediaTypeName(mediaType);
 
-		if (!body.isEmpty()) {
-			return text % QStringLiteral(": ") % body;
-		}
-
-		return text;
+	if (!body.isEmpty()) {
+		return mediaPreviewText % QStringLiteral(": ") % body;
 	}
 
-	return body;
+	return mediaPreviewText;
 }
 
 Message::TrustLevel Message::trustLevel() const
@@ -377,4 +409,13 @@ bool Message::includeFileFallbackInMainMessage() const
 QString Message::groupChatInvitationText() const
 {
 	return tr("Invitation to group %1").arg(groupChatInvitation->groupChatJid);
+}
+
+bool Message::Reply::operator==(const Reply &other) const
+{
+	return
+		toJid == other.toJid &&
+		toGroupChatparticipantId == other.toGroupChatparticipantId &&
+		id == other.id &&
+		quote == other.quote;
 }
