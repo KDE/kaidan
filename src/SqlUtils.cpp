@@ -74,6 +74,13 @@ QSqlField createSqlField(const QString &key, const QVariant &val)
 	return field;
 }
 
+QSqlField createNullField(const QString &key)
+{
+	QSqlField field(key);
+	field.clear();
+	return field;
+}
+
 QString simpleWhereStatement(const QSqlDriver *driver,
                              const QString &key,
                              const QVariant &val)

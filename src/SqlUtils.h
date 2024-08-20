@@ -88,6 +88,13 @@ void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &col
 QSqlField createSqlField(const QString &key, const QVariant &val);
 
 /**
+ * Sets an SQL field to NULL.
+ *
+ * @param key name of the SQL field
+ */
+QSqlField createNullField(const QString &key);
+
+/**
  * Creates a where clause with one key-value pair.
  *
  * @param driver SQL database driver
