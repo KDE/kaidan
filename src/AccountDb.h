@@ -34,6 +34,8 @@ public:
 	 */
 	QFuture<qint64> fetchHttpUploadLimit(const QString &jid);
 
+	QFuture<void> removeAccount(const QString &jid);
+
 private:
 	static void parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts);
 	static QSqlRecord createUpdateRecord(const Account &oldAccount, const Account &newAccount);

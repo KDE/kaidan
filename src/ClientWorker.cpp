@@ -317,24 +317,34 @@ void ClientWorker::deleteAccountFromClientAndServer()
 
 void ClientWorker::deleteAccountFromClient()
 {
-	// If the client is already disconnected, delete the account directly from the client.
-	// Otherwise, disconnect first and delete the account afterwards.
-	if (!m_client->isAuthenticated()) {
-		AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
-		m_isAccountToBeDeletedFromClient = false;
-	} else {
-		await(
-			EncryptionController::instance(),
-			[]() {
-				return EncryptionController::instance()->reset();
-			},
-			this,
-			[this]() {
-				m_isAccountToBeDeletedFromClient = true;
-				logOut();
+	await(
+		EncryptionController::instance(),
+		[]() {
+			return EncryptionController::instance()->reset();
+		},
+		this,
+		[this]() {
+			// If the client is already disconnected, delete the account directly from the client.
+			// Otherwise, disconnect first and delete the account afterwards.
+			if (!m_client->isAuthenticated()) {
+				AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
+				m_isAccountToBeDeletedFromClient = false;
+			} else {
+				await(
+					EncryptionController::instance(),
+					[]() {
+						return EncryptionController::instance()->reset();
+					},
+					this,
+					[this]() {
+						m_isAccountToBeDeletedFromClient = true;
+						logOut();
+					}
+				);
 			}
-		);
-	}
+		}
+	);
+
 }
 
 void ClientWorker::handleAccountDeletedFromServer()

@@ -168,6 +168,22 @@ QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
 	});
 }
 
+QFuture<void> AccountDb::removeAccount(const QString &jid)
+{
+	return run([this, jid]() {
+		auto query = createQuery();
+		execQuery(
+			query,
+			QStringLiteral(R"(
+				DELETE FROM accounts WHERE jid = :jid
+			)"),
+			{
+				{ u":jid", jid },
+			}
+		);
+	});
+}
+
 void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts)
 {
 	QSqlRecord rec = query.record();

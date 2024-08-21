@@ -351,6 +351,7 @@ void AccountManager::removeAccount(const QString &accountJid)
 
 	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
 	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
+	AccountDb::instance()->removeAccount(accountJid);
 }
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
