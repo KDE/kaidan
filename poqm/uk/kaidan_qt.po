@@ -21,21 +21,21 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Не вдалося створити QR-код: %1"
 
-#: src/AccountMigrationManager.cpp:195
+#: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 "Не вдалося перенести обліковий запис: вже виконується перенесення іншого "
 "облікового запису"
 
-#: src/AccountMigrationManager.cpp:206
+#: src/AccountMigrationManager.cpp:208
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "Не вдалося перенести обліковий запис: не вдалося експортувати дані "
 "облікового запису"
 
-#: src/AccountMigrationManager.cpp:215
+#: src/AccountMigrationManager.cpp:217
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -359,34 +359,34 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Немає інформації"
 
-#: src/Message.cpp:331
+#: src/Message.cpp:367
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:379
+#: src/Message.cpp:411
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "Запрошення до групи %1"
 
-#: src/MessageComposition.cpp:182
+#: src/MessageComposition.cpp:251
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Невдала спроба вивантаження: %1"
 
-#: src/MessageComposition.cpp:224
+#: src/MessageComposition.cpp:298
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Спроба виправити повідомлення зазнала невдачі"
 
-#: src/MessageComposition.cpp:348
+#: src/MessageComposition.cpp:460
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/MessageComposition.cpp:396
+#: src/MessageComposition.cpp:508
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -403,51 +403,51 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Повідомлення не вдалося надіслати."
 
-#: src/MessageController.cpp:667
+#: src/MessageController.cpp:690
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Це повідомлення зашифровано за допомогою %1, але його не вдалося розшифрувати"
 
-#: src/MessageModel.cpp:200
+#: src/MessageModel.cpp:290
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Очікування"
 
-#: src/MessageModel.cpp:202
+#: src/MessageModel.cpp:292
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Надіслані"
 
-#: src/MessageModel.cpp:204
+#: src/MessageModel.cpp:294
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:206
+#: src/MessageModel.cpp:296
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Помилка"
 
-#: src/MessageModel.cpp:606 src/MessageModel.cpp:676
+#: src/MessageModel.cpp:696 src/MessageModel.cpp:766
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не вдалося надіслати реакцію: %1"
 
-#: src/MessageModel.cpp:751
+#: src/MessageModel.cpp:841
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не вдалося надіслати реакції: %1"
 
-#: src/MessageModel.cpp:1289
+#: src/MessageModel.cpp:1404
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Сьогодні"
 
-#: src/MessageModel.cpp:1292
+#: src/MessageModel.cpp:1407
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Вчора"
@@ -620,17 +620,17 @@ msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Переглянути початковий код у інтернеті"
 
-#: src/qml/ChatPage.qml:101
+#: src/qml/ChatPage.qml:102
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Подробиці…"
 
-#: src/qml/ChatPage.qml:115
+#: src/qml/ChatPage.qml:116
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Пошук"
 
-#: src/qml/ChatPage.qml:128
+#: src/qml/ChatPage.qml:129
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
 msgstr "Додати приховану частину зображення"
@@ -1857,153 +1857,181 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "Неперевірені власні пристрої"
 
-#: src/qml/elements/ChatMessage.qml:159
+#: src/qml/elements/ChatMessage.qml:171
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:252
+#: src/qml/elements/ChatMessage.qml:265
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/elements/ChatMessage.qml:252
+#: src/qml/elements/ChatMessage.qml:265
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Долучитися…"
 
-#: src/qml/elements/ChatMessage.qml:404
+#: src/qml/elements/ChatMessage.qml:418
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Нове"
 
-#: src/qml/elements/ChatMessage.qml:432
+#: src/qml/elements/ChatMessage.qml:446
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "%1 прочитано до цього місця"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:24
+#: src/qml/elements/ChatMessageContextMenu.qml:50
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Copy message"
-msgstr "Скопіювати повідомлення"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:36
-msgctxt "ChatMessageContextMenu|"
-msgid "Edit message"
-msgstr "Редагування повідомлення"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:42
-msgctxt "ChatMessageContextMenu|"
-msgid "Copy download URL"
-msgstr "Копіювати адресу даних"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:48
-msgctxt "ChatMessageContextMenu|"
-msgid "Quote message"
-msgstr "Процитувати повідомлення"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:56
-msgctxt "ChatMessageContextMenu|"
-msgid "Delete file"
+msgid "Remove selected file"
 msgstr "Вилучити файл"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "Reactions"
+msgctxt "ChatMessageContextMenu|"
+msgid "React"
+msgstr "Реакції"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:91
+msgctxt "ChatMessageContextMenu|"
+msgid "Reply"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:109
+#, fuzzy
+#| msgctxt "ChatMessage|"
+#| msgid "Quote"
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote"
+msgstr "Цитування"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:117
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Copy URL"
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy"
+msgstr "Копіювати адресу"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:131
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Позначити як перше непрочитане"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:74
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Вилучити з цього пристрою"
 
-#: src/qml/elements/ChatPageSearchView.qml:47
+#: src/qml/elements/ChatPageSearchView.qml:48
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
-msgid "Close message search bar"
+msgid "Close search"
 msgstr "Закрити панель пошуку повідомлення"
 
-#: src/qml/elements/ChatPageSearchView.qml:83
+#: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
 msgstr "Шукати вище"
 
-#: src/qml/elements/ChatPageSearchView.qml:94
+#: src/qml/elements/ChatPageSearchView.qml:92
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Шукати нижче"
 
-#: src/qml/elements/ChatPageSendingPane.qml:74
+#: src/qml/elements/ChatPageSendingPane.qml:82
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel reply"
+msgstr "Скасувати"
+
+#: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr "Видима частина повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:81
+#: src/qml/elements/ChatPageSendingPane.qml:109
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Скасувати додавання прихованої частини повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:130
+#: src/qml/elements/ChatPageSendingPane.qml:157
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Створити <b>шифроване</b> повідомлення із прихованою частиною"
 
-#: src/qml/elements/ChatPageSendingPane.qml:130
+#: src/qml/elements/ChatPageSendingPane.qml:157
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Створити <b>нешифроване</b> повідомлення із прихованою частиною"
 
-#: src/qml/elements/ChatPageSendingPane.qml:132
+#: src/qml/elements/ChatPageSendingPane.qml:159
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Створити <b>шифроване</b> повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:132
+#: src/qml/elements/ChatPageSendingPane.qml:159
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Створити <b>нешифроване</b> повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:267
+#: src/qml/elements/ChatPageSendingPane.qml:294
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Мультимедіа"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:350
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Зробити знімок"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:351
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Зробити знімок камерою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:335
+#: src/qml/elements/ChatPageSendingPane.qml:362
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Записати відео"
 
-#: src/qml/elements/ChatPageSendingPane.qml:336
+#: src/qml/elements/ChatPageSendingPane.qml:363
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Записати відео камерою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:374
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Оприлюднити файли"
 
-#: src/qml/elements/ChatPageSendingPane.qml:348
+#: src/qml/elements/ChatPageSendingPane.qml:375
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Оприлюднити файли з вашого пристрою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:359
+#: src/qml/elements/ChatPageSendingPane.qml:386
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Оприлюднити місце"
 
-#: src/qml/elements/ChatPageSendingPane.qml:360
+#: src/qml/elements/ChatPageSendingPane.qml:387
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Надіслати ваше місце перебування"
@@ -2491,6 +2519,22 @@ msgstr "Вирішуємо щодо довіри…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "Додавання контакту…"
+
+#: src/qml/elements/ReferencedMessage.qml:71
+#, fuzzy
+#| msgctxt "RosterListItem|"
+#| msgid "Me:"
+msgctxt "ReferencedMessage|"
+msgid "Me"
+msgstr "Ви:"
+
+#: src/qml/elements/ReferencedMessage.qml:81
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Media"
+msgctxt "ReferencedMessage|"
+msgid "Media"
+msgstr "Мультимедіа"
 
 #: src/qml/elements/RosterFilteringArea.qml:27
 msgctxt "RosterFilteringArea|"
@@ -3208,29 +3252,29 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Створити обліковий запис вручну"
 
-#: src/QmlUtils.cpp:68
+#: src/QmlUtils.cpp:71
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Некоректне ім’я користувача або пароль."
 
-#: src/QmlUtils.cpp:70
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте, чи маєте "
 "ви з'єднання із інтернетом."
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Помилка під час спроби встановлення захищеного з'єднання."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "На сервері не передбачено можливості захищених з'єднань."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3239,22 +3283,22 @@ msgstr ""
 "Не вдалося встановити з'єднання із сервером. Будь ласка, перевірте параметри "
 "з'єднання або вказану назву сервера."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Цей сервер перебуває поза мережею або його заблоковано брандмауером."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "На сервері не передбачено підтримки протоколу розпізнавання."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Не вдалося освіжити з'єднання."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3263,29 +3307,29 @@ msgstr ""
 "З'єднання з інтернетом заборонено. Будь ласка, перевірте налаштування "
 "доступу до інтернету у вашій системі."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "На сервері не передбачено підтримки реєстрації."
 
-#: src/QmlUtils.cpp:248
+#: src/QmlUtils.cpp:256
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:321
+#: src/QmlUtils.cpp:329
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:323
+#: src/QmlUtils.cpp:331
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:325
+#: src/QmlUtils.cpp:333
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3386,6 +3430,26 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Скопіювати повідомлення"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Редагування повідомлення"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Копіювати адресу даних"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Процитувати повідомлення"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Delete file"
+#~ msgstr "Вилучити файл"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 #~ msgstr ""
@@ -3396,10 +3460,6 @@ msgstr "Сайт"
 #~ msgstr ""
 #~ "Скануйте QR-коди <b>ваших</b> пристроїв, щоб забезпечити максимальний "
 #~ "захист"
-
-#~ msgctxt "MessageReactionDetailsSheet|"
-#~ msgid "Reactions"
-#~ msgstr "Реакції"
 
 #~ msgctxt "MessageReactionDetailsSheet|"
 #~ msgid "Own:"
@@ -3674,10 +3734,6 @@ msgstr "Сайт"
 #~ msgctxt "AccountSettings|"
 #~ msgid "Provider"
 #~ msgstr "Надавач послуг"
-
-#~ msgctxt "AccountSettings|"
-#~ msgid "Copy URL"
-#~ msgstr "Копіювати адресу"
 
 #~ msgctxt "AccountSettings|"
 #~ msgid "Support"
@@ -4108,10 +4164,6 @@ msgstr "Сайт"
 #~ msgctxt "ChatMessage|"
 #~ msgid "Copy download URL"
 #~ msgstr "Копіювати адресу даних"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Quote"
-#~ msgstr "Цитування"
 
 #~ msgctxt "ChatPage|"
 #~ msgid "Compose message"

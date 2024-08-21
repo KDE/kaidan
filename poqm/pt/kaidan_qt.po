@@ -26,17 +26,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "A geração do código QR foi mal-sucedida: %1"
 
-#: src/AccountMigrationManager.cpp:195
+#: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:206
+#: src/AccountMigrationManager.cpp:208
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:215
+#: src/AccountMigrationManager.cpp:217
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -383,18 +383,18 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Mais informações"
 
-#: src/Message.cpp:331
+#: src/Message.cpp:367
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:379
+#: src/Message.cpp:411
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:182
+#: src/MessageComposition.cpp:251
 #, fuzzy, qt-format
 #| msgctxt "FileSharingController|"
 #| msgid "Upload failed: %1"
@@ -402,7 +402,7 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "O envio falhou: %1"
 
-#: src/MessageComposition.cpp:224
+#: src/MessageComposition.cpp:298
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message correction was not successful"
@@ -410,12 +410,12 @@ msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "Não foi possível corrigir a mensagem"
 
-#: src/MessageComposition.cpp:348
+#: src/MessageComposition.cpp:460
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/MessageComposition.cpp:396
+#: src/MessageComposition.cpp:508
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -437,7 +437,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Não foi possível enviar a mensagem."
 
-#: src/MessageController.cpp:667
+#: src/MessageController.cpp:690
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -446,27 +446,27 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Esta mensagem está encriptada com o %1 mas não é possível descodificá-la"
 
-#: src/MessageModel.cpp:200
+#: src/MessageModel.cpp:290
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Pendente"
 
-#: src/MessageModel.cpp:202
+#: src/MessageModel.cpp:292
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Enviado"
 
-#: src/MessageModel.cpp:204
+#: src/MessageModel.cpp:294
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregue"
 
-#: src/MessageModel.cpp:206
+#: src/MessageModel.cpp:296
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erro"
 
-#: src/MessageModel.cpp:606 src/MessageModel.cpp:676
+#: src/MessageModel.cpp:696 src/MessageModel.cpp:766
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %s"
@@ -474,7 +474,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Não foi possível enviar a reacção: %s"
 
-#: src/MessageModel.cpp:751
+#: src/MessageModel.cpp:841
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reactions could not be sent: %s"
@@ -482,12 +482,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Não foi possível enviar as reacções: %s"
 
-#: src/MessageModel.cpp:1289
+#: src/MessageModel.cpp:1404
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1292
+#: src/MessageModel.cpp:1407
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -686,17 +686,17 @@ msgctxt "AboutDialog|"
 msgid "View source code online"
 msgstr "Ver o código-fonte 'online'"
 
-#: src/qml/ChatPage.qml:101
+#: src/qml/ChatPage.qml:102
 msgctxt "ChatPage|"
 msgid "Details…"
 msgstr "Detalhes…"
 
-#: src/qml/ChatPage.qml:115
+#: src/qml/ChatPage.qml:116
 msgctxt "ChatPage|"
 msgid "Search"
 msgstr "Procurar"
 
-#: src/qml/ChatPage.qml:128
+#: src/qml/ChatPage.qml:129
 msgctxt "ChatPage|"
 msgid "Add hidden message part"
 msgstr ""
@@ -2285,12 +2285,12 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "Mudar de dispositivo"
 
-#: src/qml/elements/ChatMessage.qml:159
+#: src/qml/elements/ChatMessage.qml:171
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:252
+#: src/qml/elements/ChatMessage.qml:265
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Open chat"
@@ -2298,83 +2298,105 @@ msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Abrir uma conversa"
 
-#: src/qml/elements/ChatMessage.qml:252
+#: src/qml/elements/ChatMessage.qml:265
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:404
+#: src/qml/elements/ChatMessage.qml:418
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:432
+#: src/qml/elements/ChatMessage.qml:446
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
 msgstr "O %1 leu até este ponto"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:24
+#: src/qml/elements/ChatMessageContextMenu.qml:50
+#, fuzzy
+#| msgctxt "SendMediaSheet|"
+#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
-msgid "Copy message"
-msgstr "Copiar a mensagem"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:36
-msgctxt "ChatMessageContextMenu|"
-msgid "Edit message"
-msgstr "Editar a mensagem"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:42
-msgctxt "ChatMessageContextMenu|"
-msgid "Copy download URL"
-msgstr "Copiar o URL de transferência"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:48
-msgctxt "ChatMessageContextMenu|"
-msgid "Quote message"
-msgstr "Citar a mensagem"
-
-#: src/qml/elements/ChatMessageContextMenu.qml:56
-msgctxt "ChatMessageContextMenu|"
-msgid "Delete file"
-msgstr "Apagar o ficheiro"
+msgid "Remove selected file"
+msgstr "Remover o ficheiro"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
+#, fuzzy
+#| msgctxt "MessageReactionDetailsSheet|"
+#| msgid "Reactions"
+msgctxt "ChatMessageContextMenu|"
+msgid "React"
+msgstr "Reacções"
+
+#: src/qml/elements/ChatMessageContextMenu.qml:91
+msgctxt "ChatMessageContextMenu|"
+msgid "Reply"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:109
+msgctxt "ChatMessageContextMenu|"
+msgid "Quote"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:117
+msgctxt "ChatMessageContextMenu|"
+msgid "Copy"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:131
+msgctxt "ChatMessageContextMenu|"
+msgid "Edit"
+msgstr ""
+
+#: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Marcar como primeira não-lida"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:74
+#: src/qml/elements/ChatMessageContextMenu.qml:151
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Remover deste dispositivo"
 
-#: src/qml/elements/ChatPageSearchView.qml:47
+#: src/qml/elements/ChatPageSearchView.qml:48
+#, fuzzy
+#| msgctxt "ChatPageSearchView|"
+#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
-msgid "Close message search bar"
+msgid "Close search"
 msgstr "Fechar a barra de pesquisa das mensagens"
 
-#: src/qml/elements/ChatPageSearchView.qml:83
+#: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
 msgid "Search up"
 msgstr "Procurar para cima"
 
-#: src/qml/elements/ChatPageSearchView.qml:94
+#: src/qml/elements/ChatPageSearchView.qml:92
 msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "Procurar para baixo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:74
+#: src/qml/elements/ChatPageSendingPane.qml:82
+#, fuzzy
+#| msgctxt "ConfirmationPage|"
+#| msgid "Cancel"
+msgctxt "ChatPageSendingPane|"
+msgid "Cancel reply"
+msgstr "Cancelar"
+
+#: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:81
+#: src/qml/elements/ChatPageSendingPane.qml:109
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:130
+#: src/qml/elements/ChatPageSendingPane.qml:157
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>encrypted</b> message"
@@ -2382,7 +2404,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Compor uma mensagem <b>encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:130
+#: src/qml/elements/ChatPageSendingPane.qml:157
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose <b>unencrypted</b> message"
@@ -2390,57 +2412,57 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Compor uma mensagem <b>não-encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:132
+#: src/qml/elements/ChatPageSendingPane.qml:159
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Compor uma mensagem <b>encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:132
+#: src/qml/elements/ChatPageSendingPane.qml:159
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Compor uma mensagem <b>não-encriptada</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:267
+#: src/qml/elements/ChatPageSendingPane.qml:294
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
+#: src/qml/elements/ChatPageSendingPane.qml:350
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Tirar uma Fotografia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:351
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Tirar uma fotografia com a sua câmara"
 
-#: src/qml/elements/ChatPageSendingPane.qml:335
+#: src/qml/elements/ChatPageSendingPane.qml:362
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Gravar um vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:336
+#: src/qml/elements/ChatPageSendingPane.qml:363
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Gravar um vídeo com a sua câmara"
 
-#: src/qml/elements/ChatPageSendingPane.qml:347
+#: src/qml/elements/ChatPageSendingPane.qml:374
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Partilhar ficheiros"
 
-#: src/qml/elements/ChatPageSendingPane.qml:348
+#: src/qml/elements/ChatPageSendingPane.qml:375
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Partilhar os ficheiros do seu dispositivo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:359
+#: src/qml/elements/ChatPageSendingPane.qml:386
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Partilhar a localização"
 
-#: src/qml/elements/ChatPageSendingPane.qml:360
+#: src/qml/elements/ChatPageSendingPane.qml:387
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Enviar a sua localização"
@@ -3082,6 +3104,16 @@ msgstr "A criar decisões de confiança…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "A adicionar o contacto…"
+
+#: src/qml/elements/ReferencedMessage.qml:71
+msgctxt "ReferencedMessage|"
+msgid "Me"
+msgstr ""
+
+#: src/qml/elements/ReferencedMessage.qml:81
+msgctxt "ReferencedMessage|"
+msgid "Media"
+msgstr ""
 
 #: src/qml/elements/RosterFilteringArea.qml:27
 #, fuzzy
@@ -3832,29 +3864,29 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Criar uma conta manualmente"
 
-#: src/QmlUtils.cpp:68
+#: src/QmlUtils.cpp:71
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "O nome de utilizador ou a senha são inválidos."
 
-#: src/QmlUtils.cpp:70
+#: src/QmlUtils.cpp:73
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
 "Não é possível contactar o servidor. Por favor, verifique a sua ligação à "
 "Internet."
 
-#: src/QmlUtils.cpp:72
+#: src/QmlUtils.cpp:75
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Erro ao tentar-se ligar de forma segura."
 
-#: src/QmlUtils.cpp:74
+#: src/QmlUtils.cpp:77
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "O servidor não suporta ligações seguras."
 
-#: src/QmlUtils.cpp:76
+#: src/QmlUtils.cpp:79
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3863,22 +3895,22 @@ msgstr ""
 "Não foi possível contactar o servidor. Verifique a sua ligação à Internet ou "
 "o nome do seu servidor."
 
-#: src/QmlUtils.cpp:78
+#: src/QmlUtils.cpp:81
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "O servidor está desligado ou bloqueado por uma 'firewall'."
 
-#: src/QmlUtils.cpp:80
+#: src/QmlUtils.cpp:83
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "O protocolo de autenticação não é compatível com o servidor."
 
-#: src/QmlUtils.cpp:82
+#: src/QmlUtils.cpp:85
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Não foi possível actualizar a ligação."
 
-#: src/QmlUtils.cpp:84
+#: src/QmlUtils.cpp:87
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3887,29 +3919,29 @@ msgstr ""
 "O acesso à Internet não é permitido. Por favor, verifique a configuração de "
 "acesso à Internet do seu sistema."
 
-#: src/QmlUtils.cpp:86
+#: src/QmlUtils.cpp:89
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Este servidor não suporta qualquer registo."
 
-#: src/QmlUtils.cpp:248
+#: src/QmlUtils.cpp:256
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamanho desconhecido"
 
-#: src/QmlUtils.cpp:321
+#: src/QmlUtils.cpp:329
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está ligado"
 
-#: src/QmlUtils.cpp:323
+#: src/QmlUtils.cpp:331
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está a escrever…"
 
-#: src/QmlUtils.cpp:325
+#: src/QmlUtils.cpp:333
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -4015,6 +4047,26 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Página Web"
 
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy message"
+#~ msgstr "Copiar a mensagem"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Edit message"
+#~ msgstr "Editar a mensagem"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Copy download URL"
+#~ msgstr "Copiar o URL de transferência"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Quote message"
+#~ msgstr "Citar a mensagem"
+
+#~ msgctxt "ChatMessageContextMenu|"
+#~ msgid "Delete file"
+#~ msgstr "Apagar o ficheiro"
+
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
 #~ msgstr ""
@@ -4026,10 +4078,6 @@ msgstr "Página Web"
 #~ msgstr ""
 #~ "Analise os códigos QR dos <b>seus</b> dispositivos para usar a "
 #~ "encriptação mais segura possível"
-
-#~ msgctxt "MessageReactionDetailsSheet|"
-#~ msgid "Reactions"
-#~ msgstr "Reacções"
 
 #~ msgctxt "MessageReactionDetailsSheet|"
 #~ msgid "Own:"
