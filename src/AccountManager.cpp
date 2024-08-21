@@ -102,16 +102,23 @@ void AccountManager::setJid(const QString &jid)
 		m_jid = jid;
 		m_hasNewCredentials = true;
 
-		AccountDb::instance()->addAccount(jid);
+		// If a server's JID is set during registration, it should not be added as an account.
+		// Thus, the JID must contain a local part (user).
+		//
+		// If the JID is cleared, there is no corresponding account.
+		// Thus, the JID must not be empty.
+		if (!QXmppUtils::jidToUser(jid).isEmpty()) {
+			AccountDb::instance()->addAccount(jid);
 
-		await(AccountDb::instance()->account(jid), this, [this](Account &&account) {
-			m_account = std::move(account);
-			Q_EMIT accountChanged();
-		});
+			await(AccountDb::instance()->account(jid), this, [this](Account &&account) {
+				m_account = std::move(account);
+				Q_EMIT accountChanged();
+			});
 
-		await(AccountDb::instance()->fetchHttpUploadLimit(jid), this, [](qint64 &&limit) {
-			Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
-		});
+			await(AccountDb::instance()->fetchHttpUploadLimit(jid), this, [](qint64 &&limit) {
+				Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
+			});
+		}
 
 		locker.unlock();
 		Q_EMIT jidChanged();
