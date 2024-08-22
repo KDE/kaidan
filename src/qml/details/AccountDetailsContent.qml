@@ -131,7 +131,7 @@ DetailsContent {
 		Component.onCompleted: {
 			// Retrieve the own devices if they are not loaded yet.
 			if (ChatController.accountJid !== root.jid) {
-				EncryptionController.initializeAccount(root.jid)
+				EncryptionController.initializeAccountFromQml(root.jid)
 			}
 		}
 

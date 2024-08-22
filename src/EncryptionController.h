@@ -44,6 +44,7 @@ public:
 	QFuture<void> load();
 	QFuture<void> setUp();
 
+	Q_INVOKABLE void initializeAccountFromQml(const QString &accountJid);
 	QFuture<void> initializeAccount(const QString &accountJid);
 	QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &contactJids);
 

@@ -35,6 +35,11 @@ QFuture<void> EncryptionController::setUp()
 	return m_omemoController->setUp();
 }
 
+void EncryptionController::initializeAccountFromQml(const QString &accountJid)
+{
+	initializeAccount(accountJid);
+}
+
 QFuture<void> EncryptionController::initializeAccount(const QString &accountJid)
 {
 	return m_omemoController->initializeAccount(accountJid);
