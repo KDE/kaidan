@@ -26,6 +26,7 @@ public:
 	QFuture<void> load();
 	QFuture<void> setUp();
 	QFuture<void> reset();
+	QFuture<void> resetLocally();
 
 	QFuture<void> initializeAccount(const QString &accountJid);
 	QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &jids);

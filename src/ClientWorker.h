@@ -204,28 +204,6 @@ public:
 	Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
 
 	/**
-	 * Deletes the account data from the client and server.
-	 */
-	Q_INVOKABLE void deleteAccountFromClientAndServer();
-
-	/**
-	 * Deletes the account data from the configuration file and database.
-	 */
-	Q_INVOKABLE void deleteAccountFromClient();
-
-	/**
-	 * Called when the account is deleted from the server.
-	 */
-	Q_INVOKABLE void handleAccountDeletedFromServer();
-
-	/**
-	 * Called when the account could not be deleted from the server.
-	 *
-	 * @param error error of the failed account deletion
-	 */
-	Q_INVOKABLE void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
-
-	/**
 	 * Emitted when an authenticated connection to the server is established with new
 	 * credentials for the first time.
 	 *
@@ -308,10 +286,4 @@ private:
 	bool m_isReconnecting = false;
 	bool m_isDisconnecting = false;
 	QXmppConfiguration m_configToBeUsedOnNextConnect;
-
-	// These variables are used for checking the state of an ongoing account deletion.
-	bool m_isAccountToBeDeletedFromClient = false;
-	bool m_isAccountToBeDeletedFromClientAndServer = false;
-	bool m_isAccountDeletedFromServer = false;
-	bool m_isClientConnectedBeforeAccountDeletionFromServer = true;
 };

@@ -10,6 +10,7 @@
 #include <QMutex>
 #include <QObject>
 // QXmpp
+#include <QXmppStanza.h>
 #include <QXmppGlobal.h>
 // Kaidan
 #include "Account.h"
@@ -223,25 +224,29 @@ public:
 	void storeConnectionData();
 
 	/**
-	 * Deletes all credentials.
-	 *
-	 * Credentials stored in the settings file are also removed from it.
+	 * Deletes the account data from the configuration file and database.
 	 */
-	void deleteCredentials();
+	Q_INVOKABLE void deleteAccountFromClient();
 
 	/**
-	 * Deletes all account related settings.
-	 *
-	 * Settings stored in the settings file are also removed from it.
+	 * Deletes the account data from the client and server.
 	 */
-	void deleteSettings();
+	Q_INVOKABLE void deleteAccountFromClientAndServer();
 
 	/**
-	 * Removes an account.
-	 *
-	 * @param accountJid JID of the account being removed
+	 * Called when the account is deleted from the server.
 	 */
-	void removeAccount(const QString &accountJid);
+	void handleAccountDeletedFromServer();
+
+	/**
+	 * Called when the account could not be deleted from the server.
+	 *
+	 * @param error error of the failed account deletion
+	 */
+	void handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error);
+
+	bool handleConnected();
+	void handleDisconnected();
 
 Q_SIGNALS:
 	/**
@@ -274,13 +279,6 @@ Q_SIGNALS:
 	 */
 	void credentialsNeeded();
 
-	/**
-	 * Emitted to remove an account.
-	 *
-	 * @param accountJid JID of the account being removed
-	 */
-	void removeAccountRequested(const QString &accountJid);
-
 private:
 	/**
 	 * Generates the JID's resource part with the set JID resource prefix and a suffix
@@ -290,6 +288,27 @@ private:
 	 * suffix should consist of after the dot
 	 */
 	QString generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters = 4) const;
+
+	/**
+	 * Removes an account.
+	 *
+	 * @param accountJid JID of the account being removed
+	 */
+	void removeAccount(const QString &accountJid);
+
+	/**
+	 * Deletes all account related settings.
+	 *
+	 * Settings stored in the settings file are also removed from it.
+	 */
+	void deleteSettings();
+
+	/**
+	 * Deletes all credentials.
+	 *
+	 * Credentials stored in the settings file are also removed from it.
+	 */
+	void deleteCredentials();
 
 	QMutex m_mutex;
 	Settings *m_settings;
@@ -305,6 +324,12 @@ private:
 
 	bool m_hasNewCredentials;
 	bool m_hasNewConnectionSettings;
+
+	// These variables are used for checking the state of an ongoing account deletion.
+	bool m_isAccountToBeDeletedFromClient = false;
+	bool m_isAccountToBeDeletedFromClientAndServer = false;
+	bool m_isAccountDeletedFromServer = false;
+	bool m_isClientDisconnectedBeforeAccountDeletionFromServer = true;
 
 	static AccountManager *s_instance;
 };

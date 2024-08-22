@@ -279,6 +279,28 @@ QFuture<void> OmemoController::reset()
 	return interface.future();
 }
 
+QFuture<void> OmemoController::resetLocally()
+{
+	QFutureInterface<void> interface(QFutureInterfaceBase::Started);
+
+	callVoidRemoteTask(
+		Kaidan::instance()->client(),
+		[this]() {
+			return std::pair {
+				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->resetOwnDeviceLocally(),
+				this
+			};
+		},
+		this,
+		[this, interface]() mutable {
+			m_isLoaded = false;
+			interface.reportFinished();
+		}
+	);
+
+	return interface.future();
+}
+
 QFuture<QString> OmemoController::ownKey(const QString &)
 {
 	QFutureInterface<QString> interface(QFutureInterfaceBase::Started);

@@ -7,6 +7,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "AccountManager.h"
+
 // Qt
 #include <QMutexLocker>
 #include <QSettings>
@@ -18,9 +19,11 @@
 #endif
 // Kaidan
 #include "AccountDb.h"
+#include "EncryptionController.h"
 #include "Globals.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
+#include "RegistrationManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
@@ -312,6 +315,144 @@ void AccountManager::storeConnectionData()
 	storeCustomConnectionSettings();
 }
 
+void AccountManager::deleteAccountFromClient()
+{
+	m_isAccountToBeDeletedFromClient = true;
+
+	// If the client is not yet disconnected, disconnect first and delete the account afterwards.
+	// Otherwise, delete the account directly from the client.
+	runOnThread(
+		Kaidan::instance()->client(),
+		[]() {
+			return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
+		},
+		this,
+		[this](bool authenticated) {
+			if (authenticated) {
+				await(EncryptionController::instance()->reset(), this, []() {
+					runOnThread(Kaidan::instance()->client(), []() {
+						Kaidan::instance()->client()->logOut();
+					});
+				});
+			} else {
+				runOnThread(Kaidan::instance()->client(), []() {
+					Kaidan::instance()->client()->logIn();
+				});
+			}
+		}
+	);
+}
+
+void AccountManager::deleteAccountFromClientAndServer()
+{
+	m_isAccountToBeDeletedFromClientAndServer = true;
+
+	// If the client is already connected, delete the account directly from the server.
+	// Otherwise, connect first and delete the account afterwards.
+	runOnThread(
+		Kaidan::instance()->client(),
+		[]() {
+			return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
+		},
+		this,
+		[this](bool authenticated) {
+			if (authenticated) {
+				runOnThread(Kaidan::instance()->client(), []() {
+					Kaidan::instance()->client()->registrationManager()->deleteAccount();
+				});
+			} else {
+				m_isClientDisconnectedBeforeAccountDeletionFromServer = true;
+
+				runOnThread(Kaidan::instance()->client(), []() {
+					Kaidan::instance()->client()->logIn();
+				});
+			}
+		}
+	);
+}
+
+void AccountManager::handleAccountDeletedFromServer()
+{
+	m_isAccountToBeDeletedFromClientAndServer = false;
+	m_isClientDisconnectedBeforeAccountDeletionFromServer = false;
+	m_isAccountDeletedFromServer = true;
+}
+
+void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
+{
+	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
+
+	m_isAccountToBeDeletedFromClientAndServer = false;
+
+	if (m_isClientDisconnectedBeforeAccountDeletionFromServer) {
+		m_isClientDisconnectedBeforeAccountDeletionFromServer = false;
+
+		runOnThread(Kaidan::instance()->client(), []() {
+			Kaidan::instance()->client()->logOut();
+		});
+	}
+}
+
+bool AccountManager::handleConnected()
+{
+	// If the account could not be deleted from the server because the client was disconnected,
+	// delete it now.
+	if (m_isAccountToBeDeletedFromClient) {
+		deleteAccountFromClient();
+		return true;
+	} else if (m_isAccountToBeDeletedFromClientAndServer) {
+		runOnThread(Kaidan::instance()->client(), []() {
+			Kaidan::instance()->client()->registrationManager()->deleteAccount();
+		});
+
+		return true;
+	}
+
+	return false;
+}
+
+void AccountManager::handleDisconnected()
+{
+	// Delete the account from the client if the client was connected and had to disconnect first or
+	// if the account was deleted from the server.
+	if (m_isAccountToBeDeletedFromClient) {
+		m_isAccountToBeDeletedFromClient = false;
+		removeAccount(m_jid);
+	} else if (m_isAccountDeletedFromServer) {
+		m_isAccountDeletedFromServer = false;
+
+		await(EncryptionController::instance()->resetLocally(), this, [this]() {
+			removeAccount(m_jid);
+		});
+	}
+}
+
+QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
+{
+	return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
+}
+
+void AccountManager::removeAccount(const QString &accountJid)
+{
+	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
+	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
+	AccountDb::instance()->removeAccount(accountJid);
+
+	deleteSettings();
+	deleteCredentials();
+}
+
+void AccountManager::deleteSettings()
+{
+	m_settings->remove({
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE),
+		QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED),
+		QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
+	});
+}
+
 void AccountManager::deleteCredentials()
 {
 	m_settings->remove({
@@ -331,30 +472,4 @@ void AccountManager::deleteCredentials()
 	resetCustomConnectionSettings();
 
 	Q_EMIT credentialsNeeded();
-}
-
-void AccountManager::deleteSettings()
-{
-	m_settings->remove({
-		QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE),
-		QStringLiteral(KAIDAN_SETTINGS_NOTIFICATIONS_MUTED),
-		QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
-		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
-		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
-	});
-}
-
-void AccountManager::removeAccount(const QString &accountJid)
-{
-	deleteSettings();
-	deleteCredentials();
-
-	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
-	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
-	AccountDb::instance()->removeAccount(accountJid);
-}
-
-QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
-{
-	return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
 }

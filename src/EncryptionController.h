@@ -65,6 +65,7 @@ public:
 
 	QFuture<void> unload();
 	QFuture<void> reset();
+	QFuture<void> resetLocally();
 
 private:
 	static EncryptionController *s_instance;

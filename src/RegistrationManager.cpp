@@ -16,7 +16,6 @@
 #include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
-#include "Settings.h"
 
 RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
@@ -35,8 +34,8 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
 	connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationManager::handleRegistrationFailed);
 
 	// account deletion
-	connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, m_clientWorker, &ClientWorker::handleAccountDeletionFromServerFailed);
-	connect(m_manager, &QXmppRegistrationManager::accountDeleted, m_clientWorker, &ClientWorker::handleAccountDeletedFromServer);
+	connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, AccountManager::instance(), &AccountManager::handleAccountDeletionFromServerFailed);
+	connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountManager::instance(), &AccountManager::handleAccountDeletedFromServer);
 
 	// password change
 	connect(this, &RegistrationManager::changePasswordRequested,

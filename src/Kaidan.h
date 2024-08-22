@@ -339,16 +339,6 @@ public:
 	Q_SIGNAL void avatarChangeSucceeded();
 
 	/**
-	 * Deletes the account data from the client and server.
-	 */
-	Q_SIGNAL void deleteAccountFromClientAndServer();
-
-	/**
-	 * Deletes the account data from the configuration file and database.
-	 */
-	Q_SIGNAL void deleteAccountFromClient();
-
-	/**
 	 * Set current connection state
 	 */
 	Q_INVOKABLE void setConnectionState(Enums::ConnectionState connectionState);

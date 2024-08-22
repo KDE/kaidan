@@ -1058,7 +1058,7 @@ DetailsContent {
 					onClicked: {
 						visible = false
 						accountRemovalButton.enabled = false
-						Kaidan.deleteAccountFromClient()
+						AccountManager.deleteAccountFromClient()
 					}
 				}
 			}
@@ -1084,7 +1084,7 @@ DetailsContent {
 						visible = false
 						accountRemovalButton.enabled = false
 						accountDeletionButton.enabled = false
-						Kaidan.deleteAccountFromClientAndServer()
+						AccountManager.deleteAccountFromClientAndServer()
 					}
 				}
 			}

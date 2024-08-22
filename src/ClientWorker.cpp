@@ -142,10 +142,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 			m_client->setActive(false);
 		}
 	});
-
-	// account deletion
-	connect(Kaidan::instance(), &Kaidan::deleteAccountFromClient, this, &ClientWorker::deleteAccountFromClient);
-	connect(Kaidan::instance(), &Kaidan::deleteAccountFromClientAndServer, this, &ClientWorker::deleteAccountFromClientAndServer);
 }
 
 void ClientWorker::startTask(const std::function<void ()> &task)
@@ -301,67 +297,6 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 	}
 }
 
-void ClientWorker::deleteAccountFromClientAndServer()
-{
-	m_isAccountToBeDeletedFromClientAndServer = true;
-
-	// If the client is already connected, delete the account directly from the server.
-	// Otherwise, connect first and delete the account afterwards.
-	if (m_client->isAuthenticated()) {
-		m_registrationManager->deleteAccount();
-	} else {
-		m_isClientConnectedBeforeAccountDeletionFromServer = false;
-		logIn();
-	}
-}
-
-void ClientWorker::deleteAccountFromClient()
-{
-	await(
-		EncryptionController::instance(),
-		[]() {
-			return EncryptionController::instance()->reset();
-		},
-		this,
-		[this]() {
-			// If the client is already disconnected, delete the account directly from the client.
-			// Otherwise, disconnect first and delete the account afterwards.
-			if (!m_client->isAuthenticated()) {
-				AccountManager::instance()->removeAccount(m_client->configuration().jidBare());
-				m_isAccountToBeDeletedFromClient = false;
-			} else {
-				await(
-					EncryptionController::instance(),
-					[]() {
-						return EncryptionController::instance()->reset();
-					},
-					this,
-					[this]() {
-						m_isAccountToBeDeletedFromClient = true;
-						logOut();
-					}
-				);
-			}
-		}
-	);
-
-}
-
-void ClientWorker::handleAccountDeletedFromServer()
-{
-	m_isAccountDeletedFromServer = true;
-}
-
-void ClientWorker::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
-{
-	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
-
-	m_isAccountToBeDeletedFromClientAndServer = false;
-
-	if (!m_isClientConnectedBeforeAccountDeletionFromServer)
-		logOut();
-}
-
 void ClientWorker::onConnected()
 {
 	// no mutex needed, because this is called from updateClient()
@@ -370,58 +305,65 @@ void ClientWorker::onConnected()
 	// If there was an error before, notify about its absence.
 	Q_EMIT connectionErrorChanged(ClientWorker::NoError);
 
-	// If the account could not be deleted from the server because the client was
-	// disconnected, delete it now.
-	if (m_isAccountToBeDeletedFromClientAndServer) {
-		m_registrationManager->deleteAccount();
-		return;
-	}
+	runOnThread(
+		AccountManager::instance(),
+		[]() {
+			return AccountManager::instance()->handleConnected();
+		},
+		this,
+		[this](bool handled) {
+			if (handled) {
+				return;
+			}
 
-	// Try to complete pending tasks which could not be completed while the client was
-	// offline and skip further normal tasks if at least one was completed after a login
-	// with old credentials.
-	if (startPendingTasks())
-		return;
+			// Try to complete pending tasks which could not be completed while the client was
+			// offline and skip further normal tasks if at least one was completed after a login
+			// with old credentials.
+			if (startPendingTasks())
+				return;
 
-	// If the client was connecting during a disconnection attempt, disconnect it now.
-	if (m_isDisconnecting) {
-		m_isDisconnecting = false;
-		logOut();
-		return;
-	}
+			// If the client was connecting during a disconnection attempt, disconnect it now.
+			if (m_isDisconnecting) {
+				m_isDisconnecting = false;
+				logOut();
+				return;
+			}
 
-	// The following tasks are only done after a login with new credentials or connection settings.
-	if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
-		if (AccountManager::instance()->hasNewCredentials()) {
-			Q_EMIT loggedInWithNewCredentials();
+			// The following tasks are only done after a login with new credentials or connection
+			// settings.
+			if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
+				if (AccountManager::instance()->hasNewCredentials()) {
+					Q_EMIT loggedInWithNewCredentials();
+				}
+
+				// Store the valid settings.
+				AccountManager::instance()->storeConnectionData();
+			}
+
+			// Enable auto reconnection so that the client is always trying to reconnect
+			// automatically in case of a connection outage.
+			m_client->configuration().setAutoReconnectionEnabled(true);
+
+			// Send message that could not be sent yet because the client was offline.
+			runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+				MessageController::instance()->sendPendingMessages();
+			});
+
+			// Send read markers that could not be sent yet because the client was offline.
+			runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
+				RosterModel::instance()->sendPendingReadMarkers(jid);
+			});
+
+			// Send message reactions that could not be sent yet because the client was offline.
+			runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+				MessageController::instance()->sendPendingMessageReactions(jid);
+			});
+
+			runOnThread(EncryptionController::instance(), []() {
+				EncryptionController::instance()->setUp();
+			});
 		}
-
-		// Store the valid settings.
-		AccountManager::instance()->storeConnectionData();
-	}
-
-	// Enable auto reconnection so that the client is always trying to reconnect
-	// automatically in case of a connection outage.
-	m_client->configuration().setAutoReconnectionEnabled(true);
-
-	// Send message that could not be sent yet because the client was offline.
-	runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
-		MessageController::instance()->sendPendingMessages();
-	});
-
-	// Send read markers that could not be sent yet because the client was offline.
-	runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
-		RosterModel::instance()->sendPendingReadMarkers(jid);
-	});
-
-	// Send message reactions that could not be sent yet because the client was offline.
-	runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
-		MessageController::instance()->sendPendingMessageReactions(jid);
-	});
-
-	runOnThread(EncryptionController::instance(), []() {
-		EncryptionController::instance()->setUp();
-	});
+	);
 }
 
 void ClientWorker::onDisconnected()
@@ -433,14 +375,9 @@ void ClientWorker::onDisconnected()
 		return;
 	}
 
-	// Delete the account from the client if the client was connected and had to
-	// disconnect first or if the account was deleted from the server.
-	if (m_isAccountToBeDeletedFromClient || (m_isAccountToBeDeletedFromClientAndServer && m_isAccountDeletedFromServer)) {
-		m_isAccountToBeDeletedFromClientAndServer = false;
-		m_isAccountDeletedFromServer = false;
-
-		deleteAccountFromClient();
-	}
+	runOnThread(AccountManager::instance(), []() {
+		AccountManager::instance()->handleDisconnected();
+	});
 }
 
 void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
