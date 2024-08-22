@@ -9,11 +9,10 @@
 # Txaume <txaumevw@gmail.com>, 2019.
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2020.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2022, 2023.
-# Josep M. Ferrer <txemaq@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-08-14 10:09+0200\n"
+"PO-Revision-Date: 2024-08-21 09:54+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1884,40 +1883,34 @@ msgid "%1 has read up to this point"
 msgstr "%1 ha llegit fins aquest punt"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "Elimina el fitxer"
+msgstr "Elimina el fitxer seleccionat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "Reactions"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "Reaccions"
+msgstr "Reacciona"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:91
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Respon"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Cita"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:117
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr ""
+msgstr "Copia"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Edita"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
@@ -1930,12 +1923,9 @@ msgid "Remove from this device"
 msgstr "Elimina d'aquest dispositiu"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "Tanca la barra de cerca de missatges"
+msgstr "Tanca la cerca"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -1948,12 +1938,9 @@ msgid "Search down"
 msgstr "Cerca avall"
 
 #: src/qml/elements/ChatPageSendingPane.qml:82
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Cancel·la"
+msgstr "Cancel·la la resposta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
@@ -2520,17 +2507,11 @@ msgid "Adding contact…"
 msgstr "Afegeix un contacte…"
 
 #: src/qml/elements/ReferencedMessage.qml:71
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "Jo:"
+msgstr "Jo"
 
 #: src/qml/elements/ReferencedMessage.qml:81
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Multimèdia"
@@ -3420,133 +3401,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy message"
-#~ msgstr "Copia el missatge"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Edit message"
-#~ msgstr "Edita el missatge"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy download URL"
-#~ msgstr "Copia l'URL de baixada"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Quote message"
-#~ msgstr "Cita el missatge"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Delete file"
-#~ msgstr "Suprimeix el fitxer"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Scan the QR codes of <b>your</b> devices to encrypt for them"
-#~ msgstr ""
-#~ "Escanegeu els codis QR dels <b>vostres</b> dispositius per a encriptar-los"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Scan the QR codes of <b>your</b> devices for maximum security"
-#~ msgstr ""
-#~ "Escanegeu els codis QR dels <b>vostres</b> dispositius per a una "
-#~ "seguretat màxima"
-
-#~ msgctxt "MessageReactionDetailsSheet|"
-#~ msgid "Own:"
-#~ msgstr "Propietat:"
-
-#~ msgctxt "MessageReactionDetailsSheet|"
-#~ msgid "%1 has been sent"
-#~ msgstr "S'ha enviat %1"
-
-#~ msgctxt "MessageReactionDetailsSheet|"
-#~ msgid "%1 has been delivered"
-#~ msgstr "S'ha lliurat %1"
-
-#~ msgctxt "RosterFilteringArea|"
-#~ msgid "Filter by availability"
-#~ msgstr "Filtra per disponibilitat"
-
-#~ msgctxt "GlobalDrawer|"
-#~ msgid "Invite friends"
-#~ msgstr "Convideu a amics"
-
-#~ msgctxt "KeyAuthenticationPage|"
-#~ msgid "Step 1: Scan your <b>contact's</b> QR code"
-#~ msgstr "Pas 1: Escanegeu el codi QR del vostre <b>contacte</b>"
-
-#~ msgctxt "KeyAuthenticationPage|"
-#~ msgid "Step 2: Let your contact scan <b>your</b> QR code"
-#~ msgstr ""
-#~ "Pas 2: Permeteu que el vostre contacte escanegi el <b>vostre</b> codi QR"
-
-#~ msgctxt "ChatSupportSheet|"
-#~ msgid "Support Group"
-#~ msgstr "Grup de suport"
-
-#~ msgctxt "ChatSupportSheet|"
-#~ msgid "Support"
-#~ msgstr "Suport"
-
-#~ msgctxt "DeviceSwitchingPage|"
-#~ msgid "Transfer account to another device"
-#~ msgstr "Transfereix el compte a un altre dispositiu"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Log in to your XMPP account"
-#~ msgstr "Inici de sessió al vostre compte XMPP"
-
-#~ msgctxt "LoginPage|"
-#~ msgid "Connecting…"
-#~ msgstr "S'està connectant…"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Continue without QR code"
-#~ msgstr "Continua sense codi QR"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "Scan the QR code from your existing device to transfer your account."
-#~ msgstr ""
-#~ "Escanegeu el codi QR des del dispositiu existent per a transferir el "
-#~ "vostre compte."
-
-#~ msgctxt "PasswordView|"
-#~ msgid ""
-#~ "Your password is used to log in to your account.\n"
-#~ "If you don't enter a password, the randomly generated and already "
-#~ "displayed one is used.\n"
-#~ "Don't use passwords you're already using somewhere else!"
-#~ msgstr ""
-#~ "La contrasenya s'utilitza per a iniciar la sessió al vostre compte.\n"
-#~ "Si no introduïu cap contrasenya, s'utilitza la generada aleatòriament i "
-#~ "que ja es mostra.\n"
-#~ "No utilitzeu contrasenyes que ja utilitzeu en un altre lloc!"
-
-#~ msgctxt "RegistrationDecisionPage|"
-#~ msgid "Register"
-#~ msgstr "Registra"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Set up"
-#~ msgstr "Configura"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Registreu un compte nou"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Use an existing account"
-#~ msgstr "Utilitza un compte existent"
-
-#~ msgctxt "StartPage|"
-#~ msgid "Let's start"
-#~ msgstr "Comencem"
-
-#~ msgctxt "QrCodePage|"
-#~ msgid "Show explanation"
-#~ msgstr "Mostra una explicació"
-
-#~ msgctxt "QrCodePage|"
-#~ msgid "Adding contact…"
-#~ msgstr "Afegeix un contacte…"
