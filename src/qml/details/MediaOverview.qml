@@ -28,7 +28,6 @@ Controls.Control {
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 0
-	Component.onCompleted: loadDownloadedFiles()
 	contentItem: GridView {
 		implicitHeight: contentHeight
 		boundsMovement: Flickable.StopAtBounds
