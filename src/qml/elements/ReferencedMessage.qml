@@ -87,7 +87,7 @@ RowLayout {
 						id: bodyTextMetrics
 						text: Utils.removeNewLinesFromString(root.body)
 						elide: Text.ElideRight
-						elideWidth: root.maximumWidth - avatar.width - contentArea.spacing * 2
+						elideWidth: root.maximumWidth - contentArea.parent.leftPadding - avatar.width - contentArea.spacing * 2 - contentArea.parent.rightPadding
 					}
 				}
 			}
