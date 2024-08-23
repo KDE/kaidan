@@ -249,6 +249,7 @@ public:
 
 	QString relevantId() const;
 	QString senderJid() const;
+	bool isServerMessage() const;
 	bool isGroupChatMessage() const;
 
 	// Text to be shown for the user depending on the message's content

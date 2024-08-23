@@ -24,6 +24,7 @@
 #include <QXmppMixInvitation.h>
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
+#include <QXmppUtils.h>
 
 #include "Algorithms.h"
 #include "Globals.h"
@@ -318,7 +319,7 @@ QString Message::relevantId() const
 		return replaceId;
 	}
 
-	if (!stanzaId.isEmpty() && (isOwn || isGroupChatMessage())) {
+	if (!stanzaId.isEmpty() && (isOwn || isServerMessage() || isGroupChatMessage())) {
 		return stanzaId;
 	}
 
@@ -340,6 +341,11 @@ QString Message::senderJid() const
 	}
 
 	return chatJid;
+}
+
+bool Message::isServerMessage() const
+{
+	return QXmppUtils::jidToDomain(accountJid) == chatJid;
 }
 
 bool Message::isGroupChatMessage() const
