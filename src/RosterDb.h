@@ -36,8 +36,8 @@ public:
 	                const std::function<void (RosterItem &)> &updateItem);
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
 
+	QFuture<void> removeItem(const QString &accountJid, const QString &jid);
 	QFuture<void> removeItems(const QString &accountJid);
-	QFuture<void> removeItems(const QString &accountJid, const QString &jid);
 	QFuture<void> replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
 	QFuture<QVector<RosterItem>> fetchItems();
 

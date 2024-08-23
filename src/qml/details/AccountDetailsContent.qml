@@ -674,7 +674,7 @@ DetailsContent {
 						}
 					}
 
-					function onRemoveItemsRequested(accountJid, jid) {
+					function onRemoveItemRequested(accountJid, jid) {
 						if (accountJid === jid) {
 							notesAdditionArea.visible = true
 						}

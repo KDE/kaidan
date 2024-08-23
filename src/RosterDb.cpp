@@ -259,7 +259,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 				replaceItem(oldItem, items[oldItem.jid]);
 			} else {
 				// item is not included in newJids -> delete
-				removeItems({}, oldItem.jid);
+				removeItem(oldItem.accountJid, oldItem.jid);
 			}
 		}
 
@@ -269,6 +269,24 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 		}
 
 		commit();
+	});
+}
+
+QFuture<void> RosterDb::removeItem(const QString &accountJid, const QString &jid)
+{
+	return run([this, accountJid, jid]() {
+		auto query = createQuery();
+
+		execQuery(
+			query,
+			QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+			"WHERE accountJid = :accountJid AND jid = :jid"),
+			{ { u":accountJid", accountJid },
+			  { u":jid", jid } }
+		);
+
+		removeGroups(accountJid, jid);
+		GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 	});
 }
 
@@ -286,24 +304,6 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid)
 
 		removeGroups(accountJid);
 		GroupChatUserDb::instance()->_removeUsers(accountJid);
-	});
-}
-
-QFuture<void> RosterDb::removeItems(const QString &accountJid, const QString &jid)
-{
-	return run([this, accountJid, jid]() {
-		auto query = createQuery();
-
-		execQuery(
-			query,
-			QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-			"WHERE accountJid = :accountJid AND jid = :jid"),
-			{ { u":accountJid", accountJid },
-			  { u":jid", jid } }
-		);
-
-		removeGroups(accountJid, jid);
-		GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 	});
 }
 

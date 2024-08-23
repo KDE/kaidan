@@ -160,14 +160,8 @@ Q_SIGNALS:
 	void updateItemRequested(const QString &jid,
 	                         const std::function<void (RosterItem &)> &updateItem);
 	void replaceItemsRequested(const QHash<QString, RosterItem> &items);
-
-	/**
-	 * Emitted to remove all roster items of an account or a specific roster item.
-	 *
-	 * @param accountJid JID of the account whose roster items are being removed
-	 * @param jid JID of the roster item being removed (optional)
-	 */
-	void removeItemsRequested(const QString &accountJid, const QString &jid = {});
+	void removeItemRequested(const QString &accountJid, const QString &jid);
+	void removeItemsRequested(const QString &accountJid);
 
 private:
 	void handleItemsFetched(const QVector<RosterItem> &items);
@@ -179,13 +173,9 @@ private:
 						   const Message &message,
 						   bool onlyUpdateIfNewerOrAtSameAge = true);
 
-	/**
-	 * Removes all roster items of an account or a specific roster item.
-	 *
-	 * @param accountJid JID of the account whose roster items are being removed
-	 * @param jid JID of the roster item being removed (optional)
-	 */
-	void removeItems(const QString &accountJid, const QString &jid = {});
+
+	void removeItem(const QString &accountJid, const QString &jid);
+	void removeItems(const QString &accountJid);
 
 	void handleAccountChanged();
 

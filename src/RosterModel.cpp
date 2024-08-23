@@ -67,13 +67,14 @@ RosterModel::RosterModel(QObject *parent)
 
 	connect(AccountManager::instance(), &AccountManager::accountChanged, this, &RosterModel::handleAccountChanged);
 
-	connect(this, &RosterModel::removeItemsRequested, this, [this](const QString &accountJid, const QString &chatJid) {
-		RosterDb::instance()->removeItems(accountJid, chatJid);
-		removeItems(accountJid, chatJid);
+	connect(this, &RosterModel::removeItemRequested, this, [this](const QString &accountJid, const QString &chatJid) {
+		RosterDb::instance()->removeItem(accountJid, chatJid);
+		removeItem(accountJid, chatJid);
+	});
 
-		if (accountJid == ChatController::instance()->accountJid() && chatJid == ChatController::instance()->chatJid()) {
-			Q_EMIT Kaidan::instance()->closeChatPageRequested();
-		}
+	connect(this, &RosterModel::removeItemsRequested, this, [this](const QString &accountJid) {
+		RosterDb::instance()->removeItems(accountJid);
+		removeItems(accountJid);
 	});
 }
 
@@ -616,12 +617,12 @@ void RosterModel::setAutomaticMediaDownloadsRule(const QString &, const QString 
 	});
 }
 
-void RosterModel::removeItems(const QString &accountJid, const QString &jid)
+void RosterModel::removeItem(const QString &accountJid, const QString &jid)
 {
 	for (int i = 0; i < m_items.size(); i++) {
 		const RosterItem &item = m_items.at(i);
 
-		if (AccountManager::instance()->jid() == accountJid && (item.jid.isEmpty() || item.jid == jid)) {
+		if (item.accountJid == accountJid && item.jid == jid) {
 			auto oldGroupCount = groups().size();
 
 			beginRemoveRows(QModelIndex(), i, i);
@@ -638,7 +639,41 @@ void RosterModel::removeItems(const QString &accountJid, const QString &jid)
 				Q_EMIT groupsChanged();
 			}
 
+			if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
+				Q_EMIT Kaidan::instance()->closeChatPageRequested();
+			}
+
 			return;
+		}
+	}
+}
+
+void RosterModel::removeItems(const QString &accountJid)
+{
+	for (int i = 0; i < m_items.size(); i++) {
+		const RosterItem &item = m_items.at(i);
+
+		if (item.accountJid == accountJid) {
+			auto oldGroupCount = groups().size();
+
+			beginRemoveRows(QModelIndex(), i, i);
+			m_items.remove(i);
+			endRemoveRows();
+
+			const auto &jid = item.jid;
+			RosterItemNotifier::instance().notifyWatchers(jid, std::nullopt);
+
+			if (!accountJids().contains(accountJid)) {
+				Q_EMIT accountJidsChanged();
+			}
+
+			if (oldGroupCount < groups().size()) {
+				Q_EMIT groupsChanged();
+			}
+
+			if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
+				Q_EMIT Kaidan::instance()->closeChatPageRequested();
+			}
 		}
 	}
 }

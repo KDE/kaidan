@@ -79,7 +79,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
 		const auto accountJid = m_client->configuration().jidBare();
 		MessageDb::instance()->removeAllMessagesFromChat(accountJid, jid);
-		Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid, jid);
+		Q_EMIT RosterModel::instance()->removeItemRequested(accountJid, jid);
 
 		runOnThread(EncryptionController::instance(), [jid]() {
 			EncryptionController::instance()->removeContactDevices(jid);
