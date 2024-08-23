@@ -7,6 +7,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "RosterManager.h"
+
+// QXmpp
+#include <QXmppRosterManager.h>
+#include <QXmppTask.h>
 // Kaidan
 #include "AvatarFileStorage.h"
 #include "ChatHintModel.h"
@@ -14,12 +18,11 @@
 #include "GroupChatController.h"
 #include "Kaidan.h"
 #include "MessageDb.h"
+#include "RosterDb.h"
 #include "RosterModel.h"
 #include "Settings.h"
 #include "VCardManager.h"
-// QXmpp
-#include <QXmppRosterManager.h>
-#include <QXmppTask.h>
+
 
 RosterManager::RosterManager(ClientWorker *clientWorker,
                              QXmppClient *client,
@@ -39,7 +42,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		rosterItem.encryption = Kaidan::instance()->settings()->encryption();
 		rosterItem.automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
 		rosterItem.lastMessageDateTime = QDateTime::currentDateTimeUtc();
-		Q_EMIT RosterModel::instance()->addItemRequested(rosterItem);
+		RosterDb::instance()->addItem(rosterItem);
 
 		// Requesting the group chat's information is done here and not within the joining method of
 		// the group chat controller to cover both cases:

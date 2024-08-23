@@ -142,51 +142,17 @@ QSqlRecord RosterDb::createUpdateRecord(const RosterItem &oldItem, const RosterI
 	return rec;
 }
 
-QFuture<void> RosterDb::addItem(const RosterItem &item)
+QFuture<void> RosterDb::addItem(RosterItem item)
 {
-	return addItems({item});
-}
+	return run([this, item]() mutable {
+		fetchLastMessage(item, _fetchItems());
 
-QFuture<void> RosterDb::addItems(const QVector<RosterItem> &items)
-{
-	return run([this, items]() {
-		auto query = createQuery();
-		transaction();
-
-		prepareQuery(query, sqlDriver().sqlStatement(
-			QSqlDriver::InsertStatement,
-			QStringLiteral(DB_TABLE_ROSTER),
-			sqlRecord(QStringLiteral(DB_TABLE_ROSTER)),
-			true
-		));
-
-		for (const auto &item : items) {
-			query.addBindValue(item.accountJid);
-			query.addBindValue(item.jid);
-			query.addBindValue(item.name);
-			query.addBindValue(item.subscription);
-			query.addBindValue(item.groupChatParticipantId);
-			query.addBindValue(item.groupChatName);
-			query.addBindValue(item.groupChatDescription);
-			query.addBindValue(static_cast<int>(item.groupChatFlags));
-			query.addBindValue(item.encryption);
-			query.addBindValue(item.unreadMessages);
-			query.addBindValue(QString()); // lastReadOwnMessageId
-			query.addBindValue(QString()); // lastReadContactMessageId
-			query.addBindValue(QString()); // latestGroupChatMessageStanzaId
-			query.addBindValue(QDateTime()); // latestGroupChatMessageStanzaTimestamp
-			query.addBindValue(item.readMarkerPending);
-			query.addBindValue(item.pinningPosition);
-			query.addBindValue(item.chatStateSendingEnabled);
-			query.addBindValue(item.readMarkerSendingEnabled);
-			query.addBindValue(static_cast<int>(item.notificationRule));
-			query.addBindValue(static_cast<int>(item.automaticMediaDownloadsRule));
-			execQuery(query);
-
-			addGroups(item.accountJid, item.jid, item.groups);
+		if (!item.lastMessage.isEmpty()) {
+			item.unreadMessages = 1;
 		}
 
-		commit();
+		Q_EMIT itemAdded(item);
+		_addItem(item);
 	});
 }
 
@@ -265,7 +231,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 
 		// now add the completely new JIDs
 		for (const QString &jid : newJids) {
-			addItem(items[jid]);
+			_addItem(items[jid]);
 		}
 
 		commit();
@@ -331,43 +297,7 @@ QFuture<void> RosterDb::replaceItem(const RosterItem &oldItem, const RosterItem 
 QFuture<QVector<RosterItem>> RosterDb::fetchItems()
 {
 	return run([this]() {
-		auto query = createQuery();
-		execQuery(query, QStringLiteral("SELECT * FROM roster"));
-
-		QVector<RosterItem> items;
-		parseItemsFromQuery(query, items);
-
-		for (auto &item : items) {
-			auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
-			item.lastMessageDateTime = lastMessage.timestamp;
-			item.lastMessage = lastMessage.previewText();
-			item.lastMessageDeliveryState = lastMessage.deliveryState;
-			item.lastMessageIsOwn = lastMessage.isOwn;
-
-			if (item.isGroupChat()) {
-				if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(item.accountJid, item.jid, lastMessage.groupChatSenderId)) {
-					if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
-						item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
-					} else {
-						const auto itr = std::find_if(items.cbegin(), items.cend(), [lastMessageSenderJid](const RosterItem &rosterItem) {
-							return rosterItem.jid == lastMessageSenderJid;
-						});
-
-						if(itr == items.cend()) {
-							item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
-						} else {
-							item.lastMessageGroupChatSenderName = itr->displayName();
-						}
-					}
-				} else {
-					item.lastMessageGroupChatSenderName = lastMessage.groupChatSenderId;
-				}
-			}
-		}
-
-		fetchGroups(items);
-
-		return items;
+		return _fetchItems();
 	});
 }
 
@@ -390,6 +320,20 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 		) +
 		simpleWhereStatement(&driver, keyValuePairs)
 	);
+}
+
+QVector<RosterItem> RosterDb::_fetchItems()
+{
+	auto query = createQuery();
+	execQuery(query, QStringLiteral("SELECT * FROM roster"));
+
+	QVector<RosterItem> items;
+	parseItemsFromQuery(query, items);
+
+	fetchLastMessages(items);
+	fetchGroups(items);
+
+	return items;
 }
 
 void RosterDb::fetchGroups(QVector<RosterItem> &items)
@@ -501,4 +445,71 @@ void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
 		{ { u":accountJid", accountJid },
 		  { u":chatJid", jid } }
 	);
+}
+
+void RosterDb::fetchLastMessages(QVector<RosterItem> &items)
+{
+	for (auto &item : items) {
+		fetchLastMessage(item, items);
+	}
+}
+
+void RosterDb::fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items)
+{
+	auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
+	item.lastMessageDateTime = lastMessage.timestamp;
+	item.lastMessage = lastMessage.previewText();
+	item.lastMessageDeliveryState = lastMessage.deliveryState;
+	item.lastMessageIsOwn = lastMessage.isOwn;
+
+	if (item.isGroupChat()) {
+		if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(item.accountJid, item.jid, lastMessage.groupChatSenderId)) {
+			if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
+				item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
+			} else {
+				const auto itr = std::find_if(items.cbegin(), items.cend(), [lastMessageSenderJid](const RosterItem &rosterItem) {
+					return rosterItem.jid == lastMessageSenderJid;
+				});
+
+				if(itr == items.cend()) {
+					item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
+				} else {
+					item.lastMessageGroupChatSenderName = itr->displayName();
+				}
+			}
+		} else {
+			item.lastMessageGroupChatSenderName = lastMessage.groupChatSenderId;
+		}
+	}
+}
+
+void RosterDb::_addItem(const RosterItem &item)
+{
+	insert(
+		DB_TABLE_ROSTER,
+		{
+			{ u"accountJid", item.accountJid },
+			{ u"jid", item.jid },
+			{ u"name", item.name },
+			{ u"subscription", item.name },
+			{ u"groupChatParticipantId", item.groupChatParticipantId },
+			{ u"groupChatName", item.groupChatName },
+			{ u"groupChatDescription", item.groupChatDescription },
+			{ u"groupChatFlags", static_cast<int>(item.groupChatFlags) },
+			{ u"encryption", item.encryption },
+			{ u"unreadMessages", item.unreadMessages },
+			{ u"lastReadOwnMessageId", QString() },
+			{ u"lastReadContactMessageId", QString() },
+			{ u"latestGroupChatMessageStanzaId", QString() },
+			{ u"latestGroupChatMessageStanzaTimestamp", QDateTime() },
+			{ u"readMarkerPending", item.readMarkerPending },
+			{ u"pinningPosition", item.pinningPosition },
+			{ u"chatStateSendingEnabled", item.chatStateSendingEnabled },
+			{ u"readMarkerSendingEnabled", item.readMarkerSendingEnabled },
+			{ u"notificationRule", static_cast<int>(item.notificationRule) },
+			{ u"automaticMediaDownloadsRule", static_cast<int>(item.automaticMediaDownloadsRule) },
+		}
+	);
+
+	addGroups(item.accountJid, item.jid, item.groups);
 }

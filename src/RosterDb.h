@@ -30,8 +30,8 @@ public:
 	static QSqlRecord createUpdateRecord(const RosterItem &oldItem,
 	                                     const RosterItem &newItem);
 
-	QFuture<void> addItem(const RosterItem &item);
-	QFuture<void> addItems(const QVector<RosterItem> &items);
+	QFuture<void> addItem(RosterItem item);
+	Q_SIGNAL void itemAdded(const RosterItem &item);
 	QFuture<void> updateItem(const QString &jid,
 	                const std::function<void (RosterItem &)> &updateItem);
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
@@ -45,11 +45,18 @@ public:
 private:
 	void updateItemByRecord(const QString &jid, const QSqlRecord &record);
 
+	QVector<RosterItem> _fetchItems();
+
 	void fetchGroups(QVector<RosterItem> &items);
 	void addGroups(const QString &accountJid, const QString &jid, const QVector<QString> &groups);
 	void updateGroups(const RosterItem &oldItem, const RosterItem &newItem);
 	void removeGroups(const QString &accountJid);
 	void removeGroups(const QString &accountJid, const QString &jid);
+
+	void fetchLastMessages(QVector<RosterItem> &items);
+	void fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items);
+
+	void _addItem(const RosterItem &item);
 
 	static RosterDb *s_instance;
 };

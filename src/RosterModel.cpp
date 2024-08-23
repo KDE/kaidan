@@ -37,8 +37,7 @@ RosterModel::RosterModel(QObject *parent)
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
-	connect(this, &RosterModel::addItemRequested, this, &RosterModel::addItem);
-	connect(this, &RosterModel::addItemRequested, RosterDb::instance(), &RosterDb::addItem);
+	connect(RosterDb::instance(), &RosterDb::itemAdded, this, &RosterModel::addItem);
 
 	connect(this, &RosterModel::updateItemRequested,
 	        this, &RosterModel::updateItem);
