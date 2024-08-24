@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2024-08-18 14:19+0200\n"
+"PO-Revision-Date: 2024-08-22 16:34+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -1902,43 +1902,34 @@ msgid "%1 has read up to this point"
 msgstr "%1 a lu jusqu'à cet endroit."
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "Supprimer un fichier"
+msgstr "Supprimer le fichier sélectionné"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "Reactions"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "Réactions"
+msgstr "Réagir"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:91
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Répondre"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Citer"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:117
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Copy URL"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr "Copier une URL"
+msgstr "Copier"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Modifier"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
@@ -1951,12 +1942,9 @@ msgid "Remove from this device"
 msgstr "Supprimer de ce périphérique"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "Fermer la barre de recherche de messages"
+msgstr "Terminer la recherche"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -1969,12 +1957,9 @@ msgid "Search down"
 msgstr "Rechercher vers le bas"
 
 #: src/qml/elements/ChatPageSendingPane.qml:82
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Annuler"
+msgstr "Annuler la réponse"
 
 #: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
@@ -2542,17 +2527,11 @@ msgid "Adding contact…"
 msgstr "Ajout d'un contact..."
 
 #: src/qml/elements/ReferencedMessage.qml:71
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "Moi :"
+msgstr "Moi"
 
 #: src/qml/elements/ReferencedMessage.qml:81
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Média"

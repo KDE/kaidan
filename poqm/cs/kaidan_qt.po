@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-14 15:47+0200\n"
+"PO-Revision-Date: 2024-08-21 13:31+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -1802,37 +1802,34 @@ msgid "%1 has read up to this point"
 msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "Odstranit soubor"
+msgstr "Odstranit vybraný soubor"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr ""
+msgstr "Zareagovat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:91
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Odpovědět"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Citovat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:117
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Upravit"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
@@ -1847,7 +1844,7 @@ msgstr "Odstranit z tohoto zařízení"
 #: src/qml/elements/ChatPageSearchView.qml:48
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr ""
+msgstr "Zavřít vyhledávání"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -1860,12 +1857,9 @@ msgid "Search down"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:82
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Zrušit"
+msgstr "Zrušit odpověď"
 
 #: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
@@ -2424,17 +2418,11 @@ msgid "Adding contact…"
 msgstr "Přidávám kontakt…"
 
 #: src/qml/elements/ReferencedMessage.qml:71
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "Já:"
+msgstr "Já"
 
 #: src/qml/elements/ReferencedMessage.qml:81
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Média"
@@ -3280,15 +3268,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Copy message"
-#~ msgstr "Kopírovat zprávu"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Edit message"
-#~ msgstr "Upravit zprávu"
-
-#~ msgctxt "ChatMessageContextMenu|"
-#~ msgid "Delete file"
-#~ msgstr "Smazat soubor"
