@@ -35,6 +35,15 @@ class AccountManager : public QObject
 	Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
 
 public:
+	enum class DeletionState {
+		NotToBeDeleted = 1 << 0,
+		ToBeDeletedFromClient = 1 << 1,
+		ToBeDeletedFromServer = 1 << 2,
+		DeletedFromServer = 1 << 3,
+		ClientDisconnectedBeforeDeletionFromServer = 1 << 4,
+	};
+	Q_DECLARE_FLAGS(DeletionStates, DeletionState)
+
 	static AccountManager *instance();
 
 	AccountManager(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
@@ -326,10 +335,8 @@ private:
 	bool m_hasNewConnectionSettings;
 
 	// These variables are used for checking the state of an ongoing account deletion.
-	bool m_isAccountToBeDeletedFromClient = false;
-	bool m_isAccountToBeDeletedFromClientAndServer = false;
-	bool m_isAccountDeletedFromServer = false;
-	bool m_isClientDisconnectedBeforeAccountDeletionFromServer = true;
+	DeletionStates m_deletionStates = DeletionState::NotToBeDeleted;
 
 	static AccountManager *s_instance;
 };
+Q_DECLARE_OPERATORS_FOR_FLAGS(AccountManager::DeletionStates)

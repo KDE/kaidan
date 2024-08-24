@@ -317,7 +317,7 @@ void AccountManager::storeConnectionData()
 
 void AccountManager::deleteAccountFromClient()
 {
-	m_isAccountToBeDeletedFromClient = true;
+	m_deletionStates = DeletionState::ToBeDeletedFromClient;
 
 	// If the client is not yet disconnected, disconnect first and delete the account afterwards.
 	// Otherwise, delete the account directly from the client.
@@ -345,7 +345,7 @@ void AccountManager::deleteAccountFromClient()
 
 void AccountManager::deleteAccountFromClientAndServer()
 {
-	m_isAccountToBeDeletedFromClientAndServer = true;
+	m_deletionStates = DeletionState::ToBeDeletedFromClient | DeletionState::ToBeDeletedFromServer;
 
 	// If the client is already connected, delete the account directly from the server.
 	// Otherwise, connect first and delete the account afterwards.
@@ -361,7 +361,7 @@ void AccountManager::deleteAccountFromClientAndServer()
 					Kaidan::instance()->client()->registrationManager()->deleteAccount();
 				});
 			} else {
-				m_isClientDisconnectedBeforeAccountDeletionFromServer = true;
+				m_deletionStates |= DeletionState::ClientDisconnectedBeforeDeletionFromServer;
 
 				runOnThread(Kaidan::instance()->client(), []() {
 					Kaidan::instance()->client()->logIn();
@@ -373,38 +373,36 @@ void AccountManager::deleteAccountFromClientAndServer()
 
 void AccountManager::handleAccountDeletedFromServer()
 {
-	m_isAccountToBeDeletedFromClientAndServer = false;
-	m_isClientDisconnectedBeforeAccountDeletionFromServer = false;
-	m_isAccountDeletedFromServer = true;
+	m_deletionStates = DeletionState::DeletedFromServer;
 }
 
 void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Error &error)
 {
 	Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Your account could not be deleted from the server. Therefore, it was also not removed from this app: %1").arg(error.text()));
 
-	m_isAccountToBeDeletedFromClientAndServer = false;
-
-	if (m_isClientDisconnectedBeforeAccountDeletionFromServer) {
-		m_isClientDisconnectedBeforeAccountDeletionFromServer = false;
+	if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
+		m_deletionStates = DeletionState::NotToBeDeleted;
 
 		runOnThread(Kaidan::instance()->client(), []() {
 			Kaidan::instance()->client()->logOut();
 		});
+	} else {
+		m_deletionStates = DeletionState::NotToBeDeleted;
 	}
 }
 
 bool AccountManager::handleConnected()
 {
-	// If the account could not be deleted from the server because the client was disconnected,
-	// delete it now.
-	if (m_isAccountToBeDeletedFromClient) {
-		deleteAccountFromClient();
-		return true;
-	} else if (m_isAccountToBeDeletedFromClientAndServer) {
-		runOnThread(Kaidan::instance()->client(), []() {
-			Kaidan::instance()->client()->registrationManager()->deleteAccount();
-		});
+	// If the account could not be deleted because the client was disconnected, delete it now.
+	if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient) && m_deletionStates.testFlag(DeletionState::ToBeDeletedFromServer)) {
+			runOnThread(Kaidan::instance()->client(), []() {
+				Kaidan::instance()->client()->registrationManager()->deleteAccount();
+			});
 
+			return true;
+		}
+	else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
+		deleteAccountFromClient();
 		return true;
 	}
 
@@ -413,18 +411,17 @@ bool AccountManager::handleConnected()
 
 void AccountManager::handleDisconnected()
 {
-	// Delete the account from the client if the client was connected and had to disconnect first or
-	// if the account was deleted from the server.
-	if (m_isAccountToBeDeletedFromClient) {
-		m_isAccountToBeDeletedFromClient = false;
-		removeAccount(m_jid);
-	} else if (m_isAccountDeletedFromServer) {
-		m_isAccountDeletedFromServer = false;
-
+	// Delete the account from the client if the account was deleted from the server or the client
+	// was connected and had to disconnect first.
+	if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
 		await(EncryptionController::instance()->resetLocally(), this, [this]() {
 			removeAccount(m_jid);
 		});
+	} else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
+		removeAccount(m_jid);
 	}
+
+	m_deletionStates = DeletionState::NotToBeDeleted;
 }
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
