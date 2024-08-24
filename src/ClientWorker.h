@@ -179,12 +179,12 @@ public:
 	/**
 	 * Connects to the server and logs in with all needed configuration variables.
 	 */
-	Q_INVOKABLE void logIn();
+	void logIn();
 
 	/**
 	 * Connects to the server and requests a data form for account registration.
 	 */
-	Q_INVOKABLE void connectToRegister();
+	void connectToRegister();
 
 	/**
 	 * Connects to the server with a minimal configuration.
@@ -194,14 +194,14 @@ public:
 	 * @param config configuration with additional variables for connecting to the server
 	 * or nothing if only the minimal configuration should be used
 	 */
-	Q_INVOKABLE void connectToServer(QXmppConfiguration config = QXmppConfiguration());
+	void connectToServer(QXmppConfiguration config = QXmppConfiguration());
 
 	/**
 	 * Logs out of the server if the client is not already logged out.
 	 *
 	 * @param isApplicationBeingClosed true if the application will be terminated directly after logging out, false otherwise
 	 */
-	Q_INVOKABLE void logOut(bool isApplicationBeingClosed = false);
+	void logOut(bool isApplicationBeingClosed = false);
 
 	/**
 	 * Emitted when an authenticated connection to the server is established with new
