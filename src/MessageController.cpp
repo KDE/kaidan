@@ -644,7 +644,12 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	message.chatJid = chatJid;
 	message.isOwn = isOwn;
 	message.groupChatSenderId = groupChatSenderId;
-	message.id = msg.id();
+
+	// Set a generated message ID for local use (removing a message locally etc.) if it is empty.
+	// That behavior was detected for server messages.
+	const auto messageId = msg.id();
+	message.id = messageId.isEmpty() ? QXmppUtils::generateStanzaUuid() : messageId;
+
 	message.originId = msg.originId();
 	message.stanzaId = stanzaId;
 
