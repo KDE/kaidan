@@ -204,8 +204,6 @@ void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::Blockli
 			handleBlocklist({ Blocklist::Xmpp, QVector<QString>() });
 		}
 
-		Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-			tr("Error fetching blocklist: %1").arg(error->description));
 		debug() << "Error fetching blocklist:" << error->description;
 	} else {
 		// success
