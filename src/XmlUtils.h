@@ -12,7 +12,7 @@ namespace XmlUtils
 {
 	namespace Writer
 	{
-		template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_integral_v<T>)>
+		template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_enum_v<T> && !std::is_integral_v<T>)>
 		void text(QXmlStreamWriter *writer, const QString &key, const T &value);
 
 		template<>
@@ -21,7 +21,7 @@ namespace XmlUtils
 			writer->writeTextElement(key, value);
 		}
 
-		template<typename E, ENABLE_IF(QtPrivate::IsQEnumHelper<E>::Value)>
+		template<typename E, ENABLE_IF(QtPrivate::IsQEnumHelper<E>::Value || std::is_enum_v<E>)>
 		void text(QXmlStreamWriter *writer, const QString &key, const E &value)
 		{
 			writer->writeTextElement(key, QString::number(Enums::toIntegral(value)));
@@ -66,7 +66,7 @@ namespace XmlUtils
 			return ok;
 		}
 
-		template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_integral_v<T>)>
+		template<typename T, ENABLE_IF(!QtPrivate::IsQEnumHelper<T>::Value && !std::is_enum_v<T> && !std::is_integral_v<T>)>
 		bool text(const QString &value, T &out);
 
 		template<>
@@ -76,7 +76,7 @@ namespace XmlUtils
 			return true;
 		}
 
-		template<typename E, ENABLE_IF(QtPrivate::IsQEnumHelper<E>::Value)>
+		template<typename E, ENABLE_IF(QtPrivate::IsQEnumHelper<E>::Value || std::is_enum_v<E>)>
 		bool text(const QString &value, E &out)
 		{
 			if constexpr (has_enum_type<E>::value) {
