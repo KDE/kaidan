@@ -19,6 +19,20 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Misslyckades skapa QR-kod: %1"
 
+#: src/AccountManager.cpp:381
+#, fuzzy, qt-format
+#| msgctxt "ClientWorker|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountManager|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
+"tagits bort från applikationen: %1"
+
 #: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
@@ -39,28 +53,22 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Den här apparaten"
 
-#: src/Blocking.cpp:208
-#, qt-format
-msgctxt "BlockingController|"
-msgid "Error fetching blocklist: %1"
-msgstr "Fel när blocklista skulle hämtas: %1"
-
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Enheter"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Användare"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Servrar"
 
-#: src/Blocking.cpp:332
+#: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Enheter på servrar"
@@ -125,16 +133,6 @@ msgstr "Bjud in kontakter"
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Öppnar inbjudningsområde"
-
-#: src/ClientWorker.cpp:347
-#, qt-format
-msgctxt "ClientWorker|"
-msgid ""
-"Your account could not be deleted from the server. Therefore, it was also "
-"not removed from this app: %1"
-msgstr ""
-"Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
-"tagits bort från applikationen: %1"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -341,22 +339,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:148
+#: src/Message.cpp:149
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM kl. hh:mm"
 
-#: src/Message.cpp:155
+#: src/Message.cpp:156
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Ingen information"
 
-#: src/Message.cpp:367
+#: src/Message.cpp:373
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:411
+#: src/Message.cpp:417
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -395,7 +393,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Meddelande kunde inte skickas."
 
-#: src/MessageController.cpp:690
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -1625,28 +1623,28 @@ msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Borttagen"
 
-#: src/qml/details/MediaOverview.qml:72
+#: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Bilder"
 
-#: src/qml/details/MediaOverview.qml:89
+#: src/qml/details/MediaOverview.qml:88
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Videor"
 
-#: src/qml/details/MediaOverview.qml:107
+#: src/qml/details/MediaOverview.qml:106
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Annat"
 
-#: src/qml/details/MediaOverview.qml:174
+#: src/qml/details/MediaOverview.qml:173
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "%1/%2 markerade"
 
-#: src/qml/details/MediaOverview.qml:256
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -3275,7 +3273,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: src/RosterManager.cpp:172
+#: src/RosterManager.cpp:175
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3284,30 +3282,30 @@ msgstr ""
 "Anteckningschatten kunde inte läggas till till i kontaktlistan eftersom "
 "servern inte stöder det"
 
-#: src/RosterManager.cpp:203
+#: src/RosterManager.cpp:206
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
 
-#: src/RosterManager.cpp:214
+#: src/RosterManager.cpp:217
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr ""
 "Kunde inte lägga till kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:227
+#: src/RosterManager.cpp:230
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:240
+#: src/RosterManager.cpp:243
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:251
+#: src/RosterManager.cpp:254
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3317,19 +3315,19 @@ msgstr ""
 "Begäran att se personlig information för %1 misslyckades på grund av ett "
 "anslutningsproblem: %2"
 
-#: src/RosterManager.cpp:261
+#: src/RosterManager.cpp:264
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
-#: src/RosterManager.cpp:270
+#: src/RosterManager.cpp:273
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
 
-#: src/RosterModel.cpp:924
+#: src/RosterModel.cpp:958
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Igår"
@@ -3363,6 +3361,10 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "BlockingController|"
+#~ msgid "Error fetching blocklist: %1"
+#~ msgstr "Fel när blocklista skulle hämtas: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Copy message"

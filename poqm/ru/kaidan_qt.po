@@ -16,6 +16,20 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Не удалось сгенерировать QR код: %1"
 
+#: src/AccountManager.cpp:381
+#, fuzzy, qt-format
+#| msgctxt "ClientWorker|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountManager|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Вашу учётную запись не удалось удалить на сервере, поэтому из приложения она "
+"также не была удалена: %1"
+
 #: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
@@ -39,18 +53,12 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Переключиться на другое устройство"
 
-#: src/Blocking.cpp:208
-#, qt-format
-msgctxt "BlockingController|"
-msgid "Error fetching blocklist: %1"
-msgstr ""
-
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr ""
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:326
 #, fuzzy
 #| msgctxt "RosterRenameContactSheet|"
 #| msgid "Rename"
@@ -58,12 +66,12 @@ msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Переименовать"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr ""
 
-#: src/Blocking.cpp:332
+#: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
@@ -140,16 +148,6 @@ msgstr "Удалить контакт"
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
-
-#: src/ClientWorker.cpp:347
-#, qt-format
-msgctxt "ClientWorker|"
-msgid ""
-"Your account could not be deleted from the server. Therefore, it was also "
-"not removed from this app: %1"
-msgstr ""
-"Вашу учётную запись не удалось удалить на сервере, поэтому из приложения она "
-"также не была удалена: %1"
 
 #: src/FileSharingController.cpp:376
 #, fuzzy, qt-format
@@ -367,12 +365,12 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:148
+#: src/Message.cpp:149
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:155
+#: src/Message.cpp:156
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -380,12 +378,12 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Карта"
 
-#: src/Message.cpp:367
+#: src/Message.cpp:373
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:411
+#: src/Message.cpp:417
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -434,7 +432,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:690
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -1956,7 +1954,7 @@ msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Удалить"
 
-#: src/qml/details/MediaOverview.qml:72
+#: src/qml/details/MediaOverview.qml:71
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Images"
@@ -1964,7 +1962,7 @@ msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Изображения"
 
-#: src/qml/details/MediaOverview.qml:89
+#: src/qml/details/MediaOverview.qml:88
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Videos"
@@ -1972,7 +1970,7 @@ msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Видео"
 
-#: src/qml/details/MediaOverview.qml:107
+#: src/qml/details/MediaOverview.qml:106
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Other file"
@@ -1980,13 +1978,13 @@ msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Другой файл"
 
-#: src/qml/details/MediaOverview.qml:174
+#: src/qml/details/MediaOverview.qml:173
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr ""
 
-#: src/qml/details/MediaOverview.qml:256
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -4010,14 +4008,14 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterManager.cpp:172
+#: src/RosterManager.cpp:175
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/RosterManager.cpp:203
+#: src/RosterManager.cpp:206
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -4025,22 +4023,22 @@ msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Не удалось отправить сообщение."
 
-#: src/RosterManager.cpp:214
+#: src/RosterManager.cpp:217
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Невозможно добавить контакт, так как он не подключён."
 
-#: src/RosterManager.cpp:227
+#: src/RosterManager.cpp:230
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Не удалось удалить контакт из-за отсутствия подключения."
 
-#: src/RosterManager.cpp:240
+#: src/RosterManager.cpp:243
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Не удалось переименовать контакт из-за отсутствия подключения."
 
-#: src/RosterManager.cpp:251
+#: src/RosterManager.cpp:254
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -4048,19 +4046,19 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterManager.cpp:261
+#: src/RosterManager.cpp:264
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterManager.cpp:270
+#: src/RosterManager.cpp:273
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterModel.cpp:924
+#: src/RosterModel.cpp:958
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr ""

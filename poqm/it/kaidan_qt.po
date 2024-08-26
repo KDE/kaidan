@@ -19,6 +19,20 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generazione del codice QR non riuscita: %1"
 
+#: src/AccountManager.cpp:381
+#, fuzzy, qt-format
+#| msgctxt "ClientWorker|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountManager|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Impossibile eliminare il tuo account dal server. Perciò, non è stato rimosso "
+"nemmeno da questa applicazione: %1"
+
 #: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
@@ -41,28 +55,22 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Questo dispositivo"
 
-#: src/Blocking.cpp:208
-#, qt-format
-msgctxt "BlockingController|"
-msgid "Error fetching blocklist: %1"
-msgstr "Errore durante il recupero dell'elenco di blocco: %1"
-
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Dispositivi"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Utenti"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Server"
 
-#: src/Blocking.cpp:332
+#: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
@@ -127,16 +135,6 @@ msgstr "Invita contatti"
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Apertura dell'area degli inviti"
-
-#: src/ClientWorker.cpp:347
-#, qt-format
-msgctxt "ClientWorker|"
-msgid ""
-"Your account could not be deleted from the server. Therefore, it was also "
-"not removed from this app: %1"
-msgstr ""
-"Impossibile eliminare il tuo account dal server. Perciò, non è stato rimosso "
-"nemmeno da questa applicazione: %1"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -343,22 +341,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:148
+#: src/Message.cpp:149
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "gg MMM alle hh:mm"
 
-#: src/Message.cpp:155
+#: src/Message.cpp:156
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Nessuna informazione"
 
-#: src/Message.cpp:367
+#: src/Message.cpp:373
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:411
+#: src/Message.cpp:417
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -397,7 +395,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
 
-#: src/MessageController.cpp:690
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -1638,28 +1636,28 @@ msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Eliminato"
 
-#: src/qml/details/MediaOverview.qml:72
+#: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
 msgid "Images"
 msgstr "Immagini"
 
-#: src/qml/details/MediaOverview.qml:89
+#: src/qml/details/MediaOverview.qml:88
 msgctxt "MediaOverview|"
 msgid "Videos"
 msgstr "Video"
 
-#: src/qml/details/MediaOverview.qml:107
+#: src/qml/details/MediaOverview.qml:106
 msgctxt "MediaOverview|"
 msgid "Other"
 msgstr "Altro"
 
-#: src/qml/details/MediaOverview.qml:174
+#: src/qml/details/MediaOverview.qml:173
 #, qt-format
 msgctxt "MediaOverview|"
 msgid "%1/%2 selected"
 msgstr "%1/%2 selezionati"
 
-#: src/qml/details/MediaOverview.qml:256
+#: src/qml/details/MediaOverview.qml:255
 #, qt-format
 msgctxt "MediaOverview|"
 msgid ""
@@ -3328,7 +3326,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Note"
 
-#: src/RosterManager.cpp:172
+#: src/RosterManager.cpp:175
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3337,28 +3335,28 @@ msgstr ""
 "Impossibile aggiungere la chat delle note al tuo elenco di contatti perché "
 "il tuo server non la supporta"
 
-#: src/RosterManager.cpp:203
+#: src/RosterManager.cpp:206
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
-#: src/RosterManager.cpp:214
+#: src/RosterManager.cpp:217
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Impossibile aggiungere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:227
+#: src/RosterManager.cpp:230
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:240
+#: src/RosterManager.cpp:243
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Impossibile rinominare il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:251
+#: src/RosterManager.cpp:254
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3368,7 +3366,7 @@ msgstr ""
 "La richiesta di vedere i dati personali di %1 non è riuscita a causa di un "
 "problema di connessione: %2"
 
-#: src/RosterManager.cpp:261
+#: src/RosterManager.cpp:264
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
@@ -3376,7 +3374,7 @@ msgstr ""
 "L'attribuzione a %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterManager.cpp:270
+#: src/RosterManager.cpp:273
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
@@ -3384,7 +3382,7 @@ msgstr ""
 "La rimozione da %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterModel.cpp:924
+#: src/RosterModel.cpp:958
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Ieri"
@@ -3418,6 +3416,10 @@ msgstr "Data di nascita"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
+
+#~ msgctxt "BlockingController|"
+#~ msgid "Error fetching blocklist: %1"
+#~ msgstr "Errore durante il recupero dell'elenco di blocco: %1"
 
 #~ msgctxt "ChatMessageContextMenu|"
 #~ msgid "Copy message"
