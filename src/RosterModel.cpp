@@ -713,7 +713,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 			}
 		}
 
-		if (newUnreadMessages.has_value()) {
+		if (newUnreadMessages) {
 			itr->unreadMessages = *newUnreadMessages;
 			changedRoles << int(UnreadMessagesRole);
 

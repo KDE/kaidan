@@ -187,7 +187,7 @@ AccountMigrationManager::~AccountMigrationManager()
 
 AccountMigrationManager::MigrationState AccountMigrationManager::migrationState() const
 {
-	return m_migrationData.has_value() ? m_migrationData->state : MigrationState::Idle;
+	return m_migrationData ? m_migrationData->state : MigrationState::Idle;
 }
 
 void AccountMigrationManager::startMigration()
