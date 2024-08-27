@@ -435,30 +435,21 @@ void AccountManager::removeAccount(const QString &accountJid)
 	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
 	AccountDb::instance()->removeAccount(accountJid);
 
-	deleteSettings();
-	deleteCredentials();
-}
-
-void AccountManager::deleteSettings()
-{
 	m_settings->remove({
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE),
-		QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
-		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
-		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
-	});
-}
-
-void AccountManager::deleteCredentials()
-{
-	m_settings->remove({
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT),
 		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY),
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_DEVICE_ID),
+		QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION),
+		QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
+		QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
+
 	});
 
 	setJid({});

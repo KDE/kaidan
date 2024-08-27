@@ -305,20 +305,6 @@ private:
 	 */
 	void removeAccount(const QString &accountJid);
 
-	/**
-	 * Deletes all account related settings.
-	 *
-	 * Settings stored in the settings file are also removed from it.
-	 */
-	void deleteSettings();
-
-	/**
-	 * Deletes all credentials.
-	 *
-	 * Credentials stored in the settings file are also removed from it.
-	 */
-	void deleteCredentials();
-
 	QMutex m_mutex;
 	Settings *m_settings;
 
