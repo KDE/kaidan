@@ -174,7 +174,7 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 	});
 
 	connect(clientWorker, &ClientWorker::loggedInWithNewCredentials, this, [this]() {
-		if (migrationState() == MigrationState::Registering) {
+		if (migrationState() == MigrationState::ChoosingNewAccount) {
 			continueMigration();
 		}
 	});
@@ -203,7 +203,7 @@ void AccountMigrationManager::startMigration()
 
 		if (QFile::exists(diskAccountFilePath())) {
 			if (restoreAccountDataFromDisk(m_migrationData->account)) {
-				m_migrationData->state = MigrationState::Registering;
+				m_migrationData->state = MigrationState::ChoosingNewAccount;
 			} else {
 				Q_EMIT errorOccurred(tr("Account could not be migrated: Could not load exported "
 										"account data"));
@@ -240,7 +240,7 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 		switch (migrationState()) {
 		case MigrationState::Idle:
 		case MigrationState::Started:
-		case MigrationState::Registering:
+		case MigrationState::ChoosingNewAccount:
 		case MigrationState::Finished:
 			break;
 
@@ -309,7 +309,7 @@ void AccountMigrationManager::cancelMigration()
 {
 	if (migrationState() != MigrationState::Idle) {
 		// Restore the previous account.
-		if (m_migrationData->state == MigrationState::Registering) {
+		if (m_migrationData->state == MigrationState::ChoosingNewAccount) {
 			const auto accountManager = AccountManager::instance();
 
 			// If the stored JID differs from the cached one, reconnect with the stored one.

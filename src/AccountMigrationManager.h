@@ -29,7 +29,7 @@ public:
 		Idle = 0,
 		Started,
 		Exporting,
-		Registering,
+		ChoosingNewAccount,
 		Importing,
 		Finished,
 	};

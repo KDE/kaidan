@@ -264,7 +264,7 @@ void Kaidan::initializeAccountMigration()
 		case AccountMigrationManager::MigrationState::Finished:
 			migrationManager->continueMigration();
 			break;
-		case AccountMigrationManager::MigrationState::Registering:
+		case AccountMigrationManager::MigrationState::ChoosingNewAccount:
 			Q_EMIT openStartPageRequested();
 			break;
 		}
@@ -274,7 +274,7 @@ void Kaidan::initializeAccountMigration()
 		switch (migrationManager->migrationState()) {
 		case AccountMigrationManager::MigrationState::Idle:
 		case AccountMigrationManager::MigrationState::Exporting:
-		case AccountMigrationManager::MigrationState::Registering:
+		case AccountMigrationManager::MigrationState::ChoosingNewAccount:
 		case AccountMigrationManager::MigrationState::Importing:
 			Q_EMIT passiveNotificationRequested(error);
 			break;
