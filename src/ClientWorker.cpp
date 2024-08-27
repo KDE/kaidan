@@ -368,6 +368,8 @@ void ClientWorker::onConnected()
 
 void ClientWorker::onDisconnected()
 {
+	qDebug() << "[client] Disconnected";
+
 	if (m_isReconnecting) {
 		m_isReconnecting = false;
 		connectToServer(m_configToBeUsedOnNextConnect);
