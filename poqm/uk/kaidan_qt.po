@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-21 14:39+0300\n"
+"PO-Revision-Date: 2024-08-26 22:35+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -22,11 +22,7 @@ msgid "Generating the QR code failed: %1"
 msgstr "Не вдалося створити QR-код: %1"
 
 #: src/AccountManager.cpp:381
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountManager|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "

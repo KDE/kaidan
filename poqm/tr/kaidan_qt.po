@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-21 11:48+0300\n"
+"PO-Revision-Date: 2024-08-27 03:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,18 +21,14 @@ msgid "Generating the QR code failed: %1"
 msgstr "Kare kodu oluşturma başarısız: %1"
 
 #: src/AccountManager.cpp:381
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountManager|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
 "not removed from this app: %1"
 msgstr ""
-"Hesabınız sunucudan silinemedi. Bundan dolayı bu uygulamadan da "
-"kaldırılamadı: %1"
+"Hesabınız sunucudan silinemedi. Dolayısıyla bu uygulamadan da kaldırılamadı: "
+"%1"
 
 #: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
