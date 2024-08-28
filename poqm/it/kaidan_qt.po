@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-15 04:30+0200\n"
+"PO-Revision-Date: 2024-08-26 13:51+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -20,11 +20,7 @@ msgid "Generating the QR code failed: %1"
 msgstr "Generazione del codice QR non riuscita: %1"
 
 #: src/AccountManager.cpp:381
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountManager|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1869,43 +1865,34 @@ msgid "%1 has read up to this point"
 msgstr "%1 ha letto fino a questo punto"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove selected file"
-msgstr "Elimina il file"
+msgstr "Rimuovi il file selezionato"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:64
-#, fuzzy
-#| msgctxt "MessageReactionDetailsSheet|"
-#| msgid "Reactions"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "Reazioni"
+msgstr "Reagisci"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:91
 msgctxt "ChatMessageContextMenu|"
 msgid "Reply"
-msgstr ""
+msgstr "Rispondi"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:109
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "Cita"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:117
-#, fuzzy
-#| msgctxt "AccountSettings|"
-#| msgid "Copy URL"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr "Copia URL"
+msgstr "Copia"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:131
 msgctxt "ChatMessageContextMenu|"
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:139
 msgctxt "ChatMessageContextMenu|"
@@ -1918,12 +1905,9 @@ msgid "Remove from this device"
 msgstr "Rimuovi da questo dispositivo"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "Chiudi la barra di ricerca dei messaggi"
+msgstr "Chiudi la ricerca"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -1936,12 +1920,9 @@ msgid "Search down"
 msgstr "Cerca in giù"
 
 #: src/qml/elements/ChatPageSendingPane.qml:82
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "Annulla"
+msgstr "Annulla la risposta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:102
 msgctxt "ChatPageSendingPane|"
@@ -2512,17 +2493,11 @@ msgid "Adding contact…"
 msgstr "Aggiunta contatto…"
 
 #: src/qml/elements/ReferencedMessage.qml:71
-#, fuzzy
-#| msgctxt "RosterListItem|"
-#| msgid "Me:"
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr "Me:"
+msgstr "Io"
 
 #: src/qml/elements/ReferencedMessage.qml:81
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "Media"
