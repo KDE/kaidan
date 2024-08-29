@@ -14,6 +14,7 @@
 class ProviderListModel : public QAbstractListModel
 {
 	Q_OBJECT
+	Q_PROPERTY(int providersMatchingSystemLocaleMinimumCount READ providersMatchingSystemLocaleMinimumCount CONSTANT)
 
 public:
 	enum Role {
@@ -37,6 +38,8 @@ public:
 		QString countryCode;
 	};
 
+	static int providersMatchingSystemLocaleMinimumCount();
+
 	explicit ProviderListModel(QObject *parent = nullptr);
 
 	QHash<int, QByteArray> roleNames() const override;
@@ -48,13 +51,13 @@ public:
 	Q_INVOKABLE ProviderListItem provider(const QString &jid) const;
 	Q_INVOKABLE ProviderListItem providerFromBareJid(const QString &jid) const;
 
-	Q_INVOKABLE int randomlyChooseIndex() const;
+	Q_INVOKABLE int randomlyChooseIndex(const QList<int> &excludedIndexes = {}, bool providersMatchingSystemLocaleOnly = true) const;
 
 private:
 	void readItemsFromJsonFile(const QString &filePath);
 	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
 	QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
-	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const;
+	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders, const QList<int> &excludedIndexes) const;
 
 	QString systemLanguageCode() const;
 	QString systemCountryCode() const;

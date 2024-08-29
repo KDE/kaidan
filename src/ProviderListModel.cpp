@@ -19,6 +19,11 @@
 #include "Globals.h"
 #include "QmlUtils.h"
 
+int ProviderListModel::providersMatchingSystemLocaleMinimumCount()
+{
+	return PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY;
+}
+
 ProviderListModel::ProviderListModel(QObject *parent)
 	: QAbstractListModel(parent)
 {
@@ -129,15 +134,21 @@ ProviderListItem ProviderListModel::providerFromBareJid(const QString &jid) cons
 	return provider(QXmppUtils::jidToDomain(jid));
 }
 
-int ProviderListModel::randomlyChooseIndex() const
+int ProviderListModel::randomlyChooseIndex(const QList<int> &excludedIndexes, bool providersMatchingSystemLocaleOnly) const
 {
 	QVector<ProviderListItem> providersWithInBandRegistration = providersSupportingInBandRegistration();
-	QVector<ProviderListItem> providersWithInBandRegistrationAndSystemLocale = providersWithSystemLocale(providersWithInBandRegistration);
 
-	if (providersWithInBandRegistrationAndSystemLocale.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY)
-		return indexOfRandomlySelectedProvider(providersWithInBandRegistration);
+	if (providersMatchingSystemLocaleOnly) {
+		QVector<ProviderListItem> providersWithInBandRegistrationAndSystemLocale = providersWithSystemLocale(providersWithInBandRegistration);
 
-	return indexOfRandomlySelectedProvider(providersWithInBandRegistrationAndSystemLocale);
+		if (providersWithInBandRegistrationAndSystemLocale.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY) {
+			return indexOfRandomlySelectedProvider(providersWithInBandRegistration, excludedIndexes);
+		}
+
+		return indexOfRandomlySelectedProvider(providersWithInBandRegistrationAndSystemLocale, excludedIndexes);
+	}
+
+	return indexOfRandomlySelectedProvider(providersWithInBandRegistration, excludedIndexes);
 }
 
 void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
@@ -200,9 +211,15 @@ QVector<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QVe
 	return providers;
 }
 
-int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders) const
+int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders, const QList<int> &excludedIndexes) const
 {
-	return m_items.indexOf(preSelectedProviders.at(QRandomGenerator::global()->generate() % preSelectedProviders.size()));
+	int index;
+
+	do {
+		index = m_items.indexOf(preSelectedProviders.at(QRandomGenerator::global()->generate() % preSelectedProviders.size()));
+	} while (!excludedIndexes.isEmpty() && excludedIndexes.contains(index));
+
+	return index;
 }
 
 ProviderListModel::Locale ProviderListModel::systemLocale() const

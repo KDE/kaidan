@@ -23,17 +23,16 @@ import "../elements"
 RegistrationPage {
 	title: qsTr("Register automatically")
 
-	property int maximumAttemptsForRequestingRegistrationFormFromAnotherProvider: 3
-	property int remainingAttemptsForRequestingRegistrationFormFromAnotherProvider: maximumAttemptsForRequestingRegistrationFormFromAnotherProvider
-
 	property int maximumRegistrationAttemptsAfterUsernameConflictOccurred: 2
 	property int remainingRegistrationAttemptsAfterUsernameConflictOccurred: maximumRegistrationAttemptsAfterUsernameConflictOccurred
 
-	property int maximumRegistrationAttemptsAfterCaptchaVerificationFailedOccurred: 2
+	property int maximumRegistrationAttemptsAfterCaptchaVerificationFailedOccurred: 1
 	property int remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred: maximumRegistrationAttemptsAfterCaptchaVerificationFailedOccurred
 
 	property int maximumRegistrationAttemptsAfterRequiredInformationMissingOccurred: 2
 	property int remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred: maximumRegistrationAttemptsAfterRequiredInformationMissingOccurred
+
+	property var triedProviderIndexes: []
 
 	ProviderListModel {
 		id: providerListModel
@@ -78,14 +77,11 @@ RegistrationPage {
 		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
-			requestRegistrationFormFromAnotherProvider(qsTr("The provider does currently not support registration via this app."))
+			requestRegistrationFormFromAnotherProvider()
 		}
 
 		function onRegistrationFailed(error, errorMessage) {
 			switch (error) {
-			case RegistrationManager.InBandRegistrationNotSupported:
-				requestRegistrationFormFromAnotherProvider(errorMessage)
-				break
 			case RegistrationManager.UsernameConflict:
 				if (remainingRegistrationAttemptsAfterUsernameConflictOccurred > 0) {
 					remainingRegistrationAttemptsAfterUsernameConflictOccurred--
@@ -94,31 +90,34 @@ RegistrationPage {
 					requestRegistrationForm()
 				} else {
 					remainingRegistrationAttemptsAfterUsernameConflictOccurred = maximumRegistrationAttemptsAfterUsernameConflictOccurred
-					requestRegistrationFormFromAnotherProvider(errorMessage)
+					requestRegistrationFormFromAnotherProvider()
 				}
 				break
 			case RegistrationManager.CaptchaVerificationFailed:
+				showPassiveNotificationForCaptchaVerificationFailedError(errorMessage)
+
 				if (remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred > 0) {
 					remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred--
 					requestRegistrationForm()
-					showPassiveNotificationForCaptchaVerificationFailedError()
 				} else {
 					remainingRegistrationAttemptsAfterCaptchaVerificationFailedOccurred = maximumRegistrationAttemptsAfterCaptchaVerificationFailedOccurred
-					requestRegistrationFormFromAnotherProvider(errorMessage)
+					requestRegistrationFormFromAnotherProvider()
 				}
 				break
 			case RegistrationManager.RequiredInformationMissing:
+				showPassiveNotificationForRequiredInformationMissingError(errorMessage)
+
 				if (remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred > 0 && customFormFieldsAvailable()) {
 					remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred--
 					requestRegistrationForm()
-					showPassiveNotificationForRequiredInformationMissingError(errorMessage)
+
 				} else {
 					remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred = remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred
-					requestRegistrationFormFromAnotherProvider(errorMessage)
+					requestRegistrationFormFromAnotherProvider()
 				}
 				break
 			default:
-				requestRegistrationFormFromAnotherProvider(errorMessage)
+				requestRegistrationFormFromAnotherProvider()
 			}
 		}
 
@@ -162,10 +161,15 @@ RegistrationPage {
 	}
 
 	/**
-	 * Sets a randomly chosen provider for registration.
+	 * Sets a randomly chosen provider for registration while already tried providers are excluded.
+	 *
+	 * @param providersMatchingSystemLocaleOnly whether to solely choose providers that match the
+	 *        system's locale
 	 */
-	function chooseProviderRandomly() {
-		provider = providerListModel.data(providerListModel.randomlyChooseIndex(), ProviderListModel.JidRole)
+	function chooseProviderRandomly(providersMatchingSystemLocaleOnly = true) {
+		const chosenIndex = providerListModel.randomlyChooseIndex(triedProviderIndexes, providersMatchingSystemLocaleOnly)
+		triedProviderIndexes.push(chosenIndex)
+		provider = providerListModel.data(chosenIndex, ProviderListModel.JidRole)
 	}
 
 	/**
@@ -183,21 +187,15 @@ RegistrationPage {
 	}
 
 	/**
-	 * Requests a registration form from another randomly chosen provider if an error occurred.
-	 *
-	 * That is done multiple times and after a maximum number of attempts, the user has to intervene.
-	 *
-	 * @param errorMessage message describing the error
+	 * Requests a registration form from another randomly chosen provider.
 	 */
-	function requestRegistrationFormFromAnotherProvider(errorMessage) {
-		if (remainingAttemptsForRequestingRegistrationFormFromAnotherProvider > 0) {
-			remainingAttemptsForRequestingRegistrationFormFromAnotherProvider--
+	function requestRegistrationFormFromAnotherProvider() {
+		if (triedProviderIndexes.length < providerListModel.providersMatchingSystemLocaleMinimumCount) {
 			chooseProviderRandomly()
 			requestRegistrationForm()
 		} else {
-			remainingAttemptsForRequestingRegistrationFormFromAnotherProvider = maximumAttemptsForRequestingRegistrationFormFromAnotherProvider
-			showPassiveNotificationForUnknownError(errorMessage)
-			popLayerIfNoCustomFormFieldsAvailable()
+			chooseProviderRandomly(false)
+			requestRegistrationForm()
 		}
 	}
 
@@ -207,13 +205,5 @@ RegistrationPage {
 	function sendRegistrationFormAndShowLoadingView() {
 		sendRegistrationForm()
 		addLoadingView()
-	}
-
-	/**
-	 * Pops this layer if the received registration form does not contain any custom field.
-	 */
-	function popLayerIfNoCustomFormFieldsAvailable() {
-		if (!customFormFieldsAvailable())
-			popLayer()
 	}
 }
