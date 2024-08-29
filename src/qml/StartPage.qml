@@ -108,7 +108,7 @@ Kirigami.ScrollablePage {
 
 				MobileForm.FormButtonDelegate {
 					text: qsTr("Scan login QR code of old device")
-					onClicked: openPage(qrCodeOnboardingPage)
+					onClicked: pushLayer(qrCodeOnboardingPage)
 				}
 			}
 		}
@@ -132,12 +132,12 @@ Kirigami.ScrollablePage {
 
 				MobileForm.FormButtonDelegate {
 					text: qsTr("Generate account automatically")
-					onClicked: openPage(automaticRegistrationPage)
+					onClicked: pushLayer(automaticRegistrationPage)
 				}
 
 				MobileForm.FormButtonDelegate {
 					text: qsTr("Create account manually")
-					onClicked: openPage(manualRegistrationPage)
+					onClicked: pushLayer(manualRegistrationPage)
 				}
 			}
 		}

@@ -6,12 +6,12 @@ import QtQuick 2.15
 
 Item {
 	function push(page) {
-		pageStack.layers.push("settings/PageWrapper.qml", {
+		pushLayer("settings/PageWrapper.qml", {
 			"source": page
 		})
 	}
 
 	function pop() {
-		pageStack.layers.pop()
+		popLayer()
 	}
 }

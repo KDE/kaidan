@@ -231,13 +231,21 @@ Kirigami.ApplicationWindow {
 
 	function openPage(pageComponent) {
 		popLayersAboveLowest()
-		return pageStack.layers.push(pageComponent)
+		return pushLayer(pageComponent)
 	}
 
 	// Show the rosterPage instead of the emptyChatPage if the window is narrow.
 	function showRosterPageForNarrowWindow() {
 		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && !wideScreen)
 			pageStack.goBack()
+	}
+
+	function pushLayer(layer) {
+		pageStack.layers.push(layer)
+	}
+
+	function popLayer() {
+		pageStack.layers.pop()
 	}
 
 	/**
@@ -247,7 +255,7 @@ Kirigami.ApplicationWindow {
 	 */
 	function popLayers(countOfLayersToPop) {
 		for (let i = 0; i < countOfLayersToPop; i++)
-			pageStack.layers.pop()
+			popLayer()
 	}
 
 	/**
@@ -255,7 +263,7 @@ Kirigami.ApplicationWindow {
 	 */
 	function popLayersAboveLowest() {
 		while (pageStack.layers.depth > 1)
-			pageStack.layers.pop()
+			popLayer()
 	}
 
 	/**

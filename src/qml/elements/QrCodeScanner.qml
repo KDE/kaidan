@@ -65,7 +65,7 @@ Item {
 		id: filter
 
 		onUnsupportedFormatReceived: {
-			pageStack.layers.pop()
+			popLayer()
 			passiveNotification(qsTr("The camera format '%1' is not supported.").arg(format))
 		}
 	}
