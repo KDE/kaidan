@@ -1055,6 +1055,7 @@ DetailsContent {
 
 			ConfirmationFormButtonArea {
 				id: accountDeletionButtonArea
+				visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 				button {
 					text: qsTr("Delete completely")
 					description: qsTr("Delete account from provider. You will not be able to use your account again!")
