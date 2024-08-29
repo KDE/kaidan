@@ -6,6 +6,8 @@
 
 #include "RegistrationManager.h"
 
+// std
+#include <chrono>
 // QXmpp
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppRegistrationManager.h>
@@ -13,9 +15,15 @@
 #include "AccountManager.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "ClientWorker.h"
+#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
+#include "Settings.h"
+
+using namespace std::chrono_literals;
+
+constexpr auto ACCOUNT_DELETION_TIMEOUT = 5s;
 
 RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
 	: QObject(parent),
@@ -27,41 +35,61 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
 	connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationManager::handleInBandRegistrationSupportedChanged);
 
 	// account creation
-	connect(this, &RegistrationManager::sendRegistrationFormRequested,
-		this, &RegistrationManager::sendRegistrationForm);
+
+	connect(this, &RegistrationManager::registrationFormRequested, this, &RegistrationManager::requestRegistrationForm);
+	connect(this, &RegistrationManager::sendRegistrationFormRequested, this, &RegistrationManager::sendRegistrationForm);
+	connect(this, &RegistrationManager::abortRegistrationRequested, this, &RegistrationManager::abortRegistration);
 	connect(m_manager, &QXmppRegistrationManager::registrationFormReceived, this, &RegistrationManager::handleRegistrationFormReceived);
 	connect(m_manager, &QXmppRegistrationManager::registrationSucceeded, this, &RegistrationManager::handleRegistrationSucceeded);
 	connect(m_manager, &QXmppRegistrationManager::registrationFailed, this, &RegistrationManager::handleRegistrationFailed);
 
 	// account deletion
-	connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, AccountManager::instance(), &AccountManager::handleAccountDeletionFromServerFailed);
 	connect(m_manager, &QXmppRegistrationManager::accountDeleted, AccountManager::instance(), &AccountManager::handleAccountDeletedFromServer);
+	connect(m_manager, &QXmppRegistrationManager::accountDeletionFailed, AccountManager::instance(), &AccountManager::handleAccountDeletionFromServerFailed);
 
 	// password change
-	connect(this, &RegistrationManager::changePasswordRequested,
-		this, &RegistrationManager::changePassword);
+	connect(this, &RegistrationManager::changePasswordRequested, this, &RegistrationManager::changePassword);
 	connect(m_manager, &QXmppRegistrationManager::passwordChanged, this, &RegistrationManager::handlePasswordChanged);
 	connect(m_manager, &QXmppRegistrationManager::passwordChangeFailed, this, &RegistrationManager::handlePasswordChangeFailed);
-
-	connect(Kaidan::instance(), &Kaidan::cancelRegistrationRequested, this, &RegistrationManager::cancelRegistration);
 }
 
-void RegistrationManager::setRegisterOnConnectEnabled(bool registerOnConnect)
+bool RegistrationManager::registerOnConnectEnabled() const
 {
-	m_manager->setRegisterOnConnectEnabled(registerOnConnect);
+	return m_manager->registerOnConnectEnabled();
 }
 
 void RegistrationManager::deleteAccount()
 {
 	m_manager->deleteAccount();
+
+	// Start a timer to disconnect from the server after a specified timeout triggering
+	// QXmppRegistrationManager::accountDeleted to be emitted.
+	// Considering an account as deleted after a timeout is needed because some servers do not
+	// respond to the deletion request within a reasonable time period.
+	QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, [this]() {
+		m_client->disconnectFromServer();
+	});
 }
 
-void RegistrationManager::cancelRegistration()
+void RegistrationManager::requestRegistrationForm()
 {
-	setRegisterOnConnectEnabled(false);
+	if (m_client->state() != QXmppClient::DisconnectedState) {
+		if (registerOnConnectEnabled() && m_client->configuration().jidBare() == AccountManager::instance()->jid()) {
+			m_manager->requestRegistrationForm();
+			return;
+		}
 
-	cleanUpLastForm();
-	m_dataFormModel = new RegistrationDataFormModel();
+		m_client->disconnectFromServer();
+	}
+
+	AccountManager::instance()->setHasNewCredentials(true);
+	setRegisterOnConnectEnabled(true);
+	m_clientWorker->connectToServer();
+}
+
+void RegistrationManager::setRegisterOnConnectEnabled(bool registerOnConnect)
+{
+	m_manager->setRegisterOnConnectEnabled(registerOnConnect);
 }
 
 void RegistrationManager::sendRegistrationForm()
@@ -77,7 +105,17 @@ void RegistrationManager::sendRegistrationForm()
 		m_manager->setRegistrationFormToSend(m_dataFormModel->form());
 	}
 
-	m_clientWorker->connectToRegister();
+	AccountManager::instance()->setHasNewCredentials(true);
+	setRegisterOnConnectEnabled(true);
+
+	// If the client is still connected/connecting to the server, send the registration form
+	// directly.
+	// Otherwise, reconnect to the server beforehand.
+	if (m_client->state() != QXmppClient::DisconnectedState) {
+		m_manager->sendCachedRegistrationForm();
+	} else {
+		m_clientWorker->connectToServer();
+	}
 }
 
 void RegistrationManager::changePassword(const QString &newPassword)
@@ -98,8 +136,6 @@ void RegistrationManager::handleInBandRegistrationSupportedChanged()
 
 void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &iq)
 {
-	m_client->disconnectFromServer();
-
 	bool isFakeForm;
 	QXmppDataForm newDataForm = extractFormFromRegisterIq(iq, isFakeForm);
 
@@ -108,7 +144,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		// If there is a standardized out-of-band URL, use that.
 		if (!iq.outOfBandUrl().isEmpty()) {
 			Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived({ iq.outOfBandUrl() });
-			setRegisterOnConnectEnabled(false);
+			abortRegistration();
 			return;
 		}
 
@@ -118,7 +154,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		for (const auto &instructionPart : words) {
 			if (instructionPart.startsWith(u"https://")) {
 				Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived({ instructionPart });
-				setRegisterOnConnectEnabled(false);
+				abortRegistration();
 				return;
 			}
 		}
@@ -126,14 +162,13 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 		// If no URL has been found in the instructions, there is a
 		// problem with the server.
 		Q_EMIT m_clientWorker->connectionErrorChanged(ClientWorker::RegistrationUnsupported);
-		setRegisterOnConnectEnabled(false);
+		abortRegistration();
 		return;
 	}
 
 	copyUserDefinedValuesToNewForm(m_dataFormModel->form(), newDataForm);
-	cleanUpLastForm();
+	cleanUpLastForm(new RegistrationDataFormModel(newDataForm));
 
-	m_dataFormModel = new RegistrationDataFormModel(newDataForm);
 	m_dataFormModel->setIsFakeForm(isFakeForm);
 	// Move to the main thread, so QML can connect signals to the model.
 	m_dataFormModel->moveToThread(Kaidan::instance()->thread());
@@ -157,39 +192,59 @@ void RegistrationManager::handleRegistrationSucceeded()
 	setRegisterOnConnectEnabled(false);
 	m_clientWorker->logIn();
 
-	cleanUpLastForm();
-	m_dataFormModel = new RegistrationDataFormModel();
+	cleanUpLastForm(new RegistrationDataFormModel());
 }
 
 void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &error)
 {
-	m_client->disconnectFromServer();
-	setRegisterOnConnectEnabled(false);
-
 	RegistrationError registrationError = RegistrationError::UnknownError;
 
 	switch(error.type()) {
 	case QXmppStanza::Error::Cancel:
-		if (error.condition() == QXmppStanza::Error::FeatureNotImplemented)
+		if (error.condition() == QXmppStanza::Error::FeatureNotImplemented) {
 			registrationError = RegistrationError::InBandRegistrationNotSupported;
-		else if (error.condition() == QXmppStanza::Error::Conflict)
+			abortRegistration();
+		} else if (error.condition() == QXmppStanza::Error::Conflict) {
 			registrationError = RegistrationError::UsernameConflict;
-		else if (error.condition() == QXmppStanza::Error::NotAllowed && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive))
+		} else if (error.condition() == QXmppStanza::Error::NotAllowed && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive)) {
 			registrationError = RegistrationError::CaptchaVerificationFailed;
+		}
+
 		break;
 	case QXmppStanza::Error::Modify:
 		if (error.condition() == QXmppStanza::Error::NotAcceptable) {
 			// TODO: Check error text in English (needs QXmpp change)
-			if (error.text().contains(QStringLiteral("password"), Qt::CaseInsensitive) && (error.text().contains(QStringLiteral("weak"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("short"), Qt::CaseInsensitive)))
+			if (error.text().contains(QStringLiteral("password"), Qt::CaseInsensitive) && (error.text().contains(QStringLiteral("weak"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("short"), Qt::CaseInsensitive))) {
 				registrationError = RegistrationError::PasswordTooWeak;
-			else if (error.text().contains(QStringLiteral("ip"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("quickly"), Qt::CaseInsensitive)
-)
+			} else if (error.text().contains(QStringLiteral("ip"), Qt::CaseInsensitive) || error.text().contains(QStringLiteral("quickly"), Qt::CaseInsensitive)) {
 				registrationError = RegistrationError::TemporarilyBlocked;
-			else
+				abortRegistration();
+			} else {
 				registrationError = RegistrationError::RequiredInformationMissing;
+			}
 		} else if (error.condition() == QXmppStanza::Error::BadRequest && error.text().contains(QStringLiteral("captcha"), Qt::CaseInsensitive)) {
 			registrationError = RegistrationError::CaptchaVerificationFailed;
 		}
+
+		break;
+	case QXmppStanza::Error::Auth:
+		if (error.condition() == QXmppStanza::Error::Forbidden) {
+			registrationError = RegistrationError::InBandRegistrationNotSupported;
+			abortRegistration();
+		}
+		break;
+	case QXmppStanza::Error::Wait:
+		if (error.condition() == QXmppStanza::Error::ResourceConstraint &&
+			(error.text().contains("users", Qt::CaseInsensitive) ||
+			error.text().contains("quickly", Qt::CaseInsensitive))) {
+			registrationError = RegistrationError::TemporarilyBlocked;
+			abortRegistration();
+		} else if (error.condition() == QXmppStanza::Error::PolicyViolation &&
+		   (error.text().contains("ip", Qt::CaseInsensitive) ||
+		   error.text().contains("recently", Qt::CaseInsensitive))) {
+		   registrationError = RegistrationError::TemporarilyBlocked;
+		   abortRegistration();
+	   }
 		break;
 	default:
 		break;
@@ -272,9 +327,29 @@ void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &ol
 	}
 }
 
-void RegistrationManager::cleanUpLastForm()
+void RegistrationManager::abortRegistration()
+{
+	const auto accountManager = AccountManager::instance();
+
+	// Reset the registration steps if the client connected to a server for registration.
+	if (accountManager->jid() != m_clientWorker->caches()->settings->authJid()) {
+		// Resetting the cached JID is needed to clear the JID field of LoginArea.
+		accountManager->setJid({});
+
+		// Disconnect from any server that the client is still connected to.
+		if (m_client->state() != QXmppClient::DisconnectedState) {
+			m_client->disconnectFromServer();
+		}
+
+		setRegisterOnConnectEnabled(false);
+		cleanUpLastForm(new RegistrationDataFormModel());
+	}
+}
+
+void RegistrationManager::cleanUpLastForm(RegistrationDataFormModel *newDataFormModel)
 {
 	delete m_dataFormModel;
+	m_dataFormModel = newDataFormModel;
 
 	// Remove content IDs from the last form.
 	for (auto itr = m_contentIdsToRemove.begin(); itr != m_contentIdsToRemove.end();) {

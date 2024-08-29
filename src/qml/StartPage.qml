@@ -5,6 +5,7 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
@@ -18,6 +19,7 @@ import "elements"
  * It is displayed if no account is available.
  */
 Kirigami.ScrollablePage {
+	id: root
 	title: {
 		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
 			return qsTr("Account Migration")
@@ -25,7 +27,6 @@ Kirigami.ScrollablePage {
 
 		return "Kaidan"
 	}
-
 	background: Rectangle {
 		color: secondaryBackgroundColor
 
@@ -36,6 +37,10 @@ Kirigami.ScrollablePage {
 			horizontalAlignment: Image.AlignLeft
 			verticalAlignment: Image.AlignTop
 		}
+	}
+	onBackRequested: {
+		globalDrawer.enabled = true
+		Kaidan.cancelAccountMigration()
 	}
 
 	ColumnLayout {
@@ -74,40 +79,56 @@ Kirigami.ScrollablePage {
 					title: qsTr("Login")
 				}
 
-				MobileForm.FormButtonDelegate {
-					text: qsTr("Enter your credentials")
-					checkable: true
-					onClicked: loginArea.visible = !loginArea.visible
-				}
-
 				LoginArea {
 					id: loginArea
-					visible: false
-					onVisibleChanged: {
-						if (visible) {
-							initialize()
-						} else {
-							reset()
-						}
-					}
 
 					Connections {
 						target: pageStack.layers
 
 						function onCurrentItemChanged() {
-							if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-								if (AccountManager.jid) {
-									loginArea.visible = true
-								}
-							} else {
-								loginArea.reset();
+							const currentItem = pageStack.layers.currentItem
+
+							// Initialize loginArea on first opening (except after starting Kaidan)
+							// and when going back from sub pages (i.e., layers above).
+							// In the latter case, currentItem is confusingly not root but a
+							// RowLayout.
+							// As a workaround, currentItem is checked accordingly.
+							if (currentItem === root || currentItem instanceof RowLayout) {
+								loginArea.clearFields()
+								loginArea.reset()
+								loginArea.initialize()
+							}
+						}
+					}
+
+					Connections {
+						target: pageStack
+
+						function onCurrentItemChanged() {
+							// Initialize loginArea when Kaidan is started.
+							if (pageStack.currentItem === root) {
+								loginArea.initialize()
+							}
+						}
+					}
+
+					Connections {
+						target: applicationWindow()
+
+						function onActiveFocusItemChanged() {
+							// Ensure that loginArea is focused when this page is opened after an
+							// account removal.
+							// That workaround is needed because AccountDetailsSheet takes the focus
+							// when it is closed once the account removal is completed.
+							if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
+								loginArea.initialize()
 							}
 						}
 					}
 				}
 
 				MobileForm.FormButtonDelegate {
-					text: qsTr("Scan login QR code of old device")
+					text: qsTr("Scan login QR code")
 					onClicked: pushLayer(qrCodeOnboardingPage)
 				}
 			}
@@ -151,12 +172,10 @@ Kirigami.ScrollablePage {
 		target: Kaidan
 
 		function onConnectionErrorChanged() {
-			if (Kaidan.connectionError !== ClientWorker.NoError)
+			if (Kaidan.connectionError !== ClientWorker.NoError) {
 				passiveNotification(Utils.connectionErrorMessage(Kaidan.connectionError))
+				loginArea.initialize()
+			}
 		}
-	}
-
-	onBackRequested: function (event) {
-		Kaidan.cancelAccountMigration();
 	}
 }

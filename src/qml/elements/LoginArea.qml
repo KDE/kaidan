@@ -125,10 +125,10 @@ MobileForm.FormCard {
 
 		passwordField.invalidHintMayBeShown = false
 		passwordField.toggleHintForInvalidText()
+	}
 
-		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			jidField.text = "";
-			passwordField.text = "";
-		}
+	function clearFields() {
+		jidField.text = "";
+		passwordField.text = "";
 	}
 }

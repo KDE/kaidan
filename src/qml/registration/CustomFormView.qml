@@ -5,6 +5,8 @@
 
 import QtQuick.Controls 2.15 as Controls
 
+import im.kaidan.kaidan 1.0
+
 import "../elements"
 
 /**
@@ -21,6 +23,7 @@ View {
 		baseModel: formModel
 		displayTitle: false
 		displayInstructions: false
+		visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired
 	}
 
 	function forceActiveFocus() {

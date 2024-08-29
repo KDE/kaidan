@@ -308,18 +308,21 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 void AccountMigrationManager::cancelMigration()
 {
 	if (migrationState() != MigrationState::Idle) {
-		// Restore previous account settings and log in to the previous account.
+		// Restore the previous account.
 		if (m_migrationData->state == MigrationState::Registering) {
 			const auto accountManager = AccountManager::instance();
-			const auto settings = m_worker->caches()->settings;
 
-			// If the account that is stored in the settings differs from the current one, clear everything
-			// and reconnect to the stored account.
-			if (accountManager->jid() != settings->authJid()) {
+			// If the stored JID differs from the cached one, reconnect with the stored one.
+			if (accountManager->jid() != m_worker->caches()->settings->authJid()) {
+				// Disconnect from any server that the client is connecting to because of a login
+				// attempt.
+				if (m_worker->xmppClient()->state() == QXmppClient::ConnectingState) {
+					m_worker->xmppClient()->disconnectFromServer();
+				}
+
+				// Resetting the cached JID is needed to load the stored JID via
+				// AccountManager::loadConnectionData().
 				accountManager->setJid({});
-				accountManager->setPassword({});
-
-				m_worker->xmppClient()->disconnectFromServer();
 
 				if (accountManager->loadConnectionData()) {
 					m_worker->logIn();

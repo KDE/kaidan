@@ -123,8 +123,13 @@ RegistrationPage {
 		}
 
 		function onConnectionErrorChanged() {
-			removeLoadingView()
-			popLayer()
+			if (Kaidan.connectionError !== ClientWorker.NoError) {
+				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
+					removeLoadingView()
+				} else {
+					popLayer()
+				}
+			}
 		}
 	}
 
@@ -210,14 +215,5 @@ RegistrationPage {
 	function popLayerIfNoCustomFormFieldsAvailable() {
 		if (!customFormFieldsAvailable())
 			popLayer()
-	}
-
-	onBackRequested: function (event) {
-		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			event.accepted = true
-
-			Kaidan.openStartPageRequested()
-			Kaidan.cancelRegistrationRequested()
-		}
 	}
 }

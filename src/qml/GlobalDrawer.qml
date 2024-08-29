@@ -122,7 +122,15 @@ Kirigami.GlobalDrawer {
 							Controls.Label {
 								id: errorMessage
 								visible: Kaidan.connectionError
-								text: Kaidan.connectionError ? Utils.connectionErrorMessage(Kaidan.connectionError) : ""
+								text: {
+									const error = Kaidan.connectionError
+
+									if (error === ClientWorker.NoError) {
+										return ""
+									}
+
+									return Utils.connectionErrorMessage(error)
+								}
 								font.bold: true
 								wrapMode: Text.WordWrap
 								padding: 10

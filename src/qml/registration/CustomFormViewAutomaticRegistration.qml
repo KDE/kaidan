@@ -5,6 +5,8 @@
 
 import QtQuick.Controls 2.15 as Controls
 
+import im.kaidan.kaidan 1.0
+
 /**
  * This view is used for entering the values into the custom fields of the received registration form during the automatic registration.
  */
@@ -13,6 +15,12 @@ CustomFormView {
 
 	RegistrationButton {
 		id: registrationButton
+		loginFunction: () => {
+			addLoadingArea()
+			changeNickname()
+			Kaidan.logIn()
+		}
+		registrationFunction: sendRegistrationFormAndShowLoadingArea
 	}
 
 	// This is used for automatically focusing the first field of the form.

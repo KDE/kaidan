@@ -87,6 +87,10 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 		return tr("The internet access is not permitted. Please check your system's internet access configuration.");
 	case ClientWorker::RegistrationUnsupported:
 		return tr("This server does not support registration.");
+	case ClientWorker::EmailConfirmationRequired:
+		return tr("Could not log in. Confirm the email message you received first.");
+	case ClientWorker::UnknownError:
+		return tr("Could not connect to the server.");
 	}
 	Q_UNREACHABLE();
 }

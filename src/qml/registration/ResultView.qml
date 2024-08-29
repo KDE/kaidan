@@ -32,6 +32,8 @@ View {
 
 		RegistrationButton {
 			id: registrationButton
+			loginFunction: logInAndShowLoadingView
+			registrationFunction: sendRegistrationFormAndShowLoadingView
 		}
 	}
 }

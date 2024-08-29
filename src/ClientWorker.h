@@ -65,7 +65,10 @@ public:
 		NoSupportedAuth,
 		KeepAliveError,
 		NoNetworkPermission,
-		RegistrationUnsupported
+		RegistrationUnsupported,
+		// The server requires the client to confirm an email message that the server sent to it.
+		EmailConfirmationRequired,
+		UnknownError,
 	};
 	Q_ENUM(ConnectionError)
 
@@ -182,11 +185,6 @@ public:
 	void logIn();
 
 	/**
-	 * Connects to the server and requests a data form for account registration.
-	 */
-	void connectToRegister();
-
-	/**
 	 * Connects to the server with a minimal configuration.
 	 *
 	 * Some additional configuration variables can be set by passing a configuration.
@@ -248,7 +246,7 @@ private:
 	 *
 	 * @param error new connection error
 	 */
-	void onConnectionError(QXmppClient::Error error);
+	void onConnectionError(const QXmppError &error);
 
 	/**
 	 * Starts a pending (enqueued) task (e.g. a password change) if the variable (e.g. a

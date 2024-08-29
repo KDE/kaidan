@@ -105,14 +105,6 @@ public:
 	}
 
 	/**
-	 * Connects to the server and requests a data form for account registration.
-	 */
-	Q_INVOKABLE void requestRegistrationForm()
-	{
-		Q_EMIT registrationFormRequested();
-	}
-
-	/**
 	 * Logs out of the XMPP server.
 	 *
 	 * This disconnects the client from the server.
@@ -217,23 +209,12 @@ public:
 	Q_SIGNAL void registrationOutOfBandUrlReceived(const QUrl &outOfBandUrl);
 
 	/**
-	 * Emitted to request a registration form from the server which is set as the
-	 * currently used JID.
-	 */
-	Q_SIGNAL void registrationFormRequested();
-
-	/**
 	 * Emitted when the account registration failed.
 	 *
 	 * @param error received error
 	 * @param errorMessage message describing the error
 	 */
 	Q_SIGNAL void registrationFailed(quint8 error, const QString &errorMessage);
-
-	/**
-	 * Emitted when the account registration required canceling.
-	 */
-	Q_SIGNAL void cancelRegistrationRequested();
 
 	/**
 	 * Emitted to log in to the server with the set credentials.

@@ -93,9 +93,11 @@ RegistrationPage {
 		target: Kaidan
 
 		function onConnectionErrorChanged() {
-			connectionErrorOccurred = true
-			jumpToPreviousView()
-			removeLoadingView()
+			if (Kaidan.connectionError !== ClientWorker.NoError) {
+				connectionErrorOccurred = true
+				jumpToPreviousView()
+				removeLoadingView()
+			}
 		}
 
 		function onRegistrationFormReceived(dataFormModel) {
@@ -187,8 +189,8 @@ RegistrationPage {
 				}
 				break
 			default:
-				requestRegistrationForm()
 				showPassiveNotificationForUnknownError(errorMessage)
+				removeLoadingView()
 				jumpToView(providerView)
 			}
 		}
@@ -389,22 +391,18 @@ RegistrationPage {
 	 * Requests a registration and shows the loading view.
 	 */
 	function sendRegistrationFormAndShowLoadingView() {
-		addLoadingView(swipeView.currentIndex + 1)
-		jumpToNextView()
-
-		if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			Kaidan.client.vCardManager.changeNicknameRequested(displayName)
-		}
-
+		completeRegistration()
 		sendRegistrationForm()
 	}
 
-	onBackRequested: function (event) {
-		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			event.accepted = true
+	function logInAndShowLoadingView() {
+		completeRegistration()
+		Kaidan.logIn()
+	}
 
-			Kaidan.openStartPageRequested()
-			Kaidan.cancelRegistrationRequested()
-		}
+	function completeRegistration() {
+		addLoadingView(swipeView.currentIndex + 1)
+		jumpToNextView()
+		changeNickname()
 	}
 }

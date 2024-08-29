@@ -178,12 +178,16 @@ Kirigami.ApplicationWindow {
 		showPassiveNotification(text, "long")
 	}
 
-	function openStartPage() {
+	function openStartPage(accountAvailable = false) {
 		globalDrawer.enabled = false
 
-		popLayersAboveLowest()
-		popAllPages()
-		pageStack.push(startPage)
+		if (accountAvailable) {
+			openPage(startPage)
+		} else {
+			popLayersAboveLowest()
+			popAllPages()
+			pageStack.push(startPage)
+		}
 	}
 
 	/**
@@ -297,7 +301,7 @@ Kirigami.ApplicationWindow {
 		}
 
 		function onOpenStartPageRequested() {
-			openPage(startPage)
+			openStartPage(true)
 		}
 
 		function onOpenChatViewRequested() {

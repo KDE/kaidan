@@ -239,10 +239,11 @@ void Kaidan::setConnectionState(Enums::ConnectionState connectionState)
 
 void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
 {
-	if (error != m_connectionError) {
-		m_connectionError = error;
-		Q_EMIT connectionErrorChanged();
-	}
+	// For displaying errors to the user, every new error (even if it is the same as before) must be
+	// emitted.
+	// Thus, the error is not checked for a change but simply emitted.
+	m_connectionError = error;
+	Q_EMIT connectionErrorChanged();
 }
 
 void Kaidan::initializeAccountMigration()

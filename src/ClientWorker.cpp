@@ -13,6 +13,7 @@
 #include <QNetworkAccessManager>
 // QXmpp
 #include <QXmppAccountMigrationManager.h>
+#include <QXmppAuthenticationError.h>
 #include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
 #include <QXmppDiscoveryManager.h>
@@ -27,6 +28,7 @@
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppRosterManager.h>
+#include <QXmppStreamError.h>
 #include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
 #include <QXmppVCardManager.h>
@@ -118,7 +120,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	connect(m_client, &QXmppClient::disconnected, this, &ClientWorker::onDisconnected);
 
 	connect(m_client, &QXmppClient::stateChanged, this, &ClientWorker::onConnectionStateChanged);
-	connect(m_client, &QXmppClient::error, this, &ClientWorker::onConnectionError);
+	connect(m_client, &QXmppClient::errorOccurred, this, &ClientWorker::onConnectionError);
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
 	connect(m_client, &QXmppClient::credentialsChanged, this, [this]() {
 		m_caches->settings->setAuthCredentials(m_client->configuration().credentials());
@@ -126,7 +128,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 #endif
 
 	connect(Kaidan::instance(), &Kaidan::logInRequested, this, &ClientWorker::logIn);
-	connect(Kaidan::instance(), &Kaidan::registrationFormRequested, this, &ClientWorker::connectToRegister);
 	connect(Kaidan::instance(), &Kaidan::logOutRequested, this, &ClientWorker::logOut);
 
 	// presence
@@ -204,13 +205,6 @@ void ClientWorker::logIn()
 	);
 }
 
-void ClientWorker::connectToRegister()
-{
-	AccountManager::instance()->setHasNewCredentials(true);
-	m_registrationManager->setRegisterOnConnectEnabled(true);
-	connectToServer();
-}
-
 void ClientWorker::connectToServer(QXmppConfiguration config)
 {
 	switch (m_client->state()) {
@@ -272,8 +266,15 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 	case QXmppClient::DisconnectedState:
 		break;
 	case QXmppClient::ConnectingState:
-		qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
-		m_isDisconnecting = true;
+		// Abort an ongoing registration if the application is being closed.
+		// Otherwise, wait for the client to connect in order to disconnect appropriately.
+		if (isApplicationBeingClosed && m_registrationManager->registerOnConnectEnabled()) {
+			m_client->disconnectFromServer();
+		} else {
+			qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
+			m_isDisconnecting = true;
+		}
+
 		break;
 	case QXmppClient::ConnectedState:
 		if (AccountManager::instance()->hasNewCredentials()) {
@@ -336,7 +337,7 @@ void ClientWorker::onConnected()
 					Q_EMIT loggedInWithNewCredentials();
 				}
 
-				// Store the valid settings.
+				// Store the valid connection data.
 				AccountManager::instance()->storeConnectionData();
 			}
 
@@ -387,30 +388,13 @@ void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
 	Q_EMIT connectionStateChanged(Enums::ConnectionState(connectionState));
 }
 
-void ClientWorker::onConnectionError(QXmppClient::Error error)
+void ClientWorker::onConnectionError(const QXmppError &error)
 {
 	// no mutex needed, because this is called from updateClient()
-	qDebug() << "[client] Disconnected:" << error;
+	qDebug() << "[client] Connection error:" << error.description;
 
-	switch (error) {
-	case QXmppClient::NoError:
-		Q_UNREACHABLE();
-	case QXmppClient::KeepAliveError:
-		Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
-		break;
-	case QXmppClient::XmppStreamError: {
-		QXmppStanza::Error::Condition xmppStreamError = m_client->xmppStreamError();
-		qDebug() << "[client] XMPP stream error:" << xmppStreamError;
-		if (xmppStreamError == QXmppStanza::Error::NotAuthorized) {
-			Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
-		} else {
-			Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
-		}
-		break;
-	}
-	case QXmppClient::SocketError: {
-		QAbstractSocket::SocketError socketError = m_client->socketError();
-		switch (socketError) {
+	if (const auto socketError = error.value<QAbstractSocket::SocketError>()) {
+		switch (*socketError) {
 		case QAbstractSocket::ConnectionRefusedError:
 		case QAbstractSocket::RemoteHostClosedError:
 			Q_EMIT connectionErrorChanged(ClientWorker::ConnectionRefused);
@@ -431,9 +415,29 @@ void ClientWorker::onConnectionError(QXmppClient::Error error)
 		default:
 			Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
 		}
-		break;
+		return;
+	} else if (error.holdsType<QXmpp::TimeoutError>()) {
+		Q_EMIT connectionErrorChanged(ClientWorker::KeepAliveError);
+		return;
+	} else if (error.holdsType<QXmpp::StreamError>()) {
+		Q_EMIT connectionErrorChanged(ClientWorker::NotConnected);
+		return;
+	} else if (const auto authenticationError = error.value<QXmpp::AuthenticationError>()) {
+		const auto type = authenticationError->type;
+		const auto text = authenticationError->text;
+
+		if ((type == QXmpp::AuthenticationError::AccountDisabled ||
+			 type == QXmpp::AuthenticationError::NotAuthorized) &&
+			text.contains("activat") && text.contains("mail")) {
+			Q_EMIT connectionErrorChanged(ClientWorker::EmailConfirmationRequired);
+			return;
+		} else if (type == QXmpp::AuthenticationError::NotAuthorized) {
+			Q_EMIT connectionErrorChanged(ClientWorker::AuthenticationFailed);
+			return;
+		}
 	}
-	}
+
+	Q_EMIT connectionErrorChanged(ClientWorker::UnknownError);
 }
 
 bool ClientWorker::startPendingTasks()

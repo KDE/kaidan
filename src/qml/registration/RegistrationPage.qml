@@ -37,6 +37,7 @@ Kirigami.Page {
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 0
+	onBackRequested: Kaidan.client.registrationManager.abortRegistrationRequested()
 
 	RegistrationDataFormFilterModel {
 		id: formFilterModel
@@ -88,7 +89,7 @@ Kirigami.Page {
 		AccountManager.jid = provider
 
 		// Request a registration form.
-		Kaidan.requestRegistrationForm()
+		Kaidan.client.registrationManager.registrationFormRequested()
 	}
 
 	/**
@@ -101,5 +102,11 @@ Kirigami.Page {
 			formModel.setPassword(password)
 
 		Kaidan.client.registrationManager.sendRegistrationFormRequested()
+	}
+
+	function changeNickname() {
+		if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+			Kaidan.client.vCardManager.changeNicknameRequested(displayName)
+		}
 	}
 }

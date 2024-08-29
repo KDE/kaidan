@@ -9,6 +9,7 @@
 // Kaidan
 // Qt
 #include <QObject>
+#include <QTimer>
 #include <QVector>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
@@ -41,31 +42,39 @@ public:
 	RegistrationManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 
 	/**
-	 * Sets whether a registration is requested for the next time when the client connects to the server.
-	 *
-	 * @param registerOnConnect true for requesting a registration on connecting, false otherwise
+	 * Connects to the server and requests a data form for account registration.
 	 */
-	void setRegisterOnConnectEnabled(bool registerOnConnect);
+	Q_SIGNAL void registrationFormRequested();
+
+	bool registerOnConnectEnabled() const;
+
+	/**
+	 * Emitted to send a completed data form for registration.
+	 */
+	Q_SIGNAL void sendRegistrationFormRequested();
+
+	/**
+	 * Aborts an ongoing registration.
+	 */
+	Q_SIGNAL void abortRegistrationRequested();
 
 	/**
 	 * Deletes the account from the server.
 	 */
 	void deleteAccount();
 
-	/**
-	 * Clears any pending form data.
-	 */
-	void cancelRegistration();
-
-Q_SIGNALS:
-	void changePasswordRequested(const QString &newPassword);
-
-	/**
-	 * Emitted to send a completed data form for registration.
-	 */
-	void sendRegistrationFormRequested();
+	Q_SIGNAL void changePasswordRequested(const QString &newPassword);
 
 private:
+	void requestRegistrationForm();
+
+	/**
+	 * Sets whether a registration is requested for the next time when the client connects to the server.
+	 *
+	 * @param registerOnConnect true for requesting a registration on connecting, false otherwise
+	 */
+	void setRegisterOnConnectEnabled(bool registerOnConnect);
+
 	/**
 	 * Sends the form containing information to register an account.
 	 */
@@ -141,9 +150,14 @@ private:
 	void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm);
 
 	/**
+	 * Aborts an ongoing registration.
+	 */
+	void abortRegistration();
+
+	/**
 	 * Cleans up the last form used for registration.
 	 */
-	void cleanUpLastForm();
+	void cleanUpLastForm(RegistrationDataFormModel *newDataFormModel);
 
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;

@@ -3,12 +3,17 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import im.kaidan.kaidan 1.0
+
 import "../elements"
 
 /**
  * This button is used for confirming the registration.
  */
 CenteredAdaptiveHighlightedButton {
-	text: qsTr("Register")
-	onClicked: sendRegistrationFormAndShowLoadingView()
+	property var loginFunction
+	property var registrationFunction
+
+	text: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Login after confirmation") : qsTr("Register")
+	onClicked: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? loginFunction() : registrationFunction()
 }
