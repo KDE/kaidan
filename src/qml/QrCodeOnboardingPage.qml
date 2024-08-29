@@ -9,6 +9,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -27,6 +28,12 @@ ExplanationTogglePage {
 			scanner.camera.start()
 			scanner.cameraEnabled = true
 		}
+
+		if (!scanner.acceptResult) {
+			scanner.acceptResult = true
+			loginFormCard.visible = false
+			loginArea.reset()
+		}
 	}
 	explanation: ColumnLayout {
 		width: parent.width
@@ -34,15 +41,37 @@ ExplanationTogglePage {
 
 		CenteredAdaptiveText {
 			text: qsTr("Scan your old device's QR code")
-			Layout.topMargin: 10
 			scaleFactor: 1.5
+			visible: !loginFormCard.visible
+			Layout.topMargin: 10
 		}
 
 		Image {
 			source: Utils.getResourcePath("images/onboarding/account-transfer.svg")
 			sourceSize.height: root.height
 			fillMode: Image.PreserveAspectFit
+			visible: !loginFormCard.visible
 			Layout.fillHeight: true
+			Layout.fillWidth: true
+		}
+
+		MobileForm.FormCard {
+			id: loginFormCard
+			visible: false
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Log in")
+				}
+
+				LoginArea {
+					id: loginArea
+				}
+			}
+			Layout.alignment: Qt.AlignHCenter
+			Layout.topMargin: Kirigami.Units.largeSpacing
+			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
 		}
 	}
@@ -63,21 +92,24 @@ ExplanationTogglePage {
 					acceptResult = false
 					break
 				case Enums.PasswordNeeded:
+					root.primaryButton.clicked()
 					acceptResult = false
-					popLayersAboveLowest()
+					loginFormCard.visible = true
+					loginArea.initialize()
 					break
 				case Enums.InvalidLoginUri:
 					acceptResult = false
 					resetAcceptResultTimer.start()
 					showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
+					break
 				}
 			}
 		}
 
 		LoadingArea {
-			anchors.centerIn: parent
 			description: qsTr("Connecting…")
 			visible: Kaidan.connectionState === Enums.StateConnecting
+			anchors.centerIn: parent
 		}
 
 		// timer to accept the result again after an invalid login URI was scanned
