@@ -62,18 +62,9 @@ MobileForm.FormCard {
 				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
 				contentItem: MobileForm.FormButtonDelegate {
 					id: loginButton
-					text: qsTr("Log in")
-					state: Kaidan.connectionState === Enums.StateConnecting ? "connecting" : ""
-					states: [
-						State {
-							name: "connecting"
-							PropertyChanges {
-								target: loginButton
-								text: qsTr("Connecting…")
-								enabled: false
-							}
-						}
-					]
+					text: enabled ? qsTr("Log in") : qsTr("Connecting…")
+					font.italic: !enabled
+					enabled: Kaidan.connectionState !== Enums.StateConnecting
 					// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
 					onClicked: {
 						// If the JID is invalid, focus its field.
