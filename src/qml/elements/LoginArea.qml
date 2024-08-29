@@ -104,7 +104,7 @@ MobileForm.FormCard {
 				jidField.text = "@" + jidField.text
 			}
 
-			jidField.forceActiveFocus()
+			jidField.inputField.forceActiveFocus()
 			jidField.inputField.cursorPosition = 0
 		} else {
 			jidField.forceActiveFocus()
