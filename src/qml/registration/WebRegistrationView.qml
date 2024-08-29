@@ -6,6 +6,8 @@
 
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
+import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
 
@@ -25,22 +27,40 @@ View {
 			text: qsTr("Open registration web page")
 			onClicked: {
 				Qt.openUrlExternally(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
+				AccountManager.jid = providerView.text
+				loginFormCard.visible = true
+				loginArea.initialize()
 			}
 		}
 
 		CenteredAdaptiveButton {
 			text: qsTr("Copy registration web page address")
-			onClicked: Utils.copyToClipboard(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
+			onClicked: {
+				Utils.copyToClipboard(providerView.registrationWebPage.toString() ? providerView.registrationWebPage : providerView.outOfBandUrl)
+				AccountManager.jid = providerView.text
+				loginFormCard.visible = true
+				loginArea.initialize()
+			}
 		}
 
-		CenteredAdaptiveHighlightedButton {
-			id: loginButton
-			text: qsTr("Log in with your new account")
-			Layout.topMargin: height
-			onClicked: {
-				AccountManager.jid = providerView.text
-				popLayersAboveLowest()
+		MobileForm.FormCard {
+			id: loginFormCard
+			visible: false
+			contentItem: ColumnLayout {
+				spacing: 0
+
+				MobileForm.FormCardHeader {
+					title: qsTr("Log in with your new account")
+				}
+
+				LoginArea {
+					id: loginArea
+				}
 			}
+			Layout.alignment: Qt.AlignHCenter
+			Layout.topMargin: Kirigami.Units.largeSpacing
+			Layout.maximumWidth: largeButtonWidth
+			Layout.fillWidth: true
 		}
 	}
 }
