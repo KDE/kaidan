@@ -1022,7 +1022,10 @@ DetailsContent {
 					icon.name: "edit-copy-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
 					onClicked: {
-						root.sheet.close()
+						if (root.sheet) {
+							root.sheet.close()
+						}
+
 						Kaidan.startAccountMigration()
 					}
 				}
