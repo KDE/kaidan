@@ -24,7 +24,6 @@ MobileForm.FormCard {
 		contentItem: ColumnLayout {
 			Layout.fillWidth: true
 
-			// JID field
 			JidField {
 				id: jidField
 				inputField.onAccepted: loginButton.clicked()
@@ -51,7 +50,6 @@ MobileForm.FormCard {
 				visible: false
 			}
 
-			// password field
 			PasswordField {
 				id: passwordField
 				inputField.onAccepted: loginButton.clicked()
