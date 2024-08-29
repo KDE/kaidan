@@ -68,7 +68,6 @@ FieldView {
 			visible: customProviderSelected
 			placeholderText: "example.org"
 			inputMethodHints: Qt.ImhUrlCharactersOnly
-
 			inputField.rightActions: [
 				Kirigami.Action {
 					icon.name: "preferences-system-symbolic"
@@ -81,16 +80,14 @@ FieldView {
 					}
 				}
 			]
-
 			onTextChanged: {
 				if (outOfBandUrl && customProviderSelected) {
 					outOfBandUrl = ""
 					removeWebRegistrationView()
 				}
 			}
-
-			// Focus the customConnectionSettings on confirmation.
 			Keys.onPressed: {
+				// Focus the customConnectionSettings on confirmation
 				if (customConnectionSettings.visible) {
 					switch (event.key) {
 					case Qt.Key_Return:
