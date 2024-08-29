@@ -46,11 +46,17 @@ RegistrationPage {
 			clip: true
 			Layout.fillWidth: true
 			Layout.fillHeight: true
-			initialItem: loadingViewComponent
+			initialItem: loadingAreaComponent
 		}
 	}
 
-	Component { id: loadingViewComponent; LoadingView {} }
+	Component {
+		id: loadingAreaComponent
+
+		LoadingArea {
+			description: qsTr("Requesting the provider…")
+		}
+	}
 
 	Component { id: customFormViewComponent; CustomFormViewAutomaticRegistration {}	}
 
@@ -69,11 +75,11 @@ RegistrationPage {
 			formFilterModel.sourceModel = dataFormModel
 
 			// If the received registration data form does not contain custom fields, request the registration directly.
-			// Otherwise, remove the loading view to show the custom form view.
+			// Otherwise, remove the loading area to show the custom form view.
 			if (!customFormFieldsAvailable())
 				sendRegistrationForm()
 			else
-				removeLoadingView()
+				removeLoadingArea()
 		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
@@ -124,7 +130,7 @@ RegistrationPage {
 		function onConnectionErrorChanged() {
 			if (Kaidan.connectionError !== ClientWorker.NoError) {
 				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
-					removeLoadingView()
+					removeLoadingArea()
 				} else {
 					popLayer()
 				}
@@ -139,19 +145,19 @@ RegistrationPage {
 	}
 
 	/**
-	 * Adds the loading view to the stack view.
+	 * Adds the loading area to the stack view.
 	 */
-	function addLoadingView() {
-		stackView.push(loadingViewComponent)
+	function addLoadingArea() {
+		stackView.push(loadingAreaComponent)
 	}
 
 	/**
-	 * Removes the loading view from the stack view.
+	 * Removes the loading area from the stack view.
 	 */
-	function removeLoadingView() {
-		// Push the custom form view on the stack view if the loading view is the only item on it.
+	function removeLoadingArea() {
+		// Push the custom form view on the stack view if the loading area is the only item on it.
 		// That is the case during the first registration form request.
-		// When the loading view was pushed on the stack view after submitting custom form fields and the registration fails or a connection error occurs, that loading view is popped to show the custom form view again.
+		// When the loading area was pushed on the stack view after submitting custom form fields and the registration fails or a connection error occurs, that loading area is popped to show the custom form view again.
 		if (stackView.depth === 1) {
 			stackView.push(customFormViewComponent)
 			stackView.currentItem.registrationButton.parent = stackView.currentItem.contentArea
@@ -200,10 +206,10 @@ RegistrationPage {
 	}
 
 	/**
-	 * Sends the completed registration form and adds the loading view.
+	 * Sends the completed registration form and adds the loading area.
 	 */
-	function sendRegistrationFormAndShowLoadingView() {
+	function sendRegistrationFormAndShowLoadingArea() {
 		sendRegistrationForm()
-		addLoadingView()
+		addLoadingArea()
 	}
 }
