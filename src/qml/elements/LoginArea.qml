@@ -98,7 +98,12 @@ MobileForm.FormCard {
 			// This is used after a web registration when only the provider is known.
 			// Prepend "@" to the server JID and move the cursor to the field's beginning.
 			// That way, the username can be directly entered.
-			jidField.text = "@" + jidField.text
+			// Ensure by checking whether "@" is already prepended that it is not prepended
+			// multiple times by calling this function.
+			if (jidField.text.charAt(0) !== "@") {
+				jidField.text = "@" + jidField.text
+			}
+
 			jidField.forceActiveFocus()
 			jidField.inputField.cursorPosition = 0
 		} else {
