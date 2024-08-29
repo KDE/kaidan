@@ -37,6 +37,17 @@ Kirigami.Page {
 	topPadding: 0
 	rightPadding: 0
 	bottomPadding: 0
+	background: Rectangle {
+		color: secondaryBackgroundColor
+
+		Image {
+			source: Utils.getResourcePath("images/chat-page-background.svg")
+			anchors.fill: parent
+			fillMode: Image.Tile
+			horizontalAlignment: Image.AlignLeft
+			verticalAlignment: Image.AlignTop
+		}
+	}
 	onBackRequested: Kaidan.client.registrationManager.abortRegistrationRequested()
 
 	RegistrationDataFormFilterModel {
