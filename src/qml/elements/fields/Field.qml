@@ -56,19 +56,17 @@ ColumnLayout {
 		id: label
 	}
 
-	RowLayout {
-		// input field
-		TextFieldCompleter {
-			id: inputField
-			Layout.fillWidth: true
-			selectByMouse: true
+	// input field
+	TextFieldCompleter {
+		id: inputField
+		Layout.fillWidth: true
+		selectByMouse: true
 
-			// Show a hint for the first time if the entered text is not valid as soon as the input field loses the focus.
-			onFocusChanged: {
-				if (!focus && !invalidHintMayBeShown) {
-					invalidHintMayBeShown = true
-					toggleHintForInvalidText()
-				}
+		// Show a hint for the first time if the entered text is not valid as soon as the input field loses the focus.
+		onFocusChanged: {
+			if (!focus && !invalidHintMayBeShown) {
+				invalidHintMayBeShown = true
+				toggleHintForInvalidText()
 			}
 		}
 	}
