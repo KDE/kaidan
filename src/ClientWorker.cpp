@@ -197,6 +197,9 @@ void ClientWorker::logIn()
 				config.setPassword(AccountManager::instance()->password());
 				config.setAutoAcceptSubscriptions(false);
 
+				// Servers using LDAP do not support SASL PLAIN authentication.
+				config.setDisabledSaslMechanisms({});
+
 				connectToServer(config);
 			}
 
