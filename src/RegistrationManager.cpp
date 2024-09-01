@@ -66,9 +66,7 @@ void RegistrationManager::deleteAccount()
 	// QXmppRegistrationManager::accountDeleted to be emitted.
 	// Considering an account as deleted after a timeout is needed because some servers do not
 	// respond to the deletion request within a reasonable time period.
-	QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, [this]() {
-		m_client->disconnectFromServer();
-	});
+	QTimer::singleShot(ACCOUNT_DELETION_TIMEOUT, m_client, &QXmppClient::disconnectFromServer);
 }
 
 void RegistrationManager::requestRegistrationForm()
