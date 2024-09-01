@@ -20,16 +20,6 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Fallou a creación do código QR: %1"
 
-#: src/AccountManager.cpp:381
-#, qt-format
-msgctxt "AccountManager|"
-msgid ""
-"Your account could not be deleted from the server. Therefore, it was also "
-"not removed from this app: %1"
-msgstr ""
-"Non foi posíbel eliminar a conta do servidor, polo que tampouco se eliminou "
-"da aplicación: %1"
-
 #: src/AccountMigrationManager.cpp:197
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
@@ -174,7 +164,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Sen conexión"
 
-#: src/Kaidan.cpp:296
+#: src/Kaidan.cpp:297
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Abrirase a ligazón despois de conectar."
@@ -569,7 +559,7 @@ msgctxt "QObject|"
 msgid "Offline"
 msgstr "Sen conexión"
 
-#: src/ProviderListModel.cpp:26
+#: src/ProviderListModel.cpp:31
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Provedor personalizado"
@@ -577,12 +567,12 @@ msgstr "Provedor personalizado"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:94 src/ProviderListModel.cpp:104
+#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Sen límite"
 
-#: src/ProviderListModel.cpp:106
+#: src/ProviderListModel.cpp:111
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -624,46 +614,46 @@ msgid "Add hidden message part"
 msgstr "Engadir unha parte agochada da mensaxe"
 
 #: src/qml/details/AccountDetailsContent.qml:26
-#: src/qml/details/AccountDetailsContent.qml:320
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:321
+#: src/qml/details/AccountDetailsContent.qml:346
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Nunca"
 
 #: src/qml/details/AccountDetailsContent.qml:30
-#: src/qml/details/AccountDetailsContent.qml:324
+#: src/qml/details/AccountDetailsContent.qml:325
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "Se se comparten os datos persoais."
 
 #: src/qml/details/AccountDetailsContent.qml:34
-#: src/qml/details/AccountDetailsContent.qml:328
-#: src/qml/details/AccountDetailsContent.qml:353
+#: src/qml/details/AccountDetailsContent.qml:329
+#: src/qml/details/AccountDetailsContent.qml:354
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
 
-#: src/qml/details/AccountDetailsContent.qml:67
+#: src/qml/details/AccountDetailsContent.qml:68
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr "Baleira"
 
-#: src/qml/details/AccountDetailsContent.qml:87
+#: src/qml/details/AccountDetailsContent.qml:88
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Definir o valor"
 
-#: src/qml/details/AccountDetailsContent.qml:145
+#: src/qml/details/AccountDetailsContent.qml:146
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Cifraxe"
 
-#: src/qml/details/AccountDetailsContent.qml:149
+#: src/qml/details/AccountDetailsContent.qml:150
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:150
+#: src/qml/details/AccountDetailsContent.qml:151
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -672,159 +662,159 @@ msgstr ""
 "A cifraxe de extremo a extremo con OMEMO 2 garante que só a xente na charla "
 "pode ler ou modificar os datos intercambiados."
 
-#: src/qml/details/AccountDetailsContent.qml:169
-#: src/qml/details/AccountDetailsContent.qml:177
+#: src/qml/details/AccountDetailsContent.qml:170
+#: src/qml/details/AccountDetailsContent.qml:178
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "Verifique os <b>seus</b> dispositivos para cifrar para eles."
 
-#: src/qml/details/AccountDetailsContent.qml:173
+#: src/qml/details/AccountDetailsContent.qml:174
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Os <b>teus</b> outros dispositivos non usan OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:180
+#: src/qml/details/AccountDetailsContent.qml:181
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Verifique os <b>seus</b> dispositivos para a mellor seguridade."
 
-#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:243
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "Cambiar a etiqueta…"
 
-#: src/qml/details/AccountDetailsContent.qml:270
+#: src/qml/details/AccountDetailsContent.qml:272
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Retirar a etiqueta"
 
-#: src/qml/details/AccountDetailsContent.qml:283
-#: src/qml/details/AccountDetailsContent.qml:288
+#: src/qml/details/AccountDetailsContent.qml:285
+#: src/qml/details/AccountDetailsContent.qml:290
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "Compartir o enderezo de charla da conta por código QR."
 
-#: src/qml/details/AccountDetailsContent.qml:292
+#: src/qml/details/AccountDetailsContent.qml:294
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "Compartir o enderezo de charla da conta por texto."
 
-#: src/qml/details/AccountDetailsContent.qml:295
+#: src/qml/details/AccountDetailsContent.qml:297
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "O enderezo da conta copiouse no portapapeis."
 
-#: src/qml/details/AccountDetailsContent.qml:299
+#: src/qml/details/AccountDetailsContent.qml:301
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 "Compartir o enderezo de charla da conta por unha páxina web con axuda de uso."
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:311
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacións"
 
-#: src/qml/details/AccountDetailsContent.qml:315
+#: src/qml/details/AccountDetailsContent.qml:316
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Mensaxes de contactos recibidas"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:317
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 "Amosar unha notificación e reproducir un son ao chegar mensaxes dun contacto."
 
-#: src/qml/details/AccountDetailsContent.qml:340
+#: src/qml/details/AccountDetailsContent.qml:341
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Mensaxes de grupo entrantes"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:342
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 "Amosar unha notificación e reproducir un son ao chegar mensaxes dun grupo."
 
-#: src/qml/details/AccountDetailsContent.qml:349
+#: src/qml/details/AccountDetailsContent.qml:350
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "Ao mencionar"
 
-#: src/qml/details/AccountDetailsContent.qml:382
+#: src/qml/details/AccountDetailsContent.qml:384
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Provedor"
 
-#: src/qml/details/AccountDetailsContent.qml:386
+#: src/qml/details/AccountDetailsContent.qml:388
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Visitar sitio web"
 
-#: src/qml/details/AccountDetailsContent.qml:387
+#: src/qml/details/AccountDetailsContent.qml:389
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Abre a web do seu provedor nun navegador"
 
-#: src/qml/details/AccountDetailsContent.qml:393
+#: src/qml/details/AccountDetailsContent.qml:395
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Copia o enderezo da web"
 
-#: src/qml/details/AccountDetailsContent.qml:394
+#: src/qml/details/AccountDetailsContent.qml:396
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Copia o enderezo da web do seu provedor no portapapeis."
 
-#: src/qml/details/AccountDetailsContent.qml:398
+#: src/qml/details/AccountDetailsContent.qml:400
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Enderezo da web copiado ao portapapeis"
 
-#: src/qml/details/AccountDetailsContent.qml:403
+#: src/qml/details/AccountDetailsContent.qml:405
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Abrir a charla de asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:404
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Inicia unha charla co servizo de asistencia do seu provedor"
 
-#: src/qml/details/AccountDetailsContent.qml:410
+#: src/qml/details/AccountDetailsContent.qml:412
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:436
+#: src/qml/details/AccountDetailsContent.qml:438
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Dar asistencia a %1"
 
-#: src/qml/details/AccountDetailsContent.qml:453
+#: src/qml/details/AccountDetailsContent.qml:455
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Abrir un grupo de asistencia"
 
-#: src/qml/details/AccountDetailsContent.qml:454
+#: src/qml/details/AccountDetailsContent.qml:456
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Únase ao grupo público de asistencia do seu provedor"
 
-#: src/qml/details/AccountDetailsContent.qml:480
+#: src/qml/details/AccountDetailsContent.qml:482
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Asistencia de grupo %1"
 
-#: src/qml/details/AccountDetailsContent.qml:496
+#: src/qml/details/AccountDetailsContent.qml:499
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Enderezo da charla bloqueados"
 
-#: src/qml/details/AccountDetailsContent.qml:500
+#: src/qml/details/AccountDetailsContent.qml:503
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -833,53 +823,53 @@ msgstr ""
 "Bloquear unha persoa usuaria concreta (p. ex. persoa@example.org) ou todas "
 "as persoas usuarias do mesmo servidor (p. ex. example.org)."
 
-#: src/qml/details/AccountDetailsContent.qml:519
+#: src/qml/details/AccountDetailsContent.qml:522
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "Debe ter conexión para bloquear ou desbloquear enderezos de charla."
 
-#: src/qml/details/AccountDetailsContent.qml:526
+#: src/qml/details/AccountDetailsContent.qml:529
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "persoa@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:541
+#: src/qml/details/AccountDetailsContent.qml:544
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Bloquear o enderezo da charla"
 
-#: src/qml/details/AccountDetailsContent.qml:599
+#: src/qml/details/AccountDetailsContent.qml:602
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Cambiar o enderezo da charla…"
 
-#: src/qml/details/AccountDetailsContent.qml:628
+#: src/qml/details/AccountDetailsContent.qml:631
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Desbloquear"
 
-#: src/qml/details/AccountDetailsContent.qml:655
+#: src/qml/details/AccountDetailsContent.qml:658
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Notas"
 
-#: src/qml/details/AccountDetailsContent.qml:660
+#: src/qml/details/AccountDetailsContent.qml:663
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Engadir unha charla para notas"
 
-#: src/qml/details/AccountDetailsContent.qml:661
+#: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "Engadir unha charla para sincronizar as notas con todos os dispositivos"
 
-#: src/qml/details/AccountDetailsContent.qml:695
+#: src/qml/details/AccountDetailsContent.qml:698
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Cambio de contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:699
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -888,63 +878,63 @@ msgstr ""
 "Cambie o seu contrasinal. Ten que escribir o novo contrasinal nos seus "
 "outros dispositivos!"
 
-#: src/qml/details/AccountDetailsContent.qml:715
+#: src/qml/details/AccountDetailsContent.qml:718
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Contrasinal actual"
 
-#: src/qml/details/AccountDetailsContent.qml:716
+#: src/qml/details/AccountDetailsContent.qml:719
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Escriba o seu contrasinal actual"
 
-#: src/qml/details/AccountDetailsContent.qml:717
+#: src/qml/details/AccountDetailsContent.qml:720
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Escriba o contrasinal correcto"
 
-#: src/qml/details/AccountDetailsContent.qml:739
+#: src/qml/details/AccountDetailsContent.qml:742
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Novo contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:739
+#: src/qml/details/AccountDetailsContent.qml:742
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:740
+#: src/qml/details/AccountDetailsContent.qml:743
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Escriba o seu novo contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:741
+#: src/qml/details/AccountDetailsContent.qml:744
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Escribe un contrasinal diferente para cambialo"
 
-#: src/qml/details/AccountDetailsContent.qml:761
+#: src/qml/details/AccountDetailsContent.qml:764
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Cambiar contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:808
+#: src/qml/details/AccountDetailsContent.qml:811
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Non foi posíbel cambiar o contrasinal: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:814
+#: src/qml/details/AccountDetailsContent.qml:817
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "´Cambiado correctamente o contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:831
+#: src/qml/details/AccountDetailsContent.qml:833
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Visibilidade do contrasinal"
 
-#: src/qml/details/AccountDetailsContent.qml:835
+#: src/qml/details/AccountDetailsContent.qml:837
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -957,12 +947,12 @@ msgstr ""
 "usar esta conta noutro dispositivo, <b>considere gardar o contrasinal nalgún "
 "outro lugar. Isto non pode desfacerse!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:839
+#: src/qml/details/AccountDetailsContent.qml:841
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Non amosar o contrasinal como texto"
 
-#: src/qml/details/AccountDetailsContent.qml:840
+#: src/qml/details/AccountDetailsContent.qml:842
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -971,20 +961,18 @@ msgstr ""
 "Permitir engadir dispositivos adicionais usando o código QR de acceso pero "
 "non amosar nunca o contrasinal."
 
-#: src/qml/details/AccountDetailsContent.qml:848
-#: src/qml/details/AccountDetailsContent.qml:867
-#: src/qml/details/AccountDetailsContent.qml:1055
-#: src/qml/details/AccountDetailsContent.qml:1080
+#: src/qml/details/AccountDetailsContent.qml:850
+#: src/qml/details/AccountDetailsContent.qml:869
 msgctxt "AccountDetailsContent|"
 msgid "Confirm"
 msgstr "Confirmar"
 
-#: src/qml/details/AccountDetailsContent.qml:858
+#: src/qml/details/AccountDetailsContent.qml:860
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Non amosar o contrasinal baixo ningunha circunstancia"
 
-#: src/qml/details/AccountDetailsContent.qml:859
+#: src/qml/details/AccountDetailsContent.qml:861
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -993,13 +981,13 @@ msgstr ""
 "Nin permitir engadir dispositivos adicionais usando o código QR de acceso "
 "nin amosar o contrasinal."
 
-#: src/qml/details/AccountDetailsContent.qml:890
+#: src/qml/details/AccountDetailsContent.qml:892
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Conexión"
 
 # skip-rule: trasno-field
-#: src/qml/details/AccountDetailsContent.qml:894
+#: src/qml/details/AccountDetailsContent.qml:896
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1008,38 +996,38 @@ msgstr ""
 "Configurar o nome de servidor e porto co que quere conectar (deixar baleiro "
 "para os valores predeterminados)."
 
-#: src/qml/details/AccountDetailsContent.qml:913
+#: src/qml/details/AccountDetailsContent.qml:915
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Cambiar axustes de conexión"
 
-#: src/qml/details/AccountDetailsContent.qml:922
+#: src/qml/details/AccountDetailsContent.qml:924
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Escribe uns valores diferentes para a conexión para cambialos"
 
-#: src/qml/details/AccountDetailsContent.qml:971
+#: src/qml/details/AccountDetailsContent.qml:973
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Non foi posíbel cambiar os axustes da conexión: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:986
+#: src/qml/details/AccountDetailsContent.qml:988
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Cambiouse a configuración de conexión."
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migración"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migrara a conta"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1050,17 +1038,17 @@ msgstr ""
 "súa conta actual retirarase desta aplicación. Salvagarde as credenciais e o "
 "historial de charla se o necesita!"
 
-#: src/qml/details/AccountDetailsContent.qml:1038
+#: src/qml/details/AccountDetailsContent.qml:1044
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminación"
 
-#: src/qml/details/AccountDetailsContent.qml:1046
+#: src/qml/details/AccountDetailsContent.qml:1050
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Retirar de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1047
+#: src/qml/details/AccountDetailsContent.qml:1051
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1069,16 +1057,46 @@ msgstr ""
 "Retirar a conta da aplicación. Salvagarde as credenciais e o historial de "
 "charla se o necesita!"
 
-#: src/qml/details/AccountDetailsContent.qml:1071
+#: src/qml/details/AccountDetailsContent.qml:1056
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
+msgctxt "AccountDetailsContent|"
+msgid "Removing account…"
+msgstr "Engadir un contacto…"
+
+#: src/qml/details/AccountDetailsContent.qml:1063
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Eliminar completamente"
 
-#: src/qml/details/AccountDetailsContent.qml:1072
+#: src/qml/details/AccountDetailsContent.qml:1064
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Eliminar a conta no provedor. Non poderá volver usar a súa conta!"
+
+#: src/qml/details/AccountDetailsContent.qml:1069
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
+msgctxt "AccountDetailsContent|"
+msgid "Deleting account…"
+msgstr "Eliminar conta"
+
+#: src/qml/details/AccountDetailsContent.qml:1076
+#, fuzzy, qt-format
+#| msgctxt "AccountManager|"
+#| msgid ""
+#| "Your account could not be deleted from the server. Therefore, it was also "
+#| "not removed from this app: %1"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"Your account could not be deleted from the server. Therefore, it was also "
+"not removed from this app: %1"
+msgstr ""
+"Non foi posíbel eliminar a conta do servidor, polo que tampouco se eliminou "
+"da aplicación: %1"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1992,6 +2010,14 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Enviar a localización"
 
+#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Confirm"
+msgctxt "ConfirmationFormButtonArea|"
+msgid "Confirm"
+msgstr "Confirmar"
+
 #: src/qml/elements/ConfirmationPage.qml:24
 msgctxt "ConfirmationPage|"
 msgid "Cancel"
@@ -2311,17 +2337,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: src/qml/elements/LoginArea.qml:34
+#: src/qml/elements/LoginArea.qml:33
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Axustes de conexión"
 
-#: src/qml/elements/LoginArea.qml:67
+#: src/qml/elements/LoginArea.qml:65
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Acceder"
 
-#: src/qml/elements/LoginArea.qml:74
+#: src/qml/elements/LoginArea.qml:65
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Conectando…"
@@ -2664,42 +2690,42 @@ msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Contas"
 
-#: src/qml/GlobalDrawer.qml:149
+#: src/qml/GlobalDrawer.qml:157
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Accións"
 
-#: src/qml/GlobalDrawer.qml:153
+#: src/qml/GlobalDrawer.qml:161
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Engadir contacto vía código QR"
 
-#: src/qml/GlobalDrawer.qml:159
+#: src/qml/GlobalDrawer.qml:167
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Engadir o contacto por enderezo de charla"
 
-#: src/qml/GlobalDrawer.qml:165
+#: src/qml/GlobalDrawer.qml:173
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr "Crear un grupo"
 
-#: src/qml/GlobalDrawer.qml:172
+#: src/qml/GlobalDrawer.qml:180
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr "Unirse ao grupo"
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:188
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Buscar grupos públicos"
 
-#: src/qml/GlobalDrawer.qml:191
+#: src/qml/GlobalDrawer.qml:199
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambiar de dispositivo"
 
-#: src/qml/GlobalDrawer.qml:197
+#: src/qml/GlobalDrawer.qml:205
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Axustes"
@@ -2727,27 +2753,35 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "Non foi posíbel desbloquear %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:22 src/qml/QrCodeOnboardingPage.qml:24
+#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Escanear código QR"
 
-#: src/qml/QrCodeOnboardingPage.qml:24
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Amosar explicación"
 
-#: src/qml/QrCodeOnboardingPage.qml:36
+#: src/qml/QrCodeOnboardingPage.qml:43
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Escanee o código QR do seu dispositivo anterior"
 
-#: src/qml/QrCodeOnboardingPage.qml:72
+#: src/qml/QrCodeOnboardingPage.qml:65
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Log in"
+msgstr "Acceder"
+
+#: src/qml/QrCodeOnboardingPage.qml:103
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Este código QR non é un código QR de acceso válido."
 
-#: src/qml/QrCodeOnboardingPage.qml:79
+#: src/qml/QrCodeOnboardingPage.qml:110
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Conectando…"
@@ -2757,12 +2791,15 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Register automatically"
 msgstr "Rexistro automático"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:81
+#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "Este provedor non permite rexistrarse a través desta aplicación."
+msgid "Requesting the provider…"
+msgstr "Consultando co servidor..."
 
-#: src/qml/registration/CustomFormView.qml:14
+#: src/qml/registration/CustomFormView.qml:16
 msgctxt "CustomFormView|"
 msgid ""
 "The server has requested more information.\n"
@@ -2802,38 +2839,38 @@ msgctxt "ManualRegistrationPage|"
 msgid "Register manually"
 msgstr "Rexistrar manualmente"
 
-#: src/qml/registration/ManualRegistrationPage.qml:172
+#: src/qml/registration/ManualRegistrationPage.qml:174
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "O provedor require un contrasinal máis forte."
 
-#: src/qml/registration/ManualRegistrationPage.qml:215
+#: src/qml/registration/ManualRegistrationPage.qml:217
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does not support registration via this app."
 msgstr "O provedor non permite rexistrar a través desta aplicación."
 
-#: src/qml/registration/ManualRegistrationPage.qml:215
+#: src/qml/registration/ManualRegistrationPage.qml:217
 msgctxt "ManualRegistrationPage|"
 msgid "The provider does currently not support registration via this app."
 msgstr ""
 "Actualmente o provedor non permite rexistrar a través desta aplicación."
 
-#: src/qml/registration/ManualRegistrationPage.qml:219
+#: src/qml/registration/ManualRegistrationPage.qml:221
 msgctxt "ManualRegistrationPage|"
 msgid "But you can use the provider's web registration."
 msgstr "Pero pode usar a web do provedor para rexistrar."
 
-#: src/qml/registration/ManualRegistrationPage.qml:223
+#: src/qml/registration/ManualRegistrationPage.qml:225
 msgctxt "ManualRegistrationPage|"
 msgid "A new provider has been randomly selected."
 msgstr "Escolleuse un novo provedor ao chou."
 
-#: src/qml/registration/ManualRegistrationPage.qml:238
+#: src/qml/registration/ManualRegistrationPage.qml:240
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "O nome de usuaria xa está collido."
 
-#: src/qml/registration/ManualRegistrationPage.qml:242
+#: src/qml/registration/ManualRegistrationPage.qml:244
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Creouse un novo nome de usuaria ao chou."
@@ -2861,77 +2898,85 @@ msgctxt "ProviderView|"
 msgid "Provider"
 msgstr "Provedor"
 
-#: src/qml/registration/ProviderView.qml:75
+#: src/qml/registration/ProviderView.qml:74
 msgctxt "ProviderView|"
 msgid "Connection settings"
 msgstr "Axustes de conexión"
 
-#: src/qml/registration/ProviderView.qml:118
+#: src/qml/registration/ProviderView.qml:115
 msgctxt "ProviderView|"
 msgid "Web registration only:"
 msgstr "Rexistro só pola web:"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:116
 msgctxt "ProviderView|"
 msgid "No"
 msgstr "Non"
 
-#: src/qml/registration/ProviderView.qml:119
+#: src/qml/registration/ProviderView.qml:116
 msgctxt "ProviderView|"
 msgid "Yes"
 msgstr "Si"
 
-#: src/qml/registration/ProviderView.qml:124
+#: src/qml/registration/ProviderView.qml:121
 msgctxt "ProviderView|"
 msgid "Server locations:"
 msgstr "Localización dos servidores:"
 
-#: src/qml/registration/ProviderView.qml:130
+#: src/qml/registration/ProviderView.qml:127
 msgctxt "ProviderView|"
 msgid "Languages:"
 msgstr "Idiomas:"
 
-#: src/qml/registration/ProviderView.qml:136
+#: src/qml/registration/ProviderView.qml:133
 msgctxt "ProviderView|"
 msgid "Online since:"
 msgstr "En liña desde:"
 
-#: src/qml/registration/ProviderView.qml:142
+#: src/qml/registration/ProviderView.qml:139
 msgctxt "ProviderView|"
 msgid "Allows to share media up to:"
 msgstr "Permite compartir multimedia ata:"
 
-#: src/qml/registration/ProviderView.qml:148
+#: src/qml/registration/ProviderView.qml:145
 msgctxt "ProviderView|"
 msgid "Stores shared media up to:"
 msgstr "Garda o multimedia compartido ata:"
 
-#: src/qml/registration/ProviderView.qml:156
+#: src/qml/registration/ProviderView.qml:153
 msgctxt "ProviderView|"
 msgid "Open website"
 msgstr "Abrir sitio web"
 
-#: src/qml/registration/ProviderView.qml:162
+#: src/qml/registration/ProviderView.qml:159
 msgctxt "ProviderView|"
 msgid "Copy website address"
 msgstr "Copiar o enderezo da web"
 
-#: src/qml/registration/RegistrationButton.qml:12
+#: src/qml/registration/RegistrationButton.qml:17
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "RegistrationButton|"
+msgid "Login after confirmation"
+msgstr "Non hai información."
+
+#: src/qml/registration/RegistrationButton.qml:17
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Rexistrar"
 
-#: src/qml/registration/RegistrationPage.qml:55
+#: src/qml/registration/RegistrationPage.qml:67
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr "O texto CAPTCHA non é correcto"
 
-#: src/qml/registration/RegistrationPage.qml:64
+#: src/qml/registration/RegistrationPage.qml:76
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr "Falta información obrigatoria: "
 
-#: src/qml/registration/RegistrationPage.qml:73
+#: src/qml/registration/RegistrationPage.qml:85
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "O rexistro fallou:"
@@ -2977,7 +3022,7 @@ msgstr ""
 "Escriba un nome de usuaria válido ou deixe o campo baleiro para crear un ao "
 "chou."
 
-#: src/qml/registration/WebRegistrationView.qml:18
+#: src/qml/registration/WebRegistrationView.qml:20
 msgctxt "WebRegistrationView|"
 msgid ""
 "The selected provider only provides web registration. After creating an "
@@ -2986,17 +3031,17 @@ msgstr ""
 "O provedor escollido só fornece rexistro web. Vaia á súa web para crear a "
 "conta e despois poder acceder desde Kaidan."
 
-#: src/qml/registration/WebRegistrationView.qml:25
+#: src/qml/registration/WebRegistrationView.qml:27
 msgctxt "WebRegistrationView|"
 msgid "Open registration web page"
 msgstr "Abrir a páxina web de rexistro"
 
-#: src/qml/registration/WebRegistrationView.qml:32
+#: src/qml/registration/WebRegistrationView.qml:37
 msgctxt "WebRegistrationView|"
 msgid "Copy registration web page address"
 msgstr "Copiar enderezo da páxina web para rexistrarse"
 
-#: src/qml/registration/WebRegistrationView.qml:38
+#: src/qml/registration/WebRegistrationView.qml:53
 msgctxt "WebRegistrationView|"
 msgid "Log in with your new account"
 msgstr "Acceda coa súa nova conta"
@@ -3155,47 +3200,45 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Axustes"
 
-#: src/qml/StartPage.qml:23
+#: src/qml/StartPage.qml:25
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Migración de conta"
 
-#: src/qml/StartPage.qml:61
+#: src/qml/StartPage.qml:66
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Goza da comunicación libre en todos os dispositivos!"
 
-#: src/qml/StartPage.qml:74
+#: src/qml/StartPage.qml:79
 msgctxt "StartPage|"
 msgid "Login"
 msgstr "Acceso"
 
-#: src/qml/StartPage.qml:78
+#: src/qml/StartPage.qml:131
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
 msgctxt "StartPage|"
-msgid "Enter your credentials"
-msgstr "Introduza as súas credenciais"
+msgid "Scan login QR code"
+msgstr "Escanear código QR"
 
-#: src/qml/StartPage.qml:110
-msgctxt "StartPage|"
-msgid "Scan login QR code of old device"
-msgstr "Escanee o código QR de acceso do dispositivo anterior"
-
-#: src/qml/StartPage.qml:117
+#: src/qml/StartPage.qml:138
 msgctxt "StartPage|"
 msgid "or"
 msgstr "ou"
 
-#: src/qml/StartPage.qml:130
+#: src/qml/StartPage.qml:151
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Rexístrese"
 
-#: src/qml/StartPage.qml:134
+#: src/qml/StartPage.qml:155
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "Xerar unha conta automaticamente"
 
-#: src/qml/StartPage.qml:139
+#: src/qml/StartPage.qml:160
 msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Crear unha conta manualmente"
@@ -3258,24 +3301,34 @@ msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "O servidor non permite o rexistro."
 
-#: src/QmlUtils.cpp:256
+#: src/QmlUtils.cpp:91
+msgctxt "QmlUtils|"
+msgid "Could not log in. Confirm the email message you received first."
+msgstr ""
+
+#: src/QmlUtils.cpp:93
+msgctxt "QmlUtils|"
+msgid "Could not connect to the server."
+msgstr "Non hai conexión co servidor."
+
+#: src/QmlUtils.cpp:260
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tamaño descoñecido"
 
-#: src/QmlUtils.cpp:329
+#: src/QmlUtils.cpp:333
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 está en liña"
 
-#: src/QmlUtils.cpp:331
+#: src/QmlUtils.cpp:335
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 está escribindo…"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:337
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3372,6 +3425,18 @@ msgstr "Aniversario"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sitio web"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Este provedor non permite rexistrarse a través desta aplicación."
+
+#~ msgctxt "StartPage|"
+#~ msgid "Enter your credentials"
+#~ msgstr "Introduza as súas credenciais"
+
+#~ msgctxt "StartPage|"
+#~ msgid "Scan login QR code of old device"
+#~ msgstr "Escanee o código QR de acceso do dispositivo anterior"
 
 #~ msgctxt "BlockingController|"
 #~ msgid "Error fetching blocklist: %1"
@@ -3889,13 +3954,6 @@ msgstr "Sitio web"
 
 #, fuzzy
 #~| msgctxt "SettingsContent|"
-#~| msgid "Delete account"
-#~ msgctxt "RemoteAccountDeletion|"
-#~ msgid "Delete Account"
-#~ msgstr "Eliminar conta"
-
-#, fuzzy
-#~| msgctxt "SettingsContent|"
 #~| msgid "Account security"
 #~ msgctxt "SettingsContent|"
 #~ msgid "Account Settings"
@@ -3999,13 +4057,6 @@ msgstr "Sitio web"
 #~| msgid "Scan QR code"
 #~ msgctxt "UserProfileSheet|"
 #~ msgid "Scan contact's QR code"
-#~ msgstr "Escanear código QR"
-
-#, fuzzy
-#~| msgctxt "QrCodeOnboardingPage|"
-#~| msgid "Scan QR code"
-#~ msgctxt "UserProfileSheet|"
-#~ msgid "Scan own QR codes"
 #~ msgstr "Escanear código QR"
 
 #~ msgctxt "ChatPage|"
@@ -4515,10 +4566,6 @@ msgstr "Sitio web"
 #~ "Could not resolve the server's address. Please check your server name."
 #~ msgstr ""
 #~ "Non se puido resolver o enderezo do servidor. Comproba o nome do servidor."
-
-#~ msgctxt "QmlUtils|"
-#~ msgid "Could not connect to the server."
-#~ msgstr "Non hai conexión co servidor."
 
 #~ msgctxt "QmlUtils|"
 #~ msgid "An unknown error occured."
