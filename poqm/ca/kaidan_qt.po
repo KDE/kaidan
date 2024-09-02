@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-08-26 11:14+0200\n"
+"PO-Revision-Date: 2024-09-01 15:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -1072,12 +1072,9 @@ msgstr ""
 "vostres credencials i historial de xat si cal!"
 
 #: src/qml/details/AccountDetailsContent.qml:1056
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Afegeix un contacte…"
+msgstr "S'està eliminant el compte…"
 
 #: src/qml/details/AccountDetailsContent.qml:1063
 msgctxt "AccountDetailsContent|"
@@ -1093,19 +1090,12 @@ msgstr ""
 "compte!"
 
 #: src/qml/details/AccountDetailsContent.qml:1069
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Afegeix un contacte…"
+msgstr "S'està suprimint el compte…"
 
 #: src/qml/details/AccountDetailsContent.qml:1076
-#, fuzzy, qt-format
-#| msgctxt "AccountManager|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -2030,9 +2020,6 @@ msgid "Send your location"
 msgstr "Envieu la ubicació"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:19
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Confirmeu"
@@ -2784,9 +2771,6 @@ msgid "Scan your old device's QR code"
 msgstr "Escanegeu el codi QR del dispositiu antic"
 
 #: src/qml/QrCodeOnboardingPage.qml:65
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Inici de sessió"
@@ -2807,12 +2791,9 @@ msgid "Register automatically"
 msgstr "Registra automàticament"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:57
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting the provider…"
-msgstr "Sol·licitant al servidor…"
+msgstr "S'està sol·licitant al proveïdor…"
 
 #: src/qml/registration/CustomFormView.qml:16
 msgctxt "CustomFormView|"
@@ -2970,12 +2951,9 @@ msgid "Copy website address"
 msgstr "Copia l'adreça del lloc web"
 
 #: src/qml/registration/RegistrationButton.qml:17
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "RegistrationButton|"
 msgid "Login after confirmation"
-msgstr "Sense informació"
+msgstr "Inici de sessió després de la confirmació"
 
 #: src/qml/registration/RegistrationButton.qml:17
 msgctxt "RegistrationButton|"
@@ -3236,12 +3214,9 @@ msgid "Login"
 msgstr "Inici de sessió"
 
 #: src/qml/StartPage.qml:131
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "StartPage|"
 msgid "Scan login QR code"
-msgstr "Escaneja un codi QR"
+msgstr "Escaneja un codi QR d'inici de sessió"
 
 #: src/qml/StartPage.qml:138
 msgctxt "StartPage|"
@@ -3326,11 +3301,13 @@ msgstr "Aquest servidor no permet el registre."
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
+"No s'ha pogut iniciar la sessió. Abans confirmeu el missatge de correu "
+"electrònic que heu rebut."
 
 #: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "No s'ha pogut connectar amb el servidor."
 
 #: src/QmlUtils.cpp:260
 msgctxt "QmlUtils|"

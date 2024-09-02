@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-26 22:35+0300\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2024-09-01 15:53+0300\n"
+"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1072,12 +1072,9 @@ msgstr ""
 "реєстраційних даних і журналу спілкування, якщо це потрібно!"
 
 #: src/qml/details/AccountDetailsContent.qml:1056
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Додавання контакту…"
+msgstr "Вилучаємо запис…"
 
 #: src/qml/details/AccountDetailsContent.qml:1063
 msgctxt "AccountDetailsContent|"
@@ -1093,19 +1090,12 @@ msgstr ""
 "скористатися вашим обліковим записом!"
 
 #: src/qml/details/AccountDetailsContent.qml:1069
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete Account"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Вилучити запис"
+msgstr "Вилучаємо запис…"
 
 #: src/qml/details/AccountDetailsContent.qml:1076
-#, fuzzy, qt-format
-#| msgctxt "AccountManager|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -2031,9 +2021,6 @@ msgid "Send your location"
 msgstr "Надіслати ваше місце перебування"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:19
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Підтвердити"
@@ -2780,9 +2767,6 @@ msgid "Scan your old device's QR code"
 msgstr "Скануйте QR-код вашого старого пристрою"
 
 #: src/qml/QrCodeOnboardingPage.qml:65
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Увійти"
@@ -2803,12 +2787,9 @@ msgid "Register automatically"
 msgstr "Автоматична реєстрація"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:57
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting the provider…"
-msgstr "Надсилаємо запит на сервер…"
+msgstr "Надсилаємо запит до надавача послуг…"
 
 #: src/qml/registration/CustomFormView.qml:16
 msgctxt "CustomFormView|"
@@ -2969,12 +2950,9 @@ msgid "Copy website address"
 msgstr "Копіювати адресу сайта"
 
 #: src/qml/registration/RegistrationButton.qml:17
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "RegistrationButton|"
 msgid "Login after confirmation"
-msgstr "Немає інформації"
+msgstr "Вхід після підтвердження"
 
 #: src/qml/registration/RegistrationButton.qml:17
 msgctxt "RegistrationButton|"
@@ -3238,12 +3216,9 @@ msgid "Login"
 msgstr "Увійти"
 
 #: src/qml/StartPage.qml:131
-#, fuzzy
-#| msgctxt "UserProfileSheet|"
-#| msgid "Scan own QR codes"
 msgctxt "StartPage|"
 msgid "Scan login QR code"
-msgstr "Сканування власних QR-кодів"
+msgstr "Сканування вхідного QR-коду"
 
 #: src/qml/StartPage.qml:138
 msgctxt "StartPage|"
@@ -3329,6 +3304,8 @@ msgstr "На сервері не передбачено підтримки ре�
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
+"Не вдалося увійти. Спочатку вам слід підтвердити отримання повідомлення "
+"електронної пошти."
 
 #: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"

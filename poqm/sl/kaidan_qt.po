@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-08-26 15:26+0200\n"
+"PO-Revision-Date: 2024-09-01 06:21+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1059,12 +1059,9 @@ msgstr ""
 "poverilnic in zgodovine klepetov, če je to potrebno!"
 
 #: src/qml/details/AccountDetailsContent.qml:1056
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Dodajanje stika…"
+msgstr "Odstranjevanje računa…"
 
 #: src/qml/details/AccountDetailsContent.qml:1063
 msgctxt "AccountDetailsContent|"
@@ -1079,19 +1076,12 @@ msgstr ""
 "Izbriši račun iz ponudnika. Svojega računa ne boste več mogli uporabljati!"
 
 #: src/qml/details/AccountDetailsContent.qml:1069
-#, fuzzy
-#| msgctxt "RemoteAccountDeletion|"
-#| msgid "Delete Account"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Izbriši račun"
+msgstr "Brisanje računa…"
 
 #: src/qml/details/AccountDetailsContent.qml:1076
-#, fuzzy, qt-format
-#| msgctxt "AccountManager|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -2010,12 +2000,9 @@ msgid "Send your location"
 msgstr "Pošlji vašo lokacijo"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:19
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
-msgstr "Potrdite"
+msgstr "Potrdi"
 
 #: src/qml/elements/ConfirmationPage.qml:24
 msgctxt "ConfirmationPage|"
@@ -2759,9 +2746,6 @@ msgid "Scan your old device's QR code"
 msgstr "Optično preberite kodo QR stare naprave"
 
 #: src/qml/QrCodeOnboardingPage.qml:65
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Prijava"
@@ -2782,12 +2766,9 @@ msgid "Register automatically"
 msgstr "Samodejno registriraj"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:57
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting the provider…"
-msgstr "Zahteva po strežniku…"
+msgstr "Posredovanje zahteve ponudniku…"
 
 #: src/qml/registration/CustomFormView.qml:16
 msgctxt "CustomFormView|"
@@ -2943,12 +2924,9 @@ msgid "Copy website address"
 msgstr "Kopiraj naslov spletišča"
 
 #: src/qml/registration/RegistrationButton.qml:17
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "RegistrationButton|"
 msgid "Login after confirmation"
-msgstr "Ni informacij"
+msgstr "Prijava po potrditvi"
 
 #: src/qml/registration/RegistrationButton.qml:17
 msgctxt "RegistrationButton|"
@@ -3203,12 +3181,9 @@ msgid "Login"
 msgstr "Prijava"
 
 #: src/qml/StartPage.qml:131
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "StartPage|"
 msgid "Scan login QR code"
-msgstr "Optično preberi QR-kodo"
+msgstr "Optično preberi kodo QR za prijavo"
 
 #: src/qml/StartPage.qml:138
 msgctxt "StartPage|"
@@ -3293,14 +3268,13 @@ msgstr "Ta strežnik ne podpira registracije."
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
+"Ni se bilo mogoče prijaviti. Naprej potrdite e-poštno sporočilo, ki ste ga "
+"prejeli."
 
 #: src/QmlUtils.cpp:93
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr "Izbriši račun iz strežnika"
+msgstr "Ni se bilo mogoče povezati s strežnikom."
 
 #: src/QmlUtils.cpp:260
 msgctxt "QmlUtils|"
