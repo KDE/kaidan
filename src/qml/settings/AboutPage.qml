@@ -55,7 +55,7 @@ SettingsPageBase {
 							}
 
 							Controls.Label {
-								text: qsTr("User-friendly and modern chat app for every device")
+								text: qsTr("Modern chat app for every device")
 								font.italic: true
 								wrapMode: Text.WordWrap
 								Layout.fillWidth: true
