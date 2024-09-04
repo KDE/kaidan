@@ -33,7 +33,7 @@ public:
 	void subscribeToPresence(const QString &contactJid);
 	void acceptSubscriptionToPresence(const QString &contactJid);
 	void refuseSubscriptionToPresence(const QString &contactJid);
-	QMap<QString, QString> unrespondedPresenceSubscriptionRequests();
+	QMap<QString, QXmppPresence> unrespondedPresenceSubscriptionRequests();
 
 	void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});
 	Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
@@ -67,18 +67,18 @@ Q_SIGNALS:
 
 private:
 	void populateRoster();
-	void handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &presence);
-	void processSubscriptionRequestFromStranger(const QString &subscriberJid, const QString &requestText);
-	void addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QString &requestText);
+	void handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
+	void processSubscriptionRequestFromStranger(const QString &subscriberJid, const QXmppPresence &request);
+	void addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
 
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;
 	AvatarFileStorage *m_avatarStorage;
 	VCardManager *m_vCardManager;
 	QXmppRosterManager *m_manager;
-	QMap<QString, QString> m_unprocessedSubscriptionRequests;
-	QMap<QString, QString> m_pendingSubscriptionRequests;
-	QMap<QString, QString> m_unrespondedSubscriptionRequests;
+	QMap<QString, QXmppPresence> m_unprocessedSubscriptionRequests;
+	QMap<QString, QXmppPresence> m_pendingSubscriptionRequests;
+	QMap<QString, QXmppPresence> m_unrespondedSubscriptionRequests;
 	bool m_addingOwnJidToRosterAllowed = true;
 	bool m_isItemBeingChanged = false;
 };

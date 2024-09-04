@@ -24,6 +24,7 @@
 #include <QXmppHttpUploadManager.h>
 #include <QXmppMamManager.h>
 #include <QXmppMixManager.h>
+#include <QXmppMovedManager.h>
 #include "QXmppOmemoManager.h"
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
@@ -90,6 +91,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_client->addNewExtension<QXmppMamManager>();
 	m_client->addNewExtension<QXmppPubSubManager>();
 	m_client->addNewExtension<QXmppMixManager>();
+	m_client->addNewExtension<QXmppMovedManager>();
 	m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
 	m_client->addNewExtension<QXmppMessageReceiptManager>();
 	m_client->addNewExtension<QXmppRosterManager>(m_client);

@@ -9,8 +9,10 @@
 #include <QObject>
 #include <QVariant>
 
-#include <memory>
 #include <optional>
+
+class QXmppConfiguration;
+class QXmppMovedManager;
 
 class ClientWorker;
 class RosterItem;
@@ -61,6 +63,10 @@ private:
 	QXmppTask<ImportResult> importClientSettingsTask(const ClientSettings &settings);
 	QXmppTask<ExportResult> exportClientSettingsTask();
 
+	QXmppTask<QXmppAccountMigrationManager::Result<>> publishMovedStatement(const QXmppConfiguration &configuration, const QString &newBareJid);
+	QXmppTask<QXmppAccountMigrationManager::Result<>> notifyContacts(const QVector<QString> &contactsBareJids, const QString &oldBareJid);
+
+
 	template<typename Enum>
 	struct AbstractData {
 		using State = Enum;
@@ -82,7 +88,8 @@ private:
 	};
 
 	ClientWorker *const m_worker;
-	std::unique_ptr<QXmppAccountMigrationManager> m_manager;
+	QXmppAccountMigrationManager *m_migrationManager;
+	QXmppMovedManager *m_movedManager;
 	std::optional<MigrationData> m_migrationData;
 };
 

@@ -21,18 +21,21 @@
 #include <QStandardPaths>
 #include <QUrl>
 
-#include <QXmppAccountMigrationManager.h>
+#include <QXmppConfiguration.h>
+#include <QXmppMovedManager.h>
+#include <QXmppPubSubManager.h>
 
-#define readRosterSettingsElement(NAME) \
-	if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), settings.NAME)) { \
+#define readDataElement(NAME) \
+	if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), data.NAME)) { \
 		return QXmppError { QStringLiteral("Invalid NAME element."), {} }; \
 	}
 
-#define writeRosterSettingsElement(NAME) \
+#define writeDataElement(NAME) \
 	XmlUtils::Writer::text(&writer, QStringLiteral(#NAME), NAME)
 
 static constexpr QStringView s_kaidan_ns = u"kaidan";
 static constexpr QStringView s_client_settings = u"client-settings";
+static constexpr QStringView s_old_configuration = u"old-configuration";
 static constexpr QStringView s_roster = u"roster";
 static constexpr QStringView s_item = u"item";
 static constexpr QStringView s_qxmpp_export_ns = u"org.qxmpp.export";
@@ -55,38 +58,38 @@ struct ClientRosterItemSettings {
 		Q_ASSERT(rootElement.tagName() == s_item);
 		Q_ASSERT(rootElement.namespaceURI() == s_kaidan_ns);
 
-		ClientRosterItemSettings settings;
+		ClientRosterItemSettings data;
 
 		if (const auto element = rootElement.firstChildElement(QStringLiteral("bareJid")); true) {
-			settings.bareJid = element.text();
+			data.bareJid = element.text();
 
-			if (settings.bareJid.isEmpty()) {
+			if (data.bareJid.isEmpty()) {
 				return QXmppError {
 					QStringLiteral("Missing required bareJid element."), {}
 				};
 			}
 		}
 
-		readRosterSettingsElement(encryption);
-		readRosterSettingsElement(notificationRule);
-		readRosterSettingsElement(chatStateSendingEnabled);
-		readRosterSettingsElement(readMarkerSendingEnabled);
-		readRosterSettingsElement(pinningPosition);
-		readRosterSettingsElement(automaticMediaDownloadsRule);
+		readDataElement(encryption);
+		readDataElement(notificationRule);
+		readDataElement(chatStateSendingEnabled);
+		readDataElement(readMarkerSendingEnabled);
+		readDataElement(pinningPosition);
+		readDataElement(automaticMediaDownloadsRule);
 
-		return settings;
+		return data;
 	}
 
 	void toXml(QXmlStreamWriter &writer) const
 	{
 		writer.writeStartElement(s_item.toString());
-		writeRosterSettingsElement(bareJid);
-		writeRosterSettingsElement(encryption);
-		writeRosterSettingsElement(notificationRule);
-		writeRosterSettingsElement(chatStateSendingEnabled);
-		writeRosterSettingsElement(readMarkerSendingEnabled);
-		writeRosterSettingsElement(pinningPosition);
-		writeRosterSettingsElement(automaticMediaDownloadsRule);
+		writeDataElement(bareJid);
+		writeDataElement(encryption);
+		writeDataElement(notificationRule);
+		writeDataElement(chatStateSendingEnabled);
+		writeDataElement(readMarkerSendingEnabled);
+		writeDataElement(pinningPosition);
+		writeDataElement(automaticMediaDownloadsRule);
 		writer.writeEndElement();
 	}
 
@@ -99,13 +102,100 @@ struct ClientRosterItemSettings {
 	std::optional<RosterItem::AutomaticMediaDownloadsRule> automaticMediaDownloadsRule;
 };
 
+struct ClientConfiguration {
+	ClientConfiguration() = default;
+	explicit ClientConfiguration(const Settings &settings)
+	{
+		authHost = settings.authHost();
+		authPort = settings.authPort();
+		authTlsErrorsIgnored = settings.authTlsErrorsIgnored();
+		authTlsRequirement = settings.authTlsRequirement();
+		authJid = settings.authJid();
+		authPassword = settings.authPassword();
+	}
+
+	static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)
+	{
+		Q_ASSERT(rootElement.tagName() == s_old_configuration);
+		Q_ASSERT(rootElement.namespaceURI() == s_kaidan_ns);
+
+		ClientConfiguration data;
+
+		readDataElement(authHost);
+		readDataElement(authPort);
+		readDataElement(authTlsErrorsIgnored);
+		readDataElement(authTlsRequirement);
+		readDataElement(authJid);
+		readDataElement(authPassword);
+
+		return data;
+	}
+
+	void toXml(QXmlStreamWriter &writer) const
+	{
+		writer.writeStartElement(s_old_configuration.toString());
+		writer.writeDefaultNamespace(s_kaidan_ns.toString());
+		writeDataElement(authHost);
+		writeDataElement(authPort);
+		writeDataElement(authTlsErrorsIgnored);
+		writeDataElement(authTlsRequirement);
+		writeDataElement(authJid);
+		writeDataElement(authPassword);
+		writer.writeEndElement();
+	}
+
+	QXmppConfiguration toXmppConfiguration() const
+	{
+		QXmppConfiguration configuration;
+
+		if (authHost) {
+			configuration.setHost(*authHost);
+		}
+
+		if (authPort) {
+			configuration.setPort(*authPort);
+		}
+
+		if (authTlsErrorsIgnored) {
+			configuration.setIgnoreSslErrors(*authTlsErrorsIgnored);
+		}
+
+		if (authTlsRequirement) {
+			configuration.setStreamSecurityMode(*authTlsRequirement);
+		}
+
+		if (authJid) {
+			configuration.setJid(*authJid);
+		}
+
+		if (authPassword) {
+			configuration.setPassword(*authPassword);
+		}
+
+		return configuration;
+	}
+
+	std::optional<QString> authHost;
+	std::optional<quint16> authPort;
+	std::optional<bool> authTlsErrorsIgnored;
+	std::optional<QXmppConfiguration::StreamSecurityMode> authTlsRequirement;
+	std::optional<QString> authJid;
+	std::optional<QString> authPassword;
+};
+
 struct ClientSettings {
 	ClientSettings() = default;
 	explicit ClientSettings(Settings *settings, const QVector<RosterItem> &rosterItems)
-		: roster(transform(rosterItems,
+		: oldConfiguration(*settings),
+		  roster(transform(rosterItems,
 			  [](const RosterItem &item) { return ClientRosterItemSettings(item); }))
 	{
-		Q_UNUSED(settings)
+	}
+
+	QVector<QString> rosterContacts() const
+	{
+		return transform<QVector<QString>>(
+			roster, [](const ClientRosterItemSettings &item) { return item.bareJid; });
 	}
 
 	static std::variant<ClientSettings, QXmppError> fromDom(const QDomElement &rootElement)
@@ -113,8 +203,19 @@ struct ClientSettings {
 		Q_ASSERT(rootElement.tagName() == s_client_settings);
 		Q_ASSERT(rootElement.namespaceURI() == s_qxmpp_export_ns);
 
+		const auto oldConfigurationElement = rootElement.firstChildElement(s_old_configuration.toString());
 		const auto rosterElement = rootElement.firstChildElement(s_roster.toString());
 		ClientSettings settings;
+
+		if (oldConfigurationElement.namespaceURI() == s_kaidan_ns) {
+			const auto result = ClientConfiguration::fromDom(oldConfigurationElement);
+
+			if (const auto error = std::get_if<QXmppError>(&result)) {
+				return *error;
+			}
+
+			settings.oldConfiguration = std::get<ClientConfiguration>(result);
+		}
 
 		if (rosterElement.namespaceURI() == s_kaidan_ns) {
 			settings.roster.reserve(rosterElement.childNodes().count());
@@ -130,8 +231,8 @@ struct ClientSettings {
 				if (element.tagName() == s_item) {
 					const auto result = ClientRosterItemSettings::fromDom(element);
 
-					if (std::holds_alternative<QXmppError>(result)) {
-						return std::get<QXmppError>(result);
+					if (const auto error = std::get_if<QXmppError>(&result)) {
+						return *error;
 					}
 
 					settings.roster.append(std::get<ClientRosterItemSettings>(result));
@@ -145,23 +246,120 @@ struct ClientSettings {
 	void toXml(QXmlStreamWriter &writer) const
 	{
 		writer.writeStartElement(s_client_settings.toString());
+
+		// Old configuration
+		oldConfiguration.toXml(writer);
+
+		// Roster items
 		writer.writeStartElement(s_roster.toString());
 		writer.writeDefaultNamespace(s_kaidan_ns.toString());
 		for (const auto &entry : roster) {
 			entry.toXml(writer);
 		}
 		writer.writeEndElement();
+
 		writer.writeEndElement();
 	}
 
+	ClientConfiguration oldConfiguration;
 	QVector<ClientRosterItemSettings> roster;
+};
+
+class PublishMovedStatementClient : public QXmppClient
+{
+	Q_OBJECT
+
+public:
+	explicit PublishMovedStatementClient(QObject *parent = nullptr)
+		: QXmppClient(parent),
+		  m_pubSubManager(addNewExtension<QXmppPubSubManager>()),
+		  m_movedManager(addNewExtension<QXmppMovedManager>())
+	{
+		connect(this, &QXmppClient::stateChanged, this, &PublishMovedStatementClient::onStateChanged);
+		connect(this, &QXmppClient::errorOccurred, this, &PublishMovedStatementClient::onErrorOccurred);
+		connect(this, &PublishMovedStatementClient::finished, this, &QObject::deleteLater);
+		connect(this, &PublishMovedStatementClient::finished, this, [](const QXmppClient::EmptyResult &result) {
+			if (const auto error = std::get_if<QXmppError>(&result)) {
+				qDebug("%s: Publishing failed - %ls", Q_FUNC_INFO, qUtf16Printable(error->description));
+			} else {
+				qDebug("%s: Published successfully", Q_FUNC_INFO);
+			}
+		});
+	}
+
+	~PublishMovedStatementClient() override {
+		qDebug(Q_FUNC_INFO);
+	}
+
+	void publishStatement(const QXmppConfiguration &configuration, const QString &newBareJid)
+	{
+		qDebug("%s: %ls", Q_FUNC_INFO, qUtf16Printable(newBareJid));
+		Q_ASSERT(!newBareJid.isEmpty());
+		m_newBareJid = newBareJid;
+		connectToServer(configuration);
+	}
+
+	Q_SIGNAL void finished(const QXmppClient::EmptyResult &result);
+
+private:
+	void onStateChanged(QXmppClient::State state)
+	{
+		switch (state) {
+		case QXmppClient::DisconnectedState:
+			onDisconnected();
+			break;
+		case QXmppClient::ConnectingState:
+			break;
+		case QXmppClient::ConnectedState:
+			onConnected();
+			break;
+		}
+	}
+
+	void onErrorOccurred(const QXmppError &error)
+	{
+		qDebug("%s: %ls", Q_FUNC_INFO, qUtf16Printable(error.description));
+
+		if (isConnected()) {
+			disconnectFromServer();
+		} else {
+			onDisconnected();
+		}
+
+		Q_EMIT finished(error);
+	}
+
+	void onConnected()
+	{
+		qDebug(Q_FUNC_INFO);
+
+		m_movedManager->publishStatement(m_newBareJid).then(this, [this](auto &&result) {
+			disconnectFromServer();
+			Q_EMIT finished(std::move(std::get<QXmpp::Success>(std::move(result))));
+		});
+	}
+
+	void onDisconnected()
+	{
+		qDebug(Q_FUNC_INFO);
+	}
+
+private:
+	QXmppPubSubManager *const m_pubSubManager;
+	QXmppMovedManager *const m_movedManager;
+	QString m_newBareJid;
 };
 
 AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QObject *parent)
 	: QObject(parent),
 	  m_worker(clientWorker),
-	  m_manager(clientWorker->xmppClient()->findExtension<QXmppAccountMigrationManager>())
+	  m_migrationManager(clientWorker->xmppClient()->findExtension<QXmppAccountMigrationManager>()),
+	  m_movedManager(clientWorker->xmppClient()->findExtension<QXmppMovedManager>())
 {
+	// Those are mandatory
+	Q_ASSERT(m_migrationManager);
+	Q_ASSERT(m_movedManager);
+
 	constexpr const auto parseData = &ClientSettings::fromDom;
 	const auto serializeData = [](const ClientSettings &data, QXmlStreamWriter &writer) {
 		data.toXml(writer);
@@ -182,7 +380,7 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 
 AccountMigrationManager::~AccountMigrationManager()
 {
-	m_manager->unregisterExportData<ClientSettings>();
+	m_migrationManager->unregisterExportData<ClientSettings>();
 }
 
 AccountMigrationManager::MigrationState AccountMigrationManager::migrationState() const
@@ -245,18 +443,16 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 			break;
 
 		case MigrationState::Exporting: {
-			m_manager->exportData().then(this, [this, fail](auto &&result) {
-				if (std::holds_alternative<QXmppError>(result)) {
-					const auto error = std::get<QXmppError>(std::move(result));
-					fail(error.description);
+			m_migrationManager->exportData().then(this, [this, fail](auto &&result) {
+				if (const auto error = std::get_if<QXmppError>(&result)) {
+					fail(error->description);
 				} else {
 					m_migrationData->account =
 						std::move(std::get<QXmppExportData>(std::move(result)));
 
 					exportClientSettingsTask().then(this, [this, fail](auto &&result) {
-						if (std::holds_alternative<QXmppError>(result)) {
-							const auto error = std::get<QXmppError>(std::move(result));
-							fail(error.description);
+						if (const auto error = std::get_if<QXmppError>(&result)) {
+							fail(error->description);
 						} else {
 							m_migrationData->account.setExtension(std::move(std::get<ClientSettings>(std::move(result))));
 
@@ -270,11 +466,10 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 		}
 
 		case MigrationState::Importing: {
-			m_manager->importData(m_migrationData->account).then(this, [this, fail](auto &&result) {
-				if (std::holds_alternative<QXmppError>(result)) {
-					const auto error = std::get<QXmppError>(std::move(result));
+			m_migrationManager->importData(m_migrationData->account).then(this, [this, fail](auto &&result) {
+				if (const auto error = std::get_if<QXmppError>(&result)) {
 					saveAccountDataToDisk(m_migrationData->account);
-					fail(error.description);
+					fail(error->description);
 				} else {
 					const QString filePath = diskAccountFilePath();
 
@@ -285,12 +480,27 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 					const auto clientSettings = m_migrationData->account.extension<ClientSettings>();
 
 					if (clientSettings) {
-						importClientSettingsTask(*clientSettings).then(this, [this, fail](auto &&result) {
-							if (std::holds_alternative<QXmppError>(result)) {
-								const auto error = std::get<QXmppError>(std::move(result));
-								fail(error.description);
+						importClientSettingsTask(*clientSettings).then(this, [this, fail, configuration = clientSettings->oldConfiguration.toXmppConfiguration(), contacts = clientSettings->rosterContacts()](auto &&result) {
+							if (const auto error = std::get_if<QXmppError>(&result)) {
+								fail(error->description);
 							} else {
-								continueMigration();
+								publishMovedStatement(configuration,
+									m_migrationData->account.accountJid())
+									.then(this, [this, fail, contacts](auto &&result) {
+										if (const auto error = std::get_if<QXmppError>(&result)) {
+											fail(error->description);
+										} else {
+											notifyContacts(contacts,
+												m_migrationData->account.accountJid())
+												.then(this, [&](auto &&result) {
+													if (const auto error = std::get_if<QXmppError>(&result)) {
+														fail(error->description);
+													} else {
+														continueMigration();
+													}
+												});
+										}
+									});
 							}
 						});
 					} else {
@@ -395,11 +605,11 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 	}
 
 	const auto result = QXmppExportData::fromDom(document.documentElement());
-
-	if (std::holds_alternative<QXmppError>(result)) {
+	
+	if (const auto error = std::get_if<QXmppError>(&result)) {
 		qDebug("Account could not be migrated: Could not read account data from file '%ls': %ls",
 			qUtf16Printable(filePath),
-			qUtf16Printable(std::get<QXmppError>(result).description));
+			qUtf16Printable(error->description));
 		return false;
 	}
 
@@ -435,3 +645,50 @@ QXmppTask<AccountMigrationManager::ExportResult> AccountMigrationManager::export
 		return ClientSettings(settings, RosterModel::instance()->items());
 	});
 }
+
+QXmppTask<QXmppAccountMigrationManager::Result<>>
+AccountMigrationManager::publishMovedStatement(const QXmppConfiguration &configuration, const QString &newBareJid)
+{
+	auto client = new PublishMovedStatementClient(this);
+	QXmppPromise<QXmppAccountMigrationManager::Result<>> promise;
+	auto task = promise.task();
+
+	connect(client, &PublishMovedStatementClient::finished, this, [promise](const auto &result) mutable {
+		promise.finish(result);
+	});
+
+	client->publishStatement(configuration, newBareJid);
+
+	return task;
+}
+
+QXmppTask<QXmppAccountMigrationManager::Result<>>
+AccountMigrationManager::notifyContacts(const QVector<QString> &contactsBareJids, const QString &oldBareJid)
+{
+	if (contactsBareJids.isEmpty()) {
+		return makeReadyTask<QXmppAccountMigrationManager::Result<>>({});
+	}
+
+	QXmppPromise<QXmppAccountMigrationManager::Result<>> promise;
+	auto counter = std::make_shared<int>(contactsBareJids.size());
+
+	for (const QString &contactBareJid : contactsBareJids) {
+		m_movedManager->notifyContact(contactBareJid, oldBareJid, false).then(this, [promise, counter](auto &&result) mutable {
+			if (promise.task().isFinished()) {
+				return;
+			}
+
+			if (const auto error = std::get_if<QXmppError>(&result)) {
+				return promise.finish(*error);
+			}
+
+			if ((--(*counter)) == 0) {
+				promise.finish(QXmpp::Success());
+			}
+		});
+	}
+
+	return promise.task();
+}
+
+#include "AccountMigrationManager.moc"

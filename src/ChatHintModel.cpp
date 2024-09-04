@@ -185,26 +185,26 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 	runOnThread(rosterManager, [rosterManager]() {
 		return rosterManager->unrespondedPresenceSubscriptionRequests();
-	}, this, [this, chatJid = ChatController::instance()->chatJid()](QMap<QString, QString> &&unrespondedPresenceSubscriptionRequests) {
+	}, this, [this, chatJid = ChatController::instance()->chatJid()](QMap<QString, QXmppPresence> &&unrespondedPresenceSubscriptionRequests) {
 		if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
-			const auto requestText = unrespondedPresenceSubscriptionRequests.value(chatJid);
-			addAllowPresenceSubscriptionChatHint(requestText);
+			const auto request = unrespondedPresenceSubscriptionRequests.value(chatJid);
+			addAllowPresenceSubscriptionChatHint(request);
 		}
 	});
 }
 
-void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText)
+void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request)
 {
 	bool userMuted = ChatController::instance()->rosterItem().notificationRule == RosterItem::NotificationRule::Always;
-	bool requestForCurrentChat = subscriberJid == ChatController::instance()->chatJid();
+	bool requestForCurrentChat = request.from() == ChatController::instance()->chatJid();
 	bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 	if (requestForCurrentChat) {
-		addAllowPresenceSubscriptionChatHint(requestText);
+		addAllowPresenceSubscriptionChatHint(request);
 	}
 
 	if (!userMuted && !chatActive) {
-		Notifications::instance()->sendPresenceSubscriptionRequestNotification(accountJid, subscriberJid);
+		Notifications::instance()->sendPresenceSubscriptionRequestNotification(accountJid, request.from());
 	}
 }
 
@@ -238,20 +238,27 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 	);
 }
 
-int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QString &requestText)
+int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &request)
 {
 	const auto displayName = ChatController::instance()->rosterItem().displayName();
-	const auto appendedText = requestText.isEmpty() ? QString() : QStringLiteral(": %1").arg(requestText);
+	const auto appendedText = request.statusText().isEmpty() ? QString() : QStringLiteral(": %1").arg(request.statusText());
+	const QString text = [&]() {
+		if (request.oldJid().isEmpty()) {
+			return tr("%1 would like to receive your personal data such as availability, devices and other personal information%2").arg(displayName, appendedText);
+		}
+
+		return tr("Your contact %1 moved from %2 and would like to receive your personal data such as availability, devices and other personal information%3").arg(displayName, request.oldJid(), appendedText);
+	}();
 
 	return addChatHint(
 		ChatHint {
-			tr("%1 would like to receive your personal data such as availability, devices and other personal information%2").arg(displayName, appendedText),
+			text,
 			{ ChatHintButton { ChatHintButton::Dismiss, tr("Refuse") },
 			  ChatHintButton { ChatHintButton::AllowPresenceSubscription, tr("Allow") } },
 			false,
 			tr("Allowing…"),
 		}
-				);
+	);
 }
 
 int ChatHintModel::addInviteContactsChatHint()

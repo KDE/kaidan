@@ -6,6 +6,8 @@
 
 #include <QAbstractItemModel>
 
+class QXmppPresence;
+
 class ChatHintButton {
 	Q_GADGET
 
@@ -54,7 +56,7 @@ public:
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 	Q_INVOKABLE void handleButtonClicked(int i, ChatHintButton::Type type);
 
-	Q_SIGNAL void presenceSubscriptionRequestReceivedRequested(const QString &accountJid, const QString &subscriberJid, const QString &requestText);
+	Q_SIGNAL void presenceSubscriptionRequestReceivedRequested(const QString &accountJid, const QXmppPresence &request);
 
 private:
 	struct ChatHint {
@@ -72,12 +74,12 @@ private:
 
 	void handleRosterItemPresenceSubscription();
 	void handleUnrespondedPresenceSubscriptionRequests();
-	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QString &subscriberJid, const QString &requestText);
+	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request);
 
 	void handleNoGroupChatUsers();
 
 	int addConnectToServerChatHint(bool loading = false);
-	int addAllowPresenceSubscriptionChatHint(const QString &requestText);
+	int addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
 	int addInviteContactsChatHint();
 
 	int addChatHint(const ChatHint &chatHint);

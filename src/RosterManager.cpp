@@ -139,32 +139,30 @@ void RosterManager::populateRoster()
 	}
 }
 
-void RosterManager::handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &presence)
+void RosterManager::handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request)
 {
-	const auto requestText = presence.statusText();
-
 	if (m_manager->isRosterReceived()) {
 		if (m_manager->getRosterBareJids().contains(subscriberJid)) {
-			addUnrespondedSubscriptionRequest(subscriberJid, requestText);
+			addUnrespondedSubscriptionRequest(subscriberJid, request);
 		} else {
-			processSubscriptionRequestFromStranger(subscriberJid, requestText);
+			processSubscriptionRequestFromStranger(subscriberJid, request);
 		}
 	} else {
-		m_unprocessedSubscriptionRequests.insert(subscriberJid, requestText);
+		m_unprocessedSubscriptionRequests.insert(subscriberJid, request);
 	}
 }
 
-void RosterManager::processSubscriptionRequestFromStranger(const QString &subscriberJid, const QString &requestText)
+void RosterManager::processSubscriptionRequestFromStranger(const QString &subscriberJid, const QXmppPresence &request)
 {
-	m_pendingSubscriptionRequests.insert(subscriberJid, requestText);
+	m_pendingSubscriptionRequests.insert(subscriberJid, request);
 	addContact(subscriberJid);
 }
 
-void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QString &requestText)
+void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request)
 {
-	m_unrespondedSubscriptionRequests.insert(subscriberJid, requestText);
+	m_unrespondedSubscriptionRequests.insert(subscriberJid, request);
 	const auto accountJid = m_client->configuration().jidBare();
-	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, subscriberJid, requestText);
+	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, request);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
@@ -274,7 +272,7 @@ void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 	}
 }
 
-QMap<QString, QString> RosterManager::unrespondedPresenceSubscriptionRequests()
+QMap<QString, QXmppPresence> RosterManager::unrespondedPresenceSubscriptionRequests()
 {
 	return m_unrespondedSubscriptionRequests;
 }
