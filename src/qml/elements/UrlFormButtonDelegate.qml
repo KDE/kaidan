@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 import im.kaidan.kaidan 1.0
@@ -14,10 +15,13 @@ import im.kaidan.kaidan 1.0
  * It includes a secondary button for copying the URL instead of opening it.
  */
 MobileForm.FormTextDelegate {
-	required property string url
+	property url url
+	property alias copyButton: copyButton
 
 	background: MobileForm.FormDelegateBackground { control: parent }
 	trailing: Button {
+		id: copyButton
+		Controls.ToolTip.text: qsTr("Copy web address")
 		icon.name: "edit-copy-symbolic"
 		onClicked: Utils.copyToClipboard(url)
 	}

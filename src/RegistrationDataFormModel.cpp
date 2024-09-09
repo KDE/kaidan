@@ -150,9 +150,10 @@ QVector<int> RegistrationDataFormModel::indiciesToFilter() const
 
 	// username and password
 	// email is currently not filtered because we do not have an extra email view
-	for (const auto &index : {usernameFieldIndex(), passwordFieldIndex()}) {
-		if (index != -1)
+	for (const auto &index : { usernameFieldIndex(), passwordFieldIndex() }) {
+		if (index != -1) {
 			indicies << index;
+		}
 	}
 
 	// search for other common fields to filter for

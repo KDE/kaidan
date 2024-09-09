@@ -93,12 +93,12 @@ ConfirmationArea {
 		}
 
 		function onPrivateGroupChatCreationFailed(serviceJid, errorMessage) {
-			hideLoadingView()
+			root.busy = false
 			passiveNotification(qsTr("The group could not be created on %1%2").arg(serviceJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
 		function onPublicGroupChatCreationFailed(groupChatJid, errorMessage) {
-			hideLoadingView()
+			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be created%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
@@ -108,7 +108,7 @@ ConfirmationArea {
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			hideLoadingView()
+			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
@@ -120,7 +120,7 @@ ConfirmationArea {
 			return
 		}
 
-		showLoadingView()
+		root.busy = true
 
 		const serviceJid = groupChatServiceJidComboBox.textAt(groupChatServiceJidComboBox.currentIndex)
 

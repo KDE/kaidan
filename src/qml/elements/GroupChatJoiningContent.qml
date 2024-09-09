@@ -48,14 +48,14 @@ ConfirmationArea {
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			hideLoadingView()
+			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
 
 	function joinGroupChat() {
 		if (groupChatJidField.valid) {
-			showLoadingView()
+			busy = true
 			GroupChatController.joinGroupChat(accountJid, groupChatJid, nicknameField.text)
 		} else {
 			groupChatJidField.forceActiveFocus()

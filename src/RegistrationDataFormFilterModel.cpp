@@ -20,9 +20,20 @@ void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceM
 {
 	m_filteredRows.clear();
 
-	auto *dataFormModel = qobject_cast<RegistrationDataFormModel*>(sourceModel);
-	if (dataFormModel)
+	auto *dataFormModel = static_cast<RegistrationDataFormModel *>(sourceModel);
+	if (dataFormModel) {
 		m_filteredRows = dataFormModel->indiciesToFilter();
+	}
 
 	QSortFilterProxyModel::setSourceModel(sourceModel);
+	Q_EMIT isEmptyChanged();
+}
+
+bool RegistrationDataFormFilterModel::isEmpty()
+{
+	if (sourceModel()) {
+		return m_filteredRows.size() ==	static_cast<RegistrationDataFormModel *>(sourceModel())->rowCount();
+	}
+
+	return true;
 }

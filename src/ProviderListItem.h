@@ -89,8 +89,8 @@ public:
 	void setWebsites(const LanguageVariants<QUrl> &websites);
 	QUrl chosenWebsite() const;
 
-	int onlineSince() const;
-	void setOnlineSince(int onlineSince);
+	QDate since() const;
+	void setSince(const QDate &since);
 
 	int httpUploadSize() const;
 	void setHttpUploadSize(int httpUploadSize);

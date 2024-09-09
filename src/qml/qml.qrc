@@ -36,6 +36,7 @@
         <file>elements/AccountQrCode.qml</file>
         <file>elements/Avatar.qml</file>
         <file>elements/BinaryDecisionPage.qml</file>
+        <file>elements/BusyIndicatorFormButton.qml</file>
         <file>elements/Button.qml</file>
         <file>elements/CenteredAdaptiveButton.qml</file>
         <file>elements/CenteredAdaptiveHighlightedButton.qml</file>
@@ -44,10 +45,12 @@
         <file>elements/ChatInfo.qml</file>
         <file>elements/ChatMessage.qml</file>
         <file>elements/ChatMessageContextMenu.qml</file>
+        <file>elements/ChatMessageContextMenuButton.qml</file>
         <file>elements/ChatPageSearchView.qml</file>
         <file>elements/ChatPageSendingPane.qml</file>
         <file>elements/ClickableIcon.qml</file>
         <file>elements/ConfirmationArea.qml</file>
+        <file>elements/ConfirmationFormButtonArea.qml</file>
         <file>elements/ConfirmationPage.qml</file>
         <file>elements/ContactAdditionContent.qml</file>
         <file>elements/ContactAdditionDialog.qml</file>
@@ -62,6 +65,7 @@
         <file>elements/ExplanationArea.qml</file>
         <file>elements/ExplanationOptionsTogglePage.qml</file>
         <file>elements/ExplanationTogglePage.qml</file>
+        <file>elements/FormComboBoxDelegate.qml</file>
         <file>elements/FormExpansionButton.qml</file>
         <file>elements/FormattedTextArea.qml</file>
         <file>elements/FormattedTextEdit.qml</file>
@@ -72,6 +76,7 @@
         <file>elements/GroupChatJoiningContent.qml</file>
         <file>elements/GroupChatJoiningDialog.qml</file>
         <file>elements/GroupChatJoiningPage.qml</file>
+        <file>elements/GroupChatParticipantPicker.qml</file>
         <file>elements/GroupChatQrCode.qml</file>
         <file>elements/GroupChatUserItem.qml</file>
         <file>elements/GroupChatUserKeyAuthenticationPage.qml</file>
@@ -95,10 +100,11 @@
         <file>elements/MessageCounter.qml</file>
         <file>elements/MessageReactionAdditionButton.qml</file>
         <file>elements/MessageReactionButton.qml</file>
-        <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionDetailsButton.qml</file>
         <file>elements/MessageReactionDetailsSheet.qml</file>
+        <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionEmojiPicker.qml</file>
+        <file>elements/MessageReactionRetryButton.qml</file>
         <file>elements/NewMedia.qml</file>
         <file>elements/NewMediaLoader.qml</file>
         <file>elements/NewMediaLocation.qml</file>
@@ -106,6 +112,7 @@
         <file>elements/QrCode.qml</file>
         <file>elements/QrCodeScanner.qml</file>
         <file>elements/QrCodeScanningArea.qml</file>
+        <file>elements/ReferencedMessage.qml</file>
         <file>elements/RosterFilteringArea.qml</file>
         <file>elements/RosterListItem.qml</file>
         <file>elements/RosterListItemContextMenu.qml</file>
@@ -129,22 +136,12 @@
         <file>elements/fields/RegistrationPasswordField.qml</file>
         <file>main.qml</file>
         <file>registration/AutomaticRegistrationPage.qml</file>
-        <file>registration/CustomFormView.qml</file>
-        <file>registration/CustomFormViewAutomaticRegistration.qml</file>
-        <file>registration/CustomFormViewManualRegistration.qml</file>
-        <file>registration/DisplayNameView.qml</file>
-        <file>registration/FieldView.qml</file>
-        <file>registration/LoadingView.qml</file>
+        <file>registration/CustomDataFormArea.qml</file>
         <file>registration/ManualRegistrationPage.qml</file>
-        <file>registration/NavigationBar.qml</file>
-        <file>registration/PasswordView.qml</file>
-        <file>registration/ProviderView.qml</file>
+        <file>registration/ProviderPage.qml</file>
         <file>registration/RegistrationButton.qml</file>
         <file>registration/RegistrationPage.qml</file>
-        <file>registration/ResultView.qml</file>
-        <file>registration/UsernameView.qml</file>
-        <file>registration/View.qml</file>
-        <file>registration/WebRegistrationView.qml</file>
+        <file>registration/WebRegistrationPage.qml</file>
         <file>settings/AboutPage.qml</file>
         <file>settings/CustomConnectionSettings.qml</file>
         <file>settings/MultimediaSettings.qml</file>
@@ -153,11 +150,5 @@
         <file>settings/SettingsPage.qml</file>
         <file>settings/SettingsPageBase.qml</file>
         <file>settings/SettingsSheet.qml</file>
-        <file>elements/MessageReactionRetryButton.qml</file>
-        <file>elements/GroupChatParticipantPicker.qml</file>
-        <file>elements/FormComboBoxDelegate.qml</file>
-        <file>elements/ReferencedMessage.qml</file>
-        <file>elements/ChatMessageContextMenuButton.qml</file>
-        <file>elements/ConfirmationFormButtonArea.qml</file>
     </qresource>
 </RCC>

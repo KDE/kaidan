@@ -16,8 +16,10 @@ PasswordField {
 	valid: true
 
 	placeholderText: {
-		if (field.inputField.echoMode === TextInput.Password)
+		if (inputField.echoMode === TextInput.Password) {
 			return "●".repeat(generatedPassword.length)
+		}
+
 		return generatedPassword
 	}
 

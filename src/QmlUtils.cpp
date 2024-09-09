@@ -169,6 +169,11 @@ QUrl QmlUtils::mastodonUrl()
 	return QUrl(QStringLiteral(MASTODON_URL));
 }
 
+QUrl QmlUtils::providerDetailsUrl(const QString &providerJid)
+{
+	return QUrl(PROVIDER_DETAILS_URL.arg(providerJid));
+}
+
 QUrl QmlUtils::invitationUrl(const QString &uri)
 {
 	// "uri.mid(5)" removes "xmpp:".

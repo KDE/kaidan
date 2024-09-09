@@ -19,11 +19,12 @@ import "fields"
 import "../settings"
 
 MobileForm.FormCard {
+	Layout.fillWidth: true
+	Kirigami.Theme.colorSet: Kirigami.Theme.Window
+	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 	contentItem: MobileForm.AbstractFormDelegate {
 		background: Item {}
 		contentItem: ColumnLayout {
-			Layout.fillWidth: true
-
 			JidField {
 				id: jidField
 				inputField.onAccepted: loginButton.clicked()
@@ -60,11 +61,11 @@ MobileForm.FormCard {
 				Layout.bottomMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-				contentItem: MobileForm.FormButtonDelegate {
+				contentItem: BusyIndicatorFormButton {
 					id: loginButton
-					text: enabled ? qsTr("Log in") : qsTr("Connecting…")
-					font.italic: !enabled
-					enabled: Kaidan.connectionState !== Enums.StateConnecting
+					idleText: qsTr("Log in")
+					busyText: qsTr("Connecting…")
+					busy: Kaidan.connectionState === Enums.StateConnecting
 					// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
 					onClicked: {
 						// If the JID is invalid, focus its field.
@@ -87,9 +88,6 @@ MobileForm.FormCard {
 			}
 		}
 	}
-	Layout.fillWidth: true
-	Kirigami.Theme.colorSet: Kirigami.Theme.Window
-	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 
 	function initialize() {
 		if (jidField.valid) {
@@ -107,9 +105,7 @@ MobileForm.FormCard {
 			jidField.inputField.forceActiveFocus()
 			jidField.inputField.cursorPosition = 0
 		} else {
-			jidField.forceActiveFocus()
-			jidField.invalidHintMayBeShown = false
-			jidField.toggleHintForInvalidText()
+			jidField.inputField.forceActiveFocus()
 		}
 	}
 

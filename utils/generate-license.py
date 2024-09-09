@@ -360,12 +360,7 @@ def main():
 			files = [
 				"data/images/onboarding/account-transfer.svg",
 				"data/images/onboarding/custom-form.svg",
-				"data/images/onboarding/display-name.svg",
-				"data/images/onboarding/password.svg",
-				"data/images/onboarding/result.svg",
-				"data/images/onboarding/server.svg",
-				"data/images/onboarding/username.svg",
-				"data/images/onboarding/web-registration.svg"
+				"data/images/onboarding/web-registration.svg",
 			],
 			licenseName = "CC-BY-SA-4.0",
 			authorList = {

@@ -21,7 +21,8 @@ import "../elements"
  * Only required information must be entered to register an account.
  */
 RegistrationPage {
-	title: qsTr("Register automatically")
+	id: root
+	title: qsTr("Automatic Registration")
 
 	property int maximumRegistrationAttemptsAfterUsernameConflictOccurred: 2
 	property int remainingRegistrationAttemptsAfterUsernameConflictOccurred: maximumRegistrationAttemptsAfterUsernameConflictOccurred
@@ -34,32 +35,6 @@ RegistrationPage {
 
 	property var triedProviderIndexes: []
 
-	ProviderListModel {
-		id: providerListModel
-	}
-
-	ColumnLayout {
-		anchors.fill: parent
-
-		Controls.StackView {
-			id: stackView
-			clip: true
-			Layout.fillWidth: true
-			Layout.fillHeight: true
-			initialItem: loadingAreaComponent
-		}
-	}
-
-	Component {
-		id: loadingAreaComponent
-
-		LoadingArea {
-			description: qsTr("Requesting the provider…")
-		}
-	}
-
-	Component { id: customFormViewComponent; CustomFormViewAutomaticRegistration {}	}
-
 	Component.onCompleted: {
 		chooseProviderRandomly()
 		chooseUsernameRandomly()
@@ -67,19 +42,68 @@ RegistrationPage {
 		requestRegistrationForm()
 	}
 
+	LoadingStackArea {
+		id: loadingStackArea
+		busy: true
+		loadingArea.description: qsTr("Requesting registration…")
+
+		ColumnLayout {
+			Kirigami.Heading {
+				text: qsTr("Complete the registration!")
+				level: 1
+				wrapMode: Text.Wrap
+				horizontalAlignment: Text.AlignHCenter
+				verticalAlignment: Text.AlignVCenter
+				Layout.margins: Kirigami.Units.largeSpacing
+				Layout.bottomMargin: Kirigami.Units.largeSpacing * 2
+				Layout.fillWidth: true
+			}
+
+			Image {
+				source: Utils.getResourcePath("images/onboarding/custom-form.svg")
+				fillMode: Image.PreserveAspectFit
+				Layout.alignment: Qt.AlignHCenter
+				Layout.bottomMargin: Kirigami.Units.gridUnit
+				Layout.fillWidth: true
+			}
+
+			CustomDataFormArea {
+				id: customDataFormArea
+				model: root.formFilterModel
+				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
+				visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired
+				Layout.fillWidth: true
+				onVisibleChanged: {
+					if (visible) {
+						forceActiveFocus()
+					}
+				}
+			}
+
+			RegistrationButton {
+				id: registrationButton
+				registrationFunction: register
+				loginFunction: logIn
+				Layout.fillWidth: true
+			}
+		}
+	}
+
+	ProviderListModel {
+		id: providerListModel
+	}
+
 	Connections {
 		target: Kaidan
 
 		function onRegistrationFormReceived(dataFormModel) {
 			formModel = dataFormModel
-			formFilterModel.sourceModel = dataFormModel
 
-			// If the received registration data form does not contain custom fields, request the registration directly.
-			// Otherwise, remove the loading area to show the custom form view.
-			if (!customFormFieldsAvailable())
+			if (customFormFieldsAvailable) {
+				loadingStackArea.busy = false
+			} else {
 				sendRegistrationForm()
-			else
-				removeLoadingArea()
+			}
 		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
@@ -113,7 +137,7 @@ RegistrationPage {
 			case RegistrationManager.RequiredInformationMissing:
 				showPassiveNotificationForRequiredInformationMissingError(errorMessage)
 
-				if (remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred > 0 && customFormFieldsAvailable()) {
+				if (remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred > 0 && customFormFieldsAvailable) {
 					remainingRegistrationAttemptsAfterRequiredInformationMissingOccurred--
 					requestRegistrationForm()
 
@@ -130,39 +154,11 @@ RegistrationPage {
 		function onConnectionErrorChanged() {
 			if (Kaidan.connectionError !== ClientWorker.NoError) {
 				if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
-					removeLoadingArea()
+					loadingStackArea.busy = false
 				} else {
 					popLayer()
 				}
 			}
-		}
-	}
-
-	// Simulate the pressing of the confirmation button.
-	Keys.onPressed: {
-		if (stackView.currentItem.registrationButton && (event.key === Qt.Key_Return || event.key === Qt.Key_Enter))
-			stackView.currentItem.registrationButton.clicked()
-	}
-
-	/**
-	 * Adds the loading area to the stack view.
-	 */
-	function addLoadingArea() {
-		stackView.push(loadingAreaComponent)
-	}
-
-	/**
-	 * Removes the loading area from the stack view.
-	 */
-	function removeLoadingArea() {
-		// Push the custom form view on the stack view if the loading area is the only item on it.
-		// That is the case during the first registration form request.
-		// When the loading area was pushed on the stack view after submitting custom form fields and the registration fails or a connection error occurs, that loading area is popped to show the custom form view again.
-		if (stackView.depth === 1) {
-			stackView.push(customFormViewComponent)
-			stackView.currentItem.registrationButton.parent = stackView.currentItem.contentArea
-		} else {
-			stackView.pop()
 		}
 	}
 
@@ -205,11 +201,24 @@ RegistrationPage {
 		}
 	}
 
+	function registerWithoutClickingRegistrationButton() {
+		registrationButton.busy = true
+		register()
+	}
+
 	/**
-	 * Sends the completed registration form and adds the loading area.
+	 * Sends the completed registration form.
 	 */
-	function sendRegistrationFormAndShowLoadingArea() {
+	function register() {
 		sendRegistrationForm()
-		addLoadingArea()
+		loadingStackArea.busy = true
+	}
+
+	/**
+	 * Logs in after a registration that needs to be confirmed.
+	 */
+	function logIn() {
+		loadingStackArea.busy = true
+		Kaidan.logIn()
 	}
 }

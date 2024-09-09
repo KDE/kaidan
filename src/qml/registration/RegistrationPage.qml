@@ -11,15 +11,21 @@ import im.kaidan.kaidan 1.0
 /**
  * This is the base of a registration page.
  */
-Kirigami.Page {
+Kirigami.ScrollablePage {
 	// This model contains all fields from the registration form of the requested provider.
 	property DataFormModel formModel
 
-	// This model only contains the custom fields from the registration form of the requested provider.
-	// It may contain e.g. a CAPTCHA or an email address.
+	// This model only contains the custom fields from the registration form of the requested
+	// provider.
+	// E.g., it may contain a CAPTCHA or an email address.
 	// The provider may not use the standard way for requesting the username and the password.
 	// In that case, this model could also include fields for those values.
 	property alias formFilterModel: formFilterModel
+
+	/**
+	 * Returns true if the registration form received from the provider contains custom fields.
+	 */
+	property bool customFormFieldsAvailable: !formFilterModel.isEmpty
 
 	// generator for random usernames and passwords
 	property alias credentialsGenerator: credentialsGenerator
@@ -33,10 +39,7 @@ Kirigami.Page {
 	// password of the user to be registered
 	property string password
 
-	leftPadding: 0
-	topPadding: 0
-	rightPadding: 0
-	bottomPadding: 0
+	horizontalPadding: 0
 	background: Rectangle {
 		color: secondaryBackgroundColor
 
@@ -49,16 +52,16 @@ Kirigami.Page {
 		}
 	}
 	onBackRequested: Kaidan.client.registrationManager.abortRegistrationRequested()
+	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 
 	RegistrationDataFormFilterModel {
 		id: formFilterModel
+		sourceModel: formModel
 	}
 
 	CredentialsGenerator {
 		id: credentialsGenerator
 	}
-
-	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 
 	/**
 	 * Shows a passive notification if the CAPTCHA verification failed.
@@ -86,13 +89,6 @@ Kirigami.Page {
 	}
 
 	/**
-	 * Returns true if the registration form received from the provider contains custom fields.
-	 */
-	function customFormFieldsAvailable() {
-		return formFilterModel.rowCount() > 0
-	}
-
-	/**
 	 * Requests a registration form from the provider.
 	 */
 	function requestRegistrationForm() {
@@ -107,17 +103,12 @@ Kirigami.Page {
 	 * Sends the completed registration form to the provider.
 	 */
 	function sendRegistrationForm() {
-		if (formModel.hasUsernameField())
+		if (formModel.hasUsernameField()) {
 			formModel.setUsername(username)
-		if (formModel.hasPasswordField())
+		} if (formModel.hasPasswordField()) {
 			formModel.setPassword(password)
+		}
 
 		Kaidan.client.registrationManager.sendRegistrationFormRequested()
-	}
-
-	function changeNickname() {
-		if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
-			Kaidan.client.vCardManager.changeNicknameRequested(displayName)
-		}
 	}
 }

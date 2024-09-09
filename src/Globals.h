@@ -41,6 +41,7 @@
 #define ISSUE_TRACKING_URL "https://invent.kde.org/network/kaidan/issues"
 #define DONATION_URL "https://liberapay.com/kaidan"
 #define MASTODON_URL "https://fosstodon.org/@kaidan"
+inline constexpr QStringView PROVIDER_DETAILS_URL = u"https://providers.xmpp.net/provider/%1/";
 
 constexpr auto MESSAGE_MAX_CHARS = 1e4;
 

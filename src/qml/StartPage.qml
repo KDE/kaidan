@@ -12,6 +12,7 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import im.kaidan.kaidan 1.0
 
 import "elements"
+import "registration"
 
 /**
  * This page is the first page.
@@ -38,6 +39,7 @@ Kirigami.ScrollablePage {
 			verticalAlignment: Image.AlignTop
 		}
 	}
+	horizontalPadding: 0
 	onBackRequested: {
 		globalDrawer.enabled = true
 		Kaidan.cancelAccountMigration()
@@ -70,13 +72,12 @@ Kirigami.ScrollablePage {
 
 		MobileForm.FormCard {
 			Layout.alignment: Qt.AlignHCenter
-			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
 				MobileForm.FormCardHeader {
-					title: qsTr("Login")
+					title: qsTr("Log in")
 				}
 
 				LoginArea {
@@ -142,7 +143,6 @@ Kirigami.ScrollablePage {
 
 		MobileForm.FormCard {
 			Layout.alignment: Qt.AlignHCenter
-			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
@@ -158,7 +158,7 @@ Kirigami.ScrollablePage {
 
 				MobileForm.FormButtonDelegate {
 					text: qsTr("Create account manually")
-					onClicked: pushLayer(manualRegistrationPage)
+					onClicked: pushLayer(providerPage)
 				}
 			}
 		}
@@ -177,5 +177,17 @@ Kirigami.ScrollablePage {
 				loginArea.initialize()
 			}
 		}
+	}
+
+	Component {
+		id: automaticRegistrationPage
+
+		AutomaticRegistrationPage {}
+	}
+
+	Component {
+		id: providerPage
+
+		ProviderPage {}
 	}
 }

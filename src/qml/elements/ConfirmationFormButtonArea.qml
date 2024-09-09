@@ -16,30 +16,21 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 ColumnLayout {
 	property alias button: button
 	property alias confirmationButton: confirmationButton
-	property string confirmationText: qsTr("Confirm")
-	property string busyText
-	property alias busy: busyIndicator.visible
+	property alias confirmationText: confirmationButton.idleText
+	property alias busyText: confirmationButton.busyText
+	property alias busy: confirmationButton.busy
+
+	spacing: 0
 
 	MobileForm.FormButtonDelegate {
 		id: button
 		onClicked: confirmationButton.visible = !confirmationButton.visible
 	}
 
-	MobileForm.FormButtonDelegate {
+	BusyIndicatorFormButton {
 		id: confirmationButton
-		text: busyIndicator.visible ? busyText : confirmationText
+		idleText: qsTr("Confirm")
 		visible: false
-		font.italic: busyIndicator.visible
-		leading: Controls.BusyIndicator {
-			id: busyIndicator
-			visible: false
-			implicitWidth: Kirigami.Units.iconSizes.smallMedium
-			implicitHeight: Kirigami.Units.iconSizes.smallMedium
-		}
-		// The paddings are needed to position busyIndicator correctly.
-		// It would otherwise have a too large left margin.
-		leadingPadding: Kirigami.Units.largeSpacing
-		leftPadding: Kirigami.Units.largeSpacing * 2
-		onClicked: busyIndicator.visible = true
+		onClicked: busy = true
 	}
 }

@@ -1015,18 +1015,24 @@ DetailsContent {
 			ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormButtonDelegate {
+				BusyIndicatorFormButton {
 					id: migrateButton
-					text: qsTr("Migrate account")
-					description: qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
-					icon.name: "edit-copy-symbolic"
-					icon.color: Kirigami.Theme.neutralTextColor
+					idleText: qsTr("Migrate account")
+					busyText: qsTr("Preparing account migration…")
+					description: busy ? qsTr("That can take long") : qsTr("Migrate account data (except chat history) to another account. Your current account will be removed from this app. Back up your credentials and chat history if needed!")
+					idleIconSource: "edit-copy-symbolic"
 					onClicked: {
-						if (root.sheet) {
+						busy = true
+						Kaidan.startAccountMigration()
+					}
+
+					Connections {
+						target: Kaidan
+						enabled: root.sheet
+
+						function onOpenStartPageRequested() {
 							root.sheet.close()
 						}
-
-						Kaidan.startAccountMigration()
 					}
 				}
 			}

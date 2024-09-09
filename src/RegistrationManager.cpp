@@ -156,8 +156,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 			}
 		}
 
-		// If no URL has been found in the instructions, there is a
-		// problem with the server.
+		// If no URL has been found in the instructions, there is a problem with the server.
 		Q_EMIT m_clientWorker->connectionErrorChanged(ClientWorker::RegistrationUnsupported);
 		abortRegistration();
 		return;
@@ -231,17 +230,10 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 		}
 		break;
 	case QXmppStanza::Error::Wait:
-		if (error.condition() == QXmppStanza::Error::ResourceConstraint &&
-			(error.text().contains("users", Qt::CaseInsensitive) ||
-			error.text().contains("quickly", Qt::CaseInsensitive))) {
+		if (error.condition() == QXmppStanza::Error::ResourceConstraint || error.condition() == QXmppStanza::Error::PolicyViolation) {
 			registrationError = RegistrationError::TemporarilyBlocked;
 			abortRegistration();
-		} else if (error.condition() == QXmppStanza::Error::PolicyViolation &&
-		   (error.text().contains("ip", Qt::CaseInsensitive) ||
-		   error.text().contains("recently", Qt::CaseInsensitive))) {
-		   registrationError = RegistrationError::TemporarilyBlocked;
-		   abortRegistration();
-	   }
+		}
 		break;
 	default:
 		break;

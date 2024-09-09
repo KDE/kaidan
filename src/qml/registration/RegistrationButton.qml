@@ -3,17 +3,47 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick 2.15
+import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+
 import im.kaidan.kaidan 1.0
 
 import "../elements"
 
 /**
- * This button is used for confirming the registration.
+ * This is an area containing a button used for confirming a registration.
  */
-CenteredAdaptiveHighlightedButton {
-	property var loginFunction
+MobileForm.FormCard {
 	property var registrationFunction
+	property var loginFunction
+	property alias busy: button.busy
 
-	text: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Login after confirmation") : qsTr("Register")
-	onClicked: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? loginFunction() : registrationFunction()
+	Kirigami.Theme.colorSet: Kirigami.Theme.Selection
+	contentItem: BusyIndicatorFormButton {
+		id: button
+		idleText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
+		busyText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
+		onClicked: {
+			if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
+				loginFunction()
+			} else {
+				registrationFunction()
+			}
+
+			busy = true
+		}
+
+		Connections {
+			target: Kaidan
+
+			function onRegistrationFailed(error, errorMessage) {
+				button.busy = false
+			}
+
+			function onConnectionErrorChanged(error) {
+				button.busy = false
+			}
+		}
+	}
 }

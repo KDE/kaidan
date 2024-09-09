@@ -20,7 +20,7 @@ import "elements"
  */
 ExplanationTogglePage {
 	id: root
-	title: qsTr("Scan QR code")
+	title: qsTr("Scan a QR Code")
 	useMarginsForContent: false
 	primaryButton.text: explanationArea.visible ? qsTr("Scan QR code") : qsTr("Show explanation")
 	primaryButton.onClicked: {

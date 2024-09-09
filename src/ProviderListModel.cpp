@@ -46,6 +46,7 @@ QHash<int, QByteArray> ProviderListModel::roleNames() const
 		{FlagsRole, QByteArrayLiteral("flags")},
 		{IsCustomProviderRole, QByteArrayLiteral("isCustomProvider")},
 		{WebsiteRole, QByteArrayLiteral("website")},
+		{sinceRole, QByteArrayLiteral("since")},
 		{HttpUploadSizeRole, QByteArrayLiteral("httpUploadSize")},
 		{MessageStorageDurationRole, QByteArrayLiteral("messageStorageDuration")}
 	};
@@ -69,7 +70,7 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 
 	switch (role) {
 	case DisplayRole:
-		return QStringLiteral("%1 %2").arg(QStringList(item.flags().toList()).join(u' '), item.jid());
+		return QStringLiteral("%1 %2").arg(item.jid(), QStringList(item.flags().toList()).join(u' '));
 	case JidRole:
 		return item.jid();
 	case SupportsInBandRegistrationRole:
@@ -86,10 +87,12 @@ QVariant ProviderListModel::data(const QModelIndex &index, int role) const
 		return item.isCustomProvider();
 	case WebsiteRole:
 		return item.websites().pickBySystemLocale();
-	case OnlineSinceRole:
-		if (item.onlineSince() == -1)
-			return QString();
-		return QString::number(item.onlineSince());
+	case sinceRole:
+		if (const auto since = item.since(); since.isValid()) {
+			return QLocale::system().toString(since, QLocale::ShortFormat);
+		}
+
+		return QString();
 	case HttpUploadSizeRole:
 		switch (item.httpUploadSize()) {
 		case -1:

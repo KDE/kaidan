@@ -11,6 +11,9 @@ import org.kde.kirigami 2.19 as Kirigami
 StackLayout {
 	default property alias __data: contentArea.data
 	property alias loadingArea: loadingArea
+	property bool busy: false
+
+	currentIndex: busy ? 1 : 0
 
 	ColumnLayout {
 		id: contentArea
@@ -20,13 +23,5 @@ StackLayout {
 	LoadingArea {
 		id: loadingArea
 		background.color: secondaryBackgroundColor
-	}
-
-	function showLoadingView() {
-		currentIndex = 1
-	}
-
-	function hideLoadingView() {
-		currentIndex = 0
 	}
 }

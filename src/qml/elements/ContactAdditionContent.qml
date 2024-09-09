@@ -37,9 +37,9 @@ ConfirmationArea {
 										Kaidan.openChatPageRequested(AccountManager.jid, jidInLowerCase)
 									})
 		} else if (jidField.valid) {
-			showLoadingView()
+			busy = true
 			Kaidan.client.rosterManager.addContactRequested(jidInLowerCase, name, messageField.text)
-			hideLoadingView()
+			busy = false
 			Kaidan.openChatPageRequested(AccountManager.jid, jidInLowerCase)
 		} else {
 			jidField.forceActiveFocus()

@@ -13,25 +13,21 @@ import im.kaidan.kaidan 1.0
 ColumnLayout {
 	id: root
 
-	property QtObject firstVisibleTextField
-	property QtObject model
-
-	// base model if model is a filter model
-	property QtObject baseModel: model
-
+	property alias model: repeater.model
 	property bool displayTitle: true
 	property bool displayInstructions: true
+	property var lastTextFieldAcceptedFunction
 
 	Kirigami.Heading {
 		visible: displayTitle
-		text: baseModel ? baseModel.title : ""
+		text: repeater.model.sourceModel ? repeater.model.sourceModel.title : ""
 		textFormat: Text.PlainText
 		wrapMode: Text.WordWrap
 	}
 
 	Controls.Label {
 		visible: displayInstructions
-		text: baseModel ? baseModel.instructions : ""
+		text: repeater.model.sourceModel ? repeater.model.sourceModel.instructions : ""
 		textFormat: Text.PlainText
 		wrapMode: Text.WordWrap
 	}
@@ -39,7 +35,6 @@ ColumnLayout {
 	Kirigami.FormLayout {
 		Repeater {
 			id: repeater
-			model: root.model
 			delegate: Column {
 				visible: model.type !== DataFormModel.HiddenField
 				Kirigami.FormData.label: model.label
@@ -52,18 +47,13 @@ ColumnLayout {
 					id: textField
 					visible: model.isRequired && (model.type === DataFormModel.TextSingleField || model.type === DataFormModel.TextPrivateField)
 					echoMode: model.type === DataFormModel.TextPrivateField ? TextInput.Password : TextInput.Normal
-
 					onTextChanged: model.value = text
-
-					Component.onCompleted: {
-						text = model.value
-
-						if (!root.firstVisibleTextField && visible)
-							root.firstVisibleTextField = textField
-					}
+					onAccepted: focusNextVisibleItem(index)
+					Component.onCompleted: text = model.value
 				}
 
 				FormattedTextEdit {
+					id: alternativeTextField
 					visible: !textField.visible
 					text: model.value
 				}
@@ -77,10 +67,43 @@ ColumnLayout {
 				}
 
 				Component.onCompleted: {
-					if (model.mediaUrl)
+					if (model.mediaUrl) {
 						imageLoader.sourceComponent = imageComponent
+					}
+				}
+
+				function forceActiveFocus() {
+					if (textField.visible) {
+						textField.forceActiveFocus()
+					} else {
+						alternativeTextField.forceActiveFocus()
+					}
 				}
 			}
 		}
+	}
+
+	function forceActiveFocus() {
+		focusFirstVisibleItem()
+	}
+
+	function focusNextVisibleItem(currentItem) {
+		if (!focusFirstVisibleItem(currentItem + 1)) {
+			lastTextFieldAcceptedFunction()
+		}
+	}
+
+	function focusFirstVisibleItem(startIndex = 0) {
+		for (let i = startIndex; i < repeater.count; i++) {
+			let item = repeater.itemAt(i)
+
+			// Skip hidden items.
+			if (item.visible) {
+				item.forceActiveFocus()
+				return true
+			}
+		}
+
+		return false
 	}
 }

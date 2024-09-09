@@ -98,6 +98,13 @@ public:
 	static QUrl mastodonUrl();
 
 	/**
+	 * Returns the URL of an XMPP provider's details page.
+	 *
+	 * @param providerJid JID of the XMPP provider
+	 */
+	Q_INVOKABLE static QUrl providerDetailsUrl(const QString &providerJid);
+
+	/**
 	 * Returns an invitation URL for the given XMPP URI.
 	 */
 	Q_INVOKABLE static QUrl invitationUrl(const QString &uri);

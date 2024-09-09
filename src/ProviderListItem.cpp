@@ -26,7 +26,7 @@ public:
 	QVector<QString> languages;
 	QVector<QString> countries;
 	ProviderListItem::LanguageVariants<QUrl> websites;
-	int onlineSince;
+	QDate since;
 	int httpUploadSize;
 	int messageStorageDuration;
 	ProviderListItem::LanguageVariants<QVector<QString>> chatSupport;
@@ -34,7 +34,7 @@ public:
 };
 
 ProviderListItemPrivate::ProviderListItemPrivate()
-	: isCustomProvider(false), supportsInBandRegistration(false), onlineSince(-1), httpUploadSize(-1), messageStorageDuration(-1)
+	: isCustomProvider(false), supportsInBandRegistration(false), httpUploadSize(-1), messageStorageDuration(-1)
 {
 }
 
@@ -54,7 +54,7 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	item.setCountries(countries);
 
 	item.setWebsites(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("website")).toObject()));
-	item.setOnlineSince(object.value(QLatin1String("since")).toInt(-1));
+	item.setSince(object.value(QLatin1String("since")).toVariant().toDate());
 	item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
 	item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
 	item.setChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("chatSupport")).toObject()));
@@ -193,14 +193,14 @@ QUrl ProviderListItem::chosenWebsite() const
 	return websites().pickBySystemLocale();
 }
 
-int ProviderListItem::onlineSince() const
+QDate ProviderListItem::since() const
 {
-	return d->onlineSince;
+	return d->since;
 }
 
-void ProviderListItem::setOnlineSince(int onlineSince)
+void ProviderListItem::setSince(const QDate &since)
 {
-	d->onlineSince = onlineSince;
+	d->since = since;
 }
 
 int ProviderListItem::httpUploadSize() const

@@ -232,16 +232,18 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 #endif
 
 		auto host = AccountManager::instance()->host();
-		if (!host.isEmpty())
+		if (!host.isEmpty()) {
 			config.setHost(host);
+		}
 
 		auto port = AccountManager::instance()->port();
 		if (port != PORT_AUTODETECT) {
 			config.setPort(port);
 
 			// Set the JID's domain part as the host if no custom host is set.
-			if (host.isEmpty())
+			if (host.isEmpty()) {
 				config.setHost(QXmppUtils::jidToDomain(AccountManager::instance()->jid()));
+			}
 		}
 
 		// Disable the automatic reconnection in case this connection attempt is not
@@ -262,8 +264,9 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 void ClientWorker::logOut(bool isApplicationBeingClosed)
 {
 	// Store the latest online state which is restored when opening Kaidan again after closing.
-	if (!isApplicationBeingClosed)
+	if (!isApplicationBeingClosed) {
 		m_caches->settings->setAuthOnline(false);
+	}
 
 	switch (m_client->state()) {
 	case QXmppClient::DisconnectedState:
@@ -429,6 +432,10 @@ void ClientWorker::onConnectionError(const QXmppError &error)
 		const auto type = authenticationError->type;
 		const auto text = authenticationError->text;
 
+		// Some servers require new users to confirm their account creation via instructions within
+		// an email message sent by the server to the user after a successful registration.
+		// That usually involves opening a URL.
+		// Afterwards, the account is activated and the user can log in.
 		if ((type == QXmpp::AuthenticationError::AccountDisabled ||
 			 type == QXmpp::AuthenticationError::NotAuthorized) &&
 			text.contains("activat") && text.contains("mail")) {

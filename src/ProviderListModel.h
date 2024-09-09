@@ -27,7 +27,7 @@ public:
 		FlagsRole,
 		IsCustomProviderRole,
 		WebsiteRole,
-		OnlineSinceRole,
+		sinceRole,
 		HttpUploadSizeRole,
 		MessageStorageDurationRole
 	};

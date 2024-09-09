@@ -96,8 +96,6 @@ Kirigami.ApplicationWindow {
 	// components for all main pages
 	Component {id: startPage; StartPage {}}
 	Component {id: qrCodeOnboardingPage; QrCodeOnboardingPage {}}
-	Component {id: automaticRegistrationPage; AutomaticRegistrationPage {}}
-	Component {id: manualRegistrationPage; ManualRegistrationPage {}}
 	Component {id: rosterPage; RosterPage {}}
 	Component {id: chatPage; ChatPage {}}
 	Component {id: emptyChatPage; EmptyChatPage {}}
@@ -245,7 +243,7 @@ Kirigami.ApplicationWindow {
 	}
 
 	function pushLayer(layer) {
-		pageStack.layers.push(layer)
+		return pageStack.layers.push(layer)
 	}
 
 	function popLayer() {

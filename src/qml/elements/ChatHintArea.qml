@@ -19,7 +19,7 @@ Rectangle {
 	property int index
 	property string text
 	property var buttons
-	property bool loading
+	property alias loading: loadingStackArea.busy
 	property string loadingDescription
 
 	width: ListView.view.width
@@ -28,7 +28,6 @@ Rectangle {
 	clip: true
 	color: primaryBackgroundColor
 	ListView.delayRemove: true
-	onLoadingChanged: loading ? loadingStackArea.showLoadingView() : loadingStackArea.hideLoadingView()
 	onHeightChanged: {
 		// Ensure the deletion of this item after the removal animation of decreasing its height.
 		// When this item is removed from the model (i.e., it has the index -1), it is set to be
