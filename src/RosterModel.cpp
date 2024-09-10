@@ -11,6 +11,8 @@
 
 #include "RosterModel.h"
 
+// QXmpp
+#include <QXmppUri.h>
 // Kaidan
 #include "AccountManager.h"
 #include "ChatController.h"
@@ -21,8 +23,6 @@
 #include "RosterDb.h"
 #include "RosterItemWatcher.h"
 #include "RosterManager.h"
-
-#include "qxmpp-exts/QXmppUri.h"
 
 RosterModel *RosterModel::s_instance = nullptr;
 
@@ -301,9 +301,9 @@ void RosterModel::setItemEncryption(const QString &, Encryption::Enum encryption
 
 RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &accountJid, const QString &uriString)
 {
-	if (QXmppUri::isXmppUri(uriString)) {
-		auto uri = QXmppUri(uriString);
-		auto jid = uri.jid();
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+		const auto uri = std::get<QXmppUri>(uriParsingResult);
+		const auto jid = uri.jid();
 
 		if (jid.isEmpty()) {
 			return AddContactByUriResult::InvalidUri;

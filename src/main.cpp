@@ -32,9 +32,8 @@
 #include <QXmppVCardIq.h>
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
+#include <QXmppUri.h>
 #include <QXmppVersionIq.h>
-
-#include "qxmpp-exts/QXmppUri.h"
 
 // Kaidan
 #include "Account.h"

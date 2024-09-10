@@ -21,7 +21,7 @@
 // QXmpp
 #ifndef BUILD_TESTS
 #include "qxmpp-exts/QXmppColorGenerator.h"
-#include "qxmpp-exts/QXmppUri.h"
+#include <QXmppUri.h>
 #endif
 // Kaidan
 #include "Globals.h"
@@ -180,7 +180,7 @@ QUrl QmlUtils::groupChatUri(const QString &groupChatJid)
 {
 	QXmppUri uri;
 	uri.setJid(groupChatJid);
-	uri.setAction(QXmppUri::Join);
+	uri.setQuery(QXmpp::Uri::Join());
 	return QUrl(uri.toString());
 }
 #endif

@@ -142,7 +142,7 @@ public:
 	/**
 	 * Adds XMPP URI to open as soon as possible
 	 */
-	void addOpenUri(const QString &uri);
+	void addOpenUri(const QString &uriString);
 
 	/**
 	 * Connects to the server by the parsed credentials (bare JID and
@@ -164,11 +164,11 @@ public:
 	 *
 	 * In all other cases, LoginByUriState::InvalidLoginUri is returned.
 	 *
-	 * @param uri string which can be an XMPP login URI
+	 * @param uriString string which can be an XMPP login URI
 	 *
 	 * @return the state which specifies how the XMPP login URI was used
 	 */
-	Q_INVOKABLE quint8 logInByUri(const QString &uri);
+	Q_INVOKABLE quint8 logInByUri(const QString &uriString);
 
 	/**
 	 * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
@@ -177,11 +177,11 @@ public:
 	 * Only if the URI's JID matches the expectedJid or no expectedJid is
 	 * passed, the trust decision is made.
 	 *
-	 * @param uri string which can be an XMPP Trust Message URI
+	 * @param uriString string which can be an XMPP Trust Message URI
 	 * @param expectedJid JID of the key owner whose keys are expected to be
 	 *        authenticated or none to allow all JIDs
 	 */
-	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid = {});
+	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid = {});
 
 	Q_SLOT void startAccountMigration();
 	Q_SLOT void continueAccountMigration(const QVariant &userData = {});
@@ -300,7 +300,7 @@ public:
 	 *
 	 * Is called when Kaidan was used to open an XMPP URI (i.e. 'xmpp:kaidan@muc.kaidan.im?join')
 	 */
-	Q_SIGNAL void xmppUriReceived(QString uri);
+	Q_SIGNAL void xmppUriReceived(QString uriString);
 
 	/**
 	 * Emitted when changing of the user's password finished succfessully.

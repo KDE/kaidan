@@ -4,7 +4,7 @@
 
 #include "GroupChatQrCodeGenerator.h"
 
-#include "qxmpp-exts/QXmppUri.h"
+#include <QXmppUri.h>
 
 GroupChatQrCodeGenerator::GroupChatQrCodeGenerator(QObject *parent)
 	: AbstractQrCodeGenerator(parent)
@@ -17,7 +17,7 @@ void GroupChatQrCodeGenerator::updateText()
 	QXmppUri uri;
 
 	uri.setJid(jid());
-	uri.setAction(QXmppUri::Join);
+	uri.setQuery(QXmpp::Uri::Join());
 
 	setText(uri.toString());
 }

@@ -4,8 +4,9 @@
 
 #include "LoginQrCodeGenerator.h"
 
-#include "qxmpp-exts/QXmppUri.h"
-
+// QXmpp
+#include <QXmppUri.h>
+// Kaidan
 #include "AccountManager.h"
 #include "Kaidan.h"
 #include "Settings.h"
@@ -19,14 +20,16 @@ LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent)
 
 void LoginQrCodeGenerator::updateText()
 {
+	QXmpp::Uri::Login loginQuery;
+
+	if (Kaidan::instance()->settings()->authPasswordVisibility() != Kaidan::PasswordInvisible) {
+		loginQuery.password = (AccountManager::instance()->password());
+	}
+
 	QXmppUri uri;
 
 	uri.setJid(jid());
-	uri.setAction(QXmppUri::Login);
-
-	if (Kaidan::instance()->settings()->authPasswordVisibility() != Kaidan::PasswordInvisible) {
-		uri.setPassword(AccountManager::instance()->password());
-	}
+	uri.setQuery(std::move(loginQuery));
 
 	setText(uri.toString());
 }

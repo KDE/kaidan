@@ -7,8 +7,7 @@
 
 #include <QXmppAtmManager.h>
 #include <QXmppClient.h>
-
-#include "qxmpp-exts/QXmppUri.h"
+#include <QXmppUri.h>
 
 #include "Globals.h"
 #include "TrustDb.h"
@@ -32,7 +31,8 @@ void AtmManager::setAccountJid(const QString &accountJid)
 
 void AtmManager::makeTrustDecisionsByUri(const QXmppUri &uri)
 {
-	m_manager->makeTrustDecisions(uri.encryption(), uri.jid(), keyIdsFromHex(uri.trustedKeysIds()), keyIdsFromHex(uri.distrustedKeysIds()));
+	const auto trustMessageQuery = std::any_cast<QXmpp::Uri::TrustMessage>(uri.query());
+	m_manager->makeTrustDecisions(trustMessageQuery.encryption, uri.jid(), keyIdsFromHex(trustMessageQuery.trustKeyIds), keyIdsFromHex(trustMessageQuery.distrustKeyIds));
 }
 
 void AtmManager::makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting)

@@ -167,8 +167,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     # kaidan QXmpp extensions (need to be merged into QXmpp upstream)
     qxmpp-exts/QXmppColorGenerator.cpp
     qxmpp-exts/QXmppColorGenerator.h
-    qxmpp-exts/QXmppUri.cpp
-    qxmpp-exts/QXmppUri.h
     RecentPicturesModel.cpp
     RecentPicturesModel.h
     RegistrationDataFormFilterModel.cpp

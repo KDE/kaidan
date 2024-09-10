@@ -4,8 +4,10 @@
 
 #include "TrustMessageUriGenerator.h"
 
+// QXmpp
+#include <QXmppUri.h>
+// Kaidan
 #include "Globals.h"
-#include "qxmpp-exts/QXmppUri.h"
 
 TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent)
 	: QObject(parent)
@@ -27,10 +29,13 @@ QString TrustMessageUriGenerator::uri() const
 
 	// Create a Trust Message URI only if there are keys for it.
 	if (!m_authenticatedKeys.isEmpty() || !m_distrustedKeys.isEmpty()) {
-		uri.setAction(QXmppUri::TrustMessage);
-		uri.setEncryption(XMLNS_OMEMO_2);
-		uri.setTrustedKeysIds(m_authenticatedKeys);
-		uri.setDistrustedKeysIds(m_distrustedKeys);
+		QXmpp::Uri::TrustMessage trustMessageQuery = {
+			.encryption = XMLNS_OMEMO_2,
+			.trustKeyIds = m_authenticatedKeys,
+			.distrustKeyIds = m_distrustedKeys,
+		};
+
+		uri.setQuery(std::move(trustMessageQuery));
 	}
 
 	return uri.toString();

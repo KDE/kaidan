@@ -13,8 +13,8 @@
 #include "QXmppMixParticipantItem.h"
 #include <QXmppStanza.h>
 #include <QXmppTask.h>
+#include <QXmppUri.h>
 #include <QXmppUtils.h>
-#include "qxmpp-exts/QXmppUri.h"
 // Kaidan
 #include "Algorithms.h"
 #include "ChatController.h"
@@ -234,7 +234,7 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
 
 	QXmppUri groupChatUri;
 	groupChatUri.setJid(channelJid);
-	groupChatUri.setAction(QXmppUri::Join);
+	groupChatUri.setQuery(QXmpp::Uri::Join());
 
 	Message message {
 		.accountJid = ownJid,

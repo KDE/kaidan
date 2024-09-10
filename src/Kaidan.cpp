@@ -21,7 +21,7 @@
 #include <QTimer>
 #include <QWaitCondition>
 // QXmpp
-#include "qxmpp-exts/QXmppUri.h"
+#include <QXmppUri.h>
 // Kaidan
 #include "AccountDb.h"
 #include "AccountManager.h"
@@ -285,57 +285,76 @@ void Kaidan::initializeAccountMigration()
 	});
 }
 
-void Kaidan::addOpenUri(const QString &uri)
+void Kaidan::addOpenUri(const QString &uriString)
 {
-	// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as long as Kaidan does not support that.
-	if (!QXmppUri::isXmppUri(uri) || QXmppUri(uri).action() == QXmppUri::Join)
-		return;
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+		const auto uri = std::get<QXmppUri>(uriParsingResult);
 
-	if (m_connectionState == ConnectionState::StateConnected) {
-		Q_EMIT xmppUriReceived(uri);
-	} else {
-		Q_EMIT passiveNotificationRequested(tr("The link will be opened after you have connected."));
-		m_openUriCache = uri;
+		// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as long as
+		// Kaidan does not support that.
+		if (uri.query().type() == typeid(QXmpp::Uri::Join)) {
+			return;
+		}
+
+		if (m_connectionState == ConnectionState::StateConnected) {
+			Q_EMIT xmppUriReceived(uriString);
+		} else {
+			Q_EMIT passiveNotificationRequested(tr("The link will be opened after you have connected."));
+			m_openUriCache = uriString;
+		}
 	}
 }
 
-quint8 Kaidan::logInByUri(const QString &uri)
+quint8 Kaidan::logInByUri(const QString &uriString)
 {
-	if (!QXmppUri::isXmppUri(uri)) {
-		return quint8(LoginByUriState::InvalidLoginUri);
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+		const auto uri = std::get<QXmppUri>(uriParsingResult);
+		const auto jid = uri.jid();
+		const auto query = uri.query();
+
+		if (query.type() != typeid(QXmpp::Uri::Login) || !CredentialsValidator::isUserJidValid(jid)) {
+			return quint8(LoginByUriState::InvalidLoginUri);
+		}
+
+		AccountManager::instance()->setJid(jid);
+		const auto password = std::any_cast<QXmpp::Uri::Login>(query).password;
+
+		if (!CredentialsValidator::isPasswordValid(password)) {
+			return quint8(LoginByUriState::PasswordNeeded);
+		}
+
+		// Connect with the extracted credentials.
+		AccountManager::instance()->setPassword(password);
+		logIn();
+
+		return quint8(LoginByUriState::Connecting);
 	}
 
-	QXmppUri parsedUri(uri);
-
-	if (!CredentialsValidator::isUserJidValid(parsedUri.jid())) {
-		return quint8(LoginByUriState::InvalidLoginUri);
-	}
-
-	AccountManager::instance()->setJid(parsedUri.jid());
-
-	if (parsedUri.action() != QXmppUri::Login || !CredentialsValidator::isPasswordValid(parsedUri.password())) {
-		return quint8(LoginByUriState::PasswordNeeded);
-	}
-
-	// Connect with the extracted credentials.
-	AccountManager::instance()->setPassword(parsedUri.password());
-	logIn();
-	return quint8(LoginByUriState::Connecting);
+	return quint8(LoginByUriState::InvalidLoginUri);
 }
 
-Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uri, const QString &expectedJid)
+Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid)
 {
-	if (QXmppUri::isXmppUri(uri)) {
-		auto parsedUri = QXmppUri(uri);
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+		const auto uri = std::get<QXmppUri>(uriParsingResult);
+		const auto jid = uri.jid();
+		const auto query = uri.query();
 
-		if (expectedJid.isEmpty() || parsedUri.jid() == expectedJid) {
-			if (parsedUri.action() != QXmppUri::TrustMessage || parsedUri.encryption().isEmpty() || (parsedUri.trustedKeysIds().isEmpty() && parsedUri.distrustedKeysIds().isEmpty())) {
+		if (query.type() != typeid(QXmpp::Uri::TrustMessage) || !CredentialsValidator::isUserJidValid(jid)) {
+			return InvalidUri;
+		}
+
+		if (expectedJid.isEmpty() || jid == expectedJid) {
+			if (const auto trustMessageQuery = std::any_cast<QXmpp::Uri::TrustMessage>(query);
+				trustMessageQuery.encryption.isEmpty() ||
+				(trustMessageQuery.trustKeyIds.isEmpty() && trustMessageQuery.distrustKeyIds.isEmpty())) {
 				return InvalidUri;
 			}
 
-			runOnThread(m_client->atmManager(), [uri = std::move(parsedUri)]() {
+			runOnThread(m_client->atmManager(), [uri = std::move(uri)]() {
 				Kaidan::instance()->client()->atmManager()->makeTrustDecisionsByUri(uri);
 			});
+
 			return MakingTrustDecisions;
 		} else {
 			return JidUnexpected;
