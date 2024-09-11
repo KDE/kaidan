@@ -431,7 +431,7 @@ DetailsContent {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
 					contentItem: MobileForm.AbstractFormDelegate {
-						background: Item {}
+						background: null
 						horizontalPadding: 0
 						verticalPadding: 0
 						contentItem: MobileForm.FormButtonDelegate {
@@ -475,7 +475,7 @@ DetailsContent {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
 					contentItem: MobileForm.AbstractFormDelegate {
-						background: Item {}
+						background: null
 						horizontalPadding: 0
 						verticalPadding: 0
 						contentItem: MobileForm.FormButtonDelegate {
@@ -514,7 +514,7 @@ DetailsContent {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
 					contentItem: MobileForm.AbstractFormDelegate {
-						background: Item {}
+						background: null
 						contentItem: RowLayout {
 							spacing: Kirigami.Units.largeSpacing * 3
 
@@ -706,7 +706,7 @@ DetailsContent {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 				contentItem: MobileForm.AbstractFormDelegate {
-					background: Item {}
+					background: null
 					contentItem: ColumnLayout {
 						Component.onCompleted: {
 							passwordVerificationField.initialize()
@@ -890,7 +890,7 @@ DetailsContent {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 				contentItem: MobileForm.AbstractFormDelegate {
-					background: Item {}
+					background: null
 					contentItem: ColumnLayout {
 						id: connectionSettings
 

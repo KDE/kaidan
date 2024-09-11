@@ -31,7 +31,7 @@ SettingsPageBase {
 				spacing: 0
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
-					background: Item {}
+					background: null
 					contentItem: RowLayout {
 						Image {
 							source: Utils.getResourcePath("images/kaidan.svg")
@@ -113,7 +113,7 @@ SettingsPageBase {
 			contentItem: ColumnLayout {
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
-					background: Item {}
+					background: null
 					contentItem: ColumnLayout {
 						Controls.Label {
 							text: "GPLv3+ / CC BY-SA 4.0"
@@ -134,7 +134,7 @@ SettingsPageBase {
 
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
-					background: Item {}
+					background: null
 					contentItem: ColumnLayout {
 						Controls.Label {
 							text: "© 2016-2024 Kaidan developers and contributors"
@@ -155,7 +155,7 @@ SettingsPageBase {
 
 				MobileForm.AbstractFormDelegate {
 					Layout.fillWidth: true
-					background: Item {}
+					background: null
 					contentItem: ColumnLayout {
 						Controls.Label {
 							text: "Kaidan is a project of the international free software community KDE"

@@ -99,7 +99,7 @@ RegistrationPage {
 									property alias portField: customConnectionSettings.portField
 
 									width: providerContentArea.width
-									background: Item {}
+									background: null
 									contentItem: ColumnLayout {
 										spacing: 0
 

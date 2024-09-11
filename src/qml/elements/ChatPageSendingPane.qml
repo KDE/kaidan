@@ -101,7 +101,7 @@ Controls.Pane {
 				id: spoilerHintField
 				placeholderText: qsTr("Visible message part")
 				selectByMouse: true
-				background: Item {}
+				background: null
 				Layout.fillWidth: true
 			}
 
@@ -159,7 +159,7 @@ Controls.Pane {
 						return ChatController.isEncryptionEnabled ? qsTr("Compose <b>encrypted</b> message") : qsTr("Compose <b>unencrypted</b> message")
 					}
 				}
-				background: Item {}
+				background: null
 				Layout.leftMargin: Style.isMaterial ? 6 : 0
 				Layout.rightMargin: Style.isMaterial ? 6 : 0
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0

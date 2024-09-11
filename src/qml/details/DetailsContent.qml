@@ -228,7 +228,7 @@ Controls.Control {
 					}
 					delegate: MobileForm.AbstractFormDelegate {
 						visible: deviceExpansionButton.checked
-						background: Item {}
+						background: null
 						contentItem: ColumnLayout {
 							Controls.Label {
 								text: {

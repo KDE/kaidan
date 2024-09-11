@@ -23,7 +23,7 @@ MobileForm.FormCard {
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
 	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
 	contentItem: MobileForm.AbstractFormDelegate {
-		background: Item {}
+		background: null
 		contentItem: ColumnLayout {
 			JidField {
 				id: jidField

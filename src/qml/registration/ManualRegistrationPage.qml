@@ -66,7 +66,7 @@ RegistrationPage {
 					Layout.fillWidth: true
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
 					contentItem: MobileForm.AbstractFormDelegate {
-						background: Item {}
+						background: null
 						contentItem: ColumnLayout {
 							Field {
 								id: displayNameField

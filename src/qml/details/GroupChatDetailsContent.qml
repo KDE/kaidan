@@ -46,7 +46,7 @@ RosterItemDetailsContent {
 						width: ListView.view.width
 						Kirigami.Theme.colorSet: Kirigami.Theme.Window
 						contentItem: MobileForm.AbstractFormDelegate {
-							background: Item {}
+							background: null
 							contentItem: RowLayout {
 								spacing: Kirigami.Units.largeSpacing * 2
 
@@ -166,7 +166,7 @@ RosterItemDetailsContent {
 						width: ListView.view.width
 						Kirigami.Theme.colorSet: Kirigami.Theme.Window
 						contentItem: MobileForm.AbstractFormDelegate {
-							background: Item {}
+							background: null
 							contentItem: RowLayout {
 								Controls.Label {
 									text: qsTr("You must be connected to change the participants")
@@ -352,7 +352,7 @@ RosterItemDetailsContent {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 				contentItem: MobileForm.AbstractFormDelegate {
-					background: Item {}
+					background: null
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3
 
