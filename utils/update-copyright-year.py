@@ -20,12 +20,12 @@ LOG_LEVEL = logging.INFO
 
 # relative path from this script's directory to the root directory of SEARCHED_DIRECTORIES
 RELATIVE_ROOT_DIRECTORY_PATH = ".."
-# relative paths from RELATIVE_ROOT_DIRECTORY_PATH to the uppermost directories of the checked and maybe updated files
+# relative paths from RELATIVE_ROOT_DIRECTORY_PATH to the uppermost directories of the checked and potentially updated files
 SEARCHED_DIRECTORIES = ["src", "tests", "utils"]
 
-# template which us used to create the new copyright string by replacing "%s" with the current year
-COPYRIGHT_STRING = "Copyright (C) 2016-%s Kaidan developers and contributors"
-COPYRIGHT_REGULAR_EXPRESSION = "Copyright \(C\) (\d{4}-)?\d{4} Kaidan developers and contributors"
+# template which is used to create the new copyright string by replacing "%s" with the current year
+COPYRIGHT_STRING = "2016-%s Kaidan developers and contributors"
+COPYRIGHT_REGULAR_EXPRESSION = r"(\d{4}-)?\d{4} Kaidan developers and contributors"
 
 logging.basicConfig(level=LOG_LEVEL)
 
