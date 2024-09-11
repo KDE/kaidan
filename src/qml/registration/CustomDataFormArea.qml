@@ -51,6 +51,6 @@ MobileForm.FormCard {
 	}
 
 	function forceActiveFocus() {
-		form.forceActiveFocus()
+		form.nextItemInFocusChain().forceActiveFocus()
 	}
 }

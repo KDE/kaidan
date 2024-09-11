@@ -48,12 +48,18 @@ ColumnLayout {
 					visible: model.isRequired && (model.type === DataFormModel.TextSingleField || model.type === DataFormModel.TextPrivateField)
 					echoMode: model.type === DataFormModel.TextPrivateField ? TextInput.Password : TextInput.Normal
 					onTextChanged: model.value = text
-					onAccepted: focusNextVisibleItem(index)
+					onAccepted: {
+						if (index === repeater.count - 1) {
+							lastTextFieldAcceptedFunction()
+						} else {
+							nextItemInFocusChain().forceActiveFocus()
+						}
+					}
+
 					Component.onCompleted: text = model.value
 				}
 
 				FormattedTextEdit {
-					id: alternativeTextField
 					visible: !textField.visible
 					text: model.value
 				}
@@ -71,39 +77,7 @@ ColumnLayout {
 						imageLoader.sourceComponent = imageComponent
 					}
 				}
-
-				function forceActiveFocus() {
-					if (textField.visible) {
-						textField.forceActiveFocus()
-					} else {
-						alternativeTextField.forceActiveFocus()
-					}
-				}
 			}
 		}
-	}
-
-	function forceActiveFocus() {
-		focusFirstVisibleItem()
-	}
-
-	function focusNextVisibleItem(currentItem) {
-		if (!focusFirstVisibleItem(currentItem + 1)) {
-			lastTextFieldAcceptedFunction()
-		}
-	}
-
-	function focusFirstVisibleItem(startIndex = 0) {
-		for (let i = startIndex; i < repeater.count; i++) {
-			let item = repeater.itemAt(i)
-
-			// Skip hidden items.
-			if (item.visible) {
-				item.forceActiveFocus()
-				return true
-			}
-		}
-
-		return false
 	}
 }
