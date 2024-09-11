@@ -100,37 +100,21 @@ RosterItemDetailsContent {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
-			id: removalArea
 			spacing: 0
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Removal")
 			}
 
-			ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormButtonDelegate {
-					id: contactRemovalButton
+			ConfirmationFormButtonArea {
+				button {
 					text: qsTr("Remove")
 					description: qsTr("Remove notes chat and complete chat history")
 					icon.name: "edit-delete-symbolic"
-					icon.color: "red"
-					onClicked: contactRemovalConfirmationButton.visible = !contactRemovalConfirmationButton.visible
+					icon.color: Kirigami.Theme.negativeTextColor
 				}
-
-				MobileForm.FormButtonDelegate {
-					id: contactRemovalConfirmationButton
-					text: qsTr("Confirm")
-					visible: false
-					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
-					onClicked: {
-						visible = false
-						contactRemovalButton.enabled = false
-
-						Kaidan.client.rosterManager.removeContactRequested(jid)
-					}
-				}
+				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(jid)
+				busyText: qsTr("Removing notes chat…")
 			}
 		}
 	}

@@ -837,39 +837,28 @@ DetailsContent {
 				text: qsTr("Configure this device to not expose your password for changing it or switching to another device. If you want to change your password or use your account on another device later, <b>consider storing the password somewhere else. This cannot be undone!</b>")
 			}
 
-			MobileForm.FormButtonDelegate {
-				text: qsTr("Don't show password as text")
-				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
-				icon.name: "security-medium-symbolic"
+			ConfirmationFormButtonArea {
 				visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
-				onClicked: passwordRemovalFromQrCodeConfirmationButton.visible = !passwordRemovalFromQrCodeConfirmationButton.visible
-			}
-
-			MobileForm.FormButtonDelegate {
-				id: passwordRemovalFromQrCodeConfirmationButton
-				text: qsTr("Confirm")
-				visible: false
-				Layout.leftMargin: Kirigami.Units.smallSpacing * 7
-				onClicked: {
+				button {
+					text: qsTr("Don't show password as text")
+					description: qsTr("Allow to add additional devices using the login QR code but never show the password")
+					icon.name: "security-medium-symbolic"
+				}
+				confirmationButton.onClicked: {
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
 					passwordField.initialize()
 				}
+				busyText: qsTr("Removing password from text…")
 			}
 
-			MobileForm.FormButtonDelegate {
-				text: qsTr("Don't expose password in any way")
-				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
-				icon.name: "security-high-symbolic"
+			ConfirmationFormButtonArea {
 				visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
-				onClicked: passwordRemovalConfirmationButton.visible = !passwordRemovalConfirmationButton.visible
-			}
-
-			MobileForm.FormButtonDelegate {
-				id: passwordRemovalConfirmationButton
-				text: qsTr("Confirm")
-				visible: false
-				Layout.leftMargin: Kirigami.Units.smallSpacing * 7
-				onClicked: {
+				button {
+					text: qsTr("Don't expose password in any way")
+					description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
+					icon.name: "security-high-symbolic"
+				}
+				confirmationButton.onClicked: {
 					const oldPasswordVisibility = Kaidan.settings.passwordVisibility
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
 
@@ -878,6 +867,7 @@ DetailsContent {
 						passwordField.initialize()
 					}
 				}
+				busyText: qsTr("Removing password from text and QR code…")
 			}
 		}
 	}
