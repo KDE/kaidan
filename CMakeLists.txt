@@ -86,7 +86,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami2)
 find_package(KF5KirigamiAddons 0.10.0 REQUIRED)
 find_package(ZXing REQUIRED)
-find_package(QXmpp 1.6.0 REQUIRED COMPONENTS Omemo)
+find_package(QXmpp 1.9.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
 set_package_properties(ICU PROPERTIES
