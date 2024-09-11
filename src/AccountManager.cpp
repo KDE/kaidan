@@ -14,9 +14,7 @@
 #include <QStringBuilder>
 // QXmpp
 #include <QXmppUtils.h>
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppSasl2UserAgent.h>
-#endif
 // Kaidan
 #include "AccountDb.h"
 #include "EncryptionController.h"
@@ -244,7 +242,6 @@ void AccountManager::setHasNewConnectionSettings(bool hasNewConnectionSettings)
 	m_hasNewConnectionSettings = hasNewConnectionSettings;
 }
 
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 QXmppSasl2UserAgent AccountManager::userAgent()
 {
 	auto deviceId = m_settings->userAgentDeviceId();
@@ -254,7 +251,6 @@ QXmppSasl2UserAgent AccountManager::userAgent()
 	}
 	return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
 }
-#endif
 
 bool AccountManager::loadConnectionData()
 {

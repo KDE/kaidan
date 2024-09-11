@@ -33,12 +33,8 @@
 #include <QXmppUtils.h>
 #include <QXmppVCardManager.h>
 #include <QXmppVersionManager.h>
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppSasl2UserAgent.h>
-#endif
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
 #include <QXmppCredentials.h>
-#endif
 // Kaidan
 #include "AccountManager.h"
 #include "AccountMigrationManager.h"
@@ -121,11 +117,10 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 
 	connect(m_client, &QXmppClient::stateChanged, this, &ClientWorker::onConnectionStateChanged);
 	connect(m_client, &QXmppClient::errorOccurred, this, &ClientWorker::onConnectionError);
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
+
 	connect(m_client, &QXmppClient::credentialsChanged, this, [this]() {
 		m_caches->settings->setAuthCredentials(m_client->configuration().credentials());
 	});
-#endif
 
 	connect(Kaidan::instance(), &Kaidan::logInRequested, this, &ClientWorker::logIn);
 	connect(Kaidan::instance(), &Kaidan::logOutRequested, this, &ClientWorker::logOut);
@@ -191,9 +186,7 @@ void ClientWorker::logIn()
 
 				QXmppConfiguration config;
 				config.setResource(AccountManager::instance()->jidResource());
-	#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
 				config.setCredentials(m_caches->settings->authCredentials());
-	#endif
 				config.setPassword(AccountManager::instance()->password());
 				config.setAutoAcceptSubscriptions(false);
 
@@ -224,12 +217,8 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		config.setJid(AccountManager::instance()->jid());
 		config.setStreamSecurityMode(m_caches->settings->authTlsRequirement());
 		config.setIgnoreSslErrors(m_caches->settings->authTlsErrorsIgnored());
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 8, 0)
 		config.setResourcePrefix(m_caches->settings->authJidResourcePrefix());
-#endif
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 		config.setSasl2UserAgent(m_caches->accountManager->userAgent());
-#endif
 
 		auto host = AccountManager::instance()->host();
 		if (!host.isEmpty()) {

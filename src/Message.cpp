@@ -16,9 +16,7 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
 #include <QXmppEncryptedFileSource.h>
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppFallback.h>
-#endif
 #include <QXmppFileMetadata.h>
 #include <QXmppHttpFileSource.h>
 #include <QXmppMixInvitation.h>
@@ -83,9 +81,7 @@ QXmppFileShare File::toQXmpp() const
 	QXmppFileShare fs;
 	fs.setDisposition(disposition);
 	fs.setMetadata(metadata);
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 	fs.setId(externalId);
-#endif
 	fs.setHttpSources(transform(httpSources, [](const HttpSource &fileSource) {
 		return fileSource.toQXmpp();
 	}));
@@ -248,14 +244,10 @@ QXmppMessage Message::toQXmpp() const
 		msg.setOutOfBandUrls({ oobUrl });
 
 		// fallback indication for SFS
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 		msg.setFallbackMarkers({ QXmppFallback {
 			XMLNS_SFS.toString(),
 			{ QXmppFallback::Reference { QXmppFallback::Body, {} } },
 		}});
-#else
-		msg.setIsFallback(true);
-#endif
 	}
 
 	if (groupChatInvitation) {
@@ -267,7 +259,6 @@ QXmppMessage Message::toQXmpp() const
 
 QVector<QXmppMessage> Message::fallbackMessages() const
 {
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 	if (files.empty() || includeFileFallbackInMainMessage()) {
 		return {};
 	}
@@ -308,9 +299,6 @@ QVector<QXmppMessage> Message::fallbackMessages() const
 		m.setAttachId(id);
 		return m;
 	});
-#else
-	return {};
-#endif
 }
 
 QString Message::relevantId() const

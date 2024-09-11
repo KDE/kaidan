@@ -20,9 +20,7 @@
 #include <QXmppBitsOfBinaryDataList.h>
 #include <QXmppE2eeMetadata.h>
 #include <QXmppEncryptedFileSource.h>
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 #include <QXmppFallback.h>
-#endif
 #include <QXmppFileMetadata.h>
 #include <QXmppHash.h>
 #include <QXmppHttpFileSource.h>
@@ -671,13 +669,11 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	message.isSpoiler = msg.isSpoiler();
 	message.spoilerHint = msg.spoilerHint();
 
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 	// file sharing messages for backwards-compatibility are ignored
 	if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) != msg.fallbackMarkers().end() &&
 		msg.sharedFiles().empty()) {
 		return;
 	}
-#endif
 
 	// Close a notification for messages to which the user replied via another own resource.
 	if (isOwn) {
@@ -904,7 +900,6 @@ bool MessageController::handleReaction(const QXmppMessage &message, const QStrin
 	return false;
 }
 
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 bool MessageController::handleFileSourcesAttachments(const QXmppMessage &message, const QString &chatJid)
 {
 	if (message.attachId().isEmpty()) {
@@ -928,12 +923,6 @@ bool MessageController::handleFileSourcesAttachments(const QXmppMessage &message
 	}
 	return !attachments.empty();
 }
-#else
-bool MessageHandler::handleFileSourcesAttachments(const QXmppMessage &, const QString &)
-{
-	return false;
-}
-#endif
 
 std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source)
 {
@@ -973,11 +962,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
 				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
 				.disposition = file.disposition(),
 				.localFilePath = {},
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 				.externalId = file.id(),
-#else
-				.externalId = {},
-#endif
 				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
 					return FileHash {
 						.dataId = fileId,

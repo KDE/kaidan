@@ -196,12 +196,10 @@ public:
 	 */
 	void setHasNewConnectionSettings(bool hasNewConnectionSettings);
 
-#if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 	/**
 	 * Returns the user agent of the current account (thread-safe).
 	 */
 	QXmppSasl2UserAgent userAgent();
-#endif
 
 	/**
 	 * Loads all credentials and connection settings used to connect to the server.
