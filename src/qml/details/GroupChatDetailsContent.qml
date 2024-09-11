@@ -488,73 +488,46 @@ RosterItemDetailsContent {
 		contentItem: ColumnLayout {
 			id: removalArea
 			spacing: 0
+			enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
 
 			MobileForm.FormCardHeader {
 				title: qsTr("Leaving & Deletion")
 			}
 
-			ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormButtonDelegate {
-					id: groupChatLeavingButton
+			ConfirmationFormButtonArea {
+				id: groupChatLeavingButton
+				button {
 					text: qsTr("Leave")
 					description: qsTr("Leave group and remove complete chat history")
 					icon.name: "edit-delete-symbolic"
-					onClicked: groupChatLeavingConfirmationButton.visible = !groupChatLeavingConfirmationButton.visible
+					icon.color: Kirigami.Theme.neutralTextColor
 				}
-
-				MobileForm.FormButtonDelegate {
-					id: groupChatLeavingConfirmationButton
-					text: qsTr("Confirm")
-					visible: false
-					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
-					onClicked: {
-						visible = false
-						groupChatLeavingButton.enabled = false
-						GroupChatController.leaveGroupChat(root.accountJid, root.jid)
-					}
-				}
+				confirmationButton.onClicked: GroupChatController.leaveGroupChat(root.accountJid, root.jid)
+				busyText: qsTr("Leaving group chat…")
 			}
 
-			ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormButtonDelegate {
-					id: groupChatDeletionButton
+			ConfirmationFormButtonArea {
+				id: groupChatDeletionButton
+				button {
 					text: qsTr("Delete")
 					description: qsTr("Delete group. Nobody will be able to join the group again!")
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
-					onClicked: groupChatDeletionConfirmationButton.visible = !groupChatDeletionConfirmationButton.visible
 				}
-
-				MobileForm.FormButtonDelegate {
-					id: groupChatDeletionConfirmationButton
-					text: qsTr("Confirm")
-					visible: false
-					Layout.leftMargin: Kirigami.Units.largeSpacing * 6
-					onClicked: {
-						removalArea.toggleRemovalButtonInteractivity()
-						GroupChatController.deleteGroupChat(root.accountJid, root.jid)
-					}
+				confirmationButton.onClicked: {
+					groupChatLeavingButton.confirmationButton.visible = false
+					GroupChatController.deleteGroupChat(root.accountJid, root.jid)
 				}
+				busy: GroupChatController.busy
+				busyText: qsTr("Deleting group chat…")
 
 				Connections {
 					target: GroupChatController
 
 					function onGroupChatDeletionFailed(groupChatJid, errorMessage) {
 						passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
-						removalArea.toggleRemovalButtonInteractivity()
 					}
 				}
-			}
-
-			function toggleRemovalButtonInteractivity() {
-				groupChatLeavingButton.enabled = !groupChatLeavingButton.enabled
-				groupChatLeavingConfirmationButton.enabled = !groupChatLeavingConfirmationButton.enabled
-				groupChatDeletionButton.enabled = !groupChatDeletionButton.enabled
-				groupChatDeletionConfirmationButton.enabled = !groupChatDeletionConfirmationButton.visible
 			}
 		}
 	}

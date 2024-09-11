@@ -20,6 +20,7 @@ ConfirmationArea {
 	confirmationButton.text: qsTr("Join")
 	confirmationButton.onClicked: joinGroupChat()
 	loadingArea.description: qsTr("Joining group chat…")
+	busy: GroupChatController.busy
 
 	JidField {
 		id: groupChatJidField
@@ -48,14 +49,12 @@ ConfirmationArea {
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
 
 	function joinGroupChat() {
 		if (groupChatJidField.valid) {
-			busy = true
 			GroupChatController.joinGroupChat(accountJid, groupChatJid, nicknameField.text)
 		} else {
 			groupChatJidField.forceActiveFocus()

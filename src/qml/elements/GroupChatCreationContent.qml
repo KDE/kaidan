@@ -23,6 +23,7 @@ ConfirmationArea {
 	confirmationButton.text: qsTr("Create")
 	confirmationButton.onClicked: createGroupChat()
 	loadingArea.description: qsTr("Creating group chat…")
+	busy: GroupChatController.busy
 
 	Field {
 		id: groupChatNameField
@@ -93,12 +94,10 @@ ConfirmationArea {
 		}
 
 		function onPrivateGroupChatCreationFailed(serviceJid, errorMessage) {
-			root.busy = false
 			passiveNotification(qsTr("The group could not be created on %1%2").arg(serviceJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
 		function onPublicGroupChatCreationFailed(groupChatJid, errorMessage) {
-			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be created%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 
@@ -108,7 +107,6 @@ ConfirmationArea {
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
-			root.busy = false
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}
 	}
@@ -119,8 +117,6 @@ ConfirmationArea {
 			groupChatIdField.forceActiveFocus()
 			return
 		}
-
-		root.busy = true
 
 		const serviceJid = groupChatServiceJidComboBox.textAt(groupChatServiceJidComboBox.currentIndex)
 

@@ -72,11 +72,33 @@ GroupChatController::GroupChatController(QObject *parent)
 			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
 		});
 	});
+
+	auto setIdle = [this]() {
+		setBusy(false);
+	};
+
+	connect(this, &GroupChatController::groupChatCreated, this, setIdle);
+	connect(this, &GroupChatController::privateGroupChatCreationFailed, this, setIdle);
+	connect(this, &GroupChatController::publicGroupChatCreationFailed, this, setIdle);
+
+	connect(this, &GroupChatController::groupChatJoined, this, setIdle);
+	connect(this, &GroupChatController::groupChatJoiningFailed, this, setIdle);
+
+	connect(this, &GroupChatController::groupChatLeft, this, setIdle);
+	connect(this, &GroupChatController::groupChatLeavingFailed, this, setIdle);
+
+	connect(this, &GroupChatController::groupChatDeleted, this, setIdle);
+	connect(this, &GroupChatController::groupChatDeletionFailed, this, setIdle);
 }
 
 GroupChatController::~GroupChatController()
 {
 	s_instance = nullptr;
+}
+
+bool GroupChatController::busy()
+{
+	return m_busy;
 }
 
 bool GroupChatController::groupChatParticipationSupported() const
@@ -105,11 +127,13 @@ QStringList GroupChatController::groupChatServiceJids(const QString &accountJid)
 
 void GroupChatController::createPrivateGroupChat(const QString &, const QString &serviceJid)
 {
+	setBusy(true);
 	m_mixController->createPrivateChannel(serviceJid);
 }
 
 void GroupChatController::createPublicGroupChat(const QString &, const QString &groupChatJid)
 {
+	setBusy(true);
 	m_mixController->createPublicChannel(groupChatJid);
 }
 
@@ -130,6 +154,7 @@ void GroupChatController::renameGroupChat(const QString &, const QString &groupC
 
 void GroupChatController::joinGroupChat(const QString &, const QString &groupChatJid, const QString &nickname)
 {
+	setBusy(true);
 	m_mixController->joinChannel(groupChatJid, nickname);
 }
 
@@ -155,12 +180,22 @@ void GroupChatController::banUser(const QString &, const QString &groupChatJid, 
 
 void GroupChatController::leaveGroupChat(const QString &, const QString &groupChatJid)
 {
+	setBusy(true);
 	m_mixController->leaveChannel(groupChatJid);
 }
 
 void GroupChatController::deleteGroupChat(const QString &, const QString &groupChatJid)
 {
+	setBusy(true);
 	m_mixController->deleteChannel(groupChatJid);
+}
+
+void GroupChatController::setBusy(bool busy)
+{
+	if (m_busy != busy) {
+		m_busy = busy;
+		Q_EMIT busyChanged();
+	}
 }
 
 void GroupChatController::handleChatChanged()
