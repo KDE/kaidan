@@ -181,7 +181,7 @@ RegistrationPage {
 
 									MobileForm.FormTextDelegate {
 										text: model.httpUploadSize
-										description: qsTr("Maxmimum size of shared media")
+										description: qsTr("Maximum size of shared media")
 									}
 
 									MobileForm.FormTextDelegate {
