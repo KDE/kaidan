@@ -604,12 +604,12 @@ msgstr "自訂提供者"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "無限制"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1013,70 +1013,77 @@ msgstr ""
 "夠變更密碼或是在別的裝置上使用您的帳號，<b>請考慮將密碼存在別的地方。這個動作"
 "無法復原！</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "不要將密碼作為文字顯示"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr "允許利用登入 QR code 新增額外裝置，但不顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "確認"
+msgid "Removing password from text…"
+msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "不要用任何方式顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr "不允許使用登入 QR code 新增額外裝置，也不顯示密碼"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "連線"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "設定要連線到的主機名稱與連接埠（留空以使用預設值）"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "變更連線設定"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "輸入不同的連線設定來變更它"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "無法變更連線設定：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "連線設定已變更"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
@@ -1084,7 +1091,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "沒有資訊"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "RosterFilteringArea|"
 #| msgid "Filter by accounts"
@@ -1092,7 +1099,20 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "依帳號過濾"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "帳號預設"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1105,24 +1125,24 @@ msgid ""
 "history if needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "從 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "將帳號從此應用程式中移除。有需要使用的話請備份您的認證資訊與聊天紀錄！"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1130,18 +1150,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全刪除"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1149,7 +1169,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在新增聯絡人…"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1370,25 +1390,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "封鎖所有通訊，包含狀態與通知"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "確認"
+msgid "Removing contact…"
+msgstr "正在新增聯絡人…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1757,7 +1780,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "提供您已讀過哪些訊息的資訊"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -1765,12 +1788,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "儲存選擇"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1778,16 +1801,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "確認"
+msgid "Leaving group chat…"
+msgstr "能夠聊天"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -1795,7 +1817,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "刪除檔案"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1805,7 +1827,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "從提供者上刪除帳號。您將不再能夠使用您的帳號！"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "正在新增聯絡人…"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -1933,7 +1963,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "驗證<b>您的</b>裝置來改善安全性"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removal"
@@ -1941,7 +1971,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -1949,7 +1979,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1957,13 +1987,13 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "移除聯絡人以及與該聯絡人的整個聊天紀錄"
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "確認"
+msgid "Removing notes chat…"
+msgstr "正在新增聯絡人…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2280,7 +2310,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "傳送您的位置"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -2422,7 +2452,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2430,32 +2460,32 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "名稱（可選）："
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2477,7 +2507,7 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2485,7 +2515,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "無法新增 %1：%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2519,7 +2549,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -2527,7 +2557,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "聊天位址"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "user@example.org"
@@ -2535,7 +2565,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "The chat address must have the form <b>username@server</b>"
@@ -2543,7 +2573,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "聊天位址格式必須是 <b>使用者名稱@伺服器</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2655,17 +2685,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "載入中…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "連線設定"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "登入"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "連線中…"
@@ -3038,6 +3068,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "傳送"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "複製網站位址"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -3111,7 +3149,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "無法解除封鎖 %1：%2"
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "掃描 QR code"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "掃描 QR code"
@@ -3144,257 +3190,313 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "連線中…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "自動註冊"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "LoadingView|"
 #| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr "正在與伺服器請求中…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"伺服器已請求更多資訊。\n"
-"不是所有東西都一定是必要的。\n"
-"如果有顯示 CAPTCHA 驗證碼的話，則必須要輸入螢幕所顯示的驗證碼。"
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "沒有資訊"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
-"您的顯示名稱是聯絡人會看到的名字。\n"
-"不希望使用顯示名稱的時候，可以將此欄位留空。\n"
-"使用顯示名稱能讓新聯絡人更容易認出您，但也會降低您的隱私！"
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "註冊失敗："
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "僅網路註冊："
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Enter your credentials"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "輸入您的認證資訊"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "顯示名稱"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "正在與伺服器請求中…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "手動註冊"
+msgid "Username"
+msgstr "使用者名稱"
 
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
+msgstr "請輸入有效的使用者名稱，或是留空來使用隨機產生的名稱。"
+
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "提供者要求更高強度的密碼。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "提供者不支援透過此應用程式進行註冊。"
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "提供者目前不支援透過此應用程式進行註冊。"
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr "但您可以使用提供者的網路註冊功能。"
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "已隨機選擇一個新的提供者。"
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "該使用者名稱已被使用。"
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "已產生新的隨機使用者名稱。"
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
-msgstr ""
-"您可以提供您的帳號的密碼。如果您不提供，會為您產生一個密碼，之後您可以在應用"
-"程式中找到它。"
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "選擇影片"
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
-"提供者是您的帳號所屬的地方。\n"
-"可選擇的提供者是由我們的社群所精選的！"
 
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "提供者："
 
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "連線設定"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "僅網路註冊："
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "否"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "是"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "伺服器位置："
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr "語言："
 
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "上線時間："
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "允許分享媒體大小限制："
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "已分享媒體的儲存空間上限："
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "開啟網站"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "複製網站位址"
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "開啟註冊網頁位址"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "選擇檔案…"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "正在與伺服器請求中…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "提供者不支援透過此應用程式進行註冊。"
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "沒有資訊"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "註冊"
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "登入"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "註冊"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr "CAPTCHA 輸入錯誤"
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr "缺乏必須的資訊："
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "註冊失敗："
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "僅網路註冊："
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
 msgstr ""
-"您的聊天位址能用來與您聊天，就如同您的電子郵件位址能用來進行電子郵件通訊一"
-"樣。\n"
-"\n"
-"您的聊天位址將會是："
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
+#: src/qml/registration/WebRegistrationPage.qml:50
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
 msgstr ""
-"您的使用者名稱會用來登入您的帳號以及用來與您聊天。\n"
-"如果您不輸入一個使用者名稱，將會使用已經顯示的隨機名稱。\n"
-"使用自己的使用者名稱會讓您更容易被其他人認識，但也會降低您的隱私！"
 
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "使用者名稱"
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "這個伺服器不支援新註冊。"
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr "請輸入有效的使用者名稱，或是留空來使用隨機產生的名稱。"
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "所選的提供者只提供網路註冊。您可以在透過網頁建立帳號之後再透過 Kaidan 登入。"
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "開啟註冊網頁位址"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "複製註冊網頁位址"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "開啟註冊網頁位址"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "用您的新帳號登入"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3549,7 +3651,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "設定"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -3557,17 +3659,20 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "帳號預設"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "在任何裝置上享受自由通訊！"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr "登入"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3575,7 +3680,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "掃描 QR code"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr "或"
@@ -3659,24 +3764,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "未知的大小"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 在線上"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 正在輸入…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3770,13 +3875,164 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "網站"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "確認"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "確認"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "確認"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "確認"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "自動註冊"
+
+#, fuzzy
+#~| msgctxt "LoadingView|"
+#~| msgid "Requesting the server…"
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "正在與伺服器請求中…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "伺服器已請求更多資訊。\n"
+#~ "不是所有東西都一定是必要的。\n"
+#~ "如果有顯示 CAPTCHA 驗證碼的話，則必須要輸入螢幕所顯示的驗證碼。"
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "您的顯示名稱是聯絡人會看到的名字。\n"
+#~ "不希望使用顯示名稱的時候，可以將此欄位留空。\n"
+#~ "使用顯示名稱能讓新聯絡人更容易認出您，但也會降低您的隱私！"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "手動註冊"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "提供者目前不支援透過此應用程式進行註冊。"
 
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "但您可以使用提供者的網路註冊功能。"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "已隨機選擇一個新的提供者。"
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "您可以提供您的帳號的密碼。如果您不提供，會為您產生一個密碼，之後您可以在應"
+#~ "用程式中找到它。"
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "提供者是您的帳號所屬的地方。\n"
+#~ "可選擇的提供者是由我們的社群所精選的！"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "提供者："
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "連線設定"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "否"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "是"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "上線時間："
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "允許分享媒體大小限制："
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "已分享媒體的儲存空間上限："
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "開啟網站"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "複製網站位址"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "您的聊天位址能用來與您聊天，就如同您的電子郵件位址能用來進行電子郵件通訊一"
+#~ "樣。\n"
+#~ "\n"
+#~ "您的聊天位址將會是："
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "您的使用者名稱會用來登入您的帳號以及用來與您聊天。\n"
+#~ "如果您不輸入一個使用者名稱，將會使用已經顯示的隨機名稱。\n"
+#~ "使用自己的使用者名稱會讓您更容易被其他人認識，但也會降低您的隱私！"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "複製註冊網頁位址"
+
 #~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "輸入您的認證資訊"
+#~ msgid "Login"
+#~ msgstr "登入"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "提供者目前不支援透過此應用程式進行註冊。"
 
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"

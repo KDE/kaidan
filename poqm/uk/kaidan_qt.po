@@ -573,12 +573,12 @@ msgstr "Нетиповий надавач послуг"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Без обмежень"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -961,12 +961,12 @@ msgstr ""
 "варто зберегти пароль в якомусь іншому місці. Скасувати наслідки цієї дії "
 "неможливо!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Не показувати пароль як текст"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -975,18 +975,20 @@ msgstr ""
 "Дозволити додавати пристрої за допомогою QR-коду, але ніколи не показувати "
 "пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "DisablePasswordDisplay|"
+#| msgid "Remove password completely"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Підтвердити"
+msgid "Removing password from text…"
+msgstr "Вилучити пароль повністю"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Не показувати пароль у будь-який спосіб"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -995,12 +997,17 @@ msgstr ""
 "Не дозволяти додавати пристрої, у яких для входу використовуватиметься QR-"
 "код, і не показувати пароль."
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "З'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1009,38 +1016,51 @@ msgstr ""
 "Налаштувати назву вузла і порт для з'єднання (не заповнюйте поля, щоб "
 "скористатися типовими значеннями)"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Змінити параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Введіть інші параметри з'єднання, щоб змінити їх"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Не вдалося змінити параметри з'єднання: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Змінено параметри з'єднання"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Перенесення"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Перенести обліковий запис"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Перенесення облікового запису"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1052,17 +1072,17 @@ msgstr ""
 "Створіть резервну копію реєстраційних даних і журналу спілкування, якщо це "
 "потрібно!"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Вилучити з Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1071,17 +1091,17 @@ msgstr ""
 "Вилучити обліковий запис з цієї програми. Створіть резервну копію "
 "реєстраційних даних і журналу спілкування, якщо це потрібно!"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Вилучаємо запис…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Повністю вилучити"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1089,12 +1109,12 @@ msgstr ""
 "Вилучити обліковий запис з бази даних надавача послуг. Ви більше не зможете "
 "скористатися вашим обліковим записом!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Вилучаємо запис…"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1308,25 +1328,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Заблокувати увесь обмін даними, зокрема обмін станами та сповіщення"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Вилучити контакт і завершити журнал спілкування"
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Підтвердити"
+msgid "Removing contact…"
+msgstr "Вилучаємо запис…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1597,38 +1620,48 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Показувати, які повідомлення ви прочитали"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Полишення і вилучення"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Полишити"
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Полишити групу і вилучити весь журнал спілкування"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Підтвердити"
+msgid "Leaving group chat…"
+msgstr "Створюємо групове спілкування…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Вилучити"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Вилучити групу. Ніхто не зможе долучитися до групи знову!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Creating group chat…"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Створюємо групове спілкування…"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1726,25 +1759,28 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Перевірте <b>ваші</b> пристрої, щоб забезпечити максимальний захист"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Вилучення"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Вилучити"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Вилучити нотатки спілкування і завершити журнал спілкування"
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removing account…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Підтвердити"
+msgid "Removing notes chat…"
+msgstr "Вилучаємо запис…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -2020,7 +2056,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Надіслати ваше місце перебування"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Підтвердити"
@@ -2151,37 +2187,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "Створюємо групове спілкування…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "Назва групи (необов'язково)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "Приклад групи"
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Загальнодоступна"
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "Ідентифікатор групи"
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "приклад-групи"
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "Введіть коректний ідентифікатор групи"
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr "Псевдонім (необов’язково):"
@@ -2192,13 +2228,13 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "Не вдалося створити групу у %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Не вдалося створити групу %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2224,22 +2260,22 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr "Долучення до групового спілкування…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Адреса"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "група@групи.приклад.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "Адреса повинна мати форму <b>група@сервер</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Псевдонім (необов’язково):"
@@ -2337,17 +2373,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Завантаження…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Параметри з'єднання"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Увійти"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
@@ -2678,6 +2714,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Надіслати"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Копіювати адресу сайта"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -2751,7 +2795,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "Не вдалося розблокувати %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Сканувати QR-код"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Сканувати QR-код"
@@ -2781,264 +2833,320 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "Автоматична реєстрація"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
-msgstr "Надсилаємо запит до надавача послуг…"
+msgid "Requesting registration…"
+msgstr "Надсилаємо запит на сервер…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"Сервером надіслано запит щодо додаткових відомостей.\n"
-"Не усі ці відомості слід надавати обов'язково.\n"
-"Якщо показано CAPTCHA, має бути введено показаний текст."
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Немає інформації"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
-"Ваше екранне ім'я — те, що бачитимуть для вашого облікового запису "
-"контакти.\n"
-"Якщо ви не хочете користуватися екранним ім'ям, можете не заповнювати це "
-"поле.\n"
-"Використання екранного імені може спростити вашим контактам пошук вашого "
-"запису, але також може призвести до втрати конфіденційності!"
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "Не вдалося зареєструватися:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "Лише інтернет-реєстрація:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Enter your credentials"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Введіть ваші реєстраційні дані"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Екранне ім'я"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "Надсилаємо запит на сервер…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Реєстрація вручну"
-
-#: src/qml/registration/ManualRegistrationPage.qml:174
-msgctxt "ManualRegistrationPage|"
-msgid "The provider requires a stronger password."
-msgstr "Надавач послуг вимагає складнішого пароля."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "Цей надавач послуг не підтримує реєстрацію за допомогою програми."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "Цей надавач послуг поки не підтримує реєстрацію за допомогою програми."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr ""
-"Втім, ви можете скористатися для реєстрації сторінкою надавача послуг в "
-"інтернеті."
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "Нового надавача послуг вибрано випадковим чином."
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
-msgctxt "ManualRegistrationPage|"
-msgid "The username is already taken."
-msgstr "Це ім'я користувача вже зайняте."
-
-#: src/qml/registration/ManualRegistrationPage.qml:244
-msgctxt "ManualRegistrationPage|"
-msgid "A new random username has been generated."
-msgstr "Було створено випадкову назву облікового запису."
-
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
-msgstr ""
-"Ви можете надати пароль до вашого облікового запису. Якщо ви цього не "
-"зробите, пароль буде створено автоматично; ви зможете побачити його пізніше "
-"у програмі."
-
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
-msgstr ""
-"Надавач послуг — служба, де зберігатимуться дані вашого облікового запису.\n"
-"Список надавачів послуг формують учасники нашої спільноти!"
-
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
-msgstr "Надавач послуг"
-
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
-msgid "Connection settings"
-msgstr "Параметри з'єднання"
-
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "Лише інтернет-реєстрація:"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "Ні"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "Так"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
-msgstr "Розташування серверів:"
-
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
-msgstr "Мови:"
-
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "В мережі з:"
-
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "Дозволяє оприлюднювати дані аж до:"
-
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "Зберігає оприлюднені дані аж до:"
-
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Відкрити сайт"
-
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Копіювати адресу сайта"
-
-#: src/qml/registration/RegistrationButton.qml:17
-msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
-msgstr "Вхід після підтвердження"
-
-#: src/qml/registration/RegistrationButton.qml:17
-msgctxt "RegistrationButton|"
-msgid "Register"
-msgstr "Зареєструвати"
-
-#: src/qml/registration/RegistrationPage.qml:67
-msgctxt "RegistrationPage|"
-msgid "CAPTCHA input was wrong"
-msgstr "Введено помилкову CAPTCHA"
-
-#: src/qml/registration/RegistrationPage.qml:76
-msgctxt "RegistrationPage|"
-msgid "Required information is missing: "
-msgstr "Не вказано обов'язкових даних: "
-
-#: src/qml/registration/RegistrationPage.qml:85
-msgctxt "RegistrationPage|"
-msgid "Registration failed:"
-msgstr "Не вдалося зареєструватися:"
-
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
-msgstr ""
-"Вашу адресу спілкування буде використано для спілкування з вами, подібно до "
-"того, як використовують адресу електронної пошти для обміну повідомленнями.\n"
-"\n"
-"Вашою адресою спілкування буде така:"
-
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
-msgstr ""
-"Ваше ім'я користувача буде використано для входу до вашого облікового запису "
-"та спілкування з вами.\n"
-"Якщо вами не буде введено імені користувача, програма використовуватиме "
-"показане випадкове ім'я.\n"
-"Використання вигаданого вами імені користувача полегшить пошук його іншими "
-"користувачами, але також може зробити обліковий запис менш конфіденційним!"
-
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
 msgid "Username"
 msgstr "Користувач"
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 "Будь ласка, вкажіть коректне ім'я користувача або не заповнюйте це поле, "
 "якщо ім'я слід вибрати випадковим чином."
 
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
+#: src/qml/registration/ManualRegistrationPage.qml:169
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr "Надавач послуг вимагає складнішого пароля."
+
+#: src/qml/registration/ManualRegistrationPage.qml:227
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr "Це ім'я користувача вже зайняте."
+
+#: src/qml/registration/ManualRegistrationPage.qml:231
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr "Було створено випадкову назву облікового запису."
+
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Виберіть відео"
+
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
+msgstr "Надавач послуг"
+
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
+msgid "Connection settings"
+msgstr "Параметри з'єднання"
+
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
+msgstr "Розташування серверів:"
+
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
+msgstr "Мови:"
+
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "Відкрити сторінку реєстрації"
+
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Виберіть файл"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "Надсилаємо запит на сервер…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Цей надавач послуг не підтримує реєстрацію за допомогою програми."
+
+#: src/qml/registration/RegistrationButton.qml:25
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Login after confirmation"
+msgctxt "RegistrationButton|"
+msgid "Log in after email confirmation"
+msgstr "Вхід після підтвердження"
+
+#: src/qml/registration/RegistrationButton.qml:25
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr "Зареєструвати"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Увійти"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Зареєструвати"
+
+#: src/qml/registration/RegistrationPage.qml:70
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr "Введено помилкову CAPTCHA"
+
+#: src/qml/registration/RegistrationPage.qml:79
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr "Не вказано обов'язкових даних: "
+
+#: src/qml/registration/RegistrationPage.qml:88
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr "Не вдалося зареєструватися:"
+
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "Лише інтернет-реєстрація:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:50
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "Зареєструвати новий обліковий запис"
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "На сервері не передбачено підтримки реєстрації."
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "Вибраний надавач послуг надає доступ лише до інтернет-реєстрації. Після "
 "створення облікового запису за допомогою сторінки інтернету ви зможете "
 "увійти до нього за допомогою Kaidan."
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "Відкрити сторінку реєстрації"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "Копіювати адресу сторінки реєстрації"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "Відкрити сторінку реєстрації"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Увійдіть до вашого нового облікового запису"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3200,27 +3308,30 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Параметри"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Перенесення облікового запису"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Насолоджуйтеся вільним спілкуванням на будь-якому пристрої!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr "Увійти"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Сканування вхідного QR-коду"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr "або"
@@ -3312,24 +3423,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Не вдалося встановити з’єднання із сервером."
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Невідомий розмір"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 у мережі"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 пише…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3430,14 +3541,169 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Сайт"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Підтвердити"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Підтвердити"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Підтвердити"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Підтвердити"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "Автоматична реєстрація"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "Надсилаємо запит до надавача послуг…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "Сервером надіслано запит щодо додаткових відомостей.\n"
+#~ "Не усі ці відомості слід надавати обов'язково.\n"
+#~ "Якщо показано CAPTCHA, має бути введено показаний текст."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "Ваше екранне ім'я — те, що бачитимуть для вашого облікового запису "
+#~ "контакти.\n"
+#~ "Якщо ви не хочете користуватися екранним ім'ям, можете не заповнювати це "
+#~ "поле.\n"
+#~ "Використання екранного імені може спростити вашим контактам пошук вашого "
+#~ "запису, але також може призвести до втрати конфіденційності!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Реєстрація вручну"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr ""
 #~ "Цей надавач послуг поки не підтримує реєстрацію за допомогою програми."
 
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr ""
+#~ "Втім, ви можете скористатися для реєстрації сторінкою надавача послуг в "
+#~ "інтернеті."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "Нового надавача послуг вибрано випадковим чином."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "Ви можете надати пароль до вашого облікового запису. Якщо ви цього не "
+#~ "зробите, пароль буде створено автоматично; ви зможете побачити його "
+#~ "пізніше у програмі."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "Надавач послуг — служба, де зберігатимуться дані вашого облікового "
+#~ "запису.\n"
+#~ "Список надавачів послуг формують учасники нашої спільноти!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Надавач послуг"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Параметри з'єднання"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Ні"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Так"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "В мережі з:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "Дозволяє оприлюднювати дані аж до:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "Зберігає оприлюднені дані аж до:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Відкрити сайт"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Копіювати адресу сайта"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "Вашу адресу спілкування буде використано для спілкування з вами, подібно "
+#~ "до того, як використовують адресу електронної пошти для обміну "
+#~ "повідомленнями.\n"
+#~ "\n"
+#~ "Вашою адресою спілкування буде така:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "Ваше ім'я користувача буде використано для входу до вашого облікового "
+#~ "запису та спілкування з вами.\n"
+#~ "Якщо вами не буде введено імені користувача, програма використовуватиме "
+#~ "показане випадкове ім'я.\n"
+#~ "Використання вигаданого вами імені користувача полегшить пошук його "
+#~ "іншими користувачами, але також може зробити обліковий запис менш "
+#~ "конфіденційним!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "Копіювати адресу сторінки реєстрації"
+
 #~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Введіть ваші реєстраційні дані"
+#~ msgid "Login"
+#~ msgstr "Увійти"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr ""
+#~ "Цей надавач послуг поки не підтримує реєстрацію за допомогою програми."
 
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"
@@ -3555,10 +3821,6 @@ msgstr "Сайт"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "Налаштувати"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Зареєструвати новий обліковий запис"
 
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Use an existing account"
@@ -4209,10 +4471,6 @@ msgstr "Сайт"
 #~ msgctxt "ChatPage|"
 #~ msgid "All files"
 #~ msgstr "усі файли"
-
-#~ msgctxt "DisablePasswordDisplay|"
-#~ msgid "Remove password completely"
-#~ msgstr "Вилучити пароль повністю"
 
 #~ msgctxt "DisablePasswordDisplay|"
 #~ msgid ""

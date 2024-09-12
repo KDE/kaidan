@@ -623,12 +623,12 @@ msgstr "Benutzerdefinierter Server"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Unbegrenzt"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1064,13 +1064,13 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Passwort nicht als Klartext anzeigen"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1080,19 +1080,21 @@ msgstr ""
 "Ermögliche weitere Geräte über einen QR-Code hinzuzufügen, aber zeige nie "
 "das Passwort an."
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "DisablePasswordDisplay|"
+#| msgid "Remove password completely"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Bestätigen"
+msgid "Removing password from text…"
+msgstr "Passwort vollständig ausblenden"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Passwort in keiner Weise verfügbar machen"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1101,12 +1103,17 @@ msgid ""
 msgstr ""
 "Erlaube weder weitere Geräte hinzuzufügen, noch dein Passwort anzuzeigen."
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Verbindung"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1114,35 +1121,35 @@ msgid ""
 "values)"
 msgstr "Einstellen des Host-Namen und Ports der Verbindung zum Server"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Verbindungseinstellungen ändern"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Verbindungseinstellungen geändert"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Verbindungseinstellungen konnten nicht geändert werden"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Verbindungseinstellungen geändert"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Beschriftung"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Transfer account"
@@ -1150,7 +1157,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Konto übertragen"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Konto-Sicherheit"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1158,24 +1176,24 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Aus Kaidan entfernen"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "QrCodePage|"
 #| msgid "Adding contact…"
@@ -1183,12 +1201,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Kontakt wird hinzugefügt ..."
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Vollständig löschen"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1198,7 +1216,7 @@ msgstr ""
 "Server.\n"
 "Sie werden Ihr Konto nicht mehr benutzen können!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1206,7 +1224,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Konto löschen"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1427,7 +1445,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1435,20 +1453,23 @@ msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Entfernen"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "QrCodePage|"
+#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Bestätigen"
+msgid "Removing contact…"
+msgstr "Kontakt wird hinzugefügt ..."
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 #, fuzzy
@@ -1794,7 +1815,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -1802,26 +1823,25 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Auswahl speichern"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Bestätigen"
+msgid "Leaving group chat…"
+msgstr "Bereit zum Chat"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1829,7 +1849,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Löschen"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
@@ -1838,7 +1858,15 @@ msgstr ""
 "Server.\n"
 "Sie werden Ihr Konto nicht mehr benutzen können!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Konto löschen"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -1966,7 +1994,7 @@ msgstr ""
 "Scannen den QR-Code von deinem bestehendem Gerät, um dein Konto zu "
 "übertragen."
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removal"
@@ -1974,7 +2002,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Entfernen"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -1982,18 +2010,18 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Entfernen"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QrCodePage|"
+#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Bestätigen"
+msgid "Removing notes chat…"
+msgstr "Kontakt wird hinzugefügt ..."
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2344,7 +2372,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Ihren Standort senden"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -2500,37 +2528,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Nickname:"
@@ -2546,7 +2574,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2554,7 +2582,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2588,7 +2616,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -2596,7 +2624,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Chat-Adresse"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -2604,12 +2632,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Nickname:"
@@ -2729,7 +2757,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Aufnahme läuft ..."
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -2737,7 +2765,7 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Verbindungseinstellungen"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -2745,7 +2773,7 @@ msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Anmelden"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -3170,6 +3198,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Senden"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Adresse der Webseite kopieren"
+
 #: src/qml/EmptyChatPage.qml:13
 #, fuzzy
 msgctxt "EmptyChatPage|"
@@ -3258,7 +3294,13 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "QR-Code scannen"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
@@ -3295,257 +3337,287 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Verbindung wird aufgebaut ..."
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
+msgid "Automatic Registration"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr ""
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Ort"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "Registrierung fehlgeschlagen:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Enter correct password"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Richtiges Passwort eingeben"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Anzeigename"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
+msgctxt "ManualRegistrationPage|"
+msgid "Username"
+msgstr "Benutzername"
+
+#: src/qml/registration/ManualRegistrationPage.qml:85
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:22
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
-msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Ein neues Konto registrieren"
-
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "Dieser Server unterstützt keine Registrierung."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "Dieser Server unterstützt keine Registrierung."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Video auswählen"
+
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "Anbieter"
 
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Verbindungseinstellungen"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "Nein"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "Ja"
-
-#: src/qml/registration/ProviderView.qml:121
+#: src/qml/registration/ProviderPage.qml:169
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
-msgctxt "ProviderView|"
-msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "Standort senden"
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr "Sprachen:"
 
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "Online seit:"
-
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Website"
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Chat-Adresse kopieren"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:194
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Datei auswählen"
+
+#: src/qml/registration/ProviderPage.qml:212
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Dieser Server unterstützt keine Registrierung."
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "Ort"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Registrieren"
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "QrCodeScannerPage|"
+#| msgid "Logging in…"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Anmeldung…"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Registrieren"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "Registrierung fehlgeschlagen:"
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "Registrierung fehlgeschlagen:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:50
+#, fuzzy
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "Ein neues Konto registrieren"
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "Dieser Server unterstützt keine Registrierung."
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
+msgstr "Registrierung fehlgeschlagen:"
+
+#: src/qml/registration/WebRegistrationPage.qml:60
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "Benutzername"
-
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:53
+#: src/qml/registration/WebRegistrationPage.qml:77
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in to your XMPP account"
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Anmelden mit deinem XMPP Account"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3713,24 +3785,27 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Konto-Sicherheit"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Genießen Sie freie Kommunikation auf jedem Gerät!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
-msgstr ""
+msgid "Log in"
+msgstr "Anmelden"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3738,7 +3813,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "QR-Code scannen"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
@@ -3847,24 +3922,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Konnte nicht mit dem Server verbinden."
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 ist online"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 schreibt gerade ..."
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, fuzzy, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3963,19 +4038,82 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webseite"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Bestätigen"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Bestätigen"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Bestätigen"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Bestätigen"
+
+#, fuzzy
+#~| msgctxt "RegistrationLoginDecisionPage|"
+#~| msgid "Register a new account"
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Ein neues Konto registrieren"
+
+#, fuzzy
+#~| msgctxt "QmlUtils|"
+#~| msgid "This server does not support registration."
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Dieser Server unterstützt keine Registrierung."
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Anbieter"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Verbindungseinstellungen"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Nein"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "Online seit:"
+
+#, fuzzy
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Website"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Chat-Adresse kopieren"
+
 #, fuzzy
 #~| msgctxt "QmlUtils|"
 #~| msgid "This server does not support registration."
 #~ msgctxt "AutomaticRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "Dieser Server unterstützt keine Registrierung."
-
-#, fuzzy
-#~| msgctxt "AccountDetailsContent|"
-#~| msgid "Enter correct password"
-#~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Richtiges Passwort eingeben"
 
 #, fuzzy
 #~| msgctxt "Kaidan|"
@@ -4070,11 +4208,6 @@ msgstr "Webseite"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "Einrichten"
-
-#, fuzzy
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Ein neues Konto registrieren"
 
 #, fuzzy
 #~ msgctxt "RegistrationLoginDecisionPage|"
@@ -4891,10 +5024,6 @@ msgstr "Webseite"
 #~ msgstr "Nachricht zitieren"
 
 #~ msgctxt "DisablePasswordDisplay|"
-#~ msgid "Remove password completely"
-#~ msgstr "Passwort vollständig ausblenden"
-
-#~ msgctxt "DisablePasswordDisplay|"
 #~ msgid ""
 #~ "Your password will not be included in the QR code anymore.\n"
 #~ "You won't be able to use the login via QR code without entering your "
@@ -5278,10 +5407,6 @@ msgstr "Webseite"
 #~ msgctxt "QrCodeScannerPage|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "Das Kamera-Format „%1“ wird nicht unterstüzt."
-
-#~ msgctxt "QrCodeScannerPage|"
-#~ msgid "Logging in…"
-#~ msgstr "Anmeldung…"
 
 #~ msgctxt "QrCodeScannerPage|"
 #~ msgid "Scan the QR code from your existing device to transfer your account."

@@ -614,12 +614,12 @@ msgstr "Propra provizanto"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Senlima"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1026,12 +1026,12 @@ msgstr ""
 "en alia aparato poste, <b>konsideru konservi la pasvorton aliloke. Ĉi tio ne "
 "povas esti malfarata!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ne montri pasvorton kiel teksto"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1040,18 +1040,20 @@ msgstr ""
 "Permesu aldoni pliajn aparatojn per la ensaluta QR-kodo sed neniam montru la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Konfirmi"
+msgid "Removing password from text…"
+msgstr "Aldonante kontakton…"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne elmontri pasvorton iel ajn"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1060,12 +1062,17 @@ msgstr ""
 "Nek permesi aldoni pliajn aparatojn uzante la ensaluta QR-kodo ne montri la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Konekto"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1074,28 +1081,28 @@ msgstr ""
 "Agordu la gastigan nomon kaj pordon por konektiĝi (malplenaj kampoj por "
 "defaŭltaj valoroj)"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ŝanĝi konektajn agordojn"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Enigi malsamajn konektajn agordojn por ŝanĝi ilin"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Konekto-agordoj ne povus esti ŝanĝitaj: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Konekto-agordoj ŝanĝiĝis"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
@@ -1103,7 +1110,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Neniu informo"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "RosterFilteringArea|"
 #| msgid "Filter by accounts"
@@ -1111,7 +1118,20 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Filtri per kontoj"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Account default"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Defaŭlta konto"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1126,17 +1146,17 @@ msgstr ""
 "Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Forigi de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1145,7 +1165,7 @@ msgstr ""
 "Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1153,18 +1173,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Aldonante kontakton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Forigi tute"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1172,7 +1192,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Aldonante kontakton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1400,25 +1420,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Bloki ĉiun komunikadon inkluzive de statuso kaj sciigoj"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Forigi kontakton kaj kompleta babilhistorio"
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Konfirmi"
+msgid "Removing contact…"
+msgstr "Aldonante kontakton…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1791,7 +1814,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indiki kiujn mesaĝojn vi legis"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -1799,12 +1822,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Konservi elekton"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1812,16 +1835,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Forigi kontakton kaj kompleta babilhistorio"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Konfirmi"
+msgid "Leaving group chat…"
+msgstr "Libera por babili"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Delete file"
@@ -1829,7 +1851,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Forigi dosieron"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1839,7 +1861,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Aldonante kontakton…"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -1967,7 +1997,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removal"
@@ -1975,7 +2005,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -1983,7 +2013,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1991,13 +2021,13 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Forigi kontakton kaj kompleta babilhistorio"
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Konfirmi"
+msgid "Removing notes chat…"
+msgstr "Aldonante kontakton…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2315,7 +2345,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Sendi vian lokon"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -2457,7 +2487,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2465,32 +2495,32 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "Nomo (laŭvola):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2512,7 +2542,7 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2520,7 +2550,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "%1 ne povis esti aldonita: %2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "RosterManager|"
 #| msgid "%1 could not be added: %2"
@@ -2554,7 +2584,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -2562,7 +2592,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Babiladreso"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "user@example.org"
@@ -2570,7 +2600,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "uzul@ekzemplo.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "The chat address must have the form <b>username@server</b>"
@@ -2578,7 +2608,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "La babileja adreso devas havi la formon <b>uzantnomo@servilo</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2691,17 +2721,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Ŝargante…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Konekto-agordoj"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Ensaluti"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Konektante…"
@@ -3074,6 +3104,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Sendi"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Kopii retejo-adreso"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -3147,7 +3185,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "Ne eblis malbloki %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Skani QR-kodon"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Skani QR-kodon"
@@ -3180,262 +3226,315 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "Registri aŭtomate"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "LoadingView|"
 #| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr "Petante la servilon…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"La servilo petis pliajn informojn.\n"
-"e ĉio povas esti bezonata.\n"
-"Se montriĝas CAPTCHA, la montrita teksto devas esti enigita."
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Neniu informo"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
-"Via montra nomo estas tio, kion vidos viaj kontaktoj.\n"
-"Se vi ne volas uzi montran nomon, vi povas lasi ĉi tiun kampon malplena.\n"
-"Uzo de montra nomo eble lasos novajn kontaktojn rekoni vin pli facile sed "
-"ankaŭ povus malpliigi vian privatecon!"
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "Registrado malsukcesis:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "Rete registriĝo nur:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Enter your credentials"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Enigu viajn akreditaĵojn"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Montra Nomo"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "Petante la servilon…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Registri permane"
+msgid "Username"
+msgstr "Uzantnomo"
 
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
+msgstr ""
+"Bonvolu enigi validan uzantnomon aŭ lasi la kampon malplena por hazarda."
+
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "La provizanto postulas pli fortan pasvorton."
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "La provizanto ne subtenas registradon per ĉi tiu programo."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "La provizanto nuntempe ne subtenas registradon per ĉi tiu programo."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr "Sed vi povas uzi la retregistron de la provizanto."
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "Nova provizanto estis hazarde elektita."
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "La uzantnomo jam estas prenita."
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Nova hazarda uzantnomo estis kreita."
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
-msgstr ""
-"Vi povas doni pasvorton por via konto. Se vi ne faras, pasvorto estos "
-"generita, kiun vi povas trovi poste en la programo."
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Elekti videon"
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
-"La provizanto estas kie via konto situas.\n"
-"La elekteblaj provizantoj estas mane elektataj de nia komunumo!"
 
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "Provizanto"
 
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Konekto-agordoj"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "Rete registriĝo nur:"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "Ne"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "Jes"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "Lokoj de serviloj:"
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr "Lingvoj:"
 
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "Interrete ekde:"
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "Permesas kunhavigi aŭdvidaĵon ĝis:"
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "Vendejoj dividis aŭdvidaĵon ĝis:"
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Malfermi retejon"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Kopii retejo-adreso"
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "Malfermi registriĝan retpaĝon"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Elekti dosieron"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "Petante la servilon…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "La provizanto ne subtenas registradon per ĉi tiu programo."
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "Neniu informo"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Registriĝi"
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Ensaluti"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Registriĝi"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr "CAPTCHA-enigo estis malĝusta"
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr "Bezonataj informoj mankas:"
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "Registrado malsukcesis:"
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "Rete registriĝo nur:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
 msgstr ""
-"Via babileja adreso estas uzata por babili kun vi, kiel via retadreso estas "
-"uzata por interŝanĝi retmesaĝojn.\n"
-"\n"
-"Via babileja adreso estos:"
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
+#: src/qml/registration/WebRegistrationPage.qml:50
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
 msgstr ""
-"Via uzantnomo estas uzata por ensaluti al via konto kaj por babili kun vi.\n"
-"Se vi ne enigas uzantnomon, la hazarde generita kaj jam montrita estas "
-"uzata.\n"
-"Uzado de propra uzantnomo eble lasos ĝin esti pli rekonebla sed ankaŭ povus "
-"malpliigu vian privatecon!"
 
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "Uzantnomo"
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "Ĉi tiu servilo ne subtenas registradon."
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr ""
-"Bonvolu enigi validan uzantnomon aŭ lasi la kampon malplena por hazarda."
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "La elektita provizanto nur provizas retregistradon. Post kreado de konto per "
 "la retpaĝo, vi povas ensaluti per Kaidan."
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "Malfermi registriĝan retpaĝon"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "Kopii adreson de retpaĝo de registriĝo"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "Malfermi registriĝan retpaĝon"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Ensaluti per via nova konto"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3590,7 +3689,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Agordoj"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Account default"
@@ -3598,17 +3697,20 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Defaŭlta konto"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Ĝuu liberan komunikadon en ĉiu aparato!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr "Ensaluti"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3616,7 +3718,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Skani QR-kodon"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr "aŭ"
@@ -3705,24 +3807,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 estas enreta"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 tajpas…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3819,13 +3921,168 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Konfirmi"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Konfirmi"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Konfirmi"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Konfirmi"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "Registri aŭtomate"
+
+#, fuzzy
+#~| msgctxt "LoadingView|"
+#~| msgid "Requesting the server…"
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "Petante la servilon…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "La servilo petis pliajn informojn.\n"
+#~ "e ĉio povas esti bezonata.\n"
+#~ "Se montriĝas CAPTCHA, la montrita teksto devas esti enigita."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "Via montra nomo estas tio, kion vidos viaj kontaktoj.\n"
+#~ "Se vi ne volas uzi montran nomon, vi povas lasi ĉi tiun kampon malplena.\n"
+#~ "Uzo de montra nomo eble lasos novajn kontaktojn rekoni vin pli facile sed "
+#~ "ankaŭ povus malpliigi vian privatecon!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Registri permane"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "La provizanto nuntempe ne subtenas registradon per ĉi tiu programo."
 
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "Sed vi povas uzi la retregistron de la provizanto."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "Nova provizanto estis hazarde elektita."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "Vi povas doni pasvorton por via konto. Se vi ne faras, pasvorto estos "
+#~ "generita, kiun vi povas trovi poste en la programo."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "La provizanto estas kie via konto situas.\n"
+#~ "La elekteblaj provizantoj estas mane elektataj de nia komunumo!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Provizanto"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Konekto-agordoj"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Ne"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Jes"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "Interrete ekde:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "Permesas kunhavigi aŭdvidaĵon ĝis:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "Vendejoj dividis aŭdvidaĵon ĝis:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Malfermi retejon"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Kopii retejo-adreso"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "Via babileja adreso estas uzata por babili kun vi, kiel via retadreso "
+#~ "estas uzata por interŝanĝi retmesaĝojn.\n"
+#~ "\n"
+#~ "Via babileja adreso estos:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "Via uzantnomo estas uzata por ensaluti al via konto kaj por babili kun "
+#~ "vi.\n"
+#~ "Se vi ne enigas uzantnomon, la hazarde generita kaj jam montrita estas "
+#~ "uzata.\n"
+#~ "Uzado de propra uzantnomo eble lasos ĝin esti pli rekonebla sed ankaŭ "
+#~ "povus malpliigu vian privatecon!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "Kopii adreson de retpaĝo de registriĝo"
+
 #~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Enigu viajn akreditaĵojn"
+#~ msgid "Login"
+#~ msgstr "Ensaluti"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "La provizanto nuntempe ne subtenas registradon per ĉi tiu programo."
 
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"

@@ -561,12 +561,12 @@ msgstr ""
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -991,7 +991,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't show password"
@@ -999,7 +999,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Να μην εμφανίζεται κωδικός πρόσβασης"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1013,13 +1013,15 @@ msgstr ""
 "Επιτρέψτε να προσθέσετε επιπλέον συσκευές χρησιμοποιώντας τον κωδικό QR "
 "σύνδεσης, αλλά ποτέ να μην εμφανίζεται ο κωδικός πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy password"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr ""
+msgid "Removing password from text…"
+msgstr "Αντιγραφή κωδικού πρόσβασης"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -1027,7 +1029,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Μην εκθέτετε τον κωδικό πρόσβασης με κανέναν τρόπο"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1041,19 +1043,24 @@ msgstr ""
 "Να μην επιτρέπεται η προσθήκη επιπλέον συσκευών χρησιμοποιώντας τον κωδικό "
 "QR σύνδεσης ούτε η εμφάνιση του κωδικού πρόσβασης."
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1061,23 +1068,23 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
@@ -1085,12 +1092,25 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Σίγαση ειδοποιήσεων"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Ασφάλεια λογαριασμού"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1098,24 +1118,24 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1123,7 +1143,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -1131,13 +1151,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1145,7 +1165,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1369,25 +1389,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search down"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr ""
+msgid "Removing contact…"
+msgstr "Αναζήτηση προς τα κάτω"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 #, fuzzy
@@ -1677,38 +1700,45 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
+msgid "Leaving group chat…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search down"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Αναζήτηση προς τα κάτω"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1804,7 +1834,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1812,7 +1842,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Search down"
@@ -1820,15 +1850,18 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Αναζήτηση προς τα κάτω"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Search down"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr ""
+msgid "Removing notes chat…"
+msgstr "Αναζήτηση προς τα κάτω"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2196,7 +2229,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr ""
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr ""
@@ -2356,37 +2389,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr ""
@@ -2397,13 +2430,13 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2429,7 +2462,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -2437,17 +2470,17 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Διεύθυνση συνομιλίας:"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr ""
@@ -2551,7 +2584,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr ""
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -2559,12 +2592,12 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr ""
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr ""
@@ -2917,6 +2950,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr ""
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy chat address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -2999,7 +3040,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Show as QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Εμφάνιση ως κωδικός QR"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -3035,242 +3084,249 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
+msgid "Automatic Registration"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr ""
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Σίγαση ειδοποιήσεων"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Τρέχων κωδικός πρόσβασης:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr ""
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
+msgid "Username"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:85
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
+#: src/qml/registration/ProviderPage.qml:23
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
-msgid "Connection settings"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:153
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Ιστότοπος"
-
-#: src/qml/registration/ProviderView.qml:159
+#: src/qml/registration/ProviderPage.qml:108
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
+#| msgid "Chat address:"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
+msgstr "Διεύθυνση συνομιλίας:"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "AccountSecurity|"
+#| msgid "Account Security"
+msgctxt "ProviderPage|"
+msgid "Connection settings"
+msgstr "Ασφάλεια λογαριασμού"
+
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ChatPage|"
+#| msgid "Mute notifications"
+msgctxt "ProviderPage|"
+msgid "Server locations"
+msgstr "Σίγαση ειδοποιήσεων"
+
+#: src/qml/registration/ProviderPage.qml:174
+msgctxt "ProviderPage|"
+msgid "Languages"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:194
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:211
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:212
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Mute notifications"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "Σίγαση ειδοποιήσεων"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr ""
+
+#: src/qml/registration/RegistrationButton.qml:26
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr ""
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr ""
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
+#: src/qml/registration/WebRegistrationPage.qml:24
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:50
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
+#: src/qml/registration/WebRegistrationPage.qml:59
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
+#: src/qml/registration/WebRegistrationPage.qml:60
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr ""
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3434,7 +3490,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr ""
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Account Security"
@@ -3442,17 +3498,17 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Ασφάλεια λογαριασμού"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr ""
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr ""
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Show as QR code"
@@ -3460,7 +3516,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Εμφάνιση ως κωδικός QR"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
@@ -3544,24 +3600,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr ""
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr ""
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr ""
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3656,11 +3712,18 @@ msgid "Website"
 msgstr "Ιστότοπος"
 
 #, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Current password:"
-#~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Τρέχων κωδικός πρόσβασης:"
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Ιστότοπος"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Αντιγραφή διεύθυνσης συνομιλίας"
 
 #, fuzzy
 #~| msgctxt "AccountTransferPage|"
@@ -3854,13 +3917,6 @@ msgstr "Ιστότοπος"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Cancel"
 #~ msgstr "Ακύρωση"
-
-#, fuzzy
-#~| msgctxt "AccountTransferPage|"
-#~| msgid "Copy password"
-#~ msgctxt "PasswordRemovalPage|"
-#~ msgid "Remove password"
-#~ msgstr "Αντιγραφή κωδικού πρόσβασης"
 
 #, fuzzy
 #~| msgctxt "ChangePassword|"

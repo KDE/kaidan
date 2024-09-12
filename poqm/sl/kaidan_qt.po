@@ -570,12 +570,12 @@ msgstr "Ponudnik po meri"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Neomejeno"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -949,12 +949,12 @@ msgstr ""
 "svoj račun na drugi napravi <b>razmislite o shranjevanju gesla nekje drugje. "
 "Tega ni mogoče razveljaviti!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ne prikazuj gesla kot besedilo"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -963,18 +963,20 @@ msgstr ""
 "Dovoli dodajanje dodatnih naprav z uporabo prijavne QR kode, a nikoli ne "
 "prikazuj gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Remove password"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Potrdite"
+msgid "Removing password from text…"
+msgstr "Odstrani geslo"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne izpostavljajte gesla na kakršenkoli način"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -983,12 +985,17 @@ msgstr ""
 "Niti ne dovoli dodajanje dodatnih naprav z uporabo prijavne QR kode niti ne "
 "prikazuj gesla"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Povezava"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -997,38 +1004,51 @@ msgstr ""
 "Nastavite ime strežnika in vrata za povezavo (privzete vrednosti so prazna "
 "polja)"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Spremeni nastavitve povezave"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Vnesite drugačne nastavitve povezave, da bi jih spremenili"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Nastavitev povezave ni bilo mogoče spremeniti: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Nastavitve povezave so spremenjene"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Selitev"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Preseli račun"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Account Migration"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Selitev računa"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1039,17 +1059,17 @@ msgstr ""
 "račun bo odstranjen iz te aplikacije. Izdelajte varovalno kopijo vaših "
 "poverilnic in zgodovine klepetov, če jih potrebujete!"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Odstranitev"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Odstrani iz Kaidana"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1058,29 +1078,29 @@ msgstr ""
 "Odstranite račun iz te aplikacije. Napravite varnostno kopijo vaših "
 "poverilnic in zgodovine klepetov, če je to potrebno!"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Odstranjevanje računa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Popolnoma izbriši"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Izbriši račun iz ponudnika. Svojega računa ne boste več mogli uporabljati!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Brisanje računa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1289,25 +1309,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Blokiraj vso komunikacijo vključno s stanjem in obvestili"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Odstranjevanje"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Odstrani stik in celotno zgodovino klepeta"
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Potrdi"
+msgid "Removing contact…"
+msgstr "Odstranjevanje računa…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1576,38 +1599,48 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Navedite, katera sporočila ste prebrali"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Zapuščanje in brisanje"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Zapusti"
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Zapusti skupino in odstrani celotno zgodovino klepeta"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Potrdi"
+msgid "Leaving group chat…"
+msgstr "Ustvarjanje skupinskega klepeta…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Izbriši skupino. Nihče se ne bo mogel več pridružiti skupini!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Creating group chat…"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Ustvarjanje skupinskega klepeta…"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1704,25 +1737,28 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Preverite <b>svoje</b> naprave za največjo varnost"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Odstranitev"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Odstrani"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Odstrani zapiske klepeta in dokončaj zgodovino klepeta"
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Removing account…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Potrdi"
+msgid "Removing notes chat…"
+msgstr "Odstranjevanje računa…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -1999,7 +2035,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Pošlji vašo lokacijo"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Potrdi"
@@ -2129,37 +2165,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr "Ustvarjanje skupinskega klepeta…"
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "Ime skupine (neobvezno)"
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr "Omogoči skupino"
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr "Javno"
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr "ID skupine"
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr "primer-skupine"
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr "Vnesite veljavni ID skupine"
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr "Vzdevek (neobvezno):"
@@ -2170,13 +2206,13 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "Skupine ni bilo mogoče ustvariti na %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Skupine %1 ni bilo mogoče ustvariti%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2202,22 +2238,22 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr "Pridruževanje skupinskemu klepetu…"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Naslov"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "uporabnik@primer.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "Naslov klepeta mora imeti obliko <b>skupina@strežnik</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Vzdevek (neobvezno):"
@@ -2315,17 +2351,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Nalaganje…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Nastavitve povezave"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Prijava"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
@@ -2657,6 +2693,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Pošlji"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Kopiraj naslov spletišča"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -2730,7 +2774,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "Ni bilo mogoče deblokirati %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Optično preberi QR-kodo"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Optično preberi QR-kodo"
@@ -2760,256 +2812,318 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "Samodejno registriraj"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
-msgstr "Posredovanje zahteve ponudniku…"
+msgid "Requesting registration…"
+msgstr "Zahteva po strežniku…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"Strežnik je zahteval več informacij.\n"
-"Morda niso vse potrebne.\n"
-"Če je prikazan CAPTCHA, je treba vnesti prikazano besedilo."
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Ni informacij"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
-"Pojavno ime je tisto, kar bodo videli vaši stiki.\n"
-"Če ne želite uporabiti pojavnega imena, lahko to polje pustite prazno.\n"
-"Uporaba pojavnega imena omogoči, da vas novi stiki lažje prepoznajo, lahko "
-"pa tudi okrni vašo zasebnost!"
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "Registracija ni uspela:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "Samo spletna registracija:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Enter your credentials"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Vnesite vaše poverilnice"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Pojavno ime"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "Zahteva po strežniku…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Registriraj ročno"
+msgid "Username"
+msgstr "Uporabniško ime"
 
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
+msgstr ""
+"Vnesite veljavno uporabniško ime ali pustite polje prazno za naključno."
+
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "Ponudnik zahteva močnejše geslo."
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "Ponudnik ne podpira registracije prek te aplikacije."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "Ponudnik trenutno ne podpira registracije prek te aplikacije."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr "Lahko pa uporabite ponudnikovo spletno registracijo."
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "Nov ponudnik je bil naključno izbran."
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "Uporabniško ime je že zasedeno."
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "Ustvarjeno je novo naključno uporabniško ime."
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
-msgstr ""
-"Za svoj račun lahko vnesete geslo. Če tega ne storite, bo ustvarjeno geslo, "
-"ki ga lahko najdete pozneje v aplikaciji."
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Izberi videoposnetek"
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
-"Ponudnik je tam, kjer je vaš račun.\n"
-"Izbrani ponudniki so ročno izbrani s strani naše skupnosti!"
 
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "Ponudnik"
 
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Nastavitve povezave"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "Samo spletna registracija:"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "Ne"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "Da"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "Mesta strežnikov:"
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr "Jeziki:"
 
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "V omrežju od:"
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "Omogoča skupno rabo predstavnosti do:"
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "Hrani predstavnost v skupni rabi do:"
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Odpri spletišče"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Kopiraj naslov spletišča"
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "Odpri spletno stran za registracijo"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Izberi datoteko"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "Zahteva po strežniku…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Ponudnik ne podpira registracije prek te aplikacije."
+
+#: src/qml/registration/RegistrationButton.qml:25
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Login after confirmation"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "Prijava po potrditvi"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Registriraj"
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Prijava"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Registriraj"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr "Vnos CAPTCHA je bil napačen"
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr "Manjkajo zahtevani podatki: "
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "Registracija ni uspela:"
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "Samo spletna registracija:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
 msgstr ""
-"Vaš naslov za klepet se uporablja za klepet z vami, tako kot se vaš e-poštni "
-"uporablja za izmenjavo e-poštnih sporočil.\n"
-"\n"
-"Vaš naslov za klepet bo:"
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
+#: src/qml/registration/WebRegistrationPage.qml:50
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "Ustvari nov račun"
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "Ta strežnik ne podpira registracije."
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
-msgstr ""
-"Vaše uporabniško ime se uporablja za prijavo v račun in za klepet z vami.\n"
-"Če ne vnesete uporabniškega imena, se uporablja naključno ustvarjeno in že "
-"prikazano.\n"
-"Uporaba lastnega uporabniškega imena lahko omogoči prepoznavnost, lahko pa "
-"tudi okrni vašo zasebnost!"
-
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "Uporabniško ime"
-
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr ""
-"Vnesite veljavno uporabniško ime ali pustite polje prazno za naključno."
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "Izbrani ponudnik ponuja samo spletno registracijo. Po izdelavi računa preko "
 "spletne strani se lahko prijavite preko Kaidana."
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "Odpri spletno stran za registracijo"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "Kopiraj naslov spletne strani registracije"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "Odpri spletno stran za registracijo"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Prijavite se s svojim novim računom"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3165,27 +3279,30 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Nastavitve"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Selitev računa"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Uživajte v prostem komuniciranju na vsaki napravi!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr "Prijava"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Optično preberi kodo QR za prijavo"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr "ali"
@@ -3276,24 +3393,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Ni se bilo mogoče povezati s strežnikom."
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neznana velikost"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 je povezan"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 tipka…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3390,13 +3507,159 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Spletni naslov"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Potrdite"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Potrdi"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Potrdi"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Potrdi"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "Samodejno registriraj"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "Posredovanje zahteve ponudniku…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "Strežnik je zahteval več informacij.\n"
+#~ "Morda niso vse potrebne.\n"
+#~ "Če je prikazan CAPTCHA, je treba vnesti prikazano besedilo."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "Pojavno ime je tisto, kar bodo videli vaši stiki.\n"
+#~ "Če ne želite uporabiti pojavnega imena, lahko to polje pustite prazno.\n"
+#~ "Uporaba pojavnega imena omogoči, da vas novi stiki lažje prepoznajo, "
+#~ "lahko pa tudi okrni vašo zasebnost!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Registriraj ročno"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "Ponudnik trenutno ne podpira registracije prek te aplikacije."
 
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "Lahko pa uporabite ponudnikovo spletno registracijo."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "Nov ponudnik je bil naključno izbran."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "Za svoj račun lahko vnesete geslo. Če tega ne storite, bo ustvarjeno "
+#~ "geslo, ki ga lahko najdete pozneje v aplikaciji."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "Ponudnik je tam, kjer je vaš račun.\n"
+#~ "Izbrani ponudniki so ročno izbrani s strani naše skupnosti!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Ponudnik"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Nastavitve povezave"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Ne"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Da"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "V omrežju od:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "Omogoča skupno rabo predstavnosti do:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "Hrani predstavnost v skupni rabi do:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Odpri spletišče"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Kopiraj naslov spletišča"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "Vaš naslov za klepet se uporablja za klepet z vami, tako kot se vaš e-"
+#~ "poštni uporablja za izmenjavo e-poštnih sporočil.\n"
+#~ "\n"
+#~ "Vaš naslov za klepet bo:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "Vaše uporabniško ime se uporablja za prijavo v račun in za klepet z "
+#~ "vami.\n"
+#~ "Če ne vnesete uporabniškega imena, se uporablja naključno ustvarjeno in "
+#~ "že prikazano.\n"
+#~ "Uporaba lastnega uporabniškega imena lahko omogoči prepoznavnost, lahko "
+#~ "pa tudi okrni vašo zasebnost!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "Kopiraj naslov spletne strani registracije"
+
 #~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Vnesite vaše poverilnice"
+#~ msgid "Login"
+#~ msgstr "Prijava"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Ponudnik trenutno ne podpira registracije prek te aplikacije."
 
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"
@@ -3511,10 +3774,6 @@ msgstr "Spletni naslov"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "Nastavi"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Ustvari nov račun"
 
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Use an existing account"
@@ -3841,10 +4100,6 @@ msgstr "Spletni naslov"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Log out"
 #~ msgstr "Odjava"
-
-#~ msgctxt "PasswordRemovalPage|"
-#~ msgid "Remove password"
-#~ msgstr "Odstrani geslo"
 
 #~ msgctxt "PasswordRemovalPage|"
 #~ msgid ""

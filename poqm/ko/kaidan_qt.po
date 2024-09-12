@@ -620,12 +620,12 @@ msgstr "사용자 정의 공급자"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "무제한"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1058,7 +1058,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -1066,7 +1066,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "암호를 텍스트로 표시하지 않기"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1079,18 +1079,20 @@ msgid ""
 msgstr ""
 "암호를 표시하지 않고 로그인 QR 코드를 통해서 장치를 추가할 수 있습니다."
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Remove password"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "확인"
+msgid "Removing password from text…"
+msgstr "암호 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "암호를 노출하지 않음"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1102,12 +1104,17 @@ msgid ""
 "password"
 msgstr "로그인 QR 코드나 암호 표시를 통한 새 장치 추가를 허용하지 않습니다."
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "연결"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -1117,7 +1124,7 @@ msgid ""
 "values)"
 msgstr "연결할 호스트 이름과 포트 설정"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -1125,7 +1132,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "연결 설정"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1133,7 +1140,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "연결 설정이 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -1141,12 +1148,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "연결 설정을 변경할 수 없음"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "연결 설정이 변경됨"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1154,7 +1161,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "캡션"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1162,7 +1169,20 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "계정 보안"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1170,7 +1190,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1178,7 +1198,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -1186,14 +1206,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Kaidan에서 계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1201,7 +1221,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "대화 상대 추가…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -1209,7 +1229,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "완전히 계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1223,7 +1243,7 @@ msgstr ""
 "계정이 이 앱과 서버에서 완전히 삭제됩니다.\n"
 "계정을 다시 사용할 수 없습니다!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1231,7 +1251,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "계정 삭제"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1481,7 +1501,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1489,7 +1509,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1497,15 +1517,18 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "확인"
+msgid "Removing contact…"
+msgstr "대화 상대 추가…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 #, fuzzy
@@ -1836,7 +1859,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -1844,26 +1867,25 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "위치 전송"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "확인"
+msgid "Leaving group chat…"
+msgstr "대화 가능"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1871,7 +1893,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "삭제"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1884,7 +1906,15 @@ msgstr ""
 "계정이 이 앱과 서버에서 완전히 삭제됩니다.\n"
 "계정을 다시 사용할 수 없습니다!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "계정 삭제"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2000,7 +2030,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2008,7 +2038,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "삭제"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2016,18 +2046,18 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "삭제"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "확인"
+msgid "Removing notes chat…"
+msgstr "대화 상대 추가…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2419,7 +2449,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "위치 전송"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -2585,7 +2615,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2593,32 +2623,32 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "이름(선택 사항):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2634,7 +2664,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2642,7 +2672,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "메시지를 전송할 수 없었습니다."
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2676,7 +2706,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -2684,7 +2714,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "대화 주소"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -2692,7 +2722,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "The chat address must have the form <b>username@server</b>"
@@ -2700,7 +2730,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "대화 주소는 <b>username@server</b> 형식이어야 합니다"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2833,7 +2863,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "녹음 중…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -2841,7 +2871,7 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "연결 설정"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -2849,7 +2879,7 @@ msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "로그인"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Connecting…"
@@ -3284,6 +3314,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "보내기"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "웹사이트 주소 복사"
+
 #: src/qml/EmptyChatPage.qml:13
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
@@ -3372,7 +3410,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "QR 코드 스캔"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "QR 코드 스캔"
@@ -3408,258 +3454,317 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "연결 중..."
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "자동으로 등록"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "LoadingView|"
 #| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr "서버에 요청 중…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"서버에서 더 많은 정보를 요청했습니다.\n"
-"일부 정보는 선택 사항일 수도 있습니다.\n"
-"CAPTCHA 정보가 표시되었다면 표시된 문자열을 입력하십시오."
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "위치"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
-"내 표시 이름은 대화 상대가 볼 이름입니다.\n"
-"표시 이름을 사용하지 않으려면 이 입력란을 비워 두십시오.\n"
-"표시 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 수 있지만 프라이"
-"버시 위험이 될 수도 있습니다!"
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr "등록 실패:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "웹 등록만:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "현재 암호:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "표시 이름"
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "서버에 요청 중…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "수동으로 등록"
+msgid "Username"
+msgstr "사용자 이름"
 
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
+msgstr "올바른 사용자 이름을 입력하거나 비워 두면 무작위 이름을 사용합니다."
+
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "공급자에게는 더 강력한 암호가 필요합니다."
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "공급자가 이 앱을 통한 등록을 지원하지 않습니다."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "공급자가 현재 이 앱을 통한 등록을 지원하지 않습니다."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr "공급자의 웹 등록을 사용할 수 있습니다."
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "새 공급자가 무작위적으로 선택되었습니다."
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "사용자 이름이 이미 사용 중입니다."
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr "새 무작위 사용자 이름이 생성되었습니다."
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "비디오 선택"
+
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
-msgstr ""
-"계정이 있는 공급자입니다.\n"
-"선택 가능한 공급자는 우리 커뮤니티에서 직접 선쟁했습니다!"
-
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "공급자"
 
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "연결 설정"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "웹 등록만:"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "아니요"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "예"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "서버 위치:"
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr "언어"
 
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "접속한 시간:"
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "미디어 공유 최대 크기:"
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "공유된 미디어 저장 최대 크기:"
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "웹사이트 열기"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "웹사이트 주소 복사"
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "등록 웹 페이지 열기"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "파일 선택"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "서버에 요청 중…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "공급자가 이 앱을 통한 등록을 지원하지 않습니다."
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "위치"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "등록"
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "로그인"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "등록"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr "CAPTCHA 입력이 잘못됨"
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr "필요한 정보가 없음: "
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr "등록 실패:"
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "웹 등록만:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
 msgstr ""
-"나와 채팅할 때 사용할 수 있는 채팅 주소입니다. 이메일을 보낼 때 사용하는 이메"
-"일 주소와 유사합니다.\n"
-"\n"
-"채팅 주소는 다음과 같습니다:"
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
+#: src/qml/registration/WebRegistrationPage.qml:50
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "새 계정 등록"
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "이 서버에서 등록을 지원하지 않습니다."
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
-msgstr ""
-"사용자 이름은 계정에 로그인하고 채팅할 때 사용됩니다.\n"
-"사용자 이름을 입력하지 않으면 미리 표시된 무작위 생성된 이름을 사용합니다.\n"
-"사용자 정의 사용자 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 수 "
-"있지만 프라이버시 위험이 될 수도 있습니다!"
-
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "사용자 이름"
-
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
-msgstr "올바른 사용자 이름을 입력하거나 비워 두면 무작위 이름을 사용합니다."
-
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "선택한 공급자는 웹 등록만 지원합니다. 웹 페이지에서 등록한 후에는 Kaidan으로 "
 "로그인할 수 있습니다."
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "등록 웹 페이지 열기"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "등록 웹 페이지 주소 복사"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "등록 웹 페이지 열기"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "새 계정으로 로그인"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3817,7 +3922,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "설정"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -3825,17 +3930,20 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "계정 보안"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "모든 장치에서 자유롭게 대화하십시오!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
-msgstr ""
+msgid "Log in"
+msgstr "로그인"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3843,7 +3951,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "QR 코드 스캔"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
@@ -3940,24 +4048,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "서버에서 계정 삭제"
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "알 수 없는 크기"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 님이 온라인"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 님이 입력 중…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -4053,16 +4161,155 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "웹사이트"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "확인"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "확인"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "확인"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "확인"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "자동으로 등록"
+
+#, fuzzy
+#~| msgctxt "LoadingView|"
+#~| msgid "Requesting the server…"
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "서버에 요청 중…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "서버에서 더 많은 정보를 요청했습니다.\n"
+#~ "일부 정보는 선택 사항일 수도 있습니다.\n"
+#~ "CAPTCHA 정보가 표시되었다면 표시된 문자열을 입력하십시오."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "내 표시 이름은 대화 상대가 볼 이름입니다.\n"
+#~ "표시 이름을 사용하지 않으려면 이 입력란을 비워 두십시오.\n"
+#~ "표시 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 수 있지만 프라"
+#~ "이버시 위험이 될 수도 있습니다!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "수동으로 등록"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "공급자가 현재 이 앱을 통한 등록을 지원하지 않습니다."
 
-#, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Current password:"
-#~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "현재 암호:"
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "공급자의 웹 등록을 사용할 수 있습니다."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "새 공급자가 무작위적으로 선택되었습니다."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "계정이 있는 공급자입니다.\n"
+#~ "선택 가능한 공급자는 우리 커뮤니티에서 직접 선쟁했습니다!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "공급자"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "연결 설정"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "아니요"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "예"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "접속한 시간:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "미디어 공유 최대 크기:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "공유된 미디어 저장 최대 크기:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "웹사이트 열기"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "웹사이트 주소 복사"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "나와 채팅할 때 사용할 수 있는 채팅 주소입니다. 이메일을 보낼 때 사용하는 "
+#~ "이메일 주소와 유사합니다.\n"
+#~ "\n"
+#~ "채팅 주소는 다음과 같습니다:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "사용자 이름은 계정에 로그인하고 채팅할 때 사용됩니다.\n"
+#~ "사용자 이름을 입력하지 않으면 미리 표시된 무작위 생성된 이름을 사용합니"
+#~ "다.\n"
+#~ "사용자 정의 사용자 이름을 사용하면 새로운 대화 상대가 나를 더 빨리 알아볼 "
+#~ "수 있지만 프라이버시 위험이 될 수도 있습니다!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "등록 웹 페이지 주소 복사"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "공급자가 현재 이 앱을 통한 등록을 지원하지 않습니다."
 
 #, fuzzy
 #~| msgctxt "GlobalDrawer|"
@@ -4177,10 +4424,6 @@ msgstr "웹사이트"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "설정"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "새 계정 등록"
 
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Use an existing account"
@@ -4516,10 +4759,6 @@ msgstr "웹사이트"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Log out"
 #~ msgstr "로그인"
-
-#~ msgctxt "PasswordRemovalPage|"
-#~ msgid "Remove password"
-#~ msgstr "암호 삭제"
 
 #~ msgctxt "PasswordRemovalPage|"
 #~ msgid ""

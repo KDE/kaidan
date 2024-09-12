@@ -608,12 +608,12 @@ msgstr "Oma palveluntarjoaja"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Ei rajoitettu"
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -1023,12 +1023,12 @@ msgstr ""
 "käyttää tiliä toiselta laitteelta, <b>harkitse salasanan tallettamista "
 "muualle. Tätä ei voi kumota!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Älä näytä salasanaa tekstinä"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -1037,18 +1037,20 @@ msgstr ""
 "Anna lisätä laitteita kirjautumisen QR-koodilla mutta älä koskaan näytä "
 "salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
+#, fuzzy
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Remove password"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Vahvista"
+msgid "Removing password from text…"
+msgstr "Poista salasana"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Älä mitenkään paljasta salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1056,12 +1058,17 @@ msgid ""
 msgstr ""
 "Älä anna lisätä laitteita kirjautumisen QR-koodilla äläkä näytä salasanaa"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Yhteys"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1069,28 +1076,28 @@ msgid ""
 msgstr ""
 "Aseta palvelinnimi ja -portti, johon yhdistetään (oletusarvo = tyhjä kenttä)"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Muuta yhteysasetuksia"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Anna eri yhteysasetukset muuttaaksesi niitä"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Yhteysasetuksia ei voitu muuttaa: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Yhteysasetukset ovat muuttuneet"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1098,7 +1105,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Kuvateksti"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1106,7 +1113,20 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Poista tili"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "AccountSettings|"
+#| msgid "Account settings"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Tiliasetukset"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1121,17 +1141,17 @@ msgstr ""
 "Poista tili tältä laitteelta. Varmuuskopioi tarvittaessa todennustiedot ja "
 "keskusteluhistoria!"
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Poista Kaidanista"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1140,7 +1160,7 @@ msgstr ""
 "Poista tili tältä laitteelta. Varmuuskopioi tarvittaessa todennustiedot ja "
 "keskusteluhistoria!"
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Adding contact…"
@@ -1148,18 +1168,18 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Lisätään yhteystietoa…"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Poista kokonaan"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Poista tili palveluntarjoajalta. Tiliä ei voi enää myöhemmin käyttää!"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1167,7 +1187,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Poista tili"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1392,25 +1412,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Estä kaikki viestintä, myös tila ja ilmoitukset"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Poista yhteystieto keskusteluhistorioineen"
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
+#, fuzzy
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Vahvista"
+msgid "Removing contact…"
+msgstr "Lisätään yhteystietoa…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1788,7 +1811,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Osoita, mitkä viestit olet lukenut"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "AvatarChangePage|"
 #| msgid "Save selection"
@@ -1796,12 +1819,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Tallenna valinta"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1809,16 +1832,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Poista yhteystieto keskusteluhistorioineen"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Vahvista"
+msgid "Leaving group chat…"
+msgstr "Vapaana juttelemaan"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1826,7 +1848,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Poista"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1836,7 +1858,15 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Poista tili palveluntarjoajalta. Tiliä ei voi enää myöhemmin käyttää!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Poista tili"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -1964,7 +1994,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Todenna <b>omia</b> laitteitasi tietoturvan parantamiseksi"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removal"
@@ -1972,7 +2002,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Poisto"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove"
@@ -1980,7 +2010,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Poista"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1988,13 +2018,13 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Poista yhteystieto keskusteluhistorioineen"
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
+#| msgctxt "ContactAdditionContent|"
+#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Vahvista"
+msgid "Removing notes chat…"
+msgstr "Lisätään yhteystietoa…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2344,7 +2374,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Lähetä sijaintisi"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Confirm"
@@ -2486,7 +2516,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2494,32 +2524,32 @@ msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr "Nimi (valinnainen):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2541,7 +2571,7 @@ msgstr ""
 "\n"
 "%1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -2549,7 +2579,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -2583,7 +2613,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "Chat address"
@@ -2591,7 +2621,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Keskustelun osoite"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "user@example.org"
@@ -2599,7 +2629,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "kayttaja@esimerkki.fi"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "The chat address must have the form <b>username@server</b>"
@@ -2607,7 +2637,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr "Keskusteluosoite on muotoa <b>kayttaja@palvelin</b>"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Name (optional):"
@@ -2719,17 +2749,17 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Ladataan…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Yhteysasetukset"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Kirjaudu"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
@@ -3112,6 +3142,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Lähetä"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Copy website address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Kopioi verkkosivun osoite"
+
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
@@ -3185,7 +3223,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Lue QR-koodi"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Lue QR-koodi"
@@ -3218,264 +3264,319 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
-msgstr "Rekisteröidy automaattisesti"
+msgid "Automatic Registration"
+msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "LoadingView|"
 #| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr "Kysellään palvelimelta…"
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
-"Palvelin on pyytänyt lisätietoa.\n"
-"Kaikkea ei ehkä vaadita.\n"
-"Jos näytetään CAPTCHA, näytetty teksti tulee syöttää."
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
-msgstr ""
-"Näyttönimi on se, minkä yhteystietosi näkevät.\n"
-"Ellei näyttönimeä halua käyttää, kentän voi jättää tyhjäksi.\n"
-"Näyttönimeä käyttämällä uudet yhteystiedot tunnistavat sinut nopeammin, "
-"mutta tietoturvasi voi heiketä!"
-
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
-msgid "Display Name"
-msgstr "Näyttönimi"
-
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
-msgstr "Kysellään palvelimelta…"
-
-#: src/qml/registration/ManualRegistrationPage.qml:22
-msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Rekisteröidy itse"
-
-#: src/qml/registration/ManualRegistrationPage.qml:174
-msgctxt "ManualRegistrationPage|"
-msgid "The provider requires a stronger password."
-msgstr "Palveluntarjoaja vaatii vahvemman salasanan."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "Palveluntarjoaja ei tue rekisteröitymistä tästä sovelluksesta."
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr ""
-"Palveluntarjoaja ei toistaiseksi tue rekisteröitymistä tästä sovelluksesta."
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr "Voit kuitenkin käyttää palveluntarjoajan verkkorekisteröitymistä."
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr "Palveluntarjoaja valittiin satunnaisesti."
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
-msgctxt "ManualRegistrationPage|"
-msgid "The username is already taken."
-msgstr "Käyttäjätunnus on jo käytössä."
-
-#: src/qml/registration/ManualRegistrationPage.qml:244
-msgctxt "ManualRegistrationPage|"
-msgid "A new random username has been generated."
-msgstr "Luotiin uusi, satunnainen käyttäjätunnus."
-
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
-msgstr ""
-"Tilille voi antaa salasanan. Ellet anna, luodaan salasana, jonka löydät "
-"myöhemmin sovelluksesta."
-
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
-msgstr ""
-"Palveluntarjoaja on paikka, jossa tilisi sijaitsee.\n"
-"Yhteisö on käsin valinnut valittavissa olevat palveluntarjoajat!"
-
-#: src/qml/registration/ProviderView.qml:39
-msgctxt "ProviderView|"
-msgid "Provider"
-msgstr "Palveluntarjoaja"
-
-#: src/qml/registration/ProviderView.qml:74
-msgctxt "ProviderView|"
-msgid "Connection settings"
-msgstr "Yhteysasetukset"
-
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr "Vain verkkorekisteröityminen:"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr "Ei"
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr "Kyllä"
-
-#: src/qml/registration/ProviderView.qml:121
-msgctxt "ProviderView|"
-msgid "Server locations:"
-msgstr "Palvelinsijainnit:"
-
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
-msgstr "Kielet:"
-
-#: src/qml/registration/ProviderView.qml:133
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "Verkossa alkaen:"
-
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
-msgstr "Sallii median jaon tähän asti:"
-
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
-msgstr "Tallentaa jaetun median tähän asti:"
-
-#: src/qml/registration/ProviderView.qml:153
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Avaa verkkosivu"
-
-#: src/qml/registration/ProviderView.qml:159
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Kopioi verkkosivun osoite"
-
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/CustomDataFormArea.qml:28
 #, fuzzy
 #| msgctxt "QObject|"
 #| msgid "No information"
-msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
 msgstr "Ei tietoa"
 
-#: src/qml/registration/RegistrationButton.qml:17
-msgctxt "RegistrationButton|"
-msgid "Register"
-msgstr "Rekisteröidy"
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
+msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:67
-msgctxt "RegistrationPage|"
-msgid "CAPTCHA input was wrong"
-msgstr "CAPTCHA-syöte oli väärin"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:76
-msgctxt "RegistrationPage|"
-msgid "Required information is missing: "
-msgstr "Vaadittuja tietoja puuttuu:"
-
-#: src/qml/registration/RegistrationPage.qml:85
-msgctxt "RegistrationPage|"
-msgid "Registration failed:"
+#: src/qml/registration/ManualRegistrationPage.qml:31
+#, fuzzy
+#| msgctxt "RegistrationPage|"
+#| msgid "Registration failed:"
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
 msgstr "Rekisteröityminen epäonnistui:"
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
-msgstr ""
-"Keskusteluosoitetta käytetään kanssasi keskustelemiseen kuten "
-"sähköpostiosoitetta sähköpostiviesteihin.\n"
-"\n"
-"Keskusteluosoitteesi on:"
+#: src/qml/registration/ManualRegistrationPage.qml:37
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr "Vain verkkorekisteröityminen:"
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
-msgstr ""
-"Käyttäjätunnusta käytetään tilille kirjautumiseen ja kanssasi "
-"keskustelemiseen.\n"
-"Ellei tunnusta anna, käytetään satunnaisesti luotua, jo näytettyä tunnusta.\n"
-"Oman tunnuksen käyttäminen tekee siitä helpomman tunnistaa, mikä voi myös "
-"heikentää tietoturvaasi!"
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "StartPage|"
+#| msgid "Enter your credentials"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Anna kirjautumistiedot"
 
-#: src/qml/registration/UsernameView.qml:36
-msgctxt "UsernameView|"
+#: src/qml/registration/ManualRegistrationPage.qml:73
+#, fuzzy
+#| msgctxt "DisplayNameView|"
+#| msgid "Display Name"
+msgctxt "ManualRegistrationPage|"
+msgid "Display Name"
+msgstr "Näyttönimi"
+
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid "Username"
+msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Käyttäjätunnus"
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
-msgid ""
-"Please enter a valid username or leave the field empty for a random one."
+#: src/qml/registration/ManualRegistrationPage.qml:85
+#, fuzzy
+#| msgctxt "UsernameView|"
+#| msgid ""
+#| "Please enter a valid username or leave the field empty for a random one."
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 "Anna kelvollinen käyttäjätunnus tai luo satunnainen jättämällä kenttä "
 "tyhjäksi."
 
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
+#: src/qml/registration/ManualRegistrationPage.qml:169
+msgctxt "ManualRegistrationPage|"
+msgid "The provider requires a stronger password."
+msgstr "Palveluntarjoaja vaatii vahvemman salasanan."
+
+#: src/qml/registration/ManualRegistrationPage.qml:227
+msgctxt "ManualRegistrationPage|"
+msgid "The username is already taken."
+msgstr "Käyttäjätunnus on jo käytössä."
+
+#: src/qml/registration/ManualRegistrationPage.qml:231
+msgctxt "ManualRegistrationPage|"
+msgid "A new random username has been generated."
+msgstr "Luotiin uusi, satunnainen käyttäjätunnus."
+
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Valitse video"
+
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:108
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
+msgstr "Palveluntarjoaja"
+
+#: src/qml/registration/ProviderPage.qml:121
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Connection settings"
+msgctxt "ProviderPage|"
+msgid "Connection settings"
+msgstr "Yhteysasetukset"
+
+#: src/qml/registration/ProviderPage.qml:169
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
+msgstr "Palvelinsijainnit:"
+
+#: src/qml/registration/ProviderPage.qml:174
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Languages:"
+msgctxt "ProviderPage|"
+msgid "Languages"
+msgstr "Kielet:"
+
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:194
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr "Avaa rekisteröintisivu"
+
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Valitse tiedosto"
+
+#: src/qml/registration/ProviderPage.qml:212
+#, fuzzy
+#| msgctxt "LoadingView|"
+#| msgid "Requesting the server…"
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr "Kysellään palvelimelta…"
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "ManualRegistrationPage|"
+#| msgid "The provider does not support registration via this app."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Palveluntarjoaja ei tue rekisteröitymistä tästä sovelluksesta."
+
+#: src/qml/registration/RegistrationButton.qml:25
+#, fuzzy
+#| msgctxt "QObject|"
+#| msgid "No information"
+msgctxt "RegistrationButton|"
+msgid "Log in after email confirmation"
+msgstr "Ei tietoa"
+
+#: src/qml/registration/RegistrationButton.qml:25
+msgctxt "RegistrationButton|"
+msgid "Register"
+msgstr "Rekisteröidy"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Kirjaudu"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationButton|"
+#| msgid "Register"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Rekisteröidy"
+
+#: src/qml/registration/RegistrationPage.qml:70
+msgctxt "RegistrationPage|"
+msgid "CAPTCHA input was wrong"
+msgstr "CAPTCHA-syöte oli väärin"
+
+#: src/qml/registration/RegistrationPage.qml:79
+msgctxt "RegistrationPage|"
+msgid "Required information is missing: "
+msgstr "Vaadittuja tietoja puuttuu:"
+
+#: src/qml/registration/RegistrationPage.qml:88
+msgctxt "RegistrationPage|"
+msgid "Registration failed:"
+msgstr "Rekisteröityminen epäonnistui:"
+
+#: src/qml/registration/WebRegistrationPage.qml:24
+#, fuzzy
+#| msgctxt "ProviderView|"
+#| msgid "Web registration only:"
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
+msgstr "Vain verkkorekisteröityminen:"
+
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
+msgstr ""
+
+#: src/qml/registration/WebRegistrationPage.qml:50
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "Rekisteröi uusi tili"
+
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "Palvelin ei tue rekisteröitymistä."
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid ""
+#| "The selected provider only provides web registration. After creating an "
+#| "account via the web page, you can log in via Kaidan."
+msgctxt "WebRegistrationPage|"
 msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 "Valittu palveluntarjoaja tarjoaa vain verkkorekisteröitymisen. Luotuasi "
 "tilin verkkosivulla voit kirjautua Kaidanista."
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:59
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr "Avaa rekisteröintisivu"
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr "Kopioi rekisteröintisivun osoite"
+#: src/qml/registration/WebRegistrationPage.qml:60
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Open registration web page"
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
+msgstr "Avaa rekisteröintisivu"
 
-#: src/qml/registration/WebRegistrationView.qml:53
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+#: src/qml/registration/WebRegistrationPage.qml:77
+#, fuzzy
+#| msgctxt "WebRegistrationView|"
+#| msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Kirjaudu uudelle tilille"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3630,7 +3731,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "AccountSettings|"
 #| msgid "Account settings"
@@ -3638,17 +3739,20 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Tiliasetukset"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Nauti vapaasta viestinnästä joka laitteella!"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginArea|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
+msgid "Log in"
 msgstr "Kirjaudu"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3656,7 +3760,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Lue QR-koodi"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr "tai"
@@ -3746,24 +3850,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Poista tili palvelimelta"
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 on verkossa"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 kirjoittaa…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3861,15 +3965,172 @@ msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
 
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Vahvista"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Vahvista"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Vahvista"
+
+#, fuzzy
+#~| msgctxt "AccountDetailsContent|"
+#~| msgid "Confirm"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Vahvista"
+
 #~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Register automatically"
+#~ msgstr "Rekisteröidy automaattisesti"
+
+#, fuzzy
+#~| msgctxt "LoadingView|"
+#~| msgid "Requesting the server…"
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "Requesting the provider…"
+#~ msgstr "Kysellään palvelimelta…"
+
+#~ msgctxt "CustomFormView|"
+#~ msgid ""
+#~ "The server has requested more information.\n"
+#~ "Not everything may be required.\n"
+#~ "If a CAPTCHA is shown, the displayed text must be entered."
+#~ msgstr ""
+#~ "Palvelin on pyytänyt lisätietoa.\n"
+#~ "Kaikkea ei ehkä vaadita.\n"
+#~ "Jos näytetään CAPTCHA, näytetty teksti tulee syöttää."
+
+#~ msgctxt "DisplayNameView|"
+#~ msgid ""
+#~ "Your display name is what your contacts will see.\n"
+#~ "In case you don't want to use a display name, you can leave this field "
+#~ "empty.\n"
+#~ "Using a display name may let new contacts recognize you easier but also "
+#~ "could decrease your privacy!"
+#~ msgstr ""
+#~ "Näyttönimi on se, minkä yhteystietosi näkevät.\n"
+#~ "Ellei näyttönimeä halua käyttää, kentän voi jättää tyhjäksi.\n"
+#~ "Näyttönimeä käyttämällä uudet yhteystiedot tunnistavat sinut nopeammin, "
+#~ "mutta tietoturvasi voi heiketä!"
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Rekisteröidy itse"
+
+#~ msgctxt "ManualRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr ""
 #~ "Palveluntarjoaja ei toistaiseksi tue rekisteröitymistä tästä "
 #~ "sovelluksesta."
 
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "But you can use the provider's web registration."
+#~ msgstr "Voit kuitenkin käyttää palveluntarjoajan verkkorekisteröitymistä."
+
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "A new provider has been randomly selected."
+#~ msgstr "Palveluntarjoaja valittiin satunnaisesti."
+
+#~ msgctxt "PasswordView|"
+#~ msgid ""
+#~ "You can provide a password for your account. If you don't, a password "
+#~ "will be generated that you can find later in the app."
+#~ msgstr ""
+#~ "Tilille voi antaa salasanan. Ellet anna, luodaan salasana, jonka löydät "
+#~ "myöhemmin sovelluksesta."
+
+#~ msgctxt "ProviderView|"
+#~ msgid ""
+#~ "The provider is where your account is located.\n"
+#~ "The selectable providers are hand-picked by our community!"
+#~ msgstr ""
+#~ "Palveluntarjoaja on paikka, jossa tilisi sijaitsee.\n"
+#~ "Yhteisö on käsin valinnut valittavissa olevat palveluntarjoajat!"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Palveluntarjoaja"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Yhteysasetukset"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "No"
+#~ msgstr "Ei"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Yes"
+#~ msgstr "Kyllä"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "Verkossa alkaen:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Allows to share media up to:"
+#~ msgstr "Sallii median jaon tähän asti:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Stores shared media up to:"
+#~ msgstr "Tallentaa jaetun median tähän asti:"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Avaa verkkosivu"
+
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Kopioi verkkosivun osoite"
+
+#~ msgctxt "ResultView|"
+#~ msgid ""
+#~ "Your chat address is used to chat with you, like your email address is "
+#~ "used to exchange email messages.\n"
+#~ "\n"
+#~ "Your chat address will be:"
+#~ msgstr ""
+#~ "Keskusteluosoitetta käytetään kanssasi keskustelemiseen kuten "
+#~ "sähköpostiosoitetta sähköpostiviesteihin.\n"
+#~ "\n"
+#~ "Keskusteluosoitteesi on:"
+
+#~ msgctxt "UsernameView|"
+#~ msgid ""
+#~ "Your username is used to log in to your account and to chat with you.\n"
+#~ "If you don't enter a username, the randomly generated and already "
+#~ "displayed one is used.\n"
+#~ "Using an own username may let it be more recognizable but also could "
+#~ "decrease your privacy!"
+#~ msgstr ""
+#~ "Käyttäjätunnusta käytetään tilille kirjautumiseen ja kanssasi "
+#~ "keskustelemiseen.\n"
+#~ "Ellei tunnusta anna, käytetään satunnaisesti luotua, jo näytettyä "
+#~ "tunnusta.\n"
+#~ "Oman tunnuksen käyttäminen tekee siitä helpomman tunnistaa, mikä voi myös "
+#~ "heikentää tietoturvaasi!"
+
+#~ msgctxt "WebRegistrationView|"
+#~ msgid "Copy registration web page address"
+#~ msgstr "Kopioi rekisteröintisivun osoite"
+
 #~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Anna kirjautumistiedot"
+#~ msgid "Login"
+#~ msgstr "Kirjaudu"
+
+#~ msgctxt "AutomaticRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr ""
+#~ "Palveluntarjoaja ei toistaiseksi tue rekisteröitymistä tästä "
+#~ "sovelluksesta."
 
 #~ msgctxt "StartPage|"
 #~ msgid "Scan login QR code of old device"
@@ -3981,10 +4242,6 @@ msgstr "Sivusto"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "Aseta"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Rekisteröi uusi tili"
 
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Use an existing account"
@@ -4334,10 +4591,6 @@ msgstr "Sivusto"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Log out"
 #~ msgstr "Kirjaudu"
-
-#~ msgctxt "PasswordRemovalPage|"
-#~ msgid "Remove password"
-#~ msgstr "Poista salasana"
 
 #~ msgctxt "PasswordRemovalPage|"
 #~ msgid ""

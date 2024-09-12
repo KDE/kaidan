@@ -624,12 +624,12 @@ msgstr "Այլ սերվեր"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
+#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr ""
 
-#: src/ProviderListModel.cpp:111
+#: src/ProviderListModel.cpp:114
 #, fuzzy, qt-format
 #| msgctxt "ServerListModel|"
 #| msgid "%1 days"
@@ -1081,7 +1081,7 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:841
+#: src/qml/details/AccountDetailsContent.qml:843
 #, fuzzy
 #| msgctxt "PasswordRemovalPage|"
 #| msgid "Do not show password as text"
@@ -1089,7 +1089,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Թաքցնել տեքստային գաղտնաբառը"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:844
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1101,16 +1101,15 @@ msgid ""
 "password"
 msgstr "Թույլ տալ այլ սարքերի մուտքը QR կոդով՝ միշտ թաքցնելով գաղտնաբառը։"
 
-#: src/qml/details/AccountDetailsContent.qml:850
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
 #, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
+#| msgctxt "PasswordRemovalPage|"
+#| msgid "Remove password"
 msgctxt "AccountDetailsContent|"
-msgid "Confirm"
-msgstr "Կարգավորել"
+msgid "Removing password from text…"
+msgstr "Հեռացնել գաղտնաբառը"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:857
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid "Don't expose password in any way"
@@ -1118,7 +1117,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Թաքցնել գաղտնաբառը ցանկացած դեպքում"
 
-#: src/qml/details/AccountDetailsContent.qml:861
+#: src/qml/details/AccountDetailsContent.qml:858
 #, fuzzy
 #| msgctxt "AccountSecurity|"
 #| msgid ""
@@ -1130,7 +1129,12 @@ msgid ""
 "password"
 msgstr "Չթույլատրել այլ սարքերի ավելացումը գաղտնաբառի կամ QR կոդի միջոցով։"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:870
+msgctxt "AccountDetailsContent|"
+msgid "Removing password from text and QR code…"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:882
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -1138,7 +1142,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Կապը հաստատվում է…"
 
-#: src/qml/details/AccountDetailsContent.qml:896
+#: src/qml/details/AccountDetailsContent.qml:886
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Configure the hostname and port to connect to"
@@ -1148,7 +1152,7 @@ msgid ""
 "values)"
 msgstr "Սահմանել հոսթնեյմը և պորտը"
 
-#: src/qml/details/AccountDetailsContent.qml:915
+#: src/qml/details/AccountDetailsContent.qml:905
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -1156,7 +1160,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Կապի կարգավորումներ"
 
-#: src/qml/details/AccountDetailsContent.qml:924
+#: src/qml/details/AccountDetailsContent.qml:914
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1164,7 +1168,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Կապի կարգավորումները պահպանվել են"
 
-#: src/qml/details/AccountDetailsContent.qml:973
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy, qt-format
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings could not be changed"
@@ -1172,7 +1176,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Չհաջողվեց փոփոխել կապի կարգավորումները"
 
-#: src/qml/details/AccountDetailsContent.qml:988
+#: src/qml/details/AccountDetailsContent.qml:978
 #, fuzzy
 #| msgctxt "ConnectionSettings|"
 #| msgid "Connection settings changed"
@@ -1180,7 +1184,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Կապի կարգավորումները պահպանվել են"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1002
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -1188,7 +1192,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Համատեքստ"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1196,7 +1200,20 @@ msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Ջնջել հաշիվը"
 
-#: src/qml/details/AccountDetailsContent.qml:1021
+#: src/qml/details/AccountDetailsContent.qml:1011
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountDetailsContent|"
+msgid "Preparing account migration…"
+msgstr "Հաշվի անվտանգություն"
+
+#: src/qml/details/AccountDetailsContent.qml:1012
+msgctxt "AccountDetailsContent|"
+msgid "That can take long"
+msgstr ""
+
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1204,7 +1221,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1044
+#: src/qml/details/AccountDetailsContent.qml:1040
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1212,7 +1229,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Հեռացնել"
 
-#: src/qml/details/AccountDetailsContent.qml:1050
+#: src/qml/details/AccountDetailsContent.qml:1046
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Remove account from Kaidan"
@@ -1220,14 +1237,14 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Հեռացնել հաշիվը Kaidan-ից"
 
-#: src/qml/details/AccountDetailsContent.qml:1051
+#: src/qml/details/AccountDetailsContent.qml:1047
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1056
+#: src/qml/details/AccountDetailsContent.qml:1052
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add new contact"
@@ -1235,7 +1252,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Ստեղծել նոր կոնտակտ"
 
-#: src/qml/details/AccountDetailsContent.qml:1063
+#: src/qml/details/AccountDetailsContent.qml:1059
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid "Delete account completely"
@@ -1243,7 +1260,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ջնջել հաշիվը ամբողջովին"
 
-#: src/qml/details/AccountDetailsContent.qml:1064
+#: src/qml/details/AccountDetailsContent.qml:1060
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1257,7 +1274,7 @@ msgstr ""
 "Ձեր հաշիվը ամբողջովին կջնջվի, ինչը նշանակում է այս հավելվածից և սերվերից։\n"
 "Կրկին այս հաշվից օգտվելը հնարավոր չի լինի։"
 
-#: src/qml/details/AccountDetailsContent.qml:1069
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account"
@@ -1265,7 +1282,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Ջնջել հաշիվը"
 
-#: src/qml/details/AccountDetailsContent.qml:1076
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, fuzzy, qt-format
 #| msgctxt "ClientWorker|"
 #| msgid ""
@@ -1519,7 +1536,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:286
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1527,7 +1544,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Հեռացնել"
 
-#: src/qml/details/ContactDetailsContent.qml:295
+#: src/qml/details/ContactDetailsContent.qml:291
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1535,18 +1552,18 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Հեռացնել"
 
-#: src/qml/details/ContactDetailsContent.qml:296
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:304
+#: src/qml/details/ContactDetailsContent.qml:297
 #, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
 msgctxt "ContactDetailsContent|"
-msgid "Confirm"
-msgstr "Կարգավորել"
+msgid "Removing contact…"
+msgstr "Ստեղծել նոր կոնտակտ"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 #, fuzzy
@@ -1872,7 +1889,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:494
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -1880,26 +1897,25 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:502
+#: src/qml/details/GroupChatDetailsContent.qml:501
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
-#: src/qml/details/GroupChatDetailsContent.qml:534
+#: src/qml/details/GroupChatDetailsContent.qml:506
 #, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
+#| msgctxt "QObject|"
+#| msgid "Free for chat"
 msgctxt "GroupChatDetailsContent|"
-msgid "Confirm"
-msgstr "Կարգավորել"
+msgid "Leaving group chat…"
+msgstr "Ցանկանում եմ զրուցել"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:512
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1907,7 +1923,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Ջնջել"
 
-#: src/qml/details/GroupChatDetailsContent.qml:526
+#: src/qml/details/GroupChatDetailsContent.qml:513
 #, fuzzy
 #| msgctxt "RemoteAccountDeletion|"
 #| msgid ""
@@ -1920,7 +1936,15 @@ msgstr ""
 "Ձեր հաշիվը ամբողջովին կջնջվի, ինչը նշանակում է այս հավելվածից և սերվերից։\n"
 "Կրկին այս հաշվից օգտվելը հնարավոր չի լինի։"
 
-#: src/qml/details/GroupChatDetailsContent.qml:547
+#: src/qml/details/GroupChatDetailsContent.qml:522
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Delete account"
+msgctxt "GroupChatDetailsContent|"
+msgid "Deleting group chat…"
+msgstr "Ջնջել հաշիվը"
+
+#: src/qml/details/GroupChatDetailsContent.qml:528
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2033,7 +2057,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Սկանավորեք QR կոդը արդեն մուտք գործած սարքից՝ հաշիվը փոխանցելու համար։"
 
-#: src/qml/details/NotesChatDetailsContent.qml:107
+#: src/qml/details/NotesChatDetailsContent.qml:106
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2041,7 +2065,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Հեռացնել"
 
-#: src/qml/details/NotesChatDetailsContent.qml:115
+#: src/qml/details/NotesChatDetailsContent.qml:111
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2049,18 +2073,18 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Հեռացնել"
 
-#: src/qml/details/NotesChatDetailsContent.qml:116
+#: src/qml/details/NotesChatDetailsContent.qml:112
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:124
+#: src/qml/details/NotesChatDetailsContent.qml:117
 #, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Configure"
+#| msgctxt "RosterAddContactSheet|"
+#| msgid "Add new contact"
 msgctxt "NotesChatDetailsContent|"
-msgid "Confirm"
-msgstr "Կարգավորել"
+msgid "Removing notes chat…"
+msgstr "Ստեղծել նոր կոնտակտ"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 #, fuzzy
@@ -2461,7 +2485,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/elements/ConfirmationFormButtonArea.qml:19
+#: src/qml/elements/ConfirmationFormButtonArea.qml:32
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Configure"
@@ -2636,37 +2660,37 @@ msgctxt "GroupChatCreationContent|"
 msgid "Creating group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:29
+#: src/qml/elements/GroupChatCreationContent.qml:30
 msgctxt "GroupChatCreationContent|"
 msgid "Group Name (optional)"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:30
+#: src/qml/elements/GroupChatCreationContent.qml:31
 msgctxt "GroupChatCreationContent|"
 msgid "Example Group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:38
+#: src/qml/elements/GroupChatCreationContent.qml:39
 msgctxt "GroupChatCreationContent|"
 msgid "Public"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:44
+#: src/qml/elements/GroupChatCreationContent.qml:45
 msgctxt "GroupChatCreationContent|"
 msgid "Group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:47
+#: src/qml/elements/GroupChatCreationContent.qml:48
 msgctxt "GroupChatCreationContent|"
 msgid "example-group"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:49
+#: src/qml/elements/GroupChatCreationContent.qml:50
 msgctxt "GroupChatCreationContent|"
 msgid "Enter a valid group ID"
 msgstr ""
 
-#: src/qml/elements/GroupChatCreationContent.qml:81
+#: src/qml/elements/GroupChatCreationContent.qml:82
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Nickname:"
@@ -2682,7 +2706,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/qml/elements/GroupChatCreationContent.qml:102
+#: src/qml/elements/GroupChatCreationContent.qml:101
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2690,7 +2714,7 @@ msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "Հաղորդագրության ուղարկումը ձախողվել է։"
 
-#: src/qml/elements/GroupChatCreationContent.qml:112
+#: src/qml/elements/GroupChatCreationContent.qml:110
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -2724,7 +2748,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Joining group chat…"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:26
+#: src/qml/elements/GroupChatJoiningContent.qml:27
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Chat address:"
@@ -2732,7 +2756,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Address"
 msgstr "Զրույցի հասցե:"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:28
+#: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "user@example.org"
@@ -2740,12 +2764,12 @@ msgctxt "GroupChatJoiningContent|"
 msgid "group@groups.example.org"
 msgstr "user@example.org"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:30
+#: src/qml/elements/GroupChatJoiningContent.qml:31
 msgctxt "GroupChatJoiningContent|"
 msgid "The address must have the form <b>group@server</b>"
 msgstr ""
 
-#: src/qml/elements/GroupChatJoiningContent.qml:37
+#: src/qml/elements/GroupChatJoiningContent.qml:38
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Nickname:"
@@ -2875,7 +2899,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Ձայնագրում…"
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -2883,7 +2907,7 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Կապի կարգավորումներ"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -2891,7 +2915,7 @@ msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Մուտք"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:67
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -3320,6 +3344,14 @@ msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Ուղարկել"
 
+#: src/qml/elements/UrlFormButtonDelegate.qml:24
+#, fuzzy
+#| msgctxt "AccountTransferPage|"
+#| msgid "Copy chat address"
+msgctxt "UrlFormButtonDelegate|"
+msgid "Copy web address"
+msgstr "Պատճենել զրույցի հասցեն"
+
 #: src/qml/EmptyChatPage.qml:13
 #, fuzzy
 #| msgctxt "EmptyChatPage|"
@@ -3408,7 +3440,15 @@ msgctxt "main|"
 msgid "Could not unblock %1: %2"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:23 src/qml/QrCodeOnboardingPage.qml:25
+#: src/qml/QrCodeOnboardingPage.qml:23
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan QR code"
+msgctxt "QrCodeOnboardingPage|"
+msgid "Scan a QR Code"
+msgstr "Սկանավորել QR կոդ"
+
+#: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "Սկանավորել QR կոդ"
@@ -3444,269 +3484,276 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Կապը հաստատվում է…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:24
+#: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
-msgid "Register automatically"
+msgid "Automatic Registration"
 msgstr ""
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:57
+#: src/qml/registration/AutomaticRegistrationPage.qml:48
 msgctxt "AutomaticRegistrationPage|"
-msgid "Requesting the provider…"
+msgid "Requesting registration…"
 msgstr ""
 
-#: src/qml/registration/CustomFormView.qml:16
-msgctxt "CustomFormView|"
-msgid ""
-"The server has requested more information.\n"
-"Not everything may be required.\n"
-"If a CAPTCHA is shown, the displayed text must be entered."
+#: src/qml/registration/AutomaticRegistrationPage.qml:52
+msgctxt "AutomaticRegistrationPage|"
+msgid "Complete the registration!"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:14
-msgctxt "DisplayNameView|"
-msgid ""
-"Your display name is what your contacts will see.\n"
-"In case you don't want to use a display name, you can leave this field "
-"empty.\n"
-"Using a display name may let new contacts recognize you easier but also "
-"could decrease your privacy!"
+#: src/qml/registration/CustomDataFormArea.qml:28
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Location"
+msgctxt "CustomDataFormArea|"
+msgid "Enter additional information"
+msgstr "Տեղադրություն"
+
+#: src/qml/registration/CustomDataFormArea.qml:32
+msgctxt "CustomDataFormArea|"
+msgid "The provider has requested more information"
 msgstr ""
 
-#: src/qml/registration/DisplayNameView.qml:22
-msgctxt "DisplayNameView|"
+#: src/qml/registration/CustomDataFormArea.qml:33
+msgctxt "CustomDataFormArea|"
+msgid "Not everything may be required"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:31
+msgctxt "ManualRegistrationPage|"
+msgid "Manual Registration"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:37
+msgctxt "ManualRegistrationPage|"
+msgid "Complete the registration form!"
+msgstr ""
+
+#: src/qml/registration/ManualRegistrationPage.qml:62
+#, fuzzy
+#| msgctxt "ChangePassword|"
+#| msgid "Current password:"
+msgctxt "ManualRegistrationPage|"
+msgid "Enter your desired credentials"
+msgstr "Այժմյա գաղտնաբառ:"
+
+#: src/qml/registration/ManualRegistrationPage.qml:73
+msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr ""
 
-#: src/qml/registration/LoadingView.qml:16
-msgctxt "LoadingView|"
-msgid "Requesting the server…"
+#: src/qml/registration/ManualRegistrationPage.qml:81
+#, fuzzy
+#| msgctxt "RosterRenameContactSheet|"
+#| msgid "Rename"
+msgctxt "ManualRegistrationPage|"
+msgid "Username"
+msgstr "Վերանվանել"
+
+#: src/qml/registration/ManualRegistrationPage.qml:85
+msgctxt "ManualRegistrationPage|"
+msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:22
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
-msgctxt "ManualRegistrationPage|"
-msgid "Register manually"
-msgstr "Ստեղծել նոր հաշիվ"
-
-#: src/qml/registration/ManualRegistrationPage.qml:174
+#: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:217
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does not support registration via this app."
-msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
-
-#: src/qml/registration/ManualRegistrationPage.qml:217
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
-msgctxt "ManualRegistrationPage|"
-msgid "The provider does currently not support registration via this app."
-msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
-
-#: src/qml/registration/ManualRegistrationPage.qml:221
-msgctxt "ManualRegistrationPage|"
-msgid "But you can use the provider's web registration."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:225
-msgctxt "ManualRegistrationPage|"
-msgid "A new provider has been randomly selected."
-msgstr ""
-
-#: src/qml/registration/ManualRegistrationPage.qml:240
+#: src/qml/registration/ManualRegistrationPage.qml:227
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:244
+#: src/qml/registration/ManualRegistrationPage.qml:231
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
 
-#: src/qml/registration/PasswordView.qml:19
-msgctxt "PasswordView|"
-msgid ""
-"You can provide a password for your account. If you don't, a password will "
-"be generated that you can find later in the app."
+#: src/qml/registration/ProviderPage.qml:23
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose video"
+msgctxt "ProviderPage|"
+msgid "Choose a Provider"
+msgstr "Ընտրել տեսաֆայլ"
+
+#: src/qml/registration/ProviderPage.qml:38
+msgctxt "ProviderPage|"
+msgid "Choose a provider to register!"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:21
-msgctxt "ProviderView|"
-msgid ""
-"The provider is where your account is located.\n"
-"The selectable providers are hand-picked by our community!"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:39
+#: src/qml/registration/ProviderPage.qml:108
 #, fuzzy
 #| msgctxt "ServerListModel|"
 #| msgid "Custom server"
-msgctxt "ProviderView|"
-msgid "Provider"
+msgctxt "ProviderPage|"
+msgid "Provider Address"
 msgstr "Այլ սերվեր"
 
-#: src/qml/registration/ProviderView.qml:74
+#: src/qml/registration/ProviderPage.qml:121
 #, fuzzy
-#| msgctxt "ConnectionSettings|"
+#| msgctxt "LoginPage|"
 #| msgid "Connection settings"
-msgctxt "ProviderView|"
+msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Կապի կարգավորումներ"
 
-#: src/qml/registration/ProviderView.qml:115
-msgctxt "ProviderView|"
-msgid "Web registration only:"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "No"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:116
-msgctxt "ProviderView|"
-msgid "Yes"
-msgstr ""
-
-#: src/qml/registration/ProviderView.qml:121
+#: src/qml/registration/ProviderPage.qml:169
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
-msgctxt "ProviderView|"
-msgid "Server locations:"
+msgctxt "ProviderPage|"
+msgid "Server locations"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/registration/ProviderView.qml:127
-msgctxt "ProviderView|"
-msgid "Languages:"
+#: src/qml/registration/ProviderPage.qml:174
+msgctxt "ProviderPage|"
+msgid "Languages"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:133
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
-msgctxt "ProviderView|"
-msgid "Online since:"
-msgstr "Հասանելի սարքեր"
-
-#: src/qml/registration/ProviderView.qml:139
-msgctxt "ProviderView|"
-msgid "Allows to share media up to:"
+#: src/qml/registration/ProviderPage.qml:179
+msgctxt "ProviderPage|"
+msgid "Available/Listed since"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:145
-msgctxt "ProviderView|"
-msgid "Stores shared media up to:"
+#: src/qml/registration/ProviderPage.qml:184
+msgctxt "ProviderPage|"
+msgid "Maxmimum size of shared media"
 msgstr ""
 
-#: src/qml/registration/ProviderView.qml:153
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "Website"
-msgctxt "ProviderView|"
-msgid "Open website"
-msgstr "Վեբ-կայք"
+#: src/qml/registration/ProviderPage.qml:189
+msgctxt "ProviderPage|"
+msgid "Messages storage duration"
+msgstr ""
 
-#: src/qml/registration/ProviderView.qml:159
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
-msgctxt "ProviderView|"
-msgid "Copy website address"
-msgstr "Պատճենել զրույցի հասցեն"
+#: src/qml/registration/ProviderPage.qml:193
+msgctxt "ProviderPage|"
+msgid "Visit details page"
+msgstr ""
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/ProviderPage.qml:194
+msgctxt "ProviderPage|"
+msgid "Open the provider's details web page"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:211
+#, fuzzy
+#| msgctxt "MediaUtils|"
+#| msgid "Choose file"
+msgctxt "ProviderPage|"
+msgid "Choose"
+msgstr "Ուղարկել ֆայլ"
+
+#: src/qml/registration/ProviderPage.qml:212
+msgctxt "ProviderPage|"
+msgid "Requesting registration…"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:231
+msgctxt "ProviderPage|"
+msgid "You must enter a provider address"
+msgstr ""
+
+#: src/qml/registration/ProviderPage.qml:292
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "ProviderPage|"
+msgid "The provider does not support registration via this app."
+msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
+
+#: src/qml/registration/RegistrationButton.qml:25
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
 msgctxt "RegistrationButton|"
-msgid "Login after confirmation"
+msgid "Log in after email confirmation"
 msgstr "Տեղադրություն"
 
-#: src/qml/registration/RegistrationButton.qml:17
+#: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:67
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
+msgctxt "RegistrationButton|"
+msgid "Logging in…"
+msgstr "Մուտք"
+
+#: src/qml/registration/RegistrationButton.qml:26
+#, fuzzy
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "RegistrationButton|"
+msgid "Registering…"
+msgstr "Ստեղծել նոր հաշիվ"
+
+#: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:76
+#: src/qml/registration/RegistrationPage.qml:79
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
 msgstr ""
 
-#: src/qml/registration/RegistrationPage.qml:85
+#: src/qml/registration/RegistrationPage.qml:88
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
 msgstr ""
 
-#: src/qml/registration/ResultView.qml:17
-msgctxt "ResultView|"
-msgid ""
-"Your chat address is used to chat with you, like your email address is used "
-"to exchange email messages.\n"
-"\n"
-"Your chat address will be:"
+#: src/qml/registration/WebRegistrationPage.qml:24
+msgctxt "WebRegistrationPage|"
+msgid "Web Registration"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:19
-msgctxt "UsernameView|"
-msgid ""
-"Your username is used to log in to your account and to chat with you.\n"
-"If you don't enter a username, the randomly generated and already displayed "
-"one is used.\n"
-"Using an own username may let it be more recognizable but also could "
-"decrease your privacy!"
+#: src/qml/registration/WebRegistrationPage.qml:28
+msgctxt "WebRegistrationPage|"
+msgid "Register via the provider's website!"
 msgstr ""
 
-#: src/qml/registration/UsernameView.qml:36
+#: src/qml/registration/WebRegistrationPage.qml:50
 #, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
-msgctxt "UsernameView|"
-msgid "Username"
-msgstr "Վերանվանել"
+#| msgctxt "RegistrationLoginDecisionPage|"
+#| msgid "Register a new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 1: Register account"
+msgstr "Ստեղծել նոր հաշիվ"
 
-#: src/qml/registration/UsernameView.qml:40
-msgctxt "UsernameView|"
+#: src/qml/registration/WebRegistrationPage.qml:54
+#, fuzzy
+#| msgctxt "QmlUtils|"
+#| msgid "This server does not support registration."
+msgctxt "WebRegistrationPage|"
+msgid "The selected provider only supports web registration"
+msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
+
+#: src/qml/registration/WebRegistrationPage.qml:55
+msgctxt "WebRegistrationPage|"
 msgid ""
-"Please enter a valid username or leave the field empty for a random one."
+"After creating an account via the provider's website, you can log in via "
+"Kaidan"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:20
-msgctxt "WebRegistrationView|"
-msgid ""
-"The selected provider only provides web registration. After creating an "
-"account via the web page, you can log in via Kaidan."
+#: src/qml/registration/WebRegistrationPage.qml:59
+msgctxt "WebRegistrationPage|"
+msgid "Visit registration page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:27
-msgctxt "WebRegistrationView|"
-msgid "Open registration web page"
+#: src/qml/registration/WebRegistrationPage.qml:60
+msgctxt "WebRegistrationPage|"
+msgid "Open the provider's registration web page"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationView.qml:37
-msgctxt "WebRegistrationView|"
-msgid "Copy registration web page address"
-msgstr ""
-
-#: src/qml/registration/WebRegistrationView.qml:53
+#: src/qml/registration/WebRegistrationPage.qml:77
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in to your XMPP account"
-msgctxt "WebRegistrationView|"
-msgid "Log in with your new account"
+msgctxt "WebRegistrationPage|"
+msgid "Step 2: Log in with your registered account"
 msgstr "Մուտք գործեք Ձեր XMPP հաշիվ"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
@@ -3873,7 +3920,7 @@ msgctxt "SettingsPage|"
 msgid "Settings"
 msgstr "Կարգավորումներ"
 
-#: src/qml/StartPage.qml:25
+#: src/qml/StartPage.qml:26
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -3881,17 +3928,20 @@ msgctxt "StartPage|"
 msgid "Account Migration"
 msgstr "Հաշվի անվտանգություն"
 
-#: src/qml/StartPage.qml:66
+#: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr "Վայելեք ազատ շփումը ցանկացած սարքով։"
 
-#: src/qml/StartPage.qml:79
+#: src/qml/StartPage.qml:80
+#, fuzzy
+#| msgctxt "LoginPage|"
+#| msgid "Log in"
 msgctxt "StartPage|"
-msgid "Login"
-msgstr ""
+msgid "Log in"
+msgstr "Մուտք"
 
-#: src/qml/StartPage.qml:131
+#: src/qml/StartPage.qml:132
 #, fuzzy
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan QR code"
@@ -3899,7 +3949,7 @@ msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Սկանավորել QR կոդ"
 
-#: src/qml/StartPage.qml:138
+#: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
@@ -3999,24 +4049,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Հեռացնել հաշիվը սերվերից"
 
-#: src/QmlUtils.cpp:260
+#: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/QmlUtils.cpp:333
+#: src/QmlUtils.cpp:338
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1-ը հասանելի է"
 
-#: src/QmlUtils.cpp:335
+#: src/QmlUtils.cpp:340
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1-ը հավաքում է…"
 
-#: src/QmlUtils.cpp:337
+#: src/QmlUtils.cpp:342
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -4113,18 +4163,88 @@ msgid "Website"
 msgstr "Վեբ-կայք"
 
 #, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
+#~ msgctxt "AccountDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Կարգավորել"
+
+#, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Կարգավորել"
+
+#, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Կարգավորել"
+
+#, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Configure"
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Confirm"
+#~ msgstr "Կարգավորել"
+
+#, fuzzy
+#~| msgctxt "RegistrationLoginDecisionPage|"
+#~| msgid "Register a new account"
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "Register manually"
+#~ msgstr "Ստեղծել նոր հաշիվ"
+
+#, fuzzy
+#~| msgctxt "QmlUtils|"
+#~| msgid "This server does not support registration."
+#~ msgctxt "ManualRegistrationPage|"
+#~ msgid "The provider does currently not support registration via this app."
+#~ msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
+
+#, fuzzy
+#~| msgctxt "ServerListModel|"
+#~| msgid "Custom server"
+#~ msgctxt "ProviderView|"
+#~ msgid "Provider"
+#~ msgstr "Այլ սերվեր"
+
+#, fuzzy
+#~| msgctxt "ConnectionSettings|"
+#~| msgid "Connection settings"
+#~ msgctxt "ProviderView|"
+#~ msgid "Connection settings"
+#~ msgstr "Կապի կարգավորումներ"
+
+#, fuzzy
+#~| msgctxt "UserProfilePage|"
+#~| msgid "Online devices"
+#~ msgctxt "ProviderView|"
+#~ msgid "Online since:"
+#~ msgstr "Հասանելի սարքեր"
+
+#, fuzzy
+#~| msgctxt "VCardModel|"
+#~| msgid "Website"
+#~ msgctxt "ProviderView|"
+#~ msgid "Open website"
+#~ msgstr "Վեբ-կայք"
+
+#, fuzzy
+#~| msgctxt "AccountTransferPage|"
+#~| msgid "Copy chat address"
+#~ msgctxt "ProviderView|"
+#~ msgid "Copy website address"
+#~ msgstr "Պատճենել զրույցի հասցեն"
+
+#, fuzzy
 #~| msgctxt "QmlUtils|"
 #~| msgid "This server does not support registration."
 #~ msgctxt "AutomaticRegistrationPage|"
 #~ msgid "The provider does currently not support registration via this app."
 #~ msgstr "Այս սերվերը չի սպասարկում գրանցումներ։"
-
-#, fuzzy
-#~| msgctxt "ChangePassword|"
-#~| msgid "Current password:"
-#~ msgctxt "StartPage|"
-#~ msgid "Enter your credentials"
-#~ msgstr "Այժմյա գաղտնաբառ:"
 
 #, fuzzy
 #~| msgctxt "QrCodeOnboardingPage|"
@@ -4219,10 +4339,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Set up"
 #~ msgstr "Կարգավորում"
-
-#~ msgctxt "RegistrationLoginDecisionPage|"
-#~ msgid "Register a new account"
-#~ msgstr "Ստեղծել նոր հաշիվ"
 
 #~ msgctxt "RegistrationLoginDecisionPage|"
 #~ msgid "Use an existing account"
@@ -4564,10 +4680,6 @@ msgstr "Վեբ-կայք"
 #~ msgctxt "LocalAccountRemoval|"
 #~ msgid "Log out"
 #~ msgstr "Մուտք"
-
-#~ msgctxt "PasswordRemovalPage|"
-#~ msgid "Remove password"
-#~ msgstr "Հեռացնել գաղտնաբառը"
 
 #~ msgctxt "PasswordRemovalPage|"
 #~ msgid ""
