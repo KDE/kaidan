@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-09-01 15:13+0200\n"
+"PO-Revision-Date: 2024-09-12 12:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -977,12 +977,9 @@ msgstr ""
 "sessió però mai mostra la contrasenya"
 
 #: src/qml/details/AccountDetailsContent.qml:851
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "S'està eliminant el compte…"
+msgstr "S'està eliminant la contrasenya del text…"
 
 #: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
@@ -1001,7 +998,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "S'està eliminant la contrasenya del text i del codi QR…"
 
 #: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
@@ -1049,17 +1046,14 @@ msgid "Migrate account"
 msgstr "Migra el compte"
 
 #: src/qml/details/AccountDetailsContent.qml:1011
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "Migració del compte"
+msgstr "S'està preparant la migració del compte…"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
-msgstr ""
+msgstr "Això pot trigar una estona"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -1343,12 +1337,9 @@ msgid "Remove contact and complete chat history"
 msgstr "Elimina el contacte i l'historial complet de xat"
 
 #: src/qml/details/ContactDetailsContent.qml:297
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "S'està eliminant el compte…"
+msgstr "S'està eliminant el contacte…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1633,12 +1624,9 @@ msgid "Leave group and remove complete chat history"
 msgstr "Surt del grup i elimina l'historial complet de xat"
 
 #: src/qml/details/GroupChatDetailsContent.qml:506
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "S'està creant un grup de xat…"
+msgstr "S'està sortint del grup de xat…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:512
 msgctxt "GroupChatDetailsContent|"
@@ -1651,12 +1639,9 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Suprimeix el grup. Ningú podrà unir-se al grup de nou!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:522
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "S'està creant un grup de xat…"
+msgstr "S'està suprimint el grup de xat…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
@@ -1772,12 +1757,9 @@ msgid "Remove notes chat and complete chat history"
 msgstr "Elimina el xat de notes i l'historial complet de xat"
 
 #: src/qml/details/NotesChatDetailsContent.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "S'està eliminant el compte…"
+msgstr "S'està eliminant el xat de notes…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -2719,12 +2701,9 @@ msgid "Send"
 msgstr "Envia"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr "Copia l'adreça del lloc web"
+msgstr "Copia l'adreça de la web"
 
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
@@ -2800,9 +2779,6 @@ msgid "Could not unblock %1: %2"
 msgstr "No s'ha pogut desbloquejar %1: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "Escaneja un codi QR"
@@ -2840,88 +2816,63 @@ msgstr "S'està connectant…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "Registre automàtic"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:48
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr "Sol·licitant al servidor…"
+msgstr "S'està sol·licitant el registre…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:52
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "S'ha completat el registre!"
 
 #: src/qml/registration/CustomDataFormArea.qml:28
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "Sense informació"
+msgstr "Introduïu la informació addicional"
 
 #: src/qml/registration/CustomDataFormArea.qml:32
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "El proveïdor ha sol·licitat més informació"
 
 #: src/qml/registration/CustomDataFormArea.qml:33
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "No tot podria ser sol·licitat"
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "Ha fallat el registre:"
+msgstr "Registre manual"
 
 #: src/qml/registration/ManualRegistrationPage.qml:37
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr "Només registre web:"
+msgstr "Completeu el formulari de registre!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:62
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Enter your credentials"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Introduïu les vostres credencials"
+msgstr "Introduïu les vostres credencials desitjades"
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Nom a mostrar"
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Nom d'usuari"
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid ""
-#| "Please enter a valid username or leave the field empty for a random one."
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
-"Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori."
+"Introduïu un nom d'usuari vàlid o deixeu el camp buit per a un d'aleatori"
 
 #: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
@@ -2939,114 +2890,87 @@ msgid "A new random username has been generated."
 msgstr "S'ha generat un nom d'usuari aleatori nou."
 
 #: src/qml/registration/ProviderPage.qml:23
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "Trieu un vídeo"
+msgstr "Escolliu un proveïdor"
 
 #: src/qml/registration/ProviderPage.qml:38
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "Escolliu un proveïdor per a registrar-se!"
 
 #: src/qml/registration/ProviderPage.qml:108
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "Proveïdor"
+msgstr "Adreça del proveïdor"
 
 #: src/qml/registration/ProviderPage.qml:121
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Configuració de la connexió"
 
 #: src/qml/registration/ProviderPage.qml:169
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Server locations:"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "Ubicacions dels servidors:"
+msgstr "Ubicacions dels servidors"
 
 #: src/qml/registration/ProviderPage.qml:174
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "Idiomes:"
+msgstr "Idiomes"
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "Disponible/Llistat des de"
 
 #: src/qml/registration/ProviderPage.qml:184
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maxmimum size of shared media"
 msgctxt "ProviderPage|"
-msgid "Maxmimum size of shared media"
-msgstr ""
+msgid "Maximum size of shared media"
+msgstr "Mida màxima dels elements multimèdia compartits"
 
 #: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "Durada de l'emmagatzematge de missatges"
 
 #: src/qml/registration/ProviderPage.qml:193
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "Visiteu la pàgina dels detalls"
 
 #: src/qml/registration/ProviderPage.qml:194
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr "Obre la pàgina web de registre"
+msgstr "Obre la pàgina web de detalls del proveïdor"
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Trieu un fitxer"
+msgstr "Trieu"
 
 #: src/qml/registration/ProviderPage.qml:212
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr "Sol·licitant al servidor…"
+msgstr "S'està sol·licitant el registre…"
 
 #: src/qml/registration/ProviderPage.qml:231
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "Cal introduir una adreça del proveïdor"
 
 #: src/qml/registration/ProviderPage.qml:292
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "El proveïdor no permet el registre a través d'aquesta aplicació."
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Login after confirmation"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "Inici de sessió després de la confirmació"
+msgstr "Inici de sessió després de la confirmació per correu electrònic"
 
 #: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
@@ -3054,20 +2978,14 @@ msgid "Register"
 msgstr "Registra"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Inici de sessió"
+msgstr "S'està iniciant la sessió…"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "Registra"
+msgstr "S'està registrant…"
 
 #: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
@@ -3085,69 +3003,48 @@ msgid "Registration failed:"
 msgstr "Ha fallat el registre:"
 
 #: src/qml/registration/WebRegistrationPage.qml:24
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr "Només registre web:"
+msgstr "Registre web"
 
 #: src/qml/registration/WebRegistrationPage.qml:28
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "Registre a través del lloc web del proveïdor!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr ""
+msgstr "Pas 1: Registra un compte"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "Aquest servidor no permet el registre."
+msgstr "El proveïdor seleccionat només permet el registre web"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid ""
-#| "The selected provider only provides web registration. After creating an "
-#| "account via the web page, you can log in via Kaidan."
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
-"El proveïdor seleccionat només proporciona el registre web. Després de crear "
-"un compte a través de la pàgina web, podeu iniciar la sessió mitjançant el "
-"Kaidan."
+"Després de crear un compte a través del lloc web del proveïdor, podeu "
+"iniciar la sessió mitjançant el Kaidan"
 
 #: src/qml/registration/WebRegistrationPage.qml:59
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr "Obre la pàgina web de registre"
+msgstr "Visiteu la pàgina de registre"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr "Obre la pàgina web de registre"
+msgstr "Obre la pàgina web de registre del proveïdor"
 
 #: src/qml/registration/WebRegistrationPage.qml:77
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Log in with your new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "Inicieu la sessió amb el compte nou"
+msgstr "Pas 2: Inicieu la sessió amb el compte registrat"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -3316,9 +3213,6 @@ msgid "Enjoy free communication on every device!"
 msgstr "Gaudiu de la comunicació lliure a tots els dispositius!"
 
 #: src/qml/StartPage.qml:80
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "StartPage|"
 msgid "Log in"
 msgstr "Inici de sessió"

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-01 19:39+0300\n"
+"PO-Revision-Date: 2024-09-12 13:34+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -959,12 +959,9 @@ msgstr ""
 "parolayı hiçbir zaman gösterme"
 
 #: src/qml/details/AccountDetailsContent.qml:851
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "Hesap kaldırılıyor…"
+msgstr "Metinden parola kaldırılıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
@@ -983,7 +980,7 @@ msgstr ""
 #: src/qml/details/AccountDetailsContent.qml:870
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "Metinden Kare Kod’dan parola kaldırılıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:882
 msgctxt "AccountDetailsContent|"
@@ -1031,17 +1028,14 @@ msgid "Migrate account"
 msgstr "Hesabı Göç Ettir"
 
 #: src/qml/details/AccountDetailsContent.qml:1011
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "Hesap Göçü"
+msgstr "Hesap göçü için hazırlanılıyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
-msgstr ""
+msgstr "Bu biraz uzun sürebilir"
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -1319,12 +1313,9 @@ msgid "Remove contact and complete chat history"
 msgstr "Kişiyi ve tüm sohbet geçmişini kaldır"
 
 #: src/qml/details/ContactDetailsContent.qml:297
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Hesap kaldırılıyor…"
+msgstr "Kişi kaldırılıyor…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1606,12 +1597,9 @@ msgid "Leave group and remove complete chat history"
 msgstr "Gruptan ayrıl ve sohbet geçmişini tümüyle kaldır"
 
 #: src/qml/details/GroupChatDetailsContent.qml:506
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "Grup sohbeti oluşturuluyor…"
+msgstr "Grup sohbetinden ayrılınıyor…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:512
 msgctxt "GroupChatDetailsContent|"
@@ -1624,12 +1612,9 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Grubu silin. Bu gruba artık kimse katılamayacak!"
 
 #: src/qml/details/GroupChatDetailsContent.qml:522
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "Grup sohbeti oluşturuluyor…"
+msgstr "Grup sohbeti siliniyor…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
@@ -1745,12 +1730,9 @@ msgid "Remove notes chat and complete chat history"
 msgstr "Notlar sohbetini ve tüm sohbet geçmişini kaldır"
 
 #: src/qml/details/NotesChatDetailsContent.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "Hesap kaldırılıyor…"
+msgstr "Notlar sohbeti kaldırılıyor…"
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -2686,9 +2668,6 @@ msgid "Send"
 msgstr "Gönder"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "Web sitesi adresini kopyala"
@@ -2767,12 +2746,9 @@ msgid "Could not unblock %1: %2"
 msgstr "%1 engeli kaldırılamadı: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "Kare kod tara"
+msgstr "Kare Kod tara"
 
 #: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
@@ -2807,88 +2783,63 @@ msgstr "Bağlanıyor…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "Kendiliğinden Kayıt"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:48
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr "Sunucu isteniyor…"
+msgstr "Kayıt isteniyor…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:52
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "Kaydı tamamlayın!"
 
 #: src/qml/registration/CustomDataFormArea.qml:28
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "Bilgi yok"
+msgstr "Ek bilgi gir"
 
 #: src/qml/registration/CustomDataFormArea.qml:32
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "Sağlayıcı ek bilgiler istedi"
 
 #: src/qml/registration/CustomDataFormArea.qml:33
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "Her şey zorunlu olmayabilir"
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "Kaydolma başarısız:"
+msgstr "Elle Kayıt"
 
 #: src/qml/registration/ManualRegistrationPage.qml:37
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr "Yalnızca web üzerinden kayıt:"
+msgstr "Kayıt formunu tamamlayın!"
 
 #: src/qml/registration/ManualRegistrationPage.qml:62
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Enter your credentials"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Kimlik bilgilerinizi girin"
+msgstr "İstediğiniz oturum açma bilgilerini girin"
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
-msgstr "Ekran Adı"
+msgstr "Görüntü adı"
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Kullanıcı adı"
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid ""
-#| "Please enter a valid username or leave the field empty for a random one."
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
-"Lütfen geçerli bir kullanıcı adı girin veya rastgele oluşturma için boş "
+"Lütfen geçerli bir kullanıcı adı girin veya rastgele bir tane için boş "
 "bırakın."
 
 #: src/qml/registration/ManualRegistrationPage.qml:169
@@ -2907,114 +2858,87 @@ msgid "A new random username has been generated."
 msgstr "Yeni bir rastgele kullanıcı adı oluşturuldu."
 
 #: src/qml/registration/ProviderPage.qml:23
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "Video seç"
+msgstr "Sağlayıcı Seç"
 
 #: src/qml/registration/ProviderPage.qml:38
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "Kaydolmak için bir sağlayıcı seçin!"
 
 #: src/qml/registration/ProviderPage.qml:108
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "Sağlayıcı"
+msgstr "Sağlayıcı Adresi"
 
 #: src/qml/registration/ProviderPage.qml:121
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Bağlantı ayarları"
 
 #: src/qml/registration/ProviderPage.qml:169
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Server locations:"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "Sunucu konumları:"
+msgstr "Sunucu konumları"
 
 #: src/qml/registration/ProviderPage.qml:174
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "Diller:"
+msgstr "Diller"
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "Kullanılabilir/Listelenme"
 
 #: src/qml/registration/ProviderPage.qml:184
+#, fuzzy
+#| msgctxt "ProviderPage|"
+#| msgid "Maxmimum size of shared media"
 msgctxt "ProviderPage|"
-msgid "Maxmimum size of shared media"
-msgstr ""
+msgid "Maximum size of shared media"
+msgstr "Paylaşılan ortamın en büyük boyutu"
 
 #: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "İleti depolama süresi"
 
 #: src/qml/registration/ProviderPage.qml:193
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "Ayrıntılar sayfasını ziyaret et"
 
 #: src/qml/registration/ProviderPage.qml:194
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr "Kayıt web sitesini aç"
+msgstr "Sağlayıcının ayrıntılar web sitesini aç"
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Dosya seç"
+msgstr "Seç"
 
 #: src/qml/registration/ProviderPage.qml:212
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr "Sunucu isteniyor…"
+msgstr "Kayıt isteniyor…"
 
 #: src/qml/registration/ProviderPage.qml:231
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "Bir sağlayıcı adresi girmelisiniz"
 
 #: src/qml/registration/ProviderPage.qml:292
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Sağlayıcı, uygulama üzerinden kaydolmayı desteklemiyor."
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Login after confirmation"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "Onaydan Sonra Oturum Aç"
+msgstr "Onaydan sonra oturum aç"
 
 #: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
@@ -3022,20 +2946,14 @@ msgid "Register"
 msgstr "Kayıt ol"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Oturum Aç"
+msgstr "Oturum açılıyor…"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "Kayıt ol"
+msgstr "Kayıt olunuyor…"
 
 #: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
@@ -3053,71 +2971,48 @@ msgid "Registration failed:"
 msgstr "Kaydolma başarısız:"
 
 #: src/qml/registration/WebRegistrationPage.qml:24
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr "Yalnızca web üzerinden kayıt:"
+msgstr "Web Üzerinden Kayıt"
 
 #: src/qml/registration/WebRegistrationPage.qml:28
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "Sağlayıcının web sitesinden kayıt olun!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
-#, fuzzy
-#| msgctxt "RegistrationLoginDecisionPage|"
-#| msgid "Register a new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr "Yeni bir hesap kaydet"
+msgstr "1. adım: Yeni bir hesap kaydet"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "Bu sunucu, kaydolmayı desteklemiyor."
+msgstr "Seçili sağlayıcı yalnızca web üzerinden kayıt olmayı destekliyor"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid ""
-#| "The selected provider only provides web registration. After creating an "
-#| "account via the web page, you can log in via Kaidan."
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
-"Seçili sağlayıcı yalnızca web üzerinden kayıt olmaya izin veriyor. Web "
-"sayfası ile bir hesap oluşturduktan sonra Kaidan ile oturum açabilirsiniz."
+"Web sayfası ile bir hesap oluşturduktan sonra Kaidan ile oturum "
+"açabilirsiniz."
 
 #: src/qml/registration/WebRegistrationPage.qml:59
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
 msgstr "Kayıt web sitesini aç"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr "Kayıt web sitesini aç"
+msgstr "Sağlayıcının kayıt web sitesini açın"
 
 #: src/qml/registration/WebRegistrationPage.qml:77
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Log in with your new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "Yeni hesabınızla oturum açın"
+msgstr "2. adım: Yeni hesabınızla oturum açın"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -3286,9 +3181,6 @@ msgid "Enjoy free communication on every device!"
 msgstr "Her aygıtta özgür iletişimin keyfini çıkarın!"
 
 #: src/qml/StartPage.qml:80
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "StartPage|"
 msgid "Log in"
 msgstr "Oturum Aç"
