@@ -7,6 +7,7 @@
 // Qt
 #include <QGuiApplication>
 // Kaidan
+#include "AccountManager.h"
 #include "ChatController.h"
 #include "FutureUtils.h"
 #include "GroupChatController.h"
@@ -14,6 +15,7 @@
 #include "Notifications.h"
 #include "QmlUtils.h"
 #include "RosterManager.h"
+#include "RosterModel.h"
 
 ChatHintModel *ChatHintModel::s_instance = nullptr;
 
@@ -195,16 +197,24 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 
 void ChatHintModel::handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request)
 {
-	bool userMuted = ChatController::instance()->rosterItem().notificationRule == RosterItem::NotificationRule::Always;
-	bool requestForCurrentChat = request.from() == ChatController::instance()->chatJid();
-	bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
+	const auto subscriberJid = request.from();
+	const auto rosterItem = RosterModel::instance()->findItem(subscriberJid);
+
+	const auto notificationRule = rosterItem->notificationRule;
+	const bool userMuted =
+		(notificationRule == RosterItem::NotificationRule::Account &&
+		 AccountManager::instance()->account().contactNotificationRule == Account::ContactNotificationRule::Never) ||
+		notificationRule == RosterItem::NotificationRule::Never;
+
+	const bool requestForCurrentChat = request.from() == ChatController::instance()->chatJid();
+	const bool chatActive = requestForCurrentChat && QGuiApplication::applicationState() == Qt::ApplicationActive;
 
 	if (requestForCurrentChat) {
 		addAllowPresenceSubscriptionChatHint(request);
 	}
 
 	if (!userMuted && !chatActive) {
-		Notifications::instance()->sendPresenceSubscriptionRequestNotification(accountJid, request.from());
+		Notifications::instance()->sendPresenceSubscriptionRequestNotification(accountJid, subscriberJid);
 	}
 }
 
