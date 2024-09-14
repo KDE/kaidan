@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-01 15:26+0200\n"
+"PO-Revision-Date: 2024-09-14 00:27+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -1337,7 +1337,7 @@ msgstr "Contactpersoon verwijderen en de complete chatgeschiedenis"
 #| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Account wordt verwijderd…"
+msgstr "%1 contactpersonen worden verwijderd"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -2786,12 +2786,9 @@ msgid "Could not unblock %1: %2"
 msgstr "Kon %1 niet deblokkeren: %2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "QR-code scannen"
+msgstr "Scan een QR-code"
 
 #: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
@@ -2884,9 +2881,6 @@ msgid "Enter your desired credentials"
 msgstr "Uw credentials invoeren"
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Schermnaam"
@@ -2947,9 +2941,6 @@ msgid "Provider Address"
 msgstr "Leverancier"
 
 #: src/qml/registration/ProviderPage.qml:121
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "Verbindingsinstellingen"
@@ -2963,12 +2954,9 @@ msgid "Server locations"
 msgstr "Serverlocaties:"
 
 #: src/qml/registration/ProviderPage.qml:174
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "Talen:"
+msgstr "Talen"
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
@@ -2999,12 +2987,9 @@ msgid "Open the provider's details web page"
 msgstr "Webpagina voor registratie openen"
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Kies bestand"
+msgstr "Kiezen"
 
 #: src/qml/registration/ProviderPage.qml:212
 #, fuzzy
@@ -3020,9 +3005,6 @@ msgid "You must enter a provider address"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:292
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "De leverancier ondersteunt geen registratie via deze toepassing."
@@ -3041,12 +3023,9 @@ msgid "Register"
 msgstr "Registreren"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Aanmelden"
+msgstr "Aanmelden…"
 
 #: src/qml/registration/RegistrationButton.qml:26
 #, fuzzy
