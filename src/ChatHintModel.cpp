@@ -250,14 +250,15 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 
 int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &request)
 {
+	const auto oldJid = request.oldJid();
 	const auto displayName = ChatController::instance()->rosterItem().displayName();
 	const auto appendedText = request.statusText().isEmpty() ? QString() : QStringLiteral(": %1").arg(request.statusText());
 	const QString text = [&]() {
-		if (request.oldJid().isEmpty()) {
+		if (oldJid.isEmpty()) {
 			return tr("%1 would like to receive your personal data such as availability, devices and other personal information%2").arg(displayName, appendedText);
 		}
 
-		return tr("Your contact %1 moved from %2 and would like to receive your personal data such as availability, devices and other personal information%3").arg(displayName, request.oldJid(), appendedText);
+		return tr("Your contact %1 moved from %2 and would like to receive your personal data such as availability, devices and other personal information%3").arg(displayName, oldJid, appendedText);
 	}();
 
 	return addChatHint(
