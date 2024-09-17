@@ -40,6 +40,7 @@ SPDX-License-Identifier: CC0-1.0
     <implements rdf:resource='https://xmpp.org/rfcs/rfc6121.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc7590.html'/>
     <implements rdf:resource='https://xmpp.org/rfcs/rfc7622.html'/>
+    <implements rdf:resource='https://www.ietf.org/archive/id/draft-schmaus-kitten-sasl-ht-09.html'/>
     <implements>
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0004.html'/>
@@ -62,7 +63,7 @@ SPDX-License-Identifier: CC0-1.0
         <xmpp:status>partial</xmpp:status>
         <xmpp:version>1.2</xmpp:version>
         <xmpp:since>0.3</xmpp:since>
-        <xmpp:note>Only used for avatars and nicknames</xmpp:note>
+        <xmpp:note>Only used for avatars, nicknames, selected information</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -121,8 +122,17 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0115.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.6</xmpp:version>
+        <xmpp:version>1.6.0</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0147.html'/>
+        <xmpp:status>partial</xmpp:status>
+        <xmpp:version>1.2</xmpp:version>
+        <xmpp:since>0.5</xmpp:since>
+        <xmpp:note>Only used for sending messages, adding contacts, authenticating E2EE keys, sharing group chat JIDs, logging in</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -137,7 +147,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0158.html'/>
         <xmpp:status>partial</xmpp:status>
-        <xmpp:version>1.0</xmpp:version>
+        <xmpp:version>1.0.1</xmpp:version>
         <xmpp:since>0.5</xmpp:since>
         <xmpp:note>Only used for In-Band Registration with image ('ocr')</xmpp:note>
       </xmpp:SupportedXep>
@@ -146,30 +156,16 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0163.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.2</xmpp:version>
+        <xmpp:version>1.2.2</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
         <xmpp:note>Only used for OMEMO</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
       <xmpp:SupportedXep>
-        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0167.html'/>
-        <xmpp:status>planned</xmpp:status>
-        <xmpp:version>1.1</xmpp:version>
-      </xmpp:SupportedXep>
-    </implements>
-    <implements>
-      <xmpp:SupportedXep>
-        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0176.html'/>
-        <xmpp:status>planned</xmpp:status>
-        <xmpp:version>1.0</xmpp:version>
-      </xmpp:SupportedXep>
-    </implements>
-    <implements>
-      <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0184.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.2</xmpp:version>
+        <xmpp:version>1.4.0</xmpp:version>
         <xmpp:since>0.2</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -193,7 +189,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0199.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>2.0</xmpp:version>
+        <xmpp:version>2.0.1</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -203,6 +199,15 @@ SPDX-License-Identifier: CC0-1.0
         <xmpp:status>complete</xmpp:status>
         <xmpp:version>2.0</xmpp:version>
         <xmpp:since>0.3</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0221.html'/>
+        <xmpp:status>partial</xmpp:status>
+        <xmpp:version>1.0</xmpp:version>
+        <xmpp:since>0.6</xmpp:since>
+        <xmpp:note>Only used for In-Band Registration with image ('ocr')</xmpp:note>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -217,7 +222,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0264.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.4</xmpp:version>
+        <xmpp:version>0.4.1</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -233,7 +238,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0308.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.2</xmpp:version>
+        <xmpp:version>1.2.1</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
          <xmpp:note>Correction of older messages is explicitly allowed up to a specific limit</xmpp:note>
       </xmpp:SupportedXep>
@@ -250,7 +255,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0333.html'/>
         <xmpp:status>partial</xmpp:status>
-        <xmpp:version>0.4</xmpp:version>
+        <xmpp:version>0.4.1</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
         <xmpp:note>Only used for read markers (i.e., for "displayed" messages); Read markers are always sent even if message is not marked as "markable" in order to synchronize read status between supporting clients</xmpp:note>
       </xmpp:SupportedXep>
@@ -259,7 +264,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0334.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.3</xmpp:version>
+        <xmpp:version>0.4.0</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -267,7 +272,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0352.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.2</xmpp:version>
+        <xmpp:version>1.0.0</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -275,7 +280,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0359.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.6</xmpp:version>
+        <xmpp:version>0.7.0</xmpp:version>
         <xmpp:since>0.6</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -283,8 +288,16 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0363.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.0</xmpp:version>
+        <xmpp:version>1.0.0</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
+      </xmpp:SupportedXep>
+    </implements>
+    <implements>
+      <xmpp:SupportedXep>
+        <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0368.html'/>
+        <xmpp:status>complete</xmpp:status>
+        <xmpp:version>1.1.0</xmpp:version>
+        <xmpp:since>0.10</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
     <implements>
@@ -299,7 +312,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0380.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.4</xmpp:version>
+        <xmpp:version>0.4.0</xmpp:version>
         <xmpp:since>0.5</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -307,7 +320,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0382.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.2</xmpp:version>
+        <xmpp:version>0.2.0</xmpp:version>
         <xmpp:since>0.4</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -315,7 +328,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0384.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.8</xmpp:version>
+        <xmpp:version>0.8.3</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -323,7 +336,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0386.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.0.0</xmpp:version>
+        <xmpp:version>1.0.1</xmpp:version>
         <xmpp:since>0.10</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -331,7 +344,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0388.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>1.0.1</xmpp:version>
+        <xmpp:version>1.0.2</xmpp:version>
         <xmpp:since>0.10</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -373,7 +386,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0420.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.4</xmpp:version>
+        <xmpp:version>0.4.1</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -389,7 +402,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0434.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.6</xmpp:version>
+        <xmpp:version>0.6.0</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -397,7 +410,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0444.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.1</xmpp:version>
+        <xmpp:version>0.1.1</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -405,7 +418,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0446.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.2</xmpp:version>
+        <xmpp:version>0.2.0</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -421,7 +434,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0448.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.2</xmpp:version>
+        <xmpp:version>0.2.0</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -429,7 +442,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0450.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.4</xmpp:version>
+        <xmpp:version>0.4.0</xmpp:version>
         <xmpp:since>0.9</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
@@ -445,7 +458,7 @@ SPDX-License-Identifier: CC0-1.0
       <xmpp:SupportedXep>
         <xmpp:xep rdf:resource='https://xmpp.org/extensions/xep-0484.html'/>
         <xmpp:status>complete</xmpp:status>
-        <xmpp:version>0.1.0</xmpp:version>
+        <xmpp:version>0.2.0</xmpp:version>
         <xmpp:since>0.10</xmpp:since>
       </xmpp:SupportedXep>
     </implements>
