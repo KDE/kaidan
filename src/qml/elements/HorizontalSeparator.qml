@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick.Layouts 1.14
+import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 Kirigami.Separator {

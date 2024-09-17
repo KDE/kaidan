@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.14
-import QtQuick.Controls 2.14 as Controls
-import QtQuick.Layouts 1.14
+import QtQuick 2.15
+import QtQuick.Controls 2.15 as Controls
+import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
