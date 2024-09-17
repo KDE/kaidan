@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-21 13:31+0200\n"
+"PO-Revision-Date: 2024-09-03 08:38+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.0\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -940,12 +940,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:851
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "Přidávám kontakt…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
@@ -1008,12 +1005,9 @@ msgid "Migrate account"
 msgstr "Migrovat účet"
 
 #: src/qml/details/AccountDetailsContent.qml:1011
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "Migrace účtu"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
@@ -1046,12 +1040,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1052
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "Přidávám kontakt…"
+msgstr "Odstraňuji účet…"
 
 #: src/qml/details/AccountDetailsContent.qml:1059
 msgctxt "AccountDetailsContent|"
@@ -1065,12 +1056,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1065
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
-msgstr "Přidávám kontakt…"
+msgstr "Mažu účet…"
 
 #: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
@@ -1288,12 +1276,9 @@ msgid "Remove contact and complete chat history"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:297
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "Přidávám kontakt…"
+msgstr ""
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1584,12 +1569,9 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:522
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "Přidávám kontakt…"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:528
 #, qt-format
@@ -1700,12 +1682,9 @@ msgid "Remove notes chat and complete chat history"
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:117
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "Přidávám kontakt…"
+msgstr ""
 
 #: src/qml/details/RosterItemDetailsContent.qml:24
 msgctxt "RosterItemDetailsContent|"
@@ -1978,9 +1957,6 @@ msgid "Send your location"
 msgstr "Poslat vaši polohu"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "Potvrdit"
@@ -2711,12 +2687,9 @@ msgid "Could not unblock %1: %2"
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
-msgstr "Skenovat kód QR"
+msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:25
 msgctxt "QrCodeOnboardingPage|"
@@ -2734,9 +2707,6 @@ msgid "Scan your old device's QR code"
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:65
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Přihlásit"
@@ -2767,12 +2737,9 @@ msgid "Complete the registration!"
 msgstr ""
 
 #: src/qml/registration/CustomDataFormArea.qml:28
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "Žádné informace"
+msgstr ""
 
 #: src/qml/registration/CustomDataFormArea.qml:32
 msgctxt "CustomDataFormArea|"
@@ -2785,12 +2752,9 @@ msgid "Not everything may be required"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "Registrace selhala:"
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:37
 msgctxt "ManualRegistrationPage|"
@@ -2798,28 +2762,19 @@ msgid "Complete the registration form!"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:62
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "Zadejte své současné heslo"
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
-msgstr "Zobrazované jméno"
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
-msgstr "Uživatelské jméno"
+msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
 msgctxt "ManualRegistrationPage|"
@@ -2842,12 +2797,9 @@ msgid "A new random username has been generated."
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:23
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "Vyberte video"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:38
 msgctxt "ProviderPage|"
@@ -2855,36 +2807,24 @@ msgid "Choose a provider to register!"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:108
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "Poskytovatel"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:121
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
-msgstr "Nastavení připojení"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:169
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "Sdílet polohu"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:174
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "Jazyky:"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
@@ -2912,12 +2852,9 @@ msgid "Open the provider's details web page"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "Vyberte soubor"
+msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:212
 msgctxt "ProviderPage|"
@@ -2935,12 +2872,9 @@ msgid "The provider does not support registration via this app."
 msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "Žádné informace"
+msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
@@ -2948,20 +2882,14 @@ msgid "Register"
 msgstr "Registrovat"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Přihlásit"
+msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "Registrovat"
+msgstr ""
 
 #: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
@@ -2979,12 +2907,9 @@ msgid "Registration failed:"
 msgstr "Registrace selhala:"
 
 #: src/qml/registration/WebRegistrationPage.qml:24
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr "Registrace selhala:"
+msgstr ""
 
 #: src/qml/registration/WebRegistrationPage.qml:28
 msgctxt "WebRegistrationPage|"
@@ -3009,12 +2934,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/registration/WebRegistrationPage.qml:59
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr "Registrace selhala:"
+msgstr ""
 
 #: src/qml/registration/WebRegistrationPage.qml:60
 msgctxt "WebRegistrationPage|"
@@ -3191,20 +3113,14 @@ msgid "Enjoy free communication on every device!"
 msgstr ""
 
 #: src/qml/StartPage.qml:80
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "StartPage|"
 msgid "Log in"
-msgstr "Přihlásit"
+msgstr ""
 
 #: src/qml/StartPage.qml:132
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "StartPage|"
 msgid "Scan login QR code"
-msgstr "Skenovat kód QR"
+msgstr "Skenovat přihlašovací kód QR"
 
 #: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
@@ -3288,7 +3204,7 @@ msgstr ""
 #: src/QmlUtils.cpp:93
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr ""
+msgstr "Na server se nelze připojit."
 
 #: src/QmlUtils.cpp:265
 msgctxt "QmlUtils|"
@@ -3400,47 +3316,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "Potvrdit"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "Potvrdit"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "Potvrdit"
-
-#~ msgctxt "NotesChatDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "Potvrdit"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Provider"
-#~ msgstr "Poskytovatel"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Connection settings"
-#~ msgstr "Nastavení připojení"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Yes"
-#~ msgstr "Ano"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Online since:"
-#~ msgstr "Připojen(a) od:"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Open website"
-#~ msgstr "Otevřít webovou stránku"
-
-#~ msgctxt "StartPage|"
-#~ msgid "Login"
-#~ msgstr "Přihlášení"
