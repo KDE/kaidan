@@ -337,22 +337,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:149
+#: src/Message.cpp:145
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "pp KKK klo tt:mm"
 
-#: src/Message.cpp:156
+#: src/Message.cpp:152
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Ei tietoa"
 
-#: src/Message.cpp:373
+#: src/Message.cpp:361
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/Message.cpp:417
+#: src/Message.cpp:405
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -383,7 +383,7 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:225
+#: src/MessageController.cpp:223
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %1"
@@ -391,7 +391,7 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
-#: src/MessageController.cpp:351
+#: src/MessageController.cpp:349
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -399,7 +399,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:695
+#: src/MessageController.cpp:691
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -618,26 +618,6 @@ msgstr "Ei rajoitettu"
 msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr "%1 päivää"
-
-#: src/qml/AboutDialog.qml:54
-msgctxt "AboutDialog|"
-msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Yksinkertainen ja käyttäjäystävällinen Jabber/XMPP-asiakas"
-
-#: src/qml/AboutDialog.qml:62
-msgctxt "AboutDialog|"
-msgid "License:"
-msgstr "Lisenssi:"
-
-#: src/qml/AboutDialog.qml:79
-msgctxt "AboutDialog|"
-msgid "Report problems"
-msgstr "Ilmoita ongelmista"
-
-#: src/qml/AboutDialog.qml:84
-msgctxt "AboutDialog|"
-msgid "View source code online"
-msgstr "Näytä lähdekoodi verkossa"
 
 #: src/qml/ChatPage.qml:102
 msgctxt "ChatPage|"
@@ -3591,8 +3571,11 @@ msgid "About Kaidan"
 msgstr "Tietoa Kaidanista"
 
 #: src/qml/settings/AboutPage.qml:58
+#, fuzzy
+#| msgctxt "AboutPage|"
+#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
-msgid "User-friendly and modern chat app for every device"
+msgid "Modern chat app for every device"
 msgstr "Joka laitteen käyttäjäystävällinen ja nykyaikainen keskustelusovellus"
 
 #: src/qml/settings/AboutPage.qml:74
@@ -3964,6 +3947,22 @@ msgstr "Syntymäpäivä"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Yksinkertainen ja käyttäjäystävällinen Jabber/XMPP-asiakas"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Lisenssi:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Ilmoita ongelmista"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Näytä lähdekoodi verkossa"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Confirm"

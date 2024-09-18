@@ -327,22 +327,22 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:149
+#: src/Message.cpp:145
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "gg MMM alle hh:mm"
 
-#: src/Message.cpp:156
+#: src/Message.cpp:152
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Nessuna informazione"
 
-#: src/Message.cpp:373
+#: src/Message.cpp:361
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:417
+#: src/Message.cpp:405
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -370,18 +370,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "«%1» non può essere inviato poiché è più grande di %2"
 
-#: src/MessageController.cpp:225
+#: src/MessageController.cpp:223
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Impossibile inviare la reazione: %1"
 
-#: src/MessageController.cpp:351
+#: src/MessageController.cpp:349
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Il messaggio non può essere inviato."
 
-#: src/MessageController.cpp:695
+#: src/MessageController.cpp:691
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -576,26 +576,6 @@ msgstr "Illimitato"
 msgctxt "ProviderListModel|"
 msgid "%1 days"
 msgstr "%1 giorni"
-
-#: src/qml/AboutDialog.qml:54
-msgctxt "AboutDialog|"
-msgid "A simple, user-friendly Jabber/XMPP client"
-msgstr "Un client Jabber/XMPP semplice e intuitivo"
-
-#: src/qml/AboutDialog.qml:62
-msgctxt "AboutDialog|"
-msgid "License:"
-msgstr "Licenza:"
-
-#: src/qml/AboutDialog.qml:79
-msgctxt "AboutDialog|"
-msgid "Report problems"
-msgstr "Segnala problemi"
-
-#: src/qml/AboutDialog.qml:84
-msgctxt "AboutDialog|"
-msgid "View source code online"
-msgstr "Visualizza il codice sorgente in linea"
 
 #: src/qml/ChatPage.qml:102
 msgctxt "ChatPage|"
@@ -3046,8 +3026,11 @@ msgid "About Kaidan"
 msgstr "Informazioni su Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
+#, fuzzy
+#| msgctxt "AboutPage|"
+#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
-msgid "User-friendly and modern chat app for every device"
+msgid "Modern chat app for every device"
 msgstr "Applicazione di chat moderna e intuitiva per ogni dispositivo"
 
 #: src/qml/settings/AboutPage.qml:74
@@ -3416,6 +3399,22 @@ msgstr "Data di nascita"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sito web"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "A simple, user-friendly Jabber/XMPP client"
+#~ msgstr "Un client Jabber/XMPP semplice e intuitivo"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "License:"
+#~ msgstr "Licenza:"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "Report problems"
+#~ msgstr "Segnala problemi"
+
+#~ msgctxt "AboutDialog|"
+#~ msgid "View source code online"
+#~ msgstr "Visualizza il codice sorgente in linea"
 
 #~ msgctxt "AccountDetailsContent|"
 #~ msgid "Confirm"
