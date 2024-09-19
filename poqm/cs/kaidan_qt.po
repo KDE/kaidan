@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-03 08:38+0200\n"
+"PO-Revision-Date: 2024-09-17 15:20+0200\n"
 "Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -1258,7 +1258,7 @@ msgstr ""
 #: src/qml/details/ContactDetailsContent.qml:297
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr ""
+msgstr "Odstraňuji kontakt…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -2749,12 +2749,12 @@ msgstr ""
 #: src/qml/registration/ManualRegistrationPage.qml:73
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
-msgstr ""
+msgstr "Zobrazované jméno"
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
-msgstr ""
+msgstr "Uživatelské jméno"
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
 msgctxt "ManualRegistrationPage|"
@@ -2794,7 +2794,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:121
 msgctxt "ProviderPage|"
 msgid "Connection settings"
-msgstr ""
+msgstr "Nastavení připojení"
 
 #: src/qml/registration/ProviderPage.qml:169
 msgctxt "ProviderPage|"
@@ -2804,7 +2804,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:174
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr ""
+msgstr "Jazyky"
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
@@ -2834,7 +2834,7 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:211
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr ""
+msgstr "Vyberte"
 
 #: src/qml/registration/ProviderPage.qml:212
 msgctxt "ProviderPage|"
@@ -2864,7 +2864,7 @@ msgstr "Registrovat"
 #: src/qml/registration/RegistrationButton.qml:26
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr ""
+msgstr "Přihlašování…"
 
 #: src/qml/registration/RegistrationButton.qml:26
 msgctxt "RegistrationButton|"
@@ -2940,13 +2940,9 @@ msgid "About Kaidan"
 msgstr "O aplikaci Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
 msgid "Modern chat app for every device"
 msgstr ""
-"Uživatelsky přívětivý a moderní klient pro rozhovory pro každé zařízení"
 
 #: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
@@ -3098,7 +3094,7 @@ msgstr ""
 #: src/qml/StartPage.qml:80
 msgctxt "StartPage|"
 msgid "Log in"
-msgstr ""
+msgstr "Přihlásit"
 
 #: src/qml/StartPage.qml:132
 msgctxt "StartPage|"
@@ -3299,11 +3295,3 @@ msgstr "Narozeniny"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webová stránka"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "License:"
-#~ msgstr "Licence:"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "Report problems"
-#~ msgstr "Nahlaste problémy"

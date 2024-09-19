@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-09-14 00:59+0200\n"
+"PO-Revision-Date: 2024-09-18 11:19+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -3033,12 +3033,9 @@ msgid "About Kaidan"
 msgstr "Acerca de Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
 msgid "Modern chat app for every device"
-msgstr "Aplicación de chat moderna y fácil de usar para todos los dispositivos"
+msgstr "Aplicación de chat moderna para todos los dispositivos"
 
 #: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
