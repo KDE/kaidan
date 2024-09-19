@@ -243,7 +243,7 @@ Controls.Pane {
 			// Voice message button
 			ClickableIcon {
 				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: messageArea.text === "" && messageArea.state === "compose"
+				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === "" && messageArea.state === "compose"
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
