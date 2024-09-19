@@ -141,6 +141,22 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
+			// group chat pariticipant mentioning button
+			ClickableText {
+				text: "@"
+				visible: ChatController.rosterItem.isGroupChat
+				opacity: visible ? 1 : 0
+				scaleFactor: Kirigami.Units.iconSizes.smallMedium * 0.08
+				Controls.ToolTip.text: qsTr("Mention a participant")
+				Layout.topMargin: - scaleFactor * 2
+				Layout.leftMargin: Kirigami.Units.smallSpacing
+				onClicked: messageArea.insert(messageArea.cursorPosition, Utils.groupChatUserMentionPrefix)
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+			}
+
 			GroupChatParticipantPicker {
 				id: participantPicker
 				x: root.chatPage.x + root.leftInset
