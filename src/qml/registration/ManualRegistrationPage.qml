@@ -250,7 +250,7 @@ RegistrationPage {
 	}
 
 	function changeNickname() {
-		if (Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
+		if (displayNameField.text && Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
 			Kaidan.client.vCardManager.changeNicknameRequested(displayNameField.text)
 		}
 	}
