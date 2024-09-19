@@ -198,15 +198,10 @@ Kirigami.SwipeListItem {
 
 						Repeater {
 							model: root.files
-
-							Layout.preferredWidth: 200
-							Layout.preferredHeight: 200
-
 							delegate: MediaPreviewOther {
 								required property var modelData
 
 								messageId: root.msgId
-
 								mediaSource: {
 									if (modelData.localFilePath) {
 										let local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
@@ -218,6 +213,7 @@ Kirigami.SwipeListItem {
 								}
 								message: root
 								file: modelData
+								Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
 							}
 						}
 

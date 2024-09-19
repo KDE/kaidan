@@ -23,7 +23,6 @@ Rectangle {
 	id: root
 
 	required property url mediaSource
-	property int messageSize: Kirigami.Units.gridUnit * 14
 	required property QtObject message
 	required property var file
 	required property string messageId
@@ -39,8 +38,8 @@ Rectangle {
 	Layout.leftMargin: Layout.topMargin
 	Layout.rightMargin: Layout.topMargin
 	implicitHeight: Kirigami.Units.gridUnit * 3.85
-	implicitWidth: layout.implicitWidth + layout.anchors.margins * 2
-	Layout.maximumWidth: message ? messageSize : -1
+	implicitWidth: layout.implicitWidth + layout.spacing * layout.visibleChildren.length
+	Layout.maximumWidth: Kirigami.Units.gridUnit * 14
 
 	// content
 	ColumnLayout {
@@ -48,10 +47,10 @@ Rectangle {
 			fill: parent
 			margins: layout.spacing
 		}
+
 		RowLayout {
 			id: layout
 			spacing: Kirigami.Units.gridUnit * 0.4
-
 
 			// left: file icon
 			Item {
@@ -61,14 +60,10 @@ Rectangle {
 
 				Rectangle {
 					id: fallbackCircle
-
 					visible: !file.hasThumbnail
 					radius: height / 2
 					color: Qt.lighter(Kirigami.Theme.focusColor, 1.05)
-
-					anchors {
-						fill: parent
-					}
+					anchors.fill: parent
 
 					Kirigami.Icon {
 						source: root.fileAvailable ? file.mimeTypeIcon : "download"
@@ -76,21 +71,14 @@ Rectangle {
 						smooth: true
 						height: 24 // we always want the 24x24 icon
 						width: height
-
-						anchors {
-							centerIn: parent
-						}
+						anchors.centerIn: parent
 					}
 				}
 				Kirigami.Icon {
 					id: thumbnailIcon
 					visible: file.hasThumbnail
 					source: file.thumbnailSquare
-
-					anchors {
-						fill: parent
-					}
-
+					anchors.fill: parent
 					layer.enabled: true
 					layer.effect: OpacityMask {
 						maskSource: Item {
@@ -115,27 +103,27 @@ Rectangle {
 
 			// right: file description
 			ColumnLayout {
-				Layout.fillHeight: true
-				Layout.fillWidth: true
 				spacing: Kirigami.Units.smallSpacing
 
 				// file name
 				Controls.Label {
-					Layout.fillWidth: true
 					text: file.name
 					textFormat: Text.PlainText
 					elide: Text.ElideRight
 					maximumLineCount: 1
+					Layout.fillWidth: true
 				}
 
 				// file size
-				Controls.Label {
-					Layout.fillWidth: true
+				ScalableText {
 					text: Utils.formattedDataSize(file.size)
 					textFormat: Text.PlainText
 					elide: Text.ElideRight
 					maximumLineCount: 1
 					color: Kirigami.Theme.disabledTextColor
+					opacity: 0.5
+					scaleFactor: 0.9
+					Layout.fillWidth: true
 				}
 			}
 		}
@@ -144,7 +132,6 @@ Rectangle {
 		Controls.ProgressBar {
 			visible: transferWatcher.isLoading
 			value: transferWatcher.progress
-
 			Layout.fillWidth: true
 			Layout.maximumWidth: Kirigami.Units.gridUnit * 14
 		}
@@ -159,11 +146,7 @@ Rectangle {
 		id: openButton
 		hoverEnabled: true
 		acceptedButtons: Qt.LeftButton | Qt.RightButton
-
-		anchors {
-			fill: parent
-		}
-
+		anchors.fill: parent
 		onClicked: (event) => {
 			if (event.button === Qt.LeftButton) {
 				if (root.fileAvailable) {
@@ -175,7 +158,6 @@ Rectangle {
 				root.message.showContextMenu(this, root.file)
 			}
 		}
-
 		Controls.ToolTip.visible: file.description && openButton.containsMouse
 		Controls.ToolTip.delay: Kirigami.Units.longDuration
 		Controls.ToolTip.text: file.description

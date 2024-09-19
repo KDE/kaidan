@@ -100,14 +100,20 @@ Kirigami.OverlaySheet {
 					// File name and description
 					ColumnLayout {
 						RowLayout {
-							Kirigami.Heading {
+							Controls.Label {
 								text: model.fileName
-								level: 3
+								elide: Text.ElideRight
+								maximumLineCount: 1
 								Layout.fillWidth: true
 							}
 
-							Controls.Label {
+							ScalableText {
 								text: model.fileSize
+								maximumLineCount: 1
+								color: Kirigami.Theme.disabledTextColor
+								opacity: 0.5
+								scaleFactor: 0.9
+								Layout.fillWidth: true
 							}
 						}
 
