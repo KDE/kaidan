@@ -445,6 +445,18 @@ Controls.Pane {
 		}
 	}
 
+	Connections {
+		target: applicationWindow()
+
+		function onActiveFocusItemChanged() {
+			// Ensure that messageArea is focused after closing a details sheet.
+			// That workaround is needed because DetailsSheet takes the focus when it is closed.
+			if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
+				root.forceActiveFocus()
+			}
+		}
+	}
+
 	/**
 	 * Forces the active focus on desktop devices.
 	 *
