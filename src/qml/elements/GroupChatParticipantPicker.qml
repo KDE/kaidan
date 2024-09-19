@@ -35,6 +35,7 @@ Kirigami.Dialog {
 				chatJid: root.chatJid
 			}
 		}
+		header: count ? null : contactInvitationHint
 		delegate: GroupChatUserItem {
 			accountJid: root.accountJid
 			jid: model.jid
@@ -43,6 +44,21 @@ Kirigami.Dialog {
 			hoverEnabled: true
 			selected: ListView.isCurrentItem
 			onClicked: mentionParticipant(name)
+		}
+
+		Component {
+			id: contactInvitationHint
+
+			GroupChatUserItem {
+				name: qsTr("Invite contacts to this group…")
+				userText.font.italic: true
+				avatar.iconSource: "resource-group-new"
+				avatar.initialsMode: Kirigami.Avatar.InitialsMode.UseIcon
+				avatar.color: Kirigami.Theme.textColor
+				implicitWidth: largeButtonWidth
+				hoverEnabled: true
+				onClicked: GroupChatController.groupChatInviteeSelectionNeeded()
+			}
 		}
 	}
 
