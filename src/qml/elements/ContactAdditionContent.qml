@@ -30,18 +30,16 @@ ConfirmationArea {
 
 	confirmationButton.text: qsTr("Add")
 	confirmationButton.onClicked: {
-		const jidInLowerCase = jid.toLowerCase()
-
-		if (RosterModel.hasItem(jidInLowerCase)) {
+		if (RosterModel.hasItem(jid)) {
 			showPassiveNotification(qsTr("Contact already exists"),
 									"long",
 									qsTr("Open chat"),
 									function () {
-										Kaidan.openChatPageRequested(accountJid, jidInLowerCase)
+										Kaidan.openChatPageRequested(accountJid, jid)
 									})
 		} else if (jidField.valid) {
 			busy = true
-			Kaidan.client.rosterManager.addContactRequested(jidInLowerCase, name, messageField.text)
+			Kaidan.client.rosterManager.addContactRequested(jid, name, messageField.text)
 		} else {
 			jidField.forceActiveFocus()
 		}
