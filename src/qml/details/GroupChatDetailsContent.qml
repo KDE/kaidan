@@ -505,6 +505,7 @@ RosterItemDetailsContent {
 					groupChatDeletionButton.confirmationButton.visible = false
 					GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
 				}
+				busy: GroupChatController.busy
 				busyText: qsTr("Leaving group chat…")
 			}
 
