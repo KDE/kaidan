@@ -13,6 +13,9 @@
 GroupChatUserModel::GroupChatUserModel(QObject *parent)
 	: QAbstractListModel(parent)
 {
+	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userAdded, this, &GroupChatUserModel::addUser);
+	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userUpdated, this, &GroupChatUserModel::updateUser);
+	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userRemoved, this, &GroupChatUserModel::removeUser);
 }
 
 int GroupChatUserModel::rowCount(const QModelIndex&) const
@@ -132,90 +135,10 @@ QString GroupChatUserModel::participantName(const QString &accountJid, const QSt
 	return {};
 }
 
-void GroupChatUserModel::handleUserAllowed(const GroupChatUser &user)
-{
-	if (shouldUserBeProcessed(user)) {
-		for (const GroupChatUser &existingUser : std::as_const(m_users)) {
-			if (existingUser.jid == user.jid) {
-				return;
-			}
-		}
-
-		addUser(user);
-	}
-}
-
-void GroupChatUserModel::handleBannedUserAdded(const GroupChatUser &user)
-{
-	if (shouldUserBeProcessed(user)) {
-		addUser(user);
-	}
-}
-
-void GroupChatUserModel::handleUserDisallowedOrUnbanned(const GroupChatUser &user)
-{
-	if (shouldUserBeProcessed(user)) {
-		for (const GroupChatUser &existingUser : std::as_const(m_users)) {
-			if (existingUser.jid == user.jid && existingUser.status == user.status) {
-				removeUser(user);
-				return;
-			}
-		}
-	}
-}
-
-void GroupChatUserModel::handleParticipantReceived(const GroupChatUser &participant)
-{
-	if (shouldUserBeProcessed(participant)) {
-		for (const GroupChatUser &existingUser : std::as_const(m_users)) {
-			if (existingUser.accountJid == participant.accountJid && existingUser.chatJid == participant.chatJid) {
-				// If the participant was allowed to join but not yet joined, transform the former entry to a joined one.
-				// If the participant was already joined but modified, update the former entry normally.
-				if (existingUser.status != GroupChatUser::Status::Joined && existingUser.jid == participant.jid) {
-					updateUser(participant.accountJid, participant.chatJid, participant.jid, [=] (GroupChatUser &user) {
-						user.id = participant.id;
-						user.jid = participant.jid;
-						user.name = participant.name;
-						user.status = participant.status;
-					}, false);
-
-					return;
-				} else if (existingUser.id == participant.id) {
-					updateUser(participant.accountJid, participant.chatJid, participant.id, [=] (GroupChatUser &user) {
-						user.name = participant.name;
-					});
-					return;
-				}
-
-			}
-		}
-
-		// If the participant was not set as allowed before and joined now, simply add the participant.
-		addUser(participant);
-	}
-}
-
-void GroupChatUserModel::removeUser(const GroupChatUser &user)
-{
-	for (int i = 0; i < m_users.size(); i++) {
-		GroupChatUser &existingUser = m_users[i];
-
-		// The existence of the user ID must be checked because users can have only an ID (participant in anonymous group chat), only a JID (not joined member) or both (participant in normal group chat).
-		if (existingUser.accountJid == user.accountJid && existingUser.chatJid == user.chatJid && !existingUser.id.isEmpty() ? existingUser.id == user.id : existingUser.jid == user.jid) {
-			beginRemoveRows(QModelIndex(), i, i);
-			m_users.remove(i);
-			endRemoveRows();
-
-			Q_EMIT userJidsChanged();
-			return;
-		}
-	}
-}
-
 void GroupChatUserModel::fetchUsers()
 {
 	await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()), this, [this](QVector<GroupChatUser> &&users) {
-		addSortedUsers(users);
+		replaceUsers(users);
 
 		if (users.size() < DB_QUERY_LIMIT_GROUP_CHAT_USERS) {
 			m_fetchedAll = true;
@@ -225,10 +148,14 @@ void GroupChatUserModel::fetchUsers()
 
 void GroupChatUserModel::addUser(const GroupChatUser &user)
 {
+	if (!shouldUserBeProcessed(user)) {
+		return;
+	}
+
 	for (int i = 0; i < m_users.size(); i++) {
 		const GroupChatUser existingUser = m_users.at(i);
 
-		if (user.name > existingUser.name) {
+		if (user < existingUser) {
 			insertUser(i, user);
 			return;
 		}
@@ -238,16 +165,17 @@ void GroupChatUserModel::addUser(const GroupChatUser &user)
 	insertUser(m_users.size(), user);
 }
 
-void GroupChatUserModel::addSortedUsers(const QVector<GroupChatUser> &users)
+void GroupChatUserModel::replaceUsers(QVector<GroupChatUser> users)
 {
-	for (const GroupChatUser &user : users) {
-		int i = 0;
+	std::sort(users.begin(), users.end());
 
-		if (shouldUserBeProcessed(user)) {
-			insertUser(i, user);
-			i++;
-		}
-	}
+	beginResetModel();
+	m_users = filter(std::move(users), [this](const GroupChatUser &user) {
+		return shouldUserBeProcessed(user);
+	});
+	endResetModel();
+
+	Q_EMIT userJidsChanged();
 }
 
 void GroupChatUserModel::insertUser(int position, const GroupChatUser &user)
@@ -259,36 +187,37 @@ void GroupChatUserModel::insertUser(int position, const GroupChatUser &user)
 	Q_EMIT userJidsChanged();
 }
 
-void GroupChatUserModel::updateUser(const QString &accountJid, const QString &chatJid, const QString &idOrJid, const std::function<void (GroupChatUser &user)> &updateUser, const bool isIdPassed)
+void GroupChatUserModel::updateUser(const GroupChatUser &user)
+{
+	if (!shouldUserBeProcessed(user)) {
+		return;
+	}
+
+	for (int i = 0; i < m_users.size(); i++) {
+		if (m_users.at(i).accountJid == user.accountJid && m_users.at(i).chatJid == user.chatJid && (m_users.at(i).id == user.id || m_users.at(i).jid == user.jid)) {
+			beginRemoveRows(QModelIndex(), i, i);
+			m_users.removeAt(i);
+			endRemoveRows();
+
+			addUser(user);
+
+			break;
+		}
+	}
+}
+
+void GroupChatUserModel::removeUser(const GroupChatUser &user)
 {
 	for (int i = 0; i < m_users.size(); i++) {
-		if (m_users.at(i).accountJid == accountJid && m_users.at(i).chatJid == chatJid && (isIdPassed ? m_users.at(i).id == idOrJid : m_users.at(i).jid == idOrJid)) {
-			// Update the user.
-			GroupChatUser user = m_users.at(i);
-			updateUser(user);
+		GroupChatUser &existingUser = m_users[i];
 
-			// Return if the user was not modified.
-			if (m_users.at(i) == user) {
-				return;
-			}
+		if (existingUser.accountJid == user.accountJid && existingUser.chatJid == user.chatJid && existingUser.id.isEmpty() ? existingUser.jid == user.jid : existingUser.id == user.id) {
+			beginRemoveRows(QModelIndex(), i, i);
+			m_users.remove(i);
+			endRemoveRows();
 
-			// Check if the position of the new user is different.
-			// Insert the user at the same position if it is equal.
-			// Otherwise, remove the old user and append the new one to the end.
-			if (user.name == m_users.at(i).name) {
-				beginRemoveRows(QModelIndex(), i, i);
-				m_users.removeAt(i);
-				endRemoveRows();
-
-				insertUser(i, user);
-			} else {
-				beginRemoveRows(QModelIndex(), i, i);
-				m_users.removeAt(i);
-				endRemoveRows();
-
-				addUser(user);
-			}
-			break;
+			Q_EMIT userJidsChanged();
+			return;
 		}
 	}
 }

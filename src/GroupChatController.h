@@ -68,10 +68,6 @@ public:
 	QVector<QString> currentUserJids() const;
 	Q_SIGNAL void currentUserJidsChanged();
 
-	Q_INVOKABLE void banUser(const QString &accountJid, const QString &groupChatJid, const QString &userJid);
-	Q_SIGNAL void userBanned(const GroupChatUser &user);
-	Q_SIGNAL void userUnbanned(const GroupChatUser &user);
-
 	Q_INVOKABLE void leaveGroupChat(const QString &accountJid, const QString &groupChatJid);
 	Q_SIGNAL void groupChatLeft(const QString &accountJid, const QString &groupChatJid);
 	Q_SIGNAL void groupChatLeavingFailed(const QString &accountJid, const QString &groupChatJid, const QString &errorMessage);
@@ -83,8 +79,10 @@ public:
 	Q_SIGNAL void groupChatMadePrivate(const QString &accountJid, const QString &groupChatJid);
 	Q_SIGNAL void groupChatMadePublic(const QString &accountJid, const QString &groupChatJid);
 
-	Q_SIGNAL void userAllowed(const GroupChatUser &user);
-	Q_SIGNAL void userDisallowed(const GroupChatUser &user);
+	Q_INVOKABLE void banUser(const QString &accountJid, const QString &groupChatJid, const QString &userJid);
+
+	Q_SIGNAL void userDisallowedOrUnbanned(const GroupChatUser &user);
+	Q_SIGNAL void userAllowedOrBanned(const GroupChatUser &user);
 
 	Q_SIGNAL void participantReceived(const GroupChatUser &participant);
 	Q_SIGNAL void participantLeft(const GroupChatUser &participant);

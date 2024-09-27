@@ -570,6 +570,27 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 	});
 }
 
+bool MessageDb::_hasMessage(const QString &accountJid, const QString &chatJid, const QString &groupChatSenderId)
+{
+	auto query = createQuery();
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			SELECT 1
+			FROM chatMessages
+			WHERE accountJid = :accountJid AND chatJid = :chatJid AND groupChatSenderId = :groupChatSenderId
+			LIMIT 1
+		)"),
+		{
+			{ u":accountJid", accountJid },
+			{ u":chatJid", chatJid },
+			{ u":groupChatSenderId", groupChatSenderId },
+		}
+	);
+
+	return query.first();
+}
+
 QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd)
 {
 	return run([=, this]() {

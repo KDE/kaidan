@@ -80,42 +80,6 @@ public:
 	 */
 	Q_INVOKABLE QString participantName(const QString &accountJid, const QString &chatJid, const QString &participantId) const;
 
-	/**
-	 * Handles an added member.
-	 *
-	 * @param user added member
-	 */
-	void handleUserAllowed(const GroupChatUser &user);
-
-	/**
-	 * Handles an added banned user.
-	 *
-	 * @param user added banned user
-	 */
-	void handleBannedUserAdded(const GroupChatUser &user);
-
-	/**
-	 * Handles a removed member or removed banned user.
-	 *
-	 * @param user removed member or banned user
-	 */
-	void handleUserDisallowedOrUnbanned(const GroupChatUser &user);
-
-	/**
-	 * Handles a participant received from the server.
-	 *
-	 * That participant can be a new participant or an updated one.
-	 * If it is a new participant, it will be added.
-	 * Otherwise, it will update the existing one.
-	 *
-	 * If the passed participant is the user's own user entry, it is not processed.
-	 *
-	 * @param user new or updated user
-	 */
-	void handleParticipantReceived(const GroupChatUser &participant);
-
-	void removeUser(const GroupChatUser &user);
-
 private:
 	void fetchUsers();
 
@@ -129,16 +93,17 @@ private:
 	void addUser(const GroupChatUser &user);
 
 	/**
-	 * Adds new and sorted users.
+	 * Replaces all users.
 	 *
-	 * If a passed user is the user's own user entry, it is not added.
+	 * The user's own user entry is not added.
 	 *
 	 * @param users new and already sorted users to add
 	 */
-	void addSortedUsers(const QVector<GroupChatUser> &users);
+	void replaceUsers(QVector<GroupChatUser> users);
 
 	void insertUser(int i, const GroupChatUser &user);
-	void updateUser(const QString &accountJid, const QString &chatJid, const QString &idOrJid, const std::function<void (GroupChatUser &user)> &updateUser, const bool isIdPassed = true);
+	void updateUser(const GroupChatUser &user);
+	void removeUser(const GroupChatUser &user);
 	void removeAllUsers();
 
 	/**

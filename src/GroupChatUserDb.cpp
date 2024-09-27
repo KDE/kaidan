@@ -15,6 +15,7 @@
 #include "Database.h"
 #include "Globals.h"
 #include "GroupChatUser.h"
+#include "MessageDb.h"
 #include "SqlUtils.h"
 
 using namespace SqlUtils;
@@ -135,7 +136,7 @@ QFuture<QVector<QString> > GroupChatUserDb::userJids(const QString &accountJid, 
 	});
 }
 
-QFuture<void> GroupChatUserDb::handleUserAllowed(const GroupChatUser &user)
+QFuture<void> GroupChatUserDb::handleUserAllowedOrBanned(const GroupChatUser &user)
 {
 	return run([this, user]() {
 		auto query = createQuery();
@@ -153,10 +154,15 @@ QFuture<void> GroupChatUserDb::handleUserAllowed(const GroupChatUser &user)
 			"LIMIT 1")
 		);
 
-		// Add the user only if there is no entry for a user of the group chat with the same JID.
+		// If there is a stored user with a different status, update that user.
+		// Otherwise, add a new entry.
 		// "INSERT OR IGNORE INTO" is not possible because the columns that are checked differ from
 		// those that are inserted.
-		if (!query.next()) {
+		if (query.next()) {
+			updateUserByJid(user.accountJid, user.chatJid, user.jid, [status = user.status](GroupChatUser &storedUser) {
+				storedUser.status = status;
+			});
+		} else {
 			addUser(user);
 		}
 	});
@@ -187,9 +193,9 @@ QFuture<void> GroupChatUserDb::handleUserDisallowedOrUnbanned(const GroupChatUse
 	});
 }
 
-QFuture<void> GroupChatUserDb::handleParticipantReceived(const GroupChatUser &participant)
+QFuture<void> GroupChatUserDb::handleParticipantReceived(GroupChatUser participant)
 {
-	return run([this, participant]() {
+	return run([this, participant]() mutable {
 		auto query = createQuery();
 
 		QMap<QString, QVariant> keyValuePairs = {
@@ -200,18 +206,21 @@ QFuture<void> GroupChatUserDb::handleParticipantReceived(const GroupChatUser &pa
 
 		execQuery(
 			query,
-			QStringLiteral("SELECT ") + ID.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
+			QStringLiteral("SELECT 1 FROM " DB_TABLE_GROUP_CHAT_USERS) +
 			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
 			"LIMIT 1")
 		);
+
+		participant.status = GroupChatUser::Status::Joined;
 
 		// If the participant was already joined but modified, update the former entry normally.
 		// If the participant was set as allowed to join but not yet joined, transform the former
 		// entry to a joined one.
 		// If the participant was not set as allowed before and joined now, add the participant.
 		if (query.next()) {
-			updateUserById(participant.accountJid, participant.chatJid, participant.id, [=](GroupChatUser &user) {
+			updateUserById(participant.accountJid, participant.chatJid, participant.id, [participant](GroupChatUser &user) {
 				user.name = participant.name;
+				user.status = participant.status;
 			});
 		} else {
 			keyValuePairs = {
@@ -228,13 +237,43 @@ QFuture<void> GroupChatUserDb::handleParticipantReceived(const GroupChatUser &pa
 			);
 
 			if (query.next()) {
-				updateUserByJid(participant.accountJid, participant.chatJid, participant.jid, [=](GroupChatUser &user) {
+				updateUserByJid(participant.accountJid, participant.chatJid, participant.jid, [participant](GroupChatUser &user) {
 					user.id = participant.id;
 					user.name = participant.name;
 					user.status = participant.status;
 				});
 			} else {
 				addUser(participant);
+			}
+		}
+	});
+}
+
+QFuture<void> GroupChatUserDb::handleParticipantLeft(const GroupChatUser &participant)
+{
+	return run([this, participant]() {
+		auto query = createQuery();
+
+		QMap<QString, QVariant> keyValuePairs = {
+			{ ACCOUNT_JID.toString(), participant.accountJid },
+			{ CHAT_JID.toString(), participant.chatJid },
+			{ ID.toString(), participant.id }
+		};
+
+		execQuery(
+			query,
+			QStringLiteral("SELECT ") + STATUS.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
+			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
+			"LIMIT 1")
+		);
+
+		if (query.next()) {
+			if (const auto status = query.value(0).value<GroupChatUser::Status>(); status == GroupChatUser::Status::Allowed || MessageDb::instance()->_hasMessage(participant.accountJid, participant.chatJid, participant.id)) {
+				updateUserById(participant.accountJid, participant.chatJid, participant.id, [](GroupChatUser &user) {
+					user.status = GroupChatUser::Status::Left;
+				});
+			} else {
+				removeUser(participant);
 			}
 		}
 	});
@@ -262,58 +301,6 @@ QFuture<void> GroupChatUserDb::handleMessageSender(GroupChatUser sender)
 			sender.status = GroupChatUser::Status::Left;
 			addUser(sender);
 		}
-	});
-}
-
-QFuture<void> GroupChatUserDb::addUser(const GroupChatUser &user)
-{
-	return run([this, user]() {
-		const auto accountJid = user.accountJid;
-		const auto chatJid = user.chatJid;
-
-		insert(
-			QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
-			{
-				{ ACCOUNT_JID, accountJid},
-				{ CHAT_JID, chatJid},
-				{ ID, user.id},
-				{ JID, user.jid},
-				{ NAME, user.name},
-				{ STATUS, static_cast<int>(user.status)},
-			}
-		);
-
-		Q_EMIT userAdded(user);
-		Q_EMIT userJidsChanged(accountJid, chatJid);
-	});
-}
-
-QFuture<void> GroupChatUserDb::removeUser(const GroupChatUser &user)
-{
-	return run([this, user]() {
-		auto query = createQuery();
-
-		const auto accountJid = user.accountJid;
-		const auto chatJid = user.chatJid;
-
-		// That variable must be used because users can have only an ID (participant in anonymous
-		// group chat), only a JID (not joined but allowed user) or both (participant in normal
-		// group chat).
-		bool hasId = !user.id.isEmpty();
-
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), accountJid },
-			{ CHAT_JID.toString(), chatJid },
-			{ hasId ? ID.toString() : JID.toString(), hasId ? user.id : user.jid }
-		};
-
-		execQuery(
-			query,
-			QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs)
-		);
-
-		Q_EMIT userJidsChanged(accountJid, chatJid);
 	});
 }
 
@@ -360,6 +347,27 @@ void GroupChatUserDb::_removeUsers(const QString &accountJid, const QString &cha
 		QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
 		simpleWhereStatement(&sqlDriver(), keyValuePairs)
 	);
+}
+
+void GroupChatUserDb::addUser(const GroupChatUser &user)
+{
+	const auto accountJid = user.accountJid;
+	const auto chatJid = user.chatJid;
+
+	insert(
+		QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
+		{
+			{ ACCOUNT_JID, accountJid},
+			{ CHAT_JID, chatJid},
+			{ ID, user.id},
+			{ JID, user.jid},
+			{ NAME, user.name},
+			{ STATUS, static_cast<int>(user.status)},
+		}
+	);
+
+	Q_EMIT userAdded(user);
+	Q_EMIT userJidsChanged(accountJid, chatJid);
 }
 
 void GroupChatUserDb::updateUserById(const QString &accountJid, const QString &chatJid, const QString &userId, const std::function<void (GroupChatUser &)> &updateUser)
@@ -478,4 +486,32 @@ QSqlRecord GroupChatUserDb::createUpdateRecord(const GroupChatUser &oldUser, con
 	}
 
 	return rec;
+}
+
+void GroupChatUserDb::removeUser(const GroupChatUser &user)
+{
+	auto query = createQuery();
+
+	const auto accountJid = user.accountJid;
+	const auto chatJid = user.chatJid;
+
+	// That variable must be used because users can have only an ID (participant in anonymous
+	// group chat), only a JID (not joined but allowed user) or both (participant in normal
+	// group chat).
+	bool hasId = !user.id.isEmpty();
+
+	QMap<QString, QVariant> keyValuePairs = {
+		{ ACCOUNT_JID.toString(), accountJid },
+		{ CHAT_JID.toString(), chatJid },
+		{ hasId ? ID.toString() : JID.toString(), hasId ? user.id : user.jid }
+	};
+
+	execQuery(
+		query,
+		QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
+		simpleWhereStatement(&sqlDriver(), keyValuePairs)
+	);
+
+	Q_EMIT userRemoved(user);
+	Q_EMIT userJidsChanged(accountJid, chatJid);
 }

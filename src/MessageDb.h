@@ -174,6 +174,8 @@ public:
 
 	QFuture<QString> firstContactMessageId(const QString &accountJid, const QString &chatJid, int index);
 
+	bool _hasMessage(const QString &accountJid, const QString &chatJid, const QString &groupChatSenderId);
+
 	/**
 	 * Returns the count of messages chronologically between (including) two given messages
 	 * specified by their IDs.

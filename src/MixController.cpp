@@ -504,7 +504,7 @@ void MixController::handleJidAllowed(const QString &channelJid, const QString &j
 	user.jid = jid;
 	user.status = GroupChatUser::Status::Allowed;
 
-	Q_EMIT GroupChatController::instance()->userAllowed(user);
+	Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidDisallowed(const QString &channelJid, const QString &jid)
@@ -515,7 +515,7 @@ void MixController::handleJidDisallowed(const QString &channelJid, const QString
 	user.jid = jid;
 	user.status = GroupChatUser::Status::Allowed;
 
-	Q_EMIT GroupChatController::instance()->userDisallowed(user);
+	Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleJidBanned(const QString &channelJid, const QString &jid)
@@ -526,7 +526,7 @@ void MixController::handleJidBanned(const QString &channelJid, const QString &ji
 	user.jid = jid;
 	user.status = GroupChatUser::Status::Banned;
 
-	Q_EMIT GroupChatController::instance()->userBanned(user);
+	Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidUnbanned(const QString &channelJid, const QString &jid)
@@ -537,7 +537,7 @@ void MixController::handleJidUnbanned(const QString &channelJid, const QString &
 	user.jid = jid;
 	user.status = GroupChatUser::Status::Banned;
 
-	Q_EMIT GroupChatController::instance()->userUnbanned(user);
+	Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleParticipantReceived(const QString &channelJid, const QXmppMixParticipantItem &participantItem)
@@ -548,7 +548,6 @@ void MixController::handleParticipantReceived(const QString &channelJid, const Q
 	user.id = participantItem.id();
 	user.jid = participantItem.jid();
 	user.name = participantItem.nick();
-	user.status = GroupChatUser::Status::Joined;
 
 	Q_EMIT GroupChatController::instance()->participantReceived(user);
 }

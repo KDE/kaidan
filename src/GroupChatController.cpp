@@ -52,14 +52,11 @@ GroupChatController::GroupChatController(QObject *parent)
 		});
 	});
 
-	connect(this, &GroupChatController::userAllowed, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserAllowed);
-	connect(this, &GroupChatController::userDisallowed, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserDisallowedOrUnbanned);
-
-	connect(this, &GroupChatController::userBanned, GroupChatUserDb::instance(), &GroupChatUserDb::addUser);
-	connect(this, &GroupChatController::userUnbanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserDisallowedOrUnbanned);
+	connect(this, &GroupChatController::userAllowedOrBanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserAllowedOrBanned);
+	connect(this, &GroupChatController::userDisallowedOrUnbanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserDisallowedOrUnbanned);
 
 	connect(this, &GroupChatController::participantReceived, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantReceived);
-	connect(this, &GroupChatController::participantLeft, GroupChatUserDb::instance(), &GroupChatUserDb::removeUser);
+	connect(this, &GroupChatController::participantLeft, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantLeft);
 
 	connect(this, &GroupChatController::groupChatLeft, GroupChatUserDb::instance(), qOverload<const QString &, const QString &>(&GroupChatUserDb::removeUsers));
 

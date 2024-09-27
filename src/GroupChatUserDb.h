@@ -6,7 +6,7 @@
 
 #include "DatabaseComponent.h"
 
-class GroupChatUser;
+#include "GroupChatUser.h"
 
 class GroupChatUserDb : public DatabaseComponent
 {
@@ -55,15 +55,16 @@ public:
 	Q_SIGNAL void userJidsChanged(const QString &accountJid, const QString &chatJid);
 
 	/**
-	 * Handles a user that is allowed to participate in a specific group chat.
+	 * Handles a user that is allowed to participate or banned from participating in a specific
+	 * group chat.
 	 *
 	 * @param user allowed user
 	 */
-	QFuture<void> handleUserAllowed(const GroupChatUser &user);
+	QFuture<void> handleUserAllowedOrBanned(const GroupChatUser &user);
 
 	/**
-	 * Handles a user that is not allowed anymore to participate in a specific group chat or a user
-	 * that is not banned anymore from participating in a specific group chat.
+	 * Handles a user that is not allowed anymore to participate or not banned anymore from
+	 * participating in a specific group chat.
 	 *
 	 * @param user disallowed or unbanned user
 	 */
@@ -78,7 +79,14 @@ public:
 	 *
 	 * @param participant new or updated participant
 	 */
-	QFuture<void> handleParticipantReceived(const GroupChatUser &participant);
+	QFuture<void> handleParticipantReceived(GroupChatUser participant);
+
+	/**
+	 * Handles a left participant.
+	 *
+	 * @param participant left participant
+	 */
+	QFuture<void> handleParticipantLeft(const GroupChatUser &participant);
 
 	/**
 	 * Handles a user who sent a message.
@@ -93,22 +101,9 @@ public:
 	 */
 	QFuture<void> handleMessageSender(GroupChatUser sender);
 
-	/**
-	 * Adds a user.
-	 *
-	 * @param user user being added
-	 */
-	QFuture<void> addUser(const GroupChatUser &user);
 	Q_SIGNAL void userAdded(const GroupChatUser &user);
-
 	Q_SIGNAL void userUpdated(const GroupChatUser &user);
-
-	/**
-	 * Removes a user.
-	 *
-	 * @param user user being removed
-	 */
-	QFuture<void> removeUser(const GroupChatUser &user);
+	Q_SIGNAL void userRemoved(const GroupChatUser &user);
 
 	/**
 	 * Removes all users of an account.
@@ -128,6 +123,13 @@ public:
 	void _removeUsers(const QString &accountJid, const QString &chatJid);
 
 private:
+	/**
+	 * Adds a user.
+	 *
+	 * @param user user being added
+	 */
+	void addUser(const GroupChatUser &user);
+
     /**
      * Updates a user by ID.
      *
@@ -171,6 +173,13 @@ private:
 	 * @param newUser user which updates the current one
 	 */
 	static QSqlRecord createUpdateRecord(const GroupChatUser &oldUser, const GroupChatUser &newUser);
+
+	/**
+	 * Removes a user.
+	 *
+	 * @param user user being removed
+	 */
+	void removeUser(const GroupChatUser &user);
 
 	static GroupChatUserDb *s_instance;
 };

@@ -22,11 +22,14 @@ public:
 		Banned,
 	};
 	Q_ENUM(Status)
+	// TODO: Use QFlags here to allow combinations such as allowed but not joined
 
 	QString displayName() const;
 
 	bool operator==(const GroupChatUser &other) const;
 	bool operator!=(const GroupChatUser &other) const;
+
+	bool operator<(const GroupChatUser &other) const;
 
 	QString accountJid;
 	QString chatJid;
