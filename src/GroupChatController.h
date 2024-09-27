@@ -94,6 +94,7 @@ public:
 private:
 	void setBusy(bool busy);
 	void handleChatChanged();
+	void handleRosterItemAdded(const QString &accountJid, const QString &jid);
 	void updateUserJidsChanged(const QString &accountJid, const QString &groupChatJid);
 	void updateEncryption();
 	void setCurrentUserJids(const QVector<QString> &currentUserJids);
@@ -101,6 +102,9 @@ private:
 	bool m_busy = false;
 	std::unique_ptr<MixController> m_mixController;
 	QVector<QString> m_currentUserJids;
+
+	QString m_processedAccountJid;
+	QString m_processedGroupChatJid;
 
 	static GroupChatController *s_instance;
 };

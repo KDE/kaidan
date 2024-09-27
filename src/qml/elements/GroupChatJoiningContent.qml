@@ -44,10 +44,6 @@ ConfirmationArea {
 	Connections {
 		target: GroupChatController
 
-		function onGroupChatJoined(accountJid, groupChatJid) {
-			Kaidan.openChatPageRequested(accountJid, groupChatJid)
-		}
-
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
 			passiveNotification(qsTr("The group %1 could not be joined%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 		}

@@ -30,6 +30,7 @@ GroupChatController::GroupChatController(QObject *parent)
 
 	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userJidsChanged, this, &GroupChatController::updateUserJidsChanged);
 	connect(ChatController::instance(), &ChatController::chatChanged, this, &GroupChatController::handleChatChanged);
+	connect(RosterModel::instance(), &RosterModel::itemAdded, this, &GroupChatController::handleRosterItemAdded);
 
 	connect(this, &GroupChatController::groupChatMadePrivate, this, [](const QString &, const QString &groupChatJid) {
 		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
@@ -80,7 +81,8 @@ GroupChatController::GroupChatController(QObject *parent)
 	connect(this, &GroupChatController::privateGroupChatCreationFailed, this, setIdle);
 	connect(this, &GroupChatController::publicGroupChatCreationFailed, this, setIdle);
 
-	connect(this, &GroupChatController::groupChatJoined, this, setIdle);
+	// groupChatJoined() is not covered here since successful joining is handled by
+	// handleRosterItemAdded().
 	connect(this, &GroupChatController::groupChatJoiningFailed, this, setIdle);
 
 	connect(this, &GroupChatController::groupChatLeft, this, setIdle);
@@ -151,9 +153,11 @@ void GroupChatController::renameGroupChat(const QString &, const QString &groupC
 	m_mixController->renameChannel(groupChatJid, name);
 }
 
-void GroupChatController::joinGroupChat(const QString &, const QString &groupChatJid, const QString &nickname)
+void GroupChatController::joinGroupChat(const QString &accountJid, const QString &groupChatJid, const QString &nickname)
 {
 	setBusy(true);
+	m_processedAccountJid = accountJid;
+	m_processedGroupChatJid = groupChatJid;
 	m_mixController->joinChannel(groupChatJid, nickname);
 }
 
@@ -221,6 +225,16 @@ void GroupChatController::handleChatChanged()
 				}
 			}
 		});
+	}
+}
+
+void GroupChatController::handleRosterItemAdded(const QString &accountJid, const QString &jid)
+{
+	if (accountJid == m_processedAccountJid && jid == m_processedGroupChatJid) {
+		m_processedAccountJid.clear();
+		m_processedGroupChatJid.clear();
+		Kaidan::instance()->openChatPageRequested(accountJid, jid);
+		setBusy(false);
 	}
 }
 

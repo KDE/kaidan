@@ -19,6 +19,9 @@ import im.kaidan.kaidan 1.0
 import "fields"
 
 ConfirmationArea {
+	id: root
+
+	property string accountJid: AccountManager.jid
 	property alias jidField: jidField
 	property alias jid: jidField.text
 	property alias nameField: nameField
@@ -34,13 +37,11 @@ ConfirmationArea {
 									"long",
 									qsTr("Open chat"),
 									function () {
-										Kaidan.openChatPageRequested(AccountManager.jid, jidInLowerCase)
+										Kaidan.openChatPageRequested(accountJid, jidInLowerCase)
 									})
 		} else if (jidField.valid) {
 			busy = true
 			Kaidan.client.rosterManager.addContactRequested(jidInLowerCase, name, messageField.text)
-			busy = false
-			Kaidan.openChatPageRequested(AccountManager.jid, jidInLowerCase)
 		} else {
 			jidField.forceActiveFocus()
 		}
@@ -83,6 +84,16 @@ ConfirmationArea {
 			}
 			Layout.fillWidth: true
 			Layout.minimumHeight: Kirigami.Units.gridUnit * 4
+		}
+	}
+
+	Connections {
+		target: RosterModel
+
+		function onItemAdded(accountJid, jid) {
+			if (accountJid === root.accountJid && jid === root.jid) {
+				Kaidan.openChatPageRequested(accountJid, jid)
+			}
 		}
 	}
 }

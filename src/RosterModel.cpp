@@ -874,7 +874,9 @@ void RosterModel::insertItem(int index, const RosterItem &item)
 	m_items.insert(index, item);
 	endInsertRows();
 
-	RosterItemNotifier::instance().notifyWatchers(item.jid, item);
+	const auto jid = item.jid;
+	RosterItemNotifier::instance().notifyWatchers(jid, item);
+	Q_EMIT itemAdded(item.accountJid, jid);
 
 	if (newAccountJidAdded) {
 		Q_EMIT accountJidsChanged();

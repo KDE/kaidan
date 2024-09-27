@@ -90,6 +90,7 @@ ConfirmationArea {
 		target: GroupChatController
 
 		function onGroupChatCreated(accountJid, groupChatJid) {
+			GroupChatController.renameGroupChat(accountJid, groupChatJid, root.groupChatName)
 			GroupChatController.joinGroupChat(accountJid, groupChatJid, root.nickname)
 		}
 
@@ -99,11 +100,6 @@ ConfirmationArea {
 
 		function onPublicGroupChatCreationFailed(groupChatJid, errorMessage) {
 			passiveNotification(qsTr("The group %1 could not be created%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
-		}
-
-		function onGroupChatJoined(accountJid, groupChatJid) {
-			GroupChatController.renameGroupChat(accountJid, groupChatJid, root.groupChatName)
-			Kaidan.openChatPageRequested(accountJid, groupChatJid)
 		}
 
 		function onGroupChatJoiningFailed(groupChatJid, errorMessage) {
