@@ -501,7 +501,10 @@ RosterItemDetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
 				}
-				confirmationButton.onClicked: GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
+				confirmationButton.onClicked: {
+					groupChatDeletionButton.confirmationButton.visible = false
+					GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
+				}
 				busyText: qsTr("Leaving group chat…")
 			}
 
