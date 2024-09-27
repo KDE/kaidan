@@ -28,7 +28,6 @@ constexpr auto SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL = 500ms;
 OmemoController::OmemoController( QObject *parent)
 	: QObject(parent)
 {
-	// TODO: Fix "QObject::connect: Cannot queue arguments of type 'QMultiHash<QString,QByteArray>' (Make sure 'QMultiHash<QString,QByteArray>' is registered using qRegisterMetaType().)"
 	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::trustLevelsChanged, this, [](const QMultiHash<QString, QByteArray> &modifiedKeys) {
 		Q_EMIT EncryptionController::instance()->keysChanged(AccountManager::instance()->jid(), modifiedKeys.keys());
 	});

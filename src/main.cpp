@@ -102,6 +102,8 @@
 #include "VCardModel.h"
 #include "VersionManager.h"
 
+Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
+
 Q_DECLARE_METATYPE(Qt::ApplicationState)
 
 Q_DECLARE_METATYPE(QXmppClient::State)
@@ -344,6 +346,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
 	qRegisterMetaType<QXmppMixInfoItem>();
 	qRegisterMetaType<QXmppMixParticipantItem>();
+	qRegisterMetaType<QMultiHash<QString, QByteArray>>();
 
 	// Qt-Translator
 	QTranslator qtTranslator;
