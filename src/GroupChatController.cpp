@@ -10,7 +10,6 @@
 #include "EncryptionController.h"
 #include "EncryptionWatcher.h"
 #include "GroupChatUserDb.h"
-//#include "GroupChatUserModel.h"
 #include "Kaidan.h"
 #include "MixController.h"
 #include "RosterDb.h"
