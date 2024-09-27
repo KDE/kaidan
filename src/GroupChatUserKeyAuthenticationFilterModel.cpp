@@ -52,6 +52,13 @@ void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QStri
 void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 {
 	const auto model = static_cast<GroupChatUserModel *>(sourceModel());
+	const auto userJids = model->userJids();
+
+	if (userJids.isEmpty()) {
+		m_jids.clear();
+		invalidateFilter();
+		return;
+	}
 
 	await(EncryptionController::instance()->devices(model->accountJid(), model->userJids()), this, [this](QList<EncryptionController::Device> &&devices) {
 		const auto jids = transformFilter<QList<QString>>(std::as_const(devices), [](const EncryptionController::Device &device) -> std::optional<QString> {
@@ -64,7 +71,7 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 
 		if (m_jids != jids) {
 			m_jids = jids;
-			invalidate();
+			invalidateFilter();
 		}
 	});
 }
