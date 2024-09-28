@@ -573,7 +573,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr ""
 
-#: src/OmemoController.cpp:107
+#: src/OmemoController.cpp:106
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr ""
@@ -2255,22 +2255,22 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Գաղտնիք"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:418
+#: src/qml/elements/ChatMessage.qml:414
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:446
+#: src/qml/elements/ChatMessage.qml:442
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2373,7 +2373,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:150
+msgctxt "ChatPageSendingPane|"
+msgid "Mention a participant"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2381,7 +2386,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:173
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2389,7 +2394,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2397,7 +2402,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2405,12 +2410,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:366
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -2418,12 +2423,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Լուսանկարել"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:378
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -2431,12 +2436,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Ձայնագրել տեսաֆիլմ"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:390
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -2444,12 +2449,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Աուդիո ֆայլեր"
 
-#: src/qml/elements/ChatPageSendingPane.qml:375
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:386
+#: src/qml/elements/ChatPageSendingPane.qml:402
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2457,7 +2462,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Ուղարկել տեղադրություն"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:403
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2774,6 +2779,14 @@ msgstr ""
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
+
+#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "GroupChatParticipantPicker|"
+msgid "Invite contacts to this group…"
+msgstr "Ջնջել կոնտակտը"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -3290,12 +3303,12 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Ուղարկել ֆայլ"
 
-#: src/qml/elements/SendMediaSheet.qml:116
+#: src/qml/elements/SendMediaSheet.qml:122
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr ""
 
-#: src/qml/elements/SendMediaSheet.qml:124
+#: src/qml/elements/SendMediaSheet.qml:130
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -3303,7 +3316,7 @@ msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Հեռացնել"
 
-#: src/qml/elements/SendMediaSheet.qml:138
+#: src/qml/elements/SendMediaSheet.qml:144
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -3311,7 +3324,7 @@ msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Գրեք հաղորդագրություն"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:151
 #, fuzzy
 #| msgctxt "RosterAddContactSheet|"
 #| msgid "Add"
@@ -3319,7 +3332,7 @@ msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Ավելացնել"
 
-#: src/qml/elements/SendMediaSheet.qml:156
+#: src/qml/elements/SendMediaSheet.qml:162
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Ուղարկել"

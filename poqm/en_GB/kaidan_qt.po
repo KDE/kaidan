@@ -516,7 +516,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Requests to receive your personal data"
 
-#: src/OmemoController.cpp:107
+#: src/OmemoController.cpp:106
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "End-to-end encryption via OMEMO 2 could not be set up"
@@ -1826,22 +1826,22 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Open"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Join…"
 
-#: src/qml/elements/ChatMessage.qml:418
+#: src/qml/elements/ChatMessage.qml:414
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "New"
 
-#: src/qml/elements/ChatMessage.qml:446
+#: src/qml/elements/ChatMessage.qml:442
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1917,67 +1917,75 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Cancel adding hidden message part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:150
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Participants"
+msgctxt "ChatPageSendingPane|"
+msgid "Mention a participant"
+msgstr "Participants"
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Compose <b>encrypted </b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Compose <b>unencrypted</b> message with hidden part"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Compose <b>encrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Compose <b>unencrypted</b> message"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:366
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Take picture"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Take a picture using your camera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:378
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Record video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Record a video using your camera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Share files"
 
-#: src/qml/elements/ChatPageSendingPane.qml:375
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Share files from your device"
 
-#: src/qml/elements/ChatPageSendingPane.qml:386
+#: src/qml/elements/ChatPageSendingPane.qml:402
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Share location"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Send your location"
@@ -2220,6 +2228,14 @@ msgstr "Join group chat"
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Join group chat"
+
+#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Invite contacts"
+msgctxt "GroupChatParticipantPicker|"
+msgid "Invite contacts to this group…"
+msgstr "Invite contacts"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -2615,27 +2631,27 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Choose files"
 
-#: src/qml/elements/SendMediaSheet.qml:116
+#: src/qml/elements/SendMediaSheet.qml:122
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "Enter description…"
 
-#: src/qml/elements/SendMediaSheet.qml:124
+#: src/qml/elements/SendMediaSheet.qml:130
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Remove file"
 
-#: src/qml/elements/SendMediaSheet.qml:138
+#: src/qml/elements/SendMediaSheet.qml:144
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Compose message"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:151
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Add"
 
-#: src/qml/elements/SendMediaSheet.qml:156
+#: src/qml/elements/SendMediaSheet.qml:162
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Send"

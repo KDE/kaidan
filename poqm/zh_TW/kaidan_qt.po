@@ -553,7 +553,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "請求接收您的個人資料"
 
-#: src/OmemoController.cpp:107
+#: src/OmemoController.cpp:106
 #, fuzzy
 #| msgctxt "OmemoManager|"
 #| msgid "End-to-end encryption via OMEMO 2 could not be set up"
@@ -2119,7 +2119,7 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "暴雷"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -2127,17 +2127,17 @@ msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "開啟"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:418
+#: src/qml/elements/ChatMessage.qml:414
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:446
+#: src/qml/elements/ChatMessage.qml:442
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2225,67 +2225,72 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "取消加入隱藏訊息部分"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:150
+msgctxt "ChatPageSendingPane|"
+msgid "Mention a participant"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "撰寫包含隱藏部分的<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "撰寫<b>加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "撰寫<b>未加密</b>訊息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "媒體"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:366
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "用您的相機拍張照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:378
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "錄製影片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "用您的相機錄製影片"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享檔案"
 
-#: src/qml/elements/ChatPageSendingPane.qml:375
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "分享來自您的裝置的檔案"
 
-#: src/qml/elements/ChatPageSendingPane.qml:386
+#: src/qml/elements/ChatPageSendingPane.qml:402
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "分享位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "傳送您的位置"
@@ -2578,6 +2583,14 @@ msgstr ""
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
+
+#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#, fuzzy
+#| msgctxt "KeyAuthenticationPage|"
+#| msgid "Unverified contact devices"
+msgctxt "GroupChatParticipantPicker|"
+msgid "Invite contacts to this group…"
+msgstr "未驗證的聯絡人的裝置"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -3023,27 +3036,27 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "選擇檔案"
 
-#: src/qml/elements/SendMediaSheet.qml:116
+#: src/qml/elements/SendMediaSheet.qml:122
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "輸入描述…"
 
-#: src/qml/elements/SendMediaSheet.qml:124
+#: src/qml/elements/SendMediaSheet.qml:130
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "移除檔案"
 
-#: src/qml/elements/SendMediaSheet.qml:138
+#: src/qml/elements/SendMediaSheet.qml:144
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "撰寫訊息"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:151
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "新增"
 
-#: src/qml/elements/SendMediaSheet.qml:156
+#: src/qml/elements/SendMediaSheet.qml:162
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "傳送"

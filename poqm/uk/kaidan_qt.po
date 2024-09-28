@@ -525,7 +525,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Запити для отримання особистих даних"
 
-#: src/OmemoController.cpp:107
+#: src/OmemoController.cpp:106
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Не вдалося налаштувати міжвузлове шифрування за допомогою OMEMO 2"
@@ -1862,22 +1862,22 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Відкрити"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Долучитися…"
 
-#: src/qml/elements/ChatMessage.qml:418
+#: src/qml/elements/ChatMessage.qml:414
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Нове"
 
-#: src/qml/elements/ChatMessage.qml:446
+#: src/qml/elements/ChatMessage.qml:442
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1953,67 +1953,75 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Скасувати додавання прихованої частини повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:150
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Participants"
+msgctxt "ChatPageSendingPane|"
+msgid "Mention a participant"
+msgstr "Учасники"
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Створити <b>шифроване</b> повідомлення із прихованою частиною"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Створити <b>нешифроване</b> повідомлення із прихованою частиною"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Створити <b>шифроване</b> повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Створити <b>нешифроване</b> повідомлення"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Мультимедіа"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:366
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Зробити знімок"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Зробити знімок камерою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:378
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Записати відео"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Записати відео камерою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Оприлюднити файли"
 
-#: src/qml/elements/ChatPageSendingPane.qml:375
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Оприлюднити файли з вашого пристрою"
 
-#: src/qml/elements/ChatPageSendingPane.qml:386
+#: src/qml/elements/ChatPageSendingPane.qml:402
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Оприлюднити місце"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Надіслати ваше місце перебування"
@@ -2257,6 +2265,14 @@ msgstr "Долучення до групового спілкування"
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Долучення до групового спілкування"
+
+#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "Invite contacts"
+msgctxt "GroupChatParticipantPicker|"
+msgid "Invite contacts to this group…"
+msgstr "Запросити контакти"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -2651,27 +2667,27 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Виберіть файли"
 
-#: src/qml/elements/SendMediaSheet.qml:116
+#: src/qml/elements/SendMediaSheet.qml:122
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "Введіть опис…"
 
-#: src/qml/elements/SendMediaSheet.qml:124
+#: src/qml/elements/SendMediaSheet.qml:130
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Вилучити файл"
 
-#: src/qml/elements/SendMediaSheet.qml:138
+#: src/qml/elements/SendMediaSheet.qml:144
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Створити повідомлення"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:151
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Додати"
 
-#: src/qml/elements/SendMediaSheet.qml:156
+#: src/qml/elements/SendMediaSheet.qml:162
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Надіслати"

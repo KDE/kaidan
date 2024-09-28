@@ -557,7 +557,7 @@ msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietojasi"
 
-#: src/OmemoController.cpp:107
+#: src/OmemoController.cpp:106
 #, fuzzy
 #| msgctxt "OmemoManager|"
 #| msgid "End-to-end encryption via OMEMO 2 could not be set up"
@@ -2180,7 +2180,7 @@ msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -2188,17 +2188,17 @@ msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/elements/ChatMessage.qml:265
+#: src/qml/elements/ChatMessage.qml:261
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:418
+#: src/qml/elements/ChatMessage.qml:414
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:446
+#: src/qml/elements/ChatMessage.qml:442
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2289,67 +2289,72 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Peru viestin piilo-osan lisääminen"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:150
+msgctxt "ChatPageSendingPane|"
+msgid "Mention a participant"
+msgstr ""
+
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Kirjoita <b>salattu</b> viesti piilo-osalla"
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Kirjoita <b>salaamaton</b> viesti piilo-osalla"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Kirjoita <b>salattu</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:159
+#: src/qml/elements/ChatPageSendingPane.qml:175
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Kirjoita <b>salaamaton</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:294
+#: src/qml/elements/ChatPageSendingPane.qml:310
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/elements/ChatPageSendingPane.qml:350
+#: src/qml/elements/ChatPageSendingPane.qml:366
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Ota kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:351
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Ota kameralla kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:362
+#: src/qml/elements/ChatPageSendingPane.qml:378
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Nauhoita video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:363
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Nauhoita kameralla video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:374
+#: src/qml/elements/ChatPageSendingPane.qml:390
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Jaa tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:375
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Jaa laitteelta tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:386
+#: src/qml/elements/ChatPageSendingPane.qml:402
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Jaa sijainti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:387
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Lähetä sijaintisi"
@@ -2642,6 +2647,14 @@ msgstr ""
 msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
+
+#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#, fuzzy
+#| msgctxt "RosterRemoveContactSheet|"
+#| msgid "Delete contact"
+msgctxt "GroupChatParticipantPicker|"
+msgid "Invite contacts to this group…"
+msgstr "Poista yhteystieto"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -3097,27 +3110,27 @@ msgctxt "SendMediaSheet|"
 msgid "Choose files"
 msgstr "Valitse tiedostot"
 
-#: src/qml/elements/SendMediaSheet.qml:116
+#: src/qml/elements/SendMediaSheet.qml:122
 msgctxt "SendMediaSheet|"
 msgid "Enter description…"
 msgstr "Kirjoita kuvaus…"
 
-#: src/qml/elements/SendMediaSheet.qml:124
+#: src/qml/elements/SendMediaSheet.qml:130
 msgctxt "SendMediaSheet|"
 msgid "Remove file"
 msgstr "Poista tiedosto"
 
-#: src/qml/elements/SendMediaSheet.qml:138
+#: src/qml/elements/SendMediaSheet.qml:144
 msgctxt "SendMediaSheet|"
 msgid "Compose message"
 msgstr "Kirjoita viesti"
 
-#: src/qml/elements/SendMediaSheet.qml:145
+#: src/qml/elements/SendMediaSheet.qml:151
 msgctxt "SendMediaSheet|"
 msgid "Add"
 msgstr "Lisää"
 
-#: src/qml/elements/SendMediaSheet.qml:156
+#: src/qml/elements/SendMediaSheet.qml:162
 msgctxt "SendMediaSheet|"
 msgid "Send"
 msgstr "Lähetä"
