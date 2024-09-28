@@ -20,6 +20,7 @@ public:
 		ConnectToServer,
 		AllowPresenceSubscription,
 		InviteContacts,
+		Leave,
 	};
 	Q_ENUM(Type)
 
@@ -77,10 +78,13 @@ private:
 	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request);
 
 	void handleNoGroupChatUsers();
+	void checkGroupChatDeleted();
+	void handleGroupChatDeleted(const QString &accountJid, const QString &groupChatJid);
 
 	int addConnectToServerChatHint(bool loading = false);
 	int addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
 	int addInviteContactsChatHint();
+	void addLeaveChatHint();
 
 	int addChatHint(const ChatHint &chatHint);
 	void insertChatHint(int i, const ChatHint &chatHint);

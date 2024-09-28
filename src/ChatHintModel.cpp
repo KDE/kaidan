@@ -35,11 +35,13 @@ ChatHintModel::ChatHintModel(QObject *parent)
 
 	connect(this, &ChatHintModel::presenceSubscriptionRequestReceivedRequested, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
 	connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &ChatHintModel::handleNoGroupChatUsers);
+	connect(GroupChatController::instance(), &GroupChatController::groupChatDeleted, this, &ChatHintModel::handleGroupChatDeleted);
 	connect(ChatController::instance(), &ChatController::chatChanged, this, [this]() {
 		handleRosterItemPresenceSubscription();
 		handleConnectionStateChanged();
 		handleUnrespondedPresenceSubscriptionRequests();
 		handleNoGroupChatUsers();
+		checkGroupChatDeleted();
 	});
 }
 
@@ -110,6 +112,13 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
 			chatHint.loading = true;
 		});
 		Q_EMIT GroupChatController::instance()->groupChatInviteeSelectionNeeded();
+		removeChatHint(i);
+		return;
+	case ChatHintButton::Leave:
+		updateChatHint(i, [](ChatHint &chatHint) {
+			chatHint.loading = true;
+		});
+		Q_EMIT GroupChatController::instance()->leaveGroupChat(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
 		removeChatHint(i);
 		return;
 	default:
@@ -235,6 +244,22 @@ void ChatHintModel::handleNoGroupChatUsers()
 	}
 }
 
+void ChatHintModel::checkGroupChatDeleted()
+{
+	if (ChatController::instance()->rosterItem().isDeletedGroupChat()) {
+		addLeaveChatHint();
+	}
+}
+
+void ChatHintModel::handleGroupChatDeleted(const QString &accountJid, const QString &groupChatJid)
+{
+	auto chatController = ChatController::instance();
+
+	if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
+		addLeaveChatHint();
+	}
+}
+
 int ChatHintModel::addConnectToServerChatHint(bool loading)
 {
 	return addChatHint(
@@ -294,6 +319,24 @@ int ChatHintModel::addInviteContactsChatHint()
 	insertChatHint(i, chatHint);
 
 	return i;
+}
+
+void ChatHintModel::addLeaveChatHint()
+{
+	const auto chatHint = ChatHint {
+		tr("This group is deleted"),
+		{ ChatHintButton { ChatHintButton::Dismiss, tr("Dismiss") },
+		  ChatHintButton { ChatHintButton::Leave, tr("Leave") } },
+		false,
+		tr("Leaving group chat"),
+	};
+
+	// Ensure that the chat hint for connecting to the server is always on top.
+	if (const auto i = chatHintIndex(ChatHintButton::ConnectToServer); i == -1) {
+		addChatHint(chatHint);
+	} else {
+		insertChatHint(i, chatHint);
+	}
 }
 
 int ChatHintModel::addChatHint(const ChatHint &chatHint)
