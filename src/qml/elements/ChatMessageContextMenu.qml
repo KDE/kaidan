@@ -142,7 +142,6 @@ Kirigami.Dialog {
 			shown: !root.message.isOwn
 			onClicked: {
 				MessageModel.markMessageAsFirstUnread(message.modelIndex);
-				ChatController.resetChat()
 				Kaidan.closeChatPageRequested()
 			}
 		}

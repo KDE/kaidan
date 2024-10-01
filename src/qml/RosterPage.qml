@@ -139,6 +139,8 @@ SearchBarPage {
 			}
 
 			function onCloseChatPageRequested() {
+				ChatController.resetChat()
+
 				closePagesExceptRosterPage()
 				resetChatView()
 			}
