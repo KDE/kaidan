@@ -43,6 +43,7 @@ ChatHintModel::ChatHintModel(QObject *parent)
 		handleNoGroupChatUsers();
 		checkGroupChatDeleted();
 	});
+	connect(ChatController::instance(), &ChatController::rosterItemChanged, this, &ChatHintModel::handleRosterItemPresenceSubscription);
 }
 
 ChatHintModel::~ChatHintModel() = default;
@@ -179,12 +180,9 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 
 void ChatHintModel::handleRosterItemPresenceSubscription()
 {
-	const auto subscription = ChatController::instance()->rosterItem().subscription;
-	const auto subscriptionAllowed =
-			subscription == QXmppRosterIq::Item::SubscriptionType::From ||
-			subscription == QXmppRosterIq::Item::SubscriptionType::Both;
-
-	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription); i != -1 && subscriptionAllowed) {
+	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
+		i != -1 &&
+		ChatController::instance()->rosterItem().isReceivingPresence()) {
 		removeChatHint(i);
 		Notifications::instance()->closePresenceSubscriptionRequestNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
 	}
