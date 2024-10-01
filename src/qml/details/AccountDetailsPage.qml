@@ -10,8 +10,10 @@ import im.kaidan.kaidan 1.0
 DetailsPage {
 	id: root
 
+	property string jid
+
 	AccountDetailsHeader {
-		jid: roo.jid
+		jid: root.jid
 	}
 
 	AccountDetailsContent {

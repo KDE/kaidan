@@ -141,17 +141,13 @@ ChatPageBase {
 	Component {
 		id: notesChatDetailsSheet
 
-		NotesChatDetailsSheet {
-			jid: ChatController.accountJid
-		}
+		NotesChatDetailsSheet {}
 	}
 
 	Component {
 		id: notesChatDetailsPage
 
-		NotesChatDetailsPage {
-			jid: ChatController.accountJid
-		}
+		NotesChatDetailsPage {}
 	}
 
 	Component {
@@ -166,19 +162,13 @@ ChatPageBase {
 	Component {
 		id: contactDetailsSheet
 
-		ContactDetailsSheet {
-			accountJid: ChatController.accountJid
-			jid: ChatController.chatJid
-		}
+		ContactDetailsSheet {}
 	}
 
 	Component {
 		id: contactDetailsPage
 
-		ContactDetailsPage {
-			accountJid: ChatController.accountJid
-			jid: ChatController.chatJid
-		}
+		ContactDetailsPage {}
 	}
 
 	Component {
@@ -201,29 +191,23 @@ ChatPageBase {
 	}
 
 	Component {
-		id: groupChatDetailsAccountKeyAuthenticationPage
-
-		AccountKeyAuthenticationPage {
-			accountJid: ChatController.accountJid
-			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage)
-		}
-	}
-
-	Component {
 		id: groupChatDetailsSheet
 
-		GroupChatDetailsSheet {
-			accountJid: ChatController.accountJid
-			jid: ChatController.chatJid
-		}
+		GroupChatDetailsSheet {}
 	}
 
 	Component {
 		id: groupChatDetailsPage
 
-		GroupChatDetailsPage {
+		GroupChatDetailsPage {}
+	}
+
+	Component {
+		id: groupChatDetailsAccountKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
-			jid: ChatController.chatJid
+			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage)
 		}
 	}
 

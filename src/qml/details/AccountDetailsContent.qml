@@ -20,6 +20,8 @@ import "../settings"
 DetailsContent {
 	id: root
 
+	property string jid
+
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
@@ -300,6 +302,10 @@ DetailsContent {
 	invitationButton {
 		description: qsTr("Share this account's chat address via a web page with usage help")
 		onClicked: Utils.copyToClipboard(Utils.invitationUrl(trustMessageUriGenerator.uri))
+	}
+
+	UserDevicesArea {
+		jid: root.jid
 	}
 
 	MobileForm.FormCard {

@@ -13,17 +13,10 @@ import im.kaidan.kaidan 1.0
 DetailsSheet {
 	id: root
 
-	required property string accountJid
-	required property string jid
-
-	ContactDetailsHeader {
-		jid: root.jid
-	}
+	ContactDetailsHeader {}
 
 	ContactDetailsContent {
 		sheet: root
-		accountJid: root.accountJid
-		jid: root.jid
 		Layout.fillWidth: true
 	}
 

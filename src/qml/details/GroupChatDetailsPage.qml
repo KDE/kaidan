@@ -9,16 +9,10 @@ import QtQuick.Layouts 1.15
 DetailsPage {
 	id: root
 
-	required property string accountJid
-
-	GroupChatDetailsHeader {
-		jid: root.jid
-	}
+	GroupChatDetailsHeader {}
 
 	GroupChatDetailsContent {
 		id: content
-		accountJid: root.accountJid
-		jid: root.jid
 		Layout.fillWidth: true
 	}
 

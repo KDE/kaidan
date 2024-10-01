@@ -15,16 +15,13 @@ import "../elements"
 
 RosterItemDetailsContent {
 	id: root
-
-	required property string accountJid
-
 	mediaOverview {
-		accountJid: root.accountJid
-		chatJid: root.jid
+		accountJid: ChatController.accountJid
+		chatJid: ChatController.chatJid
 	}
 	vCardRepeater {
 		model: VCardModel {
-			jid: root.jid
+			jid: ChatController.chatJid
 		}
 		delegate: MobileForm.FormButtonDelegate {
 			text: model.value
@@ -101,7 +98,7 @@ RosterItemDetailsContent {
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
-				jid: root.accountJid
+				jid: ChatController.accountJid
 			}
 		}
 
@@ -151,8 +148,8 @@ RosterItemDetailsContent {
 	}
 	qrCodeExpansionButton.description: qsTr("Share this contact's chat address via QR code")
 	qrCode: ContactQrCode {
-		accountJid: root.accountJid
-		jid: root.jid
+		accountJid: ChatController.accountJid
+		jid: ChatController.chatJid
 	}
 	qrCodeButton {
 		description: qsTr("Share this contact's chat address via QR code")
@@ -168,6 +165,10 @@ RosterItemDetailsContent {
 	invitationButton {
 		description: qsTr("Share this contact's chat address via a web page with usage help")
 		onClicked: Utils.copyToClipboard(Utils.invitationUrl(trustMessageUriGenerator.uri))
+	}
+
+	UserDevicesArea {
+		jid: ChatController.chatJid
 	}
 
 	MobileForm.FormCard {
@@ -201,8 +202,8 @@ RosterItemDetailsContent {
 				]
 				textRole: "display"
 				valueRole: "value"
-				currentIndex: notificationDelegate.indexOf(rosterItemWatcher.item.notificationRule)
-				onActivated: RosterModel.setNotificationRule(root.accountJid, root.jid, notificationDelegate.currentValue)
+				currentIndex: notificationDelegate.indexOf(ChatController.rosterItem.notificationRule)
+				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, notificationDelegate.currentValue)
 			}
 		}
 	}
@@ -220,25 +221,25 @@ RosterItemDetailsContent {
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
-				visible: Kaidan.connectionState === Enums.StateConnected && !root.rosterItemWatcher.item.sendingPresence
-				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(root.jid)
+				visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
+				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(ChatController.chatJid)
 			}
 
 			MobileForm.FormButtonDelegate {
 				text: qsTr("Cancel personal data sharing")
 				description: qsTr("Stop sharing your availability, devices and other personal information")
-				visible: Kaidan.connectionState === Enums.StateConnected && root.rosterItemWatcher.item.receivingPresence
-				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(root.jid)
+				visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
+				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(ChatController.chatJid)
 			}
 
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-				checked: root.rosterItemWatcher.item.chatStateSendingEnabled
+				checked: ChatController.rosterItem.chatStateSendingEnabled
 				onToggled: {
 					RosterModel.setChatStateSendingEnabled(
-						root.accountJid,
-						root.jid,
+						ChatController.accountJid,
+						ChatController.chatJid,
 						checked)
 				}
 			}
@@ -246,11 +247,11 @@ RosterItemDetailsContent {
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
-				checked: root.rosterItemWatcher.item.readMarkerSendingEnabled
+				checked: ChatController.rosterItem.readMarkerSendingEnabled
 				onToggled: {
 					RosterModel.setReadMarkerSendingEnabled(
-						root.accountJid,
-						root.jid,
+						ChatController.accountJid,
+						ChatController.chatJid,
 						checked)
 				}
 			}
@@ -262,15 +263,15 @@ RosterItemDetailsContent {
 				checked: blockingWatcher.blocked
 				onToggled: {
 					if (checked) {
-						blockingAction.block(root.jid)
+						blockingAction.block(ChatController.chatJid)
 					} else {
-						blockingAction.unblock(root.jid)
+						blockingAction.unblock(ChatController.chatJid)
 					}
 				}
 
 				BlockingWatcher {
 					id: blockingWatcher
-					jid: root.jid
+					jid: ChatController.chatJid
 				}
 			}
 		}
@@ -293,7 +294,7 @@ RosterItemDetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
 				}
-				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(jid)
+				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(ChatController.chatJid)
 				busyText: qsTr("Removing contact…")
 			}
 		}
@@ -301,7 +302,7 @@ RosterItemDetailsContent {
 
 	ContactTrustMessageUriGenerator {
 		id: trustMessageUriGenerator
-		accountJid: root.accountJid
-		jid: root.jid
+		accountJid: ChatController.accountJid
+		jid: ChatController.chatJid
 	}
 }

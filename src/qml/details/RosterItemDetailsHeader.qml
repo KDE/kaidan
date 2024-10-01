@@ -13,16 +13,16 @@ import "../elements"
 
 DetailsHeader {
 	id: root
+	jid: ChatController.chatJid
 
 	property alias description: description
-	property alias rosterItemWatcher: rosterItemWatcher
 
-	displayName: rosterItemWatcher.item.displayName
+	displayName: ChatController.rosterItem.displayName
 	avatarAction: Kirigami.Action {
 		text: qsTr("Maximize avatar")
 		icon.name: "view-fullscreen-symbolic"
-		enabled: Kaidan.avatarStorage.getAvatarUrl(jid)
-		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(jid))
+		enabled: Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid)
+		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid))
 	}
 
 	Controls.Label {
@@ -32,13 +32,8 @@ DetailsHeader {
 		Layout.fillWidth: true
 	}
 
-	RosterItemWatcher {
-		id: rosterItemWatcher
-		jid: root.jid
-	}
-
 	function changeDisplayName(newDisplayName) {
-		Kaidan.client.rosterManager.renameContactRequested(root.jid, newDisplayName)
+		Kaidan.client.rosterManager.renameContactRequested(ChatController.chatJid, newDisplayName)
 	}
 
 	function handleDisplayNameChanged() {}

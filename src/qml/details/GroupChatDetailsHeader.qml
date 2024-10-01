@@ -16,15 +16,15 @@ RosterItemDetailsHeader {
 	avatarAction: Kirigami.Action {
 		text: qsTr("Maximize avatar")
 		icon.name: "view-fullscreen-symbolic"
-		enabled: Kaidan.avatarStorage.getAvatarUrl(jid)
-		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(jid))
+		enabled: Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid)
+		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid))
 	}
-	description.text: rosterItemWatcher.item.isPublicGroupChat ? qsTr("Public Group Chat") : qsTr("Private Group Chat")
+	description.text: ChatController.rosterItem.isPublicGroupChat ? qsTr("Public Group Chat") : qsTr("Private Group Chat")
 
 	Controls.Label {
 		text: qsTr("Deleted")
 		color: Kirigami.Theme.negativeTextColor
-		visible: rosterItemWatcher.item.isDeletedGroupChat
+		visible: ChatController.rosterItem.isDeletedGroupChat
 		wrapMode: Text.Wrap
 		Layout.fillWidth: true
 	}

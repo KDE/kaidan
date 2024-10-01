@@ -10,12 +10,9 @@ import im.kaidan.kaidan 1.0
 DetailsPage {
 	id: root
 
-	ContactDetailsHeader {
-		jid: roo.jid
-	}
+	NotesChatDetailsHeader {}
 
 	NotesChatDetailsContent {
-		jid: root.jid
 		Layout.fillWidth: true
 	}
 }

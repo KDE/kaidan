@@ -387,8 +387,7 @@ void RosterModel::updateItem(const QString &jid,
 			if (oldItem == newItem)
 				return;
 
-			// TODO: Uncomment this and see TODO in ContactDetailsContent once fixed in Kirigami Addons.
-//			auto oldGroups = groups();
+			auto oldGroups = groups();
 
 			m_items.replace(i, newItem);
 
@@ -399,10 +398,9 @@ void RosterModel::updateItem(const QString &jid,
 			// check, if the position of the new item may be different
 			updateItemPosition(i);
 
-			// TODO: Uncomment this and see TODO in ContactDetailsContent once fixed in Kirigami Addons.
-//			if (oldGroups != groups()) {
+			if (oldGroups != groups()) {
 				Q_EMIT groupsChanged();
-//			}
+			}
 
 			// TODO: Update "lastMessageGroupChatSenderName" if its corresponding roster item changes its name
 			// TODO: Current problem: last message sender JID is not cached and check with lastMessageGroupChatSenderName may result in a conflict if a group chat user has the same name as a roster item

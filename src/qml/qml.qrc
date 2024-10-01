@@ -28,10 +28,12 @@
         <file>details/GroupChatDetailsSheet.qml</file>
         <file>details/MediaOverview.qml</file>
         <file>details/NotesChatDetailsContent.qml</file>
+        <file>details/NotesChatDetailsHeader.qml</file>
         <file>details/NotesChatDetailsPage.qml</file>
         <file>details/NotesChatDetailsSheet.qml</file>
         <file>details/RosterItemDetailsContent.qml</file>
         <file>details/RosterItemDetailsHeader.qml</file>
+        <file>details/UserDevicesArea.qml</file>
         <file>elements/AccountKeyAuthenticationPage.qml</file>
         <file>elements/AccountQrCode.qml</file>
         <file>elements/Avatar.qml</file>
@@ -49,6 +51,8 @@
         <file>elements/ChatPageSearchView.qml</file>
         <file>elements/ChatPageSendingPane.qml</file>
         <file>elements/ClickableIcon.qml</file>
+        <file>elements/ClickableMouseArea.qml</file>
+        <file>elements/ClickableText.qml</file>
         <file>elements/ConfirmationArea.qml</file>
         <file>elements/ConfirmationFormButtonArea.qml</file>
         <file>elements/ConfirmationPage.qml</file>
@@ -149,7 +153,5 @@
         <file>settings/SettingsPage.qml</file>
         <file>settings/SettingsPageBase.qml</file>
         <file>settings/SettingsSheet.qml</file>
-        <file>elements/ClickableMouseArea.qml</file>
-        <file>elements/ClickableText.qml</file>
     </qresource>
 </RCC>

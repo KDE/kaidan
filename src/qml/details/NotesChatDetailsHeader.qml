@@ -11,12 +11,10 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-RosterItemDetailsHeader {
+ContactDetailsHeader {
 	id: root
-	avatarAction: Kirigami.Action {
-		text: qsTr("Maximize avatar")
-		icon.name: "view-fullscreen-symbolic"
-		enabled: Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid)
-		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid))
+	description {
+		text: qsTr("Messages in this chat are synchronized as notes across all your devices")
+		visible: ChatController.accountJid === root.jid
 	}
 }

@@ -20,7 +20,6 @@ Controls.Control {
 
 	default property alias __data: mainArea.data
 	property Kirigami.OverlaySheet sheet
-	required property string jid
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaOverview: mediaOverview
@@ -206,59 +205,6 @@ Controls.Control {
 					text: qsTr("Copy invitation link")
 					icon.name: "mail-message-new-symbolic"
 					onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
-				}
-			}
-		}
-
-		MobileForm.FormCard {
-			visible: deviceRepeater.count
-			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
-
-				MobileForm.FormCardHeader {
-					title: qsTr("Connected Devices")
-				}
-
-				Repeater {
-					id: deviceRepeater
-					Layout.fillHeight: true
-					model: UserDevicesModel {
-						jid: root.jid
-					}
-					delegate: MobileForm.AbstractFormDelegate {
-						visible: deviceExpansionButton.checked
-						background: null
-						contentItem: ColumnLayout {
-							Controls.Label {
-								text: {
-									if (model.name) {
-										if (model.version) {
-											return model.name + " " + model.version
-										}
-										return model.name
-									}
-									return model.resource
-								}
-								textFormat: Text.PlainText
-								wrapMode: Text.WordWrap
-								Layout.fillWidth: true
-							}
-
-							Controls.Label {
-								text: model.os
-								color: Kirigami.Theme.disabledTextColor
-								font: Kirigami.Theme.smallFont
-								textFormat: Text.PlainText
-								wrapMode: Text.WordWrap
-								Layout.fillWidth: true
-							}
-						}
-					}
-				}
-
-				FormExpansionButton {
-					id: deviceExpansionButton
 				}
 			}
 		}

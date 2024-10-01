@@ -11,6 +11,8 @@ import im.kaidan.kaidan 1.0
 DetailsSheet {
 	id: root
 
+	property string jid
+
 	AccountDetailsHeader {
 		sheet: root
 		jid: root.jid

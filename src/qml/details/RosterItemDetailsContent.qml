@@ -15,9 +15,6 @@ import "../elements"
 
 DetailsContent {
 	id: root
-
-	property alias rosterItemWatcher: rosterItemWatcher
-
 	automaticMediaDownloadsDelegate {
 		model: [
 			{
@@ -35,8 +32,8 @@ DetailsContent {
 		]
 		textRole: "display"
 		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(rosterItemWatcher.item.automaticMediaDownloadsRule)
-		onActivated: RosterModel.setAutomaticMediaDownloadsRule(root.accountJid, root.jid, automaticMediaDownloadsDelegate.currentValue)
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(ChatController.rosterItem.automaticMediaDownloadsRule)
+		onActivated: RosterModel.setAutomaticMediaDownloadsRule(ChatController.accountJid, ChatController.chatJid, automaticMediaDownloadsDelegate.currentValue)
 	}
 	vCardArea.visible: vCardRepeater.count
 	rosterGoupListView {
@@ -73,7 +70,7 @@ DetailsContent {
 						Layout.preferredHeight: rosterGroupField.implicitHeight
 						Layout.rightMargin: Kirigami.Units.largeSpacing
 						onClicked: {
-							let groups = rosterItemWatcher.item.groups
+							let groups = ChatController.rosterItem.groups
 
 							if (groups.includes(rosterGroupField.text)) {
 								rosterGroupField.clear()
@@ -81,7 +78,7 @@ DetailsContent {
 								rosterGroupBusyIndicator.visible = true
 
 								groups.push(rosterGroupField.text)
-								Kaidan.client.rosterManager.updateGroupsRequested(root.jid, rosterItemWatcher.item.name, groups)
+								Kaidan.client.rosterManager.updateGroupsRequested(ChatController.chatJid, ChatController.rosterItem.name, groups)
 
 								rosterGroupField.clear()
 							} else {
@@ -112,10 +109,10 @@ DetailsContent {
 		delegate: MobileForm.FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
-			checked: rosterItemWatcher.item.groups.includes(modelData)
+			checked: ChatController.rosterItem.groups.includes(modelData)
 			width: ListView.view.width
 			onToggled: {
-				let groups = rosterItemWatcher.item.groups
+				let groups = ChatController.rosterItem.groups
 
 				if (checked) {
 					groups.push(modelData)
@@ -123,28 +120,8 @@ DetailsContent {
 					groups.splice(groups.indexOf(modelData), 1)
 				}
 
-				Kaidan.client.rosterManager.updateGroupsRequested(root.jid, rosterItemWatcher.item.name, groups)
-			}
-
-			// TODO: Remove this and see TODO in RosterModel once fixed in Kirigami Addons.
-			Connections {
-				target: RosterModel
-
-				function onGroupsChanged() {
-					// Update the "checked" value of "rosterGroupDelegate" as a work
-					// around because "MobileForm.FormSwitchDelegate" does not listen to
-					// changes of "rosterItemWatcher.item.groups".
-					rosterGroupDelegate.checked = rosterItemWatcher.item.groups.includes(modelData)
-				}
+				Kaidan.client.rosterManager.updateGroupsRequested(ChatController.chatJid, ChatController.rosterItem.name, groups)
 			}
 		}
-	}
-
-	// This needs to be placed after the notification section.
-	// Otherwise, notifications will not be shown as muted after switching chats.
-	// It is probably a bug in Kirigami Addons.
-	RosterItemWatcher {
-		id: rosterItemWatcher
-		jid: root.jid
 	}
 }

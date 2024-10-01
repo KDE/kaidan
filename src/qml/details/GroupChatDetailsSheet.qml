@@ -13,18 +13,11 @@ import im.kaidan.kaidan 1.0
 DetailsSheet {
 	id: root
 
-	required property string accountJid
-	required property string jid
-
-	GroupChatDetailsHeader {
-		jid: root.jid
-	}
+	GroupChatDetailsHeader {}
 
 	GroupChatDetailsContent {
 		id: content
 		sheet: root
-		accountJid: root.accountJid
-		jid: root.jid
 		Layout.fillWidth: true
 	}
 

@@ -11,13 +11,10 @@ import im.kaidan.kaidan 1.0
 DetailsSheet {
 	id: root
 
-	ContactDetailsHeader {
-		jid: root.jid
-	}
+	NotesChatDetailsHeader {}
 
 	NotesChatDetailsContent {
 		sheet: root
-		jid: root.jid
 		Layout.fillWidth: true
 	}
 

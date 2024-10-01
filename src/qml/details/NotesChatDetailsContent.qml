@@ -17,8 +17,8 @@ RosterItemDetailsContent {
 	id: root
 
 	mediaOverview {
-		accountJid: root.jid
-		chatJid: root.jid
+		accountJid: ChatController.accountJid
+		chatJid: ChatController.accountJid
 	}
 	encryptionArea: ColumnLayout {
 		spacing: 0
@@ -90,7 +90,7 @@ RosterItemDetailsContent {
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
-				jid: root.accountJid
+				jid: ChatController.accountJid
 			}
 		}
 	}
@@ -113,7 +113,7 @@ RosterItemDetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
 				}
-				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(jid)
+				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
 				busyText: qsTr("Removing notes chat…")
 			}
 		}
@@ -121,7 +121,7 @@ RosterItemDetailsContent {
 
 	ContactTrustMessageUriGenerator {
 		id: trustMessageUriGenerator
-		accountJid: root.accountJid
-		jid: root.jid
+		accountJid: ChatController.accountJid
+		jid: ChatController.accountJid
 	}
 }

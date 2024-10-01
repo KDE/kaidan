@@ -16,7 +16,6 @@ import "../elements"
 RosterItemDetailsContent {
 	id: root
 
-	required property string accountJid
 	property ListViewSearchField contactSearchField
 	property ListViewSearchField userSearchField
 	property ListViewSearchField keyAuthenticationUserSearchField
@@ -111,12 +110,12 @@ RosterItemDetailsContent {
 					}
 
 					function inviteSelectedContacts() {
-						var groupChatPublic = root.rosterItemWatcher.item.groupChatFlags === RosterItem.GroupChatFlag.Public
+						var groupChatPublic = ChatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
 
 						for (var i = 0; i < contactListView.model.rowCount(); i++) {
 							if (contactListView.model.data(contactListView.model.index(i, 0), RosterModel.SelectedRole)) {
 								var inviteeJid = contactListView.model.data(contactListView.model.index(i, 0), RosterModel.JidRole)
-								GroupChatController.inviteContactToGroupChat(root.accountJid, root.jid, inviteeJid, groupChatPublic)
+								GroupChatController.inviteContactToGroupChat(ChatController.accountJid, ChatController.chatJid, inviteeJid, groupChatPublic)
 								root.contactsBeingInvitedCount++
 							}
 						}
@@ -154,8 +153,8 @@ RosterItemDetailsContent {
 					id: userListView
 					model: GroupChatUserFilterModel {
 						sourceModel: GroupChatUserModel {
-							accountJid: root.accountJid
-							chatJid: root.jid
+							accountJid: ChatController.accountJid
+							chatJid: ChatController.chatJid
 						}
 					}
 					visible: userExpansionButton.checked
@@ -193,7 +192,7 @@ RosterItemDetailsContent {
 					section.delegate: ListViewSectionDelegate {}
 					delegate: GroupChatUserItem {
 						id: userDelegate
-						accountJid: root.accountJid
+						accountJid: ChatController.accountJid
 						jid: model.jid
 						name: model.name
 						width: ListView.view.width
@@ -211,7 +210,7 @@ RosterItemDetailsContent {
 							flat: !userDelegate.hovered
 							Controls.ToolTip.text: text
 							Layout.rightMargin: Kirigami.Units.smallSpacing * 3
-							onClicked: GroupChatController.banUser(root.accountJid, root.jid, userDelegate.jid)
+							onClicked: GroupChatController.banUser(ChatController.accountJid, ChatController.chatJid, userDelegate.jid)
 						}
 					}
 				}
@@ -223,8 +222,8 @@ RosterItemDetailsContent {
 		}
 	]
 	mediaOverview {
-		accountJid: root.accountJid
-		chatJid: root.jid
+		accountJid: ChatController.accountJid
+		chatJid: ChatController.chatJid
 	}
 	encryptionArea: ColumnLayout {
 		spacing: 0
@@ -288,7 +287,7 @@ RosterItemDetailsContent {
 
 			UserResourcesWatcher {
 				id: ownResourcesWatcher
-				jid: root.accountJid
+				jid: ChatController.accountJid
 			}
 		}
 
@@ -341,8 +340,8 @@ RosterItemDetailsContent {
 			id: keyAuthenticationUserListView
 			model: GroupChatUserKeyAuthenticationFilterModel {
 				sourceModel: GroupChatUserModel {
-					accountJid: root.accountJid
-					chatJid: root.jid
+					accountJid: ChatController.accountJid
+					chatJid: ChatController.chatJid
 				}
 			}
 			visible: keyAuthenticationButton.checked
@@ -372,7 +371,7 @@ RosterItemDetailsContent {
 			}
 			delegate: GroupChatUserItem {
 				id: keyAuthenticationUserDelegate
-				accountJid: root.accountJid
+				accountJid: ChatController.accountJid
 				jid: model.jid
 				name: model.name
 				width: ListView.view.width
@@ -387,7 +386,7 @@ RosterItemDetailsContent {
 	}
 	qrCodeExpansionButton.description: qsTr("Share this group's chat address via QR code")
 	qrCode: GroupChatQrCode {
-		jid: root.jid
+		jid: ChatController.chatJid
 	}
 	qrCodeButton {
 		description: qsTr("Share this group's chat address via QR code")
@@ -396,13 +395,13 @@ RosterItemDetailsContent {
 	uriButton {
 		description: qsTr("Share this group's chat address via text")
 		onClicked: {
-			Utils.copyToClipboard(Utils.groupChatUri(root.jid))
+			Utils.copyToClipboard(Utils.groupChatUri(ChatController.chatJid))
 			passiveNotification(qsTr("Group address copied to clipboard"))
 		}
 	}
 	invitationButton {
 		description: qsTr("Share this group's chat address via a web page with usage help")
-		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(root.jid).toString()))
+		onClicked: Utils.copyToClipboard(Utils.invitationUrl(Utils.groupChatUri(ChatController.chatJid).toString()))
 	}
 
 	MobileForm.FormCard {
@@ -440,8 +439,8 @@ RosterItemDetailsContent {
 				]
 				textRole: "display"
 				valueRole: "value"
-				currentIndex: notificationDelegate.indexOf(rosterItemWatcher.item.notificationRule)
-				onActivated: RosterModel.setNotificationRule(root.accountJid, root.jid, notificationDelegate.currentValue)
+				currentIndex: notificationDelegate.indexOf(ChatController.rosterItem.notificationRule)
+				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, notificationDelegate.currentValue)
 			}
 		}
 	}
@@ -459,11 +458,11 @@ RosterItemDetailsContent {
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-				checked: root.rosterItemWatcher.item.chatStateSendingEnabled
+				checked: ChatController.rosterItem.chatStateSendingEnabled
 				onToggled: {
 					RosterModel.setChatStateSendingEnabled(
-						root.accountJid,
-						root.jid,
+						ChatController.accountJid,
+						ChatController.chatJid,
 						checked)
 				}
 			}
@@ -471,11 +470,11 @@ RosterItemDetailsContent {
 			MobileForm.FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
-				checked: root.rosterItemWatcher.item.readMarkerSendingEnabled
+				checked: ChatController.rosterItem.readMarkerSendingEnabled
 				onToggled: {
 					RosterModel.setReadMarkerSendingEnabled(
-						root.accountJid,
-						root.jid,
+						ChatController.accountJid,
+						ChatController.chatJid,
 						checked)
 				}
 			}
@@ -502,7 +501,7 @@ RosterItemDetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
 				}
-				confirmationButton.onClicked: GroupChatController.leaveGroupChat(root.accountJid, root.jid)
+				confirmationButton.onClicked: GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
 				busyText: qsTr("Leaving group chat…")
 			}
 
@@ -516,7 +515,7 @@ RosterItemDetailsContent {
 				}
 				confirmationButton.onClicked: {
 					groupChatLeavingButton.confirmationButton.visible = false
-					GroupChatController.deleteGroupChat(root.accountJid, root.jid)
+					GroupChatController.deleteGroupChat(ChatController.accountJid, ChatController.chatJid)
 				}
 				busy: GroupChatController.busy
 				busyText: qsTr("Deleting group chat…")
