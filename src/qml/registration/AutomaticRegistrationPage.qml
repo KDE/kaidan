@@ -46,6 +46,7 @@ RegistrationPage {
 		id: loadingStackArea
 		busy: true
 		loadingArea.description: qsTr("Requesting registration…")
+		loadingArea.background.color: primaryBackgroundColor
 
 		ColumnLayout {
 			Kirigami.Heading {
