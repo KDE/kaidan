@@ -21,17 +21,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-koodin luonti epäonnistui: %1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -64,29 +64,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Verkkoyhteyttä ei ole: viestit lähetetään ja vastaanotetaan vasta "
 "yhteydenoton jälkeen"
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Merkitse nähdyksi"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Yhdistä"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Yhdistetään…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -96,27 +96,41 @@ msgstr ""
 "%1 haluaisi nähdä henkilökohtaisia tietojasi kuten läsnäolon, laitteet ja "
 "muuta%2"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr ""
+"%1 haluaisi nähdä henkilökohtaisia tietojasi kuten läsnäolon, laitteet ja "
+"muuta%2"
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Kiellä"
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Salli"
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Sallitaan…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -124,7 +138,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Poista yhteystieto"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -3874,14 +3888,14 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3889,22 +3903,22 @@ msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3914,13 +3928,13 @@ msgstr ""
 "Yhteysongelman vuoksi käyttäjän %1 pyyntö nähdä henkilökohtaisia tietojasi "
 "epäonnistui: %2"
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Käyttäjän %1 salliminen henkilökohtaisiin tietoihisi epäonnistui"
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

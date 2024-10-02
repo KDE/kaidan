@@ -20,17 +20,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Kare kodu oluşturma başarısız: %1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Hesap göç ettirilemedi: Başka bir göç halihazırda sürüyor"
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "Hesap göç ettirilemedi: Dışa aktarılan hesap verisi yüklenemedi"
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "Hesap göç ettirilemedi: Bağlı olmanız gerekiyor"
@@ -60,27 +60,27 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Sunuculardaki Aygıtlar"
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "Bağlı değilsiniz — İletiler bağlandığınızda gönderilir ve alınır"
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Kapat"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Bağlan"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Bağlanıyor…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -90,32 +90,46 @@ msgstr ""
 "%1; uygunluk, aygıtlar ve diğer kişisel bilgilerinizi içeren verinizi almak "
 "ister%2"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr ""
+"%1; uygunluk, aygıtlar ve diğer kişisel bilgilerinizi içeren verinizi almak "
+"ister%2"
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Reddet"
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "İzin Ver"
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "İzin veriliyor…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Bu grupta kullanıcı yok"
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Kişileri davet et"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Davet alanı açılıyor"
@@ -3292,7 +3306,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notlar"
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3300,28 +3314,28 @@ msgid ""
 msgstr ""
 "Notlar sohbeti kişi listenize eklenemedi; çünkü sunucunuz bunu desteklemiyor"
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 eklenemedi: %2"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi eklenemedi."
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi kaldırılamadı."
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Bağlantı olmadığından dolayı kişi yeniden adlandırılamadı."
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3331,13 +3345,13 @@ msgstr ""
 "%1 kişisinin kişisel verisini görme isteği, bir bağlantı sorunu yüzünden "
 "başarısız oldu: %2"
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1 kişisinin sizin kişisel verinizi görme isteği başarısız oldu"
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

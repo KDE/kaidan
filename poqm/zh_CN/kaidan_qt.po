@@ -21,17 +21,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "无法迁移账号：另一项迁移已在进行中"
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
@@ -61,27 +61,27 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接，连接后会发送和接收消息"
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "连接"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -89,32 +89,44 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
@@ -3363,35 +3375,35 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr "无法将聊天备注添加到您的联系人列表中，因为您的服务器不支持"
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3399,13 +3411,13 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

@@ -16,17 +16,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Не удалось сгенерировать QR код: %1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -62,7 +62,7 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr ""
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Could not correct message, as a result of not being connected."
@@ -70,12 +70,12 @@ msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "Исправить сообщение не получилось (отсутствует подключение к сети)."
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr ""
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connect"
@@ -83,7 +83,7 @@ msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Подключиться"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -91,7 +91,7 @@ msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Поключение…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -99,17 +99,25 @@ msgid ""
 "and other personal information%2"
 msgstr ""
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, qt-format
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr ""
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr ""
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr ""
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -117,12 +125,12 @@ msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Запись…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -130,7 +138,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Удалить контакт"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr ""
@@ -4089,14 +4097,14 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr ""
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -4104,22 +4112,22 @@ msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Не удалось отправить сообщение."
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Невозможно добавить контакт, так как он не подключён."
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Не удалось удалить контакт из-за отсутствия подключения."
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Не удалось переименовать контакт из-за отсутствия подключения."
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -4127,13 +4135,13 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

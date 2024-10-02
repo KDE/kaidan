@@ -21,17 +21,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR კოდის გენერაციის შეცდომა: %1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -64,29 +64,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "მოწყობილობები სერვერებზე"
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "მიერთებული არ ბრძანდებით - შეტყობინებები გაიგზავნება და მიიღება, როცა "
 "მიერთდებით"
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "გაუქმება"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "დაკავშირება"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -96,27 +96,41 @@ msgstr ""
 "%1-ს სურს მიიღოს თქვენი პირადი მონაცემები, როგორიცაა ხელმისაწვდომობა, "
 "მოწყობილობები და სხვა პირად ინფორმაცია %2"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr ""
+"%1-ს სურს მიიღოს თქვენი პირადი მონაცემები, როგორიცაა ხელმისაწვდომობა, "
+"მოწყობილობები და სხვა პირად ინფორმაცია %2"
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "უარყოფა"
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "დაშვება"
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "დაშვება…"
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr ""
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -124,7 +138,7 @@ msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "კონტაქტის წაშლა"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 #, fuzzy
 #| msgctxt "WebRegistrationView|"
 #| msgid "Open registration web page"
@@ -3863,7 +3877,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "შენიშვნები"
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3872,28 +3886,28 @@ msgstr ""
 "თქვენი კონტაქტების სიისთვის შენიშვნების დამატება შეუძლებელია, რადგან თქვენს "
 "სერვერს ამის მხარდაჭერა არ გააჩნია"
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1-ის დამატება შეუძლებელია: %2"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "კონტაქტის დამატება შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "კონტაქტის წაშლა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "კონტაქტის სახელის გადარქმევა შეუძლებელია. მიერთებული არ ბრძანდებით."
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3902,13 +3916,13 @@ msgid ""
 msgstr ""
 "%1-ის პირადი მონაცემების ნახვის მოთხოვნა ჩავარდა მიერთების პრობლემის გამო: %2"
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "%1-სთვის თქვენი პირადი მონაცემების ჩვენების დაშვება ჩავარდა"
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

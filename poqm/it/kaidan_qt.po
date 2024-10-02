@@ -19,19 +19,19 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Generazione del codice QR non riuscita: %1"
 
-#: src/AccountMigrationManager.cpp:197
+#: src/AccountMigrationManager.cpp:395
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Impossibile migrare l'account: è già in corso un'altra migrazione"
 
-#: src/AccountMigrationManager.cpp:208
+#: src/AccountMigrationManager.cpp:406
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "L'account non può essere migrato: impossibile caricare i dati dell'account "
 "esportati"
 
-#: src/AccountMigrationManager.cpp:217
+#: src/AccountMigrationManager.cpp:415
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "L'account non può essere migrato: devi essere connesso"
@@ -61,28 +61,28 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivi sui server"
 
-#: src/ChatHintModel.cpp:232
+#: src/ChatHintModel.cpp:242
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Non sei connesso - I messaggi sono inviati e ricevuti una volta connesso"
 
-#: src/ChatHintModel.cpp:233 src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Ignora"
 
-#: src/ChatHintModel.cpp:234
+#: src/ChatHintModel.cpp:244
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connetti"
 
-#: src/ChatHintModel.cpp:236
+#: src/ChatHintModel.cpp:246
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Connessione…"
 
-#: src/ChatHintModel.cpp:248
+#: src/ChatHintModel.cpp:259
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -92,32 +92,46 @@ msgstr ""
 "%1 vorrebbe ricevere i tuoi dati personali come disponibilità, dispositivi e "
 "altre informazioni personali%2"
 
-#: src/ChatHintModel.cpp:249
+#: src/ChatHintModel.cpp:263
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "%1 would like to receive your personal data such as availability, devices "
+#| "and other personal information%2"
+msgctxt "ChatHintModel|"
+msgid ""
+"Your contact %1 uses %2 now and would like to receive your personal data "
+"such as availability, devices and other personal information again%3"
+msgstr ""
+"%1 vorrebbe ricevere i tuoi dati personali come disponibilità, dispositivi e "
+"altre informazioni personali%2"
+
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rifiuta"
 
-#: src/ChatHintModel.cpp:250
+#: src/ChatHintModel.cpp:270
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Consenti"
 
-#: src/ChatHintModel.cpp:252
+#: src/ChatHintModel.cpp:272
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Consenso..."
 
-#: src/ChatHintModel.cpp:260
+#: src/ChatHintModel.cpp:280
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Questo gruppo non ha utenti"
 
-#: src/ChatHintModel.cpp:262
+#: src/ChatHintModel.cpp:282
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Invita contatti"
 
-#: src/ChatHintModel.cpp:264
+#: src/ChatHintModel.cpp:284
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Apertura dell'area degli inviti"
@@ -3322,7 +3336,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Note"
 
-#: src/RosterManager.cpp:175
+#: src/RosterManager.cpp:173
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3331,28 +3345,28 @@ msgstr ""
 "Impossibile aggiungere la chat delle note al tuo elenco di contatti perché "
 "il tuo server non la supporta"
 
-#: src/RosterManager.cpp:206
+#: src/RosterManager.cpp:204
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 non può essere aggiunto: %2"
 
-#: src/RosterManager.cpp:217
+#: src/RosterManager.cpp:215
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Impossibile aggiungere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:230
+#: src/RosterManager.cpp:228
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Impossibile rimuovere il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:241
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Impossibile rinominare il contatto a causa della mancata connessione."
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:252
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3362,7 +3376,7 @@ msgstr ""
 "La richiesta di vedere i dati personali di %1 non è riuscita a causa di un "
 "problema di connessione: %2"
 
-#: src/RosterManager.cpp:264
+#: src/RosterManager.cpp:262
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
@@ -3370,7 +3384,7 @@ msgstr ""
 "L'attribuzione a %1 del permesso di vedere i tuoi dati personali non è "
 "riuscito"
 
-#: src/RosterManager.cpp:273
+#: src/RosterManager.cpp:271
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
