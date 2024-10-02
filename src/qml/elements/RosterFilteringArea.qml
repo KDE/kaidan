@@ -55,7 +55,7 @@ ColumnLayout {
 				onToggled: root.rosterFilterProxyModel.resetDisplayedTypes()
 
 				// TODO: Remove this once fixed in Kirigami Addons.
-				// Add a connection as a work around to reset the switch because
+				// Add a connection as a workaround to reset the switch because
 				// "MobileForm.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
@@ -81,7 +81,7 @@ ColumnLayout {
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
-			// Add a connection as a work around to reset the switch because
+			// Add a connection as a workaround to reset the switch because
 			// "MobileForm.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
@@ -117,7 +117,7 @@ ColumnLayout {
 				onToggled: root.rosterFilterProxyModel.selectedAccountJids = []
 
 				// TODO: Remove this once fixed in Kirigami Addons.
-				// Add a connection as a work around to reset the switch because
+				// Add a connection as a workaround to reset the switch because
 				// "MobileForm.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
@@ -143,7 +143,7 @@ ColumnLayout {
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
-			// Add a connection as a work around to reset the switch because
+			// Add a connection as a workaround to reset the switch because
 			// "MobileForm.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
@@ -193,7 +193,7 @@ ColumnLayout {
 				onToggled: root.rosterFilterProxyModel.selectedGroups = []
 
 				// TODO: Remove this once fixed in Kirigami Addons.
-				// Add a connection as a work around to reset the switch because
+				// Add a connection as a workaround to reset the switch because
 				// "MobileForm.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
@@ -219,7 +219,7 @@ ColumnLayout {
 			}
 
 			// TODO: Remove this once fixed in Kirigami Addons.
-			// Add a connection as a work around to reset the switch because
+			// Add a connection as a workaround to reset the switch because
 			// "MobileForm.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
