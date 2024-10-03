@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-18 12:59+0200\n"
+"PO-Revision-Date: 2024-10-02 17:12+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -93,18 +93,15 @@ msgstr ""
 "altre informazioni personali%2"
 
 #: src/ChatHintModel.cpp:263
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 uses %2 now and would like to receive your personal data "
 "such as availability, devices and other personal information again%3"
 msgstr ""
-"%1 vorrebbe ricevere i tuoi dati personali come disponibilità, dispositivi e "
-"altre informazioni personali%2"
+"Il tuo contatto %1 utilizza ora %2 e desidera ricevere nuovamente i tuoi "
+"dati personali come disponibilità, dispositivi e altre informazioni personali"
+"%3"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -1955,12 +1952,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Annulla l'aggiunta della parte nascosta del messaggio"
 
 #: src/qml/elements/ChatPageSendingPane.qml:150
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Participants"
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "Partecipanti"
+msgstr "Menziona un partecipante"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2271,12 +2265,9 @@ msgid "Join group chat"
 msgstr "Unisciti alla chat di gruppo"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:53
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Invite contacts"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "Invita contatti"
+msgstr "Invita contatti a questo gruppo…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"

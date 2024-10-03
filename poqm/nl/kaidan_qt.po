@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-28 11:38+0200\n"
+"PO-Revision-Date: 2024-10-02 15:55+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -95,18 +95,15 @@ msgstr ""
 "andere personele informatie %2 vragen"
 
 #: src/ChatHintModel.cpp:263
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 uses %2 now and would like to receive your personal data "
 "such as availability, devices and other personal information again%3"
 msgstr ""
-"%1 zou graag uw persoonlijke gegevens zoals beschikbaarheid, apparaten en "
-"andere personele informatie %2 vragen"
+"Uw contactpersoon %1 gebruikt nu %2 en zou graag opnieuw uw persoonlijke "
+"gegevens zoals beschikbaarheid, apparaten en andere persoonlijke informatie "
+"ontvangen %3"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
