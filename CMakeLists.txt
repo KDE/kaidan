@@ -4,14 +4,27 @@
 
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 23)
-set(QT_MIN_VERSION "5.15.0")
-set(KF5_MIN_VERSION "5.67.0")
+set(QT_REQUIRED_VERSION "6.6.0")
+set(KF_MIN_VERSION "6.3.0")
+
 
 if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
 endif()
 
 project(kaidan)
+find_package(ECM ${KF_MIN_VERSION} CONFIG REQUIRED)
+# CMake module path
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
+
+# CMake modules include
+include(KDEInstallDirs)
+include(KDECompilerSettings NO_POLICY_SCOPE)
+include(KDECMakeSettings)
+include(ECMFindQmlModule)
+include(ECMInstallIcons)
+include(FeatureSummary)
+kde_enable_exceptions()
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_compile_options("-stdlib=libc++")
@@ -62,30 +75,13 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 
-#
-# Dependecies
-#
-
-find_package(ECM 5.40.0 REQUIRED NO_MODULE)
-
-# CMake module path
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
-
-# CMake modules include
-include(KDEInstallDirs)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-include(KDECMakeSettings)
-include(ECMFindQmlModule)
-include(ECMInstallIcons)
-include(FeatureSummary)
-kde_enable_exceptions()
-
 # Find packages
-find_package(Qt5 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami2)
-find_package(KF5KirigamiAddons 0.10.0 REQUIRED)
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami2)
+find_package(KF6KirigamiAddons 0.10.0 REQUIRED)
 find_package(ZXing REQUIRED)
-find_package(QXmpp 1.9.0 REQUIRED COMPONENTS Omemo)
+
+find_package(QXmppQt6 1.9.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
 set_package_properties(ICU PROPERTIES
@@ -103,39 +99,39 @@ ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
 
 # Optional QtQuickCompiler
 if(QUICK_COMPILER)
-    find_package(Qt5QuickCompiler)
-    set_package_properties(Qt5QuickCompiler PROPERTIES
+    find_package(Qt6QuickCompiler)
+    set_package_properties(Qt6QuickCompiler PROPERTIES
         DESCRIPTION "Compile QML at build time"
         TYPE OPTIONAL
     )
 endif()
 
 if(USE_KNOTIFICATIONS)
-    find_package(KF5Notifications REQUIRED)
-    set(__KF5Notifications_LIBRARIES KF5::Notifications)
+    find_package(KF6Notifications REQUIRED)
+    set(__KF6Notifications_LIBRARIES KF6::Notifications)
     add_definitions(-DHAVE_KNOTIFICATIONS)
 endif()
 
 # Optional QWidget style integration (not on mobile)
 if(NOT UBUNTU_TOUCH AND NOT ANDROID AND NOT IOS)
-    find_package(Qt5Widgets)
-    find_package(KF5QQC2DesktopStyle)
-    set_package_properties(Qt5Widgets PROPERTIES
+    find_package(Qt6Widgets)
+    find_package(KF6QQC2DesktopStyle)
+    set_package_properties(Qt6Widgets PROPERTIES
         DESCRIPTION "Integration with QWidget based desktop styles"
         TYPE OPTIONAL
     )
 endif()
 
 # Platform-specific
-if(Qt5Widgets_FOUND)
+if(Qt6Widgets_FOUND)
     add_definitions(-DHAVE_QWIDGETS -DQAPPLICATION_CLASS=QApplication)
-    set(__Qt5Widgets_LIBRARIES Qt5::Widgets)
+    set(__Qt6Widgets_LIBRARIES Qt6::Widgets)
 else()
     add_definitions(-DQAPPLICATION_CLASS=QGuiApplication)
 endif()
 
 if(ANDROID)
-    find_package(Qt5 REQUIRED COMPONENTS AndroidExtras)
+    find_package(Qt6 REQUIRED COMPONENTS AndroidExtras)
     # We need to link against sqlite3 to help androiddeployqt detect that we need it
     find_package(SQLite3 REQUIRED)
 
@@ -224,7 +220,7 @@ install(TARGETS kaidan
 
 # KNotifications
 if(USE_KNOTIFICATIONS)
-    install(FILES misc/kaidan.notifyrc DESTINATION ${KNOTIFYRC_INSTALL_DIR})
+    install(FILES misc/kaidan.notifyrc DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR})
 endif()
 
 # Dev editable important files, to be seen in the IDE tree view

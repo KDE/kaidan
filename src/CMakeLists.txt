@@ -272,13 +272,13 @@ target_link_libraries(${PROJECT_NAME}
     Qt::Positioning
     Qt::Location
     Qt::QuickControls2
-    KF5::CoreAddons
-    KF5::KIOCore
-    KF5::KIOWidgets
+    KF6::CoreAddons
+    KF6::KIOCore
+    KF6::KIOWidgets
     QXmpp::QXmpp QXmpp::Omemo
     ICU::uc
-    ${__Qt5Widgets_LIBRARIES}
-    ${__KF5Notifications_LIBRARIES}
+    ${__Qt6Widgets_LIBRARIES}
+    ${__KF6Notifications_LIBRARIES}
 )
 
 if(TARGET ZXing::ZXing)
@@ -288,11 +288,11 @@ elseif(TARGET ZXing::Core)
 endif()
 
 if(ANDROID OR IOS)
-    target_link_libraries(${PROJECT_NAME} Qt5::QuickControls2 KF5::Kirigami2)
+    target_link_libraries(${PROJECT_NAME} Qt6::QuickControls2 KF6::Kirigami2)
 endif()
 
 if(ANDROID)
-    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
+    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt6::AndroidExtras)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
