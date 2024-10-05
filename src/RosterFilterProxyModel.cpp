@@ -163,4 +163,5 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 void RosterFilterProxyModel::updateGroupChatUserJids()
 {
 	m_groupChatUserJids = GroupChatController::instance()->currentUserJids();
+	invalidateFilter();
 }
