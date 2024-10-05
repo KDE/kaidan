@@ -20,7 +20,7 @@ void RosterFilterProxyModel::addDisplayedType(Type type)
 {
 	if (!m_displayedTypes.testFlag(type)) {
 		m_displayedTypes.setFlag(type);
-		invalidate();
+		invalidateFilter();
 		Q_EMIT displayedTypesChanged();
 	}
 }
@@ -29,7 +29,7 @@ void RosterFilterProxyModel::removeDisplayedType(Type type)
 {
 	if (m_displayedTypes.testFlag(type)) {
 		m_displayedTypes.setFlag(type, false);
-		invalidate();
+		invalidateFilter();
 		Q_EMIT displayedTypesChanged();
 	}
 }
@@ -38,7 +38,7 @@ void RosterFilterProxyModel::resetDisplayedTypes()
 {
 	if (m_displayedTypes) {
 		m_displayedTypes = {};
-		invalidate();
+		invalidateFilter();
 		Q_EMIT displayedTypesChanged();
 	}
 }
@@ -52,7 +52,7 @@ void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &sele
 {
 	if (m_selectedAccountJids != selectedAccountJids) {
 		m_selectedAccountJids = selectedAccountJids;
-		invalidate();
+		invalidateFilter();
 		Q_EMIT selectedAccountJidsChanged();
 	}
 
@@ -67,7 +67,7 @@ void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedG
 {
 	if (m_selectedGroups != selectedGroups) {
 		m_selectedGroups = selectedGroups;
-		invalidate();
+		invalidateFilter();
 		Q_EMIT selectedGroupsChanged();
 	}
 
@@ -82,7 +82,7 @@ void RosterFilterProxyModel::setGroupChatsExcluded(bool groupChatsExcluded)
 {
 	if (m_groupChatsExcluded != groupChatsExcluded) {
 		m_groupChatsExcluded = groupChatsExcluded;
-		invalidate();
+		invalidateFilter();
 		Q_EMIT groupChatsExcludedChanged();
 	}
 }
@@ -96,7 +96,7 @@ void RosterFilterProxyModel::setGroupChatUsersExcluded(bool groupChatUsersExclud
 {
 	if (m_groupChatUsersExcluded != groupChatUsersExcluded) {
 		m_groupChatUsersExcluded = groupChatUsersExcluded;
-		invalidate();
+		invalidateFilter();
 		Q_EMIT groupChatUsersExcludedChanged();
 	}
 }
