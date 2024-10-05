@@ -151,9 +151,21 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 	initializeAccountMigration();
 
-	// Log out of the server when the application window is closed.
-	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
-		Q_EMIT logOutRequested(true);
+	// Disconnect from the server when the application window is closed but before the application
+	// is quit.
+	qGuiApp->setQuitOnLastWindowClosed(false);
+	connect(qGuiApp, &QGuiApplication::lastWindowClosed, this, [this]() {
+		if (m_connectionState == Enums::ConnectionState::StateDisconnected) {
+			qGuiApp->quit();
+		} else {
+			connect(this, &Kaidan::connectionStateChanged, this, [this]() {
+				if (m_connectionState == Enums::ConnectionState::StateDisconnected) {
+					qGuiApp->quit();
+				}
+			});
+
+			Q_EMIT logOutRequested(true);
+		}
 	});
 
 	connect(m_msgDb, &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
