@@ -4,7 +4,7 @@
 
 include(ECMAddTests)
 
-find_package(Qt5Test REQUIRED)
+find_package(Qt${QT_MAJOR_VERSION}Test REQUIRED)
 
 # Include build directory to use GlobalsGen.h
 include_directories(PUBLIC "${CMAKE_BINARY_DIR}")
@@ -105,7 +105,7 @@ ecm_add_test(
     ../src/QmlUtils.cpp
     ../src/QmlUtils.h
 	TEST_NAME FileModelTest
-	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Sql Qt::Test QXmpp::QXmpp KF5::KIOFileWidgets
+	LINK_LIBRARIES Qt::Gui Qt::Positioning Qt::Concurrent Qt::Sql Qt::Test QXmpp::QXmpp KF${KF_MAJOR_VERSION}::KIOFileWidgets
 )
 
 target_compile_definitions(FileModelTest PRIVATE BUILD_TESTS)

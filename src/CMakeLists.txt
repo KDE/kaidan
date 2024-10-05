@@ -274,13 +274,13 @@ target_link_libraries(${PROJECT_NAME}
     Qt::Positioning
     Qt::Location
     Qt::QuickControls2
-    KF5::CoreAddons
-    KF5::KIOCore
-    KF5::KIOWidgets
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::KIOCore
+    KF${KF_MAJOR_VERSION}::KIOWidgets
     QXmpp::QXmpp QXmpp::Omemo
     ICU::uc
-    ${__Qt5Widgets_LIBRARIES}
-    ${__KF5Notifications_LIBRARIES}
+    ${__Qt${QT_MAJOR_VERSION}Widgets_LIBRARIES}
+    ${__KF${KF_MAJOR_VERSION}Notifications_LIBRARIES}
 )
 
 if(TARGET ZXing::ZXing)
@@ -290,13 +290,13 @@ elseif(TARGET ZXing::Core)
 endif()
 
 if(ANDROID OR IOS)
-    target_link_libraries(${PROJECT_NAME} Qt5::QuickControls2 KF5::Kirigami2)
+    target_link_libraries(${PROJECT_NAME} Qt${QT_MAJOR_VERSION}::QuickControls2 KF${KF_MAJOR_VERSION}::Kirigami2)
 endif()
 
 if(ANDROID)
-    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
+    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt${QT_MAJOR_VERSION}::AndroidExtras)
 else()
-    target_link_libraries(${PROJECT_NAME} KF5::KIOFileWidgets)
+    target_link_libraries(${PROJECT_NAME} KF${KF_MAJOR_VERSION}::KIOFileWidgets)
 endif()
 
 if(STATIC_BUILD)
@@ -309,12 +309,12 @@ if(STATIC_BUILD)
         file(REMOVE ${STATIC_DEPENDENCIES_CMAKE_FILE})
     endif()
 
-    get_target_property(QT_LIBDIR Qt5::Core LOCATION)
+    get_target_property(QT_LIBDIR Qt${QT_MAJOR_VERSION}::Core LOCATION)
     get_filename_component(QT_LIBDIR ${QT_LIBDIR} DIRECTORY)
 
     macro(CONVERT_PRL_LIBS_TO_CMAKE _qt_component)
-        if(TARGET Qt5::${_qt_component})
-            get_target_property(_lib_location Qt5::${_qt_component} LOCATION)
+        if(TARGET Qt${QT_MAJOR_VERSION}::${_qt_component})
+            get_target_property(_lib_location Qt${QT_MAJOR_VERSION}::${_qt_component} LOCATION)
             execute_process(COMMAND ${PERL_EXECUTABLE} ${CMAKE_SOURCE_DIR}/utils/convert-prl-libs-to-cmake.pl
                 --lib ${_lib_location}
                 --libdir ${QT_LIBDIR}
@@ -359,20 +359,20 @@ if(STATIC_BUILD)
     find_library(QDIALOGS_PLUGIN qquickdialogsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Dialogs)
     find_library(QWINDOW_PLUGIN windowplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Window.2)
     find_library(QSHAPES_PLUGIN qmlshapesplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Shapes)
-    find_library(QUICKSHAPES Qt5QuickShapes PATHS ${QT_LIBDIR})
+    find_library(QUICKSHAPES Qt${QT_MAJOR_VERSION}QuickShapes PATHS ${QT_LIBDIR})
     find_library(QTEMPLATES_PLUGIN qtquicktemplates2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Templates.2)
     find_library(QMODELS_PLUGIN modelsplugin PATHS ${QT_QML_PATH}/qml/QtQml/Models.2)
     target_link_libraries(${PROJECT_NAME}
         ${plugin_libs}
-        Qt5::QSQLiteDriverPlugin
-        Qt5::QJpegPlugin
-        Qt5::QGifPlugin
-        Qt5::QSvgPlugin
-        Qt5::QSvgIconPlugin
-        Qt5::QICOPlugin
-        Qt5::QGenericEnginePlugin
-        Qt5::QLocalClientConnectionFactory
-        Qt5::QTcpServerConnectionFactory
+        Qt${QT_MAJOR_VERSION}::QSQLiteDriverPlugin
+        Qt${QT_MAJOR_VERSION}::QJpegPlugin
+        Qt${QT_MAJOR_VERSION}::QGifPlugin
+        Qt${QT_MAJOR_VERSION}::QSvgPlugin
+        Qt${QT_MAJOR_VERSION}::QSvgIconPlugin
+        Qt${QT_MAJOR_VERSION}::QICOPlugin
+        Qt${QT_MAJOR_VERSION}::QGenericEnginePlugin
+        Qt${QT_MAJOR_VERSION}::QLocalClientConnectionFactory
+        Qt${QT_MAJOR_VERSION}::QTcpServerConnectionFactory
         ${KIRIGAMI_PLUGIN}
         ${QUICK_PLUGIN}
         ${LABS_PLATFORM_PLUGIN}
@@ -388,19 +388,19 @@ if(STATIC_BUILD)
         ${QUICKSHAPES}
         ${QTEMPLATES_PLUGIN}
         ${QMODELS_PLUGIN}
-        ${__Qt5Widgets_LIBRARIES}
+        ${__Qt${QT_MAJOR_VERSION}Widgets_LIBRARIES}
     )
 
     if(IOS)
         target_link_libraries(${PROJECT_NAME}
-            Qt5::QIOSIntegrationPlugin
-            Qt5::QMacHeifPlugin
-            Qt5::QMacJp2Plugin
-            Qt5::QICNSPlugin
-            Qt5::QTgaPlugin
-            Qt5::QTiffPlugin
-            Qt5::QWbmpPlugin
-            Qt5::QWebpPlugin
+            Qt${QT_MAJOR_VERSION}::QIOSIntegrationPlugin
+            Qt${QT_MAJOR_VERSION}::QMacHeifPlugin
+            Qt${QT_MAJOR_VERSION}::QMacJp2Plugin
+            Qt${QT_MAJOR_VERSION}::QICNSPlugin
+            Qt${QT_MAJOR_VERSION}::QTgaPlugin
+            Qt${QT_MAJOR_VERSION}::QTiffPlugin
+            Qt${QT_MAJOR_VERSION}::QWbmpPlugin
+            Qt${QT_MAJOR_VERSION}::QWebpPlugin
         )
     endif()
 endif()
