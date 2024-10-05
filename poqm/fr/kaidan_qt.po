@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2024-09-29 08:41+0200\n"
+"PO-Revision-Date: 2024-10-03 07:13+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -99,18 +99,15 @@ msgstr ""
 "périphériques et vos autres informations personnelles de %2"
 
 #: src/ChatHintModel.cpp:263
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 uses %2 now and would like to receive your personal data "
 "such as availability, devices and other personal information again%3"
 msgstr ""
-"%1 voudrait recevoir vos données personnelles comme votre disponibilité, vos "
-"périphériques et vos autres informations personnelles de %2"
+"Votre contact %1 utilise %2 et voudrait recevoir vos données personnelles "
+"comme votre disponibilité, vos périphériques et vos autres informations "
+"personnelles vis-à-vis de %3"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"

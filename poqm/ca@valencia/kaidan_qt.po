@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-09-18 10:25+0200\n"
+"PO-Revision-Date: 2024-10-02 10:47+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.0\n"
+"X-Generator: Lokalize 24.08.1\n"
 "X-Language: ca-valencia\n"
 "X-Qt-Contexts: true\n"
 
@@ -105,18 +105,14 @@ msgstr ""
 "dispositius i altra informació personal%2"
 
 #: src/ChatHintModel.cpp:263
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 uses %2 now and would like to receive your personal data "
 "such as availability, devices and other personal information again%3"
 msgstr ""
-"%1 voldria rebre les vostres dades personals com la disponibilitat, "
-"dispositius i altra informació personal%2"
+"El contacte %1 ara utilitza %2 i voldria rebre les vostres dades personals "
+"com la disponibilitat, dispositius i altra informació personal%3"
 
 #: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
@@ -1965,12 +1961,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Cancel·la l'addició d'una part oculta del missatge"
 
 #: src/qml/elements/ChatPageSendingPane.qml:150
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Participants"
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "Participants"
+msgstr "Menciona un participant"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2279,12 +2272,9 @@ msgid "Join group chat"
 msgstr "Uniu-vos al grup de xat"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:53
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Invite contacts"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "Convida contactes"
+msgstr "Convida contactes a este grup…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
