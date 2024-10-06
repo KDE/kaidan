@@ -61,27 +61,28 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatHintModel.cpp:242
+#: src/ChatHintModel.cpp:265
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接，连接后会发送和接收消息"
 
-#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
+#: src/ChatHintModel.cpp:266 src/ChatHintModel.cpp:304
+#: src/ChatHintModel.cpp:326
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "连接"
 
-#: src/ChatHintModel.cpp:246
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:259
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -89,7 +90,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:286
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -101,35 +102,59 @@ msgid ""
 "such as availability, devices and other personal information again%3"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:270
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:305
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:284
+#: src/ChatHintModel.cpp:307
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
+
+#: src/ChatHintModel.cpp:325
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "This group has no users"
+msgctxt "ChatHintModel|"
+msgid "This group is deleted"
+msgstr "此群聊没有用户"
+
+#: src/ChatHintModel.cpp:327
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Leave"
+msgctxt "ChatHintModel|"
+msgid "Leave"
+msgstr "离开"
+
+#: src/ChatHintModel.cpp:329
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Creating group chat…"
+msgctxt "ChatHintModel|"
+msgid "Leaving group chat"
+msgstr "正在创建群聊…"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -137,22 +162,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "无法下载文件：%1"
 
-#: src/GroupChatUserModel.cpp:52
+#: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "未加入"
 
-#: src/GroupChatUserModel.cpp:54
+#: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "已加入"
 
-#: src/GroupChatUserModel.cpp:56
+#: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "已离开"
 
-#: src/GroupChatUserModel.cpp:58
+#: src/GroupChatUserModel.cpp:61
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
@@ -601,47 +626,47 @@ msgctxt "ChatPage|"
 msgid "Add hidden message part"
 msgstr "添加隐藏的消息部分"
 
-#: src/qml/details/AccountDetailsContent.qml:26
-#: src/qml/details/AccountDetailsContent.qml:321
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:28
+#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:352
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "从不"
 
-#: src/qml/details/AccountDetailsContent.qml:30
-#: src/qml/details/AccountDetailsContent.qml:325
+#: src/qml/details/AccountDetailsContent.qml:32
+#: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "是否分享个人数据"
 
-#: src/qml/details/AccountDetailsContent.qml:34
-#: src/qml/details/AccountDetailsContent.qml:329
-#: src/qml/details/AccountDetailsContent.qml:354
+#: src/qml/details/AccountDetailsContent.qml:36
+#: src/qml/details/AccountDetailsContent.qml:335
+#: src/qml/details/AccountDetailsContent.qml:360
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "始终"
 
-#: src/qml/details/AccountDetailsContent.qml:68
+#: src/qml/details/AccountDetailsContent.qml:70
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr "空的"
 
-#: src/qml/details/AccountDetailsContent.qml:88
+#: src/qml/details/AccountDetailsContent.qml:90
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "设置值"
 
-#: src/qml/details/AccountDetailsContent.qml:146
+#: src/qml/details/AccountDetailsContent.qml:148
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/qml/details/AccountDetailsContent.qml:150
+#: src/qml/details/AccountDetailsContent.qml:152
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:151
+#: src/qml/details/AccountDetailsContent.qml:153
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -650,156 +675,156 @@ msgstr ""
 "OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
 "交换的数据。"
 
-#: src/qml/details/AccountDetailsContent.qml:170
-#: src/qml/details/AccountDetailsContent.qml:178
+#: src/qml/details/AccountDetailsContent.qml:172
+#: src/qml/details/AccountDetailsContent.qml:180
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "验证<b>您的</b>设备以对其进行加密"
 
-#: src/qml/details/AccountDetailsContent.qml:174
+#: src/qml/details/AccountDetailsContent.qml:176
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:181
+#: src/qml/details/AccountDetailsContent.qml:183
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "验证<b>您的</b>设备以获得最大的安全性"
 
-#: src/qml/details/AccountDetailsContent.qml:243
+#: src/qml/details/AccountDetailsContent.qml:245
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "更改标签…"
 
-#: src/qml/details/AccountDetailsContent.qml:272
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "移除标签"
 
-#: src/qml/details/AccountDetailsContent.qml:285
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:287
+#: src/qml/details/AccountDetailsContent.qml:292
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "通过二维码分享此账号的聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:294
+#: src/qml/details/AccountDetailsContent.qml:296
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "通过文本分享此账号的聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:297
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "账号地址已复制到剪贴板"
 
-#: src/qml/details/AccountDetailsContent.qml:301
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr "通过带有使用帮助的网页分享此账号的聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:311
+#: src/qml/details/AccountDetailsContent.qml:317
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:322
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "收到的联系人消息"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:323
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr "在收到来自联系人的消息时显示通知并播放声音"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "收到的群聊消息"
 
-#: src/qml/details/AccountDetailsContent.qml:342
+#: src/qml/details/AccountDetailsContent.qml:348
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr "在收到来自群聊的消息时显示通知并播放声音"
 
-#: src/qml/details/AccountDetailsContent.qml:350
+#: src/qml/details/AccountDetailsContent.qml:356
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "在提及时"
 
-#: src/qml/details/AccountDetailsContent.qml:384
+#: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "提供者"
 
-#: src/qml/details/AccountDetailsContent.qml:388
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "访问网站"
 
-#: src/qml/details/AccountDetailsContent.qml:389
+#: src/qml/details/AccountDetailsContent.qml:395
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "在浏览器中打开提供者的网站"
 
-#: src/qml/details/AccountDetailsContent.qml:395
+#: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "复制网站地址"
 
-#: src/qml/details/AccountDetailsContent.qml:396
+#: src/qml/details/AccountDetailsContent.qml:402
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "将提供者的网址复制到剪贴板"
 
-#: src/qml/details/AccountDetailsContent.qml:400
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "网址已复制到剪贴板"
 
-#: src/qml/details/AccountDetailsContent.qml:405
+#: src/qml/details/AccountDetailsContent.qml:411
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "打开支持聊天"
 
-#: src/qml/details/AccountDetailsContent.qml:406
+#: src/qml/details/AccountDetailsContent.qml:412
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "开始与提供者的支持联系人聊天"
 
-#: src/qml/details/AccountDetailsContent.qml:412
+#: src/qml/details/AccountDetailsContent.qml:418
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "支持"
 
-#: src/qml/details/AccountDetailsContent.qml:438
+#: src/qml/details/AccountDetailsContent.qml:444
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "支持 %1"
 
-#: src/qml/details/AccountDetailsContent.qml:455
+#: src/qml/details/AccountDetailsContent.qml:461
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "打开支持群聊"
 
-#: src/qml/details/AccountDetailsContent.qml:456
+#: src/qml/details/AccountDetailsContent.qml:462
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "加入您的提供者的公共支持群聊"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:488
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "群聊支持 %1"
 
-#: src/qml/details/AccountDetailsContent.qml:499
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "已屏蔽的聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:503
+#: src/qml/details/AccountDetailsContent.qml:509
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -808,115 +833,115 @@ msgstr ""
 "屏蔽特定用户（例如 user@example.org）或同一服务器（例如 example.org）的全部用"
 "户"
 
-#: src/qml/details/AccountDetailsContent.qml:522
+#: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "您必须连接才能屏蔽或解除屏蔽聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:529
+#: src/qml/details/AccountDetailsContent.qml:535
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:550
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "屏蔽聊天地址"
 
-#: src/qml/details/AccountDetailsContent.qml:602
+#: src/qml/details/AccountDetailsContent.qml:608
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "更改聊天地址…"
 
-#: src/qml/details/AccountDetailsContent.qml:631
+#: src/qml/details/AccountDetailsContent.qml:637
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "解除屏蔽"
 
-#: src/qml/details/AccountDetailsContent.qml:658
+#: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/qml/details/AccountDetailsContent.qml:663
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "添加聊天备注"
 
-#: src/qml/details/AccountDetailsContent.qml:664
+#: src/qml/details/AccountDetailsContent.qml:670
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "添加在所有设备上同步的聊天备注"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:704
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "密码更改"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:708
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr "更改密码。您需要在所有其他设备上输入新密码！"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:724
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "当前密码"
 
-#: src/qml/details/AccountDetailsContent.qml:719
+#: src/qml/details/AccountDetailsContent.qml:725
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "输入您当前的密码"
 
-#: src/qml/details/AccountDetailsContent.qml:720
+#: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "输入正确的密码"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:748
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "新密码"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:748
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "密码"
 
-#: src/qml/details/AccountDetailsContent.qml:743
+#: src/qml/details/AccountDetailsContent.qml:749
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "输入新密码"
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:750
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "输入不同的密码进行更改"
 
-#: src/qml/details/AccountDetailsContent.qml:764
+#: src/qml/details/AccountDetailsContent.qml:770
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "更改密码"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:817
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "无法更改密码：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:817
+#: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "密码更改成功"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:839
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "密码可见性"
 
-#: src/qml/details/AccountDetailsContent.qml:837
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -928,19 +953,19 @@ msgstr ""
 "稍后在其他设备上使用您的账号，<b>请考虑将密码存储在其他地方。此操作无法撤销！"
 "</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:843
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "不将密码显示为文本"
 
-#: src/qml/details/AccountDetailsContent.qml:844
+#: src/qml/details/AccountDetailsContent.qml:850
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr "允许使用登录二维码添加其他设备，但从不显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:857
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removing account…"
@@ -948,67 +973,67 @@ msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:857
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "不要以任何方式暴露密码"
 
-#: src/qml/details/AccountDetailsContent.qml:858
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr "既不允许使用登录二维码添加其他设备，也不允许显示密码"
 
-#: src/qml/details/AccountDetailsContent.qml:870
+#: src/qml/details/AccountDetailsContent.qml:876
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:882
+#: src/qml/details/AccountDetailsContent.qml:888
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "连接"
 
-#: src/qml/details/AccountDetailsContent.qml:886
+#: src/qml/details/AccountDetailsContent.qml:892
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
 "values)"
 msgstr "配置要连接的主机名和端口（空字段为默认值）"
 
-#: src/qml/details/AccountDetailsContent.qml:905
+#: src/qml/details/AccountDetailsContent.qml:911
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "更改连接设置"
 
-#: src/qml/details/AccountDetailsContent.qml:914
+#: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "输入不同的连接设置以进行更改"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:969
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "无法更改连接设置：%1"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:984
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "连接设置已更改"
 
-#: src/qml/details/AccountDetailsContent.qml:1002
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "迁移"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "迁移账号"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1017
 #, fuzzy
 #| msgctxt "StartPage|"
 #| msgid "Account Migration"
@@ -1016,12 +1041,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "账号迁移"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1031,45 +1056,45 @@ msgstr ""
 "将账号数据（聊天记录除外）迁移到另一个账号。将从此应用中移除您当前的账号。如"
 "果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1046
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "从 Kaidan 移除"
 
-#: src/qml/details/AccountDetailsContent.qml:1047
+#: src/qml/details/AccountDetailsContent.qml:1053
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr "从此应用中移除账号。如果需要，备份您的凭据和聊天记录！"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1059
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "完全删除"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "从提供者删除账号。您将无法再次使用您的账号！"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1071
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "正在删除账号…"
 
-#: src/qml/details/AccountDetailsContent.qml:1072
+#: src/qml/details/AccountDetailsContent.qml:1078
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1107,17 +1132,17 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "保存选择"
 
-#: src/qml/details/ContactDetailsContent.qml:46
+#: src/qml/details/ContactDetailsContent.qml:43
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/qml/details/ContactDetailsContent.qml:50
+#: src/qml/details/ContactDetailsContent.qml:47
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:51
+#: src/qml/details/ContactDetailsContent.qml:48
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1126,167 +1151,167 @@ msgstr ""
 "OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
 "交换的数据。"
 
-#: src/qml/details/ContactDetailsContent.qml:63
-#: src/qml/details/ContactDetailsContent.qml:71
+#: src/qml/details/ContactDetailsContent.qml:60
+#: src/qml/details/ContactDetailsContent.qml:68
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "验证<b>您的</b>设备以对其进行加密"
 
-#: src/qml/details/ContactDetailsContent.qml:67
+#: src/qml/details/ContactDetailsContent.qml:64
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:74
+#: src/qml/details/ContactDetailsContent.qml:71
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "验证<b>您的</b>设备以获得最大的安全性"
 
-#: src/qml/details/ContactDetailsContent.qml:112
+#: src/qml/details/ContactDetailsContent.qml:109
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
 msgstr "验证您的<b>联系人</b>以启用加密"
 
-#: src/qml/details/ContactDetailsContent.qml:115
+#: src/qml/details/ContactDetailsContent.qml:112
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "您的<b>联系人</b>未使用 OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:120
+#: src/qml/details/ContactDetailsContent.qml:117
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
 
-#: src/qml/details/ContactDetailsContent.qml:123
+#: src/qml/details/ContactDetailsContent.qml:120
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
 msgstr "验证您的<b>联系人</b>以获得最大的安全性"
 
-#: src/qml/details/ContactDetailsContent.qml:152
-#: src/qml/details/ContactDetailsContent.qml:158
+#: src/qml/details/ContactDetailsContent.qml:149
+#: src/qml/details/ContactDetailsContent.qml:155
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "通过二维码分享此联系人的聊天地址"
 
-#: src/qml/details/ContactDetailsContent.qml:162
+#: src/qml/details/ContactDetailsContent.qml:159
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "通过文本分享此联系人的聊天地址"
 
-#: src/qml/details/ContactDetailsContent.qml:165
+#: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "联系人已复制到剪贴板"
 
-#: src/qml/details/ContactDetailsContent.qml:169
+#: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr "通过带有使用帮助的网页分享此联系人的聊天地址"
 
-#: src/qml/details/ContactDetailsContent.qml:180
+#: src/qml/details/ContactDetailsContent.qml:181
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
 
-#: src/qml/details/ContactDetailsContent.qml:185
+#: src/qml/details/ContactDetailsContent.qml:186
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "收到的消息"
 
-#: src/qml/details/ContactDetailsContent.qml:186
+#: src/qml/details/ContactDetailsContent.qml:187
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "在收到消息时显示通知并播放声音"
 
-#: src/qml/details/ContactDetailsContent.qml:190
+#: src/qml/details/ContactDetailsContent.qml:191
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "账号默认"
 
-#: src/qml/details/ContactDetailsContent.qml:194
+#: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr "从不"
 
-#: src/qml/details/ContactDetailsContent.qml:198
+#: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr "始终"
 
-#: src/qml/details/ContactDetailsContent.qml:217
+#: src/qml/details/ContactDetailsContent.qml:218
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "隐私"
 
-#: src/qml/details/ContactDetailsContent.qml:221
+#: src/qml/details/ContactDetailsContent.qml:222
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "请求个人数据"
 
-#: src/qml/details/ContactDetailsContent.qml:222
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr "请求您的联系人分享在线状态、设备和其他个人信息"
 
-#: src/qml/details/ContactDetailsContent.qml:228
+#: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "取消个人数据分享"
 
-#: src/qml/details/ContactDetailsContent.qml:229
+#: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr "停止分享您的在线状态、设备和其他个人信息"
 
-#: src/qml/details/ContactDetailsContent.qml:235
+#: src/qml/details/ContactDetailsContent.qml:236
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "发送输入通知"
 
-#: src/qml/details/ContactDetailsContent.qml:236
+#: src/qml/details/ContactDetailsContent.qml:237
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
 
-#: src/qml/details/ContactDetailsContent.qml:247
+#: src/qml/details/ContactDetailsContent.qml:248
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "发送已读通知"
 
-#: src/qml/details/ContactDetailsContent.qml:248
+#: src/qml/details/ContactDetailsContent.qml:249
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "指示您已阅读的消息"
 
-#: src/qml/details/ContactDetailsContent.qml:259
+#: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "屏蔽"
 
-#: src/qml/details/ContactDetailsContent.qml:260
+#: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "屏蔽所有通信，包括状态和通知"
 
-#: src/qml/details/ContactDetailsContent.qml:286
+#: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "移除"
 
-#: src/qml/details/ContactDetailsContent.qml:291
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "移除"
 
-#: src/qml/details/ContactDetailsContent.qml:292
+#: src/qml/details/ContactDetailsContent.qml:293
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "移除联系人和全部聊天记录"
 
-#: src/qml/details/ContactDetailsContent.qml:297
+#: src/qml/details/ContactDetailsContent.qml:298
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Removing account…"
@@ -1299,108 +1324,98 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "最大化头像"
 
-#: src/qml/details/ContactDetailsHeader.qml:23
-msgctxt "ContactDetailsHeader|"
-msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
-
-#: src/qml/details/DetailsContent.qml:62
+#: src/qml/details/DetailsContent.qml:61
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "媒体"
 
-#: src/qml/details/DetailsContent.qml:67
+#: src/qml/details/DetailsContent.qml:66
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "自动下载"
 
-#: src/qml/details/DetailsContent.qml:68
+#: src/qml/details/DetailsContent.qml:67
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "自动下载媒体"
 
-#: src/qml/details/DetailsContent.qml:76
+#: src/qml/details/DetailsContent.qml:75
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "您最多可以分享 %1 个媒体。"
 
-#: src/qml/details/DetailsContent.qml:121
+#: src/qml/details/DetailsContent.qml:120
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "个人资料"
 
-#: src/qml/details/DetailsContent.qml:145
+#: src/qml/details/DetailsContent.qml:144
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "标签"
 
-#: src/qml/details/DetailsContent.qml:170
+#: src/qml/details/DetailsContent.qml:169
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "分享"
 
-#: src/qml/details/DetailsContent.qml:175
+#: src/qml/details/DetailsContent.qml:174
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "显示二维码"
 
-#: src/qml/details/DetailsContent.qml:193
+#: src/qml/details/DetailsContent.qml:192
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "复制二维码"
 
-#: src/qml/details/DetailsContent.qml:195
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "二维码已复制到剪贴板"
 
-#: src/qml/details/DetailsContent.qml:200
+#: src/qml/details/DetailsContent.qml:199
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "复制聊天地址"
 
-#: src/qml/details/DetailsContent.qml:206
+#: src/qml/details/DetailsContent.qml:205
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr "复制邀请链接"
 
-#: src/qml/details/DetailsContent.qml:208
+#: src/qml/details/DetailsContent.qml:207
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "邀请链接已复制到剪贴板"
-
-#: src/qml/details/DetailsContent.qml:220
-msgctxt "DetailsContent|"
-msgid "Connected Devices"
-msgstr "已连接设备"
 
 #: src/qml/details/DetailsHeader.qml:93
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "更改名称…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:32
+#: src/qml/details/GroupChatDetailsContent.qml:31
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
 msgstr "邀请"
 
-#: src/qml/details/GroupChatDetailsContent.qml:69
+#: src/qml/details/GroupChatDetailsContent.qml:68
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
 msgstr "邀请所选联系人"
 
-#: src/qml/details/GroupChatDetailsContent.qml:128
+#: src/qml/details/GroupChatDetailsContent.qml:127
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
 msgstr "至少选择一位联系人"
 
-#: src/qml/details/GroupChatDetailsContent.qml:145
+#: src/qml/details/GroupChatDetailsContent.qml:144
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
 msgstr "参与者"
 
-#: src/qml/details/GroupChatDetailsContent.qml:149
+#: src/qml/details/GroupChatDetailsContent.qml:148
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
@@ -1409,27 +1424,27 @@ msgstr ""
 "允许用户（例如 user@example.org）或同一服务器（例如 example.org）的全部用户参"
 "与"
 
-#: src/qml/details/GroupChatDetailsContent.qml:172
+#: src/qml/details/GroupChatDetailsContent.qml:171
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "您必须连接才能更改参与者"
 
-#: src/qml/details/GroupChatDetailsContent.qml:207
+#: src/qml/details/GroupChatDetailsContent.qml:206
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr "封禁"
 
-#: src/qml/details/GroupChatDetailsContent.qml:233
+#: src/qml/details/GroupChatDetailsContent.qml:232
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "加密"
 
-#: src/qml/details/GroupChatDetailsContent.qml:237
+#: src/qml/details/GroupChatDetailsContent.qml:236
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:238
+#: src/qml/details/GroupChatDetailsContent.qml:237
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1438,140 +1453,140 @@ msgstr ""
 "OMEMO 2 的端到端加密确保除了您和您的聊天伙伴之外，没有其他人可以读取或修改您"
 "交换的数据。"
 
-#: src/qml/details/GroupChatDetailsContent.qml:250
-#: src/qml/details/GroupChatDetailsContent.qml:258
+#: src/qml/details/GroupChatDetailsContent.qml:249
+#: src/qml/details/GroupChatDetailsContent.qml:257
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "验证<b>您的</b>设备以对其进行加密"
 
-#: src/qml/details/GroupChatDetailsContent.qml:254
+#: src/qml/details/GroupChatDetailsContent.qml:253
 msgctxt "GroupChatDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:261
+#: src/qml/details/GroupChatDetailsContent.qml:260
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "验证<b>您的</b>设备以获得最大的安全性"
 
-#: src/qml/details/GroupChatDetailsContent.qml:300
+#: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify a <b>participant</b> to enable encryption"
 msgstr "验证<b>参与者</b>以启用加密"
 
-#: src/qml/details/GroupChatDetailsContent.qml:303
+#: src/qml/details/GroupChatDetailsContent.qml:302
 msgctxt "GroupChatDetailsContent|"
 msgid "No <b>participant</b> uses OMEMO 2"
 msgstr "没有<b>参与者</b>使用 OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:308
+#: src/qml/details/GroupChatDetailsContent.qml:307
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgstr "验证<b>参与者的</b>设备以对其进行加密"
 
-#: src/qml/details/GroupChatDetailsContent.qml:311
+#: src/qml/details/GroupChatDetailsContent.qml:310
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants</b> for maximum security"
 msgstr "验证<b>参与者</b>以获得最大的安全性"
 
-#: src/qml/details/GroupChatDetailsContent.qml:388
-#: src/qml/details/GroupChatDetailsContent.qml:393
+#: src/qml/details/GroupChatDetailsContent.qml:387
+#: src/qml/details/GroupChatDetailsContent.qml:392
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "通过二维码分享此群聊的聊天地址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:397
+#: src/qml/details/GroupChatDetailsContent.qml:396
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "通过文本分享此群聊的聊天地址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:400
+#: src/qml/details/GroupChatDetailsContent.qml:399
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "群聊地址已复制到剪贴板"
 
-#: src/qml/details/GroupChatDetailsContent.qml:404
+#: src/qml/details/GroupChatDetailsContent.qml:403
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "通过带有使用帮助的网页分享此群聊的聊天地址"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:414
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:420
+#: src/qml/details/GroupChatDetailsContent.qml:419
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "收到的消息"
 
-#: src/qml/details/GroupChatDetailsContent.qml:421
+#: src/qml/details/GroupChatDetailsContent.qml:420
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "在收到消息时显示通知并播放声音"
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:424
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "账号默认"
 
-#: src/qml/details/GroupChatDetailsContent.qml:429
+#: src/qml/details/GroupChatDetailsContent.qml:428
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "从不"
 
-#: src/qml/details/GroupChatDetailsContent.qml:433
+#: src/qml/details/GroupChatDetailsContent.qml:432
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr "在提及时"
 
-#: src/qml/details/GroupChatDetailsContent.qml:437
+#: src/qml/details/GroupChatDetailsContent.qml:436
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "始终"
 
-#: src/qml/details/GroupChatDetailsContent.qml:456
+#: src/qml/details/GroupChatDetailsContent.qml:455
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "隐私"
 
-#: src/qml/details/GroupChatDetailsContent.qml:460
+#: src/qml/details/GroupChatDetailsContent.qml:459
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "发送输入通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:461
+#: src/qml/details/GroupChatDetailsContent.qml:460
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "指示您何时打开此对话、何时正在输入以及何时停止输入"
 
-#: src/qml/details/GroupChatDetailsContent.qml:472
+#: src/qml/details/GroupChatDetailsContent.qml:471
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "发送已读通知"
 
-#: src/qml/details/GroupChatDetailsContent.qml:473
+#: src/qml/details/GroupChatDetailsContent.qml:472
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "指示您已阅读的消息"
 
-#: src/qml/details/GroupChatDetailsContent.qml:494
+#: src/qml/details/GroupChatDetailsContent.qml:493
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "离开并删除"
 
-#: src/qml/details/GroupChatDetailsContent.qml:500
+#: src/qml/details/GroupChatDetailsContent.qml:499
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "离开"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "离开群聊并移除全部聊天记录"
 
-#: src/qml/details/GroupChatDetailsContent.qml:506
+#: src/qml/details/GroupChatDetailsContent.qml:509
 #, fuzzy
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "Creating group chat…"
@@ -1579,17 +1594,17 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "正在创建群聊…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:512
+#: src/qml/details/GroupChatDetailsContent.qml:515
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "删除"
 
-#: src/qml/details/GroupChatDetailsContent.qml:513
+#: src/qml/details/GroupChatDetailsContent.qml:516
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "删除群聊。没有人可以再次加入此群聊！"
 
-#: src/qml/details/GroupChatDetailsContent.qml:522
+#: src/qml/details/GroupChatDetailsContent.qml:525
 #, fuzzy
 #| msgctxt "GroupChatCreationContent|"
 #| msgid "Creating group chat…"
@@ -1597,7 +1612,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "正在创建群聊…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:528
+#: src/qml/details/GroupChatDetailsContent.qml:531
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1715,27 +1730,36 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
 msgstr "正在移除账号…"
 
-#: src/qml/details/RosterItemDetailsContent.qml:24
+#: src/qml/details/NotesChatDetailsHeader.qml:17
+#, fuzzy
+#| msgctxt "ContactDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
+msgctxt "NotesChatDetailsHeader|"
+msgid "Messages in this chat are synchronized as notes across all your devices"
+msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
+
+#: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
 msgstr "账号默认"
 
-#: src/qml/details/RosterItemDetailsContent.qml:28
+#: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
 msgstr "从不"
 
-#: src/qml/details/RosterItemDetailsContent.qml:32
+#: src/qml/details/RosterItemDetailsContent.qml:29
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
 msgstr "始终"
 
-#: src/qml/details/RosterItemDetailsContent.qml:53
+#: src/qml/details/RosterItemDetailsContent.qml:50
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
 msgstr "新标签"
 
-#: src/qml/details/RosterItemDetailsContent.qml:67
+#: src/qml/details/RosterItemDetailsContent.qml:64
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "添加标签"
@@ -1744,6 +1768,14 @@ msgstr "添加标签"
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "最大化头像"
+
+#: src/qml/details/UserDevicesArea.qml:28
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Connected Devices"
+msgctxt "UserDevicesArea|"
+msgid "Connected Devices"
+msgstr "已连接设备"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
@@ -1885,7 +1917,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "标记为第一个未读"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:151
+#: src/qml/elements/ChatMessageContextMenu.qml:150
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "从此设备中移除"
@@ -2003,37 +2035,37 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "取消"
 
-#: src/qml/elements/ContactAdditionContent.qml:28
+#: src/qml/elements/ContactAdditionContent.qml:31
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "添加"
 
-#: src/qml/elements/ContactAdditionContent.qml:33
+#: src/qml/elements/ContactAdditionContent.qml:34
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
 msgstr "联系人已存在"
 
-#: src/qml/elements/ContactAdditionContent.qml:35
+#: src/qml/elements/ContactAdditionContent.qml:36
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
 msgstr "打开聊天"
 
-#: src/qml/elements/ContactAdditionContent.qml:48
+#: src/qml/elements/ContactAdditionContent.qml:47
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "正在添加联系人…"
 
-#: src/qml/elements/ContactAdditionContent.qml:59
+#: src/qml/elements/ContactAdditionContent.qml:58
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "名称（可选）："
 
-#: src/qml/elements/ContactAdditionContent.qml:67
+#: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr "消息（可选）："
 
-#: src/qml/elements/ContactAdditionContent.qml:74
+#: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "您好，我是…"
@@ -2158,19 +2190,19 @@ msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr "昵称（可选）："
 
-#: src/qml/elements/GroupChatCreationContent.qml:97
+#: src/qml/elements/GroupChatCreationContent.qml:98
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "无法在 %1 上创建群聊：%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:101
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "无法创建群聊 %1：%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:110
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2216,7 +2248,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "昵称（可选）："
 
-#: src/qml/elements/GroupChatJoiningContent.qml:52
+#: src/qml/elements/GroupChatJoiningContent.qml:48
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2790,7 +2822,7 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
 msgstr "正在请求服务器…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:52
+#: src/qml/registration/AutomaticRegistrationPage.qml:53
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
 msgstr ""

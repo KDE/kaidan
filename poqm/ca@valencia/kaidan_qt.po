@@ -72,29 +72,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositius en els servidors"
 
-#: src/ChatHintModel.cpp:242
+#: src/ChatHintModel.cpp:265
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "No hi ha connexió: Els missatges s'enviaran i es rebran una vegada hi haja "
 "connexió"
 
-#: src/ChatHintModel.cpp:243 src/ChatHintModel.cpp:281
+#: src/ChatHintModel.cpp:266 src/ChatHintModel.cpp:304
+#: src/ChatHintModel.cpp:326
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Descarta"
 
-#: src/ChatHintModel.cpp:244
+#: src/ChatHintModel.cpp:267
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Connecta"
 
-#: src/ChatHintModel.cpp:246
+#: src/ChatHintModel.cpp:269
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "S'està connectant…"
 
-#: src/ChatHintModel.cpp:259
+#: src/ChatHintModel.cpp:282
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -104,7 +105,7 @@ msgstr ""
 "%1 voldria rebre les vostres dades personals com la disponibilitat, "
 "dispositius i altra informació personal%2"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:286
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -114,35 +115,59 @@ msgstr ""
 "El contacte %1 ara utilitza %2 i voldria rebre les vostres dades personals "
 "com la disponibilitat, dispositius i altra informació personal%3"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rebutja"
 
-#: src/ChatHintModel.cpp:270
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Permet"
 
-#: src/ChatHintModel.cpp:272
+#: src/ChatHintModel.cpp:295
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "S'està permetent…"
 
-#: src/ChatHintModel.cpp:280
+#: src/ChatHintModel.cpp:303
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Este grup no té cap usuari"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:305
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Convida contactes"
 
-#: src/ChatHintModel.cpp:284
+#: src/ChatHintModel.cpp:307
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Obri l'àrea d'invitació"
+
+#: src/ChatHintModel.cpp:325
+#, fuzzy
+#| msgctxt "ChatHintModel|"
+#| msgid "This group has no users"
+msgctxt "ChatHintModel|"
+msgid "This group is deleted"
+msgstr "Este grup no té cap usuari"
+
+#: src/ChatHintModel.cpp:327
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Leave"
+msgctxt "ChatHintModel|"
+msgid "Leave"
+msgstr "Ix"
+
+#: src/ChatHintModel.cpp:329
+#, fuzzy
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "Leaving group chat…"
+msgctxt "ChatHintModel|"
+msgid "Leaving group chat"
+msgstr "S'està eixint del grup de xat…"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -150,22 +175,22 @@ msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "No s'ha pogut baixar el fitxer: %1"
 
-#: src/GroupChatUserModel.cpp:52
+#: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "No unit"
 
-#: src/GroupChatUserModel.cpp:54
+#: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "Unit"
 
-#: src/GroupChatUserModel.cpp:56
+#: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "Ha eixit"
 
-#: src/GroupChatUserModel.cpp:58
+#: src/GroupChatUserModel.cpp:61
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bandejat"
@@ -614,47 +639,47 @@ msgctxt "ChatPage|"
 msgid "Add hidden message part"
 msgstr "Afig una part oculta al missatge"
 
-#: src/qml/details/AccountDetailsContent.qml:26
-#: src/qml/details/AccountDetailsContent.qml:321
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:28
+#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:352
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Mai"
 
-#: src/qml/details/AccountDetailsContent.qml:30
-#: src/qml/details/AccountDetailsContent.qml:325
+#: src/qml/details/AccountDetailsContent.qml:32
+#: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "Si es compartixen les dades personals"
 
-#: src/qml/details/AccountDetailsContent.qml:34
-#: src/qml/details/AccountDetailsContent.qml:329
-#: src/qml/details/AccountDetailsContent.qml:354
+#: src/qml/details/AccountDetailsContent.qml:36
+#: src/qml/details/AccountDetailsContent.qml:335
+#: src/qml/details/AccountDetailsContent.qml:360
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
 
-#: src/qml/details/AccountDetailsContent.qml:68
+#: src/qml/details/AccountDetailsContent.qml:70
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr "Buit"
 
-#: src/qml/details/AccountDetailsContent.qml:88
+#: src/qml/details/AccountDetailsContent.qml:90
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Establix un valor"
 
-#: src/qml/details/AccountDetailsContent.qml:146
+#: src/qml/details/AccountDetailsContent.qml:148
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Encriptació"
 
-#: src/qml/details/AccountDetailsContent.qml:150
+#: src/qml/details/AccountDetailsContent.qml:152
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:151
+#: src/qml/details/AccountDetailsContent.qml:153
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -664,160 +689,160 @@ msgstr ""
 "els vostres companys de xat puguen llegir o modificar les dades que "
 "intercanvieu."
 
-#: src/qml/details/AccountDetailsContent.qml:170
-#: src/qml/details/AccountDetailsContent.qml:178
+#: src/qml/details/AccountDetailsContent.qml:172
+#: src/qml/details/AccountDetailsContent.qml:180
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a encriptar-los"
 
-#: src/qml/details/AccountDetailsContent.qml:174
+#: src/qml/details/AccountDetailsContent.qml:176
 msgctxt "AccountDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Els altres dispositius <b>vostres</b> no empren OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:181
+#: src/qml/details/AccountDetailsContent.qml:183
 msgctxt "AccountDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a una seguretat màxima"
 
-#: src/qml/details/AccountDetailsContent.qml:243
+#: src/qml/details/AccountDetailsContent.qml:245
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "Canvia una etiqueta…"
 
-#: src/qml/details/AccountDetailsContent.qml:272
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Elimina l'etiqueta"
 
-#: src/qml/details/AccountDetailsContent.qml:285
-#: src/qml/details/AccountDetailsContent.qml:290
+#: src/qml/details/AccountDetailsContent.qml:287
+#: src/qml/details/AccountDetailsContent.qml:292
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "Compartiu esta adreça del xat del compte via codi QR"
 
-#: src/qml/details/AccountDetailsContent.qml:294
+#: src/qml/details/AccountDetailsContent.qml:296
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "Compartiu esta adreça del xat del compte via text"
 
-#: src/qml/details/AccountDetailsContent.qml:297
+#: src/qml/details/AccountDetailsContent.qml:299
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "L'adreça del compte s'ha copiat a dins del porta-retalls"
 
-#: src/qml/details/AccountDetailsContent.qml:301
+#: src/qml/details/AccountDetailsContent.qml:303
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 "Compartiu esta adreça del xat del compte via una pàgina web amb ajuda d'ús"
 
-#: src/qml/details/AccountDetailsContent.qml:311
+#: src/qml/details/AccountDetailsContent.qml:317
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: src/qml/details/AccountDetailsContent.qml:316
+#: src/qml/details/AccountDetailsContent.qml:322
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Missatges entrants de contactes"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:323
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 "Mostra una notificació i reproduïx un so en l'arribada de missatges d'un "
 "contacte"
 
-#: src/qml/details/AccountDetailsContent.qml:341
+#: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Missatges entrants de grups"
 
-#: src/qml/details/AccountDetailsContent.qml:342
+#: src/qml/details/AccountDetailsContent.qml:348
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 "Mostra una notificació i reproduïx un so en l'arribada de missatges d'un grup"
 
-#: src/qml/details/AccountDetailsContent.qml:350
+#: src/qml/details/AccountDetailsContent.qml:356
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "A les mencions"
 
-#: src/qml/details/AccountDetailsContent.qml:384
+#: src/qml/details/AccountDetailsContent.qml:390
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Proveïdor"
 
-#: src/qml/details/AccountDetailsContent.qml:388
+#: src/qml/details/AccountDetailsContent.qml:394
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Visiteu el lloc web"
 
-#: src/qml/details/AccountDetailsContent.qml:389
+#: src/qml/details/AccountDetailsContent.qml:395
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Obri el lloc web del proveïdor en un navegador web"
 
-#: src/qml/details/AccountDetailsContent.qml:395
+#: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Copia l'adreça del lloc web"
 
-#: src/qml/details/AccountDetailsContent.qml:396
+#: src/qml/details/AccountDetailsContent.qml:402
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Copia l'adreça web del proveïdor a dins del porta-retalls"
 
-#: src/qml/details/AccountDetailsContent.qml:400
+#: src/qml/details/AccountDetailsContent.qml:406
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "L'adreça del lloc web s'ha copiat a dins del porta-retalls"
 
-#: src/qml/details/AccountDetailsContent.qml:405
+#: src/qml/details/AccountDetailsContent.qml:411
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Obri un xat d'assistència"
 
-#: src/qml/details/AccountDetailsContent.qml:406
+#: src/qml/details/AccountDetailsContent.qml:412
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Inicia un xat amb el contacte d'assistència del vostre proveïdor"
 
-#: src/qml/details/AccountDetailsContent.qml:412
+#: src/qml/details/AccountDetailsContent.qml:418
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Assistència"
 
-#: src/qml/details/AccountDetailsContent.qml:438
+#: src/qml/details/AccountDetailsContent.qml:444
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Assistència de %1"
 
-#: src/qml/details/AccountDetailsContent.qml:455
+#: src/qml/details/AccountDetailsContent.qml:461
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Obri el grup d'assistència"
 
-#: src/qml/details/AccountDetailsContent.qml:456
+#: src/qml/details/AccountDetailsContent.qml:462
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Uniu-vos al grup públic d'assistència del vostre proveïdor"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:488
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Grup d'assistència %1"
 
-#: src/qml/details/AccountDetailsContent.qml:499
+#: src/qml/details/AccountDetailsContent.qml:505
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Adreça del xat bloquejada"
 
-#: src/qml/details/AccountDetailsContent.qml:503
+#: src/qml/details/AccountDetailsContent.qml:509
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -826,53 +851,53 @@ msgstr ""
 "Bloqueja un usuari específic (p. ex., usuari@example.org) o tots els usuaris "
 "del mateix servidor (p. ex., example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:522
+#: src/qml/details/AccountDetailsContent.qml:528
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "Cal estar connectat per a bloquejar o desbloquejar adreces de xat"
 
-#: src/qml/details/AccountDetailsContent.qml:529
+#: src/qml/details/AccountDetailsContent.qml:535
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "usuari@example.org"
 
-#: src/qml/details/AccountDetailsContent.qml:544
+#: src/qml/details/AccountDetailsContent.qml:550
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Bloqueja l'adreça del xat"
 
-#: src/qml/details/AccountDetailsContent.qml:602
+#: src/qml/details/AccountDetailsContent.qml:608
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Canvia l'adreça del xat…"
 
-#: src/qml/details/AccountDetailsContent.qml:631
+#: src/qml/details/AccountDetailsContent.qml:637
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Desbloqueja"
 
-#: src/qml/details/AccountDetailsContent.qml:658
+#: src/qml/details/AccountDetailsContent.qml:664
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/qml/details/AccountDetailsContent.qml:663
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Afig un xat per a les notes"
 
-#: src/qml/details/AccountDetailsContent.qml:664
+#: src/qml/details/AccountDetailsContent.qml:670
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 "Afig un xat per a sincronitzar les notes entre tots els vostres dispositius"
 
-#: src/qml/details/AccountDetailsContent.qml:698
+#: src/qml/details/AccountDetailsContent.qml:704
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Canvi de contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:708
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -881,63 +906,63 @@ msgstr ""
 "Canvia la contrasenya. Cal tornar a introduir la contrasenya nova en tots "
 "els altres dispositius."
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:724
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Contrasenya actual"
 
-#: src/qml/details/AccountDetailsContent.qml:719
+#: src/qml/details/AccountDetailsContent.qml:725
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Introduïu la contrasenya actual"
 
-#: src/qml/details/AccountDetailsContent.qml:720
+#: src/qml/details/AccountDetailsContent.qml:726
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Introduïu la contrasenya correcta"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:748
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Contrasenya nova"
 
-#: src/qml/details/AccountDetailsContent.qml:742
+#: src/qml/details/AccountDetailsContent.qml:748
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:743
+#: src/qml/details/AccountDetailsContent.qml:749
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Introduïu la contrasenya nova"
 
-#: src/qml/details/AccountDetailsContent.qml:744
+#: src/qml/details/AccountDetailsContent.qml:750
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Introduïu una contrasenya diferent per a canviar-la"
 
-#: src/qml/details/AccountDetailsContent.qml:764
+#: src/qml/details/AccountDetailsContent.qml:770
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Canvia la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:817
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "No s'ha pogut canviar la contrasenya: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:817
+#: src/qml/details/AccountDetailsContent.qml:823
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "La contrasenya s'ha canviat correctament"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:839
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Visibilitat de la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:837
+#: src/qml/details/AccountDetailsContent.qml:843
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -950,12 +975,12 @@ msgstr ""
 "utilitzar el vostre compte en un altre dispositiu més tard, <b>considereu "
 "emmagatzemar la contrasenya en un altre lloc. Açò no es podrà desfer!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:843
+#: src/qml/details/AccountDetailsContent.qml:849
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "No mostres la contrasenya com a text"
 
-#: src/qml/details/AccountDetailsContent.qml:844
+#: src/qml/details/AccountDetailsContent.qml:850
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -964,17 +989,17 @@ msgstr ""
 "Permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió però mai mostra la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:851
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "S'està eliminant la contrasenya del text…"
 
-#: src/qml/details/AccountDetailsContent.qml:857
+#: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "No exposes la contrasenya de cap manera"
 
-#: src/qml/details/AccountDetailsContent.qml:858
+#: src/qml/details/AccountDetailsContent.qml:864
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -983,17 +1008,17 @@ msgstr ""
 "No es permet afegir dispositius addicionals utilitzant el codi QR d'inici de "
 "sessió ni mostrar la contrasenya"
 
-#: src/qml/details/AccountDetailsContent.qml:870
+#: src/qml/details/AccountDetailsContent.qml:876
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "S'està eliminant la contrasenya del text i del codi QR…"
 
-#: src/qml/details/AccountDetailsContent.qml:882
+#: src/qml/details/AccountDetailsContent.qml:888
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:886
+#: src/qml/details/AccountDetailsContent.qml:892
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1002,48 +1027,48 @@ msgstr ""
 "Configura el nom del servidor i el port al qual connectar (camps buits per "
 "als valors predeterminats)"
 
-#: src/qml/details/AccountDetailsContent.qml:905
+#: src/qml/details/AccountDetailsContent.qml:911
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Canvi de la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:914
+#: src/qml/details/AccountDetailsContent.qml:920
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Introduïu paràmetres de connexió diferents per a canviar-los"
 
-#: src/qml/details/AccountDetailsContent.qml:963
+#: src/qml/details/AccountDetailsContent.qml:969
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "No es pot canviar la configuració de la connexió: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:978
+#: src/qml/details/AccountDetailsContent.qml:984
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "S'ha canviat la configuració de la connexió"
 
-#: src/qml/details/AccountDetailsContent.qml:1002
+#: src/qml/details/AccountDetailsContent.qml:1008
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Migració"
 
-#: src/qml/details/AccountDetailsContent.qml:1010
+#: src/qml/details/AccountDetailsContent.qml:1016
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Migra el compte"
 
-#: src/qml/details/AccountDetailsContent.qml:1011
+#: src/qml/details/AccountDetailsContent.qml:1017
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "S'està preparant la migració del compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Açò pot tardar una estona"
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1054,17 +1079,17 @@ msgstr ""
 "El compte actual s'eliminarà d'esta aplicació. Feu una còpia de seguretat de "
 "les vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1040
+#: src/qml/details/AccountDetailsContent.qml:1046
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Eliminació"
 
-#: src/qml/details/AccountDetailsContent.qml:1046
+#: src/qml/details/AccountDetailsContent.qml:1052
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Elimina de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1047
+#: src/qml/details/AccountDetailsContent.qml:1053
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1073,17 +1098,17 @@ msgstr ""
 "Elimina el compte d'esta aplicació. Feu una còpia de seguretat de les "
 "vostres credencials i historial de xat si cal!"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1058
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "S'està eliminant el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1059
+#: src/qml/details/AccountDetailsContent.qml:1065
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Suprimix completament"
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1066
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
@@ -1091,12 +1116,12 @@ msgstr ""
 "Suprimix el compte en el proveïdor. No podreu tornar a utilitzar el vostre "
 "compte!"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1071
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "S'està suprimint el compte…"
 
-#: src/qml/details/AccountDetailsContent.qml:1072
+#: src/qml/details/AccountDetailsContent.qml:1078
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1136,17 +1161,17 @@ msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Guarda la selecció"
 
-#: src/qml/details/ContactDetailsContent.qml:46
+#: src/qml/details/ContactDetailsContent.qml:43
 msgctxt "ContactDetailsContent|"
 msgid "Encryption"
 msgstr "Encriptació"
 
-#: src/qml/details/ContactDetailsContent.qml:50
+#: src/qml/details/ContactDetailsContent.qml:47
 msgctxt "ContactDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:51
+#: src/qml/details/ContactDetailsContent.qml:48
 msgctxt "ContactDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1156,107 +1181,107 @@ msgstr ""
 "els vostres companys de xat puguen llegir o modificar les dades que "
 "intercanvieu."
 
-#: src/qml/details/ContactDetailsContent.qml:63
-#: src/qml/details/ContactDetailsContent.qml:71
+#: src/qml/details/ContactDetailsContent.qml:60
+#: src/qml/details/ContactDetailsContent.qml:68
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a encriptar-los"
 
-#: src/qml/details/ContactDetailsContent.qml:67
+#: src/qml/details/ContactDetailsContent.qml:64
 msgctxt "ContactDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Els altres dispositius <b>vostres</b> no empren OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:74
+#: src/qml/details/ContactDetailsContent.qml:71
 msgctxt "ContactDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a una seguretat màxima"
 
-#: src/qml/details/ContactDetailsContent.qml:112
+#: src/qml/details/ContactDetailsContent.qml:109
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> to enable encryption"
 msgstr "Verifiqueu el vostre <b>contacte</b> per a activar l'encriptació"
 
-#: src/qml/details/ContactDetailsContent.qml:115
+#: src/qml/details/ContactDetailsContent.qml:112
 msgctxt "ContactDetailsContent|"
 msgid "Your <b>contact</b> doesn't use OMEMO 2"
 msgstr "El vostre <b>contacte</b> no utilitza OMEMO 2"
 
-#: src/qml/details/ContactDetailsContent.qml:120
+#: src/qml/details/ContactDetailsContent.qml:117
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgstr ""
 "Verifiqueu els dispositius del vostre <b>contacte</b> per a encriptar-los"
 
-#: src/qml/details/ContactDetailsContent.qml:123
+#: src/qml/details/ContactDetailsContent.qml:120
 msgctxt "ContactDetailsContent|"
 msgid "Verify your <b>contact</b> for maximum security"
 msgstr "Verifiqueu el vostre <b>contacte</b> per a una seguretat màxima"
 
-#: src/qml/details/ContactDetailsContent.qml:152
-#: src/qml/details/ContactDetailsContent.qml:158
+#: src/qml/details/ContactDetailsContent.qml:149
+#: src/qml/details/ContactDetailsContent.qml:155
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Compartiu l'adreça del xat d'este contacte via el codi QR"
 
-#: src/qml/details/ContactDetailsContent.qml:162
+#: src/qml/details/ContactDetailsContent.qml:159
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Compartiu l'adreça del xat d'este contacte via text"
 
-#: src/qml/details/ContactDetailsContent.qml:165
+#: src/qml/details/ContactDetailsContent.qml:162
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Contacte copiat a dins del porta-retalls"
 
-#: src/qml/details/ContactDetailsContent.qml:169
+#: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
 "Compartiu esta adreça del xat d'este contacte via una pàgina web amb ajuda "
 "d'ús"
 
-#: src/qml/details/ContactDetailsContent.qml:180
+#: src/qml/details/ContactDetailsContent.qml:181
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: src/qml/details/ContactDetailsContent.qml:185
+#: src/qml/details/ContactDetailsContent.qml:186
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Missatges entrants"
 
-#: src/qml/details/ContactDetailsContent.qml:186
+#: src/qml/details/ContactDetailsContent.qml:187
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Mostra una notificació i reproduïx un so en l'arribada de missatges"
 
-#: src/qml/details/ContactDetailsContent.qml:190
+#: src/qml/details/ContactDetailsContent.qml:191
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Predeterminat del compte"
 
-#: src/qml/details/ContactDetailsContent.qml:194
+#: src/qml/details/ContactDetailsContent.qml:195
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr "Mai"
 
-#: src/qml/details/ContactDetailsContent.qml:198
+#: src/qml/details/ContactDetailsContent.qml:199
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
 
-#: src/qml/details/ContactDetailsContent.qml:217
+#: src/qml/details/ContactDetailsContent.qml:218
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Privadesa"
 
-#: src/qml/details/ContactDetailsContent.qml:221
+#: src/qml/details/ContactDetailsContent.qml:222
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Petició de dades personals"
 
-#: src/qml/details/ContactDetailsContent.qml:222
+#: src/qml/details/ContactDetailsContent.qml:223
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
@@ -1265,66 +1290,66 @@ msgstr ""
 "Demana al contacte compartir la disponibilitat, dispositius i altra "
 "informació personal"
 
-#: src/qml/details/ContactDetailsContent.qml:228
+#: src/qml/details/ContactDetailsContent.qml:229
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "Cancel·la la compartició de dades personals"
 
-#: src/qml/details/ContactDetailsContent.qml:229
+#: src/qml/details/ContactDetailsContent.qml:230
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 "Para compartir la vostra disponibilitat, dispositius i altra informació "
 "personal"
 
-#: src/qml/details/ContactDetailsContent.qml:235
+#: src/qml/details/ContactDetailsContent.qml:236
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Envia les notificacions d'escriptura"
 
-#: src/qml/details/ContactDetailsContent.qml:236
+#: src/qml/details/ContactDetailsContent.qml:237
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "Indica quan teniu esta conversa oberta, i esteu o pareu de teclejar"
 
-#: src/qml/details/ContactDetailsContent.qml:247
+#: src/qml/details/ContactDetailsContent.qml:248
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Envia les notificacions de lectura"
 
-#: src/qml/details/ContactDetailsContent.qml:248
+#: src/qml/details/ContactDetailsContent.qml:249
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indica quins missatges heu llegit"
 
-#: src/qml/details/ContactDetailsContent.qml:259
+#: src/qml/details/ContactDetailsContent.qml:260
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "Bloqueja"
 
-#: src/qml/details/ContactDetailsContent.qml:260
+#: src/qml/details/ContactDetailsContent.qml:261
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 "Bloqueja totes les comunicacions, incloent-hi l'estat i les notificacions"
 
-#: src/qml/details/ContactDetailsContent.qml:286
+#: src/qml/details/ContactDetailsContent.qml:287
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Eliminació"
 
-#: src/qml/details/ContactDetailsContent.qml:291
+#: src/qml/details/ContactDetailsContent.qml:292
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/qml/details/ContactDetailsContent.qml:292
+#: src/qml/details/ContactDetailsContent.qml:293
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Elimina el contacte i l'historial complet de xat"
 
-#: src/qml/details/ContactDetailsContent.qml:297
+#: src/qml/details/ContactDetailsContent.qml:298
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
 msgstr "S'està eliminant el contacte…"
@@ -1334,110 +1359,98 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maximitza l'avatar"
 
-#: src/qml/details/ContactDetailsHeader.qml:23
-msgctxt "ContactDetailsHeader|"
-msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr ""
-"Els missatges en este xat se sincronitzen com a notes entre tots els vostres "
-"dispositius"
-
-#: src/qml/details/DetailsContent.qml:62
+#: src/qml/details/DetailsContent.qml:61
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Multimèdia"
 
-#: src/qml/details/DetailsContent.qml:67
+#: src/qml/details/DetailsContent.qml:66
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "Baixades automàtiques"
 
-#: src/qml/details/DetailsContent.qml:68
+#: src/qml/details/DetailsContent.qml:67
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Baixa automàticament els elements multimèdia"
 
-#: src/qml/details/DetailsContent.qml:76
+#: src/qml/details/DetailsContent.qml:75
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Podeu compartir elements multimèdia fins a %1."
 
-#: src/qml/details/DetailsContent.qml:121
+#: src/qml/details/DetailsContent.qml:120
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Perfil"
 
-#: src/qml/details/DetailsContent.qml:145
+#: src/qml/details/DetailsContent.qml:144
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etiquetes"
 
-#: src/qml/details/DetailsContent.qml:170
+#: src/qml/details/DetailsContent.qml:169
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "Compartiu"
 
-#: src/qml/details/DetailsContent.qml:175
+#: src/qml/details/DetailsContent.qml:174
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Mostra el codi QR"
 
-#: src/qml/details/DetailsContent.qml:193
+#: src/qml/details/DetailsContent.qml:192
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Copia el codi QR"
 
-#: src/qml/details/DetailsContent.qml:195
+#: src/qml/details/DetailsContent.qml:194
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "El codi QR s'ha copiat a dins del porta-retalls"
 
-#: src/qml/details/DetailsContent.qml:200
+#: src/qml/details/DetailsContent.qml:199
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Copia l'adreça del xat"
 
-#: src/qml/details/DetailsContent.qml:206
+#: src/qml/details/DetailsContent.qml:205
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr "Copia l'enllaç d'invitació"
 
-#: src/qml/details/DetailsContent.qml:208
+#: src/qml/details/DetailsContent.qml:207
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "L'enllaç d'invitació s'ha copiat a dins del porta-retalls"
-
-#: src/qml/details/DetailsContent.qml:220
-msgctxt "DetailsContent|"
-msgid "Connected Devices"
-msgstr "Dispositius connectats"
 
 #: src/qml/details/DetailsHeader.qml:93
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Canvia el nom…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:32
+#: src/qml/details/GroupChatDetailsContent.qml:31
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
 msgstr "Invita"
 
-#: src/qml/details/GroupChatDetailsContent.qml:69
+#: src/qml/details/GroupChatDetailsContent.qml:68
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
 msgstr "Invita els contactes seleccionats"
 
-#: src/qml/details/GroupChatDetailsContent.qml:128
+#: src/qml/details/GroupChatDetailsContent.qml:127
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
 msgstr "Seleccioneu un contacte com a mínim"
 
-#: src/qml/details/GroupChatDetailsContent.qml:145
+#: src/qml/details/GroupChatDetailsContent.qml:144
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
 msgstr "Participants"
 
-#: src/qml/details/GroupChatDetailsContent.qml:149
+#: src/qml/details/GroupChatDetailsContent.qml:148
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
@@ -1446,27 +1459,27 @@ msgstr ""
 "Permet participar a un usuari (p. ex., usuari@example.org) o tots els "
 "usuaris del mateix servidor (p. ex., example.org)"
 
-#: src/qml/details/GroupChatDetailsContent.qml:172
+#: src/qml/details/GroupChatDetailsContent.qml:171
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "Cal estar connectat per a canviar els participants"
 
-#: src/qml/details/GroupChatDetailsContent.qml:207
+#: src/qml/details/GroupChatDetailsContent.qml:206
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr "Bandeja"
 
-#: src/qml/details/GroupChatDetailsContent.qml:233
+#: src/qml/details/GroupChatDetailsContent.qml:232
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Encriptació"
 
-#: src/qml/details/GroupChatDetailsContent.qml:237
+#: src/qml/details/GroupChatDetailsContent.qml:236
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:238
+#: src/qml/details/GroupChatDetailsContent.qml:237
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1476,162 +1489,162 @@ msgstr ""
 "els vostres companys de xat puguen llegir o modificar les dades que "
 "intercanvieu."
 
-#: src/qml/details/GroupChatDetailsContent.qml:250
-#: src/qml/details/GroupChatDetailsContent.qml:258
+#: src/qml/details/GroupChatDetailsContent.qml:249
+#: src/qml/details/GroupChatDetailsContent.qml:257
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices to encrypt for them"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a encriptar-los"
 
-#: src/qml/details/GroupChatDetailsContent.qml:254
+#: src/qml/details/GroupChatDetailsContent.qml:253
 msgctxt "GroupChatDetailsContent|"
 msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgstr "Els altres dispositius <b>vostres</b> no empren OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:261
+#: src/qml/details/GroupChatDetailsContent.qml:260
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify <b>your</b> devices for maximum security"
 msgstr "Verifiqueu els <b>vostres</b> dispositius per a una seguretat màxima"
 
-#: src/qml/details/GroupChatDetailsContent.qml:300
+#: src/qml/details/GroupChatDetailsContent.qml:299
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify a <b>participant</b> to enable encryption"
 msgstr "Verifiqueu un <b>participant</b> per a activar l'encriptació"
 
-#: src/qml/details/GroupChatDetailsContent.qml:303
+#: src/qml/details/GroupChatDetailsContent.qml:302
 msgctxt "GroupChatDetailsContent|"
 msgid "No <b>participant</b> uses OMEMO 2"
 msgstr "Cap <b>participant</b> no utilitza OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:308
+#: src/qml/details/GroupChatDetailsContent.qml:307
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgstr ""
 "Verifiqueu els dispositius dels <b>participants</b> per a encriptar-los"
 
-#: src/qml/details/GroupChatDetailsContent.qml:311
+#: src/qml/details/GroupChatDetailsContent.qml:310
 msgctxt "GroupChatDetailsContent|"
 msgid "Verify the <b>participants</b> for maximum security"
 msgstr "Verifiqueu els <b>participants</b> per a una seguretat màxima"
 
-#: src/qml/details/GroupChatDetailsContent.qml:388
-#: src/qml/details/GroupChatDetailsContent.qml:393
+#: src/qml/details/GroupChatDetailsContent.qml:387
+#: src/qml/details/GroupChatDetailsContent.qml:392
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "Compartiu l'adreça del xat d'este grup via el codi QR"
 
-#: src/qml/details/GroupChatDetailsContent.qml:397
+#: src/qml/details/GroupChatDetailsContent.qml:396
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "Compartiu l'adreça del xat d'este grup via text"
 
-#: src/qml/details/GroupChatDetailsContent.qml:400
+#: src/qml/details/GroupChatDetailsContent.qml:399
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "L'adreça del grup s'ha copiat a dins del porta-retalls"
 
-#: src/qml/details/GroupChatDetailsContent.qml:404
+#: src/qml/details/GroupChatDetailsContent.qml:403
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 "Compartiu esta adreça del xat de grup via una pàgina web amb ajuda d'ús"
 
-#: src/qml/details/GroupChatDetailsContent.qml:415
+#: src/qml/details/GroupChatDetailsContent.qml:414
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificacions"
 
-#: src/qml/details/GroupChatDetailsContent.qml:420
+#: src/qml/details/GroupChatDetailsContent.qml:419
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Missatges entrants"
 
-#: src/qml/details/GroupChatDetailsContent.qml:421
+#: src/qml/details/GroupChatDetailsContent.qml:420
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Mostra una notificació i reproduïx un so en l'arribada de missatges"
 
-#: src/qml/details/GroupChatDetailsContent.qml:425
+#: src/qml/details/GroupChatDetailsContent.qml:424
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Predeterminat del compte"
 
-#: src/qml/details/GroupChatDetailsContent.qml:429
+#: src/qml/details/GroupChatDetailsContent.qml:428
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Mai"
 
-#: src/qml/details/GroupChatDetailsContent.qml:433
+#: src/qml/details/GroupChatDetailsContent.qml:432
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr "A les mencions"
 
-#: src/qml/details/GroupChatDetailsContent.qml:437
+#: src/qml/details/GroupChatDetailsContent.qml:436
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
 
-#: src/qml/details/GroupChatDetailsContent.qml:456
+#: src/qml/details/GroupChatDetailsContent.qml:455
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Privadesa"
 
-#: src/qml/details/GroupChatDetailsContent.qml:460
+#: src/qml/details/GroupChatDetailsContent.qml:459
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Envia les notificacions d'escriptura"
 
-#: src/qml/details/GroupChatDetailsContent.qml:461
+#: src/qml/details/GroupChatDetailsContent.qml:460
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr "Indica quan teniu esta conversa oberta, i esteu o pareu de teclejar"
 
-#: src/qml/details/GroupChatDetailsContent.qml:472
+#: src/qml/details/GroupChatDetailsContent.qml:471
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Envia les notificacions de lectura"
 
-#: src/qml/details/GroupChatDetailsContent.qml:473
+#: src/qml/details/GroupChatDetailsContent.qml:472
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indica quins missatges heu llegit"
 
-#: src/qml/details/GroupChatDetailsContent.qml:494
+#: src/qml/details/GroupChatDetailsContent.qml:493
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Eixida i supressió"
 
-#: src/qml/details/GroupChatDetailsContent.qml:500
+#: src/qml/details/GroupChatDetailsContent.qml:499
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Ix"
 
-#: src/qml/details/GroupChatDetailsContent.qml:501
+#: src/qml/details/GroupChatDetailsContent.qml:500
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Ix de grup i elimina l'historial complet de xat"
 
-#: src/qml/details/GroupChatDetailsContent.qml:506
+#: src/qml/details/GroupChatDetailsContent.qml:509
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "S'està eixint del grup de xat…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:512
+#: src/qml/details/GroupChatDetailsContent.qml:515
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Suprimix"
 
-#: src/qml/details/GroupChatDetailsContent.qml:513
+#: src/qml/details/GroupChatDetailsContent.qml:516
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Suprimix el grup. Ningú podrà unir-se al grup de nou!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:522
+#: src/qml/details/GroupChatDetailsContent.qml:525
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "S'està suprimint el grup de xat…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:528
+#: src/qml/details/GroupChatDetailsContent.qml:531
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1749,27 +1762,38 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
 msgstr "S'està eliminant el xat de notes…"
 
-#: src/qml/details/RosterItemDetailsContent.qml:24
+#: src/qml/details/NotesChatDetailsHeader.qml:17
+#, fuzzy
+#| msgctxt "ContactDetailsHeader|"
+#| msgid ""
+#| "Messages in this chat are synchronized as notes across all your devices"
+msgctxt "NotesChatDetailsHeader|"
+msgid "Messages in this chat are synchronized as notes across all your devices"
+msgstr ""
+"Els missatges en este xat se sincronitzen com a notes entre tots els vostres "
+"dispositius"
+
+#: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
 msgid "Account default"
 msgstr "Predeterminat del compte"
 
-#: src/qml/details/RosterItemDetailsContent.qml:28
+#: src/qml/details/RosterItemDetailsContent.qml:25
 msgctxt "RosterItemDetailsContent|"
 msgid "Never"
 msgstr "Mai"
 
-#: src/qml/details/RosterItemDetailsContent.qml:32
+#: src/qml/details/RosterItemDetailsContent.qml:29
 msgctxt "RosterItemDetailsContent|"
 msgid "Always"
 msgstr "Sempre"
 
-#: src/qml/details/RosterItemDetailsContent.qml:53
+#: src/qml/details/RosterItemDetailsContent.qml:50
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
 msgstr "Etiqueta nova"
 
-#: src/qml/details/RosterItemDetailsContent.qml:67
+#: src/qml/details/RosterItemDetailsContent.qml:64
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "Afig una etiqueta"
@@ -1778,6 +1802,14 @@ msgstr "Afig una etiqueta"
 msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maximitza l'avatar"
+
+#: src/qml/details/UserDevicesArea.qml:28
+#, fuzzy
+#| msgctxt "DetailsContent|"
+#| msgid "Connected Devices"
+msgctxt "UserDevicesArea|"
+msgid "Connected Devices"
+msgstr "Dispositius connectats"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
@@ -1925,7 +1957,7 @@ msgctxt "ChatMessageContextMenu|"
 msgid "Mark as first unread"
 msgstr "Marca com a primer sense llegir"
 
-#: src/qml/elements/ChatMessageContextMenu.qml:151
+#: src/qml/elements/ChatMessageContextMenu.qml:150
 msgctxt "ChatMessageContextMenu|"
 msgid "Remove from this device"
 msgstr "Elimina d'este dispositiu"
@@ -2040,37 +2072,37 @@ msgctxt "ConfirmationPage|"
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/qml/elements/ContactAdditionContent.qml:28
+#: src/qml/elements/ContactAdditionContent.qml:31
 msgctxt "ContactAdditionContent|"
 msgid "Add"
 msgstr "Afig"
 
-#: src/qml/elements/ContactAdditionContent.qml:33
+#: src/qml/elements/ContactAdditionContent.qml:34
 msgctxt "ContactAdditionContent|"
 msgid "Contact already exists"
 msgstr "El contacte ja existix"
 
-#: src/qml/elements/ContactAdditionContent.qml:35
+#: src/qml/elements/ContactAdditionContent.qml:36
 msgctxt "ContactAdditionContent|"
 msgid "Open chat"
 msgstr "Obri un xat"
 
-#: src/qml/elements/ContactAdditionContent.qml:48
+#: src/qml/elements/ContactAdditionContent.qml:47
 msgctxt "ContactAdditionContent|"
 msgid "Adding contact…"
 msgstr "Afig un contacte…"
 
-#: src/qml/elements/ContactAdditionContent.qml:59
+#: src/qml/elements/ContactAdditionContent.qml:58
 msgctxt "ContactAdditionContent|"
 msgid "Name (optional):"
 msgstr "Nom (opcional):"
 
-#: src/qml/elements/ContactAdditionContent.qml:67
+#: src/qml/elements/ContactAdditionContent.qml:66
 msgctxt "ContactAdditionContent|"
 msgid "Message (optional):"
 msgstr "Missatge (opcional):"
 
-#: src/qml/elements/ContactAdditionContent.qml:74
+#: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
 msgstr "Hola, soc…"
@@ -2197,19 +2229,19 @@ msgctxt "GroupChatCreationContent|"
 msgid "Nickname (optional):"
 msgstr "Sobrenom (opcional):"
 
-#: src/qml/elements/GroupChatCreationContent.qml:97
+#: src/qml/elements/GroupChatCreationContent.qml:98
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group could not be created on %1%2"
 msgstr "El grup no s'ha pogut crear a %1%2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:101
+#: src/qml/elements/GroupChatCreationContent.qml:102
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be created%2"
 msgstr "El grup %1 no s'ha pogut crear a %2"
 
-#: src/qml/elements/GroupChatCreationContent.qml:110
+#: src/qml/elements/GroupChatCreationContent.qml:106
 #, qt-format
 msgctxt "GroupChatCreationContent|"
 msgid "The group %1 could not be joined%2"
@@ -2255,7 +2287,7 @@ msgctxt "GroupChatJoiningContent|"
 msgid "Nickname (optional):"
 msgstr "Sobrenom (opcional):"
 
-#: src/qml/elements/GroupChatJoiningContent.qml:52
+#: src/qml/elements/GroupChatJoiningContent.qml:48
 #, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
@@ -2823,7 +2855,7 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
 msgstr "S'està sol·licitant el registre…"
 
-#: src/qml/registration/AutomaticRegistrationPage.qml:52
+#: src/qml/registration/AutomaticRegistrationPage.qml:53
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
 msgstr "S'ha completat el registre!"
