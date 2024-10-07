@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-02 20:29+0300\n"
+"PO-Revision-Date: 2024-10-06 09:53+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -140,28 +140,19 @@ msgid "Opening invitation area"
 msgstr "Відкриття області запрошень"
 
 #: src/ChatHintModel.cpp:325
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "This group has no users"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "У цій групі немає користувачів"
+msgstr "Цю групу вилучено"
 
 #: src/ChatHintModel.cpp:327
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Полишити"
 
 #: src/ChatHintModel.cpp:329
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leaving group chat…"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Полишаємо групове спілкування…"
+msgstr "Полишаємо групове спілкування"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -189,22 +180,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Заблоковано"
 
-#: src/Kaidan.cpp:213
+#: src/Kaidan.cpp:225
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "У мережі"
 
-#: src/Kaidan.cpp:215
+#: src/Kaidan.cpp:227
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
-#: src/Kaidan.cpp:217
+#: src/Kaidan.cpp:229
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Поза мережею"
 
-#: src/Kaidan.cpp:302
+#: src/Kaidan.cpp:314
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Посилання буде відкрито після встановлення з'єднання."
@@ -1768,10 +1759,6 @@ msgid "Removing notes chat…"
 msgstr "Вилучаємо обмін нотатками…"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -1809,9 +1796,6 @@ msgid "Maximize avatar"
 msgstr "Максимізувати аватар"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "З’єднані пристрої"

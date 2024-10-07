@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-02 21:57+0200\n"
+"PO-Revision-Date: 2024-10-06 19:35+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -132,28 +132,19 @@ msgid "Opening invitation area"
 msgstr "Öppnar inbjudningsområde"
 
 #: src/ChatHintModel.cpp:325
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "This group has no users"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "Gruppen har inga användare"
+msgstr "Gruppen har tagits bort"
 
 #: src/ChatHintModel.cpp:327
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Lämna"
 
 #: src/ChatHintModel.cpp:329
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leaving group chat…"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Lämnar gruppchatt…"
+msgstr "Lämnar gruppchatt"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -181,22 +172,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Bannlyst"
 
-#: src/Kaidan.cpp:213
+#: src/Kaidan.cpp:225
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Uppkopplad"
 
-#: src/Kaidan.cpp:215
+#: src/Kaidan.cpp:227
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Ansluter…"
 
-#: src/Kaidan.cpp:217
+#: src/Kaidan.cpp:229
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Nerkopplad"
 
-#: src/Kaidan.cpp:302
+#: src/Kaidan.cpp:314
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Länken öppnas efter du har anslutit."
@@ -1740,10 +1731,6 @@ msgid "Removing notes chat…"
 msgstr "Tar bort chatt för anteckningar…"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -1781,9 +1768,6 @@ msgid "Maximize avatar"
 msgstr "Maximera avatar"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Anslutna apparater"
