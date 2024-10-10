@@ -183,8 +183,8 @@ Item {
 		Kirigami.Icon {
 			source: "document-edit-symbolic"
 			visible: message.edited
-			Layout.preferredHeight: Kirigami.Units.gridUnit * 0.65
-			Layout.preferredWidth: Kirigami.Units.gridUnit * 0.65
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
 		}
 	}
 
