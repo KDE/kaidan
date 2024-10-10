@@ -273,13 +273,13 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 	case DeliveryStateIcon:
 		switch (msg.deliveryState) {
 		case DeliveryState::Pending:
-			return QmlUtils::getResourcePath(QStringLiteral("images/dots.svg"));
+			return QStringLiteral("content-loading-symbolic");
 		case DeliveryState::Sent:
-			return QmlUtils::getResourcePath(QStringLiteral("images/check-mark-pale.svg"));
+			return QStringLiteral("");
 		case DeliveryState::Delivered:
-			return QmlUtils::getResourcePath(QStringLiteral("images/check-mark.svg"));
+			return QStringLiteral("emblem-ok-symbolic");
 		case DeliveryState::Error:
-			return QmlUtils::getResourcePath(QStringLiteral("images/cross.svg"));
+			return QStringLiteral("dialog-error-symbolic");
 		case DeliveryState::Draft:
 			Q_UNREACHABLE();
 		}

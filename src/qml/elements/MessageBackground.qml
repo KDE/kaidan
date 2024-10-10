@@ -160,13 +160,11 @@ Item {
 			Layout.preferredHeight: Layout.preferredWidth
 		}
 
-		Image {
-			visible: message.isOwn
-			source: deliveryStateIcon
-			Layout.preferredHeight: Kirigami.Units.gridUnit * 0.6
-			Layout.preferredWidth: Kirigami.Units.gridUnit * 0.6
-			sourceSize.height: Kirigami.Units.gridUnit * 0.6
-			sourceSize.width: Kirigami.Units.gridUnit * 0.6
+		Kirigami.Icon {
+			source: message.deliveryStateIcon
+			visible: message.isOwn && source
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
 
 			MouseArea {
 				id: checkmarkMouseArea

@@ -48,7 +48,7 @@ Kirigami.SwipeListItem {
 	property string time
 	property int deliveryState
 	property string deliveryStateName
-	property url deliveryStateIcon
+	property string deliveryStateIcon
 	property bool isLastReadOwnMessage
 	property bool isLastReadContactMessage
 	property bool edited
