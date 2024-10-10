@@ -93,6 +93,7 @@ Item {
 
 	RowLayout {
 		id: metaInfo
+		spacing: Kirigami.Units.smallSpacing
 		anchors {
 			bottom: parent.bottom
 			right: mainBG.right
@@ -178,6 +179,7 @@ Item {
 				delay: 500
 			}
 		}
+
 		Kirigami.Icon {
 			source: "document-edit-symbolic"
 			visible: message.edited
