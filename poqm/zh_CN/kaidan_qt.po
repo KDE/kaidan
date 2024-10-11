@@ -91,16 +91,14 @@ msgid ""
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
 #: src/ChatHintModel.cpp:286
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 uses %2 now and would like to receive your personal data "
 "such as availability, devices and other personal information again%3"
-msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
+msgstr ""
+"您的联系人 %1 现在使用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个"
+"人信息 %3"
 
 #: src/ChatHintModel.cpp:292
 msgctxt "ChatHintModel|"
@@ -133,28 +131,19 @@ msgid "Opening invitation area"
 msgstr "正在打开邀请区"
 
 #: src/ChatHintModel.cpp:325
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "This group has no users"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "此群聊没有用户"
+msgstr "此群聊已删除"
 
 #: src/ChatHintModel.cpp:327
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "离开"
 
 #: src/ChatHintModel.cpp:329
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "正在创建群聊…"
+msgstr "正在离开群聊"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -238,7 +227,7 @@ msgstr "非常高"
 #: src/MediaSettings.cpp:156
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
-msgstr "恒定品质"
+msgstr "恒定质量"
 
 #: src/MediaSettings.cpp:158
 msgctxt "CommonEncoderSettings|"
@@ -333,7 +322,7 @@ msgstr "选择文档"
 #: src/MediaUtils.cpp:324
 msgctxt "MediaUtils|"
 msgid "All files"
-msgstr "所有文件"
+msgstr "全部文件"
 
 #: src/MediaUtils.cpp:326
 msgctxt "MediaUtils|"
@@ -966,12 +955,9 @@ msgid ""
 msgstr "允许使用登录二维码添加其他设备，但从不显示密码"
 
 #: src/qml/details/AccountDetailsContent.qml:857
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
-msgstr "正在移除账号…"
+msgstr "正在从文本中移除密码…"
 
 #: src/qml/details/AccountDetailsContent.qml:863
 msgctxt "AccountDetailsContent|"
@@ -988,7 +974,7 @@ msgstr "既不允许使用登录二维码添加其他设备，也不允许显示
 #: src/qml/details/AccountDetailsContent.qml:876
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
-msgstr ""
+msgstr "正在从文本和二维码中移除密码…"
 
 #: src/qml/details/AccountDetailsContent.qml:888
 msgctxt "AccountDetailsContent|"
@@ -1034,17 +1020,14 @@ msgid "Migrate account"
 msgstr "迁移账号"
 
 #: src/qml/details/AccountDetailsContent.qml:1017
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Account Migration"
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
-msgstr "账号迁移"
+msgstr "正在准备账号迁移…"
 
 #: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
-msgstr ""
+msgstr "这可能需要很久"
 
 #: src/qml/details/AccountDetailsContent.qml:1018
 msgctxt "AccountDetailsContent|"
@@ -1312,12 +1295,9 @@ msgid "Remove contact and complete chat history"
 msgstr "移除联系人和全部聊天记录"
 
 #: src/qml/details/ContactDetailsContent.qml:298
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
-msgstr "正在移除账号…"
+msgstr "正在移除联系人…"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1587,12 +1567,9 @@ msgid "Leave group and remove complete chat history"
 msgstr "离开群聊并移除全部聊天记录"
 
 #: src/qml/details/GroupChatDetailsContent.qml:509
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
-msgstr "正在创建群聊…"
+msgstr "正在离开群聊…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:515
 msgctxt "GroupChatDetailsContent|"
@@ -1605,12 +1582,9 @@ msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "删除群聊。没有人可以再次加入此群聊！"
 
 #: src/qml/details/GroupChatDetailsContent.qml:525
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
-msgstr "正在创建群聊…"
+msgstr "正在删除群聊…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:531
 #, qt-format
@@ -1723,21 +1697,14 @@ msgid "Remove notes chat and complete chat history"
 msgstr "移除聊天备注和全部聊天记录"
 
 #: src/qml/details/NotesChatDetailsContent.qml:117
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Removing account…"
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
-msgstr "正在移除账号…"
+msgstr "正在移除聊天备注…"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
-msgstr "此聊天中的消息将作为备注同步到您的所有设备上"
+msgstr "此聊天中的消息在您的所有设备上同步为备注"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -1770,12 +1737,9 @@ msgid "Maximize avatar"
 msgstr "最大化头像"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
-msgstr "已连接设备"
+msgstr "已连接的设备"
 
 #: src/qml/DeviceSwitchingPage.qml:24
 msgctxt "DeviceSwitchingPage|"
@@ -1953,12 +1917,9 @@ msgid "Cancel adding hidden message part"
 msgstr "取消添加隐藏的消息部分"
 
 #: src/qml/elements/ChatPageSendingPane.qml:150
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Participants"
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "参与者"
+msgstr "提及参与者"
 
 #: src/qml/elements/ChatPageSendingPane.qml:173
 msgctxt "ChatPageSendingPane|"
@@ -2265,12 +2226,9 @@ msgid "Join group chat"
 msgstr "加入群聊"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:53
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Invite contacts"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "邀请联系人"
+msgstr "邀请联系人加入此群聊…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -2691,12 +2649,9 @@ msgid "Send"
 msgstr "发送"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr "复制网站地址"
+msgstr "复制 Web 地址"
 
 #: src/qml/EmptyChatPage.qml:13
 msgctxt "EmptyChatPage|"
@@ -2772,9 +2727,6 @@ msgid "Could not unblock %1: %2"
 msgstr "无法解除屏蔽 %1：%2"
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "扫描二维码"
@@ -2812,87 +2764,62 @@ msgstr "正在连接…"
 #: src/qml/registration/AutomaticRegistrationPage.qml:25
 msgctxt "AutomaticRegistrationPage|"
 msgid "Automatic Registration"
-msgstr ""
+msgstr "自动注册"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:48
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "AutomaticRegistrationPage|"
 msgid "Requesting registration…"
-msgstr "正在请求服务器…"
+msgstr "正在请求注册…"
 
 #: src/qml/registration/AutomaticRegistrationPage.qml:53
 msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
-msgstr ""
+msgstr "完成注册！"
 
 #: src/qml/registration/CustomDataFormArea.qml:28
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "无信息"
+msgstr "输入附加信息"
 
 #: src/qml/registration/CustomDataFormArea.qml:32
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
-msgstr ""
+msgstr "提供者要求提供更多信息"
 
 #: src/qml/registration/CustomDataFormArea.qml:33
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
-msgstr ""
+msgstr "并非全部内容都是必填的"
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "注册失败："
+msgstr "手动注册"
 
 #: src/qml/registration/ManualRegistrationPage.qml:37
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
-msgstr "仅限网页注册："
+msgstr "填写注册表！"
 
 #: src/qml/registration/ManualRegistrationPage.qml:62
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Enter your current password"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "输入您当前的密码"
+msgstr "输入所需的凭据"
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "显示名称"
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "用户名"
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid ""
-#| "Please enter a valid username or leave the field empty for a random one."
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
-msgstr "请输入一个有效的用户名，或此字段留空以获取随机用户名。"
+msgstr "输入有效的用户名或将字段留空以获取随机用户名"
 
 #: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
@@ -2910,114 +2837,84 @@ msgid "A new random username has been generated."
 msgstr "已生成一个新的随机用户名。"
 
 #: src/qml/registration/ProviderPage.qml:23
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "选择视频"
+msgstr "选择提供者"
 
 #: src/qml/registration/ProviderPage.qml:38
 msgctxt "ProviderPage|"
 msgid "Choose a provider to register!"
-msgstr ""
+msgstr "选择要注册的提供者！"
 
 #: src/qml/registration/ProviderPage.qml:108
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "提供者"
+msgstr "提供者地址"
 
 #: src/qml/registration/ProviderPage.qml:121
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "连接设置"
 
 #: src/qml/registration/ProviderPage.qml:169
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Server locations:"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "服务器位置："
+msgstr "服务器位置"
 
 #: src/qml/registration/ProviderPage.qml:174
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
-msgstr "语言："
+msgstr "语言"
 
 #: src/qml/registration/ProviderPage.qml:179
 msgctxt "ProviderPage|"
 msgid "Available/Listed since"
-msgstr ""
+msgstr "可供使用/运营时间"
 
 #: src/qml/registration/ProviderPage.qml:184
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr ""
+msgstr "分享媒体的最大大小"
 
 #: src/qml/registration/ProviderPage.qml:189
 msgctxt "ProviderPage|"
 msgid "Messages storage duration"
-msgstr ""
+msgstr "消息存储期限"
 
 #: src/qml/registration/ProviderPage.qml:193
 msgctxt "ProviderPage|"
 msgid "Visit details page"
-msgstr ""
+msgstr "访问详情页面"
 
 #: src/qml/registration/ProviderPage.qml:194
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr "打开注册网页"
+msgstr "打开提供者的详情网页"
 
 #: src/qml/registration/ProviderPage.qml:211
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "选择文件"
+msgstr "选择"
 
 #: src/qml/registration/ProviderPage.qml:212
-#, fuzzy
-#| msgctxt "LoadingView|"
-#| msgid "Requesting the server…"
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr "正在请求服务器…"
+msgstr "正在请求注册…"
 
 #: src/qml/registration/ProviderPage.qml:231
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "您必须输入提供者地址"
 
 #: src/qml/registration/ProviderPage.qml:292
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "提供者不支持通过此应用注册。"
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Login after confirmation"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "确认后登录"
+msgstr "电子邮件确认后登录"
 
 #: src/qml/registration/RegistrationButton.qml:25
 msgctxt "RegistrationButton|"
@@ -3025,20 +2922,14 @@ msgid "Register"
 msgstr "注册"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "登录"
+msgstr "正在登录…"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "注册"
+msgstr "正在注册…"
 
 #: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
@@ -3056,66 +2947,46 @@ msgid "Registration failed:"
 msgstr "注册失败："
 
 #: src/qml/registration/WebRegistrationPage.qml:24
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Web registration only:"
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr "仅限网页注册："
+msgstr "网页注册"
 
 #: src/qml/registration/WebRegistrationPage.qml:28
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "通过提供者的网站注册！"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr ""
+msgstr "步骤 1：注册账号"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "此服务器不支持注册。"
+msgstr "所选提供者仅支持网页注册"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid ""
-#| "The selected provider only provides web registration. After creating an "
-#| "account via the web page, you can log in via Kaidan."
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
-msgstr "所选提供者仅提供网页注册。通过网页创建账号后，您可以通过 Kaidan 登录。"
+msgstr "通过提供者的网站创建账号后，您可以通过 Kaidan 登录"
 
 #: src/qml/registration/WebRegistrationPage.qml:59
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr "打开注册网页"
+msgstr "访问注册页面"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Open registration web page"
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr "打开注册网页"
+msgstr "打开提供者的注册网页"
 
 #: src/qml/registration/WebRegistrationPage.qml:77
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid "Log in with your new account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "使用您的新账号登录"
+msgstr "步骤 2：使用您的注册账号登录"
 
 #: src/qml/RosterPage.qml:24 src/qml/RosterPage.qml:34
 #: src/qml/RosterPage.qml:47
@@ -3129,12 +3000,9 @@ msgid "About Kaidan"
 msgstr "关于 Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
 msgid "Modern chat app for every device"
-msgstr "适用于各种设备的用户友好型现代聊天应用"
+msgstr "适用于各种设备的现代聊天应用"
 
 #: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
@@ -3283,9 +3151,6 @@ msgid "Enjoy free communication on every device!"
 msgstr "在各种设备上享受自由的通信！"
 
 #: src/qml/StartPage.qml:80
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "StartPage|"
 msgid "Log in"
 msgstr "登录"
@@ -3489,164 +3354,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "A simple, user-friendly Jabber/XMPP client"
-#~ msgstr "简单、用户友好的 Jabber/XMPP 客户端"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "License:"
-#~ msgstr "许可证："
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "Report problems"
-#~ msgstr "报告问题"
-
-#~ msgctxt "AboutDialog|"
-#~ msgid "View source code online"
-#~ msgstr "在线查看源代码"
-
-#~ msgctxt "AccountDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "确认"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "确认"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "确认"
-
-#~ msgctxt "NotesChatDetailsContent|"
-#~ msgid "Confirm"
-#~ msgstr "确认"
-
-#~ msgctxt "AutomaticRegistrationPage|"
-#~ msgid "Register automatically"
-#~ msgstr "自动注册"
-
-#~ msgctxt "AutomaticRegistrationPage|"
-#~ msgid "Requesting the provider…"
-#~ msgstr "正在请求提供者…"
-
-#~ msgctxt "CustomFormView|"
-#~ msgid ""
-#~ "The server has requested more information.\n"
-#~ "Not everything may be required.\n"
-#~ "If a CAPTCHA is shown, the displayed text must be entered."
-#~ msgstr ""
-#~ "服务器已请求更多信息。\n"
-#~ "并非所有内容都是必填的。\n"
-#~ "如果显示验证码，则必须输入显示的文本。"
-
-#~ msgctxt "DisplayNameView|"
-#~ msgid ""
-#~ "Your display name is what your contacts will see.\n"
-#~ "In case you don't want to use a display name, you can leave this field "
-#~ "empty.\n"
-#~ "Using a display name may let new contacts recognize you easier but also "
-#~ "could decrease your privacy!"
-#~ msgstr ""
-#~ "您的显示名称是您的联系人将看到的名称。\n"
-#~ "如果您不想使用显示名称，可以将此字段留空。\n"
-#~ "使用显示名称可能会让新联系人更容易认出您，但也可能会降低您的隐私！"
-
-#~ msgctxt "ManualRegistrationPage|"
-#~ msgid "Register manually"
-#~ msgstr "手动注册"
-
-#~ msgctxt "ManualRegistrationPage|"
-#~ msgid "The provider does currently not support registration via this app."
-#~ msgstr "提供者目前不支持通过此应用注册。"
-
-#~ msgctxt "ManualRegistrationPage|"
-#~ msgid "But you can use the provider's web registration."
-#~ msgstr "但您可以使用提供者的网页注册。"
-
-#~ msgctxt "ManualRegistrationPage|"
-#~ msgid "A new provider has been randomly selected."
-#~ msgstr "随机选择了一个新的提供者。"
-
-#~ msgctxt "PasswordView|"
-#~ msgid ""
-#~ "You can provide a password for your account. If you don't, a password "
-#~ "will be generated that you can find later in the app."
-#~ msgstr ""
-#~ "您可以为您的账号提供密码。如果您不提供，将生成一个密码，稍后您可以在应用中"
-#~ "找到。"
-
-#~ msgctxt "ProviderView|"
-#~ msgid ""
-#~ "The provider is where your account is located.\n"
-#~ "The selectable providers are hand-picked by our community!"
-#~ msgstr ""
-#~ "提供者是您的账号所在位置。\n"
-#~ "可选的提供者是由我们的社区精心挑选的！"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Provider"
-#~ msgstr "提供者"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Connection settings"
-#~ msgstr "连接设置"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "No"
-#~ msgstr "否"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Yes"
-#~ msgstr "是"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Online since:"
-#~ msgstr "上线时间："
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Allows to share media up to:"
-#~ msgstr "允许分享媒体最多："
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Stores shared media up to:"
-#~ msgstr "存储分享媒体最多："
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Open website"
-#~ msgstr "打开网站"
-
-#~ msgctxt "ProviderView|"
-#~ msgid "Copy website address"
-#~ msgstr "复制网站地址"
-
-#~ msgctxt "ResultView|"
-#~ msgid ""
-#~ "Your chat address is used to chat with you, like your email address is "
-#~ "used to exchange email messages.\n"
-#~ "\n"
-#~ "Your chat address will be:"
-#~ msgstr ""
-#~ "您的聊天地址用于与您聊天，就像您的电子邮件地址用于交换电子邮件一样。\n"
-#~ "\n"
-#~ "您的聊天地址将是："
-
-#~ msgctxt "UsernameView|"
-#~ msgid ""
-#~ "Your username is used to log in to your account and to chat with you.\n"
-#~ "If you don't enter a username, the randomly generated and already "
-#~ "displayed one is used.\n"
-#~ "Using an own username may let it be more recognizable but also could "
-#~ "decrease your privacy!"
-#~ msgstr ""
-#~ "您的用户名用于登录您的账号并与您聊天。\n"
-#~ "如果不输入用户名，则使用随机生成且已显示的用户名。\n"
-#~ "使用自己的用户名可能会使其更容易辨认，但也可能会降低您的隐私！"
-
-#~ msgctxt "WebRegistrationView|"
-#~ msgid "Copy registration web page address"
-#~ msgstr "复制注册网页地址"
-
-#~ msgctxt "StartPage|"
-#~ msgid "Login"
-#~ msgstr "登录"
