@@ -464,28 +464,19 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
 
 void FileSelectionModel::selectFile()
 {
-	auto *dialog = new QFileDialog();
-	dialog->setFileMode(QFileDialog::ExistingFiles);
+	const auto files = QFileDialog::getOpenFileUrls();
 
-	connect(dialog, &QFileDialog::filesSelected, this, [this, dialog]() {
-		const auto files = dialog->selectedFiles();
-		bool filesAdded = false;
+	bool filesAdded = false;
 
-		for (const auto &file : files) {
-			if (addFile(QUrl::fromLocalFile(file))) {
-				filesAdded = true;
-			}
+	for (const auto &file : files) {
+		if (addFile(file)) {
+			filesAdded = true;
 		}
+	}
 
-		if (filesAdded) {
-			Q_EMIT selectFileFinished();
-		}
-	});
-	connect(dialog, &QDialog::finished, this, [dialog](auto) {
-		dialog->deleteLater();
-	});
-
-	dialog->open();
+	if (filesAdded) {
+		Q_EMIT selectFileFinished();
+	}
 }
 
 bool FileSelectionModel::addFile(const QUrl &localFilePath)

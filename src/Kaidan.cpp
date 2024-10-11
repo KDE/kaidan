@@ -155,6 +155,13 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	// is quit.
 	qGuiApp->setQuitOnLastWindowClosed(false);
 	connect(qGuiApp, &QGuiApplication::lastWindowClosed, this, [this]() {
+		// TODO: Remove the following check once Kaidan uses no other QWidget-based dialogs,
+		// especially if QFileDialog is replaced with QtQuick.Dialogs.FileDialogs.
+		// Ignore other windows (e.g., file dialogs) than the main window being closed.
+		if (qGuiApp->topLevelWindows().size() > 1) {
+			return;
+		}
+
 		if (m_connectionState == Enums::ConnectionState::StateDisconnected) {
 			qGuiApp->quit();
 		} else {
