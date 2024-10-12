@@ -20,6 +20,38 @@ import "settings"
 Kirigami.GlobalDrawer {
 	id: root
 
+	property string selectedAccountJid
+
+	Component {
+		id: accountDetailsSheet
+
+		AccountDetailsSheet {
+			jid: root.selectedAccountJid
+		}
+	}
+
+	Component {
+		id: accountDetailsPage
+
+		AccountDetailsPage {
+			jid: root.selectedAccountJid
+		}
+	}
+
+	Component {
+		id: avatarChangePage
+
+		AvatarChangePage {}
+	}
+
+	Component {
+		id: accountDetailsKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
+			Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
+		}
+	}
+
 	Component {
 		id: contactAdditionQrCodePage
 
@@ -115,6 +147,7 @@ Kirigami.GlobalDrawer {
 								}
 								onClicked: {
 									root.close()
+									root.selectedAccountJid = modelData
 									openViewFromGlobalDrawer(accountDetailsSheet, accountDetailsPage).jid = modelData
 								}
 							}

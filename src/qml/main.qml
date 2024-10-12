@@ -101,32 +101,6 @@ Kirigami.ApplicationWindow {
 	Component {id: emptyChatPage; EmptyChatPage {}}
 
 	Component {
-		id: accountDetailsSheet
-
-		AccountDetailsSheet {}
-	}
-
-	Component {
-		id: accountDetailsPage
-
-		AccountDetailsPage {}
-	}
-
-	Component {
-		id: avatarChangePage
-
-		AvatarChangePage {}
-	}
-
-	Component {
-		id: accountDetailsKeyAuthenticationPage
-
-		AccountKeyAuthenticationPage {
-			Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
-		}
-	}
-
-	Component {
 		id: contactAdditionDialog
 
 		ContactAdditionDialog {}
