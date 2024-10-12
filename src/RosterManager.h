@@ -70,6 +70,7 @@ private:
 	void handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
 	void processSubscriptionRequestFromStranger(const QString &subscriberJid, const QXmppPresence &request);
 	void addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
+	void applyOldContactData( const QString &oldContactJid, const QString &newContactJid);
 
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;

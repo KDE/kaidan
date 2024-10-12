@@ -58,7 +58,9 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 		}
 
 		if (m_pendingSubscriptionRequests.contains(jid)) {
-			addUnrespondedSubscriptionRequest(jid, m_pendingSubscriptionRequests.take(jid));
+			const auto subscriptionRequest = m_pendingSubscriptionRequests.take(jid);
+			applyOldContactData(subscriptionRequest.oldJid(), jid);
+			addUnrespondedSubscriptionRequest(jid, subscriptionRequest);
 		}
 	});
 
@@ -161,8 +163,7 @@ void RosterManager::processSubscriptionRequestFromStranger(const QString &subscr
 void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request)
 {
 	m_unrespondedSubscriptionRequests.insert(subscriberJid, request);
-	const auto accountJid = m_client->configuration().jidBare();
-	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(accountJid, request);
+	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(m_client->configuration().jidBare(), request);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
@@ -287,4 +288,24 @@ void RosterManager::updateGroups(const QString &jid, const QString &name, const 
 			m_manager->addItem(jid, name, QSet(groups.cbegin(), groups.cend()));
 		}
 	);
+}
+
+void RosterManager::applyOldContactData(const QString &oldContactJid, const QString &newContactJid)
+{
+	if (oldContactJid.isEmpty()) {
+		return;
+	}
+
+	if (const auto oldItem = RosterModel::instance()->findItem(oldContactJid)) {
+		RosterDb::instance()->updateItem(newContactJid, [oldItem = *oldItem](RosterItem &newItem) {
+			newItem.pinningPosition = oldItem.pinningPosition;
+			newItem.chatStateSendingEnabled = oldItem.chatStateSendingEnabled;
+			newItem.readMarkerSendingEnabled = oldItem.readMarkerSendingEnabled;
+			newItem.encryption = oldItem.encryption;
+			newItem.notificationRule = oldItem.notificationRule;
+			newItem.automaticMediaDownloadsRule = oldItem.automaticMediaDownloadsRule;
+		});
+
+		updateGroups(newContactJid, oldItem->name, oldItem->groups);
+	}
 }
