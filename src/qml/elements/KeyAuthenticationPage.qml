@@ -90,13 +90,9 @@ ExplanationOptionsTogglePage {
 								if (Utils.validateEncryptionKeyId(keyId)) {
 									encryptionKeyBusyIndicator.visible = true
 
-									if (authenticatableKeysArea.listView.model.contains(keyId)) {
-										Kaidan.client.atmManager.makeTrustDecisionsRequested(root.jid, [keyId], [])
-										encryptionKeyField.clear()
-										passiveNotification(qsTr("Device verified"))
-									} else {
-										passiveNotification(qsTr("Device does not exist or is already verified"))
-									}
+									Kaidan.client.atmManager.makeTrustDecisionsRequested(root.jid, [keyId], [])
+									encryptionKeyField.clear()
+									passiveNotification(qsTr("Device verified"))
 
 									encryptionKeyBusyIndicator.visible = false
 								} else {

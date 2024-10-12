@@ -138,12 +138,6 @@ DetailsContent {
 			}
 		}
 
-		EncryptionWatcher {
-			id: encryptionWatcher
-			accountJid: root.jid
-			jids: [root.jid]
-		}
-
 		MobileForm.FormCardHeader {
 			title: qsTr("Encryption")
 		}
@@ -165,53 +159,13 @@ DetailsContent {
 			}
 		}
 
-		MobileForm.FormButtonDelegate {
-			text: {
-				if (!encryptionWatcher.hasUsableDevices) {
-					if (encryptionWatcher.hasDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
-					}
-				} else if (encryptionWatcher.hasAuthenticatableDevices) {
-					if (encryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					return qsTr("Verify <b>your</b> devices for maximum security")
-				}
-
-				return ""
+		AccountKeyAuthenticationButton {
+			jid: root.jid
+			encryptionWatcher: EncryptionWatcher {
+				accountJid: root.jid
+				jids: [root.jid]
 			}
-			icon.name: {
-				if (!encryptionWatcher.hasUsableDevices) {
-					if (encryptionWatcher.hasDistrustedDevices) {
-						return "channel-secure-symbolic"
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return "channel-insecure-symbolic"
-					}
-				} else if (encryptionWatcher.hasAuthenticatableDevices) {
-					if (encryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return "security-medium-symbolic"
-					}
-
-					return "security-high-symbolic"
-				}
-
-				return ""
-			}
-			visible: text
-			enabled: encryptionWatcher.hasAuthenticatableDevices
 			onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage).accountJid = root.jid
-
-			UserResourcesWatcher {
-				id: ownResourcesWatcher
-				jid: root.jid
-			}
 		}
 	}
 	rosterGoupListView {

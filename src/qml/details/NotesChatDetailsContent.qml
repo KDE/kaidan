@@ -37,61 +37,10 @@ RosterItemDetailsContent {
 			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		}
 
-		MobileForm.FormButtonDelegate {
-			text: {
-				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
-					}
-
-					return qsTr("<b>You</b> have no other devices supporting OMEMO 2")
-				}
-
-				if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					return qsTr("Verify <b>your</b> devices for maximum security")
-				}
-
-				return ""
-			}
-			icon.name: {
-				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
-						return "channel-secure-symbolic"
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return "channel-insecure-symbolic"
-					}
-
-					return "channel-insecure-symbolic"
-				}
-
-				if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return "security-medium-symbolic"
-					}
-
-					return "security-high-symbolic"
-				}
-
-				return ""
-			}
-			visible: text
-			enabled: ChatController.accountEncryptionWatcher.hasAuthenticatableDevices
-			onClicked: root.openKeyAuthenticationPage(notesChatDetailsAccountKeyAuthenticationPage)
-
-			UserResourcesWatcher {
-				id: ownResourcesWatcher
-				jid: ChatController.accountJid
-			}
+		AccountKeyAuthenticationButton {
+			jid: ChatController.accountJid
+			encryptionWatcher: ChatController.accountEncryptionWatcher
+			onClicked: root.openKeyAuthenticationPage(notesChatDetailsKeyAuthenticationPage)
 		}
 	}
 	sharingArea.visible: false

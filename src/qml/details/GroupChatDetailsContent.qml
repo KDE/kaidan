@@ -242,97 +242,15 @@ RosterItemDetailsContent {
 			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
 		}
 
-		MobileForm.FormButtonDelegate {
-			text: {
-				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return qsTr("<b>Your</b> other devices don't use OMEMO 2")
-					}
-				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return qsTr("Verify <b>your</b> devices to encrypt for them")
-					}
-
-					return qsTr("Verify <b>your</b> devices for maximum security")
-				}
-
-				return ""
-			}
-			icon.name: {
-				if (!ChatController.accountEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasDistrustedDevices) {
-						return "channel-secure-symbolic"
-					}
-
-					if (ownResourcesWatcher.resourcesCount > 1) {
-						return "channel-insecure-symbolic"
-					}
-				} else if (ChatController.accountEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.accountEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return "security-medium-symbolic"
-					}
-
-					return "security-high-symbolic"
-				}
-
-				return ""
-			}
-			visible: text
-			enabled: ChatController.accountEncryptionWatcher.hasAuthenticatableDevices
+		AccountKeyAuthenticationButton {
+			jid: ChatController.accountJid
+			encryptionWatcher: ChatController.accountEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(groupChatDetailsAccountKeyAuthenticationPage)
-
-			UserResourcesWatcher {
-				id: ownResourcesWatcher
-				jid: ChatController.accountJid
-			}
 		}
 
-		MobileForm.FormButtonDelegate {
+		GroupChatUserKeyAuthenticationButton {
 			id: keyAuthenticationButton
-			text: {
-				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.chatEncryptionWatcher.hasDistrustedContactDevices) {
-						return qsTr("Verify a <b>participant</b> to enable encryption")
-					}
-
-					return qsTr("No <b>participant</b> uses OMEMO 2")
-				}
-
-				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return qsTr("Verify the <b>participants'</b> devices to encrypt for them")
-					}
-
-					return qsTr("Verify the <b>participants</b> for maximum security")
-				}
-
-				return ""
-			}
-			icon.name: {
-				if (!ChatController.chatEncryptionWatcher.hasUsableDevices) {
-					if (ChatController.chatEncryptionWatcher.hasDistrustedContactDevices) {
-						return "channel-secure-symbolic"
-					}
-
-					return "channel-insecure-symbolic"
-				}
-
-				if (ChatController.chatEncryptionWatcher.hasAuthenticatableDevices) {
-					if (ChatController.chatEncryptionWatcher.hasAuthenticatableDistrustedDevices) {
-						return "security-medium-symbolic"
-					}
-
-					return "security-high-symbolic"
-				}
-
-				return ""
-			}
-			visible: text
-			enabled: ChatController.chatEncryptionWatcher.hasAuthenticatableDevices
+			encryptionWatcher: ChatController.chatEncryptionWatcher
 			checkable: true
 		}
 
@@ -344,7 +262,7 @@ RosterItemDetailsContent {
 					chatJid: ChatController.chatJid
 				}
 			}
-			visible: keyAuthenticationButton.checked
+			visible: keyAuthenticationButton.visible && keyAuthenticationButton.checked
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
 			header: MobileForm.FormCard {

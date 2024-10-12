@@ -36,6 +36,15 @@ Controls.Control {
 	property alias invitationButton: invitationButton
 	required property ColumnLayout encryptionArea
 
+	enum EncryptionKeyAuthenticationState {
+		DistrustedKeysOnly,
+		ResourcesWithoutKeys,
+		NoKeys,
+		AuthenticatableDistrustedKeys,
+		AuthenticatableTrustedKeysOnly,
+		AllKeysAuthenticated
+	}
+
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
 	bottomPadding: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 3
 	leftPadding: bottomPadding
