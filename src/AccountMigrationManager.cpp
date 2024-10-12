@@ -371,6 +371,10 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 		Q_EMIT busyChanged(isBusy());
 	});
 
+	connect(m_migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this](const QXmppError &error) {
+		Q_EMIT errorOccurred(error.description);
+	});
+
 	connect(clientWorker, &ClientWorker::loggedInWithNewCredentials, this, [this]() {
 		if (migrationState() == MigrationState::ChoosingNewAccount) {
 			continueMigration();
