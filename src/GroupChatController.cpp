@@ -261,7 +261,7 @@ void GroupChatController::updateEncryption()
 	jids.removeOne(accountJid);
 	EncryptionController::instance()->initializeChat(accountJid, jids);
 
-	chatController->chatEncryptionWatcher()->setJids({ m_currentUserJids.cbegin(), m_currentUserJids.cend() });
+	chatController->chatEncryptionWatcher()->setJids({ jids.cbegin(), jids.cend() });
 }
 
 void GroupChatController::setCurrentUserJids(const QVector<QString> &currentUserJids)
