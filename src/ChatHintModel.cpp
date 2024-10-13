@@ -283,7 +283,7 @@ int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &req
 		}
 
 		const auto oldDisplayName = RosterModel::instance()->findItem(oldJid)->displayName();
-		return tr("Your contact %1 uses %2 now and would like to receive your personal data such as availability, devices and other personal information again%3").arg(oldDisplayName, displayName, appendedText);
+		return tr("Your contact %1 is %2 now and would like to receive your personal data such as availability, devices and other personal information again%3").arg(oldDisplayName, displayName, appendedText);
 	}();
 
 	return addChatHint(
