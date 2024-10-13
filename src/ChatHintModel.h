@@ -73,7 +73,6 @@ private:
 	void handleConnectionErrorChanged();
 	void handleConnectionErrorChanged(int i);
 
-	void handleRosterItemPresenceSubscription();
 	void handleUnrespondedPresenceSubscriptionRequests();
 	void handlePresenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request);
 

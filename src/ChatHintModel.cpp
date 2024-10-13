@@ -37,13 +37,12 @@ ChatHintModel::ChatHintModel(QObject *parent)
 	connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &ChatHintModel::handleNoGroupChatUsers);
 	connect(GroupChatController::instance(), &GroupChatController::groupChatDeleted, this, &ChatHintModel::handleGroupChatDeleted);
 	connect(ChatController::instance(), &ChatController::chatChanged, this, [this]() {
-		handleRosterItemPresenceSubscription();
 		handleConnectionStateChanged();
 		handleUnrespondedPresenceSubscriptionRequests();
 		handleNoGroupChatUsers();
 		checkGroupChatDeleted();
 	});
-	connect(ChatController::instance(), &ChatController::rosterItemChanged, this, &ChatHintModel::handleRosterItemPresenceSubscription);
+	connect(ChatController::instance(), &ChatController::rosterItemChanged, this, &ChatHintModel::handleUnrespondedPresenceSubscriptionRequests);
 }
 
 ChatHintModel::~ChatHintModel() = default;
@@ -178,16 +177,6 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 	});
 }
 
-void ChatHintModel::handleRosterItemPresenceSubscription()
-{
-	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
-		i != -1 &&
-		ChatController::instance()->rosterItem().isReceivingPresence()) {
-		removeChatHint(i);
-		Notifications::instance()->closePresenceSubscriptionRequestNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
-	}
-}
-
 void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 {
 	const auto rosterManager = Kaidan::instance()->client()->rosterManager();
@@ -195,9 +184,16 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 	runOnThread(rosterManager, [rosterManager]() {
 		return rosterManager->unrespondedPresenceSubscriptionRequests();
 	}, this, [this, chatJid = ChatController::instance()->chatJid()](QMap<QString, QXmppPresence> &&unrespondedPresenceSubscriptionRequests) {
+		const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
+
 		if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
-			const auto request = unrespondedPresenceSubscriptionRequests.value(chatJid);
-			addAllowPresenceSubscriptionChatHint(request);
+			if (i == -1) {
+				const auto request = unrespondedPresenceSubscriptionRequests.value(chatJid);
+				addAllowPresenceSubscriptionChatHint(request);
+			}
+		} else if (i != -1) {
+			removeChatHint(i);
+			Notifications::instance()->closePresenceSubscriptionRequestNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
 		}
 	});
 }
