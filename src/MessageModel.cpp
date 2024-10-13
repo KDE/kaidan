@@ -275,7 +275,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		case DeliveryState::Pending:
 			return QStringLiteral("content-loading-symbolic");
 		case DeliveryState::Sent:
-			return QStringLiteral("");
+			return QString();
 		case DeliveryState::Delivered:
 			return QStringLiteral("emblem-ok-symbolic");
 		case DeliveryState::Error:
