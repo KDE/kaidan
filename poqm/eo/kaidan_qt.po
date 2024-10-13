@@ -192,22 +192,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/Kaidan.cpp:225
+#: src/Kaidan.cpp:232
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Rete"
 
-#: src/Kaidan.cpp:227
+#: src/Kaidan.cpp:234
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/Kaidan.cpp:229
+#: src/Kaidan.cpp:236
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Senrete"
 
-#: src/Kaidan.cpp:314
+#: src/Kaidan.cpp:321
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "La ligilo estos malfermita post kiam vi konektiĝos."
@@ -408,7 +408,7 @@ msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Nekonata grandeco"
 
-#: src/MessageComposition.cpp:508
+#: src/MessageComposition.cpp:499
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -637,21 +637,21 @@ msgid "Add hidden message part"
 msgstr "Aldoni kaŝitan mesaĝoparton"
 
 #: src/qml/details/AccountDetailsContent.qml:28
-#: src/qml/details/AccountDetailsContent.qml:327
-#: src/qml/details/AccountDetailsContent.qml:352
+#: src/qml/details/AccountDetailsContent.qml:281
+#: src/qml/details/AccountDetailsContent.qml:306
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Neniam"
 
 #: src/qml/details/AccountDetailsContent.qml:32
-#: src/qml/details/AccountDetailsContent.qml:331
+#: src/qml/details/AccountDetailsContent.qml:285
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "Se personaj datumoj estas kunhavataj"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#: src/qml/details/AccountDetailsContent.qml:335
-#: src/qml/details/AccountDetailsContent.qml:360
+#: src/qml/details/AccountDetailsContent.qml:289
+#: src/qml/details/AccountDetailsContent.qml:314
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Ĉiam"
@@ -666,17 +666,17 @@ msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "Agordi valoron"
 
-#: src/qml/details/AccountDetailsContent.qml:148
+#: src/qml/details/AccountDetailsContent.qml:142
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Ĉifrado"
 
-#: src/qml/details/AccountDetailsContent.qml:152
+#: src/qml/details/AccountDetailsContent.qml:146
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/AccountDetailsContent.qml:153
+#: src/qml/details/AccountDetailsContent.qml:147
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -685,49 +685,33 @@ msgstr ""
 "Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
 "babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
-#: src/qml/details/AccountDetailsContent.qml:172
-#: src/qml/details/AccountDetailsContent.qml:180
-msgctxt "AccountDetailsContent|"
-msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
-
-#: src/qml/details/AccountDetailsContent.qml:176
-msgctxt "AccountDetailsContent|"
-msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
-
-#: src/qml/details/AccountDetailsContent.qml:183
-msgctxt "AccountDetailsContent|"
-msgid "Verify <b>your</b> devices for maximum security"
-msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
-
-#: src/qml/details/AccountDetailsContent.qml:245
+#: src/qml/details/AccountDetailsContent.qml:199
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr "Ŝanĝi etikedon…"
 
-#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:228
 msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Forigi etikedon"
 
-#: src/qml/details/AccountDetailsContent.qml:287
-#: src/qml/details/AccountDetailsContent.qml:292
+#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:246
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr "Kunhavigi la babilejan adreson de ĉi konto per QR-kodo"
 
-#: src/qml/details/AccountDetailsContent.qml:296
+#: src/qml/details/AccountDetailsContent.qml:250
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr "Kunhavigi la babilejan adreson de ĉi konto per teksto"
 
-#: src/qml/details/AccountDetailsContent.qml:299
+#: src/qml/details/AccountDetailsContent.qml:253
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "Konta adreso kopiiĝis al tondujo"
 
-#: src/qml/details/AccountDetailsContent.qml:303
+#: src/qml/details/AccountDetailsContent.qml:257
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -735,17 +719,17 @@ msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per teksto"
 
-#: src/qml/details/AccountDetailsContent.qml:317
+#: src/qml/details/AccountDetailsContent.qml:271
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Sciigoj"
 
-#: src/qml/details/AccountDetailsContent.qml:322
+#: src/qml/details/AccountDetailsContent.qml:276
 msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Alvenantaj kontaktmesaĝoj"
 
-#: src/qml/details/AccountDetailsContent.qml:323
+#: src/qml/details/AccountDetailsContent.qml:277
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show notification and play sound on message arrival"
@@ -753,12 +737,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr "Montri sciigon kaj ludi sonon ĉe la alveno de mesaĝo"
 
-#: src/qml/details/AccountDetailsContent.qml:347
+#: src/qml/details/AccountDetailsContent.qml:301
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Alvenantaj grupmesaĝoj"
 
-#: src/qml/details/AccountDetailsContent.qml:348
+#: src/qml/details/AccountDetailsContent.qml:302
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Show notification and play sound on message arrival"
@@ -766,84 +750,84 @@ msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr "Montri sciigon kaj ludi sonon ĉe la alveno de mesaĝo"
 
-#: src/qml/details/AccountDetailsContent.qml:356
+#: src/qml/details/AccountDetailsContent.qml:310
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "Je mencio"
 
-#: src/qml/details/AccountDetailsContent.qml:390
+#: src/qml/details/AccountDetailsContent.qml:344
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Provizanto"
 
-#: src/qml/details/AccountDetailsContent.qml:394
+#: src/qml/details/AccountDetailsContent.qml:348
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Viziti retejon"
 
-#: src/qml/details/AccountDetailsContent.qml:395
+#: src/qml/details/AccountDetailsContent.qml:349
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Malfermi la retejon de via provizanto en retumilo"
 
-#: src/qml/details/AccountDetailsContent.qml:401
+#: src/qml/details/AccountDetailsContent.qml:355
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopii retejo-adreso"
 
-#: src/qml/details/AccountDetailsContent.qml:402
+#: src/qml/details/AccountDetailsContent.qml:356
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Kopii la retadreson de via provizanto al la tondujo"
 
-#: src/qml/details/AccountDetailsContent.qml:406
+#: src/qml/details/AccountDetailsContent.qml:360
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Reteja adreso kopiita al tondujo"
 
-#: src/qml/details/AccountDetailsContent.qml:411
+#: src/qml/details/AccountDetailsContent.qml:365
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Malfermi subtenan babilejon"
 
-#: src/qml/details/AccountDetailsContent.qml:412
+#: src/qml/details/AccountDetailsContent.qml:366
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Komenci babili kun la subtena kontakto de via provizanto"
 
-#: src/qml/details/AccountDetailsContent.qml:418
+#: src/qml/details/AccountDetailsContent.qml:372
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Subteno"
 
-#: src/qml/details/AccountDetailsContent.qml:444
+#: src/qml/details/AccountDetailsContent.qml:398
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Subteno %1"
 
-#: src/qml/details/AccountDetailsContent.qml:461
+#: src/qml/details/AccountDetailsContent.qml:415
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Malfermi subtenan grupon"
 
-#: src/qml/details/AccountDetailsContent.qml:462
+#: src/qml/details/AccountDetailsContent.qml:416
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Aliĝi al la publika subtena grupo de via provizanto"
 
-#: src/qml/details/AccountDetailsContent.qml:488
+#: src/qml/details/AccountDetailsContent.qml:442
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Grupa Subteno %1"
 
-#: src/qml/details/AccountDetailsContent.qml:505
+#: src/qml/details/AccountDetailsContent.qml:459
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Blokitaj Babilado-Adresoj"
 
-#: src/qml/details/AccountDetailsContent.qml:509
+#: src/qml/details/AccountDetailsContent.qml:463
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -852,52 +836,52 @@ msgstr ""
 "Bloki specifan uzanton (ekz., user@example.org) aŭ ĉiujn uzantojn de la sama "
 "servilo (ekz., example.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:528
+#: src/qml/details/AccountDetailsContent.qml:482
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr "Vi devas esti konektita por bloki aŭ malbloki babilajn adresojn"
 
-#: src/qml/details/AccountDetailsContent.qml:535
+#: src/qml/details/AccountDetailsContent.qml:489
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "uzul@ekzemplo.org"
 
-#: src/qml/details/AccountDetailsContent.qml:550
+#: src/qml/details/AccountDetailsContent.qml:504
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Bloki babilejan adreson"
 
-#: src/qml/details/AccountDetailsContent.qml:608
+#: src/qml/details/AccountDetailsContent.qml:562
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Ŝanĝi babilejan adreson…"
 
-#: src/qml/details/AccountDetailsContent.qml:637
+#: src/qml/details/AccountDetailsContent.qml:591
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Malbloki"
 
-#: src/qml/details/AccountDetailsContent.qml:664
+#: src/qml/details/AccountDetailsContent.qml:618
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Notoj"
 
-#: src/qml/details/AccountDetailsContent.qml:669
+#: src/qml/details/AccountDetailsContent.qml:623
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Aldoni babilejon por notoj"
 
-#: src/qml/details/AccountDetailsContent.qml:670
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Aldoni babilejon por sinkronigi viajn notojn tra ĉiuj viaj aparatoj"
 
-#: src/qml/details/AccountDetailsContent.qml:704
+#: src/qml/details/AccountDetailsContent.qml:658
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Ŝanĝo de Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:708
+#: src/qml/details/AccountDetailsContent.qml:662
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -906,63 +890,63 @@ msgstr ""
 "Ŝanĝu vian pasvorton. Vi devas enigi la novan pasvorton en ĉiuj viaj aliaj "
 "aparatoj!"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:678
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Aktuala Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:725
+#: src/qml/details/AccountDetailsContent.qml:679
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Enigu vian nunan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:726
+#: src/qml/details/AccountDetailsContent.qml:680
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Enigu ĝustan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:748
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nova pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:748
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:749
+#: src/qml/details/AccountDetailsContent.qml:703
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Enigu vian novan pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:750
+#: src/qml/details/AccountDetailsContent.qml:704
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Enigu malsaman pasvorton por ŝanĝi ĝin"
 
-#: src/qml/details/AccountDetailsContent.qml:770
+#: src/qml/details/AccountDetailsContent.qml:724
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ŝanĝi pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:817
+#: src/qml/details/AccountDetailsContent.qml:771
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Malsukcesis ŝanĝi pasvorton: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:823
+#: src/qml/details/AccountDetailsContent.qml:777
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Pasvorto ŝanĝiĝis sukcese"
 
-#: src/qml/details/AccountDetailsContent.qml:839
+#: src/qml/details/AccountDetailsContent.qml:793
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Videbleco de pasvorto"
 
-#: src/qml/details/AccountDetailsContent.qml:843
+#: src/qml/details/AccountDetailsContent.qml:797
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -975,12 +959,12 @@ msgstr ""
 "en alia aparato poste, <b>konsideru konservi la pasvorton aliloke. Ĉi tio ne "
 "povas esti malfarata!</b>"
 
-#: src/qml/details/AccountDetailsContent.qml:849
+#: src/qml/details/AccountDetailsContent.qml:803
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Ne montri pasvorton kiel teksto"
 
-#: src/qml/details/AccountDetailsContent.qml:850
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -989,17 +973,17 @@ msgstr ""
 "Permesu aldoni pliajn aparatojn per la ensaluta QR-kodo sed neniam montru la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:857
+#: src/qml/details/AccountDetailsContent.qml:811
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Forigante pasvorton el teksto…"
 
-#: src/qml/details/AccountDetailsContent.qml:863
+#: src/qml/details/AccountDetailsContent.qml:817
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Ne elmontri pasvorton iel ajn"
 
-#: src/qml/details/AccountDetailsContent.qml:864
+#: src/qml/details/AccountDetailsContent.qml:818
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -1008,17 +992,17 @@ msgstr ""
 "Nek permesi aldoni pliajn aparatojn uzante la ensaluta QR-kodo ne montri la "
 "pasvorton"
 
-#: src/qml/details/AccountDetailsContent.qml:876
+#: src/qml/details/AccountDetailsContent.qml:830
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:888
+#: src/qml/details/AccountDetailsContent.qml:842
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Konekto"
 
-#: src/qml/details/AccountDetailsContent.qml:892
+#: src/qml/details/AccountDetailsContent.qml:846
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -1027,48 +1011,48 @@ msgstr ""
 "Agordu la gastigan nomon kaj pordon por konektiĝi (malplenaj kampoj por "
 "defaŭltaj valoroj)"
 
-#: src/qml/details/AccountDetailsContent.qml:911
+#: src/qml/details/AccountDetailsContent.qml:865
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ŝanĝi konektajn agordojn"
 
-#: src/qml/details/AccountDetailsContent.qml:920
+#: src/qml/details/AccountDetailsContent.qml:874
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Enigi malsamajn konektajn agordojn por ŝanĝi ilin"
 
-#: src/qml/details/AccountDetailsContent.qml:969
+#: src/qml/details/AccountDetailsContent.qml:923
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Konekto-agordoj ne povus esti ŝanĝitaj: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:984
+#: src/qml/details/AccountDetailsContent.qml:938
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Konekto-agordoj ŝanĝiĝis"
 
-#: src/qml/details/AccountDetailsContent.qml:1008
+#: src/qml/details/AccountDetailsContent.qml:962
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Transmeto"
 
-#: src/qml/details/AccountDetailsContent.qml:1016
+#: src/qml/details/AccountDetailsContent.qml:970
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Transmeti konton"
 
-#: src/qml/details/AccountDetailsContent.qml:1017
+#: src/qml/details/AccountDetailsContent.qml:971
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Preparante kontan transmeton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:972
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1018
+#: src/qml/details/AccountDetailsContent.qml:972
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1083,17 +1067,17 @@ msgstr ""
 "Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1046
+#: src/qml/details/AccountDetailsContent.qml:1000
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/AccountDetailsContent.qml:1052
+#: src/qml/details/AccountDetailsContent.qml:1006
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Forigi de Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1053
+#: src/qml/details/AccountDetailsContent.qml:1007
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1102,28 +1086,28 @@ msgstr ""
 "Forigi konton de ĉi tiu programo. Sekurigu viajn akreditaĵojn kaj "
 "babilhistorion se necese!"
 
-#: src/qml/details/AccountDetailsContent.qml:1058
+#: src/qml/details/AccountDetailsContent.qml:1012
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Forigante konton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1065
+#: src/qml/details/AccountDetailsContent.qml:1019
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Forigi tute"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1020
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
-#: src/qml/details/AccountDetailsContent.qml:1071
+#: src/qml/details/AccountDetailsContent.qml:1025
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Forigante konton…"
 
-#: src/qml/details/AccountDetailsContent.qml:1078
+#: src/qml/details/AccountDetailsContent.qml:1032
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1137,6 +1121,72 @@ msgstr ""
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Ŝanĝi vian profilbildon"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:34
+#: src/qml/details/AccountKeyAuthenticationButton.qml:39
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "Verify your own devices to encrypt for them"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:37
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "Verify own unknown devices to encrypt for them"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:41
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Verify <b>your</b> devices for maximum security"
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "Verify your own devices for maximum security"
+msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:43
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "Verify own unknown devices or let your other devices verify this device"
+msgstr ""
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:49
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "You have no other trusted device to encrypt for"
+msgstr ""
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:51
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "<b>Your</b> other devices don't use OMEMO 2"
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "You have other devices that do not use OMEMO 2"
+msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:53
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "You have no known other device using OMEMO 2"
+msgstr "<b>Vi</b> ne havas aliajn aparatojn subtenantajn OMEMO 2"
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:55
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "You have other devices that need to be verified to encrypt for them"
+msgstr ""
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:57
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "You have other devices that are not verified"
+msgstr ""
+
+#: src/qml/details/AccountKeyAuthenticationButton.qml:59
+msgctxt "AccountKeyAuthenticationButton|"
+msgid "All your other known devices are verified"
+msgstr ""
 
 #: src/qml/details/AvatarChangePage.qml:25
 msgctxt "AvatarChangePage|"
@@ -1182,59 +1232,23 @@ msgstr ""
 "Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
 "babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
-#: src/qml/details/ContactDetailsContent.qml:60
-#: src/qml/details/ContactDetailsContent.qml:68
-msgctxt "ContactDetailsContent|"
-msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
-
-#: src/qml/details/ContactDetailsContent.qml:64
-msgctxt "ContactDetailsContent|"
-msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
-
-#: src/qml/details/ContactDetailsContent.qml:71
-msgctxt "ContactDetailsContent|"
-msgid "Verify <b>your</b> devices for maximum security"
-msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
-
-#: src/qml/details/ContactDetailsContent.qml:109
-msgctxt "ContactDetailsContent|"
-msgid "Verify your <b>contact</b> to enable encryption"
-msgstr "Konfirmi vian <b>kontakton</b> por ebligi ĉifradon"
-
-#: src/qml/details/ContactDetailsContent.qml:112
-msgctxt "ContactDetailsContent|"
-msgid "Your <b>contact</b> doesn't use OMEMO 2"
-msgstr "Via <b>kontakto</b> ne uzas OMEMO 2"
-
-#: src/qml/details/ContactDetailsContent.qml:117
-msgctxt "ContactDetailsContent|"
-msgid "Verify your <b>contact's</b> devices to encrypt for them"
-msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
-
-#: src/qml/details/ContactDetailsContent.qml:120
-msgctxt "ContactDetailsContent|"
-msgid "Verify your <b>contact</b> for maximum security"
-msgstr "Konfirmi vian <b>kontakton</b> por maksimuma sekureco"
-
-#: src/qml/details/ContactDetailsContent.qml:149
-#: src/qml/details/ContactDetailsContent.qml:155
+#: src/qml/details/ContactDetailsContent.qml:67
+#: src/qml/details/ContactDetailsContent.qml:73
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via QR code"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per QR-kodo"
 
-#: src/qml/details/ContactDetailsContent.qml:159
+#: src/qml/details/ContactDetailsContent.qml:77
 msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via text"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per teksto"
 
-#: src/qml/details/ContactDetailsContent.qml:162
+#: src/qml/details/ContactDetailsContent.qml:80
 msgctxt "ContactDetailsContent|"
 msgid "Contact copied to clipboard"
 msgstr "Kontakto kopiita al tondujo"
 
-#: src/qml/details/ContactDetailsContent.qml:166
+#: src/qml/details/ContactDetailsContent.qml:84
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -1242,47 +1256,47 @@ msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per teksto"
 
-#: src/qml/details/ContactDetailsContent.qml:181
+#: src/qml/details/ContactDetailsContent.qml:99
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Sciigoj"
 
-#: src/qml/details/ContactDetailsContent.qml:186
+#: src/qml/details/ContactDetailsContent.qml:104
 msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Alvenantaj mesaĝoj"
 
-#: src/qml/details/ContactDetailsContent.qml:187
+#: src/qml/details/ContactDetailsContent.qml:105
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Montri sciigon kaj ludi sonon ĉe la alveno de mesaĝo"
 
-#: src/qml/details/ContactDetailsContent.qml:191
+#: src/qml/details/ContactDetailsContent.qml:109
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Defaŭlta konto"
 
-#: src/qml/details/ContactDetailsContent.qml:195
+#: src/qml/details/ContactDetailsContent.qml:113
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr "Neniam"
 
-#: src/qml/details/ContactDetailsContent.qml:199
+#: src/qml/details/ContactDetailsContent.qml:117
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr "Ĉiam"
 
-#: src/qml/details/ContactDetailsContent.qml:218
+#: src/qml/details/ContactDetailsContent.qml:136
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Privateco"
 
-#: src/qml/details/ContactDetailsContent.qml:222
+#: src/qml/details/ContactDetailsContent.qml:140
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Peti personajn datumojn"
 
-#: src/qml/details/ContactDetailsContent.qml:223
+#: src/qml/details/ContactDetailsContent.qml:141
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
@@ -1291,23 +1305,23 @@ msgstr ""
 "Petu vian kontakton kunhavigi la haveblecon, aparatojn kaj aliajn personajn "
 "informojn"
 
-#: src/qml/details/ContactDetailsContent.qml:229
+#: src/qml/details/ContactDetailsContent.qml:147
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "Nuligi kundividon de personaj datumoj"
 
-#: src/qml/details/ContactDetailsContent.qml:230
+#: src/qml/details/ContactDetailsContent.qml:148
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 "Ĉesi kunhavigi viajn haveblecon, aparatojn kaj aliajn personajn informojn"
 
-#: src/qml/details/ContactDetailsContent.qml:236
+#: src/qml/details/ContactDetailsContent.qml:154
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
-#: src/qml/details/ContactDetailsContent.qml:237
+#: src/qml/details/ContactDetailsContent.qml:155
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -1315,42 +1329,42 @@ msgstr ""
 "Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
 "ĉesas tajpi"
 
-#: src/qml/details/ContactDetailsContent.qml:248
+#: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Sendi legitajn sciigojn"
 
-#: src/qml/details/ContactDetailsContent.qml:249
+#: src/qml/details/ContactDetailsContent.qml:167
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indiki kiujn mesaĝojn vi legis"
 
-#: src/qml/details/ContactDetailsContent.qml:260
+#: src/qml/details/ContactDetailsContent.qml:178
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "Bloki"
 
-#: src/qml/details/ContactDetailsContent.qml:261
+#: src/qml/details/ContactDetailsContent.qml:179
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Bloki ĉiun komunikadon inkluzive de statuso kaj sciigoj"
 
-#: src/qml/details/ContactDetailsContent.qml:287
+#: src/qml/details/ContactDetailsContent.qml:205
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/ContactDetailsContent.qml:292
+#: src/qml/details/ContactDetailsContent.qml:210
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/qml/details/ContactDetailsContent.qml:293
+#: src/qml/details/ContactDetailsContent.qml:211
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Forigi kontakton kaj kompleta babilhistorio"
 
-#: src/qml/details/ContactDetailsContent.qml:298
+#: src/qml/details/ContactDetailsContent.qml:216
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
 msgstr "Forigante kontakton…"
@@ -1360,68 +1374,139 @@ msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maksimumigi avataron"
 
-#: src/qml/details/DetailsContent.qml:61
+#: src/qml/details/ContactKeyAuthenticationButton.qml:9
+#: src/qml/details/ContactKeyAuthenticationButton.qml:13
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Verify your contact's devices to encrypt for them"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:11
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Verify your contact's unknown devices to encrypt for them"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:15
+#, fuzzy
+#| msgctxt "AccountDetailsContent|"
+#| msgid "Verify <b>your</b> devices for maximum security"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Verify your contact's devices for maximum security"
+msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:17
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid ""
+"Verify your contact's unknown devices or let your contact verify this device"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:23
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Your contact has no trusted device to encrypt for"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:25
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Your contact has no known device using OMEMO 2"
+msgstr "<b>Vi</b> ne havas aliajn aparatojn subtenantajn OMEMO 2"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:27
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Your contact has devices that need to be verified to encrypt for them"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:29
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "Your contact has devices that are not verified"
+msgstr ""
+
+#: src/qml/details/ContactKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
+msgctxt "ContactKeyAuthenticationButton|"
+msgid "All your contact's devices are verified"
+msgstr "Konfirmi la aparatojn de via <b>kontakto</b> por ĉifri por ili"
+
+#: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr "Komunikaĵoj"
 
-#: src/qml/details/DetailsContent.qml:66
+#: src/qml/details/DetailsContent.qml:75
 msgctxt "DetailsContent|"
 msgid "Automatic Downloads"
 msgstr "Aŭtomataj Elŝutoj"
 
-#: src/qml/details/DetailsContent.qml:67
+#: src/qml/details/DetailsContent.qml:76
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Elŝuti aŭdvidaĵon aŭtomate"
 
-#: src/qml/details/DetailsContent.qml:75
+#: src/qml/details/DetailsContent.qml:84
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Vi povas kunhavigi aŭdvidaĵon ĝis %1."
 
-#: src/qml/details/DetailsContent.qml:120
+#: src/qml/details/DetailsContent.qml:129
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profilo"
 
-#: src/qml/details/DetailsContent.qml:144
+#: src/qml/details/DetailsContent.qml:153
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etikedoj"
 
-#: src/qml/details/DetailsContent.qml:169
+#: src/qml/details/DetailsContent.qml:178
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "Kunhavigado"
 
-#: src/qml/details/DetailsContent.qml:174
+#: src/qml/details/DetailsContent.qml:183
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Montri QR-kodon"
 
-#: src/qml/details/DetailsContent.qml:192
+#: src/qml/details/DetailsContent.qml:201
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Kopii QR-kodon"
 
-#: src/qml/details/DetailsContent.qml:194
+#: src/qml/details/DetailsContent.qml:203
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "QR-kodo kopiiĝis al tondujo"
 
-#: src/qml/details/DetailsContent.qml:199
+#: src/qml/details/DetailsContent.qml:208
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopii babilejan adreson"
 
-#: src/qml/details/DetailsContent.qml:205
+#: src/qml/details/DetailsContent.qml:214
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:207
+#: src/qml/details/DetailsContent.qml:216
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Invitligo kopiita al tondujo"
@@ -1497,56 +1582,8 @@ msgstr ""
 "Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
 "babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
-#: src/qml/details/GroupChatDetailsContent.qml:249
-#: src/qml/details/GroupChatDetailsContent.qml:257
-msgctxt "GroupChatDetailsContent|"
-msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
-
-#: src/qml/details/GroupChatDetailsContent.qml:253
-msgctxt "GroupChatDetailsContent|"
-msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
-
-#: src/qml/details/GroupChatDetailsContent.qml:260
-msgctxt "GroupChatDetailsContent|"
-msgid "Verify <b>your</b> devices for maximum security"
-msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
-
-#: src/qml/details/GroupChatDetailsContent.qml:299
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact</b> to enable encryption"
-msgctxt "GroupChatDetailsContent|"
-msgid "Verify a <b>participant</b> to enable encryption"
-msgstr "Konfirmi vian <b>kontakton</b> por ebligi ĉifradon"
-
-#: src/qml/details/GroupChatDetailsContent.qml:302
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Your <b>contact</b> doesn't use OMEMO 2"
-msgctxt "GroupChatDetailsContent|"
-msgid "No <b>participant</b> uses OMEMO 2"
-msgstr "Via <b>kontakto</b> ne uzas OMEMO 2"
-
-#: src/qml/details/GroupChatDetailsContent.qml:307
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
-msgctxt "GroupChatDetailsContent|"
-msgid "Verify the <b>participants'</b> devices to encrypt for them"
-msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
-
+#: src/qml/details/GroupChatDetailsContent.qml:305
 #: src/qml/details/GroupChatDetailsContent.qml:310
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact</b> for maximum security"
-msgctxt "GroupChatDetailsContent|"
-msgid "Verify the <b>participants</b> for maximum security"
-msgstr "Konfirmi vian <b>kontakton</b> por maksimuma sekureco"
-
-#: src/qml/details/GroupChatDetailsContent.qml:387
-#: src/qml/details/GroupChatDetailsContent.qml:392
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via QR code"
@@ -1554,7 +1591,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per QR-kodo"
 
-#: src/qml/details/GroupChatDetailsContent.qml:396
+#: src/qml/details/GroupChatDetailsContent.qml:314
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -1562,7 +1599,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per teksto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:399
+#: src/qml/details/GroupChatDetailsContent.qml:317
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid "Website address copied to clipboard"
@@ -1570,7 +1607,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "Reteja adreso kopiita al tondujo"
 
-#: src/qml/details/GroupChatDetailsContent.qml:403
+#: src/qml/details/GroupChatDetailsContent.qml:321
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Share this contact's chat address via text"
@@ -1578,52 +1615,52 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "Kunhavigi la babilejan adreson de ĉi tiu kontakto per teksto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:414
+#: src/qml/details/GroupChatDetailsContent.qml:332
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Sciigoj"
 
-#: src/qml/details/GroupChatDetailsContent.qml:419
+#: src/qml/details/GroupChatDetailsContent.qml:337
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Alvenantaj mesaĝoj"
 
-#: src/qml/details/GroupChatDetailsContent.qml:420
+#: src/qml/details/GroupChatDetailsContent.qml:338
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Montri sciigon kaj ludi sonon ĉe la alveno de mesaĝo"
 
-#: src/qml/details/GroupChatDetailsContent.qml:424
+#: src/qml/details/GroupChatDetailsContent.qml:342
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Defaŭlta konto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:428
+#: src/qml/details/GroupChatDetailsContent.qml:346
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr "Neniam"
 
-#: src/qml/details/GroupChatDetailsContent.qml:432
+#: src/qml/details/GroupChatDetailsContent.qml:350
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:436
+#: src/qml/details/GroupChatDetailsContent.qml:354
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr "Ĉiam"
 
-#: src/qml/details/GroupChatDetailsContent.qml:455
+#: src/qml/details/GroupChatDetailsContent.qml:373
 msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Privateco"
 
-#: src/qml/details/GroupChatDetailsContent.qml:459
+#: src/qml/details/GroupChatDetailsContent.qml:377
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Sendi tajpajn sciigojn"
 
-#: src/qml/details/GroupChatDetailsContent.qml:460
+#: src/qml/details/GroupChatDetailsContent.qml:378
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
@@ -1631,42 +1668,42 @@ msgstr ""
 "Indiku kiam vi havas ĉi tiun konversacion malfermita, kiam vi tajpas kaj "
 "ĉesas tajpi"
 
-#: src/qml/details/GroupChatDetailsContent.qml:471
+#: src/qml/details/GroupChatDetailsContent.qml:389
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Sendi legitajn sciigojn"
 
-#: src/qml/details/GroupChatDetailsContent.qml:472
+#: src/qml/details/GroupChatDetailsContent.qml:390
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indiki kiujn mesaĝojn vi legis"
 
-#: src/qml/details/GroupChatDetailsContent.qml:493
+#: src/qml/details/GroupChatDetailsContent.qml:411
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "Foriro & Forigo"
 
-#: src/qml/details/GroupChatDetailsContent.qml:499
+#: src/qml/details/GroupChatDetailsContent.qml:417
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr "Foriri"
 
-#: src/qml/details/GroupChatDetailsContent.qml:500
+#: src/qml/details/GroupChatDetailsContent.qml:418
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr "Foriri el grupo kaj forigi kompletan babilhistorion"
 
-#: src/qml/details/GroupChatDetailsContent.qml:509
+#: src/qml/details/GroupChatDetailsContent.qml:427
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "Forirante el grupa babilejo…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:515
+#: src/qml/details/GroupChatDetailsContent.qml:433
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Forigi"
 
-#: src/qml/details/GroupChatDetailsContent.qml:516
+#: src/qml/details/GroupChatDetailsContent.qml:434
 #, fuzzy
 #| msgctxt "AccountDetailsContent|"
 #| msgid ""
@@ -1676,12 +1713,12 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Forigi konton de provizanto. Vi ne plu povos uzi vian konton!"
 
-#: src/qml/details/GroupChatDetailsContent.qml:525
+#: src/qml/details/GroupChatDetailsContent.qml:443
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Forigante grupan babilejon…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:531
+#: src/qml/details/GroupChatDetailsContent.qml:449
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -1706,6 +1743,76 @@ msgstr ""
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Forigita"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "Verify the participants' devices to encrypt for them"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "Verify the participants' unknown devices to encrypt for them"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify your <b>contact</b> for maximum security"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "Verify the participants' devices for maximum security"
+msgstr "Konfirmi vian <b>kontakton</b> por maksimuma sekureco"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid ""
+"Verify the participants' unknown devices or let the participants verify this "
+"device"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "No participant has a trusted device to encrypt for"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Your <b>contact</b> doesn't use OMEMO 2"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "No participant has a known device using OMEMO 2"
+msgstr "Via <b>kontakto</b> ne uzas OMEMO 2"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid "Verify <b>your</b> devices to encrypt for them"
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid ""
+"Some participants have devices that need to be verified to encrypt for them"
+msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "Some participants have devices that are not verified"
+msgstr ""
+
+#: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+msgctxt "GroupChatUserKeyAuthenticationButton|"
+msgid "All participants' devices are verified"
+msgstr ""
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
@@ -1762,38 +1869,17 @@ msgstr ""
 "Fin-al-fina ĉifrado kun OMEMO 2 certigas, ke neniu alia ol vi kaj viaj "
 "babilejpartneroj povas legi aŭ modifi la datumojn, kiujn vi interŝanĝas."
 
-#: src/qml/details/NotesChatDetailsContent.qml:44
-#: src/qml/details/NotesChatDetailsContent.qml:56
-msgctxt "NotesChatDetailsContent|"
-msgid "Verify <b>your</b> devices to encrypt for them"
-msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
-
-#: src/qml/details/NotesChatDetailsContent.qml:48
-msgctxt "NotesChatDetailsContent|"
-msgid "<b>Your</b> other devices don't use OMEMO 2"
-msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
-
-#: src/qml/details/NotesChatDetailsContent.qml:51
-msgctxt "NotesChatDetailsContent|"
-msgid "<b>You</b> have no other devices supporting OMEMO 2"
-msgstr "<b>Vi</b> ne havas aliajn aparatojn subtenantajn OMEMO 2"
-
-#: src/qml/details/NotesChatDetailsContent.qml:59
-msgctxt "NotesChatDetailsContent|"
-msgid "Verify <b>your</b> devices for maximum security"
-msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
-
-#: src/qml/details/NotesChatDetailsContent.qml:106
+#: src/qml/details/NotesChatDetailsContent.qml:55
 msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Forigo"
 
-#: src/qml/details/NotesChatDetailsContent.qml:111
+#: src/qml/details/NotesChatDetailsContent.qml:60
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/qml/details/NotesChatDetailsContent.qml:112
+#: src/qml/details/NotesChatDetailsContent.qml:61
 #, fuzzy
 #| msgctxt "ContactDetailsContent|"
 #| msgid "Remove contact and complete chat history"
@@ -1801,7 +1887,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Forigi kontakton kaj kompleta babilhistorio"
 
-#: src/qml/details/NotesChatDetailsContent.qml:117
+#: src/qml/details/NotesChatDetailsContent.qml:66
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
 msgstr "Forigante babilejon de notoj…"
@@ -2433,34 +2519,29 @@ msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
 msgstr "Konfirmi aparaton"
 
-#: src/qml/elements/KeyAuthenticationPage.qml:96
+#: src/qml/elements/KeyAuthenticationPage.qml:95
 msgctxt "KeyAuthenticationPage|"
 msgid "Device verified"
 msgstr "Aparato konfirmita"
 
-#: src/qml/elements/KeyAuthenticationPage.qml:98
-msgctxt "KeyAuthenticationPage|"
-msgid "Device does not exist or is already verified"
-msgstr "Aparato ne ekzistas aŭ jam estas konfirmita"
-
-#: src/qml/elements/KeyAuthenticationPage.qml:103
+#: src/qml/elements/KeyAuthenticationPage.qml:99
 msgctxt "KeyAuthenticationPage|"
 msgid ""
 "The fingerprint must have 64 characters with digits and letters from a to f"
 msgstr ""
 "La fingrospuro devas havi 64 signojn kun ciferoj kaj literoj de a ĝis f"
 
-#: src/qml/elements/KeyAuthenticationPage.qml:140
+#: src/qml/elements/KeyAuthenticationPage.qml:136
 msgctxt "KeyAuthenticationPage|"
 msgid "Verified own devices"
 msgstr "Konfirmitaj propraj aparatoj"
 
-#: src/qml/elements/KeyAuthenticationPage.qml:161
+#: src/qml/elements/KeyAuthenticationPage.qml:157
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
 msgstr "Kopii fingrospuron"
 
-#: src/qml/elements/KeyAuthenticationPage.qml:168
+#: src/qml/elements/KeyAuthenticationPage.qml:164
 msgctxt "KeyAuthenticationPage|"
 msgid "Fingerprint copied to clipboard"
 msgstr "Fingrospuro kopiita al tondujo"
@@ -2485,12 +2566,12 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Konektante…"
 
-#: src/qml/elements/MessageBackground.qml:108
+#: src/qml/elements/MessageBackground.qml:109
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Malĉifrita"
 
-#: src/qml/elements/MessageBackground.qml:113
+#: src/qml/elements/MessageBackground.qml:114
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Nefidinda"
@@ -2857,47 +2938,47 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start messaging"
 msgstr "Elekti babileton por komenci mesaĝi"
 
-#: src/qml/GlobalDrawer.qml:83
+#: src/qml/GlobalDrawer.qml:115
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Kontoj"
 
-#: src/qml/GlobalDrawer.qml:157
+#: src/qml/GlobalDrawer.qml:190
 msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Agoj"
 
-#: src/qml/GlobalDrawer.qml:161
+#: src/qml/GlobalDrawer.qml:194
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Aldoni kontakton per QR-kodo"
 
-#: src/qml/GlobalDrawer.qml:167
+#: src/qml/GlobalDrawer.qml:200
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Aldoni kontakton per babila adreso"
 
-#: src/qml/GlobalDrawer.qml:173
+#: src/qml/GlobalDrawer.qml:206
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:180
+#: src/qml/GlobalDrawer.qml:213
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:188
+#: src/qml/GlobalDrawer.qml:221
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Serĉi publikajn grupojn"
 
-#: src/qml/GlobalDrawer.qml:199
+#: src/qml/GlobalDrawer.qml:232
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Ŝanĝi aparaton"
 
-#: src/qml/GlobalDrawer.qml:205
+#: src/qml/GlobalDrawer.qml:238
 msgctxt "GlobalDrawer|"
 msgid "Settings"
 msgstr "Agordoj"
@@ -3645,3 +3726,62 @@ msgstr "Naskiĝtago"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Retejo"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify your <b>contact</b> to enable encryption"
+#~ msgstr "Konfirmi vian <b>kontakton</b> por ebligi ĉifradon"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Your <b>contact</b> doesn't use OMEMO 2"
+#~ msgstr "Via <b>kontakto</b> ne uzas OMEMO 2"
+
+#~ msgctxt "ContactDetailsContent|"
+#~ msgid "Verify your <b>contact</b> for maximum security"
+#~ msgstr "Konfirmi vian <b>kontakton</b> por maksimuma sekureco"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
+
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
+
+#, fuzzy
+#~| msgctxt "ContactDetailsContent|"
+#~| msgid "Verify your <b>contact</b> to enable encryption"
+#~ msgctxt "GroupChatDetailsContent|"
+#~ msgid "Verify a <b>participant</b> to enable encryption"
+#~ msgstr "Konfirmi vian <b>kontakton</b> por ebligi ĉifradon"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices to encrypt for them"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por ĉifri por ili"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
+#~ msgstr "<b>Viaj</b> aliaj aparatoj ne uzas OMEMO 2"
+
+#~ msgctxt "NotesChatDetailsContent|"
+#~ msgid "Verify <b>your</b> devices for maximum security"
+#~ msgstr "Konfirmi <b>viajn</b> aparatojn por maksimuma sekureco"
+
+#~ msgctxt "KeyAuthenticationPage|"
+#~ msgid "Device does not exist or is already verified"
+#~ msgstr "Aparato ne ekzistas aŭ jam estas konfirmita"
