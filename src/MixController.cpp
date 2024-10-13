@@ -236,33 +236,18 @@ void MixController::inviteContactToChannel(const QString &channelJid, const QStr
 	groupChatUri.setJid(channelJid);
 	groupChatUri.setQuery(QXmpp::Uri::Join());
 
-	Message message {
-		.accountJid = ownJid,
-		.chatJid = contactJid,
-		.isOwn = true,
-		.groupChatSenderId = {},
-		.groupChatSenderJid = {},
-		.groupChatSenderName = {},
-		.id = QXmppUtils::generateStanzaUuid(),
-		.originId = message.id,
-		.stanzaId = {},
-		.replaceId = {},
-		.timestamp = QDateTime::currentDateTimeUtc(),
-		.body = groupChatUri.toString(),
-		.encryption = ChatController::instance()->activeEncryption(),
-		.senderKey = {},
-		.preciseTrustLevel = {},
-		.deliveryState = DeliveryState::Pending,
-		.isSpoiler = {},
-		.spoilerHint = {},
-		.fileGroupId = {},
-		.files = {},
-		.markerId = {},
-		.receiptRequested = true,
-		.reactionSenders = {},
-		.groupChatInvitation = groupChatInvitation,
-		.errorText = {},
-	};
+	Message message;
+	message.accountJid = ownJid;
+	message.chatJid = contactJid;
+	message.isOwn = true;
+	message.id = QXmppUtils::generateStanzaUuid();
+	message.originId = message.id;
+	message.timestamp = QDateTime::currentDateTimeUtc();
+	message.body = groupChatUri.toString();
+	message.encryption = ChatController::instance()->activeEncryption();
+	message.deliveryState = DeliveryState::Pending;
+	message.receiptRequested = true;
+	message.groupChatInvitation = groupChatInvitation;
 
 	MessageDb::instance()->addMessage(message, MessageOrigin::UserInput);
 
