@@ -79,6 +79,7 @@ public:
 	 */
 	Q_INVOKABLE bool hasItem(const QString &jid) const;
 	Q_SIGNAL void itemAdded(const QString accountJid, const QString &jid);
+	Q_SIGNAL void itemRemoved(const QString accountJid, const QString &jid);
 
 	/**
 	 * Returns the account JIDs of all roster items.
@@ -142,8 +143,6 @@ public:
 
 	const QVector<RosterItem> &items() const;
 
-	void updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
-
 	Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
 	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
@@ -156,25 +155,11 @@ public:
 	Q_INVOKABLE void setNotificationRule(const QString &accountJid, const QString &jid, RosterItem::NotificationRule notificationRule);
 	Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
-Q_SIGNALS:
-	void addItemRequested(const RosterItem &item);
-	void updateItemRequested(const QString &jid,
-	                         const std::function<void (RosterItem &)> &updateItem);
-	void replaceItemsRequested(const QHash<QString, RosterItem> &items);
-	void removeItemRequested(const QString &accountJid, const QString &jid);
-	void removeItemsRequested(const QString &accountJid);
-
 private:
 	void handleItemsFetched(const QVector<RosterItem> &items);
 
 	void addItem(const RosterItem &item);
-	void replaceItems(const QHash<QString, RosterItem> &items);
-
-	QFuture<QVector<int>> updateLastMessage(QVector<RosterItem>::Iterator &itr,
-						   const Message &message,
-						   bool onlyUpdateIfNewerOrAtSameAge = true);
-
-
+	void updateItem(const RosterItem &item);
 	void removeItem(const QString &accountJid, const QString &jid);
 	void removeItems(const QString &accountJid);
 
@@ -186,6 +171,10 @@ private:
 	void handleDraftMessageUpdated(const Message &message);
 	void handleDraftMessageRemoved(const Message &newLastMessage);
 	void handleMessageRemoved(const Message &newLastMessage);
+
+	QFuture<QVector<int>> updateLastMessage(QVector<RosterItem>::Iterator &itr,
+						   const Message &message,
+						   bool onlyUpdateIfNewerOrAtSameAge = true);
 
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);

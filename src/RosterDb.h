@@ -19,32 +19,23 @@ public:
 
 	static RosterDb *instance();
 
-	static void parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items);
-
-	/**
-	 * Creates an @c QSqlRecord for updating an old item to a new item.
-	 *
-	 * @param oldMsg Full item as it is currently saved
-	 * @param newMsg Full item as it should be after the update query ran.
-	 */
-	static QSqlRecord createUpdateRecord(const RosterItem &oldItem,
-	                                     const RosterItem &newItem);
+	QFuture<QVector<RosterItem>> fetchItems();
 
 	QFuture<void> addItem(RosterItem item);
 	Q_SIGNAL void itemAdded(const RosterItem &item);
-	QFuture<void> updateItem(const QString &jid,
-	                const std::function<void (RosterItem &)> &updateItem);
+
+	QFuture<void> updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+	Q_SIGNAL void itemUpdated(const RosterItem &item);
+
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
 
 	QFuture<void> removeItem(const QString &accountJid, const QString &jid);
-	QFuture<void> removeItems(const QString &accountJid);
-	QFuture<void> replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
-	QFuture<QVector<RosterItem>> fetchItems();
+	Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
 
+	QFuture<void> removeItems(const QString &accountJid);
+	Q_SIGNAL void itemsRemoved(const QString &accountJid);
 
 private:
-	void updateItemByRecord(const QString &jid, const QSqlRecord &record);
-
 	QVector<RosterItem> _fetchItems();
 
 	void fetchGroups(QVector<RosterItem> &items);
@@ -57,6 +48,11 @@ private:
 	void fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items);
 
 	void _addItem(const RosterItem &item);
+	void _updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+	void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
+	void _removeItem(const QString &accountJid, const QString &jid);
+
+	void updateItemByRecord(const QString &jid, const QSqlRecord &record);
 
 	static RosterDb *s_instance;
 };

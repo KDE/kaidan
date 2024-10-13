@@ -631,14 +631,14 @@ DetailsContent {
 				Connections {
 					target: RosterModel
 
-					function onAddItemRequested(item) {
-						if (item.jid === root.jid) {
+					function onItemAdded(accountJid, jid) {
+						if (accountJid === root.jid && jid === root.jid) {
 							notesAdditionArea.visible = false
 						}
 					}
 
-					function onRemoveItemRequested(accountJid, jid) {
-						if (accountJid === jid) {
+					function onItemRemoved(accountJid, jid) {
+						if (accountJid === root.jid && jid === root.jid) {
 							notesAdditionArea.visible = true
 						}
 					}

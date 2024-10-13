@@ -64,7 +64,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
 		this, [this] (const QString &jid) {
-		Q_EMIT RosterModel::instance()->updateItemRequested(jid, [this, jid](RosterItem &item) {
+		RosterDb::instance()->updateItem(jid, [this, jid](RosterItem &item) {
 			const auto updatedItem = m_manager->getRosterEntry(jid);
 			item.name = updatedItem.name();
 			item.subscription = updatedItem.subscriptionType();
@@ -82,7 +82,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 	connect(m_manager, &QXmppRosterManager::itemRemoved, this, [this](const QString &jid) {
 		const auto accountJid = m_client->configuration().jidBare();
 		MessageDb::instance()->removeAllMessagesFromChat(accountJid, jid);
-		Q_EMIT RosterModel::instance()->removeItemRequested(accountJid, jid);
+		RosterDb::instance()->removeItem(accountJid, jid);
 
 		runOnThread(EncryptionController::instance(), [jid]() {
 			EncryptionController::instance()->removeContactDevices(jid);
@@ -129,7 +129,7 @@ void RosterManager::populateRoster()
 	}
 
 	// replace current contacts with new ones from server
-	Q_EMIT RosterModel::instance()->replaceItemsRequested(items);
+	Q_EMIT RosterDb::instance()->replaceItems(items);
 
 	// Process subscription requests from strangers that were received before the roster was
 	// received.

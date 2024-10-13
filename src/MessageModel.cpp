@@ -26,7 +26,7 @@
 #include "MessageDb.h"
 #include "MessageController.h"
 #include "Notifications.h"
-#include "QmlUtils.h"
+#include "RosterDb.h"
 #include "RosterModel.h"
 #include "TrustDb.h"
 
@@ -507,7 +507,7 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 			readMarkerPending = false;
 		}
 
-		Q_EMIT RosterModel::instance()->updateItemRequested(ChatController::instance()->chatJid(), [=, this](RosterItem &item) {
+		RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=, this](RosterItem &item) {
 			item.lastReadContactMessageId = readMessageId;
 			item.readMarkerPending = readMarkerPending;
 
@@ -629,13 +629,13 @@ void MessageModel::markMessageAsFirstUnread(int index)
 	if (lastReadContactMessageId.isEmpty()) {
 		auto future = MessageDb::instance()->firstContactMessageId(ChatController::instance()->accountJid(), ChatController::instance()->chatJid(), unreadMessageCount);
 		await(future, this, [=, currentChatJid = ChatController::instance()->chatJid()](QString firstContactMessageId) {
-			Q_EMIT RosterModel::instance()->updateItemRequested(currentChatJid, [=](RosterItem &item) {
+			RosterDb::instance()->updateItem(currentChatJid, [=](RosterItem &item) {
 				item.unreadMessages = unreadMessageCount;
 				item.lastReadContactMessageId = firstContactMessageId;
 			});
 		});
 	} else  {
-		Q_EMIT RosterModel::instance()->updateItemRequested(ChatController::instance()->chatJid(), [=](RosterItem &item) {
+		RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
 			item.unreadMessages = unreadMessageCount;
 			item.lastReadContactMessageId = lastReadContactMessageId;
 		});
@@ -923,7 +923,7 @@ void MessageModel::removeMessage(const QString &messageId)
 			};
 
 			if (newLastReadMessageId.isEmpty()) {
-				RosterModel::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
+				RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=](RosterItem &item) {
 					item.lastReadContactMessageId.clear();
 					item.lastReadOwnMessageId.clear();
 					item.lastMessage.clear();
@@ -931,7 +931,7 @@ void MessageModel::removeMessage(const QString &messageId)
 					item.unreadMessages = 0;
 				});
 			} else {
-				Q_EMIT RosterModel::instance()->updateItemRequested(ChatController::instance()->chatJid(),
+				RosterDb::instance()->updateItem(ChatController::instance()->chatJid(),
 					[=](RosterItem &item) {
 						if (itr->isOwn) {
 							item.lastReadOwnMessageId = newLastReadMessageId;
@@ -1089,7 +1089,7 @@ void MessageModel::handleMamBacklogRetrieved(bool complete)
 	if (ChatController::instance()->rosterItem().lastReadContactMessageId.isEmpty()) {
 		for (const auto &message : std::as_const(m_messages)) {
 			if (!message.isOwn) {
-				Q_EMIT RosterModel::instance()->updateItemRequested(ChatController::instance()->chatJid(), [=, messageId = message.id](RosterItem &item) {
+				RosterDb::instance()->updateItem(ChatController::instance()->chatJid(), [=, messageId = message.id](RosterItem &item) {
 					item.lastReadContactMessageId = messageId;
 				});
 				break;

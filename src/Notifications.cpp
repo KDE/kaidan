@@ -14,9 +14,9 @@
 #endif
 
 // Kaidan
-#include "FutureUtils.h"
 #include "Kaidan.h"
 #include "MessageController.h"
+#include "RosterDb.h"
 #include "RosterModel.h"
 
 #include <QStringBuilder>
@@ -160,7 +160,7 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 		Q_EMIT Kaidan::instance()->raiseWindowRequested();
 	});
 	connect(notification, &KNotification::action1Activated, this, [=] {
-		Q_EMIT RosterModel::instance()->updateItemRequested(chatJid, [=](RosterItem &item) {
+		RosterDb::instance()->updateItem(chatJid, [=](RosterItem &item) {
 			item.lastReadContactMessageId = messageId;
 			item.unreadMessages = 0;
 		});

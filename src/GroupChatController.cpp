@@ -36,18 +36,10 @@ GroupChatController::GroupChatController(QObject *parent)
 		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
 			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public, false);
 		});
-
-		RosterModel::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public, false);
-		});
 	});
 
 	connect(this, &GroupChatController::groupChatMadePublic, this, [](const QString &, const QString &groupChatJid) {
 		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public);
-		});
-
-		RosterModel::instance()->updateItem(groupChatJid, [](RosterItem &item) {
 			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public);
 		});
 	});
@@ -62,10 +54,6 @@ GroupChatController::GroupChatController(QObject *parent)
 
 	connect(this, &GroupChatController::groupChatDeleted, this, [](const QString &, const QString &groupChatJid) {
 		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
-		});
-
-		RosterModel::instance()->updateItem(groupChatJid, [](RosterItem &item) {
 			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
 		});
 	});

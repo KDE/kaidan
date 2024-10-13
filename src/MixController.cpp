@@ -24,7 +24,7 @@
 #include "Kaidan.h"
 #include "MessageController.h"
 #include "MessageDb.h"
-#include "RosterModel.h"
+#include "RosterDb.h"
 
 MixController::MixController(QObject *parent)
 	: QObject(parent)
@@ -473,7 +473,7 @@ void MixController::handleServicesChanged()
 
 void MixController::handleChannelInformationUpdated(const QString &channelJid, const QXmppMixInfoItem &information)
 {
-	RosterModel::instance()->updateItemRequested(channelJid, [information](RosterItem &item) {
+	RosterDb::instance()->updateItem(channelJid, [information](RosterItem &item) {
 		item.groupChatName = information.name();
 		item.groupChatDescription = information.description();
 	});

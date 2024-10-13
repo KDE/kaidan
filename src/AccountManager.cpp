@@ -22,7 +22,7 @@
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "RegistrationManager.h"
-#include "RosterModel.h"
+#include "RosterDb.h"
 #include "ServerFeaturesCache.h"
 #include "Settings.h"
 #include "SystemUtils.h"
@@ -428,7 +428,7 @@ QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberO
 void AccountManager::removeAccount(const QString &accountJid)
 {
 	MessageDb::instance()->removeAllMessagesFromAccount(accountJid);
-	Q_EMIT RosterModel::instance()->removeItemsRequested(accountJid);
+	RosterDb::instance()->removeItems(accountJid);
 	AccountDb::instance()->removeAccount(accountJid);
 
 	m_settings->remove({

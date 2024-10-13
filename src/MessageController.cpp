@@ -50,6 +50,7 @@
 #include "MessageModel.h"
 #include "MediaUtils.h"
 #include "Notifications.h"
+#include "RosterDb.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
 
@@ -800,7 +801,7 @@ void MessageController::updateLatestMessage(const QString &accountJid, const QSt
 
 	// TODO: Check whether the own server supports archiving group chat messages and do not store stanza IDs for each group chat in that case
 	if (receivedFromGroupChat) {
-		Q_EMIT RosterModel::instance()->updateItemRequested(chatJid, [stanzaId, timestamp](RosterItem &item) {
+		RosterDb::instance()->updateItem(chatJid, [stanzaId, timestamp](RosterItem &item) {
 			// Check "<=" instead of "<" to update the ID in the rare case that the timestamps are
 			// equal (e.g., because the timestamps are not precise enough).
 			if (item.latestGroupChatMessageStanzaTimestamp <= timestamp) {
@@ -832,14 +833,14 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
 			// actual count of read messages.
 			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid), markedId);
 			await(future, this, [recipientJid, markedId](int count) {
-				Q_EMIT RosterModel::instance()->updateItemRequested(recipientJid, [=](RosterItem &item) {
+				RosterDb::instance()->updateItem(recipientJid, [=](RosterItem &item) {
 					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
 					item.lastReadContactMessageId = markedId;
 					item.readMarkerPending = false;
 				});
 			});
 		} else {
-			Q_EMIT RosterModel::instance()->updateItemRequested(senderJid, [markedId](RosterItem &item) {
+			RosterDb::instance()->updateItem(senderJid, [markedId](RosterItem &item) {
 				item.lastReadOwnMessageId = markedId;
 			});
 
