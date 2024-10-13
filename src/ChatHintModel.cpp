@@ -267,7 +267,7 @@ int ChatHintModel::addConnectToServerChatHint(bool loading)
 	);
 }
 
-int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &request)
+void ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &request)
 {
 	const QString text = [&request]() {
 		const auto displayName = ChatController::instance()->rosterItem().displayName();
@@ -282,15 +282,20 @@ int ChatHintModel::addAllowPresenceSubscriptionChatHint(const QXmppPresence &req
 		return tr("Your contact %1 is %2 now and would like to receive your personal data such as availability, devices and other personal information again%3").arg(oldDisplayName, displayName, appendedText);
 	}();
 
-	return addChatHint(
-		ChatHint {
-			text,
-			{ ChatHintButton { ChatHintButton::Dismiss, tr("Refuse") },
-			  ChatHintButton { ChatHintButton::AllowPresenceSubscription, tr("Allow") } },
-			false,
-			tr("Allowing…"),
-		}
-	);
+	const auto chatHint = ChatHint {
+		text,
+		{ ChatHintButton { ChatHintButton::Dismiss, tr("Refuse") },
+		  ChatHintButton { ChatHintButton::AllowPresenceSubscription, tr("Allow") } },
+		false,
+		tr("Allowing…"),
+	};
+
+	// Ensure that the chat hint for connecting to the server is always on top.
+	if (const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription); i == -1) {
+		addChatHint(chatHint);
+	} else {
+		insertChatHint(i, chatHint);
+	}
 }
 
 int ChatHintModel::addInviteContactsChatHint()

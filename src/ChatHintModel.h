@@ -81,7 +81,7 @@ private:
 	void handleGroupChatDeleted(const QString &accountJid, const QString &groupChatJid);
 
 	int addConnectToServerChatHint(bool loading = false);
-	int addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
+	void addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
 	int addInviteContactsChatHint();
 	void addLeaveChatHint();
 
