@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-07 00:07+0300\n"
+"PO-Revision-Date: 2024-10-13 12:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -1095,69 +1095,57 @@ msgstr "Profil görselini değiştir"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>aygıtlarınızı</b> doğrulayın"
+msgstr "Onları şifrelemek için kendi aygıtlarınızı doğrulayın"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>aygıtlarınızı</b> doğrulayın"
+msgstr "Onları şifrelemek için kendi bilinmeyen aygıtlarınızı doğrulayın"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr "Olabilecek en yüksek güvenlik için <b>aygıtlarınızı</b> doğrulayın"
+msgstr "Olabilecek en yüksek güvenlik için kendi aygıtlarınızı doğrulayın"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:43
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
 msgstr ""
+"Kendi bilinmeyen aygıtlarınızı doğrulayon veya başka aygıtlarınızın bu "
+"aygıtı doğrulamasına izin verin"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:49
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
-msgstr ""
+msgstr "Şifreleyeceğiniz başka güvenilen aygıtınız yok"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr "Diğer <b>aygıtların</b> OMEMO 2 kullanmıyor"
+msgstr "OMEMO 2 kullanmayan başka aygıtlarınız var"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr "OMEMO 2 destekleyen başka <b>aygıtınız</b> yok"
+msgstr "OMEMO 2 kullanan başka bilinen aygıtınız yok"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
 msgstr ""
+"Onlar için şifreleyeceğiniz doğrulanması gereken başka aygıtlarınız var"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:57
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "Doğrulanmamış başka aygıtlarınız var"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "Diğer tüm bilinen aygıtlarınız doğrulanmış"
 
 #: src/qml/details/AvatarChangePage.qml:25
 msgctxt "AvatarChangePage|"
@@ -1344,74 +1332,52 @@ msgstr "Avatarı büyüt"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr "Onları şifrelemek için kişilerinizin aygıtlarını doğrulayın"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr "Onları şifrelemek içinkişilerinizin bilinmeyen aygıtlarını doğrulayın"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr "Olabilecek en yüksek güvenlik için <b>aygıtlarınızı</b> doğrulayın"
+msgstr "Olabilecek en yüksek güvenlik için kişinizin aygıtlarını doğrulayın"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr ""
+"Kişinizin bilinmeyen aygıtlarını doğrulayın veya kişinizin bu aygıtı "
+"doğrulamasına izin verin"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr "Kişinizin şifrelenecek güvenilir aygıtı yok"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr "OMEMO 2 destekleyen başka <b>aygıtınız</b> yok"
+msgstr "Kişinizin OMEMO 2 kullanan bilinen aygıtı yok"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr "Kişinizin onları şifrelemesi için doğrulanması gereken aygıtları var"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "İletişim kurduğunuz kişide doğrulanmamış aygıtlar var"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's devices are verified"
-msgstr "Onları şifrelemek için <b>kişinizin</b> aygıtlarını doğrulayın"
+msgstr "Kişinizin tüm aygıtları doğrulanmış"
 
 #: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
@@ -1689,73 +1655,59 @@ msgstr "Silindi"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>katılımcıların</b> aygıtlarını doğrulayın"
+msgstr "Onları şifrelemek için katılımcıların aygıtlarını doğrulayın"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr "Onları şifrelemek için <b>katılımcıların</b> aygıtlarını doğrulayın"
+msgstr ""
+"Onları şifrelemek için katılımcıların bilinmeyen aygıtlarını doğrulayın"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants</b> for maximum security"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr "Olabilecek en yüksek güvenlik için <b>katılımcıları</b> doğrulayın"
+msgstr ""
+"Olabilecek en yüksek güvenlik için katılımcıların bilinmeyen aygıtlarını "
+"doğrulayın"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
-msgstr "Onları şifrelemek için <b>katılımcıların</b> aygıtlarını doğrulayın"
+msgstr ""
+"Katılımcıların bilinmeyen aygıtlarını doğrulayın veya katılımcıların bu "
+"aygıtı doğrulamasına izin verin"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr "Onları şifrelemek için <b>katılımcıların</b> aygıtlarını doğrulayın"
+msgstr "Katılımcılardan hiçbirinin şifrelenecek güvenilir bir aygıtı yok"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "No <b>participant</b> uses OMEMO 2"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr "OMEMO 2 kullanan bir <b>katılımcı</b> yok"
+msgstr "Katılımcılardan hiçbirinin OMEMO 2 kullanan bilinen bir aygıtı yok"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "Onları şifrelemek için <b>katılımcıların</b> aygıtlarını doğrulayın"
+msgstr ""
+"Katılımcılardan bazılarının onları şifrelemeleri için doğrulanması gereken "
+"aygıtları var"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "Bazı katılımcılarda doğrulanmamış aygıtlar var"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' devices are verified"
-msgstr ""
+msgstr "Tüm katılımcıların aygıtları doğrulanmış"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
