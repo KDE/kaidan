@@ -90,7 +90,6 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	auto *uploadManager = m_client->addNewExtension<QXmppHttpUploadManager>(m_networkManager);
 	m_client->addNewExtension<QXmppMamManager>();
 	m_client->addNewExtension<QXmppPubSubManager>();
-	m_client->addNewExtension<QXmppMixManager>();
 	m_client->addNewExtension<QXmppMovedManager>();
 	m_client->setEncryptionExtension(m_client->addNewExtension<QXmppOmemoManager>(m_omemoDb));
 	m_client->addNewExtension<QXmppMessageReceiptManager>();
@@ -98,6 +97,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_client->addNewExtension<QXmppUploadRequestManager>();
 	m_client->addNewExtension<QXmppVCardManager>();
 	m_client->addNewExtension<QXmppVersionManager>();
+	m_client->addNewExtension<QXmppMixManager>();
 
 	m_registrationManager = new RegistrationManager(this, m_client, this);
 	m_vCardManager = new VCardManager(this, m_client, m_caches->avatarStorage, this);
