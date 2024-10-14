@@ -9,6 +9,7 @@
 #include "Encryption.h"
 #include "FutureUtils.h"
 #include "RegistrationManager.h"
+#include "RosterDb.h"
 #include "RosterItem.h"
 #include "RosterModel.h"
 #include "Settings.h"
@@ -382,10 +383,7 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 	});
 }
 
-AccountMigrationManager::~AccountMigrationManager()
-{
-	m_migrationManager->unregisterExportData<ClientSettings>();
-}
+AccountMigrationManager::~AccountMigrationManager() = default;
 
 AccountMigrationManager::MigrationState AccountMigrationManager::migrationState() const
 {
@@ -626,10 +624,8 @@ QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::import
 	const ClientSettings &settings)
 {
 	return runAsyncTask(this, Kaidan::instance(), [settings]() -> ImportResult {
-		auto model = RosterModel::instance();
-
 		for (const ClientRosterItemSettings &itemSettings : settings.roster) {
-			model->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
+			RosterDb::instance()->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
 				item.encryption = itemSettings.encryption.value_or(item.encryption);
 				item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
 				item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
