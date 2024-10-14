@@ -288,13 +288,10 @@ public:
 		});
 	}
 
-	~PublishMovedStatementClient() override {
-		qDebug(Q_FUNC_INFO);
-	}
+	~PublishMovedStatementClient() override = default;
 
 	void publishStatement(const QXmppConfiguration &configuration, const QString &newBareJid)
 	{
-		qDebug("%s: %ls", Q_FUNC_INFO, qUtf16Printable(newBareJid));
 		Q_ASSERT(!newBareJid.isEmpty());
 		m_newBareJid = newBareJid;
 		connectToServer(configuration);
@@ -332,8 +329,6 @@ private:
 
 	void onConnected()
 	{
-		qDebug(Q_FUNC_INFO);
-
 		m_movedManager->publishStatement(m_newBareJid).then(this, [this](auto &&result) {
 			disconnectFromServer();
 			Q_EMIT finished(std::move(std::get<QXmpp::Success>(std::move(result))));
@@ -342,7 +337,6 @@ private:
 
 	void onDisconnected()
 	{
-		qDebug(Q_FUNC_INFO);
 	}
 
 private:
