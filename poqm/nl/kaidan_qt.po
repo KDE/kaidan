@@ -62,30 +62,30 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Apparaten op servers"
 
-#: src/ChatHintModel.cpp:265
+#: src/ChatHintModel.cpp:261
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "U bent niet verbonden - berichten worden verzonden en ontvangen nadat u "
 "verbonden bent."
 
-#: src/ChatHintModel.cpp:266 src/ChatHintModel.cpp:304
-#: src/ChatHintModel.cpp:326
+#: src/ChatHintModel.cpp:262 src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Wegdoen"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:263
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Verbinden"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:265
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Bezig met verbinden…"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:278
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -95,58 +95,62 @@ msgstr ""
 "%1 zou graag uw persoonlijke gegevens zoals beschikbaarheid, apparaten en "
 "andere personele informatie %2 vragen"
 
-#: src/ChatHintModel.cpp:286
-#, qt-format
+#: src/ChatHintModel.cpp:282
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 uses %2 now and would like to receive your personal data "
+#| "such as availability, devices and other personal information again%3"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 uses %2 now and would like to receive your personal data "
-"such as availability, devices and other personal information again%3"
+"Your contact %1 is %2 now and would like to receive your personal data such "
+"as availability, devices and other personal information again%3"
 msgstr ""
 "Uw contactpersoon %1 gebruikt nu %2 en zou graag opnieuw uw persoonlijke "
 "gegevens zoals beschikbaarheid, apparaten en andere persoonlijke informatie "
 "ontvangen %3"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Weigeren"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:288
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Toestaan"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Bezig met toestaan…"
 
-#: src/ChatHintModel.cpp:303
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Deze groep heeft geen gebruikers"
 
-#: src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Contactpersonen uitnodigen"
 
-#: src/ChatHintModel.cpp:307
+#: src/ChatHintModel.cpp:308
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Gebied voor uitnodigen openen"
 
-#: src/ChatHintModel.cpp:325
+#: src/ChatHintModel.cpp:326
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Deze groep is verwijderd"
 
-#: src/ChatHintModel.cpp:327
+#: src/ChatHintModel.cpp:328
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Verlaten"
 
-#: src/ChatHintModel.cpp:329
+#: src/ChatHintModel.cpp:330
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Groeps-chat wordt verlaten"
@@ -399,18 +403,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' kan niet verzonden worden omdat het groter is dan %2"
 
-#: src/MessageController.cpp:223
+#: src/MessageController.cpp:224
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reactie kon niet worden verzonden: %1"
 
-#: src/MessageController.cpp:349
+#: src/MessageController.cpp:350
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Het bericht kon niet worden verzonden."
 
-#: src/MessageController.cpp:691
+#: src/MessageController.cpp:692
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -491,43 +495,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "U mag niet met de groep meedoen"
 
-#: src/MixController.cpp:281 src/MixController.cpp:289
+#: src/MixController.cpp:266 src/MixController.cpp:274
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "%1 kon niet worden uitgenodigd bij %2: %3"
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:305
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Knooppunten van %1 konden niet worden opgehaald: %2"
 
-#: src/MixController.cpp:330
+#: src/MixController.cpp:315
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Toegestane gebruikers van %1 konden niet worden opgehaald: %2"
 
-#: src/MixController.cpp:347
+#: src/MixController.cpp:332
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Verbannen gebruikers van %1 konden niet worden opgehaald: %2"
 
-#: src/MixController.cpp:366
+#: src/MixController.cpp:351
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Gebruikers die meedoen aan %1 konden niet worden opgehaald: %2"
 
-#: src/MixController.cpp:385
+#: src/MixController.cpp:370
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kon niet worden verbannen uit %2: %3"
 
-#: src/MixController.cpp:437
+#: src/MixController.cpp:422
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "U mag de groep niet verwijderen"
@@ -3444,7 +3448,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "%1 stoppen om uw persoonlijke gegevens te zien is mislukt"
 
-#: src/RosterModel.cpp:958
+#: src/RosterModel.cpp:886
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Gisteren"

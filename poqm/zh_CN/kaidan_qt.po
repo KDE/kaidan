@@ -61,28 +61,28 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatHintModel.cpp:265
+#: src/ChatHintModel.cpp:261
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接，连接后会发送和接收消息"
 
-#: src/ChatHintModel.cpp:266 src/ChatHintModel.cpp:304
-#: src/ChatHintModel.cpp:326
+#: src/ChatHintModel.cpp:262 src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:263
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "连接"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:265
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:278
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -90,57 +90,61 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:286
-#, qt-format
+#: src/ChatHintModel.cpp:282
+#, fuzzy, qt-format
+#| msgctxt "ChatHintModel|"
+#| msgid ""
+#| "Your contact %1 uses %2 now and would like to receive your personal data "
+#| "such as availability, devices and other personal information again%3"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 uses %2 now and would like to receive your personal data "
-"such as availability, devices and other personal information again%3"
+"Your contact %1 is %2 now and would like to receive your personal data such "
+"as availability, devices and other personal information again%3"
 msgstr ""
 "您的联系人 %1 现在使用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个"
 "人信息 %3"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:288
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:303
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:307
+#: src/ChatHintModel.cpp:308
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
 
-#: src/ChatHintModel.cpp:325
+#: src/ChatHintModel.cpp:326
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群聊已删除"
 
-#: src/ChatHintModel.cpp:327
+#: src/ChatHintModel.cpp:328
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "离开"
 
-#: src/ChatHintModel.cpp:329
+#: src/ChatHintModel.cpp:330
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
@@ -393,18 +397,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:223
+#: src/MessageController.cpp:224
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageController.cpp:349
+#: src/MessageController.cpp:350
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:691
+#: src/MessageController.cpp:692
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -485,43 +489,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "不允许您加入此群聊"
 
-#: src/MixController.cpp:281 src/MixController.cpp:289
+#: src/MixController.cpp:266 src/MixController.cpp:274
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "无法邀请 %1 加入 %2：%3"
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:305
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的节点：%2"
 
-#: src/MixController.cpp:330
+#: src/MixController.cpp:315
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的允许用户：%2"
 
-#: src/MixController.cpp:347
+#: src/MixController.cpp:332
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已封禁用户：%2"
 
-#: src/MixController.cpp:366
+#: src/MixController.cpp:351
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已加入用户：%2"
 
-#: src/MixController.cpp:385
+#: src/MixController.cpp:370
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "无法从 %2 中封禁 %1：%3"
 
-#: src/MixController.cpp:437
+#: src/MixController.cpp:422
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
@@ -3413,7 +3417,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
 
-#: src/RosterModel.cpp:958
+#: src/RosterModel.cpp:886
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"

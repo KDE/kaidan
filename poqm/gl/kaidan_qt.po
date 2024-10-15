@@ -62,29 +62,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Dispositivos en servidores"
 
-#: src/ChatHintModel.cpp:265
+#: src/ChatHintModel.cpp:261
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Non ten conexión. As mensaxes enviaranse and recibiranse cando se conecte."
 
-#: src/ChatHintModel.cpp:266 src/ChatHintModel.cpp:304
-#: src/ChatHintModel.cpp:326
+#: src/ChatHintModel.cpp:262 src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:327
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Descartar"
 
-#: src/ChatHintModel.cpp:267
+#: src/ChatHintModel.cpp:263
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Conectar"
 
-#: src/ChatHintModel.cpp:269
+#: src/ChatHintModel.cpp:265
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Conectando…"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:278
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -94,7 +94,7 @@ msgstr ""
 "%1 quere recibir información persoal sobre vostede como a súa "
 "dispoñibilidade, dispositivos, etc.%2"
 
-#: src/ChatHintModel.cpp:286
+#: src/ChatHintModel.cpp:282
 #, fuzzy, qt-format
 #| msgctxt "ChatHintModel|"
 #| msgid ""
@@ -102,43 +102,43 @@ msgstr ""
 #| "and other personal information%2"
 msgctxt "ChatHintModel|"
 msgid ""
-"Your contact %1 uses %2 now and would like to receive your personal data "
-"such as availability, devices and other personal information again%3"
+"Your contact %1 is %2 now and would like to receive your personal data such "
+"as availability, devices and other personal information again%3"
 msgstr ""
 "%1 quere recibir información persoal sobre vostede como a súa "
 "dispoñibilidade, dispositivos, etc.%2"
 
-#: src/ChatHintModel.cpp:292
+#: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Rexeitar"
 
-#: src/ChatHintModel.cpp:293
+#: src/ChatHintModel.cpp:288
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Permitir"
 
-#: src/ChatHintModel.cpp:295
+#: src/ChatHintModel.cpp:290
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Permitindo…"
 
-#: src/ChatHintModel.cpp:303
+#: src/ChatHintModel.cpp:304
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "O grupo non ten xente."
 
-#: src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Invitar a contactos"
 
-#: src/ChatHintModel.cpp:307
+#: src/ChatHintModel.cpp:308
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Abrir a zona de invitacións"
 
-#: src/ChatHintModel.cpp:325
+#: src/ChatHintModel.cpp:326
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "This group has no users"
@@ -146,7 +146,7 @@ msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "O grupo non ten xente."
 
-#: src/ChatHintModel.cpp:327
+#: src/ChatHintModel.cpp:328
 #, fuzzy
 #| msgctxt "GroupChatDetailsContent|"
 #| msgid "Leave"
@@ -154,7 +154,7 @@ msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Saír"
 
-#: src/ChatHintModel.cpp:329
+#: src/ChatHintModel.cpp:330
 #, fuzzy
 #| msgctxt "GroupChatDetailsContent|"
 #| msgid "Leaving group chat…"
@@ -410,18 +410,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Non é posíbel enviar «%1» porque supera os %2."
 
-#: src/MessageController.cpp:223
+#: src/MessageController.cpp:224
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Non foi posíbel enviar a reacción: %1"
 
-#: src/MessageController.cpp:349
+#: src/MessageController.cpp:350
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Non foi posíbel enviar a mensaxe."
 
-#: src/MessageController.cpp:691
+#: src/MessageController.cpp:692
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -502,43 +502,43 @@ msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "Non se lle permite unirse ao grupo."
 
-#: src/MixController.cpp:281 src/MixController.cpp:289
+#: src/MixController.cpp:266 src/MixController.cpp:274
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Non foi posíbel invitar a %1 a %2: %3"
 
-#: src/MixController.cpp:320
+#: src/MixController.cpp:305
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Non foi posíbel obter os nodos de %1: %2"
 
-#: src/MixController.cpp:330
+#: src/MixController.cpp:315
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Non foi posíbel obter a xente de %1 con permisos: %2"
 
-#: src/MixController.cpp:347
+#: src/MixController.cpp:332
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Non foi posíbel obter a xente que se expulsou de %1: %2"
 
-#: src/MixController.cpp:366
+#: src/MixController.cpp:351
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Non foi posíbel obter a xente que se uniu a %1: %2"
 
-#: src/MixController.cpp:385
+#: src/MixController.cpp:370
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Non foi posíbel expulsar a %1 de %2: %3"
 
-#: src/MixController.cpp:437
+#: src/MixController.cpp:422
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Non se lle permite eliminar o grupo."
@@ -3510,7 +3510,7 @@ msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Non foi posíbel facer que %1 deixe de ver a súa información persoal."
 
-#: src/RosterModel.cpp:958
+#: src/RosterModel.cpp:886
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Onte"
