@@ -96,6 +96,16 @@ Kirigami.SwipeListItem {
 				name: root.senderName
 				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 				Layout.alignment: Qt.AlignTop
+
+				MouseArea {
+					anchors.fill: parent
+					cursorShape: Qt.PointingHandCursor
+					onClicked: {
+						const textArea = sendingPane.messageArea
+						const mention = Utils.groupChatUserMentionPrefix + root.senderName + " "
+						textArea.insert(textArea.cursorPosition, mention)
+					}
+				}
 			}
 
 			// message bubble
