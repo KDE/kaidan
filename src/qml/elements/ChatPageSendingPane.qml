@@ -150,7 +150,20 @@ Controls.Pane {
 				Controls.ToolTip.text: qsTr("Mention a participant")
 				Layout.topMargin: - scaleFactor * 2
 				Layout.leftMargin: Kirigami.Units.smallSpacing
-				onClicked: messageArea.insert(messageArea.cursorPosition, Utils.groupChatUserMentionPrefix)
+				onClicked: {
+					messageArea.selectWord()
+					messageArea.select(messageArea.selectionStart - 1, messageArea.selectionEnd)
+
+					const mentionPrefix = Utils.groupChatUserMentionPrefix
+					const selectedWord = messageArea.selectedText
+
+					if (selectedWord.startsWith(mentionPrefix)) {
+						messageArea.remove(messageArea.selectionStart, messageArea.selectionEnd)
+					} else {
+						messageArea.deselect()
+						messageArea.insert(messageArea.cursorPosition, mentionPrefix)
+					}
+				}
 
 				Behavior on opacity {
 					NumberAnimation {}
