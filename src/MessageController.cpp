@@ -73,14 +73,14 @@ MessageController::MessageController(QObject *parent)
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
+	connect(RosterDb::instance(), &RosterDb::itemsReplaced, this, &MessageController::handleRosterReceived);
+
 	runOnThread(
 		Kaidan::instance()->client(),
 		[this]() {
 			connect(Kaidan::instance()->client()->xmppClient(), &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
 				handleMessage(msg, MessageOrigin::Stream);
 			});
-
-			connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppRosterManager>(), &QXmppRosterManager::rosterReceived, this, &MessageController::handleRosterReceived);
 
 			connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>(), &QXmppMessageReceiptManager::messageDelivered, this, [](const QString &jid, const QString &id) {
 				MessageDb::instance()->updateMessage(id, [accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), jid](Message &message) {
@@ -486,10 +486,9 @@ void MessageController::retrieveInitialMessage(const QString &jid, bool isGroupC
 
 					if (message.body().isEmpty() && message.sharedFiles().isEmpty()) {
 						retrieveInitialMessage(jid, isGroupChat, retrievedMessages.result.resultSetReply().first());
-						return;
+					} else {
+						handleMessage(message, MessageOrigin::MamInitial);
 					}
-
-					handleMessage(message, MessageOrigin::MamInitial);
 				}
 			}
 		}

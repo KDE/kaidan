@@ -131,7 +131,7 @@ void RosterManager::populateRoster()
 	}
 
 	// replace current contacts with new ones from server
-	Q_EMIT RosterDb::instance()->replaceItems(items);
+	RosterDb::instance()->replaceItems(items);
 
 	// Process subscription requests from strangers that were received before the roster was
 	// received.

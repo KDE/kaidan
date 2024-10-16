@@ -206,6 +206,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 		}
 
 		commit();
+		Q_EMIT itemsReplaced();
 	});
 }
 

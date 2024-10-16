@@ -28,6 +28,7 @@ public:
 	Q_SIGNAL void itemUpdated(const RosterItem &item);
 
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
+	Q_SIGNAL void itemsReplaced();
 
 	QFuture<void> removeItem(const QString &accountJid, const QString &jid);
 	Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
