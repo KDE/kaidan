@@ -73,7 +73,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid
+				return !root.message.displayedReactions.length && !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
 			}
 			Layout.preferredWidth: Kirigami.Units.iconSizes.medium
 			Layout.preferredHeight: Kirigami.Units.iconSizes.medium
@@ -100,7 +100,7 @@ Kirigami.Dialog {
 					return false
 				}
 
-				return !root.message.groupChatInvitationJid
+				return !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
 			}
 			onClicked: root.message.sendingPane.prepareReply(root.message.senderJid, root.message.groupChatSenderId, root.message.senderName, root.message.msgId, root.message.messageBody)
 		}
@@ -109,7 +109,7 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Quote")
 			source: "mail-reply-all-symbolic"
 			contextMenu: root
-			shown: root.message.messageBody && !root.message.groupChatInvitationJid
+			shown: root.message.messageBody && !root.message.groupChatInvitationJid && !ChatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareQuote(root.message.messageBody)
 		}
 
@@ -131,7 +131,7 @@ Kirigami.Dialog {
 			Controls.ToolTip.text: qsTr("Edit")
 			source: "document-edit-symbolic"
 			contextMenu: root
-			shown: !root.message.groupChatInvitationJid && MessageModel.canCorrectMessage(root.message.modelIndex)
+			shown: !root.message.groupChatInvitationJid && MessageModel.canCorrectMessage(root.message.modelIndex) && !ChatController.rosterItem.isDeletedGroupChat
 			onClicked: root.message.sendingPane.prepareCorrection(root.message.msgId, root.message.replyToJid, root.message.replyToGroupChatParticipantId, root.message.replyToName, root.message.replyId, root.message.replyQuote, root.message.messageBody, root.message.spoilerHint)
 		}
 
