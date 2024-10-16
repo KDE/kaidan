@@ -606,10 +606,8 @@ ChatPageBase {
 		header: ChatPageSendingPane {
 			chatPage: root
 			width: root.width
-
-			Component.onCompleted: {
-				root.sendingPane = this
-			}
+			height: ChatController.rosterItem.isDeletedGroupChat ? 0 : undefined
+			Component.onCompleted: root.sendingPane = this
 		}
 		onCountChanged: {
 			// Make it possible to directly enter a message after chatHintListView is focused because of changes in its model.
