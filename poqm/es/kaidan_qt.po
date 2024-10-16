@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-10-13 12:40+0200\n"
+"PO-Revision-Date: 2024-10-15 12:17+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -98,19 +98,14 @@ msgstr ""
 "dispositivos y otra información personal%2"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 uses %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"El contacto %1 usa ahora %2 y desearía volver a recibir sus datos "
-"personales, como la disponibilidad, dispositivos y otra información personal"
-"%3"
+"El contacto %1 es ahora %2 y desearía volver a recibir sus datos personales, "
+"como la disponibilidad, dispositivos y otra información personal%3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"

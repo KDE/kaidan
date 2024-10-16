@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-13 16:17+0200\n"
+"PO-Revision-Date: 2024-10-15 09:31+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.1\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -96,19 +96,15 @@ msgstr ""
 "andere personele informatie %2 vragen"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 uses %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"Uw contactpersoon %1 gebruikt nu %2 en zou graag opnieuw uw persoonlijke "
-"gegevens zoals beschikbaarheid, apparaten en andere persoonlijke informatie "
-"ontvangen %3"
+"Uw contactpersoon %1 is nu %2 en zou graag opnieuw uw persoonlijke gegevens "
+"zoals beschikbaarheid, apparaten en andere persoonlijke informatie ontvangen "
+"%3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-13 07:15+0200\n"
+"PO-Revision-Date: 2024-10-15 07:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -98,18 +98,14 @@ msgstr ""
 "drugi osebni podatki%2"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 uses %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"Vaš stik %1 zdaj uporablja %2 in želi ponovno prejeti vaše osebne podatke, "
-"kot so razpoložljivost, naprave in drugi osebni podatki%3"
+"Vaš kontakt %1 je zdaj %2 in želi ponovno prejeti vaše osebne podatke, kot "
+"so razpoložljivost, naprave in drugi osebni podatki%3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
