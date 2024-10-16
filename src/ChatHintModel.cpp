@@ -242,6 +242,8 @@ void ChatHintModel::checkGroupChatDeleted()
 {
 	if (ChatController::instance()->rosterItem().isDeletedGroupChat()) {
 		addLeaveChatHint();
+	} else {
+		removeChatHint(ChatHintButton::Type::Leave);
 	}
 }
 
