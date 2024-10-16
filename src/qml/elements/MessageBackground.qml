@@ -162,6 +162,13 @@ Item {
 		}
 
 		Kirigami.Icon {
+			source: "document-edit-symbolic"
+			visible: message.edited
+			Layout.preferredWidth: Kirigami.Units.iconSizes.small
+			Layout.preferredHeight: Layout.preferredWidth
+		}
+
+		Kirigami.Icon {
 			source: message.deliveryStateIcon
 			visible: message.isOwn && source
 			Layout.preferredWidth: Kirigami.Units.iconSizes.small
@@ -178,13 +185,6 @@ Item {
 				visible: checkmarkMouseArea.containsMouse
 				delay: 500
 			}
-		}
-
-		Kirigami.Icon {
-			source: "document-edit-symbolic"
-			visible: message.edited
-			Layout.preferredWidth: Kirigami.Units.iconSizes.small
-			Layout.preferredHeight: Layout.preferredWidth
 		}
 	}
 
