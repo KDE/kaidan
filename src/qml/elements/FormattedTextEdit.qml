@@ -18,7 +18,7 @@ TextEdit {
 
 	// Whether to apply an enhanced formatting (e.g., single emojis are enlarged and links are
 	// marked as such)
-	property bool enhancedFormatting: false
+	property alias enhancedFormatting: formatter.enhancedFormatting
 
 	color: Kirigami.Theme.textColor
 	enabled: false
@@ -33,7 +33,8 @@ TextEdit {
 	}
 
 	TextFormatter {
+		id: formatter
 		textDocument: root.textDocument
-		enhancedFormatting: root.enhancedFormatting
+		enhancedFormatting: false
 	}
 }
