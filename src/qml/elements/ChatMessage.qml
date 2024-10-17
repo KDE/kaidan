@@ -295,6 +295,7 @@ Kirigami.SwipeListItem {
 									Controls.Label {
 										text: root.messageBody + bubble.paddingText
 										wrapMode: Text.Wrap
+										font.italic: true
 										Layout.maximumWidth: {
 											return root.width - Kirigami.Units.gridUnit * 6
 												- groupChatInvitationButton.width
