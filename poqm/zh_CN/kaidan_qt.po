@@ -21,17 +21,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
 
-#: src/AccountMigrationManager.cpp:395
+#: src/AccountMigrationManager.cpp:391
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "无法迁移账号：另一项迁移已在进行中"
 
-#: src/AccountMigrationManager.cpp:406
+#: src/AccountMigrationManager.cpp:402
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationManager.cpp:415
+#: src/AccountMigrationManager.cpp:411
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
@@ -1922,27 +1922,27 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "未经验证的自己的设备"
 
-#: src/qml/elements/ChatMessage.qml:171
+#: src/qml/elements/ChatMessage.qml:181
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "剧透"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "打开"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "加入…"
 
-#: src/qml/elements/ChatMessage.qml:414
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "新的"
 
-#: src/qml/elements/ChatMessage.qml:442
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2023,67 +2023,67 @@ msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "提及参与者"
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "编写带有隐藏部分的<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "编写带有隐藏部分的<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "编写<b>加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "编写<b>未加密</b>消息"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "媒体"
 
-#: src/qml/elements/ChatPageSendingPane.qml:366
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:367
+#: src/qml/elements/ChatPageSendingPane.qml:380
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "使用您的相机拍照"
 
-#: src/qml/elements/ChatPageSendingPane.qml:378
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "录制视频"
 
-#: src/qml/elements/ChatPageSendingPane.qml:379
+#: src/qml/elements/ChatPageSendingPane.qml:392
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "使用您的相机录制视频"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "分享文件"
 
-#: src/qml/elements/ChatPageSendingPane.qml:391
+#: src/qml/elements/ChatPageSendingPane.qml:404
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "从您的设备分享文件"
 
-#: src/qml/elements/ChatPageSendingPane.qml:402
+#: src/qml/elements/ChatPageSendingPane.qml:415
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "分享位置"
 
-#: src/qml/elements/ChatPageSendingPane.qml:403
+#: src/qml/elements/ChatPageSendingPane.qml:416
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "发送您的位置"
@@ -3369,35 +3369,35 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterManager.cpp:173
+#: src/RosterManager.cpp:174
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr "无法将聊天备注添加到您的联系人列表中，因为您的服务器不支持"
 
-#: src/RosterManager.cpp:204
+#: src/RosterManager.cpp:205
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterManager.cpp:215
+#: src/RosterManager.cpp:216
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterManager.cpp:228
+#: src/RosterManager.cpp:229
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterManager.cpp:241
+#: src/RosterManager.cpp:242
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:252
+#: src/RosterManager.cpp:253
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3405,13 +3405,13 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterManager.cpp:262
+#: src/RosterManager.cpp:263
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterManager.cpp:271
+#: src/RosterManager.cpp:272
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

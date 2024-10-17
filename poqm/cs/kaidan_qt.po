@@ -19,17 +19,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:395
+#: src/AccountMigrationManager.cpp:391
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "Účet nelze migrovat: již probíhá jiná migrace"
 
-#: src/AccountMigrationManager.cpp:406
+#: src/AccountMigrationManager.cpp:402
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:415
+#: src/AccountMigrationManager.cpp:411
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -1843,27 +1843,27 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:171
+#: src/qml/elements/ChatMessage.qml:181
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Otevřít"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Připojit se…"
 
-#: src/qml/elements/ChatMessage.qml:414
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nový"
 
-#: src/qml/elements/ChatMessage.qml:442
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1944,67 +1944,67 @@ msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Napsat <b>šifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Napsat <b>nešifrovanou</b> zprávu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Média"
 
-#: src/qml/elements/ChatPageSendingPane.qml:366
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Sejmout snímek"
 
-#: src/qml/elements/ChatPageSendingPane.qml:367
+#: src/qml/elements/ChatPageSendingPane.qml:380
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Sejměte snímek pomocí vaší kamery"
 
-#: src/qml/elements/ChatPageSendingPane.qml:378
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Nahrávat video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:379
+#: src/qml/elements/ChatPageSendingPane.qml:392
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Nahrajte video pomocí vaší kamery"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Sdílet soubory"
 
-#: src/qml/elements/ChatPageSendingPane.qml:391
+#: src/qml/elements/ChatPageSendingPane.qml:404
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Sdílejte soubory z vašeho zařízení"
 
-#: src/qml/elements/ChatPageSendingPane.qml:402
+#: src/qml/elements/ChatPageSendingPane.qml:415
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Sdílet polohu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:403
+#: src/qml/elements/ChatPageSendingPane.qml:416
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Poslat vaši polohu"
@@ -3286,35 +3286,35 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Poznámky"
 
-#: src/RosterManager.cpp:173
+#: src/RosterManager.cpp:174
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/RosterManager.cpp:204
+#: src/RosterManager.cpp:205
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 nelze přidat: %2"
 
-#: src/RosterManager.cpp:215
+#: src/RosterManager.cpp:216
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr ""
 
-#: src/RosterManager.cpp:228
+#: src/RosterManager.cpp:229
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr ""
 
-#: src/RosterManager.cpp:241
+#: src/RosterManager.cpp:242
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 
-#: src/RosterManager.cpp:252
+#: src/RosterManager.cpp:253
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3322,13 +3322,13 @@ msgid ""
 "problem: %2"
 msgstr ""
 
-#: src/RosterManager.cpp:262
+#: src/RosterManager.cpp:263
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr ""
 
-#: src/RosterManager.cpp:271
+#: src/RosterManager.cpp:272
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

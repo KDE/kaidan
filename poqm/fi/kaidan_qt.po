@@ -21,17 +21,17 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR-koodin luonti epäonnistui: %1"
 
-#: src/AccountMigrationManager.cpp:395
+#: src/AccountMigrationManager.cpp:391
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:406
+#: src/AccountMigrationManager.cpp:402
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 
-#: src/AccountMigrationManager.cpp:415
+#: src/AccountMigrationManager.cpp:411
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr ""
@@ -2277,12 +2277,12 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "Omat todentamattomat laitteet"
 
-#: src/qml/elements/ChatMessage.qml:171
+#: src/qml/elements/ChatMessage.qml:181
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Vihje"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 #, fuzzy
 #| msgctxt "Notifications|"
 #| msgid "Open"
@@ -2290,17 +2290,17 @@ msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:414
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:442
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2396,67 +2396,67 @@ msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Kirjoita <b>salattu</b> viesti piilo-osalla"
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Kirjoita <b>salaamaton</b> viesti piilo-osalla"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Kirjoita <b>salattu</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Kirjoita <b>salaamaton</b> viesti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Media"
 
-#: src/qml/elements/ChatPageSendingPane.qml:366
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Ota kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:367
+#: src/qml/elements/ChatPageSendingPane.qml:380
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Ota kameralla kuva"
 
-#: src/qml/elements/ChatPageSendingPane.qml:378
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Nauhoita video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:379
+#: src/qml/elements/ChatPageSendingPane.qml:392
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Nauhoita kameralla video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Jaa tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:391
+#: src/qml/elements/ChatPageSendingPane.qml:404
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Jaa laitteelta tiedostoja"
 
-#: src/qml/elements/ChatPageSendingPane.qml:402
+#: src/qml/elements/ChatPageSendingPane.qml:415
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Jaa sijainti"
 
-#: src/qml/elements/ChatPageSendingPane.qml:403
+#: src/qml/elements/ChatPageSendingPane.qml:416
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Lähetä sijaintisi"
@@ -3971,14 +3971,14 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Muistiinpanot"
 
-#: src/RosterManager.cpp:173
+#: src/RosterManager.cpp:174
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/RosterManager.cpp:204
+#: src/RosterManager.cpp:205
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -3986,22 +3986,22 @@ msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/RosterManager.cpp:215
+#: src/RosterManager.cpp:216
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Yhteystietoa ei voitu lisätä, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:228
+#: src/RosterManager.cpp:229
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Yhteystietoa ei voitu poistaa, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:241
+#: src/RosterManager.cpp:242
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:252
+#: src/RosterManager.cpp:253
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -4011,13 +4011,13 @@ msgstr ""
 "Yhteysongelman vuoksi käyttäjän %1 pyyntö nähdä henkilökohtaisia tietojasi "
 "epäonnistui: %2"
 
-#: src/RosterManager.cpp:262
+#: src/RosterManager.cpp:263
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Käyttäjän %1 salliminen henkilökohtaisiin tietoihisi epäonnistui"
 
-#: src/RosterManager.cpp:271
+#: src/RosterManager.cpp:272
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

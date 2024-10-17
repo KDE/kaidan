@@ -30,19 +30,19 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "Ha fallat en generar el codi QR: %1"
 
-#: src/AccountMigrationManager.cpp:395
+#: src/AccountMigrationManager.cpp:391
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "No s'ha pogut migrar el compte: ja hi ha una altra migració en curs"
 
-#: src/AccountMigrationManager.cpp:406
+#: src/AccountMigrationManager.cpp:402
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr ""
 "No s'ha pogut migrar el compte: no s'han pogut carregar les dades de compte "
 "exportat"
 
-#: src/AccountMigrationManager.cpp:415
+#: src/AccountMigrationManager.cpp:411
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "No s'ha pogut migrar el compte: cal estar connectat"
@@ -1933,27 +1933,27 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "Dispositius no verificats propis"
 
-#: src/qml/elements/ChatMessage.qml:171
+#: src/qml/elements/ChatMessage.qml:181
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Espòiler"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Obre"
 
-#: src/qml/elements/ChatMessage.qml:261
+#: src/qml/elements/ChatMessage.qml:271
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Uneix-te…"
 
-#: src/qml/elements/ChatMessage.qml:414
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nou"
 
-#: src/qml/elements/ChatMessage.qml:442
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2034,67 +2034,67 @@ msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Menciona un participant"
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Redacta un missatge <b>encriptat</b> amb una part oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:173
+#: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Redacta un missatge <b>sense encriptar</b> amb una part oculta"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Redacta un missatge <b>encriptat</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:175
+#: src/qml/elements/ChatPageSendingPane.qml:188
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Redacta un missatge <b>sense encriptar</b>"
 
-#: src/qml/elements/ChatPageSendingPane.qml:310
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Media"
 msgstr "Multimèdia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:366
+#: src/qml/elements/ChatPageSendingPane.qml:379
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Pren una fotografia"
 
-#: src/qml/elements/ChatPageSendingPane.qml:367
+#: src/qml/elements/ChatPageSendingPane.qml:380
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture using your camera"
 msgstr "Pren una fotografia usant la càmera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:378
+#: src/qml/elements/ChatPageSendingPane.qml:391
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Enregistra un vídeo"
 
-#: src/qml/elements/ChatPageSendingPane.qml:379
+#: src/qml/elements/ChatPageSendingPane.qml:392
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video using your camera"
 msgstr "Enregistra un vídeo usant la càmera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:390
+#: src/qml/elements/ChatPageSendingPane.qml:403
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Comparteix fitxers"
 
-#: src/qml/elements/ChatPageSendingPane.qml:391
+#: src/qml/elements/ChatPageSendingPane.qml:404
 msgctxt "ChatPageSendingPane|"
 msgid "Share files from your device"
 msgstr "Comparteix fitxers des del vostre dispositiu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:402
+#: src/qml/elements/ChatPageSendingPane.qml:415
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Comparteix la ubicació"
 
-#: src/qml/elements/ChatPageSendingPane.qml:403
+#: src/qml/elements/ChatPageSendingPane.qml:416
 msgctxt "ChatPageSendingPane|"
 msgid "Send your location"
 msgstr "Envieu la ubicació"
@@ -3400,7 +3400,7 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterManager.cpp:173
+#: src/RosterManager.cpp:174
 msgctxt "RosterManager|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -3409,29 +3409,29 @@ msgstr ""
 "No es pot afegir el xat de notes a la vostra llista de contactes perquè el "
 "servidor no ho permet"
 
-#: src/RosterManager.cpp:204
+#: src/RosterManager.cpp:205
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "No s'ha pogut afegir %1: %2"
 
-#: src/RosterManager.cpp:215
+#: src/RosterManager.cpp:216
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "No s'ha pogut afegir el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:228
+#: src/RosterManager.cpp:229
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "No s'ha pogut eliminar el contacte perquè no hi ha connexió."
 
-#: src/RosterManager.cpp:241
+#: src/RosterManager.cpp:242
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "No s'ha pogut reanomenar el contacte, com a resultat de no estar connectat."
 
-#: src/RosterManager.cpp:252
+#: src/RosterManager.cpp:253
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3441,13 +3441,13 @@ msgstr ""
 "La sol·licitud de veure les dades personals de %1 ha fallat per un problema "
 "de connexió: %2"
 
-#: src/RosterManager.cpp:262
+#: src/RosterManager.cpp:263
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Ha fallat en permetre a %1 veure les vostres dades personals"
 
-#: src/RosterManager.cpp:271
+#: src/RosterManager.cpp:272
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
