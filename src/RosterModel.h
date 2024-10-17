@@ -78,8 +78,8 @@ public:
 	 * @return true if a roster item with the passed properties exists, otherwise false
 	 */
 	Q_INVOKABLE bool hasItem(const QString &jid) const;
-	Q_SIGNAL void itemAdded(const QString accountJid, const QString &jid);
-	Q_SIGNAL void itemRemoved(const QString accountJid, const QString &jid);
+	Q_SIGNAL void itemAdded(const QString &accountJid, const QString &jid);
+	Q_SIGNAL void itemRemoved(const QString &accountJid, const QString &jid);
 
 	/**
 	 * Returns the account JIDs of all roster items.
