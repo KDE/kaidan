@@ -122,6 +122,18 @@ DetailsContent {
 
 				Kaidan.client.rosterManager.updateGroupsRequested(ChatController.chatJid, ChatController.rosterItem.name, groups)
 			}
+
+			Connections {
+				target: ChatController
+
+				// TODO: Remove the following once fixed in Kirigami Addons.
+				function onRosterItemChanged() {
+					// Update the "checked" value of "rosterGroupDelegate" as a workaround because
+					// "MobileForm.FormSwitchDelegate" does not listen to changes of
+					// "ChatController.rosterItem.groups".
+					rosterGroupDelegate.checked = ChatController.rosterItem.groups.includes(modelData)
+				}
+			}
 		}
 	}
 }
