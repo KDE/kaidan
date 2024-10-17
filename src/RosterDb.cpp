@@ -457,7 +457,7 @@ void RosterDb::_updateItem(const QString &jid, const std::function<void (RosterI
 	fetchGroups(items);
 
 	if (!items.isEmpty()) {
-		const auto &oldItem = items.first();
+		const auto &oldItem = items.constFirst();
 		auto newItem = oldItem;
 		updateItem(newItem);
 
