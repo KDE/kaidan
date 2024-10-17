@@ -582,7 +582,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 		return;
 	}
 
-	await(updateLastMessage(itr, message), this, [this, message, origin, itr](QVector<int> changedRoles) mutable {
+	await(updateLastMessage(itr, message), this, [this, message, origin, itr](QVector<int> &&changedRoles) mutable {
 		// unread messages counter
 		std::optional<int> newUnreadMessages;
 
@@ -611,14 +611,9 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
 			});
 		}
 
-		// notify gui
-		const auto i = std::distance(m_items.begin(), itr);
-		const auto modelIndex = index(i);
-		Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-		RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
-
-		// move row to correct position
-		updateItemPosition(i);
+		if (!changedRoles.isEmpty()) {
+			updateItemPosition(informAboutChangedData(itr, changedRoles));
+		}
 	});
 }
 
@@ -633,12 +628,10 @@ void RosterModel::handleMessageUpdated(const Message &message)
 		return;
 	}
 
-	await(updateLastMessage(itr, message), this, [this, itr](QVector<int> changedRoles) mutable {
-		// Notify the user interface and watchers.
-		const auto i = std::distance(m_items.begin(), itr);
-		const auto modelIndex = index(i);
-		Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-		RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+	await(updateLastMessage(itr, message), this, [this, itr](QVector<int> &&changedRoles) mutable {
+		if (!changedRoles.isEmpty()) {
+			informAboutChangedData(itr, changedRoles);
+		}
 	});
 }
 
@@ -653,25 +646,12 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 		return;
 	}
 
-	QVector<int> changedRoles = {
-		int(LastMessageDateTimeRole),
-		int(LastMessageRole),
-		int(LastMessageIsDraftRole)
-	};
-
 	const auto lastMessage = message.previewText();
 	itr->lastMessageDateTime = message.timestamp;
 	itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
 	itr->lastMessage = lastMessage;
 
-	// notify gui
-	const auto i = std::distance(m_items.begin(), itr);
-	const auto modelIndex = index(i);
-	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
-
-	// Move the updated item to its correct position.
-	updateItemPosition(i);
+	updateOnDraftMessageChanged(itr);
 }
 
 void RosterModel::handleDraftMessageUpdated(const Message &message)
@@ -685,24 +665,11 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 		return;
 	}
 
-	QVector<int> changedRoles = {
-		int(LastMessageDateTimeRole),
-		int(LastMessageRole),
-		int(LastMessageIsDraftRole)
-	};
-
 	const auto lastMessage = message.previewText();
 	itr->lastMessageDateTime = message.timestamp;
 	itr->lastMessage = lastMessage;
 
-	// notify gui
-	const auto i = std::distance(m_items.begin(), itr);
-	const auto modelIndex = index(i);
-	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
-
-	// Move the updated item to its correct position.
-	updateItemPosition(i);
+	updateOnDraftMessageChanged(itr);
 }
 
 void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
@@ -716,24 +683,11 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 		return;
 	}
 
-	QVector<int> changedRoles = {
-		int(LastMessageDateTimeRole),
-		int(LastMessageRole),
-		int(LastMessageIsDraftRole)
-	};
-
 	itr->lastMessageDeliveryState = newLastMessage.deliveryState;
 	itr->lastMessageDateTime = newLastMessage.timestamp;
 	itr->lastMessage = newLastMessage.body;
 
-	// notify gui
-	const auto i = std::distance(m_items.begin(), itr);
-	const auto modelIndex = index(i);
-	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
-
-	// Move the updated item to its correct position.
-	updateItemPosition(i);
+	updateOnDraftMessageChanged(itr);
 }
 
 void RosterModel::handleMessageRemoved(const Message &newLastMessage)
@@ -747,12 +701,10 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
 		return;
 	}
 
-	await(updateLastMessage(itr, newLastMessage, false), this, [this, itr](QVector<int> changedRoles) {
-		// Notify the user interface and watchers.
-		const auto i = std::distance(m_items.begin(), itr);
-		const auto modelIndex = index(i);
-		Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
-		RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+	await(updateLastMessage(itr, newLastMessage, false), this, [this, itr](QVector<int> &&changedRoles) mutable {
+		if (!changedRoles.isEmpty()) {
+			informAboutChangedData(itr, changedRoles);
+		}
 	});
 }
 
@@ -779,6 +731,12 @@ QFuture<QVector<int>> RosterModel::updateLastMessage(QVector<RosterItem>::Iterat
 		itr->lastMessage = lastMessage;
 		itr->lastMessageIsOwn = message.isOwn;
 
+		if (itr->isGroupChat()) {
+			itr->lastMessageGroupChatSenderName = determineGroupChatSenderName(message);
+		} else {
+			itr->lastMessageGroupChatSenderName.clear();
+		}
+
 		static const QVector<int> changedRoles = {
 			int(LastMessageRole),
 			int(LastMessageIsOwnRole),
@@ -786,18 +744,34 @@ QFuture<QVector<int>> RosterModel::updateLastMessage(QVector<RosterItem>::Iterat
 			int(LastMessageDateTimeRole),
 		};
 
-		if (itr->isGroupChat()) {
-			itr->lastMessageGroupChatSenderName = determineGroupChatSenderName(message);
-		} else {
-			itr->lastMessageGroupChatSenderName.clear();
-		}
-
 		reportFinishedResult(interface, std::move(changedRoles));
 	} else {
 		reportFinishedResult(interface, {});
 	}
 
 	return interface.future();
+}
+
+void RosterModel::updateOnDraftMessageChanged(QVector<RosterItem>::Iterator &itr)
+{
+	static const QVector<int> changedRoles = {
+		int(LastMessageDateTimeRole),
+		int(LastMessageRole),
+		int(LastMessageIsDraftRole)
+	};
+
+	updateItemPosition(informAboutChangedData(itr, changedRoles));
+}
+
+int RosterModel::informAboutChangedData(QVector<RosterItem>::Iterator &itr, const QVector<int> &changedRoles)
+{
+	const auto i = std::distance(m_items.begin(), itr);
+	const auto modelIndex = index(i);
+	Q_EMIT dataChanged(modelIndex, modelIndex, changedRoles);
+
+	RosterItemNotifier::instance().notifyWatchers(itr->jid, *itr);
+
+	return i;
 }
 
 void RosterModel::insertItem(int index, const RosterItem &item)

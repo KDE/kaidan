@@ -178,6 +178,8 @@ private:
 						   const Message &message,
 						   bool onlyUpdateIfNewerOrAtSameAge = true);
 
+	void updateOnDraftMessageChanged(QVector<RosterItem>::Iterator &itr);
+	int informAboutChangedData(QVector<RosterItem>::Iterator &itr, const QVector<int> &changedRoles);
 	void insertItem(int index, const RosterItem &item);
 	void updateItemPosition(int currentIndex);
 	int positionToAdd(const RosterItem &item);
