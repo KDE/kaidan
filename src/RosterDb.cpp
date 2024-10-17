@@ -454,6 +454,8 @@ void RosterDb::_updateItem(const QString &jid, const std::function<void (RosterI
 
 	QVector<RosterItem> items;
 	parseItemsFromQuery(query, items);
+
+	fetchLastMessages(items);
 	fetchGroups(items);
 
 	if (!items.isEmpty()) {

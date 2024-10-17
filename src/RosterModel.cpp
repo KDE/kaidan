@@ -476,11 +476,18 @@ void RosterModel::addItem(const RosterItem &item)
 void RosterModel::updateItem(const RosterItem &item)
 {
 	for (int i = 0; i < m_items.size(); i++) {
-		if (const auto jid = item.jid; m_items.at(i).jid == jid) {
-			auto oldGroups = groups();
+		const auto jid = item.jid;
+		if (const auto oldItem = m_items.at(i); oldItem.jid == jid) {
+			const auto oldGroups = groups();
 
 			m_items.replace(i, item);
-			Q_EMIT dataChanged(index(i), index(i), {});
+
+			// Apply old settings that are not stored in the database.
+			auto &newItem = m_items[i];
+			newItem = item;
+			newItem.selected = oldItem.selected;
+
+			Q_EMIT dataChanged(index(i), index(i));
 			RosterItemNotifier::instance().notifyWatchers(jid, item);
 			updateItemPosition(i);
 
