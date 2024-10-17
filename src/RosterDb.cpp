@@ -269,7 +269,6 @@ void RosterDb::fetchGroups(QVector<RosterItem> &items)
 				SELECT name
 				FROM rosterGroups
 				WHERE accountJid = :accountJid AND chatJid = :jid
-				LIMIT 1
 			)"),
 			{
 				{ u":accountJid", item.accountJid },
