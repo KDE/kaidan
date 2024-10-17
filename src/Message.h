@@ -227,7 +227,7 @@ public:
 	QByteArray senderKey;
 	QXmpp::TrustLevel preciseTrustLevel;
 	// Delivery state of the message, like if it was sent successfully or if it was already delivered
-	DeliveryState deliveryState = DeliveryState::Delivered;
+	DeliveryState deliveryState = DeliveryState::Sent;
 	bool isSpoiler = false;
 	QString spoilerHint;
 	std::optional<qint64> fileGroupId;
