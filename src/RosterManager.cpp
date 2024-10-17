@@ -169,21 +169,15 @@ void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJ
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
 {
 	if (m_client->state() == QXmppClient::ConnectedState) {
-		auto notifyOnUnsupportedByServer = []() {
-			Q_EMIT Kaidan::instance()->passiveNotificationRequested(
-				tr("The notes chat could not be added to your contact list because your server does not support that")
-			);
-		};
-
 		// Do not try to add the own JID to the roster mutiple times if the server does not support
 		// it.
 		if (const auto ownJidBeingAdded = jid == m_client->configuration().jidBare();
 			ownJidBeingAdded && !m_addingOwnJidToRosterAllowed) {
 			if (!automaticInitialAddition) {
-				notifyOnUnsupportedByServer();
+				Q_EMIT RosterModel::instance()->itemAdditionFailed(jid, jid);
 			}
 		} else {
-			m_manager->addRosterItem(jid, name).then(this, [this, jid, message, automaticInitialAddition, ownJidBeingAdded, notifyOnUnsupportedByServer](QXmppRosterManager::Result &&result) {
+			m_manager->addRosterItem(jid, name).then(this, [this, jid, message, automaticInitialAddition, ownJidBeingAdded](QXmppRosterManager::Result &&result) {
 				if (const auto error = std::get_if<QXmppError>(&result)) {
 					if (const auto stanzaError = error->takeValue<QXmppStanza::Error>();
 						ownJidBeingAdded &&
@@ -196,7 +190,7 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
 							return;
 						}
 
-						notifyOnUnsupportedByServer();
+						Q_EMIT RosterModel::instance()->itemAdditionFailed(jid, jid);
 
 						return;
 					}

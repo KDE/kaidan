@@ -619,13 +619,15 @@ DetailsContent {
 			}
 
 			// TODO: Find a solution (hide button or add local-only chat) for servers not allowing to add oneself to the roster (such as Prosody)
-			MobileForm.FormButtonDelegate {
-				text: qsTr("Add chat for notes")
+			BusyIndicatorFormButton {
+				id: notesAdditionButton
+				idleText: qsTr("Add chat for notes")
+				busyText: qsTr("Adding notes chat…")
 				description: qsTr("Add a chat for synchronizing your notes across all your devices")
-				icon.name: "note-symbolic"
+				idleIconSource: "note-symbolic"
 				onClicked: {
+					busy = true
 					Kaidan.client.rosterManager.addContactRequested(root.jid)
-					Kaidan.openChatPageRequested(root.jid, root.jid)
 				}
 
 				Connections {
@@ -633,7 +635,18 @@ DetailsContent {
 
 					function onItemAdded(accountJid, jid) {
 						if (accountJid === root.jid && jid === root.jid) {
-							notesAdditionArea.visible = false
+							if (notesAdditionButton.busy) {
+								Kaidan.openChatPageRequested(root.jid, root.jid)
+							} else {
+								notesAdditionArea.visible = false
+							}
+						}
+					}
+
+					function onItemAdditionFailed(accountJid, jid, errorMessage) {
+						if (accountJid === root.jid && jid === root.jid) {
+							notesAdditionButton.busy = false
+							passiveNotification(qsTr("The notes chat could not be added to your contact list because your server does not support that"))
 						}
 					}
 
