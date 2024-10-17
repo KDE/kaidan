@@ -142,6 +142,13 @@ static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem
 	return rec;
 }
 
+QFuture<QVector<RosterItem>> RosterDb::fetchItems()
+{
+	return run([this]() {
+		return _fetchItems();
+	});
+}
+
 QFuture<void> RosterDb::addItem(RosterItem item)
 {
 	return run([this, item]() mutable {
@@ -233,13 +240,6 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid)
 		GroupChatUserDb::instance()->_removeUsers(accountJid);
 
 		itemsRemoved(accountJid);
-	});
-}
-
-QFuture<QVector<RosterItem>> RosterDb::fetchItems()
-{
-	return run([this]() {
-		return _fetchItems();
 	});
 }
 
