@@ -60,7 +60,7 @@ Kirigami.SwipeListItem {
 	property var displayedReactions
 	property var detailedReactions
 	property bool ownReactionsFailed
-	property var groupChatInvitationJid
+	property string groupChatInvitationJid
 
 	property bool isGroupBegin: {
 		if (senderJid) {
