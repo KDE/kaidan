@@ -83,9 +83,9 @@ MessageController::MessageController(QObject *parent)
 			});
 
 			connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>(), &QXmppMessageReceiptManager::messageDelivered, this, [](const QString &jid, const QString &id) {
-				MessageDb::instance()->updateMessage(id, [accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), jid](Message &message) {
+				MessageDb::instance()->updateMessage(id, [accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), jid = QXmppUtils::jidToBareJid(jid)](Message &message) {
 					// Only the recipient of the message is allowed to confirm its delivery.
-					if (message.accountJid == accountJid && message.chatJid == QXmppUtils::jidToBareJid(jid)) {
+					if (message.accountJid == accountJid && message.chatJid == jid) {
 						message.deliveryState = Enums::DeliveryState::Delivered;
 						message.errorText.clear();
 					}
