@@ -66,8 +66,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker,
 
 	connect(m_manager, &QXmppRosterManager::itemChanged,
 		this, [this] (const QString &jid) {
-		RosterDb::instance()->updateItem(jid, [this, jid](RosterItem &item) {
-			const auto updatedItem = m_manager->getRosterEntry(jid);
+		RosterDb::instance()->updateItem(jid, [jid, updatedItem = m_manager->getRosterEntry(jid)](RosterItem &item) {
 			item.name = updatedItem.name();
 			item.subscription = updatedItem.subscriptionType();
 
