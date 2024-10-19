@@ -91,18 +91,14 @@ msgid ""
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "Your contact %1 uses %2 now and would like to receive your personal data "
-#| "such as availability, devices and other personal information again%3"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"您的联系人 %1 现在使用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个"
-"人信息 %3"
+"您的联系人 %1 现在用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个人"
+"信息 %3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -1080,69 +1076,54 @@ msgstr "更改您的个人资料图片"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr "验证<b>您的</b>设备以对其进行加密"
+msgstr "验证您自己的设备以对其进行加密"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr "验证<b>您的</b>设备以对其进行加密"
+msgstr "验证自己的未知设备以对其进行加密"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr "验证<b>您的</b>设备以获得最大的安全性"
+msgstr "验证您自己的设备以获得最大的安全性"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:43
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
-msgstr ""
+msgstr "验证自己的未知设备或让您的其他设备验证此设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:49
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
-msgstr ""
+msgstr "您没有可加密的其他受信任设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
+msgstr "您有未使用 OMEMO 2 的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr "<b>您</b>没有其他支持 OMEMO 2的设备"
+msgstr "您没有已知的使用 OMEMO 2 的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
-msgstr ""
+msgstr "您有需要验证才能为其加密的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:57
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "您还有未经验证的其他设备"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "您的全部其他已知设备都经过验证"
 
 #: src/qml/details/AvatarChangePage.qml:25
 msgctxt "AvatarChangePage|"
@@ -1324,74 +1305,50 @@ msgstr "最大化头像"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "验证您的联系人的设备以对其进行加密"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "验证您的联系人的未知设备以对其进行加密"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr "验证<b>您的</b>设备以获得最大的安全性"
+msgstr "验证您的联系人的设备以获得最大安全性"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "验证您的联系人的未知设备，或让您的联系人验证此设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "您的联系人没有可加密的受信任设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr "<b>您</b>没有其他支持 OMEMO 2的设备"
+msgstr "您的联系人没有使用 OMEMO 2 的已知设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "您的联系人有需要验证才能为其加密的设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "您的联系人有未经验证的设备"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's devices are verified"
-msgstr "验证您的<b>联系人的</b>设备以对其进行加密"
+msgstr "您联系人的全部设备都经过验证"
 
 #: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
@@ -1667,73 +1624,52 @@ msgstr "已删除"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr "验证<b>参与者的</b>设备以对其进行加密"
+msgstr "验证参与者的设备以对其进行加密"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr "验证<b>参与者的</b>设备以对其进行加密"
+msgstr "验证参与者的未知设备以对其进行加密"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants</b> for maximum security"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr "验证<b>参与者</b>以获得最大的安全性"
+msgstr "验证参与者的设备以获得最大安全性"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
-msgstr "验证<b>参与者的</b>设备以对其进行加密"
+msgstr "验证参与者的未知设备，或让参与者验证此设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr "验证<b>参与者的</b>设备以对其进行加密"
+msgstr "没有参与者有可加密的受信任设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "No <b>participant</b> uses OMEMO 2"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr "没有<b>参与者</b>使用 OMEMO 2"
+msgstr "没有参与者有使用 OMEMO 2 的已知设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "验证<b>参与者的</b>设备以对其进行加密"
+msgstr "一些参与者有需要验证才能为其加密的设备"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "一些参与者的设备未经验证"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' devices are verified"
-msgstr ""
+msgstr "全部参与者的设备都经过验证"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
@@ -3451,59 +3387,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Verify <b>your</b> devices to encrypt for them"
-#~ msgstr "验证<b>您的</b>设备以对其进行加密"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
-#~ msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Verify <b>your</b> devices for maximum security"
-#~ msgstr "验证<b>您的</b>设备以获得最大的安全性"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Verify your <b>contact</b> to enable encryption"
-#~ msgstr "验证您的<b>联系人</b>以启用加密"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Your <b>contact</b> doesn't use OMEMO 2"
-#~ msgstr "您的<b>联系人</b>未使用 OMEMO 2"
-
-#~ msgctxt "ContactDetailsContent|"
-#~ msgid "Verify your <b>contact</b> for maximum security"
-#~ msgstr "验证您的<b>联系人</b>以获得最大的安全性"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "Verify <b>your</b> devices to encrypt for them"
-#~ msgstr "验证<b>您的</b>设备以对其进行加密"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
-#~ msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "Verify <b>your</b> devices for maximum security"
-#~ msgstr "验证<b>您的</b>设备以获得最大的安全性"
-
-#~ msgctxt "GroupChatDetailsContent|"
-#~ msgid "Verify a <b>participant</b> to enable encryption"
-#~ msgstr "验证<b>参与者</b>以启用加密"
-
-#~ msgctxt "NotesChatDetailsContent|"
-#~ msgid "Verify <b>your</b> devices to encrypt for them"
-#~ msgstr "验证<b>您的</b>设备以对其进行加密"
-
-#~ msgctxt "NotesChatDetailsContent|"
-#~ msgid "<b>Your</b> other devices don't use OMEMO 2"
-#~ msgstr "<b>您的</b>其他设备不使用 OMEMO 2"
-
-#~ msgctxt "NotesChatDetailsContent|"
-#~ msgid "Verify <b>your</b> devices for maximum security"
-#~ msgstr "验证<b>您的</b>设备以获得最大的安全性"
-
-#~ msgctxt "KeyAuthenticationPage|"
-#~ msgid "Device does not exist or is already verified"
-#~ msgstr "设备不存在或已验证"

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-15 10:50+0100\n"
+"PO-Revision-Date: 2024-10-18 18:46+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.05.2\n"
+"X-Generator: Lokalize 24.08.2\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -92,18 +92,14 @@ msgstr ""
 "and other personal information%2"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"%1 would like to receive your personal data such as availability, devices "
-"and other personal information%2"
+"Your contact %1 is %2 now and would like to receive your personal data such "
+"as availability, devices and other personal information again%3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -136,28 +132,19 @@ msgid "Opening invitation area"
 msgstr "Opening invitation area"
 
 #: src/ChatHintModel.cpp:326
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "This group has no users"
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
-msgstr "This group has no users"
+msgstr "This group is deleted"
 
 #: src/ChatHintModel.cpp:328
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Leave"
 
 #: src/ChatHintModel.cpp:330
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leaving group chat…"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Leaving group chat…"
+msgstr "Leaving group chat"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -1105,69 +1092,55 @@ msgstr "Change your profile image"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices to encrypt for them"
-msgstr "Verify <b>your</b> devices to encrypt for them"
+msgstr "Verify your own devices to encrypt for them"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr "Verify <b>your</b> devices to encrypt for them"
+msgstr "Verify own unknown devices to encrypt for them"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify your own devices for maximum security"
-msgstr "Verify <b>your</b> devices for maximum security"
+msgstr "Verify your own devices for maximum security"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:43
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices or let your other devices verify this device"
 msgstr ""
+"Verify own unknown devices or let your other devices verify this device"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:49
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no other trusted device to encrypt for"
-msgstr ""
+msgstr "You have no other trusted device to encrypt for"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr "<b>Your</b> other devices don't use OMEMO 2"
+msgstr "You have other devices that do not use OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr "<b>You</b> have no other devices supporting OMEMO 2"
+msgstr "You have no known other device using OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that need to be verified to encrypt for them"
-msgstr ""
+msgstr "You have other devices that need to be verified to encrypt for them"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:57
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that are not verified"
-msgstr ""
+msgstr "You have other devices that are not verified"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:59
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
-msgstr ""
+msgstr "All your other known devices are verified"
 
 #: src/qml/details/AvatarChangePage.qml:25
 msgctxt "AvatarChangePage|"
@@ -1352,74 +1325,51 @@ msgstr "Maximise avatar"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr "Verify your contact's devices to encrypt for them"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr "Verify your contact's unknown devices to encrypt for them"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr "Verify <b>your</b> devices for maximum security"
+msgstr "Verify your contact's devices for maximum security"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr ""
+"Verify your contact's unknown devices or let your contact verify this device"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr "Your contact has no trusted device to encrypt for"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr "<b>You</b> have no other devices supporting OMEMO 2"
+msgstr "Your contact has no known device using OMEMO 2"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr "Your contact has devices that need to be verified to encrypt for them"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that are not verified"
-msgstr ""
+msgstr "Your contact has devices that are not verified"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's devices are verified"
-msgstr "Verify your <b>contact's</b> devices to encrypt for them"
+msgstr "All your contact's devices are verified"
 
 #: src/qml/details/DetailsContent.qml:70
 msgctxt "DetailsContent|"
@@ -1696,73 +1646,55 @@ msgstr "Deleted"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr "Verify the participants' devices to encrypt for them"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr "Verify the participants' unknown devices to encrypt for them"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants</b> for maximum security"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr "Verify the <b>participants</b> for maximum security"
+msgstr "Verify the participants' devices for maximum security"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
-msgstr "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr ""
+"Verify the participants' unknown devices or let the participants verify this "
+"device"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr "No participant has a trusted device to encrypt for"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "No <b>participant</b> uses OMEMO 2"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr "No <b>participant</b> uses OMEMO 2"
+msgstr "No participant has a known device using OMEMO 2"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "Verify the <b>participants'</b> devices to encrypt for them"
+msgstr ""
+"Some participants have devices that need to be verified to encrypt for them"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Some participants have devices that are not verified"
-msgstr ""
+msgstr "Some participants have devices that are not verified"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' devices are verified"
-msgstr ""
+msgstr "All participants' devices are verified"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
@@ -1835,10 +1767,6 @@ msgid "Removing notes chat…"
 msgstr "Removing notes chat…"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -1875,9 +1803,6 @@ msgid "Maximize avatar"
 msgstr "Maximise avatar"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "Connected Devices"
@@ -2062,12 +1987,9 @@ msgid "Cancel adding hidden message part"
 msgstr "Cancel adding hidden message part"
 
 #: src/qml/elements/ChatPageSendingPane.qml:150
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Participants"
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
-msgstr "Participants"
+msgstr "Mention a participant"
 
 #: src/qml/elements/ChatPageSendingPane.qml:186
 msgctxt "ChatPageSendingPane|"
@@ -2374,12 +2296,9 @@ msgid "Join group chat"
 msgstr "Join group chat"
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:53
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Invite contacts"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "Invite contacts"
+msgstr "Invite contacts to this group…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 msgctxt "GroupChatUserKeyAuthenticationPage|"
@@ -3149,12 +3068,9 @@ msgid "About Kaidan"
 msgstr "About Kaidan"
 
 #: src/qml/settings/AboutPage.qml:58
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "User-friendly and modern chat app for every device"
 msgctxt "AboutPage|"
 msgid "Modern chat app for every device"
-msgstr "User-friendly and modern chat app for every device"
+msgstr "Modern chat app for every device"
 
 #: src/qml/settings/AboutPage.qml:74
 msgctxt "AboutPage|"
