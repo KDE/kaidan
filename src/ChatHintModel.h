@@ -57,8 +57,6 @@ public:
 	QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 	Q_INVOKABLE void handleButtonClicked(int i, ChatHintButton::Type type);
 
-	Q_SIGNAL void presenceSubscriptionRequestReceivedRequested(const QString &accountJid, const QXmppPresence &request);
-
 private:
 	struct ChatHint {
 		QString text;
@@ -84,6 +82,8 @@ private:
 	void addAllowPresenceSubscriptionChatHint(const QXmppPresence &request);
 	int addInviteContactsChatHint();
 	void addLeaveChatHint();
+
+	void setLoading(int i, bool loading);
 
 	int addChatHint(const ChatHint &chatHint);
 	void insertChatHint(int i, const ChatHint &chatHint);

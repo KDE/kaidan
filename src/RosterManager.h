@@ -31,8 +31,9 @@ public:
 	void renameContact(const QString &jid, const QString &newContactName);
 
 	void subscribeToPresence(const QString &contactJid);
-	void acceptSubscriptionToPresence(const QString &contactJid);
-	void refuseSubscriptionToPresence(const QString &contactJid);
+	Q_SIGNAL void presenceSubscriptionRequestReceived(const QString &accountJid, const QXmppPresence &request);
+	bool acceptSubscriptionToPresence(const QString &contactJid);
+	bool refuseSubscriptionToPresence(const QString &contactJid);
 	QMap<QString, QXmppPresence> unrespondedPresenceSubscriptionRequests();
 
 	void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});

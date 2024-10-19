@@ -162,7 +162,7 @@ void RosterManager::processSubscriptionRequestFromStranger(const QString &subscr
 void RosterManager::addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request)
 {
 	m_unrespondedSubscriptionRequests.insert(subscriberJid, request);
-	Q_EMIT ChatHintModel::instance()->presenceSubscriptionRequestReceivedRequested(m_client->configuration().jidBare(), request);
+	Q_EMIT presenceSubscriptionRequestReceived(m_client->configuration().jidBare(), request);
 }
 
 void RosterManager::addContact(const QString &jid, const QString &name, const QString &message, bool automaticInitialAddition)
@@ -248,21 +248,25 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 	});
 }
 
-void RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
+bool RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
 {
 	if (m_manager->acceptSubscription(contactJid)) {
 		m_unrespondedSubscriptionRequests.remove(contactJid);
+		return true;
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
+		return false;
 	}
 }
 
-void RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
+bool RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
 {
 	if (m_manager->refuseSubscription(contactJid)) {
 		m_unrespondedSubscriptionRequests.remove(contactJid);
+		return true;
 	} else {
 		Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
+		return false;
 	}
 }
 

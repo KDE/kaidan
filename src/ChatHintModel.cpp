@@ -33,7 +33,7 @@ ChatHintModel::ChatHintModel(QObject *parent)
 	connect(Kaidan::instance(), &Kaidan::connectionStateChanged, this, &ChatHintModel::handleConnectionStateChanged);
 	connect(Kaidan::instance(), &Kaidan::connectionErrorChanged, this, qOverload<>(&ChatHintModel::handleConnectionErrorChanged));
 
-	connect(this, &ChatHintModel::presenceSubscriptionRequestReceivedRequested, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
+	connect(Kaidan::instance()->client()->rosterManager(), &RosterManager::presenceSubscriptionRequestReceived, this, &ChatHintModel::handlePresenceSubscriptionRequestReceived);
 	connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &ChatHintModel::handleNoGroupChatUsers);
 	connect(GroupChatController::instance(), &GroupChatController::groupChatDeleted, this, &ChatHintModel::handleGroupChatDeleted);
 	connect(ChatController::instance(), &ChatController::chatChanged, this, [this]() {
@@ -42,7 +42,6 @@ ChatHintModel::ChatHintModel(QObject *parent)
 		handleNoGroupChatUsers();
 		checkGroupChatDeleted();
 	});
-	connect(ChatController::instance(), &ChatController::rosterItemChanged, this, &ChatHintModel::handleUnrespondedPresenceSubscriptionRequests);
 }
 
 ChatHintModel::~ChatHintModel() = default;
@@ -90,34 +89,50 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
 	switch(type) {
 	case ChatHintButton::Dismiss:
 		if (i == chatHintIndex(ChatHintButton::AllowPresenceSubscription)) {
-			Q_EMIT Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresenceRequested(ChatController::instance()->chatJid());
+			const auto jid = ChatController::instance()->chatJid();
+
+			runOnThread(Kaidan::instance()->client(), [jid]() {
+				return Kaidan::instance()->client()->rosterManager()->refuseSubscriptionToPresence(jid);
+			}, this, [this, i, jid](bool succeeded) {
+				if (succeeded) {
+					removeChatHint(i);
+				} else {
+					setLoading(i, false);
+				}
+			});
+		} else {
+			removeChatHint(i);
 		}
 
-		removeChatHint(i);
 		return;
 	case ChatHintButton::ConnectToServer:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
-		});
+		setLoading(i, true);
 		Kaidan::instance()->logIn();
 		return;
-	case ChatHintButton::AllowPresenceSubscription:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
+	case ChatHintButton::AllowPresenceSubscription: {
+		setLoading(i, true);
+
+		const auto jid = ChatController::instance()->chatJid();
+
+		runOnThread(Kaidan::instance()->client(), [jid]() {
+			return Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresence(jid);
+		}, this, [this, i, jid](bool succeeded) {
+			if (succeeded) {
+				removeChatHint(i);
+			} else {
+				setLoading(i, false);
+			}
 		});
-		Q_EMIT Kaidan::instance()->client()->rosterManager()->acceptSubscriptionToPresenceRequested(ChatController::instance()->chatJid());
+
 		return;
+	}
 	case ChatHintButton::InviteContacts:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
-		});
+		setLoading(i, true);
 		Q_EMIT GroupChatController::instance()->groupChatInviteeSelectionNeeded();
 		removeChatHint(i);
 		return;
 	case ChatHintButton::Leave:
-		updateChatHint(i, [](ChatHint &chatHint) {
-			chatHint.loading = true;
-		});
+		setLoading(i, true);
 		Q_EMIT GroupChatController::instance()->leaveGroupChat(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
 		removeChatHint(i);
 		return;
@@ -180,10 +195,11 @@ void ChatHintModel::handleConnectionErrorChanged(int i)
 void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 {
 	const auto rosterManager = Kaidan::instance()->client()->rosterManager();
+	const auto chatController = ChatController::instance();
 
 	runOnThread(rosterManager, [rosterManager]() {
 		return rosterManager->unrespondedPresenceSubscriptionRequests();
-	}, this, [this, chatJid = ChatController::instance()->chatJid()](QMap<QString, QXmppPresence> &&unrespondedPresenceSubscriptionRequests) {
+	}, this, [this, accountJid = chatController->accountJid(), chatJid = chatController->chatJid()](QMap<QString, QXmppPresence> &&unrespondedPresenceSubscriptionRequests) {
 		const auto i = chatHintIndex(ChatHintButton::AllowPresenceSubscription);
 
 		if (unrespondedPresenceSubscriptionRequests.contains(chatJid)) {
@@ -193,7 +209,7 @@ void ChatHintModel::handleUnrespondedPresenceSubscriptionRequests()
 			}
 		} else if (i != -1) {
 			removeChatHint(i);
-			Notifications::instance()->closePresenceSubscriptionRequestNotification(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
+			Notifications::instance()->closePresenceSubscriptionRequestNotification(accountJid, chatJid);
 		}
 	});
 }
@@ -338,6 +354,13 @@ void ChatHintModel::addLeaveChatHint()
 	} else {
 		insertChatHint(i, chatHint);
 	}
+}
+
+void ChatHintModel::setLoading(int i, bool loading)
+{
+	updateChatHint(i, [loading](ChatHint &chatHint) {
+		chatHint.loading = loading;
+	});
 }
 
 int ChatHintModel::addChatHint(const ChatHint &chatHint)
