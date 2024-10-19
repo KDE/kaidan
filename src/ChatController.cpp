@@ -109,10 +109,6 @@ QString ChatController::chatJid()
 
 void ChatController::setChat(const QString &accountJid, const QString &chatJid)
 {
-	if (accountJid == m_accountJid && chatJid == m_chatJid) {
-		return;
-	}
-
 	resetChat(accountJid, chatJid);
 
 	// Send "active" state for the current chat.

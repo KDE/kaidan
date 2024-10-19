@@ -66,6 +66,7 @@ public:
 
 private:
 	QString determineChatName(const QString &chatJid) const;
+	void showChat(const QString &accountJid, const QString &chatJid);
 
 	QVector<MessageNotificationWrapper> m_openMessageNotifications;
 	QVector<PresenceSubscriptionRequestNotificationWrapper> m_openPresenceSubscriptionRequestNotifications;

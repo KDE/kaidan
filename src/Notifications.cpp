@@ -14,6 +14,7 @@
 #endif
 
 // Kaidan
+#include "ChatController.h"
 #include "Kaidan.h"
 #include "MessageController.h"
 #include "RosterDb.h"
@@ -155,9 +156,8 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 	notification->setDefaultAction(tr("Open"));
 	notification->setActions({ tr("Mark as read") });
 
-	connect(notification, &KNotification::defaultActivated, this, [=] {
-		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
-		Q_EMIT Kaidan::instance()->raiseWindowRequested();
+	connect(notification, &KNotification::defaultActivated, this, [this, accountJid, chatJid] {
+		showChat(accountJid, chatJid);
 	});
 	connect(notification, &KNotification::action1Activated, this, [=] {
 		RosterDb::instance()->updateItem(chatJid, [=](RosterItem &item) {
@@ -235,9 +235,8 @@ void Notifications::sendPresenceSubscriptionRequestNotification(const QString &a
 
 	notification->setDefaultAction(tr("Open"));
 
-	connect(notification, &KNotification::defaultActivated, this, [=] {
-		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
-		Q_EMIT Kaidan::instance()->raiseWindowRequested();
+	connect(notification, &KNotification::defaultActivated, this, [this, accountJid, chatJid, notification] {
+		showChat(accountJid, chatJid);
 		notification->close();
 	});
 
@@ -269,6 +268,15 @@ QString Notifications::determineChatName(const QString &chatJid) const
 {
 	auto rosterItem = RosterModel::instance()->findItem(chatJid);
 	return rosterItem ? rosterItem->displayName() : chatJid;
+}
+
+void Notifications::showChat(const QString &accountJid, const QString &chatJid)
+{
+	if (!ChatController::instance()->isChatCurrentChat(accountJid, chatJid)) {
+		Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
+	}
+
+	Q_EMIT Kaidan::instance()->raiseWindowRequested();
 }
 #else
 void Notifications::sendMessageNotification(const QString &, const QString &, const QString &, const QString &)
