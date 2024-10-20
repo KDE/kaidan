@@ -227,6 +227,11 @@ Kirigami.SwipeListItem {
 							}
 						}
 
+						Item {
+							visible: root.files && !root.messageBody
+							Layout.preferredHeight: Kirigami.Units.smallSpacing
+						}
+
 						Loader {
 							sourceComponent: {
 								if (root.groupChatInvitationJid) {
