@@ -111,10 +111,11 @@ RosterItemDetailsContent {
 
 					function inviteSelectedContacts() {
 						var groupChatPublic = ChatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
+						var sourceModel = contactListView.model.sourceModel
 
-						for (var i = 0; i < contactListView.model.rowCount(); i++) {
-							if (contactListView.model.data(contactListView.model.index(i, 0), RosterModel.SelectedRole)) {
-								var inviteeJid = contactListView.model.data(contactListView.model.index(i, 0), RosterModel.JidRole)
+						for (var i = 0; i < sourceModel.rowCount(); i++) {
+							if (sourceModel.data(sourceModel.index(i, 0), RosterModel.SelectedRole)) {
+								var inviteeJid = sourceModel.data(sourceModel.index(i, 0), RosterModel.JidRole)
 								GroupChatController.inviteContactToGroupChat(ChatController.accountJid, ChatController.chatJid, inviteeJid, groupChatPublic)
 								root.contactsBeingInvitedCount++
 							}
