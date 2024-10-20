@@ -167,8 +167,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     # kaidan QXmpp extensions (need to be merged into QXmpp upstream)
     qxmpp-exts/QXmppColorGenerator.cpp
     qxmpp-exts/QXmppColorGenerator.h
-    RecentPicturesModel.cpp
-    RecentPicturesModel.h
     RegistrationDataFormFilterModel.cpp
     RegistrationDataFormFilterModel.h
     RegistrationDataFormModel.cpp
@@ -295,8 +293,6 @@ endif()
 
 if(ANDROID)
     target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
-else()
-    target_link_libraries(${PROJECT_NAME} KF5::KIOFileWidgets)
 endif()
 
 if(STATIC_BUILD)

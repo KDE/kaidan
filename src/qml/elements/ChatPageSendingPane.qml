@@ -130,7 +130,7 @@ Controls.Pane {
 			// emoji picker button
 			ClickableIcon {
 				source: "smiley-add"
-				enabled: sendButton.enabled
+				enabled: !mediaSharingArea.visible
 				onClicked: !emojiPicker.toggle()
 			}
 
@@ -145,6 +145,7 @@ Controls.Pane {
 			ClickableText {
 				text: "@"
 				visible: ChatController.rosterItem.isGroupChat
+				enabled: !mediaSharingArea.visible
 				opacity: visible ? 1 : 0
 				scaleFactor: Kirigami.Units.iconSizes.smallMedium * 0.08
 				Controls.ToolTip.text: qsTr("Mention a participant")
@@ -194,6 +195,7 @@ Controls.Pane {
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
+				enabled: !mediaSharingArea.visible
 				state: "compose"
 				states: [
 					State {
@@ -272,7 +274,7 @@ Controls.Pane {
 			// Voice message button
 			ClickableIcon {
 				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === "" && messageArea.state === "compose"
+				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === "" && messageArea.state === "compose" && !mediaSharingArea.visible
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
@@ -284,148 +286,66 @@ Controls.Pane {
 				}
 			}
 
-			// file sharing button
-			ClickableIcon {
-				property bool checked: false
+			RowLayout {
+				id: mediaSharingArea
+				visible: false
+				opacity: visible ? 1 : 0
 
-				source: "mail-attachment-symbolic"
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Take picture")
+					source: "camera-photo-symbolic"
+					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageImage)
+				}
+
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Record video")
+					source: "camera-video-symbolic"
+					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageVideo)
+				}
+
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Share files")
+					source: "document-open-symbolic"
+					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+					onClicked: {
+						mediaSharingArea.visible = false
+						chatPage.sendMediaSheet.selectFile()
+					}
+				}
+
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Share location")
+					source: "mark-location-symbolic"
+					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageGeoLocation)
+				}
+
+				function openNewMediaSheet(type) {
+					mediaSharingArea.visible = false
+					chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, type)
+				}
+			}
+
+			// Media sharing button
+			ClickableIcon {
+				source: mediaSharingArea.visible ? "window-close-symbolic" : "mail-attachment-symbolic"
 				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""  && messageArea.state === "compose"
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: {
-					if (!checked) {
-						mediaPopup.open()
-						checked = true
-					} else {
-						mediaPopup.close()
-						checked = false
-					}
-				}
+				onClicked: mediaSharingArea.visible = !mediaSharingArea.visible
 
 				Behavior on opacity {
 					NumberAnimation {}
 				}
 			}
 
-			Controls.Popup {
-				id: mediaPopup
-				x:  root.width - width - 40
-				y: - height - root.padding - 20
-				padding: 1
-
-				width: 470
-				ColumnLayout {
-					anchors.fill: parent
-					Kirigami.AbstractApplicationHeader {
-						Layout.fillWidth: true
-						leftPadding: Kirigami.Units.largeSpacing
-						Kirigami.Heading {
-							text: qsTr("Media")
-						}
-
-					}
-					Controls.ScrollView {
-						Layout.fillWidth: true
-						Layout.fillHeight: true
-
-						visible: thumbnails.count !== 0
-						clip: true
-
-						RowLayout {
-							Repeater {
-								id: thumbnails
-								Layout.fillHeight: true
-								Layout.fillWidth: true
-								model: RecentPicturesModel {}
-
-								delegate: Item {
-									Layout.margins: Kirigami.Units.smallSpacing
-
-									Layout.fillWidth: true
-									Layout.preferredHeight: 125
-									Layout.preferredWidth: 150
-
-									MouseArea {
-										anchors.fill: parent
-										onClicked: {
-											chatPage.sendMediaSheet.openWithExistingFile(model.filePath)
-											mediaPopup.close()
-										}
-									}
-
-									Image {
-										source: model.filePath
-										height: 125
-										width: 150
-										sourceSize: "125x150"
-										fillMode: Image.PreserveAspectFit
-										asynchronous: true
-									}
-								}
-							}
-						}
-					}
-
-					RowLayout {
-						Layout.fillWidth: true
-						RowLayout {
-							Layout.margins: 5
-							Layout.fillWidth: true
-
-							IconTopButton {
-								Layout.fillWidth: true
-								implicitWidth: parent.width / 4
-								buttonIcon: "camera-photo-symbolic"
-								title: qsTr("Take picture")
-								tooltipText: qsTr("Take a picture using your camera")
-
-								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageImage)
-									mediaPopup.close()
-								}
-							}
-							IconTopButton {
-								Layout.fillWidth: true
-								implicitWidth: parent.width / 4
-								buttonIcon: "camera-video-symbolic"
-								title: qsTr("Record video")
-								tooltipText: qsTr("Record a video using your camera")
-
-								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageVideo)
-									mediaPopup.close()
-								}
-							}
-							IconTopButton {
-								Layout.fillWidth: true
-								implicitWidth: parent.width / 4
-								buttonIcon: "document-open-symbolic"
-								title: qsTr("Share files")
-								tooltipText: qsTr("Share files from your device")
-
-								onClicked: {
-									chatPage.sendMediaSheet.selectFile()
-									mediaPopup.close()
-								}
-							}
-							IconTopButton {
-								Layout.fillWidth: true
-								implicitWidth: parent.width / 4
-								buttonIcon: "mark-location-symbolic"
-								title: qsTr("Share location")
-								tooltipText: qsTr("Send your location")
-
-								onClicked: {
-									chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageGeoLocation)
-									mediaPopup.close()
-								}
-							}
-						}
-					}
-				}
-			}
-
-			// button for canceling message correction
+			// Button to cancel message correction
 			ClickableIcon {
 				visible: messageArea.state === "edit"
 				opacity: visible ? 1 : 0
@@ -487,10 +407,13 @@ Controls.Pane {
 	}
 
 	function prepareQuote(body) {
+		mediaSharingArea.visible = false
 		messageArea.insert(0, Utils.quote(body))
 	}
 
 	function prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
+		mediaSharingArea.visible = false
+
 		composition.replaceId = replaceId
 		root.originalReplyId = replyId
 		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
@@ -521,7 +444,7 @@ Controls.Pane {
 		if (!messageArea.text.length)
 			return
 
-		// Disable the button to prevent sending the same message several times.
+		// Disable the button to prevent sending the same message mutliple times.
 		sendButton.enabled = false
 
 		// Send the message.
@@ -531,6 +454,7 @@ Controls.Pane {
 			composition.correct()
 			composition.isDraft = false
 		}
+
 		ChatController.resetComposingChatState();
 
 		clearMessageArea()

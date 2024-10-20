@@ -87,7 +87,6 @@
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
 #include "QrCodeScannerFilter.h"
-#include "RecentPicturesModel.h"
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationManager.h"
 #include "RosterFilterProxyModel.h"
@@ -476,7 +475,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
 	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
 	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-	qmlRegisterType<RecentPicturesModel>(APPLICATION_ID, 1, 0, "RecentPicturesModel");
 	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
 	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
 	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
