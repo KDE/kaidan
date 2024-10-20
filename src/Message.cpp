@@ -347,11 +347,7 @@ QString Message::text() const
 		return groupChatInvitationText();
 	}
 
-	if (files.isEmpty()) {
-		return body.isEmpty() ? QString() : body;
-	}
-
-	return {};
+	return body.isEmpty() ? QString() : body;
 }
 
 QString Message::previewText() const
