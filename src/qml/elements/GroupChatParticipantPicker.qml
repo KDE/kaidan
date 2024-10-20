@@ -91,7 +91,11 @@ Kirigami.Dialog {
 	}
 
 	function selectCurrentIndex() {
-		mentionParticipant(listView.model.data(listView.model.index(listView.currentIndex, 0), GroupChatUserModel.Role.Name))
+		if (listView.headerItem) {
+			listView.headerItem.clicked()
+		} else {
+			mentionParticipant(listView.model.data(listView.model.index(listView.currentIndex, 0), GroupChatUserModel.Role.Name))
+		}
 	}
 
 	function mentionParticipant(nickname) {
