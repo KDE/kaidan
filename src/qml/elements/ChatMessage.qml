@@ -19,7 +19,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import im.kaidan.kaidan 1.0
 import MediaUtils 0.1
 
-Kirigami.SwipeListItem {
+Controls.ItemDelegate {
 	id: root
 
 	property MessageReactionEmojiPicker reactionEmojiPicker
@@ -63,9 +63,9 @@ Kirigami.SwipeListItem {
 	property bool isGroupEnd: determineMessageGroupDelimiter()
 	property int maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
 
+	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
-
-	ColumnLayout {
+	contentItem: ColumnLayout {
 		id: messageArea
 		spacing: -5
 
