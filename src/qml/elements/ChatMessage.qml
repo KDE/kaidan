@@ -104,14 +104,14 @@ Kirigami.SwipeListItem {
 
 				topPadding: Kirigami.Units.largeSpacing
 				bottomPadding: Kirigami.Units.largeSpacing
-				leftPadding: Kirigami.Units.largeSpacing + background.tailSize
-				rightPadding: Kirigami.Units.largeSpacing
+				leftPadding: root.isOwn ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing + background.tailSize
+				rightPadding: root.isOwn ? Kirigami.Units.largeSpacing + background.tailSize : Kirigami.Units.largeSpacing
 				Layout.leftMargin: isOwn || avatar.visible ? 0 : avatar.width
 
 				background: MessageBackground {
 					id: bubbleBackground
 					message: root
-					showTail: !isOwn && isGroupBegin
+					showTail: root.isGroupBegin
 
 					MouseArea {
 						anchors.fill: parent

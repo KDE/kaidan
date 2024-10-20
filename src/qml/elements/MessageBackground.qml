@@ -31,17 +31,18 @@ Item {
 		anchors {
 			top: parent.top
 			bottom: parent.bottom
-			left: parent.left
-			leftMargin: -root.tailSize * 2
-			rightMargin: -root.tailSize
-			right: mainBG.left
+			left: root.message.isOwn ? mainBG.right : parent.left
+			leftMargin: root.message.isOwn ? -root.tailSize : -root.tailSize * 2
+			rightMargin: root.message.isOwn ? -root.tailSize * 2 : -root.tailSize
+			right: root.message.isOwn ? parent.right : mainBG.left
 		}
 
 		Rectangle {
 			color: root.color
 			anchors.fill: parent
 			anchors.bottomMargin: 4
-			anchors.rightMargin: -root.tailSize
+			anchors.leftMargin: root.message.isOwn ? -root.tailSize : 0
+			anchors.rightMargin: root.message.isOwn ? 0 : -root.tailSize
 		}
 	}
 
@@ -49,23 +50,17 @@ Item {
 		id: tailMask
 		clip: true
 		visible: false
-		anchors {
-			top: parent.top
-			bottom: parent.bottom
-			left: parent.left
-			leftMargin: -root.tailSize * 2
-			rightMargin: -root.tailSize
-			right: mainBG.left
-		}
+		anchors.fill: tailBase
 
 		Kirigami.ShadowedRectangle {
 			anchors.fill: parent
-			anchors.rightMargin: root.tailSize
+			anchors.leftMargin: root.message.isOwn ? root.tailSize : 0
+			anchors.rightMargin: root.message.isOwn ? 0 : root.tailSize
 			width: root.tailSize * 3
 			color: "black"
 			corners {
-				topLeftRadius: 0
-				topRightRadius: root.tailSize * 10
+				topLeftRadius: root.message.isOwn ? root.tailSize * 10 : 0
+				topRightRadius: root.message.isOwn ? 0 : root.tailSize * 10
 				bottomRightRadius: 0
 				bottomLeftRadius: 0
 			}
@@ -85,7 +80,8 @@ Item {
 		radius: roundedCornersRadius
 		color: root.color
 		anchors.fill: parent
-		anchors.leftMargin: root.tailSize
+		anchors.leftMargin: root.message.isOwn ? 0 : root.tailSize
+		anchors.rightMargin: root.message.isOwn ? root.tailSize : 0
 	}
 
 	RowLayout {
