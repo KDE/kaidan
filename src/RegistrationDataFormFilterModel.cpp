@@ -32,7 +32,7 @@ void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceM
 bool RegistrationDataFormFilterModel::isEmpty()
 {
 	if (sourceModel()) {
-		return m_filteredRows.size() ==	static_cast<RegistrationDataFormModel *>(sourceModel())->rowCount();
+		return m_filteredRows.size() == static_cast<RegistrationDataFormModel *>(sourceModel())->rowCount();
 	}
 
 	return true;
