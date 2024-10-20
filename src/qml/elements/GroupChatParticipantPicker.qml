@@ -92,7 +92,7 @@ Kirigami.Dialog {
 
 	function mentionParticipant(nickname) {
 		textArea.remove(textArea.cursorPosition - searchedText.length + 1, textArea.cursorPosition)
-		textArea.insert(textArea.cursorPosition, nickname + " ")
+		textArea.insert(textArea.cursorPosition, nickname + Utils.groupChatUserMentionSeparator)
 		close()
 	}
 }

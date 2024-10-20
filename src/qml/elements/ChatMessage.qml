@@ -102,7 +102,7 @@ Kirigami.SwipeListItem {
 					cursorShape: Qt.PointingHandCursor
 					onClicked: {
 						const textArea = sendingPane.messageArea
-						const mention = Utils.groupChatUserMentionPrefix + root.senderName + " "
+						const mention = Utils.groupChatUserMentionPrefix + root.senderName + Utils.groupChatUserMentionSeparator
 						textArea.insert(textArea.cursorPosition, mention)
 					}
 				}

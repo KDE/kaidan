@@ -61,6 +61,11 @@ QChar QmlUtils::groupChatUserMentionPrefix()
 	return GROUP_CHAT_USER_MENTION_PREFIX;
 }
 
+QChar QmlUtils::groupChatUserMentionSeparator()
+{
+	return GROUP_CHAT_USER_MENTION_SEPARATOR;
+}
+
 #ifndef BUILD_TESTS
 QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 {

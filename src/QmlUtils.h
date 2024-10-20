@@ -18,6 +18,7 @@
 
 const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
 constexpr auto GROUP_CHAT_USER_MENTION_PREFIX = u'@';
+constexpr auto GROUP_CHAT_USER_MENTION_SEPARATOR = u' ';
 
 /**
  * This class contains C++ utilities to be used in QML.
@@ -27,6 +28,7 @@ class QmlUtils : public QObject
 	Q_OBJECT
 	Q_PROPERTY(QChar messageBubblepaddingCharacter READ messageBubblepaddingCharacter CONSTANT)
 	Q_PROPERTY(QChar groupChatUserMentionPrefix READ groupChatUserMentionPrefix CONSTANT)
+	Q_PROPERTY(QChar groupChatUserMentionSeparator READ groupChatUserMentionSeparator CONSTANT)
 	Q_PROPERTY(QString versionString READ versionString CONSTANT)
 	Q_PROPERTY(QString applicationDisplayName READ applicationDisplayName CONSTANT)
 	Q_PROPERTY(QUrl applicationWebsiteUrl READ applicationWebsiteUrl CONSTANT)
@@ -43,6 +45,7 @@ public:
 
 	static QChar messageBubblepaddingCharacter();
 	static QChar groupChatUserMentionPrefix();
+	static QChar groupChatUserMentionSeparator();
 
 #ifndef BUILD_TESTS
 	/**
