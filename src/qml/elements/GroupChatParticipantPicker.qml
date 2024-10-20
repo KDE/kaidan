@@ -57,7 +57,11 @@ Kirigami.Dialog {
 				avatar.color: Kirigami.Theme.textColor
 				implicitWidth: largeButtonWidth
 				hoverEnabled: true
-				onClicked: GroupChatController.groupChatInviteeSelectionNeeded()
+				onClicked: {
+					root.close()
+					root.textArea.remove(root.textArea.cursorPosition - searchedText.length, textArea.cursorPosition)
+					GroupChatController.groupChatInviteeSelectionNeeded()
+				}
 			}
 		}
 	}
