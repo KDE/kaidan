@@ -378,8 +378,10 @@ void MixController::banUser(const QString &channelJid, const QString &userJid)
 					banJid();
 				} else {
 					channelConfiguration.setNodes(channelConfiguration.nodes() | QXmppMixConfigItem::Node::BannedJids);
-					manager->updateChannelConfiguration(channelJid, channelConfiguration).then(client, [banJid](auto) {
-						banJid();
+					manager->updateChannelConfiguration(channelJid, channelConfiguration).then(client, [client, channelJid, banJid](auto) {
+						Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->updateSubscriptions(channelJid, { QXmppMixConfigItem::Node::BannedJids }).then(client, [banJid](auto) {
+							banJid();
+						});
 					});
 				}
 			}
