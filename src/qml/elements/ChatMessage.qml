@@ -26,7 +26,6 @@ Kirigami.SwipeListItem {
 	property MessageReactionDetailsSheet reactionDetailsSheet
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
-
 	property int modelIndex
 	property string msgId
 	property string senderJid
@@ -60,21 +59,8 @@ Kirigami.SwipeListItem {
 	property var detailedReactions
 	property bool ownReactionsFailed
 	property string groupChatInvitationJid
-
-	property bool isGroupBegin: {
-		if (senderJid) {
-			return modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.SenderJid) !== senderJid
-		}
-
-		return modelIndex === MessageModel.rowCount() - 1 || MessageModel.data(MessageModel.index(modelIndex + 1, 0), MessageModel.GroupChatSenderId) !== groupChatSenderId
-	}
-	property bool isGroupEnd: {
-		if (senderJid) {
-			return modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.SenderJid) !== senderJid
-		}
-
-		return modelIndex < 1 || MessageModel.data(MessageModel.index(modelIndex - 1, 0), MessageModel.GroupChatSenderId) !== groupChatSenderId
-	}
+	property bool isGroupBegin: determineMessageGroupDelimiter(MessageModel.rowCount() - 1, 1)
+	property bool isGroupEnd: determineMessageGroupDelimiter()
 
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 
@@ -473,6 +459,24 @@ Kirigami.SwipeListItem {
 				message: root
 			}
 		}
+	}
+
+	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
+		if (modelIndex < 0 || modelIndex === delimitingIndex) {
+			return true
+		}
+
+		const nextMessageIndex = MessageModel.index(modelIndex + indexOffset, 0)
+
+		if (isOwn) {
+			return !MessageModel.data(nextMessageIndex, MessageModel.IsOwn)
+		}
+
+		if (senderJid) {
+			return MessageModel.data(nextMessageIndex, MessageModel.SenderJid) !== senderJid
+		}
+
+		return MessageModel.data(nextMessageIndex, MessageModel.GroupChatSenderId) !== groupChatSenderId
 	}
 
 	function showContextMenu(mouseArea, file) {
