@@ -351,19 +351,6 @@ Controls.Pane {
 				}
 			}
 
-			// Button to cancel message correction
-			ClickableIcon {
-				visible: messageArea.state === "edit"
-				opacity: visible ? 1 : 0
-				source: "window-close-symbolic"
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: clearMessageArea()
-
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-			}
-
 			ClickableIcon {
 				id: sendButton
 				visible: messageArea.text !== "" && (messageArea.state === "compose" || messageArea.text !== root.originalBody || composition.replyId !== root.originalReplyId)
@@ -376,6 +363,19 @@ Controls.Pane {
 				}
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: sendMessage()
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+			}
+
+			// Button to cancel message correction
+			ClickableIcon {
+				visible: messageArea.state === "edit"
+				opacity: visible ? 1 : 0
+				source: "window-close-symbolic"
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+				onClicked: clearMessageArea()
 
 				Behavior on opacity {
 					NumberAnimation {}
