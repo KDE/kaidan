@@ -61,6 +61,7 @@ Kirigami.SwipeListItem {
 	property string groupChatInvitationJid
 	property bool isGroupBegin: determineMessageGroupDelimiter(MessageModel.rowCount() - 1, 1)
 	property bool isGroupEnd: determineMessageGroupDelimiter()
+	property int maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
 
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
 
@@ -70,12 +71,12 @@ Kirigami.SwipeListItem {
 
 		RowLayout {
 			// Own messages are on the right, others on the left side.
-			layoutDirection: isOwn ? Qt.RightToLeft : Qt.LeftToRight
+			layoutDirection: root.isOwn ? Qt.RightToLeft : Qt.LeftToRight
 			spacing: 0
 
 			Avatar {
 				id: avatar
-				visible: !isOwn && isGroupBegin
+				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin
 				jid: root.senderJid ? root.senderJid : root.groupChatSenderId
 				name: root.senderName
 				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
@@ -99,15 +100,12 @@ Kirigami.SwipeListItem {
 				readonly property string paddingText: {
 					Utils.messageBubblePaddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
 				}
-
 				readonly property alias backgroundColor: bubbleBackground.color
 
-				topPadding: Kirigami.Units.largeSpacing
-				bottomPadding: Kirigami.Units.largeSpacing
+				verticalPadding: Kirigami.Units.largeSpacing
 				leftPadding: root.isOwn ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing + background.tailSize
 				rightPadding: root.isOwn ? Kirigami.Units.largeSpacing + background.tailSize : Kirigami.Units.largeSpacing
-				Layout.leftMargin: isOwn || avatar.visible ? 0 : avatar.width
-
+				Layout.leftMargin: root.isGroupChatMessage && !root.isOwn && !avatar.visible ? avatar.width : 0
 				background: MessageBackground {
 					id: bubbleBackground
 					message: root
@@ -126,7 +124,6 @@ Kirigami.SwipeListItem {
 						onPressAndHold: root.showContextMenu(this)
 					}
 				}
-
 				contentItem: ColumnLayout {
 					Controls.Label {
 						text: root.senderName
@@ -148,7 +145,7 @@ Kirigami.SwipeListItem {
 								body: root.replyQuote
 								messageListView: root.messageListView
 								minimumWidth: Math.max(spoilerHintArea.width, mainArea.width, messageReactionArea.width)
-								maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+								maximumWidth: root.maximumBubbleContentWidth
 								backgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 							}
 						}
@@ -207,7 +204,7 @@ Kirigami.SwipeListItem {
 								}
 								message: root
 								file: modelData
-								Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+								Layout.maximumWidth: root.maximumBubbleContentWidth
 							}
 						}
 
@@ -238,7 +235,7 @@ Kirigami.SwipeListItem {
 										enabled: true
 										visible: messageBody
 										enhancedFormatting: true
-										Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+										Layout.maximumWidth: root.maximumBubbleContentWidth
 									}
 								}
 							}
@@ -286,7 +283,7 @@ Kirigami.SwipeListItem {
 										wrapMode: Text.Wrap
 										font.italic: true
 										Layout.maximumWidth: {
-											return root.width - Kirigami.Units.gridUnit * 6
+											return root.maximumBubbleContentWidth
 												- groupChatInvitationButton.width
 												- groupChatInvitationSeparator.implicitWidth
 												- groupChatInvitationSeparator.Layout.rightMargin
@@ -309,7 +306,7 @@ Kirigami.SwipeListItem {
 						visible: displayedReactionsArea.count
 						spacing: Kirigami.Units.smallSpacing
 						Layout.bottomMargin: Kirigami.Units.smallSpacing * 5
-						Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 6
+						Layout.maximumWidth: root.maximumBubbleContentWidth
 						Layout.preferredWidth: {
 							const detailsButtonLoaded = messageReactionDetailsButtonLoader.status === Loader.Ready
 							var buttonCount = 1
