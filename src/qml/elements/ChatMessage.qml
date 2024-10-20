@@ -78,7 +78,6 @@ Kirigami.SwipeListItem {
 	}
 
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
-	alwaysVisibleActions: false
 
 	ColumnLayout {
 		id: messageArea
