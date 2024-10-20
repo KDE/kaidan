@@ -162,7 +162,13 @@ Controls.Pane {
 						messageArea.remove(messageArea.selectionStart, messageArea.selectionEnd)
 					} else {
 						messageArea.deselect()
-						messageArea.insert(messageArea.cursorPosition, mentionPrefix)
+						const cursorPosition = messageArea.cursorPosition
+
+						if (cursorPosition === 0 || selectedWord === Utils.groupChatUserMentionSeparator) {
+							messageArea.insert(cursorPosition, mentionPrefix)
+						} else {
+							messageArea.insert(cursorPosition, Utils.groupChatUserMentionSeparator + mentionPrefix)
+						}
 					}
 				}
 
