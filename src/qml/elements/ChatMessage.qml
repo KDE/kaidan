@@ -34,7 +34,7 @@ Kirigami.SwipeListItem {
 	property string groupChatSenderId
 	property string senderName
 	property string chatName
-	property bool isOwn: true
+	property bool isOwn
 	property bool isGroupChatMessage
 	property string replyToJid
 	property string replyToGroupChatParticipantId
