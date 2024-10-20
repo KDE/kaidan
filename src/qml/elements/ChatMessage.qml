@@ -112,7 +112,7 @@ Kirigami.SwipeListItem {
 				id: bubble
 
 				readonly property string paddingText: {
-					Utils.messageBubblepaddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
+					Utils.messageBubblePaddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
 				}
 
 				readonly property alias backgroundColor: bubbleBackground.color

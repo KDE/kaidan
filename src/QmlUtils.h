@@ -26,7 +26,7 @@ constexpr auto GROUP_CHAT_USER_MENTION_SEPARATOR = u' ';
 class QmlUtils : public QObject
 {
 	Q_OBJECT
-	Q_PROPERTY(QChar messageBubblepaddingCharacter READ messageBubblepaddingCharacter CONSTANT)
+	Q_PROPERTY(QChar messageBubblePaddingCharacter READ messageBubblePaddingCharacter CONSTANT)
 	Q_PROPERTY(QChar groupChatUserMentionPrefix READ groupChatUserMentionPrefix CONSTANT)
 	Q_PROPERTY(QChar groupChatUserMentionSeparator READ groupChatUserMentionSeparator CONSTANT)
 	Q_PROPERTY(QString versionString READ versionString CONSTANT)
@@ -43,7 +43,7 @@ public:
 	QmlUtils(QObject *parent = nullptr);
 	~QmlUtils();
 
-	static QChar messageBubblepaddingCharacter();
+	static QChar messageBubblePaddingCharacter();
 	static QChar groupChatUserMentionPrefix();
 	static QChar groupChatUserMentionSeparator();
 

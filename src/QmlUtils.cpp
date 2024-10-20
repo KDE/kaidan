@@ -51,7 +51,7 @@ QmlUtils::~QmlUtils()
 	s_instance = nullptr;
 }
 
-QChar QmlUtils::messageBubblepaddingCharacter()
+QChar QmlUtils::messageBubblePaddingCharacter()
 {
 	return MESSAGE_BUBBLE_PADDING_CHARACTER;
 }
