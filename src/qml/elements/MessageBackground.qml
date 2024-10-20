@@ -187,6 +187,6 @@ Item {
 
 	Controls.Label {
 		id: dummy
-		text: "⠀"
+		text: Utils.messageBubblePaddingCharacter
 	}
 }
