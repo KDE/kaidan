@@ -13,6 +13,8 @@ DetailsSheet {
 
 	property string jid
 
+	title: qsTr("Account Details")
+
 	AccountDetailsHeader {
 		sheet: root
 		jid: root.jid

@@ -12,6 +12,8 @@ DetailsPage {
 
 	property string jid
 
+	title: qsTr("Account Details")
+
 	AccountDetailsHeader {
 		jid: root.jid
 	}

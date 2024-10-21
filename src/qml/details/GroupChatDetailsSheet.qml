@@ -12,6 +12,7 @@ import im.kaidan.kaidan 1.0
 
 DetailsSheet {
 	id: root
+	title: qsTr("Group Details")
 
 	GroupChatDetailsHeader {}
 

@@ -8,6 +8,7 @@ import QtQuick.Layouts 1.15
 
 DetailsPage {
 	id: root
+	title: qsTr("Contact Details")
 
 	ContactDetailsHeader {}
 

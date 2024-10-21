@@ -9,6 +9,7 @@ import im.kaidan.kaidan 1.0
 
 DetailsPage {
 	id: root
+	title: qsTr("Notes Details")
 
 	NotesChatDetailsHeader {}
 
