@@ -103,7 +103,6 @@ RosterItemDetailsContent {
 				id: notificationDelegate
 				text: qsTr("Incoming messages")
 				description: qsTr("Show notification and play sound on message arrival")
-				sheetUsed: root.sheet
 				model: [
 					{
 						display: qsTr("Account default"),

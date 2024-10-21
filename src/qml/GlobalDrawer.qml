@@ -23,9 +23,9 @@ Kirigami.GlobalDrawer {
 	property string selectedAccountJid
 
 	Component {
-		id: accountDetailsSheet
+		id: accountDetailsDialog
 
-		AccountDetailsSheet {
+		AccountDetailsDialog {
 			jid: root.selectedAccountJid
 		}
 	}
@@ -48,7 +48,7 @@ Kirigami.GlobalDrawer {
 		id: accountDetailsKeyAuthenticationPage
 
 		AccountKeyAuthenticationPage {
-			Component.onDestruction: openView(accountDetailsSheet, accountDetailsPage)
+			Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage)
 		}
 	}
 
@@ -148,7 +148,7 @@ Kirigami.GlobalDrawer {
 								onClicked: {
 									root.close()
 									root.selectedAccountJid = modelData
-									openViewFromGlobalDrawer(accountDetailsSheet, accountDetailsPage).jid = modelData
+									openViewFromGlobalDrawer(accountDetailsDialog, accountDetailsPage).jid = modelData
 								}
 							}
 

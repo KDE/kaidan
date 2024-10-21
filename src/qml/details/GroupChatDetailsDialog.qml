@@ -10,7 +10,7 @@ import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
-DetailsSheet {
+DetailsDialog {
 	id: root
 	title: qsTr("Group Details")
 
@@ -18,14 +18,14 @@ DetailsSheet {
 
 	GroupChatDetailsContent {
 		id: content
-		sheet: root
+		dialog: root
 		Layout.fillWidth: true
 	}
 
 	Connections {
 		target: Kaidan
 
-		// Close this sheet when the group chat is removed.
+		// Close this dialog when the group chat is removed.
 		function onCloseChatPageRequested() {
 			root.close()
 		}

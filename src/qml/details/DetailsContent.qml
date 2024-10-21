@@ -19,7 +19,7 @@ Controls.Control {
 	id: root
 
 	default property alias __data: mainArea.data
-	property Kirigami.OverlaySheet sheet
+	property Kirigami.Dialog dialog
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
 	property alias mediaOverview: mediaOverview
@@ -74,7 +74,6 @@ Controls.Control {
 					id: automaticMediaDownloadsDelegate
 					text: qsTr("Automatic Downloads")
 					description: qsTr("Download media automatically")
-					sheetUsed: root.sheet
 				}
 
 				ColumnLayout {
@@ -220,8 +219,8 @@ Controls.Control {
 	}
 
 	function openKeyAuthenticationPage(keyAuthenticationPageComponent) {
-		if (root.sheet) {
-			root.sheet.close()
+		if (root.dialog) {
+			root.dialog.close()
 		}
 
 		return openPage(keyAuthenticationPageComponent)

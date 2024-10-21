@@ -119,8 +119,8 @@ Kirigami.ScrollablePage {
 						function onActiveFocusItemChanged() {
 							// Ensure that loginArea is focused when this page is opened after an
 							// account removal.
-							// That workaround is needed because AccountDetailsSheet takes the focus
-							// when it is closed once the account removal is completed.
+							// That workaround is needed because AccountDetailsDialog takes the
+							// focus when it is closed once the account removal is completed.
 							if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
 								loginArea.initialize()
 							}

@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
-DetailsSheet {
+DetailsDialog {
 	id: root
 
 	property string jid
@@ -16,12 +16,12 @@ DetailsSheet {
 	title: qsTr("Account Details")
 
 	AccountDetailsHeader {
-		sheet: root
+		dialog: root
 		jid: root.jid
 	}
 
 	AccountDetailsContent {
-		sheet: root
+		dialog: root
 		jid: root.jid
 		Layout.fillWidth: true
 	}
@@ -29,12 +29,12 @@ DetailsSheet {
 	Connections {
 		target: Kaidan
 
-		// Close this sheet when the account is removed.
+		// Close this dialog when the account is removed.
 		function onCredentialsNeeded() {
 			root.close()
 		}
 
-		// Close this sheet when the chat with oneself is added via it.
+		// Close this dialog when the chat with oneself is added via it.
 		function onOpenChatPageRequested(accountJid, chatJid) {
 			root.close()
 		}

@@ -10,15 +10,15 @@ import im.kaidan.kaidan 1.0
 DetailsHeader {
 	id: root
 
-	property Kirigami.OverlaySheet sheet
+	property Kirigami.Dialog dialog
 
 	displayName: AccountManager.displayName
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")
 		icon.name: "camera-photo-symbolic"
 		onTriggered: {
-			if (root.sheet) {
-				root.sheet.close()
+			if (root.dialog) {
+				root.dialog.close()
 			}
 
 			openPage(avatarChangePage)

@@ -86,11 +86,11 @@ ChatPageBase {
 
 		onClicked: {
 			if (ChatController.accountJid === ChatController.chatJid) {
-				openOverlay(notesChatDetailsSheet)
+				openOverlay(notesChatDetailsDialog)
 			} else if (ChatController.rosterItem.isGroupChat) {
-				openOverlay(groupChatDetailsSheet)
+				openOverlay(groupChatDetailsDialog)
 			} else {
-				openOverlay(contactDetailsSheet)
+				openOverlay(contactDetailsDialog)
 			}
 		}
 	}
@@ -139,9 +139,9 @@ ChatPageBase {
 	}
 
 	Component {
-		id: notesChatDetailsSheet
+		id: notesChatDetailsDialog
 
-		NotesChatDetailsSheet {}
+		NotesChatDetailsDialog {}
 	}
 
 	Component {
@@ -155,14 +155,14 @@ ChatPageBase {
 
 		AccountKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
-			Component.onDestruction: openView(notesChatDetailsSheet, notesChatDetailsPage)
+			Component.onDestruction: openView(notesChatDetailsDialog, notesChatDetailsPage)
 		}
 	}
 
 	Component {
-		id: contactDetailsSheet
+		id: contactDetailsDialog
 
-		ContactDetailsSheet {}
+		ContactDetailsDialog {}
 	}
 
 	Component {
@@ -176,7 +176,7 @@ ChatPageBase {
 
 		AccountKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
-			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
+			Component.onDestruction: openView(contactDetailsDialog, contactDetailsPage)
 		}
 	}
 
@@ -186,14 +186,14 @@ ChatPageBase {
 		ContactKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
 			jid: ChatController.chatJid
-			Component.onDestruction: openView(contactDetailsSheet, contactDetailsPage)
+			Component.onDestruction: openView(contactDetailsDialog, contactDetailsPage)
 		}
 	}
 
 	Component {
-		id: groupChatDetailsSheet
+		id: groupChatDetailsDialog
 
-		GroupChatDetailsSheet {}
+		GroupChatDetailsDialog {}
 	}
 
 	Component {
@@ -207,7 +207,7 @@ ChatPageBase {
 
 		AccountKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
-			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage)
+			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage)
 		}
 	}
 
@@ -216,7 +216,7 @@ ChatPageBase {
 
 		GroupChatUserKeyAuthenticationPage {
 			accountJid: ChatController.accountJid
-			Component.onDestruction: openView(groupChatDetailsSheet, groupChatDetailsPage).openKeyAuthenticationUserListView()
+			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage).openKeyAuthenticationUserListView()
 		}
 	}
 
@@ -621,7 +621,7 @@ ChatPageBase {
 		target: Kaidan.groupChatController
 
 		function onGroupChatInviteeSelectionNeeded() {
-			openView(groupChatDetailsSheet, groupChatDetailsPage).openContactListView()
+			openView(groupChatDetailsDialog, groupChatDetailsPage).openContactListView()
 		}
 	}
 }

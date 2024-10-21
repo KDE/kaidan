@@ -70,7 +70,7 @@ Kirigami.ApplicationWindow {
 		id: contextDrawer
 	}
 
-	// Needed to be outside of the DetailsSheet to not be destroyed with it.
+	// Needed to be outside of the DetailsDialog to not be destroyed with it.
 	// Otherwise, the undo action of "showPassiveNotification()" would point to a destroyed object.
 	BlockingAction {
 		id: blockingAction

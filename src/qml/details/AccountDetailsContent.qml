@@ -275,7 +275,6 @@ DetailsContent {
 				id: contactNotificationDelegate
 				text: qsTr("Incoming contact messages")
 				description: qsTr("Show notification and play sound on message arrival from a contact")
-				sheetUsed: root.sheet
 				model: [
 					{
 						display: qsTr("Never"),
@@ -300,7 +299,6 @@ DetailsContent {
 				id: groupChatNotificationDelegate
 				text: qsTr("Incoming group messages")
 				description: qsTr("Show notification and play sound on message arrival from a group")
-				sheetUsed: root.sheet
 				model: [
 					{
 						display: qsTr("Never"),
@@ -371,8 +369,8 @@ DetailsContent {
 						contactAdditionView.jid = providerArea.chatSupportList[0]
 						contactAdditionView.name = qsTr("Support")
 
-						if (root.sheet) {
-							root.sheet.close()
+						if (root.dialog) {
+							root.dialog.close()
 						}
 					} else {
 						chatSupportListView.visible = !chatSupportListView.visible
@@ -402,8 +400,8 @@ DetailsContent {
 								contactAdditionView.jid = modelData
 								contactAdditionView.name = text
 
-								if (root.sheet) {
-									root.sheet.close()
+								if (root.dialog) {
+									root.dialog.close()
 								}
 							}
 						}
@@ -995,10 +993,10 @@ DetailsContent {
 
 					Connections {
 						target: Kaidan
-						enabled: root.sheet
+						enabled: root.dialog
 
 						function onOpenStartPageRequested() {
-							root.sheet.close()
+							root.dialog.close()
 						}
 					}
 				}

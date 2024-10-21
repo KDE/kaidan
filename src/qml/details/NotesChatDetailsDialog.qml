@@ -1,5 +1,3 @@
-// SPDX-FileCopyrightText: 2017 Linus Jahn <lnj@kaidan.im>
-// SPDX-FileCopyrightText: 2020 Jonah Brüchert <jbb@kaidan.im>
 // SPDX-FileCopyrightText: 2023 Melvin Keskin <melvo@olomono.de>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 //
@@ -10,21 +8,21 @@ import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
-DetailsSheet {
+DetailsDialog {
 	id: root
-	title: qsTr("Contact Details")
+	title: qsTr("Notes Details")
 
-	ContactDetailsHeader {}
+	NotesChatDetailsHeader {}
 
-	ContactDetailsContent {
-		sheet: root
+	NotesChatDetailsContent {
+		dialog: root
 		Layout.fillWidth: true
 	}
 
 	Connections {
 		target: Kaidan
 
-		// Close this sheet when the contact is removed.
+		// Close this dialog when the notes chat is removed.
 		function onCloseChatPageRequested() {
 			root.close()
 		}

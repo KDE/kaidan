@@ -8,12 +8,9 @@ import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 
 /**
- * This is a combo box with workarounds for an array-based model and usable within
- * Kirigami.OverlaySheet.
+ * This is a combo box with a workaround for an array-based model.
  */
 MobileForm.FormComboBoxDelegate {
-	property bool sheetUsed: false
-
 	// "FormComboBoxDelegate.indexOfValue()" seems to not work with an array-based model.
 	// Thus, an own function is used.
 	function indexOf(value) {
@@ -22,17 +19,5 @@ MobileForm.FormComboBoxDelegate {
 		}
 
 		return indexOfValue(value)
-	}
-
-	Component.onCompleted: {
-		// "Kirigami.OverlaySheet" uses a z-index of 101.
-		// In order to see the popup, it needs to have that z-index as well.
-		if (sheetUsed) {
-			let comboBox = contentItem.children[2];
-
-			if (comboBox instanceof Controls.ComboBox) {
-				comboBox.popup.z = 101
-			}
-		}
 	}
 }
