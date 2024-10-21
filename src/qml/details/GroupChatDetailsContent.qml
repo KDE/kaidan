@@ -446,7 +446,7 @@ RosterItemDetailsContent {
 				Connections {
 					target: GroupChatController
 
-					function onGroupChatDeletionFailed(groupChatJid, errorMessage) {
+					function onGroupChatDeletionFailed(accountJid, groupChatJid, errorMessage) {
 						passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 					}
 				}
