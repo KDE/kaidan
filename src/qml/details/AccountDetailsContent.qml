@@ -818,6 +818,8 @@ DetailsContent {
 					icon.name: "security-medium-symbolic"
 				}
 				confirmationButton.onClicked: {
+					busy = true
+
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
 					passwordField.initialize()
 				}
@@ -832,6 +834,8 @@ DetailsContent {
 					icon.name: "security-high-symbolic"
 				}
 				confirmationButton.onClicked: {
+					busy = true
+
 					const oldPasswordVisibility = Kaidan.settings.passwordVisibility
 					Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
 
@@ -1021,7 +1025,10 @@ DetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.neutralTextColor
 				}
-				confirmationButton.onClicked: AccountManager.deleteAccountFromClient()
+				confirmationButton.onClicked: {
+					busy = true
+					AccountManager.deleteAccountFromClient()
+				}
 				busyText: qsTr("Removing account…")
 			}
 

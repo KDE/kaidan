@@ -31,6 +31,5 @@ ColumnLayout {
 		id: confirmationButton
 		idleText: qsTr("Confirm")
 		visible: false
-		onClicked: busy = true
 	}
 }

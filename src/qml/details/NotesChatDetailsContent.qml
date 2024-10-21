@@ -62,7 +62,10 @@ RosterItemDetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
 				}
-				confirmationButton.onClicked: Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
+				confirmationButton.onClicked: {
+					busy = true
+					Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
+				}
 				busyText: qsTr("Removing notes chat…")
 			}
 		}
