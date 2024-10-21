@@ -18,7 +18,7 @@ MessageReactionButton {
 	property string messageId
 	property bool isOwnMessage
 	property var reactions
-	property MessageReactionDetailsSheet detailsSheet
+	property MessageReactionDetailsDialog detailsDialog
 
 	text: qsTr("Show details")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
@@ -26,13 +26,13 @@ MessageReactionButton {
 		source: "view-more-symbolic"
 	}
 	onClicked: {
-		detailsSheet.messageId = messageId
-		detailsSheet.reactions = reactions
-		detailsSheet.open()
+		detailsDialog.messageId = messageId
+		detailsDialog.reactions = reactions
+		detailsDialog.open()
 	}
 	onReactionsChanged: {
-		if (detailsSheet.messageId === messageId) {
-			detailsSheet.reactions = reactions
+		if (detailsDialog.messageId === messageId) {
+			detailsDialog.reactions = reactions
 		}
 	}
 	Controls.ToolTip.text: text

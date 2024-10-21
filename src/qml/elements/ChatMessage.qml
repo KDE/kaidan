@@ -23,7 +23,7 @@ Controls.ItemDelegate {
 	id: root
 
 	property MessageReactionEmojiPicker reactionEmojiPicker
-	property MessageReactionDetailsSheet reactionDetailsSheet
+	property MessageReactionDetailsDialog reactionDetailsDialog
 	property ListView messageListView
 	property ChatPageSendingPane sendingPane
 	property int modelIndex
@@ -364,7 +364,7 @@ Controls.ItemDelegate {
 									messageId: root.msgId
 									isOwnMessage: root.isOwn
 									reactions: root.detailedReactions
-									detailsSheet: root.reactionDetailsSheet
+									detailsDialog: root.reactionDetailsDialog
 								}
 							}
 						}

@@ -54,7 +54,7 @@ ChatPageBase {
 	property alias sendMediaSheet: sendMediaSheet
 	property alias newMediaSheet: newMediaSheet
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
-	property alias messageReactionDetailsSheet: messageReactionDetailsSheet
+	property alias messageReactionDetailsDialog: messageReactionDetailsDialog
 	property alias messageListView: messageListView
 
 	property ChatPageSendingPane sendingPane
@@ -235,8 +235,8 @@ ChatPageBase {
 		id: messageReactionEmojiPicker
 	}
 
-	MessageReactionDetailsSheet {
-		id: messageReactionDetailsSheet
+	MessageReactionDetailsDialog {
+		id: messageReactionDetailsDialog
 		accountJid: ChatController.accountJid
 		chatJid: ChatController.chatJid
 	}
@@ -418,7 +418,7 @@ ChatPageBase {
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker
-			reactionDetailsSheet: root.messageReactionDetailsSheet
+			reactionDetailsDialog: root.messageReactionDetailsDialog
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.senderJid
