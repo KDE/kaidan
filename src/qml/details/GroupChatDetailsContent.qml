@@ -426,6 +426,14 @@ RosterItemDetailsContent {
 				}
 				busy: GroupChatController.busy
 				busyText: qsTr("Leaving group chat…")
+
+				Connections {
+					target: GroupChatController
+
+					function onGroupChatLeavingFailed(accountJid, groupChatJid, errorMessage) {
+						passiveNotification(qsTr("The group %1 could not be left%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
+					}
+				}
 			}
 
 			ConfirmationFormButtonArea {
