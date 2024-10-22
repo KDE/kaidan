@@ -861,11 +861,12 @@ bool MessageController::handleReaction(const QXmppMessage &message, const QStrin
 
 			// Process only newer reactions.
 			if (reactionSender.latestTimestamp.isNull() || reactionSender.latestTimestamp < receivedTimestamp) {
+				reactionSender.latestTimestamp = receivedTimestamp;
 				auto &reactions = reactionSender.reactions;
 
 				// Add new reactions.
 				for (const auto &receivedEmoji : std::as_const(receivedEmojis)) {
-					const auto reactionNew = std::none_of(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
+					const auto reactionNew = std::none_of(reactions.cbegin(), reactions.cend(), [&](const MessageReaction &reaction) {
 						return reaction.emoji == receivedEmoji;
 					});
 
@@ -873,7 +874,6 @@ bool MessageController::handleReaction(const QXmppMessage &message, const QStrin
 						MessageReaction reaction;
 						reaction.emoji = receivedEmoji;
 
-						reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
 						reactions.append(reaction);
 					}
 				}
