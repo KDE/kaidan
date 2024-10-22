@@ -30,5 +30,9 @@ Button {
 
 			return Qt.tint(root.primaryColor, Qt.rgba(root.accentColor.r, root.accentColor.g, root.accentColor.b, 0.5))
 		}
+
+		Behavior on color {
+			ColorAnimation { duration: Kirigami.Units.shortDuration }
+		}
 	}
 }
