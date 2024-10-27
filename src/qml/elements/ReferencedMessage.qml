@@ -56,34 +56,43 @@ RowLayout {
 		}
 		contentItem: RowLayout {
 			id: contentArea
+			spacing: Kirigami.Units.largeSpacing
 
 			Avatar {
 				id: avatar
 				jid: root.senderId ? root.senderId : ChatController.accountJid
 				name: root.senderName ? root.senderName : AccountManager.displayName
-				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
+				Layout.preferredHeight: Kirigami.Units.iconSizes.large
 			}
 
 			ColumnLayout {
 				Controls.Label {
-					text: root.senderName ? root.senderName : qsTr("Me")
+					text: senderNameTextMetrics.elidedText
 					textFormat: Text.PlainText
 					font.weight: Font.Medium
 					font.italic: !root.senderName
 					elide: Text.ElideRight
 					maximumLineCount: 1
 					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(ChatController.accountJid, AccountManager.displayName)
+
+					TextMetrics {
+						id: senderNameTextMetrics
+						text: root.senderName ? root.senderName : qsTr("Me")
+						elide: Text.ElideRight
+						elideWidth: root.maximumWidth - contentArea.parent.leftPadding - avatar.width - bodyText.implicitWidth - contentArea.spacing * 2 - contentArea.parent.rightPadding
+					}
 				}
 
 				FormattedTextEdit {
-					text: root.body ? bodyTextMetrics.elidedText : qsTr("Media")
+					id: bodyText
+					text: bodyTextMetrics.elidedText
 					color: Kirigami.Theme.disabledTextColor
 					font.italic: !root.body
 					Layout.minimumWidth: root.minimumWidth - contentArea.parent.leftPadding - avatar.width - contentArea.spacing * 2 - contentArea.parent.rightPadding
 
 					TextMetrics {
 						id: bodyTextMetrics
-						text: Utils.removeNewLinesFromString(root.body)
+						text:  root.body ? Utils.removeNewLinesFromString(root.body) : qsTr("Media")
 						elide: Text.ElideRight
 						elideWidth: root.maximumWidth - contentArea.parent.leftPadding - avatar.width - contentArea.spacing * 2 - contentArea.parent.rightPadding
 					}
