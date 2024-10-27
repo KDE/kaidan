@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-08-24 12:14+0200\n"
+"PO-Revision-Date: 2024-10-26 13:12+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -96,18 +96,14 @@ msgstr ""
 "inne dane osobowe %2"
 
 #: src/ChatHintModel.cpp:282
-#, fuzzy, qt-format
-#| msgctxt "ChatHintModel|"
-#| msgid ""
-#| "%1 would like to receive your personal data such as availability, devices "
-#| "and other personal information%2"
+#, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
 "Your contact %1 is %2 now and would like to receive your personal data such "
 "as availability, devices and other personal information again%3"
 msgstr ""
-"%1 chciałby otrzymać twoje dane osobiste takie jak dostępność, urządzenia i "
-"inne dane osobowe %2"
+"Twój kontakt %1 jest teraz %2 i chciałby ponownie otrzymać twoje dane "
+"osobiste takie jak dostępność, urządzenia i inne dane osobowe %3"
 
 #: src/ChatHintModel.cpp:287
 msgctxt "ChatHintModel|"
@@ -148,20 +144,14 @@ msgid "This group is deleted"
 msgstr "Ta grupa nie ma żadnych użytkowników"
 
 #: src/ChatHintModel.cpp:328
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Opuść"
 
 #: src/ChatHintModel.cpp:330
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Creating group chat…"
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
-msgstr "Tworzenie rozmowy grupowej…"
+msgstr "Opuszczanie rozmowy grupowej"
 
 #: src/FileSharingController.cpp:376
 #, qt-format
@@ -1113,11 +1103,7 @@ msgid "Deleting account…"
 msgstr "Usuń konto"
 
 #: src/qml/details/AccountDetailsContent.qml:1032
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1141,12 +1127,9 @@ msgid "Verify your own devices to encrypt for them"
 msgstr "Sprawdź <b>swoje</b> urządzenia, aby móc dla nich szyfrować"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices to encrypt for them"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "Verify own unknown devices to encrypt for them"
-msgstr "Sprawdź <b>swoje</b> urządzenia, aby móc dla nich szyfrować"
+msgstr "Sprawdź swoje własne nieznane urządzenia, aby móc dla nich szyfrować"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:41
 #, fuzzy
@@ -1167,20 +1150,14 @@ msgid "You have no other trusted device to encrypt for"
 msgstr ""
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "<b>Your</b> other devices don't use OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have other devices that do not use OMEMO 2"
-msgstr "<b>Twoje</b> pozostałe urządzenia nie korzystają z OMEMO 2"
+msgstr "Masz inne urządzenia, które nie obsługują OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:53
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "AccountKeyAuthenticationButton|"
 msgid "You have no known other device using OMEMO 2"
-msgstr "<b>Nie</b> masz innych urządzeń obsługujących OMEMO 2"
+msgstr "Nie masz znanego innego urządzenia, używającego OMEMO 2"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:55
 msgctxt "AccountKeyAuthenticationButton|"
@@ -1385,66 +1362,46 @@ msgstr "Zmaksymalizuj awatara"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices to encrypt for them"
-msgstr ""
-"Sprawdź urządzenia swojego <b>znajomego</b>, aby móc dla niego szyfrować"
+msgstr "Sprawdź urządzenia swojego kontaktu, aby móc dla niego szyfrować"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's unknown devices to encrypt for them"
 msgstr ""
-"Sprawdź urządzenia swojego <b>znajomego</b>, aby móc dla niego szyfrować"
+"Sprawdź nieznane urządzenia swojego kontaktu, aby móc dla niego szyfrować"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Verify <b>your</b> devices for maximum security"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Verify your contact's devices for maximum security"
-msgstr "Sprawdź <b>swoje</b> urządzenia dla najwyższego bezpieczeństwa"
+msgstr "Sprawdź urządzenia twojego kontaktu dla najwyższego bezpieczeństwa"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid ""
 "Verify your contact's unknown devices or let your contact verify this device"
 msgstr ""
-"Sprawdź urządzenia swojego <b>znajomego</b>, aby móc dla niego szyfrować"
+"Sprawdź nieznane urządzenia swojego kontaktu lub pozwól kontaktowi sprawdzić "
+"to urządzenie"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no trusted device to encrypt for"
 msgstr ""
-"Sprawdź urządzenia swojego <b>znajomego</b>, aby móc dla niego szyfrować"
+"Twój kontakt nie ma zaufanego urządzenia, dla którego można by szyfrować"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "<b>You</b> have no other devices supporting OMEMO 2"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has no known device using OMEMO 2"
-msgstr "<b>Nie</b> masz innych urządzeń obsługujących OMEMO 2"
+msgstr "Twój kontakt nie ma znanego urządzenia, używającego OMEMO 2"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Verify your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "Your contact has devices that need to be verified to encrypt for them"
 msgstr ""
-"Sprawdź urządzenia swojego <b>znajomego</b>, aby móc dla niego szyfrować"
+"Twój kontakt posiada urządzenia, które należy sprawdzić, aby móc dla nich "
+"szyfrować"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:29
 msgctxt "ContactKeyAuthenticationButton|"
@@ -1742,63 +1699,48 @@ msgstr "Usunięty"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices to encrypt for them"
-msgstr "Sprawdź urządzenia <b>uczestników</b>, aby móc dla nich szyfrować"
+msgstr "Sprawdź urządzenia uczestników, aby móc dla nich szyfrować"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:11
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' unknown devices to encrypt for them"
-msgstr "Sprawdź urządzenia <b>uczestników</b>, aby móc dla nich szyfrować"
+msgstr "Sprawdź nieznane urządzenia uczestników, aby móc dla nich szyfrować"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:15
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants</b> for maximum security"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
-msgstr "Sprawdź <b>uczestników</b> dla najwyższego bezpieczeństwa"
+msgstr "Sprawdź urządzenia uczestników dla najwyższego bezpieczeństwa"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Verify the participants' unknown devices or let the participants verify this "
 "device"
-msgstr "Sprawdź urządzenia <b>uczestników</b>, aby móc dla nich szyfrować"
+msgstr ""
+"Sprawdź nieznane urządzenia uczestników lub pozwól uczestnikom sprawdzić to "
+"urządzenie"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:23
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a trusted device to encrypt for"
-msgstr "Sprawdź urządzenia <b>uczestników</b>, aby móc dla nich szyfrować"
+msgstr ""
+"Żaden z uczestników nie ma zaufanego urządzenia, dla którego można by "
+"szyfrować"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:25
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "No <b>participant</b> uses OMEMO 2"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "No participant has a known device using OMEMO 2"
-msgstr "Twój <b>uczestnik</b> korzysta z OMEMO 2"
+msgstr "Żaden z uczestników nie ma znanego urządzenia, używającego OMEMO 2"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:27
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Verify the <b>participants'</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid ""
 "Some participants have devices that need to be verified to encrypt for them"
-msgstr "Sprawdź urządzenia <b>uczestników</b>, aby móc dla nich szyfrować"
+msgstr ""
+"Niektórzy uczestnicy posiadają urządzenia, które należy sprawdzić, aby móc "
+"dla nich szyfrować"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:29
 msgctxt "GroupChatUserKeyAuthenticationButton|"
@@ -1885,10 +1827,6 @@ msgid "Removing notes chat…"
 msgstr "Dodawanie kontaktu…"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
-#, fuzzy
-#| msgctxt "ContactDetailsHeader|"
-#| msgid ""
-#| "Messages in this chat are synchronized as notes across all your devices"
 msgctxt "NotesChatDetailsHeader|"
 msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
@@ -3050,14 +2988,11 @@ msgid "Username"
 msgstr "Nazwa użytkownika"
 
 #: src/qml/registration/ManualRegistrationPage.qml:85
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid ""
-#| "Please enter a valid username or leave the field empty for a random one."
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
-"Wpisz poprawną nazwę użytkownika lub pozostaw pole puste dla losowej nazwy."
+"Wpisz poprawną nazwę użytkownika lub pozostaw pole puste, aby nadać losową "
+"nazwę"
 
 #: src/qml/registration/ManualRegistrationPage.qml:169
 msgctxt "ManualRegistrationPage|"
@@ -3169,9 +3104,6 @@ msgid "You must enter a provider address"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:292
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "Dostawca nie obsługuje rejestrowania się przez tę aplikację."
@@ -3242,26 +3174,18 @@ msgid "Step 1: Register account"
 msgstr "Zarejestruj nowe konto"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
-#| msgctxt "QmlUtils|"
-#| msgid "This server does not support registration."
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "Ten serwer nie obsługuje procesu rejestracji."
+msgstr "Zaznaczony dostawca obsługuje rejestrację tylko w sieci"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
-#, fuzzy
-#| msgctxt "WebRegistrationView|"
-#| msgid ""
-#| "The selected provider only provides web registration. After creating an "
-#| "account via the web page, you can log in via Kaidan."
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
-"Wybrany dostawca zapewnia tylko rejestrację internetową. Po utworzeniu  "
-"konta na stronie internetowej można zalogować się przez Kaidan."
+"Po utworzeniu konta na stronie dostawcy można będzie na nie wejść przez "
+"Kaidana."
 
 #: src/qml/registration/WebRegistrationPage.qml:59
 #, fuzzy
