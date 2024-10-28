@@ -59,29 +59,29 @@ msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Enheter på servrar"
 
-#: src/ChatHintModel.cpp:261
+#: src/ChatHintModel.cpp:279
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr ""
 "Du är inte ansluten. Meddelanden skickas och tas emot när du väl är ansluten"
 
-#: src/ChatHintModel.cpp:262 src/ChatHintModel.cpp:305
-#: src/ChatHintModel.cpp:327
+#: src/ChatHintModel.cpp:280 src/ChatHintModel.cpp:323
+#: src/ChatHintModel.cpp:345
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "Stäng"
 
-#: src/ChatHintModel.cpp:263
+#: src/ChatHintModel.cpp:281
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "Anslut"
 
-#: src/ChatHintModel.cpp:265
+#: src/ChatHintModel.cpp:283
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "Ansluter…"
 
-#: src/ChatHintModel.cpp:278
+#: src/ChatHintModel.cpp:296
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -91,7 +91,7 @@ msgstr ""
 "%1 skulle vilja ta emot personlig data såsom tillgänglighet, apparater och "
 "annan personlig information%2"
 
-#: src/ChatHintModel.cpp:282
+#: src/ChatHintModel.cpp:300
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -101,47 +101,47 @@ msgstr ""
 "Kontakten %1 är nu %2 och skulle vilja ta emot din personliga data såsom "
 "tillgänglighet, apparater och annan personlig information igen%3"
 
-#: src/ChatHintModel.cpp:287
+#: src/ChatHintModel.cpp:305
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "Vägra"
 
-#: src/ChatHintModel.cpp:288
+#: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "Tillåt"
 
-#: src/ChatHintModel.cpp:290
+#: src/ChatHintModel.cpp:308
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "Tillåter…"
 
-#: src/ChatHintModel.cpp:304
+#: src/ChatHintModel.cpp:322
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "Gruppen har inga användare"
 
-#: src/ChatHintModel.cpp:306
+#: src/ChatHintModel.cpp:324
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "Bjud in kontakter"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:326
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "Öppnar inbjudningsområde"
 
-#: src/ChatHintModel.cpp:326
+#: src/ChatHintModel.cpp:344
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "Gruppen har tagits bort"
 
-#: src/ChatHintModel.cpp:328
+#: src/ChatHintModel.cpp:346
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "Lämna"
 
-#: src/ChatHintModel.cpp:330
+#: src/ChatHintModel.cpp:348
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Lämnar gruppchatt"
@@ -361,12 +361,12 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "Ingen information"
 
-#: src/Message.cpp:361
+#: src/Message.cpp:357
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:405
+#: src/Message.cpp:401
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -405,7 +405,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Meddelande kunde inte skickas."
 
-#: src/MessageController.cpp:692
+#: src/MessageController.cpp:691
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -522,17 +522,17 @@ msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "%1 kunde inte bannlysas från %2: %3"
 
-#: src/MixController.cpp:422
+#: src/MixController.cpp:424
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "Du har inte tillåtelse att ta bort gruppen"
 
-#: src/Notifications.cpp:155 src/Notifications.cpp:236
+#: src/Notifications.cpp:156 src/Notifications.cpp:236
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "Öppna"
 
-#: src/Notifications.cpp:156
+#: src/Notifications.cpp:157
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Markera som läst"
@@ -617,21 +617,21 @@ msgid "Add hidden message part"
 msgstr "Lägg till dold meddelandedel"
 
 #: src/qml/details/AccountDetailsContent.qml:28
-#: src/qml/details/AccountDetailsContent.qml:281
-#: src/qml/details/AccountDetailsContent.qml:306
+#: src/qml/details/AccountDetailsContent.qml:280
+#: src/qml/details/AccountDetailsContent.qml:304
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr "Aldrig"
 
 #: src/qml/details/AccountDetailsContent.qml:32
-#: src/qml/details/AccountDetailsContent.qml:285
+#: src/qml/details/AccountDetailsContent.qml:284
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr "Om personlig information delas"
 
 #: src/qml/details/AccountDetailsContent.qml:36
-#: src/qml/details/AccountDetailsContent.qml:289
-#: src/qml/details/AccountDetailsContent.qml:314
+#: src/qml/details/AccountDetailsContent.qml:288
+#: src/qml/details/AccountDetailsContent.qml:312
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr "Alltid"
@@ -712,95 +712,95 @@ msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 "Visa underrättelser och spela ljud när meddelanden anländer från en kontakt"
 
-#: src/qml/details/AccountDetailsContent.qml:301
+#: src/qml/details/AccountDetailsContent.qml:300
 msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Inkommande gruppmeddelanden"
 
-#: src/qml/details/AccountDetailsContent.qml:302
+#: src/qml/details/AccountDetailsContent.qml:301
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 "Visa underrättelser och spela ljud när meddelanden anländer från en grupp"
 
-#: src/qml/details/AccountDetailsContent.qml:310
+#: src/qml/details/AccountDetailsContent.qml:308
 msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "Vid omnämnande"
 
-#: src/qml/details/AccountDetailsContent.qml:344
+#: src/qml/details/AccountDetailsContent.qml:342
 msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Leverantör"
 
-#: src/qml/details/AccountDetailsContent.qml:348
+#: src/qml/details/AccountDetailsContent.qml:346
 msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Besök webbplats"
 
-#: src/qml/details/AccountDetailsContent.qml:349
+#: src/qml/details/AccountDetailsContent.qml:347
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr "Öppna leverantörens webbplats i en webbläsare"
 
-#: src/qml/details/AccountDetailsContent.qml:355
+#: src/qml/details/AccountDetailsContent.qml:353
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "Kopiera webbplatsadress"
 
-#: src/qml/details/AccountDetailsContent.qml:356
+#: src/qml/details/AccountDetailsContent.qml:354
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr "Kopiera leverantörens webbadress till klippbordet"
 
-#: src/qml/details/AccountDetailsContent.qml:360
+#: src/qml/details/AccountDetailsContent.qml:358
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Webbplatsadress kopierad till klippbordet"
 
-#: src/qml/details/AccountDetailsContent.qml:365
+#: src/qml/details/AccountDetailsContent.qml:363
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr "Öppna supportchatt"
 
-#: src/qml/details/AccountDetailsContent.qml:366
+#: src/qml/details/AccountDetailsContent.qml:364
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr "Börja chatta med leverantörens supportkontakt"
 
-#: src/qml/details/AccountDetailsContent.qml:372
+#: src/qml/details/AccountDetailsContent.qml:370
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr "Support"
 
-#: src/qml/details/AccountDetailsContent.qml:398
+#: src/qml/details/AccountDetailsContent.qml:396
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr "Support %1"
 
-#: src/qml/details/AccountDetailsContent.qml:415
+#: src/qml/details/AccountDetailsContent.qml:413
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr "Öppna supportgrupp"
 
-#: src/qml/details/AccountDetailsContent.qml:416
+#: src/qml/details/AccountDetailsContent.qml:414
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr "Gå med i leverantörens öppna supportgrupp"
 
-#: src/qml/details/AccountDetailsContent.qml:442
+#: src/qml/details/AccountDetailsContent.qml:440
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr "Gruppsupport %1"
 
-#: src/qml/details/AccountDetailsContent.qml:459
+#: src/qml/details/AccountDetailsContent.qml:457
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Blockerade chattadresser"
 
-#: src/qml/details/AccountDetailsContent.qml:463
+#: src/qml/details/AccountDetailsContent.qml:461
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
@@ -809,42 +809,50 @@ msgstr ""
 "Blockera en specifik användare (t.ex. användare@exempel.org) eller alla "
 "användare på samma server (t.ex. exempel.org)"
 
-#: src/qml/details/AccountDetailsContent.qml:482
+#: src/qml/details/AccountDetailsContent.qml:480
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 "Du måste vara ansluten för att blockera eller ta bort blockering av "
 "chattadresser"
 
-#: src/qml/details/AccountDetailsContent.qml:489
+#: src/qml/details/AccountDetailsContent.qml:487
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "användare@exempel.org"
 
-#: src/qml/details/AccountDetailsContent.qml:504
+#: src/qml/details/AccountDetailsContent.qml:502
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Blockera chattadress"
 
-#: src/qml/details/AccountDetailsContent.qml:562
+#: src/qml/details/AccountDetailsContent.qml:560
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Ändra chattadress…"
 
-#: src/qml/details/AccountDetailsContent.qml:591
+#: src/qml/details/AccountDetailsContent.qml:589
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr "Ta bort blockering"
 
-#: src/qml/details/AccountDetailsContent.qml:618
+#: src/qml/details/AccountDetailsContent.qml:616
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: src/qml/details/AccountDetailsContent.qml:623
+#: src/qml/details/AccountDetailsContent.qml:622
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr "Lägg till chatt för anteckningar"
+
+#: src/qml/details/AccountDetailsContent.qml:623
+#, fuzzy
+#| msgctxt "NotesChatDetailsContent|"
+#| msgid "Removing notes chat…"
+msgctxt "AccountDetailsContent|"
+msgid "Adding notes chat…"
+msgstr "Tar bort chatt för anteckningar…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -853,12 +861,26 @@ msgstr ""
 "Lägg till en chatt för att synkronisera dina anteckningar mellan alla dina "
 "apparater"
 
-#: src/qml/details/AccountDetailsContent.qml:658
+#: src/qml/details/AccountDetailsContent.qml:647
+#, fuzzy
+#| msgctxt "RosterManager|"
+#| msgid ""
+#| "The notes chat could not be added to your contact list because your "
+#| "server does not support that"
+msgctxt "AccountDetailsContent|"
+msgid ""
+"The notes chat could not be added to your contact list because your server "
+"does not support that"
+msgstr ""
+"Anteckningschatten kunde inte läggas till till i kontaktlistan eftersom "
+"servern inte stöder det"
+
+#: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Lösenordsändring"
 
-#: src/qml/details/AccountDetailsContent.qml:662
+#: src/qml/details/AccountDetailsContent.qml:673
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
@@ -867,63 +889,63 @@ msgstr ""
 "Ändrat ditt lösenord. Du måste mata in det nya lösenordet igen på alla dina "
 "apparater."
 
-#: src/qml/details/AccountDetailsContent.qml:678
+#: src/qml/details/AccountDetailsContent.qml:689
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Nuvarande lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:679
+#: src/qml/details/AccountDetailsContent.qml:690
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Ange ditt nuvarande lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:680
+#: src/qml/details/AccountDetailsContent.qml:691
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Ange korrekt lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nytt lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:702
+#: src/qml/details/AccountDetailsContent.qml:713
 msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:703
+#: src/qml/details/AccountDetailsContent.qml:714
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Ange ditt nya lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:704
+#: src/qml/details/AccountDetailsContent.qml:715
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr "Ange ett annorlunda lösenord för att ändra det"
 
-#: src/qml/details/AccountDetailsContent.qml:724
+#: src/qml/details/AccountDetailsContent.qml:735
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Ändra lösenord"
 
-#: src/qml/details/AccountDetailsContent.qml:771
+#: src/qml/details/AccountDetailsContent.qml:782
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Misslyckades ändra lösenord: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:777
+#: src/qml/details/AccountDetailsContent.qml:788
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Lösenord ändrat med lyckat resultat"
 
-#: src/qml/details/AccountDetailsContent.qml:793
+#: src/qml/details/AccountDetailsContent.qml:804
 msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Lösenordssynlighet"
 
-#: src/qml/details/AccountDetailsContent.qml:797
+#: src/qml/details/AccountDetailsContent.qml:808
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -936,12 +958,12 @@ msgstr ""
 "använda kontot på en annan apparat, <b>överväg att lagra lösenordet någon "
 "annanstans. Det går inte att ångra."
 
-#: src/qml/details/AccountDetailsContent.qml:803
+#: src/qml/details/AccountDetailsContent.qml:814
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Visa inte lösenord som text"
 
-#: src/qml/details/AccountDetailsContent.qml:804
+#: src/qml/details/AccountDetailsContent.qml:815
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
@@ -950,17 +972,17 @@ msgstr ""
 "Tillåt att ytterligare apparater läggs till genom att använda QR-koden för "
 "inloggning men visa aldrig lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:811
+#: src/qml/details/AccountDetailsContent.qml:824
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "Ta bort lösenord från text…"
 
-#: src/qml/details/AccountDetailsContent.qml:817
+#: src/qml/details/AccountDetailsContent.qml:830
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Exponera inte lösenord på något sätt"
 
-#: src/qml/details/AccountDetailsContent.qml:818
+#: src/qml/details/AccountDetailsContent.qml:831
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
@@ -969,17 +991,17 @@ msgstr ""
 "Tillåt varken att ytterligare apparater läggs till genom att använda QR-"
 "koden för inloggning eller visning av lösenordet"
 
-#: src/qml/details/AccountDetailsContent.qml:830
+#: src/qml/details/AccountDetailsContent.qml:845
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr "Tar bort lösenord från text och QR-kod…"
 
-#: src/qml/details/AccountDetailsContent.qml:842
+#: src/qml/details/AccountDetailsContent.qml:857
 msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Anslutning"
 
-#: src/qml/details/AccountDetailsContent.qml:846
+#: src/qml/details/AccountDetailsContent.qml:861
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure the hostname and port to connect to (empty fields for default "
@@ -988,48 +1010,48 @@ msgstr ""
 "Anpassa värddatornamn och port att ansluta till (tomma fält för "
 "standardvärden)"
 
-#: src/qml/details/AccountDetailsContent.qml:865
+#: src/qml/details/AccountDetailsContent.qml:880
 msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Ändra anslutningsinställningar"
 
-#: src/qml/details/AccountDetailsContent.qml:874
+#: src/qml/details/AccountDetailsContent.qml:889
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Ange andra anslutningsinställningar för att ändra dem"
 
-#: src/qml/details/AccountDetailsContent.qml:923
+#: src/qml/details/AccountDetailsContent.qml:938
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Anslutningsinställningarna kunde inte ändras.: %1"
 
-#: src/qml/details/AccountDetailsContent.qml:938
+#: src/qml/details/AccountDetailsContent.qml:953
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Anslutningsinställningar ändrade"
 
-#: src/qml/details/AccountDetailsContent.qml:962
+#: src/qml/details/AccountDetailsContent.qml:977
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Överföring"
 
-#: src/qml/details/AccountDetailsContent.qml:970
+#: src/qml/details/AccountDetailsContent.qml:985
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Överför konto"
 
-#: src/qml/details/AccountDetailsContent.qml:971
+#: src/qml/details/AccountDetailsContent.qml:986
 msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Förbereder kontoöverföring…"
 
-#: src/qml/details/AccountDetailsContent.qml:972
+#: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr "Det kan ta lång tid"
 
-#: src/qml/details/AccountDetailsContent.qml:972
+#: src/qml/details/AccountDetailsContent.qml:987
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1040,17 +1062,17 @@ msgstr ""
 "nuvarande kontot kommer att tas bort från programmet. Säkerhetskopiera din "
 "inloggningsinformation och chatthistorik om det behövs."
 
-#: src/qml/details/AccountDetailsContent.qml:1000
+#: src/qml/details/AccountDetailsContent.qml:1015
 msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Borttagning"
 
-#: src/qml/details/AccountDetailsContent.qml:1006
+#: src/qml/details/AccountDetailsContent.qml:1021
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Ta bort från Kaidan"
 
-#: src/qml/details/AccountDetailsContent.qml:1007
+#: src/qml/details/AccountDetailsContent.qml:1022
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
@@ -1059,29 +1081,29 @@ msgstr ""
 "Ta bort konto från programmet. Säkerhetskopiera din inloggningsinformation "
 "och chatthistorik om det behövs."
 
-#: src/qml/details/AccountDetailsContent.qml:1012
+#: src/qml/details/AccountDetailsContent.qml:1030
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Tar bort konto…"
 
-#: src/qml/details/AccountDetailsContent.qml:1019
+#: src/qml/details/AccountDetailsContent.qml:1037
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Ta bort fullständigt"
 
-#: src/qml/details/AccountDetailsContent.qml:1020
+#: src/qml/details/AccountDetailsContent.qml:1038
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 "Ta bort konto från leverantör. Du kommer inte att kunna använda kontot igen."
 
-#: src/qml/details/AccountDetailsContent.qml:1025
+#: src/qml/details/AccountDetailsContent.qml:1043
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Tar bort konto…"
 
-#: src/qml/details/AccountDetailsContent.qml:1032
+#: src/qml/details/AccountDetailsContent.qml:1050
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1091,10 +1113,26 @@ msgstr ""
 "Ditt konto kunde inte tas bort från servern. Därför har det inte heller "
 "tagits bort från applikationen: %1"
 
+#: src/qml/details/AccountDetailsDialog.qml:16
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountDetailsDialog|"
+msgid "Account Details"
+msgstr "Kontosäkerhet"
+
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
 msgid "Change your profile image"
 msgstr "Ändra din profilbild"
+
+#: src/qml/details/AccountDetailsPage.qml:15
+#, fuzzy
+#| msgctxt "SettingsContent|"
+#| msgid "Account security"
+msgctxt "AccountDetailsPage|"
+msgid "Account Details"
+msgstr "Kontosäkerhet"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1149,27 +1187,27 @@ msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
 msgstr "Alla dina kända apparater är verifierade"
 
-#: src/qml/details/AvatarChangePage.qml:25
+#: src/qml/details/AvatarChangePage.qml:24
 msgctxt "AvatarChangePage|"
 msgid "Change profile image"
 msgstr "Ändra profilbild"
 
-#: src/qml/details/AvatarChangePage.qml:38
+#: src/qml/details/AvatarChangePage.qml:37
 msgctxt "AvatarChangePage|"
 msgid "Choose profile image"
 msgstr "Välj profilbild"
 
-#: src/qml/details/AvatarChangePage.qml:116
+#: src/qml/details/AvatarChangePage.qml:115
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
 msgstr "Öppna bild…"
 
-#: src/qml/details/AvatarChangePage.qml:121
+#: src/qml/details/AvatarChangePage.qml:120
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
 msgstr "Ta bort nuvarande profilbild"
 
-#: src/qml/details/AvatarChangePage.qml:127
+#: src/qml/details/AvatarChangePage.qml:126
 msgctxt "AvatarChangePage|"
 msgid "Save selection"
 msgstr "Spara markering"
@@ -1229,32 +1267,32 @@ msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
 
-#: src/qml/details/ContactDetailsContent.qml:109
+#: src/qml/details/ContactDetailsContent.qml:108
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Kontoförval"
 
-#: src/qml/details/ContactDetailsContent.qml:113
+#: src/qml/details/ContactDetailsContent.qml:112
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr "Aldrig"
 
-#: src/qml/details/ContactDetailsContent.qml:117
+#: src/qml/details/ContactDetailsContent.qml:116
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr "Alltid"
 
-#: src/qml/details/ContactDetailsContent.qml:136
+#: src/qml/details/ContactDetailsContent.qml:135
 msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Integritet"
 
-#: src/qml/details/ContactDetailsContent.qml:140
+#: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Begär personlig information"
 
-#: src/qml/details/ContactDetailsContent.qml:141
+#: src/qml/details/ContactDetailsContent.qml:140
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
@@ -1263,73 +1301,89 @@ msgstr ""
 "Be din kontakt om att dela tillgänglighet, apparater och annan personlig "
 "information"
 
-#: src/qml/details/ContactDetailsContent.qml:147
+#: src/qml/details/ContactDetailsContent.qml:146
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr "Avbryt delning av personlig information"
 
-#: src/qml/details/ContactDetailsContent.qml:148
+#: src/qml/details/ContactDetailsContent.qml:147
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 "Sluta dela din tillgänglighet, apparater och annan personlig information"
 
-#: src/qml/details/ContactDetailsContent.qml:154
+#: src/qml/details/ContactDetailsContent.qml:153
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Skicka skrivunderrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:155
+#: src/qml/details/ContactDetailsContent.qml:154
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 "Indikera när du har konversationen öppen, och skriver eller slutar skriva"
 
-#: src/qml/details/ContactDetailsContent.qml:166
+#: src/qml/details/ContactDetailsContent.qml:165
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Skicka läsunderrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:167
+#: src/qml/details/ContactDetailsContent.qml:166
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr "Indikera vilka meddelanden du har läst"
 
-#: src/qml/details/ContactDetailsContent.qml:178
+#: src/qml/details/ContactDetailsContent.qml:177
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr "Blockera"
 
-#: src/qml/details/ContactDetailsContent.qml:179
+#: src/qml/details/ContactDetailsContent.qml:178
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr "Blockera all kommunikation inklusive status och underrättelser"
 
-#: src/qml/details/ContactDetailsContent.qml:205
+#: src/qml/details/ContactDetailsContent.qml:204
 msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Borttagning"
 
-#: src/qml/details/ContactDetailsContent.qml:210
+#: src/qml/details/ContactDetailsContent.qml:209
 msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Ta bort"
 
-#: src/qml/details/ContactDetailsContent.qml:211
+#: src/qml/details/ContactDetailsContent.qml:210
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr "Ta bort kontakt och fullständig chatthistorik"
 
-#: src/qml/details/ContactDetailsContent.qml:216
+#: src/qml/details/ContactDetailsContent.qml:218
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
 msgstr "Tar bort kontakt…"
+
+#: src/qml/details/ContactDetailsDialog.qml:15
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Contacts"
+msgctxt "ContactDetailsDialog|"
+msgid "Contact Details"
+msgstr "Kontakter"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Maximera avatar"
+
+#: src/qml/details/ContactDetailsPage.qml:11
+#, fuzzy
+#| msgctxt "RosterPage|"
+#| msgid "Contacts"
+msgctxt "ContactDetailsPage|"
+msgid "Contact Details"
+msgstr "Kontakter"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1396,58 +1450,58 @@ msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Ladda automatiskt ner media"
 
-#: src/qml/details/DetailsContent.qml:84
+#: src/qml/details/DetailsContent.qml:83
 #, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Tillåter att dela media upp till %1."
 
-#: src/qml/details/DetailsContent.qml:129
+#: src/qml/details/DetailsContent.qml:128
 msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/qml/details/DetailsContent.qml:153
+#: src/qml/details/DetailsContent.qml:152
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr "Etiketter"
 
-#: src/qml/details/DetailsContent.qml:178
+#: src/qml/details/DetailsContent.qml:177
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "Delar"
 
-#: src/qml/details/DetailsContent.qml:183
+#: src/qml/details/DetailsContent.qml:182
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Visa QR-kod"
 
-#: src/qml/details/DetailsContent.qml:201
+#: src/qml/details/DetailsContent.qml:200
 msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Kopiera QR-kod"
 
-#: src/qml/details/DetailsContent.qml:203
+#: src/qml/details/DetailsContent.qml:202
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "QR-kod kopierad till klippbordet"
 
-#: src/qml/details/DetailsContent.qml:208
+#: src/qml/details/DetailsContent.qml:207
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Kopiera chattadress"
 
-#: src/qml/details/DetailsContent.qml:214
+#: src/qml/details/DetailsContent.qml:213
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr "Kopiera inbjudningslänk"
 
-#: src/qml/details/DetailsContent.qml:216
+#: src/qml/details/DetailsContent.qml:215
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "Inbjudningslänk kopierad till klippbordet"
 
-#: src/qml/details/DetailsHeader.qml:93
+#: src/qml/details/DetailsHeader.qml:94
 msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr "Ändra namn…"
@@ -1462,17 +1516,17 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
 msgstr "Bjud in markerade kontakter"
 
-#: src/qml/details/GroupChatDetailsContent.qml:127
+#: src/qml/details/GroupChatDetailsContent.qml:128
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
 msgstr "Markera minst en kontakt"
 
-#: src/qml/details/GroupChatDetailsContent.qml:144
+#: src/qml/details/GroupChatDetailsContent.qml:145
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
 msgstr "Deltagare"
 
-#: src/qml/details/GroupChatDetailsContent.qml:148
+#: src/qml/details/GroupChatDetailsContent.qml:149
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
@@ -1481,27 +1535,27 @@ msgstr ""
 "Tillåt en användare (t.ex. användare@exempel.org) eller alla användare på "
 "samma server (t.ex. exempel.org) att delta"
 
-#: src/qml/details/GroupChatDetailsContent.qml:171
+#: src/qml/details/GroupChatDetailsContent.qml:172
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr "Du måste vara ansluten för att ändra deltagarna"
 
-#: src/qml/details/GroupChatDetailsContent.qml:206
+#: src/qml/details/GroupChatDetailsContent.qml:207
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr "Bannlys"
 
-#: src/qml/details/GroupChatDetailsContent.qml:232
+#: src/qml/details/GroupChatDetailsContent.qml:233
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Kryptering"
 
-#: src/qml/details/GroupChatDetailsContent.qml:236
+#: src/qml/details/GroupChatDetailsContent.qml:237
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr "OMEMO 2"
 
-#: src/qml/details/GroupChatDetailsContent.qml:237
+#: src/qml/details/GroupChatDetailsContent.qml:238
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
@@ -1510,38 +1564,38 @@ msgstr ""
 "Kryptering hela vägen med OMEMO 2 säkerställer att ingen annan än du och din "
 "chattpartner kan läsa eller ändra data som ni utbyter."
 
-#: src/qml/details/GroupChatDetailsContent.qml:305
-#: src/qml/details/GroupChatDetailsContent.qml:310
+#: src/qml/details/GroupChatDetailsContent.qml:306
+#: src/qml/details/GroupChatDetailsContent.qml:311
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr "Dela gruppens chattadress via QR-kod"
 
-#: src/qml/details/GroupChatDetailsContent.qml:314
+#: src/qml/details/GroupChatDetailsContent.qml:315
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr "Dela gruppens chattadress via text"
 
-#: src/qml/details/GroupChatDetailsContent.qml:317
+#: src/qml/details/GroupChatDetailsContent.qml:318
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "Gruppadress kopierad till klippbordet"
 
-#: src/qml/details/GroupChatDetailsContent.qml:321
+#: src/qml/details/GroupChatDetailsContent.qml:322
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr "Dela gruppens chattadress via en webbsida med användningshjälp"
 
-#: src/qml/details/GroupChatDetailsContent.qml:332
+#: src/qml/details/GroupChatDetailsContent.qml:333
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Underrättelser"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:338
 msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Inkommande meddelanden"
 
-#: src/qml/details/GroupChatDetailsContent.qml:338
+#: src/qml/details/GroupChatDetailsContent.qml:339
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr "Visa underrättelser och spela ljud när meddelanden anländer"
@@ -1614,25 +1668,41 @@ msgid "Leaving group chat…"
 msgstr "Lämnar gruppchatt…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
+#, fuzzy, qt-format
+#| msgctxt "GroupChatDetailsContent|"
+#| msgid "The group %1 could not be deleted%2"
+msgctxt "GroupChatDetailsContent|"
+msgid "The group %1 could not be left%2"
+msgstr "Gruppen %1 kunde inte tas bort%2"
+
+#: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Ta bort"
 
-#: src/qml/details/GroupChatDetailsContent.qml:434
+#: src/qml/details/GroupChatDetailsContent.qml:442
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr "Ta bort grupp. Ingen kommer att kunna gå med i gruppen igen."
 
-#: src/qml/details/GroupChatDetailsContent.qml:443
+#: src/qml/details/GroupChatDetailsContent.qml:451
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Tar bort gruppchatt…"
 
-#: src/qml/details/GroupChatDetailsContent.qml:449
+#: src/qml/details/GroupChatDetailsContent.qml:457
 #, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
 msgstr "Gruppen %1 kunde inte tas bort%2"
+
+#: src/qml/details/GroupChatDetailsDialog.qml:15
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group ID"
+msgctxt "GroupChatDetailsDialog|"
+msgid "Group Details"
+msgstr "Gruppidentifikation"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1653,6 +1723,14 @@ msgstr "Privat gruppchatt"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
 msgstr "Borttagen"
+
+#: src/qml/details/GroupChatDetailsPage.qml:11
+#, fuzzy
+#| msgctxt "GroupChatCreationContent|"
+#| msgid "Group ID"
+msgctxt "GroupChatDetailsPage|"
+msgid "Group Details"
+msgstr "Gruppidentifikation"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1771,10 +1849,18 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr "Ta bort anteckningschatt och fullständig chatthistorik"
 
-#: src/qml/details/NotesChatDetailsContent.qml:66
+#: src/qml/details/NotesChatDetailsContent.qml:69
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
 msgstr "Tar bort chatt för anteckningar…"
+
+#: src/qml/details/NotesChatDetailsDialog.qml:13
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "NotesChatDetailsDialog|"
+msgid "Notes Details"
+msgstr "Visa detaljinformation"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1782,6 +1868,14 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
 "Meddelanden i den här chatten synkroniseras som anteckningar mellan alla "
 "dina apparater"
+
+#: src/qml/details/NotesChatDetailsPage.qml:12
+#, fuzzy
+#| msgctxt "MessageReactionDetailsButton|"
+#| msgid "Show details"
+msgctxt "NotesChatDetailsPage|"
+msgid "Notes Details"
+msgstr "Visa detaljinformation"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -1901,27 +1995,27 @@ msgctxt "AccountKeyAuthenticationPage|"
 msgid "Unverified own devices"
 msgstr "Overifierad egna apparater"
 
-#: src/qml/elements/ChatMessage.qml:181
+#: src/qml/elements/ChatMessage.qml:162
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:271
+#: src/qml/elements/ChatMessage.qml:257
 msgctxt "ChatMessage|"
 msgid "Open"
 msgstr "Öppna"
 
-#: src/qml/elements/ChatMessage.qml:271
+#: src/qml/elements/ChatMessage.qml:257
 msgctxt "ChatMessage|"
 msgid "Join…"
 msgstr "Gå med…"
 
-#: src/qml/elements/ChatMessage.qml:424
+#: src/qml/elements/ChatMessage.qml:411
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Ny"
 
-#: src/qml/elements/ChatMessage.qml:452
+#: src/qml/elements/ChatMessage.qml:439
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -1997,75 +2091,50 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr "Avbryt tillägg av dold meddelandedel"
 
-#: src/qml/elements/ChatPageSendingPane.qml:150
+#: src/qml/elements/ChatPageSendingPane.qml:151
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr "Nämn en deltagare"
 
-#: src/qml/elements/ChatPageSendingPane.qml:186
+#: src/qml/elements/ChatPageSendingPane.qml:193
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Skriv <b>krypterat</b> meddelande med dold del"
 
-#: src/qml/elements/ChatPageSendingPane.qml:186
+#: src/qml/elements/ChatPageSendingPane.qml:193
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Skriv <b>okrypterat</b> meddelande med dold del"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:195
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Skriv <b>krypterat</b> brev"
 
-#: src/qml/elements/ChatPageSendingPane.qml:188
+#: src/qml/elements/ChatPageSendingPane.qml:195
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Skriv <b>okrypterat</b> meddelande"
 
-#: src/qml/elements/ChatPageSendingPane.qml:323
-msgctxt "ChatPageSendingPane|"
-msgid "Media"
-msgstr "Media"
-
-#: src/qml/elements/ChatPageSendingPane.qml:379
+#: src/qml/elements/ChatPageSendingPane.qml:305
 msgctxt "ChatPageSendingPane|"
 msgid "Take picture"
 msgstr "Ta en bild"
 
-#: src/qml/elements/ChatPageSendingPane.qml:380
-msgctxt "ChatPageSendingPane|"
-msgid "Take a picture using your camera"
-msgstr "Ta en bild med användning av din kamera"
-
-#: src/qml/elements/ChatPageSendingPane.qml:391
+#: src/qml/elements/ChatPageSendingPane.qml:312
 msgctxt "ChatPageSendingPane|"
 msgid "Record video"
 msgstr "Spela in video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:392
-msgctxt "ChatPageSendingPane|"
-msgid "Record a video using your camera"
-msgstr "Spela in en video med användning av din kamera"
-
-#: src/qml/elements/ChatPageSendingPane.qml:403
+#: src/qml/elements/ChatPageSendingPane.qml:319
 msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Dela filer"
 
-#: src/qml/elements/ChatPageSendingPane.qml:404
-msgctxt "ChatPageSendingPane|"
-msgid "Share files from your device"
-msgstr "Dela filer på din apparat"
-
-#: src/qml/elements/ChatPageSendingPane.qml:415
+#: src/qml/elements/ChatPageSendingPane.qml:329
 msgctxt "ChatPageSendingPane|"
 msgid "Share location"
 msgstr "Dela plats"
-
-#: src/qml/elements/ChatPageSendingPane.qml:416
-msgctxt "ChatPageSendingPane|"
-msgid "Send your location"
-msgstr "Skicka din plats"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
@@ -2399,12 +2468,12 @@ msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "Ansluter…"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:102
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Okrypterat"
 
-#: src/qml/elements/MessageBackground.qml:114
+#: src/qml/elements/MessageBackground.qml:107
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Opålitligt"
@@ -3261,27 +3330,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Skapa ett konto manuellt"
 
-#: src/QmlUtils.cpp:71
+#: src/QmlUtils.cpp:76
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Ogiltigt användarnamn eller lösenord."
 
-#: src/QmlUtils.cpp:73
+#: src/QmlUtils.cpp:78
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Kan inte ansluta till servern. Kontrollera Internetanslutningen."
 
-#: src/QmlUtils.cpp:75
+#: src/QmlUtils.cpp:80
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Fel vid försöka att ansluta säkert."
 
-#: src/QmlUtils.cpp:77
+#: src/QmlUtils.cpp:82
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Servern stöder inte säkra anslutningar."
 
-#: src/QmlUtils.cpp:79
+#: src/QmlUtils.cpp:84
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3290,22 +3359,22 @@ msgstr ""
 "Kunde inte ansluta till servern. Kontrollera Internetanslutningen eller "
 "servernamnet."
 
-#: src/QmlUtils.cpp:81
+#: src/QmlUtils.cpp:86
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Servern är nerkopplad eller blockerad av en brandvägg."
 
-#: src/QmlUtils.cpp:83
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Behörighetskontrollprotokollet stöds inte av servern."
 
-#: src/QmlUtils.cpp:85
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Anslutningen kunde inte uppdateras."
 
-#: src/QmlUtils.cpp:87
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -3314,39 +3383,39 @@ msgstr ""
 "Internetanslutning tillåts inte. Kontrollera systemets inställning av "
 "Internetåtkomst."
 
-#: src/QmlUtils.cpp:89
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Servern stöder inte registrering."
 
-#: src/QmlUtils.cpp:91
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr "Kunde inte logga in. Bekräfta först brevet du tog emot via e-post."
 
-#: src/QmlUtils.cpp:93
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Kunde inte ansluta till servern."
 
-#: src/QmlUtils.cpp:265
+#: src/QmlUtils.cpp:270
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Okänd storlek"
 
-#: src/QmlUtils.cpp:338
+#: src/QmlUtils.cpp:343
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 är uppkopplad"
 
-#: src/QmlUtils.cpp:340
+#: src/QmlUtils.cpp:345
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 skriver…"
 
-#: src/QmlUtils.cpp:342
+#: src/QmlUtils.cpp:347
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
@@ -3357,39 +3426,30 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Anteckningar"
 
-#: src/RosterManager.cpp:174
-msgctxt "RosterManager|"
-msgid ""
-"The notes chat could not be added to your contact list because your server "
-"does not support that"
-msgstr ""
-"Anteckningschatten kunde inte läggas till till i kontaktlistan eftersom "
-"servern inte stöder det"
-
-#: src/RosterManager.cpp:205
+#: src/RosterManager.cpp:198
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "%1 kunde inte läggas till: %2"
 
-#: src/RosterManager.cpp:216
+#: src/RosterManager.cpp:209
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr ""
 "Kunde inte lägga till kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:229
+#: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Kunde inte ta bort kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:242
+#: src/RosterManager.cpp:235
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
 "Kunde inte byta namn på kontakt som resultat av att inte vara uppkopplad."
 
-#: src/RosterManager.cpp:253
+#: src/RosterManager.cpp:246
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3399,19 +3459,19 @@ msgstr ""
 "Begäran att se personlig information för %1 misslyckades på grund av ett "
 "anslutningsproblem: %2"
 
-#: src/RosterManager.cpp:263
+#: src/RosterManager.cpp:257
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Misslyckades tillåta %1 att se din personlig information"
 
-#: src/RosterManager.cpp:272
+#: src/RosterManager.cpp:268
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "Misslyckades stoppa %1 från att se din personliga information"
 
-#: src/RosterModel.cpp:886
+#: src/RosterModel.cpp:867
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Igår"
@@ -3445,6 +3505,26 @@ msgstr "Födelsedag"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webbplats"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Media"
+#~ msgstr "Media"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Take a picture using your camera"
+#~ msgstr "Ta en bild med användning av din kamera"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Record a video using your camera"
+#~ msgstr "Spela in en video med användning av din kamera"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Share files from your device"
+#~ msgstr "Dela filer på din apparat"
+
+#~ msgctxt "ChatPageSendingPane|"
+#~ msgid "Send your location"
+#~ msgstr "Skicka din plats"
 
 #~ msgctxt "ContactDetailsContent|"
 #~ msgid "Verify <b>your</b> devices to encrypt for them"
@@ -3877,10 +3957,6 @@ msgstr "Webbplats"
 #~ msgstr "Nerkopplad"
 
 #~ msgctxt "RosterPage|"
-#~ msgid "Contacts"
-#~ msgstr "Kontakter"
-
-#~ msgctxt "RosterPage|"
 #~ msgid "Search contacts"
 #~ msgstr "Sök efter kontakter"
 
@@ -4173,13 +4249,6 @@ msgstr "Webbplats"
 #~ msgctxt "RemoteAccountDeletion|"
 #~ msgid "Cancel"
 #~ msgstr "Avbryt"
-
-#, fuzzy
-#~| msgctxt "SettingsContent|"
-#~| msgid "Account security"
-#~ msgctxt "SettingsContent|"
-#~ msgid "Account Settings"
-#~ msgstr "Kontosäkerhet"
 
 #~ msgctxt "SettingsContent|"
 #~ msgid "Change password"
