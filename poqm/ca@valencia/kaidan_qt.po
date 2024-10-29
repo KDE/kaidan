@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
-"PO-Revision-Date: 2024-10-20 20:33+0200\n"
+"PO-Revision-Date: 2024-10-28 10:22+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -859,15 +859,12 @@ msgstr "Notes"
 #: src/qml/details/AccountDetailsContent.qml:622
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
-msgstr "Afig un xat per a les notes"
+msgstr "Afig un xat de notes"
 
 #: src/qml/details/AccountDetailsContent.qml:623
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "S'està eliminant el xat de notes…"
+msgstr "S'està afegint el xat de notes…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -876,11 +873,6 @@ msgstr ""
 "Afig un xat per a sincronitzar les notes entre tots els vostres dispositius"
 
 #: src/qml/details/AccountDetailsContent.qml:647
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "The notes chat could not be added to your contact list because your "
-#| "server does not support that"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1129,12 +1121,9 @@ msgstr ""
 "eliminat d'esta aplicació: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:16
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "Predeterminat del compte"
+msgstr "Detalls del compte"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1142,12 +1131,9 @@ msgid "Change your profile image"
 msgstr "Canvieu la imatge del perfil"
 
 #: src/qml/details/AccountDetailsPage.qml:15
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "Predeterminat del compte"
+msgstr "Detalls del compte"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1384,12 +1370,9 @@ msgid "Removing contact…"
 msgstr "S'està eliminant el contacte…"
 
 #: src/qml/details/ContactDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "El contacte ja existix"
+msgstr "Detalls del contacte"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1397,12 +1380,9 @@ msgid "Maximize avatar"
 msgstr "Maximitza l'avatar"
 
 #: src/qml/details/ContactDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "El contacte ja existix"
+msgstr "Detalls del contacte"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1693,12 +1673,10 @@ msgid "Leaving group chat…"
 msgstr "S'està eixint del grup de xat…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "El grup %1 no s'ha pogut suprimir: %2"
+msgstr "No es pot eixir del grup %1: %2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
@@ -1722,12 +1700,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "El grup %1 no s'ha pogut suprimir: %2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "ID del grup"
+msgstr "Detalls del grup"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1750,12 +1725,9 @@ msgid "Deleted"
 msgstr "Suprimit"
 
 #: src/qml/details/GroupChatDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "ID del grup"
+msgstr "Detalls del grup"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1883,12 +1855,9 @@ msgid "Removing notes chat…"
 msgstr "S'està eliminant el xat de notes…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "Mostra els detalls"
+msgstr "Detalls de les notes"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1898,12 +1867,9 @@ msgstr ""
 "dispositius"
 
 #: src/qml/details/NotesChatDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "Mostra els detalls"
+msgstr "Detalls de les notes"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -3549,23 +3515,3 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Media"
-#~ msgstr "Multimèdia"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Take a picture using your camera"
-#~ msgstr "Pren una fotografia utilitzant la càmera"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Record a video using your camera"
-#~ msgstr "Grava un vídeo utilitzant la càmera"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Share files from your device"
-#~ msgstr "Compartix fitxers des del vostre dispositiu"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Send your location"
-#~ msgstr "Envieu la ubicació"

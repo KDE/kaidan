@@ -842,12 +842,9 @@ msgid "Add chat for notes"
 msgstr "添加聊天备注"
 
 #: src/qml/details/AccountDetailsContent.qml:623
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "正在移除聊天备注…"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -855,16 +852,11 @@ msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "添加在所有设备上同步的聊天备注"
 
 #: src/qml/details/AccountDetailsContent.qml:647
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "The notes chat could not be added to your contact list because your "
-#| "server does not support that"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
-msgstr "无法将聊天备注添加到您的联系人列表中，因为您的服务器不支持"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
@@ -1090,12 +1082,9 @@ msgid ""
 msgstr "无法从服务器中删除您的账号。因此，它也没有从此应用中移除：%1"
 
 #: src/qml/details/AccountDetailsDialog.qml:16
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "账号默认"
+msgstr ""
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1103,12 +1092,9 @@ msgid "Change your profile image"
 msgstr "更改您的个人资料图片"
 
 #: src/qml/details/AccountDetailsPage.qml:15
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "账号默认"
+msgstr ""
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1335,12 +1321,9 @@ msgid "Removing contact…"
 msgstr "正在移除联系人…"
 
 #: src/qml/details/ContactDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "联系人已存在"
+msgstr ""
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1348,12 +1331,9 @@ msgid "Maximize avatar"
 msgstr "最大化头像"
 
 #: src/qml/details/ContactDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "联系人已存在"
+msgstr ""
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1634,12 +1614,10 @@ msgid "Leaving group chat…"
 msgstr "正在离开群聊…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "无法删除群聊 %1：%2"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
@@ -1663,12 +1641,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "无法删除群聊 %1：%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "群聊 ID"
+msgstr ""
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1691,12 +1666,9 @@ msgid "Deleted"
 msgstr "已删除"
 
 #: src/qml/details/GroupChatDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "群聊 ID"
+msgstr ""
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1816,12 +1788,9 @@ msgid "Removing notes chat…"
 msgstr "正在移除聊天备注…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "显示详情"
+msgstr ""
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1829,12 +1798,9 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr "此聊天中的消息在您的所有设备上同步为备注"
 
 #: src/qml/details/NotesChatDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "显示详情"
+msgstr ""
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -3447,23 +3413,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Media"
-#~ msgstr "媒体"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Take a picture using your camera"
-#~ msgstr "使用您的相机拍照"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Record a video using your camera"
-#~ msgstr "使用您的相机录制视频"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Share files from your device"
-#~ msgstr "从您的设备分享文件"
-
-#~ msgctxt "ChatPageSendingPane|"
-#~ msgid "Send your location"
-#~ msgstr "发送您的位置"

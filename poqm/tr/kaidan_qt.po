@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-15 23:23+0300\n"
+"PO-Revision-Date: 2024-10-28 13:24+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -846,12 +846,9 @@ msgid "Add chat for notes"
 msgstr "Not sohbeti ekle"
 
 #: src/qml/details/AccountDetailsContent.qml:623
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "Notlar sohbeti kaldırılıyor…"
+msgstr "Notlar sohbeti ekleniyor…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -860,11 +857,6 @@ msgstr ""
 "Notlarınızı tüm aygıtlarınız arasında eşzamanlamak için bir sohbet ekleyin"
 
 #: src/qml/details/AccountDetailsContent.qml:647
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "The notes chat could not be added to your contact list because your "
-#| "server does not support that"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1110,12 +1102,9 @@ msgstr ""
 "%1"
 
 #: src/qml/details/AccountDetailsDialog.qml:16
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "Hesap öntanımlısı"
+msgstr "Hesap Ayrıntıları"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1123,12 +1112,9 @@ msgid "Change your profile image"
 msgstr "Profil görselini değiştir"
 
 #: src/qml/details/AccountDetailsPage.qml:15
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "Hesap öntanımlısı"
+msgstr "Hesap Ayrıntıları"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1363,12 +1349,9 @@ msgid "Removing contact…"
 msgstr "Kişi kaldırılıyor…"
 
 #: src/qml/details/ContactDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "Kişi halihazırda var"
+msgstr "Kişi Ayrıntıları"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1376,12 +1359,9 @@ msgid "Maximize avatar"
 msgstr "Avatarı büyüt"
 
 #: src/qml/details/ContactDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Contact already exists"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "Kişi halihazırda var"
+msgstr "Kişi Ayrıntıları"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1666,12 +1646,10 @@ msgid "Leaving group chat…"
 msgstr "Grup sohbetinden ayrılınıyor…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "%1 grubu silinemedi%2"
+msgstr "%1 grubundan ayrılınamadı%2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
@@ -1695,12 +1673,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "%1 grubu silinemedi%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "Grup Kimliği"
+msgstr "Grup Ayrıntıları"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1723,12 +1698,9 @@ msgid "Deleted"
 msgstr "Silindi"
 
 #: src/qml/details/GroupChatDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "Grup Kimliği"
+msgstr "Grup Ayrıntıları"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1858,12 +1830,9 @@ msgid "Removing notes chat…"
 msgstr "Notlar sohbeti kaldırılıyor…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "Ayrıntıları göster"
+msgstr "Notlar Ayrıntıları"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1871,12 +1840,9 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr "Bu sohbetteki iletiler, tüm aygıtlarınız arasında eşzamanlanır"
 
 #: src/qml/details/NotesChatDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "Ayrıntıları göster"
+msgstr "Notlar Ayrıntıları"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
