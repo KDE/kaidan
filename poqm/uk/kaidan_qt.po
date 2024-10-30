@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-15 19:41+0300\n"
+"PO-Revision-Date: 2024-10-29 08:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -863,12 +863,9 @@ msgid "Add chat for notes"
 msgstr "Додати спілкування для нотаток"
 
 #: src/qml/details/AccountDetailsContent.qml:623
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "Вилучаємо обмін нотатками…"
+msgstr "Додаємо обмін нотатками…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -876,11 +873,6 @@ msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr "Додати спілкування для синхронізації ваших нотаток на усіх пристроях"
 
 #: src/qml/details/AccountDetailsContent.qml:647
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "The notes chat could not be added to your contact list because your "
-#| "server does not support that"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
@@ -1131,9 +1123,6 @@ msgstr ""
 "не було вилучено з цієї програми: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:16
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
 msgstr "Параметри облікового запису"
@@ -1144,9 +1133,6 @@ msgid "Change your profile image"
 msgstr "Змінити зображення вашого профілю"
 
 #: src/qml/details/AccountDetailsPage.qml:15
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
 msgstr "Параметри облікового запису"
@@ -1387,12 +1373,9 @@ msgid "Removing contact…"
 msgstr "Вилучаємо запис контакту…"
 
 #: src/qml/details/ContactDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "Контакти"
+msgstr "Параметри контакту"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1400,12 +1383,9 @@ msgid "Maximize avatar"
 msgstr "Максимізувати аватар"
 
 #: src/qml/details/ContactDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "Контакти"
+msgstr "Параметри контакту"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1697,12 +1677,10 @@ msgid "Leaving group chat…"
 msgstr "Полишаємо групове спілкування…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "На вдалося вилучити групу %1: %2"
+msgstr "На вдалося полишити групу %1%2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
@@ -1726,12 +1704,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "На вдалося вилучити групу %1: %2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "Ідентифікатор групи"
+msgstr "Параметри групи"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1754,12 +1729,9 @@ msgid "Deleted"
 msgstr "Вилучено"
 
 #: src/qml/details/GroupChatDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "Ідентифікатор групи"
+msgstr "Параметри групи"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1887,12 +1859,9 @@ msgid "Removing notes chat…"
 msgstr "Вилучаємо обмін нотатками…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "Показати подробиці"
+msgstr "Параметри нотаток"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1902,12 +1871,9 @@ msgstr ""
 "ваших пристроях"
 
 #: src/qml/details/NotesChatDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "Показати подробиці"
+msgstr "Параметри нотаток"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
