@@ -5,25 +5,15 @@
 import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
 
-import im.kaidan.kaidan 1.0
-
 /**
- * This is the search field for filtering a list view.
+ * This is a search field for filtering a list view.
  */
 Kirigami.SearchField {
 	id: root
 
 	property ListView listView
 
-	onTextChanged: listView.model.setFilterFixedString(text.toLowerCase())
 	Keys.onEscapePressed: clear()
-
-	onActiveFocusChanged: {
-		if (activeFocus) {
-			selectAll()
-		}
-	}
-
 	Keys.onPressed: {
 		switch (event.key) {
 		case Qt.Key_Escape:

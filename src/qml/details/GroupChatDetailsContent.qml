@@ -16,9 +16,9 @@ import "../elements"
 RosterItemDetailsContent {
 	id: root
 
-	property ListViewSearchField contactSearchField
-	property ListViewSearchField userSearchField
-	property ListViewSearchField keyAuthenticationUserSearchField
+	property SimpleListViewSearchField contactSearchField
+	property SimpleListViewSearchField userSearchField
+	property SimpleListViewSearchField keyAuthenticationUserSearchField
 	property int contactsBeingInvitedCount: 0
 
 	topArea: [
@@ -49,7 +49,7 @@ RosterItemDetailsContent {
 							contentItem: RowLayout {
 								spacing: Kirigami.Units.largeSpacing * 2
 
-								ListViewSearchField {
+								SimpleListViewSearchField {
 									id: contactSearchField
 									listView: contactListView
 									enabled: contactButton.visible
@@ -174,7 +174,7 @@ RosterItemDetailsContent {
 									Layout.fillWidth: true
 								}
 
-								ListViewSearchField {
+								SimpleListViewSearchField {
 									listView: userListView
 									visible: Kaidan.connectionState === Enums.StateConnected
 									Layout.fillWidth: true
@@ -274,7 +274,7 @@ RosterItemDetailsContent {
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3
 
-						ListViewSearchField {
+						SimpleListViewSearchField {
 							listView: keyAuthenticationUserListView
 							Layout.fillWidth: true
 							onVisibleChanged: {
