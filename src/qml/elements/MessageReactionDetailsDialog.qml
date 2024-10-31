@@ -11,7 +11,8 @@ import org.kde.kirigami 2.19 as Kirigami
 import im.kaidan.kaidan 1.0
 
 /**
- * This is a sheet listing the senders of emojis in reaction to a message.
+ * This is a dialog listing the senders of emojis in reaction to a message.
+ *
  * It provides information about the delivery state of own reactions and the functionality to resend
  * them in case of an error.
  */
