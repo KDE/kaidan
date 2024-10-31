@@ -98,12 +98,9 @@ RowLayout {
 			}
 		}
 
-		MouseArea {
-			cursorShape: Qt.PointingHandCursor
-			hoverEnabled: true
-			anchors.fill: parent
-			onContainsMouseChanged: parent.background.opacity = containsMouse ? 0.5 : 1
-			onPressed: root.jumpToMessage(MessageModel.searchMessageById(root.messageId))
+		OpacityChangingMouseArea {
+			opacityItem: parent.background
+			onClicked: root.jumpToMessage(MessageModel.searchMessageById(root.messageId))
 		}
 	}
 
