@@ -77,9 +77,9 @@ Kirigami.GlobalDrawer {
 	}
 
 	Component {
-		id: searchPublicGroupChatSheet
+		id: searchPublicGroupChatDialog
 
-		SearchPublicGroupChatSheet {}
+		SearchPublicGroupChatDialog {}
 	}
 
 	Component {
@@ -220,7 +220,7 @@ Kirigami.GlobalDrawer {
 						id: publicGroupChatSearchButton
 						text: qsTr("Search public groups")
 						icon.name: "system-search-symbolic"
-						onClicked: openOverlayFromGlobalDrawe(searchPublicGroupChatSheet)
+						onClicked: openOverlayFromGlobalDrawe(searchPublicGroupChatDialog)
 
 						Shortcut {
 							sequence: "Ctrl+G"
