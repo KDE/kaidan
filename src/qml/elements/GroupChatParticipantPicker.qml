@@ -10,7 +10,7 @@ import org.kde.kirigami 2.19 as Kirigami
 import im.kaidan.kaidan 1.0
 
 /**
- * This is a sheet listing the participants of a group chat in order to mention them.
+ * This is a dialog listing the participants of a group chat in order to mention them.
  */
 Kirigami.Dialog {
 	id: root
