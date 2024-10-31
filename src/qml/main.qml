@@ -22,7 +22,6 @@ import im.kaidan.kaidan 1.0
 import "details"
 import "elements"
 import "registration"
-import "settings"
 
 Kirigami.ApplicationWindow {
 	id: root

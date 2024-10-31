@@ -1,5 +1,7 @@
 <RCC>
     <qresource prefix="/qml">
+        <file>AboutDialog.qml</file>
+        <file>AboutPage.qml</file>
         <file>ChatPage.qml</file>
         <file>ChatPageBase.qml</file>
         <file>DeviceSwitchingPage.qml</file>
@@ -37,6 +39,8 @@
         <file>details/RosterItemDetailsHeader.qml</file>
         <file>details/UserDevicesArea.qml</file>
         <file>details/UserKeyAuthenticationButton.qml</file>
+        <file>elements/AboutContent.qml</file>
+        <file>elements/AboutHeader.qml</file>
         <file>elements/AccountKeyAuthenticationPage.qml</file>
         <file>elements/AccountQrCode.qml</file>
         <file>elements/Avatar.qml</file>
@@ -65,6 +69,7 @@
         <file>elements/ContactAdditionQrCodePage.qml</file>
         <file>elements/ContactKeyAuthenticationPage.qml</file>
         <file>elements/ContactQrCode.qml</file>
+        <file>elements/CustomConnectionSettings.qml</file>
         <file>elements/DataForm.qml</file>
         <file>elements/Dialog.qml</file>
         <file>elements/EmojiPicker.qml</file>
@@ -155,13 +160,5 @@
         <file>registration/RegistrationButton.qml</file>
         <file>registration/RegistrationPage.qml</file>
         <file>registration/WebRegistrationPage.qml</file>
-        <file>settings/AboutPage.qml</file>
-        <file>settings/CustomConnectionSettings.qml</file>
-        <file>settings/MultimediaSettings.qml</file>
-        <file>settings/PageWrapper.qml</file>
-        <file>settings/SettingsContent.qml</file>
-        <file>settings/SettingsPage.qml</file>
-        <file>settings/SettingsPageBase.qml</file>
-        <file>settings/SettingsSheet.qml</file>
     </qresource>
 </RCC>

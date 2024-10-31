@@ -13,7 +13,6 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 import "../elements/fields"
-import "../settings"
 
 /**
  * This view is used for choosing a provider.

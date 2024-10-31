@@ -15,7 +15,6 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 import "../elements/fields"
-import "../settings"
 
 DetailsContent {
 	id: root

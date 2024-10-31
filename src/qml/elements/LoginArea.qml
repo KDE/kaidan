@@ -16,7 +16,6 @@ import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
 import im.kaidan.kaidan 1.0
 
 import "fields"
-import "../settings"
 
 MobileForm.FormCard {
 	Layout.fillWidth: true

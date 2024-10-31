@@ -15,90 +15,11 @@ import im.kaidan.kaidan 1.0
 
 import "elements"
 import "details"
-import "settings"
 
 Kirigami.GlobalDrawer {
 	id: root
 
 	property string selectedAccountJid
-
-	Component {
-		id: accountDetailsDialog
-
-		AccountDetailsDialog {
-			jid: root.selectedAccountJid
-		}
-	}
-
-	Component {
-		id: accountDetailsPage
-
-		AccountDetailsPage {
-			jid: root.selectedAccountJid
-		}
-	}
-
-	Component {
-		id: avatarChangePage
-
-		AvatarChangePage {}
-	}
-
-	Component {
-		id: accountDetailsKeyAuthenticationPage
-
-		AccountKeyAuthenticationPage {
-			Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage)
-		}
-	}
-
-	Component {
-		id: contactAdditionQrCodePage
-
-		ContactAdditionQrCodePage {}
-	}
-
-	Component {
-		id: groupChatCreationDialog
-
-		GroupChatCreationDialog {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
-		}
-	}
-
-	Component {
-		id: groupChatCreationPage
-
-		GroupChatCreationPage {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
-		}
-	}
-
-	Component {
-		id: searchPublicGroupChatDialog
-
-		SearchPublicGroupChatDialog {}
-	}
-
-	Component {
-		id: deviceSwitchingPage
-
-		DeviceSwitchingPage {}
-	}
-
-	Component {
-		id: settingsSheet
-
-		SettingsSheet {}
-	}
-
-	Component {
-		id: settingsPage
-
-		SettingsPage {}
-	}
 
 	topContent: [
 		ColumnLayout {
@@ -235,9 +156,9 @@ Kirigami.GlobalDrawer {
 					}
 
 					MobileForm.FormButtonDelegate {
-						text: qsTr("Settings")
-						icon.name: "preferences-system-symbolic"
-						onClicked: openViewFromGlobalDrawer(settingsSheet, settingsPage)
+						text: qsTr("About")
+						icon.name: "help-about-symbolic"
+						onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)
 					}
 				}
 			}
@@ -248,12 +169,89 @@ Kirigami.GlobalDrawer {
 			}
 		}
 	]
-
 	onOpened: {
 		if (Kaidan.connectionState === Enums.StateConnected) {
 			// Request the user's current vCard which contains the user's nickname.
 			Kaidan.client.vCardManager.clientVCardRequested()
 		}
+	}
+
+	Component {
+		id: accountDetailsDialog
+
+		AccountDetailsDialog {
+			jid: root.selectedAccountJid
+		}
+	}
+
+	Component {
+		id: accountDetailsPage
+
+		AccountDetailsPage {
+			jid: root.selectedAccountJid
+		}
+	}
+
+	Component {
+		id: avatarChangePage
+
+		AvatarChangePage {}
+	}
+
+	Component {
+		id: accountDetailsKeyAuthenticationPage
+
+		AccountKeyAuthenticationPage {
+			Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage)
+		}
+	}
+
+	Component {
+		id: contactAdditionQrCodePage
+
+		ContactAdditionQrCodePage {}
+	}
+
+	Component {
+		id: groupChatCreationDialog
+
+		GroupChatCreationDialog {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
+		}
+	}
+
+	Component {
+		id: groupChatCreationPage
+
+		GroupChatCreationPage {
+			accountJid: AccountManager.jid
+			nickname: AccountManager.displayName
+		}
+	}
+
+	Component {
+		id: searchPublicGroupChatDialog
+
+		SearchPublicGroupChatDialog {}
+	}
+
+	Component {
+		id: deviceSwitchingPage
+
+		DeviceSwitchingPage {}
+	}
+
+	Component {
+		id: aboutDialog
+
+		AboutDialog {}
+	}
+
+	Component {
+		id: aboutPage
+
+		AboutPage {}
 	}
 
 	function openContactAdditionView() {
