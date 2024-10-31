@@ -14,9 +14,9 @@ Kirigami.Heading {
 	topPadding: leftPadding * 0.4
 	bottomPadding: topPadding
 	background: Kirigami.ShadowedRectangle  {
+		color: primaryBackgroundColor
+		radius: parent.height * 0.5
 		shadow.color: Qt.darker(color, 1.2)
 		shadow.size: 4
-		radius: parent.height * 0.5
-		color: primaryBackgroundColor
 	}
 }

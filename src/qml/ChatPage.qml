@@ -64,7 +64,6 @@ ChatPageBase {
 
 	titleDelegate: Controls.ToolButton {
 		visible: !Kirigami.Settings.isMobile
-
 		contentItem: RowLayout {
 			// weirdly having an id here, although unused, fixes the layout
 			id: layout
@@ -84,7 +83,6 @@ ChatPageBase {
 				text: ChatController.rosterItem.displayName
 			}
 		}
-
 		onClicked: {
 			if (ChatController.accountJid === ChatController.chatJid) {
 				openOverlay(notesChatDetailsDialog)
@@ -94,6 +92,10 @@ ChatPageBase {
 				openOverlay(contactDetailsDialog)
 			}
 		}
+	}
+	header: ChatPageSearchView {
+		id: searchBar
+		messageListView: root.messageListView
 	}
 	keyboardNavigationEnabled: true
 	contextualActions: [
@@ -132,12 +134,6 @@ ChatPageBase {
 			onTriggered: sendingPane.prepareSpoiler()
 		}
 	]
-
-	// Message search bar
-	header: ChatPageSearchView {
-		id: searchBar
-		messageListView: root.messageListView
-	}
 
 	Component {
 		id: notesChatDetailsDialog
@@ -274,7 +270,6 @@ ChatPageBase {
 				height: Kirigami.Units.smallSpacing
 			}
 		}
-
 		// Highlighting of the message containing a searched string.
 		highlight: Component {
 			Rectangle {
@@ -341,13 +336,10 @@ ChatPageBase {
 		}
 		// This is used to make the highlight bar a little bit bigger than the highlighted message.
 		highlightFollowsCurrentItem: false
-
 		// Initially highlighted value
 		currentIndex: -1
-
 		// Connect to the database,
 		model: MessageModel
-
 		visibleArea.onYPositionChanged: handleMessageRead()
 		onActiveFocusChanged: {
 			// This makes it possible on desktop devices to directly enter a message after opening
@@ -359,62 +351,6 @@ ChatPageBase {
 				sendingPane.forceActiveFocus()
 			}
 		}
-
-		Connections {
-			target: MessageModel
-
-			function onMessageFetchingFinished() {
-				// Skip the case when messages are fetched after the initial fetching because this
-				// function positioned the view at firstUnreadContactMessageIndex and that is close
-				// to the end of the loaded messages.
-				if (!root.viewPositioned) {
-					let unreadMessageCount = ChatController.rosterItem.unreadMessageCount
-
-					if (unreadMessageCount) {
-						let firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
-
-						if (firstUnreadContactMessageIndex > 0) {
-							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
-						}
-
-						root.viewPositioned = true
-
-						// Trigger sending read markers manually as the view is ready.
-						messageListView.handleMessageReadOnPositionedView()
-					} else {
-						root.viewPositioned = true
-					}
-				}
-			}
-		}
-
-		Connections {
-			target: Qt.application
-
-			function onStateChanged(state) {
-				// Send a read marker once the application becomes active if a message has been received while the application was not active.
-				if (state === Qt.ApplicationActive) {
-					messageListView.handleMessageRead()
-				}
-			}
-		}
-
-		/**
-		 * Sends a read marker for the latest visible/read message if the view is positioned.
-		 */
-		function handleMessageRead() {
-			if (root.viewPositioned) {
-				handleMessageReadOnPositionedView()
-			}
-		}
-
-		/**
-		 * Sends a read marker for the latest visible/read message.
-		 */
-		function handleMessageReadOnPositionedView() {
-			MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
-		}
-
 		delegate: ChatMessage {
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
@@ -453,7 +389,6 @@ ChatPageBase {
 			ownReactionsFailed: model.ownReactionsFailed
 			groupChatInvitationJid: model.groupChatInvitationJid
 		}
-
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
 			visible: ChatController.accountJid !== ChatController.chatJid
@@ -469,7 +404,6 @@ ChatPageBase {
 				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing * 4
 			}
 		}
-
 		footer: ColumnLayout {
 			z: 2
 			anchors.horizontalCenter: parent.horizontalCenter
@@ -547,7 +481,9 @@ ChatPageBase {
 				}
 
 				Behavior on color {
-					ColorAnimation { duration: Kirigami.Units.shortDuration }
+					ColorAnimation {
+						duration: Kirigami.Units.shortDuration
+					}
 				}
 			}
 			padding: Kirigami.Units.smallSpacing * 3
@@ -573,6 +509,61 @@ ChatPageBase {
 			id: resetCurrentIndexTimer
 			interval: Kirigami.Units.veryLongDuration * 4
 			onTriggered: messageListView.currentIndex = -1
+		}
+
+		Connections {
+			target: MessageModel
+
+			function onMessageFetchingFinished() {
+				// Skip the case when messages are fetched after the initial fetching because this
+				// function positioned the view at firstUnreadContactMessageIndex and that is close
+				// to the end of the loaded messages.
+				if (!root.viewPositioned) {
+					let unreadMessageCount = ChatController.rosterItem.unreadMessageCount
+
+					if (unreadMessageCount) {
+						let firstUnreadContactMessageIndex = MessageModel.firstUnreadContactMessageIndex()
+
+						if (firstUnreadContactMessageIndex > 0) {
+							messageListView.positionViewAtIndex(firstUnreadContactMessageIndex, ListView.End)
+						}
+
+						root.viewPositioned = true
+
+						// Trigger sending read markers manually as the view is ready.
+						messageListView.handleMessageReadOnPositionedView()
+					} else {
+						root.viewPositioned = true
+					}
+				}
+			}
+		}
+
+		Connections {
+			target: Qt.application
+
+			function onStateChanged(state) {
+				// Send a read marker once the application becomes active if a message has been received while the application was not active.
+				if (state === Qt.ApplicationActive) {
+					messageListView.handleMessageRead()
+				}
+			}
+		}
+
+		/**
+		 * Sends a read marker for the latest visible/read message if the view is positioned.
+		 */
+		function handleMessageRead() {
+			if (root.viewPositioned) {
+				handleMessageReadOnPositionedView()
+			}
+		}
+
+		/**
+		 * Sends a read marker for the latest visible/read message.
+		 */
+		function handleMessageReadOnPositionedView() {
+			MessageModel.handleMessageRead(indexAt(0, (contentY + height + 15)) + 1)
 		}
 
 		function highlightShortly(index) {

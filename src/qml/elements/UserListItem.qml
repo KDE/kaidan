@@ -16,7 +16,6 @@ Controls.ItemDelegate {
 
 	default property alias __data: content.data
 	property alias avatar: avatar
-
 	property string accountJid
 	property string jid
 	property string name
@@ -59,7 +58,9 @@ Controls.ItemDelegate {
 			}
 
 			Behavior on color {
-				ColorAnimation { duration: Kirigami.Units.shortDuration }
+				ColorAnimation {
+					duration: Kirigami.Units.shortDuration
+				}
 			}
 		}
 		contentItem: RowLayout {
