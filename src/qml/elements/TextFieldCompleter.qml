@@ -14,11 +14,6 @@ import org.kde.kirigami 2.19 as Kirigami
 //   autocomplete widget (e.g. RowLayout) has a higher z value than the container of every widget
 //   following it that might be overlaid by the suggestions.
 //
-//   TODO: To avoid having to adjust z indexes when using this, perhaps place the suggestions into
-//   a Kirigami Sheet, or use the same mechanism to overlay a target widget. Or introduce a property
-//   to reference the component to overlay, and then do Component.onCompleted: { while
-//   (notOverlaid(targetToOverlay)) { ancestor = ancestor.parent; ancestor.z += 1000 }.
-//
 //   TODO: Set a minimum width. Otherwise, without "Layout.fillWidth: true", the autocomplete box
 //   would not be visible at all.
 //
@@ -328,8 +323,6 @@ Kirigami.ActionTextField {
 	//   the confusing parallel use of "completionsBox" and "completions".
 	Popup {
 		id: completionsBox
-
-		z: 101 // Kirigami OverlaySheet use z-index of 101, so we need to catch up to see our popup in sheets...
 		visible: false // Will be made visible once starting to type a category name.
 		closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 		margins: 0
