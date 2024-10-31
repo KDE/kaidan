@@ -188,7 +188,7 @@ Kirigami.ApplicationWindow {
 	 * @param overlayComponent component containing the overlay to be opened
 	 * @param pageComponent component containing the page to be opened
 	 *
-	 * @return the opened page or sheet
+	 * @return the opened overlay or page
 	 */
 	function openView(overlayComponent, pageComponent) {
 		if (Kirigami.Settings.isMobile) {
