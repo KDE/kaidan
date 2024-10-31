@@ -15,10 +15,9 @@ import im.kaidan.kaidan 1.0
 import ".."
 import "../elements"
 
-Controls.Control {
+FormInfoContent {
 	id: root
 
-	default property alias __data: mainArea.data
 	property Kirigami.Dialog dialog
 	property alias topArea: topArea.data
 	property alias automaticMediaDownloadsDelegate: automaticMediaDownloadsDelegate
@@ -45,175 +44,162 @@ Controls.Control {
 		AllKeysAuthenticated
 	}
 
-	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
-	bottomPadding: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 3
-	leftPadding: bottomPadding
-	rightPadding: leftPadding
-	background: Rectangle {
-		color: secondaryBackgroundColor
+	ColumnLayout {
+		id: topArea
 	}
 
-	contentItem: ColumnLayout {
-		id: mainArea
-		spacing: Kirigami.Units.largeSpacing
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			spacing: 0
 
-		ColumnLayout {
-			id: topArea
-		}
+			MobileForm.FormCardHeader {
+				title: qsTr("Media")
+			}
 
-		MobileForm.FormCard {
-			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
+			FormComboBoxDelegate {
+				id: automaticMediaDownloadsDelegate
+				text: qsTr("Automatic downloads")
+				description: qsTr("Download media automatically")
+			}
 
-				MobileForm.FormCardHeader {
-					title: qsTr("Media")
-				}
+			ColumnLayout {
+				visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
 
-				FormComboBoxDelegate {
-					id: automaticMediaDownloadsDelegate
-					text: qsTr("Automatic Downloads")
-					description: qsTr("Download media automatically")
+				MobileForm.FormSectionText {
+					text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
 				}
 
 				ColumnLayout {
-					visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
+					visible: mediaOverview.totalFilesCount
+					spacing: 0
 
-					MobileForm.FormSectionText {
-						text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
+					Kirigami.Separator {
+						Layout.fillWidth: true
 					}
 
-					ColumnLayout {
-						visible: mediaOverview.totalFilesCount
-						spacing: 0
-
-						Kirigami.Separator {
-							Layout.fillWidth: true
-						}
-
-						MediaOverview {
-							id: mediaOverview
-							Layout.fillWidth: true
-						}
+					MediaOverview {
+						id: mediaOverview
+						Layout.fillWidth: true
 					}
 				}
+			}
 
-				FormExpansionButton {
-					id: mediaOverviewExpansionButton
-					onCheckedChanged: {
-						if (checked) {
-							mediaOverview.selectionMode = false
+			FormExpansionButton {
+				id: mediaOverviewExpansionButton
+				onCheckedChanged: {
+					if (checked) {
+						mediaOverview.selectionMode = false
 
-							// Display the content of the first tab only on initial loading.
-							// Afterwards, display the content of the last active tab.
-							if (mediaOverview.tabBarCurrentIndex === -1) {
-								mediaOverview.tabBarCurrentIndex = 0
-							}
-
-							mediaOverview.loadDownloadedFiles()
+						// Display the content of the first tab only on initial loading.
+						// Afterwards, display the content of the last active tab.
+						if (mediaOverview.tabBarCurrentIndex === -1) {
+							mediaOverview.tabBarCurrentIndex = 0
 						}
+
+						mediaOverview.loadDownloadedFiles()
 					}
 				}
 			}
 		}
+	}
 
-		MobileForm.FormCard {
-			id: vCardArea
-			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				id: vCardContentArea
-				spacing: 0
+	MobileForm.FormCard {
+		id: vCardArea
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			id: vCardContentArea
+			spacing: 0
 
-				MobileForm.FormCardHeader {
-					title: qsTr("Profile")
-				}
+			MobileForm.FormCardHeader {
+				title: qsTr("Profile")
+			}
 
-				Repeater {
-					id: vCardRepeater
-					Layout.fillHeight: true
-				}
+			Repeater {
+				id: vCardRepeater
+				Layout.fillHeight: true
 			}
 		}
+	}
 
-		MobileForm.FormCard {
-			Layout.fillWidth: true
-			contentItem: root.encryptionArea
-		}
+	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: root.encryptionArea
+	}
 
-		MobileForm.FormCard {
-			// Hide this if there are no items and no header.
-			visible: rosterGoupListView.count || rosterGoupListView.headerItem
-			Layout.fillWidth: true
+	MobileForm.FormCard {
+		// Hide this if there are no items and no header.
+		visible: rosterGoupListView.count || rosterGoupListView.headerItem
+		Layout.fillWidth: true
 
-			contentItem: ColumnLayout {
-				spacing: 0
+		contentItem: ColumnLayout {
+			spacing: 0
 
-				MobileForm.FormCardHeader {
-					title: qsTr("Labels")
-				}
+			MobileForm.FormCardHeader {
+				title: qsTr("Labels")
+			}
 
-				ListView {
-					id: rosterGoupListView
-					model: RosterModel.groups
-					visible: rosterGroupExpansionButton.checked
-					implicitHeight: contentHeight
-					Layout.fillWidth: true
-				}
+			ListView {
+				id: rosterGoupListView
+				model: RosterModel.groups
+				visible: rosterGroupExpansionButton.checked
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+			}
 
-				FormExpansionButton {
-					id: rosterGroupExpansionButton
-				}
+			FormExpansionButton {
+				id: rosterGroupExpansionButton
 			}
 		}
+	}
 
-		MobileForm.FormCard {
-			id: sharingArea
-			Layout.fillWidth: true
+	MobileForm.FormCard {
+		id: sharingArea
+		Layout.fillWidth: true
 
-			contentItem: ColumnLayout {
-				spacing: 0
+		contentItem: ColumnLayout {
+			spacing: 0
 
-				MobileForm.FormCardHeader {
-					title: qsTr("Sharing")
+			MobileForm.FormCardHeader {
+				title: qsTr("Sharing")
+			}
+
+			MobileForm.FormButtonDelegate {
+				id: qrCodeExpansionButton
+				text: qsTr("Show QR code")
+				icon.name: "view-barcode-qr"
+				// TODO: If possible, scroll down to show whole QR code
+				onClicked: qrCodeArea.visible = !qrCodeArea.visible
+			}
+
+			MobileForm.AbstractFormDelegate {
+				id: qrCodeArea
+				visible: false
+				background: Rectangle {
+					color: secondaryBackgroundColor
 				}
+				Layout.preferredWidth: parent.width
+				Layout.preferredHeight: Layout.preferredWidth
+			}
 
-				MobileForm.FormButtonDelegate {
-					id: qrCodeExpansionButton
-					text: qsTr("Show QR code")
-					icon.name: "view-barcode-qr"
-					// TODO: If possible, scroll down to show whole QR code
-					onClicked: qrCodeArea.visible = !qrCodeArea.visible
-				}
+			MobileForm.FormButtonDelegate {
+				id: qrCodeButton
+				text: qsTr("Copy QR code")
+				icon.name: "send-to-symbolic"
+				onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
+			}
 
-				MobileForm.AbstractFormDelegate {
-					id: qrCodeArea
-					visible: false
-					background: Rectangle {
-						color: secondaryBackgroundColor
-					}
-					Layout.preferredWidth: parent.width
-					Layout.preferredHeight: Layout.preferredWidth
-				}
+			MobileForm.FormButtonDelegate {
+				id: uriButton
+				text: qsTr("Copy chat address")
+				icon.name: "send-to-symbolic"
+			}
 
-				MobileForm.FormButtonDelegate {
-					id: qrCodeButton
-					text: qsTr("Copy QR code")
-					icon.name: "send-to-symbolic"
-					onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
-				}
-
-				MobileForm.FormButtonDelegate {
-					id: uriButton
-					text: qsTr("Copy chat address")
-					icon.name: "send-to-symbolic"
-				}
-
-				MobileForm.FormButtonDelegate {
-					id: invitationButton
-					text: qsTr("Copy invitation link")
-					icon.name: "mail-message-new-symbolic"
-					onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
-				}
+			MobileForm.FormButtonDelegate {
+				id: invitationButton
+				text: qsTr("Copy invitation link")
+				icon.name: "mail-message-new-symbolic"
+				onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
 			}
 		}
 	}

@@ -6,7 +6,9 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 
-DetailsPage {
+import "../elements"
+
+FormInfoPage {
 	id: root
 	title: qsTr("Group Details")
 

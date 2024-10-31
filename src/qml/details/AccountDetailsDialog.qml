@@ -8,7 +8,9 @@ import QtQuick.Layouts 1.15
 
 import im.kaidan.kaidan 1.0
 
-DetailsDialog {
+import "../elements"
+
+FormInfoDialog {
 	id: root
 
 	property string jid

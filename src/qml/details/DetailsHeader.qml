@@ -13,7 +13,7 @@ import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-GridLayout {
+FormInfoHeader {
 	id: root
 
 	default property alias __data: additionalInformationArea.data
@@ -21,12 +21,6 @@ GridLayout {
 	required property string displayName
 	property alias isGroupChat: avatar.isGroupChat
 	required property Kirigami.Action avatarAction
-
-	flow: width > Kirigami.Units.gridUnit * 20 ? GridLayout.LeftToRight : GridLayout.TopToBottom
-	Layout.topMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 3
-	Layout.bottomMargin: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 2
-	Layout.leftMargin: Kirigami.Units.largeSpacing * 3
-	Layout.rightMargin: Layout.leftMargin
 
 	Avatar {
 		id: avatar
