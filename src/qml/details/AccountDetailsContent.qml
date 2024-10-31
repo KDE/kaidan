@@ -319,6 +319,54 @@ DetailsContent {
 	}
 
 	MobileForm.FormCard {
+		Layout.fillWidth: true
+		contentItem: ColumnLayout {
+			spacing: 0
+
+			MobileForm.FormCardHeader {
+				title: qsTr("Locations")
+			}
+
+			MobileForm.FormSectionText {
+				text: qsTr("For displaying locations in Kaidan, online data from the third party provider OpenStreetMap is used. The data is downloaded from it after submitting the location.")
+			}
+
+			MobileForm.FormSwitchDelegate {
+				id: geoLocationMapPreviewDelegate
+				text: qsTr("Location map previews")
+				description: qsTr("Display previews of locations")
+				checked: AccountManager.account.geoLocationMapPreviewEnabled
+				// Note that 'checked' has already the value after the button is clicked.
+				onClicked: AccountManager.setGeoLocationMapPreviewEnabled(root.jid, checked)
+			}
+
+			FormComboBoxDelegate {
+				id: geoLocationMapServiceDelegate
+				text: qsTr("Opening locations")
+				description: qsTr("How to open locations")
+				model: [
+					{
+						display: qsTr("System default"),
+						value: Account.GeoLocationMapService.System
+					},
+					{
+						display: qsTr("Kaidan"),
+						value: Account.GeoLocationMapService.InApp
+					},
+					{
+						display: qsTr("Web"),
+						value: Account.GeoLocationMapService.Web
+					}
+				]
+				textRole: "display"
+				valueRole: "value"
+				currentIndex: geoLocationMapServiceDelegate.indexOf(AccountManager.account.geoLocationMapService)
+				onActivated: AccountManager.setGeoLocationMapService(root.jid, geoLocationMapServiceDelegate.currentValue)
+			}
+		}
+	}
+
+	MobileForm.FormCard {
 		id: providerArea
 
 		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite

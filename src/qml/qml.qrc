@@ -43,6 +43,7 @@
         <file>elements/AboutHeader.qml</file>
         <file>elements/AccountKeyAuthenticationPage.qml</file>
         <file>elements/AccountQrCode.qml</file>
+        <file>elements/Audio.qml</file>
         <file>elements/Avatar.qml</file>
         <file>elements/BinaryDecisionPage.qml</file>
         <file>elements/BusyIndicatorFormButton.qml</file>
@@ -79,6 +80,7 @@
         <file>elements/ExplanationArea.qml</file>
         <file>elements/ExplanationOptionsTogglePage.qml</file>
         <file>elements/ExplanationTogglePage.qml</file>
+        <file>elements/ExtendedMessageContent.qml</file>
         <file>elements/FormComboBoxDelegate.qml</file>
         <file>elements/FormExpansionButton.qml</file>
         <file>elements/FormInfoContent.qml</file>
@@ -87,6 +89,11 @@
         <file>elements/FormInfoPage.qml</file>
         <file>elements/FormattedTextArea.qml</file>
         <file>elements/FormattedTextEdit.qml</file>
+        <file>elements/GeoLocationMap.qml</file>
+        <file>elements/GeoLocationMapPage.qml</file>
+        <file>elements/GeoLocationMapPreview.qml</file>
+        <file>elements/GeoLocationPreview.qml</file>
+        <file>elements/GeoLocationSharingDialog.qml</file>
         <file>elements/GroupChatContactInvitationItem.qml</file>
         <file>elements/GroupChatCreationContent.qml</file>
         <file>elements/GroupChatCreationDialog.qml</file>
@@ -100,6 +107,7 @@
         <file>elements/GroupChatUserKeyAuthenticationPage.qml</file>
         <file>elements/HorizontalSeparator.qml</file>
         <file>elements/IconTopButton.qml</file>
+        <file>elements/ImageCaptureDialog.qml</file>
         <file>elements/KeyAuthenticationPage.qml</file>
         <file>elements/ListItemDragHandle.qml</file>
         <file>elements/ListViewSearchField.qml</file>
@@ -108,13 +116,9 @@
         <file>elements/LoadingStackArea.qml</file>
         <file>elements/LoginArea.qml</file>
         <file>elements/LoginQrCode.qml</file>
-        <file>elements/MediaPreview.qml</file>
-        <file>elements/MediaPreviewAudio.qml</file>
-        <file>elements/MediaPreviewImage.qml</file>
-        <file>elements/MediaPreviewLoader.qml</file>
-        <file>elements/MediaPreviewLocation.qml</file>
-        <file>elements/MediaPreviewOther.qml</file>
-        <file>elements/MediaPreviewVideo.qml</file>
+        <file>elements/MediumMessagePreview.qml</file>
+        <file>elements/MediumPreview.qml</file>
+        <file>elements/MediumSendingPreview.qml</file>
         <file>elements/MessageBackground.qml</file>
         <file>elements/MessageCounter.qml</file>
         <file>elements/MessageReactionAdditionButton.qml</file>
@@ -124,26 +128,25 @@
         <file>elements/MessageReactionDisplayButton.qml</file>
         <file>elements/MessageReactionEmojiPicker.qml</file>
         <file>elements/MessageReactionRetryButton.qml</file>
-        <file>elements/NewMedia.qml</file>
-        <file>elements/NewMediaLoader.qml</file>
-        <file>elements/NewMediaLocation.qml</file>
-        <file>elements/NewMediaSheet.qml</file>
+        <file>elements/NewMediaDialog.qml</file>
         <file>elements/OpacityChangingMouseArea.qml</file>
         <file>elements/QrCode.qml</file>
         <file>elements/QrCodeScanner.qml</file>
         <file>elements/QrCodeScanningArea.qml</file>
+        <file>elements/RecordingIndicator.qml</file>
         <file>elements/RecreationTimer.qml</file>
         <file>elements/ReferencedMessage.qml</file>
         <file>elements/RosterFilteringArea.qml</file>
         <file>elements/RosterListItem.qml</file>
         <file>elements/RosterListItemContextMenu.qml</file>
+        <file>elements/RoundedImage.qml</file>
         <file>elements/RoundedRectangle.qml</file>
         <file>elements/ScalableText.qml</file>
         <file>elements/SearchBarPage.qml</file>
         <file>elements/SearchPublicGroupChatDialog.qml</file>
         <file>elements/SelectablePreview.qml</file>
         <file>elements/SelectionMarker.qml</file>
-        <file>elements/SendMediaSheet.qml</file>
+        <file>elements/ShutterRelease.qml</file>
         <file>elements/SimpleListViewSearchField.qml</file>
         <file>elements/Slider.qml</file>
         <file>elements/SliderBackground.qml</file>
@@ -152,6 +155,7 @@
         <file>elements/UserKeyAuthenticationPage.qml</file>
         <file>elements/UserListItem.qml</file>
         <file>elements/UserListItemSelectionMarker.qml</file>
+        <file>elements/VideoRecordingDialog.qml</file>
         <file>elements/ZoomSlider.qml</file>
         <file>elements/fields/CredentialsField.qml</file>
         <file>elements/fields/Field.qml</file>

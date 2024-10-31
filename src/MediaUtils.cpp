@@ -6,22 +6,41 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MediaUtils.h"
-#include "Globals.h"
-#include "FutureUtils.h"
 
+// Qt
+#include <QBuffer>
+#include <QClipboard>
+#include <QDir>
 #include <QFileInfo>
+#include <QGuiApplication>
+#include <QImage>
+#include <QImageReader>
+#include <QMimeType>
+#include <QPixmap>
 #include <QRegularExpression>
 #include <QTime>
 #include <QUrl>
-#include <QBuffer>
-#include <QMimeType>
-#include <QImage>
-#include <QImageReader>
-#include <QPixmap>
-
 // KDE
 #include <KIO/PreviewJob>
 #include <KFileItem>
+// Kaidan
+#include "FutureUtils.h"
+#include "SystemUtils.h"
+
+const auto IMAGE_FILE_EXTENSION = QStringLiteral(".jpg");
+const auto AUDIO_FILE_EXTENSION = QStringLiteral(".mp3");
+const auto VIDEO_FILE_EXTENSION = QStringLiteral(".mp4");
+
+QString fileNameTimestamp(const QDateTime &dateTime)
+{
+	return dateTime.toString(u"yyyyMMdd_hhmmss");
+}
+
+QString newFilePath(const QString &directoryPath, const QString &fileExtension)
+{
+	QDir().mkdir(directoryPath);
+	return { directoryPath + QDir::separator() + fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension };
+}
 
 static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent);
 
@@ -163,9 +182,44 @@ bool MediaUtils::localFileAvailable(const QString &filePath)
 	return QFile::exists(filePath);
 }
 
-QUrl MediaUtils::fromLocalFile(const QString &filePath)
+QUrl MediaUtils::urlFromClipboard()
 {
-	return QUrl::fromLocalFile(filePath);
+	const auto clipboardContent = QGuiApplication::clipboard()->text();
+
+	if (clipboardContent.startsWith("file:///")) {
+		return QUrl { clipboardContent };
+	}
+
+	if (clipboardContent.startsWith("/")) {
+		return QUrl::fromLocalFile(clipboardContent);
+	}
+
+	return {};
+}
+
+void MediaUtils::deleteFile(const QUrl &url)
+{
+	QFile::remove(url.toLocalFile());
+}
+
+QString MediaUtils::localFilePath(const QUrl &localFileUrl)
+{
+	return localFileUrl.toLocalFile();
+}
+
+QUrl MediaUtils::localFileUrl(const QString &localFilePath)
+{
+	return QUrl::fromLocalFile(localFilePath);
+}
+
+QUrl MediaUtils::localFileDirectoryUrl(const QUrl &localFileUrl)
+{
+	return QUrl::fromLocalFile(QFileInfo(localFilePath(localFileUrl)).absolutePath());
+}
+
+bool MediaUtils::imageValid(const QImage &image)
+{
+	return !image.isNull();
 }
 
 QMimeType MediaUtils::mimeType(const QString &filePath)
@@ -220,6 +274,21 @@ QString MediaUtils::iconName(const QUrl &url)
 	}
 
 	return iconName(url.fileName());
+}
+
+QString MediaUtils::newAudioFilePath()
+{
+	return newFilePath(SystemUtils::audioDirectory(), AUDIO_FILE_EXTENSION);
+}
+
+QString MediaUtils::newImageFilePath()
+{
+	return newFilePath(SystemUtils::imageDirectory(), IMAGE_FILE_EXTENSION);
+}
+
+QString MediaUtils::newVideoFilePath()
+{
+	return newFilePath(SystemUtils::videoDirectory(), VIDEO_FILE_EXTENSION);
 }
 
 QString MediaUtils::mediaTypeName(Enums::MessageType mediaType)
@@ -492,7 +561,7 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 	// create job
 	auto *job = new KIO::PreviewJob(
 		{ KFileItem(QUrl::fromLocalFile(file->fileName())) },
-		QSize(THUMBNAIL_PIXEL_SIZE, THUMBNAIL_PIXEL_SIZE),
+		QSize(THUMBNAIL_EDGE_PIXEL_COUNT, THUMBNAIL_EDGE_PIXEL_COUNT),
 		&allPlugins
 	);
 	job->setAutoDelete(true);
@@ -524,6 +593,36 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 		interface.reportResult(result);
 		interface.reportFinished();
 	});
+
+	return interface.future();
+}
+
+QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount)
+{
+	QFutureInterface<QByteArray> interface;
+
+	KFileItemList items {
+		KFileItem {
+			localFileUrl,
+			mimeTypeName,
+		}
+	};
+
+	static auto allPlugins = KIO::PreviewJob::availablePlugins();
+
+	auto *job = new KIO::PreviewJob(items, QSize(edgePixelCount, edgePixelCount), &allPlugins);
+	job->setAutoDelete(true);
+
+	QObject::connect(job, &KIO::PreviewJob::gotPreview, [interface](auto, const QPixmap &preview) mutable {
+		reportFinishedResult(interface, MediaUtils::encodeImageThumbnail(preview));
+	});
+
+	QObject::connect(job, &KIO::PreviewJob::failed, [interface](const KFileItem &item) mutable {
+		qDebug() << "Could not generate a thumbnail for" << item.url();
+		reportFinishedResult(interface, {});
+	});
+
+	job->start();
 
 	return interface.future();
 }

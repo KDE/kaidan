@@ -26,6 +26,8 @@
 #define SETTING_FRAME_RATE QStringLiteral("Frame Rate")
 #define SETTING_CHANNEL_COUNT QStringLiteral("Channel Count")
 
+const auto AUDIO_CODEC = QStringLiteral("audio/mpeg, mpegversion=(int)1, layer=(int)3");
+
 static QString toString(const QVariantMap &options) {
 	if (options.isEmpty()) {
 		return QString();
@@ -308,7 +310,7 @@ bool AudioEncoderSettings::operator!=(const AudioEncoderSettings &other) const
 QAudioEncoderSettings AudioEncoderSettings::toQAudioEncoderSettings() const
 {
 	QAudioEncoderSettings settings;
-	settings.setCodec(codec);
+	settings.setCodec(AUDIO_CODEC);
 	settings.setQuality(static_cast<QMultimedia::EncodingQuality>(quality));
 	settings.setEncodingOptions(options);
 	settings.setEncodingMode(static_cast<QMultimedia::EncodingMode>(mode));

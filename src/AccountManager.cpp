@@ -89,6 +89,40 @@ void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::G
 	);
 }
 
+void AccountManager::setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
+{
+	await(
+		AccountDb::instance()->updateAccount(
+			jid,
+			[geoLocationMapPreviewEnabled](Account &account) {
+				account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
+			}
+		),
+		this,
+		[this, geoLocationMapPreviewEnabled]() {
+			m_account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
+			Q_EMIT accountChanged();
+		}
+	);
+}
+
+void AccountManager::setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService)
+{
+	await(
+		AccountDb::instance()->updateAccount(
+			jid,
+			[geoLocationMapService](Account &account) {
+				account.geoLocationMapService = geoLocationMapService;
+			}
+		),
+		this,
+		[this, geoLocationMapService]() {
+			m_account.geoLocationMapService = geoLocationMapService;
+			Q_EMIT accountChanged();
+		}
+	);
+}
+
 QString AccountManager::jid()
 {
 	QMutexLocker locker(&m_mutex);

@@ -7,6 +7,8 @@
 // Qt
 #include <QString>
 
+class QUrl;
+
 namespace SystemUtils {
 
 	struct LocaleCodes {
@@ -22,5 +24,9 @@ namespace SystemUtils {
 	 * This does not contain a version number as QSysInfo::prettyProductName() does.
 	 */
 	QString productName();
+
+	QString audioDirectory();
+	QString imageDirectory();
+	QString videoDirectory();
 
 }

@@ -323,6 +323,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<Account::ContactNotificationRule>();
 	qRegisterMetaType<Account::GroupChatNotificationRule>();
 	qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
+	qRegisterMetaType<Account::GeoLocationMapService>();
 	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
 	qRegisterMetaType<AccountMigrationManager::MigrationState>();
 	qRegisterMetaType<RosterItem::GroupChatFlag>();
@@ -512,12 +513,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Can't create object; only enums defined!"));
 	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));
 
-	qmlRegisterSingletonType<MediaUtils>("MediaUtils", 0, 1, "MediaUtilsInstance", [](QQmlEngine *, QJSEngine *) {
-		QObject *instance = new MediaUtils(qApp);
-		return instance;
-	});
 	qmlRegisterSingletonType<QmlUtils>(APPLICATION_ID, 1, 0, "Utils", [](QQmlEngine *, QJSEngine *) {
 		return static_cast<QObject*>(QmlUtils::instance());
+	});
+	qmlRegisterSingletonType<MediaUtils>(APPLICATION_ID, 1, 0, "MediaUtils", [](QQmlEngine *, QJSEngine *) {
+		QObject *instance = new MediaUtils(qApp);
+		return instance;
 	});
 	qmlRegisterSingletonType<Kaidan>(APPLICATION_ID, 1, 0, "Kaidan", [](QQmlEngine *engine, QJSEngine *) {
 		engine->setObjectOwnership(Kaidan::instance(), QQmlEngine::CppOwnership);

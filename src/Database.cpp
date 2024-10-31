@@ -44,8 +44,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 45
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(45)
+#define DATABASE_LATEST_VERSION 46
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(46)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -424,6 +424,8 @@ void Database::createNewDatabase()
 			SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
 			SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER)
 			SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
+			SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL)
+			SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
 			"PRIMARY KEY(jid)"
 		)
 	);
@@ -2439,4 +2441,13 @@ void Database::convertDatabaseToV45()
 	execQuery(query, QStringLiteral("DROP TABLE messages_tmp"));
 
 	d->version = 45;
+}
+
+void Database::convertDatabaseToV46()
+{
+	DATABASE_CONVERT_TO_VERSION(45)
+	QSqlQuery query(currentDatabase());
+	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD geoLocationMapPreviewEnabled " SQL_BOOL));
+	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD geoLocationMapService " SQL_INTEGER));
+	d->version = 46;
 }

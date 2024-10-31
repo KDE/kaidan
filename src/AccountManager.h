@@ -53,6 +53,8 @@ public:
 
 	Q_INVOKABLE void setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule);
 	Q_INVOKABLE void setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule);
+	Q_INVOKABLE void setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled);
+	Q_INVOKABLE void setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService);
 
 	/**
 	 * Returns the bare JID of the account.

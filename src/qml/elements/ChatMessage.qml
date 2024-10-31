@@ -14,10 +14,10 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
+import QtGraphicalEffects 1.15
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
-import MediaUtils 0.1
 
 Controls.ItemDelegate {
 	id: root
@@ -54,14 +54,16 @@ Controls.ItemDelegate {
 	property string spoilerHint
 	property bool isShowingSpoiler: false
 	property string errorText: ""
-	property var files;
+	property var files
 	property var displayedReactions
 	property var detailedReactions
 	property bool ownReactionsFailed
 	property string groupChatInvitationJid
+	property var geoCoordinate
 	property bool isGroupBegin: determineMessageGroupDelimiter(MessageModel.rowCount() - 1, 1)
 	property bool isGroupEnd: determineMessageGroupDelimiter()
-	property int maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
+	property real bubblePadding: Kirigami.Units.smallSpacing
+	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
 
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
@@ -95,14 +97,13 @@ Controls.ItemDelegate {
 			Controls.Control {
 				id: bubble
 
-				readonly property string paddingText: {
-					Utils.messageBubblePaddingCharacter.repeat(Math.ceil(background.metaInfoWidth / background.dummy.implicitWidth))
-				}
+				readonly property string paddingText: messageReactionArea.visible ? "" : Utils.messageBubblePaddingCharacter.repeat(Math.ceil(background.metaInfo.width / background.dummy.implicitWidth))
 				readonly property alias backgroundColor: bubbleBackground.color
 
-				verticalPadding: Kirigami.Units.largeSpacing
-				leftPadding: root.isOwn ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing + background.tailSize
-				rightPadding: root.isOwn ? Kirigami.Units.largeSpacing + background.tailSize : Kirigami.Units.largeSpacing
+				topPadding: root.bubblePadding
+				bottomPadding: root.bubblePadding
+				leftPadding: root.isOwn ? root.bubblePadding : root.bubblePadding + background.tailSize
+				rightPadding: root.isOwn ? root.bubblePadding + background.tailSize : root.bubblePadding
 				Layout.leftMargin: root.isGroupChatMessage && !root.isOwn && !avatar.visible ? avatar.width : 0
 				background: MessageBackground {
 					id: bubbleBackground
@@ -131,6 +132,7 @@ Controls.ItemDelegate {
 					}
 
 					Loader {
+						id: referencedMessageLoader
 						sourceComponent: root.replyId ? referencedMessage : undefined
 
 						Component {
@@ -142,17 +144,59 @@ Controls.ItemDelegate {
 								messageId: root.replyId
 								body: root.replyQuote
 								messageListView: root.messageListView
-								minimumWidth: Math.max(spoilerHintArea.width, mainArea.width, messageReactionArea.width)
+								minimumWidth: Math.max(spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width)
 								maximumWidth: root.maximumBubbleContentWidth
 								backgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 							}
 						}
 					}
 
+					Repeater {
+						id: mediaList
+						model: root.files
+						delegate: Loader {
+							property var file: modelData
+							property real minimumWidth: Math.max(parent.width, referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width)
+							property real maximumWidth: root.maximumBubbleContentWidth
+							property color mainAreaBackgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+
+							sourceComponent: file.localFileUrl.toString() && file.type === Enums.MessageType.MessageAudio && !file.description ? audio : mediumMessagePreview
+
+							Component {
+								id: mediumMessagePreview
+
+								MediumMessagePreview {
+									file: parent.file
+									message: root
+									minimumWidth: parent.minimumWidth
+									maximumWidth: parent.maximumWidth
+									mainAreaBackground.color: parent.mainAreaBackgroundColor
+								}
+							}
+
+							Component {
+								id: audio
+
+								Audio {
+									file: parent.file
+									message: root
+									minimumWidth: parent.minimumWidth
+									maximumWidth: parent.maximumWidth
+									mainAreaBackground.color: parent.mainAreaBackgroundColor
+								}
+							}
+						}
+					}
+
+					Item {
+						visible: root.files && !root.messageBody && !root.spoilerHint && !messageReactionArea.visible
+						height: bubbleBackground.metaInfo.height
+					}
+
 					ColumnLayout {
 						id: spoilerHintArea
 						visible: isSpoiler
-						Layout.minimumWidth: bubbleBackground.metaInfoWidth
+						Layout.minimumWidth: bubbleBackground.metaInfo.width
 						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
 
 						RowLayout {
@@ -165,6 +209,7 @@ Controls.ItemDelegate {
 
 							ClickableIcon {
 								source: isShowingSpoiler ? "password-show-off" : "password-show-on"
+								Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 								Layout.leftMargin: Kirigami.Units.largeSpacing
 								onClicked: isShowingSpoiler = !isShowingSpoiler
 							}
@@ -182,39 +227,22 @@ Controls.ItemDelegate {
 					}
 
 					ColumnLayout {
-						id: mainArea
-						visible: isSpoiler && isShowingSpoiler || !isSpoiler
-
-						Repeater {
-							model: root.files
-							delegate: MediaPreviewOther {
-								required property var modelData
-
-								messageId: root.msgId
-								mediaSource: {
-									if (modelData.localFilePath) {
-										let local = MediaUtilsInstance.fromLocalFile(modelData.localFilePath);
-										if (MediaUtilsInstance.localFileAvailable(local)) {
-											return local;
-										}
-									}
-									return "";
-								}
-								message: root
-								file: modelData
-								Layout.maximumWidth: root.maximumBubbleContentWidth
-							}
-						}
-
-						Item {
-							visible: root.files && !root.messageBody
-							Layout.preferredHeight: Kirigami.Units.smallSpacing
-						}
+						id: bodyArea
+						visible: bodyAreaLoader.item
 
 						Loader {
+							id: bodyAreaLoader
 							sourceComponent: {
 								if (root.groupChatInvitationJid) {
 									return groupChatInvitationComponent
+								}
+
+								if (root.geoCoordinate.isValid) {
+									if (AccountManager.account.geoLocationMapPreviewEnabled) {
+										return geoLocationMapPreview
+									}
+
+									return geoLocationPreview
 								}
 
 								if (root.messageBody) {
@@ -223,6 +251,7 @@ Controls.ItemDelegate {
 
 								return undefined
 							}
+							Layout.bottomMargin: root.geoCoordinate.isValid && !messageReactionArea.visible ? bubbleBackground.metaInfo.height + bodyArea.parent.spacing : 0
 
 							Component {
 								id: bodyComponent
@@ -233,6 +262,7 @@ Controls.ItemDelegate {
 										enabled: true
 										visible: messageBody
 										enhancedFormatting: true
+										padding: root.bubblePadding
 										Layout.maximumWidth: root.maximumBubbleContentWidth
 									}
 								}
@@ -292,6 +322,31 @@ Controls.ItemDelegate {
 									RosterItemWatcher {
 										id: groupChatWatcher
 										jid: root.groupChatInvitationJid
+									}
+								}
+							}
+
+							Component {
+								id: geoLocationPreview
+
+								GeoLocationPreview {
+									message: root
+									minimumWidth: Math.max(referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, bodyArea.parent.width, spoilerHintArea.width, messageReactionArea.width, bubbleBackground.metaInfo.width)
+									maximumWidth: root.maximumBubbleContentWidth
+									mainAreaBackground.color: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
+								}
+							}
+
+							Component {
+								id: geoLocationMapPreview
+
+								RowLayout {
+									GeoLocationMapPreview {
+										center: root.geoCoordinate
+										message: root
+										Layout.preferredWidth: Kirigami.Units.gridUnit * 30
+										Layout.preferredHeight: Kirigami.Units.gridUnit * 20
+										Layout.maximumWidth: root.maximumBubbleContentWidth
 									}
 								}
 							}
@@ -454,6 +509,14 @@ Controls.ItemDelegate {
 				message: root
 			}
 		}
+
+		Component {
+			id: geoLocationMapPage
+
+			GeoLocationMapPage {
+				coordinate: root.geoCoordinate
+			}
+		}
 	}
 
 	function determineMessageGroupDelimiter(delimitingIndex = 0, indexOffset = -1) {
@@ -476,5 +539,11 @@ Controls.ItemDelegate {
 
 	function showContextMenu(mouseArea, file) {
 		contextMenu.createObject().show(mouseArea, file)
+	}
+
+	function openGeoLocationMap() {
+		if (Utils.openGeoLocation(geoCoordinate)) {
+			openPage(geoLocationMapPage)
+		}
 	}
 }

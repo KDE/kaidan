@@ -15,11 +15,9 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
-import QtMultimedia 5.15 as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
-import MediaUtils 0.1
 
 import "elements"
 import "details"
@@ -27,39 +25,12 @@ import "details"
 ChatPageBase {
 	id: root
 
-	DropArea {
-		anchors.fill: parent
-		onDropped: (drop) => {
-			for (const url of drop.urls) {
-				sendMediaSheet.addFile(url)
-			}
-			sendMediaSheet.ensureOpen()
-		}
-	}
-
-	Shortcut {
-		sequence: "Ctrl+Shift+V"
-		context: Qt.WindowShortcut
-		onActivated: {
-			let imageUrl = Utils.pasteImage();
-			// check if there was an image to be pasted from the clipboard
-			if (imageUrl.toString().length > 0) {
-				sendMediaSheet.addFile(imageUrl)
-				sendMediaSheet.ensureOpen()
-			}
-		}
-	}
-
 	property alias searchBar: searchBar
-	property alias sendMediaSheet: sendMediaSheet
-	property alias newMediaSheet: newMediaSheet
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
 	property alias messageReactionDetailsDialog: messageReactionDetailsDialog
 	property alias messageListView: messageListView
-
 	property ChatPageSendingPane sendingPane
 	property ChatInfo globalChatDate
-	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 	property bool viewPositioned: false
 	// Color of the message bubbles on the right side
 	readonly property color rightMessageBubbleColor: {
@@ -130,13 +101,6 @@ ChatPageBase {
 				else
 					searchBar.open()
 			}
-		},
-		Kirigami.Action {
-			visible: !sendingPane.composition.isSpoiler
-			icon.name: "password-show-off"
-			text: qsTr("Add hidden message part")
-			displayHint: Kirigami.DisplayHint.IconOnly
-			onTriggered: sendingPane.prepareSpoiler()
 		}
 	]
 
@@ -220,17 +184,6 @@ ChatPageBase {
 			accountJid: ChatController.accountJid
 			Component.onDestruction: openView(groupChatDetailsDialog, groupChatDetailsPage).openKeyAuthenticationUserListView()
 		}
-	}
-
-	SendMediaSheet {
-		id: sendMediaSheet
-		composition: sendingPane.composition
-		chatPage: parent
-	}
-
-	NewMediaSheet {
-		id: newMediaSheet
-		composition: sendingPane.composition
 	}
 
 	MessageReactionEmojiPicker {
@@ -393,6 +346,7 @@ ChatPageBase {
 			detailedReactions: model.detailedReactions
 			ownReactionsFailed: model.ownReactionsFailed
 			groupChatInvitationJid: model.groupChatInvitationJid
+			geoCoordinate: model.geoCoordinate
 		}
 		// Everything is upside down, looks like a footer
 		header: ColumnLayout {
@@ -510,6 +464,88 @@ ChatPageBase {
 			}
 		}
 
+		Rectangle {
+			id: dropAreaInfo
+			color: secondaryBackgroundColor
+			opacity: 0
+			anchors.fill: parent
+
+			Behavior on opacity {
+				NumberAnimation {}
+			}
+
+			ColumnLayout {
+				spacing: Kirigami.Units.largeSpacing
+				anchors.fill: parent
+
+				Item {
+					Layout.fillHeight: true
+				}
+
+				Kirigami.Icon {
+					source: "mail-attachment-symbolic"
+					height: Kirigami.Units.iconSizes.enormous
+					Layout.alignment: Qt.AlignHCenter
+				}
+
+				RowLayout {
+					spacing: 0
+
+					Item {
+						Layout.fillWidth: true
+					}
+
+					ChatInfo {
+						text: qsTr("Drop files to be sent")
+						level: 1
+						type: Kirigami.Heading.Type.Primary
+						wrapMode: Text.Wrap
+						horizontalAlignment: Text.AlignHCenter
+						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
+					}
+
+					Item {
+						Layout.fillWidth: true
+					}
+				}
+
+				RowLayout {
+					spacing: 0
+
+					Item {
+						Layout.fillWidth: true
+					}
+
+					ChatInfo {
+						text: filePastingShortcut.nativeText
+						level: 5
+						wrapMode: Text.Wrap
+						horizontalAlignment: Text.AlignHCenter
+						Layout.maximumWidth: dropAreaInfo.width - Kirigami.Units.largeSpacing
+					}
+
+					Item {
+						Layout.fillWidth: true
+					}
+				}
+
+				Item {
+					Layout.fillHeight: true
+				}
+			}
+		}
+
+		DropArea {
+			id: messageListViewDropArea
+			anchors.fill: parent
+			onDropped: root.addDroppedFiles(drop)
+			onContainsDragChanged: {
+				if (!chatHintListViewDropArea.containsDrag) {
+					dropAreaInfo.opacity = containsDrag ? 0.9 : 0
+				}
+			}
+		}
+
 		Timer {
 			id: resetCurrentIndexTimer
 			interval: Kirigami.Units.veryLongDuration * 4
@@ -617,6 +653,31 @@ ChatPageBase {
 				root.sendingPane.forceActiveFocus()
 			}
 		}
+
+		DropArea {
+			id: chatHintListViewDropArea
+			anchors.fill: parent
+			onDropped: root.addDroppedFiles(drop)
+			onContainsDragChanged: {
+				if (!messageListViewDropArea.containsDrag) {
+					dropAreaInfo.opacity = containsDrag ? 0.9 : 0
+				}
+			}
+		}
+	}
+
+	Shortcut {
+		id: filePastingShortcut
+		sequence: "Ctrl+Shift+V"
+		context: Qt.WindowShortcut
+		onActivated: {
+			const url = MediaUtils.urlFromClipboard()
+
+			// Check if there is a file to be pasted from the clipboard.
+			if (url.toString()) {
+				addFile(url)
+			}
+		}
 	}
 
 	Connections {
@@ -625,5 +686,15 @@ ChatPageBase {
 		function onGroupChatInviteeSelectionNeeded() {
 			openView(groupChatDetailsDialog, groupChatDetailsPage).openContactListView()
 		}
+	}
+
+	function addDroppedFiles(drop) {
+		for (const url of drop.urls) {
+			addFile(url)
+		}
+	}
+
+	function addFile(url) {
+		root.sendingPane.composition.fileSelectionModel.addFile(url)
 	}
 }

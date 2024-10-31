@@ -8,9 +8,10 @@
 
 #include "Message.h"
 
+// Qt
 #include <QFileInfo>
 #include <QStringBuilder>
-
+// QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppBitsOfBinaryData.h>
 #include <QXmppBitsOfBinaryDataList.h>
@@ -23,7 +24,7 @@
 #include <QXmppOutOfBandUrl.h>
 #include <QXmppThumbnail.h>
 #include <QXmppUtils.h>
-
+// Kaidan
 #include "Algorithms.h"
 #include "Globals.h"
 #include "MediaUtils.h"
@@ -91,9 +92,14 @@ QXmppFileShare File::toQXmpp() const
 	return fs;
 }
 
-QImage File::thumbnailSquareImage() const
+QImage File::previewImage() const
 {
-	auto image = QImage::fromData(thumbnail);
+	const auto image = createPreviewImage();
+
+	if (image.isNull()) {
+		return {};
+	}
+
 	auto length = std::min(image.width(), image.height());
 	QImage croppedImage(QSize(length, length), image.format());
 
@@ -105,6 +111,7 @@ QImage File::thumbnailSquareImage() const
 			croppedImage.setPixel(x, y, image.pixel(x + delX, y + delY));
 		}
 	}
+
 	return croppedImage;
 }
 
@@ -119,7 +126,11 @@ QUrl File::downloadUrl() const
 
 QUrl File::localFileUrl() const
 {
-	return localFilePath.isEmpty() ? QUrl() : QUrl::fromLocalFile(localFilePath);
+	if (MediaUtils::localFileAvailable(localFilePath)) {
+		return MediaUtils::localFileUrl(localFilePath);
+	}
+
+	return QUrl();
 }
 
 MessageType File::type() const
@@ -129,38 +140,66 @@ MessageType File::type() const
 
 QString File::details() const
 {
-	auto formattedSize = [this]() {
-		if (size) {
-			return QmlUtils::formattedDataSize(*size);
-		}
+	const auto size = formattedSize();
+	const auto dateTime = formattedDateTime();
 
-		if (const QFileInfo fileInfo(localFilePath); fileInfo.exists()) {
-			return QmlUtils::formattedDataSize(fileInfo.size());
-		}
-
-		return QString();
-	}();
-	auto formattedDateTime = [this]() {
-		if (lastModified.isValid()) {
-			return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
-		}
-
-		return QString();
-	}();
-
-	if (formattedSize.isEmpty() && formattedDateTime.isEmpty()) {
+	if (size.isEmpty() && dateTime.isEmpty()) {
 		return QObject::tr("No information");
 	}
 
-	if (formattedSize.isEmpty()) {
-		return formattedDateTime;
+	if (size.isEmpty()) {
+		return dateTime;
 	}
 
-	if (formattedDateTime.isEmpty()) {
-		return formattedSize;
+	if (dateTime.isEmpty()) {
+		return size;
 	}
 
-	return QStringLiteral("%1, %2").arg(formattedSize, formattedDateTime);
+	return QStringLiteral("%1, %2").arg(size, dateTime);
+}
+
+QString File::formattedSize() const
+{
+	if (size) {
+		return QmlUtils::formattedDataSize(*size);
+	}
+
+	if (const QFileInfo fileInfo(localFilePath); fileInfo.exists()) {
+		return QmlUtils::formattedDataSize(fileInfo.size());
+	}
+
+	return QString();
+}
+
+QString File::formattedDateTime() const
+{
+	if (lastModified.isValid()) {
+		return QLocale::system().toString(lastModified, QObject::tr("dd MMM at hh:mm"));
+	}
+
+	return QString();
+}
+
+QImage File::createPreviewImage() const
+{
+	switch(type()) {
+	case Enums::MessageType::MessageImage:
+		if (localFileUrl().isValid()) {
+			return QImage { localFilePath };
+		} else if (!thumbnail.isEmpty()) {
+			return QImage::fromData(thumbnail);
+		}
+		break;
+	case Enums::MessageType::MessageVideo:
+		if (!thumbnail.isEmpty()) {
+			return QImage::fromData(thumbnail);
+		}
+		break;
+	default:
+		break;
+	}
+
+	return {};
 }
 
 QXmppMixInvitation GroupChatInvitation::toQXmpp() const
@@ -363,6 +402,10 @@ QString Message::previewText() const
 		return groupChatInvitationText();
 	}
 
+	if (geoCoordinate().isValid()) {
+		return tr("Location");
+	}
+
 	if (files.isEmpty()) {
 		return body;
 	}
@@ -376,6 +419,11 @@ QString Message::previewText() const
 	}
 
 	return mediaPreviewText;
+}
+
+QGeoCoordinate Message::geoCoordinate() const
+{
+	return QmlUtils::geoCoordinate(body);
 }
 
 Message::TrustLevel Message::trustLevel() const

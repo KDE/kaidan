@@ -15,6 +15,7 @@
 #include <QXmppFileSharingManager.h>
 
 #include "Enums.h"
+#include "Globals.h"
 
 class MediaUtils : public QObject
 {
@@ -29,11 +30,53 @@ public:
 	Q_INVOKABLE static bool isGeoLocation(const QString &content);
 	Q_INVOKABLE static QGeoCoordinate locationCoordinate(const QString &content);
 	Q_INVOKABLE static bool localFileAvailable(const QString &filePath);
-	Q_INVOKABLE static QUrl fromLocalFile(const QString &filePath);
+
+	/**
+	 * Returns the URL of a copied file.
+	 */
+	Q_INVOKABLE static QUrl urlFromClipboard();
+
+	/**
+	 * Deletes a local file.
+	 */
+	Q_INVOKABLE static void deleteFile(const QUrl &url);
+
+	/**
+	 * Returns the path of a local file URL.
+	 */
+	Q_INVOKABLE static QString localFilePath(const QUrl &localFileUrl);
+
+	/**
+	 * Returns the URL of a local file.
+	 */
+	Q_INVOKABLE static QUrl localFileUrl(const QString &localFilePath);
+
+	/**
+	 * Returns the URL of a local file's directory.
+	 */
+	Q_INVOKABLE static QUrl localFileDirectoryUrl(const QUrl &localFileUrl);
+
+	Q_INVOKABLE static bool imageValid(const QImage &image);
+
 	Q_INVOKABLE static QMimeType mimeType(const QString &filePath);
 	Q_INVOKABLE static QMimeType mimeType(const QUrl &url);
 	Q_INVOKABLE static QString iconName(const QString &filePath);
 	Q_INVOKABLE static QString iconName(const QUrl &url);
+
+	/**
+	 * Returns the path of an audio file to be created.
+	 */
+	Q_INVOKABLE static QString newAudioFilePath();
+
+	/**
+	 * Returns the path of an image file to be created.
+	 */
+	Q_INVOKABLE static QString newImageFilePath();
+
+	/**
+	 * Returns the path of a video file to be created.
+	 */
+	Q_INVOKABLE static QString newVideoFilePath();
 
 	static QString mediaTypeName(Enums::MessageType mediaType);
 	Q_INVOKABLE static QString newMediaLabel(Enums::MessageType hint);
@@ -59,6 +102,7 @@ public:
 	static QByteArray encodeImageThumbnail(const QImage &image);
 
 	static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice>);
+	static QFuture<QByteArray> generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount = THUMBNAIL_EDGE_PIXEL_COUNT);
 
 	static const QMimeDatabase &mimeDatabase()
 	{

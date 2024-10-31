@@ -124,10 +124,10 @@ constexpr auto PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY = 2;
 
 // JPEG export quality used when saving images lossy (e.g. when saving images from clipboard)
 constexpr auto JPEG_EXPORT_QUALITY = 85;
-// Maximum file size for reading files just to generate an image thumbnail.
-constexpr auto THUMBNAIL_GENERATION_MAX_FILE_SIZE = 10 * 1024 * 1024;
 // Width and height of generated file thumbnails.
-constexpr auto THUMBNAIL_PIXEL_SIZE = 50;
+constexpr auto THUMBNAIL_EDGE_PIXEL_COUNT = 15;
+// Width and height of generated video thumbnails.
+constexpr auto VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT = 500;
 
 // Count of encryption key ID characters that are grouped to be displayed for better readability
 constexpr int ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE = 8;

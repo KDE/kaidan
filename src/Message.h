@@ -19,6 +19,7 @@
 #include "Encryption.h"
 #include "Enums.h"
 
+class QGeoCoordinate;
 class QMimeType;
 
 using namespace Enums;
@@ -68,18 +69,17 @@ struct File
 	Q_PROPERTY(QString description READ _description CONSTANT)
 	Q_PROPERTY(QString mimeTypeName READ mimeTypeName CONSTANT)
 	Q_PROPERTY(QString mimeTypeIcon READ mimeTypeIcon CONSTANT)
-	Q_PROPERTY(qint64 size READ _size CONSTANT)
+	Q_PROPERTY(QString formattedSize READ formattedSize CONSTANT)
 	Q_PROPERTY(QDateTime lastModified MEMBER lastModified)
 	Q_PROPERTY(bool displayInline READ displayInline CONSTANT)
+	Q_PROPERTY(QUrl downloadUrl READ downloadUrl CONSTANT)
 	Q_PROPERTY(QString localFilePath MEMBER localFilePath)
 	Q_PROPERTY(QUrl localFileUrl READ localFileUrl CONSTANT)
 	Q_PROPERTY(QString externalId MEMBER externalId)
-	Q_PROPERTY(bool hasThumbnail READ hasThumbnail CONSTANT)
-	Q_PROPERTY(QImage thumbnail READ thumbnailImage CONSTANT)
-	Q_PROPERTY(QImage thumbnailSquare READ thumbnailSquareImage CONSTANT)
-	Q_PROPERTY(QUrl downloadUrl READ downloadUrl CONSTANT)
+	Q_PROPERTY(QImage previewImage READ previewImage CONSTANT)
 	Q_PROPERTY(Enums::MessageType type READ type CONSTANT)
 	Q_PROPERTY(QString details READ details CONSTANT)
+	Q_PROPERTY(bool isNew MEMBER isNew)
 
 public:
 	qint64 id = 0;
@@ -96,26 +96,29 @@ public:
 	QByteArray thumbnail;
 	QVector<HttpSource> httpSources;
 	QVector<EncryptedSource> encryptedSources;
+	bool isNew;
 
 	[[nodiscard]] QXmppFileShare toQXmpp() const;
 
 	bool operator==(const File &other) const = default;
 
-private:
 	[[nodiscard]] QString _name() const { return name.value_or(QString()); }
 	[[nodiscard]] QString _description() const { return description.value_or(QString()); }
 	[[nodiscard]] QString mimeTypeName() const { return mimeType.name(); }
 	[[nodiscard]] QString mimeTypeIcon() const { return mimeType.iconName(); }
 	[[nodiscard]] qint64 _size() const { return size.value_or(-1); }
 	[[nodiscard]] bool displayInline() const { return disposition == QXmppFileShare::Inline; }
-	[[nodiscard]] bool hasThumbnail() const { return !thumbnail.isEmpty(); }
-	[[nodiscard]] QImage thumbnailImage() const { return QImage::fromData(thumbnail); }
-	[[nodiscard]] QImage thumbnailSquareImage() const;
+	[[nodiscard]] QImage previewImage() const;
 	[[nodiscard]] QUrl downloadUrl() const;
 	[[nodiscard]] QUrl localFileUrl() const;
 	[[nodiscard]] Enums::MessageType type() const;
 	[[nodiscard]] QString fileId() const { return QString::number(id); }
 	[[nodiscard]] QString details() const;
+	[[nodiscard]] QString formattedSize() const;
+	[[nodiscard]] QString formattedDateTime() const;
+
+private:
+	QImage createPreviewImage() const;
 };
 
 class MessageReactionDeliveryState
@@ -258,6 +261,8 @@ public:
 	// Preview of the message in pure text form (used in the contact list for the
 	// last message for example)
 	QString previewText() const;
+
+	QGeoCoordinate geoCoordinate() const;
 
 	TrustLevel trustLevel() const;
 

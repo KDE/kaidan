@@ -7,10 +7,12 @@
 #include "MediaRecorder.h"
 #include "Kaidan.h"
 
+#include <QDir>
 #include <QUrl>
 #include <QFile>
 #include <QSettings>
 
+#include "MediaUtils.h"
 #include "Settings.h"
 
 /*
@@ -807,13 +809,14 @@ void MediaRecorder::record()
 		m_mediaSettings.dumpProperties("Capture");
 		m_imageEncoderSettings.dumpProperties("Capture");
 #endif
-		m_imageCapturer->capture();
+		m_imageCapturer->capture(MediaUtils::newImageFilePath());
 		break;
 	case MediaRecorder::Type::Audio:
 #if ENABLE_DEBUG
 		m_mediaSettings.dumpProperties("Capture");
 		m_audioEncoderSettings.dumpProperties("Capture");
 #endif
+		m_audioRecorder->setOutputLocation(MediaUtils::newAudioFilePath());
 		m_audioRecorder->record();
 		break;
 	case MediaRecorder::Type::Video:
@@ -822,6 +825,7 @@ void MediaRecorder::record()
 		m_audioEncoderSettings.dumpProperties("Capture");
 		m_videoEncoderSettings.dumpProperties("Capture");
 #endif
+		m_videoRecorder->setOutputLocation(MediaUtils::newVideoFilePath());
 		m_videoRecorder->record();
 		break;
 	}

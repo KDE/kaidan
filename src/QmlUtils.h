@@ -14,7 +14,8 @@
 #ifndef BUILD_TESTS
 #include "ClientWorker.h"
 #endif
-#include "Globals.h"
+
+class QGeoCoordinate;
 
 const auto MESSAGE_BUBBLE_PADDING_CHARACTER = u'⠀';
 constexpr auto GROUP_CHAT_USER_MENTION_PREFIX = u'@';
@@ -46,6 +47,8 @@ public:
 	static QChar messageBubblePaddingCharacter();
 	static QChar groupChatUserMentionPrefix();
 	static QChar groupChatUserMentionSeparator();
+
+	Q_INVOKABLE static QString systemCountryCode();
 
 #ifndef BUILD_TESTS
 	/**
@@ -149,13 +152,6 @@ public:
 	Q_INVOKABLE static QString quote(QString text);
 
 	/**
-	 * Checks whether a file is an image and could be displayed as such.
-	 *
-	 * @param fileUrl URL to the possible image file
-	 */
-	Q_INVOKABLE static bool isImageFile(const QUrl &fileUrl);
-
-	/**
 	 * Copies a URL to the clipboard.
 	 */
 	Q_INVOKABLE static void copyToClipboard(const QUrl &url);
@@ -171,21 +167,8 @@ public:
 	Q_INVOKABLE static void copyToClipboard(const QImage &image);
 
 	/**
-	 * Returns the filename from a URL.
+	 * Returns a pretty formatted localized data size string.
 	 */
-	Q_INVOKABLE static QString fileNameFromUrl(const QUrl &url);
-
-	/**
-	 * Returns the local file path from a URL.
-	 */
-	Q_INVOKABLE static QString localFilePath(const QUrl &url);
-
-	/**
-	 * Returns the pretty local file path from a URL.
-	 */
-	Q_INVOKABLE static QString prettyLocalFilePath(const QUrl &url);
-
-	// Returns a pretty formatted, localized file size
 	Q_INVOKABLE static QString formattedDataSize(qint64 fileSize);
 
 	/**
@@ -194,25 +177,19 @@ public:
 	Q_INVOKABLE static QColor userColor(const QString &id, const QString &name);
 
 	/**
-	 * Reads an image from the clipboard and returns the URL of the saved image.
-	 */
-	Q_INVOKABLE static QUrl pasteImage();
-
-	/**
-	 * Returns the absolute file path for files to be downloaded.
-	 */
-	static QString downloadPath(const QString &filename);
-
-	/**
-	 * Returns the timestamp in a format to be used for filenames.
-	 */
-	static QString timestampForFileName();
-	static QString timestampForFileName(const QDateTime &dateTime);
-
-	/**
 	 * Returns a human-readable string describing the state of the chat.
 	 */
 	Q_INVOKABLE static QString chatStateDescription(const QString &displayName, const QXmppMessage::State state);
 
 	Q_INVOKABLE static QString osmUserAgent();
+
+	Q_INVOKABLE static QString geoUri(const QGeoCoordinate &geoCoordinate);
+	Q_INVOKABLE static QGeoCoordinate geoCoordinate(const QString &geoUri);
+
+	/**
+	 * Opens a geo location as preferred by the user.
+	 *
+	 * @return whether the location should be opened within Kaidan
+	 */
+	Q_INVOKABLE static bool openGeoLocation(const QGeoCoordinate &geoCoordinate);
 };

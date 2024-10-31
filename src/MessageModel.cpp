@@ -11,6 +11,7 @@
 #include "MessageModel.h"
 
 // Qt
+#include <QGeoCoordinate>
 #include <QGuiApplication>
 // QXmpp
 #include <QXmppUtils.h>
@@ -23,6 +24,7 @@
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
 #include "Kaidan.h"
+#include "MediaUtils.h"
 #include "MessageDb.h"
 #include "MessageController.h"
 #include "Notifications.h"
@@ -108,6 +110,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[DetailedReactions] = "detailedReactions";
 	roles[OwnReactionsFailed] = "ownReactionsFailed";
 	roles[GroupChatInvitationJid] = "groupChatInvitationJid";
+	roles[GeoCoordinate] = "geoCoordinate";
 	roles[ErrorText] = "errorText";
 	return roles;
 }
@@ -388,6 +391,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 		const auto groupChatInvitation = msg.groupChatInvitation;
 		return groupChatInvitation ? groupChatInvitation->groupChatJid : QString();
 	}
+	case GeoCoordinate:
+		return QVariant::fromValue(msg.geoCoordinate());
 	case ErrorText:
 		return msg.errorText;
 	}
@@ -1078,6 +1083,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		processMessage(msg);
 		updateLastReadOwnMessageId();
 		m_messages << msg;
+		addVideoThumbnails(msg);
 	}
 	endInsertRows();
 
@@ -1197,6 +1203,7 @@ void MessageModel::insertMessage(int idx, const Message &msg)
 	endInsertRows();
 
 	updateLastReadOwnMessageId();
+	addVideoThumbnails(msg);
 }
 
 void MessageModel::removeMessages(const QString &accountJid, const QString &chatJid)
@@ -1206,13 +1213,41 @@ void MessageModel::removeMessages(const QString &accountJid, const QString &chat
 	}
 }
 
-void MessageModel::processMessage(Message &msg)
+void MessageModel::processMessage(Message &message)
 {
-	if (msg.body.size() > MESSAGE_MAX_CHARS) {
-		auto body = msg.body;
+	if (message.body.size() > MESSAGE_MAX_CHARS) {
+		auto body = message.body;
 		body.truncate(MESSAGE_MAX_CHARS);
-		msg.body = body;
+		message.body = body;
 	}
+}
+
+void MessageModel::addVideoThumbnails(const Message &message)
+{
+	auto &files = message.files;
+	std::for_each(files.begin(), files.end(), [this, messageId = message.id](const File &file) {
+		if (const auto localFileUrl = file.localFileUrl(); file.type() == MessageType::MessageVideo && file.localFileUrl().isValid()) {
+			await(MediaUtils::generateThumbnail(localFileUrl, file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), this, [this, fileId = file.fileId(), messageId](const QByteArray &thumbnail) mutable {
+				auto itr = std::find_if(m_messages.begin(), m_messages.end(), [messageId](const Message &message) {
+					return message.relevantId() == messageId;
+				});
+
+				if (itr != m_messages.cend()) {
+					auto &files = itr->files;
+
+					const auto fileItr = std::find_if(files.begin(), files.end(), [fileId, messageId](const File &queriedFile) {
+						return queriedFile.fileId() == fileId;
+					});
+
+					if (fileItr != files.cend()) {
+						fileItr->thumbnail = thumbnail;
+						const auto modelIndex = index(std::distance(m_messages.begin(), itr));
+						Q_EMIT dataChanged(modelIndex, modelIndex, { Files });
+					}
+				}
+			});
+		}
+	});
 }
 
 void MessageModel::showMessageNotification(const Message &message, MessageOrigin origin)

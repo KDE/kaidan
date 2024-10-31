@@ -20,7 +20,7 @@ Item {
 	property int tailSize: Kirigami.Units.largeSpacing
 	property bool showTail: true
 	property alias dummy: dummy
-	readonly property alias metaInfoWidth: metaInfo.width
+	readonly property alias metaInfo: metaInfo
 
 	clip: true
 

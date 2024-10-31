@@ -5,15 +5,18 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "QmlUtils.h"
+
 // ICU
 #include <unicode/uchar.h>
 // Qt
 #include <QClipboard>
-#include <QDateTime>
 #include <QDebug>
+#include <QDesktopServices>
 #include <QDir>
+#include <QGeoCoordinate>
 #include <QGuiApplication>
 #include <QImage>
+#include <QMimeData>
 #include <QMimeDatabase>
 #include <QRegularExpression>
 #include <QStandardPaths>
@@ -24,10 +27,16 @@
 #include <QXmppUri.h>
 #endif
 // Kaidan
+#include "AccountManager.h"
 #include "Globals.h"
+#include "SystemUtils.h"
 
 const auto NEW_LINE = QStringLiteral("\n");
 const auto QUOTE_PREFIX = QStringLiteral("> ");
+
+constexpr QStringView GEO_URI_SCHEME = u"geo";
+constexpr QStringView GEO_URI_COORDINATE_SEPARATOR = u",";
+constexpr QStringView GEO_LOCATION_WEB_URL = u"https://osmand.net/map/?pin=%1,%2#16/%1/%2";
 
 static QmlUtils *s_instance;
 
@@ -64,6 +73,11 @@ QChar QmlUtils::groupChatUserMentionPrefix()
 QChar QmlUtils::groupChatUserMentionSeparator()
 {
 	return GROUP_CHAT_USER_MENTION_SEPARATOR;
+}
+
+QString QmlUtils::systemCountryCode()
+{
+	return SystemUtils::systemLocaleCodes().countryCode;
 }
 
 #ifndef BUILD_TESTS
@@ -224,12 +238,6 @@ QString QmlUtils::quote(QString text)
 	return QUOTE_PREFIX + text.replace(NEW_LINE, NEW_LINE + QUOTE_PREFIX) + NEW_LINE;
 }
 
-bool QmlUtils::isImageFile(const QUrl &fileUrl)
-{
-	QMimeType type = QMimeDatabase().mimeTypeForUrl(fileUrl);
-	return type.inherits(QStringLiteral("image/jpeg")) || type.inherits(QStringLiteral("image/png"));
-}
-
 void QmlUtils::copyToClipboard(const QUrl &url)
 {
 	copyToClipboard(url.toString());
@@ -243,25 +251,6 @@ void QmlUtils::copyToClipboard(const QString &text)
 void QmlUtils::copyToClipboard(const QImage &image)
 {
 	QGuiApplication::clipboard()->setImage(image);
-}
-
-QString QmlUtils::fileNameFromUrl(const QUrl &url)
-{
-	return QUrl(url).fileName();
-}
-
-QString QmlUtils::localFilePath(const QUrl &url)
-{
-	return url.toLocalFile();
-}
-
-QString QmlUtils::prettyLocalFilePath(const QUrl &url)
-{
-	if (url.isLocalFile()) {
-		return url.toLocalFile();
-	}
-
-	return url.toString();
 }
 
 QString QmlUtils::formattedDataSize(qint64 fileSize)
@@ -283,57 +272,6 @@ QColor QmlUtils::userColor(const QString &id, const QString &name)
 	Q_UNUSED(name)
 	return QColor(Qt::black);
 #endif
-}
-
-QUrl QmlUtils::pasteImage()
-{
-	const auto image = QGuiApplication::clipboard()->image();
-	if (image.isNull())
-		return {};
-
-	// create absolute file path
-	const auto path = downloadPath(u"image-" % timestampForFileName() % u".jpg");
-
-	// encode JPEG image
-	if (!image.save(path, "JPG", JPEG_EXPORT_QUALITY))
-		return {};
-	return QUrl::fromLocalFile(path);
-}
-
-QString QmlUtils::downloadPath(const QString &filename)
-{
-	// Kaidan download directory
-	const QDir directory(
-			QStandardPaths::writableLocation(QStandardPaths::DownloadLocation) %
-				QDir::separator() %
-				QStringLiteral(APPLICATION_DISPLAY_NAME));
-	// create directory if it doesn't exist
-	if (!directory.mkpath(QStringLiteral(".")))
-		return {};
-
-	// check whether a file with this name already exists
-	QFileInfo info(directory, filename);
-	if (!info.exists())
-		return info.absoluteFilePath();
-
-	// find a new filename that doesn't exist
-	const auto baseName = info.baseName();
-	const auto nameSuffix = info.suffix();
-	for (uint i = 1; info.exists(); i++) {
-		// try to insert '-<i>' before the file extension
-		info = QFileInfo(directory, baseName % u'-' % QString::number(i) % nameSuffix);
-	}
-	return info.absoluteFilePath();
-}
-
-QString QmlUtils::timestampForFileName()
-{
-	return timestampForFileName(QDateTime::currentDateTime());
-}
-
-QString QmlUtils::timestampForFileName(const QDateTime &dateTime)
-{
-	return dateTime.toString(u"yyyyMMdd_hhmmss");
 }
 
 QString QmlUtils::chatStateDescription(const QString &displayName, const QXmppMessage::State state)
@@ -358,4 +296,44 @@ QString QmlUtils::chatStateDescription(const QString &displayName, const QXmppMe
 QString QmlUtils::osmUserAgent()
 {
 	return u"" APPLICATION_NAME % QChar(u'/') % u"" VERSION_STRING;
+}
+
+QString QmlUtils::geoUri(const QGeoCoordinate &geoCoordinate)
+{
+	QUrl uri;
+	uri.setScheme(GEO_URI_SCHEME.toString());
+	uri.setPath(QString::number(geoCoordinate.latitude()) + GEO_URI_COORDINATE_SEPARATOR.toString() + QString::number(geoCoordinate.longitude()));
+
+	return uri.toString();
+}
+
+QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
+{
+	QUrl uri(geoUri);
+
+	if (uri.scheme() == GEO_URI_SCHEME) {
+		const auto coordinateParts = uri.path().split(GEO_URI_COORDINATE_SEPARATOR.toString());
+
+		if (coordinateParts.size() == 2) {
+			return { coordinateParts.at(0).toDouble(), coordinateParts.at(1).toDouble()};
+		}
+	}
+
+	return {};
+}
+
+bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
+{
+	switch(AccountManager::instance()->account().geoLocationMapService) {
+	case Account::GeoLocationMapService::System:
+		QDesktopServices::openUrl(geoUri(geoCoordinate));
+		break;
+	case Account::GeoLocationMapService::InApp:
+		return true;
+	case Account::GeoLocationMapService::Web:
+		QDesktopServices::openUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()), QString::number(geoCoordinate.longitude())));
+		break;
+	}
+
+	return false;
 }

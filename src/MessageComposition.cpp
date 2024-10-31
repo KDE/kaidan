@@ -17,7 +17,6 @@
 #include "MediaUtils.h"
 #include "MessageController.h"
 #include "MessageDb.h"
-#include "QmlUtils.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
 // Qt
@@ -30,8 +29,6 @@
 // KF
 #include <KIO/PreviewJob>
 #include <KFileItem>
-
-constexpr auto THUMBNAIL_SIZE = 200;
 
 MessageComposition::MessageComposition()
 	: m_fileSelectionModel(new FileSelectionModel(this))
@@ -258,13 +255,7 @@ void MessageComposition::send()
 		MessageController::instance()->sendPendingMessage(std::move(message));
 	}
 
-	// clean up
-	setSpoiler(false);
-	setIsDraft(false);
-	setReplyToJid({});
-	setReplyToGroupChatParticipantId({});
-	setReplyId({});
-	setReplyQuote({});
+	clear();
 }
 
 void MessageComposition::correct()
@@ -314,6 +305,38 @@ void MessageComposition::correct()
 			message.timestamp = QDateTime::currentDateTimeUtc();
 		}
 	});
+
+	clear();
+}
+
+void MessageComposition::clear()
+{
+	setReplaceId({});
+	setReplyToJid({});
+	setReplyToGroupChatParticipantId({});
+	setReplyToName({});
+	setReplyId({});
+	setReplyQuote({});
+	setBody({});
+	setSpoiler(false);
+	setSpoilerHint({});
+	setIsDraft(false);
+}
+
+void MessageComposition::setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote)
+{
+	if (replyId.isEmpty()) {
+		message.reply.reset();
+	} else {
+		Message::Reply reply;
+
+		reply.toJid = replyToJid;
+		reply.toGroupChatparticipantId = replyToGroupChatParticipantId;
+		reply.id = replyId;
+		reply.quote = replyQuote;
+
+		message.reply = reply;
+	}
 }
 
 void MessageComposition::loadDraft()
@@ -352,22 +375,6 @@ void MessageComposition::loadDraft()
 			setIsDraft(true);
 		}
 	});
-}
-
-void MessageComposition::setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote)
-{
-	if (replyId.isEmpty()) {
-		message.reply.reset();
-	} else {
-		Message::Reply reply;
-
-		reply.toJid = replyToJid;
-		reply.toGroupChatparticipantId = replyToGroupChatParticipantId;
-		reply.id = replyId;
-		reply.quote = replyQuote;
-
-		message.reply = reply;
-	}
 }
 
 void MessageComposition::saveDraft()
@@ -417,10 +424,12 @@ FileSelectionModel::~FileSelectionModel() = default;
 QHash<int, QByteArray> FileSelectionModel::roleNames() const
 {
 	static const QHash<int, QByteArray> roles {
-		{ Filename, QByteArrayLiteral("fileName") },
-		{ Thumbnail, QByteArrayLiteral("thumbnail") },
+		{ Name, QByteArrayLiteral("name") },
 		{ Description, QByteArrayLiteral("description") },
-		{ FileSize, QByteArrayLiteral("fileSize") }
+		{ Size, QByteArrayLiteral("size") },
+		{ LocalFileUrl, QByteArrayLiteral("localFileUrl") },
+		{ PreviewImage, QByteArrayLiteral("previewImage") },
+		{ Type, QByteArrayLiteral("type") },
 	};
 	return roles;
 }
@@ -440,25 +449,32 @@ QVariant FileSelectionModel::data(const QModelIndex &index, int role) const
 	}
 
 	const auto &file = m_files.at(index.row());
+
 	switch (role) {
-	case Filename:
+	case Name:
 		return QUrl::fromLocalFile(file.localFilePath).fileName();
 	case Description:
 		if (file.description) {
 			return *file.description;
 		}
 		return QString();
-	case Thumbnail:
-		if (!file.thumbnail.isNull()) {
-			return QImage::fromData(file.thumbnail);
-		}
-		return file.mimeType.iconName();
-	case FileSize:
+	case Size:
 		if (file.size) {
-			return QmlUtils::formattedDataSize(*file.size);
+			return file.formattedSize();
 		}
 		return tr("Unknown size");
+	case LocalFileUrl:
+		return file.localFileUrl();
+	case PreviewImage:
+		if (const auto previewImage = file.previewImage(); !previewImage.isNull()) {
+			return previewImage;
+		}
+
+		return file.mimeTypeIcon();
+	case Type:
+		return QVariant::fromValue(file.type());
 	}
+
 	return {};
 }
 
@@ -466,59 +482,66 @@ void FileSelectionModel::selectFile()
 {
 	const auto files = QFileDialog::getOpenFileUrls();
 
-	bool filesAdded = false;
-
 	for (const auto &file : files) {
-		if (addFile(file)) {
-			filesAdded = true;
-		}
-	}
-
-	if (filesAdded) {
-		Q_EMIT selectFileFinished();
+		addFile(file);
 	}
 }
 
-bool FileSelectionModel::addFile(const QUrl &localFilePath)
+void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 {
-	auto localPath = localFilePath.toLocalFile();
+	auto localPath = localFileUrl.toLocalFile();
 
 	bool alreadyAdded = containsIf(m_files, [=](const auto &file) {
 		return file.localFilePath == localPath;
 	});
 
 	if (alreadyAdded) {
-		return false;
+		return;
 	}
 
-	Q_ASSERT(localFilePath.isLocalFile());
+	Q_ASSERT(localFileUrl.isLocalFile());
 	const auto limit = Kaidan::instance()->serverFeaturesCache()->httpUploadLimit();
 	const QFileInfo fileInfo(localPath);
 
 	if (fileInfo.size() > limit) {
 		Kaidan::instance()->passiveNotificationRequested(tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
-		return false;
+		return;
 	}
 
 	File file;
 	file.localFilePath = localPath;
 	file.mimeType = MediaUtils::mimeDatabase().mimeTypeForFile(localPath);
 	file.size = fileInfo.size();
+	file.isNew = isNew;
 
-	generateThumbnail(file);
+	auto insertFile = [this](File &&file) mutable {
+		beginInsertRows({}, m_files.size(), m_files.size());
+		m_files.append(std::move(file));
+		endInsertRows();
+	};
 
-	beginInsertRows({}, m_files.size(), m_files.size());
-	m_files.push_back(std::move(file));
-	endInsertRows();
-
-	return true;
+	if (file.type() == MessageType::MessageVideo) {
+		await(MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), this, [file, insertFile](const QByteArray &thumbnail) mutable {
+			file.thumbnail = thumbnail;
+			insertFile(std::move(file));
+		});
+	} else {
+		insertFile(std::move(file));
+	}
 }
 
 void FileSelectionModel::removeFile(int index)
 {
+	deleteNewFile(m_files.at(index));
+
 	beginRemoveRows({}, index, index);
-	m_files.erase(m_files.begin() + index);
+	m_files.remove(index);
 	endRemoveRows();
+}
+
+void FileSelectionModel::deleteNewFiles()
+{
+	std::for_each(m_files.cbegin(), m_files.cend(), deleteNewFile);
 }
 
 void FileSelectionModel::clear()
@@ -543,36 +566,14 @@ bool FileSelectionModel::setData(const QModelIndex &index, const QVariant &value
 	return true;
 }
 
-void FileSelectionModel::generateThumbnail(const File &file)
-{
-	static auto allPlugins = KIO::PreviewJob::availablePlugins();
-	KFileItemList items {
-		KFileItem {
-			QUrl::fromLocalFile(file.localFilePath),
-			QMimeDatabase().mimeTypeForFile(file.localFilePath).name(),
-		}
-	};
-	auto *job = new KIO::PreviewJob(items, QSize(THUMBNAIL_SIZE, THUMBNAIL_SIZE), &allPlugins);
-	job->setAutoDelete(true);
-
-	connect(job, &KIO::PreviewJob::gotPreview, this, [this](const KFileItem &item, const QPixmap &preview) {
-		auto *file = std::find_if(m_files.begin(), m_files.end(), [&](const auto &file) {
-			return file.localFilePath == item.localPath();
-		});
-
-		if (file != m_files.cend()) {
-			file->thumbnail = MediaUtils::encodeImageThumbnail(preview);
-			int i = std::distance(m_files.begin(), file);
-			Q_EMIT dataChanged(index(i), index(i), { Thumbnail });
-		}
-	});
-	connect(job, &KIO::PreviewJob::failed, this, [](const KFileItem &item) {
-		qDebug() << "Could not generate a thumbnail for" << item.url();
-	});
-	job->start();
-}
-
 const QVector<File> &FileSelectionModel::files() const
 {
 	return m_files;
+}
+
+void FileSelectionModel::deleteNewFile(const File &file)
+{
+	if (file.isNew) {
+		MediaUtils::deleteFile(file.localFileUrl());
+	}
 }

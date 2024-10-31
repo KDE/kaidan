@@ -23,6 +23,7 @@ RowLayout {
 	property real backgroundRadius: roundedCornersRadius
 	property bool quoteBarVisible: true
 	readonly property real maximumDetailsWidth: maximumWidth - mainArea.leftPadding - avatar.width - contentArea.spacing - mainArea.rightPadding
+	readonly property var geoCoordinate: Utils.geoCoordinate(root.body)
 
 	Controls.Control {
 		id: mainArea
@@ -85,12 +86,18 @@ RowLayout {
 				FormattedTextEdit {
 					text: bodyTextMetrics.elidedText
 					color: Kirigami.Theme.disabledTextColor
-					font.italic: !root.body
+					font.italic: !root.body || root.geoCoordinate.isValid
 					Layout.minimumWidth: root.minimumWidth - mainArea.leftPadding - avatar.width - contentArea.spacing - mainArea.rightPadding
 
 					TextMetrics {
 						id: bodyTextMetrics
-						text:  root.body ? Utils.removeNewLinesFromString(root.body) : qsTr("Media")
+						text: {
+							if (root.geoCoordinate.isValid) {
+								return qsTr("Location")
+							}
+
+							return root.body ? Utils.removeNewLinesFromString(root.body) : qsTr("Media")
+						}
 						elide: Text.ElideRight
 						elideWidth: root.maximumDetailsWidth
 					}

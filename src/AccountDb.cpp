@@ -195,6 +195,8 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
 	int idxContactNotificationRule = rec.indexOf(QStringLiteral("contactNotificationRule"));
 	int idxGroupChatNotificationRule = rec.indexOf(QStringLiteral("groupChatNotificationRule"));
+	int idxGeoLocationMapPreviewEnabled = rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
+	int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
 
 	reserve(accounts, query);
 	while (query.next()) {
@@ -214,6 +216,13 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		if (const auto groupChatNotificationRule = query.value(idxGroupChatNotificationRule);
 			!groupChatNotificationRule.isNull()) {
 			account.groupChatNotificationRule = groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
+		}
+
+		account.geoLocationMapPreviewEnabled = query.value(idxGeoLocationMapPreviewEnabled).toBool();
+
+		if (const auto geoLocationMapService = query.value(idxGeoLocationMapService);
+			!geoLocationMapService.isNull()) {
+			account.geoLocationMapService = geoLocationMapService.value<Account::GeoLocationMapService>();
 		}
 
 		accounts << std::move(account);
@@ -244,6 +253,12 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 	}
 	if (oldAccount.groupChatNotificationRule != newAccount.groupChatNotificationRule) {
 		rec.append(createSqlField(QStringLiteral("groupChatNotificationRule"), static_cast<int>(newAccount.groupChatNotificationRule)));
+	}
+	if (oldAccount.geoLocationMapPreviewEnabled != newAccount.geoLocationMapPreviewEnabled) {
+		rec.append(createSqlField(QStringLiteral("geoLocationMapPreviewEnabled"), newAccount.geoLocationMapPreviewEnabled));
+	}
+	if (oldAccount.geoLocationMapService != newAccount.geoLocationMapService) {
+		rec.append(createSqlField(QStringLiteral("geoLocationMapService"), static_cast<int>(newAccount.geoLocationMapService)));
 	}
 
 	return rec;

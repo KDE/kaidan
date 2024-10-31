@@ -15,6 +15,8 @@ class Account
 
 	Q_PROPERTY(ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule)
 	Q_PROPERTY(GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule)
+	Q_PROPERTY(bool geoLocationMapPreviewEnabled MEMBER geoLocationMapPreviewEnabled)
+	Q_PROPERTY(GeoLocationMapService geoLocationMapService MEMBER geoLocationMapService)
 
 public:
 	/**
@@ -50,6 +52,16 @@ public:
 	};
 	Q_ENUM(AutomaticMediaDownloadsRule)
 
+	/**
+	 * Map service for opening geo locations.
+	 */
+	enum class GeoLocationMapService {
+		System,     ///< Let the system decide how to open geo locations.
+		InApp,      ///< Open geo locations in Kaidan.
+		Web,        ///< Open geo locations in a web browser.
+	};
+	Q_ENUM(GeoLocationMapService)
+
 	Account() = default;
 
 	bool operator==(const Account &other) const = default;
@@ -67,6 +79,8 @@ public:
 	qint64 httpUploadLimit = 0;
 	ContactNotificationRule contactNotificationRule = ContactNotificationRule::Default;
 	GroupChatNotificationRule groupChatNotificationRule = GroupChatNotificationRule::Default;
+	bool geoLocationMapPreviewEnabled = false;
+	GeoLocationMapService geoLocationMapService = GeoLocationMapService::System;
 };
 
 Q_DECLARE_METATYPE(Account)

@@ -13,26 +13,12 @@ import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
-import MediaUtils 0.1
 
 /**
  * This is a pane for writing and sending chat messages.
  */
 Controls.Pane {
 	id: root
-	bottomInset: Kirigami.Units.largeSpacing
-	leftInset: bottomInset
-	rightInset: bottomInset
-	topPadding: topInset + Kirigami.Units.mediumSpacing
-	bottomPadding: bottomInset + Kirigami.Units.mediumSpacing
-	leftPadding: leftInset + Kirigami.Units.mediumSpacing
-	rightPadding: rightInset + Kirigami.Units.mediumSpacing
-	background: Kirigami.ShadowedRectangle {
-		shadow.color: Qt.darker(color, 1.2)
-		shadow.size: 4
-		color: Kirigami.Theme.backgroundColor
-		radius: Kirigami.Units.gridUnit * 1.2
-	}
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
@@ -44,7 +30,6 @@ Controls.Pane {
 		chatJid: ChatController.chatJid
 		body: messageArea.text
 		spoilerHint: spoilerHintField.text
-
 		onIsDraftChanged: {
 			if (isDraft) {
 				if (replaceId) {
@@ -60,6 +45,21 @@ Controls.Pane {
 		}
 	}
 
+	bottomInset: Kirigami.Units.largeSpacing
+	leftInset: bottomInset
+	rightInset: bottomInset
+	topPadding: topInset + Kirigami.Units.mediumSpacing
+	bottomPadding: bottomInset + Kirigami.Units.mediumSpacing
+	leftPadding: leftInset + Kirigami.Units.mediumSpacing
+	rightPadding: rightInset + Kirigami.Units.mediumSpacing
+	background: Kirigami.ShadowedRectangle {
+		shadow.color: Qt.darker(color, 1.2)
+		shadow.size: 4
+		color: primaryBackgroundColor
+		radius: Kirigami.Units.gridUnit * 1.2
+	}
+	Component.onDestruction: composition.fileSelectionModel.deleteNewFiles()
+
 	ColumnLayout {
 		anchors.fill: parent
 		spacing: 0
@@ -73,7 +73,7 @@ Controls.Pane {
 			messageListView: root.chatPage.messageListView
 			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.rightPadding
 			maximumWidth: minimumWidth
-			backgroundRadius: Kirigami.Units.gridUnit * 1.2
+			backgroundRadius: root.background.radius
 			quoteBarVisible: false
 			Layout.bottomMargin: Kirigami.Units.largeSpacing
 
@@ -91,6 +91,29 @@ Controls.Pane {
 					root.forceActiveFocus()
 				}
 			}
+		}
+
+		ListView {
+			id: mediaList
+			model: root.composition.fileSelectionModel
+			delegate: MediumSendingPreview {
+				selectionModel: mediaList.model
+				modelData: model
+				minimumWidth: root.width - root.leftPadding - root.rightPadding - (ListView.view.Controls.ScrollBar.vertical.visible ? ListView.view.Controls.ScrollBar.vertical.width + Kirigami.Units.largeSpacing : 0)
+				maximumWidth: minimumWidth
+				mainAreaBackground.radius: root.background.radius
+				previewImage.radius: root.background.radius
+			}
+			visible: count
+			spacing: Kirigami.Units.smallSpacing
+			implicitWidth: contentWidth
+			implicitHeight: Math.min(contentHeight, applicationWindow().height / 2)
+			clip: true
+			Controls.ScrollBar.vertical: Controls.ScrollBar {
+				snapMode: Controls.ScrollBar.SnapAlways
+			}
+			Layout.fillWidth: true
+			Layout.bottomMargin: Kirigami.Units.largeSpacing
 		}
 
 		RowLayout {
@@ -130,22 +153,16 @@ Controls.Pane {
 			// emoji picker button
 			ClickableIcon {
 				source: "smiley-add"
-				enabled: !mediaSharingArea.visible
+				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
+				Controls.ToolTip.text: qsTr("Add an emoji")
 				onClicked: !emojiPicker.toggle()
-			}
-
-			EmojiPicker {
-				id: emojiPicker
-				x: - root.padding
-				y: - height - root.padding
-				textArea: messageArea
 			}
 
 			// group chat pariticipant mentioning button
 			ClickableText {
 				text: "@"
 				visible: ChatController.rosterItem.isGroupChat
-				enabled: !mediaSharingArea.visible
+				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
 				opacity: visible ? 1 : 0
 				scaleFactor: Kirigami.Units.iconSizes.smallMedium * 0.08
 				Controls.ToolTip.text: qsTr("Mention a participant")
@@ -177,15 +194,6 @@ Controls.Pane {
 				}
 			}
 
-			GroupChatParticipantPicker {
-				id: participantPicker
-				x: root.chatPage.x + root.leftInset
-				y: root.chatPage.height - root.height - root.topPadding - contentHeight
-				accountJid: ChatController.accountJid
-				chatJid: ChatController.chatJid
-				textArea: messageArea
-			}
-
 			FormattedTextArea {
 				id: messageArea
 				placeholderText: {
@@ -201,17 +209,7 @@ Controls.Pane {
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
-				enabled: !mediaSharingArea.visible
-				state: "compose"
-				states: [
-					State {
-						name: "compose"
-					},
-
-					State {
-						name: "edit"
-					}
-				]
+				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
 				onTextChanged: {
 					handleShortcuts()
 
@@ -248,7 +246,7 @@ Controls.Pane {
 							if (participantPicker.visible) {
 								participantPicker.selectCurrentIndex()
 							} else {
-								sendMessage()
+								sendButton.clicked()
 							}
 
 							event.accepted = true
@@ -277,74 +275,160 @@ Controls.Pane {
 				}
 			}
 
-			// Voice message button
-			ClickableIcon {
-				source: MediaUtilsInstance.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === "" && messageArea.state === "compose" && !mediaSharingArea.visible
-				opacity: visible ? 1 : 0
-				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: {
-					chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, Enums.MessageType.MessageAudio)
-				}
-
-				Behavior on opacity {
-					NumberAnimation {}
-				}
-			}
-
 			RowLayout {
-				id: mediaSharingArea
+				id: expansionArea
 				visible: false
 				opacity: visible ? 1 : 0
+				spacing: parent.spacing
 
 				Behavior on opacity {
 					NumberAnimation {}
 				}
 
 				ClickableIcon {
-					Controls.ToolTip.text: qsTr("Take picture")
+					Controls.ToolTip.text: qsTr("Take a picture")
 					source: "camera-photo-symbolic"
+					visible: Kaidan.serverFeaturesCache.httpUploadSupported
 					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageImage)
+					onClicked: expansionArea.openDialog(imageCaptureDialog)
 				}
 
 				ClickableIcon {
-					Controls.ToolTip.text: qsTr("Record video")
+					Controls.ToolTip.text: qsTr("Record a video")
 					source: "camera-video-symbolic"
+					visible: Kaidan.serverFeaturesCache.httpUploadSupported
 					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageVideo)
+					onClicked: expansionArea.openDialog(videoRecordingDialog)
 				}
 
 				ClickableIcon {
 					Controls.ToolTip.text: qsTr("Share files")
-					source: "document-open-symbolic"
+					source: "folder-symbolic"
+					visible: Kaidan.serverFeaturesCache.httpUploadSupported
 					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 					onClicked: {
-						mediaSharingArea.visible = false
-						chatPage.sendMediaSheet.selectFile()
+						expansionArea.visible = false
+						root.composition.fileSelectionModel.selectFile()
 					}
 				}
 
 				ClickableIcon {
-					Controls.ToolTip.text: qsTr("Share location")
+					Controls.ToolTip.text: qsTr("Share your location")
 					source: "mark-location-symbolic"
+					visible: Kaidan.connectionState === Enums.StateConnected
 					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-					onClicked: mediaSharingArea.openNewMediaSheet(Enums.MessageType.MessageGeoLocation)
+					onClicked: expansionArea.openDialog(geoLocationSharingDialog)
 				}
 
-				function openNewMediaSheet(type) {
-					mediaSharingArea.visible = false
-					chatPage.newMediaSheet.sendNewMessageType(ChatController.chatJid, type)
+				ClickableIcon {
+					Controls.ToolTip.text: qsTr("Add hidden message part")
+					source: "eye-not-looking-symbolic"
+					fallback: "password-show-off"
+					visible: !root.composition.isSpoiler
+					Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+					onClicked: {
+						expansionArea.visible = false
+						root.composition.isSpoiler = true
+						spoilerHintField.forceActiveFocus()
+					}
+				}
+
+				Component {
+					id: imageCaptureDialog
+
+					ImageCaptureDialog {
+						messageComposition: root.composition
+					}
+				}
+
+				Component {
+					id: videoRecordingDialog
+
+					VideoRecordingDialog {
+						messageComposition: root.composition
+					}
+				}
+
+				Component {
+					id: geoLocationSharingDialog
+
+					GeoLocationSharingDialog {
+						messageComposition: root.composition
+					}
+				}
+
+				function openDialog(dialog) {
+					visible = false
+					openOverlay(dialog)
 				}
 			}
 
-			// Media sharing button
+			// Expansion button
 			ClickableIcon {
-				source: mediaSharingArea.visible ? "window-close-symbolic" : "mail-attachment-symbolic"
-				visible: Kaidan.serverFeaturesCache.httpUploadSupported && messageArea.text === ""  && messageArea.state === "compose"
+				Controls.ToolTip.text: expansionArea.visible ? qsTr("Hide") :qsTr("More")
+				source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
+				visible: !root.composition.replaceId && voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: mediaSharingArea.visible = !mediaSharingArea.visible
+				onClicked: expansionArea.visible = !expansionArea.visible
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+			}
+
+			// Voice message recording indicator
+			RecordingIndicator {
+				id: voiceMessageRecordingIndicator
+				visible: voiceMessageRecorder.state === MediaRecorder.State.RecordingState
+				opacity: visible ? 1 : 0
+				duration: voiceMessageRecorder.duration
+
+				Behavior on opacity {
+					NumberAnimation {}
+				}
+
+				// Reset the displayed duration after finishing/canceling the recording.
+				// Otherwise, the duration of the last recorded voice message would be shown before
+				// the duration is reset by the new recording.
+				Connections {
+					target: voiceMessageRecorder
+
+					property bool isReset: false
+
+					function onStateChanged() {
+						if (voiceMessageRecorder.state === MediaRecorder.State.StoppedState) {
+							voiceMessageRecordingIndicator.duration = 0
+							isReset = true
+						}
+					}
+
+					function onDurationChanged() {
+						if (isReset) {
+							isReset = false
+							voiceMessageRecordingIndicator.duration = Qt.binding(() => { return voiceMessageRecorder.duration })
+						}
+					}
+				}
+			}
+
+			// Voice message button
+			ClickableIcon {
+				Controls.ToolTip.text: qsTr("Send a voice message")
+				source: voiceMessageRecorder.state === MediaRecorder.State.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
+				visible: voiceMessageRecorder.availabilityStatus === MediaRecorder.AvailabilityStatus.Available && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
+				opacity: visible ? 1 : 0
+				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
+				onClicked: {
+					if (voiceMessageRecorder.state === MediaRecorder.State.RecordingState) {
+						voiceMessageRecorder.stop()
+						root.composition.fileSelectionModel.addFile(voiceMessageRecorder.actualLocation)
+						root.composition.send()
+					} else {
+						voiceMessageRecorder.record()
+						expansionArea.visible = false
+					}
+				}
 
 				Behavior on opacity {
 					NumberAnimation {}
@@ -353,33 +437,82 @@ Controls.Pane {
 
 			ClickableIcon {
 				id: sendButton
-				visible: messageArea.text !== "" && (messageArea.state === "compose" || messageArea.text !== root.originalBody || composition.replyId !== root.originalReplyId)
+				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
+				visible: (mediaList.count && voiceMessageRecorder.state !== MediaRecorder.State.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || composition.replyId !== root.originalReplyId))
 				opacity: visible ? 1 : 0
-				source: {
-					if (messageArea.state === "compose")
-						return "mail-send-symbolic"
-					else if (messageArea.state === "edit")
-						return "document-edit-symbolic"
-				}
+				Controls.ToolTip.text: qsTr("Send")
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: sendMessage()
+				onClicked: {
+					// Do not allow sending via keys if hidden.
+					if (!visible) {
+						return
+					}
+
+					// Disable the button to prevent sending the same message mutliple times.
+					enabled = false
+
+					// Send the message.
+					if (root.composition.replaceId) {
+						root.composition.correct()
+					} else {
+						root.composition.send()
+					}
+
+					ChatController.resetComposingChatState();
+					clear()
+
+					// Enable the button again.
+					enabled = true
+
+					// Show the cursor even if another element like the sendButton (after clicking
+					// on it) was focused before.
+					messageArea.forceActiveFocus()
+				}
 
 				Behavior on opacity {
 					NumberAnimation {}
 				}
 			}
 
-			// Button to cancel message correction
+			// Button to cancel message correction or voice message recording
 			ClickableIcon {
-				visible: messageArea.state === "edit"
+				visible: root.composition.replaceId || voiceMessageRecorder.state === MediaRecorder.State.RecordingState
 				opacity: visible ? 1 : 0
 				source: "window-close-symbolic"
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
-				onClicked: clearMessageArea()
+				onClicked: {
+					if (voiceMessageRecorder.state === MediaRecorder.State.RecordingState) {
+						voiceMessageRecorder.cancel()
+					} else {
+						composition.clear()
+						root.clear()
+					}
+				}
 
 				Behavior on opacity {
 					NumberAnimation {}
 				}
+			}
+
+			EmojiPicker {
+				id: emojiPicker
+				x: - root.padding
+				y: - height - root.padding
+				textArea: messageArea
+			}
+
+			GroupChatParticipantPicker {
+				id: participantPicker
+				x: root.chatPage.x + root.leftInset
+				y: root.chatPage.height - root.height - root.topPadding - contentHeight
+				accountJid: ChatController.accountJid
+				chatJid: ChatController.chatJid
+				textArea: messageArea
+			}
+
+			MediaRecorder {
+				id: voiceMessageRecorder
+				type: MediaRecorder.Type.Audio
 			}
 		}
 	}
@@ -407,27 +540,18 @@ Controls.Pane {
 		}
 	}
 
-	function prepareSpoiler() {
-		composition.isSpoiler = true
-		spoilerHintField.forceActiveFocus()
-	}
-
 	function prepareQuote(body) {
-		mediaSharingArea.visible = false
 		messageArea.insert(0, Utils.quote(body))
 	}
 
 	function prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
-		mediaSharingArea.visible = false
-
 		composition.replaceId = replaceId
-		root.originalReplyId = replyId
+		originalReplyId = replyId
 		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
-		root.originalBody = body
+		originalBody = body
 		messageArea.text = body
 		composition.isSpoiler = spoilerHint.length
 		spoilerHintField.text = spoilerHint
-		messageArea.state = "edit"
 
 		// Move the cursor to the end of the text being corrected and focus it.
 		messageArea.cursorPosition = messageArea.text.length
@@ -440,37 +564,6 @@ Controls.Pane {
 		composition.replyToName = replyToName
 		composition.replyId = replyId
 		composition.replyQuote = replyQuote
-	}
-
-	/**
-	 * Sends the text entered in the messageArea.
-	 */
-	function sendMessage() {
-		// Do not send empty messages.
-		if (!messageArea.text.length)
-			return
-
-		// Disable the button to prevent sending the same message mutliple times.
-		sendButton.enabled = false
-
-		// Send the message.
-		if (messageArea.state === "compose") {
-			composition.send()
-		} else if (messageArea.state === "edit" && (messageArea.text !== root.originalBody || composition.replyId !== root.originalReplyId)) {
-			composition.correct()
-			composition.isDraft = false
-		}
-
-		ChatController.resetComposingChatState();
-
-		clearMessageArea()
-
-		// Enable the button again.
-		sendButton.enabled = true
-
-		// Show the cursor even if another element like the sendButton (after
-		// clicking on it) was focused before.
-		messageArea.forceActiveFocus()
 	}
 
 	/**
@@ -537,16 +630,10 @@ Controls.Pane {
 		lastMessageLength = messageArea.text.length
 	}
 
-	function clearMessageArea() {
+	function clear() {
 		messageArea.clear()
-		composition.isSpoiler = false
 		spoilerHintField.clear()
-		composition.replaceId = ""
-		composition.replyToJid = ""
-		composition.replyToGroupChatParticipantId = ""
-		composition.replyId = ""
-		composition.replyQuote = ""
 		originalBody = ""
-		messageArea.state = "compose"
+		expansionArea.visible = false
 	}
 }

@@ -51,7 +51,6 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="media-playback-pause-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/media-playback-pause-symbolic.svg</file>
 		<file alias="media-playback-stop-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/media-playback-stop-symbolic.svg</file>
 		<file alias="media-record-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/media-record-symbolic.svg</file>
-		<file alias="document-open-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/document-open-symbolic.svg</file>
 		<file alias="view-fullscreen-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/view-fullscreen-symbolic.svg</file>
 		<file alias="view-more-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/view-more-symbolic.svg</file>
 		<file alias="view-refresh-symbolic.svg">3rdparty/breeze-icons/icons/actions/symbolic/view-refresh-symbolic.svg</file>
@@ -81,7 +80,6 @@ SPDX-License-Identifier: CC0-1.0
 		<file alias="security-high-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/security-high-symbolic.svg</file>
 		<file alias="channel-insecure-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/channel-insecure-symbolic.svg</file>
 		<file alias="channel-secure-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/channel-secure-symbolic.svg</file>
-		<file alias="folder-open-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/folder-open-symbolic.svg</file>
 		<file alias="mail-attachment-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/mail-attachment-symbolic.svg</file>
 		<file alias="content-loading-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/content-loading-symbolic.svg</file>
 		<file alias="dialog-error-symbolic.svg">3rdparty/breeze-icons/icons/status/symbolic/dialog-error-symbolic.svg</file>
@@ -91,5 +89,10 @@ SPDX-License-Identifier: CC0-1.0
 	<qresource prefix="/icons/breeze/emblems/symbolic">
 		<file alias="emblem-ok-symbolic.svg">3rdparty/breeze-icons/icons/emblems/symbolic/emblem-ok-symbolic.svg</file>
 		<file alias="emblem-favorite-symbolic.svg">3rdparty/breeze-icons/icons/emblems/symbolic/emblem-favorite-symbolic.svg</file>
+	</qresource>
+
+	<qresource prefix="/icons/breeze/places/symbolic">
+		<file alias="folder-symbolic.svg">3rdparty/breeze-icons/icons/places/symbolic/folder-symbolic.svg</file>
+		<file alias="folder-download-symbolic.svg">3rdparty/breeze-icons/icons/places/symbolic/folder-download-symbolic.svg</file>
 	</qresource>
 </RCC>

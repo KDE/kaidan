@@ -645,10 +645,9 @@ void RosterModel::handleDraftMessageAdded(const Message &message)
 		return;
 	}
 
-	const auto lastMessage = message.previewText();
 	itr->lastMessageDateTime = message.timestamp;
 	itr->lastMessageDeliveryState = Enums::DeliveryState::Draft;
-	itr->lastMessage = lastMessage;
+	itr->lastMessage = message.previewText();
 
 	updateOnDraftMessageChanged(itr);
 }
@@ -664,9 +663,8 @@ void RosterModel::handleDraftMessageUpdated(const Message &message)
 		return;
 	}
 
-	const auto lastMessage = message.previewText();
 	itr->lastMessageDateTime = message.timestamp;
-	itr->lastMessage = lastMessage;
+	itr->lastMessage = message.previewText();
 
 	updateOnDraftMessageChanged(itr);
 }
@@ -682,9 +680,9 @@ void RosterModel::handleDraftMessageRemoved(const Message &newLastMessage)
 		return;
 	}
 
-	itr->lastMessageDeliveryState = newLastMessage.deliveryState;
 	itr->lastMessageDateTime = newLastMessage.timestamp;
-	itr->lastMessage = newLastMessage.body;
+	itr->lastMessageDeliveryState = newLastMessage.deliveryState;
+	itr->lastMessage = newLastMessage.previewText();
 
 	updateOnDraftMessageChanged(itr);
 }

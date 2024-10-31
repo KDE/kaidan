@@ -21,6 +21,7 @@ Kirigami.Dialog {
 
 	required property Item message
 	property var file: null
+	property bool localFileAvailable: file && file.localFilePath
 
 	padding: Kirigami.Units.smallSpacing * 3
 	background: Kirigami.ShadowedRectangle {
@@ -46,17 +47,23 @@ Kirigami.Dialog {
 		spacing: Kirigami.Units.largeSpacing * 2
 
 		ChatMessageContextMenuButton {
-			id: fileRemovalButton
 			Controls.ToolTip.text: qsTr("Remove selected file")
 			source: "list-remove-symbolic"
 			contextMenu: root
-			shown: root.file && root.file.localFilePath
+			shown: root.localFileAvailable
 			onClicked: Kaidan.fileSharingController.deleteFile(root.message.msgId, root.file)
 		}
 
+		ChatMessageContextMenuButton {
+			Controls.ToolTip.text: qsTr("Open selected file's folder")
+			source: "folder-symbolic"
+			contextMenu: root
+			shown: root.localFileAvailable
+			onClicked: Qt.openUrlExternally(MediaUtils.localFileDirectoryUrl(root.file.localFileUrl))
+		}
+
 		Kirigami.Separator {
-			visible: fileRemovalButton.visible
-			Layout.leftMargin: - Kirigami.Units.smallSpacing
+			visible: root.localFileAvailable
 			Layout.fillHeight: true
 		}
 
@@ -79,7 +86,7 @@ Kirigami.Dialog {
 			Layout.preferredHeight: Kirigami.Units.iconSizes.medium
 			Layout.topMargin: - Kirigami.Units.smallSpacing
 			Layout.bottomMargin: Layout.topMargin
-			Layout.leftMargin: fileRemovalButton.visible ? - Kirigami.Units.largeSpacing : - Kirigami.Units.smallSpacing
+			Layout.leftMargin: root.localFileAvailable ? - Kirigami.Units.smallSpacing : - Kirigami.Units.smallSpacing
 			Layout.rightMargin: - Kirigami.Units.smallSpacing
 			onClicked: {
 				root.message.reactionEmojiPicker.messageId = root.message.msgId

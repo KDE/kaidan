@@ -87,6 +87,7 @@ public:
 		DetailedReactions,
 		OwnReactionsFailed,
 		GroupChatInvitationJid,
+		GeoCoordinate,
 		ErrorText,
 	};
 	Q_ENUM(MessageRoles)
@@ -222,9 +223,11 @@ private:
 
 	/**
 	 * Shortens messages to 10000 if longer to prevent DoS
-	 * @param message to process
+	 * @param message message to process
 	 */
-	void processMessage(Message &msg);
+	void processMessage(Message &message);
+
+	void addVideoThumbnails(const Message &message);
 
 	/**
 	 * Shows a notification for the message when needed

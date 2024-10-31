@@ -62,7 +62,8 @@ public:
 
 	Q_INVOKABLE void send();
 	Q_INVOKABLE void correct();
-	void loadDraft();
+
+	Q_INVOKABLE void clear();
 
 	Q_SIGNAL void accountJidChanged();
 	Q_SIGNAL void chatJidChanged();
@@ -79,6 +80,7 @@ public:
 
 private:
 	void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
+	void loadDraft();
 	void saveDraft();
 
 	QString m_accountJid;
@@ -100,12 +102,15 @@ private:
 class FileSelectionModel : public QAbstractListModel
 {
 	Q_OBJECT
+
 public:
 	enum Roles {
-		Filename = Qt::UserRole + 1,
-		Thumbnail,
+		Name = Qt::UserRole + 1,
 		Description,
-		FileSize,
+		Size,
+		LocalFileUrl,
+		PreviewImage,
+		Type,
 	};
 
 	explicit FileSelectionModel(QObject *parent = nullptr);
@@ -116,8 +121,9 @@ public:
 	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
 	Q_INVOKABLE void selectFile();
-	Q_INVOKABLE bool addFile(const QUrl &localFilePath);
+	Q_INVOKABLE void addFile(const QUrl &localFileUrl, bool isNew = false);
 	Q_INVOKABLE void removeFile(int index);
+	Q_INVOKABLE void deleteNewFiles();
 	Q_INVOKABLE void clear();
 	bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
@@ -126,10 +132,9 @@ public:
 		return !m_files.empty();
 	}
 
-	Q_SIGNAL void selectFileFinished();
-
 private:
-	void generateThumbnail(const File &file);
+	// Deletes a file that the user created via Kaidan.
+	static void deleteNewFile(const File &file);
 
 	QVector<File> m_files;
 };
