@@ -7,7 +7,7 @@ import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.Dialog {
+Dialog {
 	id: root
 
 	property alias accountJid: content.accountJid
@@ -15,11 +15,9 @@ Kirigami.Dialog {
 	property alias nickname: content.nickname
 
 	title: qsTr("Join group chat")
-	standardButtons: Kirigami.Dialog.NoButton
 	padding: Kirigami.Units.mediumSpacing
 	preferredWidth: largeButtonWidth
 	onOpened: content.groupChatJidField.forceActiveFocus()
-	onClosed: destroy()
 
 	GroupChatJoiningContent {
 		id: content

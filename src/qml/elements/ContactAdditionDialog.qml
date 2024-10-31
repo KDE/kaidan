@@ -7,18 +7,15 @@ import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
 
-Kirigami.Dialog {
+Dialog {
 	id: root
 
 	property alias jid: content.jid
 	property alias name: content.name
 
 	title: qsTr("Add contact")
-	standardButtons: Kirigami.Dialog.NoButton
 	padding: Kirigami.Units.mediumSpacing
-	preferredWidth: largeButtonWidth
 	onOpened: content.jidField.forceActiveFocus()
-	onClosed: destroy()
 
 	ContactAdditionContent {
 		id: content

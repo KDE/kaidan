@@ -15,7 +15,7 @@ import im.kaidan.kaidan 1.0
  * It provides information about the delivery state of own reactions and the functionality to resend
  * them in case of an error.
  */
-Kirigami.Dialog {
+Dialog {
 	id: root
 
 	property string accountJid
@@ -24,11 +24,8 @@ Kirigami.Dialog {
 	property alias reactions: messageReactionModel.reactions
 
 	header: Item {}
-	footer: Item {}
 
 	ListView {
-		implicitWidth: largeButtonWidth
-		implicitHeight: contentHeight
 		model: MessageReactionModel {
 			id: messageReactionModel
 			accountJid: root.accountJid

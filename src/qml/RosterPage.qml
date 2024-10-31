@@ -30,9 +30,8 @@ SearchBarPage {
 	Component {
 		id: rosterFilteringDialog
 
-		Kirigami.Dialog {
+		Dialog {
 			title: qsTr("Filter")
-			standardButtons: Kirigami.Dialog.NoButton
 
 			RosterFilteringArea {
 				rosterFilterProxyModel: filterModel
