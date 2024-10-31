@@ -48,7 +48,7 @@ FormInfoHeader {
 			Rectangle {
 				anchors.fill: parent
 				color: Kirigami.Theme.backgroundColor
-				opacity: avatar.source.toString().length ? avatarActionHoverImage.opacity * 0.5 : 0
+				opacity: avatar.source.toString() ? avatarActionHoverImage.opacity * 0.5 : 0
 			}
 
 			Kirigami.Icon {
@@ -61,7 +61,7 @@ FormInfoHeader {
 
 				NumberAnimation on opacity {
 					id: avatarHoverFadeOutAnimation
-					from: avatar.source.toString().length? 1 : 0.8
+					from: avatar.source.toString() ? 1 : 0.8
 					to: 0
 					duration: 250
 				}
@@ -69,7 +69,7 @@ FormInfoHeader {
 				NumberAnimation on opacity {
 					id: avatarHoverFadeInAnimation
 					from: 0
-					to: avatar.source.toString().length ? 1 : 0.8
+					to: avatar.source.toString() ? 1 : 0.8
 					duration: 250
 				}
 			}
