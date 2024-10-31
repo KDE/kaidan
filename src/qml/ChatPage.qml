@@ -527,30 +527,35 @@ ChatPageBase {
 		}
 
 		// button for jumping to the latest message
-		Controls.RoundButton {
-			visible: width > 0
-			width: parent.atYEnd ? 0 : 50
-			height: parent.atYEnd ? 0 : 50
-			anchors.right: parent.right
-			anchors.bottom: parent.bottom
-			anchors.bottomMargin: 7
-			anchors.rightMargin: {
-				if (root.flickable.Controls.ScrollBar.vertical) {
-					return Kirigami.Settings.isMobile
-						? root.flickable.Controls.ScrollBar.vertical.implicitWidth + 15
-						: root.flickable.Controls.ScrollBar.vertical.implicitWidth + 5
+		Controls.ItemDelegate {
+			icon.name: "go-down-symbolic"
+			background: Kirigami.ShadowedRectangle {
+				color: {
+					if (parent.pressed) {
+						return Qt.darker(secondaryBackgroundColor, 1.05)
+					}
+
+					return parent.hovered ? secondaryBackgroundColor : primaryBackgroundColor
+				}
+				shadow.size: 2
+				corners {
+					topLeftRadius: height / 2
+					topRightRadius: height / 2
+					bottomLeftRadius: 0
+					bottomRightRadius: 0
 				}
 
-				return Kirigami.Settings.isMobile ? 15 : 5
+				Behavior on color {
+					ColorAnimation { duration: Kirigami.Units.shortDuration }
+				}
 			}
-			icon.name: "go-down-symbolic"
+			padding: Kirigami.Units.smallSpacing * 3
+			anchors.horizontalCenter: parent.horizontalCenter
+			anchors.bottom: parent.bottom
+			anchors.bottomMargin: parent.atYEnd ? - height - background.shadow.size - unreadMessageCounter.height : - background.shadow.size
 			onClicked: parent.positionViewAtIndex(0, ListView.Center)
 
-			Behavior on width {
-				SmoothedAnimation {}
-			}
-
-			Behavior on height {
+			Behavior on anchors.bottomMargin {
 				SmoothedAnimation {}
 			}
 
