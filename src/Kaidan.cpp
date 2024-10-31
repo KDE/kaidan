@@ -45,6 +45,10 @@
 #include "RosterModel.h"
 #include "Settings.h"
 
+using namespace std::chrono_literals;
+
+constexpr auto APPLICATION_CLOSING_TIMEOUT = 5s;
+
 Kaidan *Kaidan::s_instance;
 
 /**
@@ -172,6 +176,10 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 			});
 
 			Q_EMIT logOutRequested(true);
+
+			// Force closing the application if the client does not disconnect from the server.
+			// That can happen if there are connection problems.
+			QTimer::singleShot(APPLICATION_CLOSING_TIMEOUT, qGuiApp, &QGuiApplication::quit);
 		}
 	});
 
