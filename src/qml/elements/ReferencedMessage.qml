@@ -22,11 +22,13 @@ RowLayout {
 	property color backgroundColor: secondaryBackgroundColor
 	property real backgroundRadius: roundedCornersRadius
 	property bool quoteBarVisible: true
+	readonly property real maximumDetailsWidth: maximumWidth - mainArea.leftPadding - avatar.width - contentArea.spacing - mainArea.rightPadding
 
 	Controls.Control {
+		id: mainArea
 		topPadding: Kirigami.Units.largeSpacing
 		bottomPadding: topPadding
-		leftPadding: root.quoteBarVisible ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing
+		leftPadding: root.quoteBarVisible ? Kirigami.Units.smallSpacing * 3 : Kirigami.Units.largeSpacing
 		rightPadding: Kirigami.Units.largeSpacing
 		background: Rectangle {
 			color: root.backgroundColor
@@ -70,36 +72,29 @@ RowLayout {
 					textFormat: Text.PlainText
 					font.weight: Font.Medium
 					font.italic: !root.senderName
-					elide: Text.ElideRight
-					maximumLineCount: 1
 					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(ChatController.accountJid, AccountManager.displayName)
 
 					TextMetrics {
 						id: senderNameTextMetrics
 						text: root.senderName ? root.senderName : qsTr("Me")
 						elide: Text.ElideRight
-						elideWidth: root.maximumWidth - contentArea.parent.leftPadding - avatar.width - bodyText.implicitWidth - contentArea.spacing * 2 - contentArea.parent.rightPadding
+						elideWidth: root.maximumDetailsWidth
 					}
 				}
 
 				FormattedTextEdit {
-					id: bodyText
 					text: bodyTextMetrics.elidedText
 					color: Kirigami.Theme.disabledTextColor
 					font.italic: !root.body
-					Layout.minimumWidth: root.minimumWidth - contentArea.parent.leftPadding - avatar.width - contentArea.spacing * 2 - contentArea.parent.rightPadding
+					Layout.minimumWidth: root.minimumWidth - mainArea.leftPadding - avatar.width - contentArea.spacing - mainArea.rightPadding
 
 					TextMetrics {
 						id: bodyTextMetrics
 						text:  root.body ? Utils.removeNewLinesFromString(root.body) : qsTr("Media")
 						elide: Text.ElideRight
-						elideWidth: root.maximumWidth - contentArea.parent.leftPadding - avatar.width - contentArea.spacing * 2 - contentArea.parent.rightPadding
+						elideWidth: root.maximumDetailsWidth
 					}
 				}
-			}
-
-			Item {
-				Layout.fillWidth: true
 			}
 		}
 
