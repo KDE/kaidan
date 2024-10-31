@@ -85,7 +85,6 @@ Controls.ItemDelegate {
 				jid: root.jid
 				name: root.name
 				isGroupChat: root.isGroupChat
-				height: parent.height
 			}
 		}
 	}

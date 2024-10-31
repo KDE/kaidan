@@ -79,7 +79,6 @@ Controls.ItemDelegate {
 				visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin
 				jid: root.senderJid ? root.senderJid : root.groupChatSenderId
 				name: root.senderName
-				Layout.preferredHeight: Kirigami.Units.gridUnit * 2
 				Layout.alignment: Qt.AlignTop
 
 				MouseArea {

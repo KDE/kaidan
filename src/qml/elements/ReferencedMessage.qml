@@ -62,7 +62,6 @@ RowLayout {
 				id: avatar
 				jid: root.senderId ? root.senderId : ChatController.accountJid
 				name: root.senderName ? root.senderName : AccountManager.displayName
-				Layout.preferredHeight: Kirigami.Units.iconSizes.large
 			}
 
 			ColumnLayout {
