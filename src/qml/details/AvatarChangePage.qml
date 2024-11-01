@@ -68,6 +68,7 @@ Kirigami.Page {
 				height: editImage.paintedHeight
 				x: editImage.horizontalPadding
 				y: editImage.verticalPadding
+				aspectRatio: KQuickImageEditor.SelectionTool.Square
 
 				KQuickImageEditor.CropBackground {
 					anchors.fill: parent
