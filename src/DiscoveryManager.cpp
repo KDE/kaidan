@@ -8,6 +8,7 @@
 // QXmpp
 #include <QXmppDiscoveryManager.h>
 #include <QXmppDiscoveryIq.h>
+#include <QXmppTask.h>
 // Kaidan
 #include "Globals.h"
 
@@ -29,30 +30,35 @@ DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
 		m_manager->setClientType(QStringLiteral("pc"));
 #endif
 
-	connect(client, &QXmppClient::connected, this, &DiscoveryManager::handleConnection);
-	connect(m_manager, &QXmppDiscoveryManager::itemsReceived,
-	        this, &DiscoveryManager::handleItems);
+	connect(client, &QXmppClient::connected, this, &DiscoveryManager::requestData);
 }
 
 DiscoveryManager::~DiscoveryManager()
 {
 }
 
-void DiscoveryManager::handleConnection()
+void DiscoveryManager::requestData()
 {
-	// request disco info & items from the server
-	// results are used by the QXmppUploadRequestManager
-	m_manager->requestInfo(m_client->configuration().domain());
-	m_manager->requestItems(m_client->configuration().domain());
+	// Request disco info for the user JID.
+	m_manager->requestInfo({});
+
+	const auto serverJid = m_client->configuration().domain();
+
+	// Request disco info and items for the server JID.
+	m_manager->requestInfo(serverJid);
+	m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) {
+		if (const auto *error = std::get_if<QXmppError>(&result)) {
+			qDebug() << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
+		} else {
+			handleItems(std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result)));
+		}
+	});
 }
 
-void DiscoveryManager::handleItems(const QXmppDiscoveryIq &iq)
+void DiscoveryManager::handleItems(QList<QXmppDiscoveryIq::Item> &&items)
 {
 	// request info from all items
-	const QList<QXmppDiscoveryIq::Item> items = iq.items();
-	for (const QXmppDiscoveryIq::Item &item : items) {
-		if (item.jid() == m_client->configuration().domain())
-			continue;
+	for (const auto &item : std::as_const(items)) {
 		m_manager->requestInfo(item.jid());
 	}
 }

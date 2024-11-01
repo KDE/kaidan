@@ -5,8 +5,11 @@
 
 #pragma once
 
+// Qt
 #include <QObject>
+// QXmpp
 #include <QXmppClient.h>
+#include <QXmppDiscoveryIq.h>
 
 class QXmppDiscoveryManager;
 
@@ -22,17 +25,18 @@ public:
 
 	~DiscoveryManager();
 
+private:
 	/**
-	 * Will request disco info and items from the server (on connection)
+	 * Requests disco info and items from the server.
+	 * The results are used, for example, by QXmppMixManager.
 	 */
-	void handleConnection();
+	void requestData();
 
 	/**
 	 * Handles incoming results of disco item requests
 	 */
-	void handleItems(const QXmppDiscoveryIq&);
+	void handleItems(QList<QXmppDiscoveryIq::Item> &&);
 
-private:
 	QXmppClient *m_client;
 	QXmppDiscoveryManager *m_manager;
 };
