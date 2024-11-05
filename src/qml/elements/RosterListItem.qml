@@ -194,7 +194,7 @@ UserListItem {
 					visible: root.pinned
 					listItem: root
 					listView: root.listView
-					onMoveRequested: RosterModel.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
+					onMoveRequested: listView.model.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
 					Layout.preferredWidth: Layout.preferredHeight
 					Layout.preferredHeight: counter.height
 				}

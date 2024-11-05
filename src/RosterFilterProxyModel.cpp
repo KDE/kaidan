@@ -106,6 +106,14 @@ bool RosterFilterProxyModel::groupChatUsersExcluded()
 	return m_groupChatUsersExcluded;
 }
 
+void RosterFilterProxyModel::reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex)
+{
+	auto rosterModel = static_cast<RosterModel *>(sourceModel());
+	const int sourceOldIndex = mapToSource(index(oldIndex, 0)).row();
+	const int sourceNewIndex = mapToSource(index(newIndex, 0)).row();
+	rosterModel->reorderPinnedItem(accountJid, jid, sourceOldIndex, sourceNewIndex);
+}
+
 bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
 	QModelIndex index = sourceModel()->index(sourceRow, 0, sourceParent);

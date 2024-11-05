@@ -52,6 +52,9 @@ public:
 	bool groupChatUsersExcluded();
 	Q_SIGNAL void groupChatUsersExcludedChanged();
 
+	Q_INVOKABLE void reorderPinnedItem(const QString &accountJid, const QString &jid, int oldIndex, int newIndex);
+
+protected:
 	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
