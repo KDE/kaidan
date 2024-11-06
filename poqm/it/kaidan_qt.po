@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-15 14:01+0200\n"
+"PO-Revision-Date: 2024-10-29 05:33+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -852,12 +852,9 @@ msgid "Add chat for notes"
 msgstr "Aggiungi chat per le note"
 
 #: src/qml/details/AccountDetailsContent.qml:623
-#, fuzzy
-#| msgctxt "NotesChatDetailsContent|"
-#| msgid "Removing notes chat…"
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
-msgstr "Rimozione delle note della chat…"
+msgstr "Aggiunta della chat delle note…"
 
 #: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
@@ -866,18 +863,13 @@ msgstr ""
 "Aggiungi una chat per sincronizzare le tue note su tutti i tuoi dispositivi"
 
 #: src/qml/details/AccountDetailsContent.qml:647
-#, fuzzy
-#| msgctxt "RosterManager|"
-#| msgid ""
-#| "The notes chat could not be added to your contact list because your "
-#| "server does not support that"
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
-"Impossibile aggiungere la chat delle note al tuo elenco di contatti perché "
-"il tuo server non la supporta"
+"La chat delle note non può essere aggiunta all'elenco dei contatti perché il "
+"server non la supporta"
 
 #: src/qml/details/AccountDetailsContent.qml:669
 msgctxt "AccountDetailsContent|"
@@ -1119,12 +1111,9 @@ msgstr ""
 "nemmeno da questa applicazione: %1"
 
 #: src/qml/details/AccountDetailsDialog.qml:16
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "Impostazioni account"
+msgstr "Dettagli account"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1132,12 +1121,9 @@ msgid "Change your profile image"
 msgstr "Cambia la tua immagine del profilo"
 
 #: src/qml/details/AccountDetailsPage.qml:15
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account Settings"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "Impostazioni account"
+msgstr "Dettagli account"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1376,12 +1362,9 @@ msgid "Removing contact…"
 msgstr "Rimozione del contatto…"
 
 #: src/qml/details/ContactDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "Contatti"
+msgstr "Dettagli contatto"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1389,12 +1372,9 @@ msgid "Maximize avatar"
 msgstr "Massimizza l'avatar"
 
 #: src/qml/details/ContactDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "Contatti"
+msgstr "Dettagli contatto"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1686,12 +1666,10 @@ msgid "Leaving group chat…"
 msgstr "Abbandono della chat di gruppo…"
 
 #: src/qml/details/GroupChatDetailsContent.qml:433
-#, fuzzy, qt-format
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "The group %1 could not be deleted%2"
+#, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
-msgstr "Il gruppo %1 non può essere eliminato%2"
+msgstr "Il gruppo %1 non può essere abbandonato %2"
 
 #: src/qml/details/GroupChatDetailsContent.qml:441
 msgctxt "GroupChatDetailsContent|"
@@ -1715,12 +1693,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "Il gruppo %1 non può essere eliminato%2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "ID di gruppo"
+msgstr "Dettagli gruppo"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:17
 msgctxt "GroupChatDetailsHeader|"
@@ -1743,12 +1718,9 @@ msgid "Deleted"
 msgstr "Eliminato"
 
 #: src/qml/details/GroupChatDetailsPage.qml:11
-#, fuzzy
-#| msgctxt "GroupChatCreationContent|"
-#| msgid "Group ID"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "ID di gruppo"
+msgstr "Dettagli gruppo"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1876,12 +1848,9 @@ msgid "Removing notes chat…"
 msgstr "Rimozione delle note della chat…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "Mostra i dettagli"
+msgstr "Dettagli note"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1891,12 +1860,9 @@ msgstr ""
 "dispositivi"
 
 #: src/qml/details/NotesChatDetailsPage.qml:12
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "Mostra i dettagli"
+msgstr "Dettagli note"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
