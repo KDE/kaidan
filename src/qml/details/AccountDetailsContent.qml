@@ -1038,7 +1038,10 @@ DetailsContent {
 					icon.name: "edit-delete-symbolic"
 					icon.color: Kirigami.Theme.negativeTextColor
 				}
-				confirmationButton.onClicked: AccountManager.deleteAccountFromClientAndServer()
+				confirmationButton.onClicked: {
+					busy = true
+					AccountManager.deleteAccountFromClientAndServer()
+				}
 				busyText: qsTr("Deleting account…")
 
 				Connections {
