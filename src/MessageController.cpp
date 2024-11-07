@@ -842,8 +842,6 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
 			RosterDb::instance()->updateItem(senderJid, [markedId](RosterItem &item) {
 				item.lastReadOwnMessageId = markedId;
 			});
-
-			MessageModel::instance()->updateLastReadOwnMessageId();
 		}
 
 		return true;

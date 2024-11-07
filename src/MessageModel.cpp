@@ -57,6 +57,12 @@ MessageModel::MessageModel(QObject *parent)
 	connect(MessageDb::instance(), &MessageDb::messageUpdated, this, &MessageModel::handleMessageUpdated);
 	connect(MessageDb::instance(), &MessageDb::allMessagesRemovedFromChat, this, &MessageModel::removeMessages);
 
+	connect(ChatController::instance(), &ChatController::rosterItemChanged, this, [this]() {
+		if (m_lastReadOwnMessageId != ChatController::instance()->rosterItem().lastReadOwnMessageId) {
+			updateLastReadOwnMessageId();
+		}
+	});
+
 	connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &MessageModel::handleDevicesChanged);
 }
 
