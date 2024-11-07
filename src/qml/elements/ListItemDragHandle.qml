@@ -49,6 +49,11 @@ Item {
 	property bool incrementalMoves: true
 
 	/**
+	 * @brief This property holds the fact that the handle is being dragged
+	 */
+	readonly property alias dragged: mouseArea.drag.active
+
+	/**
 	 * @brief This signal is emitted when the drag handle wants to move the item in the model.
 	 *
 	 * The following example does the move in the case a ListModel is used:
