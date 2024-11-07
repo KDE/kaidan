@@ -26,55 +26,62 @@ Controls.ItemDelegate {
 	topPadding: 0
 	leftPadding: 0
 	bottomPadding: 0
+	rightPadding: 0
 	height: 65
-	background: Rectangle {
-		color: {
-			let colorOpacity = 0
+	background: null
+	contentItem: Controls.Control {
+		topPadding: 0
+		leftPadding: 0
+		bottomPadding: 0
+		background: Rectangle {
+			color: {
+				let colorOpacity = 0
 
-			if (!root.enabled) {
-				colorOpacity = 0
-			} else if (root.pressed) {
-				colorOpacity = 0.2
-			} else if (root.visualFocus) {
-				colorOpacity = 0.1
-			} else if (!Kirigami.Settings.tabletMode && root.hovered) {
-				colorOpacity = 0.07
-			} else if (root.selected) {
-				colorOpacity = 0.05
+				if (!root.enabled) {
+					colorOpacity = 0
+				} else if (root.pressed) {
+					colorOpacity = 0.2
+				} else if (root.visualFocus) {
+					colorOpacity = 0.1
+				} else if (!Kirigami.Settings.tabletMode && root.hovered) {
+					colorOpacity = 0.07
+				} else if (root.selected) {
+					colorOpacity = 0.05
+				}
+
+				const textColor = Kirigami.Theme.textColor
+				return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
 			}
 
-			const textColor = Kirigami.Theme.textColor
-			return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
+			Behavior on color {
+				ColorAnimation { duration: Kirigami.Units.shortDuration }
+			}
 		}
+		contentItem: RowLayout {
+			id: content
+			spacing: Kirigami.Units.largeSpacing
 
-		Behavior on color {
-			ColorAnimation { duration: Kirigami.Units.shortDuration }
-		}
-	}
-	contentItem: RowLayout {
-		id: content
-		spacing: Kirigami.Units.largeSpacing
+			// left border: presence
+			Rectangle {
+				id: presenceIndicator
+				width: Kirigami.Units.gridUnit * 0.3
+				height: parent.height
+				color: userPresence.availabilityColor
 
-		// left border: presence
-		Rectangle {
-			id: presenceIndicator
-			width: Kirigami.Units.gridUnit * 0.3
-			height: parent.height
-			color: userPresence.availabilityColor
+				UserPresenceWatcher {
+					id: userPresence
+					jid: root.jid
+				}
+			}
 
-			UserPresenceWatcher {
-				id: userPresence
+			// left: avatar
+			Avatar {
+				id: avatar
 				jid: root.jid
+				name: root.name
+				isGroupChat: root.isGroupChat
+				height: parent.height
 			}
-		}
-
-		// left: avatar
-		Avatar {
-			id: avatar
-			jid: root.jid
-			name: root.name
-			isGroupChat: root.isGroupChat
-			height: parent.height
 		}
 	}
 }

@@ -59,6 +59,18 @@ SearchBarPage {
 	ListView {
 		id: rosterListView
 
+		QtObject {
+			id: _previousMove
+
+			property int oldIndex: -1
+			property int newIndex: -1
+
+			function reset() {
+				_previousMove.oldIndex = -1
+				_previousMove.newIndex = -1
+			}
+		}
+
 		model: RosterFilterProxyModel {
 			id: filterModel
 			sourceModel: RosterModel
@@ -68,44 +80,42 @@ SearchBarPage {
 			id: itemContextMenu
 		}
 
-		Component {
-			id: delegateComponent
+		delegate: RosterListItem {
+			width: rosterListView.width
+			listView: rosterListView
+			contextMenu: itemContextMenu
+			accountJid: model ? model.accountJid : ""
+			jid: model ? model.jid : ""
+			name: model ? model.name : ""
+			isGroupChat: model ? model.isGroupChat : false
+			isPublicGroupChat: model ? model.isPublicGroupChat : false
+			isDeletedGroupChat: model ? model.isDeletedGroupChat : false
+			lastMessageDateTime: model ? model.lastMessageDateTime : ""
+			lastMessage: model ? model.lastMessage : ""
+			lastMessageIsDraft: model ? model.lastMessageIsDraft : false
+			lastMessageIsOwn: model ? model.lastMessageIsOwn : false
+			lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
+			unreadMessages: model ? model.unreadMessages : 0
+			pinned: model ? model.pinned : false
+			notificationRule: model ? model.notificationRule : false
 
-			RosterListItem {
-				listView: rosterListView
-				contextMenu: itemContextMenu
-				accountJid: model ? model.accountJid : ""
-				jid: model ? model.jid : ""
-				name: model ? model.name : ""
-				isGroupChat: model ? model.isGroupChat : false
-				isPublicGroupChat: model ? model.isPublicGroupChat : false
-				isDeletedGroupChat: model ? model.isDeletedGroupChat : false
-				lastMessageDateTime: model ? model.lastMessageDateTime : ""
-				lastMessage: model ? model.lastMessage : ""
-				lastMessageIsDraft: model ? model.lastMessageIsDraft : false
-				lastMessageIsOwn: model ? model.lastMessageIsOwn : false
-				lastMessageGroupChatSenderName: model ? model.lastMessageGroupChatSenderName : ""
-				unreadMessages: model ? model.unreadMessages : 0
-				pinned: model ? model.pinned : false
-				notificationRule: model ? model.notificationRule : false
-
-				onClicked: {
-					// Open the chatPage only if it is not yet open.
-					// Emitting the signal is needed because there are slots in other places.
-					if (!selected || !wideScreen) {
-						Kaidan.openChatPageRequested(accountJid, jid)
-					}
+			onClicked: {
+				// Open the chatPage only if it is not yet open.
+				// Emitting the signal is needed because there are slots in other places.
+				if (!selected || !wideScreen) {
+					Kaidan.openChatPageRequested(accountJid, jid)
 				}
 			}
-		}
 
-		// TODO: Remove the DelegateRecycler if possible
-		// Without the DelegateRecycler, the reordering of pinned items does not work.
-		// But it is not clear why the DelegateRecycler is needed for that purpose because the
-		// ListView would manage the recycling by itself if enabled/needed.
-		delegate: Kirigami.DelegateRecycler {
-			width: rosterListView.width
-			sourceComponent: delegateComponent
+			onMoveRequested: {
+				_previousMove.oldIndex = oldIndex
+				_previousMove.newIndex = newIndex
+			}
+
+			onDropRequested: {
+				rosterListView.model.reorderPinnedItem(accountJid, jid, oldIndex, newIndex)
+				_previousMove.reset()
+			}
 		}
 
 		moveDisplaced: Transition {

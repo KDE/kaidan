@@ -30,6 +30,9 @@ UserListItem {
 	property bool pinned
 	property int notificationRule
 
+	signal moveRequested(int oldIndex, int newIndex)
+	signal dropRequested(int oldIndex, int newIndex)
+
 	selected: {
 		return !Kirigami.Settings.isMobile &&
 			ChatController.accountJid === accountJid &&
@@ -190,11 +193,15 @@ UserListItem {
 				}
 
 				// icon for reordering
-				Kirigami.ListItemDragHandle {
+				ListItemDragHandle {
 					visible: root.pinned
-					listItem: root
+					listItem: root.contentItem
 					listView: root.listView
-					onMoveRequested: listView.model.reorderPinnedItem(root.accountJid, root.jid, oldIndex, newIndex)
+					incrementalMoves: false
+
+					onMoveRequested: root.moveRequested(oldIndex, newIndex)
+					onDropped: root.dropRequested(oldIndex, newIndex)
+
 					Layout.preferredWidth: Layout.preferredHeight
 					Layout.preferredHeight: counter.height
 				}
