@@ -58,8 +58,10 @@ Item {
 	/**
 	 * @brief This signal is emitted when the drag operation is complete and the item has been
 	 * dropped in the new final position.
+	 * @param oldIndex the index the item is currently at
+	 * @param newIndex the index we want to drop the item to
 	 */
-	signal dropped()
+	signal dropped(int oldIndex, int newIndex)
 
 	implicitWidth: Kirigami.Units.iconSizes.smallMedium
 	implicitHeight: implicitWidth
@@ -149,7 +151,8 @@ Item {
 			listItem.parent = internal.originalParent;
 			dropAnimation.running = true;
 			scrollTimer.running = false;
-			root.dropped();
+			root.dropped(_previousMove.oldIndex, _previousMove.newIndex);
+			_previousMove.reset();
 		}
 		onCanceled: released()
 		SequentialAnimation {
