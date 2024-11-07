@@ -81,6 +81,7 @@ SearchBarPage {
 		}
 
 		delegate: RosterListItem {
+			highlighted: _previousMove.newIndex === model.index && _previousMove.oldIndex !== model.index
 			width: rosterListView.width
 			listView: rosterListView
 			contextMenu: itemContextMenu

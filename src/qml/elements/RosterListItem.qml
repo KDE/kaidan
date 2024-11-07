@@ -38,6 +38,7 @@ UserListItem {
 			ChatController.accountJid === accountJid &&
 			ChatController.chatJid === jid
 	}
+	dragged: dragHandle.dragged
 
 	// middle
 	ColumnLayout {
@@ -194,6 +195,7 @@ UserListItem {
 
 				// icon for reordering
 				ListItemDragHandle {
+					id: dragHandle
 					visible: root.pinned
 					listItem: root.contentItem
 					listView: root.listView

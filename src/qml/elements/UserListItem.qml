@@ -22,6 +22,7 @@ Controls.ItemDelegate {
 	property string name
 	property bool isGroupChat
 	property bool selected: false
+	property bool dragged: false
 
 	topPadding: 0
 	leftPadding: 0
@@ -39,6 +40,10 @@ Controls.ItemDelegate {
 
 				if (!root.enabled) {
 					colorOpacity = 0
+				} else if (root.dragged) {
+					colorOpacity = 0.2
+				} else if(root.highlighted) {
+					colorOpacity = 0.5
 				} else if (root.pressed) {
 					colorOpacity = 0.2
 				} else if (root.visualFocus) {
@@ -49,7 +54,7 @@ Controls.ItemDelegate {
 					colorOpacity = 0.05
 				}
 
-				const textColor = Kirigami.Theme.textColor
+				const textColor = root.highlighted ? Kirigami.Theme.highlightColor : Kirigami.Theme.textColor
 				return Qt.rgba(textColor.r, textColor.g, textColor.b, colorOpacity)
 			}
 
