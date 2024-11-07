@@ -44,6 +44,11 @@ Item {
 	property ListView listView
 
 	/**
+	 * @brief This property holds the fact that we are doing incremental move requests or not
+	 */
+	property bool incrementalMoves: true
+
+	/**
 	 * @brief This signal is emitted when the drag handle wants to move the item in the model.
 	 *
 	 * The following example does the move in the case a ListModel is used:
@@ -101,7 +106,9 @@ Item {
 			function arrangeItem() {
 				const newIndex = listView.indexAt(1, listView.contentItem.mapFromItem(mouseArea, 0, internal.mouseDownY).y);
 
-				if (newIndex > -1 && ((internal.draggingUp && newIndex < index) || (!internal.draggingUp && newIndex > index))) {
+				if (newIndex > -1 && ((incrementalMoves && internal.draggingUp && newIndex < index) ||
+									  (incrementalMoves && !internal.draggingUp && newIndex > index) ||
+									  (!incrementalMoves && newIndex < listView.count))) {
 					if (_previousMove.oldIndex === index && _previousMove.newIndex === newIndex) {
 						return;
 					}
