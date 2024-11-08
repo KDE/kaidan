@@ -365,43 +365,42 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 	}
 }
 
-void RosterModel::reorderPinnedItem(const QString &, const QString &jid, int oldIndex, int newIndex)
+void RosterModel::reorderPinnedItem(const QString &, const QString &, int oldIndex, int newIndex)
 {
-	const auto &itemBeingReordered = m_items.at(oldIndex);
-	const auto pinningPositionDifference = oldIndex - newIndex;
-
-	const auto oldPinningPosition = itemBeingReordered.pinningPosition;
-	const auto newPinningPosition = oldPinningPosition + pinningPositionDifference;
-
-	// Do not reorder anything if the item would go out of the range of the pinned items.
-	// That happens when the item is dragged below unpinned items.
-	if (newPinningPosition < 0) {
+	if (oldIndex < 0 || oldIndex >= m_items.count() || newIndex < 0 || newIndex >= m_items.count() || oldIndex == newIndex) {
 		return;
 	}
 
-	// Update the pinning position of the pinned items in between the old and the new pinning
-	// position of the item being reordered.
-	for (const auto &item : std::as_const(m_items))	{
-		if (item.pinningPosition != -1 && item.jid != itemBeingReordered.jid) {
-			const auto pinningPosition = item.pinningPosition;
-			const auto itemMovedUpwards = pinningPositionDifference > 0;
+	const int min = std::min(oldIndex, newIndex);
+	const int max = std::max(oldIndex, newIndex);
+	const auto movedUpwards = newIndex < oldIndex;
+	const auto itemAtNewIndex = m_items[newIndex];
+	const int pinningPosition = itemAtNewIndex.pinningPosition;
 
-			if (itemMovedUpwards && pinningPosition > oldPinningPosition && pinningPosition <= newPinningPosition) {
-				RosterDb::instance()->updateItem(item.jid, [](RosterItem &item) {
-					--item.pinningPosition;
-				});
-			} else if (!itemMovedUpwards && pinningPosition < oldPinningPosition && pinningPosition >= newPinningPosition) {
-				RosterDb::instance()->updateItem(item.jid, [](RosterItem &item) {
-					++item.pinningPosition;
-				});
-			}
-		}
+	// Do not reorder anything if the item would go out of the range of the pinned items.
+	// That happens when the item is dragged below unpinned items.
+	if (pinningPosition < 0) {
+		return;
 	}
 
-	// Update the pinning position of the reordered item.
-	RosterDb::instance()->updateItem(jid, [newPinningPosition](RosterItem &item) {
-		item.pinningPosition = newPinningPosition;
-	});
+	for (int i = min; i <= max; ++i) {
+		const auto &item = m_items[i];
+
+		RosterDb::instance()->updateItem(item.jid, [movedUpwards, i, oldIndex, pinningPosition](RosterItem &item) {
+			if (i == oldIndex) {
+				// Set the new moved item's pinningPosition.
+				item.pinningPosition = pinningPosition;
+			} else {
+				if (movedUpwards) {
+					// Decrement pinningPosition of the items that are now below the moved item.
+					--item.pinningPosition;
+				} else {
+					// Increment pinningPosition of the items that are now above the moved item.
+					++item.pinningPosition;
+				}
+			}
+		});
+	}
 }
 
 void RosterModel::toggleSelected(const QString &, const QString &jid)
