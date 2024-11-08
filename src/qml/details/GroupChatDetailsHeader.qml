@@ -13,6 +13,7 @@ import "../elements"
 
 RosterItemDetailsHeader {
 	id: root
+	isGroupChat: true
 	avatarAction: Kirigami.Action {
 		text: qsTr("Maximize avatar")
 		icon.name: "view-fullscreen-symbolic"

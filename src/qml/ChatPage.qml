@@ -75,6 +75,7 @@ ChatPageBase {
 				Layout.preferredWidth: parent.height
 				jid: ChatController.chatJid
 				name: ChatController.rosterItem.displayName
+				isGroupChat: ChatController.rosterItem.isGroupChat
 			}
 			Kirigami.Heading {
 				Layout.fillWidth: true

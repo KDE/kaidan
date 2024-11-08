@@ -11,7 +11,7 @@ import im.kaidan.kaidan 1.0
 
 Components.Avatar {
 	property string jid
-	property bool isGroupChat
+	property bool isGroupChat: false
 
 	source: jid ? Kaidan.avatarStorage.getAvatarUrl(jid) : ""
 	iconSource: isGroupChat ? "resource-group" : "user"

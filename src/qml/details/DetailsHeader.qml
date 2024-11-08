@@ -19,6 +19,7 @@ GridLayout {
 	default property alias __data: additionalInformationArea.data
 	required property string jid
 	required property string displayName
+	property alias isGroupChat: avatar.isGroupChat
 	required property Kirigami.Action avatarAction
 
 	flow: width > Kirigami.Units.gridUnit * 20 ? GridLayout.LeftToRight : GridLayout.TopToBottom
