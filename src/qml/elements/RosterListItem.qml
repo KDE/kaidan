@@ -177,14 +177,6 @@ UserListItem {
 					Layout.topMargin: - 2
 				}
 
-				// icon for pinned chat
-				Kirigami.Icon {
-					source: "window-pin-symbolic"
-					visible: root.pinned
-					Layout.preferredWidth: Layout.preferredHeight
-					Layout.preferredHeight: counter.height
-				}
-
 				// unread message counter
 				MessageCounter {
 					id: counter
