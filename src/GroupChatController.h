@@ -74,7 +74,7 @@ public:
 
 	Q_INVOKABLE void deleteGroupChat(const QString &accountJid, const QString &groupChatJid);
 	Q_SIGNAL void groupChatDeleted(const QString &accountJid, const QString &groupChatJid);
-	Q_SIGNAL void groupChatDeletionFailed(const QString &groupChatJid, const QString &errorMessage);
+	Q_SIGNAL void groupChatDeletionFailed(const QString &accountJid, const QString &groupChatJid, const QString &errorMessage);
 
 	Q_SIGNAL void groupChatMadePrivate(const QString &accountJid, const QString &groupChatJid);
 	Q_SIGNAL void groupChatMadePublic(const QString &accountJid, const QString &groupChatJid);

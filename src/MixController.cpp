@@ -430,7 +430,7 @@ void MixController::deleteChannel(const QString &channelJid)
 					errorMessage = error->description;
 				}
 
-				Q_EMIT GroupChatController::instance()->groupChatDeletionFailed(channelJid, errorMessage);
+				Q_EMIT GroupChatController::instance()->groupChatDeletionFailed(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid, errorMessage);
 			} else {
 				leaveChannel(channelJid);
 			}
