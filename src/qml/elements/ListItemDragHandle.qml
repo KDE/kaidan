@@ -109,7 +109,7 @@ Item {
 			property bool draggingUp
 
 			function arrangeItem() {
-				const newIndex = listView.indexAt(1, listView.contentItem.mapFromItem(mouseArea, 0, internal.mouseDownY).y);
+				const newIndex = listView.indexAt(1, listView.contentItem.mapFromItem(listItem, 0, listItem.height / 2).y);
 
 				if (newIndex > -1 && ((incrementalMoves && internal.draggingUp && newIndex < index) ||
 									  (incrementalMoves && !internal.draggingUp && newIndex > index) ||
