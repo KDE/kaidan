@@ -82,8 +82,8 @@ ExplanationTogglePage {
 
 		cornersRounded: false
 		anchors.fill: parent
-		zoomSliderArea.anchors.bottomMargin: Kirigami.Units.largeSpacing * 9
-		zoomSliderArea.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
+		zoomSlider.anchors.bottomMargin: Kirigami.Units.largeSpacing * 10
+		zoomSlider.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
 		filter.onScanningSucceeded: {
 			if (acceptResult) {
 				// Try to log in by the data from the decoded QR code.
