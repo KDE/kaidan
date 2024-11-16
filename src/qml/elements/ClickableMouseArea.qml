@@ -13,8 +13,6 @@ import org.kde.kirigami 2.19 as Kirigami
  * The parent of this item needs to have a "color" property and a "clicked" signal.
  */
 MouseArea {
-	id: mouseArea
-
 	property bool remainTooltip: false
 
 	anchors.fill: parent
