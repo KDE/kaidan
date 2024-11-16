@@ -7,7 +7,6 @@ import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
 Kirigami.Heading {
-	color: Kirigami.Theme.disabledTextColor
 	level: 5
 	leftPadding: font.pixelSize * 0.7
 	rightPadding: leftPadding
