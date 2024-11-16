@@ -33,11 +33,6 @@ public:
 	};
 	Q_ENUM(Role)
 
-	struct Locale {
-		QString languageCode;
-		QString countryCode;
-	};
-
 	static int providersMatchingSystemLocaleMinimumCount();
 
 	explicit ProviderListModel(QObject *parent = nullptr);
@@ -58,10 +53,6 @@ private:
 	QVector<ProviderListItem> providersSupportingInBandRegistration() const;
 	QVector<ProviderListItem> providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const;
 	int indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders, const QList<int> &excludedIndexes) const;
-
-	QString systemLanguageCode() const;
-	QString systemCountryCode() const;
-	Locale systemLocale() const;
 
 	QVector<ProviderListItem> m_items;
 };

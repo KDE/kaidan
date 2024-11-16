@@ -4,9 +4,17 @@
 
 #pragma once
 
-class QString;
+// Qt
+#include <QString>
 
 namespace SystemUtils {
+
+	struct LocaleCodes {
+		QString languageCode;
+		QString countryCode;
+	};
+
+	LocaleCodes systemLocaleCodes();
 
 	/**
 	 * Returns a pretty product name of the running local system.

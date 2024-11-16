@@ -207,8 +207,10 @@ QVector<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QVe
 	QVector<ProviderListItem> providers;
 
 	for (const auto &provider : preSelectedProviders) {
-		if (provider.languages().contains(systemLocale().languageCode) && provider.countries().contains(systemLocale().countryCode))
+		if (const auto systemLocale = SystemUtils::systemLocaleCodes();
+			provider.languages().contains(systemLocale.languageCode) && provider.countries().contains(systemLocale.countryCode)) {
 			providers << provider;
+		}
 	}
 
 	return providers;
@@ -223,23 +225,4 @@ int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderLis
 	} while (!excludedIndexes.isEmpty() && excludedIndexes.contains(index));
 
 	return index;
-}
-
-ProviderListModel::Locale ProviderListModel::systemLocale() const
-{
-	const auto systemLocaleParts = QLocale::system().name().split(QStringLiteral("_"));
-
-	// Use the retrieved codes or default values if there are not two codes.
-	// An example for usage of the default values is when the "C" locale is
-	// retrieved.
-	if (systemLocaleParts.size() >= 2) {
-		return {
-			systemLocaleParts.first().toUpper(),
-			systemLocaleParts.last()
-		};
-	}
-	return {
-		DEFAULT_LANGUAGE_CODE.toString(),
-		DEFAULT_COUNTRY_CODE.toString()
-	};
 }

@@ -12,6 +12,7 @@
 #include <QVariantList>
 // Kaidan
 #include "Globals.h"
+#include "SystemUtils.h"
 
 class QUrl;
 class QJsonObject;
@@ -33,7 +34,7 @@ public:
 	{
 		T pickBySystemLocale() const
 		{
-			const auto languageCode = QLocale::system().name().split(u'_').first().toUpper();
+			const auto languageCode = SystemUtils::systemLocaleCodes().languageCode;
 
 			// Use the system-wide language variant if available.
 			const auto systemLanguageItr = this->find(languageCode);
