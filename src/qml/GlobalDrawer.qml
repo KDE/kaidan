@@ -58,9 +58,10 @@ Kirigami.GlobalDrawer {
 								// is not yet loaded to avoid a binding loop for the property
 								// "implicitHeight".
 								text: AccountManager.displayName ? AccountManager.displayName : " "
-								description: {
-									const color = connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.disabledTextColor
-									return "<font color='" + color + "'>" + Kaidan.connectionStateText + "</font>"
+								description: Kaidan.connectionStateText
+								descriptionItem {
+									color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
+									opacity: connected ? 1 : 0.5
 								}
 								trailing: Controls.Switch {
 									checked: !accountArea.disconnected
