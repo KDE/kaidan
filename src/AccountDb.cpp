@@ -208,12 +208,12 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 
 		if (const auto contactNotificationRule = query.value(idxContactNotificationRule);
 			!contactNotificationRule.isNull()) {
-			account.contactNotificationRule = query.value(idxContactNotificationRule).value<Account::ContactNotificationRule>();
+			account.contactNotificationRule = contactNotificationRule.value<Account::ContactNotificationRule>();
 		}
 
 		if (const auto groupChatNotificationRule = query.value(idxGroupChatNotificationRule);
 			!groupChatNotificationRule.isNull()) {
-			account.groupChatNotificationRule = query.value(idxGroupChatNotificationRule).value<Account::GroupChatNotificationRule>();
+			account.groupChatNotificationRule = groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
 		}
 
 		accounts << std::move(account);
