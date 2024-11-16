@@ -271,7 +271,6 @@ DetailsContent {
 			}
 
 			FormComboBoxDelegate {
-				id: contactNotificationDelegate
 				text: qsTr("Incoming contact messages")
 				description: qsTr("Show notification and play sound on message arrival from a contact")
 				model: [
@@ -290,12 +289,11 @@ DetailsContent {
 				]
 				textRole: "display"
 				valueRole: "value"
-				currentIndex: contactNotificationDelegate.indexOf(AccountManager.account.contactNotificationRule)
-				onActivated: AccountManager.setContactNotificationRule(root.jid, contactNotificationDelegate.currentValue)
+				currentIndex: indexOf(AccountManager.account.contactNotificationRule)
+				onActivated: AccountManager.setContactNotificationRule(root.jid, currentValue)
 			}
 
 			FormComboBoxDelegate {
-				id: groupChatNotificationDelegate
 				text: qsTr("Incoming group messages")
 				description: qsTr("Show notification and play sound on message arrival from a group")
 				model: [

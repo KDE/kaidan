@@ -334,7 +334,6 @@ RosterItemDetailsContent {
 			}
 
 			FormComboBoxDelegate {
-				id: notificationDelegate
 				text: qsTr("Incoming messages")
 				description: qsTr("Show notification and play sound on message arrival")
 				model: [
@@ -357,8 +356,8 @@ RosterItemDetailsContent {
 				]
 				textRole: "display"
 				valueRole: "value"
-				currentIndex: notificationDelegate.indexOf(ChatController.rosterItem.notificationRule)
-				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, notificationDelegate.currentValue)
+				currentIndex: indexOf(ChatController.rosterItem.notificationRule)
+				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
 			}
 		}
 	}
