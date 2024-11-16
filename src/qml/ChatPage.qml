@@ -61,6 +61,11 @@ ChatPageBase {
 	property ChatInfo globalChatDate
 	readonly property bool cameraAvailable: Multimedia.QtMultimedia.availableCameras.length > 0
 	property bool viewPositioned: false
+	// Color of the message bubbles on the right side
+	readonly property color rightMessageBubbleColor: {
+		const accentColor = Kirigami.Theme.highlightColor
+		return Qt.tint(primaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
+	}
 
 	titleDelegate: Controls.ToolButton {
 		visible: !Kirigami.Settings.isMobile

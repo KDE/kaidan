@@ -15,14 +15,6 @@ import im.kaidan.kaidan 1.0
  * This is the base for a chat page.
  */
 Kirigami.ScrollablePage {
-	// color of the message bubbles on the right side
-	readonly property color rightMessageBubbleColor: {
-		Kirigami.Theme.colorSet = Kirigami.Theme.View
-		const accentColor = Kirigami.Theme.highlightColor
-		return Qt.tint(Kirigami.Theme.backgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
-	}
-
-	// background of the chat page
 	background: Rectangle {
 		color: secondaryBackgroundColor
 
