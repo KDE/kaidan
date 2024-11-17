@@ -33,9 +33,7 @@ RowLayout {
 			radius: backgroundRadius
 
 			Behavior on opacity {
-				OpacityAnimator {
-					duration: Kirigami.Units.shortDuration
-				}
+				NumberAnimation {}
 			}
 
 			Kirigami.ShadowedRectangle {
