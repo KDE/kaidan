@@ -146,6 +146,7 @@ UserListItem {
 			FormattedTextEdit {
 				id: lastMessageText
 				text: lastMessageTextMetrics.elidedText
+				visible: root.lastMessage
 				color: root.lastMessageIsDraft ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
 				font.weight: root.unreadMessages ? Font.Normal : Font.Light
 				Layout.fillWidth: true
@@ -154,7 +155,7 @@ UserListItem {
 					id: lastMessageTextMetrics
 					text: Utils.removeNewLinesFromString(root.lastMessage)
 					elide: Text.ElideRight
-					elideWidth: secondRow.width - secondRow.spacing * 2 - lastMessagePrefix.width - optionalItemArea.width
+					elideWidth: secondRow.width - secondRow.spacing * (secondRow.visibleChildren.length - (optionalItemArea.visibleChildren ? 1 : 2)) - lastMessagePrefix.width - optionalItemArea.width
 				}
 			}
 
