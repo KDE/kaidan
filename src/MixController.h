@@ -51,9 +51,7 @@ private:
     void handleParticipantSupportChanged();
     void handleServicesChanged();
     void handleChannelInformationUpdated(const QString &channelJid, const QXmppMixInfoItem &information);
-
     void handleChannelAccessibilityReceived(const QString &channelJid, const bool isPublic);
-    void handleChannelMadePrivate(const QString &channelJid);
 
     void handleJidAllowed(const QString &channelJid, const QString &jid);
     void handleJidDisallowed(const QString &channelJid, const QString &jid);

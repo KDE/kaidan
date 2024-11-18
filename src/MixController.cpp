@@ -522,15 +522,6 @@ void MixController::handleChannelAccessibilityReceived(const QString &channelJid
         Q_EMIT GroupChatController::instance() -> groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
 }
 
-void MixController::handleChannelMadePrivate(const QString &channelJid)
-{
-    runOnThread(Kaidan::instance()->client(), [channelJid]() {
-        Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>()->updateSubscriptions(channelJid);
-    });
-
-    Q_EMIT GroupChatController::instance() -> groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
-}
-
 void MixController::handleJidAllowed(const QString &channelJid, const QString &jid)
 {
     GroupChatUser user;
