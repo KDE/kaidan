@@ -113,7 +113,7 @@ UserListItem {
 			Controls.Label {
 				id: lastMessagePrefix
 				text: {
-					if (lastMessageIsDraft) {
+					if (root.lastMessageIsDraft) {
 						return qsTr("Draft:")
 					} else {
 						if (root.lastMessageIsOwn) {
@@ -129,7 +129,7 @@ UserListItem {
 				}
 				visible: text
 				textFormat: Text.PlainText
-				color: Kirigami.Theme.disabledTextColor
+				color: root.lastMessageIsDraft ? Kirigami.Theme.activeTextColor : Kirigami.Theme.disabledTextColor
 				font {
 					weight: Font.Light
 					italic: root.lastMessageIsDraft
@@ -146,6 +146,7 @@ UserListItem {
 			FormattedTextEdit {
 				id: lastMessageText
 				text: lastMessageTextMetrics.elidedText
+				color: root.lastMessageIsDraft ? Kirigami.Theme.activeTextColor : Kirigami.Theme.textColor
 				font.weight: root.unreadMessages ? Font.Normal : Font.Light
 				Layout.fillWidth: true
 
