@@ -312,8 +312,8 @@ DetailsContent {
 				]
 				textRole: "display"
 				valueRole: "value"
-				currentIndex: groupChatNotificationDelegate.indexOf(AccountManager.account.groupChatNotificationRule)
-				onActivated: AccountManager.setGroupChatNotificationRule(root.jid, groupChatNotificationDelegate.currentValue)
+				currentIndex: indexOf(AccountManager.account.groupChatNotificationRule)
+				onActivated: AccountManager.setGroupChatNotificationRule(root.jid, currentValue)
 			}
 		}
 	}
