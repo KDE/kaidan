@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-10-28 06:46+0100\n"
+"PO-Revision-Date: 2024-11-18 07:00+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -608,9 +608,6 @@ msgid "%1 days"
 msgstr "%1 dni"
 
 #: src/qml/AboutDialog.qml:12
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "O Kaidanu"
@@ -1437,9 +1434,6 @@ msgid "Media"
 msgstr "Medij"
 
 #: src/qml/details/DetailsContent.qml:62
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Automatic Downloads"
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr "Samodejni prenosi"
@@ -1969,89 +1963,56 @@ msgid "Copy password"
 msgstr "Kopiraj geslo"
 
 #: src/qml/elements/AboutContent.qml:21
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "Obišči spletišče"
 
 #: src/qml/elements/AboutContent.qml:22
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's website in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
 msgstr "Odpri Kaidanovo spletišče v brskalniku"
 
 #: src/qml/elements/AboutContent.qml:28
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Follow on Mastodon"
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr "Sledi na Mastodonu"
 
 #: src/qml/elements/AboutContent.qml:29
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's Mastodon page in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr "Odpri Kaidanovo Mastononovo stran v spletnem brskalniku"
 
 #: src/qml/elements/AboutContent.qml:35
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "Donirajte"
 
 #: src/qml/elements/AboutContent.qml:36
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Support Kaidan's development and infrastructure by a donation"
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr "Podprite Kaidanov razvoj in infrastrukturo z donacijo"
 
 #: src/qml/elements/AboutContent.qml:42
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Prijavite težave"
 
 #: src/qml/elements/AboutContent.qml:43
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues with Kaidan to the developers"
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr "Prijavite težave v Kaindanu razvijalcem"
+msgstr "Poročajte težave v Kaindanu razvijalcem"
 
 #: src/qml/elements/AboutContent.qml:49
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code"
 msgctxt "AboutContent|"
 msgid "View source code"
-msgstr "Prikaži izvorno kodo"
+msgstr "Poglejte izvorno kodo"
 
 #: src/qml/elements/AboutContent.qml:50
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code online and contribute to the project"
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr "Poglejte izvorno Kodo Kaidana in prispevajte k projektu"
 
 #: src/qml/elements/AboutHeader.qml:39
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Modern chat app for every device"
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
 msgstr "Moderna aplikacija za klepet za vsako napravo"
@@ -2819,42 +2780,26 @@ msgid "Search"
 msgstr "Išči"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:21
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "Išči javne skupine (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "Prenašanje…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Retry"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "Ponovni poskus"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid ""
-#| "The public groups could not be retrieved, try again.\n"
-#| "\n"
-#| "%1"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr ""
-"Javnih skupin ni bilo mogoče pridobiti, poskusite ponovno.\n"
-"\n"
-"%1"
+msgstr "Javnih skupin ni bilo mogoče pridobiti: %1"
 
 #: src/qml/elements/SendMediaSheet.qml:29
 msgctxt "SendMediaSheet|"
@@ -2897,12 +2842,9 @@ msgid "Copy web address"
 msgstr "Kopiraj naslov spletišča"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Izberite klepet, da začnete s sporočanjem"
+msgstr "Izberite klepet, da začnete"
 
 #: src/qml/GlobalDrawer.qml:36
 msgctxt "GlobalDrawer|"
@@ -2945,9 +2887,6 @@ msgid "Switch device"
 msgstr "Zamenjaj napravo"
 
 #: src/qml/GlobalDrawer.qml:160
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "O programu"
