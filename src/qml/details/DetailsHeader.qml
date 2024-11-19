@@ -32,7 +32,6 @@ FormInfoHeader {
 
 		MouseArea {
 			anchors.fill: parent
-			cursorShape: Qt.PointingHandCursor
 			visible: avatarAction.enabled
 			hoverEnabled: true
 			onHoveredChanged: {
@@ -126,7 +125,6 @@ FormInfoHeader {
 					id: displayNameMouseArea
 					anchors.fill: displayNameText
 					hoverEnabled: true
-					cursorShape: Qt.PointingHandCursor
 					onClicked: displayNameEditingButton.clicked()
 				}
 			}

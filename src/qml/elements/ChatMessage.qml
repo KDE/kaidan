@@ -83,7 +83,6 @@ Controls.ItemDelegate {
 
 				MouseArea {
 					anchors.fill: parent
-					cursorShape: Qt.PointingHandCursor
 					onClicked: {
 						const textArea = sendingPane.messageArea
 						const mention = Utils.groupChatUserMentionPrefix + root.senderName + Utils.groupChatUserMentionSeparator

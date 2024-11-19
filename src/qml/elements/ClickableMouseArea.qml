@@ -17,7 +17,6 @@ MouseArea {
 
 	anchors.fill: parent
 	hoverEnabled: true
-	cursorShape: Qt.PointingHandCursor
 	Controls.ToolTip.text: parent.Controls.ToolTip.text
 	Controls.ToolTip.delay: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.veryLongDuration * 2
 	Controls.ToolTip.timeout: Kirigami.Units.veryLongDuration * 10
