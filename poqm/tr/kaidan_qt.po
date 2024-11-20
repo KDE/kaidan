@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-10-28 13:24+0300\n"
+"PO-Revision-Date: 2024-11-19 20:22+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -12,13 +12,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.70\n"
+"X-Generator: Lokalize 25.03.70\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
-msgstr "Kare kodu oluşturma başarısız: %1"
+msgstr "Kare kod oluşturma başarısız: %1"
 
 #: src/AccountMigrationManager.cpp:391
 msgctxt "AccountMigrationManager|"
@@ -602,9 +602,6 @@ msgid "%1 days"
 msgstr "%1 gün"
 
 #: src/qml/AboutDialog.qml:12
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "Kaidan Hakkında"
@@ -1431,9 +1428,6 @@ msgid "Media"
 msgstr "Ortam"
 
 #: src/qml/details/DetailsContent.qml:62
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Automatic Downloads"
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr "Kendiliğinden İndirmeler"
@@ -1964,94 +1958,60 @@ msgid "Copy password"
 msgstr "Parolayı kopyala"
 
 #: src/qml/elements/AboutContent.qml:21
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
-msgstr "Web sitesini aç"
+msgstr "Web Sitesini Aç"
 
 #: src/qml/elements/AboutContent.qml:22
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's website in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
 msgstr "Kaidan’ın web sayfasını bir tarayıcıda aç"
 
 #: src/qml/elements/AboutContent.qml:28
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Follow on Mastodon"
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr "Mastodon’da Takip Et"
 
 #: src/qml/elements/AboutContent.qml:29
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's Mastodon page in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr "Kaidan’ın Mastodon sayfasını bir tarayıcıda aç"
 
 #: src/qml/elements/AboutContent.qml:35
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "Bağış Yap"
 
 #: src/qml/elements/AboutContent.qml:36
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Support Kaidan's development and infrastructure by a donation"
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
-msgstr "Bir bağış ile, Kaidan’ın geliştirilmesini ve altyapısını destekleyin"
+msgstr "Bağış yaparak Kaidan’ın geliştirilmesini ve altyapısını destekle"
 
 #: src/qml/elements/AboutContent.qml:42
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
-msgstr "Sorunları bildir"
+msgstr "Sorun Bildir"
 
 #: src/qml/elements/AboutContent.qml:43
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues with Kaidan to the developers"
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
-msgstr "Kaidan ile yaşadığınız sorunları geliştiricilere bildirin"
+msgstr "Kaidan ile yaşadığınız sorunları geliştiricilere bildir"
 
 #: src/qml/elements/AboutContent.qml:49
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code"
 msgctxt "AboutContent|"
 msgid "View source code"
-msgstr "Kaynak kodunu görüntüleyin"
+msgstr "Kaynak Kodunu Görüntüle"
 
 #: src/qml/elements/AboutContent.qml:50
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code online and contribute to the project"
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
-"Kaidan’ın kaynak kodunu çevrimiçi olarak görüntüleyin ve projeye katkıda "
-"bulunun"
+"Kaidan’ın kaynak kodunu çevrimiçi olarak görüntüle ve projeye katkıda bulun"
 
 #: src/qml/elements/AboutHeader.qml:39
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Modern chat app for every device"
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
-msgstr "Her aygıt için çağdaş sohbet uygulaması"
+msgstr "Her tür aygıt için çağdaş sohbet uygulaması"
 
 #: src/qml/elements/AccountKeyAuthenticationPage.qml:23
 msgctxt "AccountKeyAuthenticationPage|"
@@ -2816,42 +2776,26 @@ msgid "Search"
 msgstr "Ara"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:21
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "Genel grupları ara (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "İndiriliyor…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Retry"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "Yeniden Dene"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid ""
-#| "The public groups could not be retrieved, try again.\n"
-#| "\n"
-#| "%1"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr ""
-"Genel gruplar alınamadı, yeniden deneyin.\n"
-"\n"
-"%1"
+msgstr "Genel gruplar alınamadı: %1"
 
 #: src/qml/elements/SendMediaSheet.qml:29
 msgctxt "SendMediaSheet|"
@@ -2894,12 +2838,9 @@ msgid "Copy web address"
 msgstr "Web sitesi adresini kopyala"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "İleti göndermek için bir sohbet seç"
+msgstr "Başlamak için bir sohbet seçin"
 
 #: src/qml/GlobalDrawer.qml:36
 msgctxt "GlobalDrawer|"
@@ -2942,9 +2883,6 @@ msgid "Switch device"
 msgstr "Aygıt değiştir"
 
 #: src/qml/GlobalDrawer.qml:160
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "Hakkında"
