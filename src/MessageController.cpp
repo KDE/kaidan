@@ -589,6 +589,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 		ChatController::instance()->handleChatState(senderJid, chatState);
 	}
 
+	const auto messageId = msg.id();
 	const auto stanzaIds = msg.stanzaIds();
 	QString stanzaId;
 
@@ -603,7 +604,12 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 			return stanzaId.by == senderJid;
 		});
 
-		if (itr != stanzaIds.cend()) {
+		if (itr == stanzaIds.cend()) {
+			// Use the message ID as a fallback for the stanza ID in case the group chat server does
+			// not provide a stanza ID.
+			// That is the case for ejabberd (at least until version 24.10).
+			stanzaId = messageId;
+		} else {
 			stanzaId = itr->id;
 		}
 	} else if (!stanzaIds.isEmpty()) {
@@ -645,7 +651,6 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 
 	// Set a generated message ID for local use (removing a message locally etc.) if it is empty.
 	// That behavior was detected for server messages.
-	const auto messageId = msg.id();
 	message.id = messageId.isEmpty() ? QXmppUtils::generateStanzaUuid() : messageId;
 
 	message.originId = msg.originId();
