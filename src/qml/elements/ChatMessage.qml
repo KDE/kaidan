@@ -251,7 +251,7 @@ Controls.ItemDelegate {
 
 								return undefined
 							}
-							Layout.bottomMargin: root.geoCoordinate.isValid && !messageReactionArea.visible ? bubbleBackground.metaInfo.height + bodyArea.parent.spacing : 0
+							Layout.bottomMargin: (root.groupChatInvitationJid || root.geoCoordinate.isValid) && !messageReactionArea.visible ? bubbleBackground.metaInfo.height + bodyArea.parent.spacing : 0
 
 							Component {
 								id: bodyComponent
@@ -271,58 +271,11 @@ Controls.ItemDelegate {
 							Component {
 								id: groupChatInvitationComponent
 
-								RowLayout {
-									id: groupChatInvitationArea
-
-									ClickableIcon {
-										id: groupChatInvitationButton
-										source: "resource-group"
-										width: Kirigami.Units.iconSizes.small
-										mouseArea.anchors.topMargin: - Kirigami.Units.smallSpacing * 2
-										mouseArea.anchors.leftMargin: - Kirigami.Units.smallSpacing * 2
-										mouseArea.anchors.rightMargin: - Kirigami.Units.smallSpacing * 1.3
-										mouseArea.anchors.bottomMargin: - Kirigami.Units.smallSpacing * 2
-										Controls.ToolTip.text: groupChatWatcher.item.isGroupChat ? qsTr("Open") : qsTr("Join…")
-										Layout.fillHeight: true
-										onClicked: {
-											if (groupChatWatcher.item.isGroupChat) {
-												Kaidan.openChatPageRequested(ChatController.accountJid, root.groupChatInvitationJid)
-											} else {
-												openView(groupChatJoiningDialog, groupChatJoiningPage).groupChatJid = root.groupChatInvitationJid
-											}
-										}
-									}
-
-									Kirigami.Separator {
-										id: groupChatInvitationSeparator
-										implicitWidth: 3
-										color: {
-											const accentColor = bubble.backgroundColor
-											Qt.tint(secondaryBackgroundColor, Qt.rgba(accentColor.r, accentColor.g, accentColor.b, 0.1))
-										}
-										Layout.topMargin: - Kirigami.Units.smallSpacing * 2
-										Layout.bottomMargin: - Kirigami.Units.smallSpacing * 2
-										Layout.rightMargin: Kirigami.Units.largeSpacing
-										Layout.fillHeight: true
-									}
-
-									Controls.Label {
-										text: root.messageBody + bubble.paddingText
-										wrapMode: Text.Wrap
-										font.italic: true
-										Layout.maximumWidth: {
-											return root.maximumBubbleContentWidth
-												- groupChatInvitationButton.width
-												- groupChatInvitationSeparator.implicitWidth
-												- groupChatInvitationSeparator.Layout.rightMargin
-												- groupChatInvitationArea.spacing * 2
-										}
-									}
-
-									RosterItemWatcher {
-										id: groupChatWatcher
-										jid: root.groupChatInvitationJid
-									}
+								GroupChatInvitation {
+									message: root
+									minimumWidth: Math.max(referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, bodyArea.parent.width, spoilerHintArea.width, messageReactionArea.width, bubbleBackground.metaInfo.width)
+									maximumWidth: root.maximumBubbleContentWidth
+									mainAreaBackground.color: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 								}
 							}
 
