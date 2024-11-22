@@ -40,6 +40,7 @@ ChatPageBase {
 
 	titleDelegate: Controls.ToolButton {
 		visible: !Kirigami.Settings.isMobile
+		focusPolicy: Qt.NoFocus
 		contentItem: RowLayout {
 			// weirdly having an id here, although unused, fixes the layout
 			id: layout
@@ -306,7 +307,7 @@ ChatPageBase {
 			// after creation even when forcing sendingPane's focus within its
 			// Component.onCompleted.
 			if (activeFocus) {
-				sendingPane.forceActiveFocus()
+				root.sendingPane.forceActiveFocus()
 			}
 		}
 		delegate: ChatMessage {
@@ -646,12 +647,6 @@ ChatPageBase {
 			width: root.width
 			height: ChatController.rosterItem.isDeletedGroupChat ? 0 : undefined
 			Component.onCompleted: root.sendingPane = this
-		}
-		onCountChanged: {
-			// Make it possible to directly enter a message after chatHintListView is focused because of changes in its model.
-			if (root.sendingPane) {
-				root.sendingPane.forceActiveFocus()
-			}
 		}
 
 		DropArea {

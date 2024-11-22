@@ -19,6 +19,7 @@ import im.kaidan.kaidan 1.0
 import "elements"
 
 SearchBarPage {
+	id: root
 	listView: rosterListView
 	rightAction: Kirigami.Action {
 		text: qsTr("Filter")
@@ -32,6 +33,7 @@ SearchBarPage {
 
 		Dialog {
 			title: qsTr("Filter")
+			onClosed: root.searchField.forceActiveFocus()
 
 			RosterFilteringArea {
 				rosterFilterProxyModel: filterModel

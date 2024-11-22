@@ -83,6 +83,7 @@ Rectangle {
 						model: root.buttons
 						delegate: Button {
 							text: modelData.text
+							focusPolicy: Qt.NoFocus
 							Layout.maximumWidth: parent.width / root.buttons.length
 							Layout.fillWidth: true
 							onClicked: ChatHintModel.handleButtonClicked(root.index, modelData.type)

@@ -466,7 +466,7 @@ Controls.Pane {
 
 					// Show the cursor even if another element like the sendButton (after clicking
 					// on it) was focused before.
-					messageArea.forceActiveFocus()
+					root.forceActiveFocus()
 				}
 
 				Behavior on opacity {
@@ -513,18 +513,6 @@ Controls.Pane {
 			MediaRecorder {
 				id: voiceMessageRecorder
 				type: MediaRecorder.Type.Audio
-			}
-		}
-	}
-
-	Connections {
-		target: applicationWindow()
-
-		function onActiveFocusItemChanged() {
-			// Ensure that messageArea is focused after closing a DetailsDialog
-			// That workaround is needed because DetailsDialog takes the focus when it is closed.
-			if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
-				root.forceActiveFocus()
 			}
 		}
 	}
