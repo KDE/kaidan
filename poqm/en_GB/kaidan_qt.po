@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-01 14:14+0000\n"
+"PO-Revision-Date: 2024-11-23 12:47+0000\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
 "Language: en_GB\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.2\n"
+"X-Generator: Lokalize 24.08.3\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -602,9 +602,6 @@ msgid "%1 days"
 msgstr "%1 days"
 
 #: src/qml/AboutDialog.qml:12
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "About Kaidan"
@@ -1424,12 +1421,9 @@ msgid "Media"
 msgstr "Media"
 
 #: src/qml/details/DetailsContent.qml:62
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Automatic Downloads"
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
-msgstr "Automatic Downloads"
+msgstr "Automatic downloads"
 
 #: src/qml/details/DetailsContent.qml:63
 msgctxt "DetailsContent|"
@@ -1952,89 +1946,56 @@ msgid "Copy password"
 msgstr "Copy password"
 
 #: src/qml/elements/AboutContent.qml:21
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "Visit website"
 
 #: src/qml/elements/AboutContent.qml:22
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's website in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
 msgstr "Open Kaidan's website in a web browser"
 
 #: src/qml/elements/AboutContent.qml:28
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Follow on Mastodon"
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr "Follow on Mastodon"
 
 #: src/qml/elements/AboutContent.qml:29
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Open Kaidan's Mastodon page in a web browser"
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr "Open Kaidan's Mastodon page in a web browser"
 
 #: src/qml/elements/AboutContent.qml:35
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "Donate"
 
 #: src/qml/elements/AboutContent.qml:36
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Support Kaidan's development and infrastructure by a donation"
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr "Support Kaidan's development and infrastructure by a donation"
 
 #: src/qml/elements/AboutContent.qml:42
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Report problems"
 
 #: src/qml/elements/AboutContent.qml:43
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report issues with Kaidan to the developers"
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
 msgstr "Report issues with Kaidan to the developers"
 
 #: src/qml/elements/AboutContent.qml:49
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code"
 msgctxt "AboutContent|"
 msgid "View source code"
 msgstr "View source code"
 
 #: src/qml/elements/AboutContent.qml:50
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View Kaidan's source code online and contribute to the project"
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr "View Kaidan's source code online and contribute to the project"
 
 #: src/qml/elements/AboutHeader.qml:39
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Modern chat app for every device"
 msgctxt "AboutHeader|"
 msgid "Modern chat app for every device"
 msgstr "Modern chat app for every device"
@@ -2801,42 +2762,26 @@ msgid "Search"
 msgstr "Search"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:21
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "Search public groups (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "Downloading…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Retry"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "Retry"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid ""
-#| "The public groups could not be retrieved, try again.\n"
-#| "\n"
-#| "%1"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr ""
-"The public groups could not be retrieved, try again.\n"
-"\n"
-"%1"
+msgstr "The public groups could not be retrieved: %1"
 
 #: src/qml/elements/SendMediaSheet.qml:29
 msgctxt "SendMediaSheet|"
@@ -2879,12 +2824,9 @@ msgid "Copy web address"
 msgstr "Copy web address"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "Select a chat to start messaging"
+msgstr "Select a chat to start"
 
 #: src/qml/GlobalDrawer.qml:36
 msgctxt "GlobalDrawer|"
@@ -2927,9 +2869,6 @@ msgid "Switch device"
 msgstr "Switch device"
 
 #: src/qml/GlobalDrawer.qml:160
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "About"
