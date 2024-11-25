@@ -53,6 +53,8 @@ Here are the general dependencies of Kaidan:
  * [ECM (extra-cmake-modules)][ecm]
  * [ZXing-cpp][zxing-cpp] (>= 1.1.1)
  * [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
+ * [KIO][kio]
+ * [FFmpeg Thumbnailer][ffmpegthumbs] (optional)
 
 ## Contributing
 
@@ -69,8 +71,10 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [contributing]: CONTRIBUTING.md
 [downloads]: https://www.kaidan.im/download/
 [ecm]: https://api.kde.org/ecm/manual/ecm.7.html
+[ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
 [kaidan-website]: https://kaidan.im
 [kaidan-website-repo]: https://invent.kde.org/websites/kaidan-im
+[kio]: https://api.kde.org/frameworks/kio/html/index.html
 [kirigami-addons]: https://invent.kde.org/libraries/kirigami-addons
 [kirigami-repo]: https://invent.kde.org/frameworks/kirigami
 [kirigami-website]: https://kde.org/products/kirigami/
