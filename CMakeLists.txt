@@ -45,7 +45,6 @@ endif()
 
 # CMake options
 option(BUILD_TESTS "Build unit tests" FALSE)
-option(STATIC_BUILD "Build Kaidan statically")
 option(APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
 option(UBUNTU_TOUCH "Building an Ubuntu Touch click (internal use only!)" FALSE)
 option(CLICK_ARCH "Architecture that will be used in the click's manifest")

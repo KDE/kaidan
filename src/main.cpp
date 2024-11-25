@@ -123,10 +123,6 @@ Q_DECLARE_METATYPE(std::function<void(GroupChatUser&)>)
 
 Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 
-#ifdef STATIC_BUILD
-#include "static_plugins.h"
-#endif
-
 #ifndef QAPPLICATION_CLASS
 #define QAPPLICATION_CLASS QApplication
 #endif
@@ -135,11 +131,6 @@ Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 #if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
 // SingleApplication (Qt5 replacement for QtSingleApplication)
 #include "singleapp/singleapplication.h"
-#endif
-
-#ifdef STATIC_BUILD
-#define KIRIGAMI_BUILD_TYPE_STATIC
-#include "./3rdparty/kirigami/src/kirigamiplugin.h"
 #endif
 
 #ifdef Q_OS_ANDROID
@@ -438,9 +429,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
 	// QML type bindings
-#ifdef STATIC_BUILD
-	KirigamiPlugin::getInstance().registerTypes();
-#endif
 	qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
 	qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
 	qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");

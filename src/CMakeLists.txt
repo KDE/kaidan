@@ -295,112 +295,6 @@ if(ANDROID)
     target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
 endif()
 
-if(STATIC_BUILD)
-    add_definitions(-DQXMPP_BUILD)
-
-    find_package(Perl REQUIRED)
-
-    set(STATIC_DEPENDENCIES_CMAKE_FILE "${CMAKE_BINARY_DIR}/QtStaticDependencies.cmake")
-    if(EXISTS ${STATIC_DEPENDENCIES_CMAKE_FILE})
-        file(REMOVE ${STATIC_DEPENDENCIES_CMAKE_FILE})
-    endif()
-
-    get_target_property(QT_LIBDIR Qt5::Core LOCATION)
-    get_filename_component(QT_LIBDIR ${QT_LIBDIR} DIRECTORY)
-
-    macro(CONVERT_PRL_LIBS_TO_CMAKE _qt_component)
-        if(TARGET Qt5::${_qt_component})
-            get_target_property(_lib_location Qt5::${_qt_component} LOCATION)
-            execute_process(COMMAND ${PERL_EXECUTABLE} ${CMAKE_SOURCE_DIR}/utils/convert-prl-libs-to-cmake.pl
-                --lib ${_lib_location}
-                --libdir ${QT_LIBDIR}
-                --out ${STATIC_DEPENDENCIES_CMAKE_FILE}
-                --component ${_qt_component}
-                --compiler ${CMAKE_CXX_COMPILER_ID}
-            )
-        endif()
-    endmacro()
-
-    link_directories(${_qt5_install_prefix}/../)
-
-    foreach(qt_module Gui Quick QuickControls2 Network Qml Svg Sql QSQLiteDriverPlugin
-             QJpegPlugin QGifPlugin QSvgPlugin QSvgIconPlugin QICOPlugin QGenericEnginePlugin
-             QLocalClientConnectionFactory QTcpServerConnectionFactory)
-        CONVERT_PRL_LIBS_TO_CMAKE(${qt_module})
-    endforeach()
-
-    if(IOS)
-        foreach(qt_module QIOSIntegrationPlugin QMacHeifPlugin QMacJp2Plugin
-            QICNSPlugin QTgaPlugin QTiffPlugin QWbmpPlugin QWebpPlugin)
-            CONVERT_PRL_LIBS_TO_CMAKE(${qt_module})
-        endforeach()
-    endif()
-
-    if(NOT EXISTS ${STATIC_DEPENDENCIES_CMAKE_FILE})
-        message(FATAL_ERROR "Unable to find ${STATIC_DEPENDENCIES_CMAKE_FILE}")
-    endif()
-    include(${STATIC_DEPENDENCIES_CMAKE_FILE})
-
-    set(QT_QML_PATH ${_qt5Quick_install_prefix})
-
-    find_library(KIRIGAMI_PLUGIN kirigamiplugin PATHS ${Kirigami2_INSTALL_PREFIX}/${KDE_INSTALL_QMLDIR}/org/kde/kirigami.2)
-    find_library(QUICK_PLUGIN qtquick2plugin PATHS ${QT_QML_PATH}/qml/QtQuick.2)
-    find_library(LABS_PLATFORM_PLUGIN qtlabsplatformplugin PATHS ${QT_QML_PATH}/qml/Qt/labs/platform)
-    find_library(GRAPHEFFECTS_PLUGIN qtgraphicaleffectsplugin PATHS ${QT_QML_PATH}/qml/QtGraphicalEffects)
-    find_library(GRAPHEFFECTS_PRIVATE_PLUGIN qtgraphicaleffectsprivate PATHS ${QT_QML_PATH}/qml/QtGraphicalEffects/private)
-    find_library(QQC2_PLUGIN qtquickcontrols2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2)
-    find_library(QQC2_MATERIAL_PLUGIN qtquickcontrols2materialstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Material)
-    find_library(QQC2_UNIVERSAL_PLUGIN qtquickcontrols2universalstyleplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Controls.2/Universal)
-    find_library(QLAYOUTS_PLUGIN qquicklayoutsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Layouts)
-    find_library(QDIALOGS_PLUGIN qquickdialogsplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Dialogs)
-    find_library(QWINDOW_PLUGIN windowplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Window.2)
-    find_library(QSHAPES_PLUGIN qmlshapesplugin PATHS ${QT_QML_PATH}/qml/QtQuick/Shapes)
-    find_library(QUICKSHAPES Qt5QuickShapes PATHS ${QT_LIBDIR})
-    find_library(QTEMPLATES_PLUGIN qtquicktemplates2plugin PATHS ${QT_QML_PATH}/qml/QtQuick/Templates.2)
-    find_library(QMODELS_PLUGIN modelsplugin PATHS ${QT_QML_PATH}/qml/QtQml/Models.2)
-    target_link_libraries(${PROJECT_NAME}
-        ${plugin_libs}
-        Qt5::QSQLiteDriverPlugin
-        Qt5::QJpegPlugin
-        Qt5::QGifPlugin
-        Qt5::QSvgPlugin
-        Qt5::QSvgIconPlugin
-        Qt5::QICOPlugin
-        Qt5::QGenericEnginePlugin
-        Qt5::QLocalClientConnectionFactory
-        Qt5::QTcpServerConnectionFactory
-        ${KIRIGAMI_PLUGIN}
-        ${QUICK_PLUGIN}
-        ${LABS_PLATFORM_PLUGIN}
-        ${GRAPHEFFECTS_PLUGIN}
-        ${GRAPHEFFECTS_PRIVATE_PLUGIN}
-        ${QQC2_PLUGIN}
-        ${QQC2_MATERIAL_PLUGIN}
-        ${QQC2_UNIVERSAL_PLUGIN}
-        ${QLAYOUTS_PLUGIN}
-        ${QDIALOGS_PLUGIN}
-        ${QWINDOW_PLUGIN}
-        ${QSHAPES_PLUGIN}
-        ${QUICKSHAPES}
-        ${QTEMPLATES_PLUGIN}
-        ${QMODELS_PLUGIN}
-        ${__Qt5Widgets_LIBRARIES}
-    )
-
-    if(IOS)
-        target_link_libraries(${PROJECT_NAME}
-            Qt5::QIOSIntegrationPlugin
-            Qt5::QMacHeifPlugin
-            Qt5::QMacJp2Plugin
-            Qt5::QICNSPlugin
-            Qt5::QTgaPlugin
-            Qt5::QTiffPlugin
-            Qt5::QWbmpPlugin
-            Qt5::QWebpPlugin
-        )
-    endif()
-endif()
-
 # Set a custom plist file for the app bundle
 if(APPLE)
     if(IOS)
@@ -425,12 +319,6 @@ elseif(APPIMAGE)
     target_compile_definitions(${PROJECT_NAME} PRIVATE
         APPIMAGE=True
         TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}"
-    )
-endif()
-
-if(STATIC_BUILD)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-        STATIC_BUILD=True
     )
 endif()
 
