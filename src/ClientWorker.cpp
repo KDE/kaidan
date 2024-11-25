@@ -25,7 +25,7 @@
 #include <QXmppMamManager.h>
 #include <QXmppMixManager.h>
 #include <QXmppMovedManager.h>
-#include "QXmppOmemoManager.h"
+#include <QXmppOmemoManager.h>
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppRosterManager.h>
