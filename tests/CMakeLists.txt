@@ -37,6 +37,12 @@ ecm_add_test(
 )
 
 ecm_add_test(
+        FutureUtilsTest.cpp
+        TEST_NAME FutureUtilsTest
+        LINK_LIBRARIES Qt::Test Qt::Gui QXmpp::QXmpp
+)
+
+ecm_add_test(
 	DatabaseTest.cpp
 	../src/Database.cpp
 	../src/SqlUtils.cpp

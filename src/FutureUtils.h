@@ -194,32 +194,53 @@ auto callVoidRemoteTask(QObject *target, Function function, QObject *caller, Han
 	});
 }
 
-// Creates a future with the results from all given futures.
-template <typename T>
-QFuture<QVector<T>> join(QObject *context, QVector<QFuture<T>> &&futures)
+// Creates a future with the results from all given futures (preserving order).
+template<typename T>
+QFuture<QVector<T>> join(QObject *context, const QVector<QFuture<T>> &futures)
 {
-	auto results = std::make_shared<QVector<T>>();
-	results->reserve(futures.size());
-
-	int futureCount = futures.size();
-
-	QFutureInterface<QVector<T>> interface;
-
-	for (auto future : futures) {
-		await(future, context, [=](auto result) mutable {
-			results->push_back(result);
-			if (results->size() == futureCount) {
-				interface.reportResult(*results);
-				interface.reportFinished();
-			}
-		});
+	if (futures.empty()) {
+		return makeReadyFuture<QVector<T>>({});
 	}
 
-	return interface.future();
+	struct State {
+		QFutureInterface<QVector<T>> interface;
+		QObject *context = nullptr;
+		QVector<T> results;
+		QVector<QFuture<T>> futures;
+		qsizetype i = 0;
+		// keep-alive during awaits()
+		std::shared_ptr<State> self;
+
+		void joinOne()
+		{
+			if (i < futures.size()) {
+				await(futures.at(i), context, [this](T &&value) {
+					results.push_back(std::move(value));
+					i++;
+					joinOne();
+				});
+			} else {
+				interface.reportResult(results);
+				interface.reportFinished();
+				// release
+				self.reset();
+			}
+		}
+	};
+
+	auto state = std::make_shared<State>();
+	state->context = context;
+	state->results.reserve(futures.size());
+	state->futures = futures;
+	state->self = state;
+
+	auto future = state->interface.future();
+	state->joinOne();
+	return future;
 }
 
 // Creates a future for multiple futures without a return value.
-template <typename T>
+template<typename T>
 QFuture<void> joinVoidFutures(QObject *context, QVector<QFuture<T>> &&futures)
 {
 	int futureCount = futures.size();
@@ -229,7 +250,7 @@ QFuture<void> joinVoidFutures(QObject *context, QVector<QFuture<T>> &&futures)
 
 	for (auto future : futures) {
 		await(future, context, [=]() mutable {
-			if(++(*finishedFutureCount) == futureCount) {
+			if (++(*finishedFutureCount) == futureCount) {
 				interface.reportFinished();
 			}
 		});
