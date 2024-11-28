@@ -2,58 +2,9 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
-stages:
-  - build
-  - deploy
-
-clazy:
-  stage: build
-  image: ghcr.io/kaidanim/debian
-  variables:
-    CC: clang
-    CXX: clazy
-  script: apt update && apt install -y clang libc++-dev libc++abi-dev && utils/travis/build.sh
-
-qmllint:
-  stage: build
-  image: ghcr.io/kaidanim/debian
-  script: qmllint $(find . -name "*.qml")
-  variables:
-    QT_SELECT: 5
-
 flatpak:
   variables:
     KDE_FLATPAK_APP_ID: im.kaidan.kaidan
-
-linux-appimage:
-  stage: deploy
-  image: kaidan/ubuntu-xenial
-  script: utils/build-linux-appimage.sh
-  variables:
-    QXMPP_BUILD: /usr
-  artifacts:
-    paths:
-      - "*.AppImage"
-      - "*.AppImage.zsync"
-    expire_in: 1 week
-  only:
-    - network/kaidan
-
-android:
-  stage: deploy
-  image: kdeorg/android-sdk
-  script:
-    - utils/build-android-docker.sh
-  variables:
-    KF5_VERSION: master
-  allow_failure: true
-  artifacts:
-    paths:
-      - "kaidan_arm.apk"
-      - "kaidan_arm64.apk"
-    expire_in: 1 week
-  only:
-    - network/kaidan
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
