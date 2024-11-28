@@ -12,7 +12,6 @@
 #include <QDir>
 #include <QFile>
 #include <QMimeDatabase>
-#include <QRandomGenerator>
 #include <QImage>
 #include <QStandardPaths>
 #include <QStringBuilder>
@@ -163,11 +162,6 @@ FileSharingController::FileSharingController(QXmppClient *client)
 	});
 }
 
-qint64 FileSharingController::generateFileId()
-{
-	return QRandomGenerator::system()->generate64();
-}
-
 auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
 	-> QXmppTask<SendFilesResult>
 {
@@ -228,7 +222,7 @@ auto FileSharingController::sendFiles(QVector<File> files, bool encrypt)
 
 				std::optional<qint64> encryptedDataId;
 				if (!s.hashes().empty()) {
-					encryptedDataId = generateFileId();
+					encryptedDataId = MessageDb::instance()->newFileId();
 				}
 
 				return EncryptedSource {

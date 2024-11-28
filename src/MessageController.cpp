@@ -14,7 +14,6 @@
 #include <ranges>
 // Qt
 #include <QUrl>
-#include <QRandomGenerator>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppBitsOfBinaryDataList.h>
@@ -934,7 +933,7 @@ std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fi
 	}
 	std::optional<qint64> encryptedDataId;
 	if (!source.hashes().empty()) {
-		encryptedDataId = QRandomGenerator::system()->generate64();
+		encryptedDataId = MessageDb::instance()->newFileId();
 	}
 	return EncryptedSource {
 		fileId,
@@ -952,9 +951,9 @@ std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fi
 void MessageController::parseSharedFiles(const QXmppMessage &message, Message &messageToEdit)
 {
 	if (const auto sharedFiles = message.sharedFiles(); !sharedFiles.empty()) {
-		messageToEdit.fileGroupId = QRandomGenerator::system()->generate64();
+		messageToEdit.fileGroupId = MessageDb::instance()->newFileGroupId();
 		messageToEdit.files = transform(sharedFiles, [message, fgid = messageToEdit.fileGroupId](const QXmppFileShare &fileShare) {
-			auto fileId = qint64(QRandomGenerator::system()->generate64());
+			auto fileId = MessageDb::instance()->newFileId();
 
 			File file;
 
@@ -996,7 +995,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
 			return file;
 		});
 	} else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {
-		const qint64 fileGroupId = QRandomGenerator::system()->generate64();
+		const qint64 fileGroupId = MessageDb::instance()->newFileGroupId();
 		messageToEdit.files = transformFilter(urls, [&](auto &file) {
 			return MessageController::parseOobUrl(file, fileGroupId);
 		});
@@ -1017,7 +1016,7 @@ std::optional<File> MessageController::parseOobUrl(const QXmppOutOfBandUrl &url,
 	// TODO: consider doing a HEAD request to fill in the remaining metadata
 
 	const auto name = QUrl(url.url()).fileName();
-	const auto id = static_cast<qint64>(QRandomGenerator::system()->generate64());
+	const auto id = MessageDb::instance()->newFileId();
 
 	File file;
 	file.id = id;

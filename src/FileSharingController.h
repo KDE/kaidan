@@ -25,8 +25,6 @@ public:
 
 	explicit FileSharingController(QXmppClient *client);
 
-	static qint64 generateFileId();
-
 	auto sendFiles(QVector<File> files, bool encrypt) -> QXmppTask<SendFilesResult>;
 	Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
 	Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);

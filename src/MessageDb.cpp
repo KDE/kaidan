@@ -11,14 +11,15 @@
 // C++
 #include <ranges>
 // Qt
+#include <QBuffer>
+#include <QFile>
+#include <QMimeDatabase>
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlField>
 #include <QSqlRecord>
 #include <QStringBuilder>
-#include <QMimeDatabase>
-#include <QBuffer>
-#include <QFile>
+#include <QThread>
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
@@ -68,6 +69,8 @@ MessageDb::MessageDb(Database *db, QObject *parent)
 {
 	Q_ASSERT(!MessageDb::s_instance);
 	s_instance = this;
+
+	_fetchLatestFileId();
 }
 
 MessageDb::~MessageDb()
@@ -78,6 +81,20 @@ MessageDb::~MessageDb()
 MessageDb *MessageDb::instance()
 {
 	return s_instance;
+}
+
+qint64 MessageDb::newFileId()
+{
+	// Ensure that this method is only called by the main thread.
+	Q_ASSERT(QThread::currentThread() == qApp->thread());
+	return ++m_latestFileId;
+}
+
+qint64 MessageDb::newFileGroupId()
+{
+	// Ensure that this method is only called by the main thread.
+	Q_ASSERT(QThread::currentThread() == qApp->thread());
+	return ++m_latestFileGroupId;
 }
 
 QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
@@ -1140,6 +1157,44 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void (Mess
 			// add new files, replace changed files
 			_setFiles(newMessage.files);
 		}
+	}
+}
+
+void MessageDb::_fetchLatestFileId()
+{
+	enum { Id };
+	auto query = createQuery();
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			SELECT id
+			FROM files
+			ORDER BY id DESC
+			LIMIT 1
+		)")
+	);
+
+	if (query.first()) {
+		m_latestFileId = query.value(Id).toLongLong();
+	}
+}
+
+void MessageDb::_fetchLatestFileGroupId()
+{
+	enum { FileGroupId };
+	auto query = createQuery();
+	execQuery(
+		query,
+		QStringLiteral(R"(
+			SELECT fileGroupId
+			FROM files
+			ORDER BY fileGroupId DESC
+			LIMIT 1
+		)")
+	);
+
+	if (query.first()) {
+		m_latestFileGroupId = query.value(FileGroupId).toLongLong();
 	}
 }
 

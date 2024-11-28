@@ -205,11 +205,11 @@ void MessageComposition::send()
 
 	// generate file IDs if needed
 	if (m_fileSelectionModel->hasFiles()) {
-		message.fileGroupId = FileSharingController::generateFileId();
+		message.fileGroupId = MessageDb::instance()->newFileGroupId();
 
 		for (auto &file : message.files) {
 			file.fileGroupId = *message.fileGroupId;
-			file.id = FileSharingController::generateFileId();
+			file.id = MessageDb::instance()->newFileId();
 			file.name = QUrl::fromLocalFile(file.localFilePath).fileName();
 		}
 	}

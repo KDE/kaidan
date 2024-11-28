@@ -41,6 +41,9 @@ public:
 
 	static MessageDb *instance();
 
+	qint64 newFileId();
+	qint64 newFileGroupId();
+
 	/**
 	 * Creates an @c QSqlRecord for updating an old message to a new message.
 	 *
@@ -276,6 +279,8 @@ private:
 	void _updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
 
 	// Setters do INSERT OR REPLACE INTO
+	void _fetchLatestFileId();
+	void _fetchLatestFileGroupId();
 	void _setFiles(const QVector<File> &files);
 	void _setFileHashes(const QVector<FileHash> &fileHashes);
 	void _setHttpSources(const QVector<HttpSource> &sources);
@@ -311,6 +316,9 @@ private:
 	bool _checkMessageExists(const Message &message);
 
 	Message _initializeLastMessage(const QString &accountJid, const QString &chatJid);
+
+	qint64 m_latestFileId = -1;
+	qint64 m_latestFileGroupId = -1;
 
 	static MessageDb *s_instance;
 };

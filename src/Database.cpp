@@ -44,8 +44,8 @@ using namespace SqlUtils;
 	}
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 46
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(46)
+#define DATABASE_LATEST_VERSION 47
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(47)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -2450,4 +2450,23 @@ void Database::convertDatabaseToV46()
 	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD geoLocationMapPreviewEnabled " SQL_BOOL));
 	execQuery(query, QStringLiteral("ALTER TABLE accounts ADD geoLocationMapService " SQL_INTEGER));
 	d->version = 46;
+}
+
+void Database::convertDatabaseToV47()
+{
+	DATABASE_CONVERT_TO_VERSION(46)
+	QSqlQuery query(currentDatabase());
+
+	// Delete all rows used for file sharing.
+	// That is needed because new files are stored with incremented IDs.
+	// It allows retrieving files in the order they are sent/received.
+	// Old files can have high IDs because they were randomly generated formerly.
+	// Keeping them could result in a high ID used as the start for the new incremented IDs.
+	execQuery(query, QStringLiteral("DELETE FROM messages WHERE fileGroupId IS NOT NULL"));
+	execQuery(query, QStringLiteral("DELETE FROM files"));
+	execQuery(query, QStringLiteral("DELETE FROM fileHashes"));
+	execQuery(query, QStringLiteral("DELETE FROM fileHttpSources"));
+	execQuery(query, QStringLiteral("DELETE FROM fileEncryptedSources"));
+
+	d->version = 47;
 }
