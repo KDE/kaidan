@@ -1436,22 +1436,24 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 	reserve(files, query);
 	while (query.next()) {
 		auto id = query.value(Id).toLongLong();
-		files << File {
-			query.value(Id).toLongLong(),
-			fileGroupId,
-			variantToOptional<QString>(query.value(Name)),
-			variantToOptional<QString>(query.value(Description)),
-			QMimeDatabase().mimeTypeForName(query.value(MimeType).toString()),
-			variantToOptional<long long>(query.value(Size)),
-			parseDateTime(query, LastModified),
-			query.value(Disposition).value<QXmppFileShare::Disposition>(),
-			query.value(LocalFilePath).toString(),
-			query.value(ExternalId).toString(),
-			_fetchFileHashes(id),
-			query.value(Thumbnail).toByteArray(),
-			_fetchHttpSource(id),
-			_fetchEncryptedSource(id),
-		};
+
+		File file;
+		file.id = query.value(Id).toLongLong();
+		file.fileGroupId = fileGroupId;
+		file.name = variantToOptional<QString>(query.value(Name));
+		file.description = variantToOptional<QString>(query.value(Description));
+		file.mimeType = QMimeDatabase().mimeTypeForName(query.value(MimeType).toString());
+		file.size = variantToOptional<long long>(query.value(Size));
+		file.lastModified = parseDateTime(query, LastModified);
+		file.disposition = query.value(Disposition).value<QXmppFileShare::Disposition>();
+		file.localFilePath = query.value(LocalFilePath).toString();
+		file.externalId = query.value(ExternalId).toString();
+		file.hashes = _fetchFileHashes(id);
+		file.thumbnail = query.value(Thumbnail).toByteArray();
+		file.httpSources = _fetchHttpSource(id);
+		file.encryptedSources = _fetchEncryptedSource(id);
+
+		files.append(file);
 	}
 	return files;
 }

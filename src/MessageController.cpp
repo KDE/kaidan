@@ -948,45 +948,47 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
 {
 	if (const auto sharedFiles = message.sharedFiles(); !sharedFiles.empty()) {
 		messageToEdit.fileGroupId = QRandomGenerator::system()->generate64();
-		messageToEdit.files = transform(sharedFiles, [message, fgid = messageToEdit.fileGroupId](const QXmppFileShare &file) {
+		messageToEdit.files = transform(sharedFiles, [message, fgid = messageToEdit.fileGroupId](const QXmppFileShare &fileShare) {
 			auto fileId = qint64(QRandomGenerator::system()->generate64());
-			return File {
-				.id = fileId,
-				.fileGroupId = fgid.value(),
-				.name = file.metadata().filename(),
-				.description = file.metadata().description().value_or(QString()),
-				.mimeType = file.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"))),
-				.size = file.metadata().size(),
-				.lastModified = file.metadata().lastModified().value_or(QDateTime()),
-				.disposition = file.disposition(),
-				.localFilePath = {},
-				.externalId = file.id(),
-				.hashes = transform(file.metadata().hashes(), [&](const QXmppHash &hash) {
-					return FileHash {
-						.dataId = fileId,
-						.hashType = hash.algorithm(),
-						.hashValue = hash.hash()
-					};
-				}),
-				.thumbnail = [&]() {
-					const auto &bobData = message.bitsOfBinaryData();
-					if (!file.metadata().thumbnails().empty()) {
-						auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(file.metadata().thumbnails().front().uri());
-						const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
-							return bobBlob.cid() == cid;
-						});
 
-						if (thumbnailData != bobData.cend()) {
-							return thumbnailData->data();
-						}
+			File file;
+
+			file.id = fileId;
+			file.fileGroupId = fgid.value();
+			file.name = fileShare.metadata().filename();
+			file.description = fileShare.metadata().description().value_or(QString());
+			file.mimeType = fileShare.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream")));
+			file.size = fileShare.metadata().size();
+			file.lastModified = fileShare.metadata().lastModified().value_or(QDateTime());
+			file.disposition = fileShare.disposition();
+			file.externalId = fileShare.id();
+			file.hashes = transform(fileShare.metadata().hashes(), [&](const QXmppHash &hash) {
+				return FileHash {
+					.dataId = fileId,
+					.hashType = hash.algorithm(),
+					.hashValue = hash.hash()
+				};
+			});
+			file.thumbnail = [&]() {
+				const auto &bobData = message.bitsOfBinaryData();
+				if (!fileShare.metadata().thumbnails().empty()) {
+					auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(fileShare.metadata().thumbnails().front().uri());
+					const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
+						return bobBlob.cid() == cid;
+					});
+
+					if (thumbnailData != bobData.cend()) {
+						return thumbnailData->data();
 					}
-					return QByteArray();
-				}(),
-				.httpSources = transform(file.httpSources(), [&](const auto &source) {
-					return HttpSource { fileId, source.url() };
-				}),
-				.encryptedSources = transformFilter(file.encryptedSources(), std::bind(MessageController::parseEncryptedSource, fileId, _1)),
-			};
+				}
+				return QByteArray();
+			}();
+			file.httpSources = transform(fileShare.httpSources(), [&](const auto &source) {
+				return HttpSource { fileId, source.url() };
+			});
+			file.encryptedSources = transformFilter(fileShare.encryptedSources(), std::bind(MessageController::parseEncryptedSource, fileId, _1));
+
+			return file;
 		});
 	} else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {
 		const qint64 fileGroupId = QRandomGenerator::system()->generate64();
@@ -1011,31 +1013,26 @@ std::optional<File> MessageController::parseOobUrl(const QXmppOutOfBandUrl &url,
 
 	const auto name = QUrl(url.url()).fileName();
 	const auto id = static_cast<qint64>(QRandomGenerator::system()->generate64());
-	return File {
-		.id = id,
-		.fileGroupId = fileGroupId,
-		.name = name,
-		.description = url.description(),
-		.mimeType = [&name] {
-			const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
-			if (possibleMimeTypes.empty()) {
-				return MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
-			}
 
-			return possibleMimeTypes.front();
-		}(),
-		.size = {},
-		.lastModified = {},
-		.localFilePath = {},
-		.externalId = {},
-		.hashes = {},
-		.thumbnail = {},
-		.httpSources = {
-			HttpSource {
-				.fileId = id,
-				.url = QUrl(url.url())
-			}
-		},
-		.encryptedSources = {}
+	File file;
+	file.id = id;
+	file.fileGroupId = fileGroupId;
+	file.name = name;
+	file.description = url.description();
+	file.mimeType = [&name] {
+		const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
+		if (possibleMimeTypes.empty()) {
+			return MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
+		}
+
+		return possibleMimeTypes.front();
+	}();
+	file.httpSources = {
+		HttpSource {
+			.fileId = id,
+			.url = QUrl(url.url())
+		}
 	};
+
+	return file;
 }
