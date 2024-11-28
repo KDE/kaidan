@@ -6,7 +6,8 @@
 
 #include <QObject>
 
-class GroupChatUser;
+struct GroupChatUser;
+
 class MixController;
 
 struct GroupChatService

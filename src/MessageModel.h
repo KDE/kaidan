@@ -15,7 +15,6 @@
 // Kaidan
 #include "Message.h"
 
-class GroupChatUser;
 class QTimer;
 class Kaidan;
 

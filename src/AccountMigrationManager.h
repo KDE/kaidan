@@ -14,10 +14,10 @@
 class QXmppConfiguration;
 class QXmppMovedManager;
 
-class ClientWorker;
-class RosterItem;
-class Settings;
 struct ClientSettings;
+
+class ClientWorker;
+class Settings;
 
 class AccountMigrationManager : public QObject
 {
