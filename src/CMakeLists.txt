@@ -295,6 +295,10 @@ if(ANDROID)
     target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt5::AndroidExtras)
 endif()
 
+if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
+    target_link_libraries (${PROJECT_NAME} "pthread")
+endif()
+
 # Set a custom plist file for the app bundle
 if(APPLE)
     if(IOS)
