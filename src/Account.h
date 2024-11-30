@@ -79,7 +79,7 @@ public:
 	qint64 httpUploadLimit = 0;
 	ContactNotificationRule contactNotificationRule = ContactNotificationRule::Default;
 	GroupChatNotificationRule groupChatNotificationRule = GroupChatNotificationRule::Default;
-	bool geoLocationMapPreviewEnabled = false;
+	bool geoLocationMapPreviewEnabled = true;
 	GeoLocationMapService geoLocationMapService = GeoLocationMapService::System;
 };
 

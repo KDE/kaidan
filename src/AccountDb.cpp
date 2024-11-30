@@ -218,7 +218,10 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 			account.groupChatNotificationRule = groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
 		}
 
-		account.geoLocationMapPreviewEnabled = query.value(idxGeoLocationMapPreviewEnabled).toBool();
+		if (const auto geoLocationMapPreviewEnabled = query.value(idxGeoLocationMapPreviewEnabled);
+			!geoLocationMapPreviewEnabled.isNull()) {
+			account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled.toBool();
+		}
 
 		if (const auto geoLocationMapService = query.value(idxGeoLocationMapService);
 			!geoLocationMapService.isNull()) {
