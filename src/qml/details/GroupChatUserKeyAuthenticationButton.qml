@@ -28,7 +28,7 @@ UserKeyAuthenticationButton {
 		case DetailsContent.EncryptionKeyAuthenticationState.AuthenticatableTrustedKeysOnly:
 			return qsTr("Some participants have devices that are not verified")
 		case DetailsContent.EncryptionKeyAuthenticationState.AllKeysAuthenticated:
-			return qsTr("All participants' devices are verified")
+			return qsTr("All participants' known devices are verified")
 		}
 	}
 	icon.name: {
