@@ -2,9 +2,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-18 08:39+0200\n"
-"Last-Translator: Fracture dept <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"PO-Revision-Date: 2024-11-29 15:45+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,9 +375,6 @@ msgid "Spoiler"
 msgstr "Спойлер"
 
 #: src/Message.cpp:406
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
 msgstr "Місце"
@@ -641,7 +638,7 @@ msgstr "Пошук"
 #: src/qml/ChatPage.qml:500
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "Скиньте файли, які буде надіслано"
 
 #: src/qml/details/AccountDetailsContent.qml:27
 #: src/qml/details/AccountDetailsContent.qml:278
@@ -763,12 +760,9 @@ msgid "On mention"
 msgstr "При згадці"
 
 #: src/qml/details/AccountDetailsContent.qml:327
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "Місце"
+msgstr "Місця"
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
@@ -777,53 +771,44 @@ msgid ""
 "provider OpenStreetMap is used. The data is downloaded from it after "
 "submitting the location."
 msgstr ""
+"Для показу місць у Kaidan використовують інтернет-дані від стороннього "
+"надавача даних OpenStreetMap. Дані буде отримано звідти після надсилання "
+"даних щодо координат місця."
 
 #: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
-msgstr ""
+msgstr "Перегляд карти місцевості"
 
 #: src/qml/details/AccountDetailsContent.qml:337
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr ""
+msgstr "Показ карти місцевості"
 
 #: src/qml/details/AccountDetailsContent.qml:345
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr "Надіслати адресу"
+msgstr "Відкриваємо місця"
 
 #: src/qml/details/AccountDetailsContent.qml:346
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr "Надіслати адресу"
+msgstr "Як відкрити карту місцевості"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Reset to defaults"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "Відновити типові параметри"
+msgstr "Типовий системний"
 
 #: src/qml/details/AccountDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "Про «Kaidan»"
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:357
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr ""
+msgstr "Інтернет"
 
 #: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
@@ -2133,40 +2118,26 @@ msgid "Unverified own devices"
 msgstr "Неперевірені власні пристрої"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Paused"
 msgctxt "Audio|"
 msgid "Pause"
-msgstr "Призупинено"
+msgstr "Пауза"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "Пуск"
 
 #: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "Loading camera…"
 msgctxt "CameraStatus|"
 msgid "Loading camera…"
 msgstr "Завантаження камери…"
 
 #: src/qml/elements/CameraStatus.qml:66
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Немає доступних камер"
 
 #: src/qml/elements/CameraStatus.qml:69
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Camera busy\n"
-#| "Try to close other applications using the camera"
 msgctxt "CameraStatus|"
 msgid ""
 "Camera busy\n"
@@ -2197,12 +2168,9 @@ msgid "Remove selected file"
 msgstr "Вилучити позначений файл"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove selected file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "Вилучити позначений файл"
+msgstr "Відкрити теку позначеного файла"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
 msgctxt "ChatMessageContextMenu|"
@@ -2272,7 +2240,7 @@ msgstr "Скасувати додавання прихованої частин�
 #: src/qml/elements/ChatPageSendingPane.qml:157
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "Додати емодзі"
 
 #: src/qml/elements/ChatPageSendingPane.qml:168
 msgctxt "ChatPageSendingPane|"
@@ -2300,17 +2268,11 @@ msgid "Compose <b>unencrypted</b> message"
 msgstr "Створити <b>нешифроване</b> повідомлення"
 
 #: src/qml/elements/ChatPageSendingPane.qml:289
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Зробити знімок"
 
 #: src/qml/elements/ChatPageSendingPane.qml:297
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Записати відео"
@@ -2321,46 +2283,31 @@ msgid "Share files"
 msgstr "Оприлюднити файли"
 
 #: src/qml/elements/ChatPageSendingPane.qml:316
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send your location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "Надіслати ваше місце перебування"
+msgstr "Оприлюднити ваше місце перебування"
 
 #: src/qml/elements/ChatPageSendingPane.qml:324
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Add hidden message part"
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Додати приховану частину зображення"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Hide text"
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr "Сховати текст"
+msgstr "Приховати"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "Більше"
 
 #: src/qml/elements/ChatPageSendingPane.qml:417
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Send a spoiler message"
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "Надіслати повідомлення-спойлер"
+msgstr "Надіслати голосове повідомлення"
 
 #: src/qml/elements/ChatPageSendingPane.qml:443
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Надіслати"
@@ -2504,28 +2451,19 @@ msgstr "Будь ласка, введіть коректний пароль"
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "Оприлюднити місце"
+msgstr "Показати місце"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Місце"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
 msgstr "Оприлюднити місце"
@@ -2670,9 +2608,6 @@ msgid "Unverified participant devices"
 msgstr "Неперевірені пристрої учасників"
 
 #: src/qml/elements/ImageCaptureDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Зробити знімок"
@@ -2750,17 +2685,11 @@ msgid "Connecting…"
 msgstr "Встановлюємо з'єднання…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr "Шифрування"
+msgstr "Опис"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Вилучити файл"
@@ -2877,9 +2806,6 @@ msgid "Me"
 msgstr "Ви"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "Місце"
@@ -3008,9 +2934,6 @@ msgid "Copy web address"
 msgstr "Копіювати адресу"
 
 #: src/qml/elements/VideoRecordingDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Записати відео"

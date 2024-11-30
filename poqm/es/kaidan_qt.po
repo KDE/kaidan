@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-11-20 19:11+0100\n"
+"PO-Revision-Date: 2024-11-30 01:56+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -373,9 +373,6 @@ msgid "Spoiler"
 msgstr "Espóiler"
 
 #: src/Message.cpp:406
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
 msgstr "Ubicación"
@@ -638,7 +635,7 @@ msgstr "Buscar"
 #: src/qml/ChatPage.qml:500
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "Suelte los archivos que se enviarán"
 
 #: src/qml/details/AccountDetailsContent.qml:27
 #: src/qml/details/AccountDetailsContent.qml:278
@@ -758,12 +755,9 @@ msgid "On mention"
 msgstr "Al hacer mención"
 
 #: src/qml/details/AccountDetailsContent.qml:327
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "Ubicación"
+msgstr "Ubicaciones"
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
@@ -772,53 +766,43 @@ msgid ""
 "provider OpenStreetMap is used. The data is downloaded from it after "
 "submitting the location."
 msgstr ""
+"Para mostrar ubicaciones en Kaidan se usan datos en línea del proveedor "
+"OpenStreetMap. Los datos se descargan del mismo tras enviar la ubicación."
 
 #: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
-msgstr ""
+msgstr "Vistas previas de ubicaciones en el mapa"
 
 #: src/qml/details/AccountDetailsContent.qml:337
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr ""
+msgstr "Mostrar vistas previas de ubicaciones"
 
 #: src/qml/details/AccountDetailsContent.qml:345
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr "Enviar ubicación"
+msgstr "Abriendo ubicaciones"
 
 #: src/qml/details/AccountDetailsContent.qml:346
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr "Enviar ubicación"
+msgstr "Cómo abrir ubicaciones"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Reset to defaults"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "Restablecer valores predeterminados"
+msgstr "Predeterminado del sistema"
 
 #: src/qml/details/AccountDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "Acerca de Kaidan"
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:357
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
@@ -2133,40 +2117,26 @@ msgid "Unverified own devices"
 msgstr "Dispositivos propios sin verificar"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Paused"
 msgctxt "Audio|"
 msgid "Pause"
-msgstr "En pausa"
+msgstr "Pausar"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "Reproducir"
 
 #: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "Loading camera…"
 msgctxt "CameraStatus|"
 msgid "Loading camera…"
 msgstr "Cargando cámara..."
 
 #: src/qml/elements/CameraStatus.qml:66
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "No hay ninguna cámara disponible"
 
 #: src/qml/elements/CameraStatus.qml:69
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Camera busy\n"
-#| "Try to close other applications using the camera"
 msgctxt "CameraStatus|"
 msgid ""
 "Camera busy\n"
@@ -2197,12 +2167,9 @@ msgid "Remove selected file"
 msgstr "Eliminar archivo seleccionado"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove selected file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "Eliminar archivo seleccionado"
+msgstr "Abrir la carpeta del archivo seleccionado"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
 msgctxt "ChatMessageContextMenu|"
@@ -2272,7 +2239,7 @@ msgstr "Cancelar la adición de parte de mensaje oculta"
 #: src/qml/elements/ChatPageSendingPane.qml:157
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "Añadir un emoji"
 
 #: src/qml/elements/ChatPageSendingPane.qml:168
 msgctxt "ChatPageSendingPane|"
@@ -2300,20 +2267,14 @@ msgid "Compose <b>unencrypted</b> message"
 msgstr "Crear mensaje <b>sin cifrar</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:289
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
-msgstr "Hacer foto"
+msgstr "Hacer una foto"
 
 #: src/qml/elements/ChatPageSendingPane.qml:297
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
-msgstr "Grabar vídeo"
+msgstr "Grabar un vídeo"
 
 #: src/qml/elements/ChatPageSendingPane.qml:305
 msgctxt "ChatPageSendingPane|"
@@ -2321,46 +2282,31 @@ msgid "Share files"
 msgstr "Compartir archivos"
 
 #: src/qml/elements/ChatPageSendingPane.qml:316
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send your location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "Enviar su ubicación"
+msgstr "Compartir su ubicación"
 
 #: src/qml/elements/ChatPageSendingPane.qml:324
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Add hidden message part"
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr "Añadir parte de mensaje oculta"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Hide text"
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr "Ocultar texto"
+msgstr "Ocultar"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "Más"
 
 #: src/qml/elements/ChatPageSendingPane.qml:417
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Send a spoiler message"
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "Enviar un mensaje de espóiler"
+msgstr "Enviar un mensaje de voz"
 
 #: src/qml/elements/ChatPageSendingPane.qml:443
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "Enviar"
@@ -2503,28 +2449,19 @@ msgstr "Introduzca una contraseña válida"
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "Compartir ubicación"
+msgstr "Mostrar ubicación"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "Ubicación"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
 msgstr "Compartir ubicación"
@@ -2669,12 +2606,9 @@ msgid "Unverified participant devices"
 msgstr "Dispositivos de participantes sin verificar"
 
 #: src/qml/elements/ImageCaptureDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
-msgstr "Hacer foto"
+msgstr "Hacer una foto"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2751,17 +2685,11 @@ msgid "Connecting…"
 msgstr "Conectando..."
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr "Cifrado"
+msgstr "Descripción"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Eliminar archivo"
@@ -2881,9 +2809,6 @@ msgid "Me"
 msgstr "Yo"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "Ubicación"
@@ -3012,12 +2937,9 @@ msgid "Copy web address"
 msgstr "Copiar dirección web"
 
 #: src/qml/elements/VideoRecordingDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
-msgstr "Grabar vídeo"
+msgstr "Grabar un vídeo"
 
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
