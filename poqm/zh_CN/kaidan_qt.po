@@ -366,12 +366,9 @@ msgid "Spoiler"
 msgstr "剧透"
 
 #: src/Message.cpp:406
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: src/Message.cpp:449
 #, qt-format
@@ -744,12 +741,9 @@ msgid "On mention"
 msgstr "在提及时"
 
 #: src/qml/details/AccountDetailsContent.qml:327
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
@@ -770,36 +764,24 @@ msgid "Display previews of locations"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:345
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr "发送位置"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:346
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr "发送位置"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Account default"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "账号默认"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "AboutDialog|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "关于 Kaidan"
+msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:357
 msgctxt "AccountDetailsContent|"
@@ -2053,12 +2035,9 @@ msgid "Unverified own devices"
 msgstr "未经验证的自己的设备"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Paused %1"
 msgctxt "Audio|"
 msgid "Pause"
-msgstr "已暂停 %1"
+msgstr ""
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
@@ -2066,34 +2045,21 @@ msgid "Play"
 msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "Loading camera…"
 msgctxt "CameraStatus|"
 msgid "Loading camera…"
-msgstr "正在加载相机…"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:66
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr "没有可用的相机"
+msgstr ""
 
 #: src/qml/elements/CameraStatus.qml:69
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Camera busy\n"
-#| "Try to close other applications using the camera"
 msgctxt "CameraStatus|"
 msgid ""
 "Camera busy\n"
 "Try to close other applications using the camera"
 msgstr ""
-"相机忙碌\n"
-"尝试关闭使用相机的其他应用程序"
 
 #: src/qml/elements/ChatMessage.qml:204
 msgctxt "ChatMessage|"
@@ -2117,12 +2083,9 @@ msgid "Remove selected file"
 msgstr "移除所选文件"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:58
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Remove selected file"
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr "移除所选文件"
+msgstr ""
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
 msgctxt "ChatMessageContextMenu|"
@@ -2220,20 +2183,14 @@ msgid "Compose <b>unencrypted</b> message"
 msgstr "编写<b>未加密</b>消息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:289
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
-msgstr "拍照"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:297
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
-msgstr "录制视频"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:305
 msgctxt "ChatPageSendingPane|"
@@ -2241,28 +2198,19 @@ msgid "Share files"
 msgstr "分享文件"
 
 #: src/qml/elements/ChatPageSendingPane.qml:316
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "分享位置"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:324
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Add hidden message part"
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr "添加隐藏的消息部分"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Hide text"
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr "隐藏文本"
+msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
@@ -2275,12 +2223,9 @@ msgid "Send a voice message"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:443
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
-msgstr "发送"
+msgstr ""
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
@@ -2423,28 +2368,19 @@ msgid "© OpenStreetMap"
 msgstr ""
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "分享位置"
+msgstr ""
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
-msgstr "分享位置"
+msgstr ""
 
 #: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
@@ -2586,12 +2522,9 @@ msgid "Unverified participant devices"
 msgstr "未经验证的参与者设备"
 
 #: src/qml/elements/ImageCaptureDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
-msgstr "拍照"
+msgstr ""
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2666,20 +2599,14 @@ msgid "Connecting…"
 msgstr "正在连接…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr "加密"
+msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
-msgstr "移除文件"
+msgstr ""
 
 #: src/qml/elements/MessageBackground.qml:102
 msgctxt "MessageBackground|"
@@ -2793,12 +2720,9 @@ msgid "Me"
 msgstr "我"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 #: src/qml/elements/ReferencedMessage.qml:99
 msgctxt "ReferencedMessage|"
@@ -2924,12 +2848,9 @@ msgid "Copy web address"
 msgstr "复制 Web 地址"
 
 #: src/qml/elements/VideoRecordingDialog.qml:18
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
-msgstr "录像"
+msgstr ""
 
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
@@ -3479,51 +3400,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Open"
-#~ msgstr "打开"
-
-#~ msgctxt "ChatMessage|"
-#~ msgid "Join…"
-#~ msgstr "加入…"
-
-#~ msgctxt "NewMedia|"
-#~ msgid "Initializing…"
-#~ msgstr "正在初始化…"
-
-#~ msgctxt "NewMedia|"
-#~ msgid "Unavailable"
-#~ msgstr "不可用"
-
-#~ msgctxt "NewMedia|"
-#~ msgid "Recording… %1"
-#~ msgstr "正在录制…%1"
-
-#~ msgctxt "NewMediaSheet|"
-#~ msgid "Cancel"
-#~ msgstr "取消"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Share files"
-#~ msgstr "分享文件"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Choose files"
-#~ msgstr "选择文件"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Enter description…"
-#~ msgstr "输入描述…"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Compose message"
-#~ msgstr "编写消息"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Add"
-#~ msgstr "添加"
-
-#~ msgctxt "SendMediaSheet|"
-#~ msgid "Send"
-#~ msgstr "发送"
