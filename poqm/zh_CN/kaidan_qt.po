@@ -368,7 +368,7 @@ msgstr "剧透"
 #: src/Message.cpp:406
 msgctxt "Message|"
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/Message.cpp:449
 #, qt-format
@@ -628,7 +628,7 @@ msgstr "搜索"
 #: src/qml/ChatPage.qml:500
 msgctxt "ChatPage|"
 msgid "Drop files to be sent"
-msgstr ""
+msgstr "拖放要发送的文件"
 
 #: src/qml/details/AccountDetailsContent.qml:27
 #: src/qml/details/AccountDetailsContent.qml:278
@@ -743,7 +743,7 @@ msgstr "在提及时"
 #: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr ""
+msgstr "位置"
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
@@ -752,41 +752,43 @@ msgid ""
 "provider OpenStreetMap is used. The data is downloaded from it after "
 "submitting the location."
 msgstr ""
+"为了在 Kaidan 中显示位置，我们使用了第三方提供者 OpenStreetMap 的在线数据。提"
+"交位置后，将从中下载数据。"
 
 #: src/qml/details/AccountDetailsContent.qml:336
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
-msgstr ""
+msgstr "位置地图预览"
 
 #: src/qml/details/AccountDetailsContent.qml:337
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
-msgstr ""
+msgstr "显示位置预览"
 
 #: src/qml/details/AccountDetailsContent.qml:345
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
-msgstr ""
+msgstr "正在打开位置"
 
 #: src/qml/details/AccountDetailsContent.qml:346
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
-msgstr ""
+msgstr "如何打开位置"
 
 #: src/qml/details/AccountDetailsContent.qml:349
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr ""
+msgstr "系统默认"
 
 #: src/qml/details/AccountDetailsContent.qml:353
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr ""
+msgstr "Kaidan"
 
 #: src/qml/details/AccountDetailsContent.qml:357
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr ""
+msgstr "Web"
 
 #: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
@@ -2037,22 +2039,22 @@ msgstr "未经验证的自己的设备"
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Pause"
-msgstr ""
+msgstr "暂停"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "播放"
 
 #: src/qml/elements/CameraStatus.qml:59
 msgctxt "CameraStatus|"
 msgid "Loading camera…"
-msgstr ""
+msgstr "正在加载相机…"
 
 #: src/qml/elements/CameraStatus.qml:66
 msgctxt "CameraStatus|"
 msgid "No camera available"
-msgstr ""
+msgstr "没有可用的相机"
 
 #: src/qml/elements/CameraStatus.qml:69
 msgctxt "CameraStatus|"
@@ -2060,6 +2062,8 @@ msgid ""
 "Camera busy\n"
 "Try to close other applications using the camera"
 msgstr ""
+"相机忙碌\n"
+"尝试关闭使用相机的其他应用程序"
 
 #: src/qml/elements/ChatMessage.qml:204
 msgctxt "ChatMessage|"
@@ -2085,7 +2089,7 @@ msgstr "移除所选文件"
 #: src/qml/elements/ChatMessageContextMenu.qml:58
 msgctxt "ChatMessageContextMenu|"
 msgid "Open selected file's folder"
-msgstr ""
+msgstr "打开所选文件的文件夹"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
 msgctxt "ChatMessageContextMenu|"
@@ -2155,7 +2159,7 @@ msgstr "取消添加隐藏的消息部分"
 #: src/qml/elements/ChatPageSendingPane.qml:157
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
-msgstr ""
+msgstr "添加表情符号"
 
 #: src/qml/elements/ChatPageSendingPane.qml:168
 msgctxt "ChatPageSendingPane|"
@@ -2185,12 +2189,12 @@ msgstr "编写<b>未加密</b>消息"
 #: src/qml/elements/ChatPageSendingPane.qml:289
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
-msgstr ""
+msgstr "拍照"
 
 #: src/qml/elements/ChatPageSendingPane.qml:297
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
-msgstr ""
+msgstr "录制视频"
 
 #: src/qml/elements/ChatPageSendingPane.qml:305
 msgctxt "ChatPageSendingPane|"
@@ -2200,32 +2204,32 @@ msgstr "分享文件"
 #: src/qml/elements/ChatPageSendingPane.qml:316
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr ""
+msgstr "分享您的位置"
 
 #: src/qml/elements/ChatPageSendingPane.qml:324
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
-msgstr ""
+msgstr "添加隐藏的消息部分"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr ""
+msgstr "隐藏"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "更多"
 
 #: src/qml/elements/ChatPageSendingPane.qml:417
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr ""
+msgstr "发送语音消息"
 
 #: src/qml/elements/ChatPageSendingPane.qml:443
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
-msgstr ""
+msgstr "发送"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:32
 msgctxt "ConfirmationFormButtonArea|"
@@ -2365,22 +2369,22 @@ msgstr "请输入有效的密码"
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© OpenStreetMap"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr ""
+msgstr "显示位置"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
 msgctxt "GeoLocationPreview|"
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
-msgstr ""
+msgstr "分享位置"
 
 #: src/qml/elements/GroupChatCreationContent.qml:23
 msgctxt "GroupChatCreationContent|"
@@ -2524,7 +2528,7 @@ msgstr "未经验证的参与者设备"
 #: src/qml/elements/ImageCaptureDialog.qml:18
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
-msgstr ""
+msgstr "拍照"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:26
 msgctxt "KeyAuthenticationPage|"
@@ -2601,12 +2605,12 @@ msgstr "正在连接…"
 #: src/qml/elements/MediumSendingPreview.qml:37
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
-msgstr ""
+msgstr "移除文件"
 
 #: src/qml/elements/MessageBackground.qml:102
 msgctxt "MessageBackground|"
@@ -2722,7 +2726,7 @@ msgstr "我"
 #: src/qml/elements/ReferencedMessage.qml:96
 msgctxt "ReferencedMessage|"
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 #: src/qml/elements/ReferencedMessage.qml:99
 msgctxt "ReferencedMessage|"
@@ -2850,7 +2854,7 @@ msgstr "复制 Web 地址"
 #: src/qml/elements/VideoRecordingDialog.qml:18
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
-msgstr ""
+msgstr "录制视频"
 
 #: src/qml/EmptyChatPage.qml:23
 msgctxt "EmptyChatPage|"
