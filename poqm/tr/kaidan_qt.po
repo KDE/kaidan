@@ -1474,8 +1474,11 @@ msgid "Your contact has devices that are not verified"
 msgstr "İletişim kurduğunuz kişide doğrulanmamış aygıtlar var"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "ContactKeyAuthenticationButton|"
+#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr "Kişinizin tüm aygıtları doğrulanmış"
 
 #: src/qml/details/DetailsContent.qml:57
@@ -1820,8 +1823,11 @@ msgid "Some participants have devices that are not verified"
 msgstr "Bazı katılımcılarda doğrulanmamış aygıtlar var"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "GroupChatUserKeyAuthenticationButton|"
+#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
+msgid "All participants' known devices are verified"
 msgstr "Tüm katılımcıların aygıtları doğrulanmış"
 
 #: src/qml/details/MediaOverview.qml:71

@@ -1783,7 +1783,7 @@ msgstr ""
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr ""
 "Imbas kod QR dari peranti anda yang sedia ada untuk memindahkan akaun anda."
 
@@ -2222,9 +2222,13 @@ msgid "Some participants have devices that are not verified"
 msgstr ""
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
+msgid "All participants' known devices are verified"
 msgstr ""
+"Imbas kod QR dari peranti anda yang sedia ada untuk memindahkan akaun anda."
 
 #: src/qml/details/MediaOverview.qml:71
 #, fuzzy

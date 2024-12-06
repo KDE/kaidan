@@ -1503,8 +1503,11 @@ msgid "Your contact has devices that are not verified"
 msgstr "El vostre contacte té altres dispositius que no estan verificats"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "ContactKeyAuthenticationButton|"
+#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr "Tots els dispositius del vostre contacte estan verificats"
 
 #: src/qml/details/DetailsContent.qml:57
@@ -1847,8 +1850,11 @@ msgid "Some participants have devices that are not verified"
 msgstr "Alguns participants tenen dispositius que no estan verificats"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "GroupChatUserKeyAuthenticationButton|"
+#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
+msgid "All participants' known devices are verified"
 msgstr "Tots els dispositius dels participants estan verificats"
 
 #: src/qml/details/MediaOverview.qml:71

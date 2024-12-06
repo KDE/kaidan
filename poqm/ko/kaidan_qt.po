@@ -1725,7 +1725,7 @@ msgstr ""
 #| msgctxt "QrCodeOnboardingPage|"
 #| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
 
 #: src/qml/details/DetailsContent.qml:57
@@ -2155,9 +2155,12 @@ msgid "Some participants have devices that are not verified"
 msgstr ""
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "Scan the QR code from your existing device to transfer your account."
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
-msgstr ""
+msgid "All participants' known devices are verified"
+msgstr "계정을 전송하려면 기존 장치에서 QR 코드를 스캔하십시오."
 
 #: src/qml/details/MediaOverview.qml:71
 #, fuzzy

@@ -1767,7 +1767,7 @@ msgstr ""
 #| msgid ""
 #| "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr ""
 "Analise os códigos QR dos seu <b>contacto</b> para usar a encriptação nos "
 "mesmos"
@@ -2251,9 +2251,15 @@ msgid "Some participants have devices that are not verified"
 msgstr ""
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
+#, fuzzy
+#| msgctxt "ContactDetailsContent|"
+#| msgid ""
+#| "Scan the QR codes of your <b>contact's</b> devices to encrypt for them"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
+msgid "All participants' known devices are verified"
 msgstr ""
+"Analise os códigos QR dos seu <b>contacto</b> para usar a encriptação nos "
+"mesmos"
 
 #: src/qml/details/MediaOverview.qml:71
 #, fuzzy
