@@ -291,7 +291,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 	qRegisterMetaType<QVector<GroupChatUser>>();
 	qRegisterMetaType<std::function<void(GroupChatUser&)>>();
 	qRegisterMetaType<GroupChatUserModel*>();
-	qRegisterMetaType<uint32_t>();
+	// The alias is needed because the type shares its QMetaType::id() with quint32.
+	qRegisterMetaType<uint32_t>("uint32_t");
 
 	// Enums for c++ member calls using enums
 	qRegisterMetaType<Qt::ApplicationState>();
