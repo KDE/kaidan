@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-04 21:16+0100\n"
+"PO-Revision-Date: 2024-12-06 11:50+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -1484,12 +1484,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "O seu contacto ten dispositivos que non están verificados."
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Todos os dispositivos do seu contacto están verificados."
+msgstr "Todos os dispositivos coñecidos do seu contacto están verificados."
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1833,12 +1830,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "Algunhas participantes teñen dispositivos que non están verificados."
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Todos os dispositivos das participantes están verificados."
+msgstr "Todos os dispositivos coñecidos das participantes están verificados."
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"

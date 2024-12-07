@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kaidan QT\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-11-29 07:18+0100\n"
+"PO-Revision-Date: 2024-12-06 06:30+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -1479,12 +1479,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "Vaš stik ima naprave, ki niso preverjene"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Vse naprave vašega stika so preverjene"
+msgstr "Vse znane naprave vašega stika so preverjene"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1826,12 +1823,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "Nekateri udeleženci imajo naprave, ki niso preverjene"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Vse naprave udeležencev so preverjene"
+msgstr "Vse znane naprave udeležencev so preverjene"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"

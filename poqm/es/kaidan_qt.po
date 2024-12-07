@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-11-30 01:56+0100\n"
+"PO-Revision-Date: 2024-12-06 05:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -1497,12 +1497,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "Su contacto tiene dispositivos sin verificar"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Todos los dispositivos de su contacto están verificados"
+msgstr "Todos los dispositivos conocidos de su contacto están verificados"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1852,12 +1849,10 @@ msgid "Some participants have devices that are not verified"
 msgstr "Algunos participantes tienen dispositivos sin verificar"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Todos los dispositivos de los participantes están verificados"
+msgstr ""
+"Todos los dispositivos conocidos de los participantes están verificados"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"

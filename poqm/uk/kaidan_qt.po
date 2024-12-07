@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-11-29 15:45+0200\n"
+"PO-Revision-Date: 2024-12-06 08:54+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -1502,12 +1502,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "У вашого контакту є пристрої, які не перевірено"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Усі пристрої вашого контакту перевірено"
+msgstr "Усі відомі пристрої вашого контакту перевірено"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1852,12 +1849,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "У деяких учасників є пристрої, які не перевірено"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Усі пристрої учасників перевірено"
+msgstr "Усі відомі пристрої учасників перевірено"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
