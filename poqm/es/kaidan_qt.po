@@ -152,7 +152,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Abandonando chat de grupo"
 
-#: src/FileSharingController.cpp:376
+#: src/FileSharingController.cpp:370
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -405,18 +405,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "No se puede enviar «%1» porque es mayor de %2"
 
-#: src/MessageController.cpp:224
+#: src/MessageController.cpp:223
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "No se ha podido enviar la reacción: %1"
 
-#: src/MessageController.cpp:350
+#: src/MessageController.cpp:349
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "No se ha podido enviar el mensaje."
 
-#: src/MessageController.cpp:696
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"

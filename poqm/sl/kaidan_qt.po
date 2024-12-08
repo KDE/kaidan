@@ -152,7 +152,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Zapuščanje skupinskega klepeta"
 
-#: src/FileSharingController.cpp:376
+#: src/FileSharingController.cpp:370
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -405,18 +405,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "'%1' ni mogoče poslati, ker je večji kot %2"
 
-#: src/MessageController.cpp:224
+#: src/MessageController.cpp:223
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageController.cpp:350
+#: src/MessageController.cpp:349
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Sporočila ni bilo mogoče poslati."
 
-#: src/MessageController.cpp:696
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
