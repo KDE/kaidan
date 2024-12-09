@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2024-11-30 10:30+0100\n"
+"PO-Revision-Date: 2024-12-07 10:25+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.80\n"
+"X-Generator: Lokalize 24.11.90\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -1518,12 +1518,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "Votre contact possède des périphériques qui ne sont pas vérifiés"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Tous les périphériques de vos participants sont vérifiés."
+msgstr "Tous les périphériques connus de vos contacts sont vérifiés."
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1875,12 +1872,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "Certains participants possèdent des périphériques non vérifiés."
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Les appareils de tous les participants sont vérifiés."
+msgstr "Les périphériques connus de tous les participants sont vérifiés."
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
