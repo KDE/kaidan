@@ -1,8 +1,8 @@
-# Shinjo Park <kde@peremen.name>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2024 Shinjo Park <kde@peremen.name>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2023-08-07 23:47+0200\n"
+"PO-Revision-Date: 2024-12-09 23:33+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -10,13 +10,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
-#, fuzzy, qt-format
-#| msgctxt "QrCodeGenerator|"
-#| msgid "Generating the QR code failed: %1"
+#, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "QR 코드 생성 실패: %1"
@@ -47,20 +45,17 @@ msgstr "장치 전환"
 #: src/Blocking.cpp:324
 msgctxt "BlockingModel|"
 msgid "Devices"
-msgstr ""
+msgstr "장치"
 
 #: src/Blocking.cpp:326
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "BlockingModel|"
 msgid "Users"
-msgstr "사용자 이름"
+msgstr "사용자"
 
 #: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Servers"
-msgstr ""
+msgstr "서버"
 
 #: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
@@ -115,7 +110,7 @@ msgstr ""
 #: src/ChatHintModel.cpp:306
 msgctxt "ChatHintModel|"
 msgid "Allow"
-msgstr ""
+msgstr "허용"
 
 #: src/ChatHintModel.cpp:308
 #, fuzzy
@@ -157,7 +152,7 @@ msgstr "메시지를 전송할 수 없었습니다."
 #: src/ChatHintModel.cpp:346
 msgctxt "ChatHintModel|"
 msgid "Leave"
-msgstr ""
+msgstr "떠나기"
 
 #: src/ChatHintModel.cpp:348
 #, fuzzy
@@ -407,9 +402,7 @@ msgid "Invitation to group %1"
 msgstr ""
 
 #: src/MessageComposition.cpp:248
-#, fuzzy, qt-format
-#| msgctxt "FileSharingController|"
-#| msgid "Upload failed: %1"
+#, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "업로드 실패: %1"
@@ -442,9 +435,6 @@ msgid "Reaction could not be sent: %1"
 msgstr "메시지를 전송할 수 없었습니다."
 
 #: src/MessageController.cpp:349
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "메시지를 전송할 수 없었습니다."
@@ -494,12 +484,9 @@ msgstr "메시지를 전송할 수 없었습니다."
 #: src/MessageModel.cpp:1445
 msgctxt "MessageModel|"
 msgid "Today"
-msgstr ""
+msgstr "오늘"
 
 #: src/MessageModel.cpp:1448
-#, fuzzy
-#| msgctxt "RosterModel|"
-#| msgid "Yesterday"
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "어제"
@@ -598,9 +585,6 @@ msgid "Open"
 msgstr ""
 
 #: src/Notifications.cpp:157
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Mark as read"
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "읽은 상태로 표시"
@@ -779,9 +763,6 @@ msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:270
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "알림"
@@ -975,9 +956,6 @@ msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:532
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "user@example.org"
 msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "user@example.org"
@@ -1001,7 +979,7 @@ msgstr "대화 주소 복사"
 #: src/qml/details/AccountDetailsContent.qml:634
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
-msgstr ""
+msgstr "차단 해제"
 
 #: src/qml/details/AccountDetailsContent.qml:661
 msgctxt "AccountDetailsContent|"
@@ -1235,12 +1213,9 @@ msgid "Connection settings changed"
 msgstr "연결 설정이 변경됨"
 
 #: src/qml/details/AccountDetailsContent.qml:1022
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Caption"
 msgctxt "AccountDetailsContent|"
 msgid "Migration"
-msgstr "캡션"
+msgstr "마이그레이션"
 
 #: src/qml/details/AccountDetailsContent.qml:1030
 #, fuzzy
@@ -1333,11 +1308,7 @@ msgid "Deleting account…"
 msgstr "계정 삭제"
 
 #: src/qml/details/AccountDetailsContent.qml:1098
-#, fuzzy, qt-format
-#| msgctxt "ClientWorker|"
-#| msgid ""
-#| "Your account could not be deleted from the server. Therefore, it was also "
-#| "not removed from this app: %1"
+#, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Your account could not be deleted from the server. Therefore, it was also "
@@ -1571,12 +1542,9 @@ msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 
 #: src/qml/details/ContactDetailsContent.qml:152
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
-msgstr "알림 음소거 해제"
+msgstr "입력 알림 보내기"
 
 #: src/qml/details/ContactDetailsContent.qml:153
 msgctxt "ContactDetailsContent|"
@@ -1765,17 +1733,11 @@ msgid "Labels"
 msgstr ""
 
 #: src/qml/details/DetailsContent.qml:164
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Sharing"
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr "공유"
 
 #: src/qml/details/DetailsContent.qml:169
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Show QR code"
 msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "QR 코드 표시"
@@ -1797,9 +1759,6 @@ msgid "QR code copied to clipboard"
 msgstr "클립보드에 초대 링크 복사됨"
 
 #: src/qml/details/DetailsContent.qml:194
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Copy chat address"
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "대화 주소 복사"
@@ -1810,9 +1769,6 @@ msgid "Copy invitation link"
 msgstr ""
 
 #: src/qml/details/DetailsContent.qml:202
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Invitation link copied to clipboard"
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
 msgstr "클립보드에 초대 링크 복사됨"
@@ -1825,7 +1781,7 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:31
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
-msgstr ""
+msgstr "초대"
 
 #: src/qml/details/GroupChatDetailsContent.qml:68
 #, fuzzy
@@ -1846,7 +1802,7 @@ msgstr "대화 상대 삭제"
 #: src/qml/details/GroupChatDetailsContent.qml:145
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "참가자"
 
 #: src/qml/details/GroupChatDetailsContent.qml:149
 msgctxt "GroupChatDetailsContent|"
@@ -1863,12 +1819,9 @@ msgstr ""
 #: src/qml/details/GroupChatDetailsContent.qml:207
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
-msgstr ""
+msgstr "차단"
 
 #: src/qml/details/GroupChatDetailsContent.qml:233
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "암호화"
@@ -1910,9 +1863,6 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:333
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "알림"
@@ -1959,12 +1909,9 @@ msgid "Privacy"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:376
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Unmute notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
-msgstr "알림 음소거 해제"
+msgstr "입력 알림 보내기"
 
 #: src/qml/details/GroupChatDetailsContent.qml:377
 msgctxt "GroupChatDetailsContent|"
@@ -1996,7 +1943,7 @@ msgstr "위치 전송"
 #: src/qml/details/GroupChatDetailsContent.qml:416
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
-msgstr ""
+msgstr "떠나기"
 
 #: src/qml/details/GroupChatDetailsContent.qml:417
 msgctxt "GroupChatDetailsContent|"
@@ -2059,7 +2006,7 @@ msgstr "메시지를 전송할 수 없었습니다."
 #: src/qml/details/GroupChatDetailsDialog.qml:17
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr ""
+msgstr "그룹 자세한 정보"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:18
 #, fuzzy
@@ -2080,17 +2027,14 @@ msgid "Private Group Chat"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsHeader.qml:26
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "GroupChatDetailsHeader|"
 msgid "Deleted"
-msgstr "삭제"
+msgstr "삭제됨"
 
 #: src/qml/details/GroupChatDetailsPage.qml:13
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr ""
+msgstr "그룹 자세한 정보"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -2198,9 +2142,6 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsContent.qml:27
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "NotesChatDetailsContent|"
 msgid "Encryption"
 msgstr "암호화"
@@ -2288,9 +2229,6 @@ msgid "New label"
 msgstr "레이블 삭제"
 
 #: src/qml/details/RosterItemDetailsContent.qml:64
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Add label"
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
 msgstr "레이블 추가"
@@ -2304,49 +2242,31 @@ msgid "Maximize avatar"
 msgstr "암호 변경"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "UserProfilePage|"
-#| msgid "Online devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
-msgstr "온라인 장치"
+msgstr "연결된 장치"
 
 #: src/qml/DeviceSwitchingPage.qml:24
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "DeviceSwitchingPage|"
 msgid "Switch device"
 msgstr "장치 전환"
 
 #: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide QR code"
 msgstr "QR 코드 숨기기"
 
 #: src/qml/DeviceSwitchingPage.qml:25
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as QR code"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as QR code"
 msgstr "QR 코드로 표시"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Hide text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Hide text"
 msgstr "텍스트 숨기기"
 
 #: src/qml/DeviceSwitchingPage.qml:26
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Show as text"
 msgctxt "DeviceSwitchingPage|"
 msgid "Show as text"
 msgstr "텍스트로 표시"
@@ -2401,41 +2321,26 @@ msgstr ""
 "니다!"
 
 #: src/qml/DeviceSwitchingPage.qml:69
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Chat address:"
 msgstr "대화 주소:"
 
 #: src/qml/DeviceSwitchingPage.qml:78
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy chat address"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy chat address"
 msgstr "대화 주소 복사"
 
 #: src/qml/DeviceSwitchingPage.qml:88
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Password:"
 msgctxt "DeviceSwitchingPage|"
 msgid "Password:"
 msgstr "암호:"
 
 #: src/qml/DeviceSwitchingPage.qml:98
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Copy password"
 msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "암호 복사"
 
 #: src/qml/elements/AboutContent.qml:21
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "웹사이트 방문"
@@ -2456,9 +2361,6 @@ msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:35
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "기부하기"
@@ -2469,9 +2371,6 @@ msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:42
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "문제 보고"
@@ -2599,12 +2498,9 @@ msgid "Open selected file's folder"
 msgstr "파일 삭제"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:71
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ChatMessageContextMenu|"
 msgid "React"
-msgstr "위치"
+msgstr "반응"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:98
 msgctxt "ChatMessageContextMenu|"
@@ -2614,15 +2510,12 @@ msgstr ""
 #: src/qml/elements/ChatMessageContextMenu.qml:116
 msgctxt "ChatMessageContextMenu|"
 msgid "Quote"
-msgstr ""
+msgstr "인용문"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:124
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy download URL"
 msgctxt "ChatMessageContextMenu|"
 msgid "Copy"
-msgstr "다운로드 URL 복사"
+msgstr "복사"
 
 #: src/qml/elements/ChatMessageContextMenu.qml:138
 msgctxt "ChatMessageContextMenu|"
@@ -2664,12 +2557,9 @@ msgid "Search down"
 msgstr "아래로 검색"
 
 #: src/qml/elements/ChatPageSendingPane.qml:82
-#, fuzzy
-#| msgctxt "ConfirmationPage|"
-#| msgid "Cancel"
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
-msgstr "취소"
+msgstr "답장 취소"
 
 #: src/qml/elements/ChatPageSendingPane.qml:125
 msgctxt "ChatPageSendingPane|"
@@ -2790,9 +2680,6 @@ msgid "Send"
 msgstr "보내기"
 
 #: src/qml/elements/ConfirmationFormButtonArea.qml:32
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Confirm"
 msgctxt "ConfirmationFormButtonArea|"
 msgid "Confirm"
 msgstr "확인"
@@ -2865,49 +2752,31 @@ msgid "Add contact"
 msgstr "새 대화 상대 추가"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Scan QR codes"
 msgstr "QR 코드 스캔"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:15
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Show explanation"
 msgstr "설명 보기"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:28
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
 #: src/qml/elements/ContactAdditionQrCodePage.qml:30
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactAdditionQrCodePage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "2단계: <b>내</b> QR 코드를 대화 상대가 스캔"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:19
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 1: Scan your <b>contact's</b> QR code"
 msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
 #: src/qml/elements/ContactKeyAuthenticationPage.qml:21
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgctxt "ContactKeyAuthenticationPage|"
 msgid "Step 2: Let your contact scan <b>your</b> QR code"
 msgstr "2단계: <b>내</b> QR 코드를 대화 상대가 스캔"
@@ -3091,12 +2960,9 @@ msgid "Joining group chat…"
 msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
-#, fuzzy
-#| msgctxt "JidField|"
-#| msgid "Chat address"
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
-msgstr "대화 주소"
+msgstr "주소"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:29
 #, fuzzy
@@ -3190,17 +3056,11 @@ msgstr "온라인 장치"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
 #: src/qml/elements/KeyAuthenticationPage.qml:39
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Show explanation"
 msgctxt "KeyAuthenticationPage|"
 msgid "Show explanation"
 msgstr "설명 보기"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
-#, fuzzy
-#| msgctxt "QrCodePage|"
-#| msgid "Scan QR codes"
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
 msgstr "QR 코드 스캔"
@@ -3214,12 +3074,9 @@ msgid "Verify manually"
 msgstr "수동으로 등록"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:80
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Switch device"
 msgctxt "KeyAuthenticationPage|"
 msgid "Verify device"
-msgstr "장치 전환"
+msgstr "장치 확인"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:95
 msgctxt "KeyAuthenticationPage|"
@@ -3240,7 +3097,7 @@ msgstr ""
 #: src/qml/elements/KeyAuthenticationPage.qml:157
 msgctxt "KeyAuthenticationPage|"
 msgid "Copy fingerprint"
-msgstr ""
+msgstr "지문 복사"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:164
 #, fuzzy
@@ -3259,25 +3116,16 @@ msgid "Loading…"
 msgstr "녹음 중…"
 
 #: src/qml/elements/LoginArea.qml:33
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "연결 설정"
 
 #: src/qml/elements/LoginArea.qml:65
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "로그인"
 
 #: src/qml/elements/LoginArea.qml:66
-#, fuzzy
-#| msgctxt "ChatHintModel|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "연결 중..."
@@ -3299,17 +3147,11 @@ msgid "Remove file"
 msgstr "파일 삭제"
 
 #: src/qml/elements/MessageBackground.qml:102
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Unencrypted"
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "암호화되지 않음"
 
 #: src/qml/elements/MessageBackground.qml:107
-#, fuzzy
-#| msgctxt "ChatMessage|"
-#| msgid "Untrusted"
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "신뢰할 수 없음"
@@ -3322,7 +3164,7 @@ msgstr ""
 #: src/qml/elements/MessageReactionDetailsButton.qml:23
 msgctxt "MessageReactionDetailsButton|"
 msgid "Show details"
-msgstr ""
+msgstr "자세한 정보 표시"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:115
 #, fuzzy
@@ -3365,9 +3207,6 @@ msgid "Sent"
 msgstr "보냄"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:137
-#, fuzzy
-#| msgctxt "MessageModel|"
-#| msgid "Delivered"
 msgctxt "MessageReactionDisplayButton|"
 msgid "Delivered"
 msgstr "배달됨"
@@ -3448,9 +3287,6 @@ msgid "Making trust decisions…"
 msgstr ""
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
 msgstr "대화 상대 추가…"
@@ -3458,7 +3294,7 @@ msgstr "대화 상대 추가…"
 #: src/qml/elements/ReferencedMessage.qml:80
 msgctxt "ReferencedMessage|"
 msgid "Me"
-msgstr ""
+msgstr "나"
 
 #: src/qml/elements/ReferencedMessage.qml:96
 #, fuzzy
@@ -3469,9 +3305,6 @@ msgid "Location"
 msgstr "위치"
 
 #: src/qml/elements/ReferencedMessage.qml:99
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Media"
 msgctxt "ReferencedMessage|"
 msgid "Media"
 msgstr "미디어"
@@ -3506,12 +3339,9 @@ msgid "Public groups"
 msgstr "위로 검색"
 
 #: src/qml/elements/RosterFilteringArea.qml:51
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "계정 삭제"
+msgstr "종류별 필터"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
 msgctxt "RosterFilteringArea|"
@@ -3542,12 +3372,9 @@ msgid "Show only chats with selected labels"
 msgstr ""
 
 #: src/qml/elements/RosterListItem.qml:83
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterListItem|"
 msgid "Deleted"
-msgstr "삭제"
+msgstr "삭제됨"
 
 #: src/qml/elements/RosterListItem.qml:101
 #, fuzzy
@@ -3600,9 +3427,6 @@ msgid "Search public groups (%1)"
 msgstr "위로 검색"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "다운로드 중…"
@@ -3754,9 +3578,6 @@ msgid "Scan your old device's QR code"
 msgstr "1단계: <b>대화 상대</b>의 QR 코드 스캔"
 
 #: src/qml/QrCodeOnboardingPage.qml:65
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "로그인"
@@ -3832,17 +3653,11 @@ msgid "Enter your desired credentials"
 msgstr "현재 암호:"
 
 #: src/qml/registration/ManualRegistrationPage.qml:73
-#, fuzzy
-#| msgctxt "DisplayNameView|"
-#| msgid "Display Name"
 msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "표시 이름"
 
 #: src/qml/registration/ManualRegistrationPage.qml:81
-#, fuzzy
-#| msgctxt "UsernameView|"
-#| msgid "Username"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "사용자 이름"
@@ -3893,9 +3708,6 @@ msgid "Provider Address"
 msgstr "공급자"
 
 #: src/qml/registration/ProviderPage.qml:120
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connection settings"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
 msgstr "연결 설정"
@@ -3909,9 +3721,6 @@ msgid "Server locations"
 msgstr "서버 위치:"
 
 #: src/qml/registration/ProviderPage.qml:173
-#, fuzzy
-#| msgctxt "ProviderView|"
-#| msgid "Languages:"
 msgctxt "ProviderPage|"
 msgid "Languages"
 msgstr "언어"
@@ -3945,12 +3754,9 @@ msgid "Open the provider's details web page"
 msgstr "등록 웹 페이지 열기"
 
 #: src/qml/registration/ProviderPage.qml:210
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "파일 선택"
+msgstr "선택"
 
 #: src/qml/registration/ProviderPage.qml:211
 #, fuzzy
@@ -3966,9 +3772,6 @@ msgid "You must enter a provider address"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:291
-#, fuzzy
-#| msgctxt "ManualRegistrationPage|"
-#| msgid "The provider does not support registration via this app."
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
 msgstr "공급자가 이 앱을 통한 등록을 지원하지 않습니다."
@@ -3987,12 +3790,9 @@ msgid "Register"
 msgstr "등록"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "로그인"
+msgstr "로그인 중…"
 
 #: src/qml/registration/RegistrationButton.qml:26
 #, fuzzy
@@ -4104,9 +3904,6 @@ msgid "Enjoy free communication on every device!"
 msgstr "모든 장치에서 자유롭게 대화하십시오!"
 
 #: src/qml/StartPage.qml:80
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "StartPage|"
 msgid "Log in"
 msgstr "로그인"
@@ -4122,12 +3919,9 @@ msgstr "QR 코드 스캔"
 #: src/qml/StartPage.qml:139
 msgctxt "StartPage|"
 msgid "or"
-msgstr ""
+msgstr "또는"
 
 #: src/qml/StartPage.qml:151
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "등록"
@@ -4209,12 +4003,9 @@ msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
 #: src/QmlUtils.cpp:112
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account from the server"
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr "서버에서 계정 삭제"
+msgstr "서버에 연결할 수 없습니다."
 
 #: src/QmlUtils.cpp:259
 msgctxt "QmlUtils|"
