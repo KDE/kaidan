@@ -197,7 +197,7 @@ The [XMPP provider list](data/providers.json) from [XMPP Providers](https://inve
 ## Notifications
 
 [Notifications](src/Notifications.cpp) are triggered via [KNotifications](https://api.kde.org/frameworks/knotifications/html/index.html).
-The [configuration file](misc/kaidan.notifyrc] is used by KNotifications.
+The [configuration file](misc/kaidan.notifyrc) is used by KNotifications.
 It is automatically installed when you install Kaidan.
 Remember to install Kaidan again if you modified that file in order to see any changes.
 
