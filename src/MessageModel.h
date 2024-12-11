@@ -61,7 +61,7 @@ public:
         SenderName,
         Id,
         IsLastReadOwnMessage,
-        IsLastReadContactMessage,
+        IsLatestOldMessage,
         IsEdited,
         ReplyToJid,
         ReplyToGroupChatParticipantId,
@@ -104,8 +104,7 @@ public:
     Q_INVOKABLE bool canFetchMore(const QModelIndex &parent) const override;
 
     Q_INVOKABLE void handleMessageRead(int readMessageIndex);
-    Q_INVOKABLE int firstUnreadContactMessageIndex();
-    void updateLastReadOwnMessageId();
+    Q_INVOKABLE int firstUnreadContactMessageIndex() const;
     Q_INVOKABLE void markMessageAsFirstUnread(int index);
 
     /**
@@ -227,6 +226,11 @@ private:
 
     void addVideoThumbnails(const Message &message);
 
+    void updateLastReadOwnMessageId();
+    void updateFirstUnreadContactMessageIndex();
+
+    void emitMessagesUpdated(const QVector<QString> &messageIds, MessageRoles role);
+
     /**
      * Shows a notification for the message when needed
      *
@@ -284,9 +288,9 @@ private:
     QString determineGroupChatSenderName(const Message &message) const;
     QString determineReplyToName(const Message::Reply &reply) const;
 
-    QList<Message> m_messages;
+    QVector<Message> m_messages;
     QString m_lastReadOwnMessageId;
-    QString m_lastReadContactMessageId;
+    int m_firstUnreadContactMessageIndex = -1;
     bool m_fetchedAllFromDb = false;
     bool m_fetchedAllFromMam = false;
     bool m_mamLoading = false;
