@@ -71,6 +71,7 @@ MessageDb::MessageDb(Database *db, QObject *parent)
 	s_instance = this;
 
 	_fetchLatestFileId();
+	_fetchLatestFileGroupId();
 }
 
 MessageDb::~MessageDb()
