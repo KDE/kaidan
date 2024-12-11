@@ -216,17 +216,12 @@ QXmppMixInvitation GroupChatInvitation::toQXmpp() const
 
 QXmppMessage Message::toQXmpp() const
 {
-    QXmppMessage msg;
+    QXmppMessage message;
+    toQXmppBase(message);
 
-    if (isGroupChatMessage()) {
-        msg.setType(QXmppMessage::GroupChat);
-    }
-
-    msg.setFrom(isOwn ? accountJid : chatJid);
-    msg.setTo(isOwn ? chatJid : accountJid);
-    msg.setId(id);
-    msg.setOriginId(originId);
-    msg.setReplaceId(replaceId);
+    message.setId(id);
+    message.setOriginId(originId);
+    message.setReplaceId(replaceId);
 
     if (reply) {
         QXmpp::Reply qxmppReply;
@@ -234,109 +229,73 @@ QXmppMessage Message::toQXmpp() const
         qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatparticipantId : reply->toJid;
         qxmppReply.id = reply->id;
 
-        msg.setReply(qxmppReply);
+        message.setReply(qxmppReply);
 
         if (!reply->quote.isEmpty()) {
             const auto quote = QmlUtils::quote(reply->quote);
 
-            msg.setBody(quote + body);
-            msg.setFallbackMarkers({QXmppFallback{
+            message.setBody(quote + body);
+            message.setFallbackMarkers({QXmppFallback{
                 XMLNS_MESSAGE_REPLIES.toString(),
                 {QXmppFallback::Reference{QXmppFallback::Body, QXmppFallback::Range{0, uint32_t(quote.size())}}},
             }});
         } else {
-            msg.setBody(body);
+            message.setBody(body);
         }
     } else {
-        msg.setBody(body);
+        message.setBody(body);
     }
 
-    msg.setStamp(timestamp);
-    msg.setIsSpoiler(isSpoiler);
-    msg.setSpoilerHint(spoilerHint);
-    msg.setMarkable(true);
-    msg.setMarker(marker);
-    msg.setMarkerId(markerId);
-    msg.setReceiptRequested(!isGroupChatMessage());
+    message.setMarkable(true);
+    message.setMarker(marker);
+    message.setMarkerId(markerId);
+    message.setReceiptRequested(!isGroupChatMessage());
 
     // attached files
-    msg.setSharedFiles(transform(files, [](const File &file) {
+    message.setSharedFiles(transform(files, [](const File &file) {
         return file.toQXmpp();
     }));
 
     // attach data for thumbnails
-    msg.setBitsOfBinaryData(transform(files, [](const File &file) {
+    message.setBitsOfBinaryData(transform(files, [](const File &file) {
         return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
     }));
 
     // compat for clients without Stateless File Sharing
-    if (!files.empty() && includeFileFallbackInMainMessage() && !files.first().httpSources.empty()) {
-        auto url = files.first().httpSources.first().url.toString();
-
-        // body
-        msg.setBody(url);
-
-        // Out-of-band url
-        QXmppOutOfBandUrl oobUrl;
-        oobUrl.setUrl(url);
-        oobUrl.setDescription(files.first().description);
-        msg.setOutOfBandUrls({oobUrl});
-
-        // fallback indication for SFS
-        msg.setFallbackMarkers({QXmppFallback{
-            XMLNS_SFS.toString(),
-            {QXmppFallback::Reference{QXmppFallback::Body, {}}},
-        }});
+    if (fileFallbackIncludedInMainMessage()) {
+        addFileFallbackMessageBase(message, files.first());
     }
 
     if (groupChatInvitation) {
-        msg.setMixInvitation(groupChatInvitation->toQXmpp());
+        message.setMixInvitation(groupChatInvitation->toQXmpp());
     }
 
-    return msg;
+    return message;
 }
 
-QList<QXmppMessage> Message::fallbackMessages() const
+QVector<QXmppMessage> Message::fileFallbackMessages() const
 {
-    if (files.empty() || includeFileFallbackInMainMessage()) {
+    if (files.isEmpty() || fileFallbackIncludedInMainMessage()) {
         return {};
     }
 
-    // generate fallback messages for each file
     int i = 0;
-    return transformFilter(files, [&](const File &file) -> std::optional<QXmppMessage> {
-        if (file.httpSources.empty()) {
-            return {};
+    return transformFilter(files, [this, &i](const File &file) -> std::optional<QXmppMessage> {
+        QXmppMessage message;
+
+        if (addFileFallbackMessageBase(message, file)) {
+            toQXmppBase(message);
+
+            const auto extendedId = id + u'_' + QString::number(++i);
+
+            message.setId(extendedId);
+            message.setOriginId(extendedId);
+            message.setAttachId(id);
+
+            return message;
         }
 
-        QXmppMessage m;
-        m.setFrom(isOwn ? accountJid : chatJid);
-        m.setTo(isOwn ? chatJid : accountJid);
-        m.setId(id % u'_' % QString::number(++i));
-        // if the original message was a spoiler, this should be too if not recognized as fallback
-        m.setIsSpoiler(isSpoiler);
-        m.setSpoilerHint(spoilerHint);
-
-        auto url = files.first().httpSources.first().url.toString();
-
-        // body
-        m.setBody(url);
-
-        // Out-of-band url
-        QXmppOutOfBandUrl oobUrl;
-        oobUrl.setUrl(url);
-        oobUrl.setDescription(files.first().description);
-        m.setOutOfBandUrls({oobUrl});
-
-        // fallback indication for SFS
-        m.setFallbackMarkers({QXmppFallback{
-            XMLNS_SFS.toString(),
-            {QXmppFallback::Reference{QXmppFallback::Body, {}}},
-        }});
-
-        // reference to original message
-        m.setAttachId(id);
-        return m;
+        return {};
     });
 }
 
@@ -439,9 +398,53 @@ Message::TrustLevel Message::trustLevel() const
     return Message::TrustLevel::Untrusted;
 }
 
-bool Message::includeFileFallbackInMainMessage() const
+void Message::toQXmppBase(QXmppMessage &message) const
+{
+    if (isGroupChatMessage()) {
+        message.setType(QXmppMessage::GroupChat);
+    }
+
+    message.setFrom(isOwn ? accountJid : chatJid);
+    message.setTo(isOwn ? chatJid : accountJid);
+    message.setStamp(timestamp);
+    message.setIsSpoiler(isSpoiler);
+    message.setSpoilerHint(spoilerHint);
+}
+
+bool Message::fileFallbackIncludedInMainMessage() const
 {
     return files.size() == 1 && body.isEmpty();
+}
+
+bool Message::addFileFallbackMessageBase(QXmppMessage &message, const File &file)
+{
+    const auto httpSources = file.httpSources;
+    const auto encryptedSources = file.encryptedSources;
+
+    if (httpSources.isEmpty() && encryptedSources.isEmpty()) {
+        return false;
+    }
+
+    QString url;
+
+    if (encryptedSources.isEmpty()) {
+        url = httpSources.first().url.toString();
+    } else {
+        url = encryptedSources.first().url.toString();
+    }
+
+    QXmppOutOfBandUrl oobUrl;
+    oobUrl.setUrl(url);
+    oobUrl.setDescription(file.description);
+
+    message.setBody(url);
+    message.setOutOfBandUrls({oobUrl});
+    message.setFallbackMarkers({QXmppFallback{
+        XMLNS_SFS.toString(),
+        {QXmppFallback::Reference{QXmppFallback::Body, {}}},
+    }});
+
+    return true;
 }
 
 QString Message::groupChatInvitationText() const

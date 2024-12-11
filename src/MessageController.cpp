@@ -351,32 +351,34 @@ void MessageController::sendPendingMessage(Message message)
 
                 message.receiptRequested = !message.isGroupChatMessage();
 
-                await(send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult result) {
-                    if (const auto error = std::get_if<QXmppError>(&result)) {
-                        qWarning() << "[client] [MessageController] Could not send message:" << error->description;
+                await(send(message.toQXmpp()),
+                      this,
+                      [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
+                          if (const auto error = std::get_if<QXmppError>(&result)) {
+                              qWarning() << "[client] [MessageController] Could not send message:" << error->description;
 
-                        // The error message of the message is saved untranslated. To make
-                        // translation work in the UI, the tr() call of the passive
-                        // notification must contain exactly the same string.
-                        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Message could not be sent."));
-                        MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-                            msg.deliveryState = Enums::DeliveryState::Error;
-                            msg.errorText = QStringLiteral("Message could not be sent.");
-                        });
-                    } else {
-                        MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
-                            msg.deliveryState = Enums::DeliveryState::Sent;
-                            msg.errorText.clear();
-                        });
-                    }
-                });
+                              // The error message of the message is saved untranslated. To make
+                              // translation work in the UI, the tr() call of the passive
+                              // notification must contain exactly the same string.
+                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
+                              MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+                                  msg.deliveryState = Enums::DeliveryState::Error;
+                                  msg.errorText = QStringLiteral("Message could not be sent.");
+                              });
+                          } else {
+                              MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
+                                  msg.deliveryState = Enums::DeliveryState::Sent;
+                                  msg.errorText.clear();
+                              });
 
-                for (auto &fallbackMessage : message.fallbackMessages()) {
-                    // TODO: Track sending of fallback messages individually
-                    // Needed for the case when the success differs between the main message
-                    // and the fallback messages.
-                    send(std::move(fallbackMessage));
-                }
+                              for (auto &fileFallbackMessage : fileFallbackMessages) {
+                                  // TODO: Track sending of fallback messages individually
+                                  // Needed for the case when the success differs between the main message
+                                  // and the fallback messages.
+                                  send(std::move(fileFallbackMessage));
+                              }
+                          }
+                      });
             }
         });
 }
