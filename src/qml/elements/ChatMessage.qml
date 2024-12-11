@@ -128,6 +128,10 @@ Controls.ItemDelegate {
 						color: Utils.userColor(root.senderJid ? root.senderJid : root.groupChatSenderId, root.senderName)
 						font.weight: Font.Medium
 						visible: root.isGroupChatMessage && !root.isOwn && root.isGroupBegin && text.length
+						topPadding: root.bubblePadding
+						bottomPadding: root.messageBody && !root.replyId && !root.files.length ? - topPadding : topPadding
+						leftPadding: topPadding
+						rightPadding: topPadding
 					}
 
 					Loader {
@@ -143,7 +147,7 @@ Controls.ItemDelegate {
 								messageId: root.replyId
 								body: root.replyQuote
 								messageListView: root.messageListView
-								minimumWidth: Math.max(spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width)
+								minimumWidth: Math.max(spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width, bubbleBackground.metaInfo.width)
 								maximumWidth: root.maximumBubbleContentWidth
 								backgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 							}
@@ -155,7 +159,7 @@ Controls.ItemDelegate {
 						model: root.files
 						delegate: Loader {
 							property var file: modelData
-							property real minimumWidth: Math.max(parent.width, referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width)
+							property real minimumWidth: Math.max(parent.width, referencedMessageLoader.item ? referencedMessageLoader.item.width : 0, spoilerHintArea.width, bodyArea.width + bodyArea.Layout.margins * 2, messageReactionArea.width, bubbleBackground.metaInfo.width)
 							property real maximumWidth: root.maximumBubbleContentWidth
 							property color mainAreaBackgroundColor: root.isOwn ? primaryBackgroundColor : secondaryBackgroundColor
 
@@ -187,18 +191,17 @@ Controls.ItemDelegate {
 						}
 					}
 
-					Item {
-						visible: root.files && !root.messageBody && !root.spoilerHint && !messageReactionArea.visible
-						height: bubbleBackground.metaInfo.height
-					}
-
 					ColumnLayout {
 						id: spoilerHintArea
-						visible: isSpoiler
+						visible: root.isSpoiler
 						Layout.minimumWidth: bubbleBackground.metaInfo.width
-						Layout.bottomMargin: isShowingSpoiler ? 0 : Kirigami.Units.largeSpacing * 2
+						Layout.leftMargin: root.bubblePadding
+						Layout.rightMargin: Layout.leftMargin
 
 						RowLayout {
+							Layout.topMargin: root.bubblePadding
+							Layout.bottomMargin: Layout.topMargin
+
 							FormattedTextEdit {
 								text: root.spoilerHint ? root.spoilerHint : qsTr("Spoiler")
 								enabled: true
@@ -207,15 +210,15 @@ Controls.ItemDelegate {
 							}
 
 							ClickableIcon {
-								source: isShowingSpoiler ? "password-show-off" : "password-show-on"
+								source: root.isShowingSpoiler ? "password-show-off" : "password-show-on"
 								Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 								Layout.leftMargin: Kirigami.Units.largeSpacing
-								onClicked: isShowingSpoiler = !isShowingSpoiler
+								onClicked: root.isShowingSpoiler = !root.isShowingSpoiler
 							}
 						}
 
 						Kirigami.Separator {
-							visible: isShowingSpoiler
+							visible: root.isShowingSpoiler
 							Layout.fillWidth: true
 							color: {
 								const bgColor = Kirigami.Theme.backgroundColor
@@ -223,6 +226,11 @@ Controls.ItemDelegate {
 								return Qt.tint(textColor, Qt.rgba(bgColor.r, bgColor.g, bgColor.b, 0.7))
 							}
 						}
+					}
+
+					Item {
+						visible: (!root.messageBody || (root.isSpoiler && !root.isShowingSpoiler)) && !messageReactionArea.visible
+						height: bubbleBackground.metaInfo.height
 					}
 
 					ColumnLayout {
@@ -244,7 +252,7 @@ Controls.ItemDelegate {
 									return geoLocationPreview
 								}
 
-								if (root.messageBody) {
+								if (root.messageBody && (!root.isSpoiler || root.isShowingSpoiler)) {
 									return bodyComponent
 								}
 
