@@ -48,7 +48,7 @@ Controls.ItemDelegate {
 	property string deliveryStateName
 	property string deliveryStateIcon
 	property bool isLastReadOwnMessage
-	property bool isLastReadContactMessage
+	property bool isLatestOldMessage
 	property bool edited
 	property bool isSpoiler
 	property string spoilerHint
@@ -409,7 +409,7 @@ Controls.ItemDelegate {
 
 		// Read marker text for contact message
 		RowLayout {
-			visible: root.isLastReadContactMessage && ChatController.accountJid !== ChatController.chatJid
+			visible: root.isLatestOldMessage
 			spacing: Kirigami.Units.smallSpacing * 3
 			Layout.topMargin: spacing
 			Layout.leftMargin: spacing

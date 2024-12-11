@@ -337,7 +337,7 @@ ChatPageBase {
 			deliveryStateName: model.deliveryStateName
 			deliveryStateIcon: model.deliveryStateIcon
 			isLastReadOwnMessage: model.isLastReadOwnMessage
-			isLastReadContactMessage: model.isLastReadContactMessage
+			isLatestOldMessage: model.isLatestOldMessage
 			edited: model.isEdited
 			isSpoiler: model.isSpoiler
 			spoilerHint: model.spoilerHint

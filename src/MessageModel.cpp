@@ -86,7 +86,7 @@ QHash<int, QByteArray> MessageModel::roleNames() const
 	roles[SenderName] = "senderName";
 	roles[Id] = "id";
 	roles[IsLastReadOwnMessage] = "isLastReadOwnMessage";
-	roles[IsLastReadContactMessage] = "isLastReadContactMessage";
+	roles[IsLatestOldMessage] = "isLatestOldMessage";
 	roles[IsEdited] = "isEdited";
 	roles[ReplyToJid] = "replyToJid";
 	roles[ReplyToGroupChatParticipantId] = "replyToGroupChatParticipantId";
@@ -172,10 +172,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 			return true;
 		}
 		return false;
-	case IsLastReadContactMessage:
-		// A read marker text is only displayed if the message is not the last one, it is the last
-		// read contact message and there is no more recent own message.
-		return row != 0 && msg.id == ChatController::instance()->rosterItem().lastReadContactMessageId && !m_messages.at(row -1).isOwn;
+	case IsLatestOldMessage: {
+		// A marker for unread messages is only displayed if the chat is not with oneself and the
+		// message is the message prior to the first unread contact message.
+		return msg.accountJid != msg.chatJid && row != 0 && row == m_firstUnreadContactMessageIndex + 1;
+	}
 	case IsEdited:
 		return !msg.replaceId.isEmpty();
 	case ReplyToJid: {
@@ -549,65 +550,9 @@ void MessageModel::handleMessageRead(int readMessageIndex)
 	}
 }
 
-int MessageModel::firstUnreadContactMessageIndex()
+int MessageModel::firstUnreadContactMessageIndex() const
 {
-	const auto lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
-	int lastReadContactMessageIndex = -1;
-	for (auto i = 0; i < m_messages.size(); ++i) {
-		const auto &message = m_messages.at(i);
-		const auto &messageId = message.id;
-
-		// lastReadContactMessageId can be empty if there is no contact message stored or the oldest
-		// stored contact message is marked as first unread.
-		if (!message.isOwn && (messageId == lastReadContactMessageId || lastReadContactMessageId.isEmpty())) {
-			lastReadContactMessageIndex = i;
-		}
-	}
-
-	if (lastReadContactMessageIndex > 0) {
-		for (auto i = lastReadContactMessageIndex - 1; i >= 0; --i) {
-			if (!m_messages.at(i).isOwn) {
-				return i;
-			}
-		}
-	}
-
-	return lastReadContactMessageIndex;
-}
-
-void MessageModel::updateLastReadOwnMessageId()
-{
-	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
-	m_lastReadOwnMessageId = ChatController::instance()->rosterItem().lastReadOwnMessageId;
-
-	int formerLastReadOwnMessageIndex = -1;
-	int lastReadOwnMessageIndex = -1;
-
-	// The message that was the former last read message and the message that is the last read
-	// message now need to be updated for the user interface in order to reflect the most recent
-	// state.
-	for (int i = 0; i != m_messages.size(); ++i) {
-		const auto &message = m_messages.at(i);
-		if (message.id == formerLastReadOwnMessageId) {
-			formerLastReadOwnMessageIndex = i;
-
-			const auto modelIndex = index(formerLastReadOwnMessageIndex);
-			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastReadOwnMessage });
-
-			if (lastReadOwnMessageIndex != -1) {
-				break;
-			}
-		} else if (message.id == m_lastReadOwnMessageId) {
-			lastReadOwnMessageIndex = i;
-
-			const auto modelIndex = index(lastReadOwnMessageIndex);
-			Q_EMIT dataChanged(modelIndex, modelIndex, { IsLastReadOwnMessage });
-
-			if (formerLastReadOwnMessageIndex != -1) {
-				break;
-			}
-		}
-	}
+	return m_firstUnreadContactMessageIndex;
 }
 
 void MessageModel::markMessageAsFirstUnread(int index)
@@ -1074,6 +1019,7 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 	}
 
 	beginInsertRows(QModelIndex(), rowCount(), rowCount() + msgs.size() - 1);
+
 	for (auto msg : msgs) {
 		// Skip messages that were not fetched for the current chat.
 		if (msg.accountJid != ChatController::instance()->accountJid() || msg.chatJid != ChatController::instance()->chatJid()) {
@@ -1081,10 +1027,13 @@ void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
 		}
 
 		processMessage(msg);
-		updateLastReadOwnMessageId();
 		m_messages << msg;
 		addVideoThumbnails(msg);
 	}
+
+	updateLastReadOwnMessageId();
+	updateFirstUnreadContactMessageIndex();
+
 	endInsertRows();
 
 	Q_EMIT messageFetchingFinished();
@@ -1248,6 +1197,61 @@ void MessageModel::addVideoThumbnails(const Message &message)
 			});
 		}
 	});
+}
+
+void MessageModel::updateLastReadOwnMessageId()
+{
+	const auto formerLastReadOwnMessageId = m_lastReadOwnMessageId;
+	m_lastReadOwnMessageId = ChatController::instance()->rosterItem().lastReadOwnMessageId;
+	emitMessagesUpdated({ formerLastReadOwnMessageId, m_lastReadOwnMessageId }, IsLastReadOwnMessage);
+}
+
+void MessageModel::updateFirstUnreadContactMessageIndex()
+{
+	int lastReadContactMessageIndex = -1;
+
+	for (auto i = 0; i < m_messages.size(); ++i) {
+		const auto &message = m_messages.at(i);
+		const auto &messageId = message.id;
+		const auto lastReadContactMessageId = ChatController::instance()->rosterItem().lastReadContactMessageId;
+
+		// lastReadContactMessageId can be empty if there is no contact message stored or the oldest
+		// stored contact message is marked as first unread.
+		if (!message.isOwn && (messageId == lastReadContactMessageId || lastReadContactMessageId.isEmpty())) {
+			lastReadContactMessageIndex = i;
+			break;
+		}
+	}
+
+	if (lastReadContactMessageIndex > 0) {
+		for (auto i = lastReadContactMessageIndex - 1; i >= 0; --i) {
+			if (!m_messages.at(i).isOwn) {
+				m_firstUnreadContactMessageIndex = i;
+				return;
+			}
+		}
+	}
+
+	m_firstUnreadContactMessageIndex = -1;
+}
+
+void MessageModel::emitMessagesUpdated(const QVector<QString> &messageIds, MessageRoles role)
+{
+	const int messageIdCount = messageIds.size();
+	int foundMessageCount = 0;
+
+	for (int i = 0; i != m_messages.size(); ++i) {
+		const auto &messageId = m_messages.at(i).id;
+
+		if (messageIds.contains(messageId)) {
+			const auto modelIndex = index(i);
+			Q_EMIT dataChanged(modelIndex, modelIndex, { role });
+
+			if (++foundMessageCount == messageIdCount) {
+				break;
+			}
+		}
+	}
 }
 
 void MessageModel::showMessageNotification(const Message &message, MessageOrigin origin)
