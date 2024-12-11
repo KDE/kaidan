@@ -338,7 +338,7 @@ void MessageController::sendPendingMessage(Message message)
 
 				message.receiptRequested = !message.isGroupChatMessage();
 
-				await(send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult result) {
+				await(send(message.toQXmpp()), this, [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
 					if (const auto error = std::get_if<QXmppError>(&result)) {
 						qWarning() << "[client] [MessageController] Could not send message:"
 								   << error->description;
@@ -356,15 +356,15 @@ void MessageController::sendPendingMessage(Message message)
 							msg.deliveryState = Enums::DeliveryState::Sent;
 							msg.errorText.clear();
 						});
+
+						for (auto &fileFallbackMessage : fileFallbackMessages) {
+							// TODO: Track sending of fallback messages individually
+							// Needed for the case when the success differs between the main message
+							// and the fallback messages.
+							send(std::move(fileFallbackMessage));
+						}
 					}
 				});
-
-				for (auto &fallbackMessage : message.fallbackMessages()) {
-					// TODO: Track sending of fallback messages individually
-					// Needed for the case when the success differs between the main message
-					// and the fallback messages.
-					send(std::move(fallbackMessage));
-				}
 			}
 		}
 	);

@@ -248,7 +248,7 @@ public:
 	bool removed = false;
 
 	[[nodiscard]] QXmppMessage toQXmpp() const;
-	[[nodiscard]] QVector<QXmppMessage> fallbackMessages() const;
+	[[nodiscard]] QVector<QXmppMessage> fileFallbackMessages() const;
 
 	QString relevantId() const;
 	QString senderJid() const;
@@ -267,7 +267,9 @@ public:
 	TrustLevel trustLevel() const;
 
 private:
-	bool includeFileFallbackInMainMessage() const;
+	void toQXmppBase(QXmppMessage &message) const;
+	bool fileFallbackIncludedInMainMessage() const;
+	static bool addFileFallbackMessageBase(QXmppMessage &message, const File &file);
 	QString groupChatInvitationText() const;
 };
 
