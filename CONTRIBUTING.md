@@ -234,6 +234,9 @@ As soon as the configuration files are updated and Kaidan is automatically built
 Kaidan's releases are marked by [tags](https://invent.kde.org/network/kaidan/-/tags).
 For each release, its source code and the source code's signature is [uploaded](https://download.kde.org/unstable/kaidan/) by one of Kaidan's maintainers.
 
+Make sure that your public OpenPGP key is added to the [release keyring](https://invent.kde.org/sysadmin/release-keyring).
+It allows others (especially KDE's administrators) to verify your signature.
+
 ## Repository Information
 
 Kaidan's [repository information](https://invent.kde.org/sysadmin/repo-metadata/-/tree/master/projects-invent/network/kaidan) must be kept up-to-date.
