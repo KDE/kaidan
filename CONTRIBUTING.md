@@ -233,3 +233,8 @@ As soon as the configuration files are updated and Kaidan is automatically built
 
 Kaidan's releases are marked by [tags](https://invent.kde.org/network/kaidan/-/tags).
 For each release, its source code and the source code's signature is [uploaded](https://download.kde.org/unstable/kaidan/) by one of Kaidan's maintainers.
+
+## Repository Information
+
+Kaidan's [repository information](https://invent.kde.org/sysadmin/repo-metadata/-/tree/master/projects-invent/network/kaidan) must be kept up-to-date.
+E.g., the branches for translations/releases and the repository's description are configured there.
