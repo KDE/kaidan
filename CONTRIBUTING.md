@@ -112,6 +112,11 @@ Kaidan can be run on desktop devices as well as on mobile devices with touchscre
 A user interface optimized for mobile devices can be applied via the environment variable `QT_QUICK_CONTROLS_MOBILE`.
 You can run Kaidan with `QT_QUICK_CONTROLS_MOBILE=true kaidan` in order to get its mobile view.
 
+## Coding Style
+
+Kaidan complies with [KDE's coding style](https://community.kde.org/Policies/Frameworks_Coding_Style).
+All code changes are automatically formatted by [KDE's Git pre-commit hook](https://community.kde.org/Policies/Frameworks_Coding_Style#Clang-format_automatic_code_formatting).
+
 ## C++
 
 C++ files (except unit tests) are stored in Kaidan's [`src` directory](src).
