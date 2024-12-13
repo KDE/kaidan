@@ -26,155 +26,150 @@
 RegistrationDataFormModel::RegistrationDataFormModel(QObject *parent)
     : DataFormModel(parent)
 {
-	initializeFilteredDataFormFields();
+    initializeFilteredDataFormFields();
 }
 
 RegistrationDataFormModel::RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent)
     : DataFormModel(dataForm, parent)
 {
-	initializeFilteredDataFormFields();
+    initializeFilteredDataFormFields();
 }
 
 bool RegistrationDataFormModel::hasUsernameField() const
 {
-	return usernameFieldIndex() != -1;
+    return usernameFieldIndex() != -1;
 }
 
 bool RegistrationDataFormModel::hasPasswordField() const
 {
-	return passwordFieldIndex() != -1;
+    return passwordFieldIndex() != -1;
 }
 
 bool RegistrationDataFormModel::hasEmailField() const
 {
-	return emailFieldIndex() != -1;
+    return emailFieldIndex() != -1;
 }
 
 void RegistrationDataFormModel::setUsername(const QString &username)
 {
-	setData(index(usernameFieldIndex()), username, DataFormModel::Value);
+    setData(index(usernameFieldIndex()), username, DataFormModel::Value);
 }
 
 void RegistrationDataFormModel::setPassword(const QString &password)
 {
-	setData(index(passwordFieldIndex()), password, DataFormModel::Value);
+    setData(index(passwordFieldIndex()), password, DataFormModel::Value);
 }
 
-void RegistrationDataFormModel::setEmail(const QString& email)
+void RegistrationDataFormModel::setEmail(const QString &email)
 {
-	setData(index(emailFieldIndex()), email, DataFormModel::Value);
+    setData(index(emailFieldIndex()), email, DataFormModel::Value);
 }
 
 int RegistrationDataFormModel::usernameFieldIndex() const
 {
-	const QList<QXmppDataForm::Field> &fields = m_form.fields();
-	for (int i = 0; i < fields.size(); i++) {
-		if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField &&
-				fields.at(i).key().compare(QStringLiteral(USERNAME), Qt::CaseInsensitive) == 0) {
-			return i;
-		}
-	}
-	return -1;
+    const QList<QXmppDataForm::Field> &fields = m_form.fields();
+    for (int i = 0; i < fields.size(); i++) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(QStringLiteral(USERNAME), Qt::CaseInsensitive) == 0) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int RegistrationDataFormModel::passwordFieldIndex() const
 {
-	const QList<QXmppDataForm::Field> &fields = m_form.fields();
-	for (int i = 0; i < fields.size(); i++) {
-		if (fields.at(i).type() == QXmppDataForm::Field::TextPrivateField &&
-				fields.at(i).key().compare(QStringLiteral(PASSWORD), Qt::CaseInsensitive) == 0) {
-			return i;
-		}
-	}
-	return -1;
+    const QList<QXmppDataForm::Field> &fields = m_form.fields();
+    for (int i = 0; i < fields.size(); i++) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextPrivateField && fields.at(i).key().compare(QStringLiteral(PASSWORD), Qt::CaseInsensitive) == 0) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 int RegistrationDataFormModel::emailFieldIndex() const
 {
-	const QList<QXmppDataForm::Field> &fields = m_form.fields();
-	for (int i = 0; i < fields.size(); i++) {
-		if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField &&
-				fields.at(i).key().compare(QStringLiteral(EMAIL), Qt::CaseInsensitive) == 0) {
-			return i;
-		}
-	}
-	return -1;
+    const QList<QXmppDataForm::Field> &fields = m_form.fields();
+    for (int i = 0; i < fields.size(); i++) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(QStringLiteral(EMAIL), Qt::CaseInsensitive) == 0) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 QXmppDataForm::Field RegistrationDataFormModel::extractUsernameField() const
 {
-	int index = usernameFieldIndex();
-	return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
+    int index = usernameFieldIndex();
+    return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
 }
 
 QXmppDataForm::Field RegistrationDataFormModel::extractPasswordField() const
 {
-	int index = passwordFieldIndex();
-	return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
+    int index = passwordFieldIndex();
+    return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
 }
 
 QXmppDataForm::Field RegistrationDataFormModel::extractEmailField() const
 {
-	int index = emailFieldIndex();
-	return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
+    int index = emailFieldIndex();
+    return index >= 0 ? m_form.fields().at(index) : QXmppDataForm::Field();
 }
 
 QString RegistrationDataFormModel::extractUsername() const
 {
-	return extractUsernameField().value().toString();
+    return extractUsernameField().value().toString();
 }
 
 QString RegistrationDataFormModel::extractPassword() const
 {
-	return extractPasswordField().value().toString();
+    return extractPasswordField().value().toString();
 }
 
 QString RegistrationDataFormModel::extractEmail() const
 {
-	return extractEmailField().value().toString();
+    return extractEmailField().value().toString();
 }
 
 bool RegistrationDataFormModel::isFakeForm() const
 {
-	return m_isFakeForm;
+    return m_isFakeForm;
 }
 
 void RegistrationDataFormModel::setIsFakeForm(bool isFakeForm)
 {
-	m_isFakeForm = isFakeForm;
+    m_isFakeForm = isFakeForm;
 }
 
 QVector<int> RegistrationDataFormModel::indiciesToFilter() const
 {
-	QVector<int> indicies;
+    QVector<int> indicies;
 
-	// username and password
-	// email is currently not filtered because we do not have an extra email view
-	for (const auto &index : { usernameFieldIndex(), passwordFieldIndex() }) {
-		if (index != -1) {
-			indicies << index;
-		}
-	}
+    // username and password
+    // email is currently not filtered because we do not have an extra email view
+    for (const auto &index : {usernameFieldIndex(), passwordFieldIndex()}) {
+        if (index != -1) {
+            indicies << index;
+        }
+    }
 
-	// search for other common fields to filter for
-	for (int i = 0; i < m_form.fields().size(); i++) {
-		QString key = m_form.fields().at(i).key();
-		if (m_filteredDataFormFields.contains(key))
-			indicies << i;
-	}
+    // search for other common fields to filter for
+    for (int i = 0; i < m_form.fields().size(); i++) {
+        QString key = m_form.fields().at(i).key();
+        if (m_filteredDataFormFields.contains(key))
+            indicies << i;
+    }
 
-	return indicies;
+    return indicies;
 }
 
 void RegistrationDataFormModel::initializeFilteredDataFormFields()
 {
-	m_filteredDataFormFields = {
-		QStringLiteral(FORM_TYPE),
-		QStringLiteral(FROM),
-		QStringLiteral(CAPTCHA_FALLBACK_TEXT),
-		QStringLiteral(CAPTCHA_FALLBACK_URL),
-		QStringLiteral(CAPTCHAHIDDEN),
-		QStringLiteral(CHALLENGE),
-		QStringLiteral(SID)
-	};
+    m_filteredDataFormFields = {QStringLiteral(FORM_TYPE),
+                                QStringLiteral(FROM),
+                                QStringLiteral(CAPTCHA_FALLBACK_TEXT),
+                                QStringLiteral(CAPTCHA_FALLBACK_URL),
+                                QStringLiteral(CAPTCHAHIDDEN),
+                                QStringLiteral(CHALLENGE),
+                                QStringLiteral(SID)};
 }

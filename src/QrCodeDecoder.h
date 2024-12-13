@@ -13,37 +13,37 @@
  */
 class QrCodeDecoder : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	/**
-	 * Instantiates a QR code decoder.
-	 *
-	 * @param parent parent object
-	 */
-	explicit QrCodeDecoder(QObject *parent = nullptr);
+    /**
+     * Instantiates a QR code decoder.
+     *
+     * @param parent parent object
+     */
+    explicit QrCodeDecoder(QObject *parent = nullptr);
 
 Q_SIGNALS:
-	/**
-	 * Emitted when the decoding failed.
-	 */
-	void decodingFailed();
+    /**
+     * Emitted when the decoding failed.
+     */
+    void decodingFailed();
 
-	/**
-	 * Emitted when the decoding succeeded.
-	 *
-	 * @param tag string which was decoded by the QR code decoder
-	 */
-	void decodingSucceeded(const QString &tag);
+    /**
+     * Emitted when the decoding succeeded.
+     *
+     * @param tag string which was decoded by the QR code decoder
+     */
+    void decodingSucceeded(const QString &tag);
 
 public Q_SLOTS:
-	/**
-	 * Tries to decode the QR code from the given image. When decoding has
-	 * finished @c decodingFinished() will be emitted. In case a QR code was found,
-	 * also @c tagFound() will be emitted.
-	 *
-	 * @param image image which may contain a QR code to decode to a string.
-	 *        It needs to be in grayscale format (one byte per pixel).
-	 */
-	void decodeImage(const QImage &image);
+    /**
+     * Tries to decode the QR code from the given image. When decoding has
+     * finished @c decodingFinished() will be emitted. In case a QR code was found,
+     * also @c tagFound() will be emitted.
+     *
+     * @param image image which may contain a QR code to decode to a string.
+     *        It needs to be in grayscale format (one byte per pixel).
+     */
+    void decodeImage(const QImage &image);
 };

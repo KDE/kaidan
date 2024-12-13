@@ -29,15 +29,15 @@
 // version without notice, or may even be removed.
 //
 
-#include <cstdlib>
 #include <cstddef>
+#include <cstdlib>
 
-#include <QtCore/QDir>
-#include <QtCore/QThread>
 #include <QtCore/QByteArray>
-#include <QtCore/QDataStream>
-#include <QtCore/QElapsedTimer>
 #include <QtCore/QCryptographicHash>
+#include <QtCore/QDataStream>
+#include <QtCore/QDir>
+#include <QtCore/QElapsedTimer>
+#include <QtCore/QThread>
 #include <QtNetwork/QLocalServer>
 #include <QtNetwork/QLocalSocket>
 
@@ -51,21 +51,21 @@
 #include "singleapplication_p.h"
 
 #ifdef Q_OS_UNIX
-    #include <unistd.h>
-    #include <sys/types.h>
-    #include <pwd.h>
+#include <pwd.h>
+#include <sys/types.h>
+#include <unistd.h>
 #endif
 
 #ifdef Q_OS_WIN
-    #ifndef NOMINMAX
-        #define NOMINMAX 1
-    #endif
-    #include <windows.h>
-    #include <lmcons.h>
+#ifndef NOMINMAX
+#define NOMINMAX 1
+#endif
+#include <lmcons.h>
+#include <windows.h>
 #endif
 
-SingleApplicationPrivate::SingleApplicationPrivate( SingleApplication *q_ptr )
-    : q_ptr( q_ptr )
+SingleApplicationPrivate::SingleApplicationPrivate(SingleApplication *q_ptr)
+    : q_ptr(q_ptr)
 {
     server = nullptr;
     socket = nullptr;
@@ -75,20 +75,20 @@ SingleApplicationPrivate::SingleApplicationPrivate( SingleApplication *q_ptr )
 
 SingleApplicationPrivate::~SingleApplicationPrivate()
 {
-    if( socket != nullptr ){
+    if (socket != nullptr) {
         socket->close();
         delete socket;
     }
 
-    if( memory != nullptr ){
+    if (memory != nullptr) {
         memory->lock();
-        auto *inst = static_cast<InstancesInfo*>(memory->data());
-        if( server != nullptr ){
+        auto *inst = static_cast<InstancesInfo *>(memory->data());
+        if (server != nullptr) {
             server->close();
             delete server;
             inst->primary = false;
             inst->primaryPid = -1;
-            inst->primaryUser[0] =  '\0';
+            inst->primaryUser[0] = '\0';
             inst->checksum = blockChecksum();
         }
         memory->unlock();
@@ -100,60 +100,60 @@ SingleApplicationPrivate::~SingleApplicationPrivate()
 QString SingleApplicationPrivate::getUsername()
 {
 #ifdef Q_OS_WIN
-      wchar_t username[UNLEN + 1];
-      // Specifies size of the buffer on input
-      DWORD usernameLength = UNLEN + 1;
-      if( GetUserNameW( username, &usernameLength ) )
-          return QString::fromWCharArray( username );
+    wchar_t username[UNLEN + 1];
+    // Specifies size of the buffer on input
+    DWORD usernameLength = UNLEN + 1;
+    if (GetUserNameW(username, &usernameLength))
+        return QString::fromWCharArray(username);
 #if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
-      return QString::fromLocal8Bit( qgetenv( "USERNAME" ) );
+    return QString::fromLocal8Bit(qgetenv("USERNAME"));
 #else
-      return qEnvironmentVariable( "USERNAME" );
+    return qEnvironmentVariable("USERNAME");
 #endif
 #endif
 #ifdef Q_OS_UNIX
-      QString username;
-      uid_t uid = geteuid();
-      struct passwd *pw = getpwuid( uid );
-      if( pw )
-          username = QString::fromLocal8Bit( pw->pw_name );
-      if ( username.isEmpty() ){
+    QString username;
+    uid_t uid = geteuid();
+    struct passwd *pw = getpwuid(uid);
+    if (pw)
+        username = QString::fromLocal8Bit(pw->pw_name);
+    if (username.isEmpty()) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
-          username = QString::fromLocal8Bit( qgetenv( "USER" ) );
+        username = QString::fromLocal8Bit(qgetenv("USER"));
 #else
-          username = qEnvironmentVariable( "USER" );
+        username = qEnvironmentVariable("USER");
 #endif
-      }
-      return username;
+    }
+    return username;
 #endif
 }
 
 void SingleApplicationPrivate::genBlockServerName()
 {
-    QCryptographicHash appData( QCryptographicHash::Sha256 );
-    appData.addData( "SingleApplication", 17 );
-    appData.addData( SingleApplication::app_t::applicationName().toUtf8() );
-    appData.addData( SingleApplication::app_t::organizationName().toUtf8() );
-    appData.addData( SingleApplication::app_t::organizationDomain().toUtf8() );
+    QCryptographicHash appData(QCryptographicHash::Sha256);
+    appData.addData("SingleApplication", 17);
+    appData.addData(SingleApplication::app_t::applicationName().toUtf8());
+    appData.addData(SingleApplication::app_t::organizationName().toUtf8());
+    appData.addData(SingleApplication::app_t::organizationDomain().toUtf8());
 
-    if ( ! appDataList.isEmpty() )
-        appData.addData( appDataList.join(QStringLiteral("")).toUtf8() );
+    if (!appDataList.isEmpty())
+        appData.addData(appDataList.join(QStringLiteral("")).toUtf8());
 
-    if( ! (options & SingleApplication::Mode::ExcludeAppVersion) ){
-        appData.addData( SingleApplication::app_t::applicationVersion().toUtf8() );
+    if (!(options & SingleApplication::Mode::ExcludeAppVersion)) {
+        appData.addData(SingleApplication::app_t::applicationVersion().toUtf8());
     }
 
-    if( ! (options & SingleApplication::Mode::ExcludeAppPath) ){
+    if (!(options & SingleApplication::Mode::ExcludeAppPath)) {
 #ifdef Q_OS_WIN
-        appData.addData( SingleApplication::app_t::applicationFilePath().toLower().toUtf8() );
+        appData.addData(SingleApplication::app_t::applicationFilePath().toLower().toUtf8());
 #else
-        appData.addData( SingleApplication::app_t::applicationFilePath().toUtf8() );
+        appData.addData(SingleApplication::app_t::applicationFilePath().toUtf8());
 #endif
     }
 
     // User level block requires a user specific data in the hash
-    if( options & SingleApplication::Mode::User ){
-        appData.addData( getUsername().toUtf8() );
+    if (options & SingleApplication::Mode::User) {
+        appData.addData(getUsername().toUtf8());
     }
 
     // Replace the backslash in RFC 2045 Base64 [a-zA-Z0-9+/=] to comply with
@@ -163,85 +163,82 @@ void SingleApplicationPrivate::genBlockServerName()
 
 void SingleApplicationPrivate::initializeMemoryBlock() const
 {
-    auto *inst = static_cast<InstancesInfo*>( memory->data() );
+    auto *inst = static_cast<InstancesInfo *>(memory->data());
     inst->primary = false;
     inst->secondary = 0;
     inst->primaryPid = -1;
-    inst->primaryUser[0] =  '\0';
+    inst->primaryUser[0] = '\0';
     inst->checksum = blockChecksum();
 }
 
 void SingleApplicationPrivate::startPrimary()
 {
     // Reset the number of connections
-    auto *inst = static_cast <InstancesInfo*>( memory->data() );
+    auto *inst = static_cast<InstancesInfo *>(memory->data());
 
     inst->primary = true;
     inst->primaryPid = QCoreApplication::applicationPid();
-    qstrncpy( inst->primaryUser, getUsername().toUtf8().data(), sizeof(inst->primaryUser) );
+    qstrncpy(inst->primaryUser, getUsername().toUtf8().data(), sizeof(inst->primaryUser));
     inst->checksum = blockChecksum();
     instanceNumber = 0;
     // Successful creation means that no main process exists
     // So we start a QLocalServer to listen for connections
-    QLocalServer::removeServer( blockServerName );
+    QLocalServer::removeServer(blockServerName);
     server = new QLocalServer();
 
     // Restrict access to the socket according to the
     // SingleApplication::Mode::User flag on User level or no restrictions
-    if( options & SingleApplication::Mode::User ){
-        server->setSocketOptions( QLocalServer::UserAccessOption );
+    if (options & SingleApplication::Mode::User) {
+        server->setSocketOptions(QLocalServer::UserAccessOption);
     } else {
-        server->setSocketOptions( QLocalServer::WorldAccessOption );
+        server->setSocketOptions(QLocalServer::WorldAccessOption);
     }
 
-    server->listen( blockServerName );
-    QObject::connect(
-        server,
-        &QLocalServer::newConnection,
-        this,
-        &SingleApplicationPrivate::slotConnectionEstablished
-    );
+    server->listen(blockServerName);
+    QObject::connect(server, &QLocalServer::newConnection, this, &SingleApplicationPrivate::slotConnectionEstablished);
 }
 
 void SingleApplicationPrivate::startSecondary()
 {
-  auto *inst = static_cast <InstancesInfo*>( memory->data() );
+    auto *inst = static_cast<InstancesInfo *>(memory->data());
 
-  inst->secondary += 1;
-  inst->checksum = blockChecksum();
-  instanceNumber = inst->secondary;
+    inst->secondary += 1;
+    inst->checksum = blockChecksum();
+    instanceNumber = inst->secondary;
 }
 
-bool SingleApplicationPrivate::connectToPrimary( int msecs, ConnectionType connectionType )
+bool SingleApplicationPrivate::connectToPrimary(int msecs, ConnectionType connectionType)
 {
     QElapsedTimer time;
     time.start();
 
     // Connect to the Local Server of the Primary Instance if not already
     // connected.
-    if( socket == nullptr ){
+    if (socket == nullptr) {
         socket = new QLocalSocket();
     }
 
-    if( socket->state() == QLocalSocket::ConnectedState ) return true;
+    if (socket->state() == QLocalSocket::ConnectedState)
+        return true;
 
-    if( socket->state() != QLocalSocket::ConnectedState ){
-
-        while( true ){
+    if (socket->state() != QLocalSocket::ConnectedState) {
+        while (true) {
             randomSleep();
 
-          if( socket->state() != QLocalSocket::ConnectingState )
-            socket->connectToServer( blockServerName );
+            if (socket->state() != QLocalSocket::ConnectingState)
+                socket->connectToServer(blockServerName);
 
-          if( socket->state() == QLocalSocket::ConnectingState ){
-              socket->waitForConnected( static_cast<int>(msecs - time.elapsed()) );
-          }
+            if (socket->state() == QLocalSocket::ConnectingState) {
+                socket->waitForConnected(static_cast<int>(msecs - time.elapsed()));
+            }
 
-          // If connected break out of the loop
-          if( socket->state() == QLocalSocket::ConnectedState ) break;
+            // If connected break out of the loop
+            if (socket->state() == QLocalSocket::ConnectedState)
+                break;
 
-          // If elapsed time since start is longer than the method timeout return
-          if( time.elapsed() >= msecs ) return false;
+            // If elapsed time since start is longer than the method timeout return
+            if (time.elapsed() >= msecs)
+                return false;
         }
     }
 
@@ -270,11 +267,11 @@ bool SingleApplicationPrivate::connectToPrimary( int msecs, ConnectionType conne
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
     headerStream.setVersion(QDataStream::Qt_5_6);
 #endif
-    headerStream << static_cast <quint64>( initMsg.size() );
+    headerStream << static_cast<quint64>(initMsg.size());
 
-    socket->write( header );
-    socket->write( initMsg );
-    bool result = socket->waitForBytesWritten( static_cast<int>(msecs - time.elapsed()) );
+    socket->write(header);
+    socket->write(initMsg);
+    bool result = socket->waitForBytesWritten(static_cast<int>(msecs - time.elapsed()));
     socket->flush();
     return result;
 }
@@ -282,9 +279,9 @@ bool SingleApplicationPrivate::connectToPrimary( int msecs, ConnectionType conne
 quint16 SingleApplicationPrivate::blockChecksum() const
 {
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    quint16 checksum = qChecksum(QByteArray(static_cast<const char*>(memory->constData()), offsetof(InstancesInfo, checksum)));
+    quint16 checksum = qChecksum(QByteArray(static_cast<const char *>(memory->constData()), offsetof(InstancesInfo, checksum)));
 #else
-    quint16 checksum = qChecksum(static_cast<const char*>(memory->constData()), offsetof(InstancesInfo, checksum));
+    quint16 checksum = qChecksum(static_cast<const char *>(memory->constData()), offsetof(InstancesInfo, checksum));
 #endif
     return checksum;
 }
@@ -294,7 +291,7 @@ qint64 SingleApplicationPrivate::primaryPid() const
     qint64 pid;
 
     memory->lock();
-    auto *inst = static_cast<InstancesInfo*>( memory->data() );
+    auto *inst = static_cast<InstancesInfo *>(memory->data());
     pid = inst->primaryPid;
     memory->unlock();
 
@@ -306,11 +303,11 @@ QString SingleApplicationPrivate::primaryUser() const
     QByteArray username;
 
     memory->lock();
-    auto *inst = static_cast<InstancesInfo*>( memory->data() );
+    auto *inst = static_cast<InstancesInfo *>(memory->data());
     username = inst->primaryUser;
     memory->unlock();
 
-    return QString::fromUtf8( username );
+    return QString::fromUtf8(username);
 }
 
 /**
@@ -321,55 +318,49 @@ void SingleApplicationPrivate::slotConnectionEstablished()
     QLocalSocket *nextConnSocket = server->nextPendingConnection();
     connectionMap.insert(nextConnSocket, ConnectionInfo());
 
-    QObject::connect(nextConnSocket, &QLocalSocket::aboutToClose, this,
-        [nextConnSocket, this](){
-            auto &info = connectionMap[nextConnSocket];
-            this->slotClientConnectionClosed( nextConnSocket, info.instanceId );
-        }
-    );
+    QObject::connect(nextConnSocket, &QLocalSocket::aboutToClose, this, [nextConnSocket, this]() {
+        auto &info = connectionMap[nextConnSocket];
+        this->slotClientConnectionClosed(nextConnSocket, info.instanceId);
+    });
 
     QObject::connect(nextConnSocket, &QLocalSocket::disconnected, nextConnSocket, &QLocalSocket::deleteLater);
 
-    QObject::connect(nextConnSocket, &QLocalSocket::destroyed, this,
-        [nextConnSocket, this](){
-            connectionMap.remove(nextConnSocket);
-        }
-    );
+    QObject::connect(nextConnSocket, &QLocalSocket::destroyed, this, [nextConnSocket, this]() {
+        connectionMap.remove(nextConnSocket);
+    });
 
-    QObject::connect(nextConnSocket, &QLocalSocket::readyRead, this,
-        [nextConnSocket, this](){
-            auto &info = connectionMap[nextConnSocket];
-            switch(info.stage){
-            case StageHeader:
-                readInitMessageHeader(nextConnSocket);
-                break;
-            case StageBody:
-                readInitMessageBody(nextConnSocket);
-                break;
-            case StageConnected:
-                this->slotDataAvailable( nextConnSocket, info.instanceId );
-                break;
-            default:
-                break;
-            };
-        }
-    );
+    QObject::connect(nextConnSocket, &QLocalSocket::readyRead, this, [nextConnSocket, this]() {
+        auto &info = connectionMap[nextConnSocket];
+        switch (info.stage) {
+        case StageHeader:
+            readInitMessageHeader(nextConnSocket);
+            break;
+        case StageBody:
+            readInitMessageBody(nextConnSocket);
+            break;
+        case StageConnected:
+            this->slotDataAvailable(nextConnSocket, info.instanceId);
+            break;
+        default:
+            break;
+        };
+    });
 }
 
-void SingleApplicationPrivate::readInitMessageHeader( QLocalSocket *sock )
+void SingleApplicationPrivate::readInitMessageHeader(QLocalSocket *sock)
 {
-    if (!connectionMap.contains( sock )){
+    if (!connectionMap.contains(sock)) {
         return;
     }
 
-    if( sock->bytesAvailable() < ( qint64 )sizeof( quint64 ) ){
+    if (sock->bytesAvailable() < (qint64)sizeof(quint64)) {
         return;
     }
 
-    QDataStream headerStream( sock );
+    QDataStream headerStream(sock);
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
-    headerStream.setVersion( QDataStream::Qt_5_6 );
+    headerStream.setVersion(QDataStream::Qt_5_6);
 #endif
 
     // Read the header to know the message length
@@ -379,21 +370,21 @@ void SingleApplicationPrivate::readInitMessageHeader( QLocalSocket *sock )
     info.stage = StageBody;
     info.msgLen = msgLen;
 
-    if ( sock->bytesAvailable() >= (qint64) msgLen ){
-        readInitMessageBody( sock );
+    if (sock->bytesAvailable() >= (qint64)msgLen) {
+        readInitMessageBody(sock);
     }
 }
 
-void SingleApplicationPrivate::readInitMessageBody( QLocalSocket *sock )
+void SingleApplicationPrivate::readInitMessageBody(QLocalSocket *sock)
 {
     Q_Q(SingleApplication);
 
-    if (!connectionMap.contains( sock )){
+    if (!connectionMap.contains(sock)) {
         return;
     }
 
     ConnectionInfo &info = connectionMap[sock];
-    if( sock->bytesAvailable() < ( qint64 )info.msgLen ){
+    if (sock->bytesAvailable() < (qint64)info.msgLen) {
         return;
     }
 
@@ -402,7 +393,7 @@ void SingleApplicationPrivate::readInitMessageBody( QLocalSocket *sock )
     QDataStream readStream(msgBytes);
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 6, 0))
-    readStream.setVersion( QDataStream::Qt_5_6 );
+    readStream.setVersion(QDataStream::Qt_5_6);
 #endif
 
     // server name
@@ -413,7 +404,7 @@ void SingleApplicationPrivate::readInitMessageBody( QLocalSocket *sock )
     ConnectionType connectionType = InvalidConnection;
     quint8 connTypeVal = InvalidConnection;
     readStream >> connTypeVal;
-    connectionType = static_cast <ConnectionType>( connTypeVal );
+    connectionType = static_cast<ConnectionType>(connTypeVal);
 
     // instance id
     quint32 instanceId = 0;
@@ -429,11 +420,9 @@ void SingleApplicationPrivate::readInitMessageBody( QLocalSocket *sock )
     const quint16 actualChecksum = qChecksum(msgBytes.constData(), static_cast<quint32>(msgBytes.size() - sizeof(quint16)));
 #endif
 
-    bool isValid = readStream.status() == QDataStream::Ok &&
-                   QLatin1String(latin1Name) == blockServerName &&
-                   msgChecksum == actualChecksum;
+    bool isValid = readStream.status() == QDataStream::Ok && QLatin1String(latin1Name) == blockServerName && msgChecksum == actualChecksum;
 
-    if( !isValid ){
+    if (!isValid) {
         sock->close();
         return;
     }
@@ -441,37 +430,34 @@ void SingleApplicationPrivate::readInitMessageBody( QLocalSocket *sock )
     info.instanceId = instanceId;
     info.stage = StageConnected;
 
-    if( connectionType == NewInstance ||
-        ( connectionType == SecondaryInstance &&
-          options & SingleApplication::Mode::SecondaryNotification ) )
-    {
+    if (connectionType == NewInstance || (connectionType == SecondaryInstance && options & SingleApplication::Mode::SecondaryNotification)) {
         Q_EMIT q->instanceStarted();
     }
 
-    if (sock->bytesAvailable() > 0){
-        this->slotDataAvailable( sock, instanceId );
+    if (sock->bytesAvailable() > 0) {
+        this->slotDataAvailable(sock, instanceId);
     }
 }
 
-void SingleApplicationPrivate::slotDataAvailable( QLocalSocket *dataSocket, quint32 instanceId )
+void SingleApplicationPrivate::slotDataAvailable(QLocalSocket *dataSocket, quint32 instanceId)
 {
     Q_Q(SingleApplication);
-    Q_EMIT q->receivedMessage( instanceId, dataSocket->readAll() );
+    Q_EMIT q->receivedMessage(instanceId, dataSocket->readAll());
 }
 
-void SingleApplicationPrivate::slotClientConnectionClosed( QLocalSocket *closedSocket, quint32 instanceId )
+void SingleApplicationPrivate::slotClientConnectionClosed(QLocalSocket *closedSocket, quint32 instanceId)
 {
-    if( closedSocket->bytesAvailable() > 0 )
-        slotDataAvailable( closedSocket, instanceId  );
+    if (closedSocket->bytesAvailable() > 0)
+        slotDataAvailable(closedSocket, instanceId);
 }
 
 void SingleApplicationPrivate::randomSleep()
 {
-#if QT_VERSION >= QT_VERSION_CHECK( 5, 10, 0 )
-    QThread::msleep( QRandomGenerator::global()->bounded( 8u, 18u ));
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+    QThread::msleep(QRandomGenerator::global()->bounded(8u, 18u));
 #else
-    qsrand( QDateTime::currentMSecsSinceEpoch() % std::numeric_limits<uint>::max() );
-    QThread::msleep( 8 + static_cast <unsigned long>( static_cast <float>( qrand() ) / RAND_MAX * 10 ));
+    qsrand(QDateTime::currentMSecsSinceEpoch() % std::numeric_limits<uint>::max());
+    QThread::msleep(8 + static_cast<unsigned long>(static_cast<float>(qrand()) / RAND_MAX * 10));
 #endif
 }
 

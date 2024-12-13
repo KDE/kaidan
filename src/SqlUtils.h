@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include <QStringView>
 #include <QSqlQuery>
+#include <QStringView>
 #include <QVariant>
 
 #include <optional>
@@ -14,7 +14,8 @@
 class QSqlDriver;
 class QSqlField;
 
-namespace SqlUtils {
+namespace SqlUtils
+{
 
 /// Key-value pairs to be bound to an SqlQuery.
 using QueryBindValues = QMap<QStringView, QVariant>;
@@ -56,9 +57,9 @@ void execQuery(QSqlQuery &query, const QString &sql);
  */
 inline void execQuery(QSqlQuery &query, const QString &sql, const QueryBindValues &values)
 {
-	prepareQuery(query, sql);
-	bindValues(query, values);
-	execQuery(query);
+    prepareQuery(query, sql);
+    bindValues(query, values);
+    execQuery(query);
 }
 
 /**
@@ -70,9 +71,9 @@ inline void execQuery(QSqlQuery &query, const QString &sql, const QueryBindValue
  */
 inline void execQueryWithOrderedValues(QSqlQuery &query, const QString &sql, const QList<QVariant> &values)
 {
-	prepareQuery(query, sql);
-	bindOrderedValues(query, values);
-	execQuery(query);
+    prepareQuery(query, sql);
+    bindOrderedValues(query, values);
+    execQuery(query);
 }
 
 void addFieldsToRecord(QSqlRecord &record, const QueryBindValues &values);
@@ -129,15 +130,15 @@ QDateTime parseDateTime(QSqlQuery &query, int index);
 template<typename Container>
 void reserve(Container &container, const QSqlQuery &query)
 {
-	if (!query.isActive()) {
-		return;
-	}
+    if (!query.isActive()) {
+        return;
+    }
 
-	if (query.isSelect()) {
-		if (query.size() != -1) {
-			container.reserve(query.size());
-		}
-	}
+    if (query.isSelect()) {
+        if (query.size() != -1) {
+            container.reserve(query.size());
+        }
+    }
 }
 
-}  // SqlUtils
+} // SqlUtils

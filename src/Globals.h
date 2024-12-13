@@ -87,13 +87,13 @@ constexpr auto GENERATED_PASSWORD_LENGTH_LOWER_BOUND = 20;
 constexpr auto GENERATED_PASSWORD_LENGTH_UPPER_BOUND = 30;
 
 // Characters used for password generation
-#define GENERATED_PASSWORD_ALPHABET QLatin1String( \
-	"abcdefghijklmnopqrstuvwxyz" \
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
-	"`1234567890-=" \
-	"~!@#$%^&*()_+" \
-	"[];'\\,./{}:\"|<>?" \
-)
+#define GENERATED_PASSWORD_ALPHABET                                                                                                                            \
+    QLatin1String(                                                                                                                                             \
+        "abcdefghijklmnopqrstuvwxyz"                                                                                                                           \
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"                                                                                                                           \
+        "`1234567890-="                                                                                                                                        \
+        "~!@#$%^&*()_+"                                                                                                                                        \
+        "[];'\\,./{}:\"|<>?")
 
 // Number of characters used for password generation
 #define GENERATED_PASSWORD_ALPHABET_LENGTH GENERATED_PASSWORD_ALPHABET.size()

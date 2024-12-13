@@ -15,17 +15,17 @@
 template<typename T>
 T wait(const QFuture<T> &future)
 {
-	auto watcher = std::make_unique<QFutureWatcher<T>>();
-	QSignalSpy spy(watcher.get(), &QFutureWatcherBase::finished);
-	watcher->setFuture(future);
-	spy.wait();
-	if constexpr (!std::is_same_v<T, void>) {
-		return future.result();
-	}
+    auto watcher = std::make_unique<QFutureWatcher<T>>();
+    QSignalSpy spy(watcher.get(), &QFutureWatcherBase::finished);
+    watcher->setFuture(future);
+    spy.wait();
+    if constexpr (!std::is_same_v<T, void>) {
+        return future.result();
+    }
 }
 
 template<typename T>
 T wait(QObject *context, QXmppTask<T> task)
 {
-	return wait(task.toFuture(context));
+    return wait(task.toFuture(context));
 }

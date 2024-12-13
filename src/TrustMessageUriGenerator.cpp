@@ -10,58 +10,58 @@
 #include "Globals.h"
 
 TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent)
-	: QObject(parent)
+    : QObject(parent)
 {
 }
 
 void TrustMessageUriGenerator::setJid(const QString &jid)
 {
-	if (m_jid != jid) {
-		m_jid = jid;
-		Q_EMIT jidChanged();
-	}
+    if (m_jid != jid) {
+        m_jid = jid;
+        Q_EMIT jidChanged();
+    }
 }
 
 QString TrustMessageUriGenerator::uri() const
 {
-	QXmppUri uri;
-	uri.setJid(m_jid);
+    QXmppUri uri;
+    uri.setJid(m_jid);
 
-	// Create a Trust Message URI only if there are keys for it.
-	if (!m_authenticatedKeys.isEmpty() || !m_distrustedKeys.isEmpty()) {
-		QXmpp::Uri::TrustMessage trustMessageQuery = {
-			.encryption = XMLNS_OMEMO_2,
-			.trustKeyIds = m_authenticatedKeys,
-			.distrustKeyIds = m_distrustedKeys,
-		};
+    // Create a Trust Message URI only if there are keys for it.
+    if (!m_authenticatedKeys.isEmpty() || !m_distrustedKeys.isEmpty()) {
+        QXmpp::Uri::TrustMessage trustMessageQuery = {
+            .encryption = XMLNS_OMEMO_2,
+            .trustKeyIds = m_authenticatedKeys,
+            .distrustKeyIds = m_distrustedKeys,
+        };
 
-		uri.setQuery(std::move(trustMessageQuery));
-	}
+        uri.setQuery(std::move(trustMessageQuery));
+    }
 
-	return uri.toString();
+    return uri.toString();
 }
 
 QString TrustMessageUriGenerator::jid() const
 {
-	return m_jid;
+    return m_jid;
 }
 
 void TrustMessageUriGenerator::setKeys(const QList<QString> &authenticatedKeys, const QList<QString> &distrustedKeys)
 {
-	bool changed = false;
+    bool changed = false;
 
-	if (m_authenticatedKeys != authenticatedKeys) {
-		m_authenticatedKeys = authenticatedKeys;
-		changed = true;
-	}
+    if (m_authenticatedKeys != authenticatedKeys) {
+        m_authenticatedKeys = authenticatedKeys;
+        changed = true;
+    }
 
-	if (m_distrustedKeys != distrustedKeys) {
-		m_distrustedKeys = distrustedKeys;
-		changed = true;
-	}
+    if (m_distrustedKeys != distrustedKeys) {
+        m_distrustedKeys = distrustedKeys;
+        changed = true;
+    }
 
-	// If a contact has no keys, uriChanged() must be emitted as well for the initial update.
-	if (changed || (m_authenticatedKeys.isEmpty() && m_distrustedKeys.isEmpty())) {
-		Q_EMIT uriChanged();
-	}
+    // If a contact has no keys, uriChanged() must be emitted as well for the initial update.
+    if (changed || (m_authenticatedKeys.isEmpty() && m_distrustedKeys.isEmpty())) {
+        Q_EMIT uriChanged();
+    }
 }

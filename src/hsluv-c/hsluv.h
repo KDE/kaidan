@@ -39,7 +39,6 @@
 extern "C" {
 #endif
 
-
 /**
  * Convert HSLuv to RGB.
  *
@@ -50,7 +49,7 @@ extern "C" {
  * @param[out] pr Green component. Between 0.0 and 1.0.
  * @param[out] pr Blue component. Between 0.0 and 1.0.
  */
-void hsluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb);
+void hsluv2rgb(double h, double s, double l, double *pr, double *pg, double *pb);
 
 /**
  * Convert RGB to HSLuv.
@@ -62,7 +61,7 @@ void hsluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
  * @param[out] ps Saturation. Between 0.0 and 100.0.
  * @param[out] pl Lightness. Between 0.0 and 100.0.
  */
-void rgb2hsluv(double r, double g, double b, double* ph, double* ps, double* pl);
+void rgb2hsluv(double r, double g, double b, double *ph, double *ps, double *pl);
 
 /**
  * Convert HPLuv to RGB.
@@ -74,7 +73,7 @@ void rgb2hsluv(double r, double g, double b, double* ph, double* ps, double* pl)
  * @param[out] pg Green component. Between 0.0 and 1.0.
  * @param[out] pb Blue component. Between 0.0 and 1.0.
  */
-void hpluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb);
+void hpluv2rgb(double h, double s, double l, double *pr, double *pg, double *pb);
 
 /**
  * Convert RGB to HPLuv.
@@ -86,11 +85,10 @@ void hpluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
  * @param[out] ps Saturation. Between 0.0 and 100.0.
  * @param[out] pl Lightness. Between 0.0 and 100.0.
  */
-void rgb2hpluv(double r, double g, double b, double* ph, double* ps, double* pl);
-
+void rgb2hpluv(double r, double g, double b, double *ph, double *ps, double *pl);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  /* HSLUV_H */
+#endif /* HSLUV_H */

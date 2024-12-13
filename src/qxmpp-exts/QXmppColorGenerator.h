@@ -20,11 +20,10 @@ public:
     enum ColorVisionDeficiency {
         NoDeficiency,
         RedGreenBlindness,
-        BlueBlindness
+        BlueBlindness,
     };
 
-    static RGBColor generateColor(const QString&,
-                                  ColorVisionDeficiency = NoDeficiency);
+    static RGBColor generateColor(const QString &, ColorVisionDeficiency = NoDeficiency);
 };
 
 #endif // QXMPPCOLORGENERATOR_H

@@ -19,243 +19,246 @@ GroupChatController *GroupChatController::s_instance = nullptr;
 
 GroupChatController *GroupChatController::instance()
 {
-	return s_instance;
+    return s_instance;
 }
 
 GroupChatController::GroupChatController(QObject *parent)
-	: QObject(parent), m_mixController(std::make_unique<MixController>())
+    : QObject(parent)
+    , m_mixController(std::make_unique<MixController>())
 {
-	Q_ASSERT(!GroupChatController::s_instance);
-	s_instance = this;
+    Q_ASSERT(!GroupChatController::s_instance);
+    s_instance = this;
 
-	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userJidsChanged, this, &GroupChatController::updateUserJidsChanged);
-	connect(ChatController::instance(), &ChatController::chatChanged, this, &GroupChatController::handleChatChanged);
-	connect(RosterModel::instance(), &RosterModel::itemAdded, this, &GroupChatController::handleRosterItemAdded);
+    connect(GroupChatUserDb::instance(), &GroupChatUserDb::userJidsChanged, this, &GroupChatController::updateUserJidsChanged);
+    connect(ChatController::instance(), &ChatController::chatChanged, this, &GroupChatController::handleChatChanged);
+    connect(RosterModel::instance(), &RosterModel::itemAdded, this, &GroupChatController::handleRosterItemAdded);
 
-	connect(this, &GroupChatController::groupChatMadePrivate, this, [](const QString &, const QString &groupChatJid) {
-		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public, false);
-		});
-	});
+    connect(this, &GroupChatController::groupChatMadePrivate, this, [](const QString &, const QString &groupChatJid) {
+        RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
+            item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public, false);
+        });
+    });
 
-	connect(this, &GroupChatController::groupChatMadePublic, this, [](const QString &, const QString &groupChatJid) {
-		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public);
-		});
-	});
+    connect(this, &GroupChatController::groupChatMadePublic, this, [](const QString &, const QString &groupChatJid) {
+        RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
+            item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Public);
+        });
+    });
 
-	connect(this, &GroupChatController::userAllowedOrBanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserAllowedOrBanned);
-	connect(this, &GroupChatController::userDisallowedOrUnbanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserDisallowedOrUnbanned);
+    connect(this, &GroupChatController::userAllowedOrBanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserAllowedOrBanned);
+    connect(this, &GroupChatController::userDisallowedOrUnbanned, GroupChatUserDb::instance(), &GroupChatUserDb::handleUserDisallowedOrUnbanned);
 
-	connect(this, &GroupChatController::participantReceived, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantReceived);
-	connect(this, &GroupChatController::participantLeft, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantLeft);
+    connect(this, &GroupChatController::participantReceived, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantReceived);
+    connect(this, &GroupChatController::participantLeft, GroupChatUserDb::instance(), &GroupChatUserDb::handleParticipantLeft);
 
-	connect(this, &GroupChatController::groupChatLeft, GroupChatUserDb::instance(), qOverload<const QString &, const QString &>(&GroupChatUserDb::removeUsers));
+    connect(this, &GroupChatController::groupChatLeft, GroupChatUserDb::instance(), qOverload<const QString &, const QString &>(&GroupChatUserDb::removeUsers));
 
-	connect(this, &GroupChatController::groupChatDeleted, this, [](const QString &, const QString &groupChatJid) {
-		RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
-			item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
-		});
-	});
+    connect(this, &GroupChatController::groupChatDeleted, this, [](const QString &, const QString &groupChatJid) {
+        RosterDb::instance()->updateItem(groupChatJid, [](RosterItem &item) {
+            item.groupChatFlags = item.groupChatFlags.setFlag(RosterItem::GroupChatFlag::Deleted);
+        });
+    });
 
-	auto setIdle = [this]() {
-		setBusy(false);
-	};
+    auto setIdle = [this]() {
+        setBusy(false);
+    };
 
-	connect(this, &GroupChatController::groupChatCreated, this, setIdle);
-	connect(this, &GroupChatController::privateGroupChatCreationFailed, this, setIdle);
-	connect(this, &GroupChatController::publicGroupChatCreationFailed, this, setIdle);
+    connect(this, &GroupChatController::groupChatCreated, this, setIdle);
+    connect(this, &GroupChatController::privateGroupChatCreationFailed, this, setIdle);
+    connect(this, &GroupChatController::publicGroupChatCreationFailed, this, setIdle);
 
-	// groupChatJoined() is not covered here since successful joining is handled by
-	// handleRosterItemAdded().
-	connect(this, &GroupChatController::groupChatJoiningFailed, this, setIdle);
+    // groupChatJoined() is not covered here since successful joining is handled by
+    // handleRosterItemAdded().
+    connect(this, &GroupChatController::groupChatJoiningFailed, this, setIdle);
 
-	connect(this, &GroupChatController::groupChatLeft, this, setIdle);
-	connect(this, &GroupChatController::groupChatLeavingFailed, this, setIdle);
+    connect(this, &GroupChatController::groupChatLeft, this, setIdle);
+    connect(this, &GroupChatController::groupChatLeavingFailed, this, setIdle);
 
-	connect(this, &GroupChatController::groupChatDeleted, this, setIdle);
-	connect(this, &GroupChatController::groupChatDeletionFailed, this, setIdle);
+    connect(this, &GroupChatController::groupChatDeleted, this, setIdle);
+    connect(this, &GroupChatController::groupChatDeletionFailed, this, setIdle);
 }
 
 GroupChatController::~GroupChatController()
 {
-	s_instance = nullptr;
+    s_instance = nullptr;
 }
 
 bool GroupChatController::busy()
 {
-	return m_busy;
+    return m_busy;
 }
 
 bool GroupChatController::groupChatParticipationSupported() const
 {
-	return m_mixController->channelParticipationSupported();
+    return m_mixController->channelParticipationSupported();
 }
 
 bool GroupChatController::groupChatCreationSupported() const
 {
-	const auto groupChatServices = m_mixController->groupChatServices();
-	return std::any_of(groupChatServices.cbegin(), groupChatServices.cend(), [](const GroupChatService &service) {
-		return service.groupChatCreationSupported;
-	});
+    const auto groupChatServices = m_mixController->groupChatServices();
+    return std::any_of(groupChatServices.cbegin(), groupChatServices.cend(), [](const GroupChatService &service) {
+        return service.groupChatCreationSupported;
+    });
 }
 
 QStringList GroupChatController::groupChatServiceJids(const QString &accountJid) const
 {
-	return transformFilter<QStringList>(m_mixController->groupChatServices(), [accountJid](const GroupChatService &service) -> std::optional<QString> {
-		if (service.accountJid == accountJid) {
-			return service.jid;
-		}
+    return transformFilter<QStringList>(m_mixController->groupChatServices(), [accountJid](const GroupChatService &service) -> std::optional<QString> {
+        if (service.accountJid == accountJid) {
+            return service.jid;
+        }
 
-		return {};
-	});
+        return {};
+    });
 }
 
 void GroupChatController::createPrivateGroupChat(const QString &, const QString &serviceJid)
 {
-	setBusy(true);
-	m_mixController->createPrivateChannel(serviceJid);
+    setBusy(true);
+    m_mixController->createPrivateChannel(serviceJid);
 }
 
 void GroupChatController::createPublicGroupChat(const QString &, const QString &groupChatJid)
 {
-	setBusy(true);
-	m_mixController->createPublicChannel(groupChatJid);
+    setBusy(true);
+    m_mixController->createPublicChannel(groupChatJid);
 }
 
 void GroupChatController::requestGroupChatAccessibility(const QString &, const QString &groupChatJid)
 {
-	m_mixController->requestChannelAccessibility(groupChatJid);
+    m_mixController->requestChannelAccessibility(groupChatJid);
 }
 
 void GroupChatController::requestChannelInformation(const QString &, const QString &channelJid)
 {
-	m_mixController->requestChannelInformation(channelJid);
+    m_mixController->requestChannelInformation(channelJid);
 }
 
 void GroupChatController::renameGroupChat(const QString &, const QString &groupChatJid, const QString &name)
 {
-	m_mixController->renameChannel(groupChatJid, name);
+    m_mixController->renameChannel(groupChatJid, name);
 }
 
 void GroupChatController::joinGroupChat(const QString &accountJid, const QString &groupChatJid, const QString &nickname)
 {
-	setBusy(true);
-	m_processedAccountJid = accountJid;
-	m_processedGroupChatJid = groupChatJid;
-	m_mixController->joinChannel(groupChatJid, nickname);
+    setBusy(true);
+    m_processedAccountJid = accountJid;
+    m_processedGroupChatJid = groupChatJid;
+    m_mixController->joinChannel(groupChatJid, nickname);
 }
 
 void GroupChatController::inviteContactToGroupChat(const QString &, const QString &groupChatJid, const QString &contactJid, bool groupChatPublic)
 {
-	m_mixController->inviteContactToChannel(groupChatJid, contactJid, groupChatPublic);
+    m_mixController->inviteContactToChannel(groupChatJid, contactJid, groupChatPublic);
 }
 
 void GroupChatController::requestGroupChatUsers(const QString &, const QString &groupChatJid)
 {
-	m_mixController->requestChannelUsers(groupChatJid);
+    m_mixController->requestChannelUsers(groupChatJid);
 }
 
 QVector<QString> GroupChatController::currentUserJids() const
 {
-	return m_currentUserJids;
+    return m_currentUserJids;
 }
 
 void GroupChatController::banUser(const QString &, const QString &groupChatJid, const QString &userJid)
 {
-	m_mixController->banUser(groupChatJid, userJid);
+    m_mixController->banUser(groupChatJid, userJid);
 }
 
 void GroupChatController::leaveGroupChat(const QString &, const QString &groupChatJid)
 {
-	setBusy(true);
-	m_mixController->leaveChannel(groupChatJid);
+    setBusy(true);
+    m_mixController->leaveChannel(groupChatJid);
 }
 
 void GroupChatController::deleteGroupChat(const QString &, const QString &groupChatJid)
 {
-	setBusy(true);
-	m_mixController->deleteChannel(groupChatJid);
+    setBusy(true);
+    m_mixController->deleteChannel(groupChatJid);
 }
 
 void GroupChatController::setBusy(bool busy)
 {
-	if (m_busy != busy) {
-		m_busy = busy;
-		Q_EMIT busyChanged();
-	}
+    if (m_busy != busy) {
+        m_busy = busy;
+        Q_EMIT busyChanged();
+    }
 }
 
 void GroupChatController::handleChatChanged()
 {
-	if (auto chatController = ChatController::instance(); chatController->rosterItem().isGroupChat()) {
-		const auto accountJid = chatController->accountJid();
-		const auto chatJid = chatController->chatJid();
+    if (auto chatController = ChatController::instance(); chatController->rosterItem().isGroupChat()) {
+        const auto accountJid = chatController->accountJid();
+        const auto chatJid = chatController->chatJid();
 
-		await(GroupChatUserDb::instance()->userJids(accountJid, chatJid), this, [this, chatController, accountJid, chatJid](QVector<QString> &&userJids) {
-			// Ensure that the chat is still the open one after fetching the user JIDs.
-			if (chatController->accountJid() == accountJid && chatController->chatJid() == chatJid) {
-				setCurrentUserJids(userJids);
+        await(GroupChatUserDb::instance()->userJids(accountJid, chatJid), this, [this, chatController, accountJid, chatJid](QVector<QString> &&userJids) {
+            // Ensure that the chat is still the open one after fetching the user JIDs.
+            if (chatController->accountJid() == accountJid && chatController->chatJid() == chatJid) {
+                setCurrentUserJids(userJids);
 
-				// Handle the case when the database does not contain users for the current group chat.
-				// That happens, for example, after joining a channel or when the database was manually
-				// deleted.
-				//
-				// The encryption for group chats is initialized once all group chat user JIDs are
-				// fetched.
-				if (m_currentUserJids.contains(accountJid)) {
-					updateEncryption();
-				} else {
-					requestGroupChatUsers(accountJid, chatJid);
-				}
-			}
-		});
-	}
+                // Handle the case when the database does not contain users for the current group chat.
+                // That happens, for example, after joining a channel or when the database was manually
+                // deleted.
+                //
+                // The encryption for group chats is initialized once all group chat user JIDs are
+                // fetched.
+                if (m_currentUserJids.contains(accountJid)) {
+                    updateEncryption();
+                } else {
+                    requestGroupChatUsers(accountJid, chatJid);
+                }
+            }
+        });
+    }
 }
 
 void GroupChatController::handleRosterItemAdded(const QString &accountJid, const QString &jid)
 {
-	if (accountJid == m_processedAccountJid && jid == m_processedGroupChatJid) {
-		m_processedAccountJid.clear();
-		m_processedGroupChatJid.clear();
-		Kaidan::instance()->openChatPageRequested(accountJid, jid);
-		setBusy(false);
-	}
+    if (accountJid == m_processedAccountJid && jid == m_processedGroupChatJid) {
+        m_processedAccountJid.clear();
+        m_processedGroupChatJid.clear();
+        Kaidan::instance()->openChatPageRequested(accountJid, jid);
+        setBusy(false);
+    }
 }
 
 void GroupChatController::updateUserJidsChanged(const QString &accountJid, const QString &groupChatJid)
 {
-	auto chatController = ChatController::instance();
-	const auto currentAccountJid = chatController->accountJid();
-	const auto currentChatJid = chatController->chatJid();
+    auto chatController = ChatController::instance();
+    const auto currentAccountJid = chatController->accountJid();
+    const auto currentChatJid = chatController->chatJid();
 
-	if (currentAccountJid == accountJid && currentChatJid == groupChatJid) {
-		await(GroupChatUserDb::instance()->userJids(accountJid, groupChatJid), this, [this, chatController, accountJid, groupChatJid](QVector<QString> &&userJids) {
-			// Ensure that the chat is still the open one after fetching the user JIDs.
-			if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
-				setCurrentUserJids(userJids);
-				updateEncryption();
-			}
-		});
-	}
+    if (currentAccountJid == accountJid && currentChatJid == groupChatJid) {
+        await(GroupChatUserDb::instance()->userJids(accountJid, groupChatJid),
+              this,
+              [this, chatController, accountJid, groupChatJid](QVector<QString> &&userJids) {
+                  // Ensure that the chat is still the open one after fetching the user JIDs.
+                  if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
+                      setCurrentUserJids(userJids);
+                      updateEncryption();
+                  }
+              });
+    }
 }
 
 void GroupChatController::updateEncryption()
 {
-	auto chatController = ChatController::instance();
-	const auto accountJid = chatController->accountJid();
+    auto chatController = ChatController::instance();
+    const auto accountJid = chatController->accountJid();
 
-	QList<QString> jids = { m_currentUserJids.cbegin(), m_currentUserJids.cend() };
-	jids.removeOne(accountJid);
-	EncryptionController::instance()->initializeChat(accountJid, jids);
+    QList<QString> jids = {m_currentUserJids.cbegin(), m_currentUserJids.cend()};
+    jids.removeOne(accountJid);
+    EncryptionController::instance()->initializeChat(accountJid, jids);
 
-	chatController->chatEncryptionWatcher()->setJids({ jids.cbegin(), jids.cend() });
+    chatController->chatEncryptionWatcher()->setJids({jids.cbegin(), jids.cend()});
 }
 
 void GroupChatController::setCurrentUserJids(const QVector<QString> &currentUserJids)
 {
-	if (m_currentUserJids != currentUserJids) {
-		m_currentUserJids = currentUserJids;
-		Q_EMIT currentUserJidsChanged();
-	}
+    if (m_currentUserJids != currentUserJids) {
+        m_currentUserJids = currentUserJids;
+        Q_EMIT currentUserJidsChanged();
+    }
 }

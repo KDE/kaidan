@@ -12,11 +12,11 @@
  */
 class LoginQrCodeGenerator : public AbstractQrCodeGenerator
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit LoginQrCodeGenerator(QObject *parent = nullptr);
+    explicit LoginQrCodeGenerator(QObject *parent = nullptr);
 
 private:
-	void updateText();
+    void updateText();
 };

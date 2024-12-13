@@ -22,7 +22,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
-*/
+ */
 
 #include "StatusBar.h"
 #ifdef Q_OS_ANDROID
@@ -34,38 +34,39 @@
 #define SYSTEM_UI_FLAG_LAYOUT_STABLE 0x00000100
 #endif
 
-StatusBar::StatusBar(QObject *parent) : QObject(parent)
+StatusBar::StatusBar(QObject *parent)
+    : QObject(parent)
 {
 }
 
 QColor StatusBar::color() const
 {
-	return m_color;
+    return m_color;
 }
 
 void StatusBar::setColor(const QColor &color)
 {
-	m_color = color;
-	Q_EMIT colorChanged();
-	if (!isAvailable())
-		return;
+    m_color = color;
+    Q_EMIT colorChanged();
+    if (!isAvailable())
+        return;
 
 #ifdef Q_OS_ANDROID
-	QtAndroid::runOnAndroidThread([=]() {
-		QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
-		window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-		window.callMethod<void>("addFlags", "(I)V", SYSTEM_UI_FLAG_LAYOUT_STABLE);
-		window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
-		window.callMethod<void>("setStatusBarColor", "(I)V", color.rgba());
-	});
+    QtAndroid::runOnAndroidThread([=]() {
+        QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
+        window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.callMethod<void>("addFlags", "(I)V", SYSTEM_UI_FLAG_LAYOUT_STABLE);
+        window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
+        window.callMethod<void>("setStatusBarColor", "(I)V", color.rgba());
+    });
 #endif
 }
 
 bool StatusBar::isAvailable() const
 {
 #ifdef Q_OS_ANDROID
-	return QtAndroid::androidSdkVersion() >= 21;
+    return QtAndroid::androidSdkVersion() >= 21;
 #else
-	return false;
+    return false;
 #endif
 }

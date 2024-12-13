@@ -6,20 +6,20 @@
 
 bool Account::operator<(const Account &other) const
 {
-	return jid < other.jid;
+    return jid < other.jid;
 }
 
 bool Account::operator>(const Account &other) const
 {
-	return jid > other.jid;
+    return jid > other.jid;
 }
 
 bool Account::operator<=(const Account &other) const
 {
-	return jid <= other.jid;
+    return jid <= other.jid;
 }
 
 bool Account::operator>=(const Account &other) const
 {
-	return jid >= other.jid;
+    return jid >= other.jid;
 }

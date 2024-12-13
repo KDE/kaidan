@@ -7,16 +7,15 @@
 #include "GroupChatUserModel.h"
 
 GroupChatUserFilterModel::GroupChatUserFilterModel(QObject *parent)
-	: QSortFilterProxyModel(parent)
+    : QSortFilterProxyModel(parent)
 {
 }
 
 bool GroupChatUserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-	const auto model = static_cast<GroupChatUserModel *>(sourceModel());
-	QModelIndex index = model->index(sourceRow, 0, sourceParent);
+    const auto model = static_cast<GroupChatUserModel *>(sourceModel());
+    QModelIndex index = model->index(sourceRow, 0, sourceParent);
 
-	return
-		model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp()) ||
-		model->data(index, GroupChatUserModel::Role::Jid).toString().toLower().contains(filterRegExp());
+    return model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp())
+        || model->data(index, GroupChatUserModel::Role::Jid).toString().toLower().contains(filterRegExp());
 }

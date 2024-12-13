@@ -12,34 +12,34 @@ class Account;
 
 class AccountDb : public DatabaseComponent
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	AccountDb(Database *db, QObject *parent = nullptr);
-	~AccountDb();
+    AccountDb(Database *db, QObject *parent = nullptr);
+    ~AccountDb();
 
-	static AccountDb *instance();
+    static AccountDb *instance();
 
-	QFuture<void> addAccount(const QString &jid);
-	QFuture<Account> account(const QString &jid);
-	QFuture<void> updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount);
+    QFuture<void> addAccount(const QString &jid);
+    QFuture<Account> account(const QString &jid);
+    QFuture<void> updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount);
 
-	/**
-	 * Fetches the stanza ID of the latest locally stored (existing or removed) message.
-	 */
-	QFuture<QString> fetchLatestMessageStanzaId(const QString &jid);
+    /**
+     * Fetches the stanza ID of the latest locally stored (existing or removed) message.
+     */
+    QFuture<QString> fetchLatestMessageStanzaId(const QString &jid);
 
-	/**
-	 * Fetches the maximum size of each uploaded file (in bytes) allowed by the server.
-	 */
-	QFuture<qint64> fetchHttpUploadLimit(const QString &jid);
+    /**
+     * Fetches the maximum size of each uploaded file (in bytes) allowed by the server.
+     */
+    QFuture<qint64> fetchHttpUploadLimit(const QString &jid);
 
-	QFuture<void> removeAccount(const QString &jid);
+    QFuture<void> removeAccount(const QString &jid);
 
 private:
-	static void parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts);
-	static QSqlRecord createUpdateRecord(const Account &oldAccount, const Account &newAccount);
-	void updateAccountByRecord(const QString &jid, const QSqlRecord &record);
+    static void parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts);
+    static QSqlRecord createUpdateRecord(const Account &oldAccount, const Account &newAccount);
+    void updateAccountByRecord(const QString &jid, const QSqlRecord &record);
 
-	static AccountDb *s_instance;
+    static AccountDb *s_instance;
 };

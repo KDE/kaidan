@@ -18,53 +18,53 @@ ServerFeaturesCache::ServerFeaturesCache(QObject *parent)
 
 bool ServerFeaturesCache::inBandRegistrationSupported()
 {
-	QMutexLocker locker(&m_mutex);
-	return m_inBandRegistrationSupported;
+    QMutexLocker locker(&m_mutex);
+    return m_inBandRegistrationSupported;
 }
 
 void ServerFeaturesCache::setInBandRegistrationSupported(bool supported)
 {
-	QMutexLocker locker(&m_mutex);
-	if (m_inBandRegistrationSupported != supported) {
-		m_inBandRegistrationSupported = supported;
-		locker.unlock();
-		Q_EMIT inBandRegistrationSupportedChanged();
-	}
+    QMutexLocker locker(&m_mutex);
+    if (m_inBandRegistrationSupported != supported) {
+        m_inBandRegistrationSupported = supported;
+        locker.unlock();
+        Q_EMIT inBandRegistrationSupportedChanged();
+    }
 }
 
 bool ServerFeaturesCache::httpUploadSupported()
 {
-	QMutexLocker locker(&m_mutex);
-	return m_httpUploadSupported;
+    QMutexLocker locker(&m_mutex);
+    return m_httpUploadSupported;
 }
 
 void ServerFeaturesCache::setHttpUploadSupported(bool supported)
 {
-	QMutexLocker locker(&m_mutex);
-	if (m_httpUploadSupported != supported) {
-		m_httpUploadSupported = supported;
-		locker.unlock();
-		Q_EMIT httpUploadSupportedChanged();
-	}
+    QMutexLocker locker(&m_mutex);
+    if (m_httpUploadSupported != supported) {
+        m_httpUploadSupported = supported;
+        locker.unlock();
+        Q_EMIT httpUploadSupportedChanged();
+    }
 }
 
 qint64 ServerFeaturesCache::httpUploadLimit()
 {
-	QMutexLocker locker(&m_mutex);
-	return m_httpUploadLimit;
+    QMutexLocker locker(&m_mutex);
+    return m_httpUploadLimit;
 }
 
 QString ServerFeaturesCache::httpUploadLimitString()
 {
-	return QmlUtils::formattedDataSize(httpUploadLimit());
+    return QmlUtils::formattedDataSize(httpUploadLimit());
 }
 
 void ServerFeaturesCache::setHttpUploadLimit(qint64 size)
 {
-	QMutexLocker locker(&m_mutex);
-	if (m_httpUploadLimit != size) {
-		m_httpUploadLimit = size;
-		locker.unlock();
-		Q_EMIT httpUploadLimitChanged();
-	}
+    QMutexLocker locker(&m_mutex);
+    if (m_httpUploadLimit != size) {
+        m_httpUploadLimit = size;
+        locker.unlock();
+        Q_EMIT httpUploadLimitChanged();
+    }
 }

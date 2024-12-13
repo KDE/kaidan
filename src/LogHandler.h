@@ -12,31 +12,31 @@ class QXmppClient;
 
 class LogHandler : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	/**
-	 * Default constructor
-	 */
-	LogHandler(QXmppClient *client, bool enable, QObject *parent = nullptr);
+    /**
+     * Default constructor
+     */
+    LogHandler(QXmppClient *client, bool enable, QObject *parent = nullptr);
 
-	/**
-	 * Enable/disable logging to stdout (default: disabled)
-	 */
-	void enableLogging(bool enable);
+    /**
+     * Enable/disable logging to stdout (default: disabled)
+     */
+    void enableLogging(bool enable);
 
-	/**
-	 * Handles logging messages and processes them (currently only output
-	 * of XML streams)
-	 */
-	void handleLog(QXmppLogger::MessageType type, const QString &text);
+    /**
+     * Handles logging messages and processes them (currently only output
+     * of XML streams)
+     */
+    void handleLog(QXmppLogger::MessageType type, const QString &text);
 
 private:
-	/**
-	 * Adds new lines to XML data and makes it more readable
-	 */
-	static QString makeXmlPretty(QString inputXml);
+    /**
+     * Adds new lines to XML data and makes it more readable
+     */
+    static QString makeXmlPretty(QString inputXml);
 
-	QXmppClient *m_client;
-	bool enabled = false;
+    QXmppClient *m_client;
+    bool enabled = false;
 };

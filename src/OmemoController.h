@@ -18,40 +18,40 @@ class QXmppOmemoManager;
 
 class OmemoController : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	OmemoController(QObject *parent = nullptr);
+    OmemoController(QObject *parent = nullptr);
 
-	QFuture<void> load();
-	QFuture<void> setUp();
-	QFuture<void> reset();
-	QFuture<void> resetLocally();
+    QFuture<void> load();
+    QFuture<void> setUp();
+    QFuture<void> reset();
+    QFuture<void> resetLocally();
 
-	QFuture<void> initializeAccount(const QString &accountJid);
-	QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &jids);
+    QFuture<void> initializeAccount(const QString &accountJid);
+    QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &jids);
 
-	QFuture<bool> hasUsableDevices(const QList<QString> &jids);
+    QFuture<bool> hasUsableDevices(const QList<QString> &jids);
 
-	QFuture<void> requestDeviceLists(const QList<QString> &jids);
-	QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
-	QFuture<void> unsubscribeFromDeviceLists();
+    QFuture<void> requestDeviceLists(const QList<QString> &jids);
+    QFuture<void> subscribeToDeviceLists(const QList<QString> &jids);
+    QFuture<void> unsubscribeFromDeviceLists();
 
-	QFuture<QString> ownKey(const QString &accountJid);
-	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+    QFuture<QString> ownKey(const QString &accountJid);
+    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
 
-	QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
-	QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
+    QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
+    QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
 
-	void removeContactDevices(const QString &jid);
+    void removeContactDevices(const QString &jid);
 
 private:
-	void buildMissingSessions(QFutureInterface<void> &interface, const QList<QString> &jids);
+    void buildMissingSessions(QFutureInterface<void> &interface, const QList<QString> &jids);
 
-	/**
-	 * Enables session building for new devices even before sending a message.
-	 */
-	void enableSessionBuildingForNewDevices();
+    /**
+     * Enables session building for new devices even before sending a message.
+     */
+    void enableSessionBuildingForNewDevices();
 
-	bool m_isLoaded = false;
+    bool m_isLoaded = false;
 };

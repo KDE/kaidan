@@ -8,17 +8,17 @@
 
 class GroupChatUserKeyAuthenticationFilterModel : public QSortFilterProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	GroupChatUserKeyAuthenticationFilterModel(QObject *parent = nullptr);
+    GroupChatUserKeyAuthenticationFilterModel(QObject *parent = nullptr);
 
-	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
-	void setUp();
-	void handleDevicesChanged(const QString &accountJid, const QList<QString> &jids);
-	void updateJids();
+    void setUp();
+    void handleDevicesChanged(const QString &accountJid, const QList<QString> &jids);
+    void updateJids();
 
-	QList<QString> m_jids;
+    QList<QString> m_jids;
 };

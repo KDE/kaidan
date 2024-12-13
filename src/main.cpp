@@ -29,10 +29,10 @@
 #include <QXmppDiscoveryIq.h>
 #include <QXmppMixInfoItem.h>
 #include <QXmppMixParticipantItem.h>
-#include <QXmppVCardIq.h>
 #include <QXmppRegisterIq.h>
 #include <QXmppResultSet.h>
 #include <QXmppUri.h>
+#include <QXmppVCardIq.h>
 #include <QXmppVersionIq.h>
 
 // Kaidan
@@ -40,8 +40,8 @@
 #include "AccountManager.h"
 #include "AccountMigrationManager.h"
 #include "AccountQrCodeGenerator.h"
-#include "AudioDeviceModel.h"
 #include "AtmManager.h"
+#include "AudioDeviceModel.h"
 #include "AuthenticatableEncryptionKeyModel.h"
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarFileStorage.h"
@@ -117,9 +117,9 @@ Q_DECLARE_METATYPE(QXmppVCardIq)
 Q_DECLARE_METATYPE(QXmppVersionIq)
 
 Q_DECLARE_METATYPE(std::function<void()>)
-Q_DECLARE_METATYPE(std::function<void(RosterItem&)>)
-Q_DECLARE_METATYPE(std::function<void(Message&)>)
-Q_DECLARE_METATYPE(std::function<void(GroupChatUser&)>)
+Q_DECLARE_METATYPE(std::function<void(RosterItem &)>)
+Q_DECLARE_METATYPE(std::function<void(Message &)>)
+Q_DECLARE_METATYPE(std::function<void(GroupChatUser &)>)
 
 Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 
@@ -142,426 +142,433 @@ Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 #endif
 
 enum CommandLineParseResult {
-	CommandLineOk,
-	CommandLineError,
-	CommandLineVersionRequested,
-	CommandLineHelpRequested
+    CommandLineOk,
+    CommandLineError,
+    CommandLineVersionRequested,
+    CommandLineHelpRequested,
 };
 
 CommandLineParseResult parseCommandLine(QCommandLineParser &parser, QString *errorMessage)
 {
-	// application description
-	parser.setApplicationDescription(QStringLiteral(APPLICATION_DISPLAY_NAME) +
-	                                 QStringLiteral(" - ") + QStringLiteral(APPLICATION_DESCRIPTION));
+    // application description
+    parser.setApplicationDescription(QStringLiteral(APPLICATION_DISPLAY_NAME) + QStringLiteral(" - ") + QStringLiteral(APPLICATION_DESCRIPTION));
 
-	// add all possible arguments
-	QCommandLineOption helpOption = parser.addHelpOption();
-	QCommandLineOption versionOption = parser.addVersionOption();
-	parser.addOption({QStringLiteral("disable-xml-log"), QStringLiteral("Disable output of full XMPP XML stream.")});
+    // add all possible arguments
+    QCommandLineOption helpOption = parser.addHelpOption();
+    QCommandLineOption versionOption = parser.addVersionOption();
+    parser.addOption({QStringLiteral("disable-xml-log"), QStringLiteral("Disable output of full XMPP XML stream.")});
 #ifndef NDEBUG
-	parser.addOption({{QStringLiteral("m"), QStringLiteral("multiple")}, QStringLiteral("Allow multiple instances to be started.")});
+    parser.addOption({{QStringLiteral("m"), QStringLiteral("multiple")}, QStringLiteral("Allow multiple instances to be started.")});
 #endif
-	parser.addPositionalArgument(QStringLiteral("xmpp-uri"), QStringLiteral("An XMPP-URI to open (i.e. join a chat)."),
-	                             QStringLiteral("[xmpp-uri]"));
+    parser.addPositionalArgument(QStringLiteral("xmpp-uri"), QStringLiteral("An XMPP-URI to open (i.e. join a chat)."), QStringLiteral("[xmpp-uri]"));
 
-	// parse arguments
-	if (!parser.parse(QGuiApplication::arguments())) {
-		*errorMessage = parser.errorText();
-		return CommandLineError;
-	}
+    // parse arguments
+    if (!parser.parse(QGuiApplication::arguments())) {
+        *errorMessage = parser.errorText();
+        return CommandLineError;
+    }
 
-	// check for special cases
-	if (parser.isSet(versionOption))
-		return CommandLineVersionRequested;
+    // check for special cases
+    if (parser.isSet(versionOption))
+        return CommandLineVersionRequested;
 
-	if (parser.isSet(helpOption))
-		return CommandLineHelpRequested;
-	// if nothing special happened, return OK
-	return CommandLineOk;
+    if (parser.isSet(helpOption))
+        return CommandLineHelpRequested;
+    // if nothing special happened, return OK
+    return CommandLineOk;
 }
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
 #ifdef Q_OS_WIN
-	if (AttachConsole(ATTACH_PARENT_PROCESS)) {
-		freopen("CONOUT$", "w", stdout);
-		freopen("CONOUT$", "w", stderr);
-	}
+    if (AttachConsole(ATTACH_PARENT_PROCESS)) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+    }
 #endif
 
-	//
-	// App
-	//
+    //
+    // App
+    //
 
 #ifdef UBUNTU_TOUCH
-	qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "true");
-	qputenv("QT_QUICK_CONTROLS_MOBILE", "true");
+    qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "true");
+    qputenv("QT_QUICK_CONTROLS_MOBILE", "true");
 #endif
 
 #ifdef APPIMAGE
-	qputenv("OPENSSL_CONF", "");
+    qputenv("OPENSSL_CONF", "");
 #endif
 
-	// name, display name, description
-	QGuiApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
-	QGuiApplication::setApplicationDisplayName(QStringLiteral(APPLICATION_DISPLAY_NAME));
-	QGuiApplication::setApplicationVersion(QStringLiteral(VERSION_STRING));
-	QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
-	// attributes
-	QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-	QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    // name, display name, description
+    QGuiApplication::setApplicationName(QStringLiteral(APPLICATION_NAME));
+    QGuiApplication::setApplicationDisplayName(QStringLiteral(APPLICATION_DISPLAY_NAME));
+    QGuiApplication::setApplicationVersion(QStringLiteral(VERSION_STRING));
+    QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
+    // attributes
+    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-	// create a qt app
+    // create a qt app
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
-	QGuiApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 #else
-	SingleApplication app(argc, argv, true);
+    SingleApplication app(argc, argv, true);
 #endif
 
 #ifdef APPIMAGE
-	QFileInfo executable(QCoreApplication::applicationFilePath());
+    QFileInfo executable(QCoreApplication::applicationFilePath());
 
-	if (executable.isSymLink()) {
-		executable.setFile(executable.symLinkTarget());
-	}
+    if (executable.isSymLink()) {
+        executable.setFile(executable.symLinkTarget());
+    }
 
-	QString gstreamerPluginsPath;
+    QString gstreamerPluginsPath;
 
-	// Try to use deployed plugins if any...
+    // Try to use deployed plugins if any...
 #if defined(TARGET_GSTREAMER_PLUGINS)
-	gstreamerPluginsPath = QString::fromLocal8Bit(TARGET_GSTREAMER_PLUGINS);
+    gstreamerPluginsPath = QString::fromLocal8Bit(TARGET_GSTREAMER_PLUGINS);
 
-	if (!gstreamerPluginsPath.isEmpty()) {
-		gstreamerPluginsPath = QDir::cleanPath(QString::fromLatin1("%1/../..%2")
-							.arg(executable.absolutePath(), gstreamerPluginsPath));
-	}
-	qDebug() << "Looking for gstreamer in " << gstreamerPluginsPath;
+    if (!gstreamerPluginsPath.isEmpty()) {
+        gstreamerPluginsPath = QDir::cleanPath(QString::fromLatin1("%1/../..%2").arg(executable.absolutePath(), gstreamerPluginsPath));
+    }
+    qDebug() << "Looking for gstreamer in " << gstreamerPluginsPath;
 #else
-	qFatal("Please provide the unified directory containing the gstreamer plugins and gst-plugin-scanner.");
+    qFatal("Please provide the unified directory containing the gstreamer plugins and gst-plugin-scanner.");
 #endif
 
 #if defined(QT_DEBUG)
-	qputenv("GST_DEBUG", "ERROR:5,WARNING:5,INFO:5,DEBUG:5,LOG:5");
+    qputenv("GST_DEBUG", "ERROR:5,WARNING:5,INFO:5,DEBUG:5,LOG:5");
 #endif
-	qputenv("GST_PLUGIN_PATH_1_0", QByteArray());
-	qputenv("GST_PLUGIN_SYSTEM_PATH_1_0", gstreamerPluginsPath.toLocal8Bit());
-	qputenv("GST_PLUGIN_SCANNER_1_0", QString::fromLatin1("%1/gst-plugin-scanner").arg(gstreamerPluginsPath).toLocal8Bit());
+    qputenv("GST_PLUGIN_PATH_1_0", QByteArray());
+    qputenv("GST_PLUGIN_SYSTEM_PATH_1_0", gstreamerPluginsPath.toLocal8Bit());
+    qputenv("GST_PLUGIN_SCANNER_1_0", QString::fromLatin1("%1/gst-plugin-scanner").arg(gstreamerPluginsPath).toLocal8Bit());
 #endif // APPIMAGE
 
-	// register qMetaTypes
-	qRegisterMetaType<ProviderListItem>();
-	qRegisterMetaType<RosterItem>();
-	qRegisterMetaType<RosterItemWatcher *>();
-	qRegisterMetaType<RosterModel*>();
-	qRegisterMetaType<RosterManager*>();
-	qRegisterMetaType<Message>();
-	qRegisterMetaType<MessageModel*>();
-	qRegisterMetaType<ChatHintModel*>();
-	qRegisterMetaType<DiscoveryManager*>();
-	qRegisterMetaType<VCardManager*>();
-	qRegisterMetaType<VersionManager*>();
-	qRegisterMetaType<RegistrationManager*>();
-	qRegisterMetaType<AccountMigrationManager*>();
-	qRegisterMetaType<FileSharingController *>();
-	qRegisterMetaType<EncryptionController *>();
-	qRegisterMetaType<AvatarFileStorage*>();
-	qRegisterMetaType<QmlUtils*>();
-	qRegisterMetaType<QVector<Message>>();
-	qRegisterMetaType<QVector<RosterItem>>();
-	qRegisterMetaType<QHash<QString,RosterItem>>();
-	qRegisterMetaType<std::function<void()>>();
-	qRegisterMetaType<std::function<void(RosterItem&)>>();
-	qRegisterMetaType<std::function<void(Message&)>>();
-	qRegisterMetaType<QXmppVCardIq>();
-	qRegisterMetaType<QMimeType>();
-	qRegisterMetaType<CameraInfo>();
-	qRegisterMetaType<AudioDeviceInfo>();
-	qRegisterMetaType<MediaSettings>();
-	qRegisterMetaType<ImageEncoderSettings>();
-	qRegisterMetaType<AudioEncoderSettings>();
-	qRegisterMetaType<VideoEncoderSettings>();
-	qRegisterMetaType<CredentialsValidator*>();
-	qRegisterMetaType<QXmppVersionIq>();
-	qRegisterMetaType<QXmppUri>();
-	qRegisterMetaType<QMap<QString, QUrl>>();
-	qRegisterMetaType<std::shared_ptr<Message>>();
-	qRegisterMetaType<AtmManager*>();
-	qRegisterMetaType<GroupChatController*>();
-	qRegisterMetaType<GroupChatUser>();
-	qRegisterMetaType<QVector<GroupChatUser>>();
-	qRegisterMetaType<std::function<void(GroupChatUser&)>>();
-	qRegisterMetaType<GroupChatUserModel*>();
-	// The alias is needed because the type shares its QMetaType::id() with quint32.
-	qRegisterMetaType<uint32_t>("uint32_t");
+    // register qMetaTypes
+    qRegisterMetaType<ProviderListItem>();
+    qRegisterMetaType<RosterItem>();
+    qRegisterMetaType<RosterItemWatcher *>();
+    qRegisterMetaType<RosterModel *>();
+    qRegisterMetaType<RosterManager *>();
+    qRegisterMetaType<Message>();
+    qRegisterMetaType<MessageModel *>();
+    qRegisterMetaType<ChatHintModel *>();
+    qRegisterMetaType<DiscoveryManager *>();
+    qRegisterMetaType<VCardManager *>();
+    qRegisterMetaType<VersionManager *>();
+    qRegisterMetaType<RegistrationManager *>();
+    qRegisterMetaType<AccountMigrationManager *>();
+    qRegisterMetaType<FileSharingController *>();
+    qRegisterMetaType<EncryptionController *>();
+    qRegisterMetaType<AvatarFileStorage *>();
+    qRegisterMetaType<QmlUtils *>();
+    qRegisterMetaType<QVector<Message>>();
+    qRegisterMetaType<QVector<RosterItem>>();
+    qRegisterMetaType<QHash<QString, RosterItem>>();
+    qRegisterMetaType<std::function<void()>>();
+    qRegisterMetaType<std::function<void(RosterItem &)>>();
+    qRegisterMetaType<std::function<void(Message &)>>();
+    qRegisterMetaType<QXmppVCardIq>();
+    qRegisterMetaType<QMimeType>();
+    qRegisterMetaType<CameraInfo>();
+    qRegisterMetaType<AudioDeviceInfo>();
+    qRegisterMetaType<MediaSettings>();
+    qRegisterMetaType<ImageEncoderSettings>();
+    qRegisterMetaType<AudioEncoderSettings>();
+    qRegisterMetaType<VideoEncoderSettings>();
+    qRegisterMetaType<CredentialsValidator *>();
+    qRegisterMetaType<QXmppVersionIq>();
+    qRegisterMetaType<QXmppUri>();
+    qRegisterMetaType<QMap<QString, QUrl>>();
+    qRegisterMetaType<std::shared_ptr<Message>>();
+    qRegisterMetaType<AtmManager *>();
+    qRegisterMetaType<GroupChatController *>();
+    qRegisterMetaType<GroupChatUser>();
+    qRegisterMetaType<QVector<GroupChatUser>>();
+    qRegisterMetaType<std::function<void(GroupChatUser &)>>();
+    qRegisterMetaType<GroupChatUserModel *>();
+    // The alias is needed because the type shares its QMetaType::id() with quint32.
+    qRegisterMetaType<uint32_t>("uint32_t");
 
-	// Enums for c++ member calls using enums
-	qRegisterMetaType<Qt::ApplicationState>();
-	qRegisterMetaType<QXmppClient::State>();
-	qRegisterMetaType<QXmppMessage::State>();
-	qRegisterMetaType<QXmppStanza::Error>();
-	qRegisterMetaType<MessageType>();
-	qRegisterMetaType<Enums::ConnectionState>();
-	qRegisterMetaType<PublicGroupChatModel::CustomRole>();
-	qRegisterMetaType<ClientWorker::ConnectionError>();
-	qRegisterMetaType<Enums::MessageType>();
-	qRegisterMetaType<Presence::Availability>();
-	qRegisterMetaType<Enums::DeliveryState>();
-	qRegisterMetaType<MessageOrigin>();
-	qRegisterMetaType<CommonEncoderSettings::EncodingQuality>();
-	qRegisterMetaType<CommonEncoderSettings::EncodingMode>();
-	qRegisterMetaType<AudioDeviceModel::Mode>();
-	qRegisterMetaType<MediaRecorder::Type>();
-	qRegisterMetaType<MediaRecorder::AvailabilityStatus>();
-	qRegisterMetaType<MediaRecorder::State>();
-	qRegisterMetaType<MediaRecorder::Status>();
-	qRegisterMetaType<MediaRecorder::Error>();
-	qRegisterMetaType<ProviderListModel::Role>();
-	qRegisterMetaType<ChatState::State>();
-	qRegisterMetaType<Encryption>();
-	qRegisterMetaType<MessageReactionDeliveryState>();
-	qRegisterMetaType<FileModel::Role>();
-	qRegisterMetaType<FileProxyModel::Mode>();
-	qRegisterMetaType<Account::ContactNotificationRule>();
-	qRegisterMetaType<Account::GroupChatNotificationRule>();
-	qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
-	qRegisterMetaType<Account::GeoLocationMapService>();
-	qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
-	qRegisterMetaType<AccountMigrationManager::MigrationState>();
-	qRegisterMetaType<RosterItem::GroupChatFlag>();
-	qRegisterMetaType<RosterModel::RosterItemRoles>();
-	qRegisterMetaType<Message::TrustLevel>();
+    // Enums for c++ member calls using enums
+    qRegisterMetaType<Qt::ApplicationState>();
+    qRegisterMetaType<QXmppClient::State>();
+    qRegisterMetaType<QXmppMessage::State>();
+    qRegisterMetaType<QXmppStanza::Error>();
+    qRegisterMetaType<MessageType>();
+    qRegisterMetaType<Enums::ConnectionState>();
+    qRegisterMetaType<PublicGroupChatModel::CustomRole>();
+    qRegisterMetaType<ClientWorker::ConnectionError>();
+    qRegisterMetaType<Enums::MessageType>();
+    qRegisterMetaType<Presence::Availability>();
+    qRegisterMetaType<Enums::DeliveryState>();
+    qRegisterMetaType<MessageOrigin>();
+    qRegisterMetaType<CommonEncoderSettings::EncodingQuality>();
+    qRegisterMetaType<CommonEncoderSettings::EncodingMode>();
+    qRegisterMetaType<AudioDeviceModel::Mode>();
+    qRegisterMetaType<MediaRecorder::Type>();
+    qRegisterMetaType<MediaRecorder::AvailabilityStatus>();
+    qRegisterMetaType<MediaRecorder::State>();
+    qRegisterMetaType<MediaRecorder::Status>();
+    qRegisterMetaType<MediaRecorder::Error>();
+    qRegisterMetaType<ProviderListModel::Role>();
+    qRegisterMetaType<ChatState::State>();
+    qRegisterMetaType<Encryption>();
+    qRegisterMetaType<MessageReactionDeliveryState>();
+    qRegisterMetaType<FileModel::Role>();
+    qRegisterMetaType<FileProxyModel::Mode>();
+    qRegisterMetaType<Account::ContactNotificationRule>();
+    qRegisterMetaType<Account::GroupChatNotificationRule>();
+    qRegisterMetaType<Account::AutomaticMediaDownloadsRule>();
+    qRegisterMetaType<Account::GeoLocationMapService>();
+    qRegisterMetaType<RosterItem::AutomaticMediaDownloadsRule>();
+    qRegisterMetaType<AccountMigrationManager::MigrationState>();
+    qRegisterMetaType<RosterItem::GroupChatFlag>();
+    qRegisterMetaType<RosterModel::RosterItemRoles>();
+    qRegisterMetaType<Message::TrustLevel>();
 
-	// QXmpp
-	qRegisterMetaType<QXmppResultSetReply>();
-	qRegisterMetaType<QXmppMessage>();
-	qRegisterMetaType<QXmppPresence>();
-	qRegisterMetaType<QXmppDiscoveryIq>();
-	qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
-	qRegisterMetaType<QXmppMixInfoItem>();
-	qRegisterMetaType<QXmppMixParticipantItem>();
-	qRegisterMetaType<QMultiHash<QString, QByteArray>>();
+    // QXmpp
+    qRegisterMetaType<QXmppResultSetReply>();
+    qRegisterMetaType<QXmppMessage>();
+    qRegisterMetaType<QXmppPresence>();
+    qRegisterMetaType<QXmppDiscoveryIq>();
+    qRegisterMetaType<QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>>>();
+    qRegisterMetaType<QXmppMixInfoItem>();
+    qRegisterMetaType<QXmppMixParticipantItem>();
+    qRegisterMetaType<QMultiHash<QString, QByteArray>>();
 
-	// Qt-Translator
-	QTranslator qtTranslator;
-	qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(),
-	                  QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-	QCoreApplication::installTranslator(&qtTranslator);
+    // Qt-Translator
+    QTranslator qtTranslator;
+    qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    QCoreApplication::installTranslator(&qtTranslator);
 
-	//
-	// Command line arguments
-	//
+    //
+    // Command line arguments
+    //
 
-	// create parser and add a description
-	QCommandLineParser parser;
-	// parse the arguments
-	QString commandLineErrorMessage;
-	switch (parseCommandLine(parser, &commandLineErrorMessage)) {
-	case CommandLineError:
-		qWarning() << commandLineErrorMessage;
-		return 1;
-	case CommandLineVersionRequested:
-		parser.showVersion();
-		return 0;
-	case CommandLineHelpRequested:
-		parser.showHelp();
-		return 0;
-	case CommandLineOk:
-		break;
-	}
+    // create parser and add a description
+    QCommandLineParser parser;
+    // parse the arguments
+    QString commandLineErrorMessage;
+    switch (parseCommandLine(parser, &commandLineErrorMessage)) {
+    case CommandLineError:
+        qWarning() << commandLineErrorMessage;
+        return 1;
+    case CommandLineVersionRequested:
+        parser.showVersion();
+        return 0;
+    case CommandLineHelpRequested:
+        parser.showHelp();
+        return 0;
+    case CommandLineOk:
+        break;
+    }
 
 #if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
 #ifdef NDEBUG
-	if (app.isSecondary()) {
-		qDebug() << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
+    if (app.isSecondary()) {
+        qDebug() << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
 #else
-	// check if another instance already runs
-	if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {
-		qDebug().noquote() << QStringLiteral("Another instance of %1 is already running.")
-		                      .arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
-		                   << "You can enable multiple instances by specifying '--multiple'.";
+    // check if another instance already runs
+    if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {
+        qDebug().noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
+                           << "You can enable multiple instances by specifying '--multiple'.";
 #endif
 
-		// send a possible link to the primary instance
-		if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
-			app.sendMessage(positionalArguments.first().toUtf8());
-		return 0;
-	}
+        // send a possible link to the primary instance
+        if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
+            app.sendMessage(positionalArguments.first().toUtf8());
+        return 0;
+    }
 #endif
 
-	//
-	// Kaidan back-end
-	//
-	Kaidan kaidan(!parser.isSet(QStringLiteral("disable-xml-log")));
+    //
+    // Kaidan back-end
+    //
+    Kaidan kaidan(!parser.isSet(QStringLiteral("disable-xml-log")));
 
 #if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
-	// receive messages from other instances of Kaidan
-	Kaidan::connect(&app, &SingleApplication::receivedMessage,
-	                &kaidan, &Kaidan::receiveMessage);
+    // receive messages from other instances of Kaidan
+    Kaidan::connect(&app, &SingleApplication::receivedMessage, &kaidan, &Kaidan::receiveMessage);
 #endif
 
-	// open the XMPP-URI/link (if given)
-	if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
-		kaidan.addOpenUri(positionalArguments.first());
+    // open the XMPP-URI/link (if given)
+    if (const auto positionalArguments = parser.positionalArguments(); !positionalArguments.isEmpty())
+        kaidan.addOpenUri(positionalArguments.first());
 
-	//
-	// QML-GUI
-	//
+    //
+    // QML-GUI
+    //
 
-	if (QIcon::themeName().isEmpty()) {
-		QIcon::setThemeName(QStringLiteral("breeze"));
-	}
+    if (QIcon::themeName().isEmpty()) {
+        QIcon::setThemeName(QStringLiteral("breeze"));
+    }
 
-	QQmlApplicationEngine engine;
+    QQmlApplicationEngine engine;
 
-	engine.addImageProvider(QLatin1String(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), BitsOfBinaryImageProvider::instance());
+    engine.addImageProvider(QLatin1String(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), BitsOfBinaryImageProvider::instance());
 
-	// QtQuickControls2 Style
-	if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+    // QtQuickControls2 Style
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-		const QString defaultStyle = QStringLiteral("Material");
+        const QString defaultStyle = QStringLiteral("Material");
 #else
-		const QString defaultStyle = QStringLiteral("org.kde.desktop");
+        const QString defaultStyle = QStringLiteral("org.kde.desktop");
 #endif
-		qDebug() << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
-		qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
-	}
+        qDebug() << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
+        qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
+    }
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-	QApplication::setStyle(QStringLiteral("breeze"));
+    QApplication::setStyle(QStringLiteral("breeze"));
 #endif
 
-	// QML type bindings
-	qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
-	qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
-	qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");
-	qmlRegisterType<EmojiProxyModel>("EmojiModel", 0, 1, "EmojiProxyModel");
-	qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
-	qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
-	qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
-	qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
-	qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
-	qmlRegisterType<BlockingAction>(APPLICATION_ID, 1, 0, "BlockingAction");
-	qmlRegisterType<ContactQrCodeGenerator>(APPLICATION_ID, 1, 0, "ContactQrCodeGenerator");
-	qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
-	qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
-	qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
-	qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
-	qmlRegisterType<LoginQrCodeGenerator>(APPLICATION_ID, 1, 0, "LoginQrCodeGenerator");
-	qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
-	qmlRegisterType<MediaSettingsResolutionModel>(APPLICATION_ID, 1, 0, "MediaSettingsResolutionModel");
-	qmlRegisterType<MediaSettingsQualityModel>(APPLICATION_ID, 1, 0, "MediaSettingsQualityModel");
-	qmlRegisterType<MediaSettingsImageCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsImageCodecModel");
-	qmlRegisterType<MediaSettingsAudioCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioCodecModel");
-	qmlRegisterType<MediaSettingsAudioSampleRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioSampleRateModel");
-	qmlRegisterType<MediaSettingsVideoCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoCodecModel");
-	qmlRegisterType<MediaSettingsVideoFrameRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoFrameRateModel");
-	qmlRegisterType<MediaRecorder>(APPLICATION_ID, 1, 0, "MediaRecorder");
-	qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
-	qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
-	qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
-	qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
-	qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
-	qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
-	qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
-	qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
-	qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-	qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
-	qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
-	qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
-	qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
-	qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
-	qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");
-	qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
-	qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
-	qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
-	qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
-	qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
-	qmlRegisterType<GroupChatQrCodeGenerator>(APPLICATION_ID, 1, 0, "GroupChatQrCodeGenerator");
-	qmlRegisterType<GroupChatUserModel>(APPLICATION_ID, 1, 0, "GroupChatUserModel");
-	qmlRegisterType<GroupChatUserFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserFilterModel");
-	qmlRegisterType<GroupChatUserKeyAuthenticationFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserKeyAuthenticationFilterModel");
-	qmlRegisterType<AccountTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "AccountTrustMessageUriGenerator");
-	qmlRegisterType<ContactTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "ContactTrustMessageUriGenerator");
-	qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
+    // QML type bindings
+    qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
+    qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
+    qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");
+    qmlRegisterType<EmojiProxyModel>("EmojiModel", 0, 1, "EmojiProxyModel");
+    qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
+    qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
+    qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
+    qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");
+    qmlRegisterType<BlockingWatcher>(APPLICATION_ID, 1, 0, "BlockingWatcher");
+    qmlRegisterType<BlockingAction>(APPLICATION_ID, 1, 0, "BlockingAction");
+    qmlRegisterType<ContactQrCodeGenerator>(APPLICATION_ID, 1, 0, "ContactQrCodeGenerator");
+    qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
+    qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
+    qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
+    qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
+    qmlRegisterType<LoginQrCodeGenerator>(APPLICATION_ID, 1, 0, "LoginQrCodeGenerator");
+    qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
+    qmlRegisterType<MediaSettingsResolutionModel>(APPLICATION_ID, 1, 0, "MediaSettingsResolutionModel");
+    qmlRegisterType<MediaSettingsQualityModel>(APPLICATION_ID, 1, 0, "MediaSettingsQualityModel");
+    qmlRegisterType<MediaSettingsImageCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsImageCodecModel");
+    qmlRegisterType<MediaSettingsAudioCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioCodecModel");
+    qmlRegisterType<MediaSettingsAudioSampleRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioSampleRateModel");
+    qmlRegisterType<MediaSettingsVideoCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoCodecModel");
+    qmlRegisterType<MediaSettingsVideoFrameRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoFrameRateModel");
+    qmlRegisterType<MediaRecorder>(APPLICATION_ID, 1, 0, "MediaRecorder");
+    qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
+    qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
+    qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
+    qmlRegisterType<RegistrationDataFormFilterModel>(APPLICATION_ID, 1, 0, "RegistrationDataFormFilterModel");
+    qmlRegisterType<ProviderListModel>(APPLICATION_ID, 1, 0, "ProviderListModel");
+    qmlRegisterType<FileProgressWatcher>(APPLICATION_ID, 1, 0, "FileProgressWatcher");
+    qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
+    qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
+    qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
+    qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
+    qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
+    qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
+    qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
+    qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
+    qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");
+    qmlRegisterType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel");
+    qmlRegisterType<HostCompletionProxyModel>(APPLICATION_ID, 1, 0, "HostCompletionProxyModel");
+    qmlRegisterType<FileModel>(APPLICATION_ID, 1, 0, "FileModel");
+    qmlRegisterType<FileProxyModel>(APPLICATION_ID, 1, 0, "FileProxyModel");
+    qmlRegisterType<TextFormatter>(APPLICATION_ID, 1, 0, "TextFormatter");
+    qmlRegisterType<GroupChatQrCodeGenerator>(APPLICATION_ID, 1, 0, "GroupChatQrCodeGenerator");
+    qmlRegisterType<GroupChatUserModel>(APPLICATION_ID, 1, 0, "GroupChatUserModel");
+    qmlRegisterType<GroupChatUserFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserFilterModel");
+    qmlRegisterType<GroupChatUserKeyAuthenticationFilterModel>(APPLICATION_ID, 1, 0, "GroupChatUserKeyAuthenticationFilterModel");
+    qmlRegisterType<AccountTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "AccountTrustMessageUriGenerator");
+    qmlRegisterType<ContactTrustMessageUriGenerator>(APPLICATION_ID, 1, 0, "ContactTrustMessageUriGenerator");
+    qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
 
-	qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
-	qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
-	qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
-	qmlRegisterUncreatableType<CameraInfo>(APPLICATION_ID, 1, 0, "CameraInfo", QStringLiteral("CameraInfo type usable"));
-	qmlRegisterUncreatableType<AudioDeviceInfo>(APPLICATION_ID, 1, 0, "AudioDeviceInfo", QStringLiteral("AudioDeviceInfo type usable"));
-	qmlRegisterUncreatableType<MediaSettings>(APPLICATION_ID, 1, 0, "MediaSettings", QStringLiteral("MediaSettings type usable"));
-	qmlRegisterUncreatableType<CommonEncoderSettings>(APPLICATION_ID, 1, 0, "CommonEncoderSettings", QStringLiteral("CommonEncoderSettings type usable"));
-	qmlRegisterUncreatableType<ImageEncoderSettings>(APPLICATION_ID, 1, 0, "ImageEncoderSettings", QStringLiteral("ImageEncoderSettings type usable"));
-	qmlRegisterUncreatableType<AudioEncoderSettings>(APPLICATION_ID, 1, 0, "AudioEncoderSettings", QStringLiteral("AudioEncoderSettings type usable"));
-	qmlRegisterUncreatableType<VideoEncoderSettings>(APPLICATION_ID, 1, 0, "VideoEncoderSettings", QStringLiteral("VideoEncoderSettings type usable"));
-	qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<Presence>(APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<RegistrationManager>(APPLICATION_ID, 1, 0, "RegistrationManager", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<AccountMigrationManager>(APPLICATION_ID, 1, 0, "AccountMigrationManager", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
-	qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", QStringLiteral("ServerFeaturesCache type usable"));
-	qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", QStringLiteral("Not creatable from QML"));
-	qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", QStringLiteral("Used by PublicGroupChatModel"));
-	qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<MessageReactionDeliveryState>(APPLICATION_ID, 1, 0, "MessageReactionDeliveryState", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<RosterItem>(APPLICATION_ID, 1, 0, "RosterItem", QStringLiteral("Cannot create object; only enums defined!"));
-	qmlRegisterUncreatableType<Message>(APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
+    qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
+    qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
+    qmlRegisterUncreatableType<CameraInfo>(APPLICATION_ID, 1, 0, "CameraInfo", QStringLiteral("CameraInfo type usable"));
+    qmlRegisterUncreatableType<AudioDeviceInfo>(APPLICATION_ID, 1, 0, "AudioDeviceInfo", QStringLiteral("AudioDeviceInfo type usable"));
+    qmlRegisterUncreatableType<MediaSettings>(APPLICATION_ID, 1, 0, "MediaSettings", QStringLiteral("MediaSettings type usable"));
+    qmlRegisterUncreatableType<CommonEncoderSettings>(APPLICATION_ID, 1, 0, "CommonEncoderSettings", QStringLiteral("CommonEncoderSettings type usable"));
+    qmlRegisterUncreatableType<ImageEncoderSettings>(APPLICATION_ID, 1, 0, "ImageEncoderSettings", QStringLiteral("ImageEncoderSettings type usable"));
+    qmlRegisterUncreatableType<AudioEncoderSettings>(APPLICATION_ID, 1, 0, "AudioEncoderSettings", QStringLiteral("AudioEncoderSettings type usable"));
+    qmlRegisterUncreatableType<VideoEncoderSettings>(APPLICATION_ID, 1, 0, "VideoEncoderSettings", QStringLiteral("VideoEncoderSettings type usable"));
+    qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<Presence>(APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<RegistrationManager>(APPLICATION_ID, 1, 0, "RegistrationManager", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<AccountMigrationManager>(APPLICATION_ID,
+                                                        1,
+                                                        0,
+                                                        "AccountMigrationManager",
+                                                        QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<ChatState>(APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Cannot create object; only enums defined"));
+    qmlRegisterUncreatableType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", QStringLiteral("ServerFeaturesCache type usable"));
+    qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", QStringLiteral("Not creatable from QML"));
+    qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", QStringLiteral("Used by PublicGroupChatModel"));
+    qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<MessageReactionDeliveryState>(APPLICATION_ID,
+                                                             1,
+                                                             0,
+                                                             "MessageReactionDeliveryState",
+                                                             QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<RosterItem>(APPLICATION_ID, 1, 0, "RosterItem", QStringLiteral("Cannot create object; only enums defined!"));
+    qmlRegisterUncreatableType<Message>(APPLICATION_ID, 1, 0, "Message", QStringLiteral("Cannot create object; only enums defined!"));
 
-	qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject, APPLICATION_ID, 1, 0, "ChatState", QStringLiteral("Can't create object; only enums defined!"));
-	qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));
+    qmlRegisterUncreatableMetaObject(ChatState::staticMetaObject,
+                                     APPLICATION_ID,
+                                     1,
+                                     0,
+                                     "ChatState",
+                                     QStringLiteral("Can't create object; only enums defined!"));
+    qmlRegisterUncreatableMetaObject(Enums::staticMetaObject, APPLICATION_ID, 1, 0, "Enums", QStringLiteral("Can't create object; only enums defined!"));
 
-	qmlRegisterSingletonType<QmlUtils>(APPLICATION_ID, 1, 0, "Utils", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject*>(QmlUtils::instance());
-	});
-	qmlRegisterSingletonType<MediaUtils>(APPLICATION_ID, 1, 0, "MediaUtils", [](QQmlEngine *, QJSEngine *) {
-		QObject *instance = new MediaUtils(qApp);
-		return instance;
-	});
-	qmlRegisterSingletonType<Kaidan>(APPLICATION_ID, 1, 0, "Kaidan", [](QQmlEngine *engine, QJSEngine *) {
-		engine->setObjectOwnership(Kaidan::instance(), QQmlEngine::CppOwnership);
-		return static_cast<QObject *>(Kaidan::instance());
-	});
-	qmlRegisterSingletonType<GuiStyle>(APPLICATION_ID, 1, 0, "Style", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(new GuiStyle(QCoreApplication::instance()));
-	});
-	qmlRegisterSingletonType<AccountManager>(APPLICATION_ID, 1, 0, "AccountManager", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(AccountManager::instance());
-	});
-	qmlRegisterSingletonType<ChatController>(APPLICATION_ID, 1, 0, "ChatController", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(ChatController::instance());
-	});
-	qmlRegisterSingletonType<GroupChatController>(APPLICATION_ID, 1, 0, "GroupChatController", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(GroupChatController::instance());
-	});
-	qmlRegisterSingletonType<EncryptionController>(APPLICATION_ID, 1, 0, "EncryptionController", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(EncryptionController::instance());
-	});
-	qmlRegisterSingletonType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(RosterModel::instance());
-	});
-	qmlRegisterSingletonType<MessageModel>(APPLICATION_ID, 1, 0, "MessageModel", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(MessageModel::instance());
-	});
-	qmlRegisterSingletonType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel", [](QQmlEngine *, QJSEngine *) {
-		return static_cast<QObject *>(ChatHintModel::instance());
-	});
-	qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
-		static auto self = new HostCompletionModel(qApp);
-		return static_cast<QObject *>(self);
-	});
+    qmlRegisterSingletonType<QmlUtils>(APPLICATION_ID, 1, 0, "Utils", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(QmlUtils::instance());
+    });
+    qmlRegisterSingletonType<MediaUtils>(APPLICATION_ID, 1, 0, "MediaUtils", [](QQmlEngine *, QJSEngine *) {
+        QObject *instance = new MediaUtils(qApp);
+        return instance;
+    });
+    qmlRegisterSingletonType<Kaidan>(APPLICATION_ID, 1, 0, "Kaidan", [](QQmlEngine *engine, QJSEngine *) {
+        engine->setObjectOwnership(Kaidan::instance(), QQmlEngine::CppOwnership);
+        return static_cast<QObject *>(Kaidan::instance());
+    });
+    qmlRegisterSingletonType<GuiStyle>(APPLICATION_ID, 1, 0, "Style", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(new GuiStyle(QCoreApplication::instance()));
+    });
+    qmlRegisterSingletonType<AccountManager>(APPLICATION_ID, 1, 0, "AccountManager", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(AccountManager::instance());
+    });
+    qmlRegisterSingletonType<ChatController>(APPLICATION_ID, 1, 0, "ChatController", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(ChatController::instance());
+    });
+    qmlRegisterSingletonType<GroupChatController>(APPLICATION_ID, 1, 0, "GroupChatController", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(GroupChatController::instance());
+    });
+    qmlRegisterSingletonType<EncryptionController>(APPLICATION_ID, 1, 0, "EncryptionController", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(EncryptionController::instance());
+    });
+    qmlRegisterSingletonType<RosterModel>(APPLICATION_ID, 1, 0, "RosterModel", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(RosterModel::instance());
+    });
+    qmlRegisterSingletonType<MessageModel>(APPLICATION_ID, 1, 0, "MessageModel", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(MessageModel::instance());
+    });
+    qmlRegisterSingletonType<ChatHintModel>(APPLICATION_ID, 1, 0, "ChatHintModel", [](QQmlEngine *, QJSEngine *) {
+        return static_cast<QObject *>(ChatHintModel::instance());
+    });
+    qmlRegisterSingletonType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", [](QQmlEngine *, QJSEngine *) {
+        static auto self = new HostCompletionModel(qApp);
+        return static_cast<QObject *>(self);
+    });
 
-	engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
-	if (engine.rootObjects().isEmpty())
-		return -1;
+    engine.load(QUrl(QStringLiteral("qrc:/qml/main.qml")));
+    if (engine.rootObjects().isEmpty())
+        return -1;
 
 #ifdef Q_OS_ANDROID
-	QtAndroid::hideSplashScreen();
+    QtAndroid::hideSplashScreen();
 #endif
 
-	// enter qt main loop
-	return app.exec();
+    // enter qt main loop
+    return app.exec();
 }

@@ -21,22 +21,22 @@ class QXmppDiscoveryManager;
 class DiscoveryManager : public QObject
 {
 public:
-	DiscoveryManager(QXmppClient *client, QObject *parent = nullptr);
+    DiscoveryManager(QXmppClient *client, QObject *parent = nullptr);
 
-	~DiscoveryManager();
+    ~DiscoveryManager();
 
 private:
-	/**
-	 * Requests disco info and items from the server.
-	 * The results are used, for example, by QXmppMixManager.
-	 */
-	void requestData();
+    /**
+     * Requests disco info and items from the server.
+     * The results are used, for example, by QXmppMixManager.
+     */
+    void requestData();
 
-	/**
-	 * Handles incoming results of disco item requests
-	 */
-	void handleItems(QList<QXmppDiscoveryIq::Item> &&);
+    /**
+     * Handles incoming results of disco item requests
+     */
+    void handleItems(QList<QXmppDiscoveryIq::Item> &&);
 
-	QXmppClient *m_client;
-	QXmppDiscoveryManager *m_manager;
+    QXmppClient *m_client;
+    QXmppDiscoveryManager *m_manager;
 };

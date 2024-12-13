@@ -8,27 +8,27 @@
 
 class PublicGroupChatProxyModel : public QSortFilterProxyModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QString languageFilter READ languageFilter WRITE setLanguageFilter NOTIFY languageFilterChanged)
-	Q_PROPERTY(int count READ count NOTIFY countChanged)
+    Q_PROPERTY(QString languageFilter READ languageFilter WRITE setLanguageFilter NOTIFY languageFilterChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 
 public:
-	explicit PublicGroupChatProxyModel(QObject *parent = nullptr);
+    explicit PublicGroupChatProxyModel(QObject *parent = nullptr);
 
-	void setSourceModel(QAbstractItemModel *sourceModel) override;
-	Q_INVOKABLE void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
+    void setSourceModel(QAbstractItemModel *sourceModel) override;
+    Q_INVOKABLE void sort(int column, Qt::SortOrder order = Qt::AscendingOrder) override;
 
-	const QString &languageFilter() const;
-	void setLanguageFilter(const QString &language);
-	Q_SIGNAL void languageFilterChanged(const QString &language);
+    const QString &languageFilter() const;
+    void setLanguageFilter(const QString &language);
+    Q_SIGNAL void languageFilterChanged(const QString &language);
 
-	int count() const;
-	Q_SIGNAL void countChanged();
+    int count() const;
+    Q_SIGNAL void countChanged();
 
 protected:
-	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
-	QString m_languageFilter;
+    QString m_languageFilter;
 };

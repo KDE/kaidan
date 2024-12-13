@@ -9,24 +9,25 @@
 
 class QUrl;
 
-namespace SystemUtils {
+namespace SystemUtils
+{
 
-	struct LocaleCodes {
-		QString languageCode;
-		QString countryCode;
-	};
+struct LocaleCodes {
+    QString languageCode;
+    QString countryCode;
+};
 
-	LocaleCodes systemLocaleCodes();
+LocaleCodes systemLocaleCodes();
 
-	/**
-	 * Returns a pretty product name of the running local system.
-	 *
-	 * This does not contain a version number as QSysInfo::prettyProductName() does.
-	 */
-	QString productName();
+/**
+ * Returns a pretty product name of the running local system.
+ *
+ * This does not contain a version number as QSysInfo::prettyProductName() does.
+ */
+QString productName();
 
-	QString audioDirectory();
-	QString imageDirectory();
-	QString videoDirectory();
+QString audioDirectory();
+QString imageDirectory();
+QString videoDirectory();
 
 }

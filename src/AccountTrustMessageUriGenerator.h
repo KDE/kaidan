@@ -8,13 +8,13 @@
 
 class AccountTrustMessageUriGenerator : public TrustMessageUriGenerator
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit AccountTrustMessageUriGenerator(QObject *parent = nullptr);
+    explicit AccountTrustMessageUriGenerator(QObject *parent = nullptr);
 
 private:
-	void setUp();
-	void handleKeysChanged(const QString &accountJid, const QList<QString> &jids);
-	void updateKeys();
+    void setUp();
+    void handleKeysChanged(const QString &accountJid, const QList<QString> &jids);
+    void updateKeys();
 };

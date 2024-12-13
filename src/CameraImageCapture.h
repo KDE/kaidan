@@ -12,24 +12,24 @@
 
 class CameraImageCapture : public QCameraImageCapture
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QUrl actualLocation READ actualLocation NOTIFY actualLocationChanged)
-	Q_PROPERTY(QMultimedia::AvailabilityStatus availability READ availability NOTIFY availabilityChanged)
-	Q_PROPERTY(bool isAvailable READ isAvailable NOTIFY availabilityChanged)
+    Q_PROPERTY(QUrl actualLocation READ actualLocation NOTIFY actualLocationChanged)
+    Q_PROPERTY(QMultimedia::AvailabilityStatus availability READ availability NOTIFY availabilityChanged)
+    Q_PROPERTY(bool isAvailable READ isAvailable NOTIFY availabilityChanged)
 
 public:
-	CameraImageCapture(QMediaObject *mediaObject, QObject *parent = nullptr);
+    CameraImageCapture(QMediaObject *mediaObject, QObject *parent = nullptr);
 
-	QUrl actualLocation() const;
+    QUrl actualLocation() const;
 
 Q_SIGNALS:
-	void availabilityChanged(QMultimedia::AvailabilityStatus availability);
-	void actualLocationChanged(const QUrl &location);
+    void availabilityChanged(QMultimedia::AvailabilityStatus availability);
+    void actualLocationChanged(const QUrl &location);
 
 protected:
-	bool setMediaObject(QMediaObject *mediaObject) override;
+    bool setMediaObject(QMediaObject *mediaObject) override;
 
 private:
-	QUrl m_actualLocation;
+    QUrl m_actualLocation;
 };

@@ -20,7 +20,7 @@ Q_IMPORT_PLUGIN(QTgaPlugin)
 Q_IMPORT_PLUGIN(QTiffPlugin)
 Q_IMPORT_PLUGIN(QWbmpPlugin)
 Q_IMPORT_PLUGIN(QWebpPlugin)
-#endif //Q_OS_IOS
+#endif // Q_OS_IOS
 
 #ifdef Q_OS_WIN
 Q_IMPORT_PLUGIN(QWindowsIntegrationPlugin);

@@ -18,30 +18,30 @@ class Database;
 
 class DatabaseComponent : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 public:
-	DatabaseComponent(Database *database, QObject *parent = nullptr);
+    DatabaseComponent(Database *database, QObject *parent = nullptr);
 
-	void insert(const QString &tableName, const SqlUtils::QueryBindValues &values);
+    void insert(const QString &tableName, const SqlUtils::QueryBindValues &values);
 
-	// Inserts a row that may contain binary fields (e.g., QByteArray) into a table.
-	void insertBinary(const QString &tableName, const SqlUtils::QueryBindValues &values);
+    // Inserts a row that may contain binary fields (e.g., QByteArray) into a table.
+    void insertBinary(const QString &tableName, const SqlUtils::QueryBindValues &values);
 
-	QSqlQuery createQuery();
-	QSqlDriver &sqlDriver();
-	QSqlRecord sqlRecord(const QString &tableName);
-	void transaction();
-	void commit();
+    QSqlQuery createQuery();
+    QSqlDriver &sqlDriver();
+    QSqlRecord sqlRecord(const QString &tableName);
+    void transaction();
+    void commit();
 
-	template<typename Functor>
-	auto run(Functor function) const
-	{
-		return runAsync(dbWorker(), function);
-	}
+    template<typename Functor>
+    auto run(Functor function) const
+    {
+        return runAsync(dbWorker(), function);
+    }
 
 protected:
-	QObject *dbWorker() const;
+    QObject *dbWorker() const;
 
 private:
-	Database *m_database;
+    Database *m_database;
 };

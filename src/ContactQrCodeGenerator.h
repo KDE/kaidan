@@ -15,22 +15,22 @@
  */
 class ContactQrCodeGenerator : public AbstractQrCodeGenerator
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
+    Q_PROPERTY(QString accountJid READ accountJid WRITE setAccountJid NOTIFY accountJidChanged)
 
 public:
-	explicit ContactQrCodeGenerator(QObject *parent = nullptr);
+    explicit ContactQrCodeGenerator(QObject *parent = nullptr);
 
-	QString accountJid() const;
-	void setAccountJid(const QString &accountJid);
-	Q_SIGNAL void accountJidChanged();
+    QString accountJid() const;
+    void setAccountJid(const QString &accountJid);
+    Q_SIGNAL void accountJidChanged();
 
 private:
-	void updateUriAccountJid();
-	void updateUriJid();
-	void updateText();
+    void updateUriAccountJid();
+    void updateUriJid();
+    void updateText();
 
-	QString m_accountJid;
-	ContactTrustMessageUriGenerator m_uriGenerator;
+    QString m_accountJid;
+    ContactTrustMessageUriGenerator m_uriGenerator;
 };

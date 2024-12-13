@@ -11,12 +11,12 @@
 
 class Encryption
 {
-	Q_GADGET
+    Q_GADGET
 
 public:
-	enum Enum {
-		NoEncryption = QXmpp::NoEncryption,  ///< No encryption
-		Omemo2 = QXmpp::Omemo2               ///< XEP-0384 OMEMO Encryption since version 0.8
-	};
-	Q_ENUM(Enum)
+    enum Enum {
+        NoEncryption = QXmpp::NoEncryption, ///< No encryption
+        Omemo2 = QXmpp::Omemo2 ///< XEP-0384 OMEMO Encryption since version 0.8
+    };
+    Q_ENUM(Enum)
 };

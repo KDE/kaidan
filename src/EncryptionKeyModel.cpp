@@ -5,7 +5,7 @@
 #include "EncryptionKeyModel.h"
 
 EncryptionKeyModel::EncryptionKeyModel(QObject *parent)
-	: QAbstractListModel(parent)
+    : QAbstractListModel(parent)
 {
 }
 
@@ -15,25 +15,25 @@ EncryptionKeyModel::~EncryptionKeyModel()
 
 QHash<int, QByteArray> EncryptionKeyModel::roleNames() const
 {
-	static const QHash<int, QByteArray> roles = {
-		{ static_cast<int>(Role::Label), QByteArrayLiteral("label") },
-		{ static_cast<int>(Role::KeyId), QByteArrayLiteral("keyId") },
-	};
+    static const QHash<int, QByteArray> roles = {
+        {static_cast<int>(Role::Label), QByteArrayLiteral("label")},
+        {static_cast<int>(Role::KeyId), QByteArrayLiteral("keyId")},
+    };
 
-	return roles;
+    return roles;
 }
 
 QString EncryptionKeyModel::accountJid() const
 {
-	return m_accountJid;
+    return m_accountJid;
 }
 
 void EncryptionKeyModel::setAccountJid(const QString &accountJid)
 {
-	if (m_accountJid != accountJid) {
-		m_accountJid = accountJid;
-		Q_EMIT accountJidChanged();
+    if (m_accountJid != accountJid) {
+        m_accountJid = accountJid;
+        Q_EMIT accountJidChanged();
 
-		setUp();
-	}
+        setUp();
+    }
 }

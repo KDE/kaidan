@@ -4,8 +4,8 @@
 
 #include "QXmppColorGenerator.h"
 #include "../hsluv-c/hsluv.h"
-#include <ctgmath>
 #include <QCryptographicHash>
+#include <ctgmath>
 
 /// \brief Generates a color from the input value. This is intended for
 /// generating colors for contacts. The generated colors are "consistent", so
@@ -17,8 +17,7 @@
 /// \param deficiency Color correction to be done, defaults to
 /// ColorVisionDeficiency::NoDeficiency.
 
-QXmppColorGenerator::RGBColor QXmppColorGenerator::generateColor(
-        const QString &name, ColorVisionDeficiency deficiency)
+QXmppColorGenerator::RGBColor QXmppColorGenerator::generateColor(const QString &name, ColorVisionDeficiency deficiency)
 {
     QByteArray input = name.toUtf8();
 

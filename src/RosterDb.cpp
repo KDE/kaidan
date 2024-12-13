@@ -10,10 +10,10 @@
 #include "Globals.h"
 #include "GroupChatUser.h"
 #include "GroupChatUserDb.h"
-#include "SqlUtils.h"
-#include "RosterItem.h"
 #include "Message.h"
 #include "MessageDb.h"
+#include "RosterItem.h"
+#include "SqlUtils.h"
 // Qt
 #include <QSqlDriver>
 #include <QSqlField>
@@ -27,491 +27,454 @@ using namespace SqlUtils;
 RosterDb *RosterDb::s_instance = nullptr;
 
 RosterDb::RosterDb(Database *db, QObject *parent)
-        : DatabaseComponent(db, parent)
+    : DatabaseComponent(db, parent)
 {
-	Q_ASSERT(!RosterDb::s_instance);
-	s_instance = this;
+    Q_ASSERT(!RosterDb::s_instance);
+    s_instance = this;
 }
 
 RosterDb::~RosterDb()
 {
-	s_instance = nullptr;
+    s_instance = nullptr;
 }
 
 RosterDb *RosterDb::instance()
 {
-	return s_instance;
+    return s_instance;
 }
 
 static void parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
 {
-	QSqlRecord rec = query.record();
-	int idxAccountJid = rec.indexOf(QStringLiteral("accountJid"));
-	int idxJid = rec.indexOf(QStringLiteral("jid"));
-	int idxName = rec.indexOf(QStringLiteral("name"));
-	int idxSubscription = rec.indexOf(QStringLiteral("subscription"));
-	int idxGroupChatParticipantId = rec.indexOf(QStringLiteral("groupChatParticipantId"));
-	int idxGroupChatName = rec.indexOf(QStringLiteral("groupChatName"));
-	int idxGroupChatDescription = rec.indexOf(QStringLiteral("groupChatDescription"));
-	int idxGroupChatFlags = rec.indexOf(QStringLiteral("groupChatFlags"));
-	int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
-	int idxUnreadMessages = rec.indexOf(QStringLiteral("unreadMessages"));
-	int idxLastReadOwnMessageId = rec.indexOf(QStringLiteral("lastReadOwnMessageId"));
-	int idxLastReadContactMessageId = rec.indexOf(QStringLiteral("lastReadContactMessageId"));
-	int idxLatestGroupChatMessageStanzaId = rec.indexOf(QStringLiteral("latestGroupChatMessageStanzaId"));
-	int idxLatestGroupChatMessageStanzaTimestamp = rec.indexOf(QStringLiteral("latestGroupChatMessageStanzaTimestamp"));
-	int idxReadMarkerPending = rec.indexOf(QStringLiteral("readMarkerPending"));
-	int idxPinningPosition = rec.indexOf(QStringLiteral("pinningPosition"));
-	int idxChateStateSendingEnabled = rec.indexOf(QStringLiteral("chatStateSendingEnabled"));
-	int idxReadMarkerSendingEnabled = rec.indexOf(QStringLiteral("readMarkerSendingEnabled"));
-	int idxNotificationRule = rec.indexOf(QStringLiteral("notificationRule"));
-	int idxAutomaticMediaDownloadsRule = rec.indexOf(QStringLiteral("automaticMediaDownloadsRule"));
+    QSqlRecord rec = query.record();
+    int idxAccountJid = rec.indexOf(QStringLiteral("accountJid"));
+    int idxJid = rec.indexOf(QStringLiteral("jid"));
+    int idxName = rec.indexOf(QStringLiteral("name"));
+    int idxSubscription = rec.indexOf(QStringLiteral("subscription"));
+    int idxGroupChatParticipantId = rec.indexOf(QStringLiteral("groupChatParticipantId"));
+    int idxGroupChatName = rec.indexOf(QStringLiteral("groupChatName"));
+    int idxGroupChatDescription = rec.indexOf(QStringLiteral("groupChatDescription"));
+    int idxGroupChatFlags = rec.indexOf(QStringLiteral("groupChatFlags"));
+    int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
+    int idxUnreadMessages = rec.indexOf(QStringLiteral("unreadMessages"));
+    int idxLastReadOwnMessageId = rec.indexOf(QStringLiteral("lastReadOwnMessageId"));
+    int idxLastReadContactMessageId = rec.indexOf(QStringLiteral("lastReadContactMessageId"));
+    int idxLatestGroupChatMessageStanzaId = rec.indexOf(QStringLiteral("latestGroupChatMessageStanzaId"));
+    int idxLatestGroupChatMessageStanzaTimestamp = rec.indexOf(QStringLiteral("latestGroupChatMessageStanzaTimestamp"));
+    int idxReadMarkerPending = rec.indexOf(QStringLiteral("readMarkerPending"));
+    int idxPinningPosition = rec.indexOf(QStringLiteral("pinningPosition"));
+    int idxChateStateSendingEnabled = rec.indexOf(QStringLiteral("chatStateSendingEnabled"));
+    int idxReadMarkerSendingEnabled = rec.indexOf(QStringLiteral("readMarkerSendingEnabled"));
+    int idxNotificationRule = rec.indexOf(QStringLiteral("notificationRule"));
+    int idxAutomaticMediaDownloadsRule = rec.indexOf(QStringLiteral("automaticMediaDownloadsRule"));
 
-	while (query.next()) {
-		RosterItem item;
-		item.accountJid = query.value(idxAccountJid).toString();
-		item.jid = query.value(idxJid).toString();
-		item.name = query.value(idxName).toString();
-		item.subscription = query.value(idxSubscription).value<QXmppRosterIq::Item::SubscriptionType>();
-		item.groupChatParticipantId = query.value(idxGroupChatParticipantId).toString();
-		item.groupChatName = query.value(idxGroupChatName).toString();
-		item.groupChatDescription = query.value(idxGroupChatDescription).toString();
-		item.groupChatFlags = query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags>();
-		item.groupChatFlags = static_cast<RosterItem::GroupChatFlags>(query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags::Int>());
-		item.encryption = query.value(idxEncryption).value<Encryption::Enum>();
-		item.unreadMessages = query.value(idxUnreadMessages).toInt();
-		item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
-		item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
-		item.latestGroupChatMessageStanzaId = query.value(idxLatestGroupChatMessageStanzaId).toString();
-		item.latestGroupChatMessageStanzaTimestamp = query.value(idxLatestGroupChatMessageStanzaTimestamp).toDateTime();
-		item.readMarkerPending = query.value(idxReadMarkerPending).toBool();
-		item.pinningPosition = query.value(idxPinningPosition).toInt();
-		item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
-		item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
-		item.notificationRule = query.value(idxNotificationRule).value<RosterItem::NotificationRule>();
-		item.automaticMediaDownloadsRule = query.value(idxAutomaticMediaDownloadsRule).value<RosterItem::AutomaticMediaDownloadsRule>();
+    while (query.next()) {
+        RosterItem item;
+        item.accountJid = query.value(idxAccountJid).toString();
+        item.jid = query.value(idxJid).toString();
+        item.name = query.value(idxName).toString();
+        item.subscription = query.value(idxSubscription).value<QXmppRosterIq::Item::SubscriptionType>();
+        item.groupChatParticipantId = query.value(idxGroupChatParticipantId).toString();
+        item.groupChatName = query.value(idxGroupChatName).toString();
+        item.groupChatDescription = query.value(idxGroupChatDescription).toString();
+        item.groupChatFlags = query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags>();
+        item.groupChatFlags = static_cast<RosterItem::GroupChatFlags>(query.value(idxGroupChatFlags).value<RosterItem::GroupChatFlags::Int>());
+        item.encryption = query.value(idxEncryption).value<Encryption::Enum>();
+        item.unreadMessages = query.value(idxUnreadMessages).toInt();
+        item.lastReadOwnMessageId = query.value(idxLastReadOwnMessageId).toString();
+        item.lastReadContactMessageId = query.value(idxLastReadContactMessageId).toString();
+        item.latestGroupChatMessageStanzaId = query.value(idxLatestGroupChatMessageStanzaId).toString();
+        item.latestGroupChatMessageStanzaTimestamp = query.value(idxLatestGroupChatMessageStanzaTimestamp).toDateTime();
+        item.readMarkerPending = query.value(idxReadMarkerPending).toBool();
+        item.pinningPosition = query.value(idxPinningPosition).toInt();
+        item.chatStateSendingEnabled = query.value(idxChateStateSendingEnabled).toBool();
+        item.readMarkerSendingEnabled = query.value(idxReadMarkerSendingEnabled).toBool();
+        item.notificationRule = query.value(idxNotificationRule).value<RosterItem::NotificationRule>();
+        item.automaticMediaDownloadsRule = query.value(idxAutomaticMediaDownloadsRule).value<RosterItem::AutomaticMediaDownloadsRule>();
 
-		items << std::move(item);
-	}
+        items << std::move(item);
+    }
 }
 
 static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem &newItem)
 {
-	QSqlRecord rec;
-	if (oldItem.accountJid != newItem.accountJid)
-		rec.append(createSqlField(QStringLiteral("accountJid"), newItem.accountJid));
-	if (oldItem.jid != newItem.jid)
-		rec.append(createSqlField(QStringLiteral("jid"), newItem.jid));
-	if (oldItem.name != newItem.name)
-		rec.append(createSqlField(QStringLiteral("name"), newItem.name));
-	if (oldItem.subscription != newItem.subscription)
-		rec.append(createSqlField(QStringLiteral("subscription"), newItem.subscription));
-	if (oldItem.groupChatParticipantId != newItem.groupChatParticipantId)
-		rec.append(createSqlField(QStringLiteral("groupChatParticipantId"), newItem.groupChatParticipantId));
-	if (oldItem.groupChatName != newItem.groupChatName)
-		rec.append(createSqlField(QStringLiteral("groupChatName"), newItem.groupChatName));
-	if (oldItem.groupChatDescription != newItem.groupChatDescription)
-		rec.append(createSqlField(QStringLiteral("groupChatDescription"), newItem.groupChatDescription));
-	if (oldItem.groupChatFlags != newItem.groupChatFlags)
-		rec.append(createSqlField(QStringLiteral("groupChatFlags"), static_cast<int>(newItem.groupChatFlags)));
-	if (oldItem.encryption != newItem.encryption)
-		rec.append(createSqlField(QStringLiteral("encryption"), newItem.encryption));
-	if (oldItem.unreadMessages != newItem.unreadMessages)
-		rec.append(createSqlField(QStringLiteral("unreadMessages"), newItem.unreadMessages));
-	if (oldItem.lastReadOwnMessageId != newItem.lastReadOwnMessageId)
-		rec.append(createSqlField(QStringLiteral("lastReadOwnMessageId"), newItem.lastReadOwnMessageId));
-	if (oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)
-		rec.append(createSqlField(QStringLiteral("lastReadContactMessageId"), newItem.lastReadContactMessageId));
-	if (oldItem.latestGroupChatMessageStanzaId != newItem.latestGroupChatMessageStanzaId)
-		rec.append(createSqlField(QStringLiteral("latestGroupChatMessageStanzaId"), newItem.latestGroupChatMessageStanzaId));
-	if (oldItem.latestGroupChatMessageStanzaTimestamp != newItem.latestGroupChatMessageStanzaTimestamp)
-		rec.append(createSqlField(QStringLiteral("latestGroupChatMessageStanzaTimestamp"), newItem.latestGroupChatMessageStanzaTimestamp));
-	if (oldItem.readMarkerPending != newItem.readMarkerPending)
-		rec.append(createSqlField(QStringLiteral("readMarkerPending"), newItem.readMarkerPending));
-	if(oldItem.pinningPosition != newItem.pinningPosition)
-		rec.append(createSqlField(QStringLiteral("pinningPosition"), newItem.pinningPosition));
-	if (oldItem.chatStateSendingEnabled != newItem.chatStateSendingEnabled)
-		rec.append(createSqlField(QStringLiteral("chatStateSendingEnabled"), newItem.chatStateSendingEnabled));
-	if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
-		rec.append(createSqlField(QStringLiteral("readMarkerSendingEnabled"), newItem.readMarkerSendingEnabled));
-	if (oldItem.notificationRule != newItem.notificationRule)
-		rec.append(createSqlField(QStringLiteral("notificationRule"), static_cast<int>(newItem.notificationRule)));
-	if (oldItem.automaticMediaDownloadsRule != newItem.automaticMediaDownloadsRule)
-		rec.append(createSqlField(QStringLiteral("automaticMediaDownloadsRule"), static_cast<int>(newItem.automaticMediaDownloadsRule)));
+    QSqlRecord rec;
+    if (oldItem.accountJid != newItem.accountJid)
+        rec.append(createSqlField(QStringLiteral("accountJid"), newItem.accountJid));
+    if (oldItem.jid != newItem.jid)
+        rec.append(createSqlField(QStringLiteral("jid"), newItem.jid));
+    if (oldItem.name != newItem.name)
+        rec.append(createSqlField(QStringLiteral("name"), newItem.name));
+    if (oldItem.subscription != newItem.subscription)
+        rec.append(createSqlField(QStringLiteral("subscription"), newItem.subscription));
+    if (oldItem.groupChatParticipantId != newItem.groupChatParticipantId)
+        rec.append(createSqlField(QStringLiteral("groupChatParticipantId"), newItem.groupChatParticipantId));
+    if (oldItem.groupChatName != newItem.groupChatName)
+        rec.append(createSqlField(QStringLiteral("groupChatName"), newItem.groupChatName));
+    if (oldItem.groupChatDescription != newItem.groupChatDescription)
+        rec.append(createSqlField(QStringLiteral("groupChatDescription"), newItem.groupChatDescription));
+    if (oldItem.groupChatFlags != newItem.groupChatFlags)
+        rec.append(createSqlField(QStringLiteral("groupChatFlags"), static_cast<int>(newItem.groupChatFlags)));
+    if (oldItem.encryption != newItem.encryption)
+        rec.append(createSqlField(QStringLiteral("encryption"), newItem.encryption));
+    if (oldItem.unreadMessages != newItem.unreadMessages)
+        rec.append(createSqlField(QStringLiteral("unreadMessages"), newItem.unreadMessages));
+    if (oldItem.lastReadOwnMessageId != newItem.lastReadOwnMessageId)
+        rec.append(createSqlField(QStringLiteral("lastReadOwnMessageId"), newItem.lastReadOwnMessageId));
+    if (oldItem.lastReadContactMessageId != newItem.lastReadContactMessageId)
+        rec.append(createSqlField(QStringLiteral("lastReadContactMessageId"), newItem.lastReadContactMessageId));
+    if (oldItem.latestGroupChatMessageStanzaId != newItem.latestGroupChatMessageStanzaId)
+        rec.append(createSqlField(QStringLiteral("latestGroupChatMessageStanzaId"), newItem.latestGroupChatMessageStanzaId));
+    if (oldItem.latestGroupChatMessageStanzaTimestamp != newItem.latestGroupChatMessageStanzaTimestamp)
+        rec.append(createSqlField(QStringLiteral("latestGroupChatMessageStanzaTimestamp"), newItem.latestGroupChatMessageStanzaTimestamp));
+    if (oldItem.readMarkerPending != newItem.readMarkerPending)
+        rec.append(createSqlField(QStringLiteral("readMarkerPending"), newItem.readMarkerPending));
+    if (oldItem.pinningPosition != newItem.pinningPosition)
+        rec.append(createSqlField(QStringLiteral("pinningPosition"), newItem.pinningPosition));
+    if (oldItem.chatStateSendingEnabled != newItem.chatStateSendingEnabled)
+        rec.append(createSqlField(QStringLiteral("chatStateSendingEnabled"), newItem.chatStateSendingEnabled));
+    if (oldItem.readMarkerSendingEnabled != newItem.readMarkerSendingEnabled)
+        rec.append(createSqlField(QStringLiteral("readMarkerSendingEnabled"), newItem.readMarkerSendingEnabled));
+    if (oldItem.notificationRule != newItem.notificationRule)
+        rec.append(createSqlField(QStringLiteral("notificationRule"), static_cast<int>(newItem.notificationRule)));
+    if (oldItem.automaticMediaDownloadsRule != newItem.automaticMediaDownloadsRule)
+        rec.append(createSqlField(QStringLiteral("automaticMediaDownloadsRule"), static_cast<int>(newItem.automaticMediaDownloadsRule)));
 
-	return rec;
+    return rec;
 }
 
 QFuture<QVector<RosterItem>> RosterDb::fetchItems()
 {
-	return run([this]() {
-		return _fetchItems();
-	});
+    return run([this]() {
+        return _fetchItems();
+    });
 }
 
 QFuture<void> RosterDb::addItem(RosterItem item)
 {
-	return run([this, item]() mutable {
-		fetchLastMessage(item, _fetchItems());
+    return run([this, item]() mutable {
+        fetchLastMessage(item, _fetchItems());
 
-		if (!item.lastMessage.isEmpty()) {
-			item.unreadMessages = 1;
-		}
+        if (!item.lastMessage.isEmpty()) {
+            item.unreadMessages = 1;
+        }
 
-		_addItem(item);
-	});
+        _addItem(item);
+    });
 }
 
-QFuture<void> RosterDb::updateItem(const QString &jid,
-			  const std::function<void (RosterItem &)> &updateItem)
+QFuture<void> RosterDb::updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
-	return run([this, jid, updateItem]() {
-		_updateItem(jid, updateItem);
-	});
+    return run([this, jid, updateItem]() {
+        _updateItem(jid, updateItem);
+    });
 }
 
 QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
 {
-	return run([this, items]() {
-		// load current items
-		auto query = createQuery();
-		execQuery(query, QStringLiteral("SELECT * FROM roster"));
+    return run([this, items]() {
+        // load current items
+        auto query = createQuery();
+        execQuery(query, QStringLiteral("SELECT * FROM roster"));
 
-		QVector<RosterItem> oldItems;
-		parseItemsFromQuery(query, oldItems);
-		fetchGroups(oldItems);
+        QVector<RosterItem> oldItems;
+        parseItemsFromQuery(query, oldItems);
+        fetchGroups(oldItems);
 
-		transaction();
+        transaction();
 
-		QList<QString> keys = items.keys();
-		QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
+        QList<QString> keys = items.keys();
+        QSet<QString> newJids = QSet<QString>(keys.begin(), keys.end());
 
-		for (const auto &oldItem : std::as_const(oldItems)) {
-			const auto jid = oldItem.jid;
+        for (const auto &oldItem : std::as_const(oldItems)) {
+            const auto jid = oldItem.jid;
 
-			// We will remove the already existing JIDs, so we get a set of JIDs that
-			// are completely new.
-			//
-			// By calling remove(), we also find out whether the JID is already
-			// existing or not.
-			if (newJids.remove(jid)) {
-				// item is also included in newJids -> update
-				_updateItem(jid, [newItem = items.value(jid)](RosterItem &oldItem) {
-					oldItem.name = newItem.name;
-					oldItem.subscription = newItem.subscription;
-					oldItem.groups = newItem.groups;
-				});
-			} else {
-				// item is not included in newJids -> delete
-				_removeItem(oldItem.accountJid, jid);
-			}
-		}
+            // We will remove the already existing JIDs, so we get a set of JIDs that
+            // are completely new.
+            //
+            // By calling remove(), we also find out whether the JID is already
+            // existing or not.
+            if (newJids.remove(jid)) {
+                // item is also included in newJids -> update
+                _updateItem(jid, [newItem = items.value(jid)](RosterItem &oldItem) {
+                    oldItem.name = newItem.name;
+                    oldItem.subscription = newItem.subscription;
+                    oldItem.groups = newItem.groups;
+                });
+            } else {
+                // item is not included in newJids -> delete
+                _removeItem(oldItem.accountJid, jid);
+            }
+        }
 
-		// now add the completely new JIDs
-		for (const QString &jid : newJids) {
-			_addItem(items[jid]);
-		}
+        // now add the completely new JIDs
+        for (const QString &jid : newJids) {
+            _addItem(items[jid]);
+        }
 
-		commit();
-		Q_EMIT itemsReplaced();
-	});
+        commit();
+        Q_EMIT itemsReplaced();
+    });
 }
 
 QFuture<void> RosterDb::removeItem(const QString &accountJid, const QString &jid)
 {
-	return run([this, accountJid, jid]() {
-		_removeItem(accountJid, jid);
-	});
+    return run([this, accountJid, jid]() {
+        _removeItem(accountJid, jid);
+    });
 }
 
 QFuture<void> RosterDb::removeItems(const QString &accountJid)
 {
-	return run([this, accountJid]() {
-		auto query = createQuery();
+    return run([this, accountJid]() {
+        auto query = createQuery();
 
-		execQuery(
-			query,
-			QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-			"WHERE accountJid = :accountJid"),
-			QueryBindValues { { u":accountJid", accountJid } }
-		);
+        execQuery(query,
+                  QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+                                 "WHERE accountJid = :accountJid"),
+                  QueryBindValues{{u":accountJid", accountJid}});
 
-		removeGroups(accountJid);
-		GroupChatUserDb::instance()->_removeUsers(accountJid);
+        removeGroups(accountJid);
+        GroupChatUserDb::instance()->_removeUsers(accountJid);
 
-		itemsRemoved(accountJid);
-	});
+        itemsRemoved(accountJid);
+    });
 }
 
 QVector<RosterItem> RosterDb::_fetchItems()
 {
-	auto query = createQuery();
-	execQuery(query, QStringLiteral("SELECT * FROM roster"));
+    auto query = createQuery();
+    execQuery(query, QStringLiteral("SELECT * FROM roster"));
 
-	QVector<RosterItem> items;
-	parseItemsFromQuery(query, items);
+    QVector<RosterItem> items;
+    parseItemsFromQuery(query, items);
 
-	fetchLastMessages(items);
-	fetchGroups(items);
+    fetchLastMessages(items);
+    fetchGroups(items);
 
-	return items;
+    return items;
 }
 
 void RosterDb::fetchGroups(QVector<RosterItem> &items)
 {
-	enum { Group };
-	auto query = createQuery();
+    enum {
+        Group,
+    };
 
-	for(auto &item : items) {
-		execQuery(
-			query,
-			QStringLiteral(R"(
+    auto query = createQuery();
+
+    for (auto &item : items) {
+        execQuery(query,
+                  QStringLiteral(R"(
 				SELECT name
 				FROM rosterGroups
 				WHERE accountJid = :accountJid AND chatJid = :jid
 			)"),
-			{
-				{ u":accountJid", item.accountJid },
-				{ u":jid", item.jid },
-			}
-		);
+                  {
+                      {u":accountJid", item.accountJid},
+                      {u":jid", item.jid},
+                  });
 
-		// Iterate over all found groups.
-		while (query.next()) {
-			auto &groups = item.groups;
-			groups.append(query.value(Group).toString());
-		}
-	}
+        // Iterate over all found groups.
+        while (query.next()) {
+            auto &groups = item.groups;
+            groups.append(query.value(Group).toString());
+        }
+    }
 }
 
 void RosterDb::addGroups(const QString &accountJid, const QString &jid, const QVector<QString> &groups)
 {
-	auto query = createQuery();
+    auto query = createQuery();
 
-	for (const auto &group : groups) {
-		execQuery(
-			query,
-			QStringLiteral("INSERT OR IGNORE INTO " DB_TABLE_ROSTER_GROUPS
-			"(accountJid, chatJid, name) VALUES(:accountJid, :chatJid, :name)"),
-			{ { u":accountJid", accountJid },
-			  { u":chatJid", jid },
-			  { u":name", group } }
-		);
-	}
+    for (const auto &group : groups) {
+        execQuery(query,
+                  QStringLiteral("INSERT OR IGNORE INTO " DB_TABLE_ROSTER_GROUPS "(accountJid, chatJid, name) VALUES(:accountJid, :chatJid, :name)"),
+                  {{u":accountJid", accountJid}, {u":chatJid", jid}, {u":name", group}});
+    }
 }
 
 void RosterDb::updateGroups(const RosterItem &oldItem, const RosterItem &newItem)
 {
-	const auto &oldGroups = oldItem.groups;
+    const auto &oldGroups = oldItem.groups;
 
-	if(const auto &newGroups = newItem.groups; oldGroups != newGroups) {
-		auto query = createQuery();
+    if (const auto &newGroups = newItem.groups; oldGroups != newGroups) {
+        auto query = createQuery();
 
-		// Remove old groups.
-		for(auto itr = oldGroups.begin(); itr != oldGroups.end(); ++itr) {
-			const auto group = *itr;
+        // Remove old groups.
+        for (auto itr = oldGroups.begin(); itr != oldGroups.end(); ++itr) {
+            const auto group = *itr;
 
-			if(!newGroups.contains(group)) {
-				execQuery(
-					query,
-					QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-					"WHERE accountJid = :accountJid AND chatJid = :chatJid AND name = :name"),
-					{ { u":accountJid", oldItem.accountJid },
-					  { u":chatJid", oldItem.jid },
-					  { u":name", group } }
-				);
-			}
-		}
+            if (!newGroups.contains(group)) {
+                execQuery(query,
+                          QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
+                                         "WHERE accountJid = :accountJid AND chatJid = :chatJid AND name = :name"),
+                          {{u":accountJid", oldItem.accountJid}, {u":chatJid", oldItem.jid}, {u":name", group}});
+            }
+        }
 
-		// Add new groups.
-		for(auto itr = newGroups.begin(); itr != newGroups.end(); ++itr) {
-			const auto group = *itr;
+        // Add new groups.
+        for (auto itr = newGroups.begin(); itr != newGroups.end(); ++itr) {
+            const auto group = *itr;
 
-			if(!oldGroups.contains(group)) {
-				execQuery(
-					query,
-					QStringLiteral("INSERT or IGNORE INTO " DB_TABLE_ROSTER_GROUPS " "
-					"(accountJid, chatJid, name) "
-					"VALUES (:accountJid, :chatJid, :name)"),
-					{ { u":accountJid", oldItem.accountJid },
-					  { u":chatJid", oldItem.jid },
-					  { u":name", group } }
-				);
-			}
-		}
-	}
+            if (!oldGroups.contains(group)) {
+                execQuery(query,
+                          QStringLiteral("INSERT or IGNORE INTO " DB_TABLE_ROSTER_GROUPS " "
+                                         "(accountJid, chatJid, name) "
+                                         "VALUES (:accountJid, :chatJid, :name)"),
+                          {{u":accountJid", oldItem.accountJid}, {u":chatJid", oldItem.jid}, {u":name", group}});
+            }
+        }
+    }
 }
 
 void RosterDb::removeGroups(const QString &accountJid)
 {
-	auto query = createQuery();
+    auto query = createQuery();
 
-	execQuery(
-		query,
-		QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-		"WHERE accountJid = :accountJid"),
-		QueryBindValues { { u":accountJid", accountJid } }
-	);
+    execQuery(query,
+              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
+                             "WHERE accountJid = :accountJid"),
+              QueryBindValues{{u":accountJid", accountJid}});
 }
 
 void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
 {
-	auto query = createQuery();
+    auto query = createQuery();
 
-	execQuery(
-		query,
-		QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
-		"WHERE accountJid = :accountJid AND chatJid = :chatJid"),
-		{ { u":accountJid", accountJid },
-		  { u":chatJid", jid } }
-	);
+    execQuery(query,
+              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER_GROUPS " "
+                             "WHERE accountJid = :accountJid AND chatJid = :chatJid"),
+              {{u":accountJid", accountJid}, {u":chatJid", jid}});
 }
 
 void RosterDb::fetchLastMessages(QVector<RosterItem> &items)
 {
-	for (auto &item : items) {
-		fetchLastMessage(item, items);
-	}
+    for (auto &item : items) {
+        fetchLastMessage(item, items);
+    }
 }
 
 void RosterDb::fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items)
 {
-	auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
-	item.lastMessageDateTime = lastMessage.timestamp;
-	item.lastMessage = lastMessage.previewText();
-	item.lastMessageDeliveryState = lastMessage.deliveryState;
-	item.lastMessageIsOwn = lastMessage.isOwn;
+    auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
+    item.lastMessageDateTime = lastMessage.timestamp;
+    item.lastMessage = lastMessage.previewText();
+    item.lastMessageDeliveryState = lastMessage.deliveryState;
+    item.lastMessageIsOwn = lastMessage.isOwn;
 
-	if (item.isGroupChat()) {
-		if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(item.accountJid, item.jid, lastMessage.groupChatSenderId)) {
-			if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
-				item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
-			} else {
-				const auto itr = std::find_if(items.cbegin(), items.cend(), [lastMessageSenderJid](const RosterItem &rosterItem) {
-					return rosterItem.jid == lastMessageSenderJid;
-				});
+    if (item.isGroupChat()) {
+        if (const auto lastMessageSender = GroupChatUserDb::instance()->_user(item.accountJid, item.jid, lastMessage.groupChatSenderId)) {
+            if (const auto lastMessageSenderJid = lastMessageSender->jid; lastMessageSenderJid.isEmpty()) {
+                item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
+            } else {
+                const auto itr = std::find_if(items.cbegin(), items.cend(), [lastMessageSenderJid](const RosterItem &rosterItem) {
+                    return rosterItem.jid == lastMessageSenderJid;
+                });
 
-				if(itr == items.cend()) {
-					item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
-				} else {
-					item.lastMessageGroupChatSenderName = itr->displayName();
-				}
-			}
-		} else {
-			item.lastMessageGroupChatSenderName = lastMessage.groupChatSenderId;
-		}
-	}
+                if (itr == items.cend()) {
+                    item.lastMessageGroupChatSenderName = lastMessageSender->displayName();
+                } else {
+                    item.lastMessageGroupChatSenderName = itr->displayName();
+                }
+            }
+        } else {
+            item.lastMessageGroupChatSenderName = lastMessage.groupChatSenderId;
+        }
+    }
 }
 
 void RosterDb::_addItem(const RosterItem &item)
 {
-	Q_EMIT itemAdded(item);
+    Q_EMIT itemAdded(item);
 
-	insert(
-		DB_TABLE_ROSTER,
-		{
-			{ u"accountJid", item.accountJid },
-			{ u"jid", item.jid },
-			{ u"name", item.name },
-			{ u"subscription", item.name },
-			{ u"groupChatParticipantId", item.groupChatParticipantId },
-			{ u"groupChatName", item.groupChatName },
-			{ u"groupChatDescription", item.groupChatDescription },
-			{ u"groupChatFlags", static_cast<int>(item.groupChatFlags) },
-			{ u"encryption", item.encryption },
-			{ u"unreadMessages", item.unreadMessages },
-			{ u"lastReadOwnMessageId", QString() },
-			{ u"lastReadContactMessageId", QString() },
-			{ u"latestGroupChatMessageStanzaId", QString() },
-			{ u"latestGroupChatMessageStanzaTimestamp", QDateTime() },
-			{ u"readMarkerPending", item.readMarkerPending },
-			{ u"pinningPosition", item.pinningPosition },
-			{ u"chatStateSendingEnabled", item.chatStateSendingEnabled },
-			{ u"readMarkerSendingEnabled", item.readMarkerSendingEnabled },
-			{ u"notificationRule", static_cast<int>(item.notificationRule) },
-			{ u"automaticMediaDownloadsRule", static_cast<int>(item.automaticMediaDownloadsRule) },
-		}
-	);
+    insert(DB_TABLE_ROSTER,
+           {
+               {u"accountJid", item.accountJid},
+               {u"jid", item.jid},
+               {u"name", item.name},
+               {u"subscription", item.name},
+               {u"groupChatParticipantId", item.groupChatParticipantId},
+               {u"groupChatName", item.groupChatName},
+               {u"groupChatDescription", item.groupChatDescription},
+               {u"groupChatFlags", static_cast<int>(item.groupChatFlags)},
+               {u"encryption", item.encryption},
+               {u"unreadMessages", item.unreadMessages},
+               {u"lastReadOwnMessageId", QString()},
+               {u"lastReadContactMessageId", QString()},
+               {u"latestGroupChatMessageStanzaId", QString()},
+               {u"latestGroupChatMessageStanzaTimestamp", QDateTime()},
+               {u"readMarkerPending", item.readMarkerPending},
+               {u"pinningPosition", item.pinningPosition},
+               {u"chatStateSendingEnabled", item.chatStateSendingEnabled},
+               {u"readMarkerSendingEnabled", item.readMarkerSendingEnabled},
+               {u"notificationRule", static_cast<int>(item.notificationRule)},
+               {u"automaticMediaDownloadsRule", static_cast<int>(item.automaticMediaDownloadsRule)},
+           });
 
-	addGroups(item.accountJid, item.jid, item.groups);
+    addGroups(item.accountJid, item.jid, item.groups);
 }
 
-void RosterDb::_updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem)
+void RosterDb::_updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem)
 {
-	auto query = createQuery();
-	execQuery(
-		query,
-		QStringLiteral(R"(
+    auto query = createQuery();
+    execQuery(query,
+              QStringLiteral(R"(
 			SELECT *
 			FROM roster
 			WHERE jid = :jid
 			LIMIT 1
 		)"),
-		{
-			{ u":jid", jid },
-		}
-	);
+              {
+                  {u":jid", jid},
+              });
 
-	QVector<RosterItem> items;
-	parseItemsFromQuery(query, items);
+    QVector<RosterItem> items;
+    parseItemsFromQuery(query, items);
 
-	fetchLastMessages(items);
-	fetchGroups(items);
+    fetchLastMessages(items);
+    fetchGroups(items);
 
-	if (!items.isEmpty()) {
-		const auto &oldItem = items.constFirst();
-		auto newItem = oldItem;
-		updateItem(newItem);
+    if (!items.isEmpty()) {
+        const auto &oldItem = items.constFirst();
+        auto newItem = oldItem;
+        updateItem(newItem);
 
-		// Replace the old item's values with the updated ones if the item has changed.
-		if (oldItem != newItem) {
-			itemUpdated(newItem);
+        // Replace the old item's values with the updated ones if the item has changed.
+        if (oldItem != newItem) {
+            itemUpdated(newItem);
 
-			updateGroups(oldItem, newItem);
+            updateGroups(oldItem, newItem);
 
-			if (auto record = createUpdateRecord(oldItem, newItem); !record.isEmpty()) {
-				// Create an SQL record containing only the differences.
-				updateItemByRecord(jid, record);
-			}
-		}
-	}
+            if (auto record = createUpdateRecord(oldItem, newItem); !record.isEmpty()) {
+                // Create an SQL record containing only the differences.
+                updateItemByRecord(jid, record);
+            }
+        }
+    }
 }
 
 void RosterDb::_removeItem(const QString &accountJid, const QString &jid)
 {
-	Q_EMIT itemRemoved(accountJid, jid);
+    Q_EMIT itemRemoved(accountJid, jid);
 
-	auto query = createQuery();
+    auto query = createQuery();
 
-	execQuery(
-		query,
-		QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
-		"WHERE accountJid = :accountJid AND jid = :jid"),
-		{ { u":accountJid", accountJid },
-		  { u":jid", jid } }
-	);
+    execQuery(query,
+              QStringLiteral("DELETE FROM " DB_TABLE_ROSTER " "
+                             "WHERE accountJid = :accountJid AND jid = :jid"),
+              {{u":accountJid", accountJid}, {u":jid", jid}});
 
-	removeGroups(accountJid, jid);
-	GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
+    removeGroups(accountJid, jid);
+    GroupChatUserDb::instance()->_removeUsers(accountJid, jid);
 }
 
 void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
 {
-	auto query = createQuery();
-	auto &driver = sqlDriver();
+    auto query = createQuery();
+    auto &driver = sqlDriver();
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ QStringLiteral("jid"), jid }
-	};
+    QMap<QString, QVariant> keyValuePairs = {{QStringLiteral("jid"), jid}};
 
-	execQuery(
-		query,
-		driver.sqlStatement(
-			QSqlDriver::UpdateStatement,
-			QStringLiteral(DB_TABLE_ROSTER),
-			record,
-			false
-		) +
-		simpleWhereStatement(&driver, keyValuePairs)
-	);
+    execQuery(query,
+              driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ROSTER), record, false) + simpleWhereStatement(&driver, keyValuePairs));
 }

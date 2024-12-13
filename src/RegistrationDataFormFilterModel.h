@@ -12,18 +12,18 @@
  */
 class RegistrationDataFormFilterModel : public QSortFilterProxyModel
 {
-	Q_OBJECT
-	Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
+    Q_OBJECT
+    Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
 
 public:
-	RegistrationDataFormFilterModel(QObject *parent = nullptr);
+    RegistrationDataFormFilterModel(QObject *parent = nullptr);
 
-	bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
-	void setSourceModel(QAbstractItemModel *sourceModel) override;
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+    void setSourceModel(QAbstractItemModel *sourceModel) override;
 
-	bool isEmpty();
-	Q_SIGNAL void isEmptyChanged();
+    bool isEmpty();
+    Q_SIGNAL void isEmptyChanged();
 
 private:
-	QVector<int> m_filteredRows;
+    QVector<int> m_filteredRows;
 };

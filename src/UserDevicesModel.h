@@ -14,48 +14,46 @@ class QXmppVersionIq;
 
 class UserDevicesModel : public QAbstractListModel
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
+    Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
 
 public:
-	enum Roles {
-		Resource = Qt::UserRole + 1,
-		Name,
-		Version,
-		OS
-	};
+    enum Roles {
+        Resource = Qt::UserRole + 1,
+        Name,
+        Version,
+        OS,
+    };
 
-	explicit UserDevicesModel(QObject *parent = nullptr);
+    explicit UserDevicesModel(QObject *parent = nullptr);
 
-	QHash<int, QByteArray> roleNames() const override;
-	QVariant data(const QModelIndex &index, int role) const override;
-	int rowCount(const QModelIndex &parent) const override;
+    QHash<int, QByteArray> roleNames() const override;
+    QVariant data(const QModelIndex &index, int role) const override;
+    int rowCount(const QModelIndex &parent) const override;
 
-	QString jid() const;
-	void setJid(const QString &jid);
+    QString jid() const;
+    void setJid(const QString &jid);
 
 Q_SIGNALS:
-	void jidChanged();
-	void clientVersionsRequested(const QString &bareJid, const QString &resource = {});
+    void jidChanged();
+    void clientVersionsRequested(const QString &bareJid, const QString &resource = {});
 
 private:
-	void handleClientVersionReceived(const QXmppVersionIq &versionIq);
-	void handlePresenceChanged(PresenceCache::ChangeType type,
-	                           const QString &jid,
-	                           const QString &resource);
-	void handlePresencesCleared();
+    void handleClientVersionReceived(const QXmppVersionIq &versionIq);
+    void handlePresenceChanged(PresenceCache::ChangeType type, const QString &jid, const QString &resource);
+    void handlePresencesCleared();
 
-	struct DeviceInfo {
-		DeviceInfo(const QString &resource);
-		DeviceInfo(const QXmppVersionIq &);
+    struct DeviceInfo {
+        DeviceInfo(const QString &resource);
+        DeviceInfo(const QXmppVersionIq &);
 
-		QString resource;
-		QString name;
-		QString version;
-		QString os;
-	};
+        QString resource;
+        QString name;
+        QString version;
+        QString os;
+    };
 
-	QString m_jid;
-	QVector<DeviceInfo> m_devices;
+    QString m_jid;
+    QVector<DeviceInfo> m_devices;
 };

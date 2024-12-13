@@ -7,37 +7,37 @@
 #include <QUrl>
 
 ContactQrCodeGenerator::ContactQrCodeGenerator(QObject *parent)
-	: AbstractQrCodeGenerator(parent)
+    : AbstractQrCodeGenerator(parent)
 {
-	connect(this, &ContactQrCodeGenerator::jidChanged, this, &ContactQrCodeGenerator::updateUriJid);
-	connect(&m_uriGenerator, &TrustMessageUriGenerator::uriChanged, this, &ContactQrCodeGenerator::updateText);
+    connect(this, &ContactQrCodeGenerator::jidChanged, this, &ContactQrCodeGenerator::updateUriJid);
+    connect(&m_uriGenerator, &TrustMessageUriGenerator::uriChanged, this, &ContactQrCodeGenerator::updateText);
 }
 
 QString ContactQrCodeGenerator::accountJid() const
 {
-	return m_accountJid;
+    return m_accountJid;
 }
 
 void ContactQrCodeGenerator::setAccountJid(const QString &accountJid)
 {
-	if (m_accountJid != accountJid) {
-		m_accountJid = accountJid;
-		Q_EMIT accountJidChanged();
-		updateUriAccountJid();
-	}
+    if (m_accountJid != accountJid) {
+        m_accountJid = accountJid;
+        Q_EMIT accountJidChanged();
+        updateUriAccountJid();
+    }
 }
 
 void ContactQrCodeGenerator::updateUriAccountJid()
 {
-	m_uriGenerator.setAccountJid(m_accountJid);
+    m_uriGenerator.setAccountJid(m_accountJid);
 }
 
 void ContactQrCodeGenerator::updateUriJid()
 {
-	m_uriGenerator.setJid(jid());
+    m_uriGenerator.setJid(jid());
 }
 
 void ContactQrCodeGenerator::updateText()
 {
-	setText(m_uriGenerator.uri());
+    setText(m_uriGenerator.uri());
 }

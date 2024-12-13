@@ -17,58 +17,58 @@ constexpr auto TRUST_LEVEL_AUTHENTICATABLE = ~(QXmpp::TrustLevel::Authenticated 
 
 class EncryptionController : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	struct OwnDevice {
-		QString label;
-		QString keyId;
+    struct OwnDevice {
+        QString label;
+        QString keyId;
 
-		bool operator==(const OwnDevice &other) const = default;
-	};
+        bool operator==(const OwnDevice &other) const = default;
+    };
 
-	struct Device {
-		QString jid;
-		QString label;
-		QString keyId;
-		QXmpp::TrustLevel trustLevel;
+    struct Device {
+        QString jid;
+        QString label;
+        QString keyId;
+        QXmpp::TrustLevel trustLevel;
 
-		bool operator==(const Device &other) const = default;
-	};
+        bool operator==(const Device &other) const = default;
+    };
 
-	static EncryptionController *instance();
+    static EncryptionController *instance();
 
-	EncryptionController(QObject *parent = nullptr);
-	~EncryptionController();
+    EncryptionController(QObject *parent = nullptr);
+    ~EncryptionController();
 
-	QFuture<void> load();
-	QFuture<void> setUp();
+    QFuture<void> load();
+    QFuture<void> setUp();
 
-	Q_INVOKABLE void initializeAccountFromQml(const QString &accountJid);
-	QFuture<void> initializeAccount(const QString &accountJid);
-	QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &contactJids);
+    Q_INVOKABLE void initializeAccountFromQml(const QString &accountJid);
+    QFuture<void> initializeAccount(const QString &accountJid);
+    QFuture<void> initializeChat(const QString &accountJid, const QList<QString> &contactJids);
 
-	QFuture<QString> ownKey(const QString &accountJid);
+    QFuture<QString> ownKey(const QString &accountJid);
 
-	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
-	Q_SIGNAL void keysChanged(const QString &accountJid, const QList<QString> &jids);
+    QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+    Q_SIGNAL void keysChanged(const QString &accountJid, const QList<QString> &jids);
 
-	QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
-	Q_SIGNAL void ownDeviceChanged(const QString &accountJid);
+    QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
+    Q_SIGNAL void ownDeviceChanged(const QString &accountJid);
 
-	QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
-	Q_SIGNAL void devicesChanged(const QString &accountJid, const QList<QString> &jids);
-	Q_SIGNAL void allDevicesChanged();
+    QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
+    Q_SIGNAL void devicesChanged(const QString &accountJid, const QList<QString> &jids);
+    Q_SIGNAL void allDevicesChanged();
 
-	QFuture<bool> hasUsableDevices(const QList<QString> &jids);
-	void removeContactDevices(const QString &jid);
+    QFuture<bool> hasUsableDevices(const QList<QString> &jids);
+    void removeContactDevices(const QString &jid);
 
-	QFuture<void> unload();
-	QFuture<void> reset();
-	QFuture<void> resetLocally();
+    QFuture<void> unload();
+    QFuture<void> reset();
+    QFuture<void> resetLocally();
 
 private:
-	static EncryptionController *s_instance;
+    static EncryptionController *s_instance;
 
-	std::unique_ptr<OmemoController> m_omemoController;
+    std::unique_ptr<OmemoController> m_omemoController;
 };

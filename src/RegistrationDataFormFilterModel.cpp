@@ -6,34 +6,34 @@
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationDataFormModel.h"
 
-RegistrationDataFormFilterModel::RegistrationDataFormFilterModel(QObject* parent)
-	: QSortFilterProxyModel(parent)
+RegistrationDataFormFilterModel::RegistrationDataFormFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
 {
 }
 
 bool RegistrationDataFormFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &) const
 {
-	return !m_filteredRows.contains(sourceRow);
+    return !m_filteredRows.contains(sourceRow);
 }
 
 void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceModel)
 {
-	m_filteredRows.clear();
+    m_filteredRows.clear();
 
-	auto *dataFormModel = static_cast<RegistrationDataFormModel *>(sourceModel);
-	if (dataFormModel) {
-		m_filteredRows = dataFormModel->indiciesToFilter();
-	}
+    auto *dataFormModel = static_cast<RegistrationDataFormModel *>(sourceModel);
+    if (dataFormModel) {
+        m_filteredRows = dataFormModel->indiciesToFilter();
+    }
 
-	QSortFilterProxyModel::setSourceModel(sourceModel);
-	Q_EMIT isEmptyChanged();
+    QSortFilterProxyModel::setSourceModel(sourceModel);
+    Q_EMIT isEmptyChanged();
 }
 
 bool RegistrationDataFormFilterModel::isEmpty()
 {
-	if (sourceModel()) {
-		return m_filteredRows.size() == static_cast<RegistrationDataFormModel *>(sourceModel())->rowCount();
-	}
+    if (sourceModel()) {
+        return m_filteredRows.size() == static_cast<RegistrationDataFormModel *>(sourceModel())->rowCount();
+    }
 
-	return true;
+    return true;
 }

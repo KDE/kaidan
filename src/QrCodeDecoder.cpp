@@ -10,11 +10,10 @@
 #include <QImage>
 // ZXing-cpp
 #include <ZXing/ZXVersion.h>
-#define ZXING_VERSION \
-	QT_VERSION_CHECK(ZXING_VERSION_MAJOR, ZXING_VERSION_MINOR, ZXING_VERSION_PATCH)
+#define ZXING_VERSION QT_VERSION_CHECK(ZXING_VERSION_MAJOR, ZXING_VERSION_MINOR, ZXING_VERSION_PATCH)
 
-#include <ZXing/ReadBarcode.h>
 #include <ZXing/BarcodeFormat.h>
+#include <ZXing/ReadBarcode.h>
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
 #include <ZXing/DecodeHints.h>
 #else
@@ -26,38 +25,38 @@
 using namespace ZXing;
 
 QrCodeDecoder::QrCodeDecoder(QObject *parent)
-	: QObject(parent)
+    : QObject(parent)
 {
 }
 
 void QrCodeDecoder::decodeImage(const QImage &image)
 {
-	// Advise the decoder to check for QR codes and to try decoding rotated versions of the image.
+    // Advise the decoder to check for QR codes and to try decoding rotated versions of the image.
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
-	const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
-	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
+    const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
+    const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
 #else
-	auto options = ReaderOptions().setFormats(BarcodeFormat::QRCode);
-	const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, options);
+    auto options = ReaderOptions().setFormats(BarcodeFormat::QRCode);
+    const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, options);
 #endif
 
-	// FIXME: `this` is not supposed to become nullptr in well-defined C++ code,
-	//        so if we are unlucky, the compiler may optimize the entire check away.
-	//        Additionally, this could be racy if the object is deleted on the other thread
-	//        in between this check and the emit.
-	const auto *self = this;
-	if (!self) {
-		return;
-	}
+    // FIXME: `this` is not supposed to become nullptr in well-defined C++ code,
+    //        so if we are unlucky, the compiler may optimize the entire check away.
+    //        Additionally, this could be racy if the object is deleted on the other thread
+    //        in between this check and the emit.
+    const auto *self = this;
+    if (!self) {
+        return;
+    }
 
-	// If a QR code could be found and decoded, emit a signal with the decoded string.
-	// Otherwise, emit a signal for failed decoding.
-	if (result.isValid())
+    // If a QR code could be found and decoded, emit a signal with the decoded string.
+    // Otherwise, emit a signal for failed decoding.
+    if (result.isValid())
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 0, 0)
-		Q_EMIT decodingSucceeded(QString::fromStdString(TextUtfEncoding::ToUtf8(result.text())));
+        Q_EMIT decodingSucceeded(QString::fromStdString(TextUtfEncoding::ToUtf8(result.text())));
 #else
-		Q_EMIT decodingSucceeded(QString::fromStdString(result.text()));
+        Q_EMIT decodingSucceeded(QString::fromStdString(result.text()));
 #endif
-	else
-		Q_EMIT decodingFailed();
+    else
+        Q_EMIT decodingFailed();
 }

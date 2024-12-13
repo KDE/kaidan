@@ -11,31 +11,32 @@
 
 class GuiStyle : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
-	Q_PROPERTY(QString name READ name CONSTANT)
-	Q_PROPERTY(bool buttonColoringEnabled READ buttonColoringEnabled CONSTANT)
-	Q_PROPERTY(bool isMaterial READ isMaterial CONSTANT)
+    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(bool buttonColoringEnabled READ buttonColoringEnabled CONSTANT)
+    Q_PROPERTY(bool isMaterial READ isMaterial CONSTANT)
 
 public:
-	explicit GuiStyle(QObject *parent = nullptr) : QObject(parent)
-	{
-	}
+    explicit GuiStyle(QObject *parent = nullptr)
+        : QObject(parent)
+    {
+    }
 
-	inline static QString name()
-	{
-		return QQuickStyle::name();
-	}
+    inline static QString name()
+    {
+        return QQuickStyle::name();
+    }
 
-	inline static bool isMaterial()
-	{
-		static const bool isMaterial = name().compare(QStringLiteral("Material"), Qt::CaseInsensitive) == 0;
-		return isMaterial;
-	}
+    inline static bool isMaterial()
+    {
+        static const bool isMaterial = name().compare(QStringLiteral("Material"), Qt::CaseInsensitive) == 0;
+        return isMaterial;
+    }
 
-	// Not all styles actually support coloring buttons.
-	inline static bool buttonColoringEnabled()
-	{
-		return name() == QStringLiteral("Material") || name() == QStringLiteral("org.kde.desktop");
-	}
+    // Not all styles actually support coloring buttons.
+    inline static bool buttonColoringEnabled()
+    {
+        return name() == QStringLiteral("Material") || name() == QStringLiteral("org.kde.desktop");
+    }
 };

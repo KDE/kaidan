@@ -34,45 +34,46 @@ class QImage;
 class QrCodeVideoFrame
 {
 public:
-	/**
-	 * Instantiates an empty video frame
-	 */
-	QrCodeVideoFrame()
-	    : m_size{0,0},
-	      m_pixelFormat{QVideoFrame::Format_Invalid}
-	{}
+    /**
+     * Instantiates an empty video frame
+     */
+    QrCodeVideoFrame()
+        : m_size{0, 0}
+        , m_pixelFormat{QVideoFrame::Format_Invalid}
+    {
+    }
 
-	/**
-	 * Sets the frame.
-	 *
-	 * @param frame frame to be set
-	 */
-	void setData(QVideoFrame &frame);
+    /**
+     * Sets the frame.
+     *
+     * @param frame frame to be set
+     */
+    void setData(QVideoFrame &frame);
 
-	/**
-	 * Converts a given image to a grayscale image.
-	 *
-	 * @return grayscale image
-	 */
-	QImage *toGrayscaleImage();
+    /**
+     * Converts a given image to a grayscale image.
+     *
+     * @return grayscale image
+     */
+    QImage *toGrayscaleImage();
 
-	/**
-	 * @return content of the frame which may contain a QR code
-	 */
-	QByteArray data() const;
+    /**
+     * @return content of the frame which may contain a QR code
+     */
+    QByteArray data() const;
 
-	/**
-	 * @return size of the frame
-	 */
-	QSize size() const;
+    /**
+     * @return size of the frame
+     */
+    QSize size() const;
 
-	/**
-	 * @return format of the frame
-	 */
-	QVideoFrame::PixelFormat pixelFormat() const;
+    /**
+     * @return format of the frame
+     */
+    QVideoFrame::PixelFormat pixelFormat() const;
 
 private:
-	QByteArray m_data;
-	QSize m_size;
-	QVideoFrame::PixelFormat m_pixelFormat;
+    QByteArray m_data;
+    QSize m_size;
+    QVideoFrame::PixelFormat m_pixelFormat;
 };

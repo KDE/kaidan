@@ -11,11 +11,11 @@
  */
 class GroupChatQrCodeGenerator : public AbstractQrCodeGenerator
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit GroupChatQrCodeGenerator(QObject *parent = nullptr);
+    explicit GroupChatQrCodeGenerator(QObject *parent = nullptr);
 
 private:
-	void updateText();
+    void updateText();
 };

@@ -16,41 +16,41 @@
 
 class VCardCache : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	VCardCache(QObject* parent = nullptr);
+    VCardCache(QObject *parent = nullptr);
 
-	/**
-	 * Returns the vCard for a JID.
-	 *
-	 * This method is thread-safe.
-	 *
-	 * @param jid JID for which the vCard is retrieved
-	 */
-	std::optional<QXmppVCardIq> vCard(const QString &jid) const;
+    /**
+     * Returns the vCard for a JID.
+     *
+     * This method is thread-safe.
+     *
+     * @param jid JID for which the vCard is retrieved
+     */
+    std::optional<QXmppVCardIq> vCard(const QString &jid) const;
 
-	/**
-	 * Sets the vCard for a JID.
-	 *
-	 * This method is thread-safe.
-	 *
-	 * @param jid JID to which the vCard belongs
-	 * @param vCard vCard being set
-	 */
-	void setVCard(const QString &jid, const QXmppVCardIq &vCard);
+    /**
+     * Sets the vCard for a JID.
+     *
+     * This method is thread-safe.
+     *
+     * @param jid JID to which the vCard belongs
+     * @param vCard vCard being set
+     */
+    void setVCard(const QString &jid, const QXmppVCardIq &vCard);
 
 Q_SIGNALS:
-	/**
-	 * Emitted when a vCard changed.
-	 *
-	 * @param jid JID of the changed vCard
-	 */
-	void vCardChanged(const QString &jid);
+    /**
+     * Emitted when a vCard changed.
+     *
+     * @param jid JID of the changed vCard
+     */
+    void vCardChanged(const QString &jid);
 
 private:
-	mutable QMutex m_mutex;
+    mutable QMutex m_mutex;
 
-	// mapping from a JID to the vCard of that JID
-	QHash<QString, QXmppVCardIq> m_vCards;
+    // mapping from a JID to the vCard of that JID
+    QHash<QString, QXmppVCardIq> m_vCards;
 };

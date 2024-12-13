@@ -4,34 +4,34 @@
 
 #pragma once
 
-#include <QAbstractListModel>
 #include "MessageModel.h"
+#include <QAbstractListModel>
 
 class MessageReactionModel : public QAbstractListModel
 {
-	Q_OBJECT
-	Q_PROPERTY(QString accountJid MEMBER accountJid)
-	Q_PROPERTY(QString chatJid MEMBER chatJid)
-	Q_PROPERTY(QVector<DetailedMessageReaction> reactions MEMBER reactions WRITE setReactions)
+    Q_OBJECT
+    Q_PROPERTY(QString accountJid MEMBER accountJid)
+    Q_PROPERTY(QString chatJid MEMBER chatJid)
+    Q_PROPERTY(QVector<DetailedMessageReaction> reactions MEMBER reactions WRITE setReactions)
 
 public:
-	enum class Role {
-		SenderJid = Qt::UserRole + 1,
-		SenderName,
-		Emojis,
-	};
+    enum class Role {
+        SenderJid = Qt::UserRole + 1,
+        SenderName,
+        Emojis,
+    };
 
-	MessageReactionModel(QObject *parent = nullptr);
-	~MessageReactionModel() = default;
+    MessageReactionModel(QObject *parent = nullptr);
+    ~MessageReactionModel() = default;
 
-	[[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-	[[nodiscard]] QHash<int, QByteArray> roleNames() const override;
-	[[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
+    [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
+    [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-	void setReactions(const QVector<DetailedMessageReaction> &reactions);
+    void setReactions(const QVector<DetailedMessageReaction> &reactions);
 
 private:
-	QString accountJid;
-	QString chatJid;
-	QVector<DetailedMessageReaction> reactions;
+    QString accountJid;
+    QString chatJid;
+    QVector<DetailedMessageReaction> reactions;
 };

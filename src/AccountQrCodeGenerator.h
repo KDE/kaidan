@@ -15,14 +15,14 @@
  */
 class AccountQrCodeGenerator : public AbstractQrCodeGenerator
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit AccountQrCodeGenerator(QObject *parent = nullptr);
+    explicit AccountQrCodeGenerator(QObject *parent = nullptr);
 
 private:
-	void updateUri();
-	void updateText();
+    void updateUri();
+    void updateText();
 
-	AccountTrustMessageUriGenerator m_uriGenerator;
+    AccountTrustMessageUriGenerator m_uriGenerator;
 };

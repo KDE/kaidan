@@ -18,34 +18,33 @@ class TrustDb;
 
 class AtmManager : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	AtmManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
-	~AtmManager();
+    AtmManager(QXmppClient *client, Database *database, QObject *parent = nullptr);
+    ~AtmManager();
 
+    /**
+     * Sets the JID of the current account used to store the corresponding data
+     * for a specific account.
+     *
+     * @param accountJid bare JID of the current account
+     */
+    void setAccountJid(const QString &accountJid);
 
-	/**
-	 * Sets the JID of the current account used to store the corresponding data
-	 * for a specific account.
-	 *
-	 * @param accountJid bare JID of the current account
-	 */
-	void setAccountJid(const QString &accountJid);
-
-	/**
-	 * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
-	 * (e.g., from a scanned QR code).
-	 *
-	 * @param uri Trust Message URI
-	 */
-	void makeTrustDecisionsByUri(const QXmppUri &uri);
-	void makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting);
-	Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
+    /**
+     * Authenticates or distrusts end-to-end encryption keys by a given XMPP URI
+     * (e.g., from a scanned QR code).
+     *
+     * @param uri Trust Message URI
+     */
+    void makeTrustDecisionsByUri(const QXmppUri &uri);
+    void makeTrustDecisions(const QString &jid, const QList<QByteArray> &keyIdsForAuthentication, const QList<QByteArray> &keyIdsForDistrusting);
+    Q_SIGNAL void makeTrustDecisionsRequested(const QString &jid, const QList<QString> &keyIdsForAuthentication, const QList<QString> &keyIdsForDistrusting);
 
 private:
-	QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);
+    QList<QByteArray> keyIdsFromHex(const QList<QString> &keyIds);
 
-	std::unique_ptr<TrustDb> m_trustStorage;
-	QXmppAtmManager *const m_manager;
+    std::unique_ptr<TrustDb> m_trustStorage;
+    QXmppAtmManager *const m_manager;
 };
