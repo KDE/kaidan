@@ -609,11 +609,6 @@ msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "OMEMO2-ით გამჭოლი დაშიფვრის მორგება შეუძლებელია"
 
-#: src/OmemoManager.cpp:128
-msgctxt "OmemoManager|"
-msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr "OMEMO2-ით გამჭოლი დაშიფვრის მორგება შეუძლებელია"
-
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
 msgid "Available"
@@ -4236,6 +4231,10 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#~ msgctxt "OmemoManager|"
+#~ msgid "End-to-end encryption via OMEMO 2 could not be set up"
+#~ msgstr "OMEMO2-ით გამჭოლი დაშიფვრის მორგება შეუძლებელია"
 
 #, fuzzy
 #~| msgctxt "Notifications|"

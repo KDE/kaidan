@@ -566,12 +566,6 @@ msgstr ""
 "Il est impossible de paramétrer le chiffrement de bout en bout grâce à "
 "OMEMO2."
 
-#: src/OmemoManager.cpp:128
-msgctxt "OmemoManager|"
-msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr ""
-"Le paramétrage du chiffrement de bout en bout grâce à OMEMO2 est impossible."
-
 #: src/PresenceCache.cpp:39
 msgctxt "QObject|"
 msgid "Available"
@@ -3539,6 +3533,12 @@ msgstr "Anniversaire"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Site Internet"
+
+#~ msgctxt "OmemoManager|"
+#~ msgid "End-to-end encryption via OMEMO 2 could not be set up"
+#~ msgstr ""
+#~ "Le paramétrage du chiffrement de bout en bout grâce à OMEMO2 est "
+#~ "impossible."
 
 #~ msgctxt "ChatMessage|"
 #~ msgid "Open"
