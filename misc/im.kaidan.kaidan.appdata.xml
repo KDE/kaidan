@@ -155,6 +155,18 @@
     </screenshot>
   </screenshots>
   <releases>
+    <release type="stable" version="0.10.1" date="2024-12-14T00:00:00Z">
+      <description>
+        <p>This release fixes the following bugs:</p>
+        <ul>
+          <li>Fix displaying files of each message in appropriate message bubble (melvo)</li>
+          <li>Fix sending fallback messages for clients not supporting XEP-0447: Stateless file sharing (melvo)</li>
+          <li>Fix margins within message bubbles (melvo)</li>
+          <li>Fix hiding hidden message part (melvo)</li>
+          <li>Fix displaying marker for new messages (melvo)</li>
+        </ul>
+      </description>
+    </release>
     <release type="stable" version="0.10.0" date="2024-12-09T00:00:00Z">
       <description>
         <p>This release adds the following features:</p>
