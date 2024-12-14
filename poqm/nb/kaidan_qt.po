@@ -147,7 +147,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr ""
 
-#: src/FileSharingController.cpp:376
+#: src/FileSharingController.cpp:370
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -400,18 +400,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:224
+#: src/MessageController.cpp:223
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr ""
 
-#: src/MessageController.cpp:350
+#: src/MessageController.cpp:349
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr ""
 
-#: src/MessageController.cpp:696
+#: src/MessageController.cpp:695
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -550,11 +550,6 @@ msgstr ""
 
 #: src/OmemoController.cpp:106
 msgctxt "OmemoController|"
-msgid "End-to-end encryption via OMEMO 2 could not be set up"
-msgstr ""
-
-#: src/OmemoManager.cpp:128
-msgctxt "OmemoManager|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr ""
 
@@ -1438,7 +1433,7 @@ msgstr ""
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
 msgctxt "ContactKeyAuthenticationButton|"
-msgid "All your contact's devices are verified"
+msgid "All your contact's known devices are verified"
 msgstr ""
 
 #: src/qml/details/DetailsContent.qml:57
@@ -1771,7 +1766,7 @@ msgstr ""
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
 msgctxt "GroupChatUserKeyAuthenticationButton|"
-msgid "All participants' devices are verified"
+msgid "All participants' known devices are verified"
 msgstr ""
 
 #: src/qml/details/MediaOverview.qml:71
