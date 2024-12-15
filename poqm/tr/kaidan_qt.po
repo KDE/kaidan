@@ -361,17 +361,17 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "gg DDD, ss:dd"
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Tatkaçıran"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 msgctxt "Message|"
 msgid "Location"
 msgstr "Konum"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -416,44 +416,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Bu ileti %1 ile şifreli; ancak şifresi çözülemedi"
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:300
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Beklemede"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:302
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Gönderildi"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:304
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Teslim edildi"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:306
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Hata"
 
-#: src/MessageModel.cpp:707 src/MessageModel.cpp:777
+#: src/MessageModel.cpp:652 src/MessageModel.cpp:722
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Tepki gönderilemedi: %1"
 
-#: src/MessageModel.cpp:852
+#: src/MessageModel.cpp:797
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Tepkiler gönderilemedi: %1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1449
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Bugün"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1452
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Dün"
@@ -2113,17 +2113,17 @@ msgstr ""
 "Kameranız meşgul\n"
 "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin"
 
-#: src/qml/elements/ChatMessage.qml:204
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Tatkaçıran"
 
-#: src/qml/elements/ChatMessage.qml:417
+#: src/qml/elements/ChatMessage.qml:425
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Yeni"
 
-#: src/qml/elements/ChatMessage.qml:445
+#: src/qml/elements/ChatMessage.qml:453
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
