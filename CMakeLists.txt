@@ -21,6 +21,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
+include(ECMDeprecationSettings)
 include(ECMFindQmlModule)
 include(ECMInstallIcons)
 include(FeatureSummary)
@@ -87,6 +88,10 @@ find_package(ICU 61.0 COMPONENTS uc)
 set_package_properties(ICU PROPERTIES
     TYPE REQUIRED
     PURPOSE "Unicode library (used for emoji support)"
+)
+
+ecm_set_disabled_deprecation_versions(QT 5.15
+     KF 5.40
 )
 
 # Format
