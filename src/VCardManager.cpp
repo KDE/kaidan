@@ -12,15 +12,19 @@
 #include <QBuffer>
 // QXmpp
 #include <QXmppUtils.h>
-#include <QXmppVCardManager.h>
 #include <QXmppVCardIq.h>
+#include <QXmppVCardManager.h>
 // Kaidan
 #include "AvatarFileStorage.h"
 #include "Kaidan.h"
 #include "VCardCache.h"
 
 VCardManager::VCardManager(ClientWorker *clientWorker, QXmppClient *client, AvatarFileStorage *avatars, QObject *parent)
-	: QObject(parent), m_clientWorker(clientWorker), m_client(client), m_manager(client->findExtension<QXmppVCardManager>()), m_avatarStorage(avatars)
+	: QObject(parent),
+	  m_clientWorker(clientWorker),
+	  m_client(client),
+	  m_manager(client->findExtension<QXmppVCardManager>()),
+	  m_avatarStorage(avatars)
 {
 	connect(m_manager, &QXmppVCardManager::vCardReceived, this, &VCardManager::handleVCardReceived);
 	connect(m_client, &QXmppClient::presenceReceived, this, &VCardManager::handlePresenceReceived);
@@ -50,7 +54,10 @@ void VCardManager::requestVCard(const QString &jid)
 void VCardManager::handleVCardReceived(const QXmppVCardIq &iq)
 {
 	if (!iq.photo().isEmpty()) {
-		m_avatarStorage->addAvatar(QXmppUtils::jidToBareJid(iq.from().isEmpty() ? m_client->configuration().jid() : iq.from()), iq.photo());
+		m_avatarStorage->addAvatar(
+			QXmppUtils::jidToBareJid(
+				iq.from().isEmpty() ? m_client->configuration().jid() : iq.from()),
+			iq.photo());
 	}
 
 	Q_EMIT vCardReceived(iq);
@@ -100,28 +107,24 @@ void VCardManager::handlePresenceReceived(const QXmppPresence &presence)
 
 void VCardManager::changeNickname(const QString &nickname)
 {
-	m_clientWorker->startTask(
-		[this, nickname] {
-			m_nicknameToBeSetAfterReceivingCurrentVCard = nickname;
-			requestClientVCard();
-		}
-	);
+	m_clientWorker->startTask([this, nickname] {
+		m_nicknameToBeSetAfterReceivingCurrentVCard = nickname;
+		requestClientVCard();
+	});
 }
 
 void VCardManager::changeAvatar(const QImage &avatar)
 {
-	m_clientWorker->startTask(
-		[this, avatar] {
-			// TODO what's the maximum image size that should be saved?
-			if (!avatar.isNull()) {
-				m_avatarToBeSetAfterReceivingCurrentVCard = avatar.scaledToWidth(512);
-			} else {
-				m_isAvatarToBeReset = true;
-			}
-
-			requestClientVCard();
+	m_clientWorker->startTask([this, avatar] {
+		// TODO what's the maximum image size that should be saved?
+		if (!avatar.isNull()) {
+			m_avatarToBeSetAfterReceivingCurrentVCard = avatar.scaledToWidth(512);
+		} else {
+			m_isAvatarToBeReset = true;
 		}
-	);
+
+		requestClientVCard();
+	});
 }
 
 void VCardManager::changeNicknameAfterReceivingCurrentVCard()

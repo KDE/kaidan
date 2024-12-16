@@ -94,7 +94,7 @@ class ImageEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(QSize resolution MEMBER resolution)
 
 public:
-	explicit ImageEncoderSettings(const QImageEncoderSettings &settings = { });
+	explicit ImageEncoderSettings(const QImageEncoderSettings &settings = {});
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;
@@ -118,7 +118,7 @@ class AudioEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(int channelCount MEMBER channelCount)
 
 public:
-	explicit AudioEncoderSettings(const QAudioEncoderSettings &settings = { });
+	explicit AudioEncoderSettings(const QAudioEncoderSettings &settings = {});
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;
@@ -145,7 +145,7 @@ class VideoEncoderSettings : public CommonEncoderSettings
 	Q_PROPERTY(QSize resolution MEMBER resolution)
 
 public:
-	explicit VideoEncoderSettings(const QVideoEncoderSettings &settings = { });
+	explicit VideoEncoderSettings(const QVideoEncoderSettings &settings = {});
 
 	void loadSettings(QSettings *settings) override;
 	void saveSettings(QSettings *settings) override;

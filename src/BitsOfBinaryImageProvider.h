@@ -7,8 +7,8 @@
 #pragma once
 
 // Qt
-#include <QQuickImageProvider>
 #include <QMutex>
+#include <QQuickImageProvider>
 #include <QVector>
 // QXmpp
 #include <QXmppBitsOfBinaryData.h>

@@ -12,7 +12,10 @@
 GroupChatUserKeyAuthenticationFilterModel::GroupChatUserKeyAuthenticationFilterModel(QObject *parent)
 	: QSortFilterProxyModel(parent)
 {
-	connect(this, &GroupChatUserKeyAuthenticationFilterModel::sourceModelChanged, this, &GroupChatUserKeyAuthenticationFilterModel::setUp);
+	connect(this,
+		&GroupChatUserKeyAuthenticationFilterModel::sourceModelChanged,
+		this,
+		&GroupChatUserKeyAuthenticationFilterModel::setUp);
 }
 
 bool GroupChatUserKeyAuthenticationFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
@@ -26,19 +29,23 @@ bool GroupChatUserKeyAuthenticationFilterModel::filterAcceptsRow(int sourceRow, 
 		return false;
 	}
 
-	return
-		model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp()) ||
-		jid.toLower().contains(filterRegExp());
+	return model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp()) ||
+	       jid.toLower().contains(filterRegExp());
 }
 
 void GroupChatUserKeyAuthenticationFilterModel::setUp()
 {
 	const auto model = static_cast<GroupChatUserModel *>(sourceModel());
 	connect(model, &GroupChatUserModel::userJidsChanged, this, &GroupChatUserKeyAuthenticationFilterModel::updateJids);
-	connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged, Qt::UniqueConnection);
+	connect(EncryptionController::instance(),
+		&EncryptionController::devicesChanged,
+		this,
+		&GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged,
+		Qt::UniqueConnection);
 }
 
-void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QString &accountJid, const QList<QString> &jids)
+void GroupChatUserKeyAuthenticationFilterModel::handleDevicesChanged(const QString &accountJid,
+	const QList<QString> &jids)
 {
 	const auto model = static_cast<GroupChatUserModel *>(sourceModel());
 	const auto userJids = model->userJids();
@@ -60,18 +67,21 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
 		return;
 	}
 
-	await(EncryptionController::instance()->devices(model->accountJid(), model->userJids()), this, [this](QList<EncryptionController::Device> &&devices) {
-		const auto jids = transformFilter<QList<QString>>(std::as_const(devices), [](const EncryptionController::Device &device) -> std::optional<QString> {
-			if (TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel)) {
-				return device.jid;
+	await(EncryptionController::instance()->devices(model->accountJid(), model->userJids()),
+		this,
+		[this](QList<EncryptionController::Device> &&devices) {
+			const auto jids = transformFilter<QList<QString>>(std::as_const(devices),
+				[](const EncryptionController::Device &device) -> std::optional<QString> {
+					if (TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel)) {
+						return device.jid;
+					}
+
+					return {};
+				});
+
+			if (m_jids != jids) {
+				m_jids = jids;
+				invalidateFilter();
 			}
-
-			return {};
 		});
-
-		if (m_jids != jids) {
-			m_jids = jids;
-			invalidateFilter();
-		}
-	});
 }

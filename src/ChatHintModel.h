@@ -8,7 +8,8 @@
 
 class QXmppPresence;
 
-class ChatHintButton {
+class ChatHintButton
+{
 	Q_GADGET
 
 	Q_PROPERTY(ChatHintButton::Type type MEMBER type)
@@ -87,8 +88,8 @@ private:
 
 	int addChatHint(const ChatHint &chatHint);
 	void insertChatHint(int i, const ChatHint &chatHint);
-	void updateChatHint(ChatHintButton::Type buttonType, const std::function<void (ChatHint &)> &updateChatHint);
-	void updateChatHint(int i, const std::function<void (ChatHint &)> &updateChatHint);
+	void updateChatHint(ChatHintButton::Type buttonType, const std::function<void(ChatHint &)> &updateChatHint);
+	void updateChatHint(int i, const std::function<void(ChatHint &)> &updateChatHint);
 	void removeChatHint(ChatHintButton::Type buttonType);
 	void removeChatHint(int i);
 

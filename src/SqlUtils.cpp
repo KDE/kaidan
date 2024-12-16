@@ -14,7 +14,8 @@
 #include <QSqlField>
 #include <QSqlRecord>
 
-namespace SqlUtils {
+namespace SqlUtils
+{
 
 void prepareQuery(QSqlQuery &query, const QString &sql)
 {
@@ -81,19 +82,12 @@ QSqlField createNullField(const QString &key)
 	return field;
 }
 
-QString simpleWhereStatement(const QSqlDriver *driver,
-                             const QString &key,
-                             const QVariant &val)
+QString simpleWhereStatement(const QSqlDriver *driver, const QString &key, const QVariant &val)
 {
 	QSqlRecord rec;
 	rec.append(createSqlField(key, val));
 
-	return QStringLiteral(" ") + driver->sqlStatement(
-	        QSqlDriver::WhereStatement,
-	        QString(),
-	        rec,
-	        false
-	);
+	return QStringLiteral(" ") + driver->sqlStatement(QSqlDriver::WhereStatement, QString(), rec, false);
 }
 
 QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVariant> &keyValuePairs)
@@ -104,12 +98,7 @@ QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVari
 	for (const QString &key : keys)
 		rec.append(createSqlField(key, keyValuePairs.value(key)));
 
-	return QStringLiteral(" ") + driver->sqlStatement(
-		QSqlDriver::WhereStatement,
-		{},
-		rec,
-		false
-	);
+	return QStringLiteral(" ") + driver->sqlStatement(QSqlDriver::WhereStatement, {}, rec, false);
 }
 
 QVariant serialize(const std::optional<QDateTime> &dateTime)
@@ -144,4 +133,4 @@ QDateTime parseDateTime(QSqlQuery &query, int index)
 	return parseOptDateTime(query, index).value_or(QDateTime());
 }
 
-}
+} // namespace SqlUtils

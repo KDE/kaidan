@@ -23,9 +23,9 @@ public:
 	 * Default rule to inform the user about incoming messages from contacts.
 	 */
 	enum class ContactNotificationRule {
-		Never,          ///< Never notify.
-		PresenceOnly,   ///< Notify only for contacts receiving presence.
-		Always,         ///< Always notify.
+		Never,        ///< Never notify.
+		PresenceOnly, ///< Notify only for contacts receiving presence.
+		Always,       ///< Always notify.
 		Default = Always,
 	};
 	Q_ENUM(ContactNotificationRule)
@@ -34,9 +34,9 @@ public:
 	 * Default rule to inform the user about incoming messages from group chats.
 	 */
 	enum class GroupChatNotificationRule {
-		Never,      ///< Never notify.
-		Mentioned,  ///< Notify only if the user is mentioned.
-		Always,     ///< Always notify.
+		Never,     ///< Never notify.
+		Mentioned, ///< Notify only if the user is mentioned.
+		Always,    ///< Always notify.
 		Default = Always,
 	};
 	Q_ENUM(GroupChatNotificationRule)
@@ -56,9 +56,9 @@ public:
 	 * Map service for opening geo locations.
 	 */
 	enum class GeoLocationMapService {
-		System,     ///< Let the system decide how to open geo locations.
-		InApp,      ///< Open geo locations in Kaidan.
-		Web,        ///< Open geo locations in a web browser.
+		System, ///< Let the system decide how to open geo locations.
+		InApp,  ///< Open geo locations in Kaidan.
+		Web,    ///< Open geo locations in a web browser.
 	};
 	Q_ENUM(GeoLocationMapService)
 

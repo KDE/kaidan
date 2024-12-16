@@ -24,7 +24,7 @@ public:
 	QFuture<void> addItem(RosterItem item);
 	Q_SIGNAL void itemAdded(const RosterItem &item);
 
-	QFuture<void> updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+	QFuture<void> updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
 	Q_SIGNAL void itemUpdated(const RosterItem &item);
 
 	QFuture<void> replaceItems(const QHash<QString, RosterItem> &items);
@@ -49,7 +49,7 @@ private:
 	void fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items);
 
 	void _addItem(const RosterItem &item);
-	void _updateItem(const QString &jid, const std::function<void (RosterItem &)> &updateItem);
+	void _updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);
 	void _replaceItem(const RosterItem &oldItem, const RosterItem &newItem);
 	void _removeItem(const QString &accountJid, const QString &jid);
 

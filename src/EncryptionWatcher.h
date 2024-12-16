@@ -55,4 +55,3 @@ private:
 	bool m_hasAuthenticatableDevices;
 	bool m_hasAuthenticatableDistrustedDevices;
 };
-

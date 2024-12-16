@@ -10,8 +10,8 @@
 
 #include <QObject>
 
-#include "Message.h"
 #include "DatabaseComponent.h"
+#include "Message.h"
 #include "SqlUtils.h"
 
 class Database;
@@ -50,8 +50,7 @@ public:
 	 * @param oldMsg Full message as it is currently saved
 	 * @param newMsg Full message as it should be after the update query ran.
 	 */
-	static QSqlRecord createUpdateRecord(const Message &oldMsg,
-	                                     const Message &newMsg);
+	static QSqlRecord createUpdateRecord(const Message &oldMsg, const Message &newMsg);
 
 	/**
 	 * Fetches messages.
@@ -115,7 +114,8 @@ public:
 	 *
 	 * @return the fetched messages
 	 */
-	QFuture<QVector<Message>> fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
+	QFuture<QVector<Message>>
+	fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
 
 	/**
 	 * Fetches messages until a specific ID.
@@ -127,12 +127,16 @@ public:
 	 * @param chatJid bare Jid of the chat
 	 * @param index number of entries to be skipped, used for paging
 	 * @param limitingId ID of the message until messages are fetched
-	 * @param fetchMessageMinimum whether to return a minimum of DB_QUERY_LIMIT_MESSAGES entries if
-	 *        no message with messageId could be found
+	 * @param fetchMessageMinimum whether to return a minimum of DB_QUERY_LIMIT_MESSAGES entries
+	 * if no message with messageId could be found
 	 *
 	 * @return the fetched messages and the found message's index
 	 */
-	QFuture<MessageResult> fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId, bool fetchMessageMinimum = true);
+	QFuture<MessageResult> fetchMessagesUntilId(const QString &accountJid,
+		const QString &chatJid,
+		int index,
+		const QString &limitingId,
+		bool fetchMessageMinimum = true);
 
 	/**
 	 * Fetches messages until a message with a specific query string.
@@ -151,7 +155,10 @@ public:
 	 *
 	 * @return the fetched messages and the found message's index
 	 */
-	QFuture<MessageResult> fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString);
+	QFuture<MessageResult> fetchMessagesUntilQueryString(const QString &accountJid,
+		const QString &chatJid,
+		int index,
+		const QString &queryString);
 
 	/**
 	 * Fetches messages that are marked as pending.
@@ -168,7 +175,8 @@ public:
 	 * @return the IDs of the chats mapped to their reactions (message IDs mapped to the message
 	 *         reaction senders)
 	 */
-	QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> fetchPendingReactions(const QString &accountJid);
+	QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> fetchPendingReactions(
+		const QString &accountJid);
 
 	/**
 	 * Fetches the last message from the database synchronously.
@@ -190,7 +198,10 @@ public:
 	 *
 	 * @return the message count
 	 */
-	QFuture<int> messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd);
+	QFuture<int> messageCount(const QString &accountJid,
+		const QString &chatJid,
+		const QString &messageIdBegin,
+		const QString &messageIdEnd);
 
 	/**
 	 * Adds a message to the database.
@@ -201,7 +212,10 @@ public:
 	/**
 	 * Updates a stored message or adds it if it is not stored.
 	 */
-	QFuture<void> addOrUpdateMessage(const Message &message, MessageOrigin origin, const QString &originId, const std::function<void (Message &)> &updateMsg);
+	QFuture<void> addOrUpdateMessage(const Message &message,
+		MessageOrigin origin,
+		const QString &originId,
+		const std::function<void(Message &)> &updateMsg);
 
 	/**
 	 * Removes all messages from an account.
@@ -239,7 +253,7 @@ public:
 	 * @param id ID of the message to be updated
 	 * @param updateMsg Function that changes the message
 	 */
-	QFuture<void> updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
+	QFuture<void> updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg);
 	Q_SIGNAL void messageUpdated(const Message &message);
 
 	/**
@@ -248,7 +262,12 @@ public:
 	 * The DB file IDs in the sources are overriden and may e.g. be set to 0 if unknown.
 	 * The whole message is fetched and messageUpdated() is emitted.
 	 */
-	QFuture<void> attachFileSources(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &fileId, const QVector<HttpSource> &httpSources, const QVector<EncryptedSource> &encryptedSources);
+	QFuture<void> attachFileSources(const QString &accountJid,
+		const QString &chatJid,
+		const QString &messageId,
+		const QString &fileId,
+		const QVector<HttpSource> &httpSources,
+		const QVector<EncryptedSource> &encryptedSources);
 
 	/**
 	 * Fetches a draft message from the database.
@@ -264,7 +283,9 @@ public:
 	/**
 	 * Updates a draft message from the database.
 	 */
-	QFuture<void> updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void (Message &)> &updateMessage);
+	QFuture<void> updateDraftMessage(const QString &accountJid,
+		const QString &chatJid,
+		const std::function<void(Message &)> &updateMessage);
 	Q_SIGNAL void draftMessageUpdated(const Message &msg);
 
 	/**
@@ -276,7 +297,7 @@ public:
 private:
 	void _addMessage(Message message, MessageOrigin origin);
 	void _addMessage(const Message &message);
-	void _updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg);
+	void _updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg);
 
 	// Setters do INSERT OR REPLACE INTO
 	void _fetchLatestFileId();

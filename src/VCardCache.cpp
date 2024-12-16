@@ -8,8 +8,7 @@
 // Qt
 #include <QMutexLocker>
 
-VCardCache::VCardCache(QObject *parent)
-	: QObject(parent)
+VCardCache::VCardCache(QObject *parent) : QObject(parent)
 {
 }
 

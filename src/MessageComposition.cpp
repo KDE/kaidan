@@ -27,15 +27,12 @@
 // QXmpp
 #include <QXmppUtils.h>
 // KF
-#include <KIO/PreviewJob>
 #include <KFileItem>
+#include <KIO/PreviewJob>
 
-MessageComposition::MessageComposition()
-	: m_fileSelectionModel(new FileSelectionModel(this))
+MessageComposition::MessageComposition() : m_fileSelectionModel(new FileSelectionModel(this))
 {
-	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() {
-		saveDraft();
-	});
+	connect(qGuiApp, &QGuiApplication::aboutToQuit, this, [this]() { saveDraft(); });
 }
 
 void MessageComposition::setAccountJid(const QString &accountJid)
@@ -172,8 +169,8 @@ void MessageComposition::send()
 	if (!m_replyId.isEmpty()) {
 		Message::Reply reply;
 
-		// "m_replyToJid" and "m_replyToGroupChatParticipantId" are empty if the reply is to an own
-		// message.
+		// "m_replyToJid" and "m_replyToGroupChatParticipantId" are empty if the reply is to
+		// an own message.
 		if (m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty()) {
 			if (rosterItem->isGroupChat()) {
 				reply.toGroupChatparticipantId = rosterItem->groupChatParticipantId;
@@ -233,9 +230,10 @@ void MessageComposition::send()
 				message.files = std::move(*files);
 
 				// update message in database
-				MessageDb::instance()->updateMessage(message.id, [files = message.files](auto &message) {
-					message.files = files;
-				});
+				MessageDb::instance()->updateMessage(
+					message.id, [files = message.files](auto &message) {
+						message.files = files;
+					});
 
 				// send message with file sources
 				MessageController::instance()->sendPendingMessage(std::move(message));
@@ -260,51 +258,70 @@ void MessageComposition::send()
 
 void MessageComposition::correct()
 {
-	MessageDb::instance()->updateMessage(m_replaceId, [this, replaceId = m_replaceId, replyToJid = m_replyToJid, replyToGroupChatParticipantId = m_replyToGroupChatParticipantId, replyId = m_replyId, replyQuote = m_replyQuote, body = m_body, spoilerHint = m_spoilerHint](Message &message) {
-		setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
-		message.body = body;
-		message.isSpoiler = !spoilerHint.isEmpty();
-		message.spoilerHint = spoilerHint;
+	MessageDb::instance()->updateMessage(m_replaceId,
+		[this,
+			replaceId = m_replaceId,
+			replyToJid = m_replyToJid,
+			replyToGroupChatParticipantId = m_replyToGroupChatParticipantId,
+			replyId = m_replyId,
+			replyQuote = m_replyQuote,
+			body = m_body,
+			spoilerHint = m_spoilerHint](Message &message) {
+			setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
+			message.body = body;
+			message.isSpoiler = !spoilerHint.isEmpty();
+			message.spoilerHint = spoilerHint;
 
-		if (message.deliveryState != Enums::DeliveryState::Pending) {
-			message.id = QXmppUtils::generateStanzaUuid();
+			if (message.deliveryState != Enums::DeliveryState::Pending) {
+				message.id = QXmppUtils::generateStanzaUuid();
 
-			// Set "replaceId" only on first correction.
-			// That way, "replaceId" stays the ID of the originally corrected message.
-			if (message.replaceId.isEmpty()) {
-				message.replaceId = replaceId;
-			}
-
-			message.deliveryState = Enums::DeliveryState::Pending;
-
-			runOnThread(this, [this, message]() mutable {
-				if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-					// the trick with the time is important for the servers
-					// this way they can tell which version of the message is the latest
-					message.timestamp = QDateTime::currentDateTimeUtc();
-
-					await(MessageController::instance()->send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult &&result) {
-						if (std::holds_alternative<QXmppError>(result)) {
-							// TODO store in the database only error codes, assign text messages right in the QML
-							Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
-
-							MessageDb::instance()->updateMessage(messageId, [](Message &message) {
-								message.deliveryState = DeliveryState::Error;
-								message.errorText = QStringLiteral("Message correction was not successful");
-							});
-						} else {
-							MessageDb::instance()->updateMessage(messageId, [](Message &message) {
-								message.deliveryState = DeliveryState::Sent;
-								message.errorText.clear();
-							});
-						}
-					});
+				// Set "replaceId" only on first correction.
+				// That way, "replaceId" stays the ID of the originally corrected message.
+				if (message.replaceId.isEmpty()) {
+					message.replaceId = replaceId;
 				}
-			});
-		} else if (message.replaceId.isEmpty()) {
-			message.timestamp = QDateTime::currentDateTimeUtc();
-		}
-	});
+
+				message.deliveryState = Enums::DeliveryState::Pending;
+
+				runOnThread(this, [this, message]() mutable {
+					if (ConnectionState(Kaidan::instance()->connectionState()) ==
+						Enums::ConnectionState::StateConnected) {
+						// the trick with the time is important for the servers
+						// this way they can tell which version of the message is the latest
+						message.timestamp = QDateTime::currentDateTimeUtc();
+
+						await(MessageController::instance()->send(message.toQXmpp()),
+							this,
+							[messageId = message.id](QXmpp::SendResult &&result) {
+								if (std::holds_alternative<QXmppError>(result)) {
+									// TODO store in the database only error codes, assign text messages right in the QML
+									Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr(
+										"Message "
+										"correction was "
+										"not successful"));
+
+									MessageDb::instance()->updateMessage(
+										messageId, [](Message &message) {
+											message.deliveryState =
+												DeliveryState::Error;
+											message.errorText =
+												QStringLiteral(
+													"Message correction was not successful");
+										});
+								} else {
+									MessageDb::instance()->updateMessage(messageId, [](Message &message) {
+										message.deliveryState =
+											DeliveryState::Sent;
+										message.errorText.clear();
+									});
+								}
+							});
+					}
+				});
+			} else if (message.replaceId.isEmpty()) {
+				message.timestamp = QDateTime::currentDateTimeUtc();
+			}
+		});
 
 	clear();
 }
@@ -323,7 +340,11 @@ void MessageComposition::clear()
 	setIsDraft(false);
 }
 
-void MessageComposition::setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote)
+void MessageComposition::setReply(Message &message,
+	const QString &replyToJid,
+	const QString &replyToGroupChatParticipantId,
+	const QString &replyId,
+	const QString &replyQuote)
 {
 	if (replyId.isEmpty()) {
 		message.reply.reset();
@@ -356,10 +377,15 @@ void MessageComposition::loadDraft()
 
 				// Only process if it is not a reply to an own message.
 				if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {
-					if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid); rosterItem->isGroupChat()) {
-						await(GroupChatUserDb::instance()->user(m_accountJid, m_chatJid, m_replyToGroupChatParticipantId), this, [this](const std::optional<GroupChatUser> &user) {
-							setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
-						});
+					if (const auto rosterItem = RosterModel::instance()->findItem(m_chatJid);
+						rosterItem->isGroupChat()) {
+						await(GroupChatUserDb::instance()->user(
+							      m_accountJid, m_chatJid, m_replyToGroupChatParticipantId),
+							this,
+							[this](const std::optional<GroupChatUser> &user) {
+								setReplyToName(user ? user->displayName()
+										    : m_replyToGroupChatParticipantId);
+							});
 					} else {
 						setReplyToName(rosterItem->displayName());
 					}
@@ -387,14 +413,24 @@ void MessageComposition::saveDraft()
 
 	if (m_isDraft) {
 		if (savingNeeded) {
-			MessageDb::instance()->updateDraftMessage(m_accountJid, m_chatJid, [this, replaceId = m_replaceId, replyToJid = m_replyToJid, replyToGroupChatParticipantId = m_replyToGroupChatParticipantId, replyId = m_replyId, replyQuote = m_replyQuote, body = m_body, isSpoiler = m_isSpoiler, spoilerHint = m_spoilerHint](Message &message) {
-				message.replaceId = replaceId;
-				setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
-				message.timestamp = QDateTime::currentDateTimeUtc();
-				message.body = body;
-				message.isSpoiler = isSpoiler;
-				message.spoilerHint = spoilerHint;
-			});
+			MessageDb::instance()->updateDraftMessage(m_accountJid,
+				m_chatJid,
+				[this,
+					replaceId = m_replaceId,
+					replyToJid = m_replyToJid,
+					replyToGroupChatParticipantId = m_replyToGroupChatParticipantId,
+					replyId = m_replyId,
+					replyQuote = m_replyQuote,
+					body = m_body,
+					isSpoiler = m_isSpoiler,
+					spoilerHint = m_spoilerHint](Message &message) {
+					message.replaceId = replaceId;
+					setReply(message, replyToJid, replyToGroupChatParticipantId, replyId, replyQuote);
+					message.timestamp = QDateTime::currentDateTimeUtc();
+					message.body = body;
+					message.isSpoiler = isSpoiler;
+					message.spoilerHint = spoilerHint;
+				});
 		} else {
 			MessageDb::instance()->removeDraftMessage(m_accountJid, m_chatJid);
 		}
@@ -414,8 +450,7 @@ void MessageComposition::saveDraft()
 	}
 }
 
-FileSelectionModel::FileSelectionModel(QObject *parent)
-	: QAbstractListModel(parent)
+FileSelectionModel::FileSelectionModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -491,9 +526,8 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 {
 	auto localPath = localFileUrl.toLocalFile();
 
-	bool alreadyAdded = containsIf(m_files, [=](const auto &file) {
-		return file.localFilePath == localPath;
-	});
+	bool alreadyAdded =
+		containsIf(m_files, [=](const auto &file) { return file.localFilePath == localPath; });
 
 	if (alreadyAdded) {
 		return;
@@ -504,7 +538,10 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 	const QFileInfo fileInfo(localPath);
 
 	if (fileInfo.size() > limit) {
-		Kaidan::instance()->passiveNotificationRequested(tr("'%1' cannot be sent because it is larger than %2").arg(fileInfo.fileName(), Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
+		Kaidan::instance()->passiveNotificationRequested(
+			tr("'%1' cannot be sent because it is larger than %2")
+				.arg(fileInfo.fileName(),
+					Kaidan::instance()->serverFeaturesCache()->httpUploadLimitString()));
 		return;
 	}
 
@@ -521,10 +558,12 @@ void FileSelectionModel::addFile(const QUrl &localFileUrl, bool isNew)
 	};
 
 	if (file.type() == MessageType::MessageVideo) {
-		await(MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT), this, [file, insertFile](const QByteArray &thumbnail) mutable {
-			file.thumbnail = thumbnail;
-			insertFile(std::move(file));
-		});
+		await(MediaUtils::generateThumbnail(file.localFileUrl(), file.mimeTypeName(), VIDEO_THUMBNAIL_EDGE_PIXEL_COUNT),
+			this,
+			[file, insertFile](const QByteArray &thumbnail) mutable {
+				file.thumbnail = thumbnail;
+				insertFile(std::move(file));
+			});
 	} else {
 		insertFile(std::move(file));
 	}

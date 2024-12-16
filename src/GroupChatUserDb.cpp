@@ -29,8 +29,7 @@ constexpr QStringView STATUS = u"status";
 
 GroupChatUserDb *GroupChatUserDb::s_instance = nullptr;
 
-GroupChatUserDb::GroupChatUserDb(Database *db, QObject *parent)
-	: DatabaseComponent(db, parent)
+GroupChatUserDb::GroupChatUserDb(Database *db, QObject *parent) : DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!GroupChatUserDb::s_instance);
 	s_instance = this;
@@ -46,30 +45,29 @@ GroupChatUserDb *GroupChatUserDb::instance()
 	return s_instance;
 }
 
-QFuture<std::optional<GroupChatUser>> GroupChatUserDb::user(const QString &accountJid, const QString &chatJid, const QString &participantId)
+QFuture<std::optional<GroupChatUser>>
+GroupChatUserDb::user(const QString &accountJid, const QString &chatJid, const QString &participantId)
 {
 	return run([this, accountJid, chatJid, participantId]() {
 		return _user(accountJid, chatJid, participantId);
 	});
 }
 
-std::optional<GroupChatUser> GroupChatUserDb::_user(const QString &accountJid, const QString &chatJid, const QString &participantId)
+std::optional<GroupChatUser>
+GroupChatUserDb::_user(const QString &accountJid, const QString &chatJid, const QString &participantId)
 {
 	auto query = createQuery();
 	query.setForwardOnly(true);
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ ACCOUNT_JID.toString(), accountJid },
+	QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), accountJid },
 		{ CHAT_JID.toString(), chatJid },
-		{ ID.toString(), participantId }
-	};
+		{ ID.toString(), participantId } };
 
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral("SELECT * FROM " DB_TABLE_GROUP_CHAT_USERS) +
-		simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-		"LIMIT 1")
-	);
+			simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+			QStringLiteral(" "
+				       "LIMIT 1"));
 
 	QVector<GroupChatUser> users;
 	parseUsersFromQuery(query, users);
@@ -81,24 +79,26 @@ std::optional<GroupChatUser> GroupChatUserDb::_user(const QString &accountJid, c
 	return users.constFirst();
 }
 
-QFuture<QVector<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid, const QString &chatJid, const int offset)
+QFuture<QVector<GroupChatUser>>
+GroupChatUserDb::users(const QString &accountJid, const QString &chatJid, const int offset)
 {
 	return run([this, accountJid, chatJid, offset]() {
 		auto query = createQuery();
 		query.setForwardOnly(true);
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), accountJid },
-			{ CHAT_JID.toString(), chatJid }
-		};
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), accountJid },
+			{ CHAT_JID.toString(), chatJid } };
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral("SELECT * FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"ORDER BY ") + NAME.toString() + ", " + STATUS.toString() + QStringLiteral(" "
-			"LIMIT %1, %2").arg(offset).arg(DB_QUERY_LIMIT_GROUP_CHAT_USERS)
-		);
+				simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "ORDER BY ") +
+				NAME.toString() + ", " + STATUS.toString() +
+				QStringLiteral(" "
+					       "LIMIT %1, %2")
+					.arg(offset)
+					.arg(DB_QUERY_LIMIT_GROUP_CHAT_USERS));
 
 		QVector<GroupChatUser> users;
 		parseUsersFromQuery(query, users);
@@ -107,22 +107,19 @@ QFuture<QVector<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid
 	});
 }
 
-QFuture<QVector<QString> > GroupChatUserDb::userJids(const QString &accountJid, const QString &chatJid)
+QFuture<QVector<QString>> GroupChatUserDb::userJids(const QString &accountJid, const QString &chatJid)
 {
 	return run([this, accountJid, chatJid]() {
 		auto query = createQuery();
 		query.setForwardOnly(true);
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), accountJid },
-			{ CHAT_JID.toString(), chatJid }
-		};
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), accountJid },
+			{ CHAT_JID.toString(), chatJid } };
 
-		execQuery(
-			query,
-			QStringLiteral("SELECT ") + JID.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs)
-		);
+		execQuery(query,
+			QStringLiteral("SELECT ") + JID.toString() +
+				QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
+				simpleWhereStatement(&sqlDriver(), keyValuePairs));
 
 		QVector<QString> userJids;
 
@@ -141,23 +138,20 @@ QFuture<void> GroupChatUserDb::handleUserAllowedOrBanned(const GroupChatUser &us
 	return run([this, user]() {
 		auto query = createQuery();
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), user.accountJid },
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), user.accountJid },
 			{ CHAT_JID.toString(), user.chatJid },
-			{ JID.toString(), user.jid }
-		};
+			{ JID.toString(), user.jid } };
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral("SELECT 1 FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"LIMIT 1")
-		);
+				simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "LIMIT 1"));
 
 		// If there is a stored user with a different status, update that user.
 		// Otherwise, add a new entry.
-		// "INSERT OR IGNORE INTO" is not possible because the columns that are checked differ from
-		// those that are inserted.
+		// "INSERT OR IGNORE INTO" is not possible because the columns that are checked
+		// differ from those that are inserted.
 		if (query.next()) {
 			updateUserByJid(user.accountJid, user.chatJid, user.jid, [status = user.status](GroupChatUser &storedUser) {
 				storedUser.status = status;
@@ -173,19 +167,15 @@ QFuture<void> GroupChatUserDb::handleUserDisallowedOrUnbanned(const GroupChatUse
 	return run([this, user]() {
 		auto query = createQuery();
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), user.accountJid },
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), user.accountJid },
 			{ CHAT_JID.toString(), user.chatJid },
 			{ JID.toString(), user.jid },
-			{ STATUS.toString(), int(user.status) }
-		};
+			{ STATUS.toString(), int(user.status) } };
 
-		execQuery(
-			query,
-			QStringLiteral("SELECT 1 FROM " ) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"LIMIT 1")
-		);
+		execQuery(query,
+			QStringLiteral("SELECT 1 FROM ") + simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "LIMIT 1"));
 
 		if (query.next()) {
 			removeUser(user);
@@ -198,18 +188,15 @@ QFuture<void> GroupChatUserDb::handleParticipantReceived(GroupChatUser participa
 	return run([this, participant]() mutable {
 		auto query = createQuery();
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), participant.accountJid },
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), participant.accountJid },
 			{ CHAT_JID.toString(), participant.chatJid },
-			{ ID.toString(), participant.id }
-		};
+			{ ID.toString(), participant.id } };
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral("SELECT 1 FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"LIMIT 1")
-		);
+				simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "LIMIT 1"));
 
 		participant.status = GroupChatUser::Status::Joined;
 
@@ -218,30 +205,33 @@ QFuture<void> GroupChatUserDb::handleParticipantReceived(GroupChatUser participa
 		// entry to a joined one.
 		// If the participant was not set as allowed before and joined now, add the participant.
 		if (query.next()) {
-			updateUserById(participant.accountJid, participant.chatJid, participant.id, [participant](GroupChatUser &user) {
-				user.name = participant.name;
-				user.status = participant.status;
-			});
-		} else {
-			keyValuePairs = {
-				{ ACCOUNT_JID.toString(), participant.accountJid },
-				{ CHAT_JID.toString(), participant.chatJid },
-				{ JID.toString(), participant.jid }
-			};
-
-			execQuery(
-				query,
-				QStringLiteral("SELECT 1 FROM " DB_TABLE_GROUP_CHAT_USERS) +
-				simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-				"LIMIT 1")
-			);
-
-			if (query.next()) {
-				updateUserByJid(participant.accountJid, participant.chatJid, participant.jid, [participant](GroupChatUser &user) {
-					user.id = participant.id;
+			updateUserById(participant.accountJid,
+				participant.chatJid,
+				participant.id,
+				[participant](GroupChatUser &user) {
 					user.name = participant.name;
 					user.status = participant.status;
 				});
+		} else {
+			keyValuePairs = { { ACCOUNT_JID.toString(), participant.accountJid },
+				{ CHAT_JID.toString(), participant.chatJid },
+				{ JID.toString(), participant.jid } };
+
+			execQuery(query,
+				QStringLiteral("SELECT 1 FROM " DB_TABLE_GROUP_CHAT_USERS) +
+					simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+					QStringLiteral(" "
+						       "LIMIT 1"));
+
+			if (query.next()) {
+				updateUserByJid(participant.accountJid,
+					participant.chatJid,
+					participant.jid,
+					[participant](GroupChatUser &user) {
+						user.id = participant.id;
+						user.name = participant.name;
+						user.status = participant.status;
+					});
 			} else {
 				addUser(participant);
 			}
@@ -254,24 +244,28 @@ QFuture<void> GroupChatUserDb::handleParticipantLeft(const GroupChatUser &partic
 	return run([this, participant]() {
 		auto query = createQuery();
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), participant.accountJid },
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), participant.accountJid },
 			{ CHAT_JID.toString(), participant.chatJid },
-			{ ID.toString(), participant.id }
-		};
+			{ ID.toString(), participant.id } };
 
-		execQuery(
-			query,
-			QStringLiteral("SELECT ") + STATUS.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"LIMIT 1")
-		);
+		execQuery(query,
+			QStringLiteral("SELECT ") + STATUS.toString() +
+				QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
+				simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "LIMIT 1"));
 
 		if (query.next()) {
-			if (const auto status = query.value(0).value<GroupChatUser::Status>(); status == GroupChatUser::Status::Allowed || MessageDb::instance()->_hasMessage(participant.accountJid, participant.chatJid, participant.id)) {
-				updateUserById(participant.accountJid, participant.chatJid, participant.id, [](GroupChatUser &user) {
-					user.status = GroupChatUser::Status::Left;
-				});
+			if (const auto status = query.value(0).value<GroupChatUser::Status>();
+				status == GroupChatUser::Status::Allowed ||
+				MessageDb::instance()->_hasMessage(
+					participant.accountJid, participant.chatJid, participant.id)) {
+				updateUserById(participant.accountJid,
+					participant.chatJid,
+					participant.id,
+					[](GroupChatUser &user) {
+						user.status = GroupChatUser::Status::Left;
+					});
 			} else {
 				removeUser(participant);
 			}
@@ -284,18 +278,16 @@ QFuture<void> GroupChatUserDb::handleMessageSender(GroupChatUser sender)
 	return run([this, sender]() mutable {
 		auto query = createQuery();
 
-		QMap<QString, QVariant> keyValuePairs = {
-			{ ACCOUNT_JID.toString(), sender.accountJid },
+		QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), sender.accountJid },
 			{ CHAT_JID.toString(), sender.chatJid },
-			{ ID.toString(), sender.id }
-		};
+			{ ID.toString(), sender.id } };
 
-		execQuery(
-			query,
-			QStringLiteral("SELECT ") + ID.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
-			simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-			"LIMIT 1")
-		);
+		execQuery(query,
+			QStringLiteral("SELECT ") + ID.toString() +
+				QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS) +
+				simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+				QStringLiteral(" "
+					       "LIMIT 1"));
 
 		if (!query.next()) {
 			sender.status = GroupChatUser::Status::Left;
@@ -306,31 +298,23 @@ QFuture<void> GroupChatUserDb::handleMessageSender(GroupChatUser sender)
 
 QFuture<void> GroupChatUserDb::removeUsers(const QString &accountJid)
 {
-	return run([this, accountJid]() {
-		_removeUsers(accountJid);
-	});
+	return run([this, accountJid]() { _removeUsers(accountJid); });
 }
 
 void GroupChatUserDb::_removeUsers(const QString &accountJid)
 {
 	auto query = createQuery();
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ ACCOUNT_JID.toString(), accountJid }
-	};
+	QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), accountJid } };
 
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
-		simpleWhereStatement(&sqlDriver(), keyValuePairs)
-	);
+			simpleWhereStatement(&sqlDriver(), keyValuePairs));
 }
 
 QFuture<void> GroupChatUserDb::removeUsers(const QString &accountJid, const QString &chatJid)
 {
-	return run([this, accountJid, chatJid]() {
-		_removeUsers(accountJid, chatJid);
-	});
+	return run([this, accountJid, chatJid]() { _removeUsers(accountJid, chatJid); });
 }
 
 void GroupChatUserDb::_removeUsers(const QString &accountJid, const QString &chatJid)
@@ -342,11 +326,9 @@ void GroupChatUserDb::_removeUsers(const QString &accountJid, const QString &cha
 		{ CHAT_JID.toString(), chatJid },
 	};
 
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
-		simpleWhereStatement(&sqlDriver(), keyValuePairs)
-	);
+			simpleWhereStatement(&sqlDriver(), keyValuePairs));
 }
 
 void GroupChatUserDb::addUser(const GroupChatUser &user)
@@ -354,58 +336,50 @@ void GroupChatUserDb::addUser(const GroupChatUser &user)
 	const auto accountJid = user.accountJid;
 	const auto chatJid = user.chatJid;
 
-	insert(
-		QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
+	insert(QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
 		{
-			{ ACCOUNT_JID, accountJid},
-			{ CHAT_JID, chatJid},
-			{ ID, user.id},
-			{ JID, user.jid},
-			{ NAME, user.name},
-			{ STATUS, static_cast<int>(user.status)},
-		}
-	);
+			{ ACCOUNT_JID, accountJid },
+			{ CHAT_JID, chatJid },
+			{ ID, user.id },
+			{ JID, user.jid },
+			{ NAME, user.name },
+			{ STATUS, static_cast<int>(user.status) },
+		});
 
 	Q_EMIT userAdded(user);
 	Q_EMIT userJidsChanged(accountJid, chatJid);
 }
 
-void GroupChatUserDb::updateUserById(const QString &accountJid, const QString &chatJid, const QString &userId, const std::function<void (GroupChatUser &)> &updateUser)
+void GroupChatUserDb::updateUserById(const QString &accountJid,
+	const QString &chatJid,
+	const QString &userId,
+	const std::function<void(GroupChatUser &)> &updateUser)
 {
-	updateUserByKeyValuePairs(
-		updateUser,
-		{
-			{ ACCOUNT_JID.toString(), accountJid },
-			{ CHAT_JID.toString(), chatJid },
-			{ ID.toString(), userId }
-		}
-	);
+	updateUserByKeyValuePairs(updateUser,
+		{ { ACCOUNT_JID.toString(), accountJid }, { CHAT_JID.toString(), chatJid }, { ID.toString(), userId } });
 }
 
-void GroupChatUserDb::updateUserByJid(const QString &accountJid, const QString &chatJid, const QString &userJid, const std::function<void (GroupChatUser &)> &updateUser)
+void GroupChatUserDb::updateUserByJid(const QString &accountJid,
+	const QString &chatJid,
+	const QString &userJid,
+	const std::function<void(GroupChatUser &)> &updateUser)
 {
-	updateUserByKeyValuePairs(
-		updateUser,
-		{
-			{ ACCOUNT_JID.toString(), accountJid },
-			{ CHAT_JID.toString(), chatJid },
-			{ JID.toString(), userJid }
-		}
-	);
+	updateUserByKeyValuePairs(updateUser,
+		{ { ACCOUNT_JID.toString(), accountJid }, { CHAT_JID.toString(), chatJid }, { JID.toString(), userJid } });
 }
 
-void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void (GroupChatUser &)> &updateUser, const QMap<QString, QVariant> &keyValuePairs)
+void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void(GroupChatUser &)> &updateUser,
+	const QMap<QString, QVariant> &keyValuePairs)
 {
 	auto query = createQuery();
 	query.setForwardOnly(true);
 
 	// Load the user from the database.
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral("SELECT * FROM " DB_TABLE_GROUP_CHAT_USERS) +
-		simpleWhereStatement(&sqlDriver(), keyValuePairs) + QStringLiteral(" "
-		"LIMIT 1")
-	);
+			simpleWhereStatement(&sqlDriver(), keyValuePairs) +
+			QStringLiteral(" "
+				       "LIMIT 1"));
 
 	QVector<GroupChatUser> users;
 	parseUsersFromQuery(query, users);
@@ -421,16 +395,12 @@ void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void (GroupC
 			// Create an SQL record containing the differences.
 			QSqlRecord record = createUpdateRecord(users.constFirst(), newUser);
 
-			execQuery(
-				query,
-				sqlDriver().sqlStatement(
-						QSqlDriver::UpdateStatement,
-						QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
-						record,
-						false
-				) +
-				simpleWhereStatement(&sqlDriver(), keyValuePairs)
-			);
+			execQuery(query,
+				sqlDriver().sqlStatement(QSqlDriver::UpdateStatement,
+					QStringLiteral(DB_TABLE_GROUP_CHAT_USERS),
+					record,
+					false) +
+					simpleWhereStatement(&sqlDriver(), keyValuePairs));
 
 			userUpdated(newUser);
 		}
@@ -500,17 +470,13 @@ void GroupChatUserDb::removeUser(const GroupChatUser &user)
 	// group chat).
 	bool hasId = !user.id.isEmpty();
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ ACCOUNT_JID.toString(), accountJid },
+	QMap<QString, QVariant> keyValuePairs = { { ACCOUNT_JID.toString(), accountJid },
 		{ CHAT_JID.toString(), chatJid },
-		{ hasId ? ID.toString() : JID.toString(), hasId ? user.id : user.jid }
-	};
+		{ hasId ? ID.toString() : JID.toString(), hasId ? user.id : user.jid } };
 
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral("DELETE FROM " DB_TABLE_GROUP_CHAT_USERS) +
-		simpleWhereStatement(&sqlDriver(), keyValuePairs)
-	);
+			simpleWhereStatement(&sqlDriver(), keyValuePairs));
 
 	Q_EMIT userRemoved(user);
 	Q_EMIT userJidsChanged(accountJid, chatJid);

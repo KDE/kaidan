@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include <QImage>
 #include <QFile>
-#include <QTemporaryDir>
+#include <QImage>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QTemporaryDir>
 #include <QtTest>
 
 #include "../src/FileModel.h"
@@ -17,7 +17,8 @@ class FileModelTest : public QObject
 	Q_OBJECT
 
 private Q_SLOTS:
-	void initTestCase() {
+	void initTestCase()
+	{
 		qRegisterMetaType<QPersistentModelIndex>();
 		qRegisterMetaType<QList<QPersistentModelIndex>>();
 		qRegisterMetaType<QAbstractItemModel::LayoutChangeHint>();
@@ -25,7 +26,8 @@ private Q_SLOTS:
 		QVERIFY(m_dir.isValid());
 	}
 
-	void cleanupTestCase() {
+	void cleanupTestCase()
+	{
 		const QFileInfo fileInfo(m_dir.path());
 
 		m_dir.remove();
@@ -93,16 +95,7 @@ private Q_SLOTS:
 
 		// Set files.
 
-		model.setFiles({
-						   localImage1,
-						   localImage2,
-						   image4,
-						   localImage3,
-						   localText1,
-						   localText2,
-						   text4,
-						   localText3
-					   });
+		model.setFiles({ localImage1, localImage2, image4, localImage3, localText1, localText2, text4, localText3 });
 
 		// Check emitted signals and counts.
 
@@ -179,15 +172,20 @@ private Q_SLOTS:
 	}
 
 private:
-	QString filePath(const QColor &color) const {
-		return m_dir.filePath(QStringLiteral("%1.png").arg(color.name().remove(QStringLiteral("#"))));
+	QString filePath(const QColor &color) const
+	{
+		return m_dir.filePath(
+			QStringLiteral("%1.png").arg(color.name().remove(QStringLiteral("#"))));
 	}
 
-	QString filePath(const QString &content) const {
-		return m_dir.filePath(QStringLiteral("%1.txt").arg(qChecksum(content.toUtf8().constData(), content.length())));
+	QString filePath(const QString &content) const
+	{
+		return m_dir.filePath(QStringLiteral("%1.txt").arg(
+			qChecksum(content.toUtf8().constData(), content.length())));
 	}
 
-	QImage createImage(const QColor &color) const {
+	QImage createImage(const QColor &color) const
+	{
 		const QFileInfo fileInfo(filePath(color));
 
 		if (fileInfo.exists()) {
@@ -202,7 +200,8 @@ private:
 		return img;
 	}
 
-	QByteArray createText(const QString &content) const {
+	QByteArray createText(const QString &content) const
+	{
 		QFile file(filePath(content));
 
 		if (file.exists()) {
@@ -223,7 +222,8 @@ private:
 		return content.toUtf8();
 	}
 
-	File createFile(const QColor &color, bool local) const {
+	File createFile(const QColor &color, bool local) const
+	{
 		if (local) {
 			createImage(color);
 		}
@@ -238,14 +238,14 @@ private:
 		file.size = fileInfo.size();
 		file.lastModified = fileInfo.lastModified();
 		file.localFilePath = local ? fileInfo.filePath() : QString();
-		file.httpSources.append({
-									file.id, QUrl(QStringLiteral("http://kaidan.im/colors/%1").arg(fileInfo.fileName()))
-								});
+		file.httpSources.append({ file.id,
+			QUrl(QStringLiteral("http://kaidan.im/colors/%1").arg(fileInfo.fileName())) });
 
 		return file;
 	}
 
-	File createFile(const QString &content, bool local) const {
+	File createFile(const QString &content, bool local) const
+	{
 		if (local) {
 			createText(content);
 		}
@@ -260,9 +260,8 @@ private:
 		file.size = fileInfo.size();
 		file.lastModified = fileInfo.lastModified();
 		file.localFilePath = local ? fileInfo.filePath() : QString();
-		file.httpSources.append({
-									file.id, QUrl(QStringLiteral("http://kaidan.im/texts/%1").arg(fileInfo.fileName()))
-								});
+		file.httpSources.append({ file.id,
+			QUrl(QStringLiteral("http://kaidan.im/texts/%1").arg(fileInfo.fileName())) });
 
 		return file;
 	}

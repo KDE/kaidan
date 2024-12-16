@@ -6,8 +6,8 @@
 
 #include "DiscoveryManager.h"
 // QXmpp
-#include <QXmppDiscoveryManager.h>
 #include <QXmppDiscoveryIq.h>
+#include <QXmppDiscoveryManager.h>
 #include <QXmppTask.h>
 // Kaidan
 #include "Globals.h"
@@ -48,7 +48,8 @@ void DiscoveryManager::requestData()
 	m_manager->requestInfo(serverJid);
 	m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) {
 		if (const auto *error = std::get_if<QXmppError>(&result)) {
-			qDebug() << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
+			qDebug() << QStringLiteral("Could not retrieve discovery items from %1: %2")
+					    .arg(serverJid, error->description);
 		} else {
 			handleItems(std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result)));
 		}

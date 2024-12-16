@@ -11,8 +11,7 @@
 #include "Kaidan.h"
 #include "Settings.h"
 
-LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent)
-	: AbstractQrCodeGenerator(parent)
+LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent) : AbstractQrCodeGenerator(parent)
 {
 	connect(this, &LoginQrCodeGenerator::jidChanged, this, &LoginQrCodeGenerator::updateText);
 	connect(AccountManager::instance(), &AccountManager::passwordChanged, this, &LoginQrCodeGenerator::updateText);

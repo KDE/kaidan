@@ -64,8 +64,7 @@ std::optional<T> variantToOptional(QVariant value)
 
 MessageDb *MessageDb::s_instance = nullptr;
 
-MessageDb::MessageDb(Database *db, QObject *parent)
-	: DatabaseComponent(db, parent)
+MessageDb::MessageDb(Database *db, QObject *parent) : DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!MessageDb::s_instance);
 	s_instance = this;
@@ -146,7 +145,8 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 			const auto replyTo = query.value(idxReplyTo).toString();
 
 			if (msg.isGroupChatMessage()) {
-				if(const auto groupChatUser = GroupChatUserDb::instance()->_user(msg.accountJid, msg.chatJid, replyTo)) {
+				if (const auto groupChatUser = GroupChatUserDb::instance()->_user(
+					    msg.accountJid, msg.chatJid, replyTo)) {
 					reply.toJid = groupChatUser->jid;
 					reply.toGroupChatParticipantName = groupChatUser->name;
 				}
@@ -162,10 +162,7 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 			msg.reply = reply;
 		}
 
-		msg.timestamp = QDateTime::fromString(
-			query.value(idxTimestamp).toString(),
-			Qt::ISODate
-		);
+		msg.timestamp = QDateTime::fromString(query.value(idxTimestamp).toString(), Qt::ISODate);
 		msg.body = query.value(idxBody).toString();
 		msg.encryption = query.value(idxEncryption).value<Encryption::Enum>();
 		msg.senderKey = query.value(idxSenderKey).toByteArray();
@@ -176,7 +173,8 @@ QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 		if (msg.fileGroupId) {
 			msg.files = _fetchFiles(*msg.fileGroupId);
 		}
-		if (const auto groupChatInviterJid = query.value(idxGroupChatInviterJid).toString(); !groupChatInviterJid.isEmpty()) {
+		if (const auto groupChatInviterJid = query.value(idxGroupChatInviterJid).toString();
+			!groupChatInviterJid.isEmpty()) {
 			msg.groupChatInvitation = {
 				.inviterJid = groupChatInviterJid,
 				.inviteeJid = query.value(idxGroupChatInviteeJid).toString(),
@@ -222,18 +220,20 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	}
 	if (const auto reply = newMsg.reply; oldMsg.reply != reply) {
 		if (reply) {
-			rec.append(createSqlField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatparticipantId : newMsg.reply->toJid));
+			rec.append(createSqlField(QStringLiteral("replyTo"),
+				newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatparticipantId
+							    : newMsg.reply->toJid));
 			rec.append(createSqlField(QStringLiteral("replyId"), newMsg.reply->id));
-			rec.append(createSqlField(QStringLiteral("replyQuote"),newMsg.reply->quote));
+			rec.append(createSqlField(QStringLiteral("replyQuote"), newMsg.reply->quote));
 		} else {
 			rec.append(createNullField(QStringLiteral("replyTo")));
 			rec.append(createNullField(QStringLiteral("replyId")));
 			rec.append(createNullField(QStringLiteral("replyQuote")));
 		}
-
 	}
 	if (oldMsg.timestamp != newMsg.timestamp) {
-		rec.append(createSqlField(QStringLiteral("timestamp"), newMsg.timestamp.toString(Qt::ISODateWithMs)));
+		rec.append(createSqlField(
+			QStringLiteral("timestamp"), newMsg.timestamp.toString(Qt::ISODateWithMs)));
 	}
 	if (oldMsg.body != newMsg.body) {
 		rec.append(createSqlField(QStringLiteral("body"), newMsg.body));
@@ -256,12 +256,17 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
 	if (oldMsg.fileGroupId != newMsg.fileGroupId) {
 		rec.append(createSqlField(QStringLiteral("fileGroupId"), optionalToVariant(newMsg.fileGroupId)));
 	}
-	if (const auto groupChatInvitation = newMsg.groupChatInvitation; oldMsg.groupChatInvitation != groupChatInvitation) {
+	if (const auto groupChatInvitation = newMsg.groupChatInvitation;
+		oldMsg.groupChatInvitation != groupChatInvitation) {
 		if (groupChatInvitation) {
-			rec.append(createSqlField(QStringLiteral("groupChatInviterJid"), groupChatInvitation->inviterJid));
-			rec.append(createSqlField(QStringLiteral("groupChatInviteeJid"), groupChatInvitation->inviterJid));
-			rec.append(createSqlField(QStringLiteral("groupChatInvitationJid"), groupChatInvitation->groupChatJid));
-			rec.append(createSqlField(QStringLiteral("groupChatToken"), groupChatInvitation->token));
+			rec.append(createSqlField(QStringLiteral("groupChatInviterJid"),
+				groupChatInvitation->inviterJid));
+			rec.append(createSqlField(QStringLiteral("groupChatInviteeJid"),
+				groupChatInvitation->inviterJid));
+			rec.append(createSqlField(QStringLiteral("groupChatInvitationJid"),
+				groupChatInvitation->groupChatJid));
+			rec.append(createSqlField(
+				QStringLiteral("groupChatToken"), groupChatInvitation->token));
 		} else {
 			rec.append(createNullField(QStringLiteral("groupChatInviterJid")));
 			rec.append(createNullField(QStringLiteral("groupChatInviteeJid")));
@@ -283,8 +288,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 {
 	return run([this, accountJid, chatJid, index]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -297,8 +301,7 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				{ u":limit", DB_QUERY_LIMIT_MESSAGES },
-			}
-		);
+			});
 
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchAdditionalData(messages);
@@ -309,16 +312,12 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
 
 QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid)
 {
-	return run([this, accountJid]() {
-		return _fetchFiles(accountJid);
-	});
+	return run([this, accountJid]() { return _fetchFiles(accountJid); });
 }
 
 QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
 {
-	return run([this, accountJid, chatJid]() {
-		return _fetchFiles(accountJid, chatJid);
-	});
+	return run([this, accountJid, chatJid]() { return _fetchFiles(accountJid, chatJid); });
 }
 
 QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid)
@@ -341,12 +340,12 @@ QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid
 	});
 }
 
-QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
+QFuture<QVector<Message>>
+MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
 {
 	return run([this, accountJid, chatJid, index]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -371,8 +370,7 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				{ u":limit", DB_QUERY_LIMIT_MESSAGES },
-			}
-		);
+			});
 
 		auto messages = _fetchMessagesFromQuery(query);
 		_fetchAdditionalData(messages);
@@ -381,13 +379,16 @@ QFuture<QVector<Message> > MessageDb::fetchMessagesUntilFirstContactMessage(cons
 	});
 }
 
-QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString &accountJid, const QString &chatJid, int index, const QString &limitingId, bool fetchMessageMinimum)
+QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString &accountJid,
+	const QString &chatJid,
+	int index,
+	const QString &limitingId,
+	bool fetchMessageMinimum)
 {
 	return run([this, accountJid, chatJid, index, fetchMessageMinimum, limitingId]() -> MessageResult {
 		auto query = createQuery();
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT COUNT()
 				FROM chatMessages
@@ -415,8 +416,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString 
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				{ u":limitingId", limitingId },
-			}
-		);
+			});
 
 		query.first();
 		const auto foundMessageIndex = query.value(0).toInt();
@@ -427,8 +427,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString 
 			return {};
 		}
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -441,14 +440,11 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString 
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				{ u":limit", messagesUntilFoundMessageCount + DB_QUERY_LIMIT_MESSAGES },
-			}
-		);
+			});
 
-		MessageResult result {
-			_fetchMessagesFromQuery(query),
+		MessageResult result { _fetchMessagesFromQuery(query),
 			// Database index starts at 1, but message model index starts at 0.
-			foundMessageIndex - 1
-		};
+			foundMessageIndex - 1 };
 
 		_fetchAdditionalData(result.messages);
 
@@ -456,13 +452,15 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilId(const QString 
 	});
 }
 
-QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const QString &accountJid, const QString &chatJid, int index, const QString &queryString)
+QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const QString &accountJid,
+	const QString &chatJid,
+	int index,
+	const QString &queryString)
 {
 	return run([this, accountJid, chatJid, index, queryString]() -> MessageResult {
 		auto query = createQuery();
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT COUNT()
 				FROM chatMessages
@@ -491,8 +489,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 				{ u":index", index },
 				// '%' is intended here as a placeholder inside the query for SQL statement "LIKE".
 				{ u":queryString", QString(QLatin1Char('%') + queryString + QLatin1Char('%')) },
-			}
-		);
+			});
 
 		query.first();
 		const auto queryStringMessageIndex = query.value(0).toInt();
@@ -503,8 +500,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 			return {};
 		}
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -517,14 +513,11 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 				{ u":chatJid", chatJid },
 				{ u":index", index },
 				{ u":limit", messagesUntilQueryStringCount + DB_QUERY_LIMIT_MESSAGES },
-			}
-		);
+			});
 
-		MessageResult result {
-			_fetchMessagesFromQuery(query),
+		MessageResult result { _fetchMessagesFromQuery(query),
 			// Database index starts at 1, but message model index starts at 0.
-			queryStringMessageIndex - 1
-		};
+			queryStringMessageIndex - 1 };
 
 		_fetchAdditionalData(result.messages);
 
@@ -535,8 +528,7 @@ QFuture<MessageDb::MessageResult> MessageDb::fetchMessagesUntilQueryString(const
 Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &chatJid)
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT *
 			FROM messages
@@ -547,8 +539,7 @@ Message MessageDb::_fetchLastMessage(const QString &accountJid, const QString &c
 		{
 			{ u":accountJid", accountJid },
 			{ u":chatJid", chatJid },
-		}
-	);
+		});
 
 	auto messages = _fetchMessagesFromQuery(query);
 
@@ -563,8 +554,7 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 {
 	return run([=, this]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT id
 				FROM chatMessages
@@ -576,8 +566,7 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 				{ u":accountJid", accountJid },
 				{ u":chatJid", chatJid },
 				{ u":index", index },
-			}
-		);
+			});
 
 		if (query.first()) {
 			return query.value(0).toString();
@@ -590,8 +579,7 @@ QFuture<QString> MessageDb::firstContactMessageId(const QString &accountJid, con
 bool MessageDb::_hasMessage(const QString &accountJid, const QString &chatJid, const QString &groupChatSenderId)
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT 1
 			FROM chatMessages
@@ -602,18 +590,19 @@ bool MessageDb::_hasMessage(const QString &accountJid, const QString &chatJid, c
 			{ u":accountJid", accountJid },
 			{ u":chatJid", chatJid },
 			{ u":groupChatSenderId", groupChatSenderId },
-		}
-	);
+		});
 
 	return query.first();
 }
 
-QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &chatJid, const QString &messageIdBegin, const QString &messageIdEnd)
+QFuture<int> MessageDb::messageCount(const QString &accountJid,
+	const QString &chatJid,
+	const QString &messageIdBegin,
+	const QString &messageIdEnd)
 {
 	return run([=, this]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			// The double round brackets are needed to evaluate the datetime.
 			QStringLiteral(R"(
 				SELECT COUNT(*)
@@ -639,8 +628,7 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
 				{ u":chatJid", chatJid },
 				{ u":messageIdBegin", messageIdBegin },
 				{ u":messageIdEnd", messageIdEnd },
-			}
-		);
+			});
 
 		if (query.first()) {
 			return query.value(0).toInt();
@@ -650,7 +638,10 @@ QFuture<int> MessageDb::messageCount(const QString &accountJid, const QString &c
 	});
 }
 
-QFuture<void> MessageDb::addOrUpdateMessage(const Message &message, MessageOrigin origin, const QString &originId, const std::function<void (Message &)> &updateMessage)
+QFuture<void> MessageDb::addOrUpdateMessage(const Message &message,
+	MessageOrigin origin,
+	const QString &originId,
+	const std::function<void(Message &)> &updateMessage)
 {
 	Q_ASSERT(message.deliveryState != DeliveryState::Draft);
 
@@ -667,9 +658,7 @@ QFuture<void> MessageDb::addMessage(const Message &message, MessageOrigin origin
 {
 	Q_ASSERT(message.deliveryState != DeliveryState::Draft);
 
-	return run([this, message, origin]() {
-		_addMessage(message, origin);
-	});
+	return run([this, message, origin]() { _addMessage(message, origin); });
 }
 
 QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
@@ -679,8 +668,7 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 
 		// remove files
 		{
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					SELECT fileGroupId
 					FROM messages
@@ -688,8 +676,7 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 				)"),
 				{
 					{ u":accountJid", accountJid },
-				}
-			);
+				});
 
 			QVector<qint64> fileIds;
 			reserve(fileIds, query);
@@ -702,15 +689,13 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
 			}
 		}
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM messages WHERE accountJid = :accountJid
 			)"),
 			{
 				{ u":accountJid", accountJid },
-			}
-		);
+			});
 
 		allMessagesRemovedFromAccount(accountJid);
 	});
@@ -723,8 +708,7 @@ QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, co
 
 		// remove files
 		{
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					SELECT fileGroupId
 					FROM messages
@@ -733,8 +717,7 @@ QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, co
 				{
 					{ u":accountJid", accountJid },
 					{ u":chatJid", chatJid },
-				}
-			);
+				});
 
 			QVector<qint64> fileIds;
 			reserve(fileIds, query);
@@ -747,16 +730,14 @@ QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, co
 			}
 		}
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM messages WHERE accountJid = :accountJid AND chatJid = :chatJid
 			)"),
 			{
 				{ u":accountJid", accountJid },
 				{ u":chatJid", chatJid },
-			}
-		);
+			});
 
 		allMessagesRemovedFromChat(accountJid, chatJid);
 	});
@@ -767,8 +748,7 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 	return run([this, accountJid, chatJid, messageId]() {
 		auto query = createQuery();
 
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -781,13 +761,11 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 				{ u":accountJid", accountJid },
 				{ u":chatJid", chatJid },
 				{ u":messageId", messageId },
-			}
-		);
+			});
 
 		if (query.first()) {
 			// Set the message's content to NULL and the "removed" flag to true.
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					UPDATE messages
 					SET
@@ -810,12 +788,10 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 					{ u":accountJid", accountJid },
 					{ u":chatJid", chatJid },
 					{ u":messageId", messageId },
-				}
-			);
+				});
 
 			// Remove reactions corresponding to the removed message.
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					DELETE FROM messageReactions
 					WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageId = :messageId
@@ -824,32 +800,32 @@ QFuture<void> MessageDb::removeMessage(const QString &accountJid, const QString 
 					{ u":accountJid", accountJid },
 					{ u":chatJid", chatJid },
 					{ u":messageId", messageId },
-				}
-			);
+				});
 		}
 
 		Q_EMIT messageRemoved(_initializeLastMessage(accountJid, chatJid));
 	});
 }
 
-QFuture<void> MessageDb::updateMessage(const QString &id,
-                                       const std::function<void (Message &)> &updateMsg)
+QFuture<void> MessageDb::updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg)
 {
-	return run([this, id, updateMsg]() {
-		_updateMessage(id, updateMsg);
-	});
+	return run([this, id, updateMsg]() { _updateMessage(id, updateMsg); });
 }
 
-QFuture<void> MessageDb::attachFileSources(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &externalFileId, const QVector<HttpSource> &httpSources, const QVector<EncryptedSource> &encryptedSources)
+QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
+	const QString &chatJid,
+	const QString &messageId,
+	const QString &externalFileId,
+	const QVector<HttpSource> &httpSources,
+	const QVector<EncryptedSource> &encryptedSources)
 {
 	return run([=, this] {
 		// fetch message
 		auto query = createQuery();
-		execQuery(
-			query,
-			QStringLiteral("SELECT * FROM chatMessages WHERE accountJid = :accountJid AND chatJid = :chatJid AND id = :id"),
-			{ { u":accountJid", accountJid }, { u":chatJid", chatJid }, { u":id", messageId } }
-		);
+		execQuery(query,
+			QStringLiteral("SELECT * FROM chatMessages WHERE accountJid = :accountJid "
+				       "AND chatJid = :chatJid AND id = :id"),
+			{ { u":accountJid", accountJid }, { u":chatJid", chatJid }, { u":id", messageId } });
 		auto msgs = _fetchMessagesFromQuery(query);
 		if (msgs.empty()) {
 			debug() << "Could not find message with ID" << messageId << "to attach file sources.";
@@ -862,7 +838,8 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid, const QStr
 		// find file with external ID
 		auto fileItr = find(message.files, externalFileId, &File::externalId);
 		if (fileItr == message.files.end()) {
-			debug() << "Could not attach sources to message with ID" << messageId << ": No file with external ID of" << externalFileId << "found.";
+			debug() << "Could not attach sources to message with ID" << messageId
+				<< ": No file with external ID of" << externalFileId << "found.";
 			return;
 		}
 		auto &file = *fileItr;
@@ -891,9 +868,7 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid, const QStr
 
 QFuture<std::optional<Message>> MessageDb::fetchDraftMessage(const QString &accountJid, const QString &chatJid)
 {
-	return run([this, accountJid, chatJid]() {
-		return _fetchDraftMessage(accountJid, chatJid);
-	});
+	return run([this, accountJid, chatJid]() { return _fetchDraftMessage(accountJid, chatJid); });
 }
 
 QFuture<void> MessageDb::addDraftMessage(const Message &msg)
@@ -910,7 +885,9 @@ QFuture<void> MessageDb::addDraftMessage(const Message &msg)
 	});
 }
 
-QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QString &chatJid, const std::function<void (Message &)> &updateMessage)
+QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid,
+	const QString &chatJid,
+	const std::function<void(Message &)> &updateMessage)
 {
 	return run([this, accountJid, chatJid, updateMessage]() {
 		if (const auto oldMessage = _fetchDraftMessage(accountJid, chatJid); oldMessage) {
@@ -925,16 +902,13 @@ QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QSt
 
 				// Create an SQL record containing only the differences.
 				auto query = createQuery();
-				execQuery(
-					query,
-					driver.sqlStatement(
-						QSqlDriver::UpdateStatement,
+				execQuery(query,
+					driver.sqlStatement(QSqlDriver::UpdateStatement,
 						QStringLiteral(DB_TABLE_MESSAGES),
 						rec,
-						false
-					) +
-					simpleWhereStatement(&driver, QStringLiteral("id"), newMessage.id)
-				);
+						false) +
+						simpleWhereStatement(
+							&driver, QStringLiteral("id"), newMessage.id));
 
 				Q_EMIT draftMessageUpdated(newMessage);
 			}
@@ -946,8 +920,7 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 {
 	return run([this, accountJid, chatJid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM messages
 				WHERE accountJid = :accountJid AND chatJid = :chatJid AND deliveryState = :deliveryState
@@ -956,8 +929,7 @@ QFuture<void> MessageDb::removeDraftMessage(const QString &accountJid, const QSt
 				{ u":accountJid", accountJid },
 				{ u":chatJid", chatJid },
 				{ u":deliveryState", int(DeliveryState::Draft) },
-			}
-		);
+			});
 
 		Q_EMIT draftMessageRemoved(_initializeLastMessage(accountJid, chatJid));
 	});
@@ -1017,18 +989,14 @@ void MessageDb::_addMessage(const Message &message)
 
 	// "DatabaseComponent::insert()" cannot be used here because the binary data of
 	// "msg.senderKey()" is not appropriately inserted into the database with QSqlField.
-	insertBinary(
-		DB_TABLE_MESSAGES,
-		values
-	);
+	insertBinary(DB_TABLE_MESSAGES, values);
 }
 
-void MessageDb::_updateMessage(const QString &id, const std::function<void (Message &)> &updateMsg)
+void MessageDb::_updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg)
 {
 	// load current message item from db
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT *
 			FROM chatMessages
@@ -1037,8 +1005,7 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void (Mess
 		)"),
 		{
 			{ u":id", id },
-		}
-	);
+		});
 
 	auto msgs = _fetchMessagesFromQuery(query);
 	_fetchAdditionalData(msgs);
@@ -1057,71 +1024,106 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void (Mess
 			Q_EMIT messageUpdated(newMessage);
 
 			const auto &oldReactionSenders = oldMessage.reactionSenders;
-			if (const auto &newReactionSenders = newMessage.reactionSenders; oldReactionSenders != newReactionSenders) {
+			if (const auto &newReactionSenders = newMessage.reactionSenders;
+				oldReactionSenders != newReactionSenders) {
 				// Remove old reactions.
-				for (auto itr = oldReactionSenders.begin(); itr != oldReactionSenders.end(); ++itr) {
+				for (auto itr = oldReactionSenders.begin();
+					itr != oldReactionSenders.end();
+					++itr) {
 					const auto &senderId = itr.key();
 					const auto &reactionSender = itr.value();
 
 					for (const auto &reaction : reactionSender.reactions) {
 						if (!newReactionSenders.value(senderId).reactions.contains(reaction)) {
 							if (senderId == oldMessage.accountJid) {
-								execQuery(
-									query,
+								execQuery(query,
 									QStringLiteral(R"(
 										DELETE FROM messageReactions
 										WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId IS NULL AND emoji = :emoji
 									)"),
 									{
-										{ u":accountJid", oldMessage.accountJid },
-										{ u":chatJid", oldMessage.chatJid },
-										{ u":messageSenderId", oldMessage.isOwn ? oldMessage.accountJid : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid) },
-										{ u":messageId", oldMessage.relevantId() },
+										{ u":accountJid",
+											oldMessage.accountJid },
+										{ u":chatJid",
+											oldMessage.chatJid },
+										{ u":messageSenderI"
+										  u"d",
+											oldMessage.isOwn
+												? oldMessage
+													  .accountJid
+												: (oldMessage.isGroupChatMessage()
+														  ? oldMessage
+															    .groupChatSenderId
+														  : oldMessage
+															    .chatJid) },
+										{ u":messageId",
+											oldMessage.relevantId() },
 										{ u":emoji", reaction.emoji },
-									}
-								);
+									});
 							} else {
-								execQuery(
-									query,
+								execQuery(query,
 									QStringLiteral(R"(
 										DELETE FROM messageReactions
 										WHERE accountJid = :accountJid AND chatJid = :chatJid AND messageSenderId = :messageSenderId AND messageId = :messageId AND senderId = :senderId AND emoji = :emoji
 									)"),
 									{
-										{ u":accountJid", oldMessage.accountJid },
-										{ u":chatJid", oldMessage.chatJid },
-										{ u":messageSenderId", oldMessage.isOwn ? oldMessage.accountJid : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid) },
-										{ u":messageId", oldMessage.relevantId() },
+										{ u":accountJid",
+											oldMessage.accountJid },
+										{ u":chatJid",
+											oldMessage.chatJid },
+										{ u":messageSenderI"
+										  u"d",
+											oldMessage.isOwn
+												? oldMessage
+													  .accountJid
+												: (oldMessage.isGroupChatMessage()
+														  ? oldMessage
+															    .groupChatSenderId
+														  : oldMessage
+															    .chatJid) },
+										{ u":messageId",
+											oldMessage.relevantId() },
 										{ u":senderId", senderId },
 										{ u":emoji", reaction.emoji },
-									}
-								);
+									});
 							}
-
 						}
 					}
 				}
 
 				// Add new reactions.
-				for (auto itr = newReactionSenders.begin(); itr != newReactionSenders.end(); ++itr) {
+				for (auto itr = newReactionSenders.begin();
+					itr != newReactionSenders.end();
+					++itr) {
 					const auto &senderId = itr.key();
 					const auto &reactionSender = itr.value();
 
 					for (const auto &reaction : reactionSender.reactions) {
 						if (!oldReactionSenders.value(senderId).reactions.contains(reaction)) {
-							insert(
-								DB_TABLE_MESSAGE_REACTIONS,
+							insert(DB_TABLE_MESSAGE_REACTIONS,
 								{
 									{ u"accountJid", oldMessage.accountJid },
 									{ u"chatJid", oldMessage.chatJid },
-									{ u"messageSenderId", oldMessage.isOwn ? oldMessage.accountJid : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid) },
+									{ u"messageSenderId",
+										oldMessage.isOwn
+											? oldMessage.accountJid
+											: (oldMessage.isGroupChatMessage()
+													  ? oldMessage
+														    .groupChatSenderId
+													  : oldMessage
+														    .chatJid) },
 									{ u"messageId", oldMessage.relevantId() },
-									{ u"senderId", senderId == oldMessage.accountJid ? QString() : senderId },
-									{ u"timestamp", reactionSender.latestTimestamp },
-									{ u"deliveryState", static_cast<int>(reaction.deliveryState) },
+									{ u"senderId",
+										senderId == oldMessage.accountJid
+											? QString()
+											: senderId },
+									{ u"timestamp",
+										reactionSender.latestTimestamp },
+									{ u"deliveryState",
+										static_cast<int>(
+											reaction.deliveryState) },
 									{ u"emoji", reaction.emoji },
-								}
-							);
+								});
 						}
 					}
 				}
@@ -1129,28 +1131,22 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void (Mess
 				auto &driver = sqlDriver();
 
 				// Create an SQL record containing only the differences.
-				execQuery(
-					query,
-					driver.sqlStatement(
-						QSqlDriver::UpdateStatement,
+				execQuery(query,
+					driver.sqlStatement(QSqlDriver::UpdateStatement,
 						QStringLiteral(DB_TABLE_MESSAGES),
 						rec,
-						false
-					) +
-					simpleWhereStatement(&driver, QStringLiteral("id"), oldMessage.id)
-				);
+						false) +
+						simpleWhereStatement(
+							&driver, QStringLiteral("id"), oldMessage.id));
 			}
 
 			// remove old files
-			auto oldFileIds = transform(oldMessage.files, [](const auto &file) {
-				return file.id;
-			});
-			auto newFileIds = transform(newMessage.files, [](const auto &file) {
-				return file.id;
-			});
-			auto removedFileIds = filter(std::move(oldFileIds), [&](auto id) {
-				return !newFileIds.contains(id);
-			});
+			auto oldFileIds =
+				transform(oldMessage.files, [](const auto &file) { return file.id; });
+			auto newFileIds =
+				transform(newMessage.files, [](const auto &file) { return file.id; });
+			auto removedFileIds = filter(std::move(oldFileIds),
+				[&](auto id) { return !newFileIds.contains(id); });
 			_removeFiles(removedFileIds);
 			_removeFileHashes(removedFileIds);
 
@@ -1164,15 +1160,12 @@ void MessageDb::_fetchLatestFileId()
 {
 	enum { Id };
 	auto query = createQuery();
-	execQuery(
-		query,
-		QStringLiteral(R"(
+	execQuery(query, QStringLiteral(R"(
 			SELECT id
 			FROM files
 			ORDER BY id DESC
 			LIMIT 1
-		)")
-	);
+		)"));
 
 	if (query.first()) {
 		m_latestFileId = query.value(Id).toLongLong();
@@ -1183,15 +1176,12 @@ void MessageDb::_fetchLatestFileGroupId()
 {
 	enum { FileGroupId };
 	auto query = createQuery();
-	execQuery(
-		query,
-		QStringLiteral(R"(
+	execQuery(query, QStringLiteral(R"(
 			SELECT fileGroupId
 			FROM files
 			ORDER BY fileGroupId DESC
 			LIMIT 1
-		)")
-	);
+		)"));
 
 	if (query.first()) {
 		m_latestFileGroupId = query.value(FileGroupId).toLongLong();
@@ -1202,9 +1192,7 @@ void MessageDb::_setFiles(const QVector<File> &files)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(
-			query,
-			QStringLiteral(R"(
+		prepareQuery(query, QStringLiteral(R"(
 				INSERT OR REPLACE INTO files (
 					id,
 					fileGroupId,
@@ -1231,14 +1219,12 @@ void MessageDb::_setFiles(const QVector<File> &files)
 					:localFilePath,
 					:externalId
 				)
-			)")
-		);
+			)"));
 		return query;
 	}();
 
 	for (const auto &file : files) {
-		bindValues(
-			query,
+		bindValues(query,
 			{
 				{ u":id", file.id },
 				{ u":fileGroupId", file.fileGroupId },
@@ -1251,8 +1237,7 @@ void MessageDb::_setFiles(const QVector<File> &files)
 				{ u":thumbnail", file.thumbnail },
 				{ u":localFilePath", file.localFilePath },
 				{ u":externalId", file.externalId },
-			}
-		);
+			});
 		execQuery(query);
 
 		_setFileHashes(file.hashes);
@@ -1265,9 +1250,7 @@ void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(
-			query,
-			QStringLiteral(R"(
+		prepareQuery(query, QStringLiteral(R"(
 				INSERT OR REPLACE INTO fileHashes (
 					dataId,
 					hashType,
@@ -1278,20 +1261,17 @@ void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
 					:hashType,
 					:hashValue
 				)
-			)")
-		);
+			)"));
 		return query;
 	}();
 
 	for (const auto &hash : fileHashes) {
-		bindValues(
-			query,
+		bindValues(query,
 			{
 				{ u":dataId", hash.dataId },
 				{ u":hashType", int(hash.hashType) },
 				{ u":hashValue", hash.hashValue },
-			}
-		);
+			});
 		execQuery(query);
 	}
 }
@@ -1300,9 +1280,7 @@ void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(
-			query,
-			QStringLiteral(R"(
+		prepareQuery(query, QStringLiteral(R"(
 				INSERT OR REPLACE INTO fileHttpSources (
 					fileId,
 					url
@@ -1311,19 +1289,16 @@ void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
 					:fileId,
 					:url
 				)
-			)")
-		);
+			)"));
 		return query;
 	}();
 
 	for (const auto &source : sources) {
-		bindValues(
-			query,
+		bindValues(query,
 			{
 				{ u":fileId", source.fileId },
 				{ u":url", source.url.toEncoded() },
-			}
-		);
+			});
 		execQuery(query);
 	}
 }
@@ -1332,9 +1307,7 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 {
 	thread_local static auto query = [this]() {
 		auto query = createQuery();
-		prepareQuery(
-			query,
-			QStringLiteral(R"(
+		prepareQuery(query, QStringLiteral(R"(
 				INSERT OR REPLACE INTO fileEncryptedSources (
 					fileId,
 					url,
@@ -1351,14 +1324,12 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 					:iv,
 					:encryptedDataId
 				)
-			)")
-		);
+			)"));
 		return query;
 	}();
 
 	for (const auto &source : sources) {
-		bindValues(
-			query,
+		bindValues(query,
 			{
 				{ u":fileId", source.fileId },
 				{ u":url", source.url.toEncoded() },
@@ -1366,8 +1337,7 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
 				{ u":key", source.key },
 				{ u":iv", source.iv },
 				{ u":encryptedDataId", optionalToVariant(source.encryptedDataId) },
-			}
-		);
+			});
 		execQuery(query);
 
 		_setFileHashes(source.encryptedHashes);
@@ -1379,7 +1349,7 @@ void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
 	auto query = createQuery();
 	prepareQuery(query, QStringLiteral("DELETE FROM files WHERE id = :fileId"));
 	for (auto fileId : fileIds) {
-		bindValues(query, {{ u":fileId", fileId }});
+		bindValues(query, { { u":fileId", fileId } });
 		execQuery(query);
 	}
 }
@@ -1389,7 +1359,7 @@ void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
 	auto query = createQuery();
 	prepareQuery(query, QStringLiteral("DELETE FROM fileHashes WHERE dataId = :fileId"));
 	for (auto fileId : fileIds) {
-		bindValues(query, {{ u":fileId", fileId }});
+		bindValues(query, { { u":fileId", fileId } });
 		execQuery(query);
 	}
 }
@@ -1399,7 +1369,7 @@ void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
 	auto query = createQuery();
 	prepareQuery(query, QStringLiteral("DELETE FROM fileHttpSources WHERE fileId = :fileId"));
 	for (auto fileId : fileIds) {
-		bindValues(query, {{ u":fileId", fileId }});
+		bindValues(query, { { u":fileId", fileId } });
 		execQuery(query);
 	}
 }
@@ -1409,7 +1379,7 @@ void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
 	auto query = createQuery();
 	prepareQuery(query, QStringLiteral("DELETE FROM fileEncryptedSources WHERE fileId = :fileId"));
 	for (auto fileId : fileIds) {
-		bindValues(query, {{ u":fileId", fileId }});
+		bindValues(query, { { u":fileId", fileId } });
 		execQuery(query);
 	}
 }
@@ -1418,24 +1388,21 @@ QVector<File> MessageDb::_fetchFiles(const QString &accountJid)
 {
 	Q_ASSERT(!accountJid.isEmpty());
 
-	return _fetchFiles(
-		QStringLiteral(R"(
+	return _fetchFiles(QStringLiteral(R"(
 			SELECT fileGroupId
 			FROM chatMessages
 			WHERE accountJid = :accountJid AND fileGroupId IS NOT NULL
 		)"),
 		{
 			{ u":accountJid", accountJid },
-		}
-	);
+		});
 }
 
 QVector<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid)
 {
 	Q_ASSERT(!accountJid.isEmpty() && !chatJid.isEmpty());
 
-	return _fetchFiles(
-		QStringLiteral(R"(
+	return _fetchFiles(QStringLiteral(R"(
 			SELECT fileGroupId
 			FROM chatMessages
 			WHERE accountJid = :accountJid AND chatJid = :chatJid AND fileGroupId IS NOT NULL
@@ -1443,8 +1410,7 @@ QVector<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &c
 		{
 			{ u":accountJid", accountJid },
 			{ u":chatJid", chatJid },
-		}
-	);
+		});
 }
 
 QVector<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindValues &bindValues)
@@ -1465,26 +1431,37 @@ QVector<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindVa
 
 void MessageDb::_extractDownloadedFiles(QVector<File> &files)
 {
-	files.erase(std::remove_if(files.begin(), files.end(), [](const File &file) {
-			return !QFile::exists(file.localFilePath);
-		}),
-		files.end()
-	);
+	files.erase(std::remove_if(files.begin(),
+			    files.end(),
+			    [](const File &file) { return !QFile::exists(file.localFilePath); }),
+		files.end());
 }
 
 QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 {
-	enum { Id, Name, Description, MimeType, Size, LastModified, Disposition, Thumbnail, LocalFilePath, ExternalId };
+	enum {
+		Id,
+		Name,
+		Description,
+		MimeType,
+		Size,
+		LastModified,
+		Disposition,
+		Thumbnail,
+		LocalFilePath,
+		ExternalId
+	};
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
 		prepareQuery(q,
-			QStringLiteral("SELECT id, name, description, mimeType, size, lastModified, disposition, "
-			"thumbnail, localFilePath, externalId FROM files "
-			"WHERE fileGroupId = :fileGroupId"));
+			QStringLiteral("SELECT id, name, description, mimeType, size, "
+				       "lastModified, disposition, "
+				       "thumbnail, localFilePath, externalId FROM files "
+				       "WHERE fileGroupId = :fileGroupId"));
 		return q;
 	}();
 
-	bindValues(query, {{ u":fileGroupId", QVariant(fileGroupId) }});
+	bindValues(query, { { u":fileGroupId", QVariant(fileGroupId) } });
 	execQuery(query);
 
 	QVector<File> files;
@@ -1522,17 +1499,15 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 		return q;
 	}();
 
-	bindValues(query, {{ u":fileId", fileId }});
+	bindValues(query, { { u":fileId", fileId } });
 	execQuery(query);
 
 	QVector<FileHash> hashes;
 	reserve(hashes, query);
 	while (query.next()) {
-		hashes << FileHash {
-			fileId,
+		hashes << FileHash { fileId,
 			query.value(HashType).value<QXmpp::HashAlgorithm>(),
-			query.value(HashValue).toByteArray()
-		};
+			query.value(HashValue).toByteArray() };
 	}
 	return hashes;
 }
@@ -1546,16 +1521,13 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 		return q;
 	}();
 
-	bindValues(query, {{ u":fileId", fileId }});
+	bindValues(query, { { u":fileId", fileId } });
 	execQuery(query);
 
 	QVector<HttpSource> sources;
 	reserve(sources, query);
 	while (query.next()) {
-		sources << HttpSource {
-			fileId,
-			QUrl::fromEncoded(query.value(Url).toByteArray())
-		};
+		sources << HttpSource { fileId, QUrl::fromEncoded(query.value(Url).toByteArray()) };
 	}
 	return sources;
 }
@@ -1566,12 +1538,13 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 	thread_local static auto query = [this]() {
 		auto q = createQuery();
 		prepareQuery(q,
-			QStringLiteral("SELECT url, cipher, key, iv, encryptedDataId FROM fileEncryptedSources "
-			"WHERE fileId = :fileId"));
+			QStringLiteral("SELECT url, cipher, key, iv, encryptedDataId FROM "
+				       "fileEncryptedSources "
+				       "WHERE fileId = :fileId"));
 		return q;
 	}();
 
-	bindValues(query, {{ u":fileId", fileId }});
+	bindValues(query, { { u":fileId", fileId } });
 	execQuery(query);
 
 	auto parseHashes = [this](QSqlQuery &query) -> QVector<FileHash> {
@@ -1611,8 +1584,7 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 	auto query = createQuery();
 
 	for (auto &message : messages) {
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT senderId, emoji, timestamp, deliveryState
 				FROM messageReactions
@@ -1621,23 +1593,28 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
 			{
 				{ u":accountJid", message.accountJid },
 				{ u":chatJid", message.chatJid },
-				{ u":messageSenderId", message.isOwn ? message.accountJid : (message.isGroupChatMessage() ? message.groupChatSenderId : message.chatJid) },
+				{ u":messageSenderId",
+					message.isOwn ? message.accountJid
+						      : (message.isGroupChatMessage() ? message.groupChatSenderId
+										      : message.chatJid) },
 				{ u":messageId", message.relevantId() },
-			}
-		);
+			});
 
 		// Iterate over all found emojis.
 		while (query.next()) {
 			MessageReaction reaction;
 			reaction.emoji = query.value(Emoji).toString();
-			reaction.deliveryState = query.value(DeliveryState).value<MessageReactionDeliveryState::Enum>();
+			reaction.deliveryState =
+				query.value(DeliveryState).value<MessageReactionDeliveryState::Enum>();
 
 			const auto senderId = query.value(SenderId).toString();
-			auto &reactionSender = message.reactionSenders[senderId.isEmpty() ? message.accountJid : senderId];
+			auto &reactionSender =
+				message.reactionSenders[senderId.isEmpty() ? message.accountJid : senderId];
 
-			// Use the timestamp of the current emoji as the latest timestamp if the emoji's
-			// timestamp is newer than the latest one.
-			if (const auto timestamp = query.value(Timestamp).toDateTime(); reactionSender.latestTimestamp < timestamp) {
+			// Use the timestamp of the current emoji as the latest timestamp if the
+			// emoji's timestamp is newer than the latest one.
+			if (const auto timestamp = query.value(Timestamp).toDateTime();
+				reactionSender.latestTimestamp < timestamp) {
 				reactionSender.latestTimestamp = timestamp;
 			}
 
@@ -1656,7 +1633,8 @@ void MessageDb::_fetchGroupChatUsers(QVector<Message> &messages)
 void MessageDb::_fetchGroupChatUser(Message &message)
 {
 	if (message.isGroupChatMessage()) {
-		if (const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, message.groupChatSenderId)) {
+		if (const auto groupChatUser = GroupChatUserDb::instance()->_user(
+			    message.accountJid, message.chatJid, message.groupChatSenderId)) {
 			message.groupChatSenderJid = groupChatUser->jid;
 			message.groupChatSenderName = groupChatUser->displayName();
 		}
@@ -1677,7 +1655,8 @@ void MessageDb::_fetchTrustLevel(Message &message)
 			// The message is sent from this device.
 			message.preciseTrustLevel = QXmpp::TrustLevel::Authenticated;
 		} else {
-			message.preciseTrustLevel = TrustDb::instance()->_trustLevel(XMLNS_OMEMO_2, message.senderJid(), senderKey);
+			message.preciseTrustLevel = TrustDb::instance()->_trustLevel(
+				XMLNS_OMEMO_2, message.senderJid(), senderKey);
 		}
 	}
 }
@@ -1686,7 +1665,8 @@ void MessageDb::_fetchReply(Message &message)
 {
 	if (auto &reply = message.reply; reply) {
 		if (message.isGroupChatMessage()) {
-			if(const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, reply->toGroupChatparticipantId)) {
+			if (const auto groupChatUser = GroupChatUserDb::instance()->_user(
+				    message.accountJid, message.chatJid, reply->toGroupChatparticipantId)) {
 				const auto jid = groupChatUser->jid;
 				reply->toJid = jid;
 				reply->toGroupChatParticipantName = groupChatUser->name;
@@ -1695,8 +1675,7 @@ void MessageDb::_fetchReply(Message &message)
 
 		if (message.reply->quote.isEmpty()) {
 			auto query = createQuery();
-			execQuery(
-				query,
+			execQuery(query,
 				QStringLiteral(R"(
 					SELECT body
 					FROM chatMessages
@@ -1707,8 +1686,7 @@ void MessageDb::_fetchReply(Message &message)
 					{ u":accountJid", message.accountJid },
 					{ u":chatJid", message.chatJid },
 					{ u":id", reply->id },
-				}
-			);
+				});
 
 			if (query.first()) {
 				message.reply->quote = query.value(0).toString();
@@ -1720,8 +1698,7 @@ void MessageDb::_fetchReply(Message &message)
 std::optional<Message> MessageDb::_fetchDraftMessage(const QString &accountJid, const QString &chatJid)
 {
 	auto query = createQuery();
-	execQuery(
-		query,
+	execQuery(query,
 		QStringLiteral(R"(
 			SELECT *
 			FROM draftMessages
@@ -1730,8 +1707,7 @@ std::optional<Message> MessageDb::_fetchDraftMessage(const QString &accountJid, 
 		{
 			{ u":accountJid", accountJid },
 			{ u":chatJid", chatJid },
-		}
-	);
+		});
 
 	const auto messages = _fetchMessagesFromQuery(query);
 
@@ -1783,10 +1759,10 @@ bool MessageDb::_checkMessageExists(const Message &message)
 	// That includes locally removed messages.
 	// It avoids storing messages that were already locally removed again when received via MAM afterwards.
 	const QString querySql =
-		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES " "
-					   "WHERE (accountJid = :accountJid AND chatJid = :chatJid AND (") %
-		idConditionSql %
-		QStringLiteral(")) AND deliveryState != 4 ") %
+		QStringLiteral("SELECT COUNT(*) FROM " DB_TABLE_MESSAGES
+			       " "
+			       "WHERE (accountJid = :accountJid AND chatJid = :chatJid AND (") %
+		idConditionSql % QStringLiteral(")) AND deliveryState != 4 ") %
 		QStringLiteral("ORDER BY timestamp DESC LIMIT " CHECK_MESSAGE_EXISTS_DEPTH_LIMIT);
 
 	auto query = createQuery();
@@ -1803,8 +1779,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &account
 {
 	return run([this, accountJid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM chatMessages
@@ -1814,8 +1789,7 @@ QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &account
 			{
 				{ u":accountJid", accountJid },
 				{ u":deliveryState", int(Enums::DeliveryState::Pending) },
-			}
-		);
+			});
 
 		return _fetchMessagesFromQuery(query);
 	});
@@ -1826,8 +1800,7 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 	return run([this, accountJid]() {
 		enum { ChatJid, MessageSenderId, MessageId };
 		auto pendingReactionQuery = createQuery();
-		execQuery(
-			pendingReactionQuery,
+		execQuery(pendingReactionQuery,
 			QStringLiteral(R"(
 				SELECT DISTINCT chatJid, messageSenderId, messageId
 				FROM messageReactions
@@ -1840,8 +1813,7 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 				{ u":deliveryState1", int(MessageReactionDeliveryState::PendingAddition) },
 				{ u":deliveryState2", int(MessageReactionDeliveryState::PendingRemovalAfterSent) },
 				{ u":deliveryState3", int(MessageReactionDeliveryState::PendingRemovalAfterDelivered) },
-			}
-		);
+			});
 
 		// IDs of chats mapped to IDs of messages mapped to MessageReactionSender
 		QMap<QString, QMap<QString, MessageReactionSender>> reactions;
@@ -1854,8 +1826,7 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 
 			enum { Emoji, Timestamp, DeliveryState };
 			auto reactionQuery = createQuery();
-			execQuery(
-				reactionQuery,
+			execQuery(reactionQuery,
 				QStringLiteral(R"(
 					SELECT emoji, timestamp, deliveryState
 					FROM messageReactions
@@ -1866,22 +1837,23 @@ QFuture<QMap<QString, QMap<QString, MessageReactionSender>>> MessageDb::fetchPen
 					{ u":chatJid", chatJid },
 					{ u":messageSenderId", messageSenderId },
 					{ u":messageId", messageId },
-				}
-			);
+				});
 
 			// Iterate over all reactions of messages with pending reactions.
 			while (reactionQuery.next()) {
 				auto &reactionSender = reactions[chatJid][messageId];
 
-				// Use the timestamp of the current emoji as the latest timestamp if the emoji's
-				// timestamp is newer than the latest one.
-				if (const auto timestamp = reactionQuery.value(Timestamp).toDateTime(); reactionSender.latestTimestamp < timestamp) {
+				// Use the timestamp of the current emoji as the latest timestamp if
+				// the emoji's timestamp is newer than the latest one.
+				if (const auto timestamp = reactionQuery.value(Timestamp).toDateTime();
+					reactionSender.latestTimestamp < timestamp) {
 					reactionSender.latestTimestamp = timestamp;
 				}
 
 				MessageReaction reaction;
 				reaction.emoji = reactionQuery.value(Emoji).toString();
-				reaction.deliveryState = MessageReactionDeliveryState::Enum(reactionQuery.value(DeliveryState).toInt());
+				reaction.deliveryState = MessageReactionDeliveryState::Enum(
+					reactionQuery.value(DeliveryState).toInt());
 
 				reactionSender.reactions.append(reaction);
 			}

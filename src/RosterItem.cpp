@@ -9,7 +9,10 @@
 #include <QXmppUtils.h>
 
 RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &item)
-	: accountJid(accountJid), jid(item.bareJid()), subscription(item.subscriptionType()), groupChatParticipantId(item.mixParticipantId())
+	: accountJid(accountJid),
+	  jid(item.bareJid()),
+	  subscription(item.subscriptionType()),
+	  groupChatParticipantId(item.mixParticipantId())
 {
 	if (!item.isMixChannel()) {
 		name = item.name();
@@ -22,8 +25,8 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
 QString RosterItem::displayName() const
 {
 	if (name.isEmpty()) {
-		// Return the JID if the roster item is created by a RosterItemWatcher while not being an
-		// actual item in the roster.
+		// Return the JID if the roster item is created by a RosterItemWatcher while not
+		// being an actual item in the roster.
 		if (accountJid.isEmpty()) {
 			return jid;
 		}

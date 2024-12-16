@@ -11,8 +11,8 @@
 
 #pragma once
 
-#include <memory>
 #include <QObject>
+#include <memory>
 
 class QSqlQuery;
 class QSqlDatabase;

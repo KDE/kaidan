@@ -18,12 +18,12 @@
 // QXmpp
 #include <QXmppUtils.h>
 // Kaidan
+#include "EncryptionController.h"
 #include "EncryptionWatcher.h"
 #include "MessageController.h"
-#include "EncryptionController.h"
 #include "MessageModel.h"
-#include "RosterModel.h"
 #include "RosterItemWatcher.h"
+#include "RosterModel.h"
 
 using namespace std::chrono_literals;
 
@@ -41,7 +41,7 @@ ChatController *ChatController::instance()
 ChatController::ChatController(QObject *parent)
 	: QObject(parent),
 	  m_accountEncryptionWatcher(new EncryptionWatcher(this)),
-	  m_chatEncryptionWatcher(new EncryptionWatcher(this)),	  
+	  m_chatEncryptionWatcher(new EncryptionWatcher(this)),
 	  m_composingTimer(new QTimer(this)),
 	  m_stateTimeoutTimer(new QTimer(this)),
 	  m_inactiveTimer(new QTimer(this)),
@@ -55,7 +55,10 @@ ChatController::ChatController(QObject *parent)
 
 	connect(this, &ChatController::encryptionChanged, this, &ChatController::isEncryptionEnabledChanged);
 
-	connect(m_accountEncryptionWatcher, &EncryptionWatcher::hasUsableDevicesChanged, this, &ChatController::isEncryptionEnabledChanged);
+	connect(m_accountEncryptionWatcher,
+		&EncryptionWatcher::hasUsableDevicesChanged,
+		this,
+		&ChatController::isEncryptionEnabledChanged);
 	connect(m_chatEncryptionWatcher, &EncryptionWatcher::hasUsableDevicesChanged, this, &ChatController::isEncryptionEnabledChanged);
 
 	// Timer to set state to paused
@@ -70,16 +73,12 @@ ChatController::ChatController(QObject *parent)
 
 	// Timer to reset typing-related notifications like paused and composing to active
 	m_stateTimeoutTimer->setSingleShot(true);
-	m_stateTimeoutTimer->callOnTimeout(this, [this] {
-		sendChatState(QXmppMessage::Active);
-	});
+	m_stateTimeoutTimer->callOnTimeout(this, [this] { sendChatState(QXmppMessage::Active); });
 
 	// Timer to time out active state
 	m_inactiveTimer->setSingleShot(true);
 	m_inactiveTimer->setInterval(ACTIVE_TIMEOUT);
-	m_inactiveTimer->callOnTimeout(this, [this] {
-		sendChatState(QXmppMessage::Inactive);
-	});
+	m_inactiveTimer->callOnTimeout(this, [this] { sendChatState(QXmppMessage::Inactive); });
 
 	// Timer to reset the chat partners state
 	// if they lost connection while a state other then gone was active
@@ -114,8 +113,8 @@ void ChatController::setChat(const QString &accountJid, const QString &chatJid)
 	// Send "active" state for the current chat.
 	sendChatState(QXmppMessage::State::Active);
 
-	// The encryption for group chats is initialized once all group chat user JIDs are fetched by
-	// the GroupChatController.
+	// The encryption for group chats is initialized once all group chat user JIDs are fetched
+	// by the GroupChatController.
 	if (accountJid == chatJid) {
 		EncryptionController::instance()->initializeAccount(accountJid);
 	} else if (!rosterItem().isGroupChat()) {
@@ -123,7 +122,8 @@ void ChatController::setChat(const QString &accountJid, const QString &chatJid)
 	}
 }
 
-void ChatController::resetChat() {
+void ChatController::resetChat()
+{
 	resetChat({}, {});
 }
 

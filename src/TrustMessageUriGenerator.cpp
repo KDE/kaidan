@@ -9,8 +9,7 @@
 // Kaidan
 #include "Globals.h"
 
-TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent)
-	: QObject(parent)
+TrustMessageUriGenerator::TrustMessageUriGenerator(QObject *parent) : QObject(parent)
 {
 }
 

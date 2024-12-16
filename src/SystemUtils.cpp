@@ -15,7 +15,8 @@
 // Kaidan
 #include <Globals.h>
 
-namespace SystemUtils {
+namespace SystemUtils
+{
 
 LocaleCodes systemLocaleCodes()
 {
@@ -25,10 +26,7 @@ LocaleCodes systemLocaleCodes()
 	// An example for usage of the default values is when the "C" locale is
 	// retrieved.
 	if (systemLocaleParts.size() >= 2) {
-		return {
-			systemLocaleParts.first().toUpper(),
-			systemLocaleParts.last()
-		};
+		return { systemLocaleParts.first().toUpper(), systemLocaleParts.last() };
 	}
 	return {
 		DEFAULT_LANGUAGE_CODE.toString(),
@@ -47,17 +45,20 @@ QString productName()
 
 QString audioDirectory()
 {
-	return QStandardPaths::writableLocation(QStandardPaths::MusicLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+	return QStandardPaths::writableLocation(QStandardPaths::MusicLocation) + QDir::separator() +
+	       QStringLiteral(APPLICATION_DISPLAY_NAME);
 }
 
 QString imageDirectory()
 {
-	return QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+	return QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) +
+	       QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 }
 
 QString videoDirectory()
 {
-	return QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) + QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
+	return QStandardPaths::writableLocation(QStandardPaths::MoviesLocation) +
+	       QDir::separator() + QStringLiteral(APPLICATION_DISPLAY_NAME);
 }
 
-}
+} // namespace SystemUtils

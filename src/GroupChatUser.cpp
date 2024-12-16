@@ -25,9 +25,10 @@ QString GroupChatUser::displayName() const
 
 bool GroupChatUser::operator==(const GroupChatUser &other) const
 {
-	// Users can have only an ID (participant in anonymous group chat), only a JID (allowed but not
-	// joined or banned) or both (participant in normal group chat).
-	return accountJid == other.accountJid && chatJid == other.chatJid && (id == other.id || jid == other.jid) && name == other.name && status == other.status;
+	// Users can have only an ID (participant in anonymous group chat), only a JID (allowed but
+	// not joined or banned) or both (participant in normal group chat).
+	return accountJid == other.accountJid && chatJid == other.chatJid &&
+	       (id == other.id || jid == other.jid) && name == other.name && status == other.status;
 }
 
 bool GroupChatUser::operator!=(const GroupChatUser &other) const

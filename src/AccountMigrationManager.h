@@ -63,9 +63,10 @@ private:
 	QXmppTask<ImportResult> importClientSettingsTask(const ClientSettings &settings);
 	QXmppTask<ExportResult> exportClientSettingsTask();
 
-	QXmppTask<QXmppAccountMigrationManager::Result<>> publishMovedStatement(const QXmppConfiguration &configuration, const QString &newBareJid);
-	QXmppTask<QXmppAccountMigrationManager::Result<>> notifyContacts(const QVector<QString> &contactsBareJids, const QString &oldBareJid);
-
+	QXmppTask<QXmppAccountMigrationManager::Result<>>
+	publishMovedStatement(const QXmppConfiguration &configuration, const QString &newBareJid);
+	QXmppTask<QXmppAccountMigrationManager::Result<>>
+	notifyContacts(const QVector<QString> &contactsBareJids, const QString &oldBareJid);
 
 	template<typename Enum>
 	struct AbstractData {

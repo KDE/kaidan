@@ -48,8 +48,7 @@ QmlUtils *QmlUtils::instance()
 	return s_instance;
 }
 
-QmlUtils::QmlUtils(QObject *parent)
-	: QObject(parent)
+QmlUtils::QmlUtils(QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -95,7 +94,9 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	case ClientWorker::TlsNotAvailable:
 		return tr("The server doesn't support secure connections.");
 	case ClientWorker::DnsError:
-		return tr("Could not connect to the server. Please check your internet connection or your server name.");
+		return tr(
+			"Could not connect to the server. Please check your internet connection or "
+			"your server name.");
 	case ClientWorker::ConnectionRefused:
 		return tr("The server is offline or blocked by a firewall.");
 	case ClientWorker::NoSupportedAuth:
@@ -103,7 +104,9 @@ QString QmlUtils::connectionErrorMessage(ClientWorker::ConnectionError error)
 	case ClientWorker::KeepAliveError:
 		return tr("The connection could not be refreshed.");
 	case ClientWorker::NoNetworkPermission:
-		return tr("The internet access is not permitted. Please check your system's internet access configuration.");
+		return tr(
+			"The internet access is not permitted. Please check your system's internet "
+			"access configuration.");
 	case ClientWorker::RegistrationUnsupported:
 		return tr("This server does not support registration.");
 	case ClientWorker::EmailConfirmationRequired:
@@ -124,7 +127,8 @@ QString QmlUtils::getResourcePath(const QString &name)
 	// list of file paths where to search for the resource file
 	QStringList pathList;
 	// add relative path from binary (only works if installed)
-	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
+	pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") +
+			    QStringLiteral(APPLICATION_NAME);
 	// get the standard app data locations for current platform
 	pathList << QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
 #ifdef UBUNTU_TOUCH
@@ -222,7 +226,8 @@ QString QmlUtils::displayableEncryptionKeyId(QString keyId)
 	QStringList keyIdParts;
 
 	for (int i = 0; i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE < keyId.size(); i++) {
-		keyIdParts.append(keyId.mid(i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE, ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE));
+		keyIdParts.append(keyId.mid(i * ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE,
+			ENCRYPTION_KEY_ID_CHARACTER_GROUP_SIZE));
 	}
 
 	return keyIdParts.join(ENCRYPTION_KEY_ID_CHARACTER_GROUP_SEPARATOR);
@@ -302,7 +307,8 @@ QString QmlUtils::geoUri(const QGeoCoordinate &geoCoordinate)
 {
 	QUrl uri;
 	uri.setScheme(GEO_URI_SCHEME.toString());
-	uri.setPath(QString::number(geoCoordinate.latitude()) + GEO_URI_COORDINATE_SEPARATOR.toString() + QString::number(geoCoordinate.longitude()));
+	uri.setPath(QString::number(geoCoordinate.latitude()) + GEO_URI_COORDINATE_SEPARATOR.toString() +
+		    QString::number(geoCoordinate.longitude()));
 
 	return uri.toString();
 }
@@ -315,7 +321,7 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
 		const auto coordinateParts = uri.path().split(GEO_URI_COORDINATE_SEPARATOR.toString());
 
 		if (coordinateParts.size() == 2) {
-			return { coordinateParts.at(0).toDouble(), coordinateParts.at(1).toDouble()};
+			return { coordinateParts.at(0).toDouble(), coordinateParts.at(1).toDouble() };
 		}
 	}
 
@@ -324,14 +330,15 @@ QGeoCoordinate QmlUtils::geoCoordinate(const QString &geoUri)
 
 bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
 {
-	switch(AccountManager::instance()->account().geoLocationMapService) {
+	switch (AccountManager::instance()->account().geoLocationMapService) {
 	case Account::GeoLocationMapService::System:
 		QDesktopServices::openUrl(geoUri(geoCoordinate));
 		break;
 	case Account::GeoLocationMapService::InApp:
 		return true;
 	case Account::GeoLocationMapService::Web:
-		QDesktopServices::openUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()), QString::number(geoCoordinate.longitude())));
+		QDesktopServices::openUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()),
+			QString::number(geoCoordinate.longitude())));
 		break;
 	}
 

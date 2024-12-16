@@ -22,7 +22,7 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
-*/
+ */
 
 #include "StatusBar.h"
 #ifdef Q_OS_ANDROID
@@ -52,7 +52,8 @@ void StatusBar::setColor(const QColor &color)
 
 #ifdef Q_OS_ANDROID
 	QtAndroid::runOnAndroidThread([=]() {
-		QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
+		QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod(
+			"getWindow", "()Landroid/view/Window;");
 		window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 		window.callMethod<void>("addFlags", "(I)V", SYSTEM_UI_FLAG_LAYOUT_STABLE);
 		window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);

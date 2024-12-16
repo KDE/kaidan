@@ -59,9 +59,9 @@ auto transformMap(const T &input, Converter convert)
 template<typename T, typename Condition>
 auto filter(T &&input, Condition condition)
 {
-	auto it = std::remove_if(input.begin(), input.end(), [condition = std::move(condition)](const auto &item) {
-		return !condition(item);
-	});
+	auto it = std::remove_if(input.begin(),
+		input.end(),
+		[condition = std::move(condition)](const auto &item) { return !condition(item); });
 
 	input.erase(it, input.end());
 
@@ -97,8 +97,9 @@ auto transformFilter(const SourceContainer &input, ConditionalConverter conditio
 	return output;
 }
 
-template <typename T, typename Func>
-auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T> {
+template<typename T, typename Func>
+auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func, T>
+{
 	if (option) {
 		return func(*option);
 	} else {
@@ -106,7 +107,7 @@ auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func,
 	}
 }
 
-template <typename T, typename Func>
+template<typename T, typename Func>
 auto sum(const QVector<T> &input)
 {
 	using Output = std::decay_t<decltype(convert(input.front()))>;
@@ -160,7 +161,8 @@ static void makeUnique(Container &container)
 template<typename Container>
 static bool containCommonElement(Container &containerA, Container &containerB)
 {
-	return std::search(containerA.cbegin(), containerA.cend(), containerB.cbegin(), containerB.cend()) != containerA.cend();
+	return std::search(containerA.cbegin(), containerA.cend(), containerB.cbegin(), containerB.cend()) !=
+	       containerA.cend();
 }
 
 /**
@@ -171,7 +173,8 @@ static bool containCommonElement(Container &containerA, Container &containerB)
  * @param processPart function run on each text part
  */
 template<typename IsSeparator, typename ProcessPart>
-auto processTextParts(QStringView text, IsSeparator isSeparator, ProcessPart processPart) {
+auto processTextParts(QStringView text, IsSeparator isSeparator, ProcessPart processPart)
+{
 	qsizetype start = 0;
 
 #if __has_include(<__cpp_lib_ranges_enumerate>)

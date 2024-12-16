@@ -2,8 +2,8 @@
 //
 // SPDX-License-Identifier: LGPL-2.1-or-later
 
-#include "../src/Algorithms.h"
 #include "../src/Database.h"
+#include "../src/Algorithms.h"
 #include "../src/SqlUtils.h"
 
 #include <ranges>
@@ -15,18 +15,16 @@
 #include <QtTest>
 
 using namespace SqlUtils;
-using std::views::zip;
-using std::views::iota;
 using std::ranges::sort;
+using std::views::iota;
+using std::views::zip;
 
 static auto dbTableRecords(QSqlDatabase &db)
 {
 	auto tables = db.tables();
 	std::sort(tables.begin(), tables.end());
 
-	auto records = transform(tables, [&](const auto &tableName) {
-		return db.record(tableName);
-	});
+	auto records = transform(tables, [&](const auto &tableName) { return db.record(tableName); });
 
 	return std::tuple { std::move(tables), std::move(records) };
 }
@@ -95,7 +93,8 @@ void DatabaseTest::conversion()
 
 		// print warning if order does not match
 		if (!orderMatches) {
-			qWarning() << "Order of fields of" << tableName << "does not match between conversion/new variant.";
+			qWarning() << "Order of fields of" << tableName
+				   << "does not match between conversion/new variant.";
 			qWarning() << "  " << fieldNames(recordC);
 			qWarning() << "  " << fieldNames(recordN);
 		}
@@ -110,7 +109,8 @@ void DatabaseTest::conversion()
 				qDebug() << tableName << fieldName << "has wrong required status (NOT NULL)!";
 				qDebug() << "  Conversion variant is:" << fieldC.requiredStatus();
 				qDebug() << "  New variant is:" << fieldN.requiredStatus();
-				QFAIL("Field required status of conversion/new variant does not match.");
+				QFAIL("Field required status of conversion/new variant does not "
+				      "match.");
 			}
 
 			// check data type

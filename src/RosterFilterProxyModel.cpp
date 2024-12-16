@@ -9,10 +9,12 @@
 #include "PresenceCache.h"
 #include "RosterModel.h"
 
-RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent)
-	: QSortFilterProxyModel(parent)
+RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent) : QSortFilterProxyModel(parent)
 {
-	connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &RosterFilterProxyModel::updateGroupChatUserJids);
+	connect(GroupChatController::instance(),
+		&GroupChatController::currentUserJidsChanged,
+		this,
+		&RosterFilterProxyModel::updateGroupChatUserJids);
 	updateGroupChatUserJids();
 }
 
@@ -55,7 +57,6 @@ void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &sele
 		invalidateFilter();
 		Q_EMIT selectedAccountJidsChanged();
 	}
-
 }
 
 QVector<QString> RosterFilterProxyModel::selectedAccountJids() const
@@ -70,7 +71,6 @@ void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedG
 		invalidateFilter();
 		Q_EMIT selectedGroupsChanged();
 	}
-
 }
 
 QVector<QString> RosterFilterProxyModel::selectedGroups() const
@@ -122,17 +122,30 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 		auto typeAccepted = false;
 		const auto isGroupChat = sourceModel()->data(index, RosterModel::IsGroupChatRole).toBool();
 
-		if ((m_displayedTypes.testFlag(Type::PrivateGroupChat) || m_displayedTypes.testFlag(Type::PublicGroupChat)) && isGroupChat) {
-			const auto isPublicGroupChat = sourceModel()->data(index, RosterModel::IsPublicGroupChatRole).toBool();
-			typeAccepted = (m_displayedTypes.testFlag(Type::PrivateGroupChat) && !isPublicGroupChat) || (m_displayedTypes.testFlag(Type::PublicGroupChat) && isPublicGroupChat);
+		if ((m_displayedTypes.testFlag(Type::PrivateGroupChat) ||
+			    m_displayedTypes.testFlag(Type::PublicGroupChat)) &&
+			isGroupChat) {
+			const auto isPublicGroupChat =
+				sourceModel()->data(index, RosterModel::IsPublicGroupChatRole).toBool();
+			typeAccepted =
+				(m_displayedTypes.testFlag(Type::PrivateGroupChat) && !isPublicGroupChat) ||
+				(m_displayedTypes.testFlag(Type::PublicGroupChat) && isPublicGroupChat);
 		}
 
-		if (!typeAccepted && (m_displayedTypes.testFlag(Type::UnavailableContact) || m_displayedTypes.testFlag(Type::AvailableContact)) && !isGroupChat) {
+		if (!typeAccepted &&
+			(m_displayedTypes.testFlag(Type::UnavailableContact) ||
+				m_displayedTypes.testFlag(Type::AvailableContact)) &&
+			!isGroupChat) {
 			auto *presenceCache = PresenceCache::instance();
 			const auto chatJid = sourceModel()->data(index, RosterModel::JidRole).toString();
 
-			if (const auto contactPresence = presenceCache->presence(chatJid, presenceCache->pickIdealResource(chatJid))) {
-				typeAccepted = (m_displayedTypes.testFlag(Type::UnavailableContact) && contactPresence->type() == QXmppPresence::Unavailable) || (m_displayedTypes.testFlag(Type::AvailableContact) && contactPresence->type() == QXmppPresence::Available);
+			if (const auto contactPresence = presenceCache->presence(
+				    chatJid, presenceCache->pickIdealResource(chatJid))) {
+				typeAccepted =
+					(m_displayedTypes.testFlag(Type::UnavailableContact) &&
+						contactPresence->type() == QXmppPresence::Unavailable) ||
+					(m_displayedTypes.testFlag(Type::AvailableContact) &&
+						contactPresence->type() == QXmppPresence::Available);
 			} else {
 				typeAccepted = m_displayedTypes.testFlag(Type::UnavailableContact);
 			}
@@ -149,9 +162,10 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 	}
 
 	if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QVector<QString>>();
-		!m_selectedGroups.isEmpty() && std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
-		return m_selectedGroups.contains(group);
-	})) {
+		!m_selectedGroups.isEmpty() &&
+		std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
+			return m_selectedGroups.contains(group);
+		})) {
 		return false;
 	}
 
@@ -160,12 +174,13 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 	}
 
 	// TODO: Create GroupChatInviteeFilterModel and move all related things into that class
-	if (m_groupChatUsersExcluded && m_groupChatUserJids.contains(sourceModel()->data(index, RosterModel::JidRole).toString())) {
+	if (m_groupChatUsersExcluded &&
+		m_groupChatUserJids.contains(sourceModel()->data(index, RosterModel::JidRole).toString())) {
 		return false;
 	}
 
 	return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegExp()) ||
-			sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
+	       sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegExp());
 }
 
 void RosterFilterProxyModel::updateGroupChatUserJids()

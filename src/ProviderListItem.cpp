@@ -34,7 +34,10 @@ public:
 };
 
 ProviderListItemPrivate::ProviderListItemPrivate()
-	: isCustomProvider(false), supportsInBandRegistration(false), httpUploadSize(-1), messageStorageDuration(-1)
+	: isCustomProvider(false),
+	  supportsInBandRegistration(false),
+	  httpUploadSize(-1),
+	  messageStorageDuration(-1)
 {
 }
 
@@ -44,7 +47,8 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	item.setIsCustomProvider(false);
 	item.setJid(object.value(QLatin1String("jid")).toString());
 	item.setSupportsInBandRegistration(object.value(QLatin1String("inBandRegistration")).toBool());
-	item.setRegistrationWebPages(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("registrationWebPage")).toObject()));
+	item.setRegistrationWebPages(parseStringLanguageVariants<QUrl>(
+		object.value(QLatin1String("registrationWebPage")).toObject()));
 
 	const auto serverLocations = object.value(QLatin1String("serverLocations")).toArray();
 	QVector<QString> countries;
@@ -56,24 +60,26 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
 	item.setWebsites(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("website")).toObject()));
 	item.setSince(object.value(QLatin1String("since")).toVariant().toDate());
 	item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
-	item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
-	item.setChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("chatSupport")).toObject()));
-	item.setGroupChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("groupChatSupport")).toObject()));
+	item.setMessageStorageDuration(
+		object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
+	item.setChatSupport(parseStringListLanguageVariants<QVector<QString>>(
+		object.value(QLatin1String("chatSupport")).toObject()));
+	item.setGroupChatSupport(parseStringListLanguageVariants<QVector<QString>>(
+		object.value(QLatin1String("groupChatSupport")).toObject()));
 
 	return item;
 }
 
-ProviderListItem::ProviderListItem(bool isCustomProvider)
-	: d(new ProviderListItemPrivate)
+ProviderListItem::ProviderListItem(bool isCustomProvider) : d(new ProviderListItemPrivate)
 {
 	d->isCustomProvider = isCustomProvider;
 }
 
-ProviderListItem::ProviderListItem(const ProviderListItem& other) = default;
+ProviderListItem::ProviderListItem(const ProviderListItem &other) = default;
 
 ProviderListItem::~ProviderListItem() = default;
 
-ProviderListItem & ProviderListItem::operator=(const ProviderListItem& other) = default;
+ProviderListItem &ProviderListItem::operator=(const ProviderListItem &other) = default;
 
 bool ProviderListItem::isCustomProvider() const
 {
@@ -146,24 +152,29 @@ QVector<QString> ProviderListItem::flags() const
 		QString flag;
 
 		// Iterate over the characters of the country string.
-		// Example: For the country string "DE", the loop iterates over the characters "D" and "E".
-		// An emoji flag sequence (i.e. the flag of the corresponding country / region) is represented by two regional indicator symbols.
-		// Example: 🇩 (U+1F1E9 = 0x1F1E9 = 127465) and 🇪 (U+1F1EA = 127466) concatenated result in 🇩🇪.
-		// Each regional indicator symbol is created by a string which has the following Unicode code point:
-		// REGIONAL_INDICATOR_SYMBOL_BASE + unicode code point of the character of the country string.
-		// Example: 127397 (REGIONAL_INDICATOR_SYMBOL_BASE) + 68 (unicode code point of "D") = 127465 for 🇩
+		// Example: For the country string "DE", the loop iterates over the characters "D"
+		// and "E". An emoji flag sequence (i.e. the flag of the corresponding country /
+		// region) is represented by two regional indicator symbols. Example: 🇩 (U+1F1E9 =
+		// 0x1F1E9 = 127465) and 🇪 (U+1F1EA = 127466) concatenated result in 🇩🇪. Each
+		// regional indicator symbol is created by a string which has the following Unicode
+		// code point: REGIONAL_INDICATOR_SYMBOL_BASE + unicode code point of the character
+		// of the country string. Example: 127397 (REGIONAL_INDICATOR_SYMBOL_BASE) + 68
+		// (unicode code point of "D") = 127465 for 🇩
 		//
-		// QString does not provide creating a string by its corresponding Unicode code point.
-		// Therefore, QChar must be used to create a character by its Unicode code point.
-		// Unfortunately, that cannot be done in one step because QChar does not support creating Unicode characters greater than 16 bits.
-		// For this reason, each character of the country string is split into two parts.
-		// Each part consists of 16 bits of the original character.
-		// The first and the second part are then merged into one string.
+		// QString does not provide creating a string by its corresponding Unicode code
+		// point. Therefore, QChar must be used to create a character by its Unicode code
+		// point. Unfortunately, that cannot be done in one step because QChar does not
+		// support creating Unicode characters greater than 16 bits. For this reason, each
+		// character of the country string is split into two parts. Each part consists of 16
+		// bits of the original character. The first and the second part are then merged
+		// into one string.
 		//
-		// Finally, the string consisting of the first regional indicator symbol and the string consisting of the second one are concatenated.
-		// The resulting string represents the emoji flag sequence.
+		// Finally, the string consisting of the first regional indicator symbol and the
+		// string consisting of the second one are concatenated. The resulting string
+		// represents the emoji flag sequence.
 		for (const auto &character : country) {
-			auto regionalIncidatorSymbolCodePoint = REGIONAL_INDICATOR_SYMBOL_BASE + character.unicode();
+			auto regionalIncidatorSymbolCodePoint =
+				REGIONAL_INDICATOR_SYMBOL_BASE + character.unicode();
 			QChar regionalIncidatorSymbolParts[2];
 			regionalIncidatorSymbolParts[0] = QChar::highSurrogate(regionalIncidatorSymbolCodePoint);
 			regionalIncidatorSymbolParts[1] = QChar::lowSurrogate(regionalIncidatorSymbolCodePoint);
@@ -253,49 +264,52 @@ QVector<QString> ProviderListItem::chosenGroupChatSupport() const
 	return groupChatSupport().pickBySystemLocale();
 }
 
-bool ProviderListItem::operator<(const ProviderListItem& other) const
+bool ProviderListItem::operator<(const ProviderListItem &other) const
 {
 	return d->jid < other.jid();
 }
 
-bool ProviderListItem::operator>(const ProviderListItem& other) const
+bool ProviderListItem::operator>(const ProviderListItem &other) const
 {
 	return d->jid > other.jid();
 }
 
-bool ProviderListItem::operator<=(const ProviderListItem& other) const
+bool ProviderListItem::operator<=(const ProviderListItem &other) const
 {
 	return d->jid <= other.jid();
 }
 
-bool ProviderListItem::operator>=(const ProviderListItem& other) const
+bool ProviderListItem::operator>=(const ProviderListItem &other) const
 {
 	return d->jid >= other.jid();
 }
 
-bool ProviderListItem::operator==(const ProviderListItem& other) const
+bool ProviderListItem::operator==(const ProviderListItem &other) const
 {
 	return d == other.d;
 }
 
 template<typename T>
-ProviderListItem::LanguageVariants<T> ProviderListItem::parseStringLanguageVariants(const QJsonObject &stringLanguageVariants)
+ProviderListItem::LanguageVariants<T>
+ProviderListItem::parseStringLanguageVariants(const QJsonObject &stringLanguageVariants)
 {
-	return parseLanguageVariants<T>(stringLanguageVariants, [](const QJsonValue &value) {
-		return T { value.toString() };
-	});
+	return parseLanguageVariants<T>(stringLanguageVariants,
+		[](const QJsonValue &value) { return T { value.toString() }; });
 }
 
 template<typename T>
-ProviderListItem::LanguageVariants<T> ProviderListItem::parseStringListLanguageVariants(const QJsonObject &stringListLanguageVariants)
+ProviderListItem::LanguageVariants<T>
+ProviderListItem::parseStringListLanguageVariants(const QJsonObject &stringListLanguageVariants)
 {
 	return parseLanguageVariants<T>(stringListLanguageVariants, [](const QJsonValue &value) {
-		return T { transform(value.toArray(), [](const QJsonValue &item) { return item.toString(); }) };
+		return T { transform(
+			value.toArray(), [](const QJsonValue &item) { return item.toString(); }) };
 	});
 }
 
 template<typename T>
-ProviderListItem::LanguageVariants<T> ProviderListItem::parseLanguageVariants(const QJsonObject &languageVariants, const std::function<T (const QJsonValue &)> &convertToTargetType)
+ProviderListItem::LanguageVariants<T> ProviderListItem::parseLanguageVariants(const QJsonObject &languageVariants,
+	const std::function<T(const QJsonValue &)> &convertToTargetType)
 {
 	ProviderListItem::LanguageVariants<T> parsedLanguageVariants;
 

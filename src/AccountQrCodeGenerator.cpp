@@ -4,8 +4,7 @@
 
 #include "AccountQrCodeGenerator.h"
 
-AccountQrCodeGenerator::AccountQrCodeGenerator(QObject *parent)
-	: AbstractQrCodeGenerator(parent)
+AccountQrCodeGenerator::AccountQrCodeGenerator(QObject *parent) : AbstractQrCodeGenerator(parent)
 {
 	connect(this, &AccountQrCodeGenerator::jidChanged, this, &AccountQrCodeGenerator::updateUri);
 	connect(&m_uriGenerator, &TrustMessageUriGenerator::uriChanged, this, &AccountQrCodeGenerator::updateText);

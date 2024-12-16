@@ -10,8 +10,7 @@
 /**
  * This class represents a user of a group chat.
  */
-struct GroupChatUser
-{
+struct GroupChatUser {
 	Q_GADGET
 
 public:

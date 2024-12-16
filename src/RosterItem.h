@@ -17,8 +17,7 @@
 /**
  * Item containing one contact / conversation.
  */
-struct RosterItem
-{
+struct RosterItem {
 	Q_GADGET
 
 	Q_PROPERTY(QString accountJid MEMBER jid)
@@ -42,11 +41,11 @@ public:
 	 * Rule to inform the user about incoming messages.
 	 */
 	enum class NotificationRule {
-		Account,        ///< Use the account rule.
-		Never,          ///< Never notify.
-		PresenceOnly,   ///< Notify only for contacts receiving presence.
-		Mentioned,      ///< Notify only if the user is mentioned in a group chat.
-		Always,         ///< Always notify.
+		Account,      ///< Use the account rule.
+		Never,        ///< Never notify.
+		PresenceOnly, ///< Notify only for contacts receiving presence.
+		Mentioned,    ///< Notify only if the user is mentioned in a group chat.
+		Always,       ///< Always notify.
 		Default = Account,
 	};
 	Q_ENUM(NotificationRule)
@@ -149,13 +148,13 @@ public:
 	QString lastReadContactMessageId;
 
 	// Stanza ID of the latest message stanza in a group chat.
-	// It can also be of a message stanza that is not displayed as a regular message (e.g., a read
-	// marker).
+	// It can also be of a message stanza that is not displayed as a regular message (e.g., a
+	// read marker).
 	QString latestGroupChatMessageStanzaId;
 
 	// Timestamp of the latest message stanza in a group chat.
-	// It can also be of a message stanza that is not displayed as a regular message (e.g., a read
-	// marker).
+	// It can also be of a message stanza that is not displayed as a regular message (e.g., a
+	// read marker).
 	QDateTime latestGroupChatMessageStanzaTimestamp;
 
 	// Whether a read marker for lastReadContactMessageId is waiting to be sent.
@@ -180,7 +179,8 @@ public:
 	NotificationRule notificationRule = NotificationRule::Default;
 
 	// Whether files are downloaded automatically.
-	AutomaticMediaDownloadsRule automaticMediaDownloadsRule = RosterItem::AutomaticMediaDownloadsRule::Default;
+	AutomaticMediaDownloadsRule automaticMediaDownloadsRule =
+		RosterItem::AutomaticMediaDownloadsRule::Default;
 };
 
 Q_DECLARE_METATYPE(RosterItem)

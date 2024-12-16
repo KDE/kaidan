@@ -11,8 +11,7 @@
 // Kaidan
 #include "QmlUtils.h"
 
-ServerFeaturesCache::ServerFeaturesCache(QObject *parent)
-    : QObject(parent)
+ServerFeaturesCache::ServerFeaturesCache(QObject *parent) : QObject(parent)
 {
 }
 

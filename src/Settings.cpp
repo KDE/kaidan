@@ -48,7 +48,8 @@ void Settings::setAuthJid(const QString &jid)
 
 QString Settings::authJidResourcePrefix() const
 {
-	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX), QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
+	return value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
+		QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
 }
 
 void Settings::setAuthJidResourcePrefix(const QString &prefix)
@@ -58,12 +59,15 @@ void Settings::setAuthJidResourcePrefix(const QString &prefix)
 
 QString Settings::authPassword() const
 {
-	return QString::fromUtf8(QByteArray::fromBase64(value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
+	return QString::fromUtf8(QByteArray::fromBase64(
+		value<QString>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD)).toUtf8()));
 }
 
 void Settings::setAuthPassword(const QString &password)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD), QString::fromUtf8(password.toUtf8().toBase64()), &Settings::authPasswordChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
+		QString::fromUtf8(password.toUtf8().toBase64()),
+		&Settings::authPasswordChanged);
 }
 
 QXmppCredentials Settings::authCredentials() const
@@ -131,7 +135,8 @@ void Settings::setAuthTlsErrorsIgnored(bool enabled)
 
 QXmppConfiguration::StreamSecurityMode Settings::authTlsRequirement() const
 {
-	return value<QXmppConfiguration::StreamSecurityMode>(QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT), QXmppConfiguration::TLSRequired);
+	return value<QXmppConfiguration::StreamSecurityMode>(
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT), QXmppConfiguration::TLSRequired);
 }
 
 void Settings::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode)
@@ -141,7 +146,8 @@ void Settings::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode
 
 Kaidan::PasswordVisibility Settings::authPasswordVisibility() const
 {
-	return value<Kaidan::PasswordVisibility>(QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible);
+	return value<Kaidan::PasswordVisibility>(
+		QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY), Kaidan::PasswordVisible);
 }
 
 void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
@@ -171,12 +177,15 @@ void Settings::setEncryption(Encryption::Enum encryption)
 
 bool Settings::contactAdditionQrCodePageExplanationVisible() const
 {
-	return value<bool>(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), true);
+	return value<bool>(
+		QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), true);
 }
 
 void Settings::setContactAdditionQrCodePageExplanationVisible(bool visible)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE), visible, &Settings::contactAdditionQrCodePageExplanationVisibleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE),
+		visible,
+		&Settings::contactAdditionQrCodePageExplanationVisibleChanged);
 }
 
 bool Settings::keyAuthenticationPageExplanationVisible() const
@@ -186,7 +195,9 @@ bool Settings::keyAuthenticationPageExplanationVisible() const
 
 void Settings::setKeyAuthenticationPageExplanationVisible(bool visible)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE), visible, &Settings::keyAuthenticationPageExplanationVisibleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE),
+		visible,
+		&Settings::keyAuthenticationPageExplanationVisibleChanged);
 }
 
 QStringList Settings::favoriteEmojis() const
@@ -221,12 +232,16 @@ void Settings::setWindowSize(const QSize &windowSize)
 
 Account::AutomaticMediaDownloadsRule Settings::automaticMediaDownloadsRule() const
 {
-	return value<Account::AutomaticMediaDownloadsRule>(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), Account::AutomaticMediaDownloadsRule::Default);
+	return value<Account::AutomaticMediaDownloadsRule>(
+		QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
+		Account::AutomaticMediaDownloadsRule::Default);
 }
 
 void Settings::setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule)
 {
-	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE), rule, &Settings::automaticMediaDownloadsRuleChanged);
+	setValue(QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
+		rule,
+		&Settings::automaticMediaDownloadsRuleChanged);
 }
 
 void Settings::remove(const QStringList &keys)

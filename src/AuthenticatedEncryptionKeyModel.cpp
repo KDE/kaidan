@@ -55,11 +55,23 @@ QVariant AuthenticatedEncryptionKeyModel::data(const QModelIndex &index, int rol
 
 void AuthenticatedEncryptionKeyModel::setUp()
 {
-	connect(EncryptionController::instance(), &EncryptionController::ownDeviceChanged, this, &AuthenticatedEncryptionKeyModel::handleOwnDeviceChanged, Qt::UniqueConnection);
+	connect(EncryptionController::instance(),
+		&EncryptionController::ownDeviceChanged,
+		this,
+		&AuthenticatedEncryptionKeyModel::handleOwnDeviceChanged,
+		Qt::UniqueConnection);
 	updateOwnKey();
 
-	connect(EncryptionController::instance(), &EncryptionController::keysChanged, this, &AuthenticatedEncryptionKeyModel::handleDevicesChanged, Qt::UniqueConnection);
-	connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &AuthenticatedEncryptionKeyModel::handleDevicesChanged, Qt::UniqueConnection);
+	connect(EncryptionController::instance(),
+		&EncryptionController::keysChanged,
+		this,
+		&AuthenticatedEncryptionKeyModel::handleDevicesChanged,
+		Qt::UniqueConnection);
+	connect(EncryptionController::instance(),
+		&EncryptionController::devicesChanged,
+		this,
+		&AuthenticatedEncryptionKeyModel::handleDevicesChanged,
+		Qt::UniqueConnection);
 	updateKeys();
 }
 
@@ -79,34 +91,40 @@ void AuthenticatedEncryptionKeyModel::handleDevicesChanged(const QString &accoun
 
 void AuthenticatedEncryptionKeyModel::updateOwnKey()
 {
-	await(EncryptionController::instance()->ownDevice(accountJid()), this, [this](EncryptionController::OwnDevice &&ownDevice) {
-		beginInsertRows(QModelIndex(), 0, 0);
-		m_ownKey = { ownDevice.label + QStringLiteral(" · ") + tr("This device"), ownDevice.keyId };
-		endInsertRows();
-	});
+	await(EncryptionController::instance()->ownDevice(accountJid()),
+		this,
+		[this](EncryptionController::OwnDevice &&ownDevice) {
+			beginInsertRows(QModelIndex(), 0, 0);
+			m_ownKey = { ownDevice.label + QStringLiteral(" · ") + tr("This device"),
+				ownDevice.keyId };
+			endInsertRows();
+		});
 }
 
 void AuthenticatedEncryptionKeyModel::updateKeys()
 {
-	await(EncryptionController::instance()->keys(accountJid(), { accountJid() }, QXmpp::TrustLevel::Authenticated), this, [this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) {
-		const auto keyIds = keys.value(accountJid()).keys();
+	await(EncryptionController::instance()->keys(accountJid(), { accountJid() }, QXmpp::TrustLevel::Authenticated),
+		this,
+		[this](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) {
+			const auto keyIds = keys.value(accountJid()).keys();
 
-		auto authenticatedKeys = transform(keyIds, [](const QString &keyId) {
-			return Key { {}, keyId };
-		});
+			auto authenticatedKeys = transform(
+				keyIds, [](const QString &keyId) { return Key { {}, keyId }; });
 
-		await(EncryptionController::instance()->devices(accountJid(), { accountJid() }), this, [this, authenticatedKeys](QList<EncryptionController::Device> &&devices) mutable {
-			for (const auto &device : std::as_const(devices)) {
-				for (auto &authenticatedKey : authenticatedKeys) {
-					if (device.keyId == authenticatedKey.id) {
-						authenticatedKey.deviceLabel = device.label;
+			await(EncryptionController::instance()->devices(accountJid(), { accountJid() }),
+				this,
+				[this, authenticatedKeys](QList<EncryptionController::Device> &&devices) mutable {
+					for (const auto &device : std::as_const(devices)) {
+						for (auto &authenticatedKey : authenticatedKeys) {
+							if (device.keyId == authenticatedKey.id) {
+								authenticatedKey.deviceLabel = device.label;
+							}
+						}
 					}
-				}
-			}
 
-			beginResetModel();
-			m_keys = { authenticatedKeys.cbegin(), authenticatedKeys.cend() };
-			endResetModel();
+					beginResetModel();
+					m_keys = { authenticatedKeys.cbegin(), authenticatedKeys.cend() };
+					endResetModel();
+				});
 		});
-	});
 }

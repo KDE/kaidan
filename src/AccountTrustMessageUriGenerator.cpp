@@ -15,7 +15,11 @@ AccountTrustMessageUriGenerator::AccountTrustMessageUriGenerator(QObject *parent
 
 void AccountTrustMessageUriGenerator::setUp()
 {
-	connect(EncryptionController::instance(), &EncryptionController::keysChanged, this, &AccountTrustMessageUriGenerator::handleKeysChanged, Qt::UniqueConnection);
+	connect(EncryptionController::instance(),
+		&EncryptionController::keysChanged,
+		this,
+		&AccountTrustMessageUriGenerator::handleKeysChanged,
+		Qt::UniqueConnection);
 	updateKeys();
 }
 
@@ -31,19 +35,23 @@ void AccountTrustMessageUriGenerator::updateKeys()
 	await(EncryptionController::instance()->ownKey(jid()), this, [this](QString &&key) {
 		QList<QString> authenticatedKeys = { key };
 
-		await(EncryptionController::instance()->keys(jid(), { jid() }, QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated), this, [this, authenticatedKeys](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
-			const auto keyIds = keys.value(jid());
-			QList<QString> distrustedKeys;
+		await(EncryptionController::instance()->keys(jid(),
+			      { jid() },
+			      QXmpp::TrustLevel::ManuallyDistrusted | QXmpp::TrustLevel::Authenticated),
+			this,
+			[this, authenticatedKeys](QHash<QString, QHash<QString, QXmpp::TrustLevel>> &&keys) mutable {
+				const auto keyIds = keys.value(jid());
+				QList<QString> distrustedKeys;
 
-			for (auto itr = keyIds.cbegin(); itr != keyIds.cend(); ++itr) {
-				if (itr.value() == QXmpp::TrustLevel::Authenticated) {
-					authenticatedKeys.append(itr.key());
-				} else {
-					distrustedKeys.append(itr.key());
+				for (auto itr = keyIds.cbegin(); itr != keyIds.cend(); ++itr) {
+					if (itr.value() == QXmpp::TrustLevel::Authenticated) {
+						authenticatedKeys.append(itr.key());
+					} else {
+						distrustedKeys.append(itr.key());
+					}
 				}
-			}
 
-			setKeys(authenticatedKeys, distrustedKeys);
-		});
+				setKeys(authenticatedKeys, distrustedKeys);
+			});
 	});
 }

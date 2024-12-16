@@ -4,8 +4,7 @@
 
 #include "EncryptionKeyModel.h"
 
-EncryptionKeyModel::EncryptionKeyModel(QObject *parent)
-	: QAbstractListModel(parent)
+EncryptionKeyModel::EncryptionKeyModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 

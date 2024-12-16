@@ -51,13 +51,12 @@ QXmppEncryptedFileSource EncryptedSource::toQXmpp() const
 	encryptedHttpSource.setUrl(url);
 
 	QXmppEncryptedFileSource source;
-	source.setHttpSources({encryptedHttpSource});
+	source.setHttpSources({ encryptedHttpSource });
 	source.setCipher(cipher);
 	source.setIv(iv);
 	source.setKey(key);
-	source.setHashes(transform(encryptedHashes, [](const auto &fileHash) {
-		return fileHash.toQXmpp();
-	}));
+	source.setHashes(
+		transform(encryptedHashes, [](const auto &fileHash) { return fileHash.toQXmpp(); }));
 	return source;
 }
 
@@ -67,9 +66,8 @@ QXmppFileShare File::toQXmpp() const
 	metadata.setFilename(name);
 	metadata.setDescription(description);
 	metadata.setMediaType(mimeType);
-	metadata.setHashes(transform(hashes, [](const FileHash &fileHash) {
-		return fileHash.toQXmpp();
-	}));
+	metadata.setHashes(
+		transform(hashes, [](const FileHash &fileHash) { return fileHash.toQXmpp(); }));
 	metadata.setLastModified(lastModified);
 	metadata.setMediaType(mimeType);
 	metadata.setSize(size);
@@ -77,18 +75,16 @@ QXmppFileShare File::toQXmpp() const
 	QXmppThumbnail thumb;
 	thumb.setMediaType(QMimeDatabase().mimeTypeForData(thumbnail));
 	thumb.setUri(QXmppBitsOfBinaryData::fromByteArray(thumbnail).cid().toCidUrl());
-	metadata.setThumbnails({thumb});
+	metadata.setThumbnails({ thumb });
 
 	QXmppFileShare fs;
 	fs.setDisposition(disposition);
 	fs.setMetadata(metadata);
 	fs.setId(externalId);
-	fs.setHttpSources(transform(httpSources, [](const HttpSource &fileSource) {
-		return fileSource.toQXmpp();
-	}));
-	fs.setEncryptedSourecs(transform(encryptedSources, [](const EncryptedSource &fileSource) {
-		return fileSource.toQXmpp();
-	}));
+	fs.setHttpSources(transform(
+		httpSources, [](const HttpSource &fileSource) { return fileSource.toQXmpp(); }));
+	fs.setEncryptedSourecs(transform(encryptedSources,
+		[](const EncryptedSource &fileSource) { return fileSource.toQXmpp(); }));
 	return fs;
 }
 
@@ -182,7 +178,7 @@ QString File::formattedDateTime() const
 
 QImage File::createPreviewImage() const
 {
-	switch(type()) {
+	switch (type()) {
 	case Enums::MessageType::MessageImage:
 		if (localFileUrl().isValid()) {
 			return QImage { localFilePath };
@@ -231,7 +227,7 @@ QXmppMessage Message::toQXmpp() const
 	if (reply) {
 		QXmpp::Reply qxmppReply;
 
-		qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatparticipantId  : reply->toJid;
+		qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatparticipantId : reply->toJid;
 		qxmppReply.id = reply->id;
 
 		msg.setReply(qxmppReply);
@@ -242,8 +238,9 @@ QXmppMessage Message::toQXmpp() const
 			msg.setBody(quote + body);
 			msg.setFallbackMarkers({ QXmppFallback {
 				XMLNS_MESSAGE_REPLIES.toString(),
-				{ QXmppFallback::Reference { QXmppFallback::Body, QXmppFallback::Range { 0, uint32_t(quote.size()) } } },
-			}});
+				{ QXmppFallback::Reference { QXmppFallback::Body,
+					QXmppFallback::Range { 0, uint32_t(quote.size()) } } },
+			} });
 		} else {
 			msg.setBody(body);
 		}
@@ -260,14 +257,11 @@ QXmppMessage Message::toQXmpp() const
 	msg.setReceiptRequested(!isGroupChatMessage());
 
 	// attached files
-	msg.setSharedFiles(transform(files, [](const File &file) {
-		return file.toQXmpp();
-	}));
+	msg.setSharedFiles(transform(files, [](const File &file) { return file.toQXmpp(); }));
 
 	// attach data for thumbnails
-	msg.setBitsOfBinaryData(transform(files, [](const File &file) {
-		return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail);
-	}));
+	msg.setBitsOfBinaryData(transform(files,
+		[](const File &file) { return QXmppBitsOfBinaryData::fromByteArray(file.thumbnail); }));
 
 	// compat for clients without Stateless File Sharing
 	if (!files.empty() && includeFileFallbackInMainMessage() && !files.first().httpSources.empty()) {
@@ -286,7 +280,7 @@ QXmppMessage Message::toQXmpp() const
 		msg.setFallbackMarkers({ QXmppFallback {
 			XMLNS_SFS.toString(),
 			{ QXmppFallback::Reference { QXmppFallback::Body, {} } },
-		}});
+		} });
 	}
 
 	if (groupChatInvitation) {
@@ -332,7 +326,7 @@ QVector<QXmppMessage> Message::fallbackMessages() const
 		m.setFallbackMarkers({ QXmppFallback {
 			XMLNS_SFS.toString(),
 			{ QXmppFallback::Reference { QXmppFallback::Body, {} } },
-		}});
+		} });
 
 		// reference to original message
 		m.setAttachId(id);
@@ -451,9 +445,6 @@ QString Message::groupChatInvitationText() const
 
 bool Message::Reply::operator==(const Reply &other) const
 {
-	return
-		toJid == other.toJid &&
-		toGroupChatparticipantId == other.toGroupChatparticipantId &&
-		id == other.id &&
-		quote == other.quote;
+	return toJid == other.toJid && toGroupChatparticipantId == other.toGroupChatparticipantId &&
+	       id == other.id && quote == other.quote;
 }

@@ -13,8 +13,8 @@
 #include <QSettings>
 #include <QStringBuilder>
 // QXmpp
-#include <QXmppUtils.h>
 #include <QXmppSasl2UserAgent.h>
+#include <QXmppUtils.h>
 // Kaidan
 #include "AccountDb.h"
 #include "EncryptionController.h"
@@ -36,9 +36,7 @@ AccountManager *AccountManager::instance()
 }
 
 AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *parent)
-	: QObject(parent),
-	  m_settings(settings),
-	  m_port(PORT_AUTODETECT)
+	: QObject(parent), m_settings(settings), m_port(PORT_AUTODETECT)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -57,70 +55,50 @@ const Account &AccountManager::account() const
 
 void AccountManager::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule)
 {
-	await(
-		AccountDb::instance()->updateAccount(
-			jid,
-			[rule](Account &account) {
-				account.contactNotificationRule = rule;
-			}
-		),
+	await(AccountDb::instance()->updateAccount(
+		      jid, [rule](Account &account) { account.contactNotificationRule = rule; }),
 		this,
 		[this, rule]() {
 			m_account.contactNotificationRule = rule;
 			Q_EMIT accountChanged();
-		}
-	);
+		});
 }
 
 void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule)
 {
-	await(
-		AccountDb::instance()->updateAccount(
-			jid,
-			[rule](Account &account) {
-				account.groupChatNotificationRule = rule;
-			}
-		),
+	await(AccountDb::instance()->updateAccount(
+		      jid, [rule](Account &account) { account.groupChatNotificationRule = rule; }),
 		this,
 		[this, rule]() {
 			m_account.groupChatNotificationRule = rule;
 			Q_EMIT accountChanged();
-		}
-	);
+		});
 }
 
 void AccountManager::setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
 {
-	await(
-		AccountDb::instance()->updateAccount(
-			jid,
-			[geoLocationMapPreviewEnabled](Account &account) {
-				account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
-			}
-		),
+	await(AccountDb::instance()->updateAccount(jid,
+		      [geoLocationMapPreviewEnabled](Account &account) {
+			      account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
+		      }),
 		this,
 		[this, geoLocationMapPreviewEnabled]() {
 			m_account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
 			Q_EMIT accountChanged();
-		}
-	);
+		});
 }
 
 void AccountManager::setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService)
 {
-	await(
-		AccountDb::instance()->updateAccount(
-			jid,
-			[geoLocationMapService](Account &account) {
-				account.geoLocationMapService = geoLocationMapService;
-			}
-		),
+	await(AccountDb::instance()->updateAccount(jid,
+		      [geoLocationMapService](Account &account) {
+			      account.geoLocationMapService = geoLocationMapService;
+		      }),
 		this,
 		[this, geoLocationMapService]() {
 			m_account.geoLocationMapService = geoLocationMapService;
 			Q_EMIT accountChanged();
-		}
-	);
+		});
 }
 
 QString AccountManager::jid()
@@ -137,8 +115,8 @@ void AccountManager::setJid(const QString &jid)
 		m_jid = jid;
 		m_hasNewCredentials = true;
 
-		// If a server's JID is set during registration, it should not be added as an account.
-		// Thus, the JID must contain a local part (user).
+		// If a server's JID is set during registration, it should not be added as an
+		// account. Thus, the JID must contain a local part (user).
 		//
 		// If the JID is cleared, there is no corresponding account.
 		// Thus, the JID must not be empty.
@@ -283,7 +261,8 @@ QXmppSasl2UserAgent AccountManager::userAgent()
 		deviceId = QUuid::createUuid();
 		m_settings->setUserAgentDeviceId(deviceId);
 	}
-	return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
+	return QXmppSasl2UserAgent(
+		deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
 }
 
 bool AccountManager::loadConnectionData()
@@ -349,28 +328,23 @@ void AccountManager::deleteAccountFromClient()
 {
 	m_deletionStates = DeletionState::ToBeDeletedFromClient;
 
-	// If the client is not yet disconnected, disconnect first and delete the account afterwards.
-	// Otherwise, delete the account directly from the client.
+	// If the client is not yet disconnected, disconnect first and delete the account
+	// afterwards. Otherwise, delete the account directly from the client.
 	runOnThread(
 		Kaidan::instance()->client(),
-		[]() {
-			return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
-		},
+		[]() { return Kaidan::instance()->client()->xmppClient()->isAuthenticated(); },
 		this,
 		[this](bool authenticated) {
 			if (authenticated) {
 				await(EncryptionController::instance()->reset(), this, []() {
-					runOnThread(Kaidan::instance()->client(), []() {
-						Kaidan::instance()->client()->logOut();
-					});
+					runOnThread(Kaidan::instance()->client(),
+						[]() { Kaidan::instance()->client()->logOut(); });
 				});
 			} else {
-				runOnThread(Kaidan::instance()->client(), []() {
-					Kaidan::instance()->client()->logIn();
-				});
+				runOnThread(Kaidan::instance()->client(),
+					[]() { Kaidan::instance()->client()->logIn(); });
 			}
-		}
-	);
+		});
 }
 
 void AccountManager::deleteAccountFromClientAndServer()
@@ -381,9 +355,7 @@ void AccountManager::deleteAccountFromClientAndServer()
 	// Otherwise, connect first and delete the account afterwards.
 	runOnThread(
 		Kaidan::instance()->client(),
-		[]() {
-			return Kaidan::instance()->client()->xmppClient()->isAuthenticated();
-		},
+		[]() { return Kaidan::instance()->client()->xmppClient()->isAuthenticated(); },
 		this,
 		[this](bool authenticated) {
 			if (authenticated) {
@@ -393,12 +365,10 @@ void AccountManager::deleteAccountFromClientAndServer()
 			} else {
 				m_deletionStates |= DeletionState::ClientDisconnectedBeforeDeletionFromServer;
 
-				runOnThread(Kaidan::instance()->client(), []() {
-					Kaidan::instance()->client()->logIn();
-				});
+				runOnThread(Kaidan::instance()->client(),
+					[]() { Kaidan::instance()->client()->logIn(); });
 			}
-		}
-	);
+		});
 }
 
 void AccountManager::handleAccountDeletedFromServer()
@@ -413,9 +383,8 @@ void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Er
 	if (m_deletionStates.testFlag(DeletionState::ClientDisconnectedBeforeDeletionFromServer)) {
 		m_deletionStates = DeletionState::NotToBeDeleted;
 
-		runOnThread(Kaidan::instance()->client(), []() {
-			Kaidan::instance()->client()->logOut();
-		});
+		runOnThread(Kaidan::instance()->client(),
+			[]() { Kaidan::instance()->client()->logOut(); });
 	} else {
 		m_deletionStates = DeletionState::NotToBeDeleted;
 	}
@@ -424,14 +393,14 @@ void AccountManager::handleAccountDeletionFromServerFailed(const QXmppStanza::Er
 bool AccountManager::handleConnected()
 {
 	// If the account could not be deleted because the client was disconnected, delete it now.
-	if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient) && m_deletionStates.testFlag(DeletionState::ToBeDeletedFromServer)) {
-			runOnThread(Kaidan::instance()->client(), []() {
-				Kaidan::instance()->client()->registrationManager()->deleteAccount();
-			});
+	if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient) &&
+		m_deletionStates.testFlag(DeletionState::ToBeDeletedFromServer)) {
+		runOnThread(Kaidan::instance()->client(), []() {
+			Kaidan::instance()->client()->registrationManager()->deleteAccount();
+		});
 
-			return true;
-		}
-	else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
+		return true;
+	} else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
 		deleteAccountFromClient();
 		return true;
 	}
@@ -441,8 +410,8 @@ bool AccountManager::handleConnected()
 
 void AccountManager::handleDisconnected()
 {
-	// Delete the account from the client if the account was deleted from the server or the client
-	// was connected and had to disconnect first.
+	// Delete the account from the client if the account was deleted from the server or the
+	// client was connected and had to disconnect first.
 	if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
 		await(EncryptionController::instance()->resetLocally(), this, [this]() {
 			removeAccount(m_jid);
@@ -456,7 +425,8 @@ void AccountManager::handleDisconnected()
 
 QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
 {
-	return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
+	return m_jidResourcePrefix % QLatin1Char('.') %
+	       QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
 }
 
 void AccountManager::removeAccount(const QString &accountJid)

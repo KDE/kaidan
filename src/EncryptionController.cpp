@@ -55,7 +55,8 @@ QFuture<QString> EncryptionController::ownKey(const QString &accountJid)
 	return m_omemoController->ownKey(accountJid);
 }
 
-QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> EncryptionController::keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
+QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>
+EncryptionController::keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
 {
 	return m_omemoController->keys(accountJid, jids, trustLevels);
 }
@@ -65,7 +66,8 @@ QFuture<EncryptionController::OwnDevice> EncryptionController::ownDevice(const Q
 	return m_omemoController->ownDevice(accountJid);
 }
 
-QFuture<QList<EncryptionController::Device>> EncryptionController::devices(const QString &accountJid, const QList<QString> &jids)
+QFuture<QList<EncryptionController::Device>>
+EncryptionController::devices(const QString &accountJid, const QList<QString> &jids)
 {
 	return m_omemoController->devices(accountJid, jids);
 }

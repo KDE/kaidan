@@ -20,12 +20,7 @@ class GroupChatUserModel : public QAbstractListModel
 	Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)
 
 public:
-	enum class Role {
-		Jid = Qt::UserRole + 1,
-		Name,
-		Status,
-		StatusText
-	};
+	enum class Role { Jid = Qt::UserRole + 1, Name, Status, StatusText };
 	Q_ENUM(Role)
 
 	GroupChatUserModel(QObject *parent = nullptr);
@@ -56,10 +51,11 @@ public:
 	 * @param chatJid JID of the group chat whose participant is searched
 	 * @param participantId ID of the participant
 	 *
-	 * @return the found participant or a null pointer if no participant with the given ID could be
-	 *         found
+	 * @return the found participant or a null pointer if no participant with the given ID could
+	 * be found
 	 */
-	std::optional<const GroupChatUser> participant(const QString &accountJid, const QString &chatJid, const QString &participantId) const;
+	std::optional<const GroupChatUser>
+	participant(const QString &accountJid, const QString &chatJid, const QString &participantId) const;
 
 	/**
 	 * Provides a suitable group chat participant name.
@@ -78,7 +74,9 @@ public:
 	 *
 	 * @return a suitable name for the group chat participant
 	 */
-	Q_INVOKABLE QString participantName(const QString &accountJid, const QString &chatJid, const QString &participantId) const;
+	Q_INVOKABLE QString participantName(const QString &accountJid,
+		const QString &chatJid,
+		const QString &participantId) const;
 
 private:
 	void fetchUsers();

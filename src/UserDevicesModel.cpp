@@ -11,34 +11,35 @@
 #include "Kaidan.h"
 #include "VersionManager.h"
 
-UserDevicesModel::UserDevicesModel(QObject *parent)
-	: QAbstractListModel(parent)
+UserDevicesModel::UserDevicesModel(QObject *parent) : QAbstractListModel(parent)
 {
-	connect(PresenceCache::instance(), &PresenceCache::presenceChanged,
-	        this, &UserDevicesModel::handlePresenceChanged);
-	connect(PresenceCache::instance(), &PresenceCache::presencesCleared,
-	        this, &UserDevicesModel::handlePresencesCleared);
-	connect(this, &UserDevicesModel::clientVersionsRequested,
-		Kaidan::instance()->client()->versionManager(), &VersionManager::fetchVersions);
-	connect(Kaidan::instance()->client()->versionManager(), &VersionManager::clientVersionReceived,
-		this, &UserDevicesModel::handleClientVersionReceived);
+	connect(PresenceCache::instance(), &PresenceCache::presenceChanged, this, &UserDevicesModel::handlePresenceChanged);
+	connect(PresenceCache::instance(), &PresenceCache::presencesCleared, this, &UserDevicesModel::handlePresencesCleared);
+	connect(this,
+		&UserDevicesModel::clientVersionsRequested,
+		Kaidan::instance()->client()->versionManager(),
+		&VersionManager::fetchVersions);
+	connect(Kaidan::instance()->client()->versionManager(),
+		&VersionManager::clientVersionReceived,
+		this,
+		&UserDevicesModel::handleClientVersionReceived);
 }
 
 QHash<int, QByteArray> UserDevicesModel::roleNames() const
 {
-	return {
-		{Resource, QByteArrayLiteral("resource")},
-		{Version, QByteArrayLiteral("version")},
-		{Name, QByteArrayLiteral("name")},
-		{OS, QByteArrayLiteral("os")}
-	};
+	return { { Resource, QByteArrayLiteral("resource") },
+		{ Version, QByteArrayLiteral("version") },
+		{ Name, QByteArrayLiteral("name") },
+		{ OS, QByteArrayLiteral("os") } };
 }
 
 QVariant UserDevicesModel::data(const QModelIndex &index, int role) const
 {
-	Q_ASSERT(checkIndex(index, QAbstractItemModel::CheckIndexOption::IndexIsValid | QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
+	Q_ASSERT(checkIndex(index,
+		QAbstractItemModel::CheckIndexOption::IndexIsValid |
+			QAbstractItemModel::CheckIndexOption::ParentIsInvalid));
 
-	switch(role) {
+	switch (role) {
 	case Resource:
 		return m_devices.at(index.row()).resource;
 	case Version:
@@ -77,11 +78,10 @@ void UserDevicesModel::setJid(const QString &jid)
 	const auto resources = PresenceCache::instance()->resources(jid);
 	m_devices.reserve(resources.size());
 
-	std::transform(resources.cbegin(), resources.cend(), std::back_inserter(m_devices),
-		[](const QString &resource) {
-			return DeviceInfo(resource);
-		}
-	);
+	std::transform(resources.cbegin(),
+		resources.cend(),
+		std::back_inserter(m_devices),
+		[](const QString &resource) { return DeviceInfo(resource); });
 	endResetModel();
 
 	// request version data for all available resources
@@ -116,7 +116,7 @@ void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, con
 	if (jid != m_jid)
 		return;
 
-	switch(type) {
+	switch (type) {
 	case PresenceCache::Connected:
 		beginInsertRows({}, m_devices.count(), m_devices.count());
 		m_devices.append(DeviceInfo(resource));
@@ -147,15 +147,11 @@ void UserDevicesModel::handlePresencesCleared()
 	endResetModel();
 }
 
-UserDevicesModel::DeviceInfo::DeviceInfo(const QString &resource)
-	: resource(resource)
+UserDevicesModel::DeviceInfo::DeviceInfo(const QString &resource) : resource(resource)
 {
 }
 
 UserDevicesModel::DeviceInfo::DeviceInfo(const QXmppVersionIq &iq)
-	: resource(QXmppUtils::jidToResource(iq.from())),
-	  name(iq.name()),
-	  version(iq.version()),
-	  os(iq.os())
+	: resource(QXmppUtils::jidToResource(iq.from())), name(iq.name()), version(iq.version()), os(iq.os())
 {
 }

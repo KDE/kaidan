@@ -9,8 +9,8 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QSortFilterProxyModel>
 #include <QSet>
+#include <QSortFilterProxyModel>
 
 class Emoji
 {
@@ -35,15 +35,23 @@ public:
 	};
 	Q_ENUM(Group)
 
-	Emoji(const QString& u = {}, const QString& s = {}, Emoji::Group g = Emoji::Group::Invalid)
-		: m_unicode(u)
-		, m_shortName(s)
-		, m_group(g) {
+	Emoji(const QString &u = {}, const QString &s = {}, Emoji::Group g = Emoji::Group::Invalid)
+		: m_unicode(u), m_shortName(s), m_group(g)
+	{
 	}
 
-	inline const QString &unicode() const { return m_unicode; }
-	inline const QString &shortName() const { return m_shortName; }
-	inline Emoji::Group group() const { return m_group; }
+	inline const QString &unicode() const
+	{
+		return m_unicode;
+	}
+	inline const QString &shortName() const
+	{
+		return m_shortName;
+	}
+	inline Emoji::Group group() const
+	{
+		return m_group;
+	}
 
 private:
 	QString m_unicode;

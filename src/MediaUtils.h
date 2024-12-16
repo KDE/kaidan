@@ -7,10 +7,10 @@
 
 #pragma once
 
+#include <QFuture>
 #include <QGeoCoordinate>
 #include <QMimeDatabase>
 #include <QObject>
-#include <QFuture>
 
 #include <QXmppFileSharingManager.h>
 
@@ -93,16 +93,23 @@ public:
 
 	// Qml sucks... :)
 	Q_INVOKABLE inline static QString mimeTypeName(const QString &filePath)
-	{ return mimeType(filePath).name(); }
+	{
+		return mimeType(filePath).name();
+	}
 
 	Q_INVOKABLE inline static QString mimeTypeName(const QUrl &url)
-	{ return mimeType(url).name(); }
+	{
+		return mimeType(url).name();
+	}
 
 	static QByteArray encodeImageThumbnail(const QPixmap &pixmap);
 	static QByteArray encodeImageThumbnail(const QImage &image);
 
-	static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> generateMetadata(std::unique_ptr<QIODevice>);
-	static QFuture<QByteArray> generateThumbnail(const QUrl &localFileUrl, const QString &mimeTypeName, int edgePixelCount = THUMBNAIL_EDGE_PIXEL_COUNT);
+	static QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>>
+		generateMetadata(std::unique_ptr<QIODevice>);
+	static QFuture<QByteArray> generateThumbnail(const QUrl &localFileUrl,
+		const QString &mimeTypeName,
+		int edgePixelCount = THUMBNAIL_EDGE_PIXEL_COUNT);
 
 	static const QMimeDatabase &mimeDatabase()
 	{

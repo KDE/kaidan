@@ -10,27 +10,24 @@
 #include "GroupChatUserDb.h"
 #include "RosterModel.h"
 
-GroupChatUserModel::GroupChatUserModel(QObject *parent)
-	: QAbstractListModel(parent)
+GroupChatUserModel::GroupChatUserModel(QObject *parent) : QAbstractListModel(parent)
 {
 	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userAdded, this, &GroupChatUserModel::addUser);
 	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userUpdated, this, &GroupChatUserModel::updateUser);
 	connect(GroupChatUserDb::instance(), &GroupChatUserDb::userRemoved, this, &GroupChatUserModel::removeUser);
 }
 
-int GroupChatUserModel::rowCount(const QModelIndex&) const
+int GroupChatUserModel::rowCount(const QModelIndex &) const
 {
 	return m_users.size();
 }
 
 QHash<int, QByteArray> GroupChatUserModel::roleNames() const
 {
-	return {
-		{ static_cast<int>(Role::Jid), "jid" },
+	return { { static_cast<int>(Role::Jid), "jid" },
 		{ static_cast<int>(Role::Name), "name" },
 		{ static_cast<int>(Role::Status), "status" },
-		{ static_cast<int>(Role::StatusText), "statusText" }
-	};
+		{ static_cast<int>(Role::StatusText), "statusText" } };
 }
 
 QVariant GroupChatUserModel::data(const QModelIndex &index, int role) const
@@ -110,12 +107,11 @@ QStringList GroupChatUserModel::userJids() const
 {
 	QStringList userJids;
 
-	return transform<QStringList>(m_users, [](const GroupChatUser &user) {
-		return user.jid;
-	});
+	return transform<QStringList>(m_users, [](const GroupChatUser &user) { return user.jid; });
 }
 
-std::optional<const GroupChatUser> GroupChatUserModel::participant(const QString &accountJid, const QString &chatJid, const QString &participantId) const
+std::optional<const GroupChatUser>
+GroupChatUserModel::participant(const QString &accountJid, const QString &chatJid, const QString &participantId) const
 {
 	for (const auto &user : std::as_const(m_users)) {
 		if (user.accountJid == accountJid && user.chatJid == chatJid && user.id == participantId) {
@@ -137,13 +133,15 @@ QString GroupChatUserModel::participantName(const QString &accountJid, const QSt
 
 void GroupChatUserModel::fetchUsers()
 {
-	await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()), this, [this](QVector<GroupChatUser> &&users) {
-		replaceUsers(users);
+	await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()),
+		this,
+		[this](QVector<GroupChatUser> &&users) {
+			replaceUsers(users);
 
-		if (users.size() < DB_QUERY_LIMIT_GROUP_CHAT_USERS) {
-			m_fetchedAll = true;
-		}
-	});
+			if (users.size() < DB_QUERY_LIMIT_GROUP_CHAT_USERS) {
+				m_fetchedAll = true;
+			}
+		});
 }
 
 void GroupChatUserModel::addUser(const GroupChatUser &user)
@@ -170,9 +168,8 @@ void GroupChatUserModel::replaceUsers(QVector<GroupChatUser> users)
 	std::sort(users.begin(), users.end());
 
 	beginResetModel();
-	m_users = filter(std::move(users), [this](const GroupChatUser &user) {
-		return shouldUserBeProcessed(user);
-	});
+	m_users = filter(std::move(users),
+		[this](const GroupChatUser &user) { return shouldUserBeProcessed(user); });
 	endResetModel();
 
 	Q_EMIT userJidsChanged();
@@ -194,7 +191,8 @@ void GroupChatUserModel::updateUser(const GroupChatUser &user)
 	}
 
 	for (int i = 0; i < m_users.size(); i++) {
-		if (m_users.at(i).accountJid == user.accountJid && m_users.at(i).chatJid == user.chatJid && (m_users.at(i).id == user.id || m_users.at(i).jid == user.jid)) {
+		if (m_users.at(i).accountJid == user.accountJid && m_users.at(i).chatJid == user.chatJid &&
+			(m_users.at(i).id == user.id || m_users.at(i).jid == user.jid)) {
 			beginRemoveRows(QModelIndex(), i, i);
 			m_users.removeAt(i);
 			endRemoveRows();
@@ -211,7 +209,10 @@ void GroupChatUserModel::removeUser(const GroupChatUser &user)
 	for (int i = 0; i < m_users.size(); i++) {
 		GroupChatUser &existingUser = m_users[i];
 
-		if (existingUser.accountJid == user.accountJid && existingUser.chatJid == user.chatJid && existingUser.id.isEmpty() ? existingUser.jid == user.jid : existingUser.id == user.id) {
+		if (existingUser.accountJid == user.accountJid && existingUser.chatJid == user.chatJid &&
+					existingUser.id.isEmpty()
+				? existingUser.jid == user.jid
+				: existingUser.id == user.id) {
 			beginRemoveRows(QModelIndex(), i, i);
 			m_users.remove(i);
 			endRemoveRows();

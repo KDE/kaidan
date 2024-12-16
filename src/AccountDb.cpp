@@ -18,8 +18,7 @@ using namespace SqlUtils;
 
 AccountDb *AccountDb::s_instance = nullptr;
 
-AccountDb::AccountDb(Database *db, QObject *parent)
-        : DatabaseComponent(db, parent)
+AccountDb::AccountDb(Database *db, QObject *parent) : DatabaseComponent(db, parent)
 {
 	Q_ASSERT(!AccountDb::s_instance);
 	s_instance = this;
@@ -39,8 +38,7 @@ QFuture<void> AccountDb::addAccount(const QString &jid)
 {
 	return run([this, jid] {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				INSERT OR IGNORE INTO accounts (
 					jid
@@ -51,8 +49,7 @@ QFuture<void> AccountDb::addAccount(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 	});
 }
 
@@ -60,8 +57,7 @@ QFuture<Account> AccountDb::account(const QString &jid)
 {
 	return run([this, jid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM accounts
@@ -69,8 +65,7 @@ QFuture<Account> AccountDb::account(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		QVector<Account> accounts;
 		parseAccountsFromQuery(query, accounts);
@@ -79,13 +74,12 @@ QFuture<Account> AccountDb::account(const QString &jid)
 	});
 }
 
-QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void (Account &)> &updateAccount)
+QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount)
 {
 	return run([this, jid, updateAccount]() {
 		// Load the account from the database.
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT *
 				FROM accounts
@@ -93,8 +87,7 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		QVector<Account> accounts;
 		parseAccountsFromQuery(query, accounts);
@@ -107,7 +100,8 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
 
 			// Replace the old account's values with the updated ones if the item has changed.
 			if (oldAccount != newAccount) {
-				if (auto record = createUpdateRecord(oldAccount, newAccount); !record.isEmpty()) {
+				if (auto record = createUpdateRecord(oldAccount, newAccount);
+					!record.isEmpty()) {
 					// Create an SQL record containing only the differences.
 					updateAccountByRecord(jid, record);
 				}
@@ -120,8 +114,7 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 {
 	return run([this, jid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT latestMessageStanzaId
 				FROM accounts
@@ -129,8 +122,7 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		QString stanzaId;
 
@@ -146,8 +138,7 @@ QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
 {
 	return run([this, jid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				SELECT httpUploadLimit
 				FROM accounts
@@ -155,8 +146,7 @@ QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 
 		qint64 size = 0;
 
@@ -172,15 +162,13 @@ QFuture<void> AccountDb::removeAccount(const QString &jid)
 {
 	return run([this, jid]() {
 		auto query = createQuery();
-		execQuery(
-			query,
+		execQuery(query,
 			QStringLiteral(R"(
 				DELETE FROM accounts WHERE jid = :jid
 			)"),
 			{
 				{ u":jid", jid },
-			}
-		);
+			});
 	});
 }
 
@@ -191,11 +179,13 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 	int idxJid = rec.indexOf(QStringLiteral("jid"));
 	int idxName = rec.indexOf(QStringLiteral("name"));
 	int idxLatestMessageStanzaId = rec.indexOf(QStringLiteral("latestMessageStanzaId"));
-	int idxLatestMessageStanzaTimestamp = rec.indexOf(QStringLiteral("latestMessageStanzaTimestamp"));
+	int idxLatestMessageStanzaTimestamp =
+		rec.indexOf(QStringLiteral("latestMessageStanzaTimestamp"));
 	int idxHttpUploadLimit = rec.indexOf(QStringLiteral("httpUploadLimit"));
 	int idxContactNotificationRule = rec.indexOf(QStringLiteral("contactNotificationRule"));
 	int idxGroupChatNotificationRule = rec.indexOf(QStringLiteral("groupChatNotificationRule"));
-	int idxGeoLocationMapPreviewEnabled = rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
+	int idxGeoLocationMapPreviewEnabled =
+		rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
 	int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
 
 	reserve(accounts, query);
@@ -205,17 +195,20 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 		account.jid = query.value(idxJid).toString();
 		account.name = query.value(idxName).toString();
 		account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
-		account.latestMessageStanzaTimestamp = query.value(idxLatestMessageStanzaTimestamp).toDateTime();
+		account.latestMessageStanzaTimestamp =
+			query.value(idxLatestMessageStanzaTimestamp).toDateTime();
 		account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
 
 		if (const auto contactNotificationRule = query.value(idxContactNotificationRule);
 			!contactNotificationRule.isNull()) {
-			account.contactNotificationRule = contactNotificationRule.value<Account::ContactNotificationRule>();
+			account.contactNotificationRule =
+				contactNotificationRule.value<Account::ContactNotificationRule>();
 		}
 
 		if (const auto groupChatNotificationRule = query.value(idxGroupChatNotificationRule);
 			!groupChatNotificationRule.isNull()) {
-			account.groupChatNotificationRule = groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
+			account.groupChatNotificationRule =
+				groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
 		}
 
 		if (const auto geoLocationMapPreviewEnabled = query.value(idxGeoLocationMapPreviewEnabled);
@@ -225,7 +218,8 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accou
 
 		if (const auto geoLocationMapService = query.value(idxGeoLocationMapService);
 			!geoLocationMapService.isNull()) {
-			account.geoLocationMapService = geoLocationMapService.value<Account::GeoLocationMapService>();
+			account.geoLocationMapService =
+				geoLocationMapService.value<Account::GeoLocationMapService>();
 		}
 
 		accounts << std::move(account);
@@ -246,22 +240,27 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 		rec.append(createSqlField(QStringLiteral("latestMessageStanzaId"), newAccount.latestMessageStanzaId));
 	}
 	if (oldAccount.latestMessageStanzaTimestamp != newAccount.latestMessageStanzaTimestamp) {
-		rec.append(createSqlField(QStringLiteral("latestMessageStanzaTimestamp"), newAccount.latestMessageStanzaTimestamp));
+		rec.append(createSqlField(QStringLiteral("latestMessageStanzaTimestamp"),
+			newAccount.latestMessageStanzaTimestamp));
 	}
 	if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
 		rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));
 	}
 	if (oldAccount.contactNotificationRule != newAccount.contactNotificationRule) {
-		rec.append(createSqlField(QStringLiteral("contactNotificationRule"), static_cast<int>(newAccount.contactNotificationRule)));
+		rec.append(createSqlField(QStringLiteral("contactNotificationRule"),
+			static_cast<int>(newAccount.contactNotificationRule)));
 	}
 	if (oldAccount.groupChatNotificationRule != newAccount.groupChatNotificationRule) {
-		rec.append(createSqlField(QStringLiteral("groupChatNotificationRule"), static_cast<int>(newAccount.groupChatNotificationRule)));
+		rec.append(createSqlField(QStringLiteral("groupChatNotificationRule"),
+			static_cast<int>(newAccount.groupChatNotificationRule)));
 	}
 	if (oldAccount.geoLocationMapPreviewEnabled != newAccount.geoLocationMapPreviewEnabled) {
-		rec.append(createSqlField(QStringLiteral("geoLocationMapPreviewEnabled"), newAccount.geoLocationMapPreviewEnabled));
+		rec.append(createSqlField(QStringLiteral("geoLocationMapPreviewEnabled"),
+			newAccount.geoLocationMapPreviewEnabled));
 	}
 	if (oldAccount.geoLocationMapService != newAccount.geoLocationMapService) {
-		rec.append(createSqlField(QStringLiteral("geoLocationMapService"), static_cast<int>(newAccount.geoLocationMapService)));
+		rec.append(createSqlField(QStringLiteral("geoLocationMapService"),
+			static_cast<int>(newAccount.geoLocationMapService)));
 	}
 
 	return rec;
@@ -272,18 +271,9 @@ void AccountDb::updateAccountByRecord(const QString &jid, const QSqlRecord &reco
 	auto query = createQuery();
 	auto &driver = sqlDriver();
 
-	QMap<QString, QVariant> keyValuePairs = {
-		{ QStringLiteral("jid"), jid }
-	};
+	QMap<QString, QVariant> keyValuePairs = { { QStringLiteral("jid"), jid } };
 
-	execQuery(
-		query,
-		driver.sqlStatement(
-			QSqlDriver::UpdateStatement,
-			QStringLiteral(DB_TABLE_ACCOUNTS),
-			record,
-			false
-		) +
-		simpleWhereStatement(&driver, keyValuePairs)
-	);
+	execQuery(query,
+		driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false) +
+			simpleWhereStatement(&driver, keyValuePairs));
 }

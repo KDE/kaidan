@@ -9,8 +9,7 @@
 // #include "MessageDb.h"
 // #include "RosterModel.h"
 
-MessageReactionModel::MessageReactionModel(QObject *parent)
-	: QAbstractListModel(parent)
+MessageReactionModel::MessageReactionModel(QObject *parent) : QAbstractListModel(parent)
 {
 }
 
@@ -57,14 +56,16 @@ void MessageReactionModel::setReactions(const QVector<DetailedMessageReaction> &
 		this->reactions = reactions;
 
 		for (auto &reaction : this->reactions) {
-			await(GroupChatUserDb::instance()->user(accountJid, chatJid, reaction.senderId), this, [this, &reaction](const std::optional<GroupChatUser> user) {
-				if (user) {
-					beginResetModel();
-					reaction.senderJid = user->jid;
-					reaction.senderName = user->displayName();
-					endResetModel();
-				}
-			});
+			await(GroupChatUserDb::instance()->user(accountJid, chatJid, reaction.senderId),
+				this,
+				[this, &reaction](const std::optional<GroupChatUser> user) {
+					if (user) {
+						beginResetModel();
+						reaction.senderJid = user->jid;
+						reaction.senderName = user->displayName();
+						endResetModel();
+					}
+				});
 		}
 	}
 }

@@ -5,8 +5,8 @@
 
 #pragma once
 
-#include <QStringView>
 #include <QSqlQuery>
+#include <QStringView>
 #include <QVariant>
 
 #include <optional>
@@ -14,7 +14,8 @@
 class QSqlDriver;
 class QSqlField;
 
-namespace SqlUtils {
+namespace SqlUtils
+{
 
 /// Key-value pairs to be bound to an SqlQuery.
 using QueryBindValues = QMap<QStringView, QVariant>;
@@ -140,4 +141,4 @@ void reserve(Container &container, const QSqlQuery &query)
 	}
 }
 
-}  // SqlUtils
+} // namespace SqlUtils

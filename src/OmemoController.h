@@ -38,10 +38,12 @@ public:
 	QFuture<void> unsubscribeFromDeviceLists();
 
 	QFuture<QString> ownKey(const QString &accountJid);
-	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>
+	keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
 
 	QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
-	QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
+	QFuture<QList<EncryptionController::Device>>
+	devices(const QString &accountJid, const QList<QString> &jids);
 
 	void removeContactDevices(const QString &jid);
 

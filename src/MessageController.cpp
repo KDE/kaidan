@@ -38,16 +38,16 @@
 #include "ChatController.h"
 #include "ClientWorker.h"
 #include "EncryptionController.h"
-#include "GroupChatUser.h"
-#include "GroupChatController.h"
-#include "GroupChatUserDb.h"
 #include "FutureUtils.h"
 #include "Globals.h"
+#include "GroupChatController.h"
+#include "GroupChatUser.h"
+#include "GroupChatUserDb.h"
 #include "Kaidan.h"
+#include "MediaUtils.h"
 #include "Message.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
-#include "MediaUtils.h"
 #include "Notifications.h"
 #include "RosterDb.h"
 #include "RosterManager.h"
@@ -66,32 +66,40 @@ MessageController *MessageController::instance()
 	return s_instance;
 }
 
-MessageController::MessageController(QObject *parent)
-	: QObject(parent)
+MessageController::MessageController(QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
 
 	connect(RosterDb::instance(), &RosterDb::itemsReplaced, this, &MessageController::handleRosterReceived);
 
-	runOnThread(
-		Kaidan::instance()->client(),
-		[this]() {
-			connect(Kaidan::instance()->client()->xmppClient(), &QXmppClient::messageReceived, this, [this](const QXmppMessage &msg) {
+	runOnThread(Kaidan::instance()->client(), [this]() {
+		connect(Kaidan::instance()->client()->xmppClient(),
+			&QXmppClient::messageReceived,
+			this,
+			[this](const QXmppMessage &msg) {
 				handleMessage(msg, MessageOrigin::Stream);
 			});
 
-			connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>(), &QXmppMessageReceiptManager::messageDelivered, this, [](const QString &jid, const QString &id) {
-				MessageDb::instance()->updateMessage(id, [accountJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), jid = QXmppUtils::jidToBareJid(jid)](Message &message) {
-					// Only the recipient of the message is allowed to confirm its delivery.
-					if (message.accountJid == accountJid && message.chatJid == jid) {
-						message.deliveryState = Enums::DeliveryState::Delivered;
-						message.errorText.clear();
-					}
-				});
+		connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>(),
+			&QXmppMessageReceiptManager::messageDelivered,
+			this,
+			[](const QString &jid, const QString &id) {
+				MessageDb::instance()->updateMessage(id,
+					[accountJid = Kaidan::instance()
+							->client()
+							->xmppClient()
+							->configuration()
+							.jidBare(),
+						jid = QXmppUtils::jidToBareJid(jid)](Message &message) {
+						// Only the recipient of the message is allowed to confirm its delivery.
+						if (message.accountJid == accountJid && message.chatJid == jid) {
+							message.deliveryState = Enums::DeliveryState::Delivered;
+							message.errorText.clear();
+						}
+					});
 			});
-		}
-	);
+	});
 }
 
 MessageController::~MessageController()
@@ -107,28 +115,37 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 	auto sendEncrypted = [=, this](const QVector<QString> &groupChatUserJids = {}) mutable {
 		if (groupChatUserJids.isEmpty()) {
-			runOnThread(Kaidan::instance()->client()->xmppClient(), [this, interface, message]() mutable {
-				Kaidan::instance()->client()->xmppClient()->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
-					reportFinishedResult(interface, result);
+			runOnThread(Kaidan::instance()->client()->xmppClient(),
+				[this, interface, message]() mutable {
+					Kaidan::instance()
+						->client()
+						->xmppClient()
+						->sendSensitive(std::move(message))
+						.then(this, [=](QXmpp::SendResult &&result) mutable {
+							reportFinishedResult(interface, result);
+						});
 				});
-			});
 		} else {
 			QXmppSendStanzaParams params;
 			params.setEncryptionJids(groupChatUserJids);
 
-			runOnThread(Kaidan::instance()->client()->xmppClient(), [this, interface, message, params]() mutable {
-				Kaidan::instance()->client()->xmppClient()->sendSensitive(std::move(message), params).then(this, [=](QXmpp::SendResult &&result) mutable {
-					reportFinishedResult(interface, result);
+			runOnThread(Kaidan::instance()->client()->xmppClient(),
+				[this, interface, message, params]() mutable {
+					Kaidan::instance()
+						->client()
+						->xmppClient()
+						->sendSensitive(std::move(message), params)
+						.then(this, [=](QXmpp::SendResult &&result) mutable {
+							reportFinishedResult(interface, result);
+						});
 				});
-			});
 		}
 	};
 
 	auto sendUnencrypted = [=, this]() mutable {
-		// Ensure that a message containing files but without a body is stored/archived via MAM by
-		// the server.
-		// That is not needed if the message is encrypted because that is handled by the
-		// corresponding encryption manager.
+		// Ensure that a message containing files but without a body is stored/archived via
+		// MAM by the server. That is not needed if the message is encrypted because that is
+		// handled by the corresponding encryption manager.
 		if (!message.sharedFiles().isEmpty() && message.body().isEmpty()) {
 			message.addHint(QXmppMessage::Store);
 		}
@@ -140,12 +157,13 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 		});
 	};
 
-	// If the message is sent for the current chat, its information is used to determine whether to
-	// send encrypted.
-	// Otherwise, that information is retrieved from the database.
-	if (ChatController::instance()->isChatCurrentChat(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid)) {
+	// If the message is sent for the current chat, its information is used to determine whether
+	// to send encrypted. Otherwise, that information is retrieved from the database.
+	if (ChatController::instance()->isChatCurrentChat(
+		    Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid)) {
 		if (ChatController::instance()->isEncryptionEnabled()) {
-			if (const auto rosterItem = RosterModel::instance()->findItem(recipientJid); rosterItem && rosterItem->isGroupChat()) {
+			if (const auto rosterItem = RosterModel::instance()->findItem(recipientJid);
+				rosterItem && rosterItem->isGroupChat()) {
 				sendEncrypted(GroupChatController::instance()->currentUserJids());
 			} else {
 				sendEncrypted();
@@ -158,25 +176,40 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 		if (const auto omemoEncryptionActive = rosterItem && rosterItem->encryption == Encryption::Omemo2) {
 			if (rosterItem->isGroupChat()) {
-				await(GroupChatUserDb::instance()->userJids(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid), this, [this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](QVector<QString> &&userJids) mutable {
-					if (!userJids.isEmpty()) {
-						await(EncryptionController::instance()->hasUsableDevices({ userJids.cbegin(), userJids.cend() }), this, [omemoEncryptionActive, sendEncrypted, sendUnencrypted, userJids](bool hasUsableDevices) mutable {
-							if (omemoEncryptionActive && hasUsableDevices) {
-								sendEncrypted(userJids);
-							} else {
-								sendUnencrypted();
-							}
-						});
-					}
-				});
+				await(GroupChatUserDb::instance()->userJids(Kaidan::instance()
+										    ->client()
+										    ->xmppClient()
+										    ->configuration()
+										    .jidBare(),
+					      recipientJid),
+					this,
+					[this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](
+						QVector<QString> &&userJids) mutable {
+						if (!userJids.isEmpty()) {
+							await(EncryptionController::instance()->hasUsableDevices(
+								      { userJids.cbegin(), userJids.cend() }),
+								this,
+								[omemoEncryptionActive, sendEncrypted, sendUnencrypted, userJids](
+									bool hasUsableDevices) mutable {
+									if (omemoEncryptionActive && hasUsableDevices) {
+										sendEncrypted(userJids);
+									} else {
+										sendUnencrypted();
+									}
+								});
+						}
+					});
 			} else {
-				await(EncryptionController::instance()->hasUsableDevices({ recipientJid }), this, [omemoEncryptionActive, sendEncrypted, sendUnencrypted](bool hasUsableDevices) mutable {
-					if (omemoEncryptionActive && hasUsableDevices) {
-						sendEncrypted();
-					} else {
-						sendUnencrypted();
-					}
-				});
+				await(EncryptionController::instance()->hasUsableDevices({ recipientJid }),
+					this,
+					[omemoEncryptionActive, sendEncrypted, sendUnencrypted](
+						bool hasUsableDevices) mutable {
+						if (omemoEncryptionActive && hasUsableDevices) {
+							sendEncrypted();
+						} else {
+							sendUnencrypted();
+						}
+					});
 			}
 		} else {
 			sendUnencrypted();
@@ -188,11 +221,13 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 void MessageController::sendPendingMessages()
 {
-	await(MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid()), this, [this](QVector<Message> &&messages) {
-		for (Message message : messages) {
-			sendPendingMessage(std::move(message));
-		}
-	});
+	await(MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid()),
+		this,
+		[this](QVector<Message> &&messages) {
+			for (Message message : messages) {
+				sendPendingMessage(std::move(message));
+			}
+		});
 }
 
 void MessageController::sendPendingMessageReactions(const QString &accountJid)
@@ -202,7 +237,9 @@ void MessageController::sendPendingMessageReactions(const QString &accountJid)
 		for (auto reactionItr = reactions.cbegin(); reactionItr != reactions.cend(); ++reactionItr) {
 			const auto &reactionSenders = reactionItr.value();
 
-			for (auto reactionSenderItr = reactionSenders.cbegin(); reactionSenderItr != reactionSenders.cend(); ++reactionSenderItr) {
+			for (auto reactionSenderItr = reactionSenders.cbegin();
+				reactionSenderItr != reactionSenders.cend();
+				++reactionSenderItr) {
 				const auto messageId = reactionSenderItr.key();
 				QVector<QString> emojis;
 
@@ -218,34 +255,45 @@ void MessageController::sendPendingMessageReactions(const QString &accountJid)
 
 				const auto chatJid = reactionItr.key();
 
-				await(MessageController::instance()->sendMessageReaction(ChatController::instance()->chatJid(), messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis), this, [this, messageId, accountJid](QXmpp::SendResult &&result) {
-					if (const auto error = std::get_if<QXmppError>(&result)) {
-						Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+				await(MessageController::instance()->sendMessageReaction(
+					      ChatController::instance()->chatJid(),
+					      messageId,
+					      ChatController::instance()->rosterItem().isGroupChat(),
+					      emojis),
+					this,
+					[this, messageId, accountJid](QXmpp::SendResult &&result) {
+						if (const auto error = std::get_if<QXmppError>(&result)) {
+							Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+								tr("Reaction could not be sent: %1")
+									.arg(error->description));
 
-						MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
-							auto &reactionSender = message.reactionSenders[accountJid];
-							reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+							MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
+								auto &reactionSender =
+									message.reactionSenders[accountJid];
+								reactionSender.latestTimestamp =
+									QDateTime::currentDateTimeUtc();
 
-							for (auto &reaction : reactionSender.reactions) {
-								switch (auto &deliveryState = reaction.deliveryState) {
-								case MessageReactionDeliveryState::PendingAddition:
-									deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
-									break;
-								case MessageReactionDeliveryState::PendingRemovalAfterSent:
-									deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
-									break;
-								case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
-									deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
-									break;
-								default:
-									break;
+								for (auto &reaction : reactionSender.reactions) {
+									switch (auto &deliveryState =
+											reaction.deliveryState) {
+									case MessageReactionDeliveryState::PendingAddition:
+										deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+										break;
+									case MessageReactionDeliveryState::PendingRemovalAfterSent:
+										deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterSent;
+										break;
+									case MessageReactionDeliveryState::PendingRemovalAfterDelivered:
+										deliveryState = MessageReactionDeliveryState::ErrorOnRemovalAfterDelivered;
+										break;
+									default:
+										break;
+									}
 								}
-							}
-						});
-					} else {
-						updateMessageReactionsAfterSending(messageId, accountJid);
-					}
-				});
+							});
+						} else {
+							updateMessageReactionsAfterSending(messageId, accountJid);
+						}
+					});
 			}
 		}
 	});
@@ -298,7 +346,10 @@ void MessageController::sendChatState(const QString &toJid, bool isGroupChat, co
 	send(std::move(message));
 }
 
-QFuture<QXmpp::SendResult> MessageController::sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QVector<QString> &emojis)
+QFuture<QXmpp::SendResult> MessageController::sendMessageReaction(const QString &chatJid,
+	const QString &messageId,
+	bool isGroupChatMessage,
+	const QVector<QString> &emojis)
 {
 	QXmppMessageReaction reaction;
 	reaction.setMessageId(messageId);
@@ -323,9 +374,7 @@ void MessageController::sendPendingMessage(Message message)
 {
 	runOnThread(
 		Kaidan::instance()->client()->xmppClient(),
-		[]() {
-			return Kaidan::instance()->client()->xmppClient()->state();
-		},
+		[]() { return Kaidan::instance()->client()->xmppClient()->state(); },
 		this,
 		[this, message](QXmppClient::State state) mutable {
 			if (state == QXmppClient::ConnectedState) {
@@ -340,16 +389,19 @@ void MessageController::sendPendingMessage(Message message)
 
 				await(send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult result) {
 					if (const auto error = std::get_if<QXmppError>(&result)) {
-						qWarning() << "[client] [MessageController] Could not send message:"
-								   << error->description;
+						qWarning() << "[client] [MessageController] Could "
+							      "not send message:"
+							   << error->description;
 
 						// The error message of the message is saved untranslated. To make
 						// translation work in the UI, the tr() call of the passive
 						// notification must contain exactly the same string.
-						Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
+						Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+							tr("Message could not be sent."));
 						MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
 							msg.deliveryState = Enums::DeliveryState::Error;
-							msg.errorText = QStringLiteral("Message could not be sent.");
+							msg.errorText = QStringLiteral(
+								"Message could not be sent.");
 						});
 					} else {
 						MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
@@ -361,13 +413,12 @@ void MessageController::sendPendingMessage(Message message)
 
 				for (auto &fallbackMessage : message.fallbackMessages()) {
 					// TODO: Track sending of fallback messages individually
-					// Needed for the case when the success differs between the main message
-					// and the fallback messages.
+					// Needed for the case when the success differs between the
+					// main message and the fallback messages.
 					send(std::move(fallbackMessage));
 				}
 			}
-		}
-	);
+		});
 }
 
 QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, bool isGroupChat, const QString &oldestMessageStanzaId)
@@ -382,13 +433,26 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jid, isGroupChat, queryLimit]() {
-			return std::pair { Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMamManager>()->retrieveMessages(isGroupChat ? jid : QString {}, {}, isGroupChat ? QString {} : jid, {}, {}, queryLimit), this };
-		}, this, [this, interface, jid](QXmppMamManager::RetrieveResult &&result) mutable {
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppMamManager>()
+						   ->retrieveMessages(isGroupChat ? jid : QString {},
+							   {},
+							   isGroupChat ? QString {} : jid,
+							   {},
+							   {},
+							   queryLimit),
+				this };
+		},
+		this,
+		[this, interface, jid](QXmppMamManager::RetrieveResult &&result) mutable {
 			if (auto error = std::get_if<QXmppError>(&result)) {
 				qDebug() << "[MAM] Could not retrieve backlog messages:" << error->description;
 				reportFinishedResult(interface, false);
 			} else {
-				const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+				const auto retrievedMessages =
+					std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 				const auto messages = retrievedMessages.messages;
 
 				for (const auto &message : messages) {
@@ -397,8 +461,7 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
 
 				reportFinishedResult(interface, retrievedMessages.result.complete());
 			}
-		}
-	);
+		});
 
 	return interface.future();
 }
@@ -407,7 +470,8 @@ void MessageController::sendReadMarker(const QString &chatJid, const QString &me
 {
 	QXmppMessage message;
 
-	if (const auto rosterItem = RosterModel::instance()->findItem(chatJid); rosterItem && rosterItem->isGroupChat()) {
+	if (const auto rosterItem = RosterModel::instance()->findItem(chatJid);
+		rosterItem && rosterItem->isGroupChat()) {
 		message.setType(QXmppMessage::GroupChat);
 	}
 
@@ -423,22 +487,23 @@ void MessageController::handleRosterReceived()
 {
 	// TODO: Retrieve initial messages only if MAM is enabled
 
-	// If it is Kaidan's first login with the account, request one initial message for each roster
-	// item.
-	// If Kaidan already retrieved initial messages, request all new messages from the server since
-	// then.
-	// If Kaidan already tried to retrieve the initial messages but there is none, request all
-	// messages in order to get the messages since the last request.
+	// If it is Kaidan's first login with the account, request one initial message for each
+	// roster item. If Kaidan already retrieved initial messages, request all new messages from
+	// the server since then. If Kaidan already tried to retrieve the initial messages but there
+	// is none, request all messages in order to get the messages since the last request.
 	if (AccountManager::instance()->hasNewCredentials()) {
 		retrieveInitialMessages();
 	} else {
-		await(AccountDb::instance()->fetchLatestMessageStanzaId(Kaidan::instance()->client()->xmppClient()->configuration().jidBare()), this, [this](QString &&stanzaId) {
-			if (stanzaId.isEmpty()) {
-				retrieveAllMessages();
-			} else {
-				retrieveCatchUpMessages(stanzaId);
-			}
-		});
+		await(AccountDb::instance()->fetchLatestMessageStanzaId(
+			      Kaidan::instance()->client()->xmppClient()->configuration().jidBare()),
+			this,
+			[this](QString &&stanzaId) {
+				if (stanzaId.isEmpty()) {
+					retrieveAllMessages();
+				} else {
+					retrieveCatchUpMessages(stanzaId);
+				}
+			});
 
 		if (const auto rosterItems = RosterModel::instance()->items(); !rosterItems.isEmpty()) {
 			// TODO: Check whether the own server supports archiving group chat messages and skip the retrieval for each group chat in that case
@@ -447,7 +512,8 @@ void MessageController::handleRosterReceived()
 					if (rosterItem.latestGroupChatMessageStanzaId.isEmpty()) {
 						retrieveAllMessages(rosterItem.jid);
 					} else {
-						retrieveCatchUpMessages(rosterItem.latestGroupChatMessageStanzaId, rosterItem.jid);
+						retrieveCatchUpMessages(rosterItem.latestGroupChatMessageStanzaId,
+							rosterItem.jid);
 					}
 				}
 			}
@@ -473,25 +539,39 @@ void MessageController::retrieveInitialMessage(const QString &jid, bool isGroupC
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jid, isGroupChat, queryLimit]() {
-			return std::pair { Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMamManager>()->retrieveMessages(isGroupChat ? jid : QString {}, {}, isGroupChat ? QString {} : jid, {}, {}, queryLimit), this };
-		}, this, [this, jid, isGroupChat](QXmppMamManager::RetrieveResult &&result) mutable {
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppMamManager>()
+						   ->retrieveMessages(isGroupChat ? jid : QString {},
+							   {},
+							   isGroupChat ? QString {} : jid,
+							   {},
+							   {},
+							   queryLimit),
+				this };
+		},
+		this,
+		[this, jid, isGroupChat](QXmppMamManager::RetrieveResult &&result) mutable {
 			if (auto error = std::get_if<QXmppError>(&result)) {
 				qDebug() << "[MAM] Could not retrieve initial message:" << error->description;
 			} else {
-				const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+				const auto retrievedMessages =
+					std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
 				if (const auto messages = retrievedMessages.messages; !messages.empty()) {
 					const auto message = messages.constFirst();
 
 					if (message.body().isEmpty() && message.sharedFiles().isEmpty()) {
-						retrieveInitialMessage(jid, isGroupChat, retrievedMessages.result.resultSetReply().first());
+						retrieveInitialMessage(jid,
+							isGroupChat,
+							retrievedMessages.result.resultSetReply().first());
 					} else {
 						handleMessage(message, MessageOrigin::MamInitial);
 					}
 				}
 			}
-		}
-	);
+		});
 }
 
 void MessageController::retrieveAllMessages(const QString &groupChatJid)
@@ -499,22 +579,33 @@ void MessageController::retrieveAllMessages(const QString &groupChatJid)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, groupChatJid]() {
-			return std::pair { Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMamManager>()->retrieveMessages(groupChatJid), this };
-		}, this, [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppMamManager>()
+						   ->retrieveMessages(groupChatJid),
+				this };
+		},
+		this,
+		[this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
 			if (auto error = std::get_if<QXmppError>(&result)) {
 				qDebug() << "[MAM] Could not retrieve all messages:" << error->description;
 			} else {
-				const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+				const auto retrievedMessages =
+					std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
 				for (const auto &message : std::as_const(retrievedMessages.messages)) {
 					handleMessage(message, MessageOrigin::MamCatchUp);
 
 					// Send delivery receipts for the retrieved message.
-					Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>()->handleMessage(message);
+					Kaidan::instance()
+						->client()
+						->xmppClient()
+						->findExtension<QXmppMessageReceiptManager>()
+						->handleMessage(message);
 				}
 			}
-		}
-	);
+		});
 }
 
 void MessageController::retrieveCatchUpMessages(const QString &latestMessageStanzaId, const QString &groupChatJid)
@@ -525,22 +616,33 @@ void MessageController::retrieveCatchUpMessages(const QString &latestMessageStan
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, groupChatJid, queryLimit]() {
-			return std::pair { Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMamManager>()->retrieveMessages(groupChatJid, {}, {}, {}, {}, queryLimit), this };
-		}, this, [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppMamManager>()
+						   ->retrieveMessages(groupChatJid, {}, {}, {}, {}, queryLimit),
+				this };
+		},
+		this,
+		[this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
 			if (auto error = std::get_if<QXmppError>(&result)) {
 				qDebug() << "[MAM] Could not retrieve catch-up messages:" << error->description;
 			} else {
-				const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
+				const auto retrievedMessages =
+					std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
 				for (const auto &message : std::as_const(retrievedMessages.messages)) {
 					handleMessage(message, MessageOrigin::MamCatchUp);
 
 					// Send delivery receipts for the retrieved message.
-					Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMessageReceiptManager>()->handleMessage(message);
+					Kaidan::instance()
+						->client()
+						->xmppClient()
+						->findExtension<QXmppMessageReceiptManager>()
+						->handleMessage(message);
 				}
 			}
-		}
-	);
+		});
 }
 
 void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin origin)
@@ -596,12 +698,13 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	//
 	// If the group chat message has multiple stanza IDs, the right stanza ID depending on its
 	// originator is used.
-	// That is needed if the own server archives group chat messages resulting in a second stanza
-	// ID added by the own server to the group chat message.
+	// That is needed if the own server archives group chat messages resulting in a second
+	// stanza ID added by the own server to the group chat message.
 	if (receivedFromGroupChat) {
-		const auto itr = std::find_if(stanzaIds.cbegin(), stanzaIds.cend(), [senderJid](const QXmppStanzaId &stanzaId) {
-			return stanzaId.by == senderJid;
-		});
+		const auto itr = std::find_if(
+			stanzaIds.cbegin(), stanzaIds.cend(), [senderJid](const QXmppStanzaId &stanzaId) {
+				return stanzaId.by == senderJid;
+			});
 
 		if (itr == stanzaIds.cend()) {
 			// Use the message ID as a fallback for the stanza ID in case the group chat server does
@@ -621,12 +724,15 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	// stanza ID is used for retrieving offline (i.e., catch up) messages once connected.
 	updateLatestMessage(accountJid, chatJid, stanzaId, timestamp, receivedFromGroupChat);
 
-	if (handleReadMarker(msg, senderJid, recipientJid, isOwn) || handleReaction(msg, senderId) || handleFileSourcesAttachments(msg, chatJid)) {
+	if (handleReadMarker(msg, senderJid, recipientJid, isOwn) ||
+		handleReaction(msg, senderId) || handleFileSourcesAttachments(msg, chatJid)) {
 		return;
 	}
 
 	const auto qxmppReply = msg.reply();
-	const auto messageBody = qxmppReply ? msg.readFallbackRemovedText(QXmppFallback::Element::Body, { XMLNS_MESSAGE_REPLIES.toString() }) : msg.body();
+	const auto messageBody = qxmppReply ? msg.readFallbackRemovedText(QXmppFallback::Element::Body,
+						      { XMLNS_MESSAGE_REPLIES.toString() })
+					    : msg.body();
 	const auto encryptionName = msg.encryptionName();
 
 	// Determine whether the message could be encrypted for a group chat or the chat with oneself
@@ -637,7 +743,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	// That is needed for marking the sent message as delivered.
 	const auto possiblyReflectedEncrypted = isOwn && !encryptionName.isEmpty();
 
-	if (!possiblyReflectedEncrypted && messageBody.isEmpty() && msg.outOfBandUrl().isEmpty() && msg.sharedFiles().isEmpty()) {
+	if (!possiblyReflectedEncrypted && messageBody.isEmpty() && msg.outOfBandUrl().isEmpty() &&
+		msg.sharedFiles().isEmpty()) {
 		return;
 	}
 
@@ -648,8 +755,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	message.isOwn = isOwn;
 	message.groupChatSenderId = groupChatSenderId;
 
-	// Set a generated message ID for local use (removing a message locally etc.) if it is empty.
-	// That behavior was detected for server messages.
+	// Set a generated message ID for local use (removing a message locally etc.) if it is
+	// empty. That behavior was detected for server messages.
 	message.id = messageId.isEmpty() ? QXmppUtils::generateStanzaUuid() : messageId;
 
 	message.originId = msg.originId();
@@ -674,7 +781,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	message.spoilerHint = msg.spoilerHint();
 
 	// file sharing messages for backwards-compatibility are ignored
-	if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) != msg.fallbackMarkers().end() &&
+	if (find(msg.fallbackMarkers(), XMLNS_SFS, &QXmppFallback::forNamespace) !=
+			msg.fallbackMarkers().end() &&
 		msg.sharedFiles().empty()) {
 		return;
 	}
@@ -714,10 +822,9 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	// The "stanzaId" is updated to be used when the message is referenced (e.g., if message
 	// reactions are sent for it).
 	auto updateReflectedMessage = [](Message &storedMessage, const QString &stanzaId) {
-		if (storedMessage.isOwn &&
-			storedMessage.deliveryState == Enums::DeliveryState::Sent &&
+		if (storedMessage.isOwn && storedMessage.deliveryState == Enums::DeliveryState::Sent &&
 			(storedMessage.isGroupChatMessage() ||
-			 storedMessage.accountJid == storedMessage.chatJid)) {
+				storedMessage.accountJid == storedMessage.chatJid)) {
 			storedMessage.deliveryState = Enums::DeliveryState::Delivered;
 			storedMessage.errorText.clear();
 			storedMessage.stanzaId = stanzaId;
@@ -732,8 +839,8 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 	// Otherwise, correct a stored message.
 	if (const auto replaceId = msg.replaceId(); replaceId.isEmpty()) {
 		// Add a new group chat user if none is stored for the received message.
-		// "groupChatSenderId" is checked because it can be empty if the server uses an unsupported
-		// format for participants.
+		// "groupChatSenderId" is checked because it can be empty if the server uses an
+		// unsupported format for participants.
 		if (receivedFromGroupChat && !groupChatSenderId.isEmpty() && !isOwn) {
 			GroupChatUser sender;
 
@@ -755,48 +862,57 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
 		if (origin == MessageOrigin::MamInitial) {
 			MessageDb::instance()->addMessage(message, origin);
 		} else {
-			MessageDb::instance()->addOrUpdateMessage(message, origin, message.originId, [updateReflectedMessage, stanzaId](Message &storedMessage) {
-				updateReflectedMessage(storedMessage, stanzaId);
-			});
+			MessageDb::instance()->addOrUpdateMessage(message,
+				origin,
+				message.originId,
+				[updateReflectedMessage, stanzaId](Message &storedMessage) {
+					updateReflectedMessage(storedMessage, stanzaId);
+				});
 		}
 
 		// Add the message's sender to the roster if not already done and only for direct
 		// messages.
-		// Otherwise, the chat could only be opened via the message's notification and could not
-		// be opened again later.
+		// Otherwise, the chat could only be opened via the message's notification and could
+		// not be opened again later.
 		if (!receivedFromGroupChat && !RosterModel::instance()->hasItem(senderJid)) {
 			runOnThread(Kaidan::instance()->client(), [senderJid]() {
-				Kaidan::instance()->client()->rosterManager()->addContact(senderJid, {}, {}, true);
+				Kaidan::instance()->client()->rosterManager()->addContact(
+					senderJid, {}, {}, true);
 			});
 		}
 	} else {
 		message.replaceId = replaceId;
-		MessageDb::instance()->updateMessage(replaceId, [updateReflectedMessage, message](Message &storedMessage) {
-			// Update a reflected message or correct a previous message if allowed.
-			// Only the author of the original message is allowed to correct it.
-			if (!updateReflectedMessage(storedMessage, message.stanzaId) &&
-				storedMessage.accountJid == message.accountJid &&
-				storedMessage.chatJid == message.chatJid &&
-				storedMessage.isOwn == message.isOwn &&
-				storedMessage.groupChatSenderId == message.groupChatSenderId) {
-				storedMessage.id = message.id;
-				storedMessage.originId = message.originId;
-				storedMessage.stanzaId = message.stanzaId;
-				storedMessage.replaceId = message.replaceId;
-				storedMessage.reply = message.reply;
-				storedMessage.body = message.body;
-				storedMessage.encryption = message.encryption;
-				storedMessage.senderKey = message.senderKey;
-				storedMessage.isSpoiler = message.isSpoiler;
-				storedMessage.spoilerHint = message.spoilerHint;
-				storedMessage.senderKey = message.senderKey;
-				storedMessage.groupChatInvitation = message.groupChatInvitation;
-			}
-		});
+		MessageDb::instance()->updateMessage(
+			replaceId, [updateReflectedMessage, message](Message &storedMessage) {
+				// Update a reflected message or correct a previous message if allowed.
+				// Only the author of the original message is allowed to correct it.
+				if (!updateReflectedMessage(storedMessage, message.stanzaId) &&
+					storedMessage.accountJid == message.accountJid &&
+					storedMessage.chatJid == message.chatJid &&
+					storedMessage.isOwn == message.isOwn &&
+					storedMessage.groupChatSenderId == message.groupChatSenderId) {
+					storedMessage.id = message.id;
+					storedMessage.originId = message.originId;
+					storedMessage.stanzaId = message.stanzaId;
+					storedMessage.replaceId = message.replaceId;
+					storedMessage.reply = message.reply;
+					storedMessage.body = message.body;
+					storedMessage.encryption = message.encryption;
+					storedMessage.senderKey = message.senderKey;
+					storedMessage.isSpoiler = message.isSpoiler;
+					storedMessage.spoilerHint = message.spoilerHint;
+					storedMessage.senderKey = message.senderKey;
+					storedMessage.groupChatInvitation = message.groupChatInvitation;
+				}
+			});
 	}
 }
 
-void MessageController::updateLatestMessage(const QString &accountJid, const QString &chatJid, const QString &stanzaId, const QDateTime &timestamp, bool receivedFromGroupChat)
+void MessageController::updateLatestMessage(const QString &accountJid,
+	const QString &chatJid,
+	const QString &stanzaId,
+	const QDateTime &timestamp,
+	bool receivedFromGroupChat)
 {
 	if (stanzaId.isEmpty()) {
 		return;
@@ -824,20 +940,27 @@ void MessageController::updateLatestMessage(const QString &accountJid, const QSt
 	}
 }
 
-bool MessageController::handleReadMarker(const QXmppMessage &message, const QString &senderJid, const QString &recipientJid, bool isOwnMessage)
+bool MessageController::handleReadMarker(const QXmppMessage &message,
+	const QString &senderJid,
+	const QString &recipientJid,
+	bool isOwnMessage)
 {
 	if (message.marker() == QXmppMessage::Displayed) {
 		const auto markedId = message.markedId();
 		if (isOwnMessage) {
 			Notifications::instance()->closeMessageNotification(senderJid, recipientJid);
 
-			// Retrieve the count of messages between "lastReadContactMessageId" and "markedId"
-			// to decrease the corresponding counter by 1 (if IDs could not be found) or by the
-			// actual count of read messages.
-			auto future = MessageDb::instance()->messageCount(recipientJid, senderJid, RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid), markedId);
+			// Retrieve the count of messages between "lastReadContactMessageId" and
+			// "markedId" to decrease the corresponding counter by 1 (if IDs could not
+			// be found) or by the actual count of read messages.
+			auto future = MessageDb::instance()->messageCount(recipientJid,
+				senderJid,
+				RosterModel::instance()->lastReadContactMessageId(senderJid, recipientJid),
+				markedId);
 			await(future, this, [recipientJid, markedId](int count) {
 				RosterDb::instance()->updateItem(recipientJid, [=](RosterItem &item) {
-					item.unreadMessages = count == 0 ? item.unreadMessages - 1 : item.unreadMessages - count + 1;
+					item.unreadMessages = count == 0 ? item.unreadMessages - 1
+									 : item.unreadMessages - count + 1;
 					item.lastReadContactMessageId = markedId;
 					item.readMarkerPending = false;
 				});
@@ -857,44 +980,50 @@ bool MessageController::handleReadMarker(const QXmppMessage &message, const QStr
 bool MessageController::handleReaction(const QXmppMessage &message, const QString &senderId)
 {
 	if (const auto receivedReaction = message.reaction()) {
-		MessageDb::instance()->updateMessage(message.reaction()->messageId(), [senderId, receivedEmojis = receivedReaction->emojis(), receivedTimestamp = message.stamp()](Message &m) {
-			auto &reactionSenders = m.reactionSenders;
-			auto &reactionSender = reactionSenders[senderId];
+		MessageDb::instance()->updateMessage(message.reaction()->messageId(),
+			[senderId,
+				receivedEmojis = receivedReaction->emojis(),
+				receivedTimestamp = message.stamp()](Message &m) {
+				auto &reactionSenders = m.reactionSenders;
+				auto &reactionSender = reactionSenders[senderId];
 
-			// Process only newer reactions.
-			if (reactionSender.latestTimestamp.isNull() || reactionSender.latestTimestamp < receivedTimestamp) {
-				reactionSender.latestTimestamp = receivedTimestamp;
-				auto &reactions = reactionSender.reactions;
+				// Process only newer reactions.
+				if (reactionSender.latestTimestamp.isNull() ||
+					reactionSender.latestTimestamp < receivedTimestamp) {
+					reactionSender.latestTimestamp = receivedTimestamp;
+					auto &reactions = reactionSender.reactions;
 
-				// Add new reactions.
-				for (const auto &receivedEmoji : std::as_const(receivedEmojis)) {
-					const auto reactionNew = std::none_of(reactions.cbegin(), reactions.cend(), [&](const MessageReaction &reaction) {
-						return reaction.emoji == receivedEmoji;
-					});
+					// Add new reactions.
+					for (const auto &receivedEmoji : std::as_const(receivedEmojis)) {
+						const auto reactionNew = std::none_of(reactions.cbegin(),
+							reactions.cend(),
+							[&](const MessageReaction &reaction) {
+								return reaction.emoji == receivedEmoji;
+							});
 
-					if (reactionNew) {
-						MessageReaction reaction;
-						reaction.emoji = receivedEmoji;
+						if (reactionNew) {
+							MessageReaction reaction;
+							reaction.emoji = receivedEmoji;
 
-						reactions.append(reaction);
+							reactions.append(reaction);
+						}
+					}
+
+					// Remove existing reactions.
+					for (auto itr = reactions.begin(); itr != reactions.end();) {
+						if (!receivedEmojis.contains(itr->emoji)) {
+							reactions.erase(itr);
+						} else {
+							++itr;
+						}
+					}
+
+					// Remove the reaction sender if it has no reactions anymore.
+					if (reactions.isEmpty()) {
+						reactionSenders.remove(senderId);
 					}
 				}
-
-				// Remove existing reactions.
-				for (auto itr = reactions.begin(); itr != reactions.end();) {
-					if (!receivedEmojis.contains(itr->emoji)) {
-						reactions.erase(itr);
-					} else {
-						++itr;
-					}
-				}
-
-				// Remove the reaction sender if it has no reactions anymore.
-				if (reactions.isEmpty()) {
-					reactionSenders.remove(senderId);
-				}
-			}
-		});
+			});
 
 		return true;
 	}
@@ -911,22 +1040,18 @@ bool MessageController::handleFileSourcesAttachments(const QXmppMessage &message
 	const auto attachments = message.fileSourcesAttachments();
 	for (const auto &attachment : attachments) {
 		// set DB file ID of 0, attachFileSources will replace this with the correct ID
-		auto httpSources = transform(attachment.httpSources(), [](const auto &s) {
-			return HttpSource { 0, s.url() };
-		});
-		auto encryptedSources = transformFilter(attachment.encryptedSources(), std::bind(&MessageController::parseEncryptedSource, 0, _1));
+		auto httpSources = transform(attachment.httpSources(),
+			[](const auto &s) { return HttpSource { 0, s.url() }; });
+		auto encryptedSources = transformFilter(attachment.encryptedSources(),
+			std::bind(&MessageController::parseEncryptedSource, 0, _1));
 		MessageDb::instance()->attachFileSources(
-			AccountManager::instance()->jid(),
-			chatJid,
-			message.attachId(),
-			attachment.id(),
-			httpSources,
-			encryptedSources);
+			AccountManager::instance()->jid(), chatJid, message.attachId(), attachment.id(), httpSources, encryptedSources);
 	}
 	return !attachments.empty();
 }
 
-std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source)
+std::optional<EncryptedSource>
+MessageController::parseEncryptedSource(qint64 fileId, const QXmppEncryptedFileSource &source)
 {
 	if (source.httpSources().empty()) {
 		return {};
@@ -935,8 +1060,7 @@ std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fi
 	if (!source.hashes().empty()) {
 		encryptedDataId = MessageDb::instance()->newFileId();
 	}
-	return EncryptedSource {
-		fileId,
+	return EncryptedSource { fileId,
 		source.httpSources().front().url(),
 		source.cipher(),
 		source.key(),
@@ -944,8 +1068,7 @@ std::optional<EncryptedSource> MessageController::parseEncryptedSource(qint64 fi
 		encryptedDataId,
 		transform(source.hashes(), [&](const QXmppHash &h) {
 			return FileHash { *encryptedDataId, h.algorithm(), h.hash() };
-		})
-	};
+		}) };
 }
 
 void MessageController::parseSharedFiles(const QXmppMessage &message, Message &messageToEdit)
@@ -961,25 +1084,25 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
 			file.fileGroupId = fgid.value();
 			file.name = fileShare.metadata().filename();
 			file.description = fileShare.metadata().description().value_or(QString());
-			file.mimeType = fileShare.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream")));
+			file.mimeType = fileShare.metadata().mediaType().value_or(QMimeDatabase().mimeTypeForName(
+				QStringLiteral("application/octet-stream")));
 			file.size = fileShare.metadata().size();
 			file.lastModified = fileShare.metadata().lastModified().value_or(QDateTime());
 			file.disposition = fileShare.disposition();
 			file.externalId = fileShare.id();
 			file.hashes = transform(fileShare.metadata().hashes(), [&](const QXmppHash &hash) {
-				return FileHash {
-					.dataId = fileId,
+				return FileHash { .dataId = fileId,
 					.hashType = hash.algorithm(),
-					.hashValue = hash.hash()
-				};
+					.hashValue = hash.hash() };
 			});
 			file.thumbnail = [&]() {
 				const auto &bobData = message.bitsOfBinaryData();
 				if (!fileShare.metadata().thumbnails().empty()) {
-					auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(fileShare.metadata().thumbnails().front().uri());
-					const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
-						return bobBlob.cid() == cid;
-					});
+					auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(
+						fileShare.metadata().thumbnails().front().uri());
+					const auto *thumbnailData = std::find_if(bobData.begin(),
+						bobData.end(),
+						[&](auto bobBlob) { return bobBlob.cid() == cid; });
 
 					if (thumbnailData != bobData.cend()) {
 						return thumbnailData->data();
@@ -990,15 +1113,15 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
 			file.httpSources = transform(fileShare.httpSources(), [&](const auto &source) {
 				return HttpSource { fileId, source.url() };
 			});
-			file.encryptedSources = transformFilter(fileShare.encryptedSources(), std::bind(MessageController::parseEncryptedSource, fileId, _1));
+			file.encryptedSources = transformFilter(fileShare.encryptedSources(),
+				std::bind(MessageController::parseEncryptedSource, fileId, _1));
 
 			return file;
 		});
 	} else if (auto urls = message.outOfBandUrls(); !urls.isEmpty()) {
 		const qint64 fileGroupId = MessageDb::instance()->newFileGroupId();
-		messageToEdit.files = transformFilter(urls, [&](auto &file) {
-			return MessageController::parseOobUrl(file, fileGroupId);
-		});
+		messageToEdit.files = transformFilter(urls,
+			[&](auto &file) { return MessageController::parseOobUrl(file, fileGroupId); });
 
 		// don't set file group id if there are no files
 		if (!messageToEdit.files.empty()) {
@@ -1026,17 +1149,13 @@ std::optional<File> MessageController::parseOobUrl(const QXmppOutOfBandUrl &url,
 	file.mimeType = [&name] {
 		const auto possibleMimeTypes = MediaUtils::mimeDatabase().mimeTypesForFileName(name);
 		if (possibleMimeTypes.empty()) {
-			return MediaUtils::mimeDatabase().mimeTypeForName(QStringLiteral("application/octet-stream"));
+			return MediaUtils::mimeDatabase().mimeTypeForName(
+				QStringLiteral("application/octet-stream"));
 		}
 
 		return possibleMimeTypes.front();
 	}();
-	file.httpSources = {
-		HttpSource {
-			.fileId = id,
-			.url = QUrl(url.url())
-		}
-	};
+	file.httpSources = { HttpSource { .fileId = id, .url = QUrl(url.url()) } };
 
 	return file;
 }

@@ -20,8 +20,7 @@
 // The maximum is set because QML seems to sometimes set a very high value even if that is not used.
 constexpr int MAX_EDGE_PIXEL_COUNT = 1000;
 
-AbstractQrCodeGenerator::AbstractQrCodeGenerator(QObject *parent)
-	: QObject(parent)
+AbstractQrCodeGenerator::AbstractQrCodeGenerator(QObject *parent) : QObject(parent)
 {
 }
 
@@ -51,10 +50,12 @@ QImage AbstractQrCodeGenerator::qrCode() const
 	if (m_edgePixelCount > 0 && m_edgePixelCount < MAX_EDGE_PIXEL_COUNT && !m_text.isEmpty()) {
 		try {
 			ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-			const ZXing::BitMatrix &bitMatrix = writer.encode(m_text.toStdWString(), m_edgePixelCount, m_edgePixelCount);
+			const ZXing::BitMatrix &bitMatrix =
+				writer.encode(m_text.toStdWString(), m_edgePixelCount, m_edgePixelCount);
 			return toImage(bitMatrix);
 		} catch (const std::invalid_argument &e) {
-			Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
+			Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+				tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
 		}
 	}
 
@@ -77,7 +78,8 @@ QImage AbstractQrCodeGenerator::toImage(const ZXing::BitMatrix &bitMatrix)
 
 	for (int y = 0; y < bitMatrix.height(); ++y) {
 		for (int x = 0; x < bitMatrix.width(); ++x) {
-			int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK : COLOR_TABLE_INDEX_FOR_WHITE;
+			int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK
+								  : COLOR_TABLE_INDEX_FOR_WHITE;
 			monochromeImage.setPixel(y, x, colorTableIndex);
 		}
 	}

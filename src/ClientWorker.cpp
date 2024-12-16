@@ -9,13 +9,14 @@
 #include "ClientWorker.h"
 // Qt
 #include <QGuiApplication>
-#include <QSettings>
 #include <QNetworkAccessManager>
+#include <QSettings>
 // QXmpp
 #include <QXmppAccountMigrationManager.h>
 #include <QXmppAuthenticationError.h>
 #include <QXmppBlockingManager.h>
 #include <QXmppCarbonManagerV2.h>
+#include <QXmppCredentials.h>
 #include <QXmppDiscoveryManager.h>
 #include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppEntityTimeManager.h>
@@ -29,13 +30,12 @@
 #include <QXmppPubSubBaseItem.h>
 #include <QXmppPubSubManager.h>
 #include <QXmppRosterManager.h>
+#include <QXmppSasl2UserAgent.h>
 #include <QXmppStreamError.h>
 #include <QXmppUploadRequestManager.h>
 #include <QXmppUtils.h>
 #include <QXmppVCardManager.h>
 #include <QXmppVersionManager.h>
-#include <QXmppSasl2UserAgent.h>
-#include <QXmppCredentials.h>
 // Kaidan
 #include "AccountManager.h"
 #include "AccountMigrationManager.h"
@@ -47,6 +47,7 @@
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "LogHandler.h"
+#include "MediaUtils.h"
 #include "MessageController.h"
 #include "OmemoDb.h"
 #include "PresenceCache.h"
@@ -54,11 +55,10 @@
 #include "RosterManager.h"
 #include "RosterModel.h"
 #include "ServerFeaturesCache.h"
+#include "Settings.h"
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
-#include "Settings.h"
-#include "MediaUtils.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
 	: settings(new Settings(parent)),
@@ -71,7 +71,7 @@ ClientWorker::Caches::Caches(QObject *parent)
 {
 }
 
-ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject* parent)
+ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLogging, QObject *parent)
 	: QObject(parent),
 	  m_caches(caches),
 	  m_client(new QXmppClient(QXmppClient::NoExtensions, this)),
@@ -110,7 +110,8 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	m_fileSharingManager = m_client->addNewExtension<QXmppFileSharingManager>();
 	m_fileSharingManager->setMetadataGenerator(MediaUtils::generateMetadata);
 	m_httpProvider = std::make_shared<QXmppHttpFileSharingProvider>(uploadManager, m_networkManager);
-	m_encryptedProvider = std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
+	m_encryptedProvider =
+		std::make_shared<QXmppEncryptedFileSharingProvider>(m_fileSharingManager, m_httpProvider);
 	m_fileSharingManager->registerProvider(m_httpProvider);
 	m_fileSharingManager->registerProvider(m_encryptedProvider);
 
@@ -142,7 +143,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
 	});
 }
 
-void ClientWorker::startTask(const std::function<void ()> &task)
+void ClientWorker::startTask(const std::function<void()> &task)
 {
 	if (m_client->isAuthenticated()) {
 		task();
@@ -177,11 +178,9 @@ void ClientWorker::logIn()
 
 	await(
 		EncryptionController::instance(),
-		[]() {
-			return EncryptionController::instance()->load();
-		},
+		[]() { return EncryptionController::instance()->load(); },
 		this,
-		[this] () {
+		[this]() {
 			if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
 				// Store the latest online state which is restored when opening Kaidan again after closing.
 				m_caches->settings->setAuthOnline(true);
@@ -199,8 +198,7 @@ void ClientWorker::logIn()
 			}
 
 			m_isFirstLoginAfterStart = false;
-		}
-	);
+		});
 }
 
 void ClientWorker::connectToServer(QXmppConfiguration config)
@@ -210,7 +208,8 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 		qDebug() << "[main] Tried to connect even if already connecting! Nothing is done.";
 		break;
 	case QXmppClient::ConnectedState:
-		qDebug() << "[main] Tried to connect even if already connected! Disconnecting first and connecting afterwards.";
+		qDebug() << "[main] Tried to connect even if already connected! Disconnecting "
+			    "first and connecting afterwards.";
 		m_isReconnecting = true;
 		m_configToBeUsedOnNextConnect = config;
 		logOut();
@@ -268,7 +267,8 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 		if (isApplicationBeingClosed && m_registrationManager->registerOnConnectEnabled()) {
 			m_client->disconnectFromServer();
 		} else {
-			qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
+			qDebug() << "[main] Tried to disconnect even if still connecting! Waiting "
+				    "for connecting to succeed and disconnect afterwards.";
 			m_isDisconnecting = true;
 		}
 
@@ -284,14 +284,9 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 
 		await(
 			EncryptionController::instance(),
-			[]() {
-				return EncryptionController::instance()->unload();
-			},
+			[]() { return EncryptionController::instance()->unload(); },
 			this,
-			[this]() {
-				m_client->disconnectFromServer();
-			}
-		);
+			[this]() { m_client->disconnectFromServer(); });
 	}
 }
 
@@ -305,18 +300,16 @@ void ClientWorker::onConnected()
 
 	runOnThread(
 		AccountManager::instance(),
-		[]() {
-			return AccountManager::instance()->handleConnected();
-		},
+		[]() { return AccountManager::instance()->handleConnected(); },
 		this,
 		[this](bool handled) {
 			if (handled) {
 				return;
 			}
 
-			// Try to complete pending tasks which could not be completed while the client was
-			// offline and skip further normal tasks if at least one was completed after a login
-			// with old credentials.
+			// Try to complete pending tasks which could not be completed while the
+			// client was offline and skip further normal tasks if at least one was
+			// completed after a login with old credentials.
 			if (startPendingTasks())
 				return;
 
@@ -327,9 +320,10 @@ void ClientWorker::onConnected()
 				return;
 			}
 
-			// The following tasks are only done after a login with new credentials or connection
-			// settings.
-			if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
+			// The following tasks are only done after a login with new credentials or
+			// connection settings.
+			if (AccountManager::instance()->hasNewCredentials() ||
+				AccountManager::instance()->hasNewConnectionSettings()) {
 				if (AccountManager::instance()->hasNewCredentials()) {
 					Q_EMIT loggedInWithNewCredentials();
 				}
@@ -343,9 +337,10 @@ void ClientWorker::onConnected()
 			m_client->configuration().setAutoReconnectionEnabled(true);
 
 			// Send message that could not be sent yet because the client was offline.
-			runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
-				MessageController::instance()->sendPendingMessages();
-			});
+			runOnThread(MessageController::instance(),
+				[jid = AccountManager::instance()->jid()]() {
+					MessageController::instance()->sendPendingMessages();
+				});
 
 			// Send read markers that could not be sent yet because the client was offline.
 			runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
@@ -357,11 +352,9 @@ void ClientWorker::onConnected()
 				MessageController::instance()->sendPendingMessageReactions(jid);
 			});
 
-			runOnThread(EncryptionController::instance(), []() {
-				EncryptionController::instance()->setUp();
-			});
-		}
-	);
+			runOnThread(EncryptionController::instance(),
+				[]() { EncryptionController::instance()->setUp(); });
+		});
 }
 
 void ClientWorker::onDisconnected()
@@ -375,9 +368,8 @@ void ClientWorker::onDisconnected()
 		return;
 	}
 
-	runOnThread(AccountManager::instance(), []() {
-		AccountManager::instance()->handleDisconnected();
-	});
+	runOnThread(AccountManager::instance(),
+		[]() { AccountManager::instance()->handleDisconnected(); });
 }
 
 void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
@@ -428,7 +420,7 @@ void ClientWorker::onConnectionError(const QXmppError &error)
 		// That usually involves opening a URL.
 		// Afterwards, the account is activated and the user can log in.
 		if ((type == QXmpp::AuthenticationError::AccountDisabled ||
-			 type == QXmpp::AuthenticationError::NotAuthorized) &&
+			    type == QXmpp::AuthenticationError::NotAuthorized) &&
 			text.contains("activat") && text.contains("mail")) {
 			Q_EMIT connectionErrorChanged(ClientWorker::EmailConfirmationRequired);
 			return;

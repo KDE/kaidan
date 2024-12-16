@@ -16,9 +16,7 @@ RosterItemNotifier &RosterItemNotifier::instance()
 void RosterItemNotifier::notifyWatchers(const QString &jid, const std::optional<RosterItem> &item)
 {
 	auto [keyBegin, keyEnd] = m_itemWatchers.equal_range(jid);
-	std::for_each(keyBegin, keyEnd, [&](const auto &pair) {
-		pair.second->notify(item);
-	});
+	std::for_each(keyBegin, keyEnd, [&](const auto &pair) { pair.second->notify(item); });
 }
 
 void RosterItemNotifier::registerItemWatcher(const QString &jid, RosterItemWatcher *watcher)
@@ -29,16 +27,14 @@ void RosterItemNotifier::registerItemWatcher(const QString &jid, RosterItemWatch
 void RosterItemNotifier::unregisterItemWatcher(const QString &jid, RosterItemWatcher *watcher)
 {
 	auto [keyBegin, keyEnd] = m_itemWatchers.equal_range(jid);
-	auto itr = std::find_if(keyBegin, keyEnd, [watcher](const auto &pair) {
-		return pair.second == watcher;
-	});
+	auto itr = std::find_if(
+		keyBegin, keyEnd, [watcher](const auto &pair) { return pair.second == watcher; });
 	if (itr != keyEnd) {
 		m_itemWatchers.erase(itr);
 	}
 }
 
-RosterItemWatcher::RosterItemWatcher(QObject *parent)
-	: QObject(parent)
+RosterItemWatcher::RosterItemWatcher(QObject *parent) : QObject(parent)
 {
 }
 

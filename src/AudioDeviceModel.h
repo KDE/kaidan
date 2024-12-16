@@ -5,10 +5,11 @@
 
 #pragma once
 
-#include <QAudioDeviceInfo>
 #include <QAbstractListModel>
+#include <QAudioDeviceInfo>
 
-class AudioDeviceInfo : public QAudioDeviceInfo {
+class AudioDeviceInfo : public QAudioDeviceInfo
+{
 	Q_GADGET
 
 	Q_PROPERTY(bool isNull READ isNull CONSTANT)

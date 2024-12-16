@@ -6,8 +6,7 @@
 
 #include <QUrl>
 
-ContactQrCodeGenerator::ContactQrCodeGenerator(QObject *parent)
-	: AbstractQrCodeGenerator(parent)
+ContactQrCodeGenerator::ContactQrCodeGenerator(QObject *parent) : AbstractQrCodeGenerator(parent)
 {
 	connect(this, &ContactQrCodeGenerator::jidChanged, this, &ContactQrCodeGenerator::updateUriJid);
 	connect(&m_uriGenerator, &TrustMessageUriGenerator::uriChanged, this, &ContactQrCodeGenerator::updateText);

@@ -35,8 +35,8 @@
 #include "EncryptionController.h"
 #include "FileSharingController.h"
 #include "Globals.h"
-#include "GroupChatUserDb.h"
 #include "GroupChatController.h"
+#include "GroupChatUserDb.h"
 #include "MessageController.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
@@ -109,8 +109,7 @@ private:
 	std::future<void> m_future;
 };
 
-Kaidan::Kaidan(bool enableLogging, QObject *parent)
-	: QObject(parent)
+Kaidan::Kaidan(bool enableLogging, QObject *parent) : QObject(parent)
 {
 	Q_ASSERT(!s_instance);
 	s_instance = this;
@@ -131,9 +130,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 	connect(m_caches->avatarStorage, &AvatarFileStorage::avatarIdsChanged, this, &Kaidan::avatarStorageChanged);
 
 	// create xmpp thread
-	m_cltThrd = ClientThread::create([&] {
-		m_client = new ClientWorker(m_caches, m_database, enableLogging);
-	});
+	m_cltThrd = ClientThread::create(
+		[&] { m_client = new ClientWorker(m_caches, m_database, enableLogging); });
 	m_cltThrd->setObjectName("XmppClient");
 	m_cltThrd->waitForStarted();
 
@@ -155,8 +153,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 	initializeAccountMigration();
 
-	// Disconnect from the server when the application window is closed but before the application
-	// is quit.
+	// Disconnect from the server when the application window is closed but before the
+	// application is quit.
 	qGuiApp->setQuitOnLastWindowClosed(false);
 	connect(qGuiApp, &QGuiApplication::lastWindowClosed, this, [this]() {
 		// TODO: Remove the following check once Kaidan uses no other QWidget-based dialogs,
@@ -177,8 +175,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 			Q_EMIT logOutRequested(true);
 
-			// Force closing the application if the client does not disconnect from the server.
-			// That can happen if there are connection problems.
+			// Force closing the application if the client does not disconnect from the
+			// server. That can happen if there are connection problems.
 			QTimer::singleShot(APPLICATION_CLOSING_TIMEOUT, qGuiApp, &QGuiApplication::quit);
 		}
 	});
@@ -206,7 +204,9 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 					case Account::AutomaticMediaDownloadsRule::Never:
 						return false;
 					case Account::AutomaticMediaDownloadsRule::PresenceOnly:
-						return message.isOwn || RosterModel::instance()->isPresenceSubscribedByItem(message.accountJid, message.chatJid);
+						return message.isOwn ||
+						       RosterModel::instance()->isPresenceSubscribedByItem(
+							       message.accountJid, message.chatJid);
 					case Account::AutomaticMediaDownloadsRule::Always:
 						return true;
 					}
@@ -216,7 +216,8 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
 
 				if (automaticDownloadDesired) {
 					for (const auto &file : message.files) {
-						if (file.localFilePath.isEmpty() || !QFile::exists(file.localFilePath)) {
+						if (file.localFilePath.isEmpty() ||
+							!QFile::exists(file.localFilePath)) {
 							m_fileSharingController->downloadFile(message.id, file);
 						}
 					}
@@ -266,9 +267,8 @@ void Kaidan::setConnectionState(Enums::ConnectionState connectionState)
 
 void Kaidan::setConnectionError(ClientWorker::ConnectionError error)
 {
-	// For displaying errors to the user, every new error (even if it is the same as before) must be
-	// emitted.
-	// Thus, the error is not checked for a change but simply emitted.
+	// For displaying errors to the user, every new error (even if it is the same as before)
+	// must be emitted. Thus, the error is not checked for a change but simply emitted.
 	m_connectionError = error;
 	Q_EMIT connectionErrorChanged();
 }
@@ -281,44 +281,51 @@ void Kaidan::initializeAccountMigration()
 	connect(migrationManager, &AccountMigrationManager::busyChanged, this, &Kaidan::accountBusyChanged);
 	connect(migrationManager, &AccountMigrationManager::errorOccurred, this, &Kaidan::accountErrorOccurred);
 
-	connect(migrationManager, &AccountMigrationManager::migrationStateChanged, this, [this, migrationManager](AccountMigrationManager::MigrationState state) {
-		switch (state) {
-		case AccountMigrationManager::MigrationState::Idle:
-		case AccountMigrationManager::MigrationState::Exporting:
-		case AccountMigrationManager::MigrationState::Importing:
-			break;
-		case AccountMigrationManager::MigrationState::Started:
-		case AccountMigrationManager::MigrationState::Finished:
-			migrationManager->continueMigration();
-			break;
-		case AccountMigrationManager::MigrationState::ChoosingNewAccount:
-			Q_EMIT openStartPageRequested();
-			break;
-		}
-	});
+	connect(migrationManager,
+		&AccountMigrationManager::migrationStateChanged,
+		this,
+		[this, migrationManager](AccountMigrationManager::MigrationState state) {
+			switch (state) {
+			case AccountMigrationManager::MigrationState::Idle:
+			case AccountMigrationManager::MigrationState::Exporting:
+			case AccountMigrationManager::MigrationState::Importing:
+				break;
+			case AccountMigrationManager::MigrationState::Started:
+			case AccountMigrationManager::MigrationState::Finished:
+				migrationManager->continueMigration();
+				break;
+			case AccountMigrationManager::MigrationState::ChoosingNewAccount:
+				Q_EMIT openStartPageRequested();
+				break;
+			}
+		});
 
-	connect(migrationManager, &AccountMigrationManager::errorOccurred, this, [this, migrationManager](const QString &error) {
-		switch (migrationManager->migrationState()) {
-		case AccountMigrationManager::MigrationState::Idle:
-		case AccountMigrationManager::MigrationState::Exporting:
-		case AccountMigrationManager::MigrationState::ChoosingNewAccount:
-		case AccountMigrationManager::MigrationState::Importing:
-			Q_EMIT passiveNotificationRequested(error);
-			break;
-		case AccountMigrationManager::MigrationState::Started:
-		case AccountMigrationManager::MigrationState::Finished:
-			break;
-		}
-	});
+	connect(migrationManager,
+		&AccountMigrationManager::errorOccurred,
+		this,
+		[this, migrationManager](const QString &error) {
+			switch (migrationManager->migrationState()) {
+			case AccountMigrationManager::MigrationState::Idle:
+			case AccountMigrationManager::MigrationState::Exporting:
+			case AccountMigrationManager::MigrationState::ChoosingNewAccount:
+			case AccountMigrationManager::MigrationState::Importing:
+				Q_EMIT passiveNotificationRequested(error);
+				break;
+			case AccountMigrationManager::MigrationState::Started:
+			case AccountMigrationManager::MigrationState::Finished:
+				break;
+			}
+		});
 }
 
 void Kaidan::addOpenUri(const QString &uriString)
 {
-	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString);
+		std::holds_alternative<QXmppUri>(uriParsingResult)) {
 		const auto uri = std::get<QXmppUri>(uriParsingResult);
 
-		// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as long as
-		// Kaidan does not support that.
+		// Do not open XMPP URIs for group chats (e.g., "xmpp:kaidan@muc.kaidan.im?join") as
+		// long as Kaidan does not support that.
 		if (uri.query().type() == typeid(QXmpp::Uri::Join)) {
 			return;
 		}
@@ -326,7 +333,8 @@ void Kaidan::addOpenUri(const QString &uriString)
 		if (m_connectionState == ConnectionState::StateConnected) {
 			Q_EMIT xmppUriReceived(uriString);
 		} else {
-			Q_EMIT passiveNotificationRequested(tr("The link will be opened after you have connected."));
+			Q_EMIT passiveNotificationRequested(
+				tr("The link will be opened after you have connected."));
 			m_openUriCache = uriString;
 		}
 	}
@@ -334,7 +342,8 @@ void Kaidan::addOpenUri(const QString &uriString)
 
 quint8 Kaidan::logInByUri(const QString &uriString)
 {
-	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString);
+		std::holds_alternative<QXmppUri>(uriParsingResult)) {
 		const auto uri = std::get<QXmppUri>(uriParsingResult);
 		const auto jid = uri.jid();
 		const auto query = uri.query();
@@ -362,19 +371,22 @@ quint8 Kaidan::logInByUri(const QString &uriString)
 
 Kaidan::TrustDecisionByUriResult Kaidan::makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid)
 {
-	if (const auto uriParsingResult = QXmppUri::fromString(uriString); std::holds_alternative<QXmppUri>(uriParsingResult)) {
+	if (const auto uriParsingResult = QXmppUri::fromString(uriString);
+		std::holds_alternative<QXmppUri>(uriParsingResult)) {
 		const auto uri = std::get<QXmppUri>(uriParsingResult);
 		const auto jid = uri.jid();
 		const auto query = uri.query();
 
-		if (query.type() != typeid(QXmpp::Uri::TrustMessage) || !CredentialsValidator::isUserJidValid(jid)) {
+		if (query.type() != typeid(QXmpp::Uri::TrustMessage) ||
+			!CredentialsValidator::isUserJidValid(jid)) {
 			return InvalidUri;
 		}
 
 		if (expectedJid.isEmpty() || jid == expectedJid) {
 			if (const auto trustMessageQuery = std::any_cast<QXmpp::Uri::TrustMessage>(query);
 				trustMessageQuery.encryption.isEmpty() ||
-				(trustMessageQuery.trustKeyIds.isEmpty() && trustMessageQuery.distrustKeyIds.isEmpty())) {
+				(trustMessageQuery.trustKeyIds.isEmpty() &&
+					trustMessageQuery.distrustKeyIds.isEmpty())) {
 				return InvalidUri;
 			}
 
@@ -467,7 +479,7 @@ QString configFileBaseName()
 
 QStringList oldDatabaseFilenames()
 {
-	return {u"messages" % applicationProfileSuffix() % u".sqlite3"};
+	return { u"messages" % applicationProfileSuffix() % u".sqlite3" };
 }
 
 QString databaseFilename()

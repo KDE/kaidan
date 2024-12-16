@@ -50,13 +50,13 @@ class Kaidan : public QObject
 {
 	Q_OBJECT
 
-	Q_PROPERTY(ClientWorker* client READ client CONSTANT)
+	Q_PROPERTY(ClientWorker *client READ client CONSTANT)
 	Q_PROPERTY(BlockingController *blockingController READ blockingController CONSTANT)
 	Q_PROPERTY(FileSharingController *fileSharingController READ fileSharingController CONSTANT)
 	Q_PROPERTY(GroupChatController *groupChatController READ groupChatController CONSTANT)
-	Q_PROPERTY(AvatarFileStorage* avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
-	Q_PROPERTY(ServerFeaturesCache* serverFeaturesCache READ serverFeaturesCache CONSTANT)
-	Q_PROPERTY(Settings* settings READ settings CONSTANT)
+	Q_PROPERTY(AvatarFileStorage *avatarStorage READ avatarStorage NOTIFY avatarStorageChanged)
+	Q_PROPERTY(ServerFeaturesCache *serverFeaturesCache READ serverFeaturesCache CONSTANT)
+	Q_PROPERTY(Settings *settings READ settings CONSTANT)
 	Q_PROPERTY(quint8 connectionState READ connectionStateId NOTIFY connectionStateChanged)
 	Q_PROPERTY(QString connectionStateText READ connectionStateText NOTIFY connectionStateChanged)
 	Q_PROPERTY(quint8 connectionError READ connectionError NOTIFY connectionErrorChanged)
@@ -67,9 +67,9 @@ public:
 	 * is used
 	 */
 	enum TrustDecisionByUriResult {
-		MakingTrustDecisions,   ///< The trust decisions are being made.
-		JidUnexpected,          ///< The URI's JID is not the expected one.
-		InvalidUri              ///< The URI cannot be used for trust decisions.
+		MakingTrustDecisions, ///< The trust decisions are being made.
+		JidUnexpected,        ///< The URI's JID is not the expected one.
+		InvalidUri            ///< The URI cannot be used for trust decisions.
 	};
 	Q_ENUM(TrustDecisionByUriResult)
 
@@ -83,7 +83,10 @@ public:
 	};
 	Q_ENUM(PasswordVisibility)
 
-	static Kaidan *instance() { return s_instance; }
+	static Kaidan *instance()
+	{
+		return s_instance;
+	}
 
 	/**
 	 * Constructs Kaidan's main object and initializes all components / threads.
@@ -118,26 +121,65 @@ public:
 	/**
 	 * Returns the current ConnectionState
 	 */
-	quint8 connectionStateId() const { return quint8(m_connectionState); }
-	Enums::ConnectionState connectionState() const { return m_connectionState; }
+	quint8 connectionStateId() const
+	{
+		return quint8(m_connectionState);
+	}
+	Enums::ConnectionState connectionState() const
+	{
+		return m_connectionState;
+	}
 	QString connectionStateText() const;
-	bool connected() const { return connectionState() == Enums::ConnectionState::StateConnected; }
+	bool connected() const
+	{
+		return connectionState() == Enums::ConnectionState::StateConnected;
+	}
 
 	/**
 	 * Returns the last connection error.
 	 */
-	quint8 connectionError() const { return quint8(m_connectionError); }
+	quint8 connectionError() const
+	{
+		return quint8(m_connectionError);
+	}
 
-	ClientWorker *client() const { return m_client; }
-	BlockingController *blockingController() const { return m_blockingController.get(); }
-	FileSharingController *fileSharingController() const { return m_fileSharingController.get(); }
-	GroupChatController *groupChatController() const { return m_groupChatController; }
-	AvatarFileStorage *avatarStorage() const { return m_caches->avatarStorage; }
-	ServerFeaturesCache *serverFeaturesCache() const { return m_caches->serverFeaturesCache; }
-	VCardCache *vCardCache() const { return m_caches->vCardCache; }
+	ClientWorker *client() const
+	{
+		return m_client;
+	}
+	BlockingController *blockingController() const
+	{
+		return m_blockingController.get();
+	}
+	FileSharingController *fileSharingController() const
+	{
+		return m_fileSharingController.get();
+	}
+	GroupChatController *groupChatController() const
+	{
+		return m_groupChatController;
+	}
+	AvatarFileStorage *avatarStorage() const
+	{
+		return m_caches->avatarStorage;
+	}
+	ServerFeaturesCache *serverFeaturesCache() const
+	{
+		return m_caches->serverFeaturesCache;
+	}
+	VCardCache *vCardCache() const
+	{
+		return m_caches->vCardCache;
+	}
 
-	Settings *settings() const { return m_caches->settings; }
-	Database *database() const { return m_database; }
+	Settings *settings() const
+	{
+		return m_caches->settings;
+	}
+	Database *database() const
+	{
+		return m_database;
+	}
 
 	/**
 	 * Adds XMPP URI to open as soon as possible
@@ -181,7 +223,8 @@ public:
 	 * @param expectedJid JID of the key owner whose keys are expected to be
 	 *        authenticated or none to allow all JIDs
 	 */
-	Q_INVOKABLE Kaidan::TrustDecisionByUriResult makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid = {});
+	Q_INVOKABLE Kaidan::TrustDecisionByUriResult
+	makeTrustDecisionsByUri(const QString &uriString, const QString &expectedJid = {});
 
 	Q_SLOT void startAccountMigration();
 	Q_SLOT void continueAccountMigration(const QVariant &userData = {});

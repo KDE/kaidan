@@ -11,7 +11,8 @@
 
 class OmemoController;
 
-constexpr auto TRUST_LEVEL_DISTRUSTED = QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted;
+constexpr auto TRUST_LEVEL_DISTRUSTED =
+	QXmpp::TrustLevel::AutomaticallyDistrusted | QXmpp::TrustLevel::ManuallyDistrusted;
 constexpr auto TRUST_LEVEL_USABLE = ~TRUST_LEVEL_DISTRUSTED;
 constexpr auto TRUST_LEVEL_AUTHENTICATABLE = ~(QXmpp::TrustLevel::Authenticated | QXmpp::TrustLevel::Undecided);
 
@@ -50,13 +51,15 @@ public:
 
 	QFuture<QString> ownKey(const QString &accountJid);
 
-	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
+	QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>
+	keys(const QString &accountJid, const QList<QString> &jids, QXmpp::TrustLevels trustLevels = {});
 	Q_SIGNAL void keysChanged(const QString &accountJid, const QList<QString> &jids);
 
 	QFuture<EncryptionController::OwnDevice> ownDevice(const QString &accountJid);
 	Q_SIGNAL void ownDeviceChanged(const QString &accountJid);
 
-	QFuture<QList<EncryptionController::Device>> devices(const QString &accountJid, const QList<QString> &jids);
+	QFuture<QList<EncryptionController::Device>>
+	devices(const QString &accountJid, const QList<QString> &jids);
 	Q_SIGNAL void devicesChanged(const QString &accountJid, const QList<QString> &jids);
 	Q_SIGNAL void allDevicesChanged();
 

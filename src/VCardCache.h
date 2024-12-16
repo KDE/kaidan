@@ -19,7 +19,7 @@ class VCardCache : public QObject
 	Q_OBJECT
 
 public:
-	VCardCache(QObject* parent = nullptr);
+	VCardCache(QObject *parent = nullptr);
 
 	/**
 	 * Returns the vCard for a JID.

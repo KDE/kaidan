@@ -20,10 +20,7 @@ class FileModel : public QAbstractListModel
 	Q_PROPERTY(int rowCount READ rowCount NOTIFY rowCountChanged)
 
 public:
-	enum class Role {
-		Id = Qt::UserRole,
-		File
-	};
+	enum class Role { Id = Qt::UserRole, File };
 	Q_ENUM(Role)
 
 	explicit FileModel(QObject *parent = nullptr);

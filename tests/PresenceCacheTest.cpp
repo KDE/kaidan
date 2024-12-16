@@ -145,22 +145,20 @@ void PresenceCacheTest::idealResource_data()
 				       << simplePresence("a@b/2", QXmppPresence::XA),
 		"1");
 	ROW("status text [DND]",
-		QList<QXmppPresence>()
-			<< simplePresence("a@b/1", QXmppPresence::Away)
-			<< simplePresence("a@b/2", QXmppPresence::XA)
-			<< simplePresence("a@b/3", QXmppPresence::Online)
-			<< simplePresence("a@b/4", QXmppPresence::Chat)
-			<< simplePresence("a@b/5", QXmppPresence::DND)
-			<< simplePresence("a@b/6", QXmppPresence::Chat, "my status")
-			<< simplePresence("a@b/7", QXmppPresence::DND, "my status")
-			<< simplePresence("a@b/8", QXmppPresence::Away, "my status"),
+		QList<QXmppPresence>() << simplePresence("a@b/1", QXmppPresence::Away)
+				       << simplePresence("a@b/2", QXmppPresence::XA)
+				       << simplePresence("a@b/3", QXmppPresence::Online)
+				       << simplePresence("a@b/4", QXmppPresence::Chat)
+				       << simplePresence("a@b/5", QXmppPresence::DND)
+				       << simplePresence("a@b/6", QXmppPresence::Chat, "my status")
+				       << simplePresence("a@b/7", QXmppPresence::DND, "my status")
+				       << simplePresence("a@b/8", QXmppPresence::Away, "my status"),
 		"7");
 	ROW("status text [XA]",
-		QList<QXmppPresence>()
-			<< simplePresence("a@b/1", QXmppPresence::Away)
-			<< simplePresence("a@b/2", QXmppPresence::XA)
-			<< simplePresence("a@b/3", QXmppPresence::XA, "my status")
-			<< simplePresence("a@b/4", QXmppPresence::Away, "my status"),
+		QList<QXmppPresence>() << simplePresence("a@b/1", QXmppPresence::Away)
+				       << simplePresence("a@b/2", QXmppPresence::XA)
+				       << simplePresence("a@b/3", QXmppPresence::XA, "my status")
+				       << simplePresence("a@b/4", QXmppPresence::Away, "my status"),
 		"3");
 
 #undef ROW

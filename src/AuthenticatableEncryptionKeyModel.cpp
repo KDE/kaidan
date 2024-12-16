@@ -5,8 +5,8 @@
 #include "AuthenticatableEncryptionKeyModel.h"
 
 #include "Algorithms.h"
-#include "FutureUtils.h"
 #include "EncryptionController.h"
+#include "FutureUtils.h"
 
 AuthenticatableEncryptionKeyModel::AuthenticatableEncryptionKeyModel(QObject *parent)
 	: EncryptionKeyModel(parent)
@@ -63,17 +63,20 @@ void AuthenticatableEncryptionKeyModel::setChatJid(const QString &chatJid)
 
 bool AuthenticatableEncryptionKeyModel::contains(const QString &keyId)
 {
-	return std::any_of(m_keys.cbegin(), m_keys.cend(), [keyId](const Key &key) {
-		return key.id == keyId;
-	});
+	return std::any_of(
+		m_keys.cbegin(), m_keys.cend(), [keyId](const Key &key) { return key.id == keyId; });
 }
 
 void AuthenticatableEncryptionKeyModel::setUp()
 {
-	// Avoid setup when EncryptionKeyModel::setAccountJid() is called before setChatJid() is called
-	// once.
+	// Avoid setup when EncryptionKeyModel::setAccountJid() is called before setChatJid() is
+	// called once.
 	if (!m_chatJid.isEmpty()) {
-		connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &AuthenticatableEncryptionKeyModel::handleDevicesChanged, Qt::UniqueConnection);
+		connect(EncryptionController::instance(),
+			&EncryptionController::devicesChanged,
+			this,
+			&AuthenticatableEncryptionKeyModel::handleDevicesChanged,
+			Qt::UniqueConnection);
 		updateKeys();
 	}
 }
@@ -87,17 +90,21 @@ void AuthenticatableEncryptionKeyModel::handleDevicesChanged(const QString &acco
 
 void AuthenticatableEncryptionKeyModel::updateKeys()
 {
-	await(EncryptionController::instance()->devices(accountJid(), { m_chatJid }), this, [this](QList<EncryptionController::Device> &&devices) {
-		beginResetModel();
+	await(EncryptionController::instance()->devices(accountJid(), { m_chatJid }),
+		this,
+		[this](QList<EncryptionController::Device> &&devices) {
+			beginResetModel();
 
-		m_keys = transformFilter<QList<Key>>(devices, [](const EncryptionController::Device &device) -> std::optional<Key> {
-			if ((~(QXmpp::TrustLevel::Authenticated | QXmpp::TrustLevel::Undecided)).testFlag(device.trustLevel)) {
-				return Key { device.label, device.keyId };
-			}
+			m_keys = transformFilter<QList<Key>>(devices,
+				[](const EncryptionController::Device &device) -> std::optional<Key> {
+					if ((~(QXmpp::TrustLevel::Authenticated | QXmpp::TrustLevel::Undecided))
+							.testFlag(device.trustLevel)) {
+						return Key { device.label, device.keyId };
+					}
 
-			return {};
+					return {};
+				});
+
+			endResetModel();
 		});
-
-		endResetModel();
-	});
 }

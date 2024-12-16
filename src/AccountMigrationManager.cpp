@@ -31,8 +31,7 @@
 		return QXmppError { QStringLiteral("Invalid NAME element."), {} }; \
 	}
 
-#define writeDataElement(NAME) \
-	XmlUtils::Writer::text(&writer, QStringLiteral(#NAME), NAME)
+#define writeDataElement(NAME) XmlUtils::Writer::text(&writer, QStringLiteral(#NAME), NAME)
 
 static constexpr QStringView s_kaidan_ns = u"kaidan";
 static constexpr QStringView s_client_settings = u"client-settings";
@@ -204,7 +203,8 @@ struct ClientSettings {
 		Q_ASSERT(rootElement.tagName() == s_client_settings);
 		Q_ASSERT(rootElement.namespaceURI() == s_qxmpp_export_ns);
 
-		const auto oldConfigurationElement = rootElement.firstChildElement(s_old_configuration.toString());
+		const auto oldConfigurationElement =
+			rootElement.firstChildElement(s_old_configuration.toString());
 		const auto rosterElement = rootElement.firstChildElement(s_roster.toString());
 		ClientSettings settings;
 
@@ -281,7 +281,9 @@ public:
 		connect(this, &PublishMovedStatementClient::finished, this, &QObject::deleteLater);
 		connect(this, &PublishMovedStatementClient::finished, this, [](const QXmppClient::EmptyResult &result) {
 			if (const auto error = std::get_if<QXmppError>(&result)) {
-				qDebug("%s: Publishing failed - %ls", Q_FUNC_INFO, qUtf16Printable(error->description));
+				qDebug("%s: Publishing failed - %ls",
+					Q_FUNC_INFO,
+					qUtf16Printable(error->description));
 			} else {
 				qDebug("%s: Published successfully", Q_FUNC_INFO);
 			}
@@ -360,15 +362,17 @@ AccountMigrationManager::AccountMigrationManager(ClientWorker *clientWorker, QOb
 		data.toXml(writer);
 	};
 
-	QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(s_client_settings, s_qxmpp_export_ns);
+	QXmppExportData::registerExtension<ClientSettings, parseData, serializeData>(
+		s_client_settings, s_qxmpp_export_ns);
 
 	connect(this, &AccountMigrationManager::migrationStateChanged, this, [this]() {
 		Q_EMIT busyChanged(isBusy());
 	});
 
-	connect(m_migrationManager, &QXmppAccountMigrationManager::errorOccurred, this, [this](const QXmppError &error) {
-		Q_EMIT errorOccurred(error.description);
-	});
+	connect(m_migrationManager,
+		&QXmppAccountMigrationManager::errorOccurred,
+		this,
+		[this](const QXmppError &error) { Q_EMIT errorOccurred(error.description); });
 
 	connect(clientWorker, &ClientWorker::loggedInWithNewCredentials, this, [this]() {
 		if (migrationState() == MigrationState::ChoosingNewAccount) {
@@ -387,8 +391,8 @@ AccountMigrationManager::MigrationState AccountMigrationManager::migrationState(
 void AccountMigrationManager::startMigration()
 {
 	if (migrationState() != MigrationState::Idle) {
-		Q_EMIT errorOccurred(
-			tr("Account could not be migrated: Another migration is already in progress"));
+		Q_EMIT errorOccurred(tr(
+			"Account could not be migrated: Another migration is already in progress"));
 		return;
 	}
 
@@ -399,8 +403,9 @@ void AccountMigrationManager::startMigration()
 			if (restoreAccountDataFromDisk(m_migrationData->account)) {
 				m_migrationData->state = MigrationState::ChoosingNewAccount;
 			} else {
-				Q_EMIT errorOccurred(tr("Account could not be migrated: Could not load exported "
-										"account data"));
+				Q_EMIT errorOccurred(
+					tr("Account could not be migrated: Could not load exported "
+					   "account data"));
 				m_migrationData.reset();
 				return;
 			}
@@ -450,7 +455,8 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 						if (const auto error = std::get_if<QXmppError>(&result)) {
 							fail(error->description);
 						} else {
-							m_migrationData->account.setExtension(std::move(std::get<ClientSettings>(std::move(result))));
+							m_migrationData->account.setExtension(std::move(
+								std::get<ClientSettings>(std::move(result))));
 
 							continueMigration();
 						}
@@ -473,32 +479,47 @@ void AccountMigrationManager::continueMigration(const QVariant &userData)
 						QFile::remove(filePath);
 					}
 
-					const auto clientSettings = m_migrationData->account.extension<ClientSettings>();
+					const auto clientSettings =
+						m_migrationData->account.extension<ClientSettings>();
 
 					if (clientSettings) {
-						importClientSettingsTask(*clientSettings).then(this, [this, fail, configuration = clientSettings->oldConfiguration.toXmppConfiguration(), contacts = clientSettings->rosterContacts()](auto &&result) {
-							if (const auto error = std::get_if<QXmppError>(&result)) {
-								fail(error->description);
-							} else {
-								publishMovedStatement(configuration,
-									m_migrationData->account.accountJid())
-									.then(this, [this, fail, contacts](auto &&result) {
-										if (const auto error = std::get_if<QXmppError>(&result)) {
-											fail(error->description);
-										} else {
-											notifyContacts(contacts,
-												m_migrationData->account.accountJid())
-												.then(this, [&](auto &&result) {
-													if (const auto error = std::get_if<QXmppError>(&result)) {
-														fail(error->description);
-													} else {
-														continueMigration();
-													}
-												});
-										}
-									});
-							}
-						});
+						importClientSettingsTask(*clientSettings)
+							.then(this,
+								[this,
+									fail,
+									configuration = clientSettings
+										->oldConfiguration.toXmppConfiguration(),
+									contacts = clientSettings->rosterContacts()](
+									auto &&result) {
+									if (const auto error = std::get_if<QXmppError>(
+										    &result)) {
+										fail(error->description);
+									} else {
+										publishMovedStatement(configuration,
+											m_migrationData
+												->account
+												.accountJid())
+											.then(this, [this, fail, contacts](auto &&result) {
+												if (const auto error = std::get_if<QXmppError>(
+													    &result)) {
+													fail(error->description);
+												} else {
+													notifyContacts(contacts,
+														m_migrationData
+															->account
+															.accountJid())
+														.then(this, [&](auto &&result) {
+															if (const auto error = std::get_if<QXmppError>(
+																    &result)) {
+																fail(error->description);
+															} else {
+																continueMigration();
+															}
+														});
+												}
+											});
+									}
+								});
 					} else {
 						continueMigration();
 					}
@@ -520,8 +541,8 @@ void AccountMigrationManager::cancelMigration()
 
 			// If the stored JID differs from the cached one, reconnect with the stored one.
 			if (accountManager->jid() != m_worker->caches()->settings->authJid()) {
-				// Disconnect from any server that the client is connecting to because of a login
-				// attempt.
+				// Disconnect from any server that the client is connecting to
+				// because of a login attempt.
 				if (m_worker->xmppClient()->state() == QXmppClient::ConnectingState) {
 					m_worker->xmppClient()->disconnectFromServer();
 				}
@@ -559,7 +580,8 @@ bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
 	QFile file(filePath);
 
 	if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-		qDebug("Account could not be migrated: Could not open account file '%ls' for writing: %ls",
+		qDebug("Account could not be migrated: Could not open account file '%ls' for "
+		       "writing: %ls",
 			qUtf16Printable(filePath),
 			qUtf16Printable(file.errorString()));
 		return false;
@@ -571,7 +593,8 @@ bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
 
 	if (writer.hasError()) {
 		file.remove();
-		qDebug("Account could not be migrated: Could not write account data to file '%ls': %ls",
+		qDebug("Account could not be migrated: Could not write account data to file '%ls': "
+		       "%ls",
 			qUtf16Printable(filePath),
 			qUtf16Printable(file.errorString()));
 		return false;
@@ -586,7 +609,8 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 	QFile file(filePath);
 
 	if (!file.open(QIODevice::ReadOnly)) {
-		qDebug("Account could not be migrated: Could not open account file '%ls' for reading: %ls",
+		qDebug("Account could not be migrated: Could not open account file '%ls' for "
+		       "reading: %ls",
 			qUtf16Printable(filePath),
 			qUtf16Printable(file.errorString()));
 		return false;
@@ -596,14 +620,18 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
 	QString error;
 
 	if (!document.setContent(&file, true, &error)) {
-		qDebug("Account could not be migrated: Could not parse account data from '%ls': %ls", qUtf16Printable(filePath), qUtf16Printable(error));
+		qDebug("Account could not be migrated: Could not parse account data from '%ls': "
+		       "%ls",
+			qUtf16Printable(filePath),
+			qUtf16Printable(error));
 		return false;
 	}
 
 	const auto result = QXmppExportData::fromDom(document.documentElement());
-	
+
 	if (const auto error = std::get_if<QXmppError>(&result)) {
-		qDebug("Account could not be migrated: Could not read account data from file '%ls': %ls",
+		qDebug("Account could not be migrated: Could not read account data from file "
+		       "'%ls': %ls",
 			qUtf16Printable(filePath),
 			qUtf16Printable(error->description));
 		return false;
@@ -621,11 +649,17 @@ QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::import
 		for (const ClientRosterItemSettings &itemSettings : settings.roster) {
 			RosterDb::instance()->updateItem(itemSettings.bareJid, [itemSettings](RosterItem &item) {
 				item.encryption = itemSettings.encryption.value_or(item.encryption);
-				item.notificationRule = itemSettings.notificationRule.value_or(item.notificationRule);
-				item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(item.chatStateSendingEnabled);
-				item.readMarkerSendingEnabled = itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
-				item.pinningPosition = itemSettings.pinningPosition.value_or(item.pinningPosition);
-				item.automaticMediaDownloadsRule = itemSettings.automaticMediaDownloadsRule.value_or(item.automaticMediaDownloadsRule);
+				item.notificationRule =
+					itemSettings.notificationRule.value_or(item.notificationRule);
+				item.chatStateSendingEnabled = itemSettings.chatStateSendingEnabled.value_or(
+					item.chatStateSendingEnabled);
+				item.readMarkerSendingEnabled =
+					itemSettings.readMarkerSendingEnabled.value_or(item.readMarkerSendingEnabled);
+				item.pinningPosition =
+					itemSettings.pinningPosition.value_or(item.pinningPosition);
+				item.automaticMediaDownloadsRule =
+					itemSettings.automaticMediaDownloadsRule.value_or(
+						item.automaticMediaDownloadsRule);
 			});
 		}
 

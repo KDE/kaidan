@@ -23,14 +23,13 @@
 #define CHALLENGE "challenge"
 #define SID "sid"
 
-RegistrationDataFormModel::RegistrationDataFormModel(QObject *parent)
-    : DataFormModel(parent)
+RegistrationDataFormModel::RegistrationDataFormModel(QObject *parent) : DataFormModel(parent)
 {
 	initializeFilteredDataFormFields();
 }
 
 RegistrationDataFormModel::RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent)
-    : DataFormModel(dataForm, parent)
+	: DataFormModel(dataForm, parent)
 {
 	initializeFilteredDataFormFields();
 }
@@ -60,7 +59,7 @@ void RegistrationDataFormModel::setPassword(const QString &password)
 	setData(index(passwordFieldIndex()), password, DataFormModel::Value);
 }
 
-void RegistrationDataFormModel::setEmail(const QString& email)
+void RegistrationDataFormModel::setEmail(const QString &email)
 {
 	setData(index(emailFieldIndex()), email, DataFormModel::Value);
 }
@@ -70,7 +69,7 @@ int RegistrationDataFormModel::usernameFieldIndex() const
 	const QList<QXmppDataForm::Field> &fields = m_form.fields();
 	for (int i = 0; i < fields.size(); i++) {
 		if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField &&
-				fields.at(i).key().compare(QStringLiteral(USERNAME), Qt::CaseInsensitive) == 0) {
+			fields.at(i).key().compare(QStringLiteral(USERNAME), Qt::CaseInsensitive) == 0) {
 			return i;
 		}
 	}
@@ -82,7 +81,7 @@ int RegistrationDataFormModel::passwordFieldIndex() const
 	const QList<QXmppDataForm::Field> &fields = m_form.fields();
 	for (int i = 0; i < fields.size(); i++) {
 		if (fields.at(i).type() == QXmppDataForm::Field::TextPrivateField &&
-				fields.at(i).key().compare(QStringLiteral(PASSWORD), Qt::CaseInsensitive) == 0) {
+			fields.at(i).key().compare(QStringLiteral(PASSWORD), Qt::CaseInsensitive) == 0) {
 			return i;
 		}
 	}
@@ -94,7 +93,7 @@ int RegistrationDataFormModel::emailFieldIndex() const
 	const QList<QXmppDataForm::Field> &fields = m_form.fields();
 	for (int i = 0; i < fields.size(); i++) {
 		if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField &&
-				fields.at(i).key().compare(QStringLiteral(EMAIL), Qt::CaseInsensitive) == 0) {
+			fields.at(i).key().compare(QStringLiteral(EMAIL), Qt::CaseInsensitive) == 0) {
 			return i;
 		}
 	}
@@ -168,13 +167,11 @@ QVector<int> RegistrationDataFormModel::indiciesToFilter() const
 
 void RegistrationDataFormModel::initializeFilteredDataFormFields()
 {
-	m_filteredDataFormFields = {
-		QStringLiteral(FORM_TYPE),
+	m_filteredDataFormFields = { QStringLiteral(FORM_TYPE),
 		QStringLiteral(FROM),
 		QStringLiteral(CAPTCHA_FALLBACK_TEXT),
 		QStringLiteral(CAPTCHA_FALLBACK_URL),
 		QStringLiteral(CAPTCHAHIDDEN),
 		QStringLiteral(CHALLENGE),
-		QStringLiteral(SID)
-	};
+		QStringLiteral(SID) };
 }

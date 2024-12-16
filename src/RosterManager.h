@@ -26,7 +26,10 @@ class RosterManager : public QObject
 public:
 	RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent = nullptr);
 
-	void addContact(const QString &jid, const QString &name = {}, const QString &message = {}, bool automaticInitialAddition = false);
+	void addContact(const QString &jid,
+		const QString &name = {},
+		const QString &message = {},
+		bool automaticInitialAddition = false);
 	void removeContact(const QString &jid);
 	void renameContact(const QString &jid, const QString &newContactName);
 
@@ -37,7 +40,8 @@ public:
 	QMap<QString, QXmppPresence> unrespondedPresenceSubscriptionRequests();
 
 	void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});
-	Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
+	Q_SIGNAL void
+	updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
 
 Q_SIGNALS:
 	/**
@@ -48,7 +52,10 @@ Q_SIGNALS:
 	 * @param message message presented to the added contact
 	 * @param automaticInitialAddition whether the contact is added after a first received message
 	 */
-	void addContactRequested(const QString &jid, const QString &nick = {}, const QString &message = {}, bool automaticInitialAddition = false);
+	void addContactRequested(const QString &jid,
+		const QString &nick = {},
+		const QString &message = {},
+		bool automaticInitialAddition = false);
 
 	/**
 	 * Remove a contact from your roster
@@ -71,7 +78,7 @@ private:
 	void handleSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
 	void processSubscriptionRequestFromStranger(const QString &subscriberJid, const QXmppPresence &request);
 	void addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
-	void applyOldContactData( const QString &oldContactJid, const QString &newContactJid);
+	void applyOldContactData(const QString &oldContactJid, const QString &newContactJid);
 
 	ClientWorker *m_clientWorker;
 	QXmppClient *m_client;

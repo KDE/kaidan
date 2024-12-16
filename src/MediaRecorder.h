@@ -12,8 +12,8 @@
 #include "AudioDeviceModel.h"
 #include "CameraImageCapture.h"
 #include "CameraModel.h"
-#include "MediaSettings.h"
 #include "MediaSettingModel.h"
+#include "MediaSettings.h"
 
 class MediaSettingsContainerModel;
 class MediaSettingsQualityModel;
@@ -77,12 +77,7 @@ class MediaRecorder : public QObject, public QMediaBindableInterface
 	Q_PROPERTY(MediaSettingsQualityModel *videoQualityModel MEMBER m_videoQualityModel CONSTANT)
 
 public:
-	enum class Type {
-		Invalid,
-		Image,
-		Audio,
-		Video
-	};
+	enum class Type { Invalid, Image, Audio, Video };
 	Q_ENUM(Type)
 
 	enum class AvailabilityStatus {
@@ -148,7 +143,7 @@ public:
 	void setVolume(qreal volume);
 
 	MediaSettings mediaSettings() const;
-	void setMediaSettings(const MediaSettings  &settings);
+	void setMediaSettings(const MediaSettings &settings);
 
 	ImageEncoderSettings imageEncoderSettings() const;
 	void setImageEncoderSettings(const ImageEncoderSettings &settings);
@@ -216,7 +211,7 @@ private:
 	MediaRecorder::Type m_type = MediaRecorder::Type::Invalid;
 	bool m_initializing = false;
 	QCamera *m_camera = nullptr;
-	CameraImageCapture  *m_imageCapturer = nullptr;
+	CameraImageCapture *m_imageCapturer = nullptr;
 	QAudioRecorder *m_audioRecorder = nullptr;
 	QMediaRecorder *m_videoRecorder = nullptr;
 

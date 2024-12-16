@@ -25,7 +25,8 @@ public:
 	 * @param chatJid JID of the chat
 	 * @param participantId ID of the participant
 	 */
-	QFuture<std::optional<GroupChatUser>> user(const QString &accountJid, const QString &chatJid, const QString &participantId);
+	QFuture<std::optional<GroupChatUser>>
+	user(const QString &accountJid, const QString &chatJid, const QString &participantId);
 
 	/**
 	 * Retrieves a user.
@@ -34,7 +35,8 @@ public:
 	 * @param chatJid JID of the chat
 	 * @param participantId ID of the participant
 	 */
-	std::optional<GroupChatUser> _user(const QString &accountJid, const QString &chatJid, const QString &participantId);
+	std::optional<GroupChatUser>
+	_user(const QString &accountJid, const QString &chatJid, const QString &participantId);
 
 	/**
 	 * Retrieves users.
@@ -43,7 +45,8 @@ public:
 	 * @param chatJid JID of the chat
 	 * @param offset index of the first user being fetched (used for pagination, optional)
 	 */
-	QFuture<QVector<GroupChatUser>> users(const QString &accountJid, const QString &chatJid, const int offset = 0);
+	QFuture<QVector<GroupChatUser>>
+	users(const QString &accountJid, const QString &chatJid, const int offset = 0);
 
 	/**
 	 * Retrieves the bare JIDs of all group chat users.
@@ -130,33 +133,40 @@ private:
 	 */
 	void addUser(const GroupChatUser &user);
 
-    /**
-     * Updates a user by ID.
-     *
-     * @param accountJid JID of the account
-     * @param chatJid JID of the chat
-     * @param userId ID of the user
-     * @param updateUser function being run to update the user
-     */
-    void updateUserById(const QString &accountJid, const QString &chatJid, const QString &userId, const std::function<void (GroupChatUser &user)> &updateUser);
+	/**
+	 * Updates a user by ID.
+	 *
+	 * @param accountJid JID of the account
+	 * @param chatJid JID of the chat
+	 * @param userId ID of the user
+	 * @param updateUser function being run to update the user
+	 */
+	void updateUserById(const QString &accountJid,
+		const QString &chatJid,
+		const QString &userId,
+		const std::function<void(GroupChatUser &user)> &updateUser);
 
-    /**
-     * Updates a user by JID.
-     *
-     * @param accountJid JID of the account
-     * @param chatJid JID of the chat
-     * @param userJid JID of the user
-     * @param updateUser function being run to update the user
-     */
-    void updateUserByJid(const QString &accountJid, const QString &chatJid, const QString &userJid, const std::function<void (GroupChatUser &user)> &updateUser);
+	/**
+	 * Updates a user by JID.
+	 *
+	 * @param accountJid JID of the account
+	 * @param chatJid JID of the chat
+	 * @param userJid JID of the user
+	 * @param updateUser function being run to update the user
+	 */
+	void updateUserByJid(const QString &accountJid,
+		const QString &chatJid,
+		const QString &userJid,
+		const std::function<void(GroupChatUser &user)> &updateUser);
 
-    /**
-     * Updates a user by key-value pairs.
-     *
-     * @param updateUser function being run to update the user
-     * @param keyValuePair key-value pairs for retrieving and updating the user
-     */
-    void updateUserByKeyValuePairs(const std::function<void (GroupChatUser &)> &updateUser, const QMap<QString, QVariant> &keyValuePairs);
+	/**
+	 * Updates a user by key-value pairs.
+	 *
+	 * @param updateUser function being run to update the user
+	 * @param keyValuePair key-value pairs for retrieving and updating the user
+	 */
+	void updateUserByKeyValuePairs(const std::function<void(GroupChatUser &)> &updateUser,
+		const QMap<QString, QVariant> &keyValuePairs);
 
 	/**
 	 * Parses users from a query.

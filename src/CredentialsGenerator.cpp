@@ -15,8 +15,7 @@ static const int VOWELS_LENGTH = VOWELS.size();
 static const QLatin1String CONSONANTS = QLatin1String("bcdfghjklmnpqrstvwxyz");
 static const int CONSONANTS_LENGTH = CONSONANTS.size();
 
-CredentialsGenerator::CredentialsGenerator(QObject *parent)
-	: QObject(parent)
+CredentialsGenerator::CredentialsGenerator(QObject *parent) : QObject(parent)
 {
 }
 
@@ -42,7 +41,10 @@ QString CredentialsGenerator::generateUsername()
 
 QString CredentialsGenerator::generatePassword()
 {
-	return generatePassword(GENERATED_PASSWORD_LENGTH_LOWER_BOUND + QRandomGenerator::global()->generate() % (GENERATED_PASSWORD_LENGTH_UPPER_BOUND - GENERATED_PASSWORD_LENGTH_LOWER_BOUND + 1));
+	return generatePassword(GENERATED_PASSWORD_LENGTH_LOWER_BOUND +
+				QRandomGenerator::global()->generate() %
+					(GENERATED_PASSWORD_LENGTH_UPPER_BOUND -
+						GENERATED_PASSWORD_LENGTH_LOWER_BOUND + 1));
 }
 
 QString CredentialsGenerator::generatePassword(unsigned int length)
@@ -51,7 +53,8 @@ QString CredentialsGenerator::generatePassword(unsigned int length)
 	password.reserve(length);
 
 	for (unsigned int i = 0; i < length; i++)
-		password.append(GENERATED_PASSWORD_ALPHABET.at(QRandomGenerator::global()->generate() % GENERATED_PASSWORD_ALPHABET_LENGTH));
+		password.append(GENERATED_PASSWORD_ALPHABET.at(
+			QRandomGenerator::global()->generate() % GENERATED_PASSWORD_ALPHABET_LENGTH));
 
 	return password;
 }

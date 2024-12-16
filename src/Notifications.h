@@ -21,8 +21,7 @@ class Notifications : public QObject
 	Q_OBJECT
 
 public:
-	struct MessageNotificationWrapper
-	{
+	struct MessageNotificationWrapper {
 		QString accountJid;
 		QString chatJid;
 		QDateTime initalTimestamp;
@@ -32,8 +31,7 @@ public:
 		KNotification *notification = nullptr;
 	};
 
-	struct PresenceSubscriptionRequestNotificationWrapper
-	{
+	struct PresenceSubscriptionRequestNotificationWrapper {
 		QString accountJid;
 		QString chatJid;
 		KNotification *notification = nullptr;
@@ -51,7 +49,10 @@ public:
 	 * @param messageId ID of the message
 	 * @param messageBody body of the message to display as the notification's text
 	 */
-	void sendMessageNotification(const QString &accountJid, const QString &chatJid, const QString &messageId, const QString &messageBody);
+	void sendMessageNotification(const QString &accountJid,
+		const QString &chatJid,
+		const QString &messageId,
+		const QString &messageBody);
 
 	/**
 	 * Closes all chat message notifications of the same age or older than a timestamp.

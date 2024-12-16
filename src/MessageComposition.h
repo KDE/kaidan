@@ -11,7 +11,7 @@
 
 class FileSelectionModel;
 class QFileDialog;
-template <typename T>
+template<typename T>
 class QFutureWatcher;
 
 class MessageComposition : public QObject
@@ -21,7 +21,8 @@ class MessageComposition : public QObject
 	Q_PROPERTY(QString chatJid READ chatJid WRITE setChatJid NOTIFY chatJidChanged)
 	Q_PROPERTY(QString replaceId READ replaceId WRITE setReplaceId NOTIFY replaceIdChanged)
 	Q_PROPERTY(QString replyToJid READ replyToJid WRITE setReplyToJid NOTIFY replyToJidChanged)
-	Q_PROPERTY(QString replyToGroupChatParticipantId READ replyToGroupChatParticipantId WRITE setReplyToGroupChatParticipantId NOTIFY replyToGroupChatParticipantIdChanged)
+	Q_PROPERTY(QString replyToGroupChatParticipantId READ replyToGroupChatParticipantId WRITE
+			setReplyToGroupChatParticipantId NOTIFY replyToGroupChatParticipantIdChanged)
 	Q_PROPERTY(QString replyToName READ replyToName WRITE setReplyToName NOTIFY replyToNameChanged)
 	Q_PROPERTY(QString replyId READ replyId WRITE setReplyId NOTIFY replyIdChanged)
 	Q_PROPERTY(QString replyQuote READ replyQuote WRITE setReplyQuote NOTIFY replyQuoteChanged)
@@ -35,29 +36,65 @@ public:
 	MessageComposition();
 	~MessageComposition() override = default;
 
-	[[nodiscard]] QString accountJid() const { return m_accountJid; }
+	[[nodiscard]] QString accountJid() const
+	{
+		return m_accountJid;
+	}
 	void setAccountJid(const QString &accountJid);
-	[[nodiscard]] QString chatJid() const { return m_chatJid; }
+	[[nodiscard]] QString chatJid() const
+	{
+		return m_chatJid;
+	}
 	void setChatJid(const QString &chatJid);
-	[[nodiscard]] QString replaceId() const { return m_replaceId; }
+	[[nodiscard]] QString replaceId() const
+	{
+		return m_replaceId;
+	}
 	void setReplaceId(const QString &replaceId);
-	[[nodiscard]] QString replyToJid() const { return m_replyToJid; }
+	[[nodiscard]] QString replyToJid() const
+	{
+		return m_replyToJid;
+	}
 	void setReplyToJid(const QString &replyToJid);
-	[[nodiscard]] QString replyToGroupChatParticipantId() const { return m_replyToGroupChatParticipantId; }
+	[[nodiscard]] QString replyToGroupChatParticipantId() const
+	{
+		return m_replyToGroupChatParticipantId;
+	}
 	void setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId);
-	[[nodiscard]] QString replyToName() const { return m_replyToName; }
+	[[nodiscard]] QString replyToName() const
+	{
+		return m_replyToName;
+	}
 	void setReplyToName(const QString &replyToName);
-	[[nodiscard]] QString replyId() const { return m_replyId; }
+	[[nodiscard]] QString replyId() const
+	{
+		return m_replyId;
+	}
 	void setReplyId(const QString &replyId);
-	[[nodiscard]] QString replyQuote() const { return m_replyQuote; }
+	[[nodiscard]] QString replyQuote() const
+	{
+		return m_replyQuote;
+	}
 	void setReplyQuote(const QString &replyQuote);
-	[[nodiscard]] QString body() const { return m_body; }
+	[[nodiscard]] QString body() const
+	{
+		return m_body;
+	}
 	void setBody(const QString &body);
-	[[nodiscard]] bool isSpoiler() const { return m_isSpoiler; }
+	[[nodiscard]] bool isSpoiler() const
+	{
+		return m_isSpoiler;
+	}
 	void setSpoiler(bool spoiler);
-	[[nodiscard]] QString spoilerHint() const { return m_spoilerHint; }
+	[[nodiscard]] QString spoilerHint() const
+	{
+		return m_spoilerHint;
+	}
 	void setSpoilerHint(const QString &spoilerHint);
-	[[nodiscard]] bool isDraft() const { return m_isDraft; }
+	[[nodiscard]] bool isDraft() const
+	{
+		return m_isDraft;
+	}
 	void setIsDraft(bool isDraft);
 
 	Q_INVOKABLE void send();
@@ -79,7 +116,11 @@ public:
 	Q_SIGNAL void isDraftChanged();
 
 private:
-	void setReply(Message &message, const QString &replyToJid, const QString &replyToGroupChatParticipantId, const QString &replyId, const QString &replyQuote);
+	void setReply(Message &message,
+		const QString &replyToJid,
+		const QString &replyToGroupChatParticipantId,
+		const QString &replyId,
+		const QString &replyQuote);
 	void loadDraft();
 	void saveDraft();
 
@@ -128,7 +169,8 @@ public:
 	bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
 	const QVector<File> &files() const;
-	bool hasFiles() const {
+	bool hasFiles() const
+	{
 		return !m_files.empty();
 	}
 

@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include <QAbstractListModel>
 #include "MessageModel.h"
+#include <QAbstractListModel>
 
 class MessageReactionModel : public QAbstractListModel
 {

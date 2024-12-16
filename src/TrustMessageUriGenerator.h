@@ -26,6 +26,7 @@ protected:
 	Q_SIGNAL void jidChanged();
 
 	void setKeys(const QList<QString> &authenticatedKeys, const QList<QString> &distrustedKeys);
+
 private:
 	void setUp();
 	void handleKeysChanged(const QString &accountJid, const QList<QString> &jids);

@@ -25,32 +25,52 @@ using namespace std::chrono_literals;
 // interval to enable session building for new devices
 constexpr auto SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL = 500ms;
 
-OmemoController::OmemoController( QObject *parent)
-	: QObject(parent)
+OmemoController::OmemoController(QObject *parent) : QObject(parent)
 {
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::trustLevelsChanged, this, [](const QMultiHash<QString, QByteArray> &modifiedKeys) {
-		Q_EMIT EncryptionController::instance()->keysChanged(AccountManager::instance()->jid(), modifiedKeys.keys());
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::trustLevelsChanged,
+		this,
+		[](const QMultiHash<QString, QByteArray> &modifiedKeys) {
+			Q_EMIT EncryptionController::instance()->keysChanged(
+				AccountManager::instance()->jid(), modifiedKeys.keys());
+		});
 
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::deviceAdded, this, [](const QString &jid, uint32_t) {
-		Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), { jid });
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::deviceAdded,
+		this,
+		[](const QString &jid, uint32_t) {
+			Q_EMIT EncryptionController::instance()->devicesChanged(
+				AccountManager::instance()->jid(), { jid });
+		});
 
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::deviceChanged, this, [](const QString &jid, uint32_t) {
-		Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), { jid });
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::deviceChanged,
+		this,
+		[](const QString &jid, uint32_t) {
+			Q_EMIT EncryptionController::instance()->devicesChanged(
+				AccountManager::instance()->jid(), { jid });
+		});
 
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::deviceRemoved, this, [](const QString &jid, uint32_t) {
-		Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), { jid });
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::deviceRemoved,
+		this,
+		[](const QString &jid, uint32_t) {
+			Q_EMIT EncryptionController::instance()->devicesChanged(
+				AccountManager::instance()->jid(), { jid });
+		});
 
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::devicesRemoved, this, [](const QString &jid) {
-		Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), { jid });
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::devicesRemoved,
+		this,
+		[](const QString &jid) {
+			Q_EMIT EncryptionController::instance()->devicesChanged(
+				AccountManager::instance()->jid(), { jid });
+		});
 
-	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::allDevicesRemoved, this, [] {
-		Q_EMIT EncryptionController::instance()->allDevicesChanged();
-	});
+	connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
+		&QXmppOmemoManager::allDevicesRemoved,
+		this,
+		[] { Q_EMIT EncryptionController::instance()->allDevicesChanged(); });
 }
 
 QFuture<void> OmemoController::load()
@@ -61,14 +81,31 @@ QFuture<void> OmemoController::load()
 		interface.reportFinished();
 	} else {
 		runOnThread(Kaidan::instance()->client(), [this, interface]() mutable {
-			Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa).then(Kaidan::instance()->client(), [this, interface]() mutable {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->changeDeviceLabel(QStringLiteral(APPLICATION_DISPLAY_NAME) % QStringLiteral(" - ") % SystemUtils::productName()).then(Kaidan::instance()->client(), [this, interface](bool) mutable {
-					Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->load().then(this, [this, interface](bool isLoaded) mutable {
-						m_isLoaded = isLoaded;
-						interface.reportFinished();
-					});
+			Kaidan::instance()
+				->client()
+				->xmppClient()
+				->findExtension<QXmppOmemoManager>()
+				->setSecurityPolicy(QXmpp::TrustSecurityPolicy::Toakafa)
+				.then(Kaidan::instance()->client(), [this, interface]() mutable {
+					Kaidan::instance()
+						->client()
+						->xmppClient()
+						->findExtension<QXmppOmemoManager>()
+						->changeDeviceLabel(
+							QStringLiteral(APPLICATION_DISPLAY_NAME) %
+							QStringLiteral(" - ") % SystemUtils::productName())
+						.then(Kaidan::instance()->client(), [this, interface](bool) mutable {
+							Kaidan::instance()
+								->client()
+								->xmppClient()
+								->findExtension<QXmppOmemoManager>()
+								->load()
+								.then(this, [this, interface](bool isLoaded) mutable {
+									m_isLoaded = isLoaded;
+									interface.reportFinished();
+								});
+						});
 				});
-			});
 		});
 	}
 
@@ -85,34 +122,40 @@ QFuture<void> OmemoController::setUp()
 		callRemoteTask(
 			Kaidan::instance()->client(),
 			[this]() {
-				return std::pair {
-					Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setUp(),
-					this
-				};
+				return std::pair { Kaidan::instance()
+							   ->client()
+							   ->xmppClient()
+							   ->findExtension<QXmppOmemoManager>()
+							   ->setUp(),
+					this };
 			},
 			this,
 			[this, interface](bool isSetUp) mutable {
 				if (isSetUp) {
-					// Enabling the session building for new devices is delayed after all (or at least
-					// most) devices are automatically received from the servers.
-					// That way, the sessions for those devices, which are only new during this setup,
-					// are not built at once.
-					// Instead, only sessions for devices that are received after this setup are built
-					// when opening a chat (i.e., even before sending the first message).
-					// The default behavior would otherwise build sessions not before sending a message
-					// which leads to longer waiting times.
-					QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL, this, &OmemoController::enableSessionBuildingForNewDevices);
+					// Enabling the session building for new devices is delayed
+					// after all (or at least most) devices are automatically
+					// received from the servers. That way, the sessions for
+					// those devices, which are only new during this setup, are
+					// not built at once. Instead, only sessions for devices
+					// that are received after this setup are built when opening
+					// a chat (i.e., even before sending the first message). The
+					// default behavior would otherwise build sessions not
+					// before sending a message which leads to longer waiting
+					// times.
+					QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL,
+						this,
+						&OmemoController::enableSessionBuildingForNewDevices);
 				} else {
-					Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
+					Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+						tr("End-to-end encryption via OMEMO 2 could not be "
+						   "set up"));
 					interface.reportFinished();
 				}
-			}
-		);
+			});
 	}
 
 	return interface.future();
 }
-
 
 QFuture<void> OmemoController::initializeAccount(const QString &accountJid)
 {
@@ -130,14 +173,14 @@ QFuture<void> OmemoController::initializeChat(const QString &accountJid, const Q
 	QList<QString> deviceListSubscriptionJids;
 
 	for (const auto &jid : jids) {
-		// Make it possible to use OMEMO encryption with the chat partner even if the chat partner has
-		// no presence subscription or is offline.
+		// Make it possible to use OMEMO encryption with the chat partner even if the chat
+		// partner has no presence subscription or is offline.
 		//
-		// Subscribe to the OMEMO device list of the current chat partner if it is not automatically
-		// requested via PEP's presence-based subscription ("auto-subscribe").
-		// If there is a subscription but the chat partner is offline, the device list is requested
-		// manually because it could result in the server not distributing the device list via PEP's
-		// presence-based subscription.
+		// Subscribe to the OMEMO device list of the current chat partner if it is not
+		// automatically requested via PEP's presence-based subscription ("auto-subscribe").
+		// If there is a subscription but the chat partner is offline, the device list is
+		// requested manually because it could result in the server not distributing the
+		// device list via PEP's presence-based subscription.
 		if (RosterModel::instance()->isPresenceSubscribedByItem(accountJid, jid)) {
 			if (PresenceCache::instance()->resourcesCount(jid) == 0) {
 				deviceListRequestJids.append(jid);
@@ -170,10 +213,12 @@ QFuture<bool> OmemoController::hasUsableDevices(const QList<QString> &jids)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jids]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->devices(jids),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->devices(jids),
+				this };
 		},
 		this,
 		[interface](QVector<QXmppOmemoDevice> devices) mutable {
@@ -187,8 +232,7 @@ QFuture<bool> OmemoController::hasUsableDevices(const QList<QString> &jids)
 			}
 
 			reportFinishedResult(interface, false);
-		}
-	);
+		});
 
 	return interface.future();
 }
@@ -200,16 +244,15 @@ QFuture<void> OmemoController::requestDeviceLists(const QList<QString> &jids)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jids]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->requestDeviceLists(jids),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->requestDeviceLists(jids),
+				this };
 		},
 		this,
-		[interface](auto) mutable {
-			interface.reportFinished();
-		}
-	);
+		[interface](auto) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -221,16 +264,15 @@ QFuture<void> OmemoController::subscribeToDeviceLists(const QList<QString> &jids
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jids]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->subscribeToDeviceLists(jids),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->subscribeToDeviceLists(jids),
+				this };
 		},
 		this,
-		[interface](auto) mutable {
-			interface.reportFinished();
-		}
-	);
+		[interface](auto) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -242,16 +284,15 @@ QFuture<void> OmemoController::unsubscribeFromDeviceLists()
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->unsubscribeFromDeviceLists(),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->unsubscribeFromDeviceLists(),
+				this };
 		},
 		this,
-		[interface](auto) mutable {
-			interface.reportFinished();
-		}
-	);
+		[interface](auto) mutable { interface.reportFinished(); });
 
 	return interface.future();
 }
@@ -263,17 +304,18 @@ QFuture<void> OmemoController::reset()
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->resetOwnDevice(),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->resetOwnDevice(),
+				this };
 		},
 		this,
 		[this, interface](auto) mutable {
 			m_isLoaded = false;
 			interface.reportFinished();
-		}
-	);
+		});
 
 	return interface.future();
 }
@@ -285,17 +327,18 @@ QFuture<void> OmemoController::resetLocally()
 	callVoidRemoteTask(
 		Kaidan::instance()->client(),
 		[this]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->resetOwnDeviceLocally(),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->resetOwnDeviceLocally(),
+				this };
 		},
 		this,
 		[this, interface]() mutable {
 			m_isLoaded = false;
 			interface.reportFinished();
-		}
-	);
+		});
 
 	return interface.future();
 }
@@ -307,31 +350,36 @@ QFuture<QString> OmemoController::ownKey(const QString &)
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->ownKey(),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->ownKey(),
+				this };
 		},
 		this,
 		[interface](QByteArray &&key) mutable {
 			reportFinishedResult(interface, QString::fromUtf8(key.toHex()));
-		}
-	);
+		});
 
 	return interface.future();
 }
 
-QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> OmemoController::keys(const QString &, const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
+QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>>
+OmemoController::keys(const QString &, const QList<QString> &jids, QXmpp::TrustLevels trustLevels)
 {
-	QFutureInterface<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> interface(QFutureInterfaceBase::Started);
+	QFutureInterface<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> interface(
+		QFutureInterfaceBase::Started);
 
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jids, trustLevels]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->keys(jids, trustLevels),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->keys(jids, trustLevels),
+				this };
 		},
 		this,
 		[interface](QHash<QString, QHash<QByteArray, QXmpp::TrustLevel>> &&keys) mutable {
@@ -341,14 +389,17 @@ QFuture<QHash<QString, QHash<QString, QXmpp::TrustLevel>>> OmemoController::keys
 				const auto &jid = itr.key();
 				const auto &trustLevels = itr.value();
 
-				for (auto trustLevelItr = trustLevels.cbegin(); trustLevelItr != trustLevels.cend(); ++trustLevelItr) {
-					processedKeys[jid].insert(QString::fromUtf8(trustLevelItr.key().toHex()), trustLevelItr.value());
+				for (auto trustLevelItr = trustLevels.cbegin();
+					trustLevelItr != trustLevels.cend();
+					++trustLevelItr) {
+					processedKeys[jid].insert(
+						QString::fromUtf8(trustLevelItr.key().toHex()),
+						trustLevelItr.value());
 				}
 			}
 
 			reportFinishedResult(interface, std::move(processedKeys));
-		}
-	);
+		});
 
 	return interface.future();
 }
@@ -360,13 +411,17 @@ QFuture<EncryptionController::OwnDevice> OmemoController::ownDevice(const QStrin
 	runOnThread(
 		Kaidan::instance()->client(),
 		[]() {
-			return Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->ownDevice();
+			return Kaidan::instance()
+				->client()
+				->xmppClient()
+				->findExtension<QXmppOmemoManager>()
+				->ownDevice();
 		},
 		this,
 		[interface](QXmppOmemoOwnDevice &&ownDevice) mutable {
-			reportFinishedResult(interface, { ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex()) });
-		}
-	);
+			reportFinishedResult(interface,
+				{ ownDevice.label(), QString::fromUtf8(ownDevice.keyId().toHex()) });
+		});
 
 	return interface.future();
 }
@@ -378,20 +433,26 @@ QFuture<QList<EncryptionController::Device>> OmemoController::devices(const QStr
 	callRemoteTask(
 		Kaidan::instance()->client(),
 		[this, jids]() {
-			return std::pair {
-				Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->devices(jids),
-				this
-			};
+			return std::pair { Kaidan::instance()
+						   ->client()
+						   ->xmppClient()
+						   ->findExtension<QXmppOmemoManager>()
+						   ->devices(jids),
+				this };
 		},
 		this,
 		[interface](QVector<QXmppOmemoDevice> &&devices) mutable {
-			const auto processedDevices = transform(std::move(devices), [](const QXmppOmemoDevice &device) {
-				return EncryptionController::Device { device.jid(), device.label(), QString::fromUtf8(device.keyId().toHex()), device.trustLevel() };
-			});
+			const auto processedDevices =
+				transform(std::move(devices), [](const QXmppOmemoDevice &device) {
+					return EncryptionController::Device { device.jid(),
+						device.label(),
+						QString::fromUtf8(device.keyId().toHex()),
+						device.trustLevel() };
+				});
 
-			reportFinishedResult(interface, QList(processedDevices.cbegin(), processedDevices.cend()));
-		}
-	);
+			reportFinishedResult(interface,
+				QList(processedDevices.cbegin(), processedDevices.cend()));
+		});
 
 	return interface.future();
 };
@@ -399,21 +460,27 @@ QFuture<QList<EncryptionController::Device>> OmemoController::devices(const QStr
 void OmemoController::removeContactDevices(const QString &jid)
 {
 	runOnThread(Kaidan::instance()->client(), [jid]() {
-		Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->removeContactDevices(jid);
+		Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->removeContactDevices(
+			jid);
 	});
 }
 
-void OmemoController::buildMissingSessions(QFutureInterface<void> &interface, const QList<QString> &jids) {
+void OmemoController::buildMissingSessions(QFutureInterface<void> &interface, const QList<QString> &jids)
+{
 	runOnThread(Kaidan::instance()->client(), [this, interface, jids]() mutable {
-		Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->buildMissingSessions(jids).then(this, [interface]() mutable {
-			interface.reportFinished();
-		});
+		Kaidan::instance()
+			->client()
+			->xmppClient()
+			->findExtension<QXmppOmemoManager>()
+			->buildMissingSessions(jids)
+			.then(this, [interface]() mutable { interface.reportFinished(); });
 	});
 }
 
 void OmemoController::enableSessionBuildingForNewDevices()
 {
 	runOnThread(Kaidan::instance()->client(), []() {
-		Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setNewDeviceAutoSessionBuildingEnabled(true);
+		Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setNewDeviceAutoSessionBuildingEnabled(
+			true);
 	});
 }

@@ -21,8 +21,8 @@
 #include <QTime>
 #include <QUrl>
 // KDE
-#include <KIO/PreviewJob>
 #include <KFileItem>
+#include <KIO/PreviewJob>
 // Kaidan
 #include "FutureUtils.h"
 #include "SystemUtils.h"
@@ -39,46 +39,55 @@ QString fileNameTimestamp(const QDateTime &dateTime)
 QString newFilePath(const QString &directoryPath, const QString &fileExtension)
 {
 	QDir().mkdir(directoryPath);
-	return { directoryPath + QDir::separator() + fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension };
+	return { directoryPath + QDir::separator() +
+		 fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension };
 }
 
 static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent);
 
 const QMimeDatabase MediaUtils::s_mimeDB;
 const QList<QMimeType> MediaUtils::s_allMimeTypes(MediaUtils::s_mimeDB.allMimeTypes());
-const QList<QMimeType> MediaUtils::s_imageTypes(::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("image")));
-const QList<QMimeType> MediaUtils::s_audioTypes(::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("audio")));
-const QList<QMimeType> MediaUtils::s_videoTypes(::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("video")));
+const QList<QMimeType> MediaUtils::s_imageTypes(
+	::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("image")));
+const QList<QMimeType> MediaUtils::s_audioTypes(
+	::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("audio")));
+const QList<QMimeType> MediaUtils::s_videoTypes(
+	::mimeTypes(MediaUtils::s_allMimeTypes, QStringLiteral("video")));
 const QList<QMimeType> MediaUtils::s_documentTypes {
 	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.oasis.opendocument.presentation")),
 	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.oasis.opendocument.spreadsheet")),
 	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.oasis.opendocument.text")),
-	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.openxmlformats-officedocument.presentationml.presentation")),
-	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")),
-	s_mimeDB.mimeTypeForName(QStringLiteral("application/vnd.openxmlformats-officedocument.wordprocessingml.document")),
+	s_mimeDB.mimeTypeForName(QStringLiteral(
+		"application/vnd.openxmlformats-officedocument.presentationml.presentation")),
+	s_mimeDB.mimeTypeForName(QStringLiteral(
+		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")),
+	s_mimeDB.mimeTypeForName(QStringLiteral(
+		"application/vnd.openxmlformats-officedocument.wordprocessingml.document")),
 	s_mimeDB.mimeTypeForName(QStringLiteral("application/pdf")),
 	s_mimeDB.mimeTypeForName(QStringLiteral("text/plain"))
 };
-const QList<QMimeType> MediaUtils::s_geoTypes {
-	s_mimeDB.mimeTypeForName(QStringLiteral("application/geo+json"))
-};
-const QRegularExpression MediaUtils::s_geoLocationRegExp(QStringLiteral("geo:([-+]?[0-9]*\\.?[0-9]+),([-+]?[0-9]*\\.?[0-9]+)"));
+const QList<QMimeType> MediaUtils::s_geoTypes { s_mimeDB.mimeTypeForName(
+	QStringLiteral("application/geo+json")) };
+const QRegularExpression MediaUtils::s_geoLocationRegExp(
+	QStringLiteral("geo:([-+]?[0-9]*\\.?[0-9]+),([-+]?[0-9]*\\.?[0-9]+)"));
 
-static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent) {
+static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent)
+{
 	QList<QMimeType> mimes;
 
-	for (const QMimeType &mimeType: mimeTypes) {
+	for (const QMimeType &mimeType : mimeTypes) {
 		if (mimeType.name().section(QLatin1Char('/'), 0, 0) == parent) {
 			mimes << mimeType;
 		}
 	}
 
-	return  mimes;
+	return mimes;
 }
 
-static QString iconName(const QList<QMimeType> &mimeTypes) {
+static QString iconName(const QList<QMimeType> &mimeTypes)
+{
 	if (!mimeTypes.isEmpty()) {
-		for (const QMimeType &type: mimeTypes) {
+		for (const QMimeType &type : mimeTypes) {
 			const QString name = type.iconName();
 
 			if (!name.isEmpty()) {
@@ -105,7 +114,7 @@ static QString filter(const QList<QMimeType> &mimeTypes)
 		}
 
 		const int start = filter.lastIndexOf(QLatin1Char('('));
-		const int end   = filter.lastIndexOf(QLatin1Char(')'));
+		const int end = filter.lastIndexOf(QLatin1Char(')'));
 		Q_ASSERT(start != -1);
 		Q_ASSERT(end != -1);
 
@@ -229,9 +238,7 @@ QMimeType MediaUtils::mimeType(const QString &filePath)
 	}
 
 	const QUrl url(filePath);
-	return url.isValid() && !url.scheme().isEmpty()
-		       ? mimeType(url)
-		       : s_mimeDB.mimeTypeForFile(filePath);
+	return url.isValid() && !url.scheme().isEmpty() ? mimeType(url) : s_mimeDB.mimeTypeForFile(filePath);
 }
 
 QMimeType MediaUtils::mimeType(const QUrl &url)
@@ -258,9 +265,7 @@ QString MediaUtils::iconName(const QString &filePath)
 	}
 
 	const QUrl url(filePath);
-	return url.isValid() && !url.scheme().isEmpty()
-		       ? iconName(url)
-		       : ::iconName({ mimeType(filePath) });
+	return url.isValid() && !url.scheme().isEmpty() ? iconName(url) : ::iconName({ mimeType(filePath) });
 }
 
 QString MediaUtils::iconName(const QUrl &url)
@@ -331,7 +336,7 @@ QString MediaUtils::newMediaLabel(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QString MediaUtils::newMediaIconName(Enums::MessageType hint)
@@ -353,7 +358,7 @@ QString MediaUtils::newMediaIconName(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QString MediaUtils::label(Enums::MessageType hint)
@@ -376,7 +381,7 @@ QString MediaUtils::label(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QString MediaUtils::iconName(Enums::MessageType hint)
@@ -405,7 +410,7 @@ QString MediaUtils::filterName(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QString MediaUtils::filter(Enums::MessageType hint)
@@ -430,7 +435,7 @@ QString MediaUtils::namedFilter(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QList<QMimeType> MediaUtils::mimeTypes(Enums::MessageType hint)
@@ -454,7 +459,7 @@ QList<QMimeType> MediaUtils::mimeTypes(Enums::MessageType hint)
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 Enums::MessageType MediaUtils::messageType(const QString &filePath)
@@ -464,9 +469,8 @@ Enums::MessageType MediaUtils::messageType(const QString &filePath)
 	}
 
 	const QUrl url(filePath);
-	return url.isValid() && !url.scheme().isEmpty()
-		       ? messageType(url)
-		       : messageType(s_mimeDB.mimeTypeForFile(filePath));
+	return url.isValid() && !url.scheme().isEmpty() ? messageType(url)
+							: messageType(s_mimeDB.mimeTypeForFile(filePath));
 }
 
 Enums::MessageType MediaUtils::messageType(const QUrl &url)
@@ -541,7 +545,8 @@ QByteArray MediaUtils::encodeImageThumbnail(const QImage &image)
 	return output;
 }
 
-QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> MediaUtils::generateMetadata(std::unique_ptr<QIODevice> f)
+QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>>
+MediaUtils::generateMetadata(std::unique_ptr<QIODevice> f)
 {
 	using Result = QXmppFileSharingManager::MetadataGeneratorResult;
 	using Thumnbnail = QXmppFileSharingManager::MetadataThumbnail;
@@ -559,11 +564,9 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 	QFutureInterface<std::shared_ptr<Result>> interface;
 
 	// create job
-	auto *job = new KIO::PreviewJob(
-		{ KFileItem(QUrl::fromLocalFile(file->fileName())) },
+	auto *job = new KIO::PreviewJob({ KFileItem(QUrl::fromLocalFile(file->fileName())) },
 		QSize(THUMBNAIL_EDGE_PIXEL_COUNT, THUMBNAIL_EDGE_PIXEL_COUNT),
-		&allPlugins
-	);
+		&allPlugins);
 	job->setAutoDelete(true);
 
 	connect(job, &KIO::PreviewJob::gotPreview, job, [=, f = std::move(f)](const KFileItem &, const QPixmap &image) mutable {
@@ -578,12 +581,10 @@ QFuture<std::shared_ptr<QXmppFileSharingManager::MetadataGeneratorResult>> Media
 		}
 
 		result->dataDevice = std::move(f);
-		result->thumbnails.push_back(Thumnbnail {
-			.width = uint32_t(image.size().width()),
+		result->thumbnails.push_back(Thumnbnail { .width = uint32_t(image.size().width()),
 			.height = uint32_t(image.size().height()),
 			.data = thumbnailData,
-			.mimeType = QMimeDatabase().mimeTypeForData(thumbnailData)
-		});
+			.mimeType = QMimeDatabase().mimeTypeForData(thumbnailData) });
 
 		interface.reportResult(result);
 		interface.reportFinished();
@@ -601,12 +602,10 @@ QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, cons
 {
 	QFutureInterface<QByteArray> interface;
 
-	KFileItemList items {
-		KFileItem {
-			localFileUrl,
-			mimeTypeName,
-		}
-	};
+	KFileItemList items { KFileItem {
+		localFileUrl,
+		mimeTypeName,
+	} };
 
 	static auto allPlugins = KIO::PreviewJob::availablePlugins();
 

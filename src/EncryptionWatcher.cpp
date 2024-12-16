@@ -8,8 +8,7 @@
 #include "EncryptionController.h"
 #include "FutureUtils.h"
 
-EncryptionWatcher::EncryptionWatcher(QObject *parent)
-	: QObject(parent)
+EncryptionWatcher::EncryptionWatcher(QObject *parent) : QObject(parent)
 {
 }
 
@@ -64,7 +63,11 @@ bool EncryptionWatcher::hasAuthenticatableDistrustedDevices() const
 void EncryptionWatcher::setUp()
 {
 	if (!m_accountJid.isEmpty() && !m_jids.isEmpty()) {
-		connect(EncryptionController::instance(), &EncryptionController::devicesChanged, this, &EncryptionWatcher::handleDevicesChanged, Qt::UniqueConnection);
+		connect(EncryptionController::instance(),
+			&EncryptionController::devicesChanged,
+			this,
+			&EncryptionWatcher::handleDevicesChanged,
+			Qt::UniqueConnection);
 		update();
 	}
 }
@@ -78,39 +81,48 @@ void EncryptionWatcher::handleDevicesChanged(const QString &, QList<QString> jid
 
 void EncryptionWatcher::update()
 {
-	await(EncryptionController::instance()->devices(m_accountJid, m_jids), this, [this](QList<EncryptionController::Device> &&devices) {
-		const auto distrustedDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
-			return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
+	await(EncryptionController::instance()->devices(m_accountJid, m_jids),
+		this,
+		[this](QList<EncryptionController::Device> &&devices) {
+			const auto distrustedDevicesCount = std::count_if(devices.cbegin(),
+				devices.cend(),
+				[](const EncryptionController::Device &device) {
+					return TRUST_LEVEL_DISTRUSTED.testFlag(device.trustLevel);
+				});
+
+			if (m_hasDistrustedDevices != (distrustedDevicesCount != 0)) {
+				m_hasDistrustedDevices = distrustedDevicesCount;
+				Q_EMIT hasDistrustedDevicesChanged();
+			}
+
+			const auto hasUsableDevices = std::any_of(devices.cbegin(),
+				devices.cend(),
+				[](const EncryptionController::Device &device) {
+					return TRUST_LEVEL_USABLE.testFlag(device.trustLevel);
+				});
+
+			if (m_hasUsableDevices != hasUsableDevices) {
+				m_hasUsableDevices = hasUsableDevices;
+				Q_EMIT hasUsableDevicesChanged();
+			}
+
+			const auto authenticatableDevicesCount = std::count_if(devices.cbegin(),
+				devices.cend(),
+				[](const EncryptionController::Device &device) {
+					return TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel);
+				});
+
+			if (m_hasAuthenticatableDevices != (authenticatableDevicesCount != 0)) {
+				m_hasAuthenticatableDevices = authenticatableDevicesCount;
+				Q_EMIT hasAuthenticatableDevicesChanged();
+			}
+
+			const auto hasAuthenticatableDistrustedDevices =
+				authenticatableDevicesCount == distrustedDevicesCount;
+
+			if (m_hasAuthenticatableDistrustedDevices != hasAuthenticatableDistrustedDevices) {
+				m_hasAuthenticatableDistrustedDevices = hasAuthenticatableDistrustedDevices;
+				Q_EMIT hasAuthenticatableDistrustedDevicesChanged();
+			}
 		});
-
-		if (m_hasDistrustedDevices != (distrustedDevicesCount != 0)) {
-			m_hasDistrustedDevices = distrustedDevicesCount;
-			Q_EMIT hasDistrustedDevicesChanged();
-		}
-
-		const auto hasUsableDevices = std::any_of(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
-			return TRUST_LEVEL_USABLE.testFlag(device.trustLevel);
-		});
-
-		if (m_hasUsableDevices != hasUsableDevices) {
-			m_hasUsableDevices = hasUsableDevices;
-			Q_EMIT hasUsableDevicesChanged();
-		}
-
-		const auto authenticatableDevicesCount = std::count_if(devices.cbegin(), devices.cend(), [](const EncryptionController::Device &device) {
-			return TRUST_LEVEL_AUTHENTICATABLE.testFlag(device.trustLevel);
-		});
-
-		if (m_hasAuthenticatableDevices != (authenticatableDevicesCount != 0)) {
-			m_hasAuthenticatableDevices = authenticatableDevicesCount;
-			Q_EMIT hasAuthenticatableDevicesChanged();
-		}
-
-		const auto hasAuthenticatableDistrustedDevices = authenticatableDevicesCount == distrustedDevicesCount;
-
-		if (m_hasAuthenticatableDistrustedDevices != hasAuthenticatableDistrustedDevices) {
-			m_hasAuthenticatableDistrustedDevices = hasAuthenticatableDistrustedDevices;
-			Q_EMIT hasAuthenticatableDistrustedDevicesChanged();
-		}
-	});
 }

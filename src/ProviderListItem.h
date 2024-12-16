@@ -29,9 +29,7 @@ class ProviderListItem
 
 public:
 	template<typename T>
-	struct LanguageVariants
-		: QMap<QString, T>
-	{
+	struct LanguageVariants : QMap<QString, T> {
 		T pickBySystemLocale() const
 		{
 			const auto languageCode = SystemUtils::systemLocaleCodes().languageCode;
@@ -42,15 +40,15 @@ public:
 				return systemLanguageItr.value();
 			}
 
-			// Use the English variant if no system-wide language variant is available but English
-			// is.
+			// Use the English variant if no system-wide language variant is available
+			// but English is.
 			const auto defaultLanguageItr = this->find(DEFAULT_LANGUAGE_CODE.toString());
 			if (defaultLanguageItr != this->cend() && !defaultLanguageItr.value().isEmpty()) {
 				return defaultLanguageItr.value();
 			}
 
-			// Use the first language variant if also no English variant is available but another
-			// one is.
+			// Use the first language variant if also no English variant is available
+			// but another one is.
 			if (!this->empty()) {
 				return this->cbegin().value();
 			}
@@ -122,7 +120,8 @@ private:
 	static LanguageVariants<T> parseStringListLanguageVariants(const QJsonObject &stringListLanguageVariants);
 
 	template<typename T>
-	static LanguageVariants<T> parseLanguageVariants(const QJsonObject &LanguageVariants, const std::function<T (const QJsonValue &)> &convertToTargetType);
+	static LanguageVariants<T> parseLanguageVariants(const QJsonObject &LanguageVariants,
+		const std::function<T(const QJsonValue &)> &convertToTargetType);
 
 	QSharedDataPointer<ProviderListItemPrivate> d;
 };

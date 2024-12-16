@@ -96,14 +96,14 @@ public:
 	Q_INVOKABLE void resetComposingChatState();
 
 	/**
-	  * Returns the current chat state
-	  */
+	 * Returns the current chat state
+	 */
 	QXmppMessage::State chatState() const;
 	Q_SIGNAL void chatStateChanged();
 
 	/**
-	  * Sends the chat state notification
-	  */
+	 * Sends the chat state notification
+	 */
 	void sendChatState(QXmppMessage::State state);
 	Q_INVOKABLE void sendChatState(ChatState::State state);
 

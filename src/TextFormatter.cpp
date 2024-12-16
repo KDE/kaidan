@@ -6,13 +6,13 @@
 
 #include "TextFormatter.h"
 
-#include <unicode/uchar.h>
 #include <QGuiApplication>
 #include <QPalette>
 #include <QQuickTextDocument>
 #include <QTextBoundaryFinder>
 #include <QTextCursor>
 #include <QTextDocument>
+#include <unicode/uchar.h>
 
 #include "Algorithms.h"
 #include "QmlUtils.h"
@@ -29,7 +29,8 @@ enum class TextType {
 	MultipleEmojis,
 };
 
-static TextType determineTextType(const QString &text) {
+static TextType determineTextType(const QString &text)
+{
 	QTextBoundaryFinder finder(QTextBoundaryFinder::Grapheme, text);
 	auto emojiCounter = 0;
 
@@ -59,7 +60,8 @@ static TextType determineTextType(const QString &text) {
 	}
 }
 
-static double determineEmojiFontSizeFactor(const QString &text) {
+static double determineEmojiFontSizeFactor(const QString &text)
+{
 	switch (determineTextType(text)) {
 	case TextType::Mixed:
 		return MIXED_TEXT_EMOJI_SIZE_FACTOR;
@@ -137,8 +139,7 @@ static void formatGroupChatUserMentions(QTextCursor &cursor, const QString &text
 	});
 }
 
-TextFormatter::TextFormatter(QObject *parent)
-	: QObject(parent)
+TextFormatter::TextFormatter(QObject *parent) : QObject(parent)
 {
 }
 
@@ -185,11 +186,12 @@ void TextFormatter::attachEnhancedTextFormatting()
 	});
 }
 
-void TextFormatter::attachFormatting(const std::function<void (QTextCursor &cursor, const QString &text)> &formatText) {
+void TextFormatter::attachFormatting(const std::function<void(QTextCursor &cursor, const QString &text)> &formatText)
+{
 	auto document = m_textDocument->textDocument();
 
-	// Avoid calling this function again and creating an infinite loop if this function modifies the
-	// text document.
+	// Avoid calling this function again and creating an infinite loop if this function modifies
+	// the text document.
 	QObject::disconnect(document, &QTextDocument::contentsChanged, this, nullptr);
 
 	QTextCursor cursor(document);

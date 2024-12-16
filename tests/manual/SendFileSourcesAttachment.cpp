@@ -6,9 +6,9 @@
 #include "QXmppHttpFileSource.h"
 #include "QXmppMessage.h"
 #include <QCoreApplication>
-#include <QXmppUtils.h>
 #include <QXmppClient.h>
 #include <QXmppTask.h>
+#include <QXmppUtils.h>
 
 #if QXMPP_VERSION >= QT_VERSION_CHECK(1, 7, 0)
 int main(int argc, char *argv[])

@@ -28,7 +28,8 @@
 
 const auto AUDIO_CODEC = QStringLiteral("audio/mpeg, mpegversion=(int)1, layer=(int)3");
 
-static QString toString(const QVariantMap &options) {
+static QString toString(const QVariantMap &options)
+{
 	if (options.isEmpty()) {
 		return QString();
 	}
@@ -37,14 +38,13 @@ static QString toString(const QVariantMap &options) {
 	return QString::fromUtf8(document.toJson(QJsonDocument::JsonFormat::Indented)).trimmed();
 }
 
-static QString toString(const QSize &size) {
-	return QString::fromLatin1("%1x%2").arg(QString::number(size.width()),
-		QString::number(size.height()));
+static QString toString(const QSize &size)
+{
+	return QString::fromLatin1("%1x%2").arg(QString::number(size.width()), QString::number(size.height()));
 }
 
 MediaSettings::MediaSettings(const CameraInfo &camera, const AudioDeviceInfo &audioInputDevice)
-	: camera(camera)
-	  , audioInputDevice(audioInputDevice)
+	: camera(camera), audioInputDevice(audioInputDevice)
 {
 }
 
@@ -78,9 +78,8 @@ void MediaSettings::dumpProperties(const QString &context) const
 
 bool MediaSettings::operator==(const MediaSettings &other) const
 {
-	return camera == other.camera
-	       && audioInputDevice == other.audioInputDevice
-	       && container == other.container;
+	return camera == other.camera && audioInputDevice == other.audioInputDevice &&
+	       container == other.container;
 }
 
 bool MediaSettings::operator!=(const MediaSettings &other) const
@@ -91,9 +90,7 @@ bool MediaSettings::operator!=(const MediaSettings &other) const
 CommonEncoderSettings::CommonEncoderSettings(const QString &codec,
 	CommonEncoderSettings::EncodingQuality quality,
 	const QVariantMap &options)
-	: codec(codec)
-	  , quality(quality)
-	  , options(options)
+	: codec(codec), quality(quality), options(options)
 {
 }
 
@@ -122,9 +119,7 @@ void CommonEncoderSettings::saveSettings(QSettings *settings)
 
 bool CommonEncoderSettings::operator==(const CommonEncoderSettings &other) const
 {
-	return codec == other.codec
-	       && quality == other.quality
-	       &&options == other.options;
+	return codec == other.codec && quality == other.quality && options == other.options;
 }
 
 bool CommonEncoderSettings::operator!=(const CommonEncoderSettings &other) const
@@ -148,7 +143,7 @@ QString CommonEncoderSettings::toString(CommonEncoderSettings::EncodingQuality q
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 QString CommonEncoderSettings::toString(CommonEncoderSettings::EncodingMode mode)
@@ -165,14 +160,14 @@ QString CommonEncoderSettings::toString(CommonEncoderSettings::EncodingMode mode
 	}
 
 	Q_UNREACHABLE();
-	return { };
+	return {};
 }
 
 ImageEncoderSettings::ImageEncoderSettings(const QImageEncoderSettings &settings)
 	: CommonEncoderSettings(settings.codec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
-		  settings.encodingOptions())
-	  , resolution(settings.resolution())
+		  settings.encodingOptions()),
+	  resolution(settings.resolution())
 {
 }
 
@@ -211,8 +206,7 @@ void ImageEncoderSettings::dumpProperties(const QString &context) const
 
 bool ImageEncoderSettings::operator==(const ImageEncoderSettings &other) const
 {
-	return CommonEncoderSettings::operator==(other)
-	       && resolution == other.resolution;
+	return CommonEncoderSettings::operator==(other) && resolution == other.resolution;
 }
 
 bool ImageEncoderSettings::operator!=(const ImageEncoderSettings &other) const
@@ -233,11 +227,11 @@ QImageEncoderSettings ImageEncoderSettings::toQImageEncoderSettings() const
 AudioEncoderSettings::AudioEncoderSettings(const QAudioEncoderSettings &settings)
 	: CommonEncoderSettings(settings.codec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
-		  settings.encodingOptions())
-	  , mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode()))
-	  , bitRate(settings.bitRate())
-	  , sampleRate(settings.sampleRate())
-	  , channelCount(settings.channelCount())
+		  settings.encodingOptions()),
+	  mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode())),
+	  bitRate(settings.bitRate()),
+	  sampleRate(settings.sampleRate()),
+	  channelCount(settings.channelCount())
 {
 }
 
@@ -295,11 +289,8 @@ void AudioEncoderSettings::dumpProperties(const QString &context) const
 
 bool AudioEncoderSettings::operator==(const AudioEncoderSettings &other) const
 {
-	return CommonEncoderSettings::operator==(other)
-	       && mode == other.mode
-	       && bitRate == other.bitRate
-	       && sampleRate == other.sampleRate
-	       && channelCount == other.channelCount;
+	return CommonEncoderSettings::operator==(other) && mode == other.mode && bitRate == other.bitRate &&
+	       sampleRate == other.sampleRate && channelCount == other.channelCount;
 }
 
 bool AudioEncoderSettings::operator!=(const AudioEncoderSettings &other) const
@@ -323,11 +314,11 @@ QAudioEncoderSettings AudioEncoderSettings::toQAudioEncoderSettings() const
 VideoEncoderSettings::VideoEncoderSettings(const QVideoEncoderSettings &settings)
 	: CommonEncoderSettings(settings.codec(),
 		  static_cast<CommonEncoderSettings::EncodingQuality>(settings.quality()),
-		  settings.encodingOptions())
-	  , mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode()))
-	  , bitRate(settings.bitRate())
-	  , frameRate(settings.frameRate())
-	  , resolution(settings.resolution())
+		  settings.encodingOptions()),
+	  mode(static_cast<CommonEncoderSettings::EncodingMode>(settings.encodingMode())),
+	  bitRate(settings.bitRate()),
+	  frameRate(settings.frameRate()),
+	  resolution(settings.resolution())
 {
 }
 
@@ -385,11 +376,8 @@ void VideoEncoderSettings::dumpProperties(const QString &context) const
 
 bool VideoEncoderSettings::operator==(const VideoEncoderSettings &other) const
 {
-	return CommonEncoderSettings::operator==(other)
-	       && mode == other.mode
-	       && bitRate == other.bitRate
-	       && frameRate == other.frameRate
-	       && resolution == other.resolution;
+	return CommonEncoderSettings::operator==(other) && mode == other.mode &&
+	       bitRate == other.bitRate && frameRate == other.frameRate && resolution == other.resolution;
 }
 
 bool VideoEncoderSettings::operator!=(const VideoEncoderSettings &other) const
