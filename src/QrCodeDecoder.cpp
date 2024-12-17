@@ -34,10 +34,11 @@ void QrCodeDecoder::decodeImage(const QImage &image)
     // Advise the decoder to check for QR codes and to try decoding rotated versions of the image.
 #if ZXING_VERSION < QT_VERSION_CHECK(2, 2, 0)
     const auto decodeHints = DecodeHints().setFormats(BarcodeFormat::QRCode);
-    const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, decodeHints);
+    const auto result =
+        ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, static_cast<int>(image.bytesPerLine())}, decodeHints);
 #else
     auto options = ReaderOptions().setFormats(BarcodeFormat::QRCode);
-    const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, image.bytesPerLine()}, options);
+    const auto result = ReadBarcode({image.bits(), image.width(), image.height(), ZXing::ImageFormat::Lum, static_cast<int>(image.bytesPerLine())}, options);
 #endif
 
     // FIXME: `this` is not supposed to become nullptr in well-defined C++ code,
