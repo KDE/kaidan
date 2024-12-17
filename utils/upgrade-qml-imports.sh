@@ -20,7 +20,6 @@ set -e
 # find "${SOURCE_DIR}" -iname '*.qml' -exec grep 'import ' {} \; | sort -u
 
 declare -A QT
-QT["QtLocation"]="5.15"
 QT["QtMultimedia"]="5.15"
 QT["QtPositioning"]="5.15"
 QT["QtQuick"]="2.15"

@@ -7,7 +7,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtPositioning 5.15
-import QtLocation 5.15
+import QtLocation
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
