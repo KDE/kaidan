@@ -316,7 +316,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     case Files:
         return QVariant::fromValue(msg.files);
     case DisplayedReactions: {
-        QVector<DisplayedMessageReaction> displayedMessageReactions;
+        QList<DisplayedMessageReaction> displayedMessageReactions;
 
         const auto &reactionSenders = msg.reactionSenders;
         for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
@@ -353,7 +353,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
     }
     case DetailedReactions: {
         if (msg.isGroupChatMessage()) {
-            QVector<DetailedMessageReaction> detailedMessageReactions;
+            QList<DetailedMessageReaction> detailedMessageReactions;
 
             const auto &reactionSenders = msg.reactionSenders;
             for (auto itr = reactionSenders.begin(); itr != reactionSenders.end(); ++itr) {
@@ -419,7 +419,7 @@ void MessageModel::fetchMore(const QModelIndex &)
                                                                                        ChatController::instance()->chatJid(),
                                                                                        0),
                           this,
-                          [this](QVector<Message> &&messages) {
+                          [this](QList<Message> &&messages) {
                               handleMessagesFetched(messages);
                           });
                 } else {
@@ -435,14 +435,14 @@ void MessageModel::fetchMore(const QModelIndex &)
             } else {
                 await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), 0),
                       this,
-                      [this](QVector<Message> &&messages) {
+                      [this](QList<Message> &&messages) {
                           handleMessagesFetched(messages);
                       });
             }
         } else {
             await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), m_messages.size()),
                   this,
-                  [this](QVector<Message> &&messages) {
+                  [this](QList<Message> &&messages) {
                       handleMessagesFetched(messages);
                   });
         }
@@ -700,7 +700,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
         auto future = addReaction(MessageReactionDeliveryState::PendingAddition);
         await(future, this, [=, this, chatJid = ChatController::instance()->chatJid()]() {
             if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-                QVector<QString> emojis;
+                QList<QString> emojis;
 
                 for (const auto &reaction : reactions) {
                     switch (reaction.deliveryState) {
@@ -771,7 +771,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
             if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
                 auto &reactionSenders = itr->reactionSenders;
                 auto &reactions = reactionSenders[senderId].reactions;
-                QVector<QString> emojis;
+                QList<QString> emojis;
 
                 for (auto &reaction : reactions) {
                     const auto &storedEmoji = reaction.emoji;
@@ -854,7 +854,7 @@ void MessageModel::resendMessageReactions(const QString &messageId)
         });
 
         if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-            QVector<QString> emojis;
+            QList<QString> emojis;
 
             for (const auto &reaction : itr->reactionSenders.value(senderId).reactions) {
                 if (const auto deliveryState = reaction.deliveryState; deliveryState != MessageReactionDeliveryState::PendingRemovalAfterSent
@@ -1074,7 +1074,7 @@ void MessageModel::setMamLoading(bool mamLoading)
     }
 }
 
-void MessageModel::handleMessagesFetched(const QVector<Message> &msgs)
+void MessageModel::handleMessagesFetched(const QList<Message> &msgs)
 {
     if (msgs.size() < DB_QUERY_LIMIT_MESSAGES)
         m_fetchedAllFromDb = true;
@@ -1364,10 +1364,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
     }
 }
 
-bool MessageModel::undoMessageReactionRemoval(const QString &messageId,
-                                              const QString &senderJid,
-                                              const QString &emoji,
-                                              const QVector<MessageReaction> &reactions)
+bool MessageModel::undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QList<MessageReaction> &reactions)
 {
     const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
         return reaction.emoji == emoji;
@@ -1404,7 +1401,7 @@ bool MessageModel::undoMessageReactionRemoval(const QString &messageId,
 bool MessageModel::undoMessageReactionAddition(const QString &messageId,
                                                const QString &senderJid,
                                                const QString &emoji,
-                                               const QVector<MessageReaction> &reactions)
+                                               const QList<MessageReaction> &reactions)
 {
     const auto reactionItr = std::find_if(reactions.begin(), reactions.end(), [&](const MessageReaction &reaction) {
         return reaction.emoji == emoji

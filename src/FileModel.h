@@ -9,7 +9,7 @@
 #include <QAbstractListModel>
 #include <QFutureWatcher>
 
-using Files = QVector<File>;
+using Files = QList<File>;
 
 class FileModel : public QAbstractListModel
 {

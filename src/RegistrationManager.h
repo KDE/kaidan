@@ -8,9 +8,9 @@
 
 // Kaidan
 // Qt
+#include <QList>
 #include <QObject>
 #include <QTimer>
-#include <QVector>
 // QXmpp
 #include <QXmppBitsOfBinaryContentId.h>
 #include <QXmppStanza.h>
@@ -163,5 +163,5 @@ private:
     QXmppClient *m_client;
     QXmppRegistrationManager *m_manager;
     RegistrationDataFormModel *m_dataFormModel;
-    QVector<QXmppBitsOfBinaryContentId> m_contentIdsToRemove;
+    QList<QXmppBitsOfBinaryContentId> m_contentIdsToRemove;
 };

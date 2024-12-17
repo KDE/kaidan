@@ -24,8 +24,8 @@ class ProviderListItem
     Q_GADGET
 
     Q_PROPERTY(QUrl chosenWebsite READ chosenWebsite CONSTANT)
-    Q_PROPERTY(QVector<QString> chosenChatSupport READ chosenChatSupport CONSTANT)
-    Q_PROPERTY(QVector<QString> chosenGroupChatSupport READ chosenGroupChatSupport CONSTANT)
+    Q_PROPERTY(QList<QString> chosenChatSupport READ chosenChatSupport CONSTANT)
+    Q_PROPERTY(QList<QString> chosenGroupChatSupport READ chosenGroupChatSupport CONSTANT)
 
 public:
     template<typename T>
@@ -77,12 +77,12 @@ public:
     LanguageVariants<QUrl> registrationWebPages() const;
     void setRegistrationWebPages(const LanguageVariants<QUrl> &registrationWebPages);
 
-    QVector<QString> languages() const;
+    QList<QString> languages() const;
 
-    QVector<QString> countries() const;
-    void setCountries(const QVector<QString> &country);
+    QList<QString> countries() const;
+    void setCountries(const QList<QString> &country);
 
-    QVector<QString> flags() const;
+    QList<QString> flags() const;
 
     LanguageVariants<QUrl> websites() const;
     void setWebsites(const LanguageVariants<QUrl> &websites);
@@ -97,13 +97,13 @@ public:
     int messageStorageDuration() const;
     void setMessageStorageDuration(int messageStorageDuration);
 
-    LanguageVariants<QVector<QString>> chatSupport() const;
-    void setChatSupport(const LanguageVariants<QVector<QString>> &chatSupport);
-    QVector<QString> chosenChatSupport() const;
+    LanguageVariants<QList<QString>> chatSupport() const;
+    void setChatSupport(const LanguageVariants<QList<QString>> &chatSupport);
+    QList<QString> chosenChatSupport() const;
 
-    LanguageVariants<QVector<QString>> groupChatSupport() const;
-    void setGroupChatSupport(const LanguageVariants<QVector<QString>> &groupChatSupport);
-    QVector<QString> chosenGroupChatSupport() const;
+    LanguageVariants<QList<QString>> groupChatSupport() const;
+    void setGroupChatSupport(const LanguageVariants<QList<QString>> &groupChatSupport);
+    QList<QString> chosenGroupChatSupport() const;
 
     bool operator<(const ProviderListItem &other) const;
     bool operator>(const ProviderListItem &other) const;

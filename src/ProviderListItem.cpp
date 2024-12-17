@@ -23,14 +23,14 @@ public:
     QString jid;
     bool supportsInBandRegistration;
     ProviderListItem::LanguageVariants<QUrl> registrationWebPages;
-    QVector<QString> languages;
-    QVector<QString> countries;
+    QList<QString> languages;
+    QList<QString> countries;
     ProviderListItem::LanguageVariants<QUrl> websites;
     QDate since;
     int httpUploadSize;
     int messageStorageDuration;
-    ProviderListItem::LanguageVariants<QVector<QString>> chatSupport;
-    ProviderListItem::LanguageVariants<QVector<QString>> groupChatSupport;
+    ProviderListItem::LanguageVariants<QList<QString>> chatSupport;
+    ProviderListItem::LanguageVariants<QList<QString>> groupChatSupport;
 };
 
 ProviderListItemPrivate::ProviderListItemPrivate()
@@ -50,7 +50,7 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
     item.setRegistrationWebPages(parseStringLanguageVariants<QUrl>(object.value(QLatin1String("registrationWebPage")).toObject()));
 
     const auto serverLocations = object.value(QLatin1String("serverLocations")).toArray();
-    QVector<QString> countries;
+    QList<QString> countries;
     for (const auto &country : serverLocations) {
         countries.append(country.toString().toUpper());
     }
@@ -60,8 +60,8 @@ ProviderListItem ProviderListItem::fromJson(const QJsonObject &object)
     item.setSince(object.value(QLatin1String("since")).toVariant().toDate());
     item.setHttpUploadSize(object.value(QLatin1String("maximumHttpFileUploadFileSize")).toInt(-1));
     item.setMessageStorageDuration(object.value(QLatin1String("maximumMessageArchiveManagementStorageTime")).toInt(-1));
-    item.setChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("chatSupport")).toObject()));
-    item.setGroupChatSupport(parseStringListLanguageVariants<QVector<QString>>(object.value(QLatin1String("groupChatSupport")).toObject()));
+    item.setChatSupport(parseStringListLanguageVariants<QList<QString>>(object.value(QLatin1String("chatSupport")).toObject()));
+    item.setGroupChatSupport(parseStringListLanguageVariants<QList<QString>>(object.value(QLatin1String("groupChatSupport")).toObject()));
 
     return item;
 }
@@ -118,22 +118,22 @@ void ProviderListItem::setRegistrationWebPages(const LanguageVariants<QUrl> &reg
     d->registrationWebPages = registrationWebPages;
 }
 
-QVector<QString> ProviderListItem::languages() const
+QList<QString> ProviderListItem::languages() const
 {
     return {d->websites.keyBegin(), d->websites.keyEnd()};
 }
 
-QVector<QString> ProviderListItem::countries() const
+QList<QString> ProviderListItem::countries() const
 {
     return d->countries;
 }
 
-void ProviderListItem::setCountries(const QVector<QString> &countries)
+void ProviderListItem::setCountries(const QList<QString> &countries)
 {
     d->countries = countries;
 }
 
-QVector<QString> ProviderListItem::flags() const
+QList<QString> ProviderListItem::flags() const
 {
     // If this object is the custom provider, no flag should be shown.
     if (d->isCustomProvider)
@@ -144,7 +144,7 @@ QVector<QString> ProviderListItem::flags() const
         return {QStringLiteral("🏳️‍🌈")};
     }
 
-    QVector<QString> flags;
+    QList<QString> flags;
     for (const auto &country : std::as_const(d->countries)) {
         QString flag;
 
@@ -226,32 +226,32 @@ void ProviderListItem::setMessageStorageDuration(int messageStorageDuration)
     d->messageStorageDuration = messageStorageDuration;
 }
 
-ProviderListItem::LanguageVariants<QVector<QString>> ProviderListItem::chatSupport() const
+ProviderListItem::LanguageVariants<QList<QString>> ProviderListItem::chatSupport() const
 {
     return d->chatSupport;
 }
 
-void ProviderListItem::setChatSupport(const LanguageVariants<QVector<QString>> &chatSupport)
+void ProviderListItem::setChatSupport(const LanguageVariants<QList<QString>> &chatSupport)
 {
     d->chatSupport = chatSupport;
 }
 
-QVector<QString> ProviderListItem::chosenChatSupport() const
+QList<QString> ProviderListItem::chosenChatSupport() const
 {
     return chatSupport().pickBySystemLocale();
 }
 
-ProviderListItem::LanguageVariants<QVector<QString>> ProviderListItem::groupChatSupport() const
+ProviderListItem::LanguageVariants<QList<QString>> ProviderListItem::groupChatSupport() const
 {
     return d->groupChatSupport;
 }
 
-void ProviderListItem::setGroupChatSupport(const LanguageVariants<QVector<QString>> &groupChatSupport)
+void ProviderListItem::setGroupChatSupport(const LanguageVariants<QList<QString>> &groupChatSupport)
 {
     d->groupChatSupport = groupChatSupport;
 }
 
-QVector<QString> ProviderListItem::chosenGroupChatSupport() const
+QList<QString> ProviderListItem::chosenGroupChatSupport() const
 {
     return groupChatSupport().pickBySystemLocale();
 }

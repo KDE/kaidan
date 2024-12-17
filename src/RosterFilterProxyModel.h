@@ -12,8 +12,8 @@ class RosterFilterProxyModel : public QSortFilterProxyModel
     Q_OBJECT
 
     Q_PROPERTY(Types displayedTypes READ displayedTypes NOTIFY displayedTypesChanged)
-    Q_PROPERTY(QVector<QString> selectedAccountJids READ selectedAccountJids WRITE setSelectedAccountJids NOTIFY selectedAccountJidsChanged)
-    Q_PROPERTY(QVector<QString> selectedGroups READ selectedGroups WRITE setSelectedGroups NOTIFY selectedGroupsChanged)
+    Q_PROPERTY(QList<QString> selectedAccountJids READ selectedAccountJids WRITE setSelectedAccountJids NOTIFY selectedAccountJidsChanged)
+    Q_PROPERTY(QList<QString> selectedGroups READ selectedGroups WRITE setSelectedGroups NOTIFY selectedGroupsChanged)
     Q_PROPERTY(bool groupChatsExcluded READ groupChatsExcluded WRITE setGroupChatsExcluded NOTIFY groupChatsExcludedChanged)
     Q_PROPERTY(bool groupChatUsersExcluded READ groupChatUsersExcluded WRITE setGroupChatUsersExcluded NOTIFY groupChatUsersExcludedChanged)
 
@@ -36,12 +36,12 @@ public:
     Types displayedTypes() const;
     Q_SIGNAL void displayedTypesChanged();
 
-    void setSelectedAccountJids(const QVector<QString> &selectedAccountJids);
-    QVector<QString> selectedAccountJids() const;
+    void setSelectedAccountJids(const QList<QString> &selectedAccountJids);
+    QList<QString> selectedAccountJids() const;
     Q_SIGNAL void selectedAccountJidsChanged();
 
-    void setSelectedGroups(const QVector<QString> &selectedGroups);
-    QVector<QString> selectedGroups() const;
+    void setSelectedGroups(const QList<QString> &selectedGroups);
+    QList<QString> selectedGroups() const;
     Q_SIGNAL void selectedGroupsChanged();
 
     void setGroupChatsExcluded(bool groupChatsExcluded);
@@ -61,9 +61,9 @@ private:
     void updateGroupChatUserJids();
 
     Types m_displayedTypes;
-    QVector<QString> m_selectedAccountJids;
-    QVector<QString> m_selectedGroups;
-    QVector<QString> m_groupChatUserJids;
+    QList<QString> m_selectedAccountJids;
+    QList<QString> m_selectedGroups;
+    QList<QString> m_groupChatUserJids;
     bool m_groupChatsExcluded = false;
     bool m_groupChatUsersExcluded = false;
 };

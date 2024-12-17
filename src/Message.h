@@ -50,7 +50,7 @@ struct EncryptedSource {
     QByteArray key;
     QByteArray iv;
     std::optional<qint64> encryptedDataId;
-    QVector<FileHash> encryptedHashes;
+    QList<FileHash> encryptedHashes;
 
     QXmppEncryptedFileSource toQXmpp() const;
 
@@ -88,10 +88,10 @@ public:
     QXmppFileShare::Disposition disposition = QXmppFileShare::Attachment;
     QString localFilePath;
     QString externalId;
-    QVector<FileHash> hashes;
+    QList<FileHash> hashes;
     QByteArray thumbnail;
-    QVector<HttpSource> httpSources;
-    QVector<EncryptedSource> encryptedSources;
+    QList<HttpSource> httpSources;
+    QList<EncryptedSource> encryptedSources;
     bool isNew;
 
     [[nodiscard]] QXmppFileShare toQXmpp() const;
@@ -172,7 +172,7 @@ Q_DECLARE_METATYPE(MessageReaction)
 
 struct MessageReactionSender {
     QDateTime latestTimestamp;
-    QVector<MessageReaction> reactions;
+    QList<MessageReaction> reactions;
 
     bool operator==(const MessageReactionSender &other) const = default;
 };
@@ -247,7 +247,7 @@ public:
     bool isSpoiler = false;
     QString spoilerHint;
     std::optional<qint64> fileGroupId;
-    QVector<File> files;
+    QList<File> files;
     QXmppMessage::Marker marker = QXmppMessage::NoMarker;
     QString markerId;
     bool receiptRequested = false;
@@ -261,7 +261,7 @@ public:
     bool removed = false;
 
     [[nodiscard]] QXmppMessage toQXmpp() const;
-    [[nodiscard]] QVector<QXmppMessage> fallbackMessages() const;
+    [[nodiscard]] QList<QXmppMessage> fallbackMessages() const;
 
     QString relevantId() const;
     QString senderJid() const;

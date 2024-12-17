@@ -14,13 +14,13 @@
 #include <ranges>
 #endif
 
-#include <QVector>
+#include <QList>
 
 template<typename T, typename Converter>
 auto transform(const T &input, Converter convert)
 {
     using Output = std::decay_t<decltype(convert(*input.begin()))>;
-    QVector<Output> output;
+    QList<Output> output;
     output.reserve(input.size());
     std::transform(input.begin(), input.end(), std::back_inserter(output), std::move(convert));
     return output;
@@ -72,7 +72,7 @@ template<typename T, typename ConditionalConverter>
 auto transformFilter(const T &input, ConditionalConverter conditionalConverter)
 {
     using Output = typename std::decay_t<decltype(conditionalConverter(input.front()))>::value_type;
-    QVector<Output> output;
+    QList<Output> output;
 
     for (const auto &item : input) {
         if (auto result = conditionalConverter(item)) {
@@ -108,7 +108,7 @@ auto andThen(std::optional<T> &&option, Func func) -> std::invoke_result_t<Func,
 }
 
 template<typename T, typename Func>
-auto sum(const QVector<T> &input)
+auto sum(const QList<T> &input)
 {
     using Output = std::decay_t<decltype(convert(input.front()))>;
     Output output;

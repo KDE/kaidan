@@ -164,7 +164,7 @@ public:
     Q_INVOKABLE void clear();
     bool setData(const QModelIndex &index, const QVariant &value, int role) override;
 
-    const QVector<File> &files() const;
+    const QList<File> &files() const;
     bool hasFiles() const
     {
         return !m_files.empty();
@@ -174,5 +174,5 @@ private:
     // Deletes a file that the user created via Kaidan.
     static void deleteNewFile(const File &file);
 
-    QVector<File> m_files;
+    QList<File> m_files;
 };

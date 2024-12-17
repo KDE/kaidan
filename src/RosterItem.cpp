@@ -19,7 +19,7 @@ RosterItem::RosterItem(const QString &accountJid, const QXmppRosterIq::Item &ite
     }
 
     const auto rosterGroups = item.groups();
-    groups = QVector(rosterGroups.cbegin(), rosterGroups.cend());
+    groups = QList(rosterGroups.cbegin(), rosterGroups.cend());
 }
 
 QString RosterItem::displayName() const

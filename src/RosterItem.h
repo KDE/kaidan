@@ -29,7 +29,7 @@ struct RosterItem {
     Q_PROPERTY(bool isGroupChat READ isGroupChat CONSTANT)
     Q_PROPERTY(bool isPublicGroupChat READ isPublicGroupChat CONSTANT)
     Q_PROPERTY(bool isDeletedGroupChat READ isDeletedGroupChat CONSTANT)
-    Q_PROPERTY(QVector<QString> groups MEMBER groups)
+    Q_PROPERTY(QList<QString> groups MEMBER groups)
     Q_PROPERTY(int unreadMessageCount MEMBER unreadMessages)
     Q_PROPERTY(bool chatStateSendingEnabled MEMBER chatStateSendingEnabled)
     Q_PROPERTY(bool readMarkerSendingEnabled MEMBER readMarkerSendingEnabled)
@@ -104,7 +104,7 @@ public:
     QXmppRosterIq::Item::SubscriptionType subscription = QXmppRosterIq::Item::NotSet;
 
     // Roster groups (i.e., labels) used for filtering (e.g., "Family", "Friends" etc.).
-    QVector<QString> groups;
+    QList<QString> groups;
 
     // ID in this group chat.
     QString groupChatParticipantId;

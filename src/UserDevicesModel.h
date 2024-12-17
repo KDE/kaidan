@@ -6,7 +6,7 @@
 #pragma once
 
 #include <QAbstractListModel>
-#include <QVector>
+#include <QList>
 
 #include "PresenceCache.h"
 
@@ -55,5 +55,5 @@ private:
     };
 
     QString m_jid;
-    QVector<DeviceInfo> m_devices;
+    QList<DeviceInfo> m_devices;
 };

@@ -68,7 +68,7 @@ QFuture<Account> AccountDb::account(const QString &jid)
                       {u":jid", jid},
                   });
 
-        QVector<Account> accounts;
+        QList<Account> accounts;
         parseAccountsFromQuery(query, accounts);
 
         return accounts.first();
@@ -90,7 +90,7 @@ QFuture<void> AccountDb::updateAccount(const QString &jid, const std::function<v
                       {u":jid", jid},
                   });
 
-        QVector<Account> accounts;
+        QList<Account> accounts;
         parseAccountsFromQuery(query, accounts);
 
         // Update the loaded account.
@@ -172,7 +172,7 @@ QFuture<void> AccountDb::removeAccount(const QString &jid)
     });
 }
 
-void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts)
+void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &accounts)
 {
     QSqlRecord rec = query.record();
 

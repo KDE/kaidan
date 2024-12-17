@@ -48,7 +48,7 @@ RosterFilterProxyModel::Types RosterFilterProxyModel::displayedTypes() const
     return m_displayedTypes;
 }
 
-void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &selectedAccountJids)
+void RosterFilterProxyModel::setSelectedAccountJids(const QList<QString> &selectedAccountJids)
 {
     if (m_selectedAccountJids != selectedAccountJids) {
         m_selectedAccountJids = selectedAccountJids;
@@ -57,12 +57,12 @@ void RosterFilterProxyModel::setSelectedAccountJids(const QVector<QString> &sele
     }
 }
 
-QVector<QString> RosterFilterProxyModel::selectedAccountJids() const
+QList<QString> RosterFilterProxyModel::selectedAccountJids() const
 {
     return m_selectedAccountJids;
 }
 
-void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedGroups)
+void RosterFilterProxyModel::setSelectedGroups(const QList<QString> &selectedGroups)
 {
     if (m_selectedGroups != selectedGroups) {
         m_selectedGroups = selectedGroups;
@@ -71,7 +71,7 @@ void RosterFilterProxyModel::setSelectedGroups(const QVector<QString> &selectedG
     }
 }
 
-QVector<QString> RosterFilterProxyModel::selectedGroups() const
+QList<QString> RosterFilterProxyModel::selectedGroups() const
 {
     return m_selectedGroups;
 }
@@ -148,7 +148,7 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
         return false;
     }
 
-    if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QVector<QString>>();
+    if (const auto groups = sourceModel()->data(index, RosterModel::GroupsRole).value<QList<QString>>();
         !m_selectedGroups.isEmpty() && std::none_of(groups.cbegin(), groups.cend(), [&](const QString &group) {
             return m_selectedGroups.contains(group);
         })) {

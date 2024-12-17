@@ -226,7 +226,7 @@ void MessageComposition::send()
         auto *fSController = Kaidan::instance()->fileSharingController();
         // upload files
         fSController->sendFiles(message.files, encrypt).then(fSController, [message = std::move(message)](auto result) mutable {
-            if (auto files = std::get_if<QVector<File>>(&result)) {
+            if (auto files = std::get_if<QList<File>>(&result)) {
                 // uploading succeeded
 
                 // set updated files with new metadata and uploaded sources
@@ -594,7 +594,7 @@ bool FileSelectionModel::setData(const QModelIndex &index, const QVariant &value
     return true;
 }
 
-const QVector<File> &FileSelectionModel::files() const
+const QList<File> &FileSelectionModel::files() const
 {
     return m_files;
 }

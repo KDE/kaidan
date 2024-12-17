@@ -296,7 +296,7 @@ QXmppMessage Message::toQXmpp() const
     return msg;
 }
 
-QVector<QXmppMessage> Message::fallbackMessages() const
+QList<QXmppMessage> Message::fallbackMessages() const
 {
     if (files.empty() || includeFileFallbackInMainMessage()) {
         return {};

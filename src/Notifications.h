@@ -26,7 +26,7 @@ public:
         QString chatJid;
         QDateTime initalTimestamp;
         QString latestMessageId;
-        QVector<QString> messages;
+        QList<QString> messages;
         bool isDeletionEnabled = true;
         KNotification *notification = nullptr;
     };
@@ -66,8 +66,8 @@ private:
     QString determineChatName(const QString &chatJid) const;
     void showChat(const QString &accountJid, const QString &chatJid);
 
-    QVector<MessageNotificationWrapper> m_openMessageNotifications;
-    QVector<PresenceSubscriptionRequestNotificationWrapper> m_openPresenceSubscriptionRequestNotifications;
+    QList<MessageNotificationWrapper> m_openMessageNotifications;
+    QList<PresenceSubscriptionRequestNotificationWrapper> m_openPresenceSubscriptionRequestNotifications;
 
     static Notifications *s_instance;
 };

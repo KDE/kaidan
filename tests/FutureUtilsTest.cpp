@@ -19,7 +19,7 @@ void FutureUtilsTest::testJoin()
     QFutureInterface<int> i2;
     QFutureInterface<int> i3;
 
-    auto futures = QVector{i1.future(), i2.future(), i3.future()};
+    auto futures = QList{i1.future(), i2.future(), i3.future()};
     auto joinedFuture = join(this, futures);
 
     i2.reportResult(10);
@@ -34,7 +34,7 @@ void FutureUtilsTest::testJoin()
     }
 
     QVERIFY(joinedFuture.isFinished());
-    QCOMPARE(joinedFuture.result(), (QVector<int>{9, 10, 11}));
+    QCOMPARE(joinedFuture.result(), (QList<int>{9, 10, 11}));
 }
 
 QTEST_GUILESS_MAIN(FutureUtilsTest)

@@ -51,7 +51,7 @@ QVariant MessageReactionModel::data(const QModelIndex &index, int role) const
     return {};
 }
 
-void MessageReactionModel::setReactions(const QVector<DetailedMessageReaction> &reactions)
+void MessageReactionModel::setReactions(const QList<DetailedMessageReaction> &reactions)
 {
     if (this->reactions != reactions) {
         this->reactions = reactions;

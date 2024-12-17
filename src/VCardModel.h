@@ -54,5 +54,5 @@ private:
     QString m_jid;
     bool m_unsetEntriesProcessed = false;
     QXmppVCardIq m_vCard;
-    QVector<Item> m_vCardMap;
+    QList<Item> m_vCardMap;
 };

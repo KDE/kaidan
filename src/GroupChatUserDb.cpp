@@ -65,7 +65,7 @@ std::optional<GroupChatUser> GroupChatUserDb::_user(const QString &accountJid, c
                   + QStringLiteral(" "
                                    "LIMIT 1"));
 
-    QVector<GroupChatUser> users;
+    QList<GroupChatUser> users;
     parseUsersFromQuery(query, users);
 
     if (users.isEmpty()) {
@@ -75,7 +75,7 @@ std::optional<GroupChatUser> GroupChatUserDb::_user(const QString &accountJid, c
     return users.constFirst();
 }
 
-QFuture<QVector<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid, const QString &chatJid, const int offset)
+QFuture<QList<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid, const QString &chatJid, const int offset)
 {
     return run([this, accountJid, chatJid, offset]() {
         auto query = createQuery();
@@ -93,14 +93,14 @@ QFuture<QVector<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid
                             .arg(offset)
                             .arg(DB_QUERY_LIMIT_GROUP_CHAT_USERS));
 
-        QVector<GroupChatUser> users;
+        QList<GroupChatUser> users;
         parseUsersFromQuery(query, users);
 
         return users;
     });
 }
 
-QFuture<QVector<QString>> GroupChatUserDb::userJids(const QString &accountJid, const QString &chatJid)
+QFuture<QList<QString>> GroupChatUserDb::userJids(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
         auto query = createQuery();
@@ -112,7 +112,7 @@ QFuture<QVector<QString>> GroupChatUserDb::userJids(const QString &accountJid, c
                   QStringLiteral("SELECT ") + JID.toString() + QStringLiteral(" FROM " DB_TABLE_GROUP_CHAT_USERS)
                       + simpleWhereStatement(&sqlDriver(), keyValuePairs));
 
-        QVector<QString> userJids;
+        QList<QString> userJids;
 
         while (query.next()) {
             if (const auto jid = query.value(0).toString(); !jid.isEmpty()) {
@@ -348,7 +348,7 @@ void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void(GroupCh
                   + QStringLiteral(" "
                                    "LIMIT 1"));
 
-    QVector<GroupChatUser> users;
+    QList<GroupChatUser> users;
     parseUsersFromQuery(query, users);
 
     // Update the loaded user.
@@ -371,7 +371,7 @@ void GroupChatUserDb::updateUserByKeyValuePairs(const std::function<void(GroupCh
     }
 }
 
-void GroupChatUserDb::parseUsersFromQuery(QSqlQuery &query, QVector<GroupChatUser> &users)
+void GroupChatUserDb::parseUsersFromQuery(QSqlQuery &query, QList<GroupChatUser> &users)
 {
     QSqlRecord rec = query.record();
 

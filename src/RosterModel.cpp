@@ -54,7 +54,7 @@ RosterModel::RosterModel(QObject *parent)
         m_items.clear();
         endResetModel();
 
-        await(RosterDb::instance()->fetchItems(), this, [this](const QVector<RosterItem> &items) {
+        await(RosterDb::instance()->fetchItems(), this, [this](const QList<RosterItem> &items) {
             handleItemsFetched(items);
         });
     });
@@ -333,7 +333,7 @@ std::optional<RosterItem> RosterModel::findItem(const QString &jid) const
     return {};
 }
 
-const QVector<RosterItem> &RosterModel::items() const
+const QList<RosterItem> &RosterModel::items() const
 {
     return m_items;
 }
@@ -452,7 +452,7 @@ void RosterModel::setAutomaticMediaDownloadsRule(const QString &, const QString 
     });
 }
 
-void RosterModel::handleItemsFetched(const QVector<RosterItem> &items)
+void RosterModel::handleItemsFetched(const QList<RosterItem> &items)
 {
     beginResetModel();
     m_items = items;
@@ -582,7 +582,7 @@ void RosterModel::handleMessageAdded(const Message &message, MessageOrigin origi
         return;
     }
 
-    await(updateLastMessage(itr, message), this, [this, message, origin, itr](QVector<int> &&changedRoles) mutable {
+    await(updateLastMessage(itr, message), this, [this, message, origin, itr](QList<int> &&changedRoles) mutable {
         // unread messages counter
         std::optional<int> newUnreadMessages;
 
@@ -628,7 +628,7 @@ void RosterModel::handleMessageUpdated(const Message &message)
         return;
     }
 
-    await(updateLastMessage(itr, message), this, [this, itr](QVector<int> &&changedRoles) mutable {
+    await(updateLastMessage(itr, message), this, [this, itr](QList<int> &&changedRoles) mutable {
         if (!changedRoles.isEmpty()) {
             informAboutChangedData(itr, changedRoles);
         }
@@ -699,16 +699,16 @@ void RosterModel::handleMessageRemoved(const Message &newLastMessage)
         return;
     }
 
-    await(updateLastMessage(itr, newLastMessage, false), this, [this, itr](QVector<int> &&changedRoles) mutable {
+    await(updateLastMessage(itr, newLastMessage, false), this, [this, itr](QList<int> &&changedRoles) mutable {
         if (!changedRoles.isEmpty()) {
             informAboutChangedData(itr, changedRoles);
         }
     });
 }
 
-QFuture<QVector<int>> RosterModel::updateLastMessage(QVector<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
+QFuture<QList<int>> RosterModel::updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge)
 {
-    QFutureInterface<QVector<int>> interface(QFutureInterfaceBase::Started);
+    QFutureInterface<QList<int>> interface(QFutureInterfaceBase::Started);
 
     // If desired, only set the new message as the current last message if it is newer than
     // the current one or at the same age.
@@ -732,7 +732,7 @@ QFuture<QVector<int>> RosterModel::updateLastMessage(QVector<RosterItem>::Iterat
             itr->lastMessageGroupChatSenderName.clear();
         }
 
-        static const QVector<int> changedRoles = {
+        static const QList<int> changedRoles = {
             int(LastMessageRole),
             int(LastMessageIsOwnRole),
             int(LastMessageGroupChatSenderNameRole),
@@ -747,14 +747,14 @@ QFuture<QVector<int>> RosterModel::updateLastMessage(QVector<RosterItem>::Iterat
     return interface.future();
 }
 
-void RosterModel::updateOnDraftMessageChanged(QVector<RosterItem>::Iterator &itr)
+void RosterModel::updateOnDraftMessageChanged(QList<RosterItem>::Iterator &itr)
 {
-    static const QVector<int> changedRoles = {int(LastMessageDateTimeRole), int(LastMessageRole), int(LastMessageIsDraftRole)};
+    static const QList<int> changedRoles = {int(LastMessageDateTimeRole), int(LastMessageRole), int(LastMessageIsDraftRole)};
 
     updateItemPosition(informAboutChangedData(itr, changedRoles));
 }
 
-int RosterModel::informAboutChangedData(QVector<RosterItem>::Iterator &itr, const QVector<int> &changedRoles)
+int RosterModel::informAboutChangedData(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles)
 {
     const auto i = std::distance(m_items.begin(), itr);
     const auto modelIndex = index(i);

@@ -12,7 +12,7 @@ class MessageReactionModel : public QAbstractListModel
     Q_OBJECT
     Q_PROPERTY(QString accountJid MEMBER accountJid)
     Q_PROPERTY(QString chatJid MEMBER chatJid)
-    Q_PROPERTY(QVector<DetailedMessageReaction> reactions MEMBER reactions WRITE setReactions)
+    Q_PROPERTY(QList<DetailedMessageReaction> reactions MEMBER reactions WRITE setReactions)
 
 public:
     enum class Role {
@@ -28,10 +28,10 @@ public:
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;
     [[nodiscard]] QVariant data(const QModelIndex &index, int role) const override;
 
-    void setReactions(const QVector<DetailedMessageReaction> &reactions);
+    void setReactions(const QList<DetailedMessageReaction> &reactions);
 
 private:
     QString accountJid;
     QString chatJid;
-    QVector<DetailedMessageReaction> reactions;
+    QList<DetailedMessageReaction> reactions;
 };

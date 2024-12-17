@@ -157,7 +157,7 @@ void GroupChatController::requestGroupChatUsers(const QString &, const QString &
     m_mixController->requestChannelUsers(groupChatJid);
 }
 
-QVector<QString> GroupChatController::currentUserJids() const
+QList<QString> GroupChatController::currentUserJids() const
 {
     return m_currentUserJids;
 }
@@ -193,7 +193,7 @@ void GroupChatController::handleChatChanged()
         const auto accountJid = chatController->accountJid();
         const auto chatJid = chatController->chatJid();
 
-        await(GroupChatUserDb::instance()->userJids(accountJid, chatJid), this, [this, chatController, accountJid, chatJid](QVector<QString> &&userJids) {
+        await(GroupChatUserDb::instance()->userJids(accountJid, chatJid), this, [this, chatController, accountJid, chatJid](QList<QString> &&userJids) {
             // Ensure that the chat is still the open one after fetching the user JIDs.
             if (chatController->accountJid() == accountJid && chatController->chatJid() == chatJid) {
                 setCurrentUserJids(userJids);
@@ -233,7 +233,7 @@ void GroupChatController::updateUserJidsChanged(const QString &accountJid, const
     if (currentAccountJid == accountJid && currentChatJid == groupChatJid) {
         await(GroupChatUserDb::instance()->userJids(accountJid, groupChatJid),
               this,
-              [this, chatController, accountJid, groupChatJid](QVector<QString> &&userJids) {
+              [this, chatController, accountJid, groupChatJid](QList<QString> &&userJids) {
                   // Ensure that the chat is still the open one after fetching the user JIDs.
                   if (chatController->accountJid() == accountJid && chatController->chatJid() == groupChatJid) {
                       setCurrentUserJids(userJids);
@@ -255,7 +255,7 @@ void GroupChatController::updateEncryption()
     chatController->chatEncryptionWatcher()->setJids({jids.cbegin(), jids.cend()});
 }
 
-void GroupChatController::setCurrentUserJids(const QVector<QString> &currentUserJids)
+void GroupChatController::setCurrentUserJids(const QList<QString> &currentUserJids)
 {
     if (m_currentUserJids != currentUserJids) {
         m_currentUserJids = currentUserJids;

@@ -135,7 +135,7 @@ QString GroupChatUserModel::participantName(const QString &accountJid, const QSt
 
 void GroupChatUserModel::fetchUsers()
 {
-    await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()), this, [this](QVector<GroupChatUser> &&users) {
+    await(GroupChatUserDb::instance()->users(m_accountJid, m_chatJid, m_users.size()), this, [this](QList<GroupChatUser> &&users) {
         replaceUsers(users);
 
         if (users.size() < DB_QUERY_LIMIT_GROUP_CHAT_USERS) {
@@ -163,7 +163,7 @@ void GroupChatUserModel::addUser(const GroupChatUser &user)
     insertUser(m_users.size(), user);
 }
 
-void GroupChatUserModel::replaceUsers(QVector<GroupChatUser> users)
+void GroupChatUserModel::replaceUsers(QList<GroupChatUser> users)
 {
     std::sort(users.begin(), users.end());
 

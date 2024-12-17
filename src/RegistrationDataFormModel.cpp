@@ -141,9 +141,9 @@ void RegistrationDataFormModel::setIsFakeForm(bool isFakeForm)
     m_isFakeForm = isFakeForm;
 }
 
-QVector<int> RegistrationDataFormModel::indiciesToFilter() const
+QList<int> RegistrationDataFormModel::indiciesToFilter() const
 {
-    QVector<int> indicies;
+    QList<int> indicies;
 
     // username and password
     // email is currently not filtered because we do not have an extra email view

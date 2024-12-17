@@ -192,17 +192,17 @@ auto callVoidRemoteTask(QObject *target, Function function, QObject *caller, Han
 
 // Creates a future with the results from all given futures (preserving order).
 template<typename T>
-QFuture<QVector<T>> join(QObject *context, const QVector<QFuture<T>> &futures)
+QFuture<QList<T>> join(QObject *context, const QList<QFuture<T>> &futures)
 {
     if (futures.empty()) {
-        return makeReadyFuture<QVector<T>>({});
+        return makeReadyFuture<QList<T>>({});
     }
 
     struct State {
-        QFutureInterface<QVector<T>> interface;
+        QFutureInterface<QList<T>> interface;
         QObject *context = nullptr;
-        QVector<T> results;
-        QVector<QFuture<T>> futures;
+        QList<T> results;
+        QList<QFuture<T>> futures;
         qsizetype i = 0;
         // keep-alive during awaits()
         std::shared_ptr<State> self;
@@ -237,7 +237,7 @@ QFuture<QVector<T>> join(QObject *context, const QVector<QFuture<T>> &futures)
 
 // Creates a future for multiple futures without a return value.
 template<typename T>
-QFuture<void> joinVoidFutures(QObject *context, QVector<QFuture<T>> &&futures)
+QFuture<void> joinVoidFutures(QObject *context, QList<QFuture<T>> &&futures)
 {
     int futureCount = futures.size();
     auto finishedFutureCount = std::make_shared<int>();

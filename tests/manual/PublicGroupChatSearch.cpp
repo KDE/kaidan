@@ -37,7 +37,7 @@ bool keyValue(const QJsonObject &object, const QStringView &key)
     return object.value(key).toBool();
 }
 
-using PublicGroupChats = QVector<struct PublicGroupChat>;
+using PublicGroupChats = QList<struct PublicGroupChat>;
 
 struct PublicGroupChat {
     static constexpr const QStringView Address = u"address";

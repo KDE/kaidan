@@ -14,7 +14,7 @@
 // Qt
 #include <QAbstractListModel>
 #include <QFuture>
-#include <QVector>
+#include <QList>
 // Kaidan
 #include "RosterItem.h"
 
@@ -143,7 +143,7 @@ public:
      */
     std::optional<RosterItem> findItem(const QString &jid) const;
 
-    const QVector<RosterItem> &items() const;
+    const QList<RosterItem> &items() const;
 
     Q_INVOKABLE void pinItem(const QString &accountJid, const QString &jid);
     Q_INVOKABLE void unpinItem(const QString &accountJid, const QString &jid);
@@ -158,7 +158,7 @@ public:
     Q_INVOKABLE void setAutomaticMediaDownloadsRule(const QString &accountJid, const QString &jid, RosterItem::AutomaticMediaDownloadsRule rule);
 
 private:
-    void handleItemsFetched(const QVector<RosterItem> &items);
+    void handleItemsFetched(const QList<RosterItem> &items);
 
     void addItem(const RosterItem &item);
     void updateItem(const RosterItem &item);
@@ -174,10 +174,10 @@ private:
     void handleDraftMessageRemoved(const Message &newLastMessage);
     void handleMessageRemoved(const Message &newLastMessage);
 
-    QFuture<QVector<int>> updateLastMessage(QVector<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge = true);
+    QFuture<QList<int>> updateLastMessage(QList<RosterItem>::Iterator &itr, const Message &message, bool onlyUpdateIfNewerOrAtSameAge = true);
 
-    void updateOnDraftMessageChanged(QVector<RosterItem>::Iterator &itr);
-    int informAboutChangedData(QVector<RosterItem>::Iterator &itr, const QVector<int> &changedRoles);
+    void updateOnDraftMessageChanged(QList<RosterItem>::Iterator &itr);
+    int informAboutChangedData(QList<RosterItem>::Iterator &itr, const QList<int> &changedRoles);
     void insertItem(int index, const RosterItem &item);
     void updateItemPosition(int currentIndex);
     int positionToAdd(const RosterItem &item);
@@ -186,7 +186,7 @@ private:
     QString formatLastMessageDateTime(const QDateTime &lastMessageDateTime) const;
     QString determineGroupChatSenderName(const Message &message) const;
 
-    QVector<RosterItem> m_items;
+    QList<RosterItem> m_items;
 
     static RosterModel *s_instance;
 };

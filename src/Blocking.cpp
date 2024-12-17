@@ -51,12 +51,12 @@ BlockingDb::BlockingDb(Database *database, QObject *parent)
 {
 }
 
-QFuture<QVector<QString>> BlockingDb::blockedJids(const QString &accountJid)
+QFuture<QList<QString>> BlockingDb::blockedJids(const QString &accountJid)
 {
     return run([this, accountJid]() {
         auto query = createQuery();
         execQuery(query, QStringLiteral("SELECT jid FROM blocked WHERE accountJid = :accountJid"), {{u":accountJid", accountJid}});
-        QVector<QString> blockedJids;
+        QList<QString> blockedJids;
         while (query.next()) {
             blockedJids.append(query.value(0).toString());
         }
@@ -64,7 +64,7 @@ QFuture<QVector<QString>> BlockingDb::blockedJids(const QString &accountJid)
     });
 }
 
-QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids)
+QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
 {
     return run([this, accountJid, blockedJids]() {
         auto query = createQuery();
@@ -80,7 +80,7 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QVec
     });
 }
 
-QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids)
+QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
 {
     return run([this, accountJid, blockedJids]() {
         auto query = createQuery();
@@ -92,7 +92,7 @@ QFuture<void> BlockingDb::removeBlockedJids(const QString &accountJid, const QVe
     });
 }
 
-QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids)
+QFuture<void> BlockingDb::addBlockedJids(const QString &accountJid, const QList<QString> &blockedJids)
 {
     return run([this, accountJid, blockedJids]() {
         auto query = createQuery();
@@ -202,7 +202,7 @@ void BlockingController::handleXmppBlocklistResult(QXmppBlockingManager::Blockli
     if (auto error = std::get_if<QXmppError>(&result)) {
         // avoid resetting cache when a connection error occurred
         if (error->isStanzaError()) {
-            handleBlocklist({Blocklist::Xmpp, QVector<QString>()});
+            handleBlocklist({Blocklist::Xmpp, QList<QString>()});
         }
 
         debug() << "Error fetching blocklist:" << error->description;
@@ -237,7 +237,7 @@ void BlockingController::handleBlocklist(Blocklist blocklist)
     }
 }
 
-void BlockingController::updateDbBlocklist(const QVector<QString> &blockedJids)
+void BlockingController::updateDbBlocklist(const QList<QString> &blockedJids)
 {
     if (m_blocklist && m_blocklist->source == Blocklist::Db && m_blocklist->jids == blockedJids) {
         // skip if we already know that the db version is up to date
@@ -246,7 +246,7 @@ void BlockingController::updateDbBlocklist(const QVector<QString> &blockedJids)
     m_db->resetBlockedJids(AccountManager::instance()->jid(), blockedJids);
 }
 
-void BlockingController::onJidsBlocked(const QVector<QString> &jids)
+void BlockingController::onJidsBlocked(const QList<QString> &jids)
 {
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
@@ -263,7 +263,7 @@ void BlockingController::onJidsBlocked(const QVector<QString> &jids)
     Q_EMIT blocklistChanged();
 }
 
-void BlockingController::onJidsUnblocked(const QVector<QString> &jids)
+void BlockingController::onJidsUnblocked(const QList<QString> &jids)
 {
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
@@ -348,7 +348,7 @@ bool BlockingModel::contains(const QString &jid)
         != m_entries.cend();
 }
 
-void BlockingModel::handleReset(const QVector<QString> &jids)
+void BlockingModel::handleReset(const QList<QString> &jids)
 {
     beginResetModel();
     m_entries = transform(jids, [](const QString &jid) {
@@ -358,7 +358,7 @@ void BlockingModel::handleReset(const QVector<QString> &jids)
     endResetModel();
 }
 
-void BlockingModel::handleBlocked(const QVector<QString> &jids)
+void BlockingModel::handleBlocked(const QList<QString> &jids)
 {
     for (const auto &jid : jids) {
         Entry e{determineJidType(jid), jid};
@@ -372,7 +372,7 @@ void BlockingModel::handleBlocked(const QVector<QString> &jids)
     }
 }
 
-void BlockingModel::handleUnblocked(const QVector<QString> &jids)
+void BlockingModel::handleUnblocked(const QList<QString> &jids)
 {
     for (const auto &jid : jids) {
         auto *itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {

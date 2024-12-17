@@ -27,12 +27,12 @@ class MessageDb : public DatabaseComponent
 public:
     /**
      * @struct The MessageResult is used inside the MessageDb class to retrieve
-     * the messages as QVector as well as the queryIndex.
+     * the messages as QList as well as the queryIndex.
      * @brief The default constructor sets queryIndex to -1 which defines that
      * the MessageResult is empty.
      */
     struct MessageResult {
-        QVector<Message> messages;
+        QList<Message> messages;
         int queryIndex = -1;
     };
 
@@ -61,7 +61,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<Message>> fetchMessages(const QString &accountJid, const QString &chatJid, int index);
+    QFuture<QList<Message>> fetchMessages(const QString &accountJid, const QString &chatJid, int index);
 
     /**
      * Fetches shared media for an account from the database.
@@ -70,7 +70,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<File>> fetchFiles(const QString &accountJid);
+    QFuture<QList<File>> fetchFiles(const QString &accountJid);
 
     /**
      * Fetches shared media of a chat from the database.
@@ -80,7 +80,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
+    QFuture<QList<File>> fetchFiles(const QString &accountJid, const QString &chatJid);
 
     /**
      * Fetches downloaded shared media of an account from the database.
@@ -89,7 +89,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<File>> fetchDownloadedFiles(const QString &accountJid);
+    QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid);
 
     /**
      * Fetches downloaded shared media of a chat from the database.
@@ -99,7 +99,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
+    QFuture<QList<File>> fetchDownloadedFiles(const QString &accountJid, const QString &chatJid);
 
     /**
      * Fetches messages until the first message of a specific chat.
@@ -114,7 +114,7 @@ public:
      *
      * @return the fetched messages
      */
-    QFuture<QVector<Message>> fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
+    QFuture<QList<Message>> fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index);
 
     /**
      * Fetches messages until a specific ID.
@@ -158,7 +158,7 @@ public:
      *
      * @param accountJid JID of the account whose messages should be fetched
      */
-    QFuture<QVector<Message>> fetchPendingMessages(const QString &accountJid);
+    QFuture<QList<Message>> fetchPendingMessages(const QString &accountJid);
 
     /**
      * Fetches message reactions marked as pending.
@@ -252,8 +252,8 @@ public:
                                     const QString &chatJid,
                                     const QString &messageId,
                                     const QString &fileId,
-                                    const QVector<HttpSource> &httpSources,
-                                    const QVector<EncryptedSource> &encryptedSources);
+                                    const QList<HttpSource> &httpSources,
+                                    const QList<EncryptedSource> &encryptedSources);
 
     /**
      * Fetches a draft message from the database.
@@ -286,29 +286,29 @@ private:
     // Setters do INSERT OR REPLACE INTO
     void _fetchLatestFileId();
     void _fetchLatestFileGroupId();
-    void _setFiles(const QVector<File> &files);
-    void _setFileHashes(const QVector<FileHash> &fileHashes);
-    void _setHttpSources(const QVector<HttpSource> &sources);
-    void _setEncryptedSources(const QVector<EncryptedSource> &sources);
-    void _removeFiles(const QVector<qint64> &fileIds);
-    void _removeFileHashes(const QVector<qint64> &fileIds);
-    void _removeHttpSources(const QVector<qint64> &fileIds);
-    void _removeEncryptedSources(const QVector<qint64> &fileIds);
-    QVector<Message> _fetchMessagesFromQuery(QSqlQuery &query);
-    QVector<File> _fetchFiles(const QString &accountJid);
-    QVector<File> _fetchFiles(const QString &accountJid, const QString &chatJid);
-    QVector<File> _fetchFiles(const QString &statement, const QueryBindValues &bindValues);
-    void _extractDownloadedFiles(QVector<File> &files);
-    QVector<File> _fetchFiles(qint64 fileGroupId);
-    QVector<FileHash> _fetchFileHashes(qint64 dataId);
-    QVector<HttpSource> _fetchHttpSource(qint64 fileId);
-    QVector<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
+    void _setFiles(const QList<File> &files);
+    void _setFileHashes(const QList<FileHash> &fileHashes);
+    void _setHttpSources(const QList<HttpSource> &sources);
+    void _setEncryptedSources(const QList<EncryptedSource> &sources);
+    void _removeFiles(const QList<qint64> &fileIds);
+    void _removeFileHashes(const QList<qint64> &fileIds);
+    void _removeHttpSources(const QList<qint64> &fileIds);
+    void _removeEncryptedSources(const QList<qint64> &fileIds);
+    QList<Message> _fetchMessagesFromQuery(QSqlQuery &query);
+    QList<File> _fetchFiles(const QString &accountJid);
+    QList<File> _fetchFiles(const QString &accountJid, const QString &chatJid);
+    QList<File> _fetchFiles(const QString &statement, const QueryBindValues &bindValues);
+    void _extractDownloadedFiles(QList<File> &files);
+    QList<File> _fetchFiles(qint64 fileGroupId);
+    QList<FileHash> _fetchFileHashes(qint64 dataId);
+    QList<HttpSource> _fetchHttpSource(qint64 fileId);
+    QList<EncryptedSource> _fetchEncryptedSource(qint64 fileId);
 
-    void _fetchAdditionalData(QVector<Message> &messages);
-    void _fetchReactions(QVector<Message> &messages);
-    void _fetchGroupChatUsers(QVector<Message> &messages);
+    void _fetchAdditionalData(QList<Message> &messages);
+    void _fetchReactions(QList<Message> &messages);
+    void _fetchGroupChatUsers(QList<Message> &messages);
     void _fetchGroupChatUser(Message &message);
-    void _fetchTrustLevels(QVector<Message> &messages);
+    void _fetchTrustLevels(QList<Message> &messages);
     void _fetchTrustLevel(Message &messages);
 
     void _fetchReply(Message &message);

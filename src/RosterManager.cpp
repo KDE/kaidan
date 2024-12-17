@@ -66,7 +66,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QO
             item.subscription = updatedItem.subscriptionType();
 
             const auto groups = updatedItem.groups();
-            item.groups = QVector(groups.cbegin(), groups.cend());
+            item.groups = QList(groups.cbegin(), groups.cend());
         });
 
         if (m_isItemBeingChanged) {
@@ -261,7 +261,7 @@ QMap<QString, QXmppPresence> RosterManager::unrespondedPresenceSubscriptionReque
     return m_unrespondedSubscriptionRequests;
 }
 
-void RosterManager::updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups)
+void RosterManager::updateGroups(const QString &jid, const QString &name, const QList<QString> &groups)
 {
     m_isItemBeingChanged = true;
 

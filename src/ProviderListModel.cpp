@@ -137,10 +137,10 @@ ProviderListItem ProviderListModel::providerFromBareJid(const QString &jid) cons
 
 int ProviderListModel::randomlyChooseIndex(const QList<int> &excludedIndexes, bool providersMatchingSystemLocaleOnly) const
 {
-    QVector<ProviderListItem> providersWithInBandRegistration = providersSupportingInBandRegistration();
+    QList<ProviderListItem> providersWithInBandRegistration = providersSupportingInBandRegistration();
 
     if (providersMatchingSystemLocaleOnly) {
-        QVector<ProviderListItem> providersWithInBandRegistrationAndSystemLocale = providersWithSystemLocale(providersWithInBandRegistration);
+        QList<ProviderListItem> providersWithInBandRegistrationAndSystemLocale = providersWithSystemLocale(providersWithInBandRegistration);
 
         if (providersWithInBandRegistrationAndSystemLocale.size() < PROVIDER_LIST_MIN_PROVIDERS_FROM_COUNTRY) {
             return indexOfRandomlySelectedProvider(providersWithInBandRegistration, excludedIndexes);
@@ -186,9 +186,9 @@ void ProviderListModel::readItemsFromJsonFile(const QString &filePath)
         std::sort(m_items.begin() + 1, m_items.end());
 }
 
-QVector<ProviderListItem> ProviderListModel::providersSupportingInBandRegistration() const
+QList<ProviderListItem> ProviderListModel::providersSupportingInBandRegistration() const
 {
-    QVector<ProviderListItem> providers;
+    QList<ProviderListItem> providers;
 
     // The search starts at index 1 to exclude the custom provider.
     std::copy_if(m_items.begin() + 1, m_items.end(), std::back_inserter(providers), [](const ProviderListItem &item) {
@@ -198,9 +198,9 @@ QVector<ProviderListItem> ProviderListModel::providersSupportingInBandRegistrati
     return providers;
 }
 
-QVector<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QVector<ProviderListItem> &preSelectedProviders) const
+QList<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QList<ProviderListItem> &preSelectedProviders) const
 {
-    QVector<ProviderListItem> providers;
+    QList<ProviderListItem> providers;
 
     for (const auto &provider : preSelectedProviders) {
         if (const auto systemLocale = SystemUtils::systemLocaleCodes();
@@ -212,7 +212,7 @@ QVector<ProviderListItem> ProviderListModel::providersWithSystemLocale(const QVe
     return providers;
 }
 
-int ProviderListModel::indexOfRandomlySelectedProvider(const QVector<ProviderListItem> &preSelectedProviders, const QList<int> &excludedIndexes) const
+int ProviderListModel::indexOfRandomlySelectedProvider(const QList<ProviderListItem> &preSelectedProviders, const QList<int> &excludedIndexes) const
 {
     int index;
 

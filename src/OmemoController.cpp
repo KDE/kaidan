@@ -143,7 +143,7 @@ QFuture<void> OmemoController::initializeAccount(const QString &accountJid)
 QFuture<void> OmemoController::initializeChat(const QString &accountJid, const QList<QString> &jids)
 {
     QFutureInterface<void> interface(QFutureInterfaceBase::Started);
-    QVector<QFuture<void>> futures;
+    QList<QFuture<void>> futures;
 
     QList<QString> deviceListRequestJids;
     QList<QString> deviceListSubscriptionJids;
@@ -192,7 +192,7 @@ QFuture<bool> OmemoController::hasUsableDevices(const QList<QString> &jids)
             return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->devices(jids), this};
         },
         this,
-        [interface](QVector<QXmppOmemoDevice> devices) mutable {
+        [interface](QList<QXmppOmemoDevice> devices) mutable {
             for (const auto &device : std::as_const(devices)) {
                 const auto trustLevel = device.trustLevel();
 
@@ -367,7 +367,7 @@ QFuture<QList<EncryptionController::Device>> OmemoController::devices(const QStr
             return std::pair{Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->devices(jids), this};
         },
         this,
-        [interface](QVector<QXmppOmemoDevice> &&devices) mutable {
+        [interface](QList<QXmppOmemoDevice> &&devices) mutable {
             const auto processedDevices = transform(std::move(devices), [](const QXmppOmemoDevice &device) {
                 return EncryptionController::Device{device.jid(), device.label(), QString::fromUtf8(device.keyId().toHex()), device.trustLevel()};
             });

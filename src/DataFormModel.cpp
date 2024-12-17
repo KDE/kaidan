@@ -93,7 +93,7 @@ bool DataFormModel::setData(const QModelIndex &index, const QVariant &value, int
     }
 
     m_form.fields()[index.row()] = field;
-    Q_EMIT dataChanged(index, index, QVector<int>() << role);
+    Q_EMIT dataChanged(index, index, QList<int>() << role);
     return true;
 }
 

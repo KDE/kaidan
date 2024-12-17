@@ -36,8 +36,8 @@ public:
     bool refuseSubscriptionToPresence(const QString &contactJid);
     QMap<QString, QXmppPresence> unrespondedPresenceSubscriptionRequests();
 
-    void updateGroups(const QString &jid, const QString &name, const QVector<QString> &groups = {});
-    Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QVector<QString> &groups);
+    void updateGroups(const QString &jid, const QString &name, const QList<QString> &groups = {});
+    Q_SIGNAL void updateGroupsRequested(const QString &jid, const QString &name, const QList<QString> &groups);
 
 Q_SIGNALS:
     /**

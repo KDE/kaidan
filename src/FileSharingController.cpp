@@ -186,7 +186,7 @@ FileSharingController::FileSharingController(QXmppClient *client)
     });
 }
 
-auto FileSharingController::sendFiles(QVector<File> files, bool encrypt) -> QXmppTask<SendFilesResult>
+auto FileSharingController::sendFiles(QList<File> files, bool encrypt) -> QXmppTask<SendFilesResult>
 {
     Q_ASSERT(!files.empty());
 

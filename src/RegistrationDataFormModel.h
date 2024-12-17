@@ -46,7 +46,7 @@ public:
     bool isFakeForm() const;
     void setIsFakeForm(bool isFakeForm);
 
-    QVector<int> indiciesToFilter() const;
+    QList<int> indiciesToFilter() const;
 
 private:
     void initializeFilteredDataFormFields();

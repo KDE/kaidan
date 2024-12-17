@@ -142,7 +142,7 @@ void MixController::requestChannelAccessibility(const QString &channelJid)
         [channelJid](QXmppMixManager::ChannelJidResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 Kaidan::instance()->passiveNotificationRequested(tr("Whether %1 is public could not be determined: %2").arg(channelJid, error->description));
-            } else if (const auto channelJids = std::get<QVector<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
+            } else if (const auto channelJids = std::get<QList<QXmppMixManager::ChannelJid>>(result); channelJids.contains(channelJid)) {
                 GroupChatController::instance()->groupChatMadePublic(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
             } else {
                 GroupChatController::instance()->groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
@@ -340,7 +340,7 @@ void MixController::requestChannelUsers(const QString &channelJid)
                                 Kaidan::instance()->passiveNotificationRequested(
                                     tr("Allowed users of %1 could not be retrieved: %2").arg(channelJid, error->description));
                             } else {
-                                const auto jids = std::get<QVector<QXmppMixManager::Jid>>(result);
+                                const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
                                 for (const auto &jid : jids) {
                                     handleJidAllowed(channelJid, jid);
                                 }
@@ -360,7 +360,7 @@ void MixController::requestChannelUsers(const QString &channelJid)
                                 Kaidan::instance()->passiveNotificationRequested(
                                     tr("Banned users of %1 could not be retrieved: %2").arg(channelJid, error->description));
                             } else {
-                                const auto jids = std::get<QVector<QXmppMixManager::Jid>>(result);
+                                const auto jids = std::get<QList<QXmppMixManager::Jid>>(result);
                                 for (const auto &jid : jids) {
                                     handleJidBanned(channelJid, jid);
                                 }
@@ -380,7 +380,7 @@ void MixController::requestChannelUsers(const QString &channelJid)
             if (const auto error = std::get_if<QXmppError>(&result)) {
                 Kaidan::instance()->passiveNotificationRequested(tr("Joined users of %1 could not be retrieved: %2").arg(channelJid, error->description));
             } else {
-                const auto participants = std::get<QVector<QXmppMixParticipantItem>>(result);
+                const auto participants = std::get<QList<QXmppMixParticipantItem>>(result);
                 for (const auto &participant : participants) {
                     handleParticipantReceived(channelJid, participant);
                 }

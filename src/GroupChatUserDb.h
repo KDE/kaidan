@@ -43,7 +43,7 @@ public:
      * @param chatJid JID of the chat
      * @param offset index of the first user being fetched (used for pagination, optional)
      */
-    QFuture<QVector<GroupChatUser>> users(const QString &accountJid, const QString &chatJid, const int offset = 0);
+    QFuture<QList<GroupChatUser>> users(const QString &accountJid, const QString &chatJid, const int offset = 0);
 
     /**
      * Retrieves the bare JIDs of all group chat users.
@@ -51,7 +51,7 @@ public:
      * @param accountJid JID of the account
      * @param chatJid JID of the chat
      */
-    QFuture<QVector<QString>> userJids(const QString &accountJid, const QString &chatJid);
+    QFuture<QList<QString>> userJids(const QString &accountJid, const QString &chatJid);
     Q_SIGNAL void userJidsChanged(const QString &accountJid, const QString &chatJid);
 
     /**
@@ -164,7 +164,7 @@ private:
      * @param query query being run
      * @param users users being parsed
      */
-    static void parseUsersFromQuery(QSqlQuery &query, QVector<GroupChatUser> &users);
+    static void parseUsersFromQuery(QSqlQuery &query, QList<GroupChatUser> &users);
 
     /**
      * Creates a record for updating an old user by a new one.

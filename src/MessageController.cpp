@@ -107,7 +107,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
     const auto recipientJid = message.to();
 
-    auto sendEncrypted = [=, this](const QVector<QString> &groupChatUserJids = {}) mutable {
+    auto sendEncrypted = [=, this](const QList<QString> &groupChatUserJids = {}) mutable {
         if (groupChatUserJids.isEmpty()) {
             runOnThread(Kaidan::instance()->client()->xmppClient(), [this, interface, message]() mutable {
                 Kaidan::instance()->client()->xmppClient()->sendSensitive(std::move(message)).then(this, [=](QXmpp::SendResult &&result) mutable {
@@ -162,7 +162,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
             if (rosterItem->isGroupChat()) {
                 await(GroupChatUserDb::instance()->userJids(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), recipientJid),
                       this,
-                      [this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](QVector<QString> &&userJids) mutable {
+                      [this, omemoEncryptionActive, sendEncrypted, sendUnencrypted](QList<QString> &&userJids) mutable {
                           if (!userJids.isEmpty()) {
                               await(EncryptionController::instance()->hasUsableDevices({userJids.cbegin(), userJids.cend()}),
                                     this,
@@ -196,7 +196,7 @@ QFuture<QXmpp::SendResult> MessageController::send(QXmppMessage &&message)
 
 void MessageController::sendPendingMessages()
 {
-    await(MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid()), this, [this](QVector<Message> &&messages) {
+    await(MessageDb::instance()->fetchPendingMessages(AccountManager::instance()->jid()), this, [this](QList<Message> &&messages) {
         for (Message message : messages) {
             sendPendingMessage(std::move(message));
         }
@@ -212,7 +212,7 @@ void MessageController::sendPendingMessageReactions(const QString &accountJid)
 
             for (auto reactionSenderItr = reactionSenders.cbegin(); reactionSenderItr != reactionSenders.cend(); ++reactionSenderItr) {
                 const auto messageId = reactionSenderItr.key();
-                QVector<QString> emojis;
+                QList<QString> emojis;
 
                 for (const auto &reaction : reactionSenderItr->reactions) {
                     if (const auto deliveryState = reaction.deliveryState; deliveryState != MessageReactionDeliveryState::PendingRemovalAfterSent
@@ -311,7 +311,7 @@ void MessageController::sendChatState(const QString &toJid, bool isGroupChat, co
 }
 
 QFuture<QXmpp::SendResult>
-MessageController::sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QVector<QString> &emojis)
+MessageController::sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QList<QString> &emojis)
 {
     QXmppMessageReaction reaction;
     reaction.setMessageId(messageId);

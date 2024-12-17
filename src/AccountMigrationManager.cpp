@@ -183,7 +183,7 @@ struct ClientConfiguration {
 
 struct ClientSettings {
     ClientSettings() = default;
-    explicit ClientSettings(Settings *settings, const QVector<RosterItem> &rosterItems)
+    explicit ClientSettings(Settings *settings, const QList<RosterItem> &rosterItems)
         : oldConfiguration(*settings)
         , roster(transform(rosterItems, [](const RosterItem &item) {
             return ClientRosterItemSettings(item);
@@ -191,9 +191,9 @@ struct ClientSettings {
     {
     }
 
-    QVector<QString> rosterContacts() const
+    QList<QString> rosterContacts() const
     {
-        return transform<QVector<QString>>(roster, [](const ClientRosterItemSettings &item) {
+        return transform<QList<QString>>(roster, [](const ClientRosterItemSettings &item) {
             return item.bareJid;
         });
     }
@@ -261,7 +261,7 @@ struct ClientSettings {
     }
 
     ClientConfiguration oldConfiguration;
-    QVector<ClientRosterItemSettings> roster;
+    QList<ClientRosterItemSettings> roster;
 };
 
 class PublishMovedStatementClient : public QXmppClient
@@ -653,7 +653,7 @@ QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::publi
     return task;
 }
 
-QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::notifyContacts(const QVector<QString> &contactsBareJids, const QString &oldBareJid)
+QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::notifyContacts(const QList<QString> &contactsBareJids, const QString &oldBareJid)
 {
     if (contactsBareJids.isEmpty()) {
         return makeReadyTask<QXmppAccountMigrationManager::Result<>>({});

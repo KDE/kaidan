@@ -99,7 +99,7 @@ private:
      *
      * @param users new and already sorted users to add
      */
-    void replaceUsers(QVector<GroupChatUser> users);
+    void replaceUsers(QList<GroupChatUser> users);
 
     void insertUser(int i, const GroupChatUser &user);
     void updateUser(const GroupChatUser &user);
@@ -133,6 +133,6 @@ private:
 
     QString m_accountJid;
     QString m_chatJid;
-    QVector<GroupChatUser> m_users;
+    QList<GroupChatUser> m_users;
     bool m_fetchedAll = false;
 };

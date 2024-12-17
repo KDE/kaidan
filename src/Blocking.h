@@ -21,10 +21,10 @@ class BlockingDb : public DatabaseComponent
 public:
     BlockingDb(Database *database, QObject *parent = nullptr);
 
-    QFuture<QVector<QString>> blockedJids(const QString &accountJid);
-    QFuture<void> resetBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids);
-    QFuture<void> removeBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids);
-    QFuture<void> addBlockedJids(const QString &accountJid, const QVector<QString> &blockedJids);
+    QFuture<QList<QString>> blockedJids(const QString &accountJid);
+    QFuture<void> resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
+    QFuture<void> removeBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
+    QFuture<void> addBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);
 };
 
 // Coordinates loading and updates of the blocklist
@@ -48,14 +48,14 @@ private:
             Xmpp,
         } source;
 
-        QVector<QString> jids;
+        QList<QString> jids;
     };
 
     void handleXmppBlocklistResult(QXmppBlockingManager::BlocklistResult &&result);
     void handleBlocklist(Blocklist blocklist);
-    void updateDbBlocklist(const QVector<QString> &blockedJids);
-    void onJidsBlocked(const QVector<QString> &blockedJids);
-    void onJidsUnblocked(const QVector<QString> &unblockedJids);
+    void updateDbBlocklist(const QList<QString> &blockedJids);
+    void onJidsBlocked(const QList<QString> &blockedJids);
+    void onJidsUnblocked(const QList<QString> &unblockedJids);
 
     bool m_subscribed = false;
     std::unique_ptr<BlockingDb> m_db;
@@ -94,9 +94,9 @@ public:
     Q_INVOKABLE bool contains(const QString &jid);
 
 private:
-    void handleReset(const QVector<QString> &);
-    void handleBlocked(const QVector<QString> &);
-    void handleUnblocked(const QVector<QString> &);
+    void handleReset(const QList<QString> &);
+    void handleBlocked(const QList<QString> &);
+    void handleUnblocked(const QList<QString> &);
 
     struct Entry {
         JidType type;
@@ -111,7 +111,7 @@ private:
         }
     };
 
-    QVector<Entry> m_entries;
+    QList<Entry> m_entries;
 };
 
 // Watches the blocking state of a single JID

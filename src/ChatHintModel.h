@@ -61,7 +61,7 @@ public:
 private:
     struct ChatHint {
         QString text;
-        QVector<ChatHintButton> buttons;
+        QList<ChatHintButton> buttons;
         bool loading = false;
         QString loadingDescription;
 
@@ -96,7 +96,7 @@ private:
     int chatHintIndex(ChatHintButton::Type buttonType) const;
     bool hasButton(int i, ChatHintButton::Type buttonType) const;
 
-    QVector<ChatHint> m_chatHints;
+    QList<ChatHint> m_chatHints;
 
     static ChatHintModel *s_instance;
 };

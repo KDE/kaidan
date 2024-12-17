@@ -37,7 +37,7 @@ public:
     QFuture<void> removeAccount(const QString &jid);
 
 private:
-    static void parseAccountsFromQuery(QSqlQuery &query, QVector<Account> &accounts);
+    static void parseAccountsFromQuery(QSqlQuery &query, QList<Account> &accounts);
     static QSqlRecord createUpdateRecord(const Account &oldAccount, const Account &newAccount);
     void updateAccountByRecord(const QString &jid, const QSqlRecord &record);
 

@@ -19,7 +19,7 @@ public:
 
     static RosterDb *instance();
 
-    QFuture<QVector<RosterItem>> fetchItems();
+    QFuture<QList<RosterItem>> fetchItems();
 
     QFuture<void> addItem(RosterItem item);
     Q_SIGNAL void itemAdded(const RosterItem &item);
@@ -37,16 +37,16 @@ public:
     Q_SIGNAL void itemsRemoved(const QString &accountJid);
 
 private:
-    QVector<RosterItem> _fetchItems();
+    QList<RosterItem> _fetchItems();
 
-    void fetchGroups(QVector<RosterItem> &items);
-    void addGroups(const QString &accountJid, const QString &jid, const QVector<QString> &groups);
+    void fetchGroups(QList<RosterItem> &items);
+    void addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups);
     void updateGroups(const RosterItem &oldItem, const RosterItem &newItem);
     void removeGroups(const QString &accountJid);
     void removeGroups(const QString &accountJid, const QString &jid);
 
-    void fetchLastMessages(QVector<RosterItem> &items);
-    void fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items);
+    void fetchLastMessages(QList<RosterItem> &items);
+    void fetchLastMessage(RosterItem &item, const QList<RosterItem> &items);
 
     void _addItem(const RosterItem &item);
     void _updateItem(const QString &jid, const std::function<void(RosterItem &)> &updateItem);

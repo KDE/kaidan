@@ -65,7 +65,7 @@ public:
     Q_SIGNAL void groupChatInviteeSelectionNeeded();
 
     void requestGroupChatUsers(const QString &accountJid, const QString &groupChatJid);
-    QVector<QString> currentUserJids() const;
+    QList<QString> currentUserJids() const;
     Q_SIGNAL void currentUserJidsChanged();
 
     Q_INVOKABLE void leaveGroupChat(const QString &accountJid, const QString &groupChatJid);
@@ -95,11 +95,11 @@ private:
     void handleRosterItemAdded(const QString &accountJid, const QString &jid);
     void updateUserJidsChanged(const QString &accountJid, const QString &groupChatJid);
     void updateEncryption();
-    void setCurrentUserJids(const QVector<QString> &currentUserJids);
+    void setCurrentUserJids(const QList<QString> &currentUserJids);
 
     bool m_busy = false;
     std::unique_ptr<MixController> m_mixController;
-    QVector<QString> m_currentUserJids;
+    QList<QString> m_currentUserJids;
 
     QString m_processedAccountJid;
     QString m_processedGroupChatJid;

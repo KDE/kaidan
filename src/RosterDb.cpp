@@ -43,7 +43,7 @@ RosterDb *RosterDb::instance()
     return s_instance;
 }
 
-static void parseItemsFromQuery(QSqlQuery &query, QVector<RosterItem> &items)
+static void parseItemsFromQuery(QSqlQuery &query, QList<RosterItem> &items)
 {
     QSqlRecord rec = query.record();
     int idxAccountJid = rec.indexOf(QStringLiteral("accountJid"));
@@ -142,7 +142,7 @@ static QSqlRecord createUpdateRecord(const RosterItem &oldItem, const RosterItem
     return rec;
 }
 
-QFuture<QVector<RosterItem>> RosterDb::fetchItems()
+QFuture<QList<RosterItem>> RosterDb::fetchItems()
 {
     return run([this]() {
         return _fetchItems();
@@ -176,7 +176,7 @@ QFuture<void> RosterDb::replaceItems(const QHash<QString, RosterItem> &items)
         auto query = createQuery();
         execQuery(query, QStringLiteral("SELECT * FROM roster"));
 
-        QVector<RosterItem> oldItems;
+        QList<RosterItem> oldItems;
         parseItemsFromQuery(query, oldItems);
         fetchGroups(oldItems);
 
@@ -240,12 +240,12 @@ QFuture<void> RosterDb::removeItems(const QString &accountJid)
     });
 }
 
-QVector<RosterItem> RosterDb::_fetchItems()
+QList<RosterItem> RosterDb::_fetchItems()
 {
     auto query = createQuery();
     execQuery(query, QStringLiteral("SELECT * FROM roster"));
 
-    QVector<RosterItem> items;
+    QList<RosterItem> items;
     parseItemsFromQuery(query, items);
 
     fetchLastMessages(items);
@@ -254,7 +254,7 @@ QVector<RosterItem> RosterDb::_fetchItems()
     return items;
 }
 
-void RosterDb::fetchGroups(QVector<RosterItem> &items)
+void RosterDb::fetchGroups(QList<RosterItem> &items)
 {
     enum {
         Group,
@@ -282,7 +282,7 @@ void RosterDb::fetchGroups(QVector<RosterItem> &items)
     }
 }
 
-void RosterDb::addGroups(const QString &accountJid, const QString &jid, const QVector<QString> &groups)
+void RosterDb::addGroups(const QString &accountJid, const QString &jid, const QList<QString> &groups)
 {
     auto query = createQuery();
 
@@ -347,14 +347,14 @@ void RosterDb::removeGroups(const QString &accountJid, const QString &jid)
               {{u":accountJid", accountJid}, {u":chatJid", jid}});
 }
 
-void RosterDb::fetchLastMessages(QVector<RosterItem> &items)
+void RosterDb::fetchLastMessages(QList<RosterItem> &items)
 {
     for (auto &item : items) {
         fetchLastMessage(item, items);
     }
 }
 
-void RosterDb::fetchLastMessage(RosterItem &item, const QVector<RosterItem> &items)
+void RosterDb::fetchLastMessage(RosterItem &item, const QList<RosterItem> &items)
 {
     auto lastMessage = MessageDb::instance()->_fetchLastMessage(item.accountJid, item.jid);
     item.lastMessageDateTime = lastMessage.timestamp;
@@ -428,7 +428,7 @@ void RosterDb::_updateItem(const QString &jid, const std::function<void(RosterIt
                   {u":jid", jid},
               });
 
-    QVector<RosterItem> items;
+    QList<RosterItem> items;
     parseItemsFromQuery(query, items);
 
     fetchLastMessages(items);

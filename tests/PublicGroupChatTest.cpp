@@ -188,12 +188,12 @@ private Q_SLOTS:
         QTest::addColumn<Role>("sortRole");
         QTest::addColumn<Role>("filterRole");
         QTest::addColumn<QString>("filterWildcard");
-        QTest::addColumn<QVector<QStringList>>("expected"); // Names, Addresses, Languages
+        QTest::addColumn<QList<QStringList>>("expected"); // Names, Addresses, Languages
 
         //
 
         QTest::newRow("Name / Name / Null") << Role::Name << Role::Name << QString()
-                                            << QVector<QStringList>{
+                                            << QList<QStringList>{
                                                    {
                                                        QStringList{
                                                            QStringLiteral("Bookri"),
@@ -214,7 +214,7 @@ private Q_SLOTS:
                                                };
 
         QTest::newRow("Address / Name / Null") << Role::Address << Role::Name << QString()
-                                               << QVector<QStringList>{
+                                               << QList<QStringList>{
                                                       {
                                                           QStringList{
                                                               QStringLiteral("Bookri"),
@@ -235,7 +235,7 @@ private Q_SLOTS:
                                                   };
 
         QTest::newRow("Languages / Name / Null") << Role::Languages << Role::Name << QString()
-                                                 << QVector<QStringList>{
+                                                 << QList<QStringList>{
                                                         {
                                                             QStringList{
                                                                 QStringLiteral("ZyNox"),
@@ -258,7 +258,7 @@ private Q_SLOTS:
         //
 
         QTest::newRow("Name / Name / nox") << Role::Name << Role::Name << QStringLiteral("nox")
-                                           << QVector<QStringList>{
+                                           << QList<QStringList>{
                                                   {
                                                       QStringList{
                                                           QStringLiteral("PasNox"),
@@ -276,7 +276,7 @@ private Q_SLOTS:
                                               };
 
         QTest::newRow("Address / Name / nox") << Role::Address << Role::Name << QStringLiteral("nox")
-                                              << QVector<QStringList>{
+                                              << QList<QStringList>{
                                                      {
                                                          QStringList{
                                                              QStringLiteral("PasNox"),
@@ -294,7 +294,7 @@ private Q_SLOTS:
                                                  };
 
         QTest::newRow("Languages / Name / nox") << Role::Languages << Role::Name << QStringLiteral("nox")
-                                                << QVector<QStringList>{
+                                                << QList<QStringList>{
                                                        {
                                                            QStringList{
                                                                QStringLiteral("ZyNox"),
@@ -314,7 +314,7 @@ private Q_SLOTS:
         //
 
         QTest::newRow("Name / Address / nox") << Role::Name << Role::Address << QStringLiteral("nox")
-                                              << QVector<QStringList>{
+                                              << QList<QStringList>{
                                                      {
                                                          QStringList{
                                                              QStringLiteral("PasNox"),
@@ -332,7 +332,7 @@ private Q_SLOTS:
                                                  };
 
         QTest::newRow("Address / Address / nox") << Role::Address << Role::Address << QStringLiteral("nox")
-                                                 << QVector<QStringList>{
+                                                 << QList<QStringList>{
                                                         {
                                                             QStringList{
                                                                 QStringLiteral("PasNox"),
@@ -350,7 +350,7 @@ private Q_SLOTS:
                                                     };
 
         QTest::newRow("Languages / Address / nox") << Role::Languages << Role::Address << QStringLiteral("nox")
-                                                   << QVector<QStringList>{
+                                                   << QList<QStringList>{
                                                           {
                                                               QStringList{
                                                                   QStringLiteral("ZyNox"),
@@ -370,7 +370,7 @@ private Q_SLOTS:
         //
 
         QTest::newRow("Name / Languages / nox") << Role::Name << Role::Languages << QStringLiteral("nox")
-                                                << QVector<QStringList>{
+                                                << QList<QStringList>{
                                                        {
                                                            QStringList{},
                                                            QStringList{},
@@ -379,7 +379,7 @@ private Q_SLOTS:
                                                    };
 
         QTest::newRow("Address / Languages / es") << Role::Address << Role::Languages << QStringLiteral("es")
-                                                  << QVector<QStringList>{
+                                                  << QList<QStringList>{
                                                          {
                                                              QStringList{},
                                                              QStringList{},
@@ -388,7 +388,7 @@ private Q_SLOTS:
                                                      };
 
         QTest::newRow("Languages / Languages / fr") << Role::Languages << Role::Languages << QStringLiteral("fr")
-                                                    << QVector<QStringList>{
+                                                    << QList<QStringList>{
                                                            {
                                                                QStringList{"Bookri"},
                                                                QStringList{"bookri@jabber.com"},
@@ -399,7 +399,7 @@ private Q_SLOTS:
         //
 
         QTest::newRow("Name / GlobalSearch / jabber") << Role::Name << Role::GlobalSearch << QStringLiteral("jabber")
-                                                      << QVector<QStringList>{
+                                                      << QList<QStringList>{
                                                              {
                                                                  QStringList{
                                                                      QStringLiteral("Bookri"),
@@ -420,7 +420,7 @@ private Q_SLOTS:
                                                          };
 
         QTest::newRow("Languages / GlobalSearch / jabber") << Role::Languages << Role::GlobalSearch << QStringLiteral("jabber")
-                                                           << QVector<QStringList>{
+                                                           << QList<QStringList>{
                                                                   {
                                                                       QStringList{
                                                                           QStringLiteral("ZyNox"),
@@ -441,7 +441,7 @@ private Q_SLOTS:
                                                               };
 
         QTest::newRow("Languages / GlobalSearch / kri") << Role::Languages << Role::GlobalSearch << QStringLiteral("kri")
-                                                        << QVector<QStringList>{
+                                                        << QList<QStringList>{
                                                                {
                                                                    QStringList{
                                                                        QStringLiteral("Bookri"),
@@ -504,7 +504,7 @@ private Q_SLOTS:
         QFETCH(Role, sortRole);
         QFETCH(Role, filterRole);
         QFETCH(QString, filterWildcard);
-        QFETCH(QVector<QStringList>, expected);
+        QFETCH(QList<QStringList>, expected);
 
         proxy.setFilterCaseSensitivity(Qt::CaseInsensitive);
         proxy.setFilterRole(static_cast<int>(filterRole));

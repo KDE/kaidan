@@ -52,7 +52,7 @@ public:
      */
     void sendReadMarker(const QString &chatJid, const QString &messageId);
 
-    QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QVector<QString> &emojis);
+    QFuture<QXmpp::SendResult> sendMessageReaction(const QString &chatJid, const QString &messageId, bool isGroupChatMessage, const QList<QString> &emojis);
 
     void sendPendingMessage(Message message);
 

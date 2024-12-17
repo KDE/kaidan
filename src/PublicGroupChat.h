@@ -8,7 +8,7 @@
 #include <QJsonObject>
 #include <QObject>
 
-using PublicGroupChats = QVector<class PublicGroupChat>;
+using PublicGroupChats = QList<class PublicGroupChat>;
 
 class PublicGroupChat
 {

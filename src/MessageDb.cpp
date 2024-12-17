@@ -97,9 +97,9 @@ qint64 MessageDb::newFileGroupId()
     return ++m_latestFileGroupId;
 }
 
-QVector<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
+QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
 {
-    QVector<Message> messages;
+    QList<Message> messages;
 
     // get indexes of attributes
     QSqlRecord rec = query.record();
@@ -275,7 +275,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     return rec;
 }
 
-QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, const QString &chatJid, int index)
+QFuture<QList<Message>> MessageDb::fetchMessages(const QString &accountJid, const QString &chatJid, int index)
 {
     return run([this, accountJid, chatJid, index]() {
         auto query = createQuery();
@@ -301,21 +301,21 @@ QFuture<QVector<Message>> MessageDb::fetchMessages(const QString &accountJid, co
     });
 }
 
-QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid)
+QFuture<QList<File>> MessageDb::fetchFiles(const QString &accountJid)
 {
     return run([this, accountJid]() {
         return _fetchFiles(accountJid);
     });
 }
 
-QFuture<QVector<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
+QFuture<QList<File>> MessageDb::fetchFiles(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
         return _fetchFiles(accountJid, chatJid);
     });
 }
 
-QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid)
+QFuture<QList<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid)
 {
     return run([this, accountJid]() {
         auto files = _fetchFiles(accountJid);
@@ -325,7 +325,7 @@ QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid
     });
 }
 
-QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, const QString &chatJid)
+QFuture<QList<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid, const QString &chatJid)
 {
     return run([this, accountJid, chatJid]() {
         auto files = _fetchFiles(accountJid, chatJid);
@@ -335,7 +335,7 @@ QFuture<QVector<File>> MessageDb::fetchDownloadedFiles(const QString &accountJid
     });
 }
 
-QFuture<QVector<Message>> MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
+QFuture<QList<Message>> MessageDb::fetchMessagesUntilFirstContactMessage(const QString &accountJid, const QString &chatJid, int index)
 {
     return run([this, accountJid, chatJid, index]() {
         auto query = createQuery();
@@ -664,7 +664,7 @@ QFuture<void> MessageDb::removeAllMessagesFromAccount(const QString &accountJid)
                           {u":accountJid", accountJid},
                       });
 
-            QVector<qint64> fileIds;
+            QList<qint64> fileIds;
             reserve(fileIds, query);
             while (query.next()) {
                 fileIds.append(query.value(0).toLongLong());
@@ -705,7 +705,7 @@ QFuture<void> MessageDb::removeAllMessagesFromChat(const QString &accountJid, co
                           {u":chatJid", chatJid},
                       });
 
-            QVector<qint64> fileIds;
+            QList<qint64> fileIds;
             reserve(fileIds, query);
             while (query.next()) {
                 fileIds.append(query.value(0).toLongLong());
@@ -804,8 +804,8 @@ QFuture<void> MessageDb::attachFileSources(const QString &accountJid,
                                            const QString &chatJid,
                                            const QString &messageId,
                                            const QString &externalFileId,
-                                           const QVector<HttpSource> &httpSources,
-                                           const QVector<EncryptedSource> &encryptedSources)
+                                           const QList<HttpSource> &httpSources,
+                                           const QList<EncryptedSource> &encryptedSources)
 {
     return run([=, this] {
         // fetch message
@@ -1139,7 +1139,7 @@ void MessageDb::_fetchLatestFileGroupId()
     }
 }
 
-void MessageDb::_setFiles(const QVector<File> &files)
+void MessageDb::_setFiles(const QList<File> &files)
 {
     thread_local static auto query = [this]() {
         auto query = createQuery();
@@ -1197,7 +1197,7 @@ void MessageDb::_setFiles(const QVector<File> &files)
     }
 }
 
-void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
+void MessageDb::_setFileHashes(const QList<FileHash> &fileHashes)
 {
     thread_local static auto query = [this]() {
         auto query = createQuery();
@@ -1227,7 +1227,7 @@ void MessageDb::_setFileHashes(const QVector<FileHash> &fileHashes)
     }
 }
 
-void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
+void MessageDb::_setHttpSources(const QList<HttpSource> &sources)
 {
     thread_local static auto query = [this]() {
         auto query = createQuery();
@@ -1254,7 +1254,7 @@ void MessageDb::_setHttpSources(const QVector<HttpSource> &sources)
     }
 }
 
-void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
+void MessageDb::_setEncryptedSources(const QList<EncryptedSource> &sources)
 {
     thread_local static auto query = [this]() {
         auto query = createQuery();
@@ -1295,7 +1295,7 @@ void MessageDb::_setEncryptedSources(const QVector<EncryptedSource> &sources)
     }
 }
 
-void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
+void MessageDb::_removeFiles(const QList<qint64> &fileIds)
 {
     auto query = createQuery();
     prepareQuery(query, QStringLiteral("DELETE FROM files WHERE id = :fileId"));
@@ -1305,7 +1305,7 @@ void MessageDb::_removeFiles(const QVector<qint64> &fileIds)
     }
 }
 
-void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
+void MessageDb::_removeFileHashes(const QList<qint64> &fileIds)
 {
     auto query = createQuery();
     prepareQuery(query, QStringLiteral("DELETE FROM fileHashes WHERE dataId = :fileId"));
@@ -1315,7 +1315,7 @@ void MessageDb::_removeFileHashes(const QVector<qint64> &fileIds)
     }
 }
 
-void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
+void MessageDb::_removeHttpSources(const QList<qint64> &fileIds)
 {
     auto query = createQuery();
     prepareQuery(query, QStringLiteral("DELETE FROM fileHttpSources WHERE fileId = :fileId"));
@@ -1325,7 +1325,7 @@ void MessageDb::_removeHttpSources(const QVector<qint64> &fileIds)
     }
 }
 
-void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
+void MessageDb::_removeEncryptedSources(const QList<qint64> &fileIds)
 {
     auto query = createQuery();
     prepareQuery(query, QStringLiteral("DELETE FROM fileEncryptedSources WHERE fileId = :fileId"));
@@ -1335,7 +1335,7 @@ void MessageDb::_removeEncryptedSources(const QVector<qint64> &fileIds)
     }
 }
 
-QVector<File> MessageDb::_fetchFiles(const QString &accountJid)
+QList<File> MessageDb::_fetchFiles(const QString &accountJid)
 {
     Q_ASSERT(!accountJid.isEmpty());
 
@@ -1349,7 +1349,7 @@ QVector<File> MessageDb::_fetchFiles(const QString &accountJid)
                        });
 }
 
-QVector<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid)
+QList<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &chatJid)
 {
     Q_ASSERT(!accountJid.isEmpty() && !chatJid.isEmpty());
 
@@ -1364,7 +1364,7 @@ QVector<File> MessageDb::_fetchFiles(const QString &accountJid, const QString &c
                        });
 }
 
-QVector<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindValues &bindValues)
+QList<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindValues &bindValues)
 {
     enum {
         FileGroupId,
@@ -1373,7 +1373,7 @@ QVector<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindVa
     auto query = createQuery();
     execQuery(query, statement, bindValues);
 
-    QVector<File> files;
+    QList<File> files;
     reserve(files, query);
 
     while (query.next()) {
@@ -1383,7 +1383,7 @@ QVector<File> MessageDb::_fetchFiles(const QString &statement, const QueryBindVa
     return files;
 }
 
-void MessageDb::_extractDownloadedFiles(QVector<File> &files)
+void MessageDb::_extractDownloadedFiles(QList<File> &files)
 {
     files.erase(std::remove_if(files.begin(),
                                files.end(),
@@ -1393,7 +1393,7 @@ void MessageDb::_extractDownloadedFiles(QVector<File> &files)
                 files.end());
 }
 
-QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
+QList<File> MessageDb::_fetchFiles(qint64 fileGroupId)
 {
     enum {
         Id,
@@ -1420,7 +1420,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
     bindValues(query, {{u":fileGroupId", QVariant(fileGroupId)}});
     execQuery(query);
 
-    QVector<File> files;
+    QList<File> files;
     reserve(files, query);
     while (query.next()) {
         auto id = query.value(Id).toLongLong();
@@ -1446,7 +1446,7 @@ QVector<File> MessageDb::_fetchFiles(qint64 fileGroupId)
     return files;
 }
 
-QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
+QList<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
 {
     enum {
         HashType,
@@ -1462,7 +1462,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
     bindValues(query, {{u":fileId", fileId}});
     execQuery(query);
 
-    QVector<FileHash> hashes;
+    QList<FileHash> hashes;
     reserve(hashes, query);
     while (query.next()) {
         hashes << FileHash{fileId, query.value(HashType).value<QXmpp::HashAlgorithm>(), query.value(HashValue).toByteArray()};
@@ -1470,7 +1470,7 @@ QVector<FileHash> MessageDb::_fetchFileHashes(qint64 fileId)
     return hashes;
 }
 
-QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
+QList<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
 {
     enum {
         Url,
@@ -1485,7 +1485,7 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
     bindValues(query, {{u":fileId", fileId}});
     execQuery(query);
 
-    QVector<HttpSource> sources;
+    QList<HttpSource> sources;
     reserve(sources, query);
     while (query.next()) {
         sources << HttpSource{fileId, QUrl::fromEncoded(query.value(Url).toByteArray())};
@@ -1493,7 +1493,7 @@ QVector<HttpSource> MessageDb::_fetchHttpSource(qint64 fileId)
     return sources;
 }
 
-QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
+QList<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
 {
     enum {
         Url,
@@ -1514,7 +1514,7 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
     bindValues(query, {{u":fileId", fileId}});
     execQuery(query);
 
-    auto parseHashes = [this](QSqlQuery &query) -> QVector<FileHash> {
+    auto parseHashes = [this](QSqlQuery &query) -> QList<FileHash> {
         auto dataId = query.value(EncryptedDataId);
         if (dataId.isNull()) {
             return {};
@@ -1522,7 +1522,7 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
         return _fetchFileHashes(dataId.toLongLong());
     };
 
-    QVector<EncryptedSource> sources;
+    QList<EncryptedSource> sources;
     reserve(sources, query);
     while (query.next()) {
         sources << EncryptedSource{
@@ -1538,14 +1538,14 @@ QVector<EncryptedSource> MessageDb::_fetchEncryptedSource(qint64 fileId)
     return sources;
 }
 
-void MessageDb::_fetchAdditionalData(QVector<Message> &messages)
+void MessageDb::_fetchAdditionalData(QList<Message> &messages)
 {
     _fetchReactions(messages);
     _fetchGroupChatUsers(messages);
     _fetchTrustLevels(messages);
 }
 
-void MessageDb::_fetchReactions(QVector<Message> &messages)
+void MessageDb::_fetchReactions(QList<Message> &messages)
 {
     enum {
         SenderId,
@@ -1590,7 +1590,7 @@ void MessageDb::_fetchReactions(QVector<Message> &messages)
     }
 }
 
-void MessageDb::_fetchGroupChatUsers(QVector<Message> &messages)
+void MessageDb::_fetchGroupChatUsers(QList<Message> &messages)
 {
     for (auto &message : messages) {
         _fetchGroupChatUser(message);
@@ -1607,7 +1607,7 @@ void MessageDb::_fetchGroupChatUser(Message &message)
     }
 }
 
-void MessageDb::_fetchTrustLevels(QVector<Message> &messages)
+void MessageDb::_fetchTrustLevels(QList<Message> &messages)
 {
     for (auto &message : messages) {
         _fetchTrustLevel(message);
@@ -1737,7 +1737,7 @@ bool MessageDb::_checkMessageExists(const Message &message)
     return count > 0;
 }
 
-QFuture<QVector<Message>> MessageDb::fetchPendingMessages(const QString &accountJid)
+QFuture<QList<Message>> MessageDb::fetchPendingMessages(const QString &accountJid)
 {
     return run([this, accountJid]() {
         auto query = createQuery();

@@ -20,12 +20,12 @@ class FileSharingController : public QObject
 {
     Q_OBJECT
 public:
-    using SendFilesResult = std::variant<QVector<File>, QXmppError>;
+    using SendFilesResult = std::variant<QList<File>, QXmppError>;
     using UploadResult = std::tuple<qint64, QXmppFileUpload::Result>;
 
     explicit FileSharingController(QXmppClient *client);
 
-    auto sendFiles(QVector<File> files, bool encrypt) -> QXmppTask<SendFilesResult>;
+    auto sendFiles(QList<File> files, bool encrypt) -> QXmppTask<SendFilesResult>;
     Q_INVOKABLE void downloadFile(const QString &messageId, const File &file);
     Q_INVOKABLE void deleteFile(const QString &messageId, const File &file);
 

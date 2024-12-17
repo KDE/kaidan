@@ -263,8 +263,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<EncryptionController *>();
     qRegisterMetaType<AvatarFileStorage *>();
     qRegisterMetaType<QmlUtils *>();
-    qRegisterMetaType<QVector<Message>>();
-    qRegisterMetaType<QVector<RosterItem>>();
+    qRegisterMetaType<QList<Message>>();
+    qRegisterMetaType<QList<RosterItem>>();
     qRegisterMetaType<QHash<QString, RosterItem>>();
     qRegisterMetaType<std::function<void()>>();
     qRegisterMetaType<std::function<void(RosterItem &)>>();
@@ -285,7 +285,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<AtmManager *>();
     qRegisterMetaType<GroupChatController *>();
     qRegisterMetaType<GroupChatUser>();
-    qRegisterMetaType<QVector<GroupChatUser>>();
+    qRegisterMetaType<QList<GroupChatUser>>();
     qRegisterMetaType<std::function<void(GroupChatUser &)>>();
     qRegisterMetaType<GroupChatUserModel *>();
     // The alias is needed because the type shares its QMetaType::id() with quint32.

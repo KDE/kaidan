@@ -25,5 +25,5 @@ public:
     Q_SIGNAL void isEmptyChanged();
 
 private:
-    QVector<int> m_filteredRows;
+    QList<int> m_filteredRows;
 };

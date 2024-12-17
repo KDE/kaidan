@@ -18,9 +18,9 @@
 namespace
 {
 
-const QVector<Emoji> &emojis()
+const QList<Emoji> &emojis()
 {
-    static const QVector<Emoji> s_emojis{
+    static const QList<Emoji> s_emojis{
         // People
         {QString::fromUtf8("\xf0\x9f\x98\x80"), QStringLiteral(":grinning:"), Emoji::Group::People},
         {QString::fromUtf8("\xf0\x9f\x98\x81"), QStringLiteral(":grin:"), Emoji::Group::People},

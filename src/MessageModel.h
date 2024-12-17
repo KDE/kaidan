@@ -200,7 +200,7 @@ public:
     Q_SIGNAL void mamLoadingChanged();
 
 private:
-    void handleMessagesFetched(const QVector<Message> &m_messages);
+    void handleMessagesFetched(const QList<Message> &m_messages);
     void handleMamBacklogRetrieved(bool complete);
 
     void handleMessage(Message msg, MessageOrigin origin);
@@ -248,7 +248,7 @@ private:
      *
      * @return whether the message reaction's removal has been undone
      */
-    bool undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions);
+    bool undoMessageReactionRemoval(const QString &messageId, const QString &senderJid, const QString &emoji, const QList<MessageReaction> &reactions);
 
     /**
      * Undoes a pending or failed addition of a message reaction.
@@ -264,7 +264,7 @@ private:
      *
      * @return whether the message reaction's addition has been undone
      */
-    bool undoMessageReactionAddition(const QString &messageId, const QString &senderJid, const QString &emoji, const QVector<MessageReaction> &reactions);
+    bool undoMessageReactionAddition(const QString &messageId, const QString &senderJid, const QString &emoji, const QList<MessageReaction> &reactions);
 
     /**
      * Searches a message with a more recent date and returns that date.
@@ -284,7 +284,7 @@ private:
     QString determineGroupChatSenderName(const Message &message) const;
     QString determineReplyToName(const Message::Reply &reply) const;
 
-    QVector<Message> m_messages;
+    QList<Message> m_messages;
     QString m_lastReadOwnMessageId;
     QString m_lastReadContactMessageId;
     bool m_fetchedAllFromDb = false;
