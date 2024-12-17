@@ -68,3 +68,5 @@ void MessageReactionModel::setReactions(const QList<DetailedMessageReaction> &re
         }
     }
 }
+
+#include "moc_MessageReactionModel.cpp"

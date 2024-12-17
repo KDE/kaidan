@@ -147,3 +147,5 @@ QString DataFormModel::title() const
 {
     return m_form.title();
 }
+
+#include "moc_DataFormModel.cpp"

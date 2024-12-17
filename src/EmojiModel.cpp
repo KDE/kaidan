@@ -1577,3 +1577,5 @@ bool EmojiProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
 
     return filterRegExp().isEmpty() ? true : filterRegExp().indexIn(emoji.shortName()) != -1;
 }
+
+#include "moc_EmojiModel.cpp"

@@ -32,3 +32,5 @@ bool CredentialsValidator::isPasswordValid(const QString &password)
 {
     return !password.isEmpty();
 }
+
+#include "moc_CredentialsValidator.cpp"

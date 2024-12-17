@@ -41,3 +41,5 @@ void ContactQrCodeGenerator::updateText()
 {
     setText(m_uriGenerator.uri());
 }
+
+#include "moc_ContactQrCodeGenerator.cpp"

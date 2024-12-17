@@ -62,3 +62,5 @@ QString HostCompletionProxyModel::domain() const
     const int index = input.indexOf(QStringLiteral("@"));
     return index == -1 ? QString() : input.mid(index + 1);
 }
+
+#include "moc_HostCompletionProxyModel.cpp"

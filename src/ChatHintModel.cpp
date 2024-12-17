@@ -443,3 +443,5 @@ bool ChatHintModel::hasButton(int i, ChatHintButton::Type buttonType) const
         return button.type == buttonType;
     });
 }
+
+#include "moc_ChatHintModel.cpp"

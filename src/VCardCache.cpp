@@ -30,3 +30,5 @@ void VCardCache::setVCard(const QString &jid, const QXmppVCardIq &vCard)
         Q_EMIT vCardChanged(jid);
     }
 }
+
+#include "moc_VCardCache.cpp"

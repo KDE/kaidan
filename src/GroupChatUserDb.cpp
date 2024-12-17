@@ -443,3 +443,5 @@ void GroupChatUserDb::removeUser(const GroupChatUser &user)
     Q_EMIT userRemoved(user);
     Q_EMIT userJidsChanged(accountJid, chatJid);
 }
+
+#include "moc_GroupChatUserDb.cpp"

@@ -151,3 +151,5 @@ UserDevicesModel::DeviceInfo::DeviceInfo(const QXmppVersionIq &iq)
     , os(iq.os())
 {
 }
+
+#include "moc_UserDevicesModel.cpp"

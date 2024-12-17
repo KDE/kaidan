@@ -495,3 +495,5 @@ void BlockingAction::setRunning(uint running)
         Q_EMIT loadingChanged();
     }
 }
+
+#include "moc_Blocking.cpp"

@@ -156,3 +156,5 @@ void VCardManager::changeAvatarAfterReceivingCurrentVCard()
 
     Q_EMIT Kaidan::instance() -> avatarChangeSucceeded();
 }
+
+#include "moc_VCardManager.cpp"

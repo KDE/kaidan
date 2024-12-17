@@ -61,3 +61,5 @@ bool PublicGroupChatProxyModel::filterAcceptsRow(int sourceRow, const QModelInde
 
     return QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent);
 }
+
+#include "moc_PublicGroupChatProxyModel.cpp"

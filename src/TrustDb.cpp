@@ -869,3 +869,5 @@ void TrustDb::_setTrustLevel(TrustLevel trustLevel, qint64 rowId)
     Q_ASSERT(query.numRowsAffected() == 1);
     query.finish();
 }
+
+#include "moc_TrustDb.cpp"

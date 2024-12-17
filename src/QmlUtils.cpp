@@ -337,3 +337,5 @@ bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
 
     return false;
 }
+
+#include "moc_QmlUtils.cpp"

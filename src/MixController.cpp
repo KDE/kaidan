@@ -592,3 +592,5 @@ void MixController::handleChannelDeleted(const QString &channelJid)
 {
     Q_EMIT GroupChatController::instance() -> groupChatDeleted(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
 }
+
+#include "moc_MixController.cpp"

@@ -76,3 +76,5 @@ void FileProgressCache::reportProgress(qint64 fileId, std::optional<FileProgress
         FileProgressNotifier::instance().notifyWatchers(fileId, progress);
     });
 }
+
+#include "moc_FileProgressCache.cpp"

@@ -262,3 +262,5 @@ void AccountDb::updateAccountByRecord(const QString &jid, const QSqlRecord &reco
               driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false)
                   + simpleWhereStatement(&driver, keyValuePairs));
 }
+
+#include "moc_AccountDb.cpp"

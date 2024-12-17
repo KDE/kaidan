@@ -19,3 +19,5 @@ bool GroupChatUserFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex
     return model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp())
         || model->data(index, GroupChatUserModel::Role::Jid).toString().toLower().contains(filterRegExp());
 }
+
+#include "moc_GroupChatUserFilterModel.cpp"

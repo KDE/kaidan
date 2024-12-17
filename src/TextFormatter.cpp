@@ -206,3 +206,5 @@ void TextFormatter::attachFormatting(const std::function<void(QTextCursor &curso
         attachFormatting(formatText);
     });
 }
+
+#include "moc_TextFormatter.cpp"

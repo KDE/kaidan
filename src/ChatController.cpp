@@ -281,3 +281,5 @@ void ChatController::resetChat(const QString &accountJid, const QString &chatJid
 
     MessageModel::instance()->removeAllMessages();
 }
+
+#include "moc_ChatController.cpp"

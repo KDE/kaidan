@@ -400,3 +400,5 @@ int UserResourcesWatcher::resourcesCount()
 {
     return PresenceCache::instance()->resourcesCount(m_jid);
 }
+
+#include "moc_PresenceCache.cpp"

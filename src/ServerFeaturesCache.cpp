@@ -68,3 +68,5 @@ void ServerFeaturesCache::setHttpUploadLimit(qint64 size)
         Q_EMIT httpUploadLimitChanged();
     }
 }
+
+#include "moc_ServerFeaturesCache.cpp"

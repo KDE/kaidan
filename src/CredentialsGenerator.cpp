@@ -56,3 +56,5 @@ QString CredentialsGenerator::generatePassword(unsigned int length)
 
     return password;
 }
+
+#include "moc_CredentialsGenerator.cpp"

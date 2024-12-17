@@ -453,3 +453,5 @@ bool Message::Reply::operator==(const Reply &other) const
 {
     return toJid == other.toJid && toGroupChatparticipantId == other.toGroupChatparticipantId && id == other.id && quote == other.quote;
 }
+
+#include "moc_Message.cpp"

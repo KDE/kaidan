@@ -21,3 +21,5 @@ void GroupChatQrCodeGenerator::updateText()
 
     setText(uri.toString());
 }
+
+#include "moc_GroupChatQrCodeGenerator.cpp"

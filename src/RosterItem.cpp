@@ -121,3 +121,5 @@ bool RosterItem::operator>=(const RosterItem &other) const
     }
     return pinningPosition <= other.pinningPosition;
 }
+
+#include "moc_RosterItem.cpp"

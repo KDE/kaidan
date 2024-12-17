@@ -113,3 +113,5 @@ int PublicGroupChatModel::maxUsers() const
 {
     return m_users.max;
 }
+
+#include "moc_PublicGroupChatModel.cpp"

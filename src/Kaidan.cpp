@@ -473,3 +473,5 @@ QString databaseFilename()
     return u"" DB_FILE_BASE_NAME % applicationProfileSuffix() % u".sqlite3";
 }
 #endif
+
+#include "moc_Kaidan.cpp"

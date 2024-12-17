@@ -682,3 +682,5 @@ QXmppTask<QXmppAccountMigrationManager::Result<>> AccountMigrationManager::notif
 }
 
 #include "AccountMigrationManager.moc"
+
+#include "moc_AccountMigrationManager.cpp"

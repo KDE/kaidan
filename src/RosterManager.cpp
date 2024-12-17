@@ -290,3 +290,5 @@ void RosterManager::applyOldContactData(const QString &oldContactJid, const QStr
         updateGroups(newContactJid, oldItem->name, oldItem->groups);
     }
 }
+
+#include "moc_RosterManager.cpp"

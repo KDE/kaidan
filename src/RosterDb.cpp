@@ -478,3 +478,5 @@ void RosterDb::updateItemByRecord(const QString &jid, const QSqlRecord &record)
     execQuery(query,
               driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_ROSTER), record, false) + simpleWhereStatement(&driver, keyValuePairs));
 }
+
+#include "moc_RosterDb.cpp"

@@ -42,3 +42,5 @@ void VersionManager::fetchVersions(const QString &bareJid, const QString &resour
         fetchVersion(resource);
     }
 }
+
+#include "moc_VersionManager.cpp"

@@ -1496,3 +1496,5 @@ QString MessageModel::determineReplyToName(const Message::Reply &reply) const
 
     return reply.toGroupChatParticipantName;
 }
+
+#include "moc_MessageModel.cpp"

@@ -145,3 +145,5 @@ void VCardModel::generateEntries()
             m_vCardMap << url;
     }
 }
+
+#include "moc_VCardModel.cpp"

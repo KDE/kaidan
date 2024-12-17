@@ -170,3 +170,5 @@ void AvatarFileStorage::saveAvatarsFile()
         /*     < HASH >            < JID >  */
         out << m_jidAvatarMap[jid] << " " << jid << "\n";
 }
+
+#include "moc_AvatarFileStorage.cpp"

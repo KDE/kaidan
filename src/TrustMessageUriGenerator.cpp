@@ -65,3 +65,5 @@ void TrustMessageUriGenerator::setKeys(const QList<QString> &authenticatedKeys, 
         Q_EMIT uriChanged();
     }
 }
+
+#include "moc_TrustMessageUriGenerator.cpp"

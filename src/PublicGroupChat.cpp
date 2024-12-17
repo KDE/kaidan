@@ -145,3 +145,5 @@ QJsonArray PublicGroupChat::toJson(const PublicGroupChats &groupChats)
         return groupChat.toJson();
     });
 }
+
+#include "moc_PublicGroupChat.cpp"

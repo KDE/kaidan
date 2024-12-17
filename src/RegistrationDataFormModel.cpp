@@ -173,3 +173,5 @@ void RegistrationDataFormModel::initializeFilteredDataFormFields()
                                 QStringLiteral(CHALLENGE),
                                 QStringLiteral(SID)};
 }
+
+#include "moc_RegistrationDataFormModel.cpp"

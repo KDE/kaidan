@@ -43,3 +43,5 @@ bool GroupChatUser::operator<(const GroupChatUser &other) const
 
     return status < other.status;
 }
+
+#include "moc_GroupChatUser.cpp"

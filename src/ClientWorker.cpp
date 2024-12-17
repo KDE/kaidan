@@ -450,3 +450,5 @@ bool ClientWorker::startPendingTasks()
 
     return !AccountManager::instance()->hasNewCredentials() && isBusy;
 }
+
+#include "moc_ClientWorker.cpp"

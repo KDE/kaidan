@@ -1059,3 +1059,5 @@ std::optional<File> MessageController::parseOobUrl(const QXmppOutOfBandUrl &url,
 
     return file;
 }
+
+#include "moc_MessageController.cpp"

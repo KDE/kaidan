@@ -241,3 +241,5 @@ void Settings::remove(const QStringList &keys)
     for (const QString &key : keys)
         m_settings.remove(key);
 }
+
+#include "moc_Settings.cpp"

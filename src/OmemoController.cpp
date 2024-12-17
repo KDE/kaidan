@@ -400,3 +400,5 @@ void OmemoController::enableSessionBuildingForNewDevices()
         Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>()->setNewDeviceAutoSessionBuildingEnabled(true);
     });
 }
+
+#include "moc_OmemoController.cpp"

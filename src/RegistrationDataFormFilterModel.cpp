@@ -37,3 +37,5 @@ bool RegistrationDataFormFilterModel::isEmpty()
 
     return true;
 }
+
+#include "moc_RegistrationDataFormFilterModel.cpp"

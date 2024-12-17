@@ -110,3 +110,5 @@ void QrCodeScannerFilterRunnable::processVideoFrameProbed(QrCodeVideoFrame video
 
     delete image;
 }
+
+#include "moc_QrCodeScannerFilter.cpp"

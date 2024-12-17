@@ -80,3 +80,5 @@ QString LogHandler::makeXmlPretty(QString xmlIn)
 
     return xmlOut;
 }
+
+#include "moc_LogHandler.cpp"

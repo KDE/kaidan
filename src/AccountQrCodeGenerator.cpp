@@ -20,3 +20,5 @@ void AccountQrCodeGenerator::updateText()
 {
     setText(m_uriGenerator.uri());
 }
+
+#include "moc_AccountQrCodeGenerator.cpp"

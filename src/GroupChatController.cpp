@@ -262,3 +262,5 @@ void GroupChatController::setCurrentUserJids(const QList<QString> &currentUserJi
         Q_EMIT currentUserJidsChanged();
     }
 }
+
+#include "moc_GroupChatController.cpp"

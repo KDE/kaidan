@@ -1847,3 +1847,5 @@ Message MessageDb::_initializeLastMessage(const QString &accountJid, const QStri
 
     return message;
 }
+
+#include "moc_MessageDb.cpp"

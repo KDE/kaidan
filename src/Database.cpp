@@ -1625,3 +1625,5 @@ void Database::convertDatabaseToV47()
 
     d->version = 47;
 }
+
+#include "moc_Database.cpp"

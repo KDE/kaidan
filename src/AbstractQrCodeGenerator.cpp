@@ -90,3 +90,5 @@ void AbstractQrCodeGenerator::createColorTable(QImage &blackAndWhiteImage)
     blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_WHITE, qRgb(255, 255, 255));
     blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_BLACK, qRgb(0, 0, 0));
 }
+
+#include "moc_AbstractQrCodeGenerator.cpp"

@@ -242,3 +242,5 @@ bool GroupChatUserModel::shouldUserBeProcessed(const GroupChatUser &user)
 
     return false;
 }
+
+#include "moc_GroupChatUserModel.cpp"

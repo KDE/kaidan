@@ -173,3 +173,5 @@ void RosterFilterProxyModel::updateGroupChatUserJids()
     m_groupChatUserJids = GroupChatController::instance()->currentUserJids();
     invalidateFilter();
 }
+
+#include "moc_RosterFilterProxyModel.cpp"

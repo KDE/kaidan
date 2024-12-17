@@ -313,3 +313,5 @@ ProviderListItem::LanguageVariants<T> ProviderListItem::parseLanguageVariants(co
 
     return parsedLanguageVariants;
 }
+
+#include "moc_ProviderListItem.cpp"

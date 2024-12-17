@@ -349,3 +349,5 @@ void RegistrationManager::cleanUpLastForm(RegistrationDataFormModel *newDataForm
         }
     }
 }
+
+#include "moc_RegistrationManager.cpp"

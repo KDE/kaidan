@@ -23,3 +23,5 @@ bool Account::operator>=(const Account &other) const
 {
     return jid >= other.jid;
 }
+
+#include "moc_Account.cpp"

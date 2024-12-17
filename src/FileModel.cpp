@@ -126,3 +126,5 @@ void FileModel::loadDownloadedFiles()
     }
 }
 #endif
+
+#include "moc_FileModel.cpp"

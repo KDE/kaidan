@@ -33,3 +33,5 @@ void LoginQrCodeGenerator::updateText()
 
     setText(uri.toString());
 }
+
+#include "moc_LoginQrCodeGenerator.cpp"

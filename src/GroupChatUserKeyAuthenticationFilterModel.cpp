@@ -77,3 +77,5 @@ void GroupChatUserKeyAuthenticationFilterModel::updateJids()
         }
     });
 }
+
+#include "moc_GroupChatUserKeyAuthenticationFilterModel.cpp"

@@ -37,3 +37,5 @@ void EncryptionKeyModel::setAccountJid(const QString &accountJid)
         setUp();
     }
 }
+
+#include "moc_EncryptionKeyModel.cpp"

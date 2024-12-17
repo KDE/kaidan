@@ -70,3 +70,5 @@ bool StatusBar::isAvailable() const
     return false;
 #endif
 }
+
+#include "moc_StatusBar.cpp"

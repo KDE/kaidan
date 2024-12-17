@@ -114,3 +114,5 @@ void EncryptionWatcher::update()
         }
     });
 }
+
+#include "moc_EncryptionWatcher.cpp"

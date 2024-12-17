@@ -67,3 +67,5 @@ QObject *DatabaseComponent::dbWorker() const
 {
     return m_database->dbWorker();
 }
+
+#include "moc_DatabaseComponent.cpp"

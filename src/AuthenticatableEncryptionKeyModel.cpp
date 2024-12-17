@@ -105,3 +105,5 @@ void AuthenticatableEncryptionKeyModel::updateKeys()
         endResetModel();
     });
 }
+
+#include "moc_AuthenticatableEncryptionKeyModel.cpp"

@@ -87,3 +87,5 @@ void RosterItemWatcher::notify(const std::optional<RosterItem> &item)
     }
     Q_EMIT itemChanged();
 }
+
+#include "moc_RosterItemWatcher.cpp"

@@ -298,3 +298,5 @@ void Notifications::closePresenceSubscriptionRequestNotification(const QString &
 {
 }
 #endif // HAVE_KNOTIFICATIONS
+
+#include "moc_Notifications.cpp"

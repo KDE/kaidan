@@ -53,3 +53,5 @@ void AccountTrustMessageUriGenerator::updateKeys()
               });
     });
 }
+
+#include "moc_AccountTrustMessageUriGenerator.cpp"

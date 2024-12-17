@@ -413,3 +413,5 @@ void FileSharingController::deleteFile(const QString &messageId, const File &fil
         QFile::remove(file.localFilePath);
     }
 }
+
+#include "moc_FileSharingController.cpp"

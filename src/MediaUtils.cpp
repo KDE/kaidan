@@ -610,3 +610,5 @@ QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, cons
 
     return interface.future();
 }
+
+#include "moc_MediaUtils.cpp"

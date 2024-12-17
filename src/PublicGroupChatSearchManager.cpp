@@ -229,3 +229,5 @@ bool PublicGroupChatSearchManager::readGroupChats()
     m_groupChats = PublicGroupChat::fromJson(document.array());
     return true;
 }
+
+#include "moc_PublicGroupChatSearchManager.cpp"

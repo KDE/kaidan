@@ -163,3 +163,5 @@ void HostCompletionModel::aggregateRoster()
 {
     aggregate(rosterProviders());
 }
+
+#include "moc_HostCompletionModel.cpp"

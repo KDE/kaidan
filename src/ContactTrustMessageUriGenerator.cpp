@@ -69,3 +69,5 @@ void ContactTrustMessageUriGenerator::updateKeys()
               setKeys(authenticatedKeys, distrustedKeys);
           });
 }
+
+#include "moc_ContactTrustMessageUriGenerator.cpp"

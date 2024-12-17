@@ -471,3 +471,5 @@ void AccountManager::removeAccount(const QString &accountJid)
 
     Q_EMIT credentialsNeeded();
 }
+
+#include "moc_AccountManager.cpp"

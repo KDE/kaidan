@@ -61,3 +61,5 @@ void QrCodeDecoder::decodeImage(const QImage &image)
     else
         Q_EMIT decodingFailed();
 }
+
+#include "moc_QrCodeDecoder.cpp"

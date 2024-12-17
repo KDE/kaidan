@@ -877,3 +877,5 @@ QString RosterModel::determineGroupChatSenderName(const Message &message) const
 
     return message.groupChatSenderName;
 }
+
+#include "moc_RosterModel.cpp"

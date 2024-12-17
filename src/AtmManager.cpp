@@ -58,3 +58,5 @@ QList<QByteArray> AtmManager::keyIdsFromHex(const QList<QString> &keyIds)
 
     return byteArrayKeyIds;
 }
+
+#include "moc_AtmManager.cpp"

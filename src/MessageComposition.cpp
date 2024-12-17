@@ -605,3 +605,5 @@ void FileSelectionModel::deleteNewFile(const File &file)
         MediaUtils::deleteFile(file.localFileUrl());
     }
 }
+
+#include "moc_MessageComposition.cpp"

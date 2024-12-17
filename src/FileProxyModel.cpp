@@ -211,3 +211,5 @@ void FileProxyModel::_filesDeleted(const QStringList &files, const QStringList &
     Q_EMIT checkedCountChanged();
     Q_EMIT filesDeleted(files, errors);
 }
+
+#include "moc_FileProxyModel.cpp"

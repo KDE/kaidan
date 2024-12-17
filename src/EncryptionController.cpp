@@ -96,3 +96,5 @@ QFuture<void> EncryptionController::resetLocally()
 {
     return m_omemoController->resetLocally();
 }
+
+#include "moc_EncryptionController.cpp"

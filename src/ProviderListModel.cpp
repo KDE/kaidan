@@ -222,3 +222,5 @@ int ProviderListModel::indexOfRandomlySelectedProvider(const QList<ProviderListI
 
     return index;
 }
+
+#include "moc_ProviderListModel.cpp"
