@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 import PublicGroupChats 1.0 as PublicGroupChats
@@ -46,11 +46,11 @@ Dialog {
 			}
 			Component.onCompleted: sort(0, Qt.DescendingOrder)
 		}
-		header:	MobileForm.FormCard {
+		header:	FormCard.FormCard {
 			z: 3
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.AbstractFormDelegate {
+			contentItem: FormCard.AbstractFormDelegate {
 				background: null
 				contentItem: ColumnLayout {
 					ListViewSearchField {
@@ -116,7 +116,7 @@ Dialog {
 			}
 		}
 		headerPositioning: ListView.OverlayHeader
-		delegate: MobileForm.AbstractFormDelegate {
+		delegate: FormCard.AbstractFormDelegate {
 			width: ListView.view.width
 			contentItem: RowLayout {
 				spacing: 12

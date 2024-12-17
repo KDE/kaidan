@@ -6,7 +6,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -15,7 +15,7 @@ import "../elements"
 /**
  * This a form for custom data requested by a server for registration.
  */
-MobileForm.FormCard {
+FormCard.FormCard {
 	id: root
 
 	property alias model: form.model
@@ -24,19 +24,19 @@ MobileForm.FormCard {
 	contentItem: ColumnLayout {
 		spacing: 0
 
-		MobileForm.FormCardHeader {
+		FormCard.FormCardHeader {
 			title: qsTr("Enter additional information")
 		}
 
-		MobileForm.FormTextDelegate {
+		FormCard.FormTextDelegate {
 			text: qsTr("The provider has requested more information")
 			description: qsTr("Not everything may be required")
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			Layout.fillWidth: true
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.AbstractFormDelegate {
+			contentItem: FormCard.AbstractFormDelegate {
 				background: null
 				contentItem: ColumnLayout {
 					DataForm {

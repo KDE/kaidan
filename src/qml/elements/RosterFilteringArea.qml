@@ -6,7 +6,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -43,10 +43,10 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		header: MobileForm.FormCard {
+		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.FormSwitchDelegate {
+			contentItem: FormCard.FormSwitchDelegate {
 				id: typeFilteringSwitch
 				text: qsTr("Filter by type")
 				description: qsTr("Show only entries of specific types")
@@ -56,7 +56,7 @@ ColumnLayout {
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
-				// "MobileForm.FormSwitchDelegate" does not listen to changes of
+				// "FormCard.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
 					target: root.rosterFilterProxyModel
@@ -67,7 +67,7 @@ ColumnLayout {
 				}
 			}
 		}
-		delegate: MobileForm.FormSwitchDelegate {
+		delegate: FormCard.FormSwitchDelegate {
 			id: typeDelegate
 			text: modelData.display
 			checked: root.rosterFilterProxyModel.displayedTypes & modelData.value
@@ -82,7 +82,7 @@ ColumnLayout {
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
-			// "MobileForm.FormSwitchDelegate" does not listen to changes of
+			// "FormCard.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
 				target: root.rosterFilterProxyModel
@@ -105,10 +105,10 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		header: MobileForm.FormCard {
+		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.FormSwitchDelegate {
+			contentItem: FormCard.FormSwitchDelegate {
 				id: accountFilteringSwitch
 				text: qsTr("Filter by accounts")
 				description: qsTr("Show only chats of selected accounts")
@@ -118,7 +118,7 @@ ColumnLayout {
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
-				// "MobileForm.FormSwitchDelegate" does not listen to changes of
+				// "FormCard.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
 					target: root.rosterFilterProxyModel
@@ -129,7 +129,7 @@ ColumnLayout {
 				}
 			}
 		}
-		delegate: MobileForm.FormSwitchDelegate {
+		delegate: FormCard.FormSwitchDelegate {
 			id: accountDelegate
 			text: modelData
 			checked: root.rosterFilterProxyModel.selectedAccountJids.includes(modelData)
@@ -144,7 +144,7 @@ ColumnLayout {
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
-			// "MobileForm.FormSwitchDelegate" does not listen to changes of
+			// "FormCard.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
 				target: root.rosterFilterProxyModel
@@ -181,10 +181,10 @@ ColumnLayout {
 		implicitWidth: 570
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
-		header: MobileForm.FormCard {
+		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.FormSwitchDelegate {
+			contentItem: FormCard.FormSwitchDelegate {
 				id: groupFilteringSwitch
 				text: qsTr("Filter by labels")
 				description: qsTr("Show only chats with selected labels")
@@ -194,7 +194,7 @@ ColumnLayout {
 
 				// TODO: Remove this once fixed in Kirigami Addons.
 				// Add a connection as a workaround to reset the switch because
-				// "MobileForm.FormSwitchDelegate" does not listen to changes of
+				// "FormCard.FormSwitchDelegate" does not listen to changes of
 				// "root.rosterFilterProxyModel".
 				Connections {
 					target: root.rosterFilterProxyModel
@@ -205,7 +205,7 @@ ColumnLayout {
 				}
 			}
 		}
-		delegate: MobileForm.FormSwitchDelegate {
+		delegate: FormCard.FormSwitchDelegate {
 			id: groupDelegate
 			text: modelData
 			checked: root.rosterFilterProxyModel.selectedGroups.includes(modelData)
@@ -220,7 +220,7 @@ ColumnLayout {
 
 			// TODO: Remove this once fixed in Kirigami Addons.
 			// Add a connection as a workaround to reset the switch because
-			// "MobileForm.FormSwitchDelegate" does not listen to changes of
+			// "FormCard.FormSwitchDelegate" does not listen to changes of
 			// "root.rosterFilterProxyModel".
 			Connections {
 				target: root.rosterFilterProxyModel

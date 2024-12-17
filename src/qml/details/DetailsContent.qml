@@ -8,7 +8,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -48,12 +48,12 @@ FormInfoContent {
 		id: topArea
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Media")
 			}
 
@@ -66,7 +66,7 @@ FormInfoContent {
 			ColumnLayout {
 				visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
 
-				MobileForm.FormSectionText {
+				FormCard.FormSectionText {
 					text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
 				}
 
@@ -104,14 +104,14 @@ FormInfoContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		id: vCardArea
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			id: vCardContentArea
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Profile")
 			}
 
@@ -122,12 +122,12 @@ FormInfoContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		contentItem: root.encryptionArea
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		// Hide this if there are no items and no header.
 		visible: rosterGoupListView.count || rosterGoupListView.headerItem
 		Layout.fillWidth: true
@@ -135,7 +135,7 @@ FormInfoContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Labels")
 			}
 
@@ -153,18 +153,18 @@ FormInfoContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		id: sharingArea
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Sharing")
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				id: qrCodeExpansionButton
 				text: qsTr("Show QR code")
 				icon.name: "view-barcode-qr"
@@ -172,7 +172,7 @@ FormInfoContent {
 				onClicked: qrCodeArea.visible = !qrCodeArea.visible
 			}
 
-			MobileForm.AbstractFormDelegate {
+			FormCard.AbstractFormDelegate {
 				id: qrCodeArea
 				visible: false
 				background: Rectangle {
@@ -182,20 +182,20 @@ FormInfoContent {
 				Layout.preferredHeight: Layout.preferredWidth
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				id: qrCodeButton
 				text: qsTr("Copy QR code")
 				icon.name: "send-to-symbolic"
 				onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				id: uriButton
 				text: qsTr("Copy chat address")
 				icon.name: "send-to-symbolic"
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				id: invitationButton
 				text: qsTr("Copy invitation link")
 				icon.name: "mail-message-new-symbolic"

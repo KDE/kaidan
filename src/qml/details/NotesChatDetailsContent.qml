@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -23,11 +23,11 @@ RosterItemDetailsContent {
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
-		MobileForm.FormCardHeader {
+		FormCard.FormCardHeader {
 			title: qsTr("Encryption")
 		}
 
-		MobileForm.FormSwitchDelegate {
+		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you can read or modify the data that is synchronized across your devices.")
 			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
@@ -45,13 +45,13 @@ RosterItemDetailsContent {
 	}
 	sharingArea.visible: false
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Removal")
 			}
 

@@ -7,7 +7,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -41,16 +41,16 @@ RegistrationPage {
 			Layout.fillWidth: true
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+				FormCard.FormCardHeader {
 					title: qsTr("Step 1: Register account")
 				}
 
-				MobileForm.FormTextDelegate {
+				FormCard.FormTextDelegate {
 					text: qsTr("The selected provider only supports web registration")
 					description: qsTr("After creating an account via the provider's website, you can log in via Kaidan")
 				}
@@ -66,14 +66,14 @@ RegistrationPage {
 			}
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			id: loginFormCard
 			visible: false
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+				FormCard.FormCardHeader {
 					title: qsTr("Step 2: Log in with your registered account")
 				}
 

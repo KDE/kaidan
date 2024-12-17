@@ -11,17 +11,17 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
 import "fields"
 
-MobileForm.FormCard {
+FormCard.FormCard {
 	Layout.fillWidth: true
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
 	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
-	contentItem: MobileForm.AbstractFormDelegate {
+	contentItem: FormCard.AbstractFormDelegate {
 		background: null
 		contentItem: ColumnLayout {
 			JidField {
@@ -55,7 +55,7 @@ MobileForm.FormCard {
 				inputField.onAccepted: loginButton.clicked()
 			}
 
-			MobileForm.FormCard {
+			FormCard.FormCard {
 				Layout.topMargin: Kirigami.Units.largeSpacing
 				Layout.bottomMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true

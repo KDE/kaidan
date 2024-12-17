@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -70,13 +70,13 @@ Kirigami.ScrollablePage {
 			scaleFactor: 1.5
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+				FormCard.FormCardHeader {
 					title: qsTr("Log in")
 				}
 
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
 					}
 				}
 
-				MobileForm.FormButtonDelegate {
+				FormCard.FormButtonDelegate {
 					text: qsTr("Scan login QR code")
 					onClicked: pushLayer(qrCodeOnboardingPage)
 				}
@@ -141,22 +141,22 @@ Kirigami.ScrollablePage {
 			Layout.fillWidth: true
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+				FormCard.FormCardHeader {
 					title: qsTr("Register")
 				}
 
-				MobileForm.FormButtonDelegate {
+				FormCard.FormButtonDelegate {
 					text: qsTr("Generate account automatically")
 					onClicked: pushLayer(automaticRegistrationPage)
 				}
 
-				MobileForm.FormButtonDelegate {
+				FormCard.FormButtonDelegate {
 					text: qsTr("Create account manually")
 					onClicked: pushLayer(providerPage)
 				}

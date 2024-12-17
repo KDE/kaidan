@@ -8,7 +8,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import QtMultimedia 5.15 as Multimedia
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -63,7 +63,7 @@ Controls.Control {
 				visible: !root.selectionMode
 				spacing: 0
 
-				MobileForm.AbstractFormDelegate {
+				FormCard.AbstractFormDelegate {
 					id: imagesTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -80,7 +80,7 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 
-				MobileForm.AbstractFormDelegate {
+				FormCard.AbstractFormDelegate {
 					id: videosTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -98,7 +98,7 @@ Controls.Control {
 					Layout.fillHeight: true
 				}
 
-				MobileForm.AbstractFormDelegate {
+				FormCard.AbstractFormDelegate {
 					id: otherTab
 					checkable: true
 					Layout.preferredWidth: tabBar.width / 3
@@ -155,7 +155,7 @@ Controls.Control {
 				Layout.maximumHeight: Layout.minimumHeight
 				Layout.rightMargin: Kirigami.Units.largeSpacing
 
-				MobileForm.AbstractFormDelegate {
+				FormCard.AbstractFormDelegate {
 					Layout.fillHeight: true
 					Layout.fillWidth: false
 					contentItem: Kirigami.Icon {

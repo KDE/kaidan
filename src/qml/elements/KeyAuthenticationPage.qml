@@ -9,7 +9,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -52,10 +52,10 @@ ExplanationOptionsTogglePage {
 
 		EncryptionKeysArea {
 			id: authenticatableKeysArea
-			listView.header: MobileForm.FormCard {
+			listView.header: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: MobileForm.AbstractFormDelegate {
+				contentItem: FormCard.AbstractFormDelegate {
 					background: null
 					contentItem:RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 2
@@ -113,7 +113,7 @@ ExplanationOptionsTogglePage {
 					}
 				}
 			}
-			listView.delegate: MobileForm.FormTextDelegate {
+			listView.delegate: FormCard.FormTextDelegate {
 				text: model.label
 				description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"
 				descriptionItem.textFormat: Text.MarkdownText
@@ -137,13 +137,13 @@ ExplanationOptionsTogglePage {
 			listView.model: AuthenticatedEncryptionKeyModel {
 				accountJid: root.accountJid
 			}
-			listView.delegate: MobileForm.AbstractFormDelegate {
+			listView.delegate: FormCard.AbstractFormDelegate {
 				id: encryptionKeyDelegate
 				width: ListView.view.width
 				leftPadding: 0
 				verticalPadding: 0
 				contentItem: RowLayout {
-					MobileForm.FormTextDelegate {
+					FormCard.FormTextDelegate {
 						id: encryptionKeyText
 						text: model.label
 						description: "`" + Utils.displayableEncryptionKeyId(model.keyId) + "`"

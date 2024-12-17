@@ -9,7 +9,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -26,13 +26,13 @@ Kirigami.GlobalDrawer {
 			spacing: Kirigami.Units.largeSpacing
 			Layout.margins: -3
 
-			MobileForm.FormCard {
+			FormCard.FormCard {
 				Layout.fillWidth: true
 
 				contentItem: ColumnLayout {
 					spacing: 0
 
-					MobileForm.FormCardHeader {
+					FormCard.FormCardHeader {
 						title: qsTr("Accounts")
 					}
 
@@ -42,13 +42,13 @@ Kirigami.GlobalDrawer {
 							spacing: 0
 							width: ListView.view.width
 
-							MobileForm.FormTextDelegate {
+							FormCard.FormTextDelegate {
 								id: accountArea
 
 								property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
 								property bool connected: Kaidan.connectionState === Enums.StateConnected
 
-								background: MobileForm.FormDelegateBackground { control: accountArea }
+								background: FormCard.FormDelegateBackground { control: accountArea }
 								leading: Avatar {
 									jid: modelData
 									name: AccountManager.displayName
@@ -102,43 +102,43 @@ Kirigami.GlobalDrawer {
 				}
 			}
 
-			MobileForm.FormCard {
+			FormCard.FormCard {
 				Layout.fillWidth: true
 
 				contentItem: ColumnLayout {
 					spacing: 0
 
-					MobileForm.FormCardHeader {
+					FormCard.FormCardHeader {
 						title: qsTr("Actions")
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("Add contact by QR code")
 						icon.name: "view-barcode-qr"
 						onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("Add contact by chat address")
 						icon.name: "contact-new-symbolic"
 						onClicked: openContactAdditionView()
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("Create group")
 						icon.name: "resource-group-new"
 						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatCreationSupported
 						onClicked: openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("Join group")
 						icon.name: "resource-group"
 						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
 						onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						id: publicGroupChatSearchButton
 						text: qsTr("Search public groups")
 						icon.name: "system-search-symbolic"
@@ -150,13 +150,13 @@ Kirigami.GlobalDrawer {
 						}
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("Switch device")
 						icon.name: "send-to-symbolic"
 						onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
 					}
 
-					MobileForm.FormButtonDelegate {
+					FormCard.FormButtonDelegate {
 						text: qsTr("About")
 						icon.name: "help-about-symbolic"
 						onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)

@@ -9,7 +9,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -52,20 +52,20 @@ RegistrationPage {
 			Layout.fillWidth: true
 		}
 
-		MobileForm.FormCard {
+		FormCard.FormCard {
 			visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
 			Layout.fillWidth: true
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				MobileForm.FormCardHeader {
+				FormCard.FormCardHeader {
 					title: qsTr("Enter your desired credentials")
 				}
 
-				MobileForm.FormCard {
+				FormCard.FormCard {
 					Layout.fillWidth: true
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: MobileForm.AbstractFormDelegate {
+					contentItem: FormCard.AbstractFormDelegate {
 						background: null
 						contentItem: ColumnLayout {
 							Field {

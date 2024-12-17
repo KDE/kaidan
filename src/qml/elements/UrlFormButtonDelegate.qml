@@ -4,7 +4,7 @@
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -14,11 +14,11 @@ import im.kaidan.kaidan 1.0
  * Its main purpose is to open the URL externally when the button is clicked.
  * It includes a secondary button for copying the URL instead of opening it.
  */
-MobileForm.FormTextDelegate {
+FormCard.FormTextDelegate {
 	property url url
 	property alias copyButton: copyButton
 
-	background: MobileForm.FormDelegateBackground { control: parent }
+	background: FormCard.FormDelegateBackground { control: parent }
 	trailing: Button {
 		id: copyButton
 		Controls.ToolTip.text: qsTr("Copy web address")

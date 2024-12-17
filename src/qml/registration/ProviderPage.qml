@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -42,22 +42,22 @@ RegistrationPage {
 			width: parent.width
 			height: Kirigami.Units.gridUnit * 4
 		}
-		delegate: MobileForm.FormCard {
+		delegate: FormCard.FormCard {
 			id: providerDelegate
 			width: ListView.view.width
 			contentItem: Column {
 				spacing: 0
 
-				MobileForm.FormTextDelegate {
+				FormCard.FormTextDelegate {
 					id: providerExpansionButton
 					text: model.jid
 					font.italic: index === 0
 					width: parent.width
-					background: MobileForm.FormDelegateBackground {
+					background: FormCard.FormDelegateBackground {
 						control: providerExpansionButton
 					}
-					trailing: MobileForm.FormArrow {
-						direction: providerContentArea.active ? MobileForm.FormArrow.Up : MobileForm.FormArrow.Down
+					trailing: FormCard.FormArrow {
+						direction: providerContentArea.active ? FormCard.FormArrow.Up : FormCard.FormArrow.Down
 					}
 					onClicked: providerContentArea.active = !providerContentArea.active
 				}
@@ -92,7 +92,7 @@ RegistrationPage {
 							Component {
 								id: customProviderArea
 
-								MobileForm.AbstractFormDelegate {
+								FormCard.AbstractFormDelegate {
 									property alias providerField: providerField
 									property alias hostField: customConnectionSettings.hostField
 									property alias portField: customConnectionSettings.portField
@@ -163,27 +163,27 @@ RegistrationPage {
 									width: providerContentArea.width
 									spacing: 0
 
-									MobileForm.FormTextDelegate {
+									FormCard.FormTextDelegate {
 										text: model.countries
 										description: qsTr("Server locations")
 									}
 
-									MobileForm.FormTextDelegate {
+									FormCard.FormTextDelegate {
 										text: model.languages
 										description: qsTr("Languages")
 									}
 
-									MobileForm.FormTextDelegate {
+									FormCard.FormTextDelegate {
 										text: model.since
 										description: qsTr("Available/Listed since")
 									}
 
-									MobileForm.FormTextDelegate {
+									FormCard.FormTextDelegate {
 										text: model.httpUploadSize
 										description: qsTr("Maximum size of shared media")
 									}
 
-									MobileForm.FormTextDelegate {
+									FormCard.FormTextDelegate {
 										text: model.messageStorageDuration
 										description: qsTr("Messages storage duration")
 									}
@@ -198,7 +198,7 @@ RegistrationPage {
 							}
 						}
 
-						MobileForm.FormCard {
+						FormCard.FormCard {
 							Layout.topMargin: Kirigami.Units.gridUnit
 							Layout.bottomMargin: Layout.topMargin
 							Layout.leftMargin: Layout.topMargin

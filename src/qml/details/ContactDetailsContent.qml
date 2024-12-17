@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -23,7 +23,7 @@ RosterItemDetailsContent {
 		model: VCardModel {
 			jid: ChatController.chatJid
 		}
-		delegate: MobileForm.FormButtonDelegate {
+		delegate: FormCard.FormButtonDelegate {
 			text: model.value
 			description: model.key
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
@@ -39,11 +39,11 @@ RosterItemDetailsContent {
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
-		MobileForm.FormCardHeader {
+		FormCard.FormCardHeader {
 			title: qsTr("Encryption")
 		}
 
-		MobileForm.FormSwitchDelegate {
+		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 			enabled: ChatController.chatEncryptionWatcher.hasUsableDevices
@@ -89,13 +89,13 @@ RosterItemDetailsContent {
 		jid: ChatController.chatJid
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Notifications")
 			}
 
@@ -124,31 +124,31 @@ RosterItemDetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Privacy")
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Request personal data")
 				description: qsTr("Ask your contact to share the availability, devices and other personal information")
 				visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
 				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(ChatController.chatJid)
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Cancel personal data sharing")
 				description: qsTr("Stop sharing your availability, devices and other personal information")
 				visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
 				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(ChatController.chatJid)
 			}
 
-			MobileForm.FormSwitchDelegate {
+			FormCard.FormSwitchDelegate {
 				text: qsTr("Send typing notifications")
 				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
 				checked: ChatController.rosterItem.chatStateSendingEnabled
@@ -160,7 +160,7 @@ RosterItemDetailsContent {
 				}
 			}
 
-			MobileForm.FormSwitchDelegate {
+			FormCard.FormSwitchDelegate {
 				text: qsTr("Send read notifications")
 				description: qsTr("Indicate which messages you have read")
 				checked: ChatController.rosterItem.readMarkerSendingEnabled
@@ -172,7 +172,7 @@ RosterItemDetailsContent {
 				}
 			}
 
-			MobileForm.FormSwitchDelegate {
+			FormCard.FormSwitchDelegate {
 				text: qsTr("Block")
 				description: qsTr("Block all communication including status and notifications")
 				enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
@@ -193,13 +193,13 @@ RosterItemDetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Removal")
 			}
 

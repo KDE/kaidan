@@ -8,13 +8,13 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
 import "../elements"
 
-MobileForm.FormCard {
+FormCard.FormCard {
 	id: root
 
 	required property string jid
@@ -24,7 +24,7 @@ MobileForm.FormCard {
 	contentItem: ColumnLayout {
 		spacing: 0
 
-		MobileForm.FormCardHeader {
+		FormCard.FormCardHeader {
 			title: qsTr("Connected Devices")
 		}
 
@@ -34,7 +34,7 @@ MobileForm.FormCard {
 			model: UserDevicesModel {
 				jid: root.jid
 			}
-			delegate: MobileForm.AbstractFormDelegate {
+			delegate: FormCard.AbstractFormDelegate {
 				visible: deviceExpansionButton.checked
 				background: null
 				contentItem: ColumnLayout {

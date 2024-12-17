@@ -7,7 +7,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -37,10 +37,10 @@ DetailsContent {
 	}
 	vCardArea.visible: vCardRepeater.count
 	rosterGoupListView {
-		header: MobileForm.FormCard {
+		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: MobileForm.AbstractFormDelegate {
+			contentItem: FormCard.AbstractFormDelegate {
 				background: null
 				contentItem: RowLayout {
 					spacing: Kirigami.Units.largeSpacing * 3
@@ -106,7 +106,7 @@ DetailsContent {
 				}
 			}
 		}
-		delegate: MobileForm.FormSwitchDelegate {
+		delegate: FormCard.FormSwitchDelegate {
 			id: rosterGroupDelegate
 			text: modelData
 			checked: ChatController.rosterItem.groups.includes(modelData)
@@ -129,7 +129,7 @@ DetailsContent {
 				// TODO: Remove the following once fixed in Kirigami Addons.
 				function onRosterItemChanged() {
 					// Update the "checked" value of "rosterGroupDelegate" as a workaround because
-					// "MobileForm.FormSwitchDelegate" does not listen to changes of
+					// "FormCard.FormSwitchDelegate" does not listen to changes of
 					// "ChatController.rosterItem.groups".
 					rosterGroupDelegate.checked = ChatController.rosterItem.groups.includes(modelData)
 				}

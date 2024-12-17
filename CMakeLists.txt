@@ -79,7 +79,7 @@ set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 # Find packages
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
 find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami2)
-find_package(KF6KirigamiAddons 0.10.0 REQUIRED)
+find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
 find_package(ZXing REQUIRED)
 
 find_package(QXmppQt6 1.9.0 REQUIRED COMPONENTS Omemo)

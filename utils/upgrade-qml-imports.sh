@@ -32,8 +32,6 @@ QT["QtQuick.Layouts"]="1.15"
 
 declare -A KIRIGAMI
 KIRIGAMI["org.kde.kirigami"]="2.19"
-KIRIGAMI["org.kde.kirigamiaddons.labs.mobileform"]="0.1"
-KIRIGAMI["org.kde.kirigamiaddons.labs.components"]="1.0"
 
 declare -A KAIDAN
 KAIDAN["EmojiModel"]="0.1"

@@ -7,12 +7,12 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 /**
  * Used to expand and collapse form entries.
  */
-MobileForm.AbstractFormDelegate {
+FormCard.AbstractFormDelegate {
 	id: root
 	leftPadding: 0
 	rightPadding: 0

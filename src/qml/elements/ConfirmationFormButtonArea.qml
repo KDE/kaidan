@@ -6,12 +6,12 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 /**
  * This area contains a button for an action and a button for confirming the action.
  *
- * It is intended to be used within the contentItem of a MobileForm.FormCard.
+ * It is intended to be used within the contentItem of a FormCard.FormCard.
  */
 ColumnLayout {
 	property alias button: button
@@ -22,7 +22,7 @@ ColumnLayout {
 
 	spacing: 0
 
-	MobileForm.FormButtonDelegate {
+	FormCard.FormButtonDelegate {
 		id: button
 		onClicked: confirmationButton.visible = !confirmationButton.visible
 	}

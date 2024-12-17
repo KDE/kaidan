@@ -9,7 +9,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -59,7 +59,7 @@ DetailsContent {
 		model: VCardModel {
 			jid: root.jid
 		}
-		delegate: MobileForm.AbstractFormDelegate {
+		delegate: FormCard.AbstractFormDelegate {
 			id: vCardDelegate
 
 			property bool editing: false
@@ -137,11 +137,11 @@ DetailsContent {
 			}
 		}
 
-		MobileForm.FormCardHeader {
+		FormCard.FormCardHeader {
 			title: qsTr("Encryption")
 		}
 
-		MobileForm.FormSwitchDelegate {
+		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
 			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
 			checked: Kaidan.settings.encryption === Encryption.Omemo2
@@ -169,7 +169,7 @@ DetailsContent {
 	}
 	rosterGoupListView {
 		enabled: accountRemovalArea.enabled
-		delegate: MobileForm.AbstractFormDelegate {
+		delegate: FormCard.AbstractFormDelegate {
 			id: rosterGroupDelegate
 			width: ListView.view.width
 			onClicked: rosterGroupEditingButton.toggled()
@@ -261,12 +261,12 @@ DetailsContent {
 		jid: root.jid
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Notifications")
 			}
 
@@ -318,20 +318,20 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Locations")
 			}
 
-			MobileForm.FormSectionText {
+			FormCard.FormSectionText {
 				text: qsTr("For displaying locations in Kaidan, online data from the third party provider OpenStreetMap is used. The data is downloaded from it after submitting the location.")
 			}
 
-			MobileForm.FormSwitchDelegate {
+			FormCard.FormSwitchDelegate {
 				id: geoLocationMapPreviewDelegate
 				text: qsTr("Location map previews")
 				description: qsTr("Display previews of locations")
@@ -366,7 +366,7 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		id: providerArea
 
 		readonly property url providerUrl: providerListModel.providerFromBareJid(root.jid).chosenWebsite
@@ -383,18 +383,18 @@ DetailsContent {
 				id: providerListModel
 			}
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Provider")
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Visit website")
 				description: qsTr("Open your provider's website in a web browser")
 				visible: providerArea.providerUrl.toString()
 				onClicked: Qt.openUrlExternally(providerArea.providerUrl)
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Copy website address")
 				description: qsTr("Copy your provider's web address to the clipboard")
 				visible: providerArea.providerUrl.toString()
@@ -404,7 +404,7 @@ DetailsContent {
 				}
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Open support chat")
 				description: qsTr("Start chat with your provider's support contact")
 				visible: providerArea.chatSupportList.length > 0
@@ -430,14 +430,14 @@ DetailsContent {
 				Layout.fillWidth: true
 				clip: true
 				model: Array.from(providerArea.chatSupportList)
-				delegate: MobileForm.FormCard {
+				delegate: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: MobileForm.AbstractFormDelegate {
+					contentItem: FormCard.AbstractFormDelegate {
 						background: null
 						horizontalPadding: 0
 						verticalPadding: 0
-						contentItem: MobileForm.FormButtonDelegate {
+						contentItem: FormCard.FormButtonDelegate {
 							text: qsTr("Support %1").arg(index + 1)
 							description: modelData
 							onClicked: {
@@ -454,7 +454,7 @@ DetailsContent {
 				}
 			}
 
-			MobileForm.FormButtonDelegate {
+			FormCard.FormButtonDelegate {
 				text: qsTr("Open support group")
 				description: qsTr("Join your provider's public support group")
 				visible: providerArea.groupChatSupportList.length > 0
@@ -474,14 +474,14 @@ DetailsContent {
 				Layout.fillWidth: true
 				clip: true
 				model: Array.from(providerArea.groupChatSupportList)
-				delegate: MobileForm.FormCard {
+				delegate: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: MobileForm.AbstractFormDelegate {
+					contentItem: FormCard.AbstractFormDelegate {
 						background: null
 						horizontalPadding: 0
 						verticalPadding: 0
-						contentItem: MobileForm.FormButtonDelegate {
+						contentItem: FormCard.FormButtonDelegate {
 							text: qsTr("Group Support %1").arg(index + 1)
 							description: modelData
 							onClicked: Qt.openUrlExternally(Utils.groupChatUri(modelData))
@@ -492,17 +492,17 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Blocked Chat Addresses")
 			}
 
-			MobileForm.FormSectionText {
+			FormCard.FormSectionText {
 				text: qsTr("Block a specific user (e.g., user@example.org) or all users of the same server (e.g., example.org)")
 				visible: blockingExpansionButton.checked
 			}
@@ -513,10 +513,10 @@ DetailsContent {
 				visible: blockingExpansionButton.checked
 				implicitHeight: contentHeight
 				Layout.fillWidth: true
-				header: MobileForm.FormCard {
+				header: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: MobileForm.AbstractFormDelegate {
+					contentItem: FormCard.AbstractFormDelegate {
 						background: null
 						contentItem: RowLayout {
 							spacing: Kirigami.Units.largeSpacing * 3
@@ -576,7 +576,7 @@ DetailsContent {
 				}
 				section.property: "type"
 				section.delegate: ListViewSectionDelegate {}
-				delegate: MobileForm.AbstractFormDelegate {
+				delegate: FormCard.AbstractFormDelegate {
 					id: blockingDelegate
 					width: ListView.view.width
 					onClicked: blockingEditingButton.toggled()
@@ -649,7 +649,7 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		id: notesAdditionArea
 		visible: !RosterModel.hasItem(root.jid)
 		enabled: accountRemovalArea.enabled
@@ -657,7 +657,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Notes")
 			}
 
@@ -703,25 +703,25 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		visible: Kaidan.serverFeaturesCache.inBandRegistrationSupported
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Password Change")
 			}
 
-			MobileForm.FormSectionText {
+			FormCard.FormSectionText {
 				text: qsTr("Change your password. You need to enter the new password on all your other devices!")
 			}
 
-			MobileForm.FormCard {
+			FormCard.FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: MobileForm.AbstractFormDelegate {
+				contentItem: FormCard.AbstractFormDelegate {
 					background: null
 					contentItem: ColumnLayout {
 						Component.onCompleted: {
@@ -839,17 +839,17 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Password Visibility")
 			}
 
-			MobileForm.FormSectionText {
+			FormCard.FormSectionText {
 				text: qsTr("Configure this device to not expose your password for changing it or switching to another device. If you want to change your password or use your account on another device later, <b>consider storing the password somewhere else. This cannot be undone!</b>")
 			}
 
@@ -892,24 +892,24 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Connection")
 			}
 
-			MobileForm.FormSectionText {
+			FormCard.FormSectionText {
 				text: qsTr("Configure the hostname and port to connect to (empty fields for default values)")
 			}
 
-			MobileForm.FormCard {
+			FormCard.FormCard {
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: MobileForm.AbstractFormDelegate {
+				contentItem: FormCard.AbstractFormDelegate {
 					background: null
 					contentItem: ColumnLayout {
 						id: connectionSettings
@@ -1012,13 +1012,13 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		enabled: accountRemovalArea.enabled
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Migration")
 			}
 
@@ -1049,14 +1049,14 @@ DetailsContent {
 		}
 	}
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		contentItem: ColumnLayout {
 			id: accountRemovalArea
 			spacing: 0
 			enabled: !accountRemovalButtonArea.busy && !accountDeletionButtonArea.busy
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				title: qsTr("Removal")
 			}
 

@@ -5,7 +5,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 /**
  * This area is used to interact with encryption keys.
@@ -16,7 +16,7 @@ GridLayout {
 
 	Layout.maximumHeight: parent.flow === GridLayout.LeftToRight ? parent.height : parent.height / 2 - parent.rowSpacing * 2
 
-	MobileForm.FormCard {
+	FormCard.FormCard {
 		Layout.fillWidth: true
 		Layout.maximumHeight: parent.height
 		Layout.alignment: Qt.AlignCenter
@@ -24,7 +24,7 @@ GridLayout {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			MobileForm.FormCardHeader {
+			FormCard.FormCardHeader {
 				id: header
 			}
 

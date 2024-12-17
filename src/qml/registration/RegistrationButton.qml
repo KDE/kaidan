@@ -5,7 +5,7 @@
 
 import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
 
@@ -14,7 +14,7 @@ import "../elements"
 /**
  * This is an area containing a button used for confirming a registration.
  */
-MobileForm.FormCard {
+FormCard.FormCard {
 	property var registrationFunction
 	property var loginFunction
 	property alias busy: button.busy

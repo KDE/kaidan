@@ -4,9 +4,9 @@
 
 import QtQuick 2.15
 import org.kde.kirigami 2.19 as Kirigami
-import org.kde.kirigamiaddons.labs.mobileform 0.1 as MobileForm
+import org.kde.kirigamiaddons.formcard as FormCard
 
-MobileForm.FormSectionText {
+FormCard.FormSectionText {
 	text: section
 	padding: Kirigami.Units.largeSpacing
 	leftPadding: Kirigami.Units.largeSpacing * 3
