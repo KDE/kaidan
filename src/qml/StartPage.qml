@@ -76,7 +76,7 @@ Kirigami.ScrollablePage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Log in")
 				}
 
@@ -147,7 +147,7 @@ Kirigami.ScrollablePage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Register")
 				}
 

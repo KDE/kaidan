@@ -53,7 +53,7 @@ FormInfoContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Media")
 			}
 
@@ -111,7 +111,7 @@ FormInfoContent {
 			id: vCardContentArea
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Profile")
 			}
 
@@ -135,7 +135,7 @@ FormInfoContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Labels")
 			}
 
@@ -160,7 +160,7 @@ FormInfoContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Sharing")
 			}
 

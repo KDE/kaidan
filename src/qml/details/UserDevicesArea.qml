@@ -24,7 +24,7 @@ FormCard.FormCard {
 	contentItem: ColumnLayout {
 		spacing: 0
 
-		FormCard.FormCardHeader {
+		FormCard.FormHeader {
 			title: qsTr("Connected Devices")
 		}
 

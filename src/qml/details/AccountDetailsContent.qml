@@ -137,7 +137,7 @@ DetailsContent {
 			}
 		}
 
-		FormCard.FormCardHeader {
+		FormCard.FormHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -266,7 +266,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Notifications")
 			}
 
@@ -323,7 +323,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Locations")
 			}
 
@@ -383,7 +383,7 @@ DetailsContent {
 				id: providerListModel
 			}
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Provider")
 			}
 
@@ -498,7 +498,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Blocked Chat Addresses")
 			}
 
@@ -657,7 +657,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Notes")
 			}
 
@@ -710,7 +710,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Password Change")
 			}
 
@@ -845,7 +845,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Password Visibility")
 			}
 
@@ -898,7 +898,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Connection")
 			}
 
@@ -1018,7 +1018,7 @@ DetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Migration")
 			}
 
@@ -1056,7 +1056,7 @@ DetailsContent {
 			spacing: 0
 			enabled: !accountRemovalButtonArea.busy && !accountDeletionButtonArea.busy
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Removal")
 			}
 

@@ -46,7 +46,7 @@ RegistrationPage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Step 1: Register account")
 				}
 
@@ -73,7 +73,7 @@ RegistrationPage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Step 2: Log in with your registered account")
 				}
 

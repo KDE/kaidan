@@ -58,7 +58,7 @@ RegistrationPage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Enter your desired credentials")
 				}
 

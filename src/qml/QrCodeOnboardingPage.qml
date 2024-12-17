@@ -61,7 +61,7 @@ ExplanationTogglePage {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Log in")
 				}
 

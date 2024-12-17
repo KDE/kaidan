@@ -27,7 +27,7 @@ RosterItemDetailsContent {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Invite")
 				}
 
@@ -141,7 +141,7 @@ RosterItemDetailsContent {
 			contentItem: ColumnLayout {
 				spacing: 0
 
-				FormCard.FormCardHeader {
+				FormCard.FormHeader {
 					title: qsTr("Participants")
 				}
 
@@ -229,7 +229,7 @@ RosterItemDetailsContent {
 	encryptionArea: ColumnLayout {
 		spacing: 0
 
-		FormCard.FormCardHeader {
+		FormCard.FormHeader {
 			title: qsTr("Encryption")
 		}
 
@@ -329,7 +329,7 @@ RosterItemDetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Notifications")
 			}
 
@@ -368,7 +368,7 @@ RosterItemDetailsContent {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Privacy")
 			}
 
@@ -406,7 +406,7 @@ RosterItemDetailsContent {
 			spacing: 0
 			enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				title: qsTr("Leaving & Deletion")
 			}
 

@@ -24,7 +24,7 @@ GridLayout {
 		contentItem: ColumnLayout {
 			spacing: 0
 
-			FormCard.FormCardHeader {
+			FormCard.FormHeader {
 				id: header
 			}
 
