@@ -25,7 +25,6 @@ QT["QtPositioning"]="5.15"
 QT["QtQuick"]="2.15"
 QT["QtQuick.Controls"]="2.15"
 QT["QtQuick.Controls.Material"]="2.15"
-QT["QtQuick.Dialogs"]="1.3"
 QT["QtQuick.Layouts"]="1.15"
 
 declare -A KIRIGAMI

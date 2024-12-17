@@ -4,10 +4,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtCore
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
+import QtQuick.Dialogs as Dialogs
 import QtQuick.Layouts 1.15
-import QtQuick.Dialogs 1.3 as QQD
 
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
@@ -32,24 +33,20 @@ Kirigami.Page {
 		height: 60
 	}
 
-	QQD.FileDialog {
+	Dialogs.FileDialog {
 		id: fileDialog
 		title: qsTr("Choose profile image")
-		folder: shortcuts.home
-
-		selectMultiple: false
-
+		currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
+		fileMode: Dialogs.FileDialog.OpenFile
 		onAccepted: {
 			imageDoc.path = fileDialog.fileUrl
 			imagePath = fileDialog.fileUrl
 
 			fileDialog.close()
 		}
-
 		onRejected: {
 			fileDialog.close()
 		}
-
 		Component.onCompleted: {
 			visible = false
 		}
