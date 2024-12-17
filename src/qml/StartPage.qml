@@ -73,65 +73,62 @@ Kirigami.ScrollablePage {
 		FormCard.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Log in")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Log in")
+			}
 
-				LoginArea {
-					id: loginArea
+			LoginArea {
+				id: loginArea
 
-					Connections {
-						target: pageStack.layers
+				Connections {
+					target: pageStack.layers
 
-						function onCurrentItemChanged() {
-							const currentItem = pageStack.layers.currentItem
+					function onCurrentItemChanged() {
+						const currentItem = pageStack.layers.currentItem
 
-							// Initialize loginArea on first opening (except after starting Kaidan)
-							// and when going back from sub pages (i.e., layers above).
-							// In the latter case, currentItem is confusingly not root but a
-							// RowLayout.
-							// As a workaround, currentItem is checked accordingly.
-							if (currentItem === root || currentItem instanceof RowLayout) {
-								loginArea.clearFields()
-								loginArea.reset()
-								loginArea.initialize()
-							}
-						}
-					}
-
-					Connections {
-						target: pageStack
-
-						function onCurrentItemChanged() {
-							// Initialize loginArea when Kaidan is started.
-							if (pageStack.currentItem === root) {
-								loginArea.initialize()
-							}
-						}
-					}
-
-					Connections {
-						target: applicationWindow()
-
-						function onActiveFocusItemChanged() {
-							// Ensure that loginArea is focused when this page is opened after an
-							// account removal.
-							// That workaround is needed because AccountDetailsDialog takes the
-							// focus when it is closed once the account removal is completed.
-							if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
-								loginArea.initialize()
-							}
+						// Initialize loginArea on first opening (except after starting Kaidan)
+						// and when going back from sub pages (i.e., layers above).
+						// In the latter case, currentItem is confusingly not root but a
+						// RowLayout.
+						// As a workaround, currentItem is checked accordingly.
+						if (currentItem === root || currentItem instanceof RowLayout) {
+							loginArea.clearFields()
+							loginArea.reset()
+							loginArea.initialize()
 						}
 					}
 				}
 
-				FormCard.FormButtonDelegate {
-					text: qsTr("Scan login QR code")
-					onClicked: pushLayer(qrCodeOnboardingPage)
+				Connections {
+					target: pageStack
+
+					function onCurrentItemChanged() {
+						// Initialize loginArea when Kaidan is started.
+						if (pageStack.currentItem === root) {
+							loginArea.initialize()
+						}
+					}
 				}
+
+				Connections {
+					target: applicationWindow()
+
+					function onActiveFocusItemChanged() {
+						// Ensure that loginArea is focused when this page is opened after an
+						// account removal.
+						// That workaround is needed because AccountDetailsDialog takes the
+						// focus when it is closed once the account removal is completed.
+						if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
+							loginArea.initialize()
+						}
+					}
+				}
+			}
+
+			FormCard.FormButtonDelegate {
+				text: qsTr("Scan login QR code")
+				onClicked: pushLayer(qrCodeOnboardingPage)
 			}
 		}
 
@@ -144,22 +141,19 @@ Kirigami.ScrollablePage {
 		FormCard.FormCard {
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Register")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Register")
+			}
 
-				FormCard.FormButtonDelegate {
-					text: qsTr("Generate account automatically")
-					onClicked: pushLayer(automaticRegistrationPage)
-				}
+			FormCard.FormButtonDelegate {
+				text: qsTr("Generate account automatically")
+				onClicked: pushLayer(automaticRegistrationPage)
+			}
 
-				FormCard.FormButtonDelegate {
-					text: qsTr("Create account manually")
-					onClicked: pushLayer(providerPage)
-				}
+			FormCard.FormButtonDelegate {
+				text: qsTr("Create account manually")
+				onClicked: pushLayer(providerPage)
 			}
 		}
 

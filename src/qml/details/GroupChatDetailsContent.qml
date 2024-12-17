@@ -24,201 +24,195 @@ RosterItemDetailsContent {
 	topArea: [
 		FormCard.FormCard {
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Invite")
+			FormCard.FormHeader {
+				title: qsTr("Invite")
+			}
+
+			ListView {
+				id: contactListView
+				model: RosterFilterProxyModel {
+					sourceModel: RosterModel
+					groupChatsExcluded: true
+					groupChatUsersExcluded: true
 				}
+				visible: contactExpansionButton.checked
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				header: FormCard.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: FormCard.AbstractFormDelegate {
+						background: null
+						contentItem: RowLayout {
+							spacing: Kirigami.Units.largeSpacing * 2
 
-				ListView {
-					id: contactListView
-					model: RosterFilterProxyModel {
-						sourceModel: RosterModel
-						groupChatsExcluded: true
-						groupChatUsersExcluded: true
-					}
-					visible: contactExpansionButton.checked
-					implicitHeight: contentHeight
-					Layout.fillWidth: true
-					header: FormCard.FormCard {
-						width: ListView.view.width
-						Kirigami.Theme.colorSet: Kirigami.Theme.Window
-						contentItem: FormCard.AbstractFormDelegate {
-							background: null
-							contentItem: RowLayout {
-								spacing: Kirigami.Units.largeSpacing * 2
-
-								SimpleListViewSearchField {
-									id: contactSearchField
-									listView: contactListView
-									enabled: contactButton.visible
-									Layout.fillWidth: true
-									onVisibleChanged: {
-										if (visible) {
-											clear()
-											forceActiveFocus()
-										}
-									}
-									Component.onCompleted: root.contactSearchField = this
-								}
-
-								Button {
-									id: contactButton
-									Controls.ToolTip.text: qsTr("Invite selected contacts")
-									icon.name: "go-next-symbolic"
-									flat: !hovered
-									Layout.preferredWidth: Layout.preferredHeight
-									Layout.preferredHeight: contactSearchField.implicitHeight
-									onClicked: {
-										visible = false
-										contactListView.inviteSelectedContacts()
-										visible = true
+							SimpleListViewSearchField {
+								id: contactSearchField
+								listView: contactListView
+								enabled: contactButton.visible
+								Layout.fillWidth: true
+								onVisibleChanged: {
+									if (visible) {
+										clear()
+										forceActiveFocus()
 									}
 								}
+								Component.onCompleted: root.contactSearchField = this
+							}
 
-								Controls.BusyIndicator {
-									visible: !contactButton.visible
-									Layout.preferredWidth: contactButton.Layout.preferredWidth
-									Layout.preferredHeight: Layout.preferredWidth
-									Layout.rightMargin: contactButton.Layout.rightMargin
+							Button {
+								id: contactButton
+								Controls.ToolTip.text: qsTr("Invite selected contacts")
+								icon.name: "go-next-symbolic"
+								flat: !hovered
+								Layout.preferredWidth: Layout.preferredHeight
+								Layout.preferredHeight: contactSearchField.implicitHeight
+								onClicked: {
+									visible = false
+									contactListView.inviteSelectedContacts()
+									visible = true
 								}
 							}
-						}
-					}
-					delegate: GroupChatContactInvitationItem {
-						id: contactDelegate
-						accountJid: model.accountJid
-						jid: model.jid
-						name: model.name
-						selected: model.selected
-						width: ListView.view.width
-						onClicked: {
-							contactListView.model.sourceModel.toggleSelected(model.accountJid, model.jid)
-							root.contactSearchField.forceActiveFocus()
-						}
-						onActiveFocusChanged: {
-							if (activeFocus) {
-								root.contactSearchField.forceActiveFocus()
+
+							Controls.BusyIndicator {
+								visible: !contactButton.visible
+								Layout.preferredWidth: contactButton.Layout.preferredWidth
+								Layout.preferredHeight: Layout.preferredWidth
+								Layout.rightMargin: contactButton.Layout.rightMargin
 							}
 						}
 					}
-					onVisibleChanged: {
-						if (visible) {
-							contactListView.model.sourceModel.resetSelected()
-						}
+				}
+				delegate: GroupChatContactInvitationItem {
+					id: contactDelegate
+					accountJid: model.accountJid
+					jid: model.jid
+					name: model.name
+					selected: model.selected
+					width: ListView.view.width
+					onClicked: {
+						contactListView.model.sourceModel.toggleSelected(model.accountJid, model.jid)
+						root.contactSearchField.forceActiveFocus()
 					}
-
-					function inviteSelectedContacts() {
-						var groupChatPublic = ChatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
-						var sourceModel = contactListView.model.sourceModel
-
-						for (var i = 0; i < sourceModel.rowCount(); i++) {
-							if (sourceModel.data(sourceModel.index(i, 0), RosterModel.SelectedRole)) {
-								var inviteeJid = sourceModel.data(sourceModel.index(i, 0), RosterModel.JidRole)
-								GroupChatController.inviteContactToGroupChat(ChatController.accountJid, ChatController.chatJid, inviteeJid, groupChatPublic)
-								root.contactsBeingInvitedCount++
-							}
-						}
-
-						if (root.contactsBeingInvitedCount) {
-							contactExpansionButton.toggle()
-						} else {
+					onActiveFocusChanged: {
+						if (activeFocus) {
 							root.contactSearchField.forceActiveFocus()
-							passiveNotification(qsTr("Select at least one contact"))
 						}
 					}
 				}
-
-				FormExpansionButton {
-					id: contactExpansionButton
+				onVisibleChanged: {
+					if (visible) {
+						contactListView.model.sourceModel.resetSelected()
+					}
 				}
+
+				function inviteSelectedContacts() {
+					var groupChatPublic = ChatController.rosterItem.groupChatFlags === RosterItem.GroupChatFlag.Public
+					var sourceModel = contactListView.model.sourceModel
+
+					for (var i = 0; i < sourceModel.rowCount(); i++) {
+						if (sourceModel.data(sourceModel.index(i, 0), RosterModel.SelectedRole)) {
+							var inviteeJid = sourceModel.data(sourceModel.index(i, 0), RosterModel.JidRole)
+							GroupChatController.inviteContactToGroupChat(ChatController.accountJid, ChatController.chatJid, inviteeJid, groupChatPublic)
+							root.contactsBeingInvitedCount++
+						}
+					}
+
+					if (root.contactsBeingInvitedCount) {
+						contactExpansionButton.toggle()
+					} else {
+						root.contactSearchField.forceActiveFocus()
+						passiveNotification(qsTr("Select at least one contact"))
+					}
+				}
+			}
+
+			FormExpansionButton {
+				id: contactExpansionButton
 			}
 		},
 
 		FormCard.FormCard {
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Participants")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Participants")
+			}
 
-				FormCard.FormSectionText {
-					text: qsTr("Allow a user (e.g., user@example.org) or all users of the same server (e.g., example.org) to participate")
-					visible: userExpansionButton.checked
-				}
+			FormCard.FormSectionText {
+				text: qsTr("Allow a user (e.g., user@example.org) or all users of the same server (e.g., example.org) to participate")
+				visible: userExpansionButton.checked
+			}
 
-				ListView {
-					id: userListView
-					model: GroupChatUserFilterModel {
-						sourceModel: GroupChatUserModel {
-							accountJid: ChatController.accountJid
-							chatJid: ChatController.chatJid
-						}
-					}
-					visible: userExpansionButton.checked
-					clip: true
-					implicitHeight: contentHeight
-					Layout.fillWidth: true
-					header: FormCard.FormCard {
-						width: ListView.view.width
-						Kirigami.Theme.colorSet: Kirigami.Theme.Window
-						contentItem: FormCard.AbstractFormDelegate {
-							background: null
-							contentItem: RowLayout {
-								Controls.Label {
-									text: qsTr("You must be connected to change the participants")
-									visible: Kaidan.connectionState !== Enums.StateConnected
-									Layout.fillWidth: true
-								}
-
-								SimpleListViewSearchField {
-									listView: userListView
-									visible: Kaidan.connectionState === Enums.StateConnected
-									Layout.fillWidth: true
-									onVisibleChanged: {
-										if (visible) {
-											clear()
-											forceActiveFocus()
-										}
-									}
-									Component.onCompleted: root.userSearchField = this
-								}
-							}
-						}
-					}
-					section.property: "statusText"
-					section.delegate: ListViewSectionDelegate {}
-					delegate: GroupChatUserItem {
-						id: userDelegate
+			ListView {
+				id: userListView
+				model: GroupChatUserFilterModel {
+					sourceModel: GroupChatUserModel {
 						accountJid: ChatController.accountJid
-						jid: model.jid
-						name: model.name
-						width: ListView.view.width
-						onActiveFocusChanged: {
-							if (activeFocus) {
-								root.userSearchField.forceActiveFocus()
+						chatJid: ChatController.chatJid
+					}
+				}
+				visible: userExpansionButton.checked
+				clip: true
+				implicitHeight: contentHeight
+				Layout.fillWidth: true
+				header: FormCard.FormCard {
+					width: ListView.view.width
+					Kirigami.Theme.colorSet: Kirigami.Theme.Window
+					contentItem: FormCard.AbstractFormDelegate {
+						background: null
+						contentItem: RowLayout {
+							Controls.Label {
+								text: qsTr("You must be connected to change the participants")
+								visible: Kaidan.connectionState !== Enums.StateConnected
+								Layout.fillWidth: true
 							}
-						}
 
-						Button {
-							text: qsTr("Ban")
-							icon.name: "edit-delete-symbolic"
-							visible: Kaidan.connectionState === Enums.StateConnected
-							display: Controls.AbstractButton.IconOnly
-							flat: !userDelegate.hovered
-							Controls.ToolTip.text: text
-							Layout.rightMargin: Kirigami.Units.smallSpacing * 3
-							onClicked: GroupChatController.banUser(ChatController.accountJid, ChatController.chatJid, userDelegate.jid)
+							SimpleListViewSearchField {
+								listView: userListView
+								visible: Kaidan.connectionState === Enums.StateConnected
+								Layout.fillWidth: true
+								onVisibleChanged: {
+									if (visible) {
+										clear()
+										forceActiveFocus()
+									}
+								}
+								Component.onCompleted: root.userSearchField = this
+							}
 						}
 					}
 				}
+				section.property: "statusText"
+				section.delegate: ListViewSectionDelegate {}
+				delegate: GroupChatUserItem {
+					id: userDelegate
+					accountJid: ChatController.accountJid
+					jid: model.jid
+					name: model.name
+					width: ListView.view.width
+					onActiveFocusChanged: {
+						if (activeFocus) {
+							root.userSearchField.forceActiveFocus()
+						}
+					}
 
-				FormExpansionButton {
-					id: userExpansionButton
+					Button {
+						text: qsTr("Ban")
+						icon.name: "edit-delete-symbolic"
+						visible: Kaidan.connectionState === Enums.StateConnected
+						display: Controls.AbstractButton.IconOnly
+						flat: !userDelegate.hovered
+						Controls.ToolTip.text: text
+						Layout.rightMargin: Kirigami.Units.smallSpacing * 3
+						onClicked: GroupChatController.banUser(ChatController.accountJid, ChatController.chatJid, userDelegate.jid)
+					}
 				}
+			}
+
+			FormExpansionButton {
+				id: userExpansionButton
 			}
 		}
 	]
@@ -226,9 +220,7 @@ RosterItemDetailsContent {
 		accountJid: ChatController.accountJid
 		chatJid: ChatController.chatJid
 	}
-	encryptionArea: ColumnLayout {
-		spacing: 0
-
+	encryptionArea {
 		FormCard.FormHeader {
 			title: qsTr("Encryption")
 		}
@@ -326,135 +318,123 @@ RosterItemDetailsContent {
 	FormCard.FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Notifications")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Notifications")
-			}
-
-			FormComboBoxDelegate {
-				text: qsTr("Incoming messages")
-				description: qsTr("Show notification and play sound on message arrival")
-				model: [
-					{
-						display: qsTr("Account default"),
-						value: RosterItem.NotificationRule.Account
-					},
-					{
-						display: qsTr("Never"),
-						value: RosterItem.NotificationRule.Never
-					},
-					{
-						display: qsTr("On mention"),
-						value: RosterItem.NotificationRule.Mentioned
-					},
-					{
-						display: qsTr("Always"),
-						value: RosterItem.NotificationRule.Always
-					}
-				]
-				textRole: "display"
-				valueRole: "value"
-				currentIndex: indexOf(ChatController.rosterItem.notificationRule)
-				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
-			}
+		FormComboBoxDelegate {
+			text: qsTr("Incoming messages")
+			description: qsTr("Show notification and play sound on message arrival")
+			model: [
+				{
+					display: qsTr("Account default"),
+					value: RosterItem.NotificationRule.Account
+				},
+				{
+					display: qsTr("Never"),
+					value: RosterItem.NotificationRule.Never
+				},
+				{
+					display: qsTr("On mention"),
+					value: RosterItem.NotificationRule.Mentioned
+				},
+				{
+					display: qsTr("Always"),
+					value: RosterItem.NotificationRule.Always
+				}
+			]
+			textRole: "display"
+			valueRole: "value"
+			currentIndex: indexOf(ChatController.rosterItem.notificationRule)
+			onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
 		}
 	}
 
 	FormCard.FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Privacy")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Privacy")
+		FormCard.FormSwitchDelegate {
+			text: qsTr("Send typing notifications")
+			description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
+			checked: ChatController.rosterItem.chatStateSendingEnabled
+			onToggled: {
+				RosterModel.setChatStateSendingEnabled(
+					ChatController.accountJid,
+					ChatController.chatJid,
+					checked)
 			}
+		}
 
-			FormCard.FormSwitchDelegate {
-				text: qsTr("Send typing notifications")
-				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-				checked: ChatController.rosterItem.chatStateSendingEnabled
-				onToggled: {
-					RosterModel.setChatStateSendingEnabled(
-						ChatController.accountJid,
-						ChatController.chatJid,
-						checked)
-				}
-			}
-
-			FormCard.FormSwitchDelegate {
-				text: qsTr("Send read notifications")
-				description: qsTr("Indicate which messages you have read")
-				checked: ChatController.rosterItem.readMarkerSendingEnabled
-				onToggled: {
-					RosterModel.setReadMarkerSendingEnabled(
-						ChatController.accountJid,
-						ChatController.chatJid,
-						checked)
-				}
+		FormCard.FormSwitchDelegate {
+			text: qsTr("Send read notifications")
+			description: qsTr("Indicate which messages you have read")
+			checked: ChatController.rosterItem.readMarkerSendingEnabled
+			onToggled: {
+				RosterModel.setReadMarkerSendingEnabled(
+					ChatController.accountJid,
+					ChatController.chatJid,
+					checked)
 			}
 		}
 	}
 
 	FormCard.FormCard {
+		id: removalArea
 		Layout.fillWidth: true
+		enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
 
-		contentItem: ColumnLayout {
-			id: removalArea
-			spacing: 0
-			enabled: !groupChatLeavingButton.busy && !groupChatDeletionButton.busy
+		FormCard.FormHeader {
+			title: qsTr("Leaving & Deletion")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Leaving & Deletion")
+		ConfirmationFormButtonArea {
+			id: groupChatLeavingButton
+			button {
+				text: qsTr("Leave")
+				description: qsTr("Leave group and remove complete chat history")
+				icon.name: "edit-delete-symbolic"
+				icon.color: Kirigami.Theme.neutralTextColor
 			}
+			confirmationButton.onClicked: {
+				groupChatDeletionButton.confirmationButton.visible = false
+				GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
+			}
+			busy: GroupChatController.busy
+			busyText: qsTr("Leaving group chat…")
 
-			ConfirmationFormButtonArea {
-				id: groupChatLeavingButton
-				button {
-					text: qsTr("Leave")
-					description: qsTr("Leave group and remove complete chat history")
-					icon.name: "edit-delete-symbolic"
-					icon.color: Kirigami.Theme.neutralTextColor
-				}
-				confirmationButton.onClicked: {
-					groupChatDeletionButton.confirmationButton.visible = false
-					GroupChatController.leaveGroupChat(ChatController.accountJid, ChatController.chatJid)
-				}
-				busy: GroupChatController.busy
-				busyText: qsTr("Leaving group chat…")
+			Connections {
+				target: GroupChatController
 
-				Connections {
-					target: GroupChatController
-
-					function onGroupChatLeavingFailed(accountJid, groupChatJid, errorMessage) {
-						passiveNotification(qsTr("The group %1 could not be left%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
-					}
+				function onGroupChatLeavingFailed(accountJid, groupChatJid, errorMessage) {
+					passiveNotification(qsTr("The group %1 could not be left%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
+		}
 
-			ConfirmationFormButtonArea {
-				id: groupChatDeletionButton
-				button {
-					text: qsTr("Delete")
-					description: qsTr("Delete group. Nobody will be able to join the group again!")
-					icon.name: "edit-delete-symbolic"
-					icon.color: Kirigami.Theme.negativeTextColor
-				}
-				confirmationButton.onClicked: {
-					groupChatLeavingButton.confirmationButton.visible = false
-					GroupChatController.deleteGroupChat(ChatController.accountJid, ChatController.chatJid)
-				}
-				busy: GroupChatController.busy
-				busyText: qsTr("Deleting group chat…")
+		ConfirmationFormButtonArea {
+			id: groupChatDeletionButton
+			button {
+				text: qsTr("Delete")
+				description: qsTr("Delete group. Nobody will be able to join the group again!")
+				icon.name: "edit-delete-symbolic"
+				icon.color: Kirigami.Theme.negativeTextColor
+			}
+			confirmationButton.onClicked: {
+				groupChatLeavingButton.confirmationButton.visible = false
+				GroupChatController.deleteGroupChat(ChatController.accountJid, ChatController.chatJid)
+			}
+			busy: GroupChatController.busy
+			busyText: qsTr("Deleting group chat…")
 
-				Connections {
-					target: GroupChatController
+			Connections {
+				target: GroupChatController
 
-					function onGroupChatDeletionFailed(accountJid, groupChatJid, errorMessage) {
-						passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
-					}
+				function onGroupChatDeletionFailed(accountJid, groupChatJid, errorMessage) {
+					passiveNotification(qsTr("The group %1 could not be deleted%2").arg(groupChatJid).arg(errorMessage ? ": " + errorMessage : ""))
 				}
 			}
 		}

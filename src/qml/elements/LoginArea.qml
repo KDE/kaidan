@@ -21,7 +21,8 @@ FormCard.FormCard {
 	Layout.fillWidth: true
 	Kirigami.Theme.colorSet: Kirigami.Theme.Window
 	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
-	contentItem: FormCard.AbstractFormDelegate {
+
+	FormCard.AbstractFormDelegate {
 		background: null
 		contentItem: ColumnLayout {
 			JidField {

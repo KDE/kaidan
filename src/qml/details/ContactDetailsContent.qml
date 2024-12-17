@@ -92,34 +92,95 @@ RosterItemDetailsContent {
 	FormCard.FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Notifications")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Notifications")
+		FormComboBoxDelegate {
+			text: qsTr("Incoming messages")
+			description: qsTr("Show notification and play sound on message arrival")
+			model: [
+				{
+					display: qsTr("Account default"),
+					value: RosterItem.NotificationRule.Account
+				},
+				{
+					display: qsTr("Never"),
+					value: RosterItem.NotificationRule.Never
+				},
+				{
+					display: qsTr("Always"),
+					value: RosterItem.NotificationRule.Always
+				}
+			]
+			textRole: "display"
+			valueRole: "value"
+			currentIndex: indexOf(ChatController.rosterItem.notificationRule)
+			onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
+		}
+	}
+
+	FormCard.FormCard {
+		Layout.fillWidth: true
+
+		FormCard.FormHeader {
+			title: qsTr("Privacy")
+		}
+
+		FormCard.FormButtonDelegate {
+			text: qsTr("Request personal data")
+			description: qsTr("Ask your contact to share the availability, devices and other personal information")
+			visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
+			onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(ChatController.chatJid)
+		}
+
+		FormCard.FormButtonDelegate {
+			text: qsTr("Cancel personal data sharing")
+			description: qsTr("Stop sharing your availability, devices and other personal information")
+			visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
+			onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(ChatController.chatJid)
+		}
+
+		FormCard.FormSwitchDelegate {
+			text: qsTr("Send typing notifications")
+			description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
+			checked: ChatController.rosterItem.chatStateSendingEnabled
+			onToggled: {
+				RosterModel.setChatStateSendingEnabled(
+					ChatController.accountJid,
+					ChatController.chatJid,
+					checked)
+			}
+		}
+
+		FormCard.FormSwitchDelegate {
+			text: qsTr("Send read notifications")
+			description: qsTr("Indicate which messages you have read")
+			checked: ChatController.rosterItem.readMarkerSendingEnabled
+			onToggled: {
+				RosterModel.setReadMarkerSendingEnabled(
+					ChatController.accountJid,
+					ChatController.chatJid,
+					checked)
+			}
+		}
+
+		FormCard.FormSwitchDelegate {
+			text: qsTr("Block")
+			description: qsTr("Block all communication including status and notifications")
+			enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
+			checked: blockingWatcher.blocked
+			onToggled: {
+				if (checked) {
+					blockingAction.block(ChatController.chatJid)
+				} else {
+					blockingAction.unblock(ChatController.chatJid)
+				}
 			}
 
-			FormComboBoxDelegate {
-				text: qsTr("Incoming messages")
-				description: qsTr("Show notification and play sound on message arrival")
-				model: [
-					{
-						display: qsTr("Account default"),
-						value: RosterItem.NotificationRule.Account
-					},
-					{
-						display: qsTr("Never"),
-						value: RosterItem.NotificationRule.Never
-					},
-					{
-						display: qsTr("Always"),
-						value: RosterItem.NotificationRule.Always
-					}
-				]
-				textRole: "display"
-				valueRole: "value"
-				currentIndex: indexOf(ChatController.rosterItem.notificationRule)
-				onActivated: RosterModel.setNotificationRule(ChatController.accountJid, ChatController.chatJid, currentValue)
+			BlockingWatcher {
+				id: blockingWatcher
+				jid: ChatController.chatJid
 			}
 		}
 	}
@@ -127,95 +188,22 @@ RosterItemDetailsContent {
 	FormCard.FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
-
-			FormCard.FormHeader {
-				title: qsTr("Privacy")
-			}
-
-			FormCard.FormButtonDelegate {
-				text: qsTr("Request personal data")
-				description: qsTr("Ask your contact to share the availability, devices and other personal information")
-				visible: Kaidan.connectionState === Enums.StateConnected && !ChatController.rosterItem.sendingPresence
-				onClicked: Kaidan.client.rosterManager.subscribeToPresenceRequested(ChatController.chatJid)
-			}
-
-			FormCard.FormButtonDelegate {
-				text: qsTr("Cancel personal data sharing")
-				description: qsTr("Stop sharing your availability, devices and other personal information")
-				visible: Kaidan.connectionState === Enums.StateConnected && ChatController.rosterItem.receivingPresence
-				onClicked: Kaidan.client.rosterManager.refuseSubscriptionToPresenceRequested(ChatController.chatJid)
-			}
-
-			FormCard.FormSwitchDelegate {
-				text: qsTr("Send typing notifications")
-				description: qsTr("Indicate when you have this conversation open, are typing and stopped typing")
-				checked: ChatController.rosterItem.chatStateSendingEnabled
-				onToggled: {
-					RosterModel.setChatStateSendingEnabled(
-						ChatController.accountJid,
-						ChatController.chatJid,
-						checked)
-				}
-			}
-
-			FormCard.FormSwitchDelegate {
-				text: qsTr("Send read notifications")
-				description: qsTr("Indicate which messages you have read")
-				checked: ChatController.rosterItem.readMarkerSendingEnabled
-				onToggled: {
-					RosterModel.setReadMarkerSendingEnabled(
-						ChatController.accountJid,
-						ChatController.chatJid,
-						checked)
-				}
-			}
-
-			FormCard.FormSwitchDelegate {
-				text: qsTr("Block")
-				description: qsTr("Block all communication including status and notifications")
-				enabled: !blockingAction.loading && Kaidan.connectionState === Enums.StateConnected
-				checked: blockingWatcher.blocked
-				onToggled: {
-					if (checked) {
-						blockingAction.block(ChatController.chatJid)
-					} else {
-						blockingAction.unblock(ChatController.chatJid)
-					}
-				}
-
-				BlockingWatcher {
-					id: blockingWatcher
-					jid: ChatController.chatJid
-				}
-			}
+		FormCard.FormHeader {
+			title: qsTr("Removal")
 		}
-	}
 
-	FormCard.FormCard {
-		Layout.fillWidth: true
-
-		contentItem: ColumnLayout {
-			spacing: 0
-
-			FormCard.FormHeader {
-				title: qsTr("Removal")
+		ConfirmationFormButtonArea {
+			button {
+				text: qsTr("Remove")
+				description: qsTr("Remove contact and complete chat history")
+				icon.name: "edit-delete-symbolic"
+				icon.color: Kirigami.Theme.negativeTextColor
 			}
-
-			ConfirmationFormButtonArea {
-				button {
-					text: qsTr("Remove")
-					description: qsTr("Remove contact and complete chat history")
-					icon.name: "edit-delete-symbolic"
-					icon.color: Kirigami.Theme.negativeTextColor
-				}
-				confirmationButton.onClicked: {
-					busy = true
-					Kaidan.client.rosterManager.removeContactRequested(ChatController.chatJid)
-				}
-				busyText: qsTr("Removing contact…")
+			confirmationButton.onClicked: {
+				busy = true
+				Kaidan.client.rosterManager.removeContactRequested(ChatController.chatJid)
 			}
+			busyText: qsTr("Removing contact…")
 		}
 	}
 

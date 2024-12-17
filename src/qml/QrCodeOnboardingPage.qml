@@ -58,21 +58,18 @@ ExplanationTogglePage {
 		FormCard.FormCard {
 			id: loginFormCard
 			visible: false
-			contentItem: ColumnLayout {
-				spacing: 0
-
-				FormCard.FormHeader {
-					title: qsTr("Log in")
-				}
-
-				LoginArea {
-					id: loginArea
-				}
-			}
 			Layout.alignment: Qt.AlignHCenter
 			Layout.topMargin: Kirigami.Units.largeSpacing
 			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
+
+			FormCard.FormHeader {
+				title: qsTr("Log in")
+			}
+
+			LoginArea {
+				id: loginArea
+			}
 		}
 	}
 	content: QrCodeScanner {

@@ -21,23 +21,19 @@ GridLayout {
 		Layout.maximumHeight: parent.height
 		Layout.alignment: Qt.AlignCenter
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			id: header
+		}
 
-			FormCard.FormHeader {
-				id: header
-			}
+		Controls.ScrollView {
+			Layout.fillWidth: true
+			Layout.fillHeight: true
+			Layout.preferredWidth: contentWidth
+			Layout.preferredHeight: contentHeight
+			clip: true
 
-			Controls.ScrollView {
-				Layout.fillWidth: true
-				Layout.fillHeight: true
-				Layout.preferredWidth: contentWidth
-				Layout.preferredHeight: contentHeight
-				clip: true
-
-				ListView {
-					id: listView
-				}
+			ListView {
+				id: listView
 			}
 		}
 	}

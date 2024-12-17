@@ -55,64 +55,62 @@ RegistrationPage {
 		FormCard.FormCard {
 			visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired && (displayNameField.visible || usernameField.visible || passwordField.visible)
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Enter your desired credentials")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Enter your desired credentials")
+			}
 
-				FormCard.FormCard {
-					Layout.fillWidth: true
-					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: FormCard.AbstractFormDelegate {
-						background: null
-						contentItem: ColumnLayout {
-							Field {
-								id: displayNameField
-								labelText: qsTr("Display Name")
-								visible: Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)
-								inputMethodHints: Qt.ImhPreferUppercase
-								inputField.onAccepted: usernameField.forceActiveFocus()
-							}
+			FormCard.FormCard {
+				Layout.fillWidth: true
+				Kirigami.Theme.colorSet: Kirigami.Theme.Window
 
-							CredentialsField {
-								id: usernameField
-								labelText: qsTr("Username")
-								text: displayNameField.text.replace(/ /g, ".").toLowerCase()
-								placeholderText: credentialsGenerator.generateUsername()
-								inputMethodHints: Qt.ImhPreferLowercase
-								invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
-								valid: true
-								onTextChanged: {
-									if (text === "") {
-										valid = true
-									} else {
-										valid = credentialsValidator.isUsernameValid(text)
-									}
+				FormCard.AbstractFormDelegate {
+					background: null
+					contentItem: ColumnLayout {
+						Field {
+							id: displayNameField
+							labelText: qsTr("Display Name")
+							visible: Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)
+							inputMethodHints: Qt.ImhPreferUppercase
+							inputField.onAccepted: usernameField.forceActiveFocus()
+						}
 
-									toggleHintForInvalidText()
+						CredentialsField {
+							id: usernameField
+							labelText: qsTr("Username")
+							text: displayNameField.text.replace(/ /g, ".").toLowerCase()
+							placeholderText: credentialsGenerator.generateUsername()
+							inputMethodHints: Qt.ImhPreferLowercase
+							invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
+							valid: true
+							onTextChanged: {
+								if (text === "") {
+									valid = true
+								} else {
+									valid = credentialsValidator.isUsernameValid(text)
 								}
-								inputField.onAccepted: passwordField.forceActiveFocus()
 
-								function regenerateUsername() {
-									placeholderText = credentialsGenerator.generateUsername()
-								}
+								toggleHintForInvalidText()
 							}
+							inputField.onAccepted: passwordField.forceActiveFocus()
 
-							RegistrationPasswordField {
-								id: passwordField
-								onTextChanged: {
-									if (text === "") {
-										valid = true
-									} else {
-										valid = credentialsValidator.isPasswordValid(text)
-									}
-
-									toggleHintForInvalidText()
-								}
-								inputField.onAccepted: customDataFormArea.forceActiveFocus()
+							function regenerateUsername() {
+								placeholderText = credentialsGenerator.generateUsername()
 							}
+						}
+
+						RegistrationPasswordField {
+							id: passwordField
+							onTextChanged: {
+								if (text === "") {
+									valid = true
+								} else {
+									valid = credentialsValidator.isPasswordValid(text)
+								}
+
+								toggleHintForInvalidText()
+							}
+							inputField.onAccepted: customDataFormArea.forceActiveFocus()
 						}
 					}
 				}

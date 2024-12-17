@@ -24,7 +24,6 @@ FormInfoContent {
 	property alias mediaOverview: mediaOverview
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea
-	property alias vCardContentArea: vCardContentArea.data
 	property alias vCardRepeater: vCardRepeater
 	property alias rosterGoupListView: rosterGoupListView
 	property alias sharingArea: sharingArea
@@ -33,7 +32,7 @@ FormInfoContent {
 	property alias qrCodeButton: qrCodeButton
 	property alias uriButton: uriButton
 	property alias invitationButton: invitationButton
-	required property ColumnLayout encryptionArea
+	property alias encryptionArea: encryptionArea
 
 	enum EncryptionKeyAuthenticationState {
 		DistrustedKeysOnly,
@@ -50,55 +49,52 @@ FormInfoContent {
 
 	FormCard.FormCard {
 		Layout.fillWidth: true
-		contentItem: ColumnLayout {
-			spacing: 0
 
-			FormCard.FormHeader {
-				title: qsTr("Media")
-			}
+		FormCard.FormHeader {
+			title: qsTr("Media")
+		}
 
-			FormComboBoxDelegate {
-				id: automaticMediaDownloadsDelegate
-				text: qsTr("Automatic downloads")
-				description: qsTr("Download media automatically")
+		FormComboBoxDelegate {
+			id: automaticMediaDownloadsDelegate
+			text: qsTr("Automatic downloads")
+			description: qsTr("Download media automatically")
+		}
+
+		ColumnLayout {
+			visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
+
+			FormCard.FormSectionText {
+				text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
 			}
 
 			ColumnLayout {
-				visible: mediaOverviewExpansionButton.visible && mediaOverviewExpansionButton.checked
+				visible: mediaOverview.totalFilesCount
+				spacing: 0
 
-				FormCard.FormSectionText {
-					text: qsTr("You can share media up to %1.").arg(Kaidan.serverFeaturesCache.httpUploadLimitString)
+				Kirigami.Separator {
+					Layout.fillWidth: true
 				}
 
-				ColumnLayout {
-					visible: mediaOverview.totalFilesCount
-					spacing: 0
-
-					Kirigami.Separator {
-						Layout.fillWidth: true
-					}
-
-					MediaOverview {
-						id: mediaOverview
-						Layout.fillWidth: true
-					}
+				MediaOverview {
+					id: mediaOverview
+					Layout.fillWidth: true
 				}
 			}
+		}
 
-			FormExpansionButton {
-				id: mediaOverviewExpansionButton
-				onCheckedChanged: {
-					if (checked) {
-						mediaOverview.selectionMode = false
+		FormExpansionButton {
+			id: mediaOverviewExpansionButton
+			onCheckedChanged: {
+				if (checked) {
+					mediaOverview.selectionMode = false
 
-						// Display the content of the first tab only on initial loading.
-						// Afterwards, display the content of the last active tab.
-						if (mediaOverview.tabBarCurrentIndex === -1) {
-							mediaOverview.tabBarCurrentIndex = 0
-						}
-
-						mediaOverview.loadDownloadedFiles()
+					// Display the content of the first tab only on initial loading.
+					// Afterwards, display the content of the last active tab.
+					if (mediaOverview.tabBarCurrentIndex === -1) {
+						mediaOverview.tabBarCurrentIndex = 0
 					}
+
+					mediaOverview.loadDownloadedFiles()
 				}
 			}
 		}
@@ -107,24 +103,20 @@ FormInfoContent {
 	FormCard.FormCard {
 		id: vCardArea
 		Layout.fillWidth: true
-		contentItem: ColumnLayout {
-			id: vCardContentArea
-			spacing: 0
 
-			FormCard.FormHeader {
-				title: qsTr("Profile")
-			}
+		FormCard.FormHeader {
+			title: qsTr("Profile")
+		}
 
-			Repeater {
-				id: vCardRepeater
-				Layout.fillHeight: true
-			}
+		Repeater {
+			id: vCardRepeater
+			Layout.fillHeight: true
 		}
 	}
 
 	FormCard.FormCard {
+		id: encryptionArea
 		Layout.fillWidth: true
-		contentItem: root.encryptionArea
 	}
 
 	FormCard.FormCard {
@@ -132,24 +124,20 @@ FormInfoContent {
 		visible: rosterGoupListView.count || rosterGoupListView.headerItem
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Labels")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Labels")
-			}
+		ListView {
+			id: rosterGoupListView
+			model: RosterModel.groups
+			visible: rosterGroupExpansionButton.checked
+			implicitHeight: contentHeight
+			Layout.fillWidth: true
+		}
 
-			ListView {
-				id: rosterGoupListView
-				model: RosterModel.groups
-				visible: rosterGroupExpansionButton.checked
-				implicitHeight: contentHeight
-				Layout.fillWidth: true
-			}
-
-			FormExpansionButton {
-				id: rosterGroupExpansionButton
-			}
+		FormExpansionButton {
+			id: rosterGroupExpansionButton
 		}
 	}
 
@@ -157,50 +145,46 @@ FormInfoContent {
 		id: sharingArea
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Sharing")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Sharing")
-			}
+		FormCard.FormButtonDelegate {
+			id: qrCodeExpansionButton
+			text: qsTr("Show QR code")
+			icon.name: "view-barcode-qr"
+			// TODO: If possible, scroll down to show whole QR code
+			onClicked: qrCodeArea.visible = !qrCodeArea.visible
+		}
 
-			FormCard.FormButtonDelegate {
-				id: qrCodeExpansionButton
-				text: qsTr("Show QR code")
-				icon.name: "view-barcode-qr"
-				// TODO: If possible, scroll down to show whole QR code
-				onClicked: qrCodeArea.visible = !qrCodeArea.visible
+		FormCard.AbstractFormDelegate {
+			id: qrCodeArea
+			visible: false
+			background: Rectangle {
+				color: secondaryBackgroundColor
 			}
+			Layout.preferredWidth: parent.width
+			Layout.preferredHeight: Layout.preferredWidth
+		}
 
-			FormCard.AbstractFormDelegate {
-				id: qrCodeArea
-				visible: false
-				background: Rectangle {
-					color: secondaryBackgroundColor
-				}
-				Layout.preferredWidth: parent.width
-				Layout.preferredHeight: Layout.preferredWidth
-			}
+		FormCard.FormButtonDelegate {
+			id: qrCodeButton
+			text: qsTr("Copy QR code")
+			icon.name: "send-to-symbolic"
+			onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
+		}
 
-			FormCard.FormButtonDelegate {
-				id: qrCodeButton
-				text: qsTr("Copy QR code")
-				icon.name: "send-to-symbolic"
-				onClicked: passiveNotification(qsTr("QR code copied to clipboard"))
-			}
+		FormCard.FormButtonDelegate {
+			id: uriButton
+			text: qsTr("Copy chat address")
+			icon.name: "send-to-symbolic"
+		}
 
-			FormCard.FormButtonDelegate {
-				id: uriButton
-				text: qsTr("Copy chat address")
-				icon.name: "send-to-symbolic"
-			}
-
-			FormCard.FormButtonDelegate {
-				id: invitationButton
-				text: qsTr("Copy invitation link")
-				icon.name: "mail-message-new-symbolic"
-				onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
-			}
+		FormCard.FormButtonDelegate {
+			id: invitationButton
+			text: qsTr("Copy invitation link")
+			icon.name: "mail-message-new-symbolic"
+			onClicked: passiveNotification(qsTr("Invitation link copied to clipboard"))
 		}
 	}
 

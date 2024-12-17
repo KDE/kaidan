@@ -29,138 +29,130 @@ Kirigami.GlobalDrawer {
 			FormCard.FormCard {
 				Layout.fillWidth: true
 
-				contentItem: ColumnLayout {
-					spacing: 0
+				FormCard.FormHeader {
+					title: qsTr("Accounts")
+				}
 
-					FormCard.FormHeader {
-						title: qsTr("Accounts")
-					}
+				ListView {
+					model: [ AccountManager.jid ]
+					delegate: ColumnLayout {
+						spacing: 0
+						width: ListView.view.width
 
-					ListView {
-						model: [ AccountManager.jid ]
-						delegate: ColumnLayout {
-							spacing: 0
-							width: ListView.view.width
+						FormCard.FormTextDelegate {
+							id: accountArea
 
-							FormCard.FormTextDelegate {
-								id: accountArea
+							property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
+							property bool connected: Kaidan.connectionState === Enums.StateConnected
 
-								property bool disconnected: Kaidan.connectionState === Enums.StateDisconnected
-								property bool connected: Kaidan.connectionState === Enums.StateConnected
-
-								background: FormCard.FormDelegateBackground { control: accountArea }
-								leading: Avatar {
-									jid: modelData
-									name: AccountManager.displayName
-								}
-								leadingPadding: 10
-								// The placeholder text is used while "AccountManager.displayName"
-								// is not yet loaded to avoid a binding loop for the property
-								// "implicitHeight".
-								text: AccountManager.displayName ? AccountManager.displayName : " "
-								description: Kaidan.connectionStateText
-								descriptionItem {
-									color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
-									opacity: connected ? 1 : 0.5
-								}
-								trailing: Controls.Switch {
-									checked: !accountArea.disconnected
-									onToggled: accountArea.disconnected ? Kaidan.logIn() : Kaidan.logOut()
-								}
-								onClicked: {
-									root.close()
-									root.selectedAccountJid = modelData
-									openViewFromGlobalDrawer(accountDetailsDialog, accountDetailsPage).jid = modelData
-								}
+							background: FormCard.FormDelegateBackground { control: accountArea }
+							leading: Avatar {
+								jid: modelData
+								name: AccountManager.displayName
 							}
-
-							Controls.Label {
-								id: errorMessage
-								visible: Kaidan.connectionError
-								text: {
-									const error = Kaidan.connectionError
-
-									if (error === ClientWorker.NoError) {
-										return ""
-									}
-
-									return Utils.connectionErrorMessage(error)
-								}
-								font.bold: true
-								wrapMode: Text.WordWrap
-								padding: 10
-								Layout.margins: 10
-								Layout.fillWidth: true
-								background: RoundedRectangle {
-									color: Kirigami.Theme.negativeBackgroundColor
-								}
+							leadingPadding: 10
+							// The placeholder text is used while "AccountManager.displayName"
+							// is not yet loaded to avoid a binding loop for the property
+							// "implicitHeight".
+							text: AccountManager.displayName ? AccountManager.displayName : " "
+							description: Kaidan.connectionStateText
+							descriptionItem {
+								color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
+								opacity: connected ? 1 : 0.5
+							}
+							trailing: Controls.Switch {
+								checked: !accountArea.disconnected
+								onToggled: accountArea.disconnected ? Kaidan.logIn() : Kaidan.logOut()
+							}
+							onClicked: {
+								root.close()
+								root.selectedAccountJid = modelData
+								openViewFromGlobalDrawer(accountDetailsDialog, accountDetailsPage).jid = modelData
 							}
 						}
-						implicitHeight: contentHeight
-						Layout.fillWidth: true
+
+						Controls.Label {
+							id: errorMessage
+							visible: Kaidan.connectionError
+							text: {
+								const error = Kaidan.connectionError
+
+								if (error === ClientWorker.NoError) {
+									return ""
+								}
+
+								return Utils.connectionErrorMessage(error)
+							}
+							font.bold: true
+							wrapMode: Text.WordWrap
+							padding: 10
+							Layout.margins: 10
+							Layout.fillWidth: true
+							background: RoundedRectangle {
+								color: Kirigami.Theme.negativeBackgroundColor
+							}
+						}
 					}
+					implicitHeight: contentHeight
+					Layout.fillWidth: true
 				}
 			}
 
 			FormCard.FormCard {
 				Layout.fillWidth: true
 
-				contentItem: ColumnLayout {
-					spacing: 0
+				FormCard.FormHeader {
+					title: qsTr("Actions")
+				}
 
-					FormCard.FormHeader {
-						title: qsTr("Actions")
+				FormCard.FormButtonDelegate {
+					text: qsTr("Add contact by QR code")
+					icon.name: "view-barcode-qr"
+					onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
+				}
+
+				FormCard.FormButtonDelegate {
+					text: qsTr("Add contact by chat address")
+					icon.name: "contact-new-symbolic"
+					onClicked: openContactAdditionView()
+				}
+
+				FormCard.FormButtonDelegate {
+					text: qsTr("Create group")
+					icon.name: "resource-group-new"
+					visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatCreationSupported
+					onClicked: openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
+				}
+
+				FormCard.FormButtonDelegate {
+					text: qsTr("Join group")
+					icon.name: "resource-group"
+					visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
+					onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
+				}
+
+				FormCard.FormButtonDelegate {
+					id: publicGroupChatSearchButton
+					text: qsTr("Search public groups")
+					icon.name: "system-search-symbolic"
+					onClicked: openOverlayFromGlobalDrawe(searchPublicGroupChatDialog)
+
+					Shortcut {
+						sequence: "Ctrl+G"
+						onActivated: publicGroupChatSearchButton.clicked()
 					}
+				}
 
-					FormCard.FormButtonDelegate {
-						text: qsTr("Add contact by QR code")
-						icon.name: "view-barcode-qr"
-						onClicked: openPageFromGlobalDrawer(contactAdditionQrCodePage)
-					}
+				FormCard.FormButtonDelegate {
+					text: qsTr("Switch device")
+					icon.name: "send-to-symbolic"
+					onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
+				}
 
-					FormCard.FormButtonDelegate {
-						text: qsTr("Add contact by chat address")
-						icon.name: "contact-new-symbolic"
-						onClicked: openContactAdditionView()
-					}
-
-					FormCard.FormButtonDelegate {
-						text: qsTr("Create group")
-						icon.name: "resource-group-new"
-						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatCreationSupported
-						onClicked: openViewFromGlobalDrawer(groupChatCreationDialog, groupChatCreationPage)
-					}
-
-					FormCard.FormButtonDelegate {
-						text: qsTr("Join group")
-						icon.name: "resource-group"
-						visible: Kaidan.connectionState === Enums.StateConnected && GroupChatController.groupChatParticipationSupported
-						onClicked: openViewFromGlobalDrawer(groupChatJoiningDialog, groupChatJoiningPage)
-					}
-
-					FormCard.FormButtonDelegate {
-						id: publicGroupChatSearchButton
-						text: qsTr("Search public groups")
-						icon.name: "system-search-symbolic"
-						onClicked: openOverlayFromGlobalDrawe(searchPublicGroupChatDialog)
-
-						Shortcut {
-							sequence: "Ctrl+G"
-							onActivated: publicGroupChatSearchButton.clicked()
-						}
-					}
-
-					FormCard.FormButtonDelegate {
-						text: qsTr("Switch device")
-						icon.name: "send-to-symbolic"
-						onClicked: openPageFromGlobalDrawer(deviceSwitchingPage)
-					}
-
-					FormCard.FormButtonDelegate {
-						text: qsTr("About")
-						icon.name: "help-about-symbolic"
-						onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)
-					}
+				FormCard.FormButtonDelegate {
+					text: qsTr("About")
+					icon.name: "help-about-symbolic"
+					onClicked: openViewFromGlobalDrawer(aboutDialog, aboutPage)
 				}
 			}
 

@@ -48,26 +48,22 @@ RosterItemDetailsContent {
 	FormCard.FormCard {
 		Layout.fillWidth: true
 
-		contentItem: ColumnLayout {
-			spacing: 0
+		FormCard.FormHeader {
+			title: qsTr("Removal")
+		}
 
-			FormCard.FormHeader {
-				title: qsTr("Removal")
+		ConfirmationFormButtonArea {
+			button {
+				text: qsTr("Remove")
+				description: qsTr("Remove notes chat and complete chat history")
+				icon.name: "edit-delete-symbolic"
+				icon.color: Kirigami.Theme.negativeTextColor
 			}
-
-			ConfirmationFormButtonArea {
-				button {
-					text: qsTr("Remove")
-					description: qsTr("Remove notes chat and complete chat history")
-					icon.name: "edit-delete-symbolic"
-					icon.color: Kirigami.Theme.negativeTextColor
-				}
-				confirmationButton.onClicked: {
-					busy = true
-					Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
-				}
-				busyText: qsTr("Removing notes chat…")
+			confirmationButton.onClicked: {
+				busy = true
+				Kaidan.client.rosterManager.removeContactRequested(ChatController.accountJid)
 			}
+			busyText: qsTr("Removing notes chat…")
 		}
 	}
 

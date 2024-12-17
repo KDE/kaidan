@@ -21,52 +21,49 @@ FormCard.FormCard {
 
 	visible: deviceRepeater.count
 	Layout.fillWidth: true
-	contentItem: ColumnLayout {
-		spacing: 0
 
-		FormCard.FormHeader {
-			title: qsTr("Connected Devices")
+	FormCard.FormHeader {
+		title: qsTr("Connected Devices")
+	}
+
+	Repeater {
+		id: deviceRepeater
+		Layout.fillHeight: true
+		model: UserDevicesModel {
+			jid: root.jid
 		}
-
-		Repeater {
-			id: deviceRepeater
-			Layout.fillHeight: true
-			model: UserDevicesModel {
-				jid: root.jid
-			}
-			delegate: FormCard.AbstractFormDelegate {
-				visible: deviceExpansionButton.checked
-				background: null
-				contentItem: ColumnLayout {
-					Controls.Label {
-						text: {
-							if (model.name) {
-								if (model.version) {
-									return model.name + " " + model.version
-								}
-								return model.name
+		delegate: FormCard.AbstractFormDelegate {
+			visible: deviceExpansionButton.checked
+			background: null
+			contentItem: ColumnLayout {
+				Controls.Label {
+					text: {
+						if (model.name) {
+							if (model.version) {
+								return model.name + " " + model.version
 							}
-							return model.resource
+							return model.name
 						}
-						textFormat: Text.PlainText
-						wrapMode: Text.WordWrap
-						Layout.fillWidth: true
+						return model.resource
 					}
+					textFormat: Text.PlainText
+					wrapMode: Text.WordWrap
+					Layout.fillWidth: true
+				}
 
-					Controls.Label {
-						text: model.os
-						color: Kirigami.Theme.disabledTextColor
-						font: Kirigami.Theme.smallFont
-						textFormat: Text.PlainText
-						wrapMode: Text.WordWrap
-						Layout.fillWidth: true
-					}
+				Controls.Label {
+					text: model.os
+					color: Kirigami.Theme.disabledTextColor
+					font: Kirigami.Theme.smallFont
+					textFormat: Text.PlainText
+					wrapMode: Text.WordWrap
+					Layout.fillWidth: true
 				}
 			}
 		}
+	}
 
-		FormExpansionButton {
-			id: deviceExpansionButton
-		}
+	FormExpansionButton {
+		id: deviceExpansionButton
 	}
 }

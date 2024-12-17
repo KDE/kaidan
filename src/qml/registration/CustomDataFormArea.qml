@@ -21,30 +21,26 @@ FormCard.FormCard {
 	property alias model: form.model
 	property alias lastTextFieldAcceptedFunction: form.lastTextFieldAcceptedFunction
 
-	contentItem: ColumnLayout {
-		spacing: 0
+	FormCard.FormHeader {
+		title: qsTr("Enter additional information")
+	}
 
-		FormCard.FormHeader {
-			title: qsTr("Enter additional information")
-		}
+	FormCard.FormTextDelegate {
+		text: qsTr("The provider has requested more information")
+		description: qsTr("Not everything may be required")
+	}
 
-		FormCard.FormTextDelegate {
-			text: qsTr("The provider has requested more information")
-			description: qsTr("Not everything may be required")
-		}
-
-		FormCard.FormCard {
-			Layout.fillWidth: true
-			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: FormCard.AbstractFormDelegate {
-				background: null
-				contentItem: ColumnLayout {
-					DataForm {
-						id: form
-						displayTitle: false
-						displayInstructions: false
-						Layout.fillWidth: true
-					}
+	FormCard.FormCard {
+		Layout.fillWidth: true
+		Kirigami.Theme.colorSet: Kirigami.Theme.Window
+		contentItem: FormCard.AbstractFormDelegate {
+			background: null
+			contentItem: ColumnLayout {
+				DataForm {
+					id: form
+					displayTitle: false
+					displayInstructions: false
+					Layout.fillWidth: true
 				}
 			}
 		}

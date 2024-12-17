@@ -43,26 +43,23 @@ RegistrationPage {
 
 		FormCard.FormCard {
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Step 1: Register account")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Step 1: Register account")
+			}
 
-				FormCard.FormTextDelegate {
-					text: qsTr("The selected provider only supports web registration")
-					description: qsTr("After creating an account via the provider's website, you can log in via Kaidan")
-				}
+			FormCard.FormTextDelegate {
+				text: qsTr("The selected provider only supports web registration")
+				description: qsTr("After creating an account via the provider's website, you can log in via Kaidan")
+			}
 
-				UrlFormButtonDelegate {
-					text: qsTr("Visit registration page")
-					description: qsTr("Open the provider's registration web page")
-					icon.name: "globe"
-					url: root.registrationWebPage
-					onClicked: root.showLoginArea()
-					copyButton.onClicked: root.showLoginArea()
-				}
+			UrlFormButtonDelegate {
+				text: qsTr("Visit registration page")
+				description: qsTr("Open the provider's registration web page")
+				icon.name: "globe"
+				url: root.registrationWebPage
+				onClicked: root.showLoginArea()
+				copyButton.onClicked: root.showLoginArea()
 			}
 		}
 
@@ -70,16 +67,13 @@ RegistrationPage {
 			id: loginFormCard
 			visible: false
 			Layout.fillWidth: true
-			contentItem: ColumnLayout {
-				spacing: 0
 
-				FormCard.FormHeader {
-					title: qsTr("Step 2: Log in with your registered account")
-				}
+			FormCard.FormHeader {
+				title: qsTr("Step 2: Log in with your registered account")
+			}
 
-				LoginArea {
-					id: loginArea
-				}
+			LoginArea {
+				id: loginArea
 			}
 		}
 	}
