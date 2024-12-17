@@ -41,13 +41,11 @@
 #include "AccountMigrationManager.h"
 #include "AccountQrCodeGenerator.h"
 #include "AtmManager.h"
-#include "AudioDeviceModel.h"
 #include "AuthenticatableEncryptionKeyModel.h"
 #include "AuthenticatedEncryptionKeyModel.h"
 #include "AvatarFileStorage.h"
 #include "BitsOfBinaryImageProvider.h"
 #include "Blocking.h"
-#include "CameraModel.h"
 #include "ChatController.h"
 #include "ChatHintModel.h"
 #include "ContactQrCodeGenerator.h"
@@ -75,7 +73,6 @@
 #include "HostCompletionProxyModel.h"
 #include "Kaidan.h"
 #include "LoginQrCodeGenerator.h"
-#include "MediaRecorder.h"
 #include "MediaUtils.h"
 #include "Message.h"
 #include "MessageComposition.h"
@@ -271,12 +268,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<std::function<void(Message &)>>();
     qRegisterMetaType<QXmppVCardIq>();
     qRegisterMetaType<QMimeType>();
-    qRegisterMetaType<CameraInfo>();
-    qRegisterMetaType<AudioDeviceInfo>();
-    qRegisterMetaType<MediaSettings>();
-    qRegisterMetaType<ImageEncoderSettings>();
-    qRegisterMetaType<AudioEncoderSettings>();
-    qRegisterMetaType<VideoEncoderSettings>();
     qRegisterMetaType<CredentialsValidator *>();
     qRegisterMetaType<QXmppVersionIq>();
     qRegisterMetaType<QXmppUri>();
@@ -304,14 +295,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<Presence::Availability>();
     qRegisterMetaType<Enums::DeliveryState>();
     qRegisterMetaType<MessageOrigin>();
-    qRegisterMetaType<CommonEncoderSettings::EncodingQuality>();
-    qRegisterMetaType<CommonEncoderSettings::EncodingMode>();
-    qRegisterMetaType<AudioDeviceModel::Mode>();
-    qRegisterMetaType<MediaRecorder::Type>();
-    qRegisterMetaType<MediaRecorder::AvailabilityStatus>();
-    qRegisterMetaType<MediaRecorder::State>();
-    qRegisterMetaType<MediaRecorder::Status>();
-    qRegisterMetaType<MediaRecorder::Error>();
     qRegisterMetaType<ProviderListModel::Role>();
     qRegisterMetaType<ChatState::State>();
     qRegisterMetaType<Encryption>();
@@ -438,18 +421,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<ContactQrCodeGenerator>(APPLICATION_ID, 1, 0, "ContactQrCodeGenerator");
     qmlRegisterType<MessageComposition>(APPLICATION_ID, 1, 0, "MessageComposition");
     qmlRegisterType<FileSelectionModel>(APPLICATION_ID, 1, 0, "FileSelectionModel");
-    qmlRegisterType<CameraModel>(APPLICATION_ID, 1, 0, "CameraModel");
-    qmlRegisterType<AudioDeviceModel>(APPLICATION_ID, 1, 0, "AudioDeviceModel");
     qmlRegisterType<LoginQrCodeGenerator>(APPLICATION_ID, 1, 0, "LoginQrCodeGenerator");
-    qmlRegisterType<MediaSettingsContainerModel>(APPLICATION_ID, 1, 0, "MediaSettingsContainerModel");
-    qmlRegisterType<MediaSettingsResolutionModel>(APPLICATION_ID, 1, 0, "MediaSettingsResolutionModel");
-    qmlRegisterType<MediaSettingsQualityModel>(APPLICATION_ID, 1, 0, "MediaSettingsQualityModel");
-    qmlRegisterType<MediaSettingsImageCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsImageCodecModel");
-    qmlRegisterType<MediaSettingsAudioCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioCodecModel");
-    qmlRegisterType<MediaSettingsAudioSampleRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsAudioSampleRateModel");
-    qmlRegisterType<MediaSettingsVideoCodecModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoCodecModel");
-    qmlRegisterType<MediaSettingsVideoFrameRateModel>(APPLICATION_ID, 1, 0, "MediaSettingsVideoFrameRateModel");
-    qmlRegisterType<MediaRecorder>(APPLICATION_ID, 1, 0, "MediaRecorder");
     qmlRegisterType<UserDevicesModel>(APPLICATION_ID, 1, 0, "UserDevicesModel");
     qmlRegisterType<CredentialsGenerator>(APPLICATION_ID, 1, 0, "CredentialsGenerator");
     qmlRegisterType<CredentialsValidator>(APPLICATION_ID, 1, 0, "CredentialsValidator");
@@ -482,13 +454,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
     qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
     qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
-    qmlRegisterUncreatableType<CameraInfo>(APPLICATION_ID, 1, 0, "CameraInfo", QStringLiteral("CameraInfo type usable"));
-    qmlRegisterUncreatableType<AudioDeviceInfo>(APPLICATION_ID, 1, 0, "AudioDeviceInfo", QStringLiteral("AudioDeviceInfo type usable"));
-    qmlRegisterUncreatableType<MediaSettings>(APPLICATION_ID, 1, 0, "MediaSettings", QStringLiteral("MediaSettings type usable"));
-    qmlRegisterUncreatableType<CommonEncoderSettings>(APPLICATION_ID, 1, 0, "CommonEncoderSettings", QStringLiteral("CommonEncoderSettings type usable"));
-    qmlRegisterUncreatableType<ImageEncoderSettings>(APPLICATION_ID, 1, 0, "ImageEncoderSettings", QStringLiteral("ImageEncoderSettings type usable"));
-    qmlRegisterUncreatableType<AudioEncoderSettings>(APPLICATION_ID, 1, 0, "AudioEncoderSettings", QStringLiteral("AudioEncoderSettings type usable"));
-    qmlRegisterUncreatableType<VideoEncoderSettings>(APPLICATION_ID, 1, 0, "VideoEncoderSettings", QStringLiteral("VideoEncoderSettings type usable"));
     qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<Presence>(APPLICATION_ID, 1, 0, "Presence", QStringLiteral("Cannot create object; only enums defined!"));

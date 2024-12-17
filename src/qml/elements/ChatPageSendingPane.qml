@@ -10,6 +10,7 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
+import QtMultimedia
 import org.kde.kirigami 2.19 as Kirigami
 
 import im.kaidan.kaidan 1.0
@@ -153,7 +154,7 @@ Controls.Pane {
 			// emoji picker button
 			ClickableIcon {
 				source: "smiley-add"
-				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
+				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				Controls.ToolTip.text: qsTr("Add an emoji")
 				onClicked: !emojiPicker.toggle()
 			}
@@ -162,7 +163,7 @@ Controls.Pane {
 			ClickableText {
 				text: "@"
 				visible: ChatController.rosterItem.isGroupChat
-				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
+				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				scaleFactor: Kirigami.Units.iconSizes.smallMedium * 0.08
 				Controls.ToolTip.text: qsTr("Mention a participant")
@@ -209,7 +210,7 @@ Controls.Pane {
 				Layout.bottomMargin: Style.isMaterial ? -8 : 0
 				Layout.fillWidth: true
 				verticalAlignment: TextEdit.AlignVCenter
-				enabled: voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
+				enabled: voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				onTextChanged: {
 					handleShortcuts()
 
@@ -367,7 +368,7 @@ Controls.Pane {
 			ClickableIcon {
 				Controls.ToolTip.text: expansionArea.visible ? qsTr("Hide") :qsTr("More")
 				source: expansionArea.visible ? "window-close-symbolic" : "list-add-symbolic"
-				visible: !root.composition.replaceId && voiceMessageRecorder.state !== MediaRecorder.State.RecordingState
+				visible: !root.composition.replaceId && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: expansionArea.visible = !expansionArea.visible
@@ -380,7 +381,7 @@ Controls.Pane {
 			// Voice message recording indicator
 			RecordingIndicator {
 				id: voiceMessageRecordingIndicator
-				visible: voiceMessageRecorder.state === MediaRecorder.State.RecordingState
+				visible: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				duration: voiceMessageRecorder.duration
 
@@ -396,8 +397,8 @@ Controls.Pane {
 
 					property bool isReset: false
 
-					function onStateChanged() {
-						if (voiceMessageRecorder.state === MediaRecorder.State.StoppedState) {
+					function onRecorderStateChanged() {
+						if (voiceMessageRecorder.recorderState === MediaRecorder.StoppedState) {
 							voiceMessageRecordingIndicator.duration = 0
 							isReset = true
 						}
@@ -415,16 +416,17 @@ Controls.Pane {
 			// Voice message button
 			ClickableIcon {
 				Controls.ToolTip.text: qsTr("Send a voice message")
-				source: voiceMessageRecorder.state === MediaRecorder.State.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
+				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
 				visible: voiceMessageRecorder.availabilityStatus === MediaRecorder.AvailabilityStatus.Available && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
-					if (voiceMessageRecorder.state === MediaRecorder.State.RecordingState) {
+					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
 						voiceMessageRecorder.stop()
 						root.composition.fileSelectionModel.addFile(voiceMessageRecorder.actualLocation)
 						root.composition.send()
 					} else {
+						voiceMessageRecorder.outputLocation = MediaUtils.newVideoFilePath()
 						voiceMessageRecorder.record()
 						expansionArea.visible = false
 					}
@@ -438,7 +440,7 @@ Controls.Pane {
 			ClickableIcon {
 				id: sendButton
 				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.state !== MediaRecorder.State.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || composition.replyId !== root.originalReplyId))
+				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || composition.replyId !== root.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
@@ -476,13 +478,14 @@ Controls.Pane {
 
 			// Button to cancel message correction or voice message recording
 			ClickableIcon {
-				visible: root.composition.replaceId || voiceMessageRecorder.state === MediaRecorder.State.RecordingState
+				visible: root.composition.replaceId || voiceMessageRecorder.recorderState === MediaRecorder.RecordingState
 				opacity: visible ? 1 : 0
 				source: "window-close-symbolic"
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
-					if (voiceMessageRecorder.state === MediaRecorder.State.RecordingState) {
-						voiceMessageRecorder.cancel()
+					if (voiceMessageRecorder.recorderState === MediaRecorder.RecordingState) {
+						voiceMessageRecorder.stop()
+						MediaUtils.deleteFile(voiceMessageRecorder.actualLocation)
 					} else {
 						composition.clear()
 						root.clear()
@@ -510,9 +513,11 @@ Controls.Pane {
 				textArea: messageArea
 			}
 
-			MediaRecorder {
-				id: voiceMessageRecorder
-				type: MediaRecorder.Type.Audio
+			CaptureSession {
+				audioInput: AudioInput {}
+				recorder: MediaRecorder {
+					id: voiceMessageRecorder
+				}
 			}
 		}
 	}

@@ -27,8 +27,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     Algorithms.h
     AtmManager.cpp
     AtmManager.h
-    AudioDeviceModel.cpp
-    AudioDeviceModel.h
     AuthenticatableEncryptionKeyModel.cpp
     AuthenticatableEncryptionKeyModel.h
     AuthenticatedEncryptionKeyModel.cpp
@@ -39,10 +37,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     BitsOfBinaryImageProvider.h
     Blocking.cpp
     Blocking.h
-    CameraImageCapture.cpp
-    CameraImageCapture.h
-    CameraModel.cpp
-    CameraModel.h
     ChatController.cpp
     ChatController.h
     ChatHintModel.cpp
@@ -115,11 +109,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     LogHandler.cpp
     LogHandler.h
     main.cpp
-    MediaRecorder.cpp
-    MediaRecorder.h
-    MediaSettingModel.h
-    MediaSettings.cpp
-    MediaSettings.h
     MediaUtils.cpp
     MediaUtils.h
     MessageComposition.cpp
