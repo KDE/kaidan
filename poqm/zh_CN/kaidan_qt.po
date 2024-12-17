@@ -21,68 +21,68 @@ msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
 msgstr "生成二维码失败：%1"
 
-#: src/AccountMigrationManager.cpp:391
+#: src/AccountMigrationManager.cpp:388
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Another migration is already in progress"
 msgstr "无法迁移账号：另一项迁移已在进行中"
 
-#: src/AccountMigrationManager.cpp:402
+#: src/AccountMigrationManager.cpp:400
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: Could not load exported account data"
 msgstr "无法迁移账号：无法加载导出的账号数据"
 
-#: src/AccountMigrationManager.cpp:411
+#: src/AccountMigrationManager.cpp:409
 msgctxt "AccountMigrationManager|"
 msgid "Account could not be migrated: You need to be connected"
 msgstr "无法迁移账号：您需要连接"
 
-#: src/AuthenticatedEncryptionKeyModel.cpp:84
+#: src/AuthenticatedEncryptionKeyModel.cpp:96
 msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "此设备"
 
-#: src/Blocking.cpp:324
+#: src/Blocking.cpp:326
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "设备"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:328
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "用户"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:330
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "服务器"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:332
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
 
-#: src/ChatHintModel.cpp:279
+#: src/ChatHintModel.cpp:293
 msgctxt "ChatHintModel|"
 msgid "You are not connected - Messages are sent and received once connected"
 msgstr "您未连接，连接后会发送和接收消息"
 
-#: src/ChatHintModel.cpp:280 src/ChatHintModel.cpp:323
-#: src/ChatHintModel.cpp:345
+#: src/ChatHintModel.cpp:294 src/ChatHintModel.cpp:336
+#: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "Dismiss"
 msgstr "关闭"
 
-#: src/ChatHintModel.cpp:281
+#: src/ChatHintModel.cpp:294
 msgctxt "ChatHintModel|"
 msgid "Connect"
 msgstr "连接"
 
-#: src/ChatHintModel.cpp:283
+#: src/ChatHintModel.cpp:296
 msgctxt "ChatHintModel|"
 msgid "Connecting…"
 msgstr "正在连接…"
 
-#: src/ChatHintModel.cpp:296
+#: src/ChatHintModel.cpp:308
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -90,7 +90,7 @@ msgid ""
 "and other personal information%2"
 msgstr "%1 想接收您的个人数据，如在线状态、设备和其他个人信息 %2"
 
-#: src/ChatHintModel.cpp:300
+#: src/ChatHintModel.cpp:313
 #, qt-format
 msgctxt "ChatHintModel|"
 msgid ""
@@ -100,251 +100,251 @@ msgstr ""
 "您的联系人 %1 现在用 %2，并想再次接收您的个人数据，如在线状态、设备和其他个人"
 "信息 %3"
 
-#: src/ChatHintModel.cpp:305
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Refuse"
 msgstr "拒绝"
 
-#: src/ChatHintModel.cpp:306
+#: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Allow"
 msgstr "允许"
 
-#: src/ChatHintModel.cpp:308
+#: src/ChatHintModel.cpp:321
 msgctxt "ChatHintModel|"
 msgid "Allowing…"
 msgstr "正在允许…"
 
-#: src/ChatHintModel.cpp:322
+#: src/ChatHintModel.cpp:335
 msgctxt "ChatHintModel|"
 msgid "This group has no users"
 msgstr "此群聊没有用户"
 
-#: src/ChatHintModel.cpp:324
+#: src/ChatHintModel.cpp:336
 msgctxt "ChatHintModel|"
 msgid "Invite contacts"
 msgstr "邀请联系人"
 
-#: src/ChatHintModel.cpp:326
+#: src/ChatHintModel.cpp:338
 msgctxt "ChatHintModel|"
 msgid "Opening invitation area"
 msgstr "正在打开邀请区"
 
-#: src/ChatHintModel.cpp:344
+#: src/ChatHintModel.cpp:356
 msgctxt "ChatHintModel|"
 msgid "This group is deleted"
 msgstr "此群聊已删除"
 
-#: src/ChatHintModel.cpp:346
+#: src/ChatHintModel.cpp:357
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "离开"
 
-#: src/ChatHintModel.cpp:348
+#: src/ChatHintModel.cpp:359
 msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
-#: src/FileSharingController.cpp:370
+#: src/FileSharingController.cpp:376
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
 msgstr "无法下载文件：%1"
 
-#: src/GroupChatUserModel.cpp:55
+#: src/GroupChatUserModel.cpp:53
 msgctxt "GroupChatUserModel|"
 msgid "Not joined"
 msgstr "未加入"
 
-#: src/GroupChatUserModel.cpp:57
+#: src/GroupChatUserModel.cpp:55
 msgctxt "GroupChatUserModel|"
 msgid "Joined"
 msgstr "已加入"
 
-#: src/GroupChatUserModel.cpp:59
+#: src/GroupChatUserModel.cpp:57
 msgctxt "GroupChatUserModel|"
 msgid "Left"
 msgstr "已离开"
 
-#: src/GroupChatUserModel.cpp:61
+#: src/GroupChatUserModel.cpp:59
 msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "已封禁"
 
-#: src/Kaidan.cpp:240
+#: src/Kaidan.cpp:239
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "在线"
 
-#: src/Kaidan.cpp:242
+#: src/Kaidan.cpp:241
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "连接中…"
 
-#: src/Kaidan.cpp:244
+#: src/Kaidan.cpp:243
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "离线"
 
-#: src/Kaidan.cpp:329
+#: src/Kaidan.cpp:328
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "链接将在您连接后打开。"
 
-#: src/MediaRecorder.cpp:1167 src/MediaRecorder.cpp:1175
-#: src/MediaRecorder.cpp:1190 src/MediaRecorder.cpp:1199
-#: src/MediaRecorder.cpp:1207 src/MediaRecorder.cpp:1216
-#: src/MediaRecorder.cpp:1224
+#: src/MediaRecorder.cpp:1156 src/MediaRecorder.cpp:1162
+#: src/MediaRecorder.cpp:1175 src/MediaRecorder.cpp:1182
+#: src/MediaRecorder.cpp:1188 src/MediaRecorder.cpp:1195
+#: src/MediaRecorder.cpp:1201
 msgctxt "MediaRecorder|"
 msgid "Default"
 msgstr "默认"
 
-#: src/MediaSettings.cpp:139
+#: src/MediaSettings.cpp:134
 msgctxt "CommonEncoderSettings|"
 msgid "Very low"
 msgstr "非常低"
 
-#: src/MediaSettings.cpp:141
+#: src/MediaSettings.cpp:136
 msgctxt "CommonEncoderSettings|"
 msgid "Low"
 msgstr "低"
 
-#: src/MediaSettings.cpp:143
+#: src/MediaSettings.cpp:138
 msgctxt "CommonEncoderSettings|"
 msgid "Normal"
 msgstr "标准"
 
-#: src/MediaSettings.cpp:145
+#: src/MediaSettings.cpp:140
 msgctxt "CommonEncoderSettings|"
 msgid "High"
 msgstr "高"
 
-#: src/MediaSettings.cpp:147
+#: src/MediaSettings.cpp:142
 msgctxt "CommonEncoderSettings|"
 msgid "Very high"
 msgstr "非常高"
 
-#: src/MediaSettings.cpp:158
+#: src/MediaSettings.cpp:153
 msgctxt "CommonEncoderSettings|"
 msgid "Constant quality"
 msgstr "恒定质量"
 
-#: src/MediaSettings.cpp:160
+#: src/MediaSettings.cpp:155
 msgctxt "CommonEncoderSettings|"
 msgid "Constant bit rate"
 msgstr "固定码率"
 
-#: src/MediaSettings.cpp:162
+#: src/MediaSettings.cpp:157
 msgctxt "CommonEncoderSettings|"
 msgid "Average bit rate"
 msgstr "平均码率"
 
-#: src/MediaSettings.cpp:164
+#: src/MediaSettings.cpp:159
 msgctxt "CommonEncoderSettings|"
 msgid "Two pass"
 msgstr "Two-pass 编码"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:291
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "音频"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:293
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:302
+#: src/MediaUtils.cpp:295
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "位置"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:297
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:306
+#: src/MediaUtils.cpp:299
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:310
+#: src/MediaUtils.cpp:303
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:312
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/MediaUtils.cpp:321
+#: src/MediaUtils.cpp:314
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "录像"
 
-#: src/MediaUtils.cpp:323
+#: src/MediaUtils.cpp:316
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "录音"
 
-#: src/MediaUtils.cpp:325
+#: src/MediaUtils.cpp:318
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:356
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "选择文件"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:358
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "选择图片"
 
-#: src/MediaUtils.cpp:367
+#: src/MediaUtils.cpp:360
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "选择视频"
 
-#: src/MediaUtils.cpp:369
+#: src/MediaUtils.cpp:362
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "选择音频文件"
 
-#: src/MediaUtils.cpp:371
+#: src/MediaUtils.cpp:364
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "选择文档"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:386
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "全部文件"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:388
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:397
+#: src/MediaUtils.cpp:390
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:399
+#: src/MediaUtils.cpp:392
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "音频文件"
 
-#: src/MediaUtils.cpp:401
+#: src/MediaUtils.cpp:394
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:426
+#: src/MediaUtils.cpp:419
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -382,34 +382,34 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "上传失败：%1"
 
-#: src/MessageComposition.cpp:289
+#: src/MessageComposition.cpp:298
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr "消息更正失败"
 
-#: src/MessageComposition.cpp:465
+#: src/MessageComposition.cpp:490
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "未知尺寸"
 
-#: src/MessageComposition.cpp:507
+#: src/MessageComposition.cpp:532
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:223
+#: src/MessageController.cpp:235
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageController.cpp:349
+#: src/MessageController.cpp:361
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:695
+#: src/MessageController.cpp:725
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -435,118 +435,118 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "错误"
 
-#: src/MessageModel.cpp:707 src/MessageModel.cpp:777
+#: src/MessageModel.cpp:724 src/MessageModel.cpp:796
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:852
+#: src/MessageModel.cpp:875
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1466
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "今天"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1469
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/MixController.cpp:110
+#: src/MixController.cpp:117
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "此群聊已存在"
 
-#: src/MixController.cpp:135
+#: src/MixController.cpp:144
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "无法确定 %1 是否为公开：%2"
 
-#: src/MixController.cpp:152
+#: src/MixController.cpp:164
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "无法检索群聊 %1 的信息：%2"
 
-#: src/MixController.cpp:166 src/MixController.cpp:174
+#: src/MixController.cpp:177 src/MixController.cpp:185
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "无法重命名群聊 %1：%2"
 
-#: src/MixController.cpp:199
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "此群聊不存在"
 
-#: src/MixController.cpp:202
+#: src/MixController.cpp:215
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "不允许您加入此群聊"
 
-#: src/MixController.cpp:266 src/MixController.cpp:274
+#: src/MixController.cpp:281 src/MixController.cpp:294
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "无法邀请 %1 加入 %2：%3"
 
-#: src/MixController.cpp:305
+#: src/MixController.cpp:326
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的节点：%2"
 
-#: src/MixController.cpp:315
+#: src/MixController.cpp:341
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的允许用户：%2"
 
-#: src/MixController.cpp:332
+#: src/MixController.cpp:361
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已封禁用户：%2"
 
-#: src/MixController.cpp:351
+#: src/MixController.cpp:381
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已加入用户：%2"
 
-#: src/MixController.cpp:370
+#: src/MixController.cpp:399
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "无法从 %2 中封禁 %1：%3"
 
-#: src/MixController.cpp:424
+#: src/MixController.cpp:463
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
-#: src/Notifications.cpp:156 src/Notifications.cpp:236
+#: src/Notifications.cpp:154 src/Notifications.cpp:235
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "打开"
 
-#: src/Notifications.cpp:157
+#: src/Notifications.cpp:155
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "标记为已读"
 
-#: src/Notifications.cpp:218
+#: src/Notifications.cpp:221
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
 
-#: src/OmemoController.cpp:106
+#: src/OmemoController.cpp:127
 msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "无法通过 OMEMO 2 设置端到端加密"
@@ -589,12 +589,12 @@ msgstr "自定义提供者"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:102 src/ProviderListModel.cpp:112
+#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "无限制"
 
-#: src/ProviderListModel.cpp:114
+#: src/ProviderListModel.cpp:112
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -3319,33 +3319,33 @@ msgctxt "QmlUtils|"
 msgid "%1 paused typing"
 msgstr "%1 已暂停输入"
 
-#: src/RosterItem.cpp:33
+#: src/RosterItem.cpp:36
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterManager.cpp:198
+#: src/RosterManager.cpp:190
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterManager.cpp:209
+#: src/RosterManager.cpp:199
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterManager.cpp:222
+#: src/RosterManager.cpp:210
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterManager.cpp:235
+#: src/RosterManager.cpp:221
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:246
+#: src/RosterManager.cpp:231
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3353,49 +3353,49 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterManager.cpp:257
+#: src/RosterManager.cpp:243
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterManager.cpp:268
+#: src/RosterManager.cpp:254
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
 msgstr "停止 %1 查看您的个人数据失败"
 
-#: src/RosterModel.cpp:864
+#: src/RosterModel.cpp:858
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/VCardModel.cpp:127
+#: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "名称"
 
-#: src/VCardModel.cpp:128
+#: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "昵称"
 
-#: src/VCardModel.cpp:129
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "关于"
 
-#: src/VCardModel.cpp:130
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "电子邮件"
 
-#: src/VCardModel.cpp:131
+#: src/VCardModel.cpp:122
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "生日"
 
-#: src/VCardModel.cpp:135
+#: src/VCardModel.cpp:129
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
