@@ -5,9 +5,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
+import QtQuick.Effects
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as Controls
-import QtGraphicalEffects 1.15
 import QtMultimedia 5.15
 import org.kde.kirigami 2.19 as Kirigami
 
@@ -34,11 +34,13 @@ Item {
 		filters: [filter]
 		layer.enabled: true
 		layer.effect: OpacityMask {
-			maskSource: Rectangle {
-				radius: cameraStatusArea.radius
-				width: Math.min(videoOutput.width, videoOutput.height)
-				height: width
-				anchors.centerIn: parent
+			maskSource: ShaderEffectSource {
+				sourceItem: Rectangle {
+					radius: cameraStatusArea.radius
+					width: Math.min(videoOutput.width, videoOutput.height)
+					height: width
+					anchors.centerIn: parent
+				}
 			}
 		}
 		anchors.fill: parent

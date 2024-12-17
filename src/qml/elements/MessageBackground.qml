@@ -5,8 +5,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
+import QtQuick.Effects
 import QtQuick.Layouts 1.15
-import QtGraphicalEffects 1.15
 import QtQuick.Controls 2.15 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 
@@ -67,12 +67,14 @@ Item {
 		}
 	}
 
-	OpacityMask {
+	MultiEffect {
 		visible: showTail
 		anchors.fill: tailBase
 		source: tailBase
-		maskSource: tailMask
-		invert: true
+		maskSource: ShaderEffectSource {
+			sourceItem: tailMask
+		}
+		maskInverted: true
 	}
 
 	Rectangle {

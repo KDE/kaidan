@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
-import QtGraphicalEffects 1.15
+import QtQuick.Effects
 
 GeoLocationMap {
 	id: root
@@ -12,12 +12,14 @@ GeoLocationMap {
 
 	gesture.enabled: false
 	layer.enabled: true
-	layer.effect: OpacityMask {
-		maskSource: Rectangle {
-			radius: roundedCornersRadius
-			width: root.width
-			height: root.width
-			anchors.centerIn: parent
+	layer.effect: MultiEffect {
+		maskSource: ShaderEffectSource {
+			sourceItem: Rectangle {
+				radius: roundedCornersRadius
+				width: root.width
+				height: root.width
+				anchors.centerIn: parent
+			}
 		}
 	}
 

@@ -42,8 +42,6 @@ Q_IMPORT_PLUGIN(KirigamiPlugin)
 
 Q_IMPORT_PLUGIN(QtQuick2Plugin)
 Q_IMPORT_PLUGIN(QtLabsPlatformPlugin)
-Q_IMPORT_PLUGIN(QtGraphicalEffectsPlugin)
-Q_IMPORT_PLUGIN(QtGraphicalEffectsPrivatePlugin)
 Q_IMPORT_PLUGIN(QtQuickControls2Plugin)
 Q_IMPORT_PLUGIN(QtQuickControls2MaterialStylePlugin)
 Q_IMPORT_PLUGIN(QtQuickControls2UniversalStylePlugin)

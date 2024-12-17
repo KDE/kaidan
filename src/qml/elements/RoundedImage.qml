@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
-import QtGraphicalEffects 1.15
+import QtQuick.Effects
 import org.kde.kirigami 2.19 as Kirigami
 
 /**
@@ -17,15 +17,17 @@ Kirigami.Icon {
 
 	layer.enabled: true
 	layer.effect: OpacityMask {
-		maskSource: Item {
-			width: root.paintedWidth
-			height: root.paintedHeight
+		maskSource: ShaderEffectSource {
+			sourceItem: Item {
+				width: root.paintedWidth
+				height: root.paintedHeight
 
-			Rectangle {
-				radius: root.radius
-				width: root.width
-				height: root.height
-				anchors.centerIn: parent
+				Rectangle {
+					radius: root.radius
+					width: root.width
+					height: root.height
+					anchors.centerIn: parent
+				}
 			}
 		}
 	}
