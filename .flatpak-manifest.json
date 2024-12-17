@@ -2,7 +2,7 @@
     "id": "im.kaidan.kaidan",
     "rename-icon": "kaidan",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-23.08",
+    "runtime-version": "6.8",
     "sdk": "org.kde.Sdk",
     "command": "kaidan",
     "tags": ["nightly"],
@@ -10,7 +10,7 @@
     "finish-args": [
         "--share=ipc",
         "--share=network",
-        "--socket=x11",
+        "--socket=fallback-x11",
         "--socket=wayland",
         "--device=dri",
         "--device=all",
@@ -27,10 +27,9 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/kirigami-addons.git",
-                    "tag": "v0.11.0",
-                    "commit": "42f0df909b82e6a928193db088003f275493e262"
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/kirigami-addons/kirigami-addons-1.0.1.tar.xz",
+                    "sha256": "9d013847efb0048c6a2799ee0ed281b14eee15314ac20d7fba853197e45f29b7"
                 }
             ]
         },
@@ -40,8 +39,7 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://invent.kde.org/libraries/kquickimageeditor.git",
-                    "branch": "kf5"
+                    "url": "https://invent.kde.org/libraries/kquickimageeditor.git"
                 }
             ]
         },
@@ -71,7 +69,7 @@
         {
             "name": "qxmpp",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON"],
+            "config-opts": ["-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON", "-DQT_VERSION_MAJOR=6"],
             "sources": [
                 {
                     "type": "git",
