@@ -971,7 +971,7 @@ void MessageDb::_addMessage(const Message &message)
 
     // "DatabaseComponent::insert()" cannot be used here because the binary data of
     // "msg.senderKey()" is not appropriately inserted into the database with QSqlField.
-    insertBinary(DB_TABLE_MESSAGES, values);
+    insertBinary(QString::fromLatin1(DB_TABLE_MESSAGES), values);
 }
 
 void MessageDb::_updateMessage(const QString &id, const std::function<void(Message &)> &updateMsg)
@@ -1057,7 +1057,7 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void(Messa
 
                     for (const auto &reaction : reactionSender.reactions) {
                         if (!oldReactionSenders.value(senderId).reactions.contains(reaction)) {
-                            insert(DB_TABLE_MESSAGE_REACTIONS,
+                            insert(QString::fromLatin1(DB_TABLE_MESSAGE_REACTIONS),
                                    {
                                        {u"accountJid", oldMessage.accountJid},
                                        {u"chatJid", oldMessage.chatJid},

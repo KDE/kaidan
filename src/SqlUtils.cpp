@@ -64,7 +64,7 @@ void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &col
 {
     for (const auto &columnName : columnNames) {
         const auto columnNameString = columnName.toString();
-        record.append(createSqlField(columnNameString, ':' + columnNameString));
+        record.append(createSqlField(columnNameString, QString(QLatin1Char(':') + columnNameString)));
     }
 }
 

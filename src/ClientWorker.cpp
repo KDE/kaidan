@@ -424,8 +424,8 @@ void ClientWorker::onConnectionError(const QXmppError &error)
         // an email message sent by the server to the user after a successful registration.
         // That usually involves opening a URL.
         // Afterwards, the account is activated and the user can log in.
-        if ((type == QXmpp::AuthenticationError::AccountDisabled || type == QXmpp::AuthenticationError::NotAuthorized) && text.contains("activat")
-            && text.contains("mail")) {
+        if ((type == QXmpp::AuthenticationError::AccountDisabled || type == QXmpp::AuthenticationError::NotAuthorized)
+            && text.contains(QStringLiteral("activat")) && text.contains(QStringLiteral("mail"))) {
             Q_EMIT connectionErrorChanged(ClientWorker::EmailConfirmationRequired);
             return;
         } else if (type == QXmpp::AuthenticationError::NotAuthorized) {

@@ -71,7 +71,7 @@ QFuture<void> BlockingDb::resetBlockedJids(const QString &accountJid, const QLis
         execQuery(query, QStringLiteral("DELETE FROM blocked WHERE accountJid = :accountJid"), {{u":accountJid", accountJid}});
 
         for (const auto &jid : blockedJids) {
-            insert(DB_TABLE_BLOCKED,
+            insert(QString::fromLatin1(DB_TABLE_BLOCKED),
                    {
                        {u"accountJid", accountJid},
                        {u"jid", jid},

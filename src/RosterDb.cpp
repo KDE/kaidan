@@ -387,7 +387,7 @@ void RosterDb::_addItem(const RosterItem &item)
 {
     Q_EMIT itemAdded(item);
 
-    insert(DB_TABLE_ROSTER,
+    insert(QString::fromLatin1(DB_TABLE_ROSTER),
            {
                {u"accountJid", item.accountJid},
                {u"jid", item.jid},

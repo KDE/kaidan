@@ -152,12 +152,12 @@ void Settings::setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility)
 
 QUuid Settings::userAgentDeviceId() const
 {
-    return value<QUuid>(KAIDAN_SETTINGS_AUTH_DEVICE_ID);
+    return value<QUuid>(QString::fromLatin1(KAIDAN_SETTINGS_AUTH_DEVICE_ID));
 }
 
 void Settings::setUserAgentDeviceId(QUuid deviceId)
 {
-    setValue(KAIDAN_SETTINGS_AUTH_DEVICE_ID, deviceId);
+    setValue(QStringLiteral(KAIDAN_SETTINGS_AUTH_DEVICE_ID), deviceId);
 }
 
 Encryption::Enum Settings::encryption() const

@@ -183,11 +183,11 @@ QUrl MediaUtils::urlFromClipboard()
 {
     const auto clipboardContent = QGuiApplication::clipboard()->text();
 
-    if (clipboardContent.startsWith("file:///")) {
+    if (clipboardContent.startsWith(QStringLiteral("file:///"))) {
         return QUrl{clipboardContent};
     }
 
-    if (clipboardContent.startsWith("/")) {
+    if (clipboardContent.startsWith(QStringLiteral("/"))) {
         return QUrl::fromLocalFile(clipboardContent);
     }
 

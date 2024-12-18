@@ -1301,7 +1301,8 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
             const auto chatActive =
                 ChatController::instance()->isChatCurrentChat(accountJid, chatJid) && QGuiApplication::applicationState() == Qt::ApplicationActive;
             const auto previewText = message.previewText();
-            const auto notificationBody = message.isGroupChatMessage() ? determineGroupChatSenderName(message) + ": " + previewText : previewText;
+            const auto notificationBody =
+                message.isGroupChatMessage() ? determineGroupChatSenderName(message) + QStringLiteral(": ") + previewText : previewText;
 
             if (!chatActive) {
                 Notifications::instance()->sendMessageNotification(accountJid, chatJid, message.id, notificationBody);

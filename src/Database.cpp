@@ -1374,10 +1374,10 @@ void Database::convertDatabaseToV43()
                                                                    SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(accountJid, jid)"));
 
     execQuery(query,
-              "INSERT INTO roster_tmp SELECT accountJid, jid, name, subscription, NULL, NULL, NULL, "
-              "NULL, encryption, unreadMessages, lastReadOwnMessageId, lastReadContactMessageId, NULL, "
-              "NULL, readMarkerPending, pinningPosition, chatStateSendingEnabled, "
-              "readMarkerSendingEnabled, notificationsMuted, automaticMediaDownloadsRule FROM roster");
+              QStringLiteral("INSERT INTO roster_tmp SELECT accountJid, jid, name, subscription, NULL, NULL, NULL, "
+                             "NULL, encryption, unreadMessages, lastReadOwnMessageId, lastReadContactMessageId, NULL, "
+                             "NULL, readMarkerPending, pinningPosition, chatStateSendingEnabled, "
+                             "readMarkerSendingEnabled, notificationsMuted, automaticMediaDownloadsRule FROM roster"));
 
     execQuery(query, QStringLiteral("DROP TABLE roster"));
     execQuery(query,
