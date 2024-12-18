@@ -70,8 +70,6 @@ option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 # Find includes in corresponding build directories
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# Instruct CMake to run uic automatically when needed.
-set(CMAKE_AUTOUIC ON)
 set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 
 # Find packages
