@@ -93,7 +93,7 @@ void UserDevicesModel::handleClientVersionReceived(const QXmppVersionIq &version
     auto info = std::find_if(m_devices.begin(), m_devices.end(), [&](const auto &device) {
         return device.resource == resource;
     });
-    if (info) {
+    if (info != m_devices.end()) {
         info->name = versionIq.name();
         info->version = versionIq.version();
         info->os = versionIq.os();
