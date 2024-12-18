@@ -4,14 +4,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Effects
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15 as Controls
-import QtMultimedia 5.15
-import org.kde.kirigami 2.19 as Kirigami
+import QtQuick.Layouts
+import QtQuick.Controls as Controls
+import QtMultimedia
+import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 /**
  * This is a scanner for QR codes which displays the camera input.

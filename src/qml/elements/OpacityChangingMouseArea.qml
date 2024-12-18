@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
+import QtQuick
 
 /**
  * This is placed inside of an item to change the opacity of opacityItem when the item is hovered.

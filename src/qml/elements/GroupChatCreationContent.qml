@@ -2,11 +2,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls as Controls
+import QtQuick.Layouts
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 import "fields"
 

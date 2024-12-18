@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 KeyAuthenticationButton {
 	property alias jid: resourcesWatcher.jid

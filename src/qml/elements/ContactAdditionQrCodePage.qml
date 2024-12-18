@@ -2,9 +2,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
+import QtQuick
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 /**
  * This page is used for adding contacts by scanning QR codes.
