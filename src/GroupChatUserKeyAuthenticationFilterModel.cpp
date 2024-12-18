@@ -26,7 +26,8 @@ bool GroupChatUserKeyAuthenticationFilterModel::filterAcceptsRow(int sourceRow, 
         return false;
     }
 
-    return model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegExp()) || jid.toLower().contains(filterRegExp());
+    return model->data(index, GroupChatUserModel::Role::Name).toString().toLower().contains(filterRegularExpression())
+        || jid.toLower().contains(filterRegularExpression());
 }
 
 void GroupChatUserKeyAuthenticationFilterModel::setUp()
