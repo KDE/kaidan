@@ -205,63 +205,6 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr ""
 
-#: src/MediaRecorder.cpp:1156 src/MediaRecorder.cpp:1162
-#: src/MediaRecorder.cpp:1175 src/MediaRecorder.cpp:1182
-#: src/MediaRecorder.cpp:1188 src/MediaRecorder.cpp:1195
-#: src/MediaRecorder.cpp:1201
-msgctxt "MediaRecorder|"
-msgid "Default"
-msgstr "Predefinit"
-
-#: src/MediaSettings.cpp:134
-msgctxt "CommonEncoderSettings|"
-msgid "Very low"
-msgstr "Bassissim"
-
-#: src/MediaSettings.cpp:136
-msgctxt "CommonEncoderSettings|"
-msgid "Low"
-msgstr "Bass"
-
-#: src/MediaSettings.cpp:138
-msgctxt "CommonEncoderSettings|"
-msgid "Normal"
-msgstr "Normal"
-
-#: src/MediaSettings.cpp:140
-msgctxt "CommonEncoderSettings|"
-msgid "High"
-msgstr "Alt"
-
-#: src/MediaSettings.cpp:142
-msgctxt "CommonEncoderSettings|"
-msgid "Very high"
-msgstr "Altissim"
-
-#: src/MediaSettings.cpp:153
-#, fuzzy
-msgctxt "CommonEncoderSettings|"
-msgid "Constant quality"
-msgstr "Constante"
-
-#: src/MediaSettings.cpp:155
-#, fuzzy
-msgctxt "CommonEncoderSettings|"
-msgid "Constant bit rate"
-msgstr "Variabil bitrate (VBR)"
-
-#: src/MediaSettings.cpp:157
-#, fuzzy
-msgctxt "CommonEncoderSettings|"
-msgid "Average bit rate"
-msgstr "Variabil bitrate (VBR)"
-
-#: src/MediaSettings.cpp:159
-#, fuzzy
-msgctxt "CommonEncoderSettings|"
-msgid "Two pass"
-msgstr "Contrasigne: "
-
 #: src/MediaUtils.cpp:291
 msgctxt "MediaUtils|"
 msgid "Audio"
@@ -478,12 +421,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Inviat"
 
-#: src/MessageModel.cpp:1466
+#: src/MessageModel.cpp:1463
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1469
+#: src/MessageModel.cpp:1466
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -664,60 +607,60 @@ msgid "Drop files to be sent"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:27
-#: src/qml/details/AccountDetailsContent.qml:278
-#: src/qml/details/AccountDetailsContent.qml:301
+#: src/qml/details/AccountDetailsContent.qml:277
+#: src/qml/details/AccountDetailsContent.qml:300
 msgctxt "AccountDetailsContent|"
 msgid "Never"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:31
-#: src/qml/details/AccountDetailsContent.qml:282
+#: src/qml/details/AccountDetailsContent.qml:281
 msgctxt "AccountDetailsContent|"
 msgid "If personal data is shared"
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:35
-#: src/qml/details/AccountDetailsContent.qml:286
-#: src/qml/details/AccountDetailsContent.qml:309
+#: src/qml/details/AccountDetailsContent.qml:285
+#: src/qml/details/AccountDetailsContent.qml:308
 msgctxt "AccountDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:69
+#: src/qml/details/AccountDetailsContent.qml:70
 msgctxt "AccountDetailsContent|"
 msgid "Empty"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:89
+#: src/qml/details/AccountDetailsContent.qml:90
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Set value"
 msgstr "_Selecter"
 
-#: src/qml/details/AccountDetailsContent.qml:141
+#: src/qml/details/AccountDetailsContent.qml:142
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Encryption"
 msgstr "Sin ciffration"
 
-#: src/qml/details/AccountDetailsContent.qml:145
+#: src/qml/details/AccountDetailsContent.qml:146
 msgctxt "AccountDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:146
+#: src/qml/details/AccountDetailsContent.qml:147
 msgctxt "AccountDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:198
+#: src/qml/details/AccountDetailsContent.qml:199
 msgctxt "AccountDetailsContent|"
 msgid "Change label…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:227
+#: src/qml/details/AccountDetailsContent.qml:228
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Remove file"
@@ -725,35 +668,35 @@ msgctxt "AccountDetailsContent|"
 msgid "Remove label"
 msgstr "Remover li file"
 
-#: src/qml/details/AccountDetailsContent.qml:240
-#: src/qml/details/AccountDetailsContent.qml:245
+#: src/qml/details/AccountDetailsContent.qml:241
+#: src/qml/details/AccountDetailsContent.qml:246
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:249
+#: src/qml/details/AccountDetailsContent.qml:250
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via text"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:252
+#: src/qml/details/AccountDetailsContent.qml:253
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Account address copied to clipboard"
 msgstr "Copiar li ligament _magnet"
 
-#: src/qml/details/AccountDetailsContent.qml:256
+#: src/qml/details/AccountDetailsContent.qml:257
 msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:270
+#: src/qml/details/AccountDetailsContent.qml:269
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Notifications"
 msgstr "Notificationes"
 
-#: src/qml/details/AccountDetailsContent.qml:274
+#: src/qml/details/AccountDetailsContent.qml:273
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Compose message"
@@ -761,12 +704,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Incoming contact messages"
 msgstr "Composir un missage"
 
-#: src/qml/details/AccountDetailsContent.qml:275
+#: src/qml/details/AccountDetailsContent.qml:274
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:297
+#: src/qml/details/AccountDetailsContent.qml:296
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Compose message"
@@ -774,12 +717,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Incoming group messages"
 msgstr "Composir un missage"
 
-#: src/qml/details/AccountDetailsContent.qml:298
+#: src/qml/details/AccountDetailsContent.qml:297
 msgctxt "AccountDetailsContent|"
 msgid "Show notification and play sound on message arrival from a group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:305
+#: src/qml/details/AccountDetailsContent.qml:304
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -787,7 +730,7 @@ msgctxt "AccountDetailsContent|"
 msgid "On mention"
 msgstr "Conexente..."
 
-#: src/qml/details/AccountDetailsContent.qml:327
+#: src/qml/details/AccountDetailsContent.qml:323
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -795,7 +738,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Locations"
 msgstr "Localisation"
 
-#: src/qml/details/AccountDetailsContent.qml:331
+#: src/qml/details/AccountDetailsContent.qml:327
 msgctxt "AccountDetailsContent|"
 msgid ""
 "For displaying locations in Kaidan, online data from the third party "
@@ -803,45 +746,45 @@ msgid ""
 "submitting the location."
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:336
+#: src/qml/details/AccountDetailsContent.qml:332
 msgctxt "AccountDetailsContent|"
 msgid "Location map previews"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:337
+#: src/qml/details/AccountDetailsContent.qml:333
 msgctxt "AccountDetailsContent|"
 msgid "Display previews of locations"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:345
+#: src/qml/details/AccountDetailsContent.qml:341
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Opening locations"
 msgstr "In_viar a..."
 
-#: src/qml/details/AccountDetailsContent.qml:346
+#: src/qml/details/AccountDetailsContent.qml:342
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "How to open locations"
 msgstr "In_viar a..."
 
-#: src/qml/details/AccountDetailsContent.qml:349
+#: src/qml/details/AccountDetailsContent.qml:345
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "System default"
 msgstr "Securitá del conto"
 
-#: src/qml/details/AccountDetailsContent.qml:353
+#: src/qml/details/AccountDetailsContent.qml:349
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:357
+#: src/qml/details/AccountDetailsContent.qml:353
 msgctxt "AccountDetailsContent|"
 msgid "Web"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:387
+#: src/qml/details/AccountDetailsContent.qml:380
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Provider"
@@ -849,7 +792,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Provider"
 msgstr "Provisor"
 
-#: src/qml/details/AccountDetailsContent.qml:391
+#: src/qml/details/AccountDetailsContent.qml:384
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Open website"
@@ -857,84 +800,84 @@ msgctxt "AccountDetailsContent|"
 msgid "Visit website"
 msgstr "Aperter li website"
 
-#: src/qml/details/AccountDetailsContent.qml:392
+#: src/qml/details/AccountDetailsContent.qml:385
 msgctxt "AccountDetailsContent|"
 msgid "Open your provider's website in a web browser"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:398
+#: src/qml/details/AccountDetailsContent.qml:391
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Copy website address"
 msgstr "_Copiar li adresse de e-post"
 
-#: src/qml/details/AccountDetailsContent.qml:399
+#: src/qml/details/AccountDetailsContent.qml:392
 msgctxt "AccountDetailsContent|"
 msgid "Copy your provider's web address to the clipboard"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:403
+#: src/qml/details/AccountDetailsContent.qml:396
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Website address copied to clipboard"
 msgstr "Copiar li ligament _magnet"
 
-#: src/qml/details/AccountDetailsContent.qml:408
+#: src/qml/details/AccountDetailsContent.qml:401
 msgctxt "AccountDetailsContent|"
 msgid "Open support chat"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:409
+#: src/qml/details/AccountDetailsContent.qml:402
 msgctxt "AccountDetailsContent|"
 msgid "Start chat with your provider's support contact"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:415
+#: src/qml/details/AccountDetailsContent.qml:408
 msgctxt "AccountDetailsContent|"
 msgid "Support"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:441
+#: src/qml/details/AccountDetailsContent.qml:434
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:458
+#: src/qml/details/AccountDetailsContent.qml:451
 msgctxt "AccountDetailsContent|"
 msgid "Open support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:459
+#: src/qml/details/AccountDetailsContent.qml:452
 msgctxt "AccountDetailsContent|"
 msgid "Join your provider's public support group"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:485
+#: src/qml/details/AccountDetailsContent.qml:478
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Group Support %1"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:502
+#: src/qml/details/AccountDetailsContent.qml:492
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Blocked Chat Addresses"
 msgstr "Adresse de conversation:"
 
-#: src/qml/details/AccountDetailsContent.qml:506
+#: src/qml/details/AccountDetailsContent.qml:496
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Block a specific user (e.g., user@example.org) or all users of the same "
 "server (e.g., example.org)"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:525
+#: src/qml/details/AccountDetailsContent.qml:515
 msgctxt "AccountDetailsContent|"
 msgid "You must be connected to block or unblock chat addresses"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:532
+#: src/qml/details/AccountDetailsContent.qml:522
 #, fuzzy
 #| msgctxt "JidField|"
 #| msgid "user@example.org"
@@ -942,52 +885,52 @@ msgctxt "AccountDetailsContent|"
 msgid "user@example.org"
 msgstr "usator@exemple.org"
 
-#: src/qml/details/AccountDetailsContent.qml:547
+#: src/qml/details/AccountDetailsContent.qml:537
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Block chat address"
 msgstr "Adresse de conversation:"
 
-#: src/qml/details/AccountDetailsContent.qml:605
+#: src/qml/details/AccountDetailsContent.qml:595
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Change chat address…"
 msgstr "Adresse de conversation:"
 
-#: src/qml/details/AccountDetailsContent.qml:634
+#: src/qml/details/AccountDetailsContent.qml:624
 msgctxt "AccountDetailsContent|"
 msgid "Unblock"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:661
+#: src/qml/details/AccountDetailsContent.qml:648
 msgctxt "AccountDetailsContent|"
 msgid "Notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:667
+#: src/qml/details/AccountDetailsContent.qml:654
 msgctxt "AccountDetailsContent|"
 msgid "Add chat for notes"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:668
+#: src/qml/details/AccountDetailsContent.qml:655
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Adding notes chat…"
 msgstr "Contacte"
 
-#: src/qml/details/AccountDetailsContent.qml:669
+#: src/qml/details/AccountDetailsContent.qml:656
 msgctxt "AccountDetailsContent|"
 msgid "Add a chat for synchronizing your notes across all your devices"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:692
+#: src/qml/details/AccountDetailsContent.qml:679
 msgctxt "AccountDetailsContent|"
 msgid ""
 "The notes chat could not be added to your contact list because your server "
 "does not support that"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:714
+#: src/qml/details/AccountDetailsContent.qml:698
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -995,32 +938,32 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Change"
 msgstr "Contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:718
+#: src/qml/details/AccountDetailsContent.qml:702
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Change your password. You need to enter the new password on all your other "
 "devices!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:734
+#: src/qml/details/AccountDetailsContent.qml:719
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Current password"
 msgstr "Actual _contrasigne:"
 
-#: src/qml/details/AccountDetailsContent.qml:735
+#: src/qml/details/AccountDetailsContent.qml:720
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter your current password"
 msgstr "Actual contrasigne:"
 
-#: src/qml/details/AccountDetailsContent.qml:736
+#: src/qml/details/AccountDetailsContent.qml:721
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter correct password"
 msgstr "Actual contrasigne:"
 
-#: src/qml/details/AccountDetailsContent.qml:758
+#: src/qml/details/AccountDetailsContent.qml:743
 #, fuzzy
 #| msgctxt "ChangePassword|"
 #| msgid "New password:"
@@ -1028,7 +971,7 @@ msgctxt "AccountDetailsContent|"
 msgid "New password"
 msgstr "Nov contrasigne:"
 
-#: src/qml/details/AccountDetailsContent.qml:758
+#: src/qml/details/AccountDetailsContent.qml:743
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -1036,36 +979,36 @@ msgctxt "AccountDetailsContent|"
 msgid "Password"
 msgstr "Contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:759
+#: src/qml/details/AccountDetailsContent.qml:744
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter your new password"
 msgstr "Actual contrasigne:"
 
-#: src/qml/details/AccountDetailsContent.qml:760
+#: src/qml/details/AccountDetailsContent.qml:745
 msgctxt "AccountDetailsContent|"
 msgid "Enter different password to change it"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:780
+#: src/qml/details/AccountDetailsContent.qml:765
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Change password"
 msgstr "Cambiar li contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:827
+#: src/qml/details/AccountDetailsContent.qml:812
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Failed to change password: %1"
 msgstr "Cambiar vor contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:833
+#: src/qml/details/AccountDetailsContent.qml:818
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Password changed successfully"
 msgstr "Li contrasigne sta cambiat successosimen"
 
-#: src/qml/details/AccountDetailsContent.qml:849
+#: src/qml/details/AccountDetailsContent.qml:831
 #, fuzzy
 #| msgctxt "PasswordField|"
 #| msgid "Password"
@@ -1073,7 +1016,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Password Visibility"
 msgstr "Contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:853
+#: src/qml/details/AccountDetailsContent.qml:835
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Configure this device to not expose your password for changing it or "
@@ -1082,44 +1025,44 @@ msgid ""
 "else. This cannot be undone!</b>"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:859
+#: src/qml/details/AccountDetailsContent.qml:841
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't show password as text"
 msgstr "Monstrar li textu"
 
-#: src/qml/details/AccountDetailsContent.qml:860
+#: src/qml/details/AccountDetailsContent.qml:842
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Allow to add additional devices using the login QR code but never show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:869
+#: src/qml/details/AccountDetailsContent.qml:851
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text…"
 msgstr "sin contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:875
+#: src/qml/details/AccountDetailsContent.qml:857
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Don't expose password in any way"
 msgstr "Monstrar li contrasigne"
 
-#: src/qml/details/AccountDetailsContent.qml:876
+#: src/qml/details/AccountDetailsContent.qml:858
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Neither allow to add additional devices using the login QR code nor show the "
 "password"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:890
+#: src/qml/details/AccountDetailsContent.qml:872
 msgctxt "AccountDetailsContent|"
 msgid "Removing password from text and QR code…"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:902
+#: src/qml/details/AccountDetailsContent.qml:881
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -1127,7 +1070,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Connection"
 msgstr "Conexente..."
 
-#: src/qml/details/AccountDetailsContent.qml:906
+#: src/qml/details/AccountDetailsContent.qml:885
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1135,7 +1078,7 @@ msgid ""
 "values)"
 msgstr "Ne successat conexer al local portu %i."
 
-#: src/qml/details/AccountDetailsContent.qml:925
+#: src/qml/details/AccountDetailsContent.qml:905
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -1143,25 +1086,25 @@ msgctxt "AccountDetailsContent|"
 msgid "Change connection settings"
 msgstr "Parametres de conexion"
 
-#: src/qml/details/AccountDetailsContent.qml:934
+#: src/qml/details/AccountDetailsContent.qml:914
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Enter different connection settings to change them"
 msgstr "Parametres de conexion"
 
-#: src/qml/details/AccountDetailsContent.qml:983
+#: src/qml/details/AccountDetailsContent.qml:963
 #, fuzzy, qt-format
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings could not be changed: %1"
 msgstr "Li gruppe ne posse esset changeat."
 
-#: src/qml/details/AccountDetailsContent.qml:998
+#: src/qml/details/AccountDetailsContent.qml:978
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Connection settings changed"
 msgstr "Parametres de conexion"
 
-#: src/qml/details/AccountDetailsContent.qml:1022
+#: src/qml/details/AccountDetailsContent.qml:999
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -1169,13 +1112,13 @@ msgctxt "AccountDetailsContent|"
 msgid "Migration"
 msgstr "Localisation"
 
-#: src/qml/details/AccountDetailsContent.qml:1030
+#: src/qml/details/AccountDetailsContent.qml:1007
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
 msgstr "Remover li conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1031
+#: src/qml/details/AccountDetailsContent.qml:1008
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Account security"
@@ -1183,12 +1126,12 @@ msgctxt "AccountDetailsContent|"
 msgid "Preparing account migration…"
 msgstr "Securitá del conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1032
+#: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid "That can take long"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1032
+#: src/qml/details/AccountDetailsContent.qml:1009
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Migrate account data (except chat history) to another account. Your current "
@@ -1196,7 +1139,7 @@ msgid ""
 "history if needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1060
+#: src/qml/details/AccountDetailsContent.qml:1034
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1204,44 +1147,44 @@ msgctxt "AccountDetailsContent|"
 msgid "Removal"
 msgstr "Remover"
 
-#: src/qml/details/AccountDetailsContent.qml:1066
+#: src/qml/details/AccountDetailsContent.qml:1040
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Remove from Kaidan"
 msgstr "Remover li conto %s?"
 
-#: src/qml/details/AccountDetailsContent.qml:1067
+#: src/qml/details/AccountDetailsContent.qml:1041
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Remove account from this app. Back up your credentials and chat history if "
 "needed!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1075
+#: src/qml/details/AccountDetailsContent.qml:1049
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
 msgstr "Contacte"
 
-#: src/qml/details/AccountDetailsContent.qml:1082
+#: src/qml/details/AccountDetailsContent.qml:1056
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Delete completely"
 msgstr "Completmen"
 
-#: src/qml/details/AccountDetailsContent.qml:1083
+#: src/qml/details/AccountDetailsContent.qml:1057
 msgctxt "AccountDetailsContent|"
 msgid ""
 "Delete account from provider. You will not be able to use your account again!"
 msgstr ""
 
-#: src/qml/details/AccountDetailsContent.qml:1091
+#: src/qml/details/AccountDetailsContent.qml:1065
 #, fuzzy
 msgctxt "AccountDetailsContent|"
 msgid "Deleting account…"
 msgstr "Remover li conto"
 
-#: src/qml/details/AccountDetailsContent.qml:1098
+#: src/qml/details/AccountDetailsContent.qml:1072
 #, qt-format
 msgctxt "AccountDetailsContent|"
 msgid ""
@@ -1324,7 +1267,7 @@ msgctxt "AccountKeyAuthenticationButton|"
 msgid "All your other known devices are verified"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:24
+#: src/qml/details/AvatarChangePage.qml:25
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Choose image"
@@ -1332,7 +1275,7 @@ msgctxt "AvatarChangePage|"
 msgid "Change profile image"
 msgstr "Selecte un image"
 
-#: src/qml/details/AvatarChangePage.qml:37
+#: src/qml/details/AvatarChangePage.qml:38
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Choose image"
@@ -1340,18 +1283,18 @@ msgctxt "AvatarChangePage|"
 msgid "Choose profile image"
 msgstr "Selecte un image"
 
-#: src/qml/details/AvatarChangePage.qml:115
+#: src/qml/details/AvatarChangePage.qml:112
 msgctxt "AvatarChangePage|"
 msgid "Open image…"
 msgstr ""
 
-#: src/qml/details/AvatarChangePage.qml:120
+#: src/qml/details/AvatarChangePage.qml:117
 #, fuzzy
 msgctxt "AvatarChangePage|"
 msgid "Remove current profile image"
 msgstr "Remover li conto %s?"
 
-#: src/qml/details/AvatarChangePage.qml:126
+#: src/qml/details/AvatarChangePage.qml:123
 #, fuzzy
 msgctxt "AvatarChangePage|"
 msgid "Save selection"
@@ -1397,13 +1340,13 @@ msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:99
+#: src/qml/details/ContactDetailsContent.qml:96
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Notifications"
 msgstr "Notificationes"
 
-#: src/qml/details/ContactDetailsContent.qml:103
+#: src/qml/details/ContactDetailsContent.qml:100
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Compose message"
@@ -1411,28 +1354,28 @@ msgctxt "ContactDetailsContent|"
 msgid "Incoming messages"
 msgstr "Composir un missage"
 
-#: src/qml/details/ContactDetailsContent.qml:104
+#: src/qml/details/ContactDetailsContent.qml:101
 msgctxt "ContactDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:107
+#: src/qml/details/ContactDetailsContent.qml:104
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Account default"
 msgstr "Securitá del conto"
 
-#: src/qml/details/ContactDetailsContent.qml:111
+#: src/qml/details/ContactDetailsContent.qml:108
 msgctxt "ContactDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:115
+#: src/qml/details/ContactDetailsContent.qml:112
 msgctxt "ContactDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:134
+#: src/qml/details/ContactDetailsContent.qml:127
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Privacy"
@@ -1440,63 +1383,63 @@ msgctxt "ContactDetailsContent|"
 msgid "Privacy"
 msgstr "Privatie"
 
-#: src/qml/details/ContactDetailsContent.qml:138
+#: src/qml/details/ContactDetailsContent.qml:131
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Request personal data"
 msgstr "Statu: "
 
-#: src/qml/details/ContactDetailsContent.qml:139
+#: src/qml/details/ContactDetailsContent.qml:132
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Ask your contact to share the availability, devices and other personal "
 "information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:145
+#: src/qml/details/ContactDetailsContent.qml:138
 msgctxt "ContactDetailsContent|"
 msgid "Cancel personal data sharing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:146
+#: src/qml/details/ContactDetailsContent.qml:139
 msgctxt "ContactDetailsContent|"
 msgid "Stop sharing your availability, devices and other personal information"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:152
+#: src/qml/details/ContactDetailsContent.qml:145
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/qml/details/ContactDetailsContent.qml:153
+#: src/qml/details/ContactDetailsContent.qml:146
 msgctxt "ContactDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:164
+#: src/qml/details/ContactDetailsContent.qml:157
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Send read notifications"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/qml/details/ContactDetailsContent.qml:165
+#: src/qml/details/ContactDetailsContent.qml:158
 msgctxt "ContactDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:176
+#: src/qml/details/ContactDetailsContent.qml:169
 msgctxt "ContactDetailsContent|"
 msgid "Block"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:177
+#: src/qml/details/ContactDetailsContent.qml:170
 msgctxt "ContactDetailsContent|"
 msgid "Block all communication including status and notifications"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:203
+#: src/qml/details/ContactDetailsContent.qml:192
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1504,7 +1447,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Removal"
 msgstr "Remover"
 
-#: src/qml/details/ContactDetailsContent.qml:208
+#: src/qml/details/ContactDetailsContent.qml:197
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -1512,12 +1455,12 @@ msgctxt "ContactDetailsContent|"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/details/ContactDetailsContent.qml:209
+#: src/qml/details/ContactDetailsContent.qml:198
 msgctxt "ContactDetailsContent|"
 msgid "Remove contact and complete chat history"
 msgstr ""
 
-#: src/qml/details/ContactDetailsContent.qml:217
+#: src/qml/details/ContactDetailsContent.qml:206
 #, fuzzy
 msgctxt "ContactDetailsContent|"
 msgid "Removing contact…"
@@ -1592,29 +1535,29 @@ msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:57
+#: src/qml/details/DetailsContent.qml:54
 msgctxt "DetailsContent|"
 msgid "Media"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:62
+#: src/qml/details/DetailsContent.qml:59
 msgctxt "DetailsContent|"
 msgid "Automatic downloads"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:63
+#: src/qml/details/DetailsContent.qml:60
 #, fuzzy
 msgctxt "DetailsContent|"
 msgid "Download media automatically"
 msgstr "Registrar se"
 
-#: src/qml/details/DetailsContent.qml:70
+#: src/qml/details/DetailsContent.qml:67
 #, fuzzy, qt-format
 msgctxt "DetailsContent|"
 msgid "You can share media up to %1."
 msgstr "Permisse partir un fólder rapidmen"
 
-#: src/qml/details/DetailsContent.qml:115
+#: src/qml/details/DetailsContent.qml:108
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Profile"
@@ -1622,17 +1565,17 @@ msgctxt "DetailsContent|"
 msgid "Profile"
 msgstr "Profil"
 
-#: src/qml/details/DetailsContent.qml:139
+#: src/qml/details/DetailsContent.qml:128
 msgctxt "DetailsContent|"
 msgid "Labels"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:164
+#: src/qml/details/DetailsContent.qml:149
 msgctxt "DetailsContent|"
 msgid "Sharing"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:169
+#: src/qml/details/DetailsContent.qml:154
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Show QR code"
@@ -1640,7 +1583,7 @@ msgctxt "DetailsContent|"
 msgid "Show QR code"
 msgstr "Monstrar un QR-code"
 
-#: src/qml/details/DetailsContent.qml:187
+#: src/qml/details/DetailsContent.qml:172
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Show QR code"
@@ -1648,24 +1591,24 @@ msgctxt "DetailsContent|"
 msgid "Copy QR code"
 msgstr "Monstrar un QR-code"
 
-#: src/qml/details/DetailsContent.qml:189
+#: src/qml/details/DetailsContent.qml:174
 #, fuzzy
 msgctxt "DetailsContent|"
 msgid "QR code copied to clipboard"
 msgstr "Copiar li ligament _magnet"
 
-#: src/qml/details/DetailsContent.qml:194
+#: src/qml/details/DetailsContent.qml:179
 #, fuzzy
 msgctxt "DetailsContent|"
 msgid "Copy chat address"
 msgstr "Adresse de conversation:"
 
-#: src/qml/details/DetailsContent.qml:200
+#: src/qml/details/DetailsContent.qml:185
 msgctxt "DetailsContent|"
 msgid "Copy invitation link"
 msgstr ""
 
-#: src/qml/details/DetailsContent.qml:202
+#: src/qml/details/DetailsContent.qml:187
 #, fuzzy
 msgctxt "DetailsContent|"
 msgid "Invitation link copied to clipboard"
@@ -1676,92 +1619,92 @@ msgctxt "DetailsHeader|"
 msgid "Change name…"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:31
+#: src/qml/details/GroupChatDetailsContent.qml:29
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:68
+#: src/qml/details/GroupChatDetailsContent.qml:66
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Invite selected contacts"
 msgstr "Contacte"
 
-#: src/qml/details/GroupChatDetailsContent.qml:128
+#: src/qml/details/GroupChatDetailsContent.qml:126
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Select at least one contact"
 msgstr "Contacte"
 
-#: src/qml/details/GroupChatDetailsContent.qml:145
+#: src/qml/details/GroupChatDetailsContent.qml:140
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:149
+#: src/qml/details/GroupChatDetailsContent.qml:144
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Allow a user (e.g., user@example.org) or all users of the same server (e.g., "
 "example.org) to participate"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:172
+#: src/qml/details/GroupChatDetailsContent.qml:167
 msgctxt "GroupChatDetailsContent|"
 msgid "You must be connected to change the participants"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:207
+#: src/qml/details/GroupChatDetailsContent.qml:202
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:233
+#: src/qml/details/GroupChatDetailsContent.qml:225
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "Sin ciffration"
 
-#: src/qml/details/GroupChatDetailsContent.qml:237
+#: src/qml/details/GroupChatDetailsContent.qml:229
 msgctxt "GroupChatDetailsContent|"
 msgid "OMEMO 2"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:238
+#: src/qml/details/GroupChatDetailsContent.qml:230
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "End-to-end encryption with OMEMO 2 ensures that nobody else than you and "
 "your chat partners can read or modify the data you exchange."
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:306
-#: src/qml/details/GroupChatDetailsContent.qml:311
+#: src/qml/details/GroupChatDetailsContent.qml:298
+#: src/qml/details/GroupChatDetailsContent.qml:303
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via QR code"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:315
+#: src/qml/details/GroupChatDetailsContent.qml:307
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via text"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:318
+#: src/qml/details/GroupChatDetailsContent.qml:310
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Group address copied to clipboard"
 msgstr "Copiar li ligament _magnet"
 
-#: src/qml/details/GroupChatDetailsContent.qml:322
+#: src/qml/details/GroupChatDetailsContent.qml:314
 msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:333
+#: src/qml/details/GroupChatDetailsContent.qml:322
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "Notificationes"
 
-#: src/qml/details/GroupChatDetailsContent.qml:337
+#: src/qml/details/GroupChatDetailsContent.qml:326
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Compose message"
@@ -1769,33 +1712,33 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Incoming messages"
 msgstr "Composir un missage"
 
-#: src/qml/details/GroupChatDetailsContent.qml:338
+#: src/qml/details/GroupChatDetailsContent.qml:327
 msgctxt "GroupChatDetailsContent|"
 msgid "Show notification and play sound on message arrival"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:341
+#: src/qml/details/GroupChatDetailsContent.qml:330
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Account default"
 msgstr "Securitá del conto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:345
+#: src/qml/details/GroupChatDetailsContent.qml:334
 msgctxt "GroupChatDetailsContent|"
 msgid "Never"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:349
+#: src/qml/details/GroupChatDetailsContent.qml:338
 msgctxt "GroupChatDetailsContent|"
 msgid "On mention"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:353
+#: src/qml/details/GroupChatDetailsContent.qml:342
 msgctxt "GroupChatDetailsContent|"
 msgid "Always"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:372
+#: src/qml/details/GroupChatDetailsContent.qml:357
 #, fuzzy
 #| msgctxt "UserProfilePage|"
 #| msgid "Privacy"
@@ -1803,58 +1746,58 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Privacy"
 msgstr "Privatie"
 
-#: src/qml/details/GroupChatDetailsContent.qml:376
+#: src/qml/details/GroupChatDetailsContent.qml:361
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Send typing notifications"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/qml/details/GroupChatDetailsContent.qml:377
+#: src/qml/details/GroupChatDetailsContent.qml:362
 msgctxt "GroupChatDetailsContent|"
 msgid ""
 "Indicate when you have this conversation open, are typing and stopped typing"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:388
+#: src/qml/details/GroupChatDetailsContent.qml:373
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Send read notifications"
 msgstr "Inviar notificationes pri li tippada"
 
-#: src/qml/details/GroupChatDetailsContent.qml:389
+#: src/qml/details/GroupChatDetailsContent.qml:374
 msgctxt "GroupChatDetailsContent|"
 msgid "Indicate which messages you have read"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:410
+#: src/qml/details/GroupChatDetailsContent.qml:391
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving & Deletion"
 msgstr "In_viar a..."
 
-#: src/qml/details/GroupChatDetailsContent.qml:416
+#: src/qml/details/GroupChatDetailsContent.qml:397
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:417
+#: src/qml/details/GroupChatDetailsContent.qml:398
 msgctxt "GroupChatDetailsContent|"
 msgid "Leave group and remove complete chat history"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:426
+#: src/qml/details/GroupChatDetailsContent.qml:407
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Leaving group chat…"
 msgstr "Líber"
 
-#: src/qml/details/GroupChatDetailsContent.qml:432
+#: src/qml/details/GroupChatDetailsContent.qml:413
 #, fuzzy, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be left%2"
 msgstr "Inviat"
 
-#: src/qml/details/GroupChatDetailsContent.qml:440
+#: src/qml/details/GroupChatDetailsContent.qml:421
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete"
@@ -1862,18 +1805,18 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Delete"
 msgstr "Remover"
 
-#: src/qml/details/GroupChatDetailsContent.qml:441
+#: src/qml/details/GroupChatDetailsContent.qml:422
 msgctxt "GroupChatDetailsContent|"
 msgid "Delete group. Nobody will be able to join the group again!"
 msgstr ""
 
-#: src/qml/details/GroupChatDetailsContent.qml:450
+#: src/qml/details/GroupChatDetailsContent.qml:431
 #, fuzzy
 msgctxt "GroupChatDetailsContent|"
 msgid "Deleting group chat…"
 msgstr "Remover li conto"
 
-#: src/qml/details/GroupChatDetailsContent.qml:456
+#: src/qml/details/GroupChatDetailsContent.qml:437
 #, fuzzy, qt-format
 msgctxt "GroupChatDetailsContent|"
 msgid "The group %1 could not be deleted%2"
@@ -2017,7 +1960,7 @@ msgid ""
 "read or modify the data that is synchronized across your devices."
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:55
+#: src/qml/details/NotesChatDetailsContent.qml:52
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2025,7 +1968,7 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Removal"
 msgstr "Remover"
 
-#: src/qml/details/NotesChatDetailsContent.qml:60
+#: src/qml/details/NotesChatDetailsContent.qml:57
 #, fuzzy
 #| msgctxt "LocalAccountRemoval|"
 #| msgid "Remove"
@@ -2033,12 +1976,12 @@ msgctxt "NotesChatDetailsContent|"
 msgid "Remove"
 msgstr "Remover"
 
-#: src/qml/details/NotesChatDetailsContent.qml:61
+#: src/qml/details/NotesChatDetailsContent.qml:58
 msgctxt "NotesChatDetailsContent|"
 msgid "Remove notes chat and complete chat history"
 msgstr ""
 
-#: src/qml/details/NotesChatDetailsContent.qml:69
+#: src/qml/details/NotesChatDetailsContent.qml:66
 #, fuzzy
 msgctxt "NotesChatDetailsContent|"
 msgid "Removing notes chat…"
@@ -2094,7 +2037,7 @@ msgctxt "RosterItemDetailsHeader|"
 msgid "Maximize avatar"
 msgstr "Cambiar li contrasigne"
 
-#: src/qml/details/UserDevicesArea.qml:28
+#: src/qml/details/UserDevicesArea.qml:26
 #, fuzzy
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
@@ -2181,7 +2124,7 @@ msgctxt "DeviceSwitchingPage|"
 msgid "Copy password"
 msgstr "Copiar li contrasigne"
 
-#: src/qml/elements/AboutContent.qml:21
+#: src/qml/elements/AboutContent.qml:19
 #, fuzzy
 #| msgctxt "ProviderView|"
 #| msgid "Open website"
@@ -2189,49 +2132,49 @@ msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "Aperter li website"
 
-#: src/qml/elements/AboutContent.qml:22
+#: src/qml/elements/AboutContent.qml:20
 msgctxt "AboutContent|"
 msgid "Open Kaidan's website in a web browser"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:28
+#: src/qml/elements/AboutContent.qml:26
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:29
+#: src/qml/elements/AboutContent.qml:27
 msgctxt "AboutContent|"
 msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:35
+#: src/qml/elements/AboutContent.qml:33
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:36
+#: src/qml/elements/AboutContent.qml:34
 msgctxt "AboutContent|"
 msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:42
+#: src/qml/elements/AboutContent.qml:40
 #, fuzzy
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "Null problemas es trovat con li traduction."
 
-#: src/qml/elements/AboutContent.qml:43
+#: src/qml/elements/AboutContent.qml:41
 msgctxt "AboutContent|"
 msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
-#: src/qml/elements/AboutContent.qml:49
+#: src/qml/elements/AboutContent.qml:47
 #, fuzzy
 msgctxt "AboutContent|"
 msgid "View source code"
 msgstr "Vider li fonte"
 
-#: src/qml/elements/AboutContent.qml:50
+#: src/qml/elements/AboutContent.qml:48
 msgctxt "AboutContent|"
 msgid "View Kaidan's source code online and contribute to the project"
 msgstr ""
@@ -2293,17 +2236,17 @@ msgid ""
 "Try to close other applications using the camera"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:204
+#: src/qml/elements/ChatMessage.qml:203
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:417
+#: src/qml/elements/ChatMessage.qml:416
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:445
+#: src/qml/elements/ChatMessage.qml:444
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2384,7 +2327,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "A-_bass"
 
-#: src/qml/elements/ChatPageSendingPane.qml:82
+#: src/qml/elements/ChatPageSendingPane.qml:83
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2392,27 +2335,27 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Anullar"
 
-#: src/qml/elements/ChatPageSendingPane.qml:125
+#: src/qml/elements/ChatPageSendingPane.qml:126
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:132
+#: src/qml/elements/ChatPageSendingPane.qml:133
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:157
+#: src/qml/elements/ChatPageSendingPane.qml:158
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:168
+#: src/qml/elements/ChatPageSendingPane.qml:169
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:201
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2420,7 +2363,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Composir un missage"
 
-#: src/qml/elements/ChatPageSendingPane.qml:201
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2428,7 +2371,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Composir un missage"
 
-#: src/qml/elements/ChatPageSendingPane.qml:203
+#: src/qml/elements/ChatPageSendingPane.qml:204
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2436,7 +2379,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Composir un missage"
 
-#: src/qml/elements/ChatPageSendingPane.qml:203
+#: src/qml/elements/ChatPageSendingPane.qml:204
 #, fuzzy
 #| msgctxt "ChatPageSendingPane|"
 #| msgid "Compose message"
@@ -2444,19 +2387,19 @@ msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Composir un missage"
 
-#: src/qml/elements/ChatPageSendingPane.qml:289
+#: src/qml/elements/ChatPageSendingPane.qml:290
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Capturar un image del ecran"
 
-#: src/qml/elements/ChatPageSendingPane.qml:297
+#: src/qml/elements/ChatPageSendingPane.qml:298
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Registrar un video"
 
-#: src/qml/elements/ChatPageSendingPane.qml:305
+#: src/qml/elements/ChatPageSendingPane.qml:306
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send files"
@@ -2464,29 +2407,29 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Inviar files"
 
-#: src/qml/elements/ChatPageSendingPane.qml:316
+#: src/qml/elements/ChatPageSendingPane.qml:317
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "In_viar a..."
 
-#: src/qml/elements/ChatPageSendingPane.qml:324
+#: src/qml/elements/ChatPageSendingPane.qml:325
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:368
+#: src/qml/elements/ChatPageSendingPane.qml:369
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Celar li textu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:368
+#: src/qml/elements/ChatPageSendingPane.qml:369
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:417
+#: src/qml/elements/ChatPageSendingPane.qml:418
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2494,7 +2437,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "Inviar li spoiler-missage"
 
-#: src/qml/elements/ChatPageSendingPane.qml:443
+#: src/qml/elements/ChatPageSendingPane.qml:445
 #, fuzzy
 #| msgctxt "NewMediaSheet|"
 #| msgid "Send"
@@ -2658,7 +2601,7 @@ msgctxt "PasswordField|"
 msgid "Please enter a valid password"
 msgstr "Ples provide un valid suffixe de fil-nómine!"
 
-#: src/qml/elements/GeoLocationMap.qml:97
+#: src/qml/elements/GeoLocationMap.qml:100
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
 msgstr ""
@@ -2911,7 +2854,7 @@ msgctxt "LoadingArea|"
 msgid "Loading…"
 msgstr "Registration..."
 
-#: src/qml/elements/LoginArea.qml:33
+#: src/qml/elements/LoginArea.qml:34
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Connection settings"
@@ -2919,7 +2862,7 @@ msgctxt "LoginArea|"
 msgid "Connection settings"
 msgstr "Parametres de conexion"
 
-#: src/qml/elements/LoginArea.qml:65
+#: src/qml/elements/LoginArea.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -2927,7 +2870,7 @@ msgctxt "LoginArea|"
 msgid "Log in"
 msgstr "Aperter un session"
 
-#: src/qml/elements/LoginArea.qml:66
+#: src/qml/elements/LoginArea.qml:67
 #, fuzzy
 #| msgctxt "Kaidan|"
 #| msgid "Connecting…"
@@ -2949,7 +2892,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Remover li file"
 
-#: src/qml/elements/MessageBackground.qml:102
+#: src/qml/elements/MessageBackground.qml:104
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Unencrypted"
@@ -2957,7 +2900,7 @@ msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Ínciffrat"
 
-#: src/qml/elements/MessageBackground.qml:107
+#: src/qml/elements/MessageBackground.qml:109
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Untrusted"
@@ -3020,7 +2963,7 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "<textu-de-reaction>"
 
-#: src/qml/elements/QrCodeScanner.qml:66
+#: src/qml/elements/QrCodeScanner.qml:68
 #, fuzzy, qt-format
 msgctxt "QrCodeScanner|"
 msgid "The camera format '%1' is not supported."
@@ -3210,7 +3153,7 @@ msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "Serchar: "
 
-#: src/qml/elements/SearchPublicGroupChatDialog.qml:72
+#: src/qml/elements/SearchPublicGroupChatDialog.qml:73
 #, fuzzy
 #| msgctxt "MultimediaSettings|"
 #| msgid "Recording…"
@@ -3218,12 +3161,12 @@ msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "Registration..."
 
-#: src/qml/elements/SearchPublicGroupChatDialog.qml:97
+#: src/qml/elements/SearchPublicGroupChatDialog.qml:98
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr ""
 
-#: src/qml/elements/SearchPublicGroupChatDialog.qml:181
+#: src/qml/elements/SearchPublicGroupChatDialog.qml:182
 #, fuzzy, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
@@ -3247,13 +3190,13 @@ msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
 msgstr "Contacte"
 
-#: src/qml/GlobalDrawer.qml:36
+#: src/qml/GlobalDrawer.qml:33
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
 msgstr "Securitá del conto"
 
-#: src/qml/GlobalDrawer.qml:112
+#: src/qml/GlobalDrawer.qml:105
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -3261,41 +3204,41 @@ msgctxt "GlobalDrawer|"
 msgid "Actions"
 msgstr "Localisation"
 
-#: src/qml/GlobalDrawer.qml:116
+#: src/qml/GlobalDrawer.qml:109
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Add contact by QR code"
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/GlobalDrawer.qml:122
+#: src/qml/GlobalDrawer.qml:115
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/GlobalDrawer.qml:128
+#: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
 msgid "Create group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:135
+#: src/qml/GlobalDrawer.qml:128
 msgctxt "GlobalDrawer|"
 msgid "Join group"
 msgstr ""
 
-#: src/qml/GlobalDrawer.qml:143
+#: src/qml/GlobalDrawer.qml:136
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
 msgstr "Serchar: "
 
-#: src/qml/GlobalDrawer.qml:154
+#: src/qml/GlobalDrawer.qml:147
 #, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "Switch device"
 msgstr "Cambiar"
 
-#: src/qml/GlobalDrawer.qml:160
+#: src/qml/GlobalDrawer.qml:153
 #, fuzzy
 #| msgctxt "VCardModel|"
 #| msgid "About"
@@ -3350,7 +3293,7 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/QrCodeOnboardingPage.qml:65
+#: src/qml/QrCodeOnboardingPage.qml:67
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -3358,13 +3301,13 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Aperter un session"
 
-#: src/qml/QrCodeOnboardingPage.qml:103
+#: src/qml/QrCodeOnboardingPage.qml:100
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "This QR code is not a valid login QR code."
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/QrCodeOnboardingPage.qml:110
+#: src/qml/QrCodeOnboardingPage.qml:107
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Conexente..."
@@ -3385,7 +3328,7 @@ msgctxt "AutomaticRegistrationPage|"
 msgid "Complete the registration!"
 msgstr ""
 
-#: src/qml/registration/CustomDataFormArea.qml:28
+#: src/qml/registration/CustomDataFormArea.qml:25
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -3393,12 +3336,12 @@ msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
 msgstr "Localisation"
 
-#: src/qml/registration/CustomDataFormArea.qml:32
+#: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
 msgid "The provider has requested more information"
 msgstr ""
 
-#: src/qml/registration/CustomDataFormArea.qml:33
+#: src/qml/registration/CustomDataFormArea.qml:30
 msgctxt "CustomDataFormArea|"
 msgid "Not everything may be required"
 msgstr ""
@@ -3417,13 +3360,13 @@ msgctxt "ManualRegistrationPage|"
 msgid "Complete the registration form!"
 msgstr "Registration ne successat:"
 
-#: src/qml/registration/ManualRegistrationPage.qml:62
+#: src/qml/registration/ManualRegistrationPage.qml:60
 #, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
 msgstr "Actual contrasigne:"
 
-#: src/qml/registration/ManualRegistrationPage.qml:73
+#: src/qml/registration/ManualRegistrationPage.qml:72
 #, fuzzy
 #| msgctxt "DisplayNameView|"
 #| msgid "Display Name"
@@ -3431,7 +3374,7 @@ msgctxt "ManualRegistrationPage|"
 msgid "Display Name"
 msgstr "Visibil nómine"
 
-#: src/qml/registration/ManualRegistrationPage.qml:81
+#: src/qml/registration/ManualRegistrationPage.qml:80
 #, fuzzy
 #| msgctxt "UsernameView|"
 #| msgid "Username"
@@ -3439,24 +3382,24 @@ msgctxt "ManualRegistrationPage|"
 msgid "Username"
 msgstr "Nómine de usator"
 
-#: src/qml/registration/ManualRegistrationPage.qml:85
+#: src/qml/registration/ManualRegistrationPage.qml:84
 msgctxt "ManualRegistrationPage|"
 msgid "Enter a valid username or leave the field empty for a random one"
 msgstr ""
 
-#: src/qml/registration/ManualRegistrationPage.qml:169
+#: src/qml/registration/ManualRegistrationPage.qml:167
 #, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "The provider requires a stronger password."
 msgstr "Besonar li contrasigne por desserrar"
 
-#: src/qml/registration/ManualRegistrationPage.qml:227
+#: src/qml/registration/ManualRegistrationPage.qml:225
 #, fuzzy
 msgctxt "ManualRegistrationPage|"
 msgid "The username is already taken."
 msgstr "Nómine de usator"
 
-#: src/qml/registration/ManualRegistrationPage.qml:231
+#: src/qml/registration/ManualRegistrationPage.qml:229
 msgctxt "ManualRegistrationPage|"
 msgid "A new random username has been generated."
 msgstr ""
@@ -3612,7 +3555,7 @@ msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:50
+#: src/qml/registration/WebRegistrationPage.qml:48
 #, fuzzy
 #| msgctxt "RegistrationLoginDecisionPage|"
 #| msgid "Register a new account"
@@ -3620,32 +3563,32 @@ msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
 msgstr "Registrar un nov conto"
 
-#: src/qml/registration/WebRegistrationPage.qml:54
+#: src/qml/registration/WebRegistrationPage.qml:52
 #, fuzzy
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
 msgstr "Li servitor ne supporta li protocol WebDAV."
 
-#: src/qml/registration/WebRegistrationPage.qml:55
+#: src/qml/registration/WebRegistrationPage.qml:53
 msgctxt "WebRegistrationPage|"
 msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
 
-#: src/qml/registration/WebRegistrationPage.qml:59
+#: src/qml/registration/WebRegistrationPage.qml:57
 #, fuzzy
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
 msgstr "Apert registration"
 
-#: src/qml/registration/WebRegistrationPage.qml:60
+#: src/qml/registration/WebRegistrationPage.qml:58
 #, fuzzy
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
 msgstr "Apert registration"
 
-#: src/qml/registration/WebRegistrationPage.qml:77
+#: src/qml/registration/WebRegistrationPage.qml:72
 #, fuzzy
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
@@ -3670,7 +3613,7 @@ msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
 msgstr ""
 
-#: src/qml/StartPage.qml:80
+#: src/qml/StartPage.qml:78
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -3678,18 +3621,18 @@ msgctxt "StartPage|"
 msgid "Log in"
 msgstr "Aperter un session"
 
-#: src/qml/StartPage.qml:132
+#: src/qml/StartPage.qml:130
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Scan login QR code"
 msgstr "Celar li QR-code"
 
-#: src/qml/StartPage.qml:139
+#: src/qml/StartPage.qml:136
 msgctxt "StartPage|"
 msgid "or"
 msgstr ""
 
-#: src/qml/StartPage.qml:151
+#: src/qml/StartPage.qml:146
 #, fuzzy
 #| msgctxt "RegistrationButton|"
 #| msgid "Register"
@@ -3697,13 +3640,13 @@ msgctxt "StartPage|"
 msgid "Register"
 msgstr "Registrar se"
 
-#: src/qml/StartPage.qml:155
+#: src/qml/StartPage.qml:150
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Generate account automatically"
 msgstr "_Generar!"
 
-#: src/qml/StartPage.qml:160
+#: src/qml/StartPage.qml:155
 #, fuzzy
 msgctxt "StartPage|"
 msgid "Create account manually"
@@ -3883,6 +3826,50 @@ msgstr "Aniversarie"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Website"
+
+#~ msgctxt "MediaRecorder|"
+#~ msgid "Default"
+#~ msgstr "Predefinit"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Very low"
+#~ msgstr "Bassissim"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Low"
+#~ msgstr "Bass"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Normal"
+#~ msgstr "Normal"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "High"
+#~ msgstr "Alt"
+
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Very high"
+#~ msgstr "Altissim"
+
+#, fuzzy
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Constant quality"
+#~ msgstr "Constante"
+
+#, fuzzy
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Constant bit rate"
+#~ msgstr "Variabil bitrate (VBR)"
+
+#, fuzzy
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Average bit rate"
+#~ msgstr "Variabil bitrate (VBR)"
+
+#, fuzzy
+#~ msgctxt "CommonEncoderSettings|"
+#~ msgid "Two pass"
+#~ msgstr "Contrasigne: "
 
 #, fuzzy
 #~ msgctxt "NewMedia|"
