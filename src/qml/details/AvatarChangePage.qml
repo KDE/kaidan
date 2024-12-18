@@ -39,8 +39,8 @@ Kirigami.Page {
 		currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
 		fileMode: Dialogs.FileDialog.OpenFile
 		onAccepted: {
-			imageDoc.path = fileDialog.fileUrl
-			imagePath = fileDialog.fileUrl
+			imageDoc.path = fileDialog.selectedFile
+			imagePath = fileDialog.selectedFile
 
 			fileDialog.close()
 		}
