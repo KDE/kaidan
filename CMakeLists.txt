@@ -67,9 +67,6 @@ option(QUICK_COMPILER "Use QtQuick compiler to improve performance" FALSE)
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
 option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 
-# Find includes in corresponding build directories
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 
 # Find packages
