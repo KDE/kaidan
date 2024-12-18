@@ -148,7 +148,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         const auto words = iq.instructions().split(u' ');
         for (const auto &instructionPart : words) {
             if (instructionPart.startsWith(u"https://")) {
-                Q_EMIT Kaidan::instance() -> registrationOutOfBandUrlReceived({instructionPart});
+                Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{instructionPart});
                 abortRegistration();
                 return;
             }

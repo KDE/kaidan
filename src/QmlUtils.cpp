@@ -326,12 +326,12 @@ bool QmlUtils::openGeoLocation(const QGeoCoordinate &geoCoordinate)
 {
     switch (AccountManager::instance()->account().geoLocationMapService) {
     case Account::GeoLocationMapService::System:
-        QDesktopServices::openUrl(geoUri(geoCoordinate));
+        QDesktopServices::openUrl(QUrl(geoUri(geoCoordinate)));
         break;
     case Account::GeoLocationMapService::InApp:
         return true;
     case Account::GeoLocationMapService::Web:
-        QDesktopServices::openUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()), QString::number(geoCoordinate.longitude())));
+        QDesktopServices::openUrl(QUrl(GEO_LOCATION_WEB_URL.arg(QString::number(geoCoordinate.latitude()), QString::number(geoCoordinate.longitude()))));
         break;
     }
 
