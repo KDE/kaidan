@@ -199,7 +199,7 @@ Kirigami.ActionTextField {
 
 	onActiveFocusChanged: {
 		if (activeFocus && completions.count > 0)
-			completionsVisible = (text == "" || text.match("^[0-9 ]+$")) ? false : true
+			completionsVisible = (text === "" || text.match("^[0-9 ]+$")) ? false : true
 		// TODO: Probably better use "input" instead of "text" in the line above.
 		// TODO: Perhaps initialize the completions with suggestions based on the current
 		// text. If the reason for not having the focus before was a previous

@@ -69,7 +69,7 @@ RegistrationPage {
 
 					width: parent.width
 					height: active ? implicitHeight : 0
-					visible: height != 0
+					visible: height !== 0
 					clip: true
 					leftPadding: 0
 					rightPadding: 0

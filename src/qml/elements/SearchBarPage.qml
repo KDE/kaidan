@@ -81,7 +81,7 @@ Kirigami.ScrollablePage {
 		Rectangle {
 			property bool active: false
 
-			visible: height != 0
+			visible: height !== 0
 			width: parent ? parent.width : 0
 			height: active ? (contentArea.height + contentArea.spacing * 2) : 0
 			clip: true

@@ -21,7 +21,7 @@ Item {
 
 	height: active ? searchField.height + 2 * Kirigami.Units.largeSpacing : 0
 	clip: true
-	visible: height != 0
+	visible: height !== 0
 
 	Behavior on height {
 		SmoothedAnimation {
