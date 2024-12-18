@@ -8,9 +8,9 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15 as Controls
 import QtQuick.Layouts 1.15
-
 import org.kde.kirigami 2.19 as Kirigami
-import EmojiModel 0.1
+
+import im.kaidan.kaidan 1.0
 
 Controls.Popup {
 	id: root

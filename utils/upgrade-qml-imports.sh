@@ -31,9 +31,6 @@ declare -A KIRIGAMI
 KIRIGAMI["org.kde.kirigami"]="2.19"
 
 declare -A KAIDAN
-KAIDAN["EmojiModel"]="0.1"
-KAIDAN["MediaUtils"]="0.1"
-KAIDAN["StatusBar"]="0.1"
 KAIDAN["im.kaidan.kaidan"]="1.0"
 
 SED_REPLACES=

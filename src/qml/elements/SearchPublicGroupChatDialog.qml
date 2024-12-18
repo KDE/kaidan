@@ -10,7 +10,6 @@ import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan 1.0
-import PublicGroupChats 1.0 as PublicGroupChats
 
 Dialog {
 	id: root

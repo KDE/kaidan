@@ -409,9 +409,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     // QML type bindings
     qmlRegisterType<AccountQrCodeGenerator>(APPLICATION_ID, 1, 0, "AccountQrCodeGenerator");
-    qmlRegisterType<StatusBar>("StatusBar", 0, 1, "StatusBar");
-    qmlRegisterType<EmojiModel>("EmojiModel", 0, 1, "EmojiModel");
-    qmlRegisterType<EmojiProxyModel>("EmojiModel", 0, 1, "EmojiProxyModel");
+    qmlRegisterType<StatusBar>(APPLICATION_ID, 1, 0, "StatusBar");
+    qmlRegisterType<EmojiModel>(APPLICATION_ID, 1, 0, "EmojiModel");
+    qmlRegisterType<EmojiProxyModel>(APPLICATION_ID, 1, 0, "EmojiProxyModel");
     qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
     qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
     qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
@@ -431,9 +431,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
     qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
     qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-    qmlRegisterType<PublicGroupChatSearchManager>("PublicGroupChats", 1, 0, "SearchManager");
-    qmlRegisterType<PublicGroupChatModel>("PublicGroupChats", 1, 0, "Model");
-    qmlRegisterType<PublicGroupChatProxyModel>("PublicGroupChats", 1, 0, "ProxyModel");
+    qmlRegisterType<PublicGroupChatSearchManager>(APPLICATION_ID, 1, 0, "SearchManager");
+    qmlRegisterType<PublicGroupChatModel>(APPLICATION_ID, 1, 0, "Model");
+    qmlRegisterType<PublicGroupChatProxyModel>(APPLICATION_ID, 1, 0, "ProxyModel");
     qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
     qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
     qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");
@@ -451,8 +451,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<MessageReactionModel>(APPLICATION_ID, 1, 0, "MessageReactionModel");
 
     qmlRegisterUncreatableType<Account>(APPLICATION_ID, 1, 0, "Account", QStringLiteral("Cannot create object; only enums defined!"));
-    qmlRegisterUncreatableType<QAbstractItemModel>("EmojiModel", 0, 1, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
-    qmlRegisterUncreatableType<Emoji>("EmojiModel", 0, 1, "Emoji", QStringLiteral("Used by emoji models"));
+    qmlRegisterUncreatableType<QAbstractItemModel>(APPLICATION_ID, 1, 0, "QAbstractItemModel", QStringLiteral("Used by proxy models"));
+    qmlRegisterUncreatableType<Emoji>(APPLICATION_ID, 1, 0, "Emoji", QStringLiteral("Used by emoji models"));
     qmlRegisterUncreatableType<QMimeType>(APPLICATION_ID, 1, 0, "QMimeType", QStringLiteral("QMimeType type usable"));
     qmlRegisterUncreatableType<ClientWorker>(APPLICATION_ID, 1, 0, "ClientWorker", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<DataFormModel>(APPLICATION_ID, 1, 0, "DataFormModel", QStringLiteral("Cannot create object; only enums defined!"));
@@ -468,7 +468,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterUncreatableType<ServerFeaturesCache>(APPLICATION_ID, 1, 0, "ServerFeaturesCache", QStringLiteral("ServerFeaturesCache type usable"));
     qmlRegisterUncreatableType<Encryption>(APPLICATION_ID, 1, 0, "Encryption", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<File>(APPLICATION_ID, 1, 0, "File", QStringLiteral("Not creatable from QML"));
-    qmlRegisterUncreatableType<PublicGroupChat>("PublicGroupChats", 1, 0, "PublicGroupChat", QStringLiteral("Used by PublicGroupChatModel"));
+    qmlRegisterUncreatableType<PublicGroupChat>(APPLICATION_ID, 1, 0, "PublicGroupChat", QStringLiteral("Used by PublicGroupChatModel"));
     qmlRegisterUncreatableType<HostCompletionModel>(APPLICATION_ID, 1, 0, "HostCompletionModel", QStringLiteral("Cannot create object; only enums defined!"));
     qmlRegisterUncreatableType<MessageReactionDeliveryState>(APPLICATION_ID,
                                                              1,
