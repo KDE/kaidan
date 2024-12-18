@@ -254,6 +254,7 @@ target_link_libraries(${PROJECT_NAME}
     KF6::CoreAddons
     KF6::KIOCore
     KF6::KIOWidgets
+    Qt::Concurrent
     Qt::Core
     Qt::Location
     Qt::Multimedia
