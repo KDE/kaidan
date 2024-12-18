@@ -1202,7 +1202,7 @@ void MessageModel::addMessage(const Message &msg)
 {
     // index where to add the new message
     int i = 0;
-    for (const auto &message : qAsConst(m_messages)) {
+    for (const auto &message : std::as_const(m_messages)) {
         if (msg.timestamp > message.timestamp) {
             insertMessage(i, msg);
             return;
