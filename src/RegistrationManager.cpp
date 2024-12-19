@@ -138,7 +138,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
     if (newDataForm.fields().isEmpty()) {
         // If there is a standardized out-of-band URL, use that.
         if (!iq.outOfBandUrl().isEmpty()) {
-            Q_EMIT Kaidan::instance() -> registrationOutOfBandUrlReceived({iq.outOfBandUrl()});
+            Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
             abortRegistration();
             return;
         }
