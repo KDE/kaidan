@@ -4,7 +4,7 @@
 
 import org.kde.kirigamiaddons.formcard as FormCard
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 FormCard.FormButtonDelegate {
 	property EncryptionWatcher encryptionWatcher

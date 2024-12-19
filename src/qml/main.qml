@@ -12,11 +12,11 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls.Material 2.15 as Material
-import org.kde.kirigami 2.19 as Kirigami
+import QtQuick
+import QtQuick.Controls.Material as Material
+import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 import "details"
 import "elements"

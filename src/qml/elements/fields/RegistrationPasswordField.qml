@@ -3,9 +3,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Layouts 1.15
-import im.kaidan.kaidan 1.0
+import QtQuick
+import QtQuick.Layouts
+
+import im.kaidan.kaidan
 
 /**
  * This is a password field for registration with an option for showing the password and extras regarding registration.

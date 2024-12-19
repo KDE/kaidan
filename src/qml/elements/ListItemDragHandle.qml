@@ -5,8 +5,8 @@
  *  SPDX-License-Identifier: LGPL-2.0-or-later
  */
 
-import QtQuick 2.6
-import org.kde.kirigami 2.4 as Kirigami
+import QtQuick
+import org.kde.kirigami as Kirigami
 
 /**
  * Implements a drag handle supposed to be in items in ListViews to reorder items.

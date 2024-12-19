@@ -4,10 +4,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.15 as Controls
+import QtQuick
+import QtQuick.Controls as Controls
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 /**
  * This is a context menu with entries used for roster item.

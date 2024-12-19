@@ -4,9 +4,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import org.kde.kirigami 2.19 as Kirigami
+import org.kde.kirigami as Kirigami
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 /**
  * This is a highlighted button.

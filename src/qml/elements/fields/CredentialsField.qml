@@ -3,9 +3,9 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
+import QtQuick
 
-import im.kaidan.kaidan 1.0
+import im.kaidan.kaidan
 
 /**
  * This is the base for fields which are used to enter credentials.
