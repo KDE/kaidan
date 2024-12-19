@@ -87,7 +87,7 @@ QFuture<QList<GroupChatUser>> GroupChatUserDb::users(const QString &accountJid, 
                   QStringLiteral("SELECT * FROM " DB_TABLE_GROUP_CHAT_USERS) + simpleWhereStatement(&sqlDriver(), keyValuePairs)
                       + QStringLiteral(" "
                                        "ORDER BY ")
-                      + NAME.toString() + ", " + STATUS.toString()
+                      + NAME.toString() + QStringLiteral(", ") + STATUS.toString()
                       + QStringLiteral(" "
                                        "LIMIT %1, %2")
                             .arg(offset)
