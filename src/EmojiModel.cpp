@@ -11,6 +11,7 @@
 #include "EmojiModel.h"
 
 #include "Settings.h"
+#include <QRegularExpression>
 
 #include "Globals.h"
 #include "Kaidan.h"
@@ -1575,7 +1576,12 @@ bool EmojiProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
         return emoji.group() == m_group;
     }
 
-    return filterRegularExpression().isEmpty() ? true : filterRegularExpression().indexIn(emoji.shortName()) != -1;
+    if (!emoji.shortName().isEmpty()) {
+        return true;
+    }
+
+    const QRegularExpressionMatch match = filterRegularExpression().match(emoji.shortName());
+    return match.hasMatch();
 }
 
 #include "moc_EmojiModel.cpp"
