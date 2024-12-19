@@ -363,7 +363,7 @@ void BlockingModel::handleBlocked(const QList<QString> &jids)
     for (const auto &jid : jids) {
         Entry e{determineJidType(jid), jid};
 
-        auto *itr = std::upper_bound(m_entries.begin(), m_entries.end(), e);
+        auto itr = std::upper_bound(m_entries.begin(), m_entries.end(), e);
         auto index = std::distance(m_entries.begin(), itr);
 
         beginInsertRows({}, index, index);
@@ -375,7 +375,7 @@ void BlockingModel::handleBlocked(const QList<QString> &jids)
 void BlockingModel::handleUnblocked(const QList<QString> &jids)
 {
     for (const auto &jid : jids) {
-        auto *itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {
+        auto itr = std::find_if(m_entries.begin(), m_entries.end(), [&](const auto &e) {
             return e.jid == jid;
         });
         auto index = std::distance(m_entries.begin(), itr);

@@ -770,7 +770,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
         await(future, this, [=, this, chatJid = ChatController::instance()->chatJid()]() {
             if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
                 auto &reactionSenders = itr->reactionSenders;
-                auto &reactions = reactionSenders[senderId].reactions;
+                auto reactions = reactionSenders[senderId].reactions;
                 QList<QString> emojis;
 
                 for (auto &reaction : reactions) {
@@ -933,7 +933,7 @@ void MessageModel::removeMessage(const QString &messageId)
         return message.relevantId() == messageId;
     };
 
-    const Message *const itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
+    const auto itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
 
     // Update the roster item of the current chat.
     if (itr != m_messages.cend()) {

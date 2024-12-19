@@ -376,7 +376,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
                 Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Couldn't download file: %1").arg(errorText));
             } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
                 MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
-                    auto *file = find_if(message.files, [=](const auto &file) {
+                    auto file = find_if(message.files, [=](const auto &file) {
                         return file.id == fileId;
                     });
 
@@ -398,7 +398,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
 void FileSharingController::deleteFile(const QString &messageId, const File &file)
 {
     MessageDb::instance()->updateMessage(messageId, [fileId = file.id](Message &message) {
-        auto *it = find_if(message.files, [fileId](const auto &file) {
+        auto it = find_if(message.files, [fileId](const auto &file) {
             return file.id == fileId;
         });
         if (it != message.files.cend()) {

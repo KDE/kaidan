@@ -1001,7 +1001,7 @@ void MessageController::parseSharedFiles(const QXmppMessage &message, Message &m
                 const auto &bobData = message.bitsOfBinaryData();
                 if (!fileShare.metadata().thumbnails().empty()) {
                     auto cid = QXmppBitsOfBinaryContentId::fromCidUrl(fileShare.metadata().thumbnails().front().uri());
-                    const auto *thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
+                    const auto thumbnailData = std::find_if(bobData.begin(), bobData.end(), [&](auto bobBlob) {
                         return bobBlob.cid() == cid;
                     });
 
