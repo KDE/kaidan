@@ -10,10 +10,12 @@
 
 #include "EmojiModel.h"
 
-#include "Settings.h"
-
+// Qt
+#include <QRegularExpression>
+// Kaidan
 #include "Globals.h"
 #include "Kaidan.h"
+#include "Settings.h"
 
 namespace
 {
@@ -1575,7 +1577,7 @@ bool EmojiProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceP
         return emoji.group() == m_group;
     }
 
-    return filterRegularExpression().isEmpty() ? true : filterRegularExpression().indexIn(emoji.shortName()) != -1;
+    return filter().isEmpty() || filterRegularExpression().match(emoji.shortName()).hasMatch();
 }
 
 #include "moc_EmojiModel.cpp"
