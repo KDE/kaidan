@@ -172,7 +172,7 @@ Dialog {
 					}
 				}
 			}
-			onClicked: Qt.openUrlExternally(Utils.groupChatUri(model.groupChat))
+			onClicked: Qt.openUrlExternally(Utils.groupChatUri(model.address))
 		}
 	}
 
