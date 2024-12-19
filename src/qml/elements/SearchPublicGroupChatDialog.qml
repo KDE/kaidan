@@ -84,7 +84,7 @@ Dialog {
 								font.bold: true
 								wrapMode: Text.Wrap
 								padding: Kirigami.Units.largeSpacing * 2
-								rightPadding: replyCancelingButton.width + replyCancelingButton.anchors.rightMargin * 2
+								rightPadding: retryButton.width + retryButton.anchors.rightMargin * 2
 								horizontalAlignment: Text.AlignHCenter
 								Layout.topMargin: Kirigami.Units.largeSpacing
 								Layout.maximumWidth: groupChatListView.width - Kirigami.Units.largeSpacing * 5
@@ -93,7 +93,7 @@ Dialog {
 								}
 
 								ClickableIcon {
-									id: replyCancelingButton
+									id: retryButton
 									Controls.ToolTip.text: qsTr("Retry")
 									source: "view-refresh-symbolic"
 									implicitHeight: Kirigami.Units.iconSizes.smallMedium
