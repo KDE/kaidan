@@ -156,12 +156,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     PublicGroupChatSearchManager.h
     QmlUtils.cpp
     QmlUtils.h
-    QrCodeDecoder.cpp
-    QrCodeDecoder.h
-    QrCodeScannerFilter.cpp
-    QrCodeScannerFilter.h
-    QrCodeVideoFrame.cpp
-    QrCodeVideoFrame.h
     # kaidan QXmpp extensions (need to be merged into QXmpp upstream)
     qxmpp-exts/QXmppColorGenerator.cpp
     qxmpp-exts/QXmppColorGenerator.h
@@ -264,6 +258,7 @@ target_link_libraries(${PROJECT_NAME}
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::Kirigami
+    KF6::Prison
     Qt::Concurrent
     Qt::Core
     Qt::Location
@@ -283,12 +278,6 @@ target_link_libraries(${PROJECT_NAME}
 
 if (TARGET KF6::Crash)
     target_link_libraries(${PROJECT_NAME} KF6::Crash)
-endif()
-
-if(TARGET ZXing::ZXing)
-        target_link_libraries(${PROJECT_NAME} ZXing::ZXing)
-elseif(TARGET ZXing::Core)
-        target_link_libraries(${PROJECT_NAME} ZXing::Core)
 endif()
 
 if(ANDROID)

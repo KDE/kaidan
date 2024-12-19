@@ -7,18 +7,12 @@
 
 #include "AbstractQrCodeGenerator.h"
 
-#include <QRgb>
-
-#include <ZXing/BarcodeFormat.h>
-#include <ZXing/MultiFormatWriter.h>
-
+// Qt
+#include <QImage>
+// Prison
+#include <Prison/barcode.h>
+// Kaidan
 #include "Kaidan.h"
-
-#define COLOR_TABLE_INDEX_FOR_WHITE 0
-#define COLOR_TABLE_INDEX_FOR_BLACK 1
-
-// The maximum is set because QML seems to sometimes set a very high value even if that is not used.
-constexpr int MAX_EDGE_PIXEL_COUNT = 1000;
 
 AbstractQrCodeGenerator::AbstractQrCodeGenerator(QObject *parent)
     : QObject(parent)
@@ -48,11 +42,11 @@ void AbstractQrCodeGenerator::setEdgePixelCount(int edgePixelCount)
 
 QImage AbstractQrCodeGenerator::qrCode() const
 {
-    if (m_edgePixelCount > 0 && m_edgePixelCount < MAX_EDGE_PIXEL_COUNT && !m_text.isEmpty()) {
+    if (m_edgePixelCount > 0 && !m_text.isEmpty()) {
         try {
-            ZXing::MultiFormatWriter writer(ZXing::BarcodeFormat::QRCode);
-            const ZXing::BitMatrix &bitMatrix = writer.encode(m_text.toStdWString(), m_edgePixelCount, m_edgePixelCount);
-            return toImage(bitMatrix);
+            auto qrCodeGenerator = Prison::Barcode::create(Prison::BarcodeType::QRCode);
+            qrCodeGenerator->setData(m_text);
+            return qrCodeGenerator->toImage({static_cast<double>(m_edgePixelCount), static_cast<double>(m_edgePixelCount)});
         } catch (const std::invalid_argument &e) {
             Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Generating the QR code failed: %1").arg(QString::fromUtf8(e.what())));
         }
@@ -67,28 +61,6 @@ void AbstractQrCodeGenerator::setText(const QString &text)
         m_text = text;
         Q_EMIT qrCodeChanged();
     }
-}
-
-QImage AbstractQrCodeGenerator::toImage(const ZXing::BitMatrix &bitMatrix)
-{
-    QImage monochromeImage(bitMatrix.width(), bitMatrix.height(), QImage::Format_Mono);
-
-    createColorTable(monochromeImage);
-
-    for (int y = 0; y < bitMatrix.height(); ++y) {
-        for (int x = 0; x < bitMatrix.width(); ++x) {
-            int colorTableIndex = bitMatrix.get(x, y) ? COLOR_TABLE_INDEX_FOR_BLACK : COLOR_TABLE_INDEX_FOR_WHITE;
-            monochromeImage.setPixel(y, x, colorTableIndex);
-        }
-    }
-
-    return monochromeImage;
-}
-
-void AbstractQrCodeGenerator::createColorTable(QImage &blackAndWhiteImage)
-{
-    blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_WHITE, qRgb(255, 255, 255));
-    blackAndWhiteImage.setColor(COLOR_TABLE_INDEX_FOR_BLACK, qRgb(0, 0, 0));
 }
 
 #include "moc_AbstractQrCodeGenerator.cpp"

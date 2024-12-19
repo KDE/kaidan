@@ -43,64 +43,64 @@ GridLayout {
 		Layout.alignment: Qt.AlignCenter
 
 		// Use the data from the decoded QR code.
-		// filter.onScanningSucceeded: {
-		// 	if (isAcceptingResult) {
-		// 		isBusy = true
-		// 		let processTrust = true
+		filter.onResultContentChanged: result => {
+			if (result.hasText && isAcceptingResult) {
+				isBusy = true
+				let processTrust = true
 
-		// 		// Try to add a contact.
-		// 		if (!root.onlyForTrustDecisions) {
-		// 			switch (RosterModel.addContactByUri(root.accountJid, result)) {
-		// 			case RosterModel.AddingContact:
-		// 				showPassiveNotification(qsTr("Contact added - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
-		// 				break
-		// 			case RosterModel.ContactExists:
-		// 				processTrust = false
-		// 				break
-		// 			case RosterModel.InvalidUri:
-		// 				processTrust = false
-		// 				showPassiveNotification(qsTr("This QR code does not contain a contact"), Kirigami.Units.veryLongDuration * 4)
-		// 			}
-		// 		}
+				// Try to add a contact.
+				if (!root.onlyForTrustDecisions) {
+					switch (RosterModel.addContactByUri(root.accountJid, result.text)) {
+					case RosterModel.AddingContact:
+						showPassiveNotification(qsTr("Contact added - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+						break
+					case RosterModel.ContactExists:
+						processTrust = false
+						break
+					case RosterModel.InvalidUri:
+						processTrust = false
+						showPassiveNotification(qsTr("This QR code does not contain a contact"), Kirigami.Units.veryLongDuration * 4)
+					}
+				}
 
-		// 		// Try to authenticate or distrust keys.
-		// 		if (processTrust) {
-		// 			let expectedJid = ""
+				// Try to authenticate or distrust keys.
+				if (processTrust) {
+					let expectedJid = ""
 
-		// 			if (root.onlyForTrustDecisions) {
-		// 				expectedJid = root.jid
-		// 			}
+					if (root.onlyForTrustDecisions) {
+						expectedJid = root.jid
+					}
 
-		// 			switch (Kaidan.makeTrustDecisionsByUri(result, expectedJid)) {
-		// 			case Kaidan.MakingTrustDecisions:
-		// 				if (root.forOwnDevices) {
-		// 					showPassiveNotification(qsTr("Trust decisions made for other own device - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
-		// 				} else {
-		// 					showPassiveNotification(qsTr("Trust decisions made for contact - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
-		// 				}
+					switch (Kaidan.makeTrustDecisionsByUri(result.text, expectedJid)) {
+					case Kaidan.MakingTrustDecisions:
+						if (root.forOwnDevices) {
+							showPassiveNotification(qsTr("Trust decisions made for other own device - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+						} else {
+							showPassiveNotification(qsTr("Trust decisions made for contact - Continue with step 2"), Kirigami.Units.veryLongDuration * 4)
+						}
 
-		// 				break
-		// 			case Kaidan.JidUnexpected:
-		// 				if (root.onlyForTrustDecisions) {
-		// 					if (root.forOwnDevices) {
-		// 						showPassiveNotification(qsTr("This QR code is not for your other device"), Kirigami.Units.veryLongDuration * 4)
-		// 					} else {
-		// 						showPassiveNotification(qsTr("This QR code is not for your contact"), Kirigami.Units.veryLongDuration * 4)
-		// 					}
-		// 				}
-		// 				break
-		// 			case Kaidan.InvalidUri:
-		// 				if (root.onlyForTrustDecisions) {
-		// 					showPassiveNotification(qsTr("This QR code is not for trust decisions"), Kirigami.Units.veryLongDuration * 4)
-		// 				}
-		// 			}
-		// 		}
+						break
+					case Kaidan.JidUnexpected:
+						if (root.onlyForTrustDecisions) {
+							if (root.forOwnDevices) {
+								showPassiveNotification(qsTr("This QR code is not for your other device"), Kirigami.Units.veryLongDuration * 4)
+							} else {
+								showPassiveNotification(qsTr("This QR code is not for your contact"), Kirigami.Units.veryLongDuration * 4)
+							}
+						}
+						break
+					case Kaidan.InvalidUri:
+						if (root.onlyForTrustDecisions) {
+							showPassiveNotification(qsTr("This QR code is not for trust decisions"), Kirigami.Units.veryLongDuration * 4)
+						}
+					}
+				}
 
-		// 		isBusy = false
-		// 		isAcceptingResult = false
-		// 		resetAcceptResultTimer.start()
-		// 	}
-		// }
+				isBusy = false
+				isAcceptingResult = false
+				resetAcceptResultTimer.start()
+			}
+		}
 
 		// timer to accept the result again after an invalid URI was scanned
 		Timer {

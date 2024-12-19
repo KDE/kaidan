@@ -230,7 +230,7 @@ When you add or remove dependencies, update the [README](README.md#dependencies)
 
 You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
 Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
-It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py), [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) and [zxing-cpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/zxing-cpp/zxing-cpp.py) as well.
+It is sometimes needed to update the KDE Craft configurations for [QXmpp](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/qt-libs/qxmpp/qxmpp.py) and [libomemo-c](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/libs/libomemo-c/libomemo-c.py) as well.
 That way, Kaidan can be built correctly by KDE's automated process.
 As soon as the configuration files are updated and Kaidan is automatically built, the corresponding files can be downloaded.
 

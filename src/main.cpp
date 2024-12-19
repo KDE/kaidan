@@ -88,7 +88,6 @@
 #include "PublicGroupChatProxyModel.h"
 #include "PublicGroupChatSearchManager.h"
 #include "QmlUtils.h"
-#include "QrCodeScannerFilter.h"
 #include "RegistrationDataFormFilterModel.h"
 #include "RegistrationManager.h"
 #include "RosterFilterProxyModel.h"
@@ -424,9 +423,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<StatusBar>(APPLICATION_ID, 1, 0, "StatusBar");
     qmlRegisterType<EmojiModel>(APPLICATION_ID, 1, 0, "EmojiModel");
     qmlRegisterType<EmojiProxyModel>(APPLICATION_ID, 1, 0, "EmojiProxyModel");
-#ifdef NEED_TO_PORT
-    qmlRegisterType<QrCodeScannerFilter>(APPLICATION_ID, 1, 0, "QrCodeScannerFilter");
-#endif
     qmlRegisterType<VCardModel>(APPLICATION_ID, 1, 0, "VCardModel");
     qmlRegisterType<RosterFilterProxyModel>(APPLICATION_ID, 1, 0, "RosterFilterProxyModel");
     qmlRegisterType<BlockingModel>(APPLICATION_ID, 1, 0, "BlockingModel");

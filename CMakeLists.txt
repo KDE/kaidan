@@ -77,8 +77,7 @@ if (NOT ANDROID)
 endif()
 
 find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
-find_package(ZXing REQUIRED)
-
+find_package(KF6Prison REQUIRED)
 find_package(QXmppQt6 1.9.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)

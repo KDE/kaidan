@@ -6,10 +6,9 @@
 
 #pragma once
 
-#include <QImage>
 #include <QObject>
 
-#include <ZXing/BitMatrix.h>
+class QImage;
 
 class AbstractQrCodeGenerator : public QObject
 {
@@ -35,19 +34,6 @@ protected:
     void setText(const QString &text);
 
 private:
-    /**
-     * Generates an image with black and white pixels from a given matrix of bits representing a QR code.
-     *
-     * @param bitMatrix matrix of bits representing the two colors black and white
-     */
-    static QImage toImage(const ZXing::BitMatrix &bitMatrix);
-
-    /**
-     * Sets up a color image for a given monochrome image consisting only of black and white pixels.
-     * @param blackAndWhiteImage image for which a color table with the colors black and white is created
-     */
-    static void createColorTable(QImage &blackAndWhiteImage);
-
     QString m_jid;
 
     // Text to be encoded as a QR code.

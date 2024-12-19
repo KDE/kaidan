@@ -52,9 +52,9 @@ The following dependencies are needed by Kaidan:
 * [Kirigami Addons][kirigami-addons] (>= 1.4.0)
 * [KQuickImageEditor][kquickimageeditor] (>= 0.2.0)
 * [ECM (extra-cmake-modules)][ecm]
-* [ZXing-cpp][zxing-cpp] (>= 1.1.1)
 * [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
 * [KIO][kio]
+* [Prison][prison] (>= 6.6.0)
 
 ## Optional Dependencies
 
@@ -90,6 +90,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [knotifications]: https://api.kde.org/frameworks/knotifications/html/index.html
 [kquickimageeditor]: https://invent.kde.org/libraries/kquickimageeditor
 [overview]: https://xmpp.org/software/clients/kaidan/
+[prison]: https://api.kde.org/frameworks/prison/html/index.html
 [qt]: https://www.qt.io/
 [qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
@@ -97,4 +98,3 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [securitytxt]: https://www.kaidan.im/.well-known/security.txt
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
 [xmpp]: https://xmpp.org
-[zxing-cpp]: https://github.com/nu-book/zxing-cpp
