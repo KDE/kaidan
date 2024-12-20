@@ -933,7 +933,7 @@ void MessageModel::removeMessage(const QString &messageId)
         return message.relevantId() == messageId;
     };
 
-    const auto itr = std::find_if(m_messages.begin(), m_messages.end(), hasCorrectId);
+    const auto itr = std::find_if(m_messages.cbegin(), m_messages.cend(), hasCorrectId);
 
     // Update the roster item of the current chat.
     if (itr != m_messages.cend()) {
