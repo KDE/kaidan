@@ -126,6 +126,7 @@ static QImage *rgbDataToGrayscale(const uchar *data,
 
 void QrCodeVideoFrame::setData(QVideoFrame &frame)
 {
+#ifdef NEED_TO_PORT
     frame.map(QAbstractVideoBuffer::ReadOnly);
 
     // Copy video frame bytes to this.data.
@@ -139,6 +140,7 @@ void QrCodeVideoFrame::setData(QVideoFrame &frame)
     m_pixelFormat = frame.pixelFormat();
 
     frame.unmap();
+#endif
 }
 
 QImage *QrCodeVideoFrame::toGrayscaleImage()
@@ -152,6 +154,7 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
     int wh_54;
 
     QImage *image;
+#ifdef NEED_TO_PORT
     switch (m_pixelFormat) {
     case QVideoFrame::Format_ARGB32:
         image = rgbDataToGrayscale(data, captureRect, 0, 1, 2, 3);
@@ -251,6 +254,7 @@ QImage *QrCodeVideoFrame::toGrayscaleImage()
         image = new QImage(data, m_size.width(), m_size.height(), QVideoFrame::imageFormatFromPixelFormat(m_pixelFormat));
         break;
     }
+#endif
     return image;
 }
 
@@ -264,7 +268,7 @@ QSize QrCodeVideoFrame::size() const
     return m_size;
 }
 
-QVideoFrame::PixelFormat QrCodeVideoFrame::pixelFormat() const
+QVideoFrameFormat::PixelFormat QrCodeVideoFrame::pixelFormat() const
 {
     return m_pixelFormat;
 }

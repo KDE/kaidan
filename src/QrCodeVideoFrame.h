@@ -39,7 +39,7 @@ public:
      */
     QrCodeVideoFrame()
         : m_size{0, 0}
-        , m_pixelFormat{QVideoFrame::Format_Invalid}
+        , m_pixelFormat{QVideoFrameFormat::Format_Invalid}
     {
     }
 
@@ -70,10 +70,10 @@ public:
     /**
      * @return format of the frame
      */
-    QVideoFrame::PixelFormat pixelFormat() const;
+    QVideoFrameFormat::PixelFormat pixelFormat() const;
 
 private:
     QByteArray m_data;
     QSize m_size;
-    QVideoFrame::PixelFormat m_pixelFormat;
+    QVideoFrameFormat::PixelFormat m_pixelFormat;
 };
