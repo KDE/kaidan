@@ -151,13 +151,12 @@ void Notifications::sendMessageNotification(const QString &accountJid, const QSt
 #ifdef Q_OS_ANDROID
     notification->setIconName("kaidan-bw");
 #endif
-    notification->setDefaultAction(tr("Open"));
-    notification->setActions({tr("Mark as read")});
 
-    connect(notification, &KNotification::defaultActivated, this, [this, accountJid, chatJid] {
+    connect(notification->addDefaultAction(tr("Open")), &KNotificationAction::activated, this, [this, accountJid, chatJid] {
         showChat(accountJid, chatJid);
     });
-    connect(notification, &KNotification::action1Activated, this, [=] {
+
+    connect(notification->addAction(tr("Mark as read")), &KNotificationAction::activated, this, [=] {
         RosterDb::instance()->updateItem(chatJid, [=](RosterItem &item) {
             item.lastReadContactMessageId = messageId;
             item.unreadMessages = 0;
@@ -232,9 +231,7 @@ void Notifications::sendPresenceSubscriptionRequestNotification(const QString &a
     notification->setIconName("kaidan-bw");
 #endif
 
-    notification->setDefaultAction(tr("Open"));
-
-    connect(notification, &KNotification::defaultActivated, this, [this, accountJid, chatJid, notification] {
+    connect(notification->addDefaultAction(tr("Open")), &KNotificationAction::activated, this, [this, accountJid, chatJid, notification] {
         showChat(accountJid, chatJid);
         notification->close();
     });
