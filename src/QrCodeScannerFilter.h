@@ -6,6 +6,7 @@
 
 #pragma once
 
+#ifdef NEED_TO_PORT
 #include <QAbstractVideoFilter>
 #include <QFuture>
 #include <QObject>
@@ -101,3 +102,4 @@ public:
 private:
     QrCodeScannerFilter *m_filter;
 };
+#endif

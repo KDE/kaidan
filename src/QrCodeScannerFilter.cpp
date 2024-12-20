@@ -6,6 +6,7 @@
 
 #include "QrCodeScannerFilter.h"
 
+#ifdef NEED_TO_PORT
 #include <QCamera>
 #include <QCameraInfo>
 #include <QCameraViewfinderSettings>
@@ -112,3 +113,4 @@ void QrCodeScannerFilterRunnable::processVideoFrameProbed(QrCodeVideoFrame video
 }
 
 #include "moc_QrCodeScannerFilter.cpp"
+#endif
