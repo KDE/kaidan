@@ -151,7 +151,7 @@ All icons used by Kaidan must be referenced in the related [Qt resource collecti
 Kaidan's default icon theme is [Breeze](https://invent.kde.org/frameworks/breeze-icons).
 
 Instead of using new icons, search and use icons that are already used for similar purposes.
-If your purpose needs a new icon that is not yet used by Kaidan, you can find one with [Cuttlefish](https://invent.kde.org/plasma/plasma-sdk/-/tree/master/cuttlefish) (use `sudo apt install plasma-sdk` to install it and `cuttlefish` to run it on Debian-based systems).
+If your purpose needs a new icon that is not yet used by Kaidan, you can find one with [Icon Explorer](https://invent.kde.org/plasma/plasma-sdk/-/tree/master/iconexplorer) (use `sudo apt install plasma-sdk` to install it and `iconexplorer` to run it on Debian-based systems).
 Via corresponding buttons, you can check whether an icon is available for Breeze and if so, retrieve the icon's name to be used in Kaidan's code and the icon's path to be used in the related [Qt resource collection file](kirigami-icons.qrc).
 
 Always make sure that you use the right path within [Breeze's icon directory](https://invent.kde.org/frameworks/breeze-icons/-/tree/master/icons).
