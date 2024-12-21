@@ -278,11 +278,11 @@ elseif(TARGET ZXing::Core)
 endif()
 
 if(ANDROID OR IOS)
-    target_link_libraries(${PROJECT_NAME} Qt6::QuickControls2 KF6::Kirigami2)
+    target_link_libraries(${PROJECT_NAME} Qt::QuickControls2 KF6::Kirigami2)
 endif()
 
 if(ANDROID)
-    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt6::AndroidExtras)
+    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
