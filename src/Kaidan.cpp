@@ -43,6 +43,7 @@
 #include "Notifications.h"
 #include "RosterDb.h"
 #include "RosterModel.h"
+#include "ServerFeaturesCache.h"
 #include "Settings.h"
 
 using namespace std::chrono_literals;
