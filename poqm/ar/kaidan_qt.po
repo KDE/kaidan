@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-09-26 11:45+0400\n"
+"PO-Revision-Date: 2024-12-19 08:45+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -139,9 +139,6 @@ msgid "This group is deleted"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/ChatHintModel.cpp:346
-#, fuzzy
-#| msgctxt "GroupChatDetailsContent|"
-#| msgid "Leave"
 msgctxt "ChatHintModel|"
 msgid "Leave"
 msgstr "اترك"
@@ -378,9 +375,6 @@ msgid "Spoiler"
 msgstr "مخفي"
 
 #: src/Message.cpp:365
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "Message|"
 msgid "Location"
 msgstr "المكان"
@@ -475,7 +469,7 @@ msgstr "الأمس"
 #: src/MixController.cpp:110
 msgctxt "MixController|"
 msgid "The group already exists"
-msgstr ""
+msgstr "المجموعة موجودة بالفعل"
 
 #: src/MixController.cpp:135
 #, fuzzy, qt-format
@@ -635,9 +629,6 @@ msgid "%1 days"
 msgstr "%1 يوم"
 
 #: src/qml/AboutDialog.qml:12
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AboutDialog|"
 msgid "About Kaidan"
 msgstr "عن كايدان"
@@ -783,12 +774,9 @@ msgid "On mention"
 msgstr "الاتّصال"
 
 #: src/qml/details/AccountDetailsContent.qml:327
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "AccountDetailsContent|"
 msgid "Locations"
-msgstr "المكان"
+msgstr "المواقع"
 
 #: src/qml/details/AccountDetailsContent.qml:331
 msgctxt "AccountDetailsContent|"
@@ -825,25 +813,19 @@ msgid "How to open locations"
 msgstr "أرسل موقع جغرافي"
 
 #: src/qml/details/AccountDetailsContent.qml:349
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Reset to defaults"
 msgctxt "AccountDetailsContent|"
 msgid "System default"
-msgstr "صفّر إلى المبدئيات"
+msgstr "مبدئي النظام"
 
 #: src/qml/details/AccountDetailsContent.qml:353
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "About Kaidan"
 msgctxt "AccountDetailsContent|"
 msgid "Kaidan"
-msgstr "عن كايدان"
+msgstr "كايدان"
 
 #: src/qml/details/AccountDetailsContent.qml:357
 msgctxt "AccountDetailsContent|"
 msgid "Web"
-msgstr ""
+msgstr "الوبّ"
 
 #: src/qml/details/AccountDetailsContent.qml:387
 msgctxt "AccountDetailsContent|"
@@ -1178,12 +1160,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsContent.qml:1075
-#, fuzzy
-#| msgctxt "ContactAdditionContent|"
-#| msgid "Adding contact…"
 msgctxt "AccountDetailsContent|"
 msgid "Removing account…"
-msgstr "يضيف متراسل جديد…"
+msgstr "إزالة الحساب…"
 
 #: src/qml/details/AccountDetailsContent.qml:1082
 msgctxt "AccountDetailsContent|"
@@ -1213,12 +1192,9 @@ msgid ""
 msgstr ""
 
 #: src/qml/details/AccountDetailsDialog.qml:18
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "AccountDetailsDialog|"
 msgid "Account Details"
-msgstr "أمن الحساب"
+msgstr "تفاصيل الحساب"
 
 #: src/qml/details/AccountDetailsHeader.qml:17
 msgctxt "AccountDetailsHeader|"
@@ -1226,12 +1202,9 @@ msgid "Change your profile image"
 msgstr "غير صورة الملف الشخصي"
 
 #: src/qml/details/AccountDetailsPage.qml:17
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "AccountDetailsPage|"
 msgid "Account Details"
-msgstr "أمن الحساب"
+msgstr "تفاصيل الحساب"
 
 #: src/qml/details/AccountKeyAuthenticationButton.qml:34
 #: src/qml/details/AccountKeyAuthenticationButton.qml:39
@@ -1459,12 +1432,9 @@ msgid "Removing contact…"
 msgstr "يضيف متراسل جديد…"
 
 #: src/qml/details/ContactDetailsDialog.qml:17
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsDialog|"
 msgid "Contact Details"
-msgstr "جهات الاتصال"
+msgstr "تفاصيل المتراسل"
 
 #: src/qml/details/ContactDetailsHeader.qml:17
 msgctxt "ContactDetailsHeader|"
@@ -1472,12 +1442,9 @@ msgid "Maximize avatar"
 msgstr "كبّر الصورة الرمزية"
 
 #: src/qml/details/ContactDetailsPage.qml:13
-#, fuzzy
-#| msgctxt "RosterPage|"
-#| msgid "Contacts"
 msgctxt "ContactDetailsPage|"
 msgid "Contact Details"
-msgstr "جهات الاتصال"
+msgstr "تفاصيل المتراسل"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:9
 #: src/qml/details/ContactKeyAuthenticationButton.qml:13
@@ -1629,7 +1596,7 @@ msgstr "إزالة جهة اتصال"
 #: src/qml/details/GroupChatDetailsContent.qml:145
 msgctxt "GroupChatDetailsContent|"
 msgid "Participants"
-msgstr ""
+msgstr "المشاركون"
 
 #: src/qml/details/GroupChatDetailsContent.qml:149
 msgctxt "GroupChatDetailsContent|"
@@ -1652,9 +1619,6 @@ msgid "Ban"
 msgstr "احظر"
 
 #: src/qml/details/GroupChatDetailsContent.qml:233
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "GroupChatDetailsContent|"
 msgid "Encryption"
 msgstr "التعمية"
@@ -1696,9 +1660,6 @@ msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 
 #: src/qml/details/GroupChatDetailsContent.qml:333
-#, fuzzy
-#| msgctxt "ContactDetailsContent|"
-#| msgid "Notifications"
 msgctxt "GroupChatDetailsContent|"
 msgid "Notifications"
 msgstr "التنبيهات"
@@ -2026,7 +1987,7 @@ msgstr "أزل اللصقية"
 #: src/qml/details/RosterItemDetailsContent.qml:64
 msgctxt "RosterItemDetailsContent|"
 msgid "Add label"
-msgstr ""
+msgstr "أضف لصيقة"
 
 #: src/qml/details/RosterItemDetailsHeader.qml:22
 msgctxt "RosterItemDetailsHeader|"
@@ -2034,9 +1995,6 @@ msgid "Maximize avatar"
 msgstr "كبّر الصورة الرمزية"
 
 #: src/qml/details/UserDevicesArea.qml:28
-#, fuzzy
-#| msgctxt "DetailsContent|"
-#| msgid "Connected Devices"
 msgctxt "UserDevicesArea|"
 msgid "Connected Devices"
 msgstr "الأجهزة المتصلة"
@@ -2106,9 +2064,6 @@ msgid "Copy password"
 msgstr "انسخ كلمة السر"
 
 #: src/qml/elements/AboutContent.qml:21
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Visit website"
 msgctxt "AboutContent|"
 msgid "Visit website"
 msgstr "زر موقع الويب"
@@ -2119,9 +2074,6 @@ msgid "Open Kaidan's website in a web browser"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:28
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Follow on Mastodon"
 msgctxt "AboutContent|"
 msgid "Follow on Mastodon"
 msgstr "تابعنا على مستودون"
@@ -2132,9 +2084,6 @@ msgid "Open Kaidan's Mastodon page in a web browser"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:35
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Donate"
 msgctxt "AboutContent|"
 msgid "Donate"
 msgstr "تبرّع"
@@ -2145,9 +2094,6 @@ msgid "Support Kaidan's development and infrastructure by a donation"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:42
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "Report problems"
 msgctxt "AboutContent|"
 msgid "Report problems"
 msgstr "أبلغ عن مشكلة"
@@ -2158,9 +2104,6 @@ msgid "Report issues with Kaidan to the developers"
 msgstr ""
 
 #: src/qml/elements/AboutContent.qml:49
-#, fuzzy
-#| msgctxt "AboutPage|"
-#| msgid "View source code"
 msgctxt "AboutContent|"
 msgid "View source code"
 msgstr "طالع الشفرة المصدرية"
@@ -2197,30 +2140,21 @@ msgid "Unverified own devices"
 msgstr "الأجهزة المتصلة"
 
 #: src/qml/elements/Audio.qml:32
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Paused"
 msgctxt "Audio|"
 msgid "Pause"
-msgstr "أوقِفَ مؤقتا"
+msgstr "ألبث"
 
 #: src/qml/elements/Audio.qml:32
 msgctxt "Audio|"
 msgid "Play"
-msgstr ""
+msgstr "شغّل"
 
 #: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "Loading camera…"
 msgctxt "CameraStatus|"
 msgid "Loading camera…"
 msgstr "يحمّل الكاميرة…"
 
 #: src/qml/elements/CameraStatus.qml:66
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "لا تتوفر كاميرا"
@@ -2397,17 +2331,14 @@ msgid "Add hidden message part"
 msgstr ""
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
-#, fuzzy
-#| msgctxt "DeviceSwitchingPage|"
-#| msgid "Hide text"
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
-msgstr "أخف النص"
+msgstr "أخفِ"
 
 #: src/qml/elements/ChatPageSendingPane.qml:368
 msgctxt "ChatPageSendingPane|"
 msgid "More"
-msgstr ""
+msgstr "المزيد"
 
 #: src/qml/elements/ChatPageSendingPane.qml:417
 #, fuzzy
@@ -2468,7 +2399,7 @@ msgstr ""
 #: src/qml/elements/ContactAdditionContent.qml:73
 msgctxt "ContactAdditionContent|"
 msgid "Hello, I'm…"
-msgstr ""
+msgstr "مرحبًا أنا…"
 
 #: src/qml/elements/ContactAdditionDialog.qml:16
 msgctxt "ContactAdditionDialog|"
@@ -2569,7 +2500,7 @@ msgstr "من فضلك أدخل كلمة السر صالحة"
 #: src/qml/elements/GeoLocationMap.qml:97
 msgctxt "GeoLocationMap|"
 msgid "© OpenStreetMap"
-msgstr ""
+msgstr "© خريطة الشّوارع المفتوحة"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
 #, fuzzy
@@ -2580,17 +2511,11 @@ msgid "Show location"
 msgstr "شارك موقع جغرافي"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "GeoLocationPreview|"
 msgid "Location"
 msgstr "المكان"
 
 #: src/qml/elements/GeoLocationSharingDialog.qml:21
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationSharingDialog|"
 msgid "Share Location"
 msgstr "شارك موقع جغرافي"
@@ -2847,17 +2772,11 @@ msgid "Connecting…"
 msgstr "يتّصل…"
 
 #: src/qml/elements/MediumSendingPreview.qml:37
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Encryption"
 msgctxt "MediumSendingPreview|"
 msgid "Description"
-msgstr "التعمية"
+msgstr "الوصف"
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "SendMediaSheet|"
-#| msgid "Remove file"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "أزِل ملف"
@@ -2980,9 +2899,6 @@ msgid "Me"
 msgstr "أنا"
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
 msgstr "المكان"
@@ -3022,12 +2938,9 @@ msgid "Public groups"
 msgstr "ابحث في المجموعات العامة"
 
 #: src/qml/elements/RosterFilteringArea.qml:51
-#, fuzzy
-#| msgctxt "RosterFilteringArea|"
-#| msgid "Filter by accounts"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "رشّح بالحسابات"
+msgstr "رشّح بالنوع"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
 msgctxt "RosterFilteringArea|"
@@ -3096,25 +3009,17 @@ msgid "Search"
 msgstr "ابحث"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:21
-#, fuzzy, qt-format
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Search public groups (%1)"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
 msgstr "ابحث في المجموعات العامة (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Downloading…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
 msgstr "يُنزّل…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
-#, fuzzy
-#| msgctxt "SearchPublicGroupChatSheet|"
-#| msgid "Retry"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Retry"
 msgstr "أعِد المحاولة"
@@ -3174,7 +3079,7 @@ msgstr "أضف متراسل بعنوان الدردشة"
 #: src/qml/GlobalDrawer.qml:128
 msgctxt "GlobalDrawer|"
 msgid "Create group"
-msgstr ""
+msgstr "أنشئ مجموعة"
 
 #: src/qml/GlobalDrawer.qml:135
 msgctxt "GlobalDrawer|"
@@ -3192,9 +3097,6 @@ msgid "Switch device"
 msgstr "بدّل جهاز"
 
 #: src/qml/GlobalDrawer.qml:160
-#, fuzzy
-#| msgctxt "VCardModel|"
-#| msgid "About"
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "عن"
@@ -3442,12 +3344,9 @@ msgid "Register"
 msgstr "سجّل"
 
 #: src/qml/registration/RegistrationButton.qml:26
-#, fuzzy
-#| msgctxt "LoginArea|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "لِج"
+msgstr "يَلُجْ…"
 
 #: src/qml/registration/RegistrationButton.qml:26
 #, fuzzy
@@ -3644,10 +3543,9 @@ msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
 #: src/QmlUtils.cpp:112
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr "تعذر الإتصال بالخادم."
+msgstr "تعذّر الاتّصال بالخادم"
 
 #: src/QmlUtils.cpp:259
 msgctxt "QmlUtils|"
