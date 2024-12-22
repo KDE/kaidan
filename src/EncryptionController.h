@@ -5,6 +5,8 @@
 #pragma once
 
 #include <QFuture>
+#include <QHash>
+#include <QList>
 #include <QObject>
 
 #include <QXmppTrustLevel.h>
