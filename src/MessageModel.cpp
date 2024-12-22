@@ -714,11 +714,11 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
 
         await(future, this, [=, this, chatJid = ChatController::instance()->chatJid()]() {
             if (ConnectionState(Kaidan::instance()->connectionState()) == Enums::ConnectionState::StateConnected) {
-                auto &reactionSenders = itr->reactionSenders;
-                auto &reactions = reactionSenders[senderId].reactions;
+                const auto &reactionSenders = itr->reactionSenders;
+                const auto &reactions = reactionSenders[senderId].reactions;
                 QList<QString> emojis;
 
-                for (auto &reaction : reactions) {
+                for (const auto &reaction : reactions) {
                     const auto &storedEmoji = reaction.emoji;
                     const auto deliveryState = reaction.deliveryState;
 
