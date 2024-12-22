@@ -25,10 +25,10 @@ int GroupChatUserModel::rowCount(const QModelIndex &) const
 
 QHash<int, QByteArray> GroupChatUserModel::roleNames() const
 {
-    return {{static_cast<int>(Role::Jid), "jid"},
-            {static_cast<int>(Role::Name), "name"},
-            {static_cast<int>(Role::Status), "status"},
-            {static_cast<int>(Role::StatusText), "statusText"}};
+    return {{static_cast<int>(Role::Jid), QByteArrayLiteral("jid")},
+            {static_cast<int>(Role::Name), QByteArrayLiteral("name")},
+            {static_cast<int>(Role::Status), QByteArrayLiteral("status")},
+            {static_cast<int>(Role::StatusText), QByteArrayLiteral("statusText")}};
 }
 
 QVariant GroupChatUserModel::data(const QModelIndex &index, int role) const

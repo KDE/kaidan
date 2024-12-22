@@ -22,9 +22,9 @@ int MessageReactionModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> MessageReactionModel::roleNames() const
 {
     return {
-        {static_cast<int>(Role::SenderJid), "senderJid"},
-        {static_cast<int>(Role::SenderName), "senderName"},
-        {static_cast<int>(Role::Emojis), "emojis"},
+        {static_cast<int>(Role::SenderJid), QByteArrayLiteral("senderJid")},
+        {static_cast<int>(Role::SenderName), QByteArrayLiteral("senderName")},
+        {static_cast<int>(Role::Emojis), QByteArrayLiteral("emojis")},
     };
 }
 

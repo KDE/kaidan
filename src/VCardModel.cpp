@@ -30,9 +30,9 @@ VCardModel::VCardModel(QObject *parent)
 QHash<int, QByteArray> VCardModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[Key] = "key";
-    roles[Value] = "value";
-    roles[UriScheme] = "uriScheme";
+    roles[Key] = QByteArrayLiteral("key");
+    roles[Value] = QByteArrayLiteral("value");
+    roles[UriScheme] = QByteArrayLiteral("uriScheme");
     return roles;
 }
 

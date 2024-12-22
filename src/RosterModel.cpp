@@ -75,22 +75,22 @@ int RosterModel::rowCount(const QModelIndex &) const
 QHash<int, QByteArray> RosterModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[AccountJidRole] = "accountJid";
-    roles[JidRole] = "jid";
-    roles[NameRole] = "name";
-    roles[GroupsRole] = "groups";
-    roles[IsGroupChatRole] = "isGroupChat";
-    roles[IsPublicGroupChatRole] = "isPublicGroupChat";
-    roles[IsDeletedGroupChatRole] = "isDeletedGroupChat";
-    roles[LastMessageDateTimeRole] = "lastMessageDateTime";
-    roles[UnreadMessagesRole] = "unreadMessages";
-    roles[LastMessageRole] = "lastMessage";
-    roles[LastMessageIsDraftRole] = "lastMessageIsDraft";
-    roles[LastMessageIsOwnRole] = "lastMessageIsOwn";
-    roles[LastMessageGroupChatSenderNameRole] = "lastMessageGroupChatSenderName";
-    roles[PinnedRole] = "pinned";
-    roles[SelectedRole] = "selected";
-    roles[NotificationRuleRole] = "notificationRule";
+    roles[AccountJidRole] = QByteArrayLiteral("accountJid");
+    roles[JidRole] = QByteArrayLiteral("jid");
+    roles[NameRole] = QByteArrayLiteral("name");
+    roles[GroupsRole] = QByteArrayLiteral("groups");
+    roles[IsGroupChatRole] = QByteArrayLiteral("isGroupChat");
+    roles[IsPublicGroupChatRole] = QByteArrayLiteral("isPublicGroupChat");
+    roles[IsDeletedGroupChatRole] = QByteArrayLiteral("isDeletedGroupChat");
+    roles[LastMessageDateTimeRole] = QByteArrayLiteral("lastMessageDateTime");
+    roles[UnreadMessagesRole] = QByteArrayLiteral("unreadMessages");
+    roles[LastMessageRole] = QByteArrayLiteral("lastMessage");
+    roles[LastMessageIsDraftRole] = QByteArrayLiteral("lastMessageIsDraft");
+    roles[LastMessageIsOwnRole] = QByteArrayLiteral("lastMessageIsOwn");
+    roles[LastMessageGroupChatSenderNameRole] = QByteArrayLiteral("lastMessageGroupChatSenderName");
+    roles[PinnedRole] = QByteArrayLiteral("pinned");
+    roles[SelectedRole] = QByteArrayLiteral("selected");
+    roles[NotificationRuleRole] = QByteArrayLiteral("notificationRule");
     return roles;
 }
 
