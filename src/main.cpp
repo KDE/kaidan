@@ -320,7 +320,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     // Qt-Translator
     QTranslator qtTranslator;
-    qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(), QLibraryInfo::path(QLibraryInfo::TranslationsPath));
     QCoreApplication::installTranslator(&qtTranslator);
 
     //
