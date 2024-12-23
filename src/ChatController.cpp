@@ -22,7 +22,6 @@
 #include "EncryptionWatcher.h"
 #include "MessageController.h"
 #include "MessageModel.h"
-#include "RosterItemWatcher.h"
 #include "RosterModel.h"
 
 using namespace std::chrono_literals;

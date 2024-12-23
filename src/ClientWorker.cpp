@@ -43,7 +43,6 @@
 #include "AvatarFileStorage.h"
 #include "DiscoveryManager.h"
 #include "EncryptionController.h"
-#include "Enums.h"
 #include "FutureUtils.h"
 #include "Kaidan.h"
 #include "LogHandler.h"

@@ -14,7 +14,6 @@
 // Kaidan
 #include "Database.h"
 #include "Globals.h"
-#include "GroupChatUser.h"
 #include "MessageDb.h"
 #include "SqlUtils.h"
 

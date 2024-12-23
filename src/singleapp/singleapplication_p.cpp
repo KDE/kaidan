@@ -39,8 +39,6 @@
 #include <QtCore/QDir>
 #include <QtCore/QElapsedTimer>
 #include <QtCore/QThread>
-#include <QtNetwork/QLocalServer>
-#include <QtNetwork/QLocalSocket>
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
 #include <QtCore/QRandomGenerator>
@@ -48,7 +46,6 @@
 #include <QtCore/QDateTime>
 #endif
 
-#include "singleapplication.h"
 #include "singleapplication_p.h"
 
 #ifdef Q_OS_UNIX

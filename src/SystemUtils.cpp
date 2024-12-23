@@ -9,7 +9,6 @@
 #include <QDir>
 #include <QLocale>
 #include <QStandardPaths>
-#include <QString>
 #include <QSysInfo>
 #include <QUrl>
 // Kaidan

@@ -45,7 +45,6 @@
 #include "GroupChatUserDb.h"
 #include "Kaidan.h"
 #include "MediaUtils.h"
-#include "Message.h"
 #include "MessageDb.h"
 #include "MessageModel.h"
 #include "Notifications.h"

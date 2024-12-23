@@ -21,7 +21,6 @@
 #include "RosterModel.h"
 
 #include <QStringBuilder>
-#include <QUuid>
 
 // Q_OS_BSD4 includes all BSD variants and also Q_OS_DARWIN
 // Q_OS_LINUX is also defined on Android

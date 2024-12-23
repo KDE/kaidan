@@ -20,7 +20,6 @@
 #include <QXmppEncryptedFileSharingProvider.h>
 #include <QXmppError.h>
 #include <QXmppFileMetadata.h>
-#include <QXmppFileSharingManager.h>
 #include <QXmppHash.h>
 #include <QXmppHttpFileSharingProvider.h>
 #include <QXmppHttpFileSource.h>

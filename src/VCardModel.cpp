@@ -7,7 +7,6 @@
 
 #include "VCardModel.h"
 
-#include <QXmppVCardIq.h>
 #include <QXmppVCardManager.h>
 
 #include "FutureUtils.h"
