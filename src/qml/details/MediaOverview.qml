@@ -349,6 +349,12 @@ Controls.Control {
 					autoPlay: true
 					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
 					anchors.fill: parent
+					onPlaybackStateChanged: {
+						// Display a thumbnail by playing the first frame and pausing afterwards.
+						if (playbackState === MediaPlayer.PlayingState) {
+							pause()
+						}
+					}
 
 					SelectionMarker {
 						visible: preview.containsMouse || checked
@@ -362,12 +368,6 @@ Controls.Control {
 							model.checkState = checkState
 							preview.toggled()
 							preview.clicked()
-						}
-					}
-					onStatusChanged: {
-						// Display a thumbnail by playing the first frame and pausing afterwards.
-						if (status === Multimedia.MediaPlayer.Buffered) {
-							pause()
 						}
 					}
 				}
