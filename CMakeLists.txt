@@ -83,8 +83,9 @@ set_package_properties(ICU PROPERTIES
     PURPOSE "Unicode library (used for emoji support)"
 )
 
-ecm_set_disabled_deprecation_versions(QT 5.15
-     KF 5.40
+ecm_set_disabled_deprecation_versions(
+    QT 6.3.0
+    KF 6.9.0
 )
 
 # Format
