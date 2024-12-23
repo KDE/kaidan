@@ -271,6 +271,10 @@ target_link_libraries(${PROJECT_NAME}
     ${__KF6Notifications_LIBRARIES}
 )
 
+if (TARGET KF6::Crash)
+    target_link_libraries(${PROJECT_NAME} KF6::Crash)
+endif()
+
 if(TARGET ZXing::ZXing)
         target_link_libraries(${PROJECT_NAME} ZXing::ZXing)
 elseif(TARGET ZXing::Core)
