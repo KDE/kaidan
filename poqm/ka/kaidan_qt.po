@@ -194,22 +194,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/Kaidan.cpp:239
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "ონლაინ"
 
-#: src/Kaidan.cpp:241
+#: src/Kaidan.cpp:242
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
 
-#: src/Kaidan.cpp:243
+#: src/Kaidan.cpp:244
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "გათიშული"
 
-#: src/Kaidan.cpp:328
+#: src/Kaidan.cpp:329
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "ბმული გაიხსნება, როცა მიუერთდებით."
@@ -330,12 +330,12 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "დდ თთთ სს:წწ"
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -343,7 +343,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "დებარეობა"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -382,7 +382,7 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:363
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -390,7 +390,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "შეტყობინების გაგზავნა შეუძლებელია."
 
-#: src/MessageController.cpp:725
+#: src/MessageController.cpp:727
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -398,44 +398,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "შეტყობინება %1-ითაა დაშიფრული, მაგრამ გაშიფვრა შეუძლებელია"
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:305
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "დარჩენილი"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:307
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "გაგზავნილია"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:309
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "მოწოდებულია"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:311
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:724 src/MessageModel.cpp:796
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:875
+#: src/MessageModel.cpp:825
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1464
+#: src/MessageModel.cpp:1473
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1467
+#: src/MessageModel.cpp:1476
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -2523,17 +2523,17 @@ msgstr ""
 "კამერა დაკავებულია.\n"
 "სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ"
 
-#: src/qml/elements/ChatMessage.qml:203
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/qml/elements/ChatMessage.qml:416
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:444
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"

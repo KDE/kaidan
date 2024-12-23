@@ -193,7 +193,7 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr ""
 
-#: src/Kaidan.cpp:239
+#: src/Kaidan.cpp:240
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Online"
@@ -201,7 +201,7 @@ msgctxt "Kaidan|"
 msgid "Online"
 msgstr "В сети"
 
-#: src/Kaidan.cpp:241
+#: src/Kaidan.cpp:242
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Connecting…"
@@ -209,7 +209,7 @@ msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Поключение…"
 
-#: src/Kaidan.cpp:243
+#: src/Kaidan.cpp:244
 #, fuzzy
 #| msgctxt "GlobalDrawer|"
 #| msgid "Offline"
@@ -217,7 +217,7 @@ msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Не в сети"
 
-#: src/Kaidan.cpp:328
+#: src/Kaidan.cpp:329
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Ссылка будет открыта после подключения."
@@ -341,12 +341,12 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -354,7 +354,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Карта"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -395,7 +395,7 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:363
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -403,33 +403,33 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageController.cpp:725
+#: src/MessageController.cpp:727
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:305
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ожидает отправки"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:307
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Отправлено"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:309
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:311
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MessageModel.cpp:724 src/MessageModel.cpp:796
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -437,7 +437,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:875
+#: src/MessageModel.cpp:825
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -445,12 +445,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:1464
+#: src/MessageModel.cpp:1473
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1467
+#: src/MessageModel.cpp:1476
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2552,17 +2552,17 @@ msgstr ""
 "Камера уже используется.\n"
 "Попробуйте закрыть приложения, использующие камеру."
 
-#: src/qml/elements/ChatMessage.qml:203
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:416
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:444
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"

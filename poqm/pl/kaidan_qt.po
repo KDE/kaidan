@@ -179,22 +179,22 @@ msgctxt "GroupChatUserModel|"
 msgid "Banned"
 msgstr "Zbanowany"
 
-#: src/Kaidan.cpp:239
+#: src/Kaidan.cpp:240
 msgctxt "Kaidan|"
 msgid "Online"
 msgstr "Dostępny"
 
-#: src/Kaidan.cpp:241
+#: src/Kaidan.cpp:242
 msgctxt "Kaidan|"
 msgid "Connecting…"
 msgstr "Łączenie…"
 
-#: src/Kaidan.cpp:243
+#: src/Kaidan.cpp:244
 msgctxt "Kaidan|"
 msgid "Offline"
 msgstr "Niedostępny"
 
-#: src/Kaidan.cpp:328
+#: src/Kaidan.cpp:329
 msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Link zostanie otwarty po nawiązaniu połączenia."
@@ -315,12 +315,12 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM o hh:mm"
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -328,7 +328,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Położenie"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -362,56 +362,56 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie można wysłać reakcji: %1"
 
-#: src/MessageController.cpp:361
+#: src/MessageController.cpp:363
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Nie można wysłać wiadomości."
 
-#: src/MessageController.cpp:725
+#: src/MessageController.cpp:727
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ta wiadomość jest zaszyfrowana za pomocą %1, ale nie można jej odszyfrować"
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:305
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Oczekujący"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:307
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Wysłane"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:309
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Doręczono"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:311
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Błąd"
 
-#: src/MessageModel.cpp:724 src/MessageModel.cpp:796
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nie udało się wysłać reakcji: %1"
 
-#: src/MessageModel.cpp:875
+#: src/MessageModel.cpp:825
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Nie udało się wysłać reakcji: %1"
 
-#: src/MessageModel.cpp:1464
+#: src/MessageModel.cpp:1473
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: src/MessageModel.cpp:1467
+#: src/MessageModel.cpp:1476
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Wczoraj"
@@ -2214,17 +2214,17 @@ msgstr ""
 "Twoja kamera jest zajęta.\n"
 "Spróbuj zamknąć inne aplikacje korzystające z aparatu."
 
-#: src/qml/elements/ChatMessage.qml:203
+#: src/qml/elements/ChatMessage.qml:206
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Zwinięta wiadomość"
 
-#: src/qml/elements/ChatMessage.qml:416
+#: src/qml/elements/ChatMessage.qml:424
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nowy"
 
-#: src/qml/elements/ChatMessage.qml:444
+#: src/qml/elements/ChatMessage.qml:452
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
