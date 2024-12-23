@@ -42,6 +42,11 @@ bool DisplayedMessageReaction::operator<(const DisplayedMessageReaction &other) 
     return emoji < other.emoji;
 }
 
+bool DetailedMessageReaction::operator<(const DetailedMessageReaction &other) const
+{
+    return senderName < other.senderName;
+}
+
 MessageModel *MessageModel::s_instance = nullptr;
 
 MessageModel *MessageModel::instance()
