@@ -24,6 +24,11 @@
 #include <QTranslator>
 #include <qqml.h>
 
+// KF6
+#if __has_include("KCrash")
+#include <KCrash>
+#endif
+
 // QXmpp
 #include <QXmppClient.h>
 #include <QXmppDiscoveryIq.h>
@@ -402,6 +407,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
     QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
+#if __has_include("KCrash")
+    KCrash::initialize();
 #endif
 
     // QML type bindings

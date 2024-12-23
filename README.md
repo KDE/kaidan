@@ -60,6 +60,7 @@ The following dependencies are needed by Kaidan:
 
 The following dependencies can improve the user experience:
 
+* [KCrash][kcrash]
 * [FFmpeg Thumbnailer][ffmpegthumbs]
 
 ## Contributing
@@ -80,6 +81,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
 [kaidan-website]: https://kaidan.im
 [kaidan-website-repo]: https://invent.kde.org/websites/kaidan-im
+[kcrash]: https://api.kde.org/frameworks/kcrash/html/index.html
 [kio]: https://api.kde.org/frameworks/kio/html/index.html
 [kirigami-addons]: https://invent.kde.org/libraries/kirigami-addons
 [kirigami-repo]: https://invent.kde.org/frameworks/kirigami
