@@ -6,7 +6,6 @@
 
 #include "PresenceCache.h"
 // Qt
-#include <QColor>
 // QXmpp
 #include <QXmppUtils.h>
 

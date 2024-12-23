@@ -11,7 +11,6 @@
 #include <QXmlStreamWriter>
 // QXmpp
 #include <QXmppClient.h>
-#include <QXmppLogger.h>
 
 LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)
     : QObject(parent)

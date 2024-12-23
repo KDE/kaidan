@@ -5,7 +5,6 @@
 
 #include "RegistrationDataFormModel.h"
 // Qt
-#include <QList>
 #include <QString>
 // QXmpp
 #include <QXmppDataForm.h>

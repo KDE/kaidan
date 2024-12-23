@@ -6,7 +6,6 @@
 // Qt
 #include <QSqlQuery>
 // QXmpp
-#include <QXmppBlockingManager.h>
 #include <QXmppUtils.h>
 // Kaidan
 #include "AccountManager.h"

@@ -10,8 +10,6 @@
 #include "QXmppMixParticipantItem.h"
 #include <QXmppClient.h>
 #include <QXmppMixInvitation.h>
-#include <QXmppMixManager.h>
-#include <QXmppStanza.h>
 #include <QXmppTask.h>
 #include <QXmppUri.h>
 #include <QXmppUtils.h>
@@ -19,7 +17,6 @@
 #include "Algorithms.h"
 #include "ChatController.h"
 #include "ClientWorker.h"
-#include "GroupChatController.h"
 #include "GroupChatUser.h"
 #include "Kaidan.h"
 #include "MessageController.h"

@@ -6,7 +6,6 @@
 
 #include "DiscoveryManager.h"
 // QXmpp
-#include <QXmppDiscoveryIq.h>
 #include <QXmppDiscoveryManager.h>
 #include <QXmppTask.h>
 // Kaidan
