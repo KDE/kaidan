@@ -46,7 +46,7 @@ bool HostCompletionProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex
     const auto sourceIndex = sourceModel()->index(sourceRow, 0, sourceParent);
     const auto value = sourceIndex.data(filterRole()).toString();
     const auto domain = HostCompletionProxyModel::domain();
-    return value.startsWith(domain, filterCaseSensitivity()) && value.count() != domain.count();
+    return value.startsWith(domain, filterCaseSensitivity()) && value.size() != domain.size();
 }
 
 QString HostCompletionProxyModel::prefix() const
