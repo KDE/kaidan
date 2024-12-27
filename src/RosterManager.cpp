@@ -167,7 +167,7 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
         // it.
         if (const auto ownJidBeingAdded = jid == m_client->configuration().jidBare(); ownJidBeingAdded && !m_addingOwnJidToRosterAllowed) {
             if (!automaticInitialAddition) {
-                Q_EMIT RosterModel::instance() -> itemAdditionFailed(jid, jid);
+                Q_EMIT RosterModel::instance()->itemAdditionFailed(jid, jid);
             }
         } else {
             m_manager->addRosterItem(jid, name).then(
@@ -182,12 +182,12 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
                                 return;
                             }
 
-                            Q_EMIT RosterModel::instance() -> itemAdditionFailed(jid, jid);
+                            Q_EMIT RosterModel::instance()->itemAdditionFailed(jid, jid);
 
                             return;
                         }
 
-                        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("%1 could not be added: %2").arg(jid, error->description));
+                        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("%1 could not be added: %2").arg(jid, error->description));
                     } else {
                         if (!ownJidBeingAdded) {
                             m_manager->subscribeTo(jid, message);
@@ -196,7 +196,7 @@ void RosterManager::addContact(const QString &jid, const QString &name, const QS
                 });
         }
     } else {
-        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Could not add contact, as a result of not being connected."));
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not add contact, as a result of not being connected."));
         qWarning() << "[client] [RosterManager] Could not add contact, as a result of "
                       "not being connected.";
     }
@@ -207,7 +207,7 @@ void RosterManager::removeContact(const QString &jid)
     if (m_client->state() == QXmppClient::ConnectedState) {
         m_manager->removeItem(jid);
     } else {
-        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Could not remove contact, as a result of not being connected."));
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not remove contact, as a result of not being connected."));
         qWarning() << "[client] [RosterManager] Could not remove contact, as a result of "
                       "not being connected.";
     }
@@ -218,7 +218,7 @@ void RosterManager::renameContact(const QString &jid, const QString &newContactN
     if (m_client->state() == QXmppClient::ConnectedState) {
         m_manager->renameItem(jid, newContactName);
     } else {
-        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Could not rename contact, as a result of not being connected."));
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename contact, as a result of not being connected."));
         qWarning() << "[client] [RosterManager] Could not rename contact, as a result of "
                       "not being connected.";
     }
@@ -228,8 +228,8 @@ void RosterManager::subscribeToPresence(const QString &contactJid)
 {
     m_manager->subscribeTo(contactJid).then(this, [contactJid](QXmpp::SendResult result) {
         if (const auto error = std::get_if<QXmppError>(&result)) {
-            Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Requesting to see the personal data of %1 failed because of a connection problem: %2")
-                                                                          .arg(contactJid, error->description));
+            Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+                tr("Requesting to see the personal data of %1 failed because of a connection problem: %2").arg(contactJid, error->description));
         }
     });
 }
@@ -240,7 +240,7 @@ bool RosterManager::acceptSubscriptionToPresence(const QString &contactJid)
         m_unrespondedSubscriptionRequests.remove(contactJid);
         return true;
     } else {
-        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Allowing %1 to see your personal data failed").arg(contactJid));
         return false;
     }
 }
@@ -251,7 +251,7 @@ bool RosterManager::refuseSubscriptionToPresence(const QString &contactJid)
         m_unrespondedSubscriptionRequests.remove(contactJid);
         return true;
     } else {
-        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
+        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Stopping %1 to see your personal data failed").arg(contactJid));
         return false;
     }
 }

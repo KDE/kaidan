@@ -295,7 +295,7 @@ void MessageComposition::correct()
                         await(MessageController::instance()->send(message.toQXmpp()), this, [messageId = message.id](QXmpp::SendResult &&result) {
                             if (std::holds_alternative<QXmppError>(result)) {
                                 // TODO store in the database only error codes, assign text messages right in the QML
-                                Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Message correction was not successful"));
+                                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message correction was not successful"));
 
                                 MessageDb::instance()->updateMessage(messageId, [](Message &message) {
                                     message.deliveryState = DeliveryState::Error;

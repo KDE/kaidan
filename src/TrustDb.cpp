@@ -262,9 +262,8 @@ auto TrustDb::keys(const QString &encryption, TrustLevels trustLevels) -> QXmppT
     });
 }
 
-auto TrustDb::keys(const QString &encryption,
-                   const QList<QString> &keyOwnerJids,
-                   TrustLevels trustLevels) -> QXmppTask<QHash<QString, QHash<QByteArray, TrustLevel>>>
+auto TrustDb::keys(const QString &encryption, const QList<QString> &keyOwnerJids, TrustLevels trustLevels)
+    -> QXmppTask<QHash<QString, QHash<QByteArray, TrustLevel>>>
 {
     Q_ASSERT(!keyOwnerJids.isEmpty());
     return runTask([this, encryption, trustLevels, keyOwnerJids] {
@@ -493,10 +492,8 @@ auto TrustDb::setTrustLevel(const QString &encryption, const QMultiHash<QString,
     });
 }
 
-auto TrustDb::setTrustLevel(const QString &encryption,
-                            const QList<QString> &keyOwnerJids,
-                            TrustLevel oldTrustLevel,
-                            TrustLevel newTrustLevel) -> QXmppTask<TrustChanges>
+auto TrustDb::setTrustLevel(const QString &encryption, const QList<QString> &keyOwnerJids, TrustLevel oldTrustLevel, TrustLevel newTrustLevel)
+    -> QXmppTask<TrustChanges>
 {
     return runTask([this, encryption, keyOwnerJids, oldTrustLevel, newTrustLevel, account = m_accountJid] {
         TrustChanges result;
@@ -539,9 +536,8 @@ auto TrustDb::setTrustLevel(const QString &encryption,
     });
 }
 
-auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption,
-                                                const QByteArray &senderKeyId,
-                                                const QList<QXmppTrustMessageKeyOwner> &keyOwners) -> QXmppTask<void>
+auto TrustDb::addKeysForPostponedTrustDecisions(const QString &encryption, const QByteArray &senderKeyId, const QList<QXmppTrustMessageKeyOwner> &keyOwners)
+    -> QXmppTask<void>
 {
     std::vector<UnprocessedKey> keys;
     keys.reserve(std::accumulate(keyOwners.begin(), keyOwners.end(), std::size_t(0), [](std::size_t sum, const auto &keyOwner) {
@@ -678,8 +674,8 @@ auto TrustDb::removeKeysForPostponedTrustDecisions(const QString &encryption) ->
     });
 }
 
-auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption,
-                                             const QList<QByteArray> &senderKeyIds) -> QXmppTask<QHash<bool, QMultiHash<QString, QByteArray>>>
+auto TrustDb::keysForPostponedTrustDecisions(const QString &encryption, const QList<QByteArray> &senderKeyIds)
+    -> QXmppTask<QHash<bool, QMultiHash<QString, QByteArray>>>
 {
     if (senderKeyIds.isEmpty()) {
         return runTask([this, encryption] {

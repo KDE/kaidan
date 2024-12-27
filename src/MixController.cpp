@@ -86,10 +86,10 @@ void MixController::createPrivateChannel(const QString &serviceJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance() -> privateGroupChatCreationFailed(serviceJid, errorMessage);
+                Q_EMIT GroupChatController::instance()->privateGroupChatCreationFailed(serviceJid, errorMessage);
             } else {
                 const auto channelJid = std::get<QXmppMixManager::ChannelJid>(result);
-                Q_EMIT GroupChatController::instance() -> groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT GroupChatController::instance()->groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
             }
         });
 }
@@ -123,9 +123,9 @@ void MixController::createPublicChannel(const QString &channelJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance() -> publicGroupChatCreationFailed(channelJid, errorMessage);
+                Q_EMIT GroupChatController::instance()->publicGroupChatCreationFailed(channelJid, errorMessage);
             } else {
-                Q_EMIT GroupChatController::instance() -> groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT GroupChatController::instance()->groupChatCreated(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
             }
         });
 }
@@ -160,8 +160,8 @@ void MixController::requestChannelInformation(const QString &channelJid)
         this,
         [this, channelJid](QXmppMixManager::InformationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT Kaidan::instance() -> passiveNotificationRequested(
-                                              tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
+                Q_EMIT Kaidan::instance()->passiveNotificationRequested(
+                    tr("Could not retrieve information of group %1: %2").arg(channelJid, error->description));
             } else {
                 handleChannelInformationUpdated(channelJid, std::get<QXmppMixInfoItem>(result));
             }
@@ -174,7 +174,7 @@ void MixController::renameChannel(const QString &channelJid, const QString &newC
         auto manager = Kaidan::instance()->client()->xmppClient()->findExtension<QXmppMixManager>();
         manager->requestChannelInformation(channelJid).then(this, [this, channelJid, newChannelName, manager](QXmppMixManager::InformationResult &&result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
             } else {
                 auto information = std::get<QXmppMixInfoItem>(result);
                 information.setName(newChannelName);
@@ -182,7 +182,7 @@ void MixController::renameChannel(const QString &channelJid, const QString &newC
                 auto future = manager->updateChannelInformation(channelJid, information);
                 future.then(this, [channelJid, newChannelName](QXmppClient::EmptyResult &&result) {
                     if (const auto error = std::get_if<QXmppError>(&result)) {
-                        Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
+                        Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Could not rename group %1: %2").arg(channelJid, error->description));
                     }
                 });
             }
@@ -226,9 +226,9 @@ void MixController::joinChannel(const QString &channelJid, const QString &nickna
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance() -> groupChatJoiningFailed(channelJid, errorMessage);
+                Q_EMIT GroupChatController::instance()->groupChatJoiningFailed(channelJid, errorMessage);
             } else {
-                Q_EMIT GroupChatController::instance() -> groupChatJoined(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+                Q_EMIT GroupChatController::instance()->groupChatJoined(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
             }
         });
 }
@@ -435,9 +435,9 @@ void MixController::leaveChannel(const QString &channelJid)
             const auto ownJid = Kaidan::instance()->client()->xmppClient()->configuration().jidBare();
 
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                Q_EMIT GroupChatController::instance() -> groupChatLeavingFailed(ownJid, channelJid, error->description);
+                Q_EMIT GroupChatController::instance()->groupChatLeavingFailed(ownJid, channelJid, error->description);
             } else {
-                Q_EMIT GroupChatController::instance() -> groupChatLeft(ownJid, channelJid);
+                Q_EMIT GroupChatController::instance()->groupChatLeft(ownJid, channelJid);
             }
         });
 }
@@ -469,9 +469,9 @@ void MixController::deleteChannel(const QString &channelJid)
                     errorMessage = error->description;
                 }
 
-                Q_EMIT GroupChatController::instance() -> groupChatDeletionFailed(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(),
-                                                                                  channelJid,
-                                                                                  errorMessage);
+                Q_EMIT GroupChatController::instance()->groupChatDeletionFailed(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(),
+                                                                                channelJid,
+                                                                                errorMessage);
             } else {
                 leaveChannel(channelJid);
             }
@@ -488,7 +488,7 @@ void MixController::handleParticipantSupportChanged()
         this,
         [this](QXmppMixManager::Support participantSupport) {
             m_channelParticipationSupported = (participantSupport == QXmppMixManager::Support::Supported);
-            Q_EMIT GroupChatController::instance() -> groupChatParticipationSupportedChanged();
+            Q_EMIT GroupChatController::instance()->groupChatParticipationSupportedChanged();
         });
 }
 
@@ -502,7 +502,7 @@ void MixController::handleServicesChanged()
         this,
         [this](const QList<QXmppMixManager::Service> &&services) {
             m_services = services;
-            Q_EMIT GroupChatController::instance() -> groupChatServicesChanged();
+            Q_EMIT GroupChatController::instance()->groupChatServicesChanged();
         });
 }
 
@@ -517,9 +517,9 @@ void MixController::handleChannelInformationUpdated(const QString &channelJid, c
 void MixController::handleChannelAccessibilityReceived(const QString &channelJid, const bool isPublic)
 {
     if (isPublic)
-        Q_EMIT GroupChatController::instance() -> groupChatMadePublic(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+        Q_EMIT GroupChatController::instance()->groupChatMadePublic(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
     else
-        Q_EMIT GroupChatController::instance() -> groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+        Q_EMIT GroupChatController::instance()->groupChatMadePrivate(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
 }
 
 void MixController::handleJidAllowed(const QString &channelJid, const QString &jid)
@@ -530,7 +530,7 @@ void MixController::handleJidAllowed(const QString &channelJid, const QString &j
     user.jid = jid;
     user.status = GroupChatUser::Status::Allowed;
 
-    Q_EMIT GroupChatController::instance() -> userAllowedOrBanned(user);
+    Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidDisallowed(const QString &channelJid, const QString &jid)
@@ -541,7 +541,7 @@ void MixController::handleJidDisallowed(const QString &channelJid, const QString
     user.jid = jid;
     user.status = GroupChatUser::Status::Allowed;
 
-    Q_EMIT GroupChatController::instance() -> userDisallowedOrUnbanned(user);
+    Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleJidBanned(const QString &channelJid, const QString &jid)
@@ -552,7 +552,7 @@ void MixController::handleJidBanned(const QString &channelJid, const QString &ji
     user.jid = jid;
     user.status = GroupChatUser::Status::Banned;
 
-    Q_EMIT GroupChatController::instance() -> userAllowedOrBanned(user);
+    Q_EMIT GroupChatController::instance()->userAllowedOrBanned(user);
 }
 
 void MixController::handleJidUnbanned(const QString &channelJid, const QString &jid)
@@ -563,7 +563,7 @@ void MixController::handleJidUnbanned(const QString &channelJid, const QString &
     user.jid = jid;
     user.status = GroupChatUser::Status::Banned;
 
-    Q_EMIT GroupChatController::instance() -> userDisallowedOrUnbanned(user);
+    Q_EMIT GroupChatController::instance()->userDisallowedOrUnbanned(user);
 }
 
 void MixController::handleParticipantReceived(const QString &channelJid, const QXmppMixParticipantItem &participantItem)
@@ -575,7 +575,7 @@ void MixController::handleParticipantReceived(const QString &channelJid, const Q
     user.jid = participantItem.jid();
     user.name = participantItem.nick();
 
-    Q_EMIT GroupChatController::instance() -> participantReceived(user);
+    Q_EMIT GroupChatController::instance()->participantReceived(user);
 }
 
 void MixController::handleParticipantLeft(const QString &channelJid, const QString &participantId)
@@ -585,12 +585,12 @@ void MixController::handleParticipantLeft(const QString &channelJid, const QStri
     user.chatJid = channelJid;
     user.id = participantId;
 
-    Q_EMIT GroupChatController::instance() -> participantLeft(user);
+    Q_EMIT GroupChatController::instance()->participantLeft(user);
 }
 
 void MixController::handleChannelDeleted(const QString &channelJid)
 {
-    Q_EMIT GroupChatController::instance() -> groupChatDeleted(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
+    Q_EMIT GroupChatController::instance()->groupChatDeleted(Kaidan::instance()->client()->xmppClient()->configuration().jidBare(), channelJid);
 }
 
 #include "moc_MixController.cpp"

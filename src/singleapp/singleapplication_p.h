@@ -60,7 +60,7 @@ public:
         InvalidConnection = 0,
         NewInstance = 1,
         SecondaryInstance = 2,
-        Reconnect = 3
+        Reconnect = 3,
     };
     enum ConnectionStage : quint8 {
         StageInitHeader = 0,

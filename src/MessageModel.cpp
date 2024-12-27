@@ -671,7 +671,7 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
                       this,
                       [addReaction, messageId, senderId](QXmpp::SendResult &&result) {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
-                              Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
                               addReaction(MessageReactionDeliveryState::ErrorOnAddition);
                           } else {
                               MessageController::instance()->updateMessageReactionsAfterSending(messageId, senderId);
@@ -743,7 +743,7 @@ void MessageModel::removeMessageReaction(const QString &messageId, const QString
                       this,
                       [messageId, senderId, emoji](QXmpp::SendResult &&result) {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
-                              Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
                               MessageDb::instance()->updateMessage(messageId, [senderId, emoji](Message &message) {
                                   auto &reactions = message.reactionSenders[senderId].reactions;
@@ -822,7 +822,7 @@ void MessageModel::resendMessageReactions(const QString &messageId)
                   this,
                   [messageId, senderId](QXmpp::SendResult &&result) {
                       if (const auto error = std::get_if<QXmppError>(&result)) {
-                          Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
+                          Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reactions could not be sent: %1").arg(error->description));
 
                           MessageDb::instance()->updateMessage(messageId, [senderId](Message &message) {
                               auto &reactionSender = message.reactionSenders[senderId];

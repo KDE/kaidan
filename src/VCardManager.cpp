@@ -154,7 +154,7 @@ void VCardManager::changeAvatarAfterReceivingCurrentVCard()
     m_avatarToBeSetAfterReceivingCurrentVCard = {};
     m_clientWorker->finishTask();
 
-    Q_EMIT Kaidan::instance() -> avatarChangeSucceeded();
+    Q_EMIT Kaidan::instance()->avatarChangeSucceeded();
 }
 
 #include "moc_VCardManager.cpp"

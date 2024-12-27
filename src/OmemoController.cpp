@@ -32,36 +32,36 @@ OmemoController::OmemoController(QObject *parent)
             &QXmppOmemoManager::trustLevelsChanged,
             this,
             [](const QMultiHash<QString, QByteArray> &modifiedKeys) {
-                Q_EMIT EncryptionController::instance() -> keysChanged(AccountManager::instance()->jid(), modifiedKeys.keys());
+                Q_EMIT EncryptionController::instance()->keysChanged(AccountManager::instance()->jid(), modifiedKeys.keys());
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceAdded,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance() -> devicesChanged(AccountManager::instance()->jid(), {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceChanged,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance() -> devicesChanged(AccountManager::instance()->jid(), {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(),
             &QXmppOmemoManager::deviceRemoved,
             this,
             [](const QString &jid, uint32_t) {
-                Q_EMIT EncryptionController::instance() -> devicesChanged(AccountManager::instance()->jid(), {jid});
+                Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), {jid});
             });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::devicesRemoved, this, [](const QString &jid) {
-        Q_EMIT EncryptionController::instance() -> devicesChanged(AccountManager::instance()->jid(), {jid});
+        Q_EMIT EncryptionController::instance()->devicesChanged(AccountManager::instance()->jid(), {jid});
     });
 
     connect(Kaidan::instance()->client()->xmppClient()->findExtension<QXmppOmemoManager>(), &QXmppOmemoManager::allDevicesRemoved, this, [] {
-        Q_EMIT EncryptionController::instance() -> allDevicesChanged();
+        Q_EMIT EncryptionController::instance()->allDevicesChanged();
     });
 }
 
@@ -124,7 +124,7 @@ QFuture<void> OmemoController::setUp()
                     // which leads to longer waiting times.
                     QTimer::singleShot(SESSION_BUILDING_ENABLING_FOR_NEW_DEVICES_TIMER_INTERVAL, this, &OmemoController::enableSessionBuildingForNewDevices);
                 } else {
-                    Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
+                    Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("End-to-end encryption via OMEMO 2 could not be set up"));
                     interface.reportFinished();
                 }
             });

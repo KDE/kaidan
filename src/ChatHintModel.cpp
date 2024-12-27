@@ -139,12 +139,12 @@ void ChatHintModel::handleButtonClicked(int i, ChatHintButton::Type type)
     }
     case ChatHintButton::InviteContacts:
         setLoading(i, true);
-        Q_EMIT GroupChatController::instance() -> groupChatInviteeSelectionNeeded();
+        Q_EMIT GroupChatController::instance()->groupChatInviteeSelectionNeeded();
         removeChatHint(i);
         return;
     case ChatHintButton::Leave:
         setLoading(i, true);
-        Q_EMIT GroupChatController::instance() -> leaveGroupChat(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
+        Q_EMIT GroupChatController::instance()->leaveGroupChat(ChatController::instance()->accountJid(), ChatController::instance()->chatJid());
         removeChatHint(i);
         return;
     default:

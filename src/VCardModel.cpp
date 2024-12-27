@@ -107,7 +107,7 @@ void VCardModel::setJid(const QString &jid)
     Q_EMIT jidChanged();
 
     if (Kaidan::instance()->connectionState() == ConnectionState::StateConnected) {
-        Q_EMIT Kaidan::instance() -> client()->vCardManager()->vCardRequested(jid);
+        Q_EMIT Kaidan::instance()->client()->vCardManager()->vCardRequested(jid);
     }
 }
 

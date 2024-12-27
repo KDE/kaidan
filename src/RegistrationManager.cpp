@@ -138,7 +138,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
     if (newDataForm.fields().isEmpty()) {
         // If there is a standardized out-of-band URL, use that.
         if (!iq.outOfBandUrl().isEmpty()) {
-            Q_EMIT Kaidan::instance() -> registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
+            Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{iq.outOfBandUrl()});
             abortRegistration();
             return;
         }
@@ -148,7 +148,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         const auto words = iq.instructions().split(u' ');
         for (const auto &instructionPart : words) {
             if (instructionPart.startsWith(u"https://")) {
-                Q_EMIT Kaidan::instance() -> registrationOutOfBandUrlReceived(QUrl{instructionPart});
+                Q_EMIT Kaidan::instance()->registrationOutOfBandUrlReceived(QUrl{instructionPart});
                 abortRegistration();
                 return;
             }
@@ -174,7 +174,7 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         m_contentIdsToRemove << bobData.cid();
     }
 
-    Q_EMIT Kaidan::instance() -> registrationFormReceived(m_dataFormModel);
+    Q_EMIT Kaidan::instance()->registrationFormReceived(m_dataFormModel);
 }
 
 void RegistrationManager::handleRegistrationSucceeded()
@@ -240,7 +240,7 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
         break;
     }
 
-    Q_EMIT Kaidan::instance() -> registrationFailed(quint8(registrationError), error.text());
+    Q_EMIT Kaidan::instance()->registrationFailed(quint8(registrationError), error.text());
 }
 
 void RegistrationManager::handlePasswordChanged(const QString &newPassword)
@@ -249,12 +249,12 @@ void RegistrationManager::handlePasswordChanged(const QString &newPassword)
     AccountManager::instance()->storePassword();
     AccountManager::instance()->setHasNewCredentials(false);
     m_clientWorker->finishTask();
-    Q_EMIT Kaidan::instance() -> passwordChangeSucceeded();
+    Q_EMIT Kaidan::instance()->passwordChangeSucceeded();
 }
 
 void RegistrationManager::handlePasswordChangeFailed(const QXmppStanza::Error &error)
 {
-    Q_EMIT Kaidan::instance() -> passwordChangeFailed(error.text());
+    Q_EMIT Kaidan::instance()->passwordChangeFailed(error.text());
     m_clientWorker->finishTask();
 }
 

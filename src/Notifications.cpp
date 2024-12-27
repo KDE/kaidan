@@ -273,10 +273,10 @@ QString Notifications::determineChatName(const QString &chatJid) const
 void Notifications::showChat(const QString &accountJid, const QString &chatJid)
 {
     if (!ChatController::instance()->isChatCurrentChat(accountJid, chatJid)) {
-        Q_EMIT Kaidan::instance() -> openChatPageRequested(accountJid, chatJid);
+        Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, chatJid);
     }
 
-    Q_EMIT Kaidan::instance() -> raiseWindowRequested();
+    Q_EMIT Kaidan::instance()->raiseWindowRequested();
 }
 #else
 void Notifications::sendMessageNotification(const QString &, const QString &, const QString &, const QString &)

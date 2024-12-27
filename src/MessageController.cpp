@@ -232,7 +232,7 @@ void MessageController::sendPendingMessageReactions(const QString &accountJid)
                       this,
                       [this, messageId, accountJid](QXmpp::SendResult &&result) {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
-                              Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
+                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
 
                               MessageDb::instance()->updateMessage(messageId, [accountJid](Message &message) {
                                   auto &reactionSender = message.reactionSenders[accountJid];
@@ -360,7 +360,7 @@ void MessageController::sendPendingMessage(Message message)
                               // The error message of the message is saved untranslated. To make
                               // translation work in the UI, the tr() call of the passive
                               // notification must contain exactly the same string.
-                              Q_EMIT Kaidan::instance() -> passiveNotificationRequested(tr("Message could not be sent."));
+                              Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Message could not be sent."));
                               MessageDb::instance()->updateMessage(messageId, [](Message &msg) {
                                   msg.deliveryState = Enums::DeliveryState::Error;
                                   msg.errorText = QStringLiteral("Message could not be sent.");

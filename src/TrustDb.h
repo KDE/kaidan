@@ -63,17 +63,14 @@ public:
 
     auto trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId) -> QXmppTask<QXmpp::TrustLevel> override;
     auto _trustLevel(const QString &encryption, const QString &keyOwnerJid, const QByteArray &keyId) -> QXmpp::TrustLevel;
-    auto
-    setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, QXmpp::TrustLevel trustLevel) -> QXmppTask<TrustChanges> override;
-    auto setTrustLevel(const QString &encryption,
-                       const QList<QString> &keyOwnerJids,
-                       QXmpp::TrustLevel oldTrustLevel,
-                       QXmpp::TrustLevel newTrustLevel) -> QXmppTask<TrustChanges> override;
+    auto setTrustLevel(const QString &encryption, const QMultiHash<QString, QByteArray> &keyIds, QXmpp::TrustLevel trustLevel)
+        -> QXmppTask<TrustChanges> override;
+    auto setTrustLevel(const QString &encryption, const QList<QString> &keyOwnerJids, QXmpp::TrustLevel oldTrustLevel, QXmpp::TrustLevel newTrustLevel)
+        -> QXmppTask<TrustChanges> override;
 
     // ATM
-    auto addKeysForPostponedTrustDecisions(const QString &encryption,
-                                           const QByteArray &senderKeyId,
-                                           const QList<QXmppTrustMessageKeyOwner> &keyOwners) -> QXmppTask<void> override;
+    auto addKeysForPostponedTrustDecisions(const QString &encryption, const QByteArray &senderKeyId, const QList<QXmppTrustMessageKeyOwner> &keyOwners)
+        -> QXmppTask<void> override;
     auto removeKeysForPostponedTrustDecisions(const QString &encryption,
                                               const QList<QByteArray> &keyIdsForAuthentication,
                                               const QList<QByteArray> &keyIdsForDistrusting) -> QXmppTask<void> override;

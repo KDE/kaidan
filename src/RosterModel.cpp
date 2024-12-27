@@ -220,7 +220,7 @@ void RosterModel::updateGroup(const QString &oldGroup, const QString &newGroup)
             groups.removeOne(oldGroup);
             groups.append(newGroup);
 
-            Q_EMIT Kaidan::instance() -> client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+            Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
         }
     }
 }
@@ -231,7 +231,7 @@ void RosterModel::removeGroup(const QString &group)
         if (auto groups = item.groups; groups.contains(group)) {
             groups.removeOne(group);
 
-            Q_EMIT Kaidan::instance() -> client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
+            Q_EMIT Kaidan::instance()->client()->rosterManager()->updateGroupsRequested(item.jid, item.name, groups);
         }
     }
 }
@@ -279,11 +279,11 @@ RosterModel::AddContactByUriResult RosterModel::addContactByUri(const QString &a
         }
 
         if (RosterModel::instance()->hasItem(jid)) {
-            Q_EMIT Kaidan::instance() -> openChatPageRequested(accountJid, jid);
+            Q_EMIT Kaidan::instance()->openChatPageRequested(accountJid, jid);
             return AddContactByUriResult::ContactExists;
         }
 
-        Q_EMIT Kaidan::instance() -> client()->rosterManager()->addContactRequested(jid);
+        Q_EMIT Kaidan::instance()->client()->rosterManager()->addContactRequested(jid);
 
         return AddContactByUriResult::AddingContact;
     }
@@ -526,7 +526,7 @@ void RosterModel::removeItem(const QString &accountJid, const QString &jid)
             }
 
             if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
-                Q_EMIT Kaidan::instance() -> closeChatPageRequested();
+                Q_EMIT Kaidan::instance()->closeChatPageRequested();
             }
 
             Q_EMIT itemRemoved(item.accountJid, jid);
@@ -560,7 +560,7 @@ void RosterModel::removeItems(const QString &accountJid)
             }
 
             if (accountJid == ChatController::instance()->accountJid() && jid == ChatController::instance()->chatJid()) {
-                Q_EMIT Kaidan::instance() -> closeChatPageRequested();
+                Q_EMIT Kaidan::instance()->closeChatPageRequested();
             }
         }
     }
