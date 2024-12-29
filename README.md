@@ -42,19 +42,25 @@ Downloadable builds are available on [Kaidan's download page][downloads].
 Instructions for using ready-made (nightly / stable) builds and for building
 Kaidan yourself can be found in our [Wiki][wiki].
 
-## Dependencies
+## Required Dependencies
 
-Here are the general dependencies of Kaidan:
- * [Qt][qt-build-sources] (Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location) (>= 6.6.0)
- * [QXmpp][qxmpp] (with OMEMO) (>= 1.9.0)
- * [Kirigami 2][kirigami-repo] (>= 5.67.0)
- * [Kirigami Addons][kirigami-addons] (>= 1.4.0)
- * [KQuickImageEditor][kquickimageeditor] (>= 0.2.0)
- * [ECM (extra-cmake-modules)][ecm]
- * [ZXing-cpp][zxing-cpp] (>= 1.1.1)
- * [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
- * [KIO][kio]
- * [FFmpeg Thumbnailer][ffmpegthumbs] (optional)
+The following dependencies are needed by Kaidan:
+
+* [Qt][qt-build-sources] (Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location) (>= 6.6.0)
+* [QXmpp][qxmpp] (with OMEMO) (>= 1.9.0)
+* [Kirigami 2][kirigami-repo] (>= 5.67.0)
+* [Kirigami Addons][kirigami-addons] (>= 1.4.0)
+* [KQuickImageEditor][kquickimageeditor] (>= 0.2.0)
+* [ECM (extra-cmake-modules)][ecm]
+* [ZXing-cpp][zxing-cpp] (>= 1.1.1)
+* [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable)
+* [KIO][kio]
+
+## Optional Dependencies
+
+The following dependencies can improve the user experience:
+
+* [FFmpeg Thumbnailer][ffmpegthumbs]
 
 ## Contributing
 
