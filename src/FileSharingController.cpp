@@ -108,17 +108,17 @@ static std::optional<std::pair<QString, QString>> sanitizeFilename(QStringView f
 #endif
     };
 
-    constexpr std::initializer_list<QStringView> bad_names = {
+    std::initializer_list<QStringView> bad_names = {
 #ifndef Q_OS_UNIX
         u"CON",  u"PRN",  u"AUX",  u"NUL",  u"COM1", u"COM2", u"COM3", u"COM4", u"COM5", u"COM6", u"COM7",
         u"COM8", u"COM9", u"LPT1", u"LPT2", u"LPT3", u"LPT4", u"LPT5", u"LPT6", u"LPT7", u"LPT8", u"LPT9",
 #endif
     };
 
-    constexpr auto isBadChar = [=](QChar c) {
+    const auto isBadChar = [=](QChar c) {
         return find(bad_chars, c) != bad_chars.end() || c.category() == QChar::Other_Control;
     };
-    constexpr auto isBadName = [=](QStringView name) {
+    const auto isBadName = [=](QStringView name) {
         return find(bad_names, name) != bad_names.end();
     };
 
