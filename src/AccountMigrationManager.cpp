@@ -218,7 +218,7 @@ struct ClientSettings {
         }
 
         if (rosterElement.namespaceURI() == s_kaidan_ns) {
-            settings.roster.reserve(rosterElement.childNodes().count());
+            settings.roster.reserve(rosterElement.childNodes().size());
 
             for (QDomNode node = rosterElement.firstChild(); !node.isNull(); node = node.nextSibling()) {
                 if (!node.isElement()) {

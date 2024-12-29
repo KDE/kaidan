@@ -22,7 +22,7 @@ FileModel::~FileModel()
 
 int FileModel::rowCount(const QModelIndex &parent) const
 {
-    return parent == QModelIndex() ? m_files.count() : 0;
+    return parent == QModelIndex() ? m_files.size() : 0;
 }
 
 QVariant FileModel::data(const QModelIndex &index, int role) const

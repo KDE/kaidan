@@ -1459,7 +1459,7 @@ const QList<Emoji> &emojis()
 
 int EmojiModel::rowCount(const QModelIndex &parent) const
 {
-    return parent == QModelIndex() ? emojis().count() : 0;
+    return parent == QModelIndex() ? emojis().size() : 0;
 }
 
 QVariant EmojiModel::data(const QModelIndex &index, int role) const

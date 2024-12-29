@@ -17,7 +17,7 @@ Q_LOGGING_CATEGORY(providers_completion, "providers.completion", QtMsgType::QtWa
 
 int HostCompletionModel::rowCount(const QModelIndex &parent) const
 {
-    return parent == QModelIndex() ? m_hosts.count() : 0;
+    return parent == QModelIndex() ? m_hosts.size() : 0;
 }
 
 QVariant HostCompletionModel::data(const QModelIndex &index, int role) const
@@ -49,7 +49,7 @@ void HostCompletionModel::aggregate(const QStringList &jids)
 {
     QStringList missing;
 
-    missing.reserve(jids.count());
+    missing.reserve(jids.size());
 
     for (auto jid : jids) {
         jid = transform(jid);
@@ -63,9 +63,9 @@ void HostCompletionModel::aggregate(const QStringList &jids)
         return;
     }
 
-    const auto count = m_hosts.count();
+    const auto count = m_hosts.size();
 
-    beginInsertRows({}, count, count + missing.count() - 1);
+    beginInsertRows({}, count, count + missing.size() - 1);
     m_hosts.append(missing);
     endInsertRows();
 }

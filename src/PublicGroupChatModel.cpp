@@ -11,7 +11,7 @@ PublicGroupChatModel::PublicGroupChatModel(QObject *parent)
 
 int PublicGroupChatModel::rowCount(const QModelIndex &parent) const
 {
-    return parent == QModelIndex() ? m_groupChats.count() : 0;
+    return parent == QModelIndex() ? m_groupChats.size() : 0;
 }
 
 QVariant PublicGroupChatModel::data(const QModelIndex &index, int role) const
@@ -96,7 +96,7 @@ void PublicGroupChatModel::setGroupChats(const PublicGroupChats &groupChats)
 
 int PublicGroupChatModel::count() const
 {
-    return m_groupChats.count();
+    return m_groupChats.size();
 }
 
 QStringList PublicGroupChatModel::languages() const

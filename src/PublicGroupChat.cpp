@@ -13,7 +13,7 @@ static QStringList splitString(const QString &string, QString seps)
     QStringList result;
 
     seps.chop(1);
-    result.reserve(parts.count());
+    result.reserve(parts.size());
 
     for (const QString &part : parts) {
         QString trimmed = part.trimmed();

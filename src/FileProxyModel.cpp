@@ -87,7 +87,7 @@ void FileProxyModel::setMode(Mode mode)
 
 int FileProxyModel::checkedCount() const
 {
-    return m_checkedIds.count();
+    return m_checkedIds.size();
 }
 
 void FileProxyModel::checkAll()
@@ -138,9 +138,9 @@ void FileProxyModel::deleteChecked()
         QtConcurrent::run([this, files = std::move(files)]() mutable {
             QStringList errors;
 
-            errors.reserve(files.count());
+            errors.reserve(files.size());
 
-            for (int i = files.count() - 1; i >= 0; --i) {
+            for (int i = files.size() - 1; i >= 0; --i) {
                 QFile file(files[i]);
 
                 if (!file.remove()) {

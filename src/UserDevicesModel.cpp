@@ -51,7 +51,7 @@ int UserDevicesModel::rowCount(const QModelIndex &parent) const
     if (parent.isValid())
         return 0;
 
-    return m_devices.count();
+    return m_devices.size();
 }
 
 QString UserDevicesModel::jid() const
@@ -110,14 +110,14 @@ void UserDevicesModel::handlePresenceChanged(PresenceCache::ChangeType type, con
 
     switch (type) {
     case PresenceCache::Connected:
-        beginInsertRows({}, m_devices.count(), m_devices.count());
+        beginInsertRows({}, m_devices.size(), m_devices.size());
         m_devices.append(DeviceInfo(resource));
         endInsertRows();
 
         Q_EMIT clientVersionsRequested(m_jid, resource);
         break;
     case PresenceCache::Disconnected:
-        for (int i = 0; i < m_devices.count(); i++) {
+        for (int i = 0; i < m_devices.size(); i++) {
             if (m_devices.at(i).resource == resource) {
                 beginRemoveRows({}, i, i);
                 m_devices.removeAt(i);

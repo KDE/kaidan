@@ -367,7 +367,7 @@ void RosterModel::unpinItem(const QString &, const QString &jid)
 
 void RosterModel::reorderPinnedItem(const QString &, const QString &, int oldIndex, int newIndex)
 {
-    if (oldIndex < 0 || oldIndex >= m_items.count() || newIndex < 0 || newIndex >= m_items.count() || oldIndex == newIndex) {
+    if (oldIndex < 0 || oldIndex >= m_items.size() || newIndex < 0 || newIndex >= m_items.size() || oldIndex == newIndex) {
         return;
     }
 
