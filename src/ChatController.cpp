@@ -13,7 +13,6 @@
 #include <chrono>
 
 // Qt
-#include <QGuiApplication>
 #include <QTimer>
 // QXmpp
 #include <QXmppUtils.h>
