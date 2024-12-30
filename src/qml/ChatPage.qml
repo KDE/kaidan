@@ -75,7 +75,7 @@ ChatPageBase {
 		messageListView: root.messageListView
 	}
 	keyboardNavigationEnabled: true
-	contextualActions: [
+	actions: [
 		Kirigami.Action {
 			visible: Kirigami.Settings.isMobile
 			icon.name: "avatar-default-symbolic"

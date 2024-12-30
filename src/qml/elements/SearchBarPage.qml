@@ -24,19 +24,17 @@ Kirigami.ScrollablePage {
 		color: primaryBackgroundColor
 	}
 	bottomPadding: 0
-	actions {
-		main: Kirigami.Action {
-			text: qsTr("Search")
-			icon.name: "system-search-symbolic"
-			visible: isSearchActionShown
-			checkable: Kirigami.Settings.isMobile
-			displayComponent: Kirigami.Settings.isMobile ? null : desktopSearchBarComponent
-			onTriggered: {
-				if (Kirigami.Settings.isMobile) {
-					toggleSearchBar()
-				} else {
-					searchField.activeFocusForced()
-				}
+	actions: Kirigami.Action {
+		text: qsTr("Search")
+		icon.name: "system-search-symbolic"
+		visible: isSearchActionShown
+		checkable: Kirigami.Settings.isMobile
+		displayComponent: Kirigami.Settings.isMobile ? null : desktopSearchBarComponent
+		onTriggered: {
+			if (Kirigami.Settings.isMobile) {
+				toggleSearchBar()
+			} else {
+				searchField.activeFocusForced()
 			}
 		}
 	}

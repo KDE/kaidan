@@ -21,7 +21,7 @@ import "elements"
 SearchBarPage {
 	id: root
 	listView: rosterListView
-	rightAction: Kirigami.Action {
+	actions: Kirigami.Action {
 		text: qsTr("Filter")
 		icon.name: "filter-symbolic"
 		displayHint: Kirigami.DisplayHint.IconOnly
