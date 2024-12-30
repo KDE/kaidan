@@ -33,7 +33,7 @@ Item {
 		autoOrientation: true
 		filters: [filter]
 		layer.enabled: true
-		layer.effect: OpacityMask {
+		layer.effect: MultiEffect {
 			maskSource: ShaderEffectSource {
 				sourceItem: Rectangle {
 					radius: cameraStatusArea.radius

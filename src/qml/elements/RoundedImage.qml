@@ -16,7 +16,7 @@ Kirigami.Icon {
 	property real radius: relativeRoundedCornersRadius(width, height)
 
 	layer.enabled: true
-	layer.effect: OpacityMask {
+	layer.effect: MultiEffect {
 		maskSource: ShaderEffectSource {
 			sourceItem: Item {
 				width: root.paintedWidth
