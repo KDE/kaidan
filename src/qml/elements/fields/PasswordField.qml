@@ -23,7 +23,7 @@ CredentialsField {
 		echoMode: showPassword ? TextInput.Normal : TextInput.Password
 		rightActions: [
 			Kirigami.Action {
-				iconName: showPassword ? "password-show-on" : "password-show-off"
+				icon.name: showPassword ? "password-show-on" : "password-show-off"
 				onTriggered: showPassword = !showPassword
 			}
 		]
