@@ -43,22 +43,22 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "Tämä laite"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "Laitteet"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "Käyttäjät"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:329
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "Palvelimet"
 
-#: src/Blocking.cpp:332
+#: src/Blocking.cpp:331
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "Palvelinten laitteet"
@@ -167,7 +167,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Vapaana juttelemaan"
 
-#: src/FileSharingController.cpp:376
+#: src/FileSharingController.cpp:375
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -373,7 +373,7 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr ""
 
-#: src/MessageController.cpp:235
+#: src/MessageController.cpp:234
 #, fuzzy, qt-format
 #| msgctxt "MessageModel|"
 #| msgid "Reaction could not be sent: %1"
@@ -381,7 +381,7 @@ msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reaktiota ei voitu lähettää: %1"
 
-#: src/MessageController.cpp:363
+#: src/MessageController.cpp:362
 #, fuzzy
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -389,7 +389,7 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Viestiä ei voitu lähettää."
 
-#: src/MessageController.cpp:727
+#: src/MessageController.cpp:726
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "This message is encrypted with %1 but could not be decrypted"
@@ -439,7 +439,7 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: src/MixController.cpp:117
+#: src/MixController.cpp:114
 #, fuzzy
 #| msgctxt "ContactAdditionContent|"
 #| msgid "Contact already exists"
@@ -447,7 +447,7 @@ msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "Yhteystieto on jo olemassa"
 
-#: src/MixController.cpp:144
+#: src/MixController.cpp:141
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -455,13 +455,13 @@ msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:164
+#: src/MixController.cpp:161
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr ""
 
-#: src/MixController.cpp:177 src/MixController.cpp:185
+#: src/MixController.cpp:174 src/MixController.cpp:182
 #, fuzzy, qt-format
 #| msgctxt "main|"
 #| msgid "Could not unblock %1: %2"
@@ -469,17 +469,17 @@ msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "Estoa ei voitu purkaa: %1: %2"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:209
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr ""
 
-#: src/MixController.cpp:215
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr ""
 
-#: src/MixController.cpp:281 src/MixController.cpp:294
+#: src/MixController.cpp:278 src/MixController.cpp:291
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -487,7 +487,7 @@ msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:326
+#: src/MixController.cpp:323
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -495,7 +495,7 @@ msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:341
+#: src/MixController.cpp:338
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -503,7 +503,7 @@ msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:361
+#: src/MixController.cpp:358
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -511,7 +511,7 @@ msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:381
+#: src/MixController.cpp:378
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -519,7 +519,7 @@ msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:399
+#: src/MixController.cpp:396
 #, fuzzy, qt-format
 #| msgctxt "MessageReactionDetailsSheet|"
 #| msgid "%1 could not be added"
@@ -527,22 +527,22 @@ msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "Ei voitu lisätä: %1"
 
-#: src/MixController.cpp:463
+#: src/MixController.cpp:460
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr ""
 
-#: src/Notifications.cpp:155 src/Notifications.cpp:234
+#: src/Notifications.cpp:154 src/Notifications.cpp:233
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "Avaa"
 
-#: src/Notifications.cpp:159
+#: src/Notifications.cpp:158
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "Merkitse luetuksi"
 
-#: src/Notifications.cpp:220
+#: src/Notifications.cpp:219
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "Pyynnöt vastaanottaa henkilökohtaisia tietojasi"
@@ -555,37 +555,37 @@ msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "Päästä päähän salausta OMEMO 2:lla ei saatu asetetuksi"
 
-#: src/PresenceCache.cpp:39
+#: src/PresenceCache.cpp:38
 msgctxt "QObject|"
 msgid "Available"
 msgstr "Käytettävissä"
 
-#: src/PresenceCache.cpp:41
+#: src/PresenceCache.cpp:40
 msgctxt "QObject|"
 msgid "Free for chat"
 msgstr "Vapaana juttelemaan"
 
-#: src/PresenceCache.cpp:43
+#: src/PresenceCache.cpp:42
 msgctxt "QObject|"
 msgid "Away"
 msgstr "Poissa"
 
-#: src/PresenceCache.cpp:45
+#: src/PresenceCache.cpp:44
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "Älä häiritse"
 
-#: src/PresenceCache.cpp:47
+#: src/PresenceCache.cpp:46
 msgctxt "QObject|"
 msgid "Away for longer"
 msgstr "Pidempään poissa"
 
-#: src/PresenceCache.cpp:49
+#: src/PresenceCache.cpp:48
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "Ei verkossa"
 
-#: src/ProviderListModel.cpp:31
+#: src/ProviderListModel.cpp:30
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "Oma palveluntarjoaja"
@@ -593,12 +593,12 @@ msgstr "Oma palveluntarjoaja"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
+#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "Ei rajoitettu"
 
-#: src/ProviderListModel.cpp:112
+#: src/ProviderListModel.cpp:111
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -4124,7 +4124,7 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Yhteystiedon nimeä ei voitu muuttaa, koska yhteyttä ei ole."
 
-#: src/RosterManager.cpp:231
+#: src/RosterManager.cpp:232
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -4151,32 +4151,32 @@ msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: src/VCardModel.cpp:118
+#: src/VCardModel.cpp:117
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Nimi"
 
-#: src/VCardModel.cpp:119
+#: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Kutsumanimi"
 
-#: src/VCardModel.cpp:120
+#: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Tietoa"
 
-#: src/VCardModel.cpp:121
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "Sähköposti"
 
-#: src/VCardModel.cpp:122
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "Syntymäpäivä"
 
-#: src/VCardModel.cpp:129
+#: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Sivusto"

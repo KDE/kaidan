@@ -41,22 +41,22 @@ msgctxt "AuthenticatedEncryptionKeyModel|"
 msgid "This device"
 msgstr "此设备"
 
-#: src/Blocking.cpp:326
+#: src/Blocking.cpp:325
 msgctxt "BlockingModel|"
 msgid "Devices"
 msgstr "设备"
 
-#: src/Blocking.cpp:328
+#: src/Blocking.cpp:327
 msgctxt "BlockingModel|"
 msgid "Users"
 msgstr "用户"
 
-#: src/Blocking.cpp:330
+#: src/Blocking.cpp:329
 msgctxt "BlockingModel|"
 msgid "Servers"
 msgstr "服务器"
 
-#: src/Blocking.cpp:332
+#: src/Blocking.cpp:331
 msgctxt "BlockingModel|"
 msgid "Devices on Servers"
 msgstr "服务器上的设备"
@@ -145,7 +145,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
-#: src/FileSharingController.cpp:376
+#: src/FileSharingController.cpp:375
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -345,18 +345,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:235
+#: src/MessageController.cpp:234
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageController.cpp:363
+#: src/MessageController.cpp:362
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:727
+#: src/MessageController.cpp:726
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -404,91 +404,91 @@ msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/MixController.cpp:117
+#: src/MixController.cpp:114
 msgctxt "MixController|"
 msgid "The group already exists"
 msgstr "此群聊已存在"
 
-#: src/MixController.cpp:144
+#: src/MixController.cpp:141
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
 msgstr "无法确定 %1 是否为公开：%2"
 
-#: src/MixController.cpp:164
+#: src/MixController.cpp:161
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not retrieve information of group %1: %2"
 msgstr "无法检索群聊 %1 的信息：%2"
 
-#: src/MixController.cpp:177 src/MixController.cpp:185
+#: src/MixController.cpp:174 src/MixController.cpp:182
 #, qt-format
 msgctxt "MixController|"
 msgid "Could not rename group %1: %2"
 msgstr "无法重命名群聊 %1：%2"
 
-#: src/MixController.cpp:212
+#: src/MixController.cpp:209
 msgctxt "MixController|"
 msgid "The group does not exist"
 msgstr "此群聊不存在"
 
-#: src/MixController.cpp:215
+#: src/MixController.cpp:212
 msgctxt "MixController|"
 msgid "You aren't allowed to join the group"
 msgstr "不允许您加入此群聊"
 
-#: src/MixController.cpp:281 src/MixController.cpp:294
+#: src/MixController.cpp:278 src/MixController.cpp:291
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be invited to %2: %3"
 msgstr "无法邀请 %1 加入 %2：%3"
 
-#: src/MixController.cpp:326
+#: src/MixController.cpp:323
 #, qt-format
 msgctxt "MixController|"
 msgid "Nodes of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的节点：%2"
 
-#: src/MixController.cpp:341
+#: src/MixController.cpp:338
 #, qt-format
 msgctxt "MixController|"
 msgid "Allowed users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的允许用户：%2"
 
-#: src/MixController.cpp:361
+#: src/MixController.cpp:358
 #, qt-format
 msgctxt "MixController|"
 msgid "Banned users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已封禁用户：%2"
 
-#: src/MixController.cpp:381
+#: src/MixController.cpp:378
 #, qt-format
 msgctxt "MixController|"
 msgid "Joined users of %1 could not be retrieved: %2"
 msgstr "无法检索 %1 的已加入用户：%2"
 
-#: src/MixController.cpp:399
+#: src/MixController.cpp:396
 #, qt-format
 msgctxt "MixController|"
 msgid "%1 could not be banned from %2: %3"
 msgstr "无法从 %2 中封禁 %1：%3"
 
-#: src/MixController.cpp:463
+#: src/MixController.cpp:460
 msgctxt "MixController|"
 msgid "You aren't allowed to delete the group"
 msgstr "不允许您删除此群聊"
 
-#: src/Notifications.cpp:155 src/Notifications.cpp:234
+#: src/Notifications.cpp:154 src/Notifications.cpp:233
 msgctxt "Notifications|"
 msgid "Open"
 msgstr "打开"
 
-#: src/Notifications.cpp:159
+#: src/Notifications.cpp:158
 msgctxt "Notifications|"
 msgid "Mark as read"
 msgstr "标记为已读"
 
-#: src/Notifications.cpp:220
+#: src/Notifications.cpp:219
 msgctxt "Notifications|"
 msgid "Requests to receive your personal data"
 msgstr "请求接收您的个人数据"
@@ -498,37 +498,37 @@ msgctxt "OmemoController|"
 msgid "End-to-end encryption via OMEMO 2 could not be set up"
 msgstr "无法通过 OMEMO 2 设置端到端加密"
 
-#: src/PresenceCache.cpp:39
+#: src/PresenceCache.cpp:38
 msgctxt "QObject|"
 msgid "Available"
 msgstr "在线"
 
-#: src/PresenceCache.cpp:41
+#: src/PresenceCache.cpp:40
 msgctxt "QObject|"
 msgid "Free for chat"
 msgstr "有空聊天"
 
-#: src/PresenceCache.cpp:43
+#: src/PresenceCache.cpp:42
 msgctxt "QObject|"
 msgid "Away"
 msgstr "离开"
 
-#: src/PresenceCache.cpp:45
+#: src/PresenceCache.cpp:44
 msgctxt "QObject|"
 msgid "Do not disturb"
 msgstr "请勿打扰"
 
-#: src/PresenceCache.cpp:47
+#: src/PresenceCache.cpp:46
 msgctxt "QObject|"
 msgid "Away for longer"
 msgstr "离开很久"
 
-#: src/PresenceCache.cpp:49
+#: src/PresenceCache.cpp:48
 msgctxt "QObject|"
 msgid "Offline"
 msgstr "离线"
 
-#: src/ProviderListModel.cpp:31
+#: src/ProviderListModel.cpp:30
 msgctxt "ProviderListModel|"
 msgid "Custom provider"
 msgstr "自定义提供者"
@@ -536,12 +536,12 @@ msgstr "自定义提供者"
 #. Unlimited file size for uploading
 #. ----------
 #. Deletion of message history stored on provider
-#: src/ProviderListModel.cpp:100 src/ProviderListModel.cpp:110
+#: src/ProviderListModel.cpp:99 src/ProviderListModel.cpp:109
 msgctxt "ProviderListModel|"
 msgid "Unlimited"
 msgstr "无限制"
 
-#: src/ProviderListModel.cpp:112
+#: src/ProviderListModel.cpp:111
 #, qt-format
 msgctxt "ProviderListModel|"
 msgid "%1 days"
@@ -3292,7 +3292,7 @@ msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:231
+#: src/RosterManager.cpp:232
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3317,32 +3317,32 @@ msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "昨天"
 
-#: src/VCardModel.cpp:118
+#: src/VCardModel.cpp:117
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "名称"
 
-#: src/VCardModel.cpp:119
+#: src/VCardModel.cpp:118
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "昵称"
 
-#: src/VCardModel.cpp:120
+#: src/VCardModel.cpp:119
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "关于"
 
-#: src/VCardModel.cpp:121
+#: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "Email"
 msgstr "电子邮件"
 
-#: src/VCardModel.cpp:122
+#: src/VCardModel.cpp:121
 msgctxt "VCardModel|"
 msgid "Birthday"
 msgstr "生日"
 
-#: src/VCardModel.cpp:129
+#: src/VCardModel.cpp:128
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
