@@ -12,7 +12,6 @@
 #include "Message.h"
 
 class FileSelectionModel;
-class QFileDialog;
 template<typename T>
 class QFutureWatcher;
 

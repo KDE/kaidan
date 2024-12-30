@@ -19,7 +19,6 @@
 #include "RosterItem.h"
 
 class Kaidan;
-class MessageModel;
 struct Message;
 enum class MessageOrigin : quint8;
 

@@ -13,7 +13,6 @@
 #include <QUuid>
 
 class KNotification;
-class QDateTime;
 class QString;
 
 class Notifications : public QObject

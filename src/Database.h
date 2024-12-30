@@ -16,7 +16,6 @@
 
 class QSqlQuery;
 class QSqlDatabase;
-class QThreadPool;
 struct DatabasePrivate;
 
 /**

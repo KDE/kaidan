@@ -13,7 +13,6 @@
 struct File;
 struct Message;
 class QXmppFileSharingManager;
-class QXmppHttpFileSharingProvider;
 class QXmppClient;
 
 class FileSharingController : public QObject

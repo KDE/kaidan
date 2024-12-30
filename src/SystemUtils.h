@@ -7,8 +7,6 @@
 // Qt
 #include <QString>
 
-class QUrl;
-
 namespace SystemUtils
 {
 

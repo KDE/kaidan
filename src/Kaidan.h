@@ -19,7 +19,6 @@
 #include "AccountMigrationManager.h"
 #include "ClientWorker.h"
 
-class QSize;
 class AccountDb;
 class BlockingController;
 class ChatController;

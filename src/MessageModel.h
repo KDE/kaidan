@@ -15,7 +15,6 @@
 // Kaidan
 #include "Message.h"
 
-class QTimer;
 class Kaidan;
 
 struct DisplayedMessageReaction {

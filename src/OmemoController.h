@@ -12,10 +12,6 @@
 
 #include "EncryptionController.h"
 
-class Database;
-class QXmppClient;
-class QXmppOmemoManager;
-
 class OmemoController : public QObject
 {
     Q_OBJECT

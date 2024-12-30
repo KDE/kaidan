@@ -14,10 +14,7 @@
 // Kaidan
 #include "Message.h"
 
-class ClientWorker;
-class QXmppMamManager;
 class QXmppMessage;
-class QXmppResultSetReply;
 
 class MessageController : public QObject
 {

@@ -34,8 +34,6 @@ public:
 Q_DECLARE_METATYPE(ChatHintButton)
 Q_DECLARE_METATYPE(ChatHintButton::Type)
 
-class MessageModel;
-
 class ChatHintModel : public QAbstractListModel
 {
     Q_OBJECT

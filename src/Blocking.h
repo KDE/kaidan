@@ -11,7 +11,6 @@
 // Kaidan
 #include "DatabaseComponent.h"
 
-class ClientWorker;
 class BlockingModel;
 class BlockingWatcher;
 

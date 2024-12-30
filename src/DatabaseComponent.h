@@ -10,7 +10,6 @@
 #include "FutureUtils.h"
 #include "SqlUtils.h"
 
-class QThreadPool;
 class QSqlQuery;
 class QSqlDriver;
 class QSqlRecord;
