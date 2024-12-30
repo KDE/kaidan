@@ -21,7 +21,7 @@ Item {
 
 	property bool cameraEnabled: false
 	property alias camera: reloadingCameraTimer.object
-	property alias filter: filter
+	// property alias filter: filter
 	property alias zoomSlider: zoomSlider
 	property bool cornersRounded: true
 
@@ -29,9 +29,7 @@ Item {
 	VideoOutput {
 		id: videoOutput
 		fillMode: VideoOutput.PreserveAspectCrop
-		source: root.camera
-		autoOrientation: true
-		filters: [filter]
+		// filters: [filter]
 		layer.enabled: true
 		layer.effect: MultiEffect {
 			maskSource: ShaderEffectSource {
@@ -59,29 +57,30 @@ Item {
 		anchors.fill: parent
 	}
 
-	// filter which converts the video frames to images and decodes a containing QR code
-	QrCodeScannerFilter {
-		id: filter
+	// // filter which converts the video frames to images and decodes a containing QR code
+	// QrCodeScannerFilter {
+	// 	id: filter
 
-		onUnsupportedFormatReceived: {
-			popLayer()
-			passiveNotification(qsTr("The camera format '%1' is not supported.").arg(format))
-		}
-	}
+	// 	onUnsupportedFormatReceived: {
+	// 		popLayer()
+	// 		passiveNotification(qsTr("The camera format '%1' is not supported.").arg(format))
+	// 	}
+	// }
 
 	RecreationTimer {
 		id: reloadingCameraTimer
 		objectComponent: Camera {
 			// Show camera input if this page is visible and the camera enabled.
-			cameraState: {
-				if (root.visible && root.cameraEnabled) {
-					return Camera.ActiveState
-				}
+			// cameraState: {
+			// 	if (root.visible && root.cameraEnabled) {
+			// 		return Camera.ActiveState
+			// 	}
 
-				return Camera.LoadedState
-			}
-			digitalZoom: zoomSlider.value
-			onError: reloadingCameraTimer.start()
+			// 	return Camera.LoadedState
+			// }
+			active: root.visible && root.cameraEnabled
+			zoomFactor: zoomSlider.value
+			onErrorOccurred: reloadingCameraTimer.start()
 			Component.onCompleted: {
 				if (availability !== Camera.Available) {
 					reloadingCameraTimer.start()
@@ -96,7 +95,7 @@ Item {
 					focus.focusPointMode = Camera.FocusPointCenter
 				}
 
-				filter.setCameraDefaultVideoFormat(this)
+				// filter.setCameraDefaultVideoFormat(this)
 			}
 		}
 	}

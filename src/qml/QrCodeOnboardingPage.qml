@@ -81,27 +81,27 @@ ExplanationTogglePage {
 		anchors.fill: parent
 		zoomSlider.anchors.bottomMargin: Kirigami.Units.largeSpacing * 10
 		zoomSlider.width: Math.min(largeButtonWidth, parent.width - Kirigami.Units.largeSpacing * 4)
-		filter.onScanningSucceeded: {
-			if (acceptResult) {
-				// Try to log in by the data from the decoded QR code.
-				switch (Kaidan.logInByUri(result)) {
-				case Enums.Connecting:
-					acceptResult = false
-					break
-				case Enums.PasswordNeeded:
-					root.primaryButton.clicked()
-					acceptResult = false
-					loginFormCard.visible = true
-					loginArea.initialize()
-					break
-				case Enums.InvalidLoginUri:
-					acceptResult = false
-					resetAcceptResultTimer.start()
-					showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
-					break
-				}
-			}
-		}
+		// filter.onScanningSucceeded: {
+		// 	if (acceptResult) {
+		// 		// Try to log in by the data from the decoded QR code.
+		// 		switch (Kaidan.logInByUri(result)) {
+		// 		case Enums.Connecting:
+		// 			acceptResult = false
+		// 			break
+		// 		case Enums.PasswordNeeded:
+		// 			root.primaryButton.clicked()
+		// 			acceptResult = false
+		// 			loginFormCard.visible = true
+		// 			loginArea.initialize()
+		// 			break
+		// 		case Enums.InvalidLoginUri:
+		// 			acceptResult = false
+		// 			resetAcceptResultTimer.start()
+		// 			showPassiveNotification(qsTr("This QR code is not a valid login QR code."), Kirigami.Units.veryLongDuration * 4)
+		// 			break
+		// 		}
+		// 	}
+		// }
 
 		LoadingArea {
 			description: qsTr("Connecting…")
