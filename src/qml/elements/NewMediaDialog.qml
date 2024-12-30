@@ -42,9 +42,7 @@ Dialog {
 		anchors.fill: parent
 
 		VideoOutput {
-			source: camera
 			fillMode: VideoOutput.PreserveAspectCrop
-			autoOrientation: true
 			focus: visible // to receive focus and capture key events when visible
 			anchors.fill: parent
 		}
@@ -81,8 +79,8 @@ Dialog {
 	RecreationTimer {
 		id: reloadingCameraTimer
 		objectComponent: Camera {
-			digitalZoom: zoomSlider.value
-			onError: reloadingCameraTimer.start()
+			zoomFactor: zoomSlider.value
+			onErrorOccurred: reloadingCameraTimer.start()
 			Component.onCompleted: {
 				if (availability !== Camera.Available) {
 					reloadingCameraTimer.start()
