@@ -9,9 +9,8 @@ import QtQuick
 import QtQuick.Controls as Controls
 import QtQuick.Dialogs as Dialogs
 import QtQuick.Layouts
-
 import org.kde.kirigami as Kirigami
-import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
+// import org.kde.kquickimageeditor as KQuickImageEditor
 
 import im.kaidan.kaidan
 
@@ -58,50 +57,50 @@ Kirigami.Page {
 		spacing: 0
 		anchors.fill: parent
 
-		KQuickImageEditor.ImageItem {
-			id: editImage
+		// KQuickImageEditor.ImageItem {
+		// 	id: editImage
 
-			Layout.fillWidth: true
-			Layout.fillHeight: true
+		// 	Layout.fillWidth: true
+		// 	Layout.fillHeight: true
 
-			Layout.margins: 25
+		// 	Layout.margins: 25
 
-			readonly property real ratioX: editImage.paintedWidth / editImage.nativeWidth;
-			readonly property real ratioY: editImage.paintedHeight / editImage.nativeHeight;
+		// 	readonly property real ratioX: editImage.paintedWidth / editImage.nativeWidth;
+		// 	readonly property real ratioY: editImage.paintedHeight / editImage.nativeHeight;
 
-			// Assigning this to the contentItem and setting the padding causes weird positioning issues
+		// 	// Assigning this to the contentItem and setting the padding causes weird positioning issues
 
-			fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
-			image: imageDoc.image
+		// 	fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
+		// 	image: imageDoc.image
 
-			KQuickImageEditor.ImageDocument {
-				id: imageDoc
-				path: root.imagePath
-			}
+		// 	KQuickImageEditor.ImageDocument {
+		// 		id: imageDoc
+		// 		path: root.imagePath
+		// 	}
 
-			KQuickImageEditor.SelectionTool {
-				id: selectionTool
-				width: editImage.paintedWidth
-				height: editImage.paintedHeight
-				x: editImage.horizontalPadding
-				y: editImage.verticalPadding
+		// 	KQuickImageEditor.SelectionTool {
+		// 		id: selectionTool
+		// 		width: editImage.paintedWidth
+		// 		height: editImage.paintedHeight
+		// 		x: editImage.horizontalPadding
+		// 		y: editImage.verticalPadding
 
-				KQuickImageEditor.CropBackground {
-					anchors.fill: parent
-					z: -1
-					insideX: selectionTool.selectionX
-					insideY: selectionTool.selectionY
-					insideWidth: selectionTool.selectionWidth
-					insideHeight: selectionTool.selectionHeight
-				}
-			}
-			onImageChanged: {
-				selectionTool.selectionX = 0
-				selectionTool.selectionY = 0
-				selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
-				selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
-			}
-		}
+		// 		KQuickImageEditor.CropBackground {
+		// 			anchors.fill: parent
+		// 			z: -1
+		// 			insideX: selectionTool.selectionX
+		// 			insideY: selectionTool.selectionY
+		// 			insideWidth: selectionTool.selectionWidth
+		// 			insideHeight: selectionTool.selectionHeight
+		// 		}
+		// 	}
+		// 	onImageChanged: {
+		// 		selectionTool.selectionX = 0
+		// 		selectionTool.selectionY = 0
+		// 		selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
+		// 		selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+		// 	}
+		// }
 
 		ColumnLayout {
 			Layout.fillWidth: true
