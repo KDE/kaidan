@@ -64,12 +64,15 @@ ExtendedMessageContent {
 			Layout.minimumWidth: contentWidth
 		},
 
-		Multimedia.Audio {
+		Multimedia.MediaPlayer {
 			id: player
-			audioRole: Multimedia.Audio.MusicRole
 			source: root.file.localFileUrl
-			notifyInterval: 1
-			onStopped: seek(0)
+			audioOutput: Multimedia.AudioOutput {}
+			onPlaybackStateChanged: {
+				if (playbackState === Multimedia.MediaPlayer.StoppedState) {
+					position = 0
+				}
+			}
 		}
 	]
 
