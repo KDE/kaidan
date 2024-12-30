@@ -20,7 +20,8 @@ FormCard.FormCard {
 	property alias busy: button.busy
 
 	Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-	contentItem: BusyIndicatorFormButton {
+
+	BusyIndicatorFormButton {
 		id: button
 		idleText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
 		busyText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")

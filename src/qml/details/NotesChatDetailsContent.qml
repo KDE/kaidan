@@ -20,12 +20,10 @@ RosterItemDetailsContent {
 		accountJid: ChatController.accountJid
 		chatJid: ChatController.accountJid
 	}
-	encryptionArea: ColumnLayout {
-		spacing: 0
-
+	encryptionArea.delegates: [
 		FormCard.FormHeader {
 			title: qsTr("Encryption")
-		}
+		},
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
@@ -35,14 +33,14 @@ RosterItemDetailsContent {
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
 			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
-		}
+		},
 
 		AccountKeyAuthenticationButton {
 			jid: ChatController.accountJid
 			encryptionWatcher: ChatController.accountEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(notesChatDetailsKeyAuthenticationPage)
 		}
-	}
+	]
 	sharingArea.visible: false
 
 	FormCard.FormCard {

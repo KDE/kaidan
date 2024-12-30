@@ -33,7 +33,8 @@ FormCard.FormCard {
 	FormCard.FormCard {
 		Layout.fillWidth: true
 		Kirigami.Theme.colorSet: Kirigami.Theme.Window
-		contentItem: FormCard.AbstractFormDelegate {
+
+		FormCard.AbstractFormDelegate {
 			background: null
 			contentItem: ColumnLayout {
 				DataForm {

@@ -42,7 +42,8 @@ RosterItemDetailsContent {
 				header: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: FormCard.AbstractFormDelegate {
+
+					FormCard.AbstractFormDelegate {
 						background: null
 						contentItem: RowLayout {
 							spacing: Kirigami.Units.largeSpacing * 2
@@ -160,7 +161,8 @@ RosterItemDetailsContent {
 				header: FormCard.FormCard {
 					width: ListView.view.width
 					Kirigami.Theme.colorSet: Kirigami.Theme.Window
-					contentItem: FormCard.AbstractFormDelegate {
+
+					FormCard.AbstractFormDelegate {
 						background: null
 						contentItem: RowLayout {
 							Controls.Label {
@@ -220,10 +222,10 @@ RosterItemDetailsContent {
 		accountJid: ChatController.accountJid
 		chatJid: ChatController.chatJid
 	}
-	encryptionArea {
+	encryptionArea.delegates: [
 		FormCard.FormHeader {
 			title: qsTr("Encryption")
-		}
+		},
 
 		FormCard.FormSwitchDelegate {
 			text: qsTr("OMEMO 2")
@@ -233,19 +235,19 @@ RosterItemDetailsContent {
 			// The switch is toggled by setting the user's preference on using encryption.
 			// Note that 'checked' has already the value after the button is clicked.
 			onClicked: ChatController.encryption = checked ? Encryption.Omemo2 : Encryption.NoEncryption
-		}
+		},
 
 		AccountKeyAuthenticationButton {
 			jid: ChatController.accountJid
 			encryptionWatcher: ChatController.accountEncryptionWatcher
 			onClicked: root.openKeyAuthenticationPage(groupChatDetailsAccountKeyAuthenticationPage)
-		}
+		},
 
 		GroupChatUserKeyAuthenticationButton {
 			id: keyAuthenticationButton
 			encryptionWatcher: ChatController.chatEncryptionWatcher
 			checkable: true
-		}
+		},
 
 		ListView {
 			id: keyAuthenticationUserListView
@@ -261,7 +263,8 @@ RosterItemDetailsContent {
 			header: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: FormCard.AbstractFormDelegate {
+
+				FormCard.AbstractFormDelegate {
 					background: null
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3
@@ -294,7 +297,7 @@ RosterItemDetailsContent {
 				onClicked: root.openKeyAuthenticationPage(groupChatDetailsKeyAuthenticationPage).jid = jid
 			}
 		}
-	}
+	]
 	qrCodeExpansionButton.description: qsTr("Share this group's chat address via QR code")
 	qrCode: GroupChatQrCode {
 		jid: ChatController.chatJid

@@ -50,8 +50,7 @@ DetailsContent {
 	vCardArea {
 		visible: true
 		enabled: accountRemovalArea.enabled
-
-		FormExpansionButton {
+		delegates: FormExpansionButton {
 			checked: vCardRepeater.model.unsetEntriesProcessed
 			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
 		}
@@ -129,43 +128,43 @@ DetailsContent {
 			}
 		}
 	}
-	encryptionArea: ColumnLayout {
-		spacing: 0
+	encryptionArea {
+		delegates: [
+			FormCard.FormHeader {
+				title: qsTr("Encryption")
+			},
+
+			FormCard.FormSwitchDelegate {
+				text: qsTr("OMEMO 2")
+				description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
+				checked: Kaidan.settings.encryption === Encryption.Omemo2
+				// The switch is toggled by setting the user's preference on using encryption.
+				// Note that 'checked' has already the value after the button is clicked.
+				onClicked: {
+					if (checked) {
+						Kaidan.settings.encryption = Encryption.Omemo2
+						RosterModel.setItemEncryption(root.jid, Encryption.Omemo2)
+					} else {
+						Kaidan.settings.encryption = Encryption.NoEncryption
+						RosterModel.setItemEncryption(root.jid, Encryption.NoEncryption)
+					}
+				}
+			},
+
+			AccountKeyAuthenticationButton {
+				jid: root.jid
+				encryptionWatcher: EncryptionWatcher {
+					accountJid: root.jid
+					jids: [root.jid]
+				}
+				onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage).accountJid = root.jid
+			}
+		]
 		Component.onCompleted: {
 			// Retrieve the own devices if they are not loaded yet.
 			if (ChatController.accountJid !== root.jid) {
 				EncryptionController.initializeAccountFromQml(root.jid)
 			}
-		}
-
-		FormCard.FormHeader {
-			title: qsTr("Encryption")
-		}
-
-		FormCard.FormSwitchDelegate {
-			text: qsTr("OMEMO 2")
-			description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-			checked: Kaidan.settings.encryption === Encryption.Omemo2
-			// The switch is toggled by setting the user's preference on using encryption.
-			// Note that 'checked' has already the value after the button is clicked.
-			onClicked: {
-				if (checked) {
-					Kaidan.settings.encryption = Encryption.Omemo2
-					RosterModel.setItemEncryption(root.jid, Encryption.Omemo2)
-				} else {
-					Kaidan.settings.encryption = Encryption.NoEncryption
-					RosterModel.setItemEncryption(root.jid, Encryption.NoEncryption)
-				}
-			}
-		}
-
-		AccountKeyAuthenticationButton {
-			jid: root.jid
-			encryptionWatcher: EncryptionWatcher {
-				accountJid: root.jid
-				jids: [root.jid]
-			}
-			onClicked: root.openKeyAuthenticationPage(accountDetailsKeyAuthenticationPage).accountJid = root.jid
 		}
 	}
 	rosterGoupListView {
@@ -426,7 +425,8 @@ DetailsContent {
 			delegate: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: FormCard.AbstractFormDelegate {
+
+				FormCard.AbstractFormDelegate {
 					background: null
 					horizontalPadding: 0
 					verticalPadding: 0
@@ -470,7 +470,8 @@ DetailsContent {
 			delegate: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: FormCard.AbstractFormDelegate {
+
+				FormCard.AbstractFormDelegate {
 					background: null
 					horizontalPadding: 0
 					verticalPadding: 0
@@ -506,7 +507,8 @@ DetailsContent {
 			header: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: FormCard.AbstractFormDelegate {
+
+				FormCard.AbstractFormDelegate {
 					background: null
 					contentItem: RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 3

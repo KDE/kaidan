@@ -55,7 +55,8 @@ ExplanationOptionsTogglePage {
 			listView.header: FormCard.FormCard {
 				width: ListView.view.width
 				Kirigami.Theme.colorSet: Kirigami.Theme.Window
-				contentItem: FormCard.AbstractFormDelegate {
+
+				FormCard.AbstractFormDelegate {
 					background: null
 					contentItem:RowLayout {
 						spacing: Kirigami.Units.largeSpacing * 2

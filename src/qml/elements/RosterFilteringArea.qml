@@ -46,7 +46,8 @@ ColumnLayout {
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: FormCard.FormSwitchDelegate {
+
+			FormCard.FormSwitchDelegate {
 				id: typeFilteringSwitch
 				text: qsTr("Filter by type")
 				description: qsTr("Show only entries of specific types")
@@ -108,7 +109,8 @@ ColumnLayout {
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: FormCard.FormSwitchDelegate {
+
+			FormCard.FormSwitchDelegate {
 				id: accountFilteringSwitch
 				text: qsTr("Filter by accounts")
 				description: qsTr("Show only chats of selected accounts")
@@ -184,7 +186,8 @@ ColumnLayout {
 		header: FormCard.FormCard {
 			width: ListView.view.width
 			Kirigami.Theme.colorSet: Kirigami.Theme.Window
-			contentItem: FormCard.FormSwitchDelegate {
+
+			FormCard.FormSwitchDelegate {
 				id: groupFilteringSwitch
 				text: qsTr("Filter by labels")
 				description: qsTr("Show only chats with selected labels")

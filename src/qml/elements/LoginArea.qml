@@ -61,7 +61,8 @@ FormCard.FormCard {
 				Layout.bottomMargin: Kirigami.Units.largeSpacing
 				Layout.fillWidth: true
 				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-				contentItem: BusyIndicatorFormButton {
+
+				BusyIndicatorFormButton {
 					id: loginButton
 					idleText: qsTr("Log in")
 					busyText: qsTr("Connecting…")

@@ -45,7 +45,8 @@ RegistrationPage {
 		delegate: FormCard.FormCard {
 			id: providerDelegate
 			width: ListView.view.width
-			contentItem: Column {
+
+			Column {
 				spacing: 0
 
 				FormCard.FormTextDelegate {
@@ -205,7 +206,8 @@ RegistrationPage {
 							Layout.rightMargin: Layout.topMargin
 							Layout.fillWidth: true
 							Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-							contentItem: BusyIndicatorFormButton {
+
+							BusyIndicatorFormButton {
 								id: choiceButton
 								idleText: qsTr("Choose")
 								busyText: qsTr("Requesting registration…")
