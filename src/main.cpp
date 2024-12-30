@@ -440,9 +440,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qmlRegisterType<UserPresenceWatcher>(APPLICATION_ID, 1, 0, "UserPresenceWatcher");
     qmlRegisterType<UserResourcesWatcher>(APPLICATION_ID, 1, 0, "UserResourcesWatcher");
     qmlRegisterType<RosterItemWatcher>(APPLICATION_ID, 1, 0, "RosterItemWatcher");
-    qmlRegisterType<PublicGroupChatSearchManager>(APPLICATION_ID, 1, 0, "SearchManager");
-    qmlRegisterType<PublicGroupChatModel>(APPLICATION_ID, 1, 0, "Model");
-    qmlRegisterType<PublicGroupChatProxyModel>(APPLICATION_ID, 1, 0, "ProxyModel");
+    qmlRegisterType<PublicGroupChatSearchManager>(APPLICATION_ID, 1, 0, "PublicGroupChatSearchManager");
+    qmlRegisterType<PublicGroupChatModel>(APPLICATION_ID, 1, 0, "PublicGroupChatModel");
+    qmlRegisterType<PublicGroupChatProxyModel>(APPLICATION_ID, 1, 0, "PublicGroupChatProxyModel");
     qmlRegisterType<AuthenticatableEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatableEncryptionKeyModel");
     qmlRegisterType<AuthenticatedEncryptionKeyModel>(APPLICATION_ID, 1, 0, "AuthenticatedEncryptionKeyModel");
     qmlRegisterType<EncryptionWatcher>(APPLICATION_ID, 1, 0, "EncryptionWatcher");

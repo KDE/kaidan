@@ -33,13 +33,13 @@ Dialog {
 	ListView {
 		id: groupChatListView
 		clip: true
-		model: PublicGroupChats.ProxyModel {
+		model: PublicGroupChatProxyModel {
 			id: groupChatsProxy
 			filterCaseSensitivity: Qt.CaseInsensitive
-			filterRole: PublicGroupChats.Model.CustomRole.GlobalSearch
+			filterRole: PublicGroupChatModel.CustomRole.GlobalSearch
 			sortCaseSensitivity: Qt.CaseInsensitive
-			sortRole: PublicGroupChats.Model.CustomRole.Users
-			sourceModel: PublicGroupChats.Model {
+			sortRole: PublicGroupChatModel.CustomRole.Users
+			sourceModel: PublicGroupChatModel {
 				id: groupChatsModel
 				groupChats: groupChatsManager.cachedGroupChats
 			}
@@ -176,7 +176,7 @@ Dialog {
 		}
 	}
 
-	PublicGroupChats.SearchManager {
+	PublicGroupChatSearchManager {
 		id: groupChatsManager
 		onError: root.errorMessage = qsTr("The public groups could not be retrieved: %1").arg(error)
 	}
