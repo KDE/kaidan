@@ -129,7 +129,7 @@ if(NOT UBUNTU_TOUCH AND NOT ANDROID AND NOT IOS)
 endif()
 
 # Platform-specific
-if(Qt6Widgets_FOUND)
+if(TARGET Qt6::Widgets)
     add_definitions(-DHAVE_QWIDGETS -DQAPPLICATION_CLASS=QApplication)
     set(__Qt6Widgets_LIBRARIES Qt6::Widgets)
 else()
