@@ -62,9 +62,6 @@ Map {
 				stop()
 			}
 		}
-		onUpdateTimeout: {
-			console.log("***", "Position lookup timeout")
-		}
 	}
 
 	MapQuickItem {
