@@ -346,7 +346,7 @@ Controls.Control {
 
 				Multimedia.Video {
 					source: model.file.localFileUrl
-					autoPlay: true
+					// autoPlay: true
 					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
 					anchors.fill: parent
 					onPlaybackStateChanged: {
