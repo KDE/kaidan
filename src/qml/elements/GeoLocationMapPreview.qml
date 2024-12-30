@@ -10,7 +10,6 @@ GeoLocationMap {
 
 	property Item message
 
-	gesture.enabled: false
 	layer.enabled: true
 	layer.effect: MultiEffect {
 		maskSource: ShaderEffectSource {

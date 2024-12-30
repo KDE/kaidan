@@ -24,7 +24,6 @@ Dialog {
 	GeoLocationMap {
 		id: map
 		zoomLevelFactor: 0.2
-		gesture.flickDeceleration: 3000
 		anchors.fill: parent
 		onCenterChanged: {
 			if (!locationFollowingButton.checked) {
