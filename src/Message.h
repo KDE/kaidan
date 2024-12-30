@@ -20,7 +20,6 @@
 #include "Enums.h"
 
 class QGeoCoordinate;
-class QMimeType;
 
 using namespace Enums;
 
