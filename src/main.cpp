@@ -208,6 +208,26 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication::setApplicationVersion(QStringLiteral(VERSION_STRING));
     QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
 
+    // Set the default style for Qt Quick Controls.
+    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
+        const QString defaultStyle = QStringLiteral("Material");
+#else
+        const QString defaultStyle = QStringLiteral("org.kde.desktop");
+#endif
+        qDebug() << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
+        qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
+    }
+
+#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
+    QApplication::setStyle(QStringLiteral("breeze"));
+#endif
+
+    // Set the default icon theme.
+    if (QIcon::fallbackThemeName().isEmpty()) {
+        QIcon::setFallbackThemeName(QStringLiteral("breeze"));
+    }
+
     // create a qt app
 #if defined(Q_OS_IOS) || defined(Q_OS_ANDROID)
     QGuiApplication app(argc, argv);
@@ -386,28 +406,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     // QML-GUI
     //
 
-    if (QIcon::themeName().isEmpty()) {
-        QIcon::setThemeName(QStringLiteral("breeze"));
-    }
-
     QQmlApplicationEngine engine;
 
     engine.addImageProvider(QLatin1String(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), BitsOfBinaryImageProvider::instance());
-
-    // QtQuickControls2 Style
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
-#if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-        const QString defaultStyle = QStringLiteral("Material");
-#else
-        const QString defaultStyle = QStringLiteral("org.kde.desktop");
-#endif
-        qDebug() << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
-        qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
-    }
-
-#if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
-    QApplication::setStyle(QStringLiteral("breeze"));
-#endif
 
 #if __has_include("KCrash")
     KCrash::initialize();
