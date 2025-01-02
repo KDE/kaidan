@@ -12,7 +12,7 @@ import org.kde.kirigami as Kirigami
 Kirigami.Dialog {
 	id: root
 	footer: Item {}
-	preferredWidth: Kirigami.Units.gridUnit * 30
+	preferredWidth: largeButtonWidth
 	maximumHeight: applicationWindow().height - Kirigami.Units.gridUnit * 6
 	onClosed: destroy()
 }

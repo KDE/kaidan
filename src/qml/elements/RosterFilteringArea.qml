@@ -40,7 +40,7 @@ ColumnLayout {
 				value: RosterFilterProxyModel.Type.PublicGroupChat
 			}
 		]
-		implicitWidth: 570
+		implicitWidth: largeButtonWidth
 		implicitHeight: contentHeight
 		Layout.fillWidth: true
 		header: FormCard.FormCard {

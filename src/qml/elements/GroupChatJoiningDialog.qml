@@ -16,7 +16,6 @@ Dialog {
 
 	title: qsTr("Join group chat")
 	padding: Kirigami.Units.mediumSpacing
-	preferredWidth: largeButtonWidth
 	onOpened: content.groupChatJidField.forceActiveFocus()
 
 	GroupChatJoiningContent {
