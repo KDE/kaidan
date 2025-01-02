@@ -100,7 +100,7 @@ Controls.ItemDelegate {
 				readonly property string paddingText: messageReactionArea.visible ? "" : Utils.messageBubblePaddingCharacter.repeat(Math.ceil(background.metaInfo.width / background.dummy.implicitWidth))
 				readonly property alias backgroundColor: bubbleBackground.color
 
-				topPadding: root.bubblePadding
+				topPadding: 0
 				bottomPadding: root.bubblePadding
 				leftPadding: root.isOwn ? root.bubblePadding : root.bubblePadding + background.tailSize
 				rightPadding: root.isOwn ? root.bubblePadding + background.tailSize : root.bubblePadding
