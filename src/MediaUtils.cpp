@@ -6,6 +6,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MediaUtils.h"
+#include "kaidan_debug.h"
 
 // Qt
 #include <QBuffer>
@@ -602,7 +603,7 @@ QFuture<QByteArray> MediaUtils::generateThumbnail(const QUrl &localFileUrl, cons
     });
 
     QObject::connect(job, &KIO::PreviewJob::failed, [interface](const KFileItem &item) mutable {
-        qDebug() << "Could not generate a thumbnail for" << item.url();
+        qCDebug(KAIDAN_LOG) << "Could not generate a thumbnail for" << item.url();
         reportFinishedResult(interface, {});
     });
 

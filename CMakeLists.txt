@@ -25,6 +25,7 @@ include(ECMDeprecationSettings)
 include(ECMFindQmlModule)
 include(ECMInstallIcons)
 include(FeatureSummary)
+include(ECMQtDeclareLoggingCategory)
 kde_enable_exceptions()
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
@@ -255,5 +256,11 @@ add_custom_target(Others
 if(BUILD_TESTS)
     add_subdirectory(tests)
 endif()
+
+ecm_qt_install_logging_categories(
+     EXPORT KAIDAN
+     FILE kaidan.categories
+     DESTINATION ${KDE_INSTALL_LOGGINGCATEGORIESDIR}
+)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

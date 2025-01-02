@@ -102,6 +102,7 @@
 #include "VCardManager.h"
 #include "VCardModel.h"
 #include "VersionManager.h"
+#include "kaidan_debug.h"
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 
@@ -215,7 +216,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #else
         const QString defaultStyle = QStringLiteral("org.kde.desktop");
 #endif
-        qDebug() << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
+        qCDebug(KAIDAN_LOG) << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
         qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
     }
 
@@ -251,7 +252,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (!gstreamerPluginsPath.isEmpty()) {
         gstreamerPluginsPath = QDir::cleanPath(QString::fromLatin1("%1/../..%2").arg(executable.absolutePath(), gstreamerPluginsPath));
     }
-    qDebug() << "Looking for gstreamer in " << gstreamerPluginsPath;
+    qCDebug(KAIDAN_LOG) << "Looking for gstreamer in " << gstreamerPluginsPath;
 #else
     qFatal("Please provide the unified directory containing the gstreamer plugins and gst-plugin-scanner.");
 #endif
@@ -377,7 +378,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #if !defined(Q_OS_IOS) && !defined(Q_OS_ANDROID)
 #ifdef NDEBUG
     if (app.isSecondary()) {
-        qDebug() << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
+        qCDebug(KAIDAN_LOG) << "Another instance of" << APPLICATION_DISPLAY_NAME << "is already running!";
 #else
     // check if another instance already runs
     if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {

@@ -8,6 +8,15 @@
 
 add_executable(${PROJECT_NAME} WIN32)
 
+ecm_qt_declare_logging_category(
+    ${PROJECT_NAME}
+    HEADER kaidan_debug.h
+    IDENTIFIER KAIDAN_LOG
+    CATEGORY_NAME im.kaidan.kaidan
+    DESCRIPTION "kaidan"
+    EXPORT KAIDAN
+)
+
 target_sources(${PROJECT_NAME} PRIVATE
     AbstractNotifier.h
     AbstractQrCodeGenerator.cpp

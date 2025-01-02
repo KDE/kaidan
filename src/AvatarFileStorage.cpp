@@ -13,6 +13,8 @@
 #include <QStandardPaths>
 #include <QUrl>
 
+#include "kaidan_debug.h"
+
 AvatarFileStorage::AvatarFileStorage(QObject *parent)
     : QObject(parent)
 {
@@ -51,7 +53,7 @@ AvatarFileStorage::AvatarFileStorage(QObject *parent)
             };
         }
     } catch (...) {
-        qDebug() << "[AvatarFileStorage] Error in" << avatarFilePath << "(avatar list file)";
+        qCDebug(KAIDAN_LOG) << "[AvatarFileStorage] Error in" << avatarFilePath << "(avatar list file)";
     }
 }
 

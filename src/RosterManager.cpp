@@ -22,6 +22,7 @@
 #include "RosterModel.h"
 #include "Settings.h"
 #include "VCardManager.h"
+#include "kaidan_debug.h"
 
 RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QObject *parent)
     : QObject(parent)
@@ -101,7 +102,7 @@ RosterManager::RosterManager(ClientWorker *clientWorker, QXmppClient *client, QO
 
 void RosterManager::populateRoster()
 {
-    qDebug() << "[client] [RosterManager] Populating roster";
+    qCDebug(KAIDAN_LOG) << "[client] [RosterManager] Populating roster";
 
     // create a new list of contacts
     QHash<QString, RosterItem> items;

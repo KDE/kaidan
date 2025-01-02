@@ -5,6 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "QrCodeScannerFilter.h"
+#include "kaidan_debug.h"
 
 #ifdef NEED_TO_PORT
 #include <QCamera>
@@ -97,10 +98,10 @@ void QrCodeScannerFilterRunnable::processVideoFrameProbed(QrCodeVideoFrame video
         QString format;
         QDebug(&format).nospace() << videoFrame.pixelFormat();
 
-        qDebug() << "QrCodeScannerFilterRunnable error: Cannot create image file to process.";
-        qDebug() << "Maybe it was a format conversion problem.";
-        qDebug() << "VideoFrame format:" << format;
-        qDebug() << "Image corresponding format:" << QVideoFrame::imageFormatFromPixelFormat(videoFrame.pixelFormat());
+        qCDebug(KAIDAN_LOG) << "QrCodeScannerFilterRunnable error: Cannot create image file to process.";
+        qCDebug(KAIDAN_LOG) << "Maybe it was a format conversion problem.";
+        qCDebug(KAIDAN_LOG) << "VideoFrame format:" << format;
+        qCDebug(KAIDAN_LOG) << "Image corresponding format:" << QVideoFrame::imageFormatFromPixelFormat(videoFrame.pixelFormat());
 
         Q_EMIT filter->unsupportedFormatReceived(format);
         return;

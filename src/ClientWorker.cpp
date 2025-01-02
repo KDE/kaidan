@@ -58,6 +58,7 @@
 #include "VCardCache.h"
 #include "VCardManager.h"
 #include "VersionManager.h"
+#include "kaidan_debug.h"
 
 ClientWorker::Caches::Caches(QObject *parent)
     : settings(new Settings(parent))
@@ -205,10 +206,10 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
 {
     switch (m_client->state()) {
     case QXmppClient::ConnectingState:
-        qDebug() << "[main] Tried to connect even if already connecting! Nothing is done.";
+        qCDebug(KAIDAN_LOG) << "[main] Tried to connect even if already connecting! Nothing is done.";
         break;
     case QXmppClient::ConnectedState:
-        qDebug() << "[main] Tried to connect even if already connected! Disconnecting first and connecting afterwards.";
+        qCDebug(KAIDAN_LOG) << "[main] Tried to connect even if already connected! Disconnecting first and connecting afterwards.";
         m_isReconnecting = true;
         m_configToBeUsedOnNextConnect = config;
         logOut();
@@ -266,7 +267,7 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
         if (isApplicationBeingClosed && m_registrationManager->registerOnConnectEnabled()) {
             m_client->disconnectFromServer();
         } else {
-            qDebug() << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
+            qCDebug(KAIDAN_LOG) << "[main] Tried to disconnect even if still connecting! Waiting for connecting to succeed and disconnect afterwards.";
             m_isDisconnecting = true;
         }
 
@@ -295,7 +296,7 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 void ClientWorker::onConnected()
 {
     // no mutex needed, because this is called from updateClient()
-    qDebug() << "[client] Connected successfully to server";
+    qCDebug(KAIDAN_LOG) << "[client] Connected successfully to server";
 
     // If there was an error before, notify about its absence.
     Q_EMIT connectionErrorChanged(ClientWorker::NoError);
@@ -362,7 +363,7 @@ void ClientWorker::onConnected()
 
 void ClientWorker::onDisconnected()
 {
-    qDebug() << "[client] Disconnected";
+    qCDebug(KAIDAN_LOG) << "[client] Disconnected";
 
     if (m_isReconnecting) {
         m_isReconnecting = false;
@@ -384,7 +385,7 @@ void ClientWorker::onConnectionStateChanged(QXmppClient::State connectionState)
 void ClientWorker::onConnectionError(const QXmppError &error)
 {
     // no mutex needed, because this is called from updateClient()
-    qDebug() << "[client] Connection error:" << error.description;
+    qCDebug(KAIDAN_LOG) << "[client] Connection error:" << error.description;
 
     if (const auto socketError = error.value<QAbstractSocket::SocketError>()) {
         switch (*socketError) {

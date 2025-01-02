@@ -10,6 +10,7 @@
 #include <QXmppTask.h>
 // Kaidan
 #include "Globals.h"
+#include "kaidan_debug.h"
 
 DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
     : QObject(parent)
@@ -49,7 +50,7 @@ void DiscoveryManager::requestData()
     m_manager->requestInfo(serverJid);
     m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) {
         if (const auto *error = std::get_if<QXmppError>(&result)) {
-            qDebug() << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
+            qCDebug(KAIDAN_LOG) << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
         } else {
             handleItems(std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result)));
         }
