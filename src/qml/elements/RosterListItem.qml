@@ -195,8 +195,8 @@ UserListItem {
 					listView: root.listView
 					incrementalMoves: false
 
-					onMoveRequested: root.moveRequested(oldIndex, newIndex)
-					onDropped: root.dropRequested(oldIndex, newIndex)
+					onMoveRequested: (oldIndex, newIndex) => root.moveRequested(oldIndex, newIndex)
+					onDropped: (oldIndex, newIndex) => root.dropRequested(oldIndex, newIndex)
 
 					Layout.preferredWidth: Layout.preferredHeight
 					Layout.preferredHeight: counter.height

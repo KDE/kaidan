@@ -109,12 +109,12 @@ SearchBarPage {
 				}
 			}
 
-			onMoveRequested: {
+			onMoveRequested: (oldIndex, newIndex) => {
 				_previousMove.oldIndex = oldIndex
 				_previousMove.newIndex = newIndex
 			}
 
-			onDropRequested: {
+			onDropRequested: (oldIndex, newIndex) => {
 				rosterListView.model.reorderPinnedItem(accountJid, jid, oldIndex, newIndex)
 				_previousMove.reset()
 			}

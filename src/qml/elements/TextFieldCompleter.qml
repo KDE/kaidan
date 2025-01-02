@@ -212,7 +212,7 @@ Kirigami.ActionTextField {
 	//   Since the TextEdit plus suggestions box is one combined component, handling all
 	//   key presses here is more tidy. They cannot all be handled in completionsBox as
 	//   key presses are not delivered or forwarded to components in their invisible state.
-	Keys.onPressed: {
+	Keys.onPressed: (event) => {
 		//console.log("AutoComplete: field: Keys.pressed(): " + event.key + " : " + event.text)
 
 		if (completionsVisible) {
