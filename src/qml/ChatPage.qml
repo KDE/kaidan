@@ -366,8 +366,8 @@ ChatPageBase {
 		}
 		footer: ColumnLayout {
 			z: 2
-			anchors.horizontalCenter: parent.horizontalCenter
 			spacing: 0
+			width: parent.width
 
 			// date of the top-most (first) visible message shown at the top of the ChatPage
 			ChatInfo {
@@ -394,6 +394,8 @@ ChatPageBase {
 					return ""
 				}
 				visible: text.length
+				elide: Text.ElideRight
+				Layout.alignment: Qt.AlignHCenter
 				Layout.topMargin: {
 					const minimalMargin = Kirigami.Units.smallSpacing * 3
 					const oldestMessage = messageListView.itemAtIndex(messageListView.count - 1)
@@ -413,6 +415,7 @@ ChatPageBase {
 
 					return minimalMargin
 				}
+				Layout.maximumWidth: parent.width - Kirigami.Units.largeSpacing
 				Component.onCompleted: root.globalChatDate = this
 			}
 
