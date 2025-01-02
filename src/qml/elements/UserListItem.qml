@@ -32,6 +32,7 @@ Controls.ItemDelegate {
 	contentItem: Controls.Control {
 		topPadding: 0
 		leftPadding: 0
+		rightPadding: Kirigami.Units.largeSpacing
 		bottomPadding: 0
 		background: Rectangle {
 			color: {
