@@ -58,7 +58,7 @@ RegistrationPage {
 						control: providerExpansionButton
 					}
 					trailing: FormCard.FormArrow {
-						direction: providerContentArea.active ? FormCard.FormArrow.Up : FormCard.FormArrow.Down
+						direction: providerContentArea.active ? Qt.UpArrow : Qt.DownArrow
 					}
 					onClicked: providerContentArea.active = !providerContentArea.active
 				}
