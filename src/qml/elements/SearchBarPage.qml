@@ -45,7 +45,7 @@ Kirigami.ScrollablePage {
 		SimpleListViewSearchField {
 			listView: root.listView
 			anchors.left: parent.left
-			width: root.actions.right ? parent.width - Kirigami.Units.iconSizes.medium - Kirigami.Units.smallSpacing : parent.width
+			width: parent.width - (root.actions.length - 1) * (Kirigami.Units.iconSizes.medium + Kirigami.Units.smallSpacing)
 
 			Connections {
 				target: searchFieldFocusTimer
