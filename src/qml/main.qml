@@ -128,7 +128,13 @@ Kirigami.ApplicationWindow {
 		}
 	}
 
-	onWideScreenChanged: showRosterPageForNarrowWindow()
+	Connections {
+		target: pageStack
+
+		function onWideModeChanged() {
+			showRosterPageForNarrowWindow()
+		}
+	}
 
 	/**
 	 * Returns a radius used for rectangles with rounded corners that is relative to the
@@ -210,8 +216,9 @@ Kirigami.ApplicationWindow {
 
 	// Show the rosterPage instead of the emptyChatPage if the window is narrow.
 	function showRosterPageForNarrowWindow() {
-		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && !wideScreen)
+		if (pageStack.layers.depth < 2 && pageStack.currentItem instanceof EmptyChatPage && !pageStack.wideMode) {
 			pageStack.goBack()
+		}
 	}
 
 	function pushLayer(layer) {
