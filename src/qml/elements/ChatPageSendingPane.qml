@@ -417,7 +417,7 @@ Controls.Pane {
 			ClickableIcon {
 				Controls.ToolTip.text: qsTr("Send a voice message")
 				source: voiceMessageRecorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : MediaUtils.newMediaIconName(Enums.MessageType.MessageAudio)
-				visible: voiceMessageRecorder.availabilityStatus === MediaRecorder.AvailabilityStatus.Available && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
+				visible: voiceMessageCaptureSession.audioInput && Kaidan.serverFeaturesCache.httpUploadSupported && Kaidan.connectionState === Enums.StateConnected && !root.composition.body && !root.composition.replaceId
 				opacity: visible ? 1 : 0
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
@@ -514,6 +514,7 @@ Controls.Pane {
 			}
 
 			CaptureSession {
+				id: voiceMessageCaptureSession
 				audioInput: AudioInput {}
 				recorder: MediaRecorder {
 					id: voiceMessageRecorder
