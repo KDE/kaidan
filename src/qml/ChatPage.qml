@@ -435,7 +435,8 @@ ChatPageBase {
 
 					return parent.hovered ? secondaryBackgroundColor : primaryBackgroundColor
 				}
-				shadow.size: 2
+				shadow.color: Qt.darker(color, 1.2)
+				shadow.size: 4
 				corners {
 					topLeftRadius: height / 2
 					topRightRadius: height / 2
@@ -449,7 +450,10 @@ ChatPageBase {
 					}
 				}
 			}
-			padding: Kirigami.Units.smallSpacing * 3
+			topPadding: Kirigami.Units.smallSpacing * 3
+			bottomPadding: topPadding
+			leftPadding: Kirigami.Units.largeSpacing * 3
+			rightPadding: leftPadding
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.bottom: parent.bottom
 			anchors.bottomMargin: parent.atYEnd ? - height - background.shadow.size - unreadMessageCounter.height : - background.shadow.size
