@@ -518,6 +518,7 @@ Controls.Pane {
 				audioInput: AudioInput {}
 				recorder: MediaRecorder {
 					id: voiceMessageRecorder
+					mediaFormat.fileFormat: MediaFormat.MP3
 				}
 			}
 		}
