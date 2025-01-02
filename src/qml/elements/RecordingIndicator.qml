@@ -21,7 +21,6 @@ RowLayout {
 
 	Kirigami.Icon {
 		source: "media-record-symbolic"
-		color: Kirigami.Theme.negativeTextColor
 		Layout.preferredWidth: Kirigami.Units.iconSizes.small
 
 		Timer {
