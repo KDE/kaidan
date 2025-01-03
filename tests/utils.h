@@ -8,6 +8,7 @@
 #include <memory>
 // Qt
 #include <QFuture>
+#include <QSignalSpy>
 #include <QTest>
 // QXmpp
 #include <QXmppTask.h>
