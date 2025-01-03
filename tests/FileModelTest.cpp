@@ -7,7 +7,7 @@
 #include <QMimeDatabase>
 #include <QMimeType>
 #include <QTemporaryDir>
-#include <QtTest>
+#include <QTest>
 
 #include "../src/FileModel.h"
 #include "../src/FileProxyModel.h"

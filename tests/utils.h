@@ -8,7 +8,7 @@
 #include <memory>
 // Qt
 #include <QFuture>
-#include <QtTest>
+#include <QTest>
 // QXmpp
 #include <QXmppTask.h>
 

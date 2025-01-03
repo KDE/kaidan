@@ -5,7 +5,7 @@
 
 #include <QXmppTrustLevel.h>
 
-#include <QtTest>
+#include <QTest>
 
 #include "../src/Database.h"
 #include "../src/TrustDb.h"

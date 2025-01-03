@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "../src/FutureUtils.h"
-#include <QtTest>
+#include <QTest>
 
 class FutureUtilsTest : public QObject
 {

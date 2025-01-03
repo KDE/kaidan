@@ -7,7 +7,7 @@
 #include "../src/Database.h"
 #include "utils.h"
 
-#include <QtTest>
+#include <QTest>
 
 using Storage = OmemoDb;
 

@@ -2,7 +2,7 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include <QtTest>
+#include <QTest>
 
 #include "../src/PublicGroupChat.h"
 #include "../src/PublicGroupChatModel.h"

@@ -12,7 +12,7 @@
 #include <QSqlField>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QtTest>
+#include <QTest>
 
 using namespace SqlUtils;
 using std::ranges::sort;
