@@ -12,7 +12,7 @@
 #include <QSysInfo>
 #include <QUrl>
 // Kaidan
-#include <Globals.h>
+#include "Globals.h"
 
 namespace SystemUtils
 {

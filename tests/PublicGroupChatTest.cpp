@@ -2,7 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include <QJsonArray>
+#include <QSignalSpy>
 #include <QTest>
+#include <QTimer>
 
 #include "../src/PublicGroupChat.h"
 #include "../src/PublicGroupChatModel.h"
@@ -390,9 +393,9 @@ private Q_SLOTS:
         QTest::newRow("Languages / Languages / fr") << Role::Languages << Role::Languages << QStringLiteral("fr")
                                                     << QList<QStringList>{
                                                            {
-                                                               QStringList{"Bookri"},
-                                                               QStringList{"bookri@jabber.com"},
-                                                               QStringList{"fr"},
+                                                               QStringList{QStringLiteral("Bookri")},
+                                                               QStringList{QStringLiteral("bookri@jabber.com")},
+                                                               QStringList{QStringLiteral("fr")},
                                                            },
                                                        };
 

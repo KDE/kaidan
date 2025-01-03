@@ -48,7 +48,6 @@ set(VERSION_CODE 20)
 set(VERSION_STRING "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # CMake options
-option(BUILD_TESTS "Build unit tests" FALSE)
 option(BUILD_AS_APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
 option(BUILD_AS_UBUNTU_TOUCH "Building an Ubuntu Touch click (internal use only!)" FALSE)
 option(CLICK_ARCH "Architecture that will be used in the click's manifest")
@@ -224,7 +223,7 @@ add_custom_target(Others
 # Unit tests
 #
 
-if(BUILD_TESTS)
+if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 

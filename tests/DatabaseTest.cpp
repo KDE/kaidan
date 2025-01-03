@@ -114,10 +114,10 @@ void DatabaseTest::conversion()
             }
 
             // check data type
-            if (fieldC.type() != fieldN.type()) {
+            if (fieldC.metaType() != fieldN.metaType()) {
                 qDebug() << tableName << fieldName << "data type mismatch!";
-                qDebug() << "  Conversion variant:" << fieldC.type();
-                qDebug() << "  New variant is:" << fieldN.type();
+                qDebug() << "  Conversion variant:" << fieldC.metaType();
+                qDebug() << "  New variant is:" << fieldN.metaType();
                 QFAIL("Field data type of conversion/new variant does not match.");
             }
         }
