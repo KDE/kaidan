@@ -344,7 +344,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     qRegisterMetaType<QMultiHash<QString, QByteArray>>();
 
     // Translations
-    const auto translationFilename = QStringLiteral("qt_") + QLocale::system().name();
+    const QString translationFilename = QStringLiteral("qt_") + QLocale::system().name();
     const auto translationFileDirectory = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
     if (QTranslator translator; translator.load(translationFilename, translationFileDirectory)) {
         QCoreApplication::installTranslator(&translator);
