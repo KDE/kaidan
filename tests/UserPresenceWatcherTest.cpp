@@ -42,7 +42,7 @@ void UserPresenceWatcherTest::testBasic()
 
     // set user model JID
     UserPresenceWatcher userModel;
-    userModel.setJid("bob@kaidan.im");
+    userModel.setJid(QStringLiteral("bob@kaidan.im"));
 
     QSignalSpy resourceSpy(&userModel, &UserPresenceWatcher::resourceChanged);
     QSignalSpy presencePropertiesSpy(&userModel, &UserPresenceWatcher::presencePropertiesChanged);
@@ -54,37 +54,40 @@ void UserPresenceWatcherTest::testBasic()
     QCOMPARE(resourceSpy.count(), 1);
     QCOMPARE(presencePropertiesSpy.count(), 1);
 
-    QCOMPARE(userModel.resource(), "dev1");
+    QCOMPARE(userModel.resource(), QStringLiteral("dev1"));
     QCOMPARE(userModel.availability(), Presence::Online);
     QCOMPARE(userModel.statusText(), QString());
 
     // add more important presence
-    addSimplePresence("bob@kaidan.im/mobile", QXmppPresence::Online, "I like cats.");
+    addSimplePresence(QStringLiteral("bob@kaidan.im/mobile"), QXmppPresence::Online, QStringLiteral("I like cats."));
 
     QCOMPARE(resourceSpy.count(), 2);
     QCOMPARE(presencePropertiesSpy.count(), 2);
 
-    QCOMPARE(userModel.resource(), "mobile");
+    QCOMPARE(userModel.resource(), QStringLiteral("mobile"));
     QCOMPARE(userModel.availability(), Presence::Online);
-    QCOMPARE(userModel.statusText(), "I like cats.");
+    QCOMPARE(userModel.statusText(), QStringLiteral("I like cats."));
 
     // change presence
-    addSimplePresence("bob@kaidan.im/mobile", QXmppPresence::DND, "At work");
+    addSimplePresence(QStringLiteral("bob@kaidan.im/mobile"), QXmppPresence::DND, QStringLiteral("At work"));
 
     QCOMPARE(resourceSpy.count(), 2);
     QCOMPARE(presencePropertiesSpy.count(), 3);
 
-    QCOMPARE(userModel.resource(), "mobile");
+    QCOMPARE(userModel.resource(), QStringLiteral("mobile"));
     QCOMPARE(userModel.availability(), Presence::DND);
-    QCOMPARE(userModel.statusText(), "At work");
+    QCOMPARE(userModel.statusText(), QStringLiteral("At work"));
 
     // device goes offline
-    addSimplePresence("bob@kaidan.im/mobile", QXmppPresence::Online, "No user interaction since 5 minutes.", QXmppPresence::Unavailable);
+    addSimplePresence(QStringLiteral("bob@kaidan.im/mobile"),
+                      QXmppPresence::Online,
+                      QStringLiteral("No user interaction since 5 minutes."),
+                      QXmppPresence::Unavailable);
 
     QCOMPARE(resourceSpy.count(), 3);
     QCOMPARE(presencePropertiesSpy.count(), 4);
 
-    QCOMPARE(userModel.resource(), "dev1");
+    QCOMPARE(userModel.resource(), QStringLiteral("dev1"));
     QCOMPARE(userModel.availability(), Presence::Online);
     QCOMPARE(userModel.statusText(), QString());
 
@@ -101,10 +104,10 @@ void UserPresenceWatcherTest::testBasic()
 
 void UserPresenceWatcherTest::addBasicPresences()
 {
-    addSimplePresence("bob@kaidan.im/dev1");
-    addSimplePresence("bob@kaidan.im/dev2");
-    addSimplePresence("alice@kaidan.im/kdn1");
-    addSimplePresence("alice@kaidan.im/kdn2");
+    addSimplePresence(QStringLiteral("bob@kaidan.im/dev1"));
+    addSimplePresence(QStringLiteral("bob@kaidan.im/dev2"));
+    addSimplePresence(QStringLiteral("alice@kaidan.im/kdn1"));
+    addSimplePresence(QStringLiteral("alice@kaidan.im/kdn2"));
 }
 
 void UserPresenceWatcherTest::addSimplePresence(const QString &jid,

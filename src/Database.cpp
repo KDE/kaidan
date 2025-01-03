@@ -32,7 +32,7 @@
 #include <QtConcurrent/QtConcurrentRun>
 
 #ifdef DB_UNIT_TEST
-#define TEST_DB_FILENAME "tests_db_" + QCoreApplication::applicationName() + ".sqlite"
+#define TEST_DB_FILENAME QStringLiteral("tests_db_") + QCoreApplication::applicationName() + QStringLiteral(".sqlite")
 #include <QCoreApplication>
 #include <QFile>
 #endif

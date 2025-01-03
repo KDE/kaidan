@@ -48,19 +48,19 @@ void RosterItemWatcherTest::notifications()
 
     auto &notifier = RosterItemNotifier::instance();
     RosterItemWatcher watcher1;
-    watcher1.setJid("hello@kaidan.im");
+    watcher1.setJid(QStringLiteral("hello@kaidan.im"));
     RosterItemWatcher watcher2;
-    watcher2.setJid("hello@kaidan.im");
+    watcher2.setJid(QStringLiteral("hello@kaidan.im"));
     RosterItemWatcher watcher3;
-    watcher3.setJid("user@kaidan.im");
+    watcher3.setJid(QStringLiteral("user@kaidan.im"));
 
     vector<pair<RosterItemWatcher *, int>> expected({{pair{&watcher1, 2}}, {pair{&watcher2, 2}}, {pair{&watcher3, 1}}});
     checkEmitted(expected, [&]() {
-        notifier.notifyWatchers("hello@kaidan.im", item);
-        notifier.notifyWatchers("not-found", item);
-        notifier.notifyWatchers("user@kaidan.im", item);
-        notifier.notifyWatchers("hello@kaidan.im", item);
-        notifier.notifyWatchers("not-found", item);
+        notifier.notifyWatchers(QStringLiteral("hello@kaidan.im"), item);
+        notifier.notifyWatchers(QStringLiteral("not-found"), item);
+        notifier.notifyWatchers(QStringLiteral("user@kaidan.im"), item);
+        notifier.notifyWatchers(QStringLiteral("hello@kaidan.im"), item);
+        notifier.notifyWatchers(QStringLiteral("not-found"), item);
     });
 }
 

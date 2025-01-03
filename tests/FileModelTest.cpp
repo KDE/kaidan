@@ -179,7 +179,7 @@ private:
 
     QString filePath(const QString &content) const
     {
-        return m_dir.filePath(QStringLiteral("%1.txt").arg(qChecksum(content.toUtf8().constData(), content.length())));
+        return m_dir.filePath(QStringLiteral("%1.txt").arg(qChecksum(QByteArrayView(content.toUtf8().constData(), content.length()))));
     }
 
     QImage createImage(const QColor &color) const
@@ -229,7 +229,7 @@ private:
         const QFileInfo fileInfo(filePath(color));
         File file;
 
-        file.id = qChecksum(fileInfo.fileName().toUtf8().constData(), fileInfo.fileName().length());
+        file.id = qChecksum(QByteArrayView(fileInfo.fileName().toUtf8().constData(), fileInfo.fileName().length()));
         file.fileGroupId = file.id - 10;
         file.name = fileInfo.baseName();
         file.mimeType = m_db.mimeTypeForFile(fileInfo);
@@ -250,7 +250,7 @@ private:
         const QFileInfo fileInfo(filePath(content));
         File file;
 
-        file.id = qChecksum(fileInfo.fileName().toUtf8().constData(), fileInfo.fileName().length());
+        file.id = qChecksum(QByteArrayView(fileInfo.fileName().toUtf8().constData(), fileInfo.fileName().length()));
         file.fileGroupId = file.id - 10;
         file.name = fileInfo.baseName();
         file.mimeType = m_db.mimeTypeForFile(fileInfo);
