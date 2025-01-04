@@ -71,7 +71,7 @@ void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &col
 
 QSqlField createSqlField(const QString &key, const QVariant &val)
 {
-    QSqlField field(key, val.type());
+    QSqlField field(key, val.metaType());
     field.setValue(val);
     return field;
 }
@@ -104,10 +104,7 @@ QString simpleWhereStatement(const QSqlDriver *driver, const QMap<QString, QVari
 
 QVariant serialize(const std::optional<QDateTime> &dateTime)
 {
-    if (dateTime) {
-        return dateTime->toMSecsSinceEpoch();
-    }
-    return QVariant(QVariant::LongLong);
+    return dateTime ? dateTime->toMSecsSinceEpoch() : QVariant(QMetaType(QMetaType::LongLong));
 }
 
 QVariant serialize(const QDateTime &dateTime)
@@ -121,7 +118,7 @@ QVariant serialize(const QDateTime &dateTime)
 std::optional<QDateTime> parseOptDateTime(QSqlQuery &query, int index)
 {
     if (auto value = query.value(index); !value.isNull()) {
-        Q_ASSERT(value.type() == QVariant::LongLong);
+        Q_ASSERT(value.metaType().id() == QMetaType::LongLong);
         if (auto integer = value.toLongLong(); integer != 0) {
             return QDateTime::fromMSecsSinceEpoch(integer);
         }
