@@ -95,7 +95,7 @@ QString PresenceCache::pickIdealResource(const QString &jid)
         return userPresences.firstKey();
 
     auto result = userPresences.cbegin();
-    for (auto itr = result + 1; itr != userPresences.cend(); itr++) {
+    for (auto itr = std::next(result); itr != userPresences.cend(); itr++) {
         if (presenceMoreImportant(*itr, *result))
             result = itr;
     }
