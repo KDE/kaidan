@@ -135,7 +135,7 @@ void FileProxyModel::deleteChecked()
             }
         }
 
-        QtConcurrent::run([this, files = std::move(files)]() mutable {
+        QThreadPool::globalInstance()->start([this, files = std::move(files)]() mutable {
             QStringList errors;
 
             errors.reserve(files.size());
