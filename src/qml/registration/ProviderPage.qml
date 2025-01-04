@@ -46,210 +46,211 @@ RegistrationPage {
 			id: providerDelegate
 			width: ListView.view.width
 
-			Column {
-				spacing: 0
+			FormCard.AbstractFormDelegate {
+				topPadding: 0
+				bottomPadding: 0
+				leftPadding: 0
+				rightPadding: 0
+				background: null
+				contentItem: Column {
+					spacing: 0
 
-				FormCard.FormTextDelegate {
-					id: providerExpansionButton
-					text: model.jid
-					font.italic: index === 0
-					width: parent.width
-					background: FormCard.FormDelegateBackground {
-						control: providerExpansionButton
-					}
-					trailing: FormCard.FormArrow {
-						direction: providerContentArea.active ? Qt.UpArrow : Qt.DownArrow
-					}
-					onClicked: providerContentArea.active = !providerContentArea.active
-				}
-
-				Controls.Control {
-					id: providerContentArea
-
-					property bool active: false
-
-					width: parent.width
-					height: active ? implicitHeight : 0
-					visible: height !== 0
-					clip: true
-					leftPadding: 0
-					rightPadding: 0
-					topPadding: 0
-					bottomPadding: 0
-					background: Rectangle {
-						color: secondaryBackgroundColor
-					}
-					contentItem: ColumnLayout {
-						spacing: 0
-
-						Kirigami.Separator {
-							Layout.fillWidth: true
+					FormCard.FormTextDelegate {
+						id: providerExpansionButton
+						text: model.jid
+						font.italic: index === 0
+						width: parent.width
+						checkable: true
+						background: FormExpansionButtonBackground {
+							card: providerDelegate
+							button: providerExpansionButton
 						}
+						trailing: FormCard.FormArrow {
+							direction: providerExpansionButton.checked ? Qt.UpArrow : Qt.DownArrow
+						}
+					}
 
-						Loader {
-							id: contentAreaLoader
-							sourceComponent: index === 0 ? customProviderArea : regularProviderArea
+					Controls.Control {
+						id: providerContentArea
+						width: parent.width
+						height: providerExpansionButton.checked ? implicitHeight : 0
+						clip: true
+						leftPadding: 0
+						rightPadding: 0
+						topPadding: 0
+						bottomPadding: 0
+						contentItem: ColumnLayout {
+							spacing: 0
 
-							Component {
-								id: customProviderArea
+							Kirigami.Separator {
+								Layout.fillWidth: true
+							}
 
-								FormCard.AbstractFormDelegate {
-									property alias providerField: providerField
-									property alias hostField: customConnectionSettings.hostField
-									property alias portField: customConnectionSettings.portField
+							Loader {
+								id: contentAreaLoader
+								sourceComponent: index === 0 ? customProviderArea : regularProviderArea
 
-									width: providerContentArea.width
-									background: null
-									contentItem: ColumnLayout {
-										spacing: 0
+								Component {
+									id: customProviderArea
 
-										Field {
-											id: providerField
-											labelText: qsTr("Provider Address")
-											placeholderText: "example.org"
-											inputMethodHints: Qt.ImhUrlCharactersOnly
-											inputField.onAccepted: {
-												if (customConnectionSettings.visible) {
-													customConnectionSettings.forceActiveFocus()
-												} else {
-													choiceButton.clicked()
-												}
-											}
-											inputField.rightActions: [
-												Kirigami.Action {
-													icon.name: "preferences-system-symbolic"
-													text: qsTr("Connection settings")
-													onTriggered: {
-														customConnectionSettings.visible = !customConnectionSettings.visible
+									FormCard.AbstractFormDelegate {
+										property alias providerField: providerField
+										property alias hostField: customConnectionSettings.hostField
+										property alias portField: customConnectionSettings.portField
 
-														if (customConnectionSettings.visible) {
-															customConnectionSettings.forceActiveFocus()
-														} else {
-															providerField.forceActiveFocus()
-														}
+										width: providerContentArea.width
+										background: null
+										contentItem: ColumnLayout {
+											spacing: 0
+
+											Field {
+												id: providerField
+												labelText: qsTr("Provider Address")
+												placeholderText: "example.org"
+												inputMethodHints: Qt.ImhUrlCharactersOnly
+												inputField.onAccepted: {
+													if (customConnectionSettings.visible) {
+														customConnectionSettings.forceActiveFocus()
+													} else {
+														choiceButton.clicked()
 													}
 												}
-											]
-										}
+												inputField.rightActions: [
+													Kirigami.Action {
+														icon.name: "preferences-system-symbolic"
+														text: qsTr("Connection settings")
+														onTriggered: {
+															customConnectionSettings.visible = !customConnectionSettings.visible
 
-										CustomConnectionSettings {
-											id: customConnectionSettings
-											confirmationButton: choiceButton
-											visible: false
-											Layout.topMargin: Kirigami.Units.largeSpacing
-										}
+															if (customConnectionSettings.visible) {
+																customConnectionSettings.forceActiveFocus()
+															} else {
+																providerField.forceActiveFocus()
+															}
+														}
+													}
+												]
+											}
 
-										Connections {
-											target: pageStack.layers
+											CustomConnectionSettings {
+												id: customConnectionSettings
+												confirmationButton: choiceButton
+												visible: false
+												Layout.topMargin: Kirigami.Units.largeSpacing
+											}
 
-											function onCurrentItemChanged() {
-												const currentItem = pageStack.layers.currentItem
+											Connections {
+												target: pageStack.layers
 
-												// Focus providerField.inputField on first opening
-												// and when going back from sub pages (i.e., layers
-												// above).
-												if (currentItem === root) {
-													providerField.inputField.forceActiveFocus()
+												function onCurrentItemChanged() {
+													const currentItem = pageStack.layers.currentItem
+
+													// Focus providerField.inputField on first opening
+													// and when going back from sub pages (i.e., layers
+													// above).
+													if (currentItem === root) {
+														providerField.inputField.forceActiveFocus()
+													}
 												}
 											}
 										}
 									}
 								}
+
+								Component {
+									id: regularProviderArea
+
+									ColumnLayout {
+										width: providerContentArea.width
+										spacing: 0
+
+										FormCard.FormTextDelegate {
+											text: model.countries
+											description: qsTr("Server locations")
+										}
+
+										FormCard.FormTextDelegate {
+											text: model.languages
+											description: qsTr("Languages")
+										}
+
+										FormCard.FormTextDelegate {
+											text: model.since
+											description: qsTr("Available/Listed since")
+										}
+
+										FormCard.FormTextDelegate {
+											text: model.httpUploadSize
+											description: qsTr("Maximum size of shared media")
+										}
+
+										FormCard.FormTextDelegate {
+											text: model.messageStorageDuration
+											description: qsTr("Messages storage duration")
+										}
+
+										UrlFormButtonDelegate {
+											text: qsTr("Visit details page")
+											description: qsTr("Open the provider's details web page")
+											icon.name: "globe"
+											url: Utils.providerDetailsUrl(model.jid)
+										}
+									}
+								}
 							}
 
-							Component {
-								id: regularProviderArea
+							FormCard.FormCard {
+								Layout.topMargin: Kirigami.Units.gridUnit
+								Layout.bottomMargin: Layout.topMargin
+								Layout.leftMargin: Layout.topMargin
+								Layout.rightMargin: Layout.topMargin
+								Layout.fillWidth: true
+								Kirigami.Theme.colorSet: Kirigami.Theme.Selection
 
-								ColumnLayout {
-									width: providerContentArea.width
-									spacing: 0
+								BusyIndicatorFormButton {
+									id: choiceButton
+									idleText: qsTr("Choose")
+									busyText: qsTr("Requesting registration…")
+									busy: Kaidan.connectionState === Enums.StateConnecting && providerListView.lastClickedButton === this
+									onClicked: {
+										providerListView.lastClickedButton = this
 
-									FormCard.FormTextDelegate {
-										text: model.countries
-										description: qsTr("Server locations")
-									}
+										if (index === 0) {
+											const loadedCustomProviderArea = contentAreaLoader.item
+											const providerField = loadedCustomProviderArea.providerField
 
-									FormCard.FormTextDelegate {
-										text: model.languages
-										description: qsTr("Languages")
-									}
+											const chosenProvider = providerField.text
 
-									FormCard.FormTextDelegate {
-										text: model.since
-										description: qsTr("Available/Listed since")
-									}
+											if (chosenProvider) {
+												root.provider = chosenProvider
 
-									FormCard.FormTextDelegate {
-										text: model.httpUploadSize
-										description: qsTr("Maximum size of shared media")
-									}
+												AccountManager.host = loadedCustomProviderArea.hostField.text
+												AccountManager.port = loadedCustomProviderArea.portField.value
 
-									FormCard.FormTextDelegate {
-										text: model.messageStorageDuration
-										description: qsTr("Messages storage duration")
-									}
+												requestRegistrationForm()
+											} else {
+												passiveNotification(qsTr("You must enter a provider address"))
+												providerField.forceActiveFocus()
+											}
+										} else {
+											root.provider = model.jid
+											resetCustomConnectionSettings()
 
-									UrlFormButtonDelegate {
-										text: qsTr("Visit details page")
-										description: qsTr("Open the provider's details web page")
-										icon.name: "globe"
-										url: Utils.providerDetailsUrl(model.jid)
+											if (model.supportsInBandRegistration) {
+												requestRegistrationForm()
+											} else {
+												openWebRegistrationPage(model.registrationWebPage)
+											}
+										}
 									}
 								}
 							}
 						}
 
-						FormCard.FormCard {
-							Layout.topMargin: Kirigami.Units.gridUnit
-							Layout.bottomMargin: Layout.topMargin
-							Layout.leftMargin: Layout.topMargin
-							Layout.rightMargin: Layout.topMargin
-							Layout.fillWidth: true
-							Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-
-							BusyIndicatorFormButton {
-								id: choiceButton
-								idleText: qsTr("Choose")
-								busyText: qsTr("Requesting registration…")
-								busy: Kaidan.connectionState === Enums.StateConnecting && providerListView.lastClickedButton === this
-								onClicked: {
-									providerListView.lastClickedButton = this
-
-									if (index === 0) {
-										const loadedCustomProviderArea = contentAreaLoader.item
-										const providerField = loadedCustomProviderArea.providerField
-
-										const chosenProvider = providerField.text
-
-										if (chosenProvider) {
-											root.provider = chosenProvider
-
-											AccountManager.host = loadedCustomProviderArea.hostField.text
-											AccountManager.port = loadedCustomProviderArea.portField.value
-
-											requestRegistrationForm()
-										} else {
-											passiveNotification(qsTr("You must enter a provider address"))
-											providerField.forceActiveFocus()
-										}
-									} else {
-										root.provider = model.jid
-										resetCustomConnectionSettings()
-
-										if (model.supportsInBandRegistration) {
-											requestRegistrationForm()
-										} else {
-											openWebRegistrationPage(model.registrationWebPage)
-										}
-									}
-								}
+						Behavior on height {
+							SmoothedAnimation {
+								duration: Kirigami.Units.veryLongDuration
 							}
-						}
-					}
-
-					Behavior on height {
-						SmoothedAnimation {
-							duration: Kirigami.Units.veryLongDuration
 						}
 					}
 				}
