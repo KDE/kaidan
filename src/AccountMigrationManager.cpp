@@ -591,10 +591,9 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
     }
 
     QDomDocument document;
-    QString error;
 
-    if (!document.setContent(&file, true, &error)) {
-        qDebug("Account could not be migrated: Could not parse account data from '%ls': %ls", qUtf16Printable(filePath), qUtf16Printable(error));
+    if (const auto res = document.setContent(&file, QDomDocument::ParseOption::UseNamespaceProcessing); !res) {
+        qDebug("Account could not be migrated: Could not parse account data from '%ls': %ls", qUtf16Printable(filePath), qUtf16Printable(res.errorMessage));
         return false;
     }
 
