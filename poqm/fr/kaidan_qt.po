@@ -155,7 +155,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "Sortie du groupe de discussions"
 
-#: src/FileSharingController.cpp:375
+#: src/FileSharingController.cpp:376
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -201,107 +201,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Le lien ne sera ouvert qu'une fois que vous vous serez connecté."
 
-#: src/MediaUtils.cpp:291
+#: src/MediaUtils.cpp:292
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Audio"
 
-#: src/MediaUtils.cpp:293
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:295
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Emplacement"
 
-#: src/MediaUtils.cpp:297
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Image"
 
-#: src/MediaUtils.cpp:299
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Vidéo"
 
-#: src/MediaUtils.cpp:303
+#: src/MediaUtils.cpp:304
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fichier"
 
-#: src/MediaUtils.cpp:312
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Prendre une photo"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Enregistrer une vidéo"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Enregistrer de la voix"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Envoyer un emplacement"
 
-#: src/MediaUtils.cpp:356
+#: src/MediaUtils.cpp:357
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Sélectionner un fichier"
 
-#: src/MediaUtils.cpp:358
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Sélectionner une image"
 
-#: src/MediaUtils.cpp:360
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Sélectionner une vidéo"
 
-#: src/MediaUtils.cpp:362
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Sélectionner un fichier audio"
 
-#: src/MediaUtils.cpp:364
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Sélectionner un document"
 
-#: src/MediaUtils.cpp:386
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tous les fichiers"
 
-#: src/MediaUtils.cpp:388
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Images"
 
-#: src/MediaUtils.cpp:390
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Vidéos"
 
-#: src/MediaUtils.cpp:392
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fichiers audio"
 
-#: src/MediaUtils.cpp:394
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documents"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:420
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -355,18 +355,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "Il est impossible d'envoyer « %1 » car il est supérieur à %2"
 
-#: src/MessageController.cpp:234
+#: src/MessageController.cpp:235
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "Il a été impossible d'envoyer une réaction : %1"
 
-#: src/MessageController.cpp:362
+#: src/MessageController.cpp:363
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Il a été impossible d'envoyer le message."
 
-#: src/MessageController.cpp:726
+#: src/MessageController.cpp:727
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -3354,28 +3354,28 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "Notes"
 
-#: src/RosterManager.cpp:190
+#: src/RosterManager.cpp:191
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "Il a été impossible d'ajouter %1 : %2"
 
-#: src/RosterManager.cpp:199
+#: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "Impossible d'ajouter un contact, du fait de ne pas être connecté."
 
-#: src/RosterManager.cpp:210
+#: src/RosterManager.cpp:211
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
 
-#: src/RosterManager.cpp:221
+#: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "Impossible de supprimer un contact, du fait de ne pas être connecté."
 
-#: src/RosterManager.cpp:232
+#: src/RosterManager.cpp:233
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3385,13 +3385,13 @@ msgstr ""
 "La demande pour voir les données personnelles de %1 a échoué en raison d'un "
 "problème de connexion : %2"
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:244
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "Impossible de permettre à %1 de voir vos données personnelles"
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:255
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"

@@ -145,7 +145,7 @@ msgctxt "ChatHintModel|"
 msgid "Leaving group chat"
 msgstr "正在离开群聊"
 
-#: src/FileSharingController.cpp:375
+#: src/FileSharingController.cpp:376
 #, qt-format
 msgctxt "FileSharingController|"
 msgid "Couldn't download file: %1"
@@ -191,107 +191,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "链接将在您连接后打开。"
 
-#: src/MediaUtils.cpp:291
+#: src/MediaUtils.cpp:292
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "音频"
 
-#: src/MediaUtils.cpp:293
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:295
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "位置"
 
-#: src/MediaUtils.cpp:297
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:299
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:303
+#: src/MediaUtils.cpp:304
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:312
+#: src/MediaUtils.cpp:313
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/MediaUtils.cpp:314
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "录像"
 
-#: src/MediaUtils.cpp:316
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "录音"
 
-#: src/MediaUtils.cpp:318
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/MediaUtils.cpp:356
+#: src/MediaUtils.cpp:357
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "选择文件"
 
-#: src/MediaUtils.cpp:358
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "选择图片"
 
-#: src/MediaUtils.cpp:360
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "选择视频"
 
-#: src/MediaUtils.cpp:362
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "选择音频文件"
 
-#: src/MediaUtils.cpp:364
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "选择文档"
 
-#: src/MediaUtils.cpp:386
+#: src/MediaUtils.cpp:387
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "全部文件"
 
-#: src/MediaUtils.cpp:388
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:390
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:392
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "音频文件"
 
-#: src/MediaUtils.cpp:394
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:419
+#: src/MediaUtils.cpp:420
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -345,18 +345,18 @@ msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
 msgstr "无法发送“%1”，因为它大于 %2"
 
-#: src/MessageController.cpp:234
+#: src/MessageController.cpp:235
 #, qt-format
 msgctxt "MessageController|"
 msgid "Reaction could not be sent: %1"
 msgstr "无法发送回应：%1"
 
-#: src/MessageController.cpp:362
+#: src/MessageController.cpp:363
 msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "无法发送消息。"
 
-#: src/MessageController.cpp:726
+#: src/MessageController.cpp:727
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
@@ -3225,28 +3225,28 @@ msgctxt "QObject|"
 msgid "Notes"
 msgstr "备注"
 
-#: src/RosterManager.cpp:190
+#: src/RosterManager.cpp:191
 #, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
 msgstr "无法添加 %1：%2"
 
-#: src/RosterManager.cpp:199
+#: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
 msgstr "由于未连接，无法添加联系人。"
 
-#: src/RosterManager.cpp:210
+#: src/RosterManager.cpp:211
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
 msgstr "由于未连接，无法移除联系人。"
 
-#: src/RosterManager.cpp:221
+#: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr "由于未连接，无法重命名联系人。"
 
-#: src/RosterManager.cpp:232
+#: src/RosterManager.cpp:233
 #, qt-format
 msgctxt "RosterManager|"
 msgid ""
@@ -3254,13 +3254,13 @@ msgid ""
 "problem: %2"
 msgstr "由于连接问题，请求查看 %1 的个人数据失败：%2"
 
-#: src/RosterManager.cpp:243
+#: src/RosterManager.cpp:244
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
 msgstr "允许 %1 查看您的个人数据失败"
 
-#: src/RosterManager.cpp:254
+#: src/RosterManager.cpp:255
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
@@ -3300,39 +3300,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "QrCodeScanner|"
-#~ msgid "The camera format '%1' is not supported."
-#~ msgstr "不支持相机格式“%1”。"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Contact added - Continue with step 2"
-#~ msgstr "联系人已添加，继续执行步骤 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "此二维码不包含联系人"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for other own device - Continue with step 2"
-#~ msgstr "为其他自己的设备做出信任决定，继续执行步骤 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for contact - Continue with step 2"
-#~ msgstr "为联系人做出信任决定，继续执行步骤 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "此二维码不适用于您的其他设备"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "此二维码不适用于您的联系人"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "此二维码不适用于信任决定"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "此二维码不是有效的登录二维码。"
