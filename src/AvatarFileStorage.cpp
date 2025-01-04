@@ -9,7 +9,6 @@
 
 // Qt
 #include <QCryptographicHash>
-#include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 #include <QUrl>

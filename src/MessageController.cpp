@@ -9,7 +9,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageController.h"
-#include "kaidan_debug.h"
 
 // std
 #include <ranges>
@@ -52,6 +51,7 @@
 #include "RosterDb.h"
 #include "RosterManager.h"
 #include "RosterModel.h"
+#include "kaidan_debug.h"
 
 // Number of messages fetched at once when loading MAM backlog
 constexpr int MAM_BACKLOG_FETCH_COUNT = 40;
@@ -355,7 +355,7 @@ void MessageController::sendPendingMessage(Message message)
                       this,
                       [this, messageId = message.id, fileFallbackMessages = message.fileFallbackMessages()](QXmpp::SendResult result) mutable {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
-                              qWarning() << "[client] [MessageController] Could not send message:" << error->description;
+                              qCWarning(KAIDAN_LOG) << "[client] [MessageController] Could not send message:" << error->description;
 
                               // The error message of the message is saved untranslated. To make
                               // translation work in the UI, the tr() call of the passive

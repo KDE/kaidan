@@ -17,6 +17,24 @@ ecm_qt_declare_logging_category(
     EXPORT KAIDAN
 )
 
+ecm_qt_declare_logging_category(
+    ${PROJECT_NAME}
+    HEADER kaidan_blocking_debug.h
+    IDENTIFIER KAIDAN_BLOCKING_LOG
+    CATEGORY_NAME im.kaidan.kaidan_blocking
+    DESCRIPTION "kaidan (blocking)"
+    EXPORT KAIDAN
+)
+
+ecm_qt_declare_logging_category(
+    ${PROJECT_NAME}
+    HEADER kaidan_messagedb_debug.h
+    IDENTIFIER KAIDAN_MESSAGEDB_LOG
+    CATEGORY_NAME im.kaidan.kaidan_messagedb
+    DESCRIPTION "kaidan (messagedb)"
+    EXPORT KAIDAN
+)
+
 target_sources(${PROJECT_NAME} PRIVATE
     AbstractNotifier.h
     AbstractQrCodeGenerator.cpp

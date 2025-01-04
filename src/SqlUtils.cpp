@@ -6,14 +6,15 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "SqlUtils.h"
-#include "kaidan_debug.h"
+
 // Qt
 #include <QDateTime>
-#include <QDebug>
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlField>
 #include <QSqlRecord>
+
+#include "kaidan_debug.h"
 
 namespace SqlUtils
 {

@@ -15,7 +15,6 @@
 // Qt
 #include <QCommandLineOption>
 #include <QCommandLineParser>
-#include <QDebug>
 #include <QDir>
 #include <QIcon>
 #include <QLibraryInfo>
@@ -349,7 +348,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     if (QTranslator translator; translator.load(translationFilename, translationFileDirectory)) {
         QCoreApplication::installTranslator(&translator);
     } else {
-        qWarning() << "Translation file" << translationFilename << "could not be loaded from" << translationFileDirectory;
+        qCWarning(KAIDAN_LOG) << "Translation file" << translationFilename << "could not be loaded from" << translationFileDirectory;
     }
 
     //
@@ -362,7 +361,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QString commandLineErrorMessage;
     switch (parseCommandLine(parser, &commandLineErrorMessage)) {
     case CommandLineError:
-        qWarning() << commandLineErrorMessage;
+        qCWarning(KAIDAN_LOG) << commandLineErrorMessage;
         return 1;
     case CommandLineVersionRequested:
         parser.showVersion();
@@ -381,8 +380,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #else
     // check if another instance already runs
     if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {
-        qDebug().noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
-                           << "You can enable multiple instances by specifying '--multiple'.";
+        qCDebug(KAIDAN_LOG).noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
+                                      << "You can enable multiple instances by specifying '--multiple'.";
 #endif
 
         // send a possible link to the primary instance

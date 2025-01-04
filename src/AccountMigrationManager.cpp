@@ -26,6 +26,8 @@
 #include <QXmppMovedManager.h>
 #include <QXmppPubSubManager.h>
 
+#include "kaidan_debug.h"
+
 #define readDataElement(NAME)                                                                                                                                  \
     if (!XmlUtils::Reader::text(rootElement.firstChildElement(QStringLiteral(#NAME)), data.NAME)) {                                                            \
         return QXmppError{QStringLiteral("Invalid NAME element."), {}};                                                                                        \
@@ -279,9 +281,9 @@ public:
         connect(this, &PublishMovedStatementClient::finished, this, &QObject::deleteLater);
         connect(this, &PublishMovedStatementClient::finished, this, [](const QXmppClient::EmptyResult &result) {
             if (const auto error = std::get_if<QXmppError>(&result)) {
-                qDebug("%s: Publishing failed - %ls", Q_FUNC_INFO, qUtf16Printable(error->description));
+                qCDebug(KAIDAN_LOG) << "Publishing failed - " << qUtf16Printable(error->description);
             } else {
-                qDebug("%s: Published successfully", Q_FUNC_INFO);
+                qCDebug(KAIDAN_LOG) << "Published successfully";
             }
         });
     }
@@ -314,7 +316,7 @@ private:
 
     void onErrorOccurred(const QXmppError &error)
     {
-        qDebug("%s: %ls", Q_FUNC_INFO, qUtf16Printable(error.description));
+        qCDebug(KAIDAN_LOG) << qUtf16Printable(error.description);
 
         if (isConnected()) {
             disconnectFromServer();
@@ -557,9 +559,8 @@ bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
     QFile file(filePath);
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-        qDebug("Account could not be migrated: Could not open account file '%ls' for writing: %ls",
-               qUtf16Printable(filePath),
-               qUtf16Printable(file.errorString()));
+        qCDebug(KAIDAN_LOG) << "Account could not be migrated: Could not open account file " << qUtf16Printable(filePath)
+                            << " for writing: " << qUtf16Printable(file.errorString());
         return false;
     }
 
@@ -569,9 +570,8 @@ bool AccountMigrationManager::saveAccountDataToDisk(const QXmppExportData &data)
 
     if (writer.hasError()) {
         file.remove();
-        qDebug("Account could not be migrated: Could not write account data to file '%ls': %ls",
-               qUtf16Printable(filePath),
-               qUtf16Printable(file.errorString()));
+        qCDebug(KAIDAN_LOG) << "Account could not be migrated: Could not write account data to file " << qUtf16Printable(filePath)
+                            << " for writing: " << qUtf16Printable(file.errorString());
         return false;
     }
 
@@ -584,25 +584,24 @@ bool AccountMigrationManager::restoreAccountDataFromDisk(QXmppExportData &data)
     QFile file(filePath);
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qDebug("Account could not be migrated: Could not open account file '%ls' for reading: %ls",
-               qUtf16Printable(filePath),
-               qUtf16Printable(file.errorString()));
+        qCDebug(KAIDAN_LOG) << "Account could not be migrated: Could not open account file " << qUtf16Printable(filePath)
+                            << " for reading: " << qUtf16Printable(file.errorString());
         return false;
     }
 
     QDomDocument document;
 
     if (const auto res = document.setContent(&file, QDomDocument::ParseOption::UseNamespaceProcessing); !res) {
-        qDebug("Account could not be migrated: Could not parse account data from '%ls': %ls", qUtf16Printable(filePath), qUtf16Printable(res.errorMessage));
+        qCDebug(KAIDAN_LOG) << "Account could not be migrated: Could not parse account data from " << qUtf16Printable(filePath) << " : "
+                            << qUtf16Printable(res.errorMessage);
         return false;
     }
 
     const auto result = QXmppExportData::fromDom(document.documentElement());
 
     if (const auto error = std::get_if<QXmppError>(&result)) {
-        qDebug("Account could not be migrated: Could not read account data from file '%ls': %ls",
-               qUtf16Printable(filePath),
-               qUtf16Printable(error->description));
+        qCDebug(KAIDAN_LOG) << "Account could not be migrated: Could not read account data from file " << qUtf16Printable(filePath)
+                            << " for reading: " << qUtf16Printable(file.errorString());
         return false;
     }
 
