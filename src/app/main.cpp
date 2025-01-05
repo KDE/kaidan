@@ -102,6 +102,7 @@
 #include "VCardModel.h"
 #include "VersionManager.h"
 #include "kaidan_debug.h"
+#include "platforms_defs.h"
 
 Q_DECLARE_ASSOCIATIVE_CONTAINER_METATYPE(QMultiHash)
 
@@ -193,12 +194,12 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     // App
     //
 
-#ifdef UBUNTU_TOUCH
+#if BUILD_AS_UBUNTU_TOUCH
     qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "true");
     qputenv("QT_QUICK_CONTROLS_MOBILE", "true");
 #endif
 
-#ifdef APPIMAGE
+#if BUILD_AS_APPIMAGE
     qputenv("OPENSSL_CONF", "");
 #endif
 
@@ -235,7 +236,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     SingleApplication app(argc, argv, true);
 #endif
 
-#ifdef APPIMAGE
+#if BUILD_AS_APPIMAGE
     QFileInfo executable(QCoreApplication::applicationFilePath());
 
     if (executable.isSymLink()) {
@@ -381,8 +382,8 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #else
     // check if another instance already runs
     if (app.isSecondary() && !parser.isSet(QStringLiteral("multiple"))) {
-        qDebug().noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
-                           << "You can enable multiple instances by specifying '--multiple'.";
+        qCDebug(KAIDAN_LOG).noquote() << QStringLiteral("Another instance of %1 is already running.").arg(QStringLiteral(APPLICATION_DISPLAY_NAME))
+                                      << "You can enable multiple instances by specifying '--multiple'.";
 #endif
 
         // send a possible link to the primary instance
