@@ -28,6 +28,7 @@
 #include "AccountManager.h"
 #include "Globals.h"
 #include "SystemUtils.h"
+#include "platforms_defs.h"
 
 const auto NEW_LINE = QStringLiteral("\n");
 const auto QUOTE_PREFIX = QStringLiteral("> ");
@@ -125,7 +126,7 @@ QString QmlUtils::getResourcePath(const QString &name)
     pathList << QCoreApplication::applicationDirPath() + QStringLiteral("/../share/") + QStringLiteral(APPLICATION_NAME);
     // get the standard app data locations for current platform
     pathList << QStandardPaths::standardLocations(QStandardPaths::AppDataLocation);
-#ifdef UBUNTU_TOUCH
+#if BUILD_AS_UBUNTU_TOUCH
     pathList << QString("./share/") + QString(APPLICATION_NAME);
 #endif
 #ifndef NDEBUG

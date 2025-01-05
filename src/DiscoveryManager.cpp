@@ -10,7 +10,8 @@
 #include <QXmppTask.h>
 // Kaidan
 #include "Globals.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
+#include "platforms_defs.h"
 
 DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
     : QObject(parent)
@@ -20,7 +21,7 @@ DiscoveryManager::DiscoveryManager(QXmppClient *client, QObject *parent)
     // we're a normal client (not a server, gateway, server component, etc.)
     m_manager->setClientCategory(QStringLiteral("client"));
     m_manager->setClientName(QStringLiteral(APPLICATION_DISPLAY_NAME));
-#if defined Q_OS_ANDROID || defined UBUNTU_TOUCH
+#if defined Q_OS_ANDROID || BUILD_AS_UBUNTU_TOUCH
     // on Ubuntu Touch and Android we're always a mobile client
     m_manager->setClientType("phone");
 #else
@@ -50,7 +51,7 @@ void DiscoveryManager::requestData()
     m_manager->requestInfo(serverJid);
     m_manager->requestDiscoItems(serverJid).then(this, [this, serverJid](QXmppDiscoveryManager::ItemsResult &&result) {
         if (const auto *error = std::get_if<QXmppError>(&result)) {
-            qCDebug(KAIDAN_LOG) << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
+            qCDebug(KAIDAN_CORE_LOG) << QStringLiteral("Could not retrieve discovery items from %1: %2").arg(serverJid, error->description);
         } else {
             handleItems(std::get<QList<QXmppDiscoveryIq::Item>>(std::move(result)));
         }

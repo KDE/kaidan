@@ -9,7 +9,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "MessageController.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
 
 // std
 #include <ranges>
@@ -406,7 +406,7 @@ QFuture<bool> MessageController::retrieveBacklogMessages(const QString &jid, boo
         this,
         [this, interface, jid](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_LOG) << "[MAM] Could not retrieve backlog messages:" << error->description;
+                qCDebug(KAIDAN_CORE_LOG) << "[MAM] Could not retrieve backlog messages:" << error->description;
                 reportFinishedResult(interface, false);
             } else {
                 const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
@@ -506,7 +506,7 @@ void MessageController::retrieveInitialMessage(const QString &jid, bool isGroupC
         this,
         [this, jid, isGroupChat](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_LOG) << "[MAM] Could not retrieve initial message:" << error->description;
+                qCDebug(KAIDAN_CORE_LOG) << "[MAM] Could not retrieve initial message:" << error->description;
             } else {
                 const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
@@ -533,7 +533,7 @@ void MessageController::retrieveAllMessages(const QString &groupChatJid)
         this,
         [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_LOG) << "[MAM] Could not retrieve all messages:" << error->description;
+                qCDebug(KAIDAN_CORE_LOG) << "[MAM] Could not retrieve all messages:" << error->description;
             } else {
                 const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 
@@ -562,7 +562,7 @@ void MessageController::retrieveCatchUpMessages(const QString &latestMessageStan
         this,
         [this, groupChatJid](QXmppMamManager::RetrieveResult &&result) mutable {
             if (auto error = std::get_if<QXmppError>(&result)) {
-                qCDebug(KAIDAN_LOG) << "[MAM] Could not retrieve catch-up messages:" << error->description;
+                qCDebug(KAIDAN_CORE_LOG) << "[MAM] Could not retrieve catch-up messages:" << error->description;
             } else {
                 const auto retrievedMessages = std::get<QXmppMamManager::RetrievedMessages>(std::move(result));
 

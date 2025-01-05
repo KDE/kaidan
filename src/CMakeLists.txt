@@ -6,18 +6,25 @@
 # Sources / Resources
 #
 
-add_executable(${PROJECT_NAME} WIN32)
+set(TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}")
+
+configure_file(platforms_defs.h.in ${CMAKE_CURRENT_BINARY_DIR}/platforms_defs.h)
+
+add_subdirectory(app)
+
+add_library(libkaidancore STATIC)
+add_library(Kaidan::Core ALIAS libkaidancore)
 
 ecm_qt_declare_logging_category(
-    ${PROJECT_NAME}
-    HEADER kaidan_debug.h
-    IDENTIFIER KAIDAN_LOG
-    CATEGORY_NAME im.kaidan.kaidan
-    DESCRIPTION "kaidan"
+    libkaidancore
+    HEADER kaidan_core_debug.h
+    IDENTIFIER KAIDAN_CORE_LOG
+    CATEGORY_NAME im.kaidan.core
+    DESCRIPTION "Kaidan Core"
     EXPORT KAIDAN
 )
 
-target_sources(${PROJECT_NAME} PRIVATE
+target_sources(libkaidancore PRIVATE
     AbstractNotifier.h
     AbstractQrCodeGenerator.cpp
     AbstractQrCodeGenerator.h
@@ -117,7 +124,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     LoginQrCodeGenerator.h
     LogHandler.cpp
     LogHandler.h
-    main.cpp
     MediaUtils.cpp
     MediaUtils.h
     MessageComposition.cpp
@@ -208,7 +214,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 )
 
 if(NOT ANDROID AND NOT IOS)
-    target_sources(${PROJECT_NAME} PRIVATE
+    target_sources(libkaidancore PRIVATE
         singleapp/singleapplication.cpp
         singleapp/singleapplication.h
         singleapp/singleapplication_p.cpp
@@ -218,17 +224,17 @@ endif()
 
 # Include bundled icons on Ubuntu Touch, Android, Windows, macOS and iOS
 if(BUNDLE_ICONS OR UBUNTU_TOUCH OR ANDROID)
-    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/kirigami-icons.qrc")
+    target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/kirigami-icons.qrc")
 endif()
 
 # Bundled knotifications configuration files on platforms that require it
 if(ANDROID)
-    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
+    target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/misc/notifications.qrc")
 endif()
 
 # Bundle images on Android, Windows, macOS and iOS
 if(ANDROID OR WIN32 OR APPLE)
-    target_sources(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/data/images/images.qrc")
+    target_sources(libkaidancore PRIVATE "${CMAKE_SOURCE_DIR}/data/images/images.qrc")
 endif()
 
 # Set app icon
@@ -237,13 +243,11 @@ file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/misc/app-icons/*kaidan.png")
 message(STATUS ${ICONS_SRCS})
 ecm_add_app_icon(KAIDAN_ICNS ICONS ${ICONS_SRCS})
 message(STATUS ${KAIDAN_ICNS})
-target_sources(${PROJECT_NAME} PRIVATE ${KAIDAN_ICNS})
+target_sources(libkaidancore PRIVATE ${KAIDAN_ICNS})
 
-target_sources(${PROJECT_NAME} PRIVATE qml/qml.qrc)
+ecm_create_qm_loader(libkaidancore kaidan_qt)
 
-ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
-
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(libkaidancore
     ICU::uc
     KF6::KIOCore
     KF6::KIOWidgets
@@ -267,49 +271,22 @@ target_link_libraries(${PROJECT_NAME}
 )
 
 if (TARGET KF6::Crash)
-    target_link_libraries(${PROJECT_NAME} KF6::Crash)
+    target_link_libraries(libkaidancore KF6::Crash)
 endif()
 
 if(ANDROID)
-    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
+    target_link_libraries(libkaidancore OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
-    target_link_libraries (${PROJECT_NAME} "pthread")
+    target_link_libraries (libkaidancore "pthread")
 endif()
 
-# Set a custom plist file for the app bundle
-if(APPLE)
-    if(IOS)
-        set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/misc/ios/Info.plist)
-    else()
-        set_target_properties(${PROJECT_NAME} PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${CMAKE_SOURCE_DIR}/misc/macos/Info.plist)
-    endif()
-endif()
-
-# iOS-specific linker flags
-if(IOS)
-    set(CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} "-Wl,-e,_qt_main_wrapper -u _qt_registerPlatformPlugin")
-endif()
-
-#
-# Global C++ definitions
-#
-
-if(UBUNTU_TOUCH)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE UBUNTU_TOUCH=True)
-elseif(APPIMAGE)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-        APPIMAGE=True
-        TARGET_GSTREAMER_PLUGINS="${TARGET_GSTREAMER_PLUGINS}"
-    )
-endif()
-
-target_compile_definitions(${PROJECT_NAME} PRIVATE
+target_compile_definitions(libkaidancore PRIVATE
     QXMPP_DISABLE_DEPRECATED_BEFORE=0x010900
     QT_DISABLE_DEPRECATED_UP_TO=0x050F00
     DEBUG_SOURCE_PATH="${CMAKE_SOURCE_DIR}"
 )
 
 # Include build directory to use GlobalsGen.h
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_BINARY_DIR}")
+target_include_directories(libkaidancore PUBLIC "${CMAKE_BINARY_DIR}")

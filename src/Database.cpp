@@ -15,7 +15,7 @@
 #include "Globals.h"
 #include "Kaidan.h"
 #include "SqlUtils.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
 
 #include <QDir>
 #include <QMutex>
@@ -154,7 +154,7 @@ Database::Database(QObject *parent)
 #ifdef DB_UNIT_TEST
     QFile file(TEST_DB_FILENAME);
     if (file.exists()) {
-        qCDebug(KAIDAN_LOG) << "Removing old database file" << TEST_DB_FILENAME;
+        qCDebug(KAIDAN_CORE_LOG) << "Removing old database file" << TEST_DB_FILENAME;
         file.remove();
     }
 #endif
@@ -333,10 +333,10 @@ void Database::convertDatabase()
     transaction();
 
     if (d->version == DbNotCreated) {
-        qCDebug(KAIDAN_LOG) << "[Database] Creating new database with latest version" << DATABASE_LATEST_VERSION;
+        qCDebug(KAIDAN_CORE_LOG) << "[Database] Creating new database with latest version" << DATABASE_LATEST_VERSION;
         createNewDatabase();
     } else {
-        qCDebug(KAIDAN_LOG) << "[Database] Converting database from version" << d->version << "to latest version" << DATABASE_LATEST_VERSION;
+        qCDebug(KAIDAN_CORE_LOG) << "[Database] Converting database from version" << d->version << "to latest version" << DATABASE_LATEST_VERSION;
         DATABASE_CONVERT_TO_LATEST_VERSION();
     }
 

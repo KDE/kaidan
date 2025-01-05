@@ -1,0 +1,7 @@
+// SPDX-FileCopyrightText: 2025 Laurent Montel <montel@kde.org>
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+#cmakedefine01 BUILD_AS_UBUNTU_TOUCH
+#cmakedefine01 BUILD_AS_APPIMAGE
+#define TARGET_GSTREAMER_PLUGINS "${TARGET_GSTREAMER_PLUGINS}"

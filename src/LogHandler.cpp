@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "LogHandler.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
 
 // Qt
 #include <QDebug>
@@ -40,11 +40,11 @@ void LogHandler::handleLog(QXmppLogger::MessageType type, const QString &text)
 {
     switch (type) {
     case QXmppLogger::ReceivedMessage:
-        qCDebug(KAIDAN_LOG) << "[client] [incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+        qCDebug(KAIDAN_CORE_LOG) << "[client] [incoming] <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
         qDebug().noquote() << makeXmlPretty(text);
         break;
     case QXmppLogger::SentMessage:
-        qCDebug(KAIDAN_LOG) << "[client] [outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+        qCDebug(KAIDAN_CORE_LOG) << "[client] [outgoing] >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
         qDebug().noquote() << makeXmlPretty(text);
         break;
     case QXmppLogger::WarningMessage:
