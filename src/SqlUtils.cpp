@@ -6,7 +6,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "SqlUtils.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
 // Qt
 #include <QDateTime>
 #include <QDebug>
@@ -21,7 +21,7 @@ namespace SqlUtils
 void prepareQuery(QSqlQuery &query, const QString &sql)
 {
     if (!query.prepare(sql)) {
-        qCDebug(KAIDAN_LOG) << "Failed to prepare query:" << sql;
+        qCDebug(KAIDAN_CORE_LOG) << "Failed to prepare query:" << sql;
         qFatal("QSqlError: %s", qPrintable(query.lastError().text()));
     }
 }
@@ -43,7 +43,7 @@ void bindOrderedValues(QSqlQuery &query, const QList<QVariant> &values)
 void execQuery(QSqlQuery &query)
 {
     if (!query.exec()) {
-        qCDebug(KAIDAN_LOG) << "Failed to execute query:" << query.executedQuery();
+        qCDebug(KAIDAN_CORE_LOG) << "Failed to execute query:" << query.executedQuery();
         qFatal("QSqlError: %s", qPrintable(query.lastError().text()));
     }
 }

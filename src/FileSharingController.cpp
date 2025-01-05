@@ -5,7 +5,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "FileSharingController.h"
-#include "kaidan_debug.h"
+#include "kaidan_core_debug.h"
 
 // std
 #include <array>
@@ -353,7 +353,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
         auto output = std::make_unique<QFile>(filePath);
 
         if (!output->open(QIODevice::WriteOnly)) {
-            qCDebug(KAIDAN_LOG) << "Failed to open output file at" << filePath;
+            qCDebug(KAIDAN_CORE_LOG) << "Failed to open output file at" << filePath;
             return;
         }
 
@@ -372,7 +372,7 @@ void FileSharingController::downloadFile(const QString &messageId, const File &f
             if (std::holds_alternative<QXmppError>(result)) {
                 auto errorText = std::get<QXmppError>(result).description;
 
-                qCDebug(KAIDAN_LOG) << "[FileSharingController] Couldn't download file:" << errorText;
+                qCDebug(KAIDAN_CORE_LOG) << "[FileSharingController] Couldn't download file:" << errorText;
                 Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Couldn't download file: %1").arg(errorText));
             } else if (std::holds_alternative<QXmppFileDownload::Downloaded>(result)) {
                 MessageDb::instance()->updateMessage(messageId, [=](Message &message) {
