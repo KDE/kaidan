@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024, 2025 Adrián Chaves (Gallaecio)
 # josé m. <correoxm@disroot.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-06 11:50+0100\n"
+"PO-Revision-Date: 2025-01-06 20:46+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -417,7 +417,7 @@ msgstr "O contacto xa existe"
 #, qt-format
 msgctxt "MixController|"
 msgid "Whether %1 is public could not be determined: %2"
-msgstr "Non foi posíbel determinar se %1 é de acceso público: %2"
+msgstr "Non foi posíbel determinar se %1 é público: %2"
 
 #: src/MixController.cpp:161
 #, qt-format
@@ -1538,7 +1538,7 @@ msgstr "Debe conectarse para cambiar as participantes."
 #: src/qml/details/GroupChatDetailsContent.qml:204
 msgctxt "GroupChatDetailsContent|"
 msgid "Ban"
-msgstr "Prohibir o acceso"
+msgstr "Expulsar"
 
 #: src/qml/details/GroupChatDetailsContent.qml:227
 msgctxt "GroupChatDetailsContent|"
