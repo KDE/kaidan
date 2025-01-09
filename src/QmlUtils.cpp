@@ -6,8 +6,6 @@
 
 #include "QmlUtils.h"
 
-// ICU
-#include <unicode/uchar.h>
 // Qt
 #include <QClipboard>
 #include <QDebug>
