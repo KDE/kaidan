@@ -109,10 +109,7 @@ QVariant serialize(const std::optional<QDateTime> &dateTime)
 
 QVariant serialize(const QDateTime &dateTime)
 {
-    if (dateTime.isValid()) {
-        return dateTime.toMSecsSinceEpoch();
-    }
-    return QVariant(0LL);
+    return dateTime.isValid() ? dateTime.toMSecsSinceEpoch() : QVariant(0LL);
 }
 
 std::optional<QDateTime> parseOptDateTime(QSqlQuery &query, int index)
