@@ -263,6 +263,7 @@ target_link_libraries(${PROJECT_NAME}
     KF6::CoreAddons
     KF6::KIOCore
     KF6::KIOWidgets
+    KF6::Kirigami
     Qt::Concurrent
     Qt::Core
     Qt::Location
@@ -288,10 +289,6 @@ if(TARGET ZXing::ZXing)
         target_link_libraries(${PROJECT_NAME} ZXing::ZXing)
 elseif(TARGET ZXing::Core)
         target_link_libraries(${PROJECT_NAME} ZXing::Core)
-endif()
-
-if(ANDROID OR IOS)
-    target_link_libraries(${PROJECT_NAME} Qt::QuickControls2 KF6::Kirigami2)
 endif()
 
 if(ANDROID)
