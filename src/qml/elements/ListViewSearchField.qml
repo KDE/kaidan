@@ -14,7 +14,7 @@ Kirigami.SearchField {
 	property ListView listView
 
 	Keys.onEscapePressed: clear()
-	Keys.onPressed: {
+	Keys.onPressed: event => {
 		switch (event.key) {
 		case Qt.Key_Escape:
 			clear()
