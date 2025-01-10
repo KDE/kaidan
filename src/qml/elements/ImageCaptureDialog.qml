@@ -14,16 +14,15 @@ import im.kaidan.kaidan
 
 NewMediaDialog {
 	id: root
-
 	title: qsTr("Take a picture")
+	captureSession.imageCapture: ImageCapture {}
 	shutterRelease {
 		iconSource: "camera-photo-symbolic"
-		enabled: camera.imageCapture.ready
-		onClicked: camera.imageCapture.captureToLocation(MediaUtils.newImageFilePath())
+		onClicked: captureSession.imageCapture.captureToFile(MediaUtils.localFilePath(MediaUtils.newImageFileUrl()))
 	}
 
 	Connections {
-		target: root.camera.imageCapture
+		target: root.captureSession.imageCapture
 		ignoreUnknownSignals: true
 
 		function onImageSaved(requestId, path) {

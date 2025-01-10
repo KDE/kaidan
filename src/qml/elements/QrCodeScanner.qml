@@ -51,8 +51,6 @@ Item {
 
 	CameraStatus {
 		id: cameraStatusArea
-		availability: root.camera.availability
-		status: root.camera.cameraStatus
 		radius: root.cornersRounded ? relativeRoundedCornersRadius(width, height) : 0
 		anchors.fill: parent
 	}

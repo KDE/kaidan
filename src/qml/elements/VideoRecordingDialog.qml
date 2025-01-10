@@ -14,24 +14,26 @@ import im.kaidan.kaidan
 
 NewMediaDialog {
 	id: root
-
 	title: qsTr("Record a video")
+	captureSession {
+		audioInput: AudioInput {}
+		recorder: MediaRecorder {}
+	}
 	shutterRelease {
-		iconSource: camera.videoRecorder.recorderStatus === CameraRecorder.RecordingStatus ? "media-playback-stop-symbolic" : "camera-video-symbolic"
-		enabled: camera.videoRecorder.recorderStatus > CameraRecorder.LoadingStatus && camera.videoRecorder.recorderStatus < CameraRecorder.FinalizingStatus
+		iconSource: captureSession.recorder.recorderState === MediaRecorder.RecordingState ? "media-playback-stop-symbolic" : "camera-video-symbolic"
 		onClicked: {
-			if (camera.videoRecorder.recorderStatus === CameraRecorder.RecordingStatus) {
-				camera.videoRecorder.stop()
+			if (captureSession.recorder.recorderState === MediaRecorder.RecordingState) {
+				captureSession.recorder.stop()
 			} else {
-				camera.videoRecorder.outputLocation = MediaUtils.newVideoFilePath()
-				camera.videoRecorder.record()
+				captureSession.recorder.outputLocation = MediaUtils.newVideoFileUrl()
+				captureSession.recorder.record()
 			}
 		}
 	}
 
 	// Recording indicator
 	Controls.Control {
-		visible: root.camera.videoRecorder.recorderStatus === CameraRecorder.RecordingStatus
+		visible: root.captureSession.recorder.recorderState === MediaRecorder.RecordingState
 		opacity: visible ? 1 : 0
 		topPadding: 0
 		bottomPadding: topPadding
@@ -46,7 +48,7 @@ NewMediaDialog {
 			shadow.size: 4
 		}
 		contentItem: RecordingIndicator {
-			duration: root.camera.videoRecorder.duration
+			duration: root.captureSession.recorder.duration
 		}
 		anchors {
 			right: root.shutterRelease.left
@@ -56,21 +58,13 @@ NewMediaDialog {
 	}
 
 	Connections {
-		target: root
-
-		function onCameraChanged() {
-			root.camera.captureMode = Camera.CaptureVideo
-		}
-	}
-
-	Connections {
-		target: root.camera.videoRecorder
+		target: root.captureSession.recorder
 		ignoreUnknownSignals: true
 
-		function onRecorderStatusChanged() {
-			const actualLocation = root.camera.videoRecorder.actualLocation
+		function onRecorderStateChanged() {
+			const actualLocation = root.captureSession.recorder.actualLocation
 
-			if (root.camera.videoRecorder.recorderStatus === CameraRecorder.LoadedStatus && actualLocation) {
+			if (root.captureSession.recorder.recorderState !== MediaRecorder.RecordingState && actualLocation) {
 				root.addFile(actualLocation)
 			}
 		}

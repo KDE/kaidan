@@ -49,7 +49,7 @@ Controls.ItemDelegate {
 			Controls.BusyIndicator {}
 		}
 	}
-	padding: width * 0.1
+	padding: width * 0.2
 	width: Kirigami.Units.iconSizes.large
 	height: width
 }

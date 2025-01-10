@@ -37,10 +37,10 @@ QString fileNameTimestamp(const QDateTime &dateTime)
     return dateTime.toString(u"yyyyMMdd_hhmmss");
 }
 
-QString newFilePath(const QString &directoryPath, const QString &fileExtension)
+QUrl newFileUrl(const QString &directoryPath, const QString &fileExtension)
 {
     QDir().mkdir(directoryPath);
-    return {directoryPath + QDir::separator() + fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension};
+    return MediaUtils::localFileUrl(directoryPath + QDir::separator() + fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension);
 }
 
 static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent);
@@ -270,19 +270,19 @@ QString MediaUtils::iconName(const QUrl &url)
     return iconName(url.fileName());
 }
 
-QString MediaUtils::newAudioFilePath()
+QUrl MediaUtils::newAudioFileUrl()
 {
-    return newFilePath(SystemUtils::audioDirectory(), AUDIO_FILE_EXTENSION);
+    return newFileUrl(SystemUtils::audioDirectory(), AUDIO_FILE_EXTENSION);
 }
 
-QString MediaUtils::newImageFilePath()
+QUrl MediaUtils::newImageFileUrl()
 {
-    return newFilePath(SystemUtils::imageDirectory(), IMAGE_FILE_EXTENSION);
+    return newFileUrl(SystemUtils::imageDirectory(), IMAGE_FILE_EXTENSION);
 }
 
-QString MediaUtils::newVideoFilePath()
+QUrl MediaUtils::newVideoFileUrl()
 {
-    return newFilePath(SystemUtils::videoDirectory(), VIDEO_FILE_EXTENSION);
+    return newFileUrl(SystemUtils::videoDirectory(), VIDEO_FILE_EXTENSION);
 }
 
 QString MediaUtils::mediaTypeName(Enums::MessageType mediaType)

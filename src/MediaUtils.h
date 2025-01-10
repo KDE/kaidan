@@ -66,17 +66,17 @@ public:
     /**
      * Returns the path of an audio file to be created.
      */
-    Q_INVOKABLE static QString newAudioFilePath();
+    Q_INVOKABLE static QUrl newAudioFileUrl();
 
     /**
      * Returns the path of an image file to be created.
      */
-    Q_INVOKABLE static QString newImageFilePath();
+    Q_INVOKABLE static QUrl newImageFileUrl();
 
     /**
      * Returns the path of a video file to be created.
      */
-    Q_INVOKABLE static QString newVideoFilePath();
+    Q_INVOKABLE static QUrl newVideoFileUrl();
 
     static QString mediaTypeName(Enums::MessageType mediaType);
     Q_INVOKABLE static QString newMediaLabel(Enums::MessageType hint);

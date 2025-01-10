@@ -17,23 +17,25 @@ Dialog {
 
 	default property alias __data: contentArea.data
 	property MessageComposition messageComposition
-	property alias cameraStatusArea: cameraStatusArea
+	property alias captureSession: captureSession
 	property alias shutterRelease: shutterRelease
-	property alias zoomSlider: zoomSlider
-	property alias camera: reloadingCameraTimer.object
 
 	preferredHeight: Kirigami.Units.gridUnit * 19
 	onClosed: {
-		const recorderStatus = camera.videoRecorder.recorderStatus
-		const actualLocation = camera.videoRecorder.actualLocation
+		if (captureSession.camera) {
+			let recording = false
+			let actualLocation
+			const recorder = captureSession.recorder
 
-		// The camera needs to be explicitly destroyed.
-		// Otherwise, the resource would stay busy.
-		camera.destroy()
+			if (recorder && recorder.recorderState === MediaRecorder.RecordingState) {
+				recording = true
+				actualLocation = recorder.actualLocation
+			}
 
-		// Remove a video file if the dialog is closed before manually stopping the recording.
-		if (recorderStatus === CameraRecorder.RecordingStatus) {
-			MediaUtils.deleteFile(actualLocation)
+			// Remove a video file if the dialog is closed before manually stopping the recording.
+			if (recording) {
+				MediaUtils.deleteFile(actualLocation)
+			}
 		}
 	}
 
@@ -42,25 +44,23 @@ Dialog {
 		anchors.fill: parent
 
 		VideoOutput {
+			id: videoOutput
 			fillMode: VideoOutput.PreserveAspectCrop
-			focus: visible // to receive focus and capture key events when visible
 			anchors.fill: parent
 		}
 
 		CameraStatus {
 			id: cameraStatusArea
-			availability: root.camera.availability
-			status: root.camera.cameraStatus
-			radius: root.cornersRounded ? relativeRoundedCornersRadius(width, height) : 0
+			visible: !captureSession.camera
 			anchors.fill: parent
 		}
 
 		ShutterRelease {
 			id: shutterRelease
-			visible: !cameraStatusArea.visible
+			visible: captureSession.camera
 			anchors {
-				horizontalCenter: root.zoomSlider.horizontalCenter
-				bottom: root.zoomSlider.top
+				horizontalCenter: zoomSlider.horizontalCenter
+				bottom: zoomSlider.top
 				bottomMargin: Kirigami.Units.smallSpacing * 3
 			}
 			Keys.onPressed: {
@@ -72,30 +72,36 @@ Dialog {
 
 		ZoomSlider {
 			id: zoomSlider
-			visible: camera.cameraStatus === Camera.ActiveStatus
+			visible: captureSession.camera
+			// TODO: Make the slider not stop to zoom when the handle reached a quarter of the total width
+			to: captureSession.camera ? captureSession.camera.maximumZoomFactor : 0
 		}
 	}
 
-	RecreationTimer {
-		id: reloadingCameraTimer
-		objectComponent: Camera {
-			zoomFactor: zoomSlider.value
-			onErrorOccurred: reloadingCameraTimer.start()
-			Component.onCompleted: {
-				if (availability !== Camera.Available) {
-					reloadingCameraTimer.start()
-					return
-				}
+	CaptureSession {
+		id: captureSession
+		camera: cameraLoader.item
+		videoOutput: videoOutput
+	}
 
-				if (focus.supportedFocusModes.includes(Camera.FocusContinuous)) {
-					focus.focusMode = Camera.FocusContinuous
-				}
+	Loader {
+		id: cameraLoader
+		sourceComponent: mediaDevices.videoInputs.length ? cameraComponent : null
 
-				if (focus.supportedFocusPointModes.includes(Camera.FocusPointCenter)) {
-					focus.focusPointMode = Camera.FocusPointCenter
-				}
+		Component {
+			id: cameraComponent
+
+			Camera {
+				active: true
+				focusMode: Camera.FocusModeAuto
+				flashMode: Camera.FlashAuto
+				zoomFactor: zoomSlider.value
 			}
 		}
+	}
+
+	MediaDevices {
+		id: mediaDevices
 	}
 
 	function addFile(localFileUrl) {

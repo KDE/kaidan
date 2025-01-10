@@ -426,7 +426,7 @@ Controls.Pane {
 						root.composition.fileSelectionModel.addFile(voiceMessageRecorder.actualLocation)
 						root.composition.send()
 					} else {
-						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFilePath()
+						voiceMessageRecorder.outputLocation = MediaUtils.newAudioFileUrl()
 						voiceMessageRecorder.record()
 						expansionArea.visible = false
 					}
