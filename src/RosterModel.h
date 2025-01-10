@@ -62,7 +62,7 @@ public:
 
     static RosterModel *instance();
 
-    RosterModel(QObject *parent = nullptr);
+    explicit RosterModel(QObject *parent = nullptr);
     ~RosterModel() override;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;

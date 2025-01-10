@@ -21,7 +21,7 @@ public:
         Emojis,
     };
 
-    MessageReactionModel(QObject *parent = nullptr);
+    explicit MessageReactionModel(QObject *parent = nullptr);
     ~MessageReactionModel() = default;
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;

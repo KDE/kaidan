@@ -17,7 +17,7 @@ class TextFormatter : public QObject
     Q_PROPERTY(bool enhancedFormatting MEMBER m_enhancedFormatting WRITE setEnhancedFormatting)
 
 public:
-    TextFormatter(QObject *parent = nullptr);
+    explicit TextFormatter(QObject *parent = nullptr);
 
     void setTextDocument(QQuickTextDocument *textDocument);
     void setEnhancedFormatting(bool enhancedFormatting);

@@ -28,7 +28,7 @@ public:
     Q_DECLARE_FLAGS(Types, Type)
     Q_FLAGS(Types)
 
-    RosterFilterProxyModel(QObject *parent = nullptr);
+    explicit RosterFilterProxyModel(QObject *parent = nullptr);
 
     Q_INVOKABLE void addDisplayedType(RosterFilterProxyModel::Type type);
     Q_INVOKABLE void removeDisplayedType(RosterFilterProxyModel::Type type);

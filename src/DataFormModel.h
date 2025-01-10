@@ -41,8 +41,8 @@ public:
         MediaUrl,
     };
 
-    DataFormModel(QObject *parent = nullptr);
-    DataFormModel(const QXmppDataForm &dataForm, QObject *parent = nullptr);
+    explicit DataFormModel(QObject *parent = nullptr);
+    explicit DataFormModel(const QXmppDataForm &dataForm, QObject *parent = nullptr);
     ~DataFormModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

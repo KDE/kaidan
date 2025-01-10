@@ -25,7 +25,7 @@ class MixController : public QObject
     Q_OBJECT
 
 public:
-    MixController(QObject *parent = nullptr);
+    explicit MixController(QObject *parent = nullptr);
 
     bool channelParticipationSupported() const;
     QList<GroupChatService> groupChatServices() const;

@@ -66,7 +66,7 @@ public:
     };
     Q_ENUM(ChangeType)
 
-    PresenceCache(QObject *parent = nullptr);
+    explicit PresenceCache(QObject *parent = nullptr);
     ~PresenceCache();
 
     static PresenceCache *instance()

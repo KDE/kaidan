@@ -20,8 +20,8 @@ class RegistrationDataFormModel : public DataFormModel
 public:
     using DataFormModel::DataFormModel;
 
-    RegistrationDataFormModel(QObject *parent = nullptr);
-    RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent = nullptr);
+    explicit RegistrationDataFormModel(QObject *parent = nullptr);
+    explicit RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent = nullptr);
 
     Q_INVOKABLE bool hasUsernameField() const;
     Q_INVOKABLE bool hasPasswordField() const;

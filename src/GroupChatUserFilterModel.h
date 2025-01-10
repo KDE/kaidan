@@ -11,7 +11,7 @@ class GroupChatUserFilterModel : public QSortFilterProxyModel
     Q_OBJECT
 
 public:
-    GroupChatUserFilterModel(QObject *parent = nullptr);
+    explicit GroupChatUserFilterModel(QObject *parent = nullptr);
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 };

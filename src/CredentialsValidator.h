@@ -15,7 +15,7 @@ class CredentialsValidator : public QObject
     Q_OBJECT
 
 public:
-    CredentialsValidator(QObject *parent = nullptr);
+    explicit CredentialsValidator(QObject *parent = nullptr);
 
     /**
      * Returns true if the given string is a valid JID of an XMPP user.

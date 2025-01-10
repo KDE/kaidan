@@ -91,7 +91,7 @@ public:
 
     static MessageModel *instance();
 
-    MessageModel(QObject *parent = nullptr);
+    explicit MessageModel(QObject *parent = nullptr);
     ~MessageModel();
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;

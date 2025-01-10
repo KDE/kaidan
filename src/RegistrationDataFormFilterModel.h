@@ -16,7 +16,7 @@ class RegistrationDataFormFilterModel : public QSortFilterProxyModel
     Q_PROPERTY(bool isEmpty READ isEmpty NOTIFY isEmptyChanged)
 
 public:
-    RegistrationDataFormFilterModel(QObject *parent = nullptr);
+    explicit RegistrationDataFormFilterModel(QObject *parent = nullptr);
 
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
     void setSourceModel(QAbstractItemModel *sourceModel) override;

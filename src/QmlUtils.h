@@ -41,7 +41,7 @@ class QmlUtils : public QObject
 public:
     static QmlUtils *instance();
 
-    QmlUtils(QObject *parent = nullptr);
+    explicit QmlUtils(QObject *parent = nullptr);
     ~QmlUtils();
 
     static QChar messageBubblePaddingCharacter();

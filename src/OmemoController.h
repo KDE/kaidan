@@ -17,7 +17,7 @@ class OmemoController : public QObject
     Q_OBJECT
 
 public:
-    OmemoController(QObject *parent = nullptr);
+    explicit OmemoController(QObject *parent = nullptr);
 
     QFuture<void> load();
     QFuture<void> setUp();

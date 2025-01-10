@@ -48,7 +48,7 @@ public:
 
     static ChatHintModel *instance();
 
-    ChatHintModel(QObject *parent = nullptr);
+    explicit ChatHintModel(QObject *parent = nullptr);
     ~ChatHintModel();
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;

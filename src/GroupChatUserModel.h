@@ -28,7 +28,7 @@ public:
     };
     Q_ENUM(Role)
 
-    GroupChatUserModel(QObject *parent = nullptr);
+    explicit GroupChatUserModel(QObject *parent = nullptr);
 
     [[nodiscard]] int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     [[nodiscard]] QHash<int, QByteArray> roleNames() const override;

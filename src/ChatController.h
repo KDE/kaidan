@@ -53,7 +53,7 @@ class ChatController : public QObject
 public:
     static ChatController *instance();
 
-    ChatController(QObject *parent = nullptr);
+    explicit ChatController(QObject *parent = nullptr);
     ~ChatController();
 
     QString accountJid();

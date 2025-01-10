@@ -28,7 +28,7 @@ class Database : public QObject
     friend class DatabaseComponent;
 
 public:
-    Database(QObject *parent = nullptr);
+    explicit Database(QObject *parent = nullptr);
     ~Database();
 
     /**

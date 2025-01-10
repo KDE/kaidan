@@ -59,7 +59,7 @@ public:
 
     static ProviderListItem fromJson(const QJsonObject &object);
 
-    ProviderListItem(bool isCustomProvider = false);
+    explicit ProviderListItem(bool isCustomProvider = false);
     ProviderListItem(const ProviderListItem &other);
     ~ProviderListItem();
 

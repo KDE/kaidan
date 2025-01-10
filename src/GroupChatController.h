@@ -31,7 +31,7 @@ class GroupChatController : public QObject
 public:
     static GroupChatController *instance();
 
-    GroupChatController(QObject *parent = nullptr);
+    explicit GroupChatController(QObject *parent = nullptr);
     ~GroupChatController();
 
     bool busy();

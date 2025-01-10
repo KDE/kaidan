@@ -18,7 +18,7 @@ class BlockingDb : public DatabaseComponent
 {
     Q_OBJECT
 public:
-    BlockingDb(Database *database, QObject *parent = nullptr);
+    explicit BlockingDb(Database *database, QObject *parent = nullptr);
 
     QFuture<QList<QString>> blockedJids(const QString &accountJid);
     QFuture<void> resetBlockedJids(const QString &accountJid, const QList<QString> &blockedJids);

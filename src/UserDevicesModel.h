@@ -45,8 +45,8 @@ private:
     void handlePresencesCleared();
 
     struct DeviceInfo {
-        DeviceInfo(const QString &resource);
-        DeviceInfo(const QXmppVersionIq &);
+        explicit DeviceInfo(const QString &resource);
+        explicit DeviceInfo(const QXmppVersionIq &);
 
         QString resource;
         QString name;

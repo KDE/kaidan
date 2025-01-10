@@ -23,7 +23,7 @@ class MessageController : public QObject
 public:
     static MessageController *instance();
 
-    MessageController(QObject *parent = nullptr);
+    explicit MessageController(QObject *parent = nullptr);
     ~MessageController();
 
     QFuture<QXmpp::SendResult> send(QXmppMessage &&message);
