@@ -23,14 +23,7 @@ Kirigami.SearchField {
 		case Qt.Key_Enter:
 			if (listView.count > 0) {
 				// Simulate clicking on the first item of the listView.
-				// E.g., it opens the chat of the first item in the roster list.
-				// TODO: Remove case for DelegateRecycler as soon as the DelegateRecycler in the RosterPage is removed
-				const firstItem = listView.itemAtIndex(0)
-				if (firstItem instanceof Kirigami.DelegateRecycler) {
-					firstItem.children[0].clicked()
-				} else {
-					firstItem.clicked()
-				}
+				listView.itemAtIndex(0).clicked()
 			}
 		}
 	}
