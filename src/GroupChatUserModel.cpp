@@ -106,8 +106,6 @@ void GroupChatUserModel::setChatJid(const QString &chatJid)
 
 QStringList GroupChatUserModel::userJids() const
 {
-    QStringList userJids;
-
     return transform<QStringList>(m_users, [](const GroupChatUser &user) {
         return user.jid;
     });
