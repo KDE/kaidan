@@ -3956,27 +3956,27 @@ msgctxt "StartPage|"
 msgid "Create account manually"
 msgstr "Luo tili itse"
 
-#: src/QmlUtils.cpp:90
+#: src/QmlUtils.cpp:88
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
 msgstr "Virheellinen käyttäjätunnus tai salasana."
 
-#: src/QmlUtils.cpp:92
+#: src/QmlUtils.cpp:90
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys."
 
-#: src/QmlUtils.cpp:94
+#: src/QmlUtils.cpp:92
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
 msgstr "Virhe yritettäessä salattua yhteyttä."
 
-#: src/QmlUtils.cpp:96
+#: src/QmlUtils.cpp:94
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
 msgstr "Palvelin ei tue salattuja yhteyksiä."
 
-#: src/QmlUtils.cpp:98
+#: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
 msgid ""
 "Could not connect to the server. Please check your internet connection or "
@@ -3984,22 +3984,22 @@ msgid ""
 msgstr ""
 "Palvelimeen ei saatu yhteyttä. Tarkista internetyhteys ja palvelimen nimi."
 
-#: src/QmlUtils.cpp:100
+#: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
 msgstr "Palvelin ei ole verkossa tai palomuuri estää sen."
 
-#: src/QmlUtils.cpp:102
+#: src/QmlUtils.cpp:100
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
 msgstr "Palvelin ei tue todennusyhteyskäytäntöä."
 
-#: src/QmlUtils.cpp:104
+#: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
 msgstr "Yhteyttä ei voitu virkistää."
 
-#: src/QmlUtils.cpp:106
+#: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
 msgid ""
 "The internet access is not permitted. Please check your system's internet "
@@ -4008,17 +4008,17 @@ msgstr ""
 "Internetyhteyttä ei ole sallittu. Tarkista järjestelmän "
 "internetyhteysasetukset."
 
-#: src/QmlUtils.cpp:108
+#: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
 msgstr "Palvelin ei tue rekisteröitymistä."
 
-#: src/QmlUtils.cpp:110
+#: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
 
-#: src/QmlUtils.cpp:112
+#: src/QmlUtils.cpp:110
 #, fuzzy
 #| msgctxt "SettingsContent|"
 #| msgid "Delete account from the server"
@@ -4026,24 +4026,24 @@ msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
 msgstr "Poista tili palvelimelta"
 
-#: src/QmlUtils.cpp:259
+#: src/QmlUtils.cpp:257
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Tuntematon koko"
 
-#: src/QmlUtils.cpp:281
+#: src/QmlUtils.cpp:279
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
 msgstr "%1 on verkossa"
 
-#: src/QmlUtils.cpp:283
+#: src/QmlUtils.cpp:281
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
 msgstr "%1 kirjoittaa…"
 
-#: src/QmlUtils.cpp:285
+#: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
