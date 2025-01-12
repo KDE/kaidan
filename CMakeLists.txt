@@ -89,7 +89,7 @@ set_package_properties(ICU PROPERTIES
 
 ecm_set_disabled_deprecation_versions(
     QT 6.3.0
-    KF 6.9.0
+    KF 6.10.0
 )
 
 # Format
