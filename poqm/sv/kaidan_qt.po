@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-03 21:55+0100\n"
+"PO-Revision-Date: 2025-01-12 09:05+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Qt-Contexts: true\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.0\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
 #, qt-format
@@ -1419,12 +1419,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "Dina kontakter har apparater som inte är verifierade"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Alla dina kontakters apparater är verifierade"
+msgstr "Alla dina kontakters kända apparater är verifierade"
 
 #: src/qml/details/DetailsContent.qml:54
 msgctxt "DetailsContent|"
@@ -1763,12 +1760,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "Vissa deltagare har apparater som inte är verifierade"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Alla deltagares apparater är verifierade"
+msgstr "Alla deltagares kända apparater är verifierade"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
