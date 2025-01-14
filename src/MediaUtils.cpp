@@ -28,9 +28,11 @@
 #include "FutureUtils.h"
 #include "SystemUtils.h"
 
-const auto IMAGE_FILE_EXTENSION = QStringLiteral(".jpg");
-const auto AUDIO_FILE_EXTENSION = QStringLiteral(".mp3");
-const auto VIDEO_FILE_EXTENSION = QStringLiteral(".mp4");
+const auto IMAGE_FILE_EXTENSION = QStringLiteral("jpg");
+const auto AUDIO_FILE_EXTENSION = QStringLiteral("mp3");
+const auto VIDEO_FILE_EXTENSION = QStringLiteral("mp4");
+
+const auto FILE_PATH = QStringLiteral("%1/%2.%3");
 
 QString fileNameTimestamp(const QDateTime &dateTime)
 {
@@ -40,7 +42,7 @@ QString fileNameTimestamp(const QDateTime &dateTime)
 QUrl newFileUrl(const QString &directoryPath, const QString &fileExtension)
 {
     QDir().mkdir(directoryPath);
-    return MediaUtils::localFileUrl(directoryPath + QDir::separator() + fileNameTimestamp(QDateTime::currentDateTimeUtc()) + fileExtension);
+    return MediaUtils::localFileUrl(FILE_PATH.arg(directoryPath, fileNameTimestamp(QDateTime::currentDateTimeUtc()), fileExtension));
 }
 
 static QList<QMimeType> mimeTypes(const QList<QMimeType> &mimeTypes, const QString &parent);
