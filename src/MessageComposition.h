@@ -134,7 +134,7 @@ private:
     QString m_spoilerHint;
     bool m_isDraft = false;
 
-    FileSelectionModel *m_fileSelectionModel;
+    FileSelectionModel *const m_fileSelectionModel;
 };
 
 class FileSelectionModel : public QAbstractListModel

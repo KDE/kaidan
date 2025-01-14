@@ -37,6 +37,6 @@ private:
      */
     static QString makeXmlPretty(QString inputXml);
 
-    QXmppClient *m_client;
+    QXmppClient *const m_client;
     bool enabled = false;
 };

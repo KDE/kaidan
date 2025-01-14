@@ -159,9 +159,9 @@ private:
      */
     void cleanUpLastForm(RegistrationDataFormModel *newDataFormModel);
 
-    ClientWorker *m_clientWorker;
-    QXmppClient *m_client;
-    QXmppRegistrationManager *m_manager;
-    RegistrationDataFormModel *m_dataFormModel;
+    ClientWorker *const m_clientWorker;
+    QXmppClient *const m_client;
+    QXmppRegistrationManager *const m_manager;
+    RegistrationDataFormModel *m_dataFormModel = nullptr;
     QList<QXmppBitsOfBinaryContentId> m_contentIdsToRemove;
 };

@@ -30,6 +30,6 @@ Q_SIGNALS:
     void clientVersionReceived(const QXmppVersionIq &versionIq);
 
 private:
-    QXmppVersionManager *m_manager;
-    QXmppClient *m_client;
+    QXmppVersionManager *const m_manager;
+    QXmppClient *const m_client;
 };

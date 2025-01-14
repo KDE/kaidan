@@ -42,5 +42,5 @@ protected:
     QObject *dbWorker() const;
 
 private:
-    Database *m_database;
+    Database *const m_database;
 };

@@ -73,11 +73,11 @@ private:
     void addUnrespondedSubscriptionRequest(const QString &subscriberJid, const QXmppPresence &request);
     void applyOldContactData(const QString &oldContactJid, const QString &newContactJid);
 
-    ClientWorker *m_clientWorker;
-    QXmppClient *m_client;
-    AvatarFileStorage *m_avatarStorage;
-    VCardManager *m_vCardManager;
-    QXmppRosterManager *m_manager;
+    ClientWorker *const m_clientWorker;
+    QXmppClient *const m_client;
+    AvatarFileStorage *const m_avatarStorage;
+    VCardManager *const m_vCardManager;
+    QXmppRosterManager *const m_manager;
     QMap<QString, QXmppPresence> m_unprocessedSubscriptionRequests;
     QMap<QString, QXmppPresence> m_pendingSubscriptionRequests;
     QMap<QString, QXmppPresence> m_unrespondedSubscriptionRequests;

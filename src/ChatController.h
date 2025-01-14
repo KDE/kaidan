@@ -117,15 +117,15 @@ private:
     QString m_chatJid;
     RosterItemWatcher m_rosterItemWatcher;
     UserResourcesWatcher m_contactResourcesWatcher;
-    EncryptionWatcher *m_accountEncryptionWatcher;
-    EncryptionWatcher *m_chatEncryptionWatcher;
+    EncryptionWatcher *const m_accountEncryptionWatcher;
+    EncryptionWatcher *const m_chatEncryptionWatcher;
 
     QXmppMessage::State m_chatPartnerChatState = QXmppMessage::State::None;
     QXmppMessage::State m_ownChatState = QXmppMessage::State::None;
-    QTimer *m_composingTimer;
-    QTimer *m_stateTimeoutTimer;
-    QTimer *m_inactiveTimer;
-    QTimer *m_chatPartnerChatStateTimeout;
+    QTimer *const m_composingTimer;
+    QTimer *const m_stateTimeoutTimer;
+    QTimer *const m_inactiveTimer;
+    QTimer *const m_chatPartnerChatStateTimeout;
     QMap<QString, QXmppMessage::State> m_chatStateCache;
 
     static ChatController *s_instance;

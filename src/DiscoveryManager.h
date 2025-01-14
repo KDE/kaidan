@@ -37,6 +37,6 @@ private:
      */
     void handleItems(QList<QXmppDiscoveryIq::Item> &&);
 
-    QXmppClient *m_client;
-    QXmppDiscoveryManager *m_manager;
+    QXmppClient *const m_client;
+    QXmppDiscoveryManager *const m_manager;
 };

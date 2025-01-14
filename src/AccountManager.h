@@ -307,7 +307,7 @@ private:
     void removeAccount(const QString &accountJid);
 
     QMutex m_mutex;
-    Settings *m_settings;
+    Settings *const m_settings;
 
     Account m_account;
 

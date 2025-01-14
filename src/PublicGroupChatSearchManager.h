@@ -52,8 +52,8 @@ private:
     bool saveGroupChats();
     bool readGroupChats();
 
-    QTimer *m_throttler = nullptr;
-    QNetworkAccessManager *m_manager = nullptr;
+    QTimer *const m_throttler;
+    QNetworkAccessManager *const m_manager;
     QPointer<QNetworkReply> m_lastReply;
     bool m_isRunning = false;
     PublicGroupChats m_groupChats;

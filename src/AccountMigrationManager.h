@@ -87,8 +87,8 @@ private:
     };
 
     ClientWorker *const m_worker;
-    QXmppAccountMigrationManager *m_migrationManager;
-    QXmppMovedManager *m_movedManager;
+    QXmppAccountMigrationManager *const m_migrationManager;
+    QXmppMovedManager *const m_movedManager;
     std::optional<MigrationData> m_migrationData;
 };
 

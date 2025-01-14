@@ -104,10 +104,10 @@ private:
      */
     void changeAvatarAfterReceivingCurrentVCard();
 
-    ClientWorker *m_clientWorker;
-    QXmppClient *m_client;
-    QXmppVCardManager *m_manager;
-    AvatarFileStorage *m_avatarStorage;
+    ClientWorker *const m_clientWorker;
+    QXmppClient *const m_client;
+    QXmppVCardManager *const m_manager;
+    AvatarFileStorage *const m_avatarStorage;
     QString m_nicknameToBeSetAfterReceivingCurrentVCard;
     QImage m_avatarToBeSetAfterReceivingCurrentVCard;
     bool m_isAvatarToBeReset = false;

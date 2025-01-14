@@ -53,6 +53,6 @@ private:
     auto _preKeyPairs() -> PreKeyPairs;
     auto _devices() -> Devices;
 
-    QObject *m_xmppContext;
+    QObject *const m_xmppContext;
     QString m_accountJid;
 };
