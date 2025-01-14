@@ -604,7 +604,7 @@ void MessageModel::markMessageAsFirstUnread(int index)
     if (lastReadContactMessageId.isEmpty()) {
         auto future =
             MessageDb::instance()->firstContactMessageId(ChatController::instance()->accountJid(), ChatController::instance()->chatJid(), unreadMessageCount);
-        await(future, this, [=, currentChatJid = ChatController::instance()->chatJid()](QString firstContactMessageId) {
+        await(future, this, [=, currentChatJid = ChatController::instance()->chatJid()](QString &&firstContactMessageId) {
             RosterDb::instance()->updateItem(currentChatJid, [=](RosterItem &item) {
                 item.unreadMessages = unreadMessageCount;
                 item.lastReadContactMessageId = firstContactMessageId;
