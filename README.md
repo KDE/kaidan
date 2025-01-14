@@ -89,7 +89,7 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [knotifications]: https://api.kde.org/frameworks/knotifications/html/index.html
 [kquickimageeditor]: https://invent.kde.org/libraries/kquickimageeditor
 [qt]: https://www.qt.io/
-[qt-build-sources]: https://doc.qt.io/qt-5/build-sources.html
+[qt-build-sources]: https://doc.qt.io/qt-6/build-sources.html
 [qtquick]: https://wiki.qt.io/Qt_Quick
 [qxmpp]: https://github.com/qxmpp-project/qxmpp
 [wiki]: https://invent.kde.org/network/kaidan/-/wikis/home
