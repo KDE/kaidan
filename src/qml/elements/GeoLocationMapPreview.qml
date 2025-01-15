@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Effects
+import org.kde.kirigami as Kirigami
 
 GeoLocationMap {
 	id: root
@@ -11,15 +11,8 @@ GeoLocationMap {
 	property Item message
 
 	layer.enabled: true
-	layer.effect: MultiEffect {
-		maskSource: ShaderEffectSource {
-			sourceItem: Rectangle {
-				radius: roundedCornersRadius
-				width: root.width
-				height: root.width
-				anchors.centerIn: parent
-			}
-		}
+	layer.effect: Kirigami.ShadowedTexture {
+		radius: roundedCornersRadius
 	}
 
 	OpacityChangingMouseArea {

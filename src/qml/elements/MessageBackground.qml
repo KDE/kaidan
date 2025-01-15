@@ -48,9 +48,11 @@ Item {
 
 	Item {
 		id: tailMask
-		clip: true
 		visible: false
-		anchors.fill: tailBase
+		width: tailBase.width
+		height: tailBase.height
+		layer.enabled: true
+		layer.smooth: true
 
 		Kirigami.ShadowedRectangle {
 			anchors.fill: parent
@@ -68,13 +70,13 @@ Item {
 	}
 
 	MultiEffect {
-		visible: showTail
-		anchors.fill: tailBase
 		source: tailBase
-		maskSource: ShaderEffectSource {
-			sourceItem: tailMask
-		}
+		maskEnabled: true
+		maskSource: tailMask
 		maskInverted: true
+		maskThresholdMin: 0.5
+		maskSpreadAtMin: 1.0
+		anchors.fill: tailBase
 	}
 
 	Rectangle {

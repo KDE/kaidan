@@ -4,7 +4,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Effects
 import org.kde.kirigami as Kirigami
 
 /**
@@ -16,19 +15,7 @@ Kirigami.Icon {
 	property real radius: relativeRoundedCornersRadius(width, height)
 
 	layer.enabled: true
-	layer.effect: MultiEffect {
-		maskSource: ShaderEffectSource {
-			sourceItem: Item {
-				width: root.paintedWidth
-				height: root.paintedHeight
-
-				Rectangle {
-					radius: root.radius
-					width: root.width
-					height: root.height
-					anchors.centerIn: parent
-				}
-			}
-		}
+	layer.effect: Kirigami.ShadowedTexture {
+		radius: root.radius
 	}
 }

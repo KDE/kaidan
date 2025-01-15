@@ -5,7 +5,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Effects
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import QtMultimedia
@@ -30,15 +29,8 @@ Item {
 		id: videoOutput
 		fillMode: VideoOutput.PreserveAspectCrop
 		layer.enabled: true
-		layer.effect: MultiEffect {
-			maskSource: ShaderEffectSource {
-				sourceItem: Rectangle {
-					radius: cameraStatusArea.radius
-					width: Math.min(videoOutput.width, videoOutput.height)
-					height: width
-					anchors.centerIn: parent
-				}
-			}
+		layer.effect: Kirigami.ShadowedTexture {
+			radius: cameraStatusArea.radius
 		}
 		anchors.fill: parent
 	}
