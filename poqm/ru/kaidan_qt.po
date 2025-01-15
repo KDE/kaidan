@@ -222,107 +222,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Ссылка будет открыта после подключения."
 
-#: src/MediaUtils.cpp:292
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Аудиофайл"
 
-#: src/MediaUtils.cpp:294
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Документ"
 
-#: src/MediaUtils.cpp:296
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Карта"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Изображение"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Видео"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Файл"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Сфотографировать"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Записать видео"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Записать аудио"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Оправить местоположение"
 
-#: src/MediaUtils.cpp:357
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Выбрать файл"
 
-#: src/MediaUtils.cpp:359
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Выбрать изображение"
 
-#: src/MediaUtils.cpp:361
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Выбрать видео"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Выбрать аудиозапись"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Выбрать документ"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Все файлы"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Изображения"
 
-#: src/MediaUtils.cpp:391
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Видео"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Аудио"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Документы"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:422
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2522,35 +2522,13 @@ msgctxt "Audio|"
 msgid "Play"
 msgstr ""
 
-#: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "MultimediaSettings|"
-#| msgid "Recording…"
-msgctxt "CameraStatus|"
-msgid "Loading camera…"
-msgstr "Запись…"
-
-#: src/qml/elements/CameraStatus.qml:66
+#: src/qml/elements/CameraStatus.qml:40
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "There is no camera available."
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Не удалось обнаружить камеру."
-
-#: src/qml/elements/CameraStatus.qml:69
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Your camera is busy.\n"
-#| "Try to close other applications using the camera."
-msgctxt "CameraStatus|"
-msgid ""
-"Camera busy\n"
-"Try to close other applications using the camera"
-msgstr ""
-"Камера уже используется.\n"
-"Попробуйте закрыть приложения, использующие камеру."
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -3164,7 +3142,7 @@ msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
 msgstr "Устройства в сети"
 
-#: src/qml/elements/ImageCaptureDialog.qml:18
+#: src/qml/elements/ImageCaptureDialog.qml:17
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -3549,7 +3527,7 @@ msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "Копировать адрес"
 
-#: src/qml/elements/VideoRecordingDialog.qml:18
+#: src/qml/elements/VideoRecordingDialog.qml:17
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -4198,6 +4176,26 @@ msgstr "Дата рождения"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Веб-сайт"
+
+#, fuzzy
+#~| msgctxt "MultimediaSettings|"
+#~| msgid "Recording…"
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "Запись…"
+
+#, fuzzy
+#~| msgctxt "QrCodeScanner|"
+#~| msgid ""
+#~| "Your camera is busy.\n"
+#~| "Try to close other applications using the camera."
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "Камера уже используется.\n"
+#~ "Попробуйте закрыть приложения, использующие камеру."
 
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."

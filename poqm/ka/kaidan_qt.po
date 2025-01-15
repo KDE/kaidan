@@ -214,107 +214,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "ბმული გაიხსნება, როცა მიუერთდებით."
 
-#: src/MediaUtils.cpp:292
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "აუდიო"
 
-#: src/MediaUtils.cpp:294
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "დოკუმენტი"
 
-#: src/MediaUtils.cpp:296
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "დებარეობა"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "გამოსახულება"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "ვიდეო"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "ფაილი"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "სურათის გადაღება"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "ვიდეოს ჩაწერა"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "ხმის ჩაწერა"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "მდებარეობის გაგზავნა"
 
-#: src/MediaUtils.cpp:357
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "ფაილის არჩევა"
 
-#: src/MediaUtils.cpp:359
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "გამოსახულების არჩევა"
 
-#: src/MediaUtils.cpp:361
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "ვიდეოს არჩევა"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "აუდო ფაილის არჩევა"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "დოკუმენტის არჩევა"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "ყველა ფაილი"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "ასლები"
 
-#: src/MediaUtils.cpp:391
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "ვიდეო"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "აუდიო ფაილები"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "დოკუმენტები"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:422
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2493,35 +2493,13 @@ msgctxt "Audio|"
 msgid "Play"
 msgstr ""
 
-#: src/qml/elements/CameraStatus.qml:59
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid "Loading camera…"
-msgctxt "CameraStatus|"
-msgid "Loading camera…"
-msgstr "კამერის ჩატვირთვა…"
-
-#: src/qml/elements/CameraStatus.qml:66
+#: src/qml/elements/CameraStatus.qml:40
 #, fuzzy
 #| msgctxt "QrCodeScanner|"
 #| msgid "No camera available"
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "კამერა მიუწვდომელია"
-
-#: src/qml/elements/CameraStatus.qml:69
-#, fuzzy
-#| msgctxt "QrCodeScanner|"
-#| msgid ""
-#| "Camera busy\n"
-#| "Try to close other applications using the camera"
-msgctxt "CameraStatus|"
-msgid ""
-"Camera busy\n"
-"Try to close other applications using the camera"
-msgstr ""
-"კამერა დაკავებულია.\n"
-"სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ"
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -3096,7 +3074,7 @@ msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
 msgstr "გადაუმოწმებელი კონტაქტის მოწყობილობები"
 
-#: src/qml/elements/ImageCaptureDialog.qml:18
+#: src/qml/elements/ImageCaptureDialog.qml:17
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -3461,7 +3439,7 @@ msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "ვეგბვერდის მისამართის კოპირება"
 
-#: src/qml/elements/VideoRecordingDialog.qml:18
+#: src/qml/elements/VideoRecordingDialog.qml:17
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -4129,6 +4107,26 @@ msgstr "დაბადების დღე"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "ვებსაიტი"
+
+#, fuzzy
+#~| msgctxt "QrCodeScanner|"
+#~| msgid "Loading camera…"
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "კამერის ჩატვირთვა…"
+
+#, fuzzy
+#~| msgctxt "QrCodeScanner|"
+#~| msgid ""
+#~| "Camera busy\n"
+#~| "Try to close other applications using the camera"
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "კამერა დაკავებულია.\n"
+#~ "სცადეთ დახუროთ აპლიკაციები, რომლებიც კამერას იყენებენ"
 
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."

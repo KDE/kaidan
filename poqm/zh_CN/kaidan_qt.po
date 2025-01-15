@@ -191,107 +191,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "链接将在您连接后打开。"
 
-#: src/MediaUtils.cpp:292
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "音频"
 
-#: src/MediaUtils.cpp:294
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:296
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "位置"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "文件"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "拍照"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "录像"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "录音"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "发送位置"
 
-#: src/MediaUtils.cpp:357
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "选择文件"
 
-#: src/MediaUtils.cpp:359
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "选择图片"
 
-#: src/MediaUtils.cpp:361
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "选择视频"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "选择音频文件"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "选择文档"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "全部文件"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "图片"
 
-#: src/MediaUtils.cpp:391
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "视频"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "音频文件"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "文档"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:422
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -1988,24 +1988,10 @@ msgctxt "Audio|"
 msgid "Play"
 msgstr "播放"
 
-#: src/qml/elements/CameraStatus.qml:59
-msgctxt "CameraStatus|"
-msgid "Loading camera…"
-msgstr "正在加载相机…"
-
-#: src/qml/elements/CameraStatus.qml:66
+#: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "没有可用的相机"
-
-#: src/qml/elements/CameraStatus.qml:69
-msgctxt "CameraStatus|"
-msgid ""
-"Camera busy\n"
-"Try to close other applications using the camera"
-msgstr ""
-"相机忙碌\n"
-"尝试关闭使用相机的其他应用程序"
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -2467,7 +2453,7 @@ msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
 msgstr "未经验证的参与者设备"
 
-#: src/qml/elements/ImageCaptureDialog.qml:18
+#: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "拍照"
@@ -2752,7 +2738,7 @@ msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "复制 Web 地址"
 
-#: src/qml/elements/VideoRecordingDialog.qml:18
+#: src/qml/elements/VideoRecordingDialog.qml:17
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "录制视频"
@@ -3300,3 +3286,15 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "正在加载相机…"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "相机忙碌\n"
+#~ "尝试关闭使用相机的其他应用程序"

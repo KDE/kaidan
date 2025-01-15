@@ -192,107 +192,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "Bağlantı, siz bağlandıktan sonra açılacak."
 
-#: src/MediaUtils.cpp:292
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Ses"
 
-#: src/MediaUtils.cpp:294
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Belge"
 
-#: src/MediaUtils.cpp:296
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Konum"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Görsel"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Video"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Dosya"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Resim çek"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Video kaydet"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Ses kaydet"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Konum gönder"
 
-#: src/MediaUtils.cpp:357
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Dosya seç"
 
-#: src/MediaUtils.cpp:359
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Görsel seç"
 
-#: src/MediaUtils.cpp:361
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Video seç"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Ses dosyası seç"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Belge seç"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tüm dosyalar"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Görseller"
 
-#: src/MediaUtils.cpp:391
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Videolar"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Ses dosyaları"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Belgeler"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:422
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2036,24 +2036,10 @@ msgctxt "Audio|"
 msgid "Play"
 msgstr "Oynat"
 
-#: src/qml/elements/CameraStatus.qml:59
-msgctxt "CameraStatus|"
-msgid "Loading camera…"
-msgstr "Kamera yükleniyor…"
-
-#: src/qml/elements/CameraStatus.qml:66
+#: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Kullanılabilir kamera yok"
-
-#: src/qml/elements/CameraStatus.qml:69
-msgctxt "CameraStatus|"
-msgid ""
-"Camera busy\n"
-"Try to close other applications using the camera"
-msgstr ""
-"Kameranız meşgul\n"
-"Kamerayı kullanan diğer uygulamaları kapatmayı deneyin"
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -2516,7 +2502,7 @@ msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
 msgstr "Doğrulanmamış katılımcı aygıtları"
 
-#: src/qml/elements/ImageCaptureDialog.qml:18
+#: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Resim çek"
@@ -2801,7 +2787,7 @@ msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "Web sitesi adresini kopyala"
 
-#: src/qml/elements/VideoRecordingDialog.qml:18
+#: src/qml/elements/VideoRecordingDialog.qml:17
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Video kaydet"
@@ -3358,6 +3344,18 @@ msgstr "Doğum günü"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Web sitesi"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "Kamera yükleniyor…"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "Kameranız meşgul\n"
+#~ "Kamerayı kullanan diğer uygulamaları kapatmayı deneyin"
 
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."

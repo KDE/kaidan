@@ -206,107 +206,107 @@ msgctxt "Kaidan|"
 msgid "The link will be opened after you have connected."
 msgstr "L'enllaç s'obrirà després que us hàgiu connectat."
 
-#: src/MediaUtils.cpp:292
+#: src/MediaUtils.cpp:294
 msgctxt "MediaUtils|"
 msgid "Audio"
 msgstr "Àudio"
 
-#: src/MediaUtils.cpp:294
+#: src/MediaUtils.cpp:296
 msgctxt "MediaUtils|"
 msgid "Document"
 msgstr "Document"
 
-#: src/MediaUtils.cpp:296
+#: src/MediaUtils.cpp:298
 msgctxt "MediaUtils|"
 msgid "Location"
 msgstr "Ubicació"
 
-#: src/MediaUtils.cpp:298
+#: src/MediaUtils.cpp:300
 msgctxt "MediaUtils|"
 msgid "Image"
 msgstr "Imatge"
 
-#: src/MediaUtils.cpp:300
+#: src/MediaUtils.cpp:302
 msgctxt "MediaUtils|"
 msgid "Video"
 msgstr "Vídeo"
 
-#: src/MediaUtils.cpp:304
+#: src/MediaUtils.cpp:306
 msgctxt "MediaUtils|"
 msgid "File"
 msgstr "Fitxer"
 
-#: src/MediaUtils.cpp:313
+#: src/MediaUtils.cpp:315
 msgctxt "MediaUtils|"
 msgid "Take picture"
 msgstr "Pren una fotografia"
 
-#: src/MediaUtils.cpp:315
+#: src/MediaUtils.cpp:317
 msgctxt "MediaUtils|"
 msgid "Record video"
 msgstr "Enregistra un vídeo"
 
-#: src/MediaUtils.cpp:317
+#: src/MediaUtils.cpp:319
 msgctxt "MediaUtils|"
 msgid "Record voice"
 msgstr "Enregistra una veu"
 
-#: src/MediaUtils.cpp:319
+#: src/MediaUtils.cpp:321
 msgctxt "MediaUtils|"
 msgid "Send location"
 msgstr "Envia la ubicació"
 
-#: src/MediaUtils.cpp:357
+#: src/MediaUtils.cpp:359
 msgctxt "MediaUtils|"
 msgid "Choose file"
 msgstr "Trieu un fitxer"
 
-#: src/MediaUtils.cpp:359
+#: src/MediaUtils.cpp:361
 msgctxt "MediaUtils|"
 msgid "Choose image"
 msgstr "Trieu una imatge"
 
-#: src/MediaUtils.cpp:361
+#: src/MediaUtils.cpp:363
 msgctxt "MediaUtils|"
 msgid "Choose video"
 msgstr "Trieu un vídeo"
 
-#: src/MediaUtils.cpp:363
+#: src/MediaUtils.cpp:365
 msgctxt "MediaUtils|"
 msgid "Choose audio file"
 msgstr "Trieu un fitxer d'àudio"
 
-#: src/MediaUtils.cpp:365
+#: src/MediaUtils.cpp:367
 msgctxt "MediaUtils|"
 msgid "Choose document"
 msgstr "Trieu un document"
 
-#: src/MediaUtils.cpp:387
+#: src/MediaUtils.cpp:389
 msgctxt "MediaUtils|"
 msgid "All files"
 msgstr "Tots els fitxers"
 
-#: src/MediaUtils.cpp:389
+#: src/MediaUtils.cpp:391
 msgctxt "MediaUtils|"
 msgid "Images"
 msgstr "Imatges"
 
-#: src/MediaUtils.cpp:391
+#: src/MediaUtils.cpp:393
 msgctxt "MediaUtils|"
 msgid "Videos"
 msgstr "Vídeos"
 
-#: src/MediaUtils.cpp:393
+#: src/MediaUtils.cpp:395
 msgctxt "MediaUtils|"
 msgid "Audio files"
 msgstr "Fitxers d'àudio"
 
-#: src/MediaUtils.cpp:395
+#: src/MediaUtils.cpp:397
 msgctxt "MediaUtils|"
 msgid "Documents"
 msgstr "Documents"
 
-#: src/MediaUtils.cpp:420
+#: src/MediaUtils.cpp:422
 #, qt-format
 msgctxt "MediaUtils|"
 msgid "%1 (%2)"
@@ -2068,24 +2068,10 @@ msgctxt "Audio|"
 msgid "Play"
 msgstr "Reprodueix"
 
-#: src/qml/elements/CameraStatus.qml:59
-msgctxt "CameraStatus|"
-msgid "Loading camera…"
-msgstr "S'està carregant la càmera…"
-
-#: src/qml/elements/CameraStatus.qml:66
+#: src/qml/elements/CameraStatus.qml:40
 msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Cap càmera disponible"
-
-#: src/qml/elements/CameraStatus.qml:69
-msgctxt "CameraStatus|"
-msgid ""
-"Camera busy\n"
-"Try to close other applications using the camera"
-msgstr ""
-"La càmera està ocupada.\n"
-"Intenteu tancar les altres aplicacions que estan utilitzant la càmera"
 
 #: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
@@ -2549,7 +2535,7 @@ msgctxt "GroupChatUserKeyAuthenticationPage|"
 msgid "Unverified participant devices"
 msgstr "Dispositius no verificats de participant"
 
-#: src/qml/elements/ImageCaptureDialog.qml:18
+#: src/qml/elements/ImageCaptureDialog.qml:17
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "Pren una fotografia"
@@ -2835,7 +2821,7 @@ msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
 msgstr "Copia l'adreça de la web"
 
-#: src/qml/elements/VideoRecordingDialog.qml:18
+#: src/qml/elements/VideoRecordingDialog.qml:17
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "Enregistra un vídeo"
@@ -3396,6 +3382,18 @@ msgstr "Aniversari"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Lloc web"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid "Loading camera…"
+#~ msgstr "S'està carregant la càmera…"
+
+#~ msgctxt "CameraStatus|"
+#~ msgid ""
+#~ "Camera busy\n"
+#~ "Try to close other applications using the camera"
+#~ msgstr ""
+#~ "La càmera està ocupada.\n"
+#~ "Intenteu tancar les altres aplicacions que estan utilitzant la càmera"
 
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
