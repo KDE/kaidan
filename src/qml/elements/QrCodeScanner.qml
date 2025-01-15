@@ -24,15 +24,29 @@ Item {
 	property alias zoomSlider: zoomSlider
 	property bool cornersRounded: true
 
-	// video output from the camera which is shown on the screen and decoded by a filter
-	VideoOutput {
-		id: videoOutput
-		fillMode: VideoOutput.PreserveAspectCrop
-		layer.enabled: true
-		layer.effect: Kirigami.ShadowedTexture {
-			radius: cameraStatusArea.radius
+	Item {
+		// Mirror the video output on desktop devices.
+		transform: Rotation {
+			origin.x: width / 2
+			axis {
+				x: 0
+				y: 1
+				z: 0
+			}
+			angle: Kirigami.Settings.isMobile ? 0 : 180
 		}
 		anchors.fill: parent
+
+		// video output from the camera which is shown on the screen and decoded by a filter
+		VideoOutput {
+			id: videoOutput
+			fillMode: VideoOutput.PreserveAspectCrop
+			layer.enabled: true
+			layer.effect: Kirigami.ShadowedTexture {
+				radius: cameraStatusArea.radius
+			}
+			anchors.fill: parent
+		}
 	}
 
 	CameraStatus {
