@@ -15,6 +15,10 @@ GeoLocationMap {
 		radius: roundedCornersRadius
 	}
 
+	Behavior on opacity {
+		NumberAnimation {}
+	}
+
 	OpacityChangingMouseArea {
 		// Keep the copyright link accessible.
 		z: parent.z - 1
