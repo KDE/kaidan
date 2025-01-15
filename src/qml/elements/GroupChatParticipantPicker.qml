@@ -6,6 +6,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
+import org.kde.kirigamiaddons.components as Components
 
 import im.kaidan.kaidan
 
@@ -53,7 +54,7 @@ Kirigami.Dialog {
 				name: qsTr("Invite contacts to this group…")
 				userText.font.italic: true
 				avatar.iconSource: "resource-group-new"
-				avatar.initialsMode: Kirigami.Avatar.InitialsMode.UseIcon
+				avatar.initialsMode: Components.Avatar.InitialsMode.UseIcon
 				avatar.color: Kirigami.Theme.textColor
 				implicitWidth: largeButtonWidth
 				hoverEnabled: true
