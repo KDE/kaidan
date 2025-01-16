@@ -267,7 +267,7 @@ void MessageController::updateMessageReactionsAfterSending(const QString &messag
 {
     MessageDb::instance()->updateMessage(messageId, [senderId](Message &message) {
         auto &reactionSenders = message.reactionSenders;
-        auto &reactionSender = message.reactionSenders[senderId];
+        auto &reactionSender = reactionSenders[senderId];
         reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
         auto &reactions = reactionSender.reactions;
 
