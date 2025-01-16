@@ -26,7 +26,8 @@
 
 #include "StatusBar.h"
 #ifdef Q_OS_ANDROID
-#include <QtAndroid>
+#include "private/qandroidextras_p.h"
+#include <QtCore/private/qjnihelpers_p.h>
 
 // WindowManager.LayoutParams
 #define FLAG_TRANSLUCENT_STATUS 0x04000000
@@ -50,22 +51,12 @@ void StatusBar::setColor(const QColor &color)
     Q_EMIT colorChanged();
     if (!isAvailable())
         return;
-
-#ifdef Q_OS_ANDROID
-    QtAndroid::runOnAndroidThread([=]() {
-        QAndroidJniObject window = QtAndroid::androidActivity().callObjectMethod("getWindow", "()Landroid/view/Window;");
-        window.callMethod<void>("addFlags", "(I)V", FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.callMethod<void>("addFlags", "(I)V", SYSTEM_UI_FLAG_LAYOUT_STABLE);
-        window.callMethod<void>("clearFlags", "(I)V", FLAG_TRANSLUCENT_STATUS);
-        window.callMethod<void>("setStatusBarColor", "(I)V", color.rgba());
-    });
-#endif
 }
 
 bool StatusBar::isAvailable() const
 {
 #ifdef Q_OS_ANDROID
-    return QtAndroid::androidSdkVersion() >= 21;
+    return QtAndroidPrivate::androidSdkVersion() >= 21;
 #else
     return false;
 #endif

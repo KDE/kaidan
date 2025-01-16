@@ -50,7 +50,9 @@
 #endif
 
 // KDAB
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
 #include <kdsingleapplication.h>
+#endif
 
 // QXmpp
 #include <QXmppClient.h>
@@ -569,7 +571,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         return -1;
 
 #ifdef Q_OS_ANDROID
-    QtAndroid::hideSplashScreen();
+    QAndroidApplication::hideSplashScreen();
 #endif
 
     // enter qt main loop
