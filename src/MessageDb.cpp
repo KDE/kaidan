@@ -1066,7 +1066,7 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void(Messa
                                         oldMessage.isOwn ? oldMessage.accountJid
                                                          : (oldMessage.isGroupChatMessage() ? oldMessage.groupChatSenderId : oldMessage.chatJid)},
                                        {u"messageId", oldMessage.relevantId()},
-                                       {u"senderId", senderId == oldMessage.accountJid ? QString() : senderId},
+                                       {u"senderId", senderId == oldMessage.accountJid ? QVariant{} : senderId},
                                        {u"timestamp", reactionSender.latestTimestamp},
                                        {u"deliveryState", static_cast<int>(reaction.deliveryState)},
                                        {u"emoji", reaction.emoji},
