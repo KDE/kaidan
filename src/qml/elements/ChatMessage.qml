@@ -138,6 +138,7 @@ Controls.ItemDelegate {
 					Loader {
 						id: referencedMessageLoader
 						sourceComponent: root.replyId ? referencedMessage : undefined
+						Layout.topMargin: item ? root.bubblePadding : 0
 
 						Component {
 							id: referencedMessage
