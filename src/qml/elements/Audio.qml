@@ -42,7 +42,7 @@ ExtendedMessageContent {
 			Layout.minimumWidth: root.minimumWidth - mainArea.leftPadding - parent.spacing * 2 - playButton.width - durationText.width - mainArea.rightPadding
 			Layout.maximumWidth: root.maximumWidth - mainArea.leftPadding - parent.spacing * 2 - playButton.width - durationText.width - mainArea.rightPadding
 			Layout.fillWidth: true
-			onMoved: player.seek(value)
+			onMoved: player.position = value
 
 			// Prevent moving the handle by right clicks.
 			// Instead, show the message's context menu.
