@@ -101,10 +101,10 @@ You can specify a category and type (i.e., log level) to print only specific log
 [KDebugSettings](https://apps.kde.org/de/kdebugsettings/) can be used as a graphical alternative.
 Once you inserted `kaidan/build/kaidan.categories`, you can manage how to log for Kaidan there.
 
-Kaidan uses QXmpp's logging.
-That mainly outputs the XML data exchanged between Kaidan and the XMPP servers it is connected to.
+Kaidan prints QXmpp's log messages as well.
 [LogHandler](src/LogHandler.cpp) specifies the logging type.
-The command-line argument `--disable-xml-log` disables QXmpp's logging.
+QXmpp mainly logs the XML data exchanged between Kaidan and the XMPP servers it is connected to.
+The command-line argument `--disable-xml-log` disables that.
 
 ## Styles
 
