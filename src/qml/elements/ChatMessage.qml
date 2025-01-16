@@ -64,9 +64,9 @@ Controls.ItemDelegate {
 	property real bubblePadding: Kirigami.Units.smallSpacing
 	property real maximumBubbleContentWidth: width - Kirigami.Units.largeSpacing * (root.isGroupChatMessage && !root.isOwn ? 14 : 8)
 
-	hoverEnabled: false
 	width: messageListView.width
 	height: messageArea.implicitHeight + (isGroupEnd ? Kirigami.Units.largeSpacing : Kirigami.Units.smallSpacing)
+	background: null
 	contentItem: ColumnLayout {
 		id: messageArea
 		spacing: -5
