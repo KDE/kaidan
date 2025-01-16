@@ -281,7 +281,7 @@ if (TARGET KF6::Crash)
 endif()
 
 if(ANDROID)
-    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt::AndroidExtras)
+    target_link_libraries(${PROJECT_NAME} OpenSSL::Crypto SQLite::SQLite3 Qt::CorePrivate)
 endif()
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")

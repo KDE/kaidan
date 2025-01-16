@@ -135,10 +135,6 @@ Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 #include "singleapp/singleapplication.h"
 #endif
 
-#ifdef Q_OS_ANDROID
-#include <QtAndroid>
-#endif
-
 #ifdef Q_OS_WIN
 #include <windows.h>
 #endif
@@ -541,7 +537,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
         return -1;
 
 #ifdef Q_OS_ANDROID
-    QtAndroid::hideSplashScreen();
+    QAndroidApplication::hideSplashScreen();
 #endif
 
     // enter qt main loop

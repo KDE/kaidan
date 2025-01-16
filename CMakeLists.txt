@@ -136,7 +136,6 @@ else()
 endif()
 
 if(ANDROID)
-    find_package(Qt6 REQUIRED COMPONENTS AndroidExtras)
     # We need to link against sqlite3 to help androiddeployqt detect that we need it
     find_package(SQLite3 REQUIRED)
 
