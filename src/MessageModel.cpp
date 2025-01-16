@@ -669,10 +669,23 @@ void MessageModel::addMessageReaction(const QString &messageId, const QString &e
 
                 await(MessageController::instance()->sendMessageReaction(chatJid, messageId, ChatController::instance()->rosterItem().isGroupChat(), emojis),
                       this,
-                      [addReaction, messageId, senderId](QXmpp::SendResult &&result) {
+                      [addReaction, messageId, senderId, emoji](QXmpp::SendResult &&result) {
                           if (const auto error = std::get_if<QXmppError>(&result)) {
                               Q_EMIT Kaidan::instance()->passiveNotificationRequested(tr("Reaction could not be sent: %1").arg(error->description));
-                              addReaction(MessageReactionDeliveryState::ErrorOnAddition);
+
+                              MessageDb::instance()->updateMessage(messageId, [senderId, emoji](Message &message) {
+                                  auto &reactionSender = message.reactionSenders[senderId];
+                                  reactionSender.latestTimestamp = QDateTime::currentDateTimeUtc();
+                                  auto &reactions = reactionSender.reactions;
+
+                                  auto itr = std::find_if(reactions.begin(), reactions.end(), [emoji](const MessageReaction &reaction) {
+                                      return reaction.emoji == emoji;
+                                  });
+
+                                  if (itr != reactions.end()) {
+                                      itr->deliveryState = MessageReactionDeliveryState::ErrorOnAddition;
+                                  }
+                              });
                           } else {
                               MessageController::instance()->updateMessageReactionsAfterSending(messageId, senderId);
                           }
