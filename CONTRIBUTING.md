@@ -94,6 +94,13 @@ E.g., if you set `KAIDAN_PROFILE=test`, the configuration file will be `kaidan-t
 
 ## Logging
 
+The environment variable [`QT_LOGGING_RULES`](https://doc.qt.io/qt-6/qloggingcategory.html#logging-rules) controls what is logged.
+In order to print all log messages, you can set `QT_LOGGING_RULES=im.kaidan.*=true`.
+You can specify a category and type (i.e., log level) to print only specific log messages via `QT_LOGGING_RULES=im.kaidan.<category>.<type>=true` (replace `<category>` and `<type>` with the desired values).
+
+[KDebugSettings](https://apps.kde.org/de/kdebugsettings/) can be used as a graphical alternative.
+Once you inserted `kaidan/build/kaidan.categories`, you can manage how to log for Kaidan there.
+
 Kaidan uses QXmpp's logging.
 That mainly outputs the XML data exchanged between Kaidan and the XMPP servers it is connected to.
 [LogHandler](src/LogHandler.cpp) specifies the logging type.
