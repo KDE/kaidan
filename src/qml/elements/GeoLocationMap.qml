@@ -37,7 +37,7 @@ Map {
 	}
 	copyrightsVisible: false
 	onErrorChanged: {
-		if (error !== Location.Map.NoError) {
+		if (error !== Map.NoError) {
 			console.log("***", errorString)
 		}
 	}
