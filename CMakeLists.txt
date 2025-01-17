@@ -25,6 +25,8 @@ include(ECMFindQmlModule)
 include(ECMInstallIcons)
 include(FeatureSummary)
 include(ECMQtDeclareLoggingCategory)
+include(QmlFormat.cmake)
+
 kde_enable_exceptions()
 
 if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
