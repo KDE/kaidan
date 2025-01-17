@@ -18,7 +18,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.5\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -389,24 +389,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Napaka"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Odziva ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Odzivov ni bilo mogoče poslati: %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Danes"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včeraj"
@@ -2045,17 +2045,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Nobene kamere ni na voljo"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Motilnik"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Novi"
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2485,7 +2485,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Pridruži se skupinskemu klepetu"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Povabi stike v to skupino…"
@@ -2592,12 +2592,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Odstrani datoteko"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Nešifrirano"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Nevredno zaupanja"
@@ -2646,6 +2646,42 @@ msgstr "Dostavljeno"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Poskusi znova posodobiti reakcije"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr "Dodan stik - nadaljujte s korakom 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "Ta koda QR ne vsebuje stika"
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+"Zaupajte odločitvam narejenim na drugi napravi - nadaljujte s korakom 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr "Zaupajte odločitvam narejenim za stik - nadaljujte s korakom 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "Ta koda QR ni za vašo drugo napravo"
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "Ta koda QR ni za vaš stik"
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "Ta koda QR ni za zaupanja vredne odločitve"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -2883,17 +2919,22 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Prikaži pojasnilo"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Optično preberite kodo QR stare naprave"
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Prijava"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Ta QR-koda ni veljavna prijavna QR-koda."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Povezovanje…"
@@ -3364,39 +3405,6 @@ msgstr "Spletni naslov"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "Format kamere '%1' ni podprt."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Contact added - Continue with step 2"
-#~ msgstr "Dodan stik - nadaljujte s korakom 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "Ta koda QR ne vsebuje stika"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for other own device - Continue with step 2"
-#~ msgstr ""
-#~ "Zaupajte odločitvam narejenim na drugi napravi - nadaljujte s korakom 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for contact - Continue with step 2"
-#~ msgstr "Zaupajte odločitvam narejenim za stik - nadaljujte s korakom 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "Ta koda QR ni za vašo drugo napravo"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "Ta koda QR ni za vaš stik"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "Ta koda QR ni za zaupanja vredne odločitve"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "Ta QR-koda ni veljavna prijavna QR-koda."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

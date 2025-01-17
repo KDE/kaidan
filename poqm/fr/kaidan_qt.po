@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Lokalize 24.11.90\n"
 "X-Qt-Contexts: true\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -393,24 +393,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Il a été impossible d'envoyer une réaction : %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Il a été impossible d'envoyer des réactions : %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Hier"
@@ -2101,17 +2101,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Aucun appareil photo disponible"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2543,7 +2543,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Rejoindre un groupe de discussions"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Inviter des contacts à ce groupe..."
@@ -2652,12 +2652,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Supprimer un fichier"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Non chiffré"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Non fiable"
@@ -2706,6 +2706,44 @@ msgstr "Livré"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Ré-essayer de mettre à jour les réactions"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr "Contact ajouté - Continuer avec l'étape 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "Ce code « QR » ne contient aucun contact."
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+"Décisions de confiance effectuées pour un périphérique personnel - Veuillez "
+"continuer avec l'étape 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+"Décisions de confiance effectuées pour le contact - Continuez avec l'étape 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "Ce code « QR » ne s'applique pas à votre autre périphérique."
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "Ce code « QR » ne s'applique pas à votre contact."
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "Ce code « QR » ne s'applique pas à des décisions de confiance."
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -2943,17 +2981,22 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Afficher une explication"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Lire le code « QR » de votre ancien périphérique."
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Se connecter"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Le code « QR » n'est pas un code « QR » valable pour connexion."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Connexion en cours..."
@@ -3433,42 +3476,6 @@ msgstr "Site Internet"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "Le format de l'appareil photo « %1 » n'est pas pris en charge."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Contact added - Continue with step 2"
-#~ msgstr "Contact ajouté - Continuer avec l'étape 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "Ce code « QR » ne contient aucun contact."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for other own device - Continue with step 2"
-#~ msgstr ""
-#~ "Décisions de confiance effectuées pour un périphérique personnel - "
-#~ "Veuillez continuer avec l'étape 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for contact - Continue with step 2"
-#~ msgstr ""
-#~ "Décisions de confiance effectuées pour le contact - Continuez avec "
-#~ "l'étape 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "Ce code « QR » ne s'applique pas à votre autre périphérique."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "Ce code « QR » ne s'applique pas à votre contact."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "Ce code « QR » ne s'applique pas à des décisions de confiance."
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "Le code « QR » n'est pas un code « QR » valable pour connexion."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

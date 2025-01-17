@@ -14,7 +14,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Lokalize 24.08.3\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -388,24 +388,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fout"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reactie kon niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reacties konden niet worden verzonden: %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Vandaag"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Gisteren"
@@ -2063,17 +2063,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Geen camera beschikbaar"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nieuw"
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2503,7 +2503,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr "Aan chat van groep meedoen"
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr "Contactpersonen uitnodigen in deze groep…"
@@ -2611,12 +2611,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Verwijder bestand"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Niet-versleuteld"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Niet-vertrouwd"
@@ -2665,6 +2665,44 @@ msgstr "Afgeleverd"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Opnieuw  proberen reacties bij te werken"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr "Contactpersoon toegevoegd - doorgaan met stap 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "Deze QR-code bevat geen contactpersoon"
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+"Beslissingen gemaakt voor een ander dan uw eigen apparaat vertrouwen - "
+"doorgaan met stap 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+"Beslissingen gemaakt voor contactpersoon vertrouwen - doorgaan met stap 2"
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "Deze QR-code is niet voor uw andere apparaat"
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "Deze QR-code is niet voor uw contactpersoon"
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "Deze QR-code is niet voor beslissen over vertrouwen"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -2902,17 +2940,22 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Uitleg tonen"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Scan de QR-code van uw <b>oude apparaat</b>"
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Aanmelden"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Deze QR-code is geen geldige QR-code voor aanmelden."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Bezig met verbinden…"
@@ -3389,41 +3432,6 @@ msgstr "Website"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "Het cameraformaat '%1' wordt niet ondersteund."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Contact added - Continue with step 2"
-#~ msgstr "Contactpersoon toegevoegd - doorgaan met stap 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "Deze QR-code bevat geen contactpersoon"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for other own device - Continue with step 2"
-#~ msgstr ""
-#~ "Beslissingen gemaakt voor een ander dan uw eigen apparaat vertrouwen - "
-#~ "doorgaan met stap 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for contact - Continue with step 2"
-#~ msgstr ""
-#~ "Beslissingen gemaakt voor contactpersoon vertrouwen - doorgaan met stap 2"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "Deze QR-code is niet voor uw andere apparaat"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "Deze QR-code is niet voor uw contactpersoon"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "Deze QR-code is niet voor beslissen over vertrouwen"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "Deze QR-code is geen geldige QR-code voor aanmelden."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

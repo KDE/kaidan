@@ -13,7 +13,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.12\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, fuzzy, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -409,24 +409,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errore"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, fuzzy, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Inviat"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, fuzzy, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Inviat"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2221,17 +2221,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Modelle del cámera:"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2742,7 +2742,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 #, fuzzy
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
@@ -2877,7 +2877,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Remover li file"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Unencrypted"
@@ -2885,7 +2885,7 @@ msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Ínciffrat"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Untrusted"
@@ -2947,6 +2947,45 @@ msgstr "Liverat"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "<textu-de-reaction>"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+#, fuzzy
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "Ne successat generar un QR-Code."
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+#, fuzzy
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "Ne successat generar un QR-Code."
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+#, fuzzy
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "Ne successat generar un QR-Code."
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+#, fuzzy
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "Ne successat generar un QR-Code."
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 #, fuzzy
@@ -3227,13 +3266,13 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Explication"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "Ne successat generar un QR-Code."
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -3241,7 +3280,13 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Aperter un session"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Ne successat generar un QR-Code."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Conexente..."
@@ -3772,31 +3817,6 @@ msgstr "Website"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "EXIF es ínsuportat por ti-ci formate de file"
-
-#, fuzzy
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "Ne successat generar un QR-Code."
-
-#, fuzzy
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "Ne successat generar un QR-Code."
-
-#, fuzzy
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "Ne successat generar un QR-Code."
-
-#, fuzzy
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "Ne successat generar un QR-Code."
-
-#, fuzzy
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "Ne successat generar un QR-Code."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

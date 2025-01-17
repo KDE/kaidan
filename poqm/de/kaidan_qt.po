@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 23.07.70\n"
 "X-Qt-Contexts: true\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, fuzzy, qt-format
 #| msgctxt "QrCodeGenerator|"
 #| msgid "Generating the QR code failed: %1"
@@ -421,7 +421,7 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Fehler"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -429,7 +429,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -437,12 +437,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Nachricht kann nicht versendet werden."
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2421,18 +2421,18 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Es ist keine Kamera verfügbar."
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 #, fuzzy
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Versteckte Nachricht"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2974,7 +2974,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -3119,7 +3119,7 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Entfernen"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Unencrypted"
@@ -3127,7 +3127,7 @@ msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Unverschlüsselt"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 #, fuzzy
 #| msgctxt "ChatMessage|"
 #| msgid "Untrusted"
@@ -3199,6 +3199,51 @@ msgstr "Ausgeliefert"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "Kontakt entfernen"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+#, fuzzy
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+#, fuzzy
+#| msgctxt "QrCodeOnboardingPage|"
+#| msgid "This QR code is not a valid login QR code."
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -3503,13 +3548,13 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "Erklärung anzeigen"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 #, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "QR-Code scannen"
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 #, fuzzy
 #| msgctxt "LoginPage|"
 #| msgid "Log in"
@@ -3517,7 +3562,13 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Anmelden"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+#, fuzzy
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Verbindung wird aufgebaut ..."
@@ -4077,37 +4128,6 @@ msgstr "Webseite"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "Das Kamera-Format „%1“ wird nicht unterstüzt."
-
-#, fuzzy
-#~| msgctxt "QrCodeOnboardingPage|"
-#~| msgid "This QR code is not a valid login QR code."
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
-
-#, fuzzy
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
-
-#, fuzzy
-#~| msgctxt "QrCodeOnboardingPage|"
-#~| msgid "This QR code is not a valid login QR code."
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
-
-#, fuzzy
-#~| msgctxt "QrCodeOnboardingPage|"
-#~| msgid "This QR code is not a valid login QR code."
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
-
-#, fuzzy
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "Dieser QR-Code ist zum Anmelden nicht valide."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

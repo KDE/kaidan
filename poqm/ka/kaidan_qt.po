@@ -13,7 +13,7 @@ msgstr ""
 "X-Qt-Contexts: true\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, fuzzy, qt-format
 #| msgctxt "QrCodeGenerator|"
 #| msgid "Generating the QR code failed: %1"
@@ -418,24 +418,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "შეცდომა"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "რეაქციის გაგზავნა შეუძლებელია: %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "დღეს"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "გუშინ"
@@ -2501,17 +2501,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "კამერა მიუწვდომელია"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "სპოილერი"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -3041,7 +3041,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 #, fuzzy
 #| msgctxt "RosterRemoveContactSheet|"
 #| msgid "Delete contact"
@@ -3171,12 +3171,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "ფაილის წაშლა"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "დაუშიფრავი"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "არასანდო"
@@ -3249,6 +3249,44 @@ msgstr "მოწოდებულია"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "საკუთარი რეაქციის მოცილება"
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr "კონტაქტი დამატებულია - გააგრძელეთ მეორე ნაბიჯით"
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "ეს QR კოდი კონტაქტს არ შეიცავს"
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+"სხვა მოწყობილობისთვის მიღებული გადაწყვეტილებების თანხმობა - მეორე ნაბიჯზე "
+"გაგრძელება"
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+"კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა - მეორე ნაბიჯზე გაგრძელება"
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "ეს QR კოდი თქვენი სხვა მოწყობილობისთვის არაა"
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "ეს QR კოდი თქვენი კონტაქტისთვის არაა"
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "ეს QR კოდის ნდობის გადაწყვეტილებებისთვის არაა"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -3544,12 +3582,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "ახსნის ჩვენება"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "დაასკანერეთ თქვენი ძველი მოწყობილობის QR კოდი"
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 #, fuzzy
 #| msgctxt "LoginArea|"
 #| msgid "Log in"
@@ -3557,7 +3595,12 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "შესვლა"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "ეს QR კოდი შესვლის QR კოდი არაა."
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "დაკავშირება…"
@@ -4131,41 +4174,6 @@ msgstr "ვებსაიტი"
 #~ msgctxt "QrCodeScanner|"
 #~ msgid "The camera format '%1' is not supported."
 #~ msgstr "კამერის ფორმატი '%1' მხარდაჭერილი არაა."
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Contact added - Continue with step 2"
-#~ msgstr "კონტაქტი დამატებულია - გააგრძელეთ მეორე ნაბიჯით"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "ეს QR კოდი კონტაქტს არ შეიცავს"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for other own device - Continue with step 2"
-#~ msgstr ""
-#~ "სხვა მოწყობილობისთვის მიღებული გადაწყვეტილებების თანხმობა - მეორე ნაბიჯზე "
-#~ "გაგრძელება"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "Trust decisions made for contact - Continue with step 2"
-#~ msgstr ""
-#~ "კონტაქტისთვის მიღებული გადაწყვეტილებების ნდობა - მეორე ნაბიჯზე გაგრძელება"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your other device"
-#~ msgstr "ეს QR კოდი თქვენი სხვა მოწყობილობისთვის არაა"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for your contact"
-#~ msgstr "ეს QR კოდი თქვენი კონტაქტისთვის არაა"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code is not for trust decisions"
-#~ msgstr "ეს QR კოდის ნდობის გადაწყვეტილებებისთვის არაა"
-
-#~ msgctxt "QrCodeOnboardingPage|"
-#~ msgid "This QR code is not a valid login QR code."
-#~ msgstr "ეს QR კოდი შესვლის QR კოდი არაა."
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"

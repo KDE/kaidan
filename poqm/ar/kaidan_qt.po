@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-19 08:45+0400\n"
+"PO-Revision-Date: 2025-01-16 16:57+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: Lokalize 23.08.5\n"
 "X-Qt-Contexts: true\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -391,24 +391,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "خطأ"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "تعذر إرسال التفاعل: %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "اليوم"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "الأمس"
@@ -1056,12 +1056,9 @@ msgid "Migration"
 msgstr "الترحيل"
 
 #: src/qml/details/AccountDetailsContent.qml:1009
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Delete account"
 msgctxt "AccountDetailsContent|"
 msgid "Migrate account"
-msgstr "احذف الحساب"
+msgstr "رحّل الحساب"
 
 #: src/qml/details/AccountDetailsContent.qml:1010
 #, fuzzy
@@ -1723,12 +1720,9 @@ msgid "The group %1 could not be deleted%2"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/qml/details/GroupChatDetailsDialog.qml:17
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "GroupChatDetailsDialog|"
 msgid "Group Details"
-msgstr "أظهر التّفاصيل"
+msgstr "تفاصيل المجموعة"
 
 #: src/qml/details/GroupChatDetailsHeader.qml:18
 msgctxt "GroupChatDetailsHeader|"
@@ -1751,12 +1745,9 @@ msgid "Deleted"
 msgstr "حُذف"
 
 #: src/qml/details/GroupChatDetailsPage.qml:13
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "GroupChatDetailsPage|"
 msgid "Group Details"
-msgstr "أظهر التّفاصيل"
+msgstr "تفاصيل المجموعة"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:9
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:13
@@ -1883,12 +1874,9 @@ msgid "Removing notes chat…"
 msgstr "يضيف متراسل جديد…"
 
 #: src/qml/details/NotesChatDetailsDialog.qml:15
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsDialog|"
 msgid "Notes Details"
-msgstr "أظهر التّفاصيل"
+msgstr "تفاصيل الملاحظات"
 
 #: src/qml/details/NotesChatDetailsHeader.qml:17
 msgctxt "NotesChatDetailsHeader|"
@@ -1896,12 +1884,9 @@ msgid "Messages in this chat are synchronized as notes across all your devices"
 msgstr ""
 
 #: src/qml/details/NotesChatDetailsPage.qml:14
-#, fuzzy
-#| msgctxt "MessageReactionDetailsButton|"
-#| msgid "Show details"
 msgctxt "NotesChatDetailsPage|"
 msgid "Notes Details"
-msgstr "أظهر التّفاصيل"
+msgstr "تفاصيل الملاحظات"
 
 #: src/qml/details/RosterItemDetailsContent.qml:21
 msgctxt "RosterItemDetailsContent|"
@@ -1919,12 +1904,9 @@ msgid "Always"
 msgstr "دائمًا"
 
 #: src/qml/details/RosterItemDetailsContent.qml:51
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Remove label"
 msgctxt "RosterItemDetailsContent|"
 msgid "New label"
-msgstr "أزل اللصقية"
+msgstr "تسمية جديدة"
 
 #: src/qml/details/RosterItemDetailsContent.qml:65
 msgctxt "RosterItemDetailsContent|"
@@ -2096,17 +2078,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "لا تتوفر كاميرا"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "مخفي"
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "جديد"
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2164,12 +2146,9 @@ msgid "Remove from this device"
 msgstr "أزل من هذا الجهاز"
 
 #: src/qml/elements/ChatPageSearchView.qml:48
-#, fuzzy
-#| msgctxt "ChatPageSearchView|"
-#| msgid "Close message search bar"
 msgctxt "ChatPageSearchView|"
 msgid "Close search"
-msgstr "أغلق شريط البحث الرسائل"
+msgstr "أغلق البحث"
 
 #: src/qml/elements/ChatPageSearchView.qml:81
 msgctxt "ChatPageSearchView|"
@@ -2227,17 +2206,11 @@ msgid "Compose <b>unencrypted</b> message"
 msgstr "كتب رسالة <b>غير معماة</b>"
 
 #: src/qml/elements/ChatPageSendingPane.qml:290
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Take picture"
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "خذ صورة"
 
 #: src/qml/elements/ChatPageSendingPane.qml:298
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Record video"
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "سجّل فيديو"
@@ -2248,12 +2221,9 @@ msgid "Share files"
 msgstr "شارك ملفّات"
 
 #: src/qml/elements/ChatPageSendingPane.qml:317
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Send your location"
 msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
-msgstr "أرسل موقعك الجغرافي"
+msgstr "شارك موقعك"
 
 #: src/qml/elements/ChatPageSendingPane.qml:325
 msgctxt "ChatPageSendingPane|"
@@ -2271,17 +2241,11 @@ msgid "More"
 msgstr "المزيد"
 
 #: src/qml/elements/ChatPageSendingPane.qml:418
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Send a spoiler message"
 msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
-msgstr "أرسل رسالة مخفية"
+msgstr "أرسل رسالة صوتية"
 
 #: src/qml/elements/ChatPageSendingPane.qml:445
-#, fuzzy
-#| msgctxt "NewMediaSheet|"
-#| msgid "Send"
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr "ارسل"
@@ -2433,12 +2397,9 @@ msgid "© OpenStreetMap"
 msgstr "© خريطة الشّوارع المفتوحة"
 
 #: src/qml/elements/GeoLocationMapPage.qml:12
-#, fuzzy
-#| msgctxt "ChatPageSendingPane|"
-#| msgid "Share location"
 msgctxt "GeoLocationMapPage|"
 msgid "Show location"
-msgstr "شارك موقع جغرافي"
+msgstr "اعرض الموقع"
 
 #: src/qml/elements/GeoLocationPreview.qml:41
 msgctxt "GeoLocationPreview|"
@@ -2523,20 +2484,14 @@ msgid "The group %1 could not be joined%2"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/qml/elements/GroupChatCreationDialog.qml:17
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "GroupChatCreationDialog|"
 msgid "Create group chat"
-msgstr "متفرغ للدردشة"
+msgstr "أنشئ مجموعة دردشة"
 
 #: src/qml/elements/GroupChatCreationPage.qml:15
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Free for chat"
 msgctxt "GroupChatCreationPage|"
 msgid "Create group chat"
-msgstr "متفرغ للدردشة"
+msgstr "أنشئ مجموعة دردشة"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:20
 msgctxt "GroupChatJoiningContent|"
@@ -2592,7 +2547,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 #, fuzzy
 #| msgctxt "ChatHintModel|"
 #| msgid "Invite contacts"
@@ -2622,9 +2577,6 @@ msgid "Unverified participant devices"
 msgstr "الأجهزة المتصلة"
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "خذ صورة"
@@ -2711,12 +2663,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "أزِل ملف"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "غير معماة"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "غير موثوقة"
@@ -2772,6 +2724,41 @@ msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr "أزل تفاعلك"
 
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr ""
+
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
 msgid "Making trust decisions…"
@@ -2798,20 +2785,14 @@ msgid "Media"
 msgstr "الوسائط"
 
 #: src/qml/elements/RosterFilteringArea.qml:27
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Unavailable"
 msgctxt "RosterFilteringArea|"
 msgid "Unavailable contacts"
-msgstr "غير متوفّر"
+msgstr "المتراسلون غير متوفّرين"
 
 #: src/qml/elements/RosterFilteringArea.qml:31
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "Available"
 msgctxt "RosterFilteringArea|"
 msgid "Available contacts"
-msgstr "متوفّرة"
+msgstr "المتراسلون المتوفرون"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
@@ -2819,12 +2800,9 @@ msgid "Private groups"
 msgstr ""
 
 #: src/qml/elements/RosterFilteringArea.qml:39
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Search public groups"
 msgctxt "RosterFilteringArea|"
 msgid "Public groups"
-msgstr "ابحث في المجموعات العامة"
+msgstr "المجموعات العامة"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
 msgctxt "RosterFilteringArea|"
@@ -2922,28 +2900,19 @@ msgid "The public groups could not be retrieved: %1"
 msgstr "لا يمكن إضافة %1: %2"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Copy website address"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr "انسخ عنوان الموقع"
+msgstr "انسخ عنوان الويب"
 
 #: src/qml/elements/VideoRecordingDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "سجّل فيديو"
 
 #: src/qml/EmptyChatPage.qml:23
-#, fuzzy
-#| msgctxt "EmptyChatPage|"
-#| msgid "Select a chat to start messaging"
 msgctxt "EmptyChatPage|"
 msgid "Select a chat to start"
-msgstr "من فضلك اختر محادثة للشروع في المراسلة"
+msgstr "اختر محادثة لتبدأ"
 
 #: src/qml/GlobalDrawer.qml:33
 msgctxt "GlobalDrawer|"
@@ -3028,17 +2997,22 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr "أظهر شرح"
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr "امسح شفرة رمز جهازك القديم"
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "لِج"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr ""
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "يتّصل…"
@@ -3059,12 +3033,9 @@ msgid "Complete the registration!"
 msgstr ""
 
 #: src/qml/registration/CustomDataFormArea.qml:25
-#, fuzzy
-#| msgctxt "QObject|"
-#| msgid "No information"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "لا يوجد معلومات"
+msgstr "أدخل معلومات إضافية"
 
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
@@ -3077,12 +3048,9 @@ msgid "Not everything may be required"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:31
-#, fuzzy
-#| msgctxt "RegistrationPage|"
-#| msgid "Registration failed:"
 msgctxt "ManualRegistrationPage|"
 msgid "Manual Registration"
-msgstr "فشل التسجيل:"
+msgstr "التسجيل اليدوي"
 
 #: src/qml/registration/ManualRegistrationPage.qml:37
 #, fuzzy
@@ -3131,12 +3099,9 @@ msgid "A new random username has been generated."
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:22
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "اختر فيديو"
+msgstr "اختر مزود"
 
 #: src/qml/registration/ProviderPage.qml:37
 msgctxt "ProviderPage|"
@@ -3144,12 +3109,9 @@ msgid "Choose a provider to register!"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:108
-#, fuzzy
-#| msgctxt "AccountDetailsContent|"
-#| msgid "Provider"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "المزود"
+msgstr "عنوان المزود"
 
 #: src/qml/registration/ProviderPage.qml:121
 msgctxt "ProviderPage|"
@@ -3233,12 +3195,9 @@ msgid "Logging in…"
 msgstr "يَلُجْ…"
 
 #: src/qml/registration/RegistrationButton.qml:27
-#, fuzzy
-#| msgctxt "RegistrationButton|"
-#| msgid "Register"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "سجّل"
+msgstr "يسجل…"
 
 #: src/qml/registration/RegistrationPage.qml:70
 msgctxt "RegistrationPage|"
@@ -3322,12 +3281,9 @@ msgid "Filter"
 msgstr "المُرشِّح"
 
 #: src/qml/StartPage.qml:26
-#, fuzzy
-#| msgctxt "SettingsContent|"
-#| msgid "Account security"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "أمن الحساب"
+msgstr "ترحيل الحساب"
 
 #: src/qml/StartPage.qml:68
 msgctxt "StartPage|"
@@ -3340,12 +3296,9 @@ msgid "Log in"
 msgstr "لِج"
 
 #: src/qml/StartPage.qml:130
-#, fuzzy
-#| msgctxt "QrCodeOnboardingPage|"
-#| msgid "Scan QR code"
 msgctxt "StartPage|"
 msgid "Scan login QR code"
-msgstr "امسح باركود"
+msgstr "امسح رمز الاستجابة للولوج"
 
 #: src/qml/StartPage.qml:136
 msgctxt "StartPage|"

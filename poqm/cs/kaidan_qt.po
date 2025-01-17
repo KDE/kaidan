@@ -13,7 +13,7 @@ msgstr ""
 "X-Generator: Lokalize 24.08.1\n"
 "X-Qt-Contexts: true\n"
 
-#: src/AbstractQrCodeGenerator.cpp:57
+#: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
 msgctxt "AbstractQrCodeGenerator|"
 msgid "Generating the QR code failed: %1"
@@ -381,24 +381,24 @@ msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Chyba"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:746
+#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Reakci nelze odeslat: %1"
 
-#: src/MessageModel.cpp:825
+#: src/MessageModel.cpp:838
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Reakce nelze odeslat: %1"
 
-#: src/MessageModel.cpp:1473
+#: src/MessageModel.cpp:1486
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Dnes"
 
-#: src/MessageModel.cpp:1476
+#: src/MessageModel.cpp:1489
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Včera"
@@ -2048,17 +2048,17 @@ msgctxt "CameraStatus|"
 msgid "No camera available"
 msgstr "Fotoaparát nedostupný"
 
-#: src/qml/elements/ChatMessage.qml:207
+#: src/qml/elements/ChatMessage.qml:208
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:425
+#: src/qml/elements/ChatMessage.qml:426
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nový"
 
-#: src/qml/elements/ChatMessage.qml:453
+#: src/qml/elements/ChatMessage.qml:454
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -2512,7 +2512,7 @@ msgctxt "GroupChatJoiningPage|"
 msgid "Join group chat"
 msgstr ""
 
-#: src/qml/elements/GroupChatParticipantPicker.qml:53
+#: src/qml/elements/GroupChatParticipantPicker.qml:54
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
 msgstr ""
@@ -2628,12 +2628,12 @@ msgctxt "MediumSendingPreview|"
 msgid "Remove file"
 msgstr "Odstranit soubor"
 
-#: src/qml/elements/MessageBackground.qml:104
+#: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
 msgid "Unencrypted"
 msgstr "Nezašifrováno"
 
-#: src/qml/elements/MessageBackground.qml:109
+#: src/qml/elements/MessageBackground.qml:111
 msgctxt "MessageBackground|"
 msgid "Untrusted"
 msgstr "Nedůvěryhodný"
@@ -2682,6 +2682,50 @@ msgstr "Doručeno"
 msgctxt "MessageReactionRetryButton|"
 msgid "Retry updating reactions"
 msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:55
+msgctxt "QrCodeScanningArea|"
+msgid "Contact added - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:62
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code does not contain a contact"
+msgstr "QR kód neobsahuje žádné kontakty"
+
+#: src/qml/elements/QrCodeScanningArea.qml:77
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for other own device - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:79
+msgctxt "QrCodeScanningArea|"
+msgid "Trust decisions made for contact - Continue with step 2"
+msgstr ""
+
+#: src/qml/elements/QrCodeScanningArea.qml:86
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "This QR code does not contain a contact"
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your other device"
+msgstr "QR kód neobsahuje žádné kontakty"
+
+#: src/qml/elements/QrCodeScanningArea.qml:88
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "This QR code does not contain a contact"
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for your contact"
+msgstr "QR kód neobsahuje žádné kontakty"
+
+#: src/qml/elements/QrCodeScanningArea.qml:94
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "This QR code does not contain a contact"
+msgctxt "QrCodeScanningArea|"
+msgid "This QR code is not for trust decisions"
+msgstr "QR kód neobsahuje žádné kontakty"
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
 msgctxt "QrCodeScanningArea|"
@@ -2935,17 +2979,25 @@ msgctxt "QrCodeOnboardingPage|"
 msgid "Show explanation"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:43
+#: src/qml/QrCodeOnboardingPage.qml:42
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
 msgstr ""
 
-#: src/qml/QrCodeOnboardingPage.qml:67
+#: src/qml/QrCodeOnboardingPage.qml:66
 msgctxt "QrCodeOnboardingPage|"
 msgid "Log in"
 msgstr "Přihlásit"
 
-#: src/qml/QrCodeOnboardingPage.qml:107
+#: src/qml/QrCodeOnboardingPage.qml:99
+#, fuzzy
+#| msgctxt "QrCodeScanningArea|"
+#| msgid "This QR code does not contain a contact"
+msgctxt "QrCodeOnboardingPage|"
+msgid "This QR code is not a valid login QR code."
+msgstr "QR kód neobsahuje žádné kontakty"
+
+#: src/qml/QrCodeOnboardingPage.qml:106
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "Navazuji spojení…"
@@ -3397,10 +3449,6 @@ msgstr "Webová stránka"
 #~ msgctxt "CameraStatus|"
 #~ msgid "Loading camera…"
 #~ msgstr "Probíhá načítání…"
-
-#~ msgctxt "QrCodeScanningArea|"
-#~ msgid "This QR code does not contain a contact"
-#~ msgstr "QR kód neobsahuje žádné kontakty"
 
 #~ msgctxt "MediaRecorder|"
 #~ msgid "Default"
