@@ -53,6 +53,7 @@ ImageBackgroundPage {
 			FormCard.FormTextDelegate {
 				text: qsTr("The selected provider only supports web registration")
 				description: qsTr("After creating an account via the provider's website, you can log in via Kaidan")
+				background: NonInteractiveFormDelegateBackground {}
 			}
 
 			UrlFormButtonDelegate {
@@ -65,24 +66,17 @@ ImageBackgroundPage {
 			}
 		}
 
-		FormCard.FormCard {
-			id: loginFormCard
+		LoginArea {
+			id: loginArea
+			title: qsTr("Step 2: Log in with your registered account")
 			visible: false
 			Layout.fillWidth: true
-
-			FormCard.FormHeader {
-				title: qsTr("Step 2: Log in with your registered account")
-			}
-
-			LoginArea {
-				id: loginArea
-			}
 		}
 	}
 
 	function showLoginArea() {
 		AccountManager.jid = provider
-		loginFormCard.visible = true
+		loginArea.visible = true
 		loginArea.initialize()
 	}
 }

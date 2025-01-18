@@ -58,72 +58,58 @@ ImageBackgroundPage {
 			scaleFactor: 1.5
 		}
 
-		FormCard.FormCard {
+		LoginArea {
+			id: loginArea
+			qrCodeButton {
+				visible: true
+				onClicked: pushLayer(qrCodeOnboardingPage)
+			}
 			Layout.alignment: Qt.AlignHCenter
 			Layout.fillWidth: true
 
-			FormCard.FormHeader {
-				title: qsTr("Log in")
-			}
+			Connections {
+				target: pageStack.layers
 
-			LoginArea {
-				id: loginArea
+				function onCurrentItemChanged() {
+					const currentItem = pageStack.layers.currentItem
 
-				Connections {
-					target: pageStack.layers
-
-					function onCurrentItemChanged() {
-						const currentItem = pageStack.layers.currentItem
-
-						// Initialize loginArea on first opening (except after starting Kaidan)
-						// and when going back from sub pages (i.e., layers above).
-						// In the latter case, currentItem is confusingly not root but a
-						// RowLayout.
-						// As a workaround, currentItem is checked accordingly.
-						if (currentItem === root || currentItem instanceof RowLayout) {
-							loginArea.clearFields()
-							loginArea.reset()
-							loginArea.initialize()
-						}
-					}
-				}
-
-				Connections {
-					target: pageStack
-
-					function onCurrentItemChanged() {
-						// Initialize loginArea when Kaidan is started.
-						if (pageStack.currentItem === root) {
-							loginArea.initialize()
-						}
-					}
-				}
-
-				Connections {
-					target: applicationWindow()
-
-					function onActiveFocusItemChanged() {
-						// Ensure that loginArea is focused when this page is opened after an
-						// account removal.
-						// That workaround is needed because AccountDetailsDialog takes the
-						// focus when it is closed once the account removal is completed.
-						if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
-							loginArea.initialize()
-						}
+					// Initialize loginArea on first opening (except after starting Kaidan)
+					// and when going back from sub pages (i.e., layers above).
+					// In the latter case, currentItem is confusingly not root but a
+					// RowLayout.
+					// As a workaround, currentItem is checked accordingly.
+					if (currentItem === root || currentItem instanceof RowLayout) {
+						loginArea.clearFields()
+						loginArea.reset()
+						loginArea.initialize()
 					}
 				}
 			}
 
-			FormCard.FormButtonDelegate {
-				text: qsTr("Scan login QR code")
-				onClicked: pushLayer(qrCodeOnboardingPage)
-			}
-		}
+			Connections {
+				target: pageStack
 
-		Kirigami.Heading {
-			text: qsTr("or")
-			horizontalAlignment: Text.AlignHCenter
-			Layout.fillWidth: true
+				function onCurrentItemChanged() {
+					// Initialize loginArea when Kaidan is started.
+					if (pageStack.currentItem === root) {
+						loginArea.initialize()
+					}
+				}
+			}
+
+			Connections {
+				target: applicationWindow()
+
+				function onActiveFocusItemChanged() {
+					// Ensure that loginArea is focused when this page is opened after an
+					// account removal.
+					// That workaround is needed because AccountDetailsDialog takes the
+					// focus when it is closed once the account removal is completed.
+					if (applicationWindow().activeFocusItem instanceof Controls.Overlay) {
+						loginArea.initialize()
+					}
+				}
+			}
 		}
 
 		FormCard.FormCard {

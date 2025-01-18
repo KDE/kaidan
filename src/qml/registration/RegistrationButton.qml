@@ -19,12 +19,11 @@ FormCard.FormCard {
 	property var loginFunction
 	property alias busy: button.busy
 
-	Kirigami.Theme.colorSet: Kirigami.Theme.Selection
-
 	BusyIndicatorFormButton {
 		id: button
 		idleText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Log in after email confirmation") : qsTr("Register")
 		busyText: Kaidan.connectionError === ClientWorker.EmailConfirmationRequired ? qsTr("Logging in…") : qsTr("Registering…")
+		background: HighlightedFormButtonBackground {}
 		onClicked: {
 			if (Kaidan.connectionError === ClientWorker.EmailConfirmationRequired) {
 				loginFunction()

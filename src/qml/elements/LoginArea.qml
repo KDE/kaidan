@@ -18,13 +18,33 @@ import im.kaidan.kaidan
 import "fields"
 
 FormCard.FormCard {
-	Layout.fillWidth: true
-	Kirigami.Theme.colorSet: Kirigami.Theme.Window
-	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
+	property alias title: header.title
+	property alias qrCodeButton: qrCodeButton
 
-	FormCard.AbstractFormDelegate {
-		background: null
+	FormCard.FormHeader {
+		id: header
+		title: qsTr("Log in")
+	}
+
+	Kirigami.Separator {
+		Layout.fillWidth: true
+	}
+
+	FormCard.FormButtonDelegate {
+		id: qrCodeButton
+		text: qsTr("Scan login QR code")
+		visible: false
+	}
+
+	Kirigami.Separator {
+		visible: qrCodeButton.visible
+		Layout.fillWidth: true
+	}
+
+	FormCardCustomContentArea {
 		contentItem: ColumnLayout {
+			Component.onCompleted: AccountManager.resetCustomConnectionSettings()
+
 			JidField {
 				id: jidField
 				inputField.onAccepted: loginButton.clicked()
@@ -55,37 +75,35 @@ FormCard.FormCard {
 				id: passwordField
 				inputField.onAccepted: loginButton.clicked()
 			}
+		}
+	}
 
-			FormCard.FormCard {
-				Layout.topMargin: Kirigami.Units.largeSpacing
-				Layout.bottomMargin: Kirigami.Units.largeSpacing
-				Layout.fillWidth: true
-				Kirigami.Theme.colorSet: Kirigami.Theme.Selection
+	Kirigami.Separator {
+		Layout.fillWidth: true
+	}
 
-				BusyIndicatorFormButton {
-					id: loginButton
-					idleText: qsTr("Log in")
-					busyText: qsTr("Connecting…")
-					busy: Kaidan.connectionState === Enums.StateConnecting
-					// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
-					onClicked: {
-						// If the JID is invalid, focus its field.
-						if (!jidField.valid) {
-							jidField.forceActiveFocus()
-						// If the password is invalid, focus its field.
-						// This also implies that if the JID field is focused and the password invalid, the password field will be focused instead of immediately trying to connect.
-						} else if (!passwordField.valid) {
-							passwordField.forceActiveFocus()
-						} else {
-							AccountManager.jid = jidField.text
-							AccountManager.password = passwordField.text
-							AccountManager.host = customConnectionSettings.hostField.text
-							AccountManager.port = customConnectionSettings.portField.value
+	BusyIndicatorFormButton {
+		id: loginButton
+		idleText: qsTr("Log in")
+		busyText: qsTr("Connecting…")
+		busy: Kaidan.connectionState === Enums.StateConnecting
+		background: HighlightedFormButtonBackground {}
+		// Connect to the server and authenticate by the entered credentials if the JID is valid and a password entered.
+		onClicked: {
+			// If the JID is invalid, focus its field.
+			if (!jidField.valid) {
+				jidField.forceActiveFocus()
+			// If the password is invalid, focus its field.
+			// This also implies that if the JID field is focused and the password invalid, the password field will be focused instead of immediately trying to connect.
+			} else if (!passwordField.valid) {
+				passwordField.forceActiveFocus()
+			} else {
+				AccountManager.jid = jidField.text
+				AccountManager.password = passwordField.text
+				AccountManager.host = customConnectionSettings.hostField.text
+				AccountManager.port = customConnectionSettings.portField.value
 
-							Kaidan.logIn()
-						}
-					}
-				}
+				Kaidan.logIn()
 			}
 		}
 	}

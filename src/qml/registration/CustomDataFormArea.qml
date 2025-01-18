@@ -30,19 +30,18 @@ FormCard.FormCard {
 		description: qsTr("Not everything may be required")
 	}
 
-	FormCard.FormCard {
+	Kirigami.Separator {
 		Layout.fillWidth: true
-		Kirigami.Theme.colorSet: Kirigami.Theme.Window
+	}
 
-		FormCard.AbstractFormDelegate {
-			background: null
-			contentItem: ColumnLayout {
-				DataForm {
-					id: form
-					displayTitle: false
-					displayInstructions: false
-					Layout.fillWidth: true
-				}
+	FormCard.AbstractFormDelegate {
+		background: NonInteractiveFormDelegateBackground {}
+		contentItem: ColumnLayout {
+			DataForm {
+				id: form
+				displayTitle: false
+				displayInstructions: false
+				Layout.fillWidth: true
 			}
 		}
 	}

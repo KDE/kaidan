@@ -30,7 +30,7 @@ ExplanationTogglePage {
 
 		if (!scanner.acceptResult) {
 			scanner.acceptResult = true
-			loginFormCard.visible = false
+			loginArea.visible = false
 			loginArea.reset()
 		}
 	}
@@ -41,7 +41,7 @@ ExplanationTogglePage {
 		CenteredAdaptiveText {
 			text: qsTr("Scan your old device's QR code")
 			scaleFactor: 1.5
-			visible: !loginFormCard.visible
+			visible: !loginArea.visible
 			Layout.topMargin: 10
 		}
 
@@ -49,26 +49,17 @@ ExplanationTogglePage {
 			source: Utils.getResourcePath("images/onboarding/account-transfer.svg")
 			sourceSize.height: root.height
 			fillMode: Image.PreserveAspectFit
-			visible: !loginFormCard.visible
+			visible: !loginArea.visible
 			Layout.fillHeight: true
 			Layout.fillWidth: true
 		}
 
-		FormCard.FormCard {
-			id: loginFormCard
+		LoginArea {
+			id: loginArea
 			visible: false
 			Layout.alignment: Qt.AlignHCenter
 			Layout.topMargin: Kirigami.Units.largeSpacing
-			Layout.maximumWidth: largeButtonWidth
 			Layout.fillWidth: true
-
-			FormCard.FormHeader {
-				title: qsTr("Log in")
-			}
-
-			LoginArea {
-				id: loginArea
-			}
 		}
 	}
 	content: QrCodeScanner {
@@ -90,7 +81,7 @@ ExplanationTogglePage {
 				case Enums.PasswordNeeded:
 					root.primaryButton.clicked()
 					acceptResult = false
-					loginFormCard.visible = true
+					loginArea.visible = true
 					loginArea.initialize()
 					break
 				case Enums.InvalidLoginUri:

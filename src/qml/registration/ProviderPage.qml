@@ -201,48 +201,50 @@ RegistrationPage {
 								}
 							}
 
-							FormCard.FormCard {
-								Layout.topMargin: Kirigami.Units.gridUnit
-								Layout.bottomMargin: Layout.topMargin
-								Layout.leftMargin: Layout.topMargin
-								Layout.rightMargin: Layout.topMargin
+							Kirigami.Separator {
 								Layout.fillWidth: true
-								Kirigami.Theme.colorSet: Kirigami.Theme.Selection
+							}
 
-								BusyIndicatorFormButton {
-									id: choiceButton
-									idleText: qsTr("Choose")
-									busyText: qsTr("Requesting registration…")
-									busy: Kaidan.connectionState === Enums.StateConnecting && providerListView.lastClickedButton === this
-									onClicked: {
-										providerListView.lastClickedButton = this
+							BusyIndicatorFormButton {
+								id: choiceButton
+								idleText: qsTr("Choose")
+								busyText: qsTr("Requesting registration…")
+								busy: Kaidan.connectionState === Enums.StateConnecting && providerListView.lastClickedButton === this
+								background: HighlightedFormButtonBackground {
+									corners {
+										topLeftRadius: 0
+										topRightRadius: 0
+										bottomLeftRadius: providerDelegate.cardWidthRestricted ? Kirigami.Units.smallSpacing : 0
+										bottomRightRadius: providerDelegate.cardWidthRestricted ? Kirigami.Units.smallSpacing : 0
+									}
+								}
+								onClicked: {
+									providerListView.lastClickedButton = this
 
-										if (model.index === 0) {
-											const loadedCustomProviderArea = contentAreaLoader.item
-											const providerField = loadedCustomProviderArea.providerField
+									if (model.index === 0) {
+										const loadedCustomProviderArea = contentAreaLoader.item
+										const providerField = loadedCustomProviderArea.providerField
+										const chosenProvider = providerField.text
 
-											const chosenProvider = providerField.text
+										if (chosenProvider) {
+											root.provider = chosenProvider
 
-											if (chosenProvider) {
-												root.provider = chosenProvider
+											AccountManager.host = loadedCustomProviderArea.hostField.text
+											AccountManager.port = loadedCustomProviderArea.portField.value
 
-												AccountManager.host = loadedCustomProviderArea.hostField.text
-												AccountManager.port = loadedCustomProviderArea.portField.value
-
-												requestRegistrationForm()
-											} else {
-												passiveNotification(qsTr("You must enter a provider address"))
-												providerField.forceActiveFocus()
-											}
+											requestRegistrationForm()
 										} else {
-											root.provider = model.jid
-											AccountManager.resetCustomConnectionSettings()
+											passiveNotification(qsTr("You must enter a provider address"))
+											providerField.forceActiveFocus()
+										}
+									} else {
+										root.provider = model.jid
+										AccountManager.resetCustomConnectionSettings()
 
-											if (model.supportsInBandRegistration) {
-												requestRegistrationForm()
-											} else {
-												openWebRegistrationPage(model.registrationWebPage)
-											}
+										if (model.supportsInBandRegistration) {
+											requestRegistrationForm()
+										} else {
+											openWebRegistrationPage(model.registrationWebPage)
 										}
 									}
 								}
