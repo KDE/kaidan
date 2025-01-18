@@ -29,12 +29,10 @@ RegistrationManager::RegistrationManager(ClientWorker *clientWorker, QXmppClient
     , m_clientWorker(clientWorker)
     , m_client(client)
     , m_manager(client->addNewExtension<QXmppRegistrationManager>())
-    , m_dataFormModel(new RegistrationDataFormModel())
 {
     connect(m_manager, &QXmppRegistrationManager::supportedByServerChanged, this, &RegistrationManager::handleInBandRegistrationSupportedChanged);
 
     // account creation
-
     connect(this, &RegistrationManager::registrationFormRequested, this, &RegistrationManager::requestRegistrationForm);
     connect(this, &RegistrationManager::sendRegistrationFormRequested, this, &RegistrationManager::sendRegistrationForm);
     connect(this, &RegistrationManager::abortRegistrationRequested, this, &RegistrationManager::abortRegistration);
@@ -160,8 +158,11 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
         return;
     }
 
-    copyUserDefinedValuesToNewForm(m_dataFormModel->form(), newDataForm);
-    cleanUpLastForm(new RegistrationDataFormModel(newDataForm));
+    if (m_dataFormModel) {
+        updateLastForm(newDataForm);
+    } else {
+        m_dataFormModel = new RegistrationDataFormModel(newDataForm);
+    }
 
     m_dataFormModel->setIsFakeForm(isFakeForm);
     // Move to the main thread, so QML can connect signals to the model.
@@ -186,7 +187,7 @@ void RegistrationManager::handleRegistrationSucceeded()
     setRegisterOnConnectEnabled(false);
     m_clientWorker->logIn();
 
-    cleanUpLastForm(new RegistrationDataFormModel());
+    cleanUpLastForm();
 }
 
 void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &error)
@@ -296,26 +297,6 @@ QXmppDataForm RegistrationManager::extractFormFromRegisterIq(const QXmppRegister
     return newDataForm;
 }
 
-void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm)
-{
-    // Copy values from the last form.
-    const QList<QXmppDataForm::Field> oldFields = oldForm.fields();
-    for (const auto &field : oldFields) {
-        // Only copy fields which:
-        //  * are required,
-        //  * are visible to the user
-        //  * do not have a media element (e.g. CAPTCHA)
-        if (field.isRequired() && field.type() != QXmppDataForm::Field::HiddenField && field.mediaSources().isEmpty()) {
-            for (auto &fieldFromNewForm : newForm.fields()) {
-                if (fieldFromNewForm.key() == field.key()) {
-                    fieldFromNewForm.setValue(field.value());
-                    break;
-                }
-            }
-        }
-    }
-}
-
 void RegistrationManager::abortRegistration()
 {
     const auto accountManager = AccountManager::instance();
@@ -331,16 +312,45 @@ void RegistrationManager::abortRegistration()
         }
 
         setRegisterOnConnectEnabled(false);
-        cleanUpLastForm(new RegistrationDataFormModel());
+        cleanUpLastForm();
     }
 }
 
-void RegistrationManager::cleanUpLastForm(RegistrationDataFormModel *newDataFormModel)
+void RegistrationManager::updateLastForm(const QXmppDataForm &newDataForm)
 {
-    delete m_dataFormModel;
-    m_dataFormModel = newDataFormModel;
+    copyUserDefinedValuesToNewForm(m_dataFormModel->form(), newDataForm);
+    m_dataFormModel = new RegistrationDataFormModel(newDataForm);
+    removeOldContentIds();
+}
 
-    // Remove content IDs from the last form.
+void RegistrationManager::cleanUpLastForm()
+{
+    m_dataFormModel = nullptr;
+    removeOldContentIds();
+}
+
+void RegistrationManager::copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm)
+{
+    // Copy values from the last form.
+    const QList<QXmppDataForm::Field> oldFields = oldForm.fields();
+    for (const auto &field : oldFields) {
+        // Only copy fields which:
+        //  * are required
+        //  * are visible to the user
+        //  * do not have a media element (e.g., a CAPTCHA)
+        if (field.isRequired() && field.type() != QXmppDataForm::Field::HiddenField && field.mediaSources().isEmpty()) {
+            for (auto &fieldFromNewForm : newForm.fields()) {
+                if (fieldFromNewForm.key() == field.key()) {
+                    fieldFromNewForm.setValue(field.value());
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void RegistrationManager::removeOldContentIds()
+{
     for (auto itr = m_contentIdsToRemove.begin(); itr != m_contentIdsToRemove.end();) {
         if (BitsOfBinaryImageProvider::instance()->removeImage(*itr)) {
             itr = m_contentIdsToRemove.erase(itr);

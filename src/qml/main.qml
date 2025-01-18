@@ -26,7 +26,7 @@ Kirigami.ApplicationWindow {
 	id: root
 
 	minimumHeight: 300
-	minimumWidth: 280
+	minimumWidth: 300
 
 	readonly property color primaryBackgroundColor: {
 		Kirigami.Theme.colorSet = Kirigami.Theme.View

@@ -4,14 +4,15 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
 /**
- * This is the base of a registration page.
+ * This is the base for pages to register an account.
  */
-Kirigami.ScrollablePage {
+RegistrationRequestPage {
+	id: root
+
 	// This model contains all fields from the registration form of the requested provider.
 	property DataFormModel formModel
 
@@ -20,18 +21,17 @@ Kirigami.ScrollablePage {
 	// E.g., it may contain a CAPTCHA or an email address.
 	// The provider may not use the standard way for requesting the username and the password.
 	// In that case, this model could also include fields for those values.
-	property alias formFilterModel: formFilterModel
+	readonly property RegistrationDataFormFilterModel formFilterModel: RegistrationDataFormFilterModel {
+		sourceModel: formModel
+	}
 
 	/**
 	 * Returns true if the registration form received from the provider contains custom fields.
 	 */
-	property bool customFormFieldsAvailable: !formFilterModel.isEmpty
+	readonly property bool customFormFieldsAvailable: !formFilterModel.isEmpty
 
 	// generator for random usernames and passwords
-	property alias credentialsGenerator: credentialsGenerator
-
-	// JID of the provider from whom the registration form is requested
-	property string provider
+	readonly property CredentialsGenerator credentialsGenerator: CredentialsGenerator {}
 
 	// username of the user to be registered
 	property string username
@@ -39,28 +39,16 @@ Kirigami.ScrollablePage {
 	// password of the user to be registered
 	property string password
 
-	horizontalPadding: 0
-	background: Rectangle {
-		color: secondaryBackgroundColor
+	// Emitted if a new registration form (including custom fields) is ready-to-use.
+	signal formUpdated
 
-		Image {
-			source: Utils.getResourcePath("images/chat-page-background.svg")
-			anchors.fill: parent
-			fillMode: Image.Tile
-			horizontalAlignment: Image.AlignLeft
-			verticalAlignment: Image.AlignTop
+	Connections {
+		target: Kaidan
+
+		function onRegistrationFormReceived(dataFormModel) {
+			root.formModel = dataFormModel
+			root.formUpdated()
 		}
-	}
-	onBackRequested: Kaidan.client.registrationManager.abortRegistrationRequested()
-	Component.onCompleted: AccountManager.resetCustomConnectionSettings()
-
-	RegistrationDataFormFilterModel {
-		id: formFilterModel
-		sourceModel: formModel
-	}
-
-	CredentialsGenerator {
-		id: credentialsGenerator
 	}
 
 	/**
@@ -86,17 +74,6 @@ Kirigami.ScrollablePage {
 	 */
 	function showPassiveNotificationForUnknownError(errorMessage) {
 		passiveNotification(qsTr("Registration failed:") + " " + errorMessage)
-	}
-
-	/**
-	 * Requests a registration form from the provider.
-	 */
-	function requestRegistrationForm() {
-		// Set the provider's JID.
-		AccountManager.jid = provider
-
-		// Request a registration form.
-		Kaidan.client.registrationManager.registrationFormRequested()
 	}
 
 	/**

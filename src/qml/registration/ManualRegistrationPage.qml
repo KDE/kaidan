@@ -31,6 +31,12 @@ RegistrationPage {
 	title: qsTr("Manual Registration")
 	username: usernameField.text.length > 0 ? usernameField.text : usernameField.placeholderText
 	password: passwordField.text.length > 0 ? passwordField.text : passwordField.generatedPassword
+	onFormUpdated: {
+		usernameField.visible = formModel.hasUsernameField()
+		passwordField.visible = formModel.hasPasswordField()
+
+		forceActiveFocus()
+	}
 
 	ColumnLayout {
 		Kirigami.Heading {
@@ -136,10 +142,6 @@ RegistrationPage {
 	Connections {
 		target: Kaidan
 
-		function onRegistrationFormReceived(dataFormModel) {
-			processFormModel(dataFormModel)
-		}
-
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			// Further processing is handled by ProviderPage.
 			popLayer()
@@ -185,15 +187,6 @@ RegistrationPage {
 				popLayer()
 			}
 		}
-	}
-
-	function processFormModel(dataFormModel) {
-		formModel = dataFormModel
-
-		usernameField.visible = dataFormModel.hasUsernameField()
-		passwordField.visible = dataFormModel.hasPasswordField()
-
-		forceActiveFocus()
 	}
 
 	function forceActiveFocus() {

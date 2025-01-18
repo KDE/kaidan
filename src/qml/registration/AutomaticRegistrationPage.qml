@@ -5,7 +5,6 @@
 
 import QtQuick
 import QtQuick.Layouts
-import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
@@ -35,6 +34,13 @@ RegistrationPage {
 
 	property var triedProviderIndexes: []
 
+	onFormUpdated: {
+		if (customFormFieldsAvailable) {
+			loadingStackArea.busy = false
+		} else {
+			sendRegistrationForm()
+		}
+	}
 	Component.onCompleted: {
 		chooseProviderRandomly()
 		chooseUsernameRandomly()
@@ -69,7 +75,6 @@ RegistrationPage {
 			}
 
 			CustomDataFormArea {
-				id: customDataFormArea
 				model: root.formFilterModel
 				lastTextFieldAcceptedFunction: registerWithoutClickingRegistrationButton
 				visible: Kaidan.connectionError !== ClientWorker.EmailConfirmationRequired
@@ -96,16 +101,6 @@ RegistrationPage {
 
 	Connections {
 		target: Kaidan
-
-		function onRegistrationFormReceived(dataFormModel) {
-			formModel = dataFormModel
-
-			if (customFormFieldsAvailable) {
-				loadingStackArea.busy = false
-			} else {
-				sendRegistrationForm()
-			}
-		}
 
 		function onRegistrationOutOfBandUrlReceived(outOfBandUrl) {
 			requestRegistrationFormFromAnotherProvider()

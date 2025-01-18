@@ -6,7 +6,6 @@
 
 #pragma once
 
-// Kaidan
 // Qt
 #include <QList>
 #include <QObject>
@@ -16,8 +15,8 @@
 #include <QXmppStanza.h>
 
 class ClientWorker;
-class RegistrationDataFormModel;
 class DataFormModel;
+class RegistrationDataFormModel;
 class QXmppRegistrationManager;
 class QXmppClient;
 class QXmppDataForm;
@@ -142,22 +141,32 @@ private:
     QXmppDataForm extractFormFromRegisterIq(const QXmppRegisterIq &iq, bool &isFakeForm);
 
     /**
-     * Copies values set by the user to a new form.
-     *
-     * @param oldForm form with old values
-     * @param newForm form with new values
-     */
-    void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, QXmppDataForm &newForm);
-
-    /**
      * Aborts an ongoing registration.
      */
     void abortRegistration();
 
     /**
+     * Updates the last form used for registration.
+     */
+    void updateLastForm(const QXmppDataForm &newDataForm);
+
+    /**
      * Cleans up the last form used for registration.
      */
-    void cleanUpLastForm(RegistrationDataFormModel *newDataFormModel);
+    void cleanUpLastForm();
+
+    /**
+     * Copies values set by the user to a new form.
+     *
+     * @param oldForm form with old values
+     * @param newForm form with new values
+     */
+    void copyUserDefinedValuesToNewForm(const QXmppDataForm &oldForm, const QXmppDataForm &newForm);
+
+    /**
+     * Removes content IDs from the last form.
+     */
+    void removeOldContentIds();
 
     ClientWorker *const m_clientWorker;
     QXmppClient *const m_client;

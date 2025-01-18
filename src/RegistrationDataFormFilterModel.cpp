@@ -22,7 +22,7 @@ void RegistrationDataFormFilterModel::setSourceModel(QAbstractItemModel *sourceM
 
     auto *dataFormModel = static_cast<RegistrationDataFormModel *>(sourceModel);
     if (dataFormModel) {
-        m_filteredRows = dataFormModel->indiciesToFilter();
+        m_filteredRows = dataFormModel->indexesToFilter();
     }
 
     QSortFilterProxyModel::setSourceModel(sourceModel);

@@ -20,7 +20,7 @@ import "../elements/fields"
 RegistrationPage {
 	id: root
 	title: qsTr("Choose a Provider")
-	onBackRequested: resetCustomConnectionSettings()
+	onBackRequested: AccountManager.resetCustomConnectionSettings()
 
 	ListView {
 		id: providerListView
@@ -29,6 +29,8 @@ RegistrationPage {
 
 		model: ProviderListModel {}
 		spacing: Kirigami.Units.smallSpacing
+		leftMargin: root.horizontalPadding
+		rightMargin: leftMargin
 		// Ensure that no expanded providerContentArea is removed when it goes too far out of the
 		// view's visible area.
 		// Otherwise, it would be collapsed.
@@ -44,7 +46,7 @@ RegistrationPage {
 		}
 		delegate: FormCard.FormCard {
 			id: providerDelegate
-			width: ListView.view.width
+			width: ListView.view.width - ListView.view.leftMargin * 2
 
 			FormCard.AbstractFormDelegate {
 				topPadding: 0
@@ -58,7 +60,7 @@ RegistrationPage {
 					FormCard.FormTextDelegate {
 						id: providerExpansionButton
 						text: model.jid
-						font.italic: index === 0
+						font.italic: model.index === 0
 						width: parent.width
 						checkable: true
 						background: FormExpansionButtonBackground {
@@ -88,7 +90,7 @@ RegistrationPage {
 
 							Loader {
 								id: contentAreaLoader
-								sourceComponent: index === 0 ? customProviderArea : regularProviderArea
+								sourceComponent: model.index === 0 ? customProviderArea : regularProviderArea
 
 								Component {
 									id: customProviderArea
@@ -215,7 +217,7 @@ RegistrationPage {
 									onClicked: {
 										providerListView.lastClickedButton = this
 
-										if (index === 0) {
+										if (model.index === 0) {
 											const loadedCustomProviderArea = contentAreaLoader.item
 											const providerField = loadedCustomProviderArea.providerField
 
@@ -234,7 +236,7 @@ RegistrationPage {
 											}
 										} else {
 											root.provider = model.jid
-											resetCustomConnectionSettings()
+											AccountManager.resetCustomConnectionSettings()
 
 											if (model.supportsInBandRegistration) {
 												requestRegistrationForm()
@@ -277,7 +279,8 @@ RegistrationPage {
 		function onRegistrationFormReceived(dataFormModel) {
 			let page = pushLayer(manualRegistrationPage)
 			page.provider = root.provider
-			page.processFormModel(dataFormModel)
+			page.formModel = dataFormModel
+			page.formUpdated()
 		}
 	}
 
@@ -294,7 +297,7 @@ RegistrationPage {
 				passiveNotification(qsTr("The provider does not support registration via this app."))
 				break
 			case RegistrationManager.TemporarilyBlocked:
-				showPassiveNotificationForUnknownError(errorMessage)
+				passiveNotification(qsTr("You are temporarily blocked: ") + errorMessage)
 				break
 			}
 		}
@@ -304,13 +307,5 @@ RegistrationPage {
 		let page = pushLayer(webRegistrationPage)
 		page.provider = provider
 		page.registrationWebPage = registrationWebPage
-	}
-
-	/**
-	 * Resets possibly set custom connection settings.
-	 */
-	function resetCustomConnectionSettings() {
-		AccountManager.host = ""
-		AccountManager.port = AccountManager.portAutodetect
 	}
 }

@@ -18,8 +18,6 @@ class RegistrationDataFormModel : public DataFormModel
     Q_OBJECT
 
 public:
-    using DataFormModel::DataFormModel;
-
     explicit RegistrationDataFormModel(QObject *parent = nullptr);
     explicit RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent = nullptr);
 
@@ -46,11 +44,8 @@ public:
     bool isFakeForm() const;
     void setIsFakeForm(bool isFakeForm);
 
-    QList<int> indiciesToFilter() const;
+    QList<int> indexesToFilter() const;
 
 private:
-    void initializeFilteredDataFormFields();
-
     bool m_isFakeForm = false;
-    QList<QString> m_filteredDataFormFields;
 };

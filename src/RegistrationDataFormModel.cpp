@@ -9,29 +9,21 @@
 // QXmpp
 #include <QXmppDataForm.h>
 
-#define USERNAME "username"
-#define PASSWORD "password"
-#define EMAIL "email"
+constexpr QStringView USERNAME = u"username";
+constexpr QStringView PASSWORD = u"password";
+constexpr QStringView EMAIL = u"email";
 
-// fields to be filtered out
-#define FORM_TYPE "FORM_TYPE"
-#define FROM "from"
-#define CAPTCHA_FALLBACK_TEXT "captcha-fallback-text"
-#define CAPTCHA_FALLBACK_URL "captcha-fallback-url"
-#define CAPTCHAHIDDEN "captchahidden"
-#define CHALLENGE "challenge"
-#define SID "sid"
+static const QList<QStringView> FILTERED_DATA_FORM_FIELDS =
+    {u"FORM_TYPE", u"from", u"captcha-fallback-text", u"captcha-fallback-url", u"captchahidden", u"challenge", u"sid"};
 
 RegistrationDataFormModel::RegistrationDataFormModel(QObject *parent)
     : DataFormModel(parent)
 {
-    initializeFilteredDataFormFields();
 }
 
 RegistrationDataFormModel::RegistrationDataFormModel(const QXmppDataForm &dataForm, QObject *parent)
     : DataFormModel(dataForm, parent)
 {
-    initializeFilteredDataFormFields();
 }
 
 bool RegistrationDataFormModel::hasUsernameField() const
@@ -68,7 +60,7 @@ int RegistrationDataFormModel::usernameFieldIndex() const
 {
     const QList<QXmppDataForm::Field> &fields = m_form.fields();
     for (int i = 0; i < fields.size(); i++) {
-        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(QStringLiteral(USERNAME), Qt::CaseInsensitive) == 0) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(USERNAME, Qt::CaseInsensitive) == 0) {
             return i;
         }
     }
@@ -79,7 +71,7 @@ int RegistrationDataFormModel::passwordFieldIndex() const
 {
     const QList<QXmppDataForm::Field> &fields = m_form.fields();
     for (int i = 0; i < fields.size(); i++) {
-        if (fields.at(i).type() == QXmppDataForm::Field::TextPrivateField && fields.at(i).key().compare(QStringLiteral(PASSWORD), Qt::CaseInsensitive) == 0) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextPrivateField && fields.at(i).key().compare(PASSWORD, Qt::CaseInsensitive) == 0) {
             return i;
         }
     }
@@ -90,7 +82,7 @@ int RegistrationDataFormModel::emailFieldIndex() const
 {
     const QList<QXmppDataForm::Field> &fields = m_form.fields();
     for (int i = 0; i < fields.size(); i++) {
-        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(QStringLiteral(EMAIL), Qt::CaseInsensitive) == 0) {
+        if (fields.at(i).type() == QXmppDataForm::Field::TextSingleField && fields.at(i).key().compare(EMAIL, Qt::CaseInsensitive) == 0) {
             return i;
         }
     }
@@ -140,37 +132,26 @@ void RegistrationDataFormModel::setIsFakeForm(bool isFakeForm)
     m_isFakeForm = isFakeForm;
 }
 
-QList<int> RegistrationDataFormModel::indiciesToFilter() const
+QList<int> RegistrationDataFormModel::indexesToFilter() const
 {
-    QList<int> indicies;
+    QList<int> indexes;
 
     // username and password
     // email is currently not filtered because we do not have an extra email view
     for (const auto &index : {usernameFieldIndex(), passwordFieldIndex()}) {
         if (index != -1) {
-            indicies << index;
+            indexes << index;
         }
     }
 
     // search for other common fields to filter for
     for (int i = 0; i < m_form.fields().size(); i++) {
         QString key = m_form.fields().at(i).key();
-        if (m_filteredDataFormFields.contains(key))
-            indicies << i;
+        if (FILTERED_DATA_FORM_FIELDS.contains(key))
+            indexes << i;
     }
 
-    return indicies;
-}
-
-void RegistrationDataFormModel::initializeFilteredDataFormFields()
-{
-    m_filteredDataFormFields = {QStringLiteral(FORM_TYPE),
-                                QStringLiteral(FROM),
-                                QStringLiteral(CAPTCHA_FALLBACK_TEXT),
-                                QStringLiteral(CAPTCHA_FALLBACK_URL),
-                                QStringLiteral(CAPTCHAHIDDEN),
-                                QStringLiteral(CHALLENGE),
-                                QStringLiteral(SID)};
+    return indexes;
 }
 
 #include "moc_RegistrationDataFormModel.cpp"

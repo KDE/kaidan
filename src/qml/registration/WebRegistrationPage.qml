@@ -11,14 +11,16 @@ import org.kde.kirigamiaddons.formcard as FormCard
 
 import im.kaidan.kaidan
 
+import ".."
 import "../elements"
 
 /**
  * This page is used for creating an account via web registration.
  */
-RegistrationPage {
+ImageBackgroundPage {
 	id: root
 
+	property string provider
 	property url registrationWebPage
 
 	title: qsTr("Web Registration")

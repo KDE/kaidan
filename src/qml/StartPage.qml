@@ -19,7 +19,7 @@ import "registration"
  *
  * It is displayed if no account is available.
  */
-Kirigami.ScrollablePage {
+ImageBackgroundPage {
 	id: root
 	title: {
 		if (!Kaidan.testAccountMigrationState(AccountMigrationManager.MigrationState.Idle)) {
@@ -28,18 +28,6 @@ Kirigami.ScrollablePage {
 
 		return "Kaidan"
 	}
-	background: Rectangle {
-		color: secondaryBackgroundColor
-
-		Image {
-			source: Utils.getResourcePath("images/chat-page-background.svg")
-			anchors.fill: parent
-			fillMode: Image.Tile
-			horizontalAlignment: Image.AlignLeft
-			verticalAlignment: Image.AlignTop
-		}
-	}
-	horizontalPadding: 0
 	onBackRequested: {
 		globalDrawer.enabled = true
 		Kaidan.cancelAccountMigration()
