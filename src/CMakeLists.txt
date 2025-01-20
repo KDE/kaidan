@@ -156,9 +156,6 @@ target_sources(${PROJECT_NAME} PRIVATE
     PublicGroupChatSearchManager.h
     QmlUtils.cpp
     QmlUtils.h
-    # kaidan QXmpp extensions (need to be merged into QXmpp upstream)
-    qxmpp-exts/QXmppColorGenerator.cpp
-    qxmpp-exts/QXmppColorGenerator.h
     RegistrationDataFormFilterModel.cpp
     RegistrationDataFormFilterModel.h
     RegistrationDataFormModel.cpp

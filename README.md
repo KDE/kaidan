@@ -52,7 +52,7 @@ The following dependencies are needed by Kaidan:
 * [KDE Frameworks][kf] >= 6.11.0 - [ECM (extra-cmake-modules)][ecm] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
 * [Kirigami Addons][kirigami-addons] >= 1.4.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.5.0
-* [QXmpp][qxmpp] (with OMEMO) >= 1.9.0
+* [QXmpp][qxmpp] (with OMEMO) >= 1.10.1
 
 ## Optional Dependencies
 

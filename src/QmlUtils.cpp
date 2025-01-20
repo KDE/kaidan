@@ -21,7 +21,7 @@
 #include <QStringBuilder>
 // QXmpp
 #ifndef BUILD_TESTS
-#include "qxmpp-exts/QXmppColorGenerator.h"
+#include <QXmppColorGeneration.h>
 #include <QXmppUri.h>
 #endif
 // Kaidan
@@ -263,8 +263,7 @@ QString QmlUtils::formattedDataSize(qint64 fileSize)
 QColor QmlUtils::userColor(const QString &id, const QString &name)
 {
 #ifndef BUILD_TESTS
-    QXmppColorGenerator::RGBColor rgbColor = QXmppColorGenerator::generateColor(id.isEmpty() ? name : id);
-    return {rgbColor.red, rgbColor.green, rgbColor.blue};
+    return QXmppColorGeneration::generateColor(id.isEmpty() ? name : id);
 #else
     Q_UNUSED(id)
     Q_UNUSED(name)
