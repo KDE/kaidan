@@ -84,6 +84,7 @@ Kirigami.Dialog {
 		searchedText += currentCharacter
 		listView.currentIndex = 0
 		open()
+		messageArea.forceActiveFocus()
 	}
 
 	function search() {
