@@ -507,7 +507,7 @@ Controls.Pane {
 			GroupChatParticipantPicker {
 				id: participantPicker
 				x: root.chatPage.x + root.leftInset
-				y: root.chatPage.height - root.height - root.topPadding - contentHeight
+				y: mapToGlobal(root.x, root.y).y - contentHeight - Kirigami.Units.smallSpacing
 				accountJid: ChatController.accountJid
 				chatJid: ChatController.chatJid
 				textArea: messageArea
