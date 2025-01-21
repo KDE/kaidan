@@ -13,6 +13,7 @@ Kirigami.Dialog {
 	id: root
 	footer: Item {}
 	preferredWidth: largeButtonWidth
+	maximumWidth: preferredWidth
 	maximumHeight: applicationWindow().height - Kirigami.Units.gridUnit * 6
 	onClosed: destroy()
 }
