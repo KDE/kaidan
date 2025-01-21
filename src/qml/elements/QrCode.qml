@@ -9,16 +9,6 @@ import org.kde.kirigami as Kirigami
 
 import im.kaidan.kaidan
 
-RoundedRectangle {
+RoundedImage {
 	property string jid
-	property alias source: icon.source
-
-	border.color: "white"
-	border.width: radius * 0.3
-
-	Kirigami.Icon {
-		id: icon
-		anchors.fill: parent
-		anchors.margins: parent.border.width
-	}
 }
