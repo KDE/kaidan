@@ -33,7 +33,7 @@ Kirigami.GlobalDrawer {
 					title: qsTr("Accounts")
 				}
 
-				ListView {
+				InlineListView {
 					model: [ AccountManager.jid ]
 					delegate: ColumnLayout {
 						spacing: 0

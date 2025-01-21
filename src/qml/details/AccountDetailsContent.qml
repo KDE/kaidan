@@ -415,12 +415,11 @@ DetailsContent {
 			}
 		}
 
-		ListView {
+		InlineListView {
 			id: chatSupportListView
 			visible: false
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
-			clip: true
 			model: Array.from(providerArea.chatSupportList)
 			delegate: FormCard.FormCard {
 				width: ListView.view.width
@@ -460,12 +459,11 @@ DetailsContent {
 			}
 		}
 
-		ListView {
+		InlineListView {
 			id: groupChatSupportListView
 			visible: false
 			implicitHeight: contentHeight
 			Layout.fillWidth: true
-			clip: true
 			model: Array.from(providerArea.groupChatSupportList)
 			delegate: FormCard.FormCard {
 				width: ListView.view.width
@@ -498,7 +496,7 @@ DetailsContent {
 			visible: blockingExpansionButton.checked
 		}
 
-		ListView {
+		InlineListView {
 			id: blockingListView
 			model: BlockingModel {}
 			visible: blockingExpansionButton.checked

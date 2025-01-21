@@ -29,7 +29,7 @@ RosterItemDetailsContent {
 				title: qsTr("Invite")
 			}
 
-			ListView {
+			InlineListView {
 				id: contactListView
 				model: RosterFilterProxyModel {
 					sourceModel: RosterModel
@@ -146,7 +146,7 @@ RosterItemDetailsContent {
 				visible: userExpansionButton.checked
 			}
 
-			ListView {
+			InlineListView {
 				id: userListView
 				model: GroupChatUserFilterModel {
 					sourceModel: GroupChatUserModel {
@@ -155,7 +155,6 @@ RosterItemDetailsContent {
 					}
 				}
 				visible: userExpansionButton.checked
-				clip: true
 				implicitHeight: contentHeight
 				Layout.fillWidth: true
 				header: FormCard.FormCard {
@@ -249,7 +248,7 @@ RosterItemDetailsContent {
 			checkable: true
 		},
 
-		ListView {
+		InlineListView {
 			id: keyAuthenticationUserListView
 			model: GroupChatUserKeyAuthenticationFilterModel {
 				sourceModel: GroupChatUserModel {

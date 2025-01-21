@@ -129,7 +129,7 @@ FormInfoContent {
 			title: qsTr("Labels")
 		}
 
-		ListView {
+		InlineListView {
 			id: rosterGoupListView
 			model: RosterModel.groups
 			visible: rosterGroupExpansionButton.checked

@@ -20,7 +20,7 @@ ColumnLayout {
 
 	spacing: 0
 
-	ListView {
+	InlineListView {
 		id: typeListView
 		model: [
 			{
@@ -99,7 +99,7 @@ ColumnLayout {
 		visible: !Kirigami.Settings.isMobile && accountListView.visible
 	}
 
-	ListView {
+	InlineListView {
 		id: accountListView
 		model: RosterModel.accountJids
 		visible: count > 1
@@ -176,7 +176,7 @@ ColumnLayout {
 		visible: !Kirigami.Settings.isMobile && groupListView.visible
 	}
 
-	ListView {
+	InlineListView {
 		id: groupListView
 		model: RosterModel.groups
 		visible: count
