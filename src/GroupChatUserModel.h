@@ -92,15 +92,6 @@ private:
      */
     void addUser(const GroupChatUser &user);
 
-    /**
-     * Replaces all users.
-     *
-     * The user's own user entry is not added.
-     *
-     * @param users new and already sorted users to add
-     */
-    void replaceUsers(QList<GroupChatUser> users);
-
     void insertUser(int i, const GroupChatUser &user);
     void updateUser(const GroupChatUser &user);
     void removeUser(const GroupChatUser &user);
