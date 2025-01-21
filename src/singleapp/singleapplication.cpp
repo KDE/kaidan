@@ -151,8 +151,11 @@ SingleApplication::SingleApplication(int &argc, char *argv[], bool allowSecondar
     // Check if another instance can be started
     if (allowSecondary) {
         d->startSecondary();
-        if (d->options & Mode::SecondaryNotification) {
-            d->connectToPrimary(timeout, SingleApplicationPrivate::SecondaryInstance);
+        auto type = d->options & Mode::SecondaryNotification ? SingleApplicationPrivate::SecondaryInstance : SingleApplicationPrivate::InvalidConnection;
+        // If a connection to the primary instance cannot be established, become the primary instance.
+        if (!d->connectToPrimary(timeout, type)) {
+            d->initializeMemoryBlock();
+            d->startPrimary();
         }
         if (!d->memory->unlock()) {
             qDebug() << "SingleApplication: Unable to unlock memory after secondary start.";
