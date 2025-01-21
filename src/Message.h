@@ -260,7 +260,7 @@ public:
     bool removed = false;
 
     [[nodiscard]] QXmppMessage toQXmpp() const;
-    [[nodiscard]] QVector<QXmppMessage> fileFallbackMessages() const;
+    [[nodiscard]] QList<QXmppMessage> fileFallbackMessages() const;
 
     QString relevantId() const;
     QString senderJid() const;

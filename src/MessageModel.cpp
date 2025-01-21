@@ -1272,7 +1272,7 @@ void MessageModel::updateFirstUnreadContactMessageIndex()
     m_firstUnreadContactMessageIndex = -1;
 }
 
-void MessageModel::emitMessagesUpdated(const QVector<QString> &messageIds, MessageRoles role)
+void MessageModel::emitMessagesUpdated(const QList<QString> &messageIds, MessageRoles role)
 {
     const int messageIdCount = messageIds.size();
     int foundMessageCount = 0;

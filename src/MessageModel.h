@@ -228,7 +228,7 @@ private:
     void updateLastReadOwnMessageId();
     void updateFirstUnreadContactMessageIndex();
 
-    void emitMessagesUpdated(const QVector<QString> &messageIds, MessageRoles role);
+    void emitMessagesUpdated(const QList<QString> &messageIds, MessageRoles role);
 
     /**
      * Shows a notification for the message when needed
@@ -287,7 +287,7 @@ private:
     QString determineGroupChatSenderName(const Message &message) const;
     QString determineReplyToName(const Message::Reply &reply) const;
 
-    QVector<Message> m_messages;
+    QList<Message> m_messages;
     QString m_lastReadOwnMessageId;
     int m_firstUnreadContactMessageIndex = -1;
     bool m_fetchedAllFromDb = false;
