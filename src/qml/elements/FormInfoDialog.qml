@@ -8,7 +8,8 @@ import org.kde.kirigami as Kirigami
 Dialog {
 	default property alias __data: mainArea.data
 
-	preferredWidth: Kirigami.Units.gridUnit * 32
+	preferredWidth: Kirigami.Units.gridUnit * 33
+	maximumWidth: preferredWidth
 	topPadding: 0
 	bottomPadding: 0
 	leftPadding: 0

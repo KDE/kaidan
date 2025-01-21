@@ -15,6 +15,7 @@ FormInfoHeader {
 	Image {
 		source: Utils.getResourcePath("images/kaidan.svg")
 		Layout.alignment: Qt.AlignHCenter
+		Layout.margins: - Kirigami.Units.largeSpacing
 		Layout.preferredHeight: Kirigami.Units.gridUnit * 8
 		Layout.preferredWidth: Layout.preferredHeight
 		fillMode: Image.PreserveAspectFit

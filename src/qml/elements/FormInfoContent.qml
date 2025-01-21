@@ -12,7 +12,7 @@ Controls.Control {
 
 	topPadding: Kirigami.Settings.isMobile ? Kirigami.Units.largeSpacing : Kirigami.Units.largeSpacing * 3
 	bottomPadding: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 3
-	leftPadding: bottomPadding
+	leftPadding: Kirigami.Settings.isMobile ? 0 : Kirigami.Units.largeSpacing * 2
 	rightPadding: leftPadding
 	background: Rectangle {
 		color: secondaryBackgroundColor

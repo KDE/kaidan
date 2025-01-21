@@ -45,6 +45,7 @@ FormInfoContent {
 
 	ColumnLayout {
 		id: topArea
+		visible: children.length
 	}
 
 	FormCard.FormCard {
