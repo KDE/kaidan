@@ -4,6 +4,8 @@
 
 #pragma once
 
+#define BUILD_TYPE "${CMAKE_BUILD_TYPE}"
+
 #cmakedefine VERSION "${PROJECT_VERSION}"
 #cmakedefine VERSION_STRING "${VERSION_STRING}"
 

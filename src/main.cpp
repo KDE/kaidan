@@ -67,6 +67,7 @@
 #include "FileProgressCache.h"
 #include "FileProxyModel.h"
 #include "FileSharingController.h"
+#include "GlobalsGen.h"
 #include "GroupChatController.h"
 #include "GroupChatQrCodeGenerator.h"
 #include "GroupChatUser.h"
@@ -415,7 +416,9 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     engine.addImageProvider(QLatin1String(BITS_OF_BINARY_IMAGE_PROVIDER_NAME), BitsOfBinaryImageProvider::instance());
 
 #if __has_include("KCrash")
-    KCrash::initialize();
+    if (QStringLiteral(BUILD_TYPE).compare(u"release", Qt::CaseInsensitive) == 0) {
+        KCrash::initialize();
+    }
 #endif
 
     // QML type bindings
