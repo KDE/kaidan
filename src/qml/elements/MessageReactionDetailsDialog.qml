@@ -27,11 +27,11 @@ Dialog {
 	header: Item {}
 
 	ListView {
+		implicitHeight: contentHeight
 		model: MessageReactionModel {
 			id: messageReactionModel
 			accountJid: root.accountJid
 			chatJid: root.chatJid
-			reactions: root.reactions
 		}
 		delegate: UserListItem {
 			id: messageReactionDelegate
