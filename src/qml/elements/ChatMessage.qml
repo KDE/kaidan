@@ -114,7 +114,7 @@ Controls.ItemDelegate {
 						anchors.fill: parent
 						acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-						onClicked: {
+						onClicked: mouse => {
 							if (mouse.button === Qt.RightButton) {
 								root.showContextMenu(this)
 							}

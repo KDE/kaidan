@@ -546,7 +546,7 @@ ChatPageBase {
 		DropArea {
 			id: messageListViewDropArea
 			anchors.fill: parent
-			onDropped: root.addDroppedFiles(drop)
+			onDropped: drop => root.addDroppedFiles(drop)
 			onContainsDragChanged: {
 				if (!chatHintListViewDropArea.containsDrag) {
 					dropAreaInfo.opacity = containsDrag ? 0.9 : 0
@@ -659,7 +659,7 @@ ChatPageBase {
 		DropArea {
 			id: chatHintListViewDropArea
 			anchors.fill: parent
-			onDropped: root.addDroppedFiles(drop)
+			onDropped: drop => root.addDroppedFiles(drop)
 			onContainsDragChanged: {
 				if (!messageListViewDropArea.containsDrag) {
 					dropAreaInfo.opacity = containsDrag ? 0.9 : 0
