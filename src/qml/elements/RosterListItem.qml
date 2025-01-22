@@ -38,7 +38,7 @@ UserListItem {
 			ChatController.accountJid === accountJid &&
 			ChatController.chatJid === jid
 	}
-	dragged: dragHandle.dragged
+	dragged: dragHandle.dragActive
 
 	// middle
 	ColumnLayout {
@@ -188,7 +188,7 @@ UserListItem {
 				}
 
 				// icon for reordering
-				ListItemDragHandle {
+				Kirigami.ListItemDragHandle {
 					id: dragHandle
 					visible: root.pinned
 					listItem: root.contentItem

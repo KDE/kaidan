@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 23)
 set(QT_MIN_VERSION "6.6.0")
-set(KF_MIN_VERSION "6.6.0")
+set(KF_MIN_VERSION "6.11.0")
 
 if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
