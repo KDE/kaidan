@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 23)
 set(QT_MIN_VERSION "6.6.0")
-set(KF_MIN_VERSION "6.3.0")
+set(KF_MIN_VERSION "6.6.0")
 
 if(POLICY CMP0071)
     cmake_policy(SET CMP0071 NEW)
@@ -71,13 +71,12 @@ set(AUTOMOC_MOC_OPTIONS -Muri=${APPLICATION_ID})
 
 # Find packages
 find_package(Qt6 ${QT_MIN_VERSION} REQUIRED NO_MODULE COMPONENTS Core Concurrent Qml Quick Svg Sql QuickControls2 Xml Multimedia Positioning Location)
-find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS KIO CoreAddons Kirigami)
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED COMPONENTS CoreAddons KIO Kirigami Prison)
 if (NOT ANDROID)
    find_package(KF6 ${KF_MIN_VERSION} OPTIONAL_COMPONENTS Crash)
 endif()
 
 find_package(KF6KirigamiAddons 1.4.0 REQUIRED)
-find_package(KF6Prison REQUIRED)
 find_package(QXmppQt6 1.9.0 REQUIRED COMPONENTS Omemo)
 
 find_package(ICU 61.0 COMPONENTS uc)
@@ -112,7 +111,7 @@ if(QUICK_COMPILER)
 endif()
 
 if(USE_KNOTIFICATIONS)
-    find_package(KF6Notifications REQUIRED)
+    find_package(KF6Notifications ${KF_MIN_VERSION} REQUIRED)
     set(__KF6Notifications_LIBRARIES KF6::Notifications)
     add_definitions(-DHAVE_KNOTIFICATIONS)
 endif()
