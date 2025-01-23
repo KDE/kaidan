@@ -282,3 +282,5 @@ QStringList SingleApplication::userData() const
     Q_D(const SingleApplication);
     return d->appData();
 }
+
+#include "moc_singleapplication.cpp"
