@@ -10,7 +10,7 @@
 #include <QXmlStreamWriter>
 // QXmpp
 #include <QXmppClient.h>
-
+// Kaidan
 #include "kaidan_debug.h"
 
 LogHandler::LogHandler(QXmppClient *client, bool enable, QObject *parent)

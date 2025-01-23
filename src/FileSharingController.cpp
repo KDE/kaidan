@@ -40,7 +40,6 @@
 #include "Kaidan.h"
 #include "MessageDb.h"
 #include "ServerFeaturesCache.h"
-
 #include "kaidan_debug.h"
 
 template<typename T, typename Lambda>
