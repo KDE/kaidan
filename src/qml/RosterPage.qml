@@ -166,5 +166,30 @@ SearchBarPage {
 				}
 			}
 		}
+
+		Connections {
+			target: RosterModel
+
+			function onAccountJidsChanged() {
+				// Remove selected account JIDs that have been removed from the main model.
+				const selectedAccountJids = filterModel.selectedAccountJids
+				for (let i = 0; i < selectedAccountJids.length; i++) {
+					if (!RosterModel.accountJids.includes(selectedAccountJids[i])) {
+						filterModel.selectedAccountJids.splice(i, 1)
+					}
+				}
+			}
+
+			function onGroupsChanged() {
+				// Remove selected groups that have been removed from the main model.
+				const selectedGroups = filterModel.selectedGroups
+				for (let i = 0; i < selectedGroups.length; i++) {
+					const selectedGroup = selectedGroups[i]
+					if (!RosterModel.groups.includes(selectedGroups[i])) {
+						filterModel.selectedGroups.splice(i, 1)
+					}
+				}
+			}
+		}
 	}
 }

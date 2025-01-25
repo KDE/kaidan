@@ -156,20 +156,6 @@ ColumnLayout {
 				}
 			}
 		}
-
-		Connections {
-			target: RosterModel
-
-			function onAccountJidsChanged() {
-				// Remove selected account JIDs that have been removed from the main model.
-				const selectedAccountJids = root.rosterFilterProxyModel.selectedAccountJids
-				for (let i = 0; i < selectedAccountJids.length; i++) {
-					if (!RosterModel.accountJids.includes(selectedAccountJids[i])) {
-						root.rosterFilterProxyModel.selectedAccountJids.splice(i, 1)
-					}
-				}
-			}
-		}
 	}
 
 	HorizontalSeparator {
@@ -230,21 +216,6 @@ ColumnLayout {
 
 				function onSelectedGroupsChanged() {
 					groupDelegate.checked = root.rosterFilterProxyModel.selectedGroups.includes(modelData)
-				}
-			}
-		}
-
-		Connections {
-			target: RosterModel
-
-			function onGroupsChanged() {
-				// Remove selected groups that have been removed from the main model.
-				const selectedGroups = root.rosterFilterProxyModel.selectedGroups
-				for (let i = 0; i < selectedGroups.length; i++) {
-					const selectedGroup = selectedGroups[i]
-					if (!RosterModel.groups.includes(selectedGroups[i])) {
-						root.rosterFilterProxyModel.selectedGroups.splice(i, 1)
-					}
 				}
 			}
 		}
