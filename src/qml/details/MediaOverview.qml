@@ -29,6 +29,7 @@ Controls.Control {
 	rightPadding: 0
 	bottomPadding: 0
 	contentItem: GridView {
+		interactive: false
 		implicitHeight: contentHeight
 		boundsMovement: Flickable.StopAtBounds
 		cellWidth: {
