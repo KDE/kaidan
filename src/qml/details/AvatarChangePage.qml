@@ -46,9 +46,6 @@ Kirigami.Page {
 		onRejected: {
 			fileDialog.close()
 		}
-		Component.onCompleted: {
-			visible = false
-		}
 	}
 
 	ColumnLayout {
