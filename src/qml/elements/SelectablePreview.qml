@@ -19,7 +19,10 @@ Controls.ItemDelegate {
 	implicitWidth: GridView.view.cellWidth
 	implicitHeight: GridView.view.cellHeight
 	autoExclusive: false
-	padding: 0
+	topPadding: 0
+	bottomPadding: 0
+	leftPadding: 0
+	rightPadding: 0
 	background: Rectangle {}
 	contentItem: MouseArea {
 		id: selectionArea
