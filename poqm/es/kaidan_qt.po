@@ -1,11 +1,11 @@
 # Translation of kaidan to Spanish
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Eloy Cuadra <ecuadra@eloihr.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"PO-Revision-Date: 2024-12-06 05:22+0100\n"
+"PO-Revision-Date: 2025-01-24 13:34+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: es\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -2604,9 +2604,6 @@ msgid "Log in"
 msgstr "Iniciar sesión"
 
 #: src/qml/elements/LoginArea.qml:35
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Scan login QR code"
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Escanear código QR de inicio de sesión"
@@ -3130,7 +3127,7 @@ msgstr "El proveedor no admite el registro mediante esta aplicación."
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "Está bloqueado temporalmente: "
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"

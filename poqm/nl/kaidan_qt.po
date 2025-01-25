@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Freek de Kruijf <freekdekruijf@kde.nl>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Freek de Kruijf <freekdekruijf@kde.nl>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-06 11:57+0100\n"
+"PO-Revision-Date: 2025-01-24 11:48+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Language: nl\n"
 "X-Qt-Contexts: true\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -2592,9 +2592,6 @@ msgid "Log in"
 msgstr "Aanmelden"
 
 #: src/qml/elements/LoginArea.qml:35
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Scan login QR code"
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "QR-code voor aanmelden scannen"
@@ -3118,7 +3115,7 @@ msgstr "De leverancier ondersteunt geen registratie via deze toepassing."
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "U bent tijdelijk geblokkeerd: "
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
