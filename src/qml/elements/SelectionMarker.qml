@@ -28,6 +28,7 @@ Controls.CheckBox {
 	indicator: Kirigami.Icon {
 		source: "emblem-ok-symbolic"
 		color: Kirigami.Theme.highlightedTextColor
+		isMask: true
 		implicitWidth: Kirigami.Units.iconSizes.small
 		implicitHeight: implicitWidth
 		anchors.centerIn: parent
