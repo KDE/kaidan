@@ -180,6 +180,7 @@ DetailsContent {
 					textFormat: Text.PlainText
 					elide: Text.ElideRight
 					visible: !rosterGroupTextField.visible
+					verticalAlignment: Text.AlignVCenter
 					Layout.preferredHeight: rosterGroupTextField.height
 					Layout.fillWidth: true
 					leftPadding: Kirigami.Units.smallSpacing * 1.5
