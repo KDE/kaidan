@@ -199,6 +199,7 @@ DetailsContent {
 					text: qsTr("Change label…")
 					icon.name: "document-edit-symbolic"
 					display: Controls.AbstractButton.IconOnly
+					checkable: true
 					checked: !rosterGroupText.visible
 					flat: !hovered
 					Controls.ToolTip.text: text
@@ -596,6 +597,7 @@ DetailsContent {
 						text: qsTr("Change chat address…")
 						icon.name: "document-edit-symbolic"
 						display: Controls.AbstractButton.IconOnly
+						checkable: true
 						checked: !blockingText.visible
 						flat: !hovered
 						Controls.ToolTip.text: text

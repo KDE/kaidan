@@ -88,6 +88,7 @@ FormInfoHeader {
 				text: qsTr("Change name…")
 				icon.name: "document-edit-symbolic"
 				display: Controls.AbstractButton.IconOnly
+				checkable: true
 				checked: !displayNameText.visible
 				flat: !hovered && !displayNameMouseArea.containsMouse
 				Controls.ToolTip.text: text
