@@ -56,7 +56,6 @@ Controls.Control {
 		}
 		header: ColumnLayout {
 			width: GridView.view.width
-			height: implicitHeight
 			spacing: 0
 
 			RowLayout {
@@ -67,7 +66,7 @@ Controls.Control {
 				FormCard.AbstractFormDelegate {
 					id: imagesTab
 					checkable: true
-					Layout.preferredWidth: tabBar.width / 3
+					Layout.fillWidth: true
 					contentItem: Controls.Label {
 						text: qsTr("Images")
 						wrapMode: Text.Wrap
@@ -84,7 +83,7 @@ Controls.Control {
 				FormCard.AbstractFormDelegate {
 					id: videosTab
 					checkable: true
-					Layout.preferredWidth: tabBar.width / 3
+					Layout.fillWidth: true
 					contentItem: Controls.Label {
 						text: qsTr("Videos")
 						wrapMode: Text.Wrap
@@ -102,7 +101,7 @@ Controls.Control {
 				FormCard.AbstractFormDelegate {
 					id: otherTab
 					checkable: true
-					Layout.preferredWidth: tabBar.width / 3
+					Layout.fillWidth: true
 					contentItem: Controls.Label {
 						text: qsTr("Other")
 						wrapMode: Text.Wrap
@@ -300,8 +299,8 @@ Controls.Control {
 					source: model.file.localFileUrl
 					fillMode: Image.PreserveAspectCrop
 					asynchronous: true
-					sourceSize.width: parent.availableWidth
-					sourceSize.height: parent.availableHeight
+					sourceSize.width: preview.availableWidth
+					sourceSize.height: preview.availableHeight
 					anchors.fill: parent
 
 					SelectionMarker {
