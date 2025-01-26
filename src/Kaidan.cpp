@@ -48,8 +48,6 @@
 
 using namespace std::chrono_literals;
 
-constexpr auto APPLICATION_CLOSING_TIMEOUT = 5s;
-
 Kaidan *Kaidan::s_instance;
 
 /**
@@ -154,34 +152,6 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_chatHintModel = new ChatHintModel(this);
 
     initializeAccountMigration();
-
-    // Disconnect from the server when the application window is closed but before the application
-    // is quit.
-    qGuiApp->setQuitOnLastWindowClosed(false);
-    connect(qGuiApp, &QGuiApplication::lastWindowClosed, this, [this]() {
-        // TODO: Remove the following check once Kaidan uses no other QWidget-based dialogs,
-        // especially if QFileDialog is replaced with QtQuick.Dialogs.FileDialogs.
-        // Ignore other windows (e.g., file dialogs) than the main window being closed.
-        if (qGuiApp->topLevelWindows().size() > 1) {
-            return;
-        }
-
-        if (m_connectionState == Enums::ConnectionState::StateDisconnected) {
-            qGuiApp->quit();
-        } else {
-            connect(this, &Kaidan::connectionStateChanged, this, [this]() {
-                if (m_connectionState == Enums::ConnectionState::StateDisconnected) {
-                    qGuiApp->quit();
-                }
-            });
-
-            Q_EMIT logOutRequested(true);
-
-            // Force closing the application if the client does not disconnect from the server.
-            // That can happen if there are connection problems.
-            QTimer::singleShot(APPLICATION_CLOSING_TIMEOUT, qGuiApp, &QGuiApplication::quit);
-        }
-    });
 
     connect(m_msgDb, &MessageDb::messageAdded, this, [this](const Message &message, MessageOrigin origin) {
         if (origin != MessageOrigin::UserInput && !message.files.isEmpty()) {

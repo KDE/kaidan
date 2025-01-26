@@ -28,6 +28,9 @@ Kirigami.ApplicationWindow {
 	minimumHeight: 300
 	minimumWidth: 300
 
+	property bool loggingOutToQuit: false
+	property bool quitForced: false
+
 	readonly property color primaryBackgroundColor: {
 		Kirigami.Theme.colorSet = Kirigami.Theme.View
 		return Kirigami.Theme.backgroundColor
@@ -66,6 +69,28 @@ Kirigami.ApplicationWindow {
 
 	contextDrawer: Kirigami.ContextDrawer {
 		id: contextDrawer
+	}
+
+	onClosing: close => {
+		// Disconnect from the server when the application window is closed but before the application
+		// is quit.
+		if (!quitForced && Kaidan.connectionState !== Enums.StateDisconnected) {
+			loggingOutToQuit = true
+			close.accepted = false
+			Kaidan.logOutRequested(true)
+			forcedClosingTimer.start()
+		}
+	}
+
+	// Forces closing the application if the client does not disconnect from the server.
+	// That can happen if there are connection problems.
+	Timer {
+		id: forcedClosingTimer
+		interval: 5000
+		onTriggered: {
+			quitForced = true
+			close()
+		}
 	}
 
 	// Needed to be outside of the DetailsDialog to not be destroyed with it.
@@ -125,6 +150,18 @@ Kirigami.ApplicationWindow {
 		GroupChatJoiningPage {
 			accountJid: AccountManager.jid
 			nickname: AccountManager.displayName
+		}
+	}
+
+	Connections {
+		target: Kaidan
+		enabled: root.loggingOutToQuit
+
+		function onConnectionStateChanged() {
+			if (Kaidan.connectionState === Enums.StateDisconnected) {
+				root.loggingOutToQuit = false
+				root.close()
+			}
 		}
 	}
 
