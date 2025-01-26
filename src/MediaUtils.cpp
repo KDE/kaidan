@@ -12,6 +12,7 @@
 #include <QBuffer>
 #include <QClipboard>
 #include <QDir>
+#include <QFileDialog>
 #include <QFileInfo>
 #include <QGuiApplication>
 #include <QImage>
@@ -285,6 +286,11 @@ QUrl MediaUtils::newImageFileUrl()
 QUrl MediaUtils::newVideoFileUrl()
 {
     return newFileUrl(SystemUtils::videoDirectory(), VIDEO_FILE_EXTENSION);
+}
+
+QUrl MediaUtils::openFile()
+{
+    return QFileDialog::getOpenFileUrl();
 }
 
 QString MediaUtils::mediaTypeName(Enums::MessageType mediaType)

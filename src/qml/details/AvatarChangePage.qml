@@ -4,10 +4,8 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtCore
 import QtQuick
 import QtQuick.Controls as Controls
-import QtQuick.Dialogs as Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 // import org.kde.kquickimageeditor as KQuickImageEditor
@@ -30,22 +28,6 @@ Kirigami.Page {
 		anchors.centerIn: parent
 		width: 60
 		height: 60
-	}
-
-	Dialogs.FileDialog {
-		id: fileDialog
-		title: qsTr("Choose profile image")
-		currentFolder: StandardPaths.standardLocations(StandardPaths.HomeLocation)[0]
-		fileMode: Dialogs.FileDialog.OpenFile
-		onAccepted: {
-			imageDoc.path = fileDialog.selectedFile
-			imagePath = fileDialog.selectedFile
-
-			fileDialog.close()
-		}
-		onRejected: {
-			fileDialog.close()
-		}
 	}
 
 	ColumnLayout {
@@ -106,7 +88,7 @@ Kirigami.Page {
 
 			CenteredAdaptiveButton {
 				text: qsTr("Open image…")
-				onClicked: fileDialog.open()
+				onClicked: root.imagePath = MediaUtils.openFile()
 			}
 
 			CenteredAdaptiveButton {

@@ -78,6 +78,8 @@ public:
      */
     Q_INVOKABLE static QUrl newVideoFileUrl();
 
+    Q_INVOKABLE static QUrl openFile();
+
     static QString mediaTypeName(Enums::MessageType mediaType);
     Q_INVOKABLE static QString newMediaLabel(Enums::MessageType hint);
     Q_INVOKABLE static QString newMediaIconName(Enums::MessageType hint);
