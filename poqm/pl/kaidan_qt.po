@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-18 11:41+0100\n"
+"PO-Revision-Date: 2025-01-25 11:54+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
@@ -2584,9 +2584,6 @@ msgid "Log in"
 msgstr "Zaloguj się"
 
 #: src/qml/elements/LoginArea.qml:35
-#, fuzzy
-#| msgctxt "StartPage|"
-#| msgid "Scan login QR code"
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
 msgstr "Zeskanuj kod QR do zalogowania"
@@ -3108,7 +3105,7 @@ msgstr "Dostawca nie obsługuje rejestrowania się przez tę aplikację."
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "Jesteś tymczasowo zablokowany: "
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
