@@ -6,13 +6,14 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "AvatarFileStorage.h"
+
 // Qt
 #include <QCryptographicHash>
 #include <QDebug>
 #include <QDir>
 #include <QStandardPaths>
 #include <QUrl>
-
+// Kaidan
 #include "kaidan_debug.h"
 
 AvatarFileStorage::AvatarFileStorage(QObject *parent)
@@ -148,9 +149,9 @@ QString AvatarFileStorage::getAvatarPathOfJid(const QString &jid) const
     return getAvatarPath(getHashOfJid(jid));
 }
 
-QString AvatarFileStorage::getAvatarUrl(const QString &jid) const
+QUrl AvatarFileStorage::getAvatarUrl(const QString &jid) const
 {
-    return QUrl::fromLocalFile(getAvatarPathOfJid(jid)).toString();
+    return QUrl::fromLocalFile(getAvatarPathOfJid(jid));
 }
 
 bool AvatarFileStorage::hasAvatarHash(const QString &hash) const

@@ -21,7 +21,7 @@ DetailsHeader {
 	avatarAction: Kirigami.Action {
 		text: qsTr("Maximize avatar")
 		icon.name: "view-fullscreen-symbolic"
-		enabled: Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid)
+		enabled: Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid).toString()
 		onTriggered: Qt.openUrlExternally(Kaidan.avatarStorage.getAvatarUrl(ChatController.chatJid))
 	}
 

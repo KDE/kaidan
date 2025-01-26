@@ -19,7 +19,7 @@ import "../elements"
 Kirigami.Page {
 	id: root
 
-	property string imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
+	property url imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
 
 	title: qsTr("Change profile image")
 	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).jid = AccountManager.jid
@@ -111,13 +111,13 @@ Kirigami.Page {
 
 			CenteredAdaptiveButton {
 				text: qsTr("Remove current profile image")
-				visible: root.imagePath
+				visible: root.imagePath.toString()
 				onClicked: Kaidan.client.vCardManager.changeAvatarRequested()
 			}
 
 			CenteredAdaptiveHighlightedButton {
 				text: qsTr("Save selection")
-				visible: root.imagePath
+				visible: root.imagePath.toString()
 				onClicked: {
 					imageDoc.crop(
 						selectionTool.selectionX / editImage.ratioX,

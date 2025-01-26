@@ -68,7 +68,7 @@ public:
     /**
      * Returns a file URL to the avatar image of a given JID
      */
-    Q_INVOKABLE QString getAvatarUrl(const QString &jid) const;
+    Q_INVOKABLE QUrl getAvatarUrl(const QString &jid) const;
 
 Q_SIGNALS:
     void avatarIdsChanged();
