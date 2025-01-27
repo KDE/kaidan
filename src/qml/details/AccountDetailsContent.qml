@@ -47,14 +47,7 @@ DetailsContent {
 		accountJid: root.jid
 		chatJid: ""
 	}
-	vCardArea {
-		visible: true
-		enabled: accountRemovalArea.enabled
-		delegates: FormExpansionButton {
-			checked: vCardRepeater.model.unsetEntriesProcessed
-			onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = checked
-		}
-	}
+	vCardArea.enabled: accountRemovalArea.enabled
 	vCardRepeater {
 		model: VCardModel {
 			jid: root.jid
@@ -127,6 +120,10 @@ DetailsContent {
 				editing = !editing
 			}
 		}
+	}
+	vCardExpansionButton {
+		checked: vCardRepeater.model.unsetEntriesProcessed
+		onCheckedChanged: vCardRepeater.model.unsetEntriesProcessed = vCardExpansionButton.checked
 	}
 	encryptionArea {
 		delegates: [

@@ -26,6 +26,7 @@ RosterItemDetailsContent {
 		delegate: FormCard.FormButtonDelegate {
 			text: model.value
 			description: model.key
+			visible: !vCardExpansionButton.visible || vCardExpansionButton.checked
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
 			onClicked: {
 				if (model.uriScheme === "mailto") {

@@ -25,6 +25,7 @@ FormInfoContent {
 	property alias mediaOverviewExpansionButton: mediaOverviewExpansionButton
 	property alias vCardArea: vCardArea
 	property alias vCardRepeater: vCardRepeater
+	property alias vCardExpansionButton: vCardExpansionButton
 	property alias rosterGoupListView: rosterGoupListView
 	property alias sharingArea: sharingArea
 	property alias qrCodeExpansionButton: qrCodeExpansionButton
@@ -112,6 +113,10 @@ FormInfoContent {
 		Repeater {
 			id: vCardRepeater
 			Layout.fillHeight: true
+		}
+
+		FormExpansionButton {
+			id: vCardExpansionButton
 		}
 	}
 

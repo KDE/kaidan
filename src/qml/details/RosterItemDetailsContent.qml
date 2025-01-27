@@ -36,6 +36,10 @@ DetailsContent {
 		onActivated: RosterModel.setAutomaticMediaDownloadsRule(ChatController.accountJid, ChatController.chatJid, automaticMediaDownloadsDelegate.currentValue)
 	}
 	vCardArea.visible: vCardRepeater.count
+	vCardExpansionButton {
+		visible: vCardRepeater.count > 3
+		checked: !visible
+	}
 	rosterGoupListView {
 		header: FormCard.FormCard {
 			width: ListView.view.width
