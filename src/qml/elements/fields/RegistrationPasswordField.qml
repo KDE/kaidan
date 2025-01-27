@@ -14,7 +14,7 @@ import im.kaidan.kaidan
  * A hint is shown for improving the password strength.
  */
 PasswordField {
-	valid: true
+	readonly property string generatedPassword: credentialsGenerator.generatePassword()
 
 	placeholderText: {
 		if (inputField.echoMode === TextInput.Password) {
@@ -23,6 +23,4 @@ PasswordField {
 
 		return generatedPassword
 	}
-
-	property string generatedPassword: credentialsGenerator.generatePassword()
 }

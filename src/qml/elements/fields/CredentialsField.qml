@@ -11,8 +11,6 @@ import im.kaidan.kaidan
  * This is the base for fields which are used to enter credentials.
  */
 Field {
-	valid: false
-
 	property alias credentialsValidator: credentialsValidator
 
 	CredentialsValidator {

@@ -36,11 +36,11 @@ ColumnLayout {
 	// text to be shown as a hint if the entered text is not valid
 	property alias invalidHintText: invalidHint.text
 
-	// validity of the entered text
-	property bool valid: true
-
 	// requirement for showing the hint for invalid input
 	property bool invalidHintMayBeShown: false
+
+	// validity of the entered text
+	property bool valid: true
 
 	// underlying data source for the completion view
 	property alias completionModel: inputField.model
@@ -50,6 +50,8 @@ ColumnLayout {
 
 	// completed text
 	readonly property alias input: inputField.input
+
+	onValidChanged: toggleHintForInvalidText()
 
 	// label for the input field
 	Controls.Label {

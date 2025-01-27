@@ -78,16 +78,7 @@ RegistrationPage {
 					placeholderText: credentialsGenerator.generateUsername()
 					inputMethodHints: Qt.ImhPreferLowercase
 					invalidHintText: qsTr("Enter a valid username or leave the field empty for a random one")
-					valid: true
-					onTextChanged: {
-						if (text === "") {
-							valid = true
-						} else {
-							valid = credentialsValidator.isUsernameValid(text)
-						}
-
-						toggleHintForInvalidText()
-					}
+					valid: !text || credentialsValidator.isUsernameValid(text)
 					inputField.onAccepted: passwordField.forceActiveFocus()
 
 					function regenerateUsername() {
@@ -97,15 +88,7 @@ RegistrationPage {
 
 				RegistrationPasswordField {
 					id: passwordField
-					onTextChanged: {
-						if (text === "") {
-							valid = true
-						} else {
-							valid = credentialsValidator.isPasswordValid(text)
-						}
-
-						toggleHintForInvalidText()
-					}
+					valid: !text || credentialsValidator.isPasswordValid(text)
 					inputField.onAccepted: customDataFormArea.forceActiveFocus()
 				}
 			}

@@ -49,18 +49,9 @@ ConfirmationArea {
 		inputMethodHints: Qt.ImhPreferLowercase
 		invalidHintText: qsTr("Enter a valid group ID")
 		invalidHintMayBeShown: publicGroupChatCheckBox.checked
+		valid: text
 		visible: publicGroupChatCheckBox.checked
 		Layout.fillWidth: true
-		// Validate the entered group chat ID and handle an invalid one.
-		onTextChanged: {
-			if (text === "") {
-				valid = false
-			} else {
-				valid = true
-			}
-
-			toggleHintForInvalidText()
-		}
 		inputField.onAccepted: createGroupChat()
 	}
 

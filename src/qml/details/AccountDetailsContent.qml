@@ -707,30 +707,17 @@ DetailsContent {
 
 		FormCardCustomContentArea {
 			contentItem: ColumnLayout {
-				Component.onCompleted: {
-					passwordVerificationField.initialize()
-					passwordField.initialize()
-				}
-
 				PasswordField {
 					id: passwordVerificationField
 					labelText: qsTr("Current password")
 					placeholderText: qsTr("Enter your current password")
 					invalidHintText: qsTr("Enter correct password")
+					invalidHintMayBeShown: false
+					valid: text === AccountManager.password
 					visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
-					onTextChanged: {
-						valid = text === AccountManager.password
-						toggleHintForInvalidText()
-					}
 					inputField.onAccepted: passwordChangeButton.clicked()
-
-					function initialize() {
-						showPassword = false
-						invalidHintMayBeShown = false
-						inputField.clear()
-					}
 				}
 
 				RowLayout {
@@ -740,22 +727,12 @@ DetailsContent {
 						id: passwordField
 						labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
 						placeholderText: qsTr("Enter your new password")
+						text: passwordVerificationField.visible ? "" : AccountManager.password
 						invalidHintText: qsTr("Enter different password to change it")
-						invalidHintMayBeShown: true
+						invalidHintMayBeShown: false
+						valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
 						enabled: !passwordBusyIndicator.visible
-						onTextChanged: {
-							valid = credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
-							toggleHintForInvalidText()
-						}
 						inputField.onAccepted: passwordChangeButton.clicked()
-
-						function initialize() {
-							showPassword = false
-							text = Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible ? "" : AccountManager.password
-
-							// Avoid showing a hint on initial setting.
-							invalidHint.visible = false
-						}
 					}
 
 					Button {
@@ -841,9 +818,7 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-
 				Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
-				passwordField.initialize()
 			}
 			busyText: qsTr("Removing password from text…")
 		}
@@ -857,14 +832,7 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-
-				const oldPasswordVisibility = Kaidan.settings.passwordVisibility
 				Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
-
-				// Do not initialize passwordField when the password is already hidden.
-				if (oldPasswordVisibility === Kaidan.PasswordVisible) {
-					passwordField.initialize()
-				}
 			}
 			busyText: qsTr("Removing password from text and QR code…")
 		}

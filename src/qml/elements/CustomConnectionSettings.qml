@@ -28,11 +28,7 @@ RowLayout {
 		inputMethodHints: Qt.ImhUrlCharactersOnly
 		invalidHintText: qsTr("The hostname must not contain blank spaces")
 		invalidHintMayBeShown: true
-
-		onTextChanged: {
-			valid = !text.match(/\s/);
-			toggleHintForInvalidText()
-		}
+		valid: !text.match(/\s/)
 
 		// Focus the portField on confirmation.
 		Keys.onPressed: {

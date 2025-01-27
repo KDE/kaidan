@@ -20,16 +20,11 @@ CredentialsField {
 	placeholderText: qsTr("user@example.org")
 	inputMethodHints: Qt.ImhEmailCharactersOnly | Qt.ImhPreferLowercase | TextFieldCompleter.inputMethodHints
 	invalidHintText: qsTr("The chat address must have the form <b>username@server</b>")
+	valid: credentialsValidator.isUserJidValid(text)
 	text: AccountManager.jid
 	completionRole: "display"
 	completionModel: HostCompletionProxyModel {
 		userInput: root.input
 		sourceModel: HostCompletionModel
-	}
-
-	// Validate the entered JID and show a hint if it is not valid.
-	onTextChanged: {
-		valid = credentialsValidator.isUserJidValid(text)
-		toggleHintForInvalidText()
 	}
 }
