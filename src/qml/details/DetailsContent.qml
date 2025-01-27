@@ -117,6 +117,14 @@ FormInfoContent {
 
 		FormExpansionButton {
 			id: vCardExpansionButton
+			background: FormCard.FormDelegateBackground {
+				control: parent
+				// Needed since the corners would otherwise not be rounded because of the repeater.
+				corners {
+					bottomLeftRadius: vCardArea.cardWidthRestricted ? Kirigami.Units.smallSpacing : 0
+					bottomRightRadius: vCardArea.cardWidthRestricted ? Kirigami.Units.smallSpacing : 0
+				}
+			}
 		}
 	}
 
