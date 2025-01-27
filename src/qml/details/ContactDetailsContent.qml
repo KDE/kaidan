@@ -28,6 +28,14 @@ RosterItemDetailsContent {
 			description: model.key
 			visible: !vCardExpansionButton.visible || vCardExpansionButton.checked
 			enabled: model.uriScheme === "mailto" || model.uriScheme === "http"
+			background: FormCard.FormDelegateBackground {
+				control: parent
+				// Needed since the corners would otherwise not be rounded because of the repeater.
+				corners {
+					bottomLeftRadius: vCardExpansionButton.visible ? 0 : Kirigami.Units.smallSpacing
+					bottomRightRadius: vCardExpansionButton.visible ? 0 : Kirigami.Units.smallSpacing
+				}
+			}
 			onClicked: {
 				if (model.uriScheme === "mailto") {
 					Qt.openUrlExternally(model.uriScheme + ":" + model.value)
