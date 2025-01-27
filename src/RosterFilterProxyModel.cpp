@@ -12,6 +12,13 @@
 RosterFilterProxyModel::RosterFilterProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    connect(this, &QSortFilterProxyModel::sourceModelChanged, this, [this]() {
+        const auto model = static_cast<RosterModel *>(sourceModel());
+
+        connect(model, &RosterModel::accountJidsChanged, this, &RosterFilterProxyModel::updateSelectedAccountJids);
+        connect(model, &RosterModel::groupsChanged, this, &RosterFilterProxyModel::updateSelectedGroups);
+    });
+
     connect(GroupChatController::instance(), &GroupChatController::currentUserJidsChanged, this, &RosterFilterProxyModel::updateGroupChatUserJids);
     updateGroupChatUserJids();
 }
@@ -166,6 +173,48 @@ bool RosterFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex &
 
     return sourceModel()->data(index, RosterModel::NameRole).toString().toLower().contains(filterRegularExpression())
         || sourceModel()->data(index, RosterModel::JidRole).toString().toLower().contains(filterRegularExpression());
+}
+
+void RosterFilterProxyModel::updateSelectedAccountJids()
+{
+    const auto model = static_cast<RosterModel *>(sourceModel());
+    bool changed = false;
+
+    // Remove selected account JIDs that have been removed from the source model.
+    for (auto itr = m_selectedAccountJids.begin(); itr != m_selectedAccountJids.end();) {
+        if (model->accountJids().contains(*itr)) {
+            ++itr;
+        } else {
+            itr = m_selectedAccountJids.erase(itr);
+            changed = true;
+        }
+    }
+
+    if (changed) {
+        invalidateFilter();
+        Q_EMIT selectedAccountJidsChanged();
+    }
+}
+
+void RosterFilterProxyModel::updateSelectedGroups()
+{
+    const auto model = static_cast<RosterModel *>(sourceModel());
+    bool changed = false;
+
+    // Remove selected groups that have been removed from the source model.
+    for (auto itr = m_selectedGroups.begin(); itr != m_selectedGroups.end();) {
+        if (model->groups().contains(*itr)) {
+            ++itr;
+        } else {
+            itr = m_selectedGroups.erase(itr);
+            changed = true;
+        }
+    }
+
+    if (changed) {
+        invalidateFilter();
+        Q_EMIT selectedGroupsChanged();
+    }
 }
 
 void RosterFilterProxyModel::updateGroupChatUserJids()

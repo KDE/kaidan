@@ -58,6 +58,8 @@ protected:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
 
 private:
+    void updateSelectedAccountJids();
+    void updateSelectedGroups();
     void updateGroupChatUserJids();
 
     Types m_displayedTypes;
