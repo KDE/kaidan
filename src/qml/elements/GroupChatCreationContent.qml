@@ -34,7 +34,7 @@ ConfirmationArea {
 		inputField.onAccepted: createGroupChat()
 	}
 
-	Controls.CheckBox {
+	Controls.Switch {
 		id: publicGroupChatCheckBox
 		text: qsTr("Public")
 		onToggled: groupChatIdField.forceActiveFocus()
