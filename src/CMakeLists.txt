@@ -254,7 +254,6 @@ ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
 target_link_libraries(${PROJECT_NAME}
     ICU::uc
-    KF6::CoreAddons
     KF6::KIOCore
     KF6::KIOWidgets
     KF6::Kirigami

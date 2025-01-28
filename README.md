@@ -47,7 +47,7 @@ Kaidan yourself can be found in our [Wiki][wiki].
 The following dependencies are needed by Kaidan:
 
 * [Qt][qt-build-sources] >= 6.6.0 - Core | Concurrent | Qml | Quick | Svg | Sql | QuickControls2 | Xml | Multimedia | Positioning | Location
-* [KDE Frameworks][kf] >= 6.6.0 - [ECM (extra-cmake-modules)][ecm] | [KCoreAddons][kcoreaddons] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
+* [KDE Frameworks][kf] >= 6.6.0 - [ECM (extra-cmake-modules)][ecm] | [KNotifications][knotifications] (`-DUSE_KNOTIFICATIONS=OFF` to disable) | [KIO][kio] | [Kirigami][kirigami-repo] | [Prison][prison]
 * [Kirigami Addons][kirigami-addons] >= 1.4.0
 * [KQuickImageEditor][kquickimageeditor] >= 0.2.0
 * [QXmpp][qxmpp] (with OMEMO) >= 1.9.0
@@ -77,7 +77,6 @@ information on how to proceed in our [security.txt][securitytxt] or at the
 [ffmpegthumbs]: https://apps.kde.org/de/ffmpegthumbs/
 [kaidan-website]: https://kaidan.im
 [kaidan-website-repo]: https://invent.kde.org/websites/kaidan-im
-[kcoreaddons]: https://invent.kde.org/frameworks/kcoreaddons
 [kcrash]: https://api.kde.org/frameworks/kcrash/html/index.html
 [kdesecurity]: https://kde.org/info/security/
 [kf]: https://develop.kde.org/products/frameworks/
