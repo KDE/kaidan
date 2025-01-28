@@ -336,8 +336,7 @@ Kirigami.ActionTextField {
 			border.width: 1
 			border.color: Kirigami.Theme.textColor
 		}
-
-		ListView {
+		contentItem: ListView {
 			id: completions
 
 			anchors.fill: parent
