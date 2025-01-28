@@ -286,7 +286,7 @@ QList<QXmppMessage> Message::fileFallbackMessages() const
         if (addFileFallbackMessageBase(message, file)) {
             toQXmppBase(message);
 
-            const auto extendedId = id + u'_' + QString::number(++i);
+            const QString extendedId = id + u'_' + QString::number(++i);
 
             message.setId(extendedId);
             message.setOriginId(extendedId);
