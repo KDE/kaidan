@@ -6,7 +6,6 @@
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls as Controls
-import QtMultimedia as Multimedia
 import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 
@@ -344,17 +343,9 @@ Controls.Control {
 					root.selectionMode = true
 				}
 
-				Multimedia.Video {
-					source: model.file.localFileUrl
-					// autoPlay: true
-					fillMode: Multimedia.VideoOutput.PreserveAspectCrop
+				Kirigami.Icon {
+					source: model.thumbnail
 					anchors.fill: parent
-					onPlaybackStateChanged: {
-						// Display a thumbnail by playing the first frame and pausing afterwards.
-						if (playbackState === MediaPlayer.PlayingState) {
-							pause()
-						}
-					}
 
 					SelectionMarker {
 						visible: preview.containsMouse || checked
