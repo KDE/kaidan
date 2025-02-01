@@ -168,6 +168,8 @@ Item {
 		Kirigami.Icon {
 			source: message.deliveryStateIcon
 			visible: message.isOwn && source
+			color: Kirigami.Theme.positiveTextColor
+			isMask: message.deliveryState === Enums.DeliveryState.Delivered
 			Layout.preferredWidth: Kirigami.Units.iconSizes.small
 			Layout.preferredHeight: Layout.preferredWidth
 
