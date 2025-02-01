@@ -26,8 +26,10 @@ class MessageComposition : public QObject
                    replyToGroupChatParticipantIdChanged)
     Q_PROPERTY(QString replyToName READ replyToName WRITE setReplyToName NOTIFY replyToNameChanged)
     Q_PROPERTY(QString replyId READ replyId WRITE setReplyId NOTIFY replyIdChanged)
+    Q_PROPERTY(QString originalReplyId READ originalReplyId WRITE setOriginalReplyId NOTIFY originalReplyIdChanged)
     Q_PROPERTY(QString replyQuote READ replyQuote WRITE setReplyQuote NOTIFY replyQuoteChanged)
     Q_PROPERTY(QString body READ body WRITE setBody NOTIFY bodyChanged)
+    Q_PROPERTY(QString originalBody READ originalBody WRITE setOriginalBody NOTIFY originalBodyChanged)
     Q_PROPERTY(bool isSpoiler READ isSpoiler WRITE setSpoiler NOTIFY isSpoilerChanged)
     Q_PROPERTY(QString spoilerHint READ spoilerHint WRITE setSpoilerHint NOTIFY spoilerHintChanged)
     Q_PROPERTY(bool isDraft READ isDraft WRITE setIsDraft NOTIFY isDraftChanged)
@@ -42,56 +44,79 @@ public:
         return m_accountJid;
     }
     void setAccountJid(const QString &accountJid);
+
     [[nodiscard]] QString chatJid() const
     {
         return m_chatJid;
     }
     void setChatJid(const QString &chatJid);
+
     [[nodiscard]] QString replaceId() const
     {
         return m_replaceId;
     }
     void setReplaceId(const QString &replaceId);
+
     [[nodiscard]] QString replyToJid() const
     {
         return m_replyToJid;
     }
     void setReplyToJid(const QString &replyToJid);
+
     [[nodiscard]] QString replyToGroupChatParticipantId() const
     {
         return m_replyToGroupChatParticipantId;
     }
     void setReplyToGroupChatParticipantId(const QString &replyToGroupChatParticipantId);
+
     [[nodiscard]] QString replyToName() const
     {
         return m_replyToName;
     }
     void setReplyToName(const QString &replyToName);
+
     [[nodiscard]] QString replyId() const
     {
         return m_replyId;
     }
     void setReplyId(const QString &replyId);
+
+    [[nodiscard]] QString originalReplyId() const
+    {
+        return m_originalReplyId;
+    }
+    void setOriginalReplyId(const QString &originalReplyId);
+
     [[nodiscard]] QString replyQuote() const
     {
         return m_replyQuote;
     }
     void setReplyQuote(const QString &replyQuote);
+
     [[nodiscard]] QString body() const
     {
         return m_body;
     }
     void setBody(const QString &body);
+
+    [[nodiscard]] QString originalBody() const
+    {
+        return m_originalBody;
+    }
+    void setOriginalBody(const QString &originalBody);
+
     [[nodiscard]] bool isSpoiler() const
     {
         return m_isSpoiler;
     }
     void setSpoiler(bool spoiler);
+
     [[nodiscard]] QString spoilerHint() const
     {
         return m_spoilerHint;
     }
     void setSpoilerHint(const QString &spoilerHint);
+
     [[nodiscard]] bool isDraft() const
     {
         return m_isDraft;
@@ -110,8 +135,10 @@ public:
     Q_SIGNAL void replyToGroupChatParticipantIdChanged();
     Q_SIGNAL void replyToNameChanged();
     Q_SIGNAL void replyIdChanged();
+    Q_SIGNAL void originalReplyIdChanged();
     Q_SIGNAL void replyQuoteChanged();
     Q_SIGNAL void bodyChanged();
+    Q_SIGNAL void originalBodyChanged();
     Q_SIGNAL void isSpoilerChanged();
     Q_SIGNAL void spoilerHintChanged();
     Q_SIGNAL void isDraftChanged();
@@ -128,8 +155,10 @@ private:
     QString m_replyToGroupChatParticipantId;
     QString m_replyToName;
     QString m_replyId;
+    QString m_originalReplyId;
     QString m_replyQuote;
     QString m_body;
+    QString m_originalBody;
     bool m_isSpoiler = false;
     QString m_spoilerHint;
     bool m_isDraft = false;

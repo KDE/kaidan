@@ -104,6 +104,14 @@ void MessageComposition::setReplyId(const QString &replyId)
     }
 }
 
+void MessageComposition::setOriginalReplyId(const QString &originalReplyId)
+{
+    if (m_originalReplyId != originalReplyId) {
+        m_originalReplyId = originalReplyId;
+        Q_EMIT originalReplyIdChanged();
+    }
+}
+
 void MessageComposition::setReplyQuote(const QString &replyQuote)
 {
     if (m_replyQuote != replyQuote) {
@@ -117,6 +125,14 @@ void MessageComposition::setBody(const QString &body)
     if (m_body != body) {
         m_body = body;
         Q_EMIT bodyChanged();
+    }
+}
+
+void MessageComposition::setOriginalBody(const QString &originalBody)
+{
+    if (m_originalBody != originalBody) {
+        m_originalBody = originalBody;
+        Q_EMIT originalBodyChanged();
     }
 }
 
@@ -302,6 +318,7 @@ void MessageComposition::clear()
     setReplyId({});
     setReplyQuote({});
     setBody({});
+    setOriginalBody({});
     setSpoiler(false);
     setSpoilerHint({});
     setIsDraft(false);
@@ -334,9 +351,23 @@ void MessageComposition::loadDraft()
     }
 
     auto future = MessageDb::instance()->fetchDraftMessage(m_accountJid, m_chatJid);
-    await(future, this, [this](std::optional<Message> message) {
+    await(future, this, [this](std::optional<Message> &&message) {
         if (message) {
-            setReplaceId(message->replaceId);
+            if (const auto replaceId = message->replaceId; !replaceId.isEmpty()) {
+                setReplaceId(replaceId);
+
+                await(MessageDb::instance()->fetchMessage(m_accountJid, m_chatJid, replaceId), this, [this](std::optional<Message> &&message) {
+                    if (message) {
+                        if (const auto &reply = message->reply) {
+                            setOriginalReplyId(message->reply->id);
+                        }
+
+                        setOriginalBody(message->body);
+
+                        Q_EMIT isDraftChanged();
+                    }
+                });
+            }
 
             if (const auto reply = message->reply) {
                 setReplyToJid(reply->toJid);
@@ -349,6 +380,7 @@ void MessageComposition::loadDraft()
                               this,
                               [this](const std::optional<GroupChatUser> &user) {
                                   setReplyToName(user ? user->displayName() : m_replyToGroupChatParticipantId);
+                                  Q_EMIT isDraftChanged();
                               });
                     } else {
                         setReplyToName(rosterItem->displayName());

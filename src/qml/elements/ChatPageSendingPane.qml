@@ -23,8 +23,6 @@ Controls.Pane {
 
 	property QtObject chatPage
 	property alias messageArea: messageArea
-	property string originalBody
-	property string originalReplyId
 	property int lastMessageLength: 0
 	property MessageComposition composition: MessageComposition {
 		accountJid: ChatController.accountJid
@@ -34,7 +32,7 @@ Controls.Pane {
 		onIsDraftChanged: {
 			if (isDraft) {
 				if (replaceId) {
-					prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
+					prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
 				} else {
 					messageArea.text = body
 					spoilerHintField.text = spoilerHint
@@ -440,7 +438,7 @@ Controls.Pane {
 			ClickableIcon {
 				id: sendButton
 				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || root.composition.replyId !== root.originalReplyId))
+				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.composition.originalBody || root.composition.replyId !== root.composition.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
@@ -541,11 +539,15 @@ Controls.Pane {
 
 	function prepareCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
 		composition.replaceId = replaceId
-		originalReplyId = replyId
-		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
-		originalBody = body
-		messageArea.text = body
+		composition.originalBody = body
 		composition.isSpoiler = spoilerHint.length
+
+		prepareReply(replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote)
+		prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint)
+	}
+
+	function prepareUiForCorrection(replaceId, replyToJid, replyToGroupChatParticipantId, replyToName, replyId, replyQuote, body, spoilerHint) {
+		messageArea.text = body
 		spoilerHintField.text = spoilerHint
 
 		// Move the cursor to the end of the text being corrected and focus it.
@@ -628,7 +630,6 @@ Controls.Pane {
 	function clear() {
 		messageArea.clear()
 		spoilerHintField.clear()
-		originalBody = ""
 		expansionArea.visible = false
 	}
 }

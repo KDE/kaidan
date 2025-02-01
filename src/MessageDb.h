@@ -53,6 +53,17 @@ public:
     static QSqlRecord createUpdateRecord(const Message &oldMsg, const Message &newMsg);
 
     /**
+     * Fetches a message.
+     *
+     * @param accountJid bare JID of the user's account
+     * @param chatJid bare JID of the chat
+     * @param messageId ID of the message
+     *
+     * @return the fetched messages
+     */
+    QFuture<std::optional<Message>> fetchMessage(const QString &accountJid, const QString &chatJid, const QString &messageId);
+
+    /**
      * Fetches messages.
      *
      * @param accountJid bare JID of the user's account

@@ -277,6 +277,36 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     return rec;
 }
 
+QFuture<std::optional<Message>> MessageDb::fetchMessage(const QString &accountJid, const QString &chatJid, const QString &messageId)
+{
+    return run([this, accountJid, chatJid, messageId]() -> std::optional<Message> {
+        auto query = createQuery();
+        execQuery(query,
+                  QStringLiteral(R"(
+				SELECT *
+				FROM chatMessages
+				WHERE accountJid = :accountJid AND chatJid = :chatJid AND
+                      (stanzaId = :messageId OR originId = :messageId OR id = :messageId)
+				ORDER BY timestamp DESC
+				LIMIT 1
+			)"),
+                  {
+                      {u":accountJid", accountJid},
+                      {u":chatJid", chatJid},
+                      {u":messageId", messageId},
+                  });
+
+        auto messages = _fetchMessagesFromQuery(query);
+        _fetchAdditionalData(messages);
+
+        if (messages.isEmpty()) {
+            return std::nullopt;
+        }
+
+        return messages.constFirst();
+    });
+}
+
 QFuture<QList<Message>> MessageDb::fetchMessages(const QString &accountJid, const QString &chatJid, int index)
 {
     return run([this, accountJid, chatJid, index]() {
@@ -892,7 +922,12 @@ QFuture<void> MessageDb::updateDraftMessage(const QString &accountJid, const QSt
                 auto query = createQuery();
                 execQuery(query,
                           driver.sqlStatement(QSqlDriver::UpdateStatement, QStringLiteral(DB_TABLE_MESSAGES), rec, false)
-                              + simpleWhereStatement(&driver, QStringLiteral("id"), newMessage.id));
+                              + simpleWhereStatement(&driver,
+                                                     {
+                                                         {QStringLiteral("accountJid"), newMessage.accountJid},
+                                                         {QStringLiteral("chatJid"), newMessage.chatJid},
+                                                         {QStringLiteral("deliveryState"), static_cast<int>(newMessage.deliveryState)},
+                                                     }));
 
                 Q_EMIT draftMessageUpdated(newMessage);
             }
