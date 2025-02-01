@@ -239,7 +239,7 @@ Controls.Pane {
 						}
 					}
 				}
-				Keys.onReturnPressed: {
+				Keys.onReturnPressed: event => {
 					if (event.key === Qt.Key_Return) {
 						if (event.modifiers & (Qt.ControlModifier | Qt.ShiftModifier)) {
 							messageArea.append("")
