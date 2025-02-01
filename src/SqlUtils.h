@@ -80,11 +80,24 @@ void addFieldsToRecord(QSqlRecord &record, const QueryBindValues &values);
 void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &columnNames);
 
 /**
+ * Creates an SQL field for a string that may be used for an SQL statement.
+ *
+ * This covers the case that the string is empty.
+ *
+ * @param key name of the SQL field
+ * @param val value of the SQL field
+ *
+ * @return the SQL field
+ */
+QSqlField createSqlStringField(const QString &key, const QString &val);
+
+/**
  * Creates an SQL field that may be used for an SQL statement.
  *
  * @param key name of the SQL field
  * @param val value of the SQL field
- * @return the SQL field.
+ *
+ * @return the SQL field
  */
 QSqlField createSqlField(const QString &key, const QVariant &val);
 

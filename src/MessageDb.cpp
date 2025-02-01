@@ -220,9 +220,10 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     }
     if (const auto reply = newMsg.reply; oldMsg.reply != reply) {
         if (reply) {
-            rec.append(createSqlField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatParticipantId : newMsg.reply->toJid));
+            rec.append(
+                createSqlStringField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatParticipantId : newMsg.reply->toJid));
             rec.append(createSqlField(QStringLiteral("replyId"), newMsg.reply->id));
-            rec.append(createSqlField(QStringLiteral("replyQuote"), newMsg.reply->quote));
+            rec.append(createSqlStringField(QStringLiteral("replyQuote"), newMsg.reply->quote));
         } else {
             rec.append(createNullField(QStringLiteral("replyTo")));
             rec.append(createNullField(QStringLiteral("replyId")));
@@ -1002,6 +1003,8 @@ void MessageDb::_updateMessage(const QString &id, const std::function<void(Messa
         updateMsg(newMessage);
         Q_ASSERT(newMessage.deliveryState != DeliveryState::Draft);
 
+        _fetchReply(newMessage);
+
         // Replace the old message's values with the updated ones if the message has changed.
         if (oldMessage != newMessage) {
             Q_EMIT messageUpdated(newMessage);
@@ -1630,10 +1633,9 @@ void MessageDb::_fetchTrustLevel(Message &message)
 void MessageDb::_fetchReply(Message &message)
 {
     if (auto &reply = message.reply; reply) {
-        if (message.isGroupChatMessage()) {
-            if (const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, reply->toGroupChatParticipantId)) {
-                const auto jid = groupChatUser->jid;
-                reply->toJid = jid;
+        if (const auto &toGroupChatParticipantId = reply->toGroupChatParticipantId; !toGroupChatParticipantId.isEmpty()) {
+            if (const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, toGroupChatParticipantId)) {
+                reply->toJid = groupChatUser->jid;
                 reply->toGroupChatParticipantName = groupChatUser->name;
             }
         }

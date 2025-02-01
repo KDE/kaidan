@@ -168,32 +168,7 @@ void MessageComposition::send()
     const auto originId = QXmppUtils::generateStanzaUuid();
     message.id = originId;
     message.originId = originId;
-
-    if (!m_replyId.isEmpty()) {
-        Message::Reply reply;
-
-        // "m_replyToJid" and "m_replyToGroupChatParticipantId" are empty if the reply is to an own
-        // message.
-        if (m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty()) {
-            if (rosterItem->isGroupChat()) {
-                reply.toGroupChatParticipantId = rosterItem->groupChatParticipantId;
-            } else {
-                reply.toJid = m_accountJid;
-            }
-        } else {
-            if (rosterItem->isGroupChat()) {
-                reply.toGroupChatParticipantId = m_replyToGroupChatParticipantId;
-            } else {
-                reply.toJid = m_replyToJid;
-            }
-        }
-
-        reply.id = m_replyId;
-        reply.quote = m_replyQuote;
-
-        message.reply = reply;
-    }
-
+    setReply(message, m_replyToJid, m_replyToGroupChatParticipantId, m_replyId, m_replyQuote);
     message.timestamp = QDateTime::currentDateTimeUtc();
     message.body = m_body;
     message.encryption = ChatController::instance()->activeEncryption();

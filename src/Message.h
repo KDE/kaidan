@@ -207,8 +207,12 @@ public:
     Q_ENUM(TrustLevel)
 
     struct Reply {
+        // Empty for a reply to an own message in a normal chat or for a reply in an anonymous group
+        // chat.
         QString toJid;
+        // Empty in a normal chat or for a reply to an own message in a group chat.
         QString toGroupChatParticipantId;
+        // Empty for a reply to an own message in a group chat.
         QString toGroupChatParticipantName;
         QString id;
         QString quote;

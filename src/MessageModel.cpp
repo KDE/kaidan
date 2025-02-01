@@ -191,22 +191,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return QString();
         }
 
-        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
-
-        // On the first received message from a stranger, a new roster item is added.
-        Q_ASSERT(rosterItem);
-
-        if (msg.isGroupChatMessage()) {
-            // Return a default-constructed string for a reply to an own message.
-            if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
-                return QString();
-            }
-
-            return reply->toJid;
-        }
-
         // Return a default-constructed string for a reply to an own message.
-        if (reply->toJid == rosterItem->accountJid) {
+        if (msg.isGroupChatMessage() && reply->toGroupChatParticipantId.isEmpty()) {
             return QString();
         }
 
@@ -219,17 +205,8 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
         const auto reply = msg.reply;
 
-        if (!reply) {
-            return QString();
-        }
-
-        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
-
-        // On the first received message from a stranger, a new roster item is added.
-        Q_ASSERT(rosterItem);
-
-        // Return a default-constructed string for a reply to an own message.
-        if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
+        // Return a default-constructed string for no reply or a reply to an own message.
+        if (!reply || reply->toGroupChatParticipantId.isEmpty()) {
             return QString();
         }
 
@@ -242,14 +219,9 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
             return QString();
         }
 
-        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
-
-        // On the first received message from a stranger, a new roster item is added.
-        Q_ASSERT(rosterItem);
-
         if (msg.isGroupChatMessage()) {
             // Return a default-constructed string for a reply to an own message.
-            if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
+            if (reply->toGroupChatParticipantId.isEmpty()) {
                 return QString();
             }
 
@@ -257,9 +229,14 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         }
 
         // Return a default-constructed string for a reply to an own message.
-        if (reply->toJid == rosterItem->accountJid) {
+        if (reply->toJid.isEmpty()) {
             return QString();
         }
+
+        const auto rosterItem = RosterModel::instance()->findItem(msg.chatJid);
+
+        // On the first received message from a stranger, a new roster item is added.
+        Q_ASSERT(rosterItem);
 
         return rosterItem->displayName();
     }

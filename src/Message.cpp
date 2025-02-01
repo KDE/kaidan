@@ -29,6 +29,7 @@
 #include "Globals.h"
 #include "MediaUtils.h"
 #include "QmlUtils.h"
+#include "RosterModel.h"
 
 QXmppHash FileHash::toQXmpp() const
 {
@@ -226,7 +227,20 @@ QXmppMessage Message::toQXmpp() const
     if (reply) {
         QXmpp::Reply qxmppReply;
 
-        qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatParticipantId : reply->toJid;
+        auto &toJid = reply->toJid;
+        auto &toGroupChatParticipantId = reply->toGroupChatParticipantId;
+
+        // "toJid" and "toGroupChatParticipantId" are empty if the reply is to an own message.
+        if (toJid.isEmpty() && toGroupChatParticipantId.isEmpty()) {
+            if (isGroupChatMessage()) {
+                qxmppReply.to = RosterModel::instance()->findItem(chatJid)->groupChatParticipantId;
+            } else {
+                qxmppReply.to = accountJid;
+            }
+        } else {
+            qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatParticipantId : reply->toJid;
+        }
+
         qxmppReply.id = reply->id;
 
         message.setReply(qxmppReply);

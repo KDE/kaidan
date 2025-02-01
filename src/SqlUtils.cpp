@@ -69,6 +69,15 @@ void addPreparedFieldsToRecord(QSqlRecord &record, const QList<QStringView> &col
     }
 }
 
+QSqlField createSqlStringField(const QString &key, const QString &val)
+{
+    if (val.isEmpty()) {
+        return createNullField(key);
+    } else {
+        return createSqlField(key, val);
+    }
+}
+
 QSqlField createSqlField(const QString &key, const QVariant &val)
 {
     QSqlField field(key, val.metaType());

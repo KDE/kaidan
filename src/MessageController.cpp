@@ -590,13 +590,15 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
     const auto senderJid = QXmppUtils::jidToBareJid(msg.from());
     const auto receivedFromGroupChat = msg.type() == QXmppMessage::GroupChat;
 
+    QString ownGroupChatParticipantId;
     bool isOwn;
     const auto groupChatSenderId = msg.mixParticipantId();
 
     if (receivedFromGroupChat) {
         // Skip messages from group chats that the user is not participating in.
         if (const auto groupChat = RosterModel::instance()->findItem(senderJid)) {
-            isOwn = groupChatSenderId == groupChat->groupChatParticipantId;
+            ownGroupChatParticipantId = groupChat->groupChatParticipantId;
+            isOwn = groupChatSenderId == ownGroupChatParticipantId;
         } else {
             return;
         }
@@ -692,9 +694,11 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
         Message::Reply reply;
 
         if (receivedFromGroupChat) {
-            reply.toGroupChatParticipantId = qxmppReply->to;
-        } else {
-            reply.toJid = qxmppReply->to;
+            if (const auto groupChatParticipantId = qxmppReply->to; groupChatParticipantId != ownGroupChatParticipantId) {
+                reply.toGroupChatParticipantId = qxmppReply->to;
+            }
+        } else if (const auto toJid = qxmppReply->to; toJid != accountJid) {
+            reply.toJid = toJid;
         }
 
         reply.id = qxmppReply->id;
