@@ -66,11 +66,11 @@ Controls.Pane {
 		spacing: 0
 
 		ReferencedMessage {
-			visible: composition.replyId
-			senderId: composition.replyToJid ? composition.replyToJid : composition.replyToGroupChatParticipantId
-			senderName: composition.replyToName
-			messageId: composition.replyId
-			body: composition.replyQuote
+			visible: root.composition.replyId
+			senderId: root.composition.replyToJid ? root.composition.replyToJid : root.composition.replyToGroupChatParticipantId
+			senderName: root.composition.replyToName
+			messageId: root.composition.replyId
+			body: root.composition.replyQuote
 			messageListView: root.chatPage.messageListView
 			minimumWidth: root.width - root.leftPadding - spacing - replyCancelingButton.width - root.rightPadding
 			maximumWidth: minimumWidth
@@ -84,11 +84,11 @@ Controls.Pane {
 				source: "window-close-symbolic"
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
-					composition.replyToJid = ""
-					composition.replyToGroupChatParticipantId = ""
-					composition.replyToName = ""
-					composition.replyId = ""
-					composition.replyQuote = ""
+					root.composition.replyToJid = ""
+					root.composition.replyToGroupChatParticipantId = ""
+					root.composition.replyToName = ""
+					root.composition.replyId = ""
+					root.composition.replyQuote = ""
 					root.forceActiveFocus()
 				}
 			}
@@ -118,7 +118,7 @@ Controls.Pane {
 		}
 
 		RowLayout {
-			visible: composition.isSpoiler
+			visible: root.composition.isSpoiler
 			spacing: 0
 
 			FormattedTextArea {
@@ -134,7 +134,7 @@ Controls.Pane {
 				source: "window-close-symbolic"
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
 				onClicked: {
-					composition.isSpoiler = false
+					root.composition.isSpoiler = false
 					spoilerHintField.clear()
 					root.forceActiveFocus()
 				}
@@ -142,7 +142,7 @@ Controls.Pane {
 		}
 
 		Kirigami.Separator {
-			visible: composition.isSpoiler
+			visible: root.composition.isSpoiler
 			Layout.fillWidth: true
 			Layout.topMargin: root.padding
 			Layout.bottomMargin: Layout.topMargin
@@ -440,7 +440,7 @@ Controls.Pane {
 			ClickableIcon {
 				id: sendButton
 				source: root.composition.replaceId ? "document-edit-symbolic" : "mail-send-symbolic"
-				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || composition.replyId !== root.originalReplyId))
+				visible: (mediaList.count && voiceMessageRecorder.recorderState !== MediaRecorder.RecordingState && Kaidan.connectionState === Enums.StateConnected) || (root.composition.body && (!root.composition.replaceId || root.composition.body !== root.originalBody || root.composition.replyId !== root.originalReplyId))
 				opacity: visible ? 1 : 0
 				Controls.ToolTip.text: qsTr("Send")
 				Layout.preferredHeight: Kirigami.Units.iconSizes.smallMedium
@@ -487,7 +487,7 @@ Controls.Pane {
 						voiceMessageRecorder.stop()
 						MediaUtils.deleteFile(voiceMessageRecorder.actualLocation)
 					} else {
-						composition.clear()
+						root.composition.clear()
 						root.clear()
 					}
 				}
