@@ -216,7 +216,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
         rec.append(createSqlField(QStringLiteral("stanzaId"), newMsg.stanzaId));
     }
     if (oldMsg.replaceId != newMsg.replaceId) {
-        rec.append(createSqlField(QStringLiteral("replaceId"), newMsg.replaceId));
+        rec.append(createSqlStringField(QStringLiteral("replaceId"), newMsg.replaceId));
     }
     if (const auto reply = newMsg.reply; oldMsg.reply != reply) {
         if (reply) {
@@ -249,17 +249,17 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
         rec.append(createSqlField(QStringLiteral("isSpoiler"), newMsg.isSpoiler));
     }
     if (oldMsg.spoilerHint != newMsg.spoilerHint) {
-        rec.append(createSqlField(QStringLiteral("spoilerHint"), newMsg.spoilerHint));
+        rec.append(createSqlStringField(QStringLiteral("spoilerHint"), newMsg.spoilerHint));
     }
     if (oldMsg.fileGroupId != newMsg.fileGroupId) {
         rec.append(createSqlField(QStringLiteral("fileGroupId"), optionalToVariant(newMsg.fileGroupId)));
     }
     if (const auto groupChatInvitation = newMsg.groupChatInvitation; oldMsg.groupChatInvitation != groupChatInvitation) {
         if (groupChatInvitation) {
-            rec.append(createSqlField(QStringLiteral("groupChatInviterJid"), groupChatInvitation->inviterJid));
-            rec.append(createSqlField(QStringLiteral("groupChatInviteeJid"), groupChatInvitation->inviterJid));
+            rec.append(createSqlStringField(QStringLiteral("groupChatInviterJid"), groupChatInvitation->inviterJid));
+            rec.append(createSqlStringField(QStringLiteral("groupChatInviteeJid"), groupChatInvitation->inviterJid));
             rec.append(createSqlField(QStringLiteral("groupChatInvitationJid"), groupChatInvitation->groupChatJid));
-            rec.append(createSqlField(QStringLiteral("groupChatToken"), groupChatInvitation->token));
+            rec.append(createSqlStringField(QStringLiteral("groupChatToken"), groupChatInvitation->token));
         } else {
             rec.append(createNullField(QStringLiteral("groupChatInviterJid")));
             rec.append(createNullField(QStringLiteral("groupChatInviteeJid")));
@@ -268,7 +268,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
         }
     }
     if (oldMsg.errorText != newMsg.errorText) {
-        rec.append(createSqlField(QStringLiteral("errorText"), newMsg.errorText));
+        rec.append(createSqlStringField(QStringLiteral("errorText"), newMsg.errorText));
     }
     if (oldMsg.removed != newMsg.removed) {
         rec.append(createSqlField(QStringLiteral("removed"), newMsg.removed));
