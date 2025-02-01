@@ -226,7 +226,7 @@ QXmppMessage Message::toQXmpp() const
     if (reply) {
         QXmpp::Reply qxmppReply;
 
-        qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatparticipantId : reply->toJid;
+        qxmppReply.to = isGroupChatMessage() ? reply->toGroupChatParticipantId : reply->toJid;
         qxmppReply.id = reply->id;
 
         message.setReply(qxmppReply);
@@ -454,7 +454,7 @@ QString Message::groupChatInvitationText() const
 
 bool Message::Reply::operator==(const Reply &other) const
 {
-    return toJid == other.toJid && toGroupChatparticipantId == other.toGroupChatparticipantId && id == other.id && quote == other.quote;
+    return toJid == other.toJid && toGroupChatParticipantId == other.toGroupChatParticipantId && id == other.id && quote == other.quote;
 }
 
 #include "moc_Message.cpp"

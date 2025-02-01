@@ -152,7 +152,7 @@ QList<Message> MessageDb::_fetchMessagesFromQuery(QSqlQuery &query)
                     reply.toGroupChatParticipantName = groupChatUser->name;
                 }
 
-                reply.toGroupChatparticipantId = replyTo;
+                reply.toGroupChatParticipantId = replyTo;
             } else {
                 reply.toJid = replyTo;
             }
@@ -220,7 +220,7 @@ QSqlRecord MessageDb::createUpdateRecord(const Message &oldMsg, const Message &n
     }
     if (const auto reply = newMsg.reply; oldMsg.reply != reply) {
         if (reply) {
-            rec.append(createSqlField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatparticipantId : newMsg.reply->toJid));
+            rec.append(createSqlField(QStringLiteral("replyTo"), newMsg.isGroupChatMessage() ? newMsg.reply->toGroupChatParticipantId : newMsg.reply->toJid));
             rec.append(createSqlField(QStringLiteral("replyId"), newMsg.reply->id));
             rec.append(createSqlField(QStringLiteral("replyQuote"), newMsg.reply->quote));
         } else {
@@ -955,7 +955,7 @@ void MessageDb::_addMessage(const Message &message)
 
     if (const auto reply = message.reply) {
         values.insert({
-            {u"replyTo", message.isGroupChatMessage() ? reply->toGroupChatparticipantId : reply->toJid},
+            {u"replyTo", message.isGroupChatMessage() ? reply->toGroupChatParticipantId : reply->toJid},
             {u"replyId", reply->id},
             {u"replyQuote", reply->quote},
         });
@@ -1631,7 +1631,7 @@ void MessageDb::_fetchReply(Message &message)
 {
     if (auto &reply = message.reply; reply) {
         if (message.isGroupChatMessage()) {
-            if (const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, reply->toGroupChatparticipantId)) {
+            if (const auto groupChatUser = GroupChatUserDb::instance()->_user(message.accountJid, message.chatJid, reply->toGroupChatParticipantId)) {
                 const auto jid = groupChatUser->jid;
                 reply->toJid = jid;
                 reply->toGroupChatParticipantName = groupChatUser->name;

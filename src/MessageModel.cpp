@@ -198,7 +198,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
         if (msg.isGroupChatMessage()) {
             // Return a default-constructed string for a reply to an own message.
-            if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+            if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
                 return QString();
             }
 
@@ -229,11 +229,11 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
         Q_ASSERT(rosterItem);
 
         // Return a default-constructed string for a reply to an own message.
-        if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+        if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
             return QString();
         }
 
-        return reply->toGroupChatparticipantId;
+        return reply->toGroupChatParticipantId;
     }
     case ReplyToName: {
         const auto reply = msg.reply;
@@ -249,7 +249,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 
         if (msg.isGroupChatMessage()) {
             // Return a default-constructed string for a reply to an own message.
-            if (reply->toGroupChatparticipantId == rosterItem->groupChatParticipantId) {
+            if (reply->toGroupChatParticipantId == rosterItem->groupChatParticipantId) {
                 return QString();
             }
 

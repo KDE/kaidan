@@ -208,7 +208,7 @@ public:
 
     struct Reply {
         QString toJid;
-        QString toGroupChatparticipantId;
+        QString toGroupChatParticipantId;
         QString toGroupChatParticipantName;
         QString id;
         QString quote;

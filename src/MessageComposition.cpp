@@ -176,13 +176,13 @@ void MessageComposition::send()
         // message.
         if (m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty()) {
             if (rosterItem->isGroupChat()) {
-                reply.toGroupChatparticipantId = rosterItem->groupChatParticipantId;
+                reply.toGroupChatParticipantId = rosterItem->groupChatParticipantId;
             } else {
                 reply.toJid = m_accountJid;
             }
         } else {
             if (rosterItem->isGroupChat()) {
-                reply.toGroupChatparticipantId = m_replyToGroupChatParticipantId;
+                reply.toGroupChatParticipantId = m_replyToGroupChatParticipantId;
             } else {
                 reply.toJid = m_replyToJid;
             }
@@ -344,7 +344,7 @@ void MessageComposition::setReply(Message &message,
         Message::Reply reply;
 
         reply.toJid = replyToJid;
-        reply.toGroupChatparticipantId = replyToGroupChatParticipantId;
+        reply.toGroupChatParticipantId = replyToGroupChatParticipantId;
         reply.id = replyId;
         reply.quote = replyQuote;
 
@@ -365,7 +365,7 @@ void MessageComposition::loadDraft()
 
             if (const auto reply = message->reply) {
                 setReplyToJid(reply->toJid);
-                setReplyToGroupChatParticipantId(reply->toGroupChatparticipantId);
+                setReplyToGroupChatParticipantId(reply->toGroupChatParticipantId);
 
                 // Only process if it is not a reply to an own message.
                 if (!(m_replyToJid.isEmpty() && m_replyToGroupChatParticipantId.isEmpty())) {

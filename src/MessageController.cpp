@@ -692,7 +692,7 @@ void MessageController::handleMessage(const QXmppMessage &msg, MessageOrigin ori
         Message::Reply reply;
 
         if (receivedFromGroupChat) {
-            reply.toGroupChatparticipantId = qxmppReply->to;
+            reply.toGroupChatParticipantId = qxmppReply->to;
         } else {
             reply.toJid = qxmppReply->to;
         }
