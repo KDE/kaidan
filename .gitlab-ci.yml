@@ -3,9 +3,15 @@
 # SPDX-License-Identifier: CC0-1.0
 
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
   BUILD_SYSTEM: cmake
   BUILD_TYPE: Release
+
+markdown:
+  stage: validate
+  image:
+    name: davidanson/markdownlint-cli2:v0.14.0
+    entrypoint: [""]
+  script: markdownlint-cli2 "**/*.md"
 
 include:
   - project: sysadmin/ci-utilities

@@ -15,6 +15,7 @@ Please do not create branches on Kaidan's main repository or push your commits d
 ## Branches
 
 Use the following prefixes for branch names:
+
 * `feature/` for new features (changes with new behavior)
 * `refactor/` for changes of the code structure without changing the general behavior
 * `fix/` for fixes (changes for intended / correct behavior)
@@ -24,9 +25,10 @@ Use the following prefixes for branch names:
 ## Merge Requests (MR)
 
 Current Maintainers:
- * Linus Jahn (@lnj)
- * Jonah Brüchert (@jbbgameich)
- * Melvin Keskin (@melvo)
+
+* Linus Jahn (@lnj)
+* Jonah Brüchert (@jbbgameich)
+* Melvin Keskin (@melvo)
 
 They are responsible for accepting MRs.
 Nevertheless, everybody is welcome to review MRs and give feedback on them.
@@ -40,7 +42,7 @@ Please stick to the following steps for opening, reviewing and accepting MRs.
 1. Split your commits logically.
 1. Do not mix unrelated changes in the same MR.
 1. Create an MR with the *master* branch as its target.
-1. Add `Draft: ` in front of the MR's title as long as you are working on the MR and remove it as soon as it is ready to be reviewed.
+1. Mark the MR as draft as long as you are working on the MR and mark it as ready as soon as it should be reviewed.
 1. A maintainer and possibly other reviewers will give you feedback.
 1. Improve your MR according to their feedback, push your commits and close open threads via the *Resolve thread* button.
 1. If necessary, modify, reorder or squash your commits and force-push (`git push -f`) the result to the MR's branch.
@@ -56,8 +58,8 @@ Feel free to ask if anything is unclear.
 1. Try to give the author concrete proposals for improving the code via the *Insert suggestion* button while commenting.
 1. If the proposals are too complicated, create and push a commit with your proposal to your own fork of Kaidan and open an MR with the author's MR branch as its target.
 1. In case you are a maintainer:
-	1. If you think that no additional review is needed, make editorial modifications (such as squashing the commits) and merge the result directly.
-	1. If you would like to get (more) feedback from other maintainers, approve the MR using the *Approve* button and mention other maintainers to review the MR.
+    1. If you think that no additional review is needed, make editorial modifications (such as squashing the commits) and merge the result directly.
+    1. If you would like to get (more) feedback from other maintainers, approve the MR using the *Approve* button and mention other maintainers to review the MR.
 1. In case you are not a maintainer and you think that the MR is ready to be merged, approve the MR using the *Approve* button.
 
 Reviews have to be done by at least one maintainer not involved as the MR's author or co-author.

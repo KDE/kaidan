@@ -12,9 +12,11 @@ SPDX-License-Identifier: CC0-1.0
 
 ![Kaidan screenshot](https://www.kaidan.im/images/screenshot-horizontal.png)
 
+<!-- markdownlint-disable MD033 -->
 <a href="https://repology.org/project/kaidan/versions">
     <img src="https://repology.org/badge/vertical-allrepos/kaidan.svg" alt="Packaging status" align="right">
 </a>
+<!-- markdownlint-enable MD033 -->
 
 ## About
 

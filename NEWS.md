@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD022 MD032 MD041 -->
 Version 0.10.1
 --------------
 Released: 2024-12-14
@@ -169,7 +170,7 @@ Features:
 * Allow inserting newlines using Shift+Enter (jbb)
 * Add configuration of custom hostname/port (jbb, melvo)
 * Favourite emojis are shown by default now (melvo)
-* Search emojis by ":<name>" (melvo)
+* Search emojis after entering colon (melvo)
 * Display connection errors in the global drawer after login (melvo)
 * Improved design of media preview sheets (jbb)
 * Restructure message sending bar (melvo)
