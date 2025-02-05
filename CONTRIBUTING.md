@@ -185,11 +185,12 @@ In any case, the new or modified graphic must be [optimized](https://invent.kde.
 
 ### Copyright
 
-The [license file](LICENSE) must be updated if there are copyright changes:
+Kaidan complies with [REUSE](https://reuse.software).
+Each file has a [copyright notice](https://reuse.software/faq/#standard-copyright).
+Such a notice contains the first year a contributor edited the corresponding file.
 
-1. Add to the [license generation tool](utils/generate-license.py) a new `CopyrightTarget` for a new graphic or change an existing one for a modification of an existing graphic.
-1. Execute `utils/generate-license.py > LICENSE` for updating the [license file](LICENSE) file.
-1. Add those two file changes to the same commit which contains the new or modified graphic.
+Once a contributor created a new file or made a significant change to an existing one, a copyright notice has to be added.
+No additional copyright notice should be added to existing files with a [CC0](https://spdx.org/licenses/CC0-1.0.html) license.
 
 ### Logo
 
