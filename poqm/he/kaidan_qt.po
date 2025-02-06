@@ -322,7 +322,7 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:147
+#: src/Message.cpp:148
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -330,17 +330,17 @@ msgctxt "QObject|"
 msgid "No information"
 msgstr "שליחת מיקום"
 
-#: src/Message.cpp:177
+#: src/Message.cpp:178
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:355
+#: src/Message.cpp:369
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr ""
 
-#: src/Message.cpp:365
+#: src/Message.cpp:379
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -348,13 +348,13 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "שליחת מיקום"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr ""
 
-#: src/MessageComposition.cpp:248
+#: src/MessageComposition.cpp:239
 #, fuzzy, qt-format
 #| msgctxt "DownloadJob|"
 #| msgid "Download failed: %1"
@@ -362,17 +362,17 @@ msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "ההורדה נכשלה: %1"
 
-#: src/MessageComposition.cpp:298
+#: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageComposition.cpp:490
+#: src/MessageComposition.cpp:497
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr ""
 
-#: src/MessageComposition.cpp:532
+#: src/MessageComposition.cpp:539
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -394,33 +394,33 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "לא היה ניתן לשלוח את ההודעה."
 
-#: src/MessageController.cpp:727
+#: src/MessageController.cpp:731
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "בהמתנה"
 
-#: src/MessageModel.cpp:307
+#: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr ""
 
-#: src/MessageModel.cpp:309
+#: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr ""
 
-#: src/MessageModel.cpp:311
+#: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "שגיאה"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
+#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -428,7 +428,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "לא היה ניתן לשלוח את ההודעה."
 
-#: src/MessageModel.cpp:838
+#: src/MessageModel.cpp:814
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -436,12 +436,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "לא היה ניתן לשלוח את ההודעה."
 
-#: src/MessageModel.cpp:1486
+#: src/MessageModel.cpp:1462
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1489
+#: src/MessageModel.cpp:1465
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2376,7 +2376,7 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr "חיפוש"
 
-#: src/qml/elements/ChatPageSendingPane.qml:83
+#: src/qml/elements/ChatPageSendingPane.qml:81
 #, fuzzy
 #| msgctxt "ConfirmationPage|"
 #| msgid "Cancel"
@@ -2384,51 +2384,51 @@ msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "ביטול"
 
-#: src/qml/elements/ChatPageSendingPane.qml:126
+#: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:133
+#: src/qml/elements/ChatPageSendingPane.qml:131
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:158
+#: src/qml/elements/ChatPageSendingPane.qml:156
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:169
+#: src/qml/elements/ChatPageSendingPane.qml:167
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:200
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "חיבור הודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:200
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "חיבור הודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:204
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "חיבור הודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:204
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "חיבור הודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:290
+#: src/qml/elements/ChatPageSendingPane.qml:288
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Take picture"
@@ -2436,7 +2436,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "צילום תמונה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:298
+#: src/qml/elements/ChatPageSendingPane.qml:296
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Record video"
@@ -2444,7 +2444,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "הקלטת סרטון"
 
-#: src/qml/elements/ChatPageSendingPane.qml:306
+#: src/qml/elements/ChatPageSendingPane.qml:304
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Audio files"
@@ -2452,7 +2452,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "קובצי שמע"
 
-#: src/qml/elements/ChatPageSendingPane.qml:317
+#: src/qml/elements/ChatPageSendingPane.qml:315
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Send location"
@@ -2460,12 +2460,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "שליחת מיקום"
 
-#: src/qml/elements/ChatPageSendingPane.qml:325
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:369
+#: src/qml/elements/ChatPageSendingPane.qml:367
 #, fuzzy
 #| msgctxt "AccountTransferPage|"
 #| msgid "Hide text"
@@ -2473,12 +2473,12 @@ msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "הסתרת הטקסט"
 
-#: src/qml/elements/ChatPageSendingPane.qml:369
+#: src/qml/elements/ChatPageSendingPane.qml:367
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:418
+#: src/qml/elements/ChatPageSendingPane.qml:416
 #, fuzzy
 #| msgctxt "ChatMessageContextMenu|"
 #| msgid "Edit message"
@@ -2486,7 +2486,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "עריכת ההודעה"
 
-#: src/qml/elements/ChatPageSendingPane.qml:445
+#: src/qml/elements/ChatPageSendingPane.qml:443
 msgctxt "ChatPageSendingPane|"
 msgid "Send"
 msgstr ""

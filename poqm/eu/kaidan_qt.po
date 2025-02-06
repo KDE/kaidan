@@ -308,50 +308,50 @@ msgctxt "MediaUtils|"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
-#: src/Message.cpp:147
+#: src/Message.cpp:148
 msgctxt "QObject|"
 msgid "No information"
 msgstr "Informaziorik ez"
 
-#: src/Message.cpp:177
+#: src/Message.cpp:178
 msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "MMM dd hh:mm-etan"
 
-#: src/Message.cpp:355
+#: src/Message.cpp:369
 #, fuzzy
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "«Spoiler»"
 
-#: src/Message.cpp:365
+#: src/Message.cpp:379
 msgctxt "Message|"
 msgid "Location"
 msgstr "Kokalekua"
 
-#: src/Message.cpp:452
+#: src/Message.cpp:466
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
 msgstr "%1(e)rako gonbidapena"
 
-#: src/MessageComposition.cpp:248
+#: src/MessageComposition.cpp:239
 #, qt-format
 msgctxt "MessageComposition|"
 msgid "Upload failed: %1"
 msgstr "Zama-igotzea huts egin du: %1"
 
-#: src/MessageComposition.cpp:298
+#: src/MessageComposition.cpp:289
 msgctxt "MessageComposition|"
 msgid "Message correction was not successful"
 msgstr ""
 
-#: src/MessageComposition.cpp:490
+#: src/MessageComposition.cpp:497
 msgctxt "FileSelectionModel|"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
-#: src/MessageComposition.cpp:532
+#: src/MessageComposition.cpp:539
 #, qt-format
 msgctxt "FileSelectionModel|"
 msgid "'%1' cannot be sent because it is larger than %2"
@@ -368,50 +368,50 @@ msgctxt "MessageController|"
 msgid "Message could not be sent."
 msgstr "Mezua ezin izan da bidali."
 
-#: src/MessageController.cpp:727
+#: src/MessageController.cpp:731
 #, qt-format
 msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Mezu hau %1(e)rekin zifratuta dago, baina ezin izan da deszifratu"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:281
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Zain"
 
-#: src/MessageModel.cpp:307
+#: src/MessageModel.cpp:283
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Bidalita"
 
-#: src/MessageModel.cpp:309
+#: src/MessageModel.cpp:285
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Entregatuta"
 
-#: src/MessageModel.cpp:311
+#: src/MessageModel.cpp:287
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errorea"
 
-#: src/MessageModel.cpp:674 src/MessageModel.cpp:759
+#: src/MessageModel.cpp:650 src/MessageModel.cpp:735
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Erreakzioa ezin izan da bidali: %1"
 
-#: src/MessageModel.cpp:838
+#: src/MessageModel.cpp:814
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Erreakzioak ezin izan dira bidali: %1"
 
-#: src/MessageModel.cpp:1486
+#: src/MessageModel.cpp:1462
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Gaur"
 
-#: src/MessageModel.cpp:1489
+#: src/MessageModel.cpp:1465
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Atzo"
@@ -2217,70 +2217,70 @@ msgctxt "ChatPageSearchView|"
 msgid "Search down"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:83
+#: src/qml/elements/ChatPageSendingPane.qml:81
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel reply"
 msgstr "Utzi erantzuna bertan behera"
 
-#: src/qml/elements/ChatPageSendingPane.qml:126
+#: src/qml/elements/ChatPageSendingPane.qml:124
 msgctxt "ChatPageSendingPane|"
 msgid "Visible message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:133
+#: src/qml/elements/ChatPageSendingPane.qml:131
 msgctxt "ChatPageSendingPane|"
 msgid "Cancel adding hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:158
+#: src/qml/elements/ChatPageSendingPane.qml:156
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Add an emoji"
 msgstr "Gehitu Emoji bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:169
+#: src/qml/elements/ChatPageSendingPane.qml:167
 msgctxt "ChatPageSendingPane|"
 msgid "Mention a participant"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:200
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted </b> message with hidden part"
 msgstr "Mezua sortu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:202
+#: src/qml/elements/ChatPageSendingPane.qml:200
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message with hidden part"
 msgstr "Mezua sortu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:204
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>encrypted</b> message"
 msgstr "Mezua sortu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:204
+#: src/qml/elements/ChatPageSendingPane.qml:202
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Compose <b>unencrypted</b> message"
 msgstr "Mezua sortu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:290
+#: src/qml/elements/ChatPageSendingPane.qml:288
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Take a picture"
 msgstr "Egin argazki bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:298
+#: src/qml/elements/ChatPageSendingPane.qml:296
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Record a video"
 msgstr "Grabatu bideo bat"
 
-#: src/qml/elements/ChatPageSendingPane.qml:306
+#: src/qml/elements/ChatPageSendingPane.qml:304
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Select a file"
@@ -2288,7 +2288,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share files"
 msgstr "Artxibo bat aukeratu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:317
+#: src/qml/elements/ChatPageSendingPane.qml:315
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Caption"
@@ -2296,24 +2296,24 @@ msgctxt "ChatPageSendingPane|"
 msgid "Share your location"
 msgstr "Izenburua"
 
-#: src/qml/elements/ChatPageSendingPane.qml:325
+#: src/qml/elements/ChatPageSendingPane.qml:323
 msgctxt "ChatPageSendingPane|"
 msgid "Add hidden message part"
 msgstr ""
 
-#: src/qml/elements/ChatPageSendingPane.qml:369
+#: src/qml/elements/ChatPageSendingPane.qml:367
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "Hide"
 msgstr "Ezkutatu"
 
-#: src/qml/elements/ChatPageSendingPane.qml:369
+#: src/qml/elements/ChatPageSendingPane.qml:367
 #, fuzzy
 msgctxt "ChatPageSendingPane|"
 msgid "More"
 msgstr "Gehiago"
 
-#: src/qml/elements/ChatPageSendingPane.qml:418
+#: src/qml/elements/ChatPageSendingPane.qml:416
 #, fuzzy
 #| msgctxt "ChatPage|"
 #| msgid "Send a spoiler message"
@@ -2321,7 +2321,7 @@ msgctxt "ChatPageSendingPane|"
 msgid "Send a voice message"
 msgstr "«Spoiler» mezu bat bidali"
 
-#: src/qml/elements/ChatPageSendingPane.qml:445
+#: src/qml/elements/ChatPageSendingPane.qml:443
 #, fuzzy
 #| msgctxt "SendMediaSheet|"
 #| msgid "Send"
