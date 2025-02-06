@@ -67,7 +67,7 @@ public:
      * Fetches messages.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      * @param index number of entries to be skipped, used for paging
      *
      * @return the fetched messages
@@ -87,7 +87,7 @@ public:
      * Fetches shared media of a chat from the database.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      *
      * @return the fetched messages
      */
@@ -106,7 +106,7 @@ public:
      * Fetches downloaded shared media of a chat from the database.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      *
      * @return the fetched messages
      */
@@ -120,7 +120,7 @@ public:
      * If no message from chatJid could be found, only DB_QUERY_LIMIT_MESSAGES entries are returned.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      * @param index number of entries to be skipped, used for paging
      *
      * @return the fetched messages
@@ -134,7 +134,7 @@ public:
      * Those entries plus DB_QUERY_LIMIT_MESSAGES entries are returned.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      * @param index number of entries to be skipped, used for paging
      * @param limitingId ID of the message until messages are fetched
      * @param fetchMessageMinimum whether to return a minimum of DB_QUERY_LIMIT_MESSAGES entries if
@@ -156,7 +156,7 @@ public:
      * otherwise the found message's index.
      *
      * @param accountJid bare JID of the user's account
-     * @param chatJid bare Jid of the chat
+     * @param chatJid bare JID of the chat
      * @param index number of entries to be skipped, used for paging
      * @param queryString string to be queried
      *
