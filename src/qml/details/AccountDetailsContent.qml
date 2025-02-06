@@ -38,9 +38,9 @@ DetailsContent {
 		]
 		textRole: "display"
 		valueRole: "value"
-		currentIndex: automaticMediaDownloadsDelegate.indexOf(Kaidan.settings.automaticMediaDownloadsRule)
+		currentIndex: automaticMediaDownloadsDelegate.indexOf(AccountManager.account.automaticMediaDownloadsRule)
 		onActivated: {
-			Kaidan.settings.automaticMediaDownloadsRule = automaticMediaDownloadsDelegate.currentValue
+			AccountManager.setAutomaticMediaDownloadsRule(automaticMediaDownloadsDelegate.currentValue)
 		}
 	}
 	mediaOverview {
@@ -134,15 +134,15 @@ DetailsContent {
 			FormCard.FormSwitchDelegate {
 				text: qsTr("OMEMO 2")
 				description: qsTr("End-to-end encryption with OMEMO 2 ensures that nobody else than you and your chat partners can read or modify the data you exchange.")
-				checked: Kaidan.settings.encryption === Encryption.Omemo2
+				checked: AccountManager.account.encryption === Encryption.Omemo2
 				// The switch is toggled by setting the user's preference on using encryption.
 				// Note that 'checked' has already the value after the button is clicked.
 				onClicked: {
 					if (checked) {
-						Kaidan.settings.encryption = Encryption.Omemo2
+						AccountManager.setEncryption(Encryption.Omemo2)
 						RosterModel.setItemEncryption(root.jid, Encryption.Omemo2)
 					} else {
-						Kaidan.settings.encryption = Encryption.NoEncryption
+						AccountManager.setEncryption(Encryption.NoEncryption)
 						RosterModel.setItemEncryption(root.jid, Encryption.NoEncryption)
 					}
 				}
@@ -710,8 +710,8 @@ DetailsContent {
 					placeholderText: qsTr("Enter your current password")
 					invalidHintText: qsTr("Enter correct password")
 					invalidHintMayBeShown: false
-					valid: text === AccountManager.password
-					visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordVisible
+					valid: text === AccountManager.account.password
+					visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordVisible
 					enabled: !passwordBusyIndicator.visible
 					Layout.rightMargin: passwordChangeButton.Layout.preferredWidth + passwordButtonFieldArea.spacing
 					inputField.onAccepted: passwordChangeButton.clicked()
@@ -724,10 +724,10 @@ DetailsContent {
 						id: passwordField
 						labelText: passwordVerificationField.visible ? qsTr("New password") : qsTr("Password")
 						placeholderText: qsTr("Enter your new password")
-						text: passwordVerificationField.visible ? "" : AccountManager.password
+						text: passwordVerificationField.visible ? "" : AccountManager.account.password
 						invalidHintText: qsTr("Enter different password to change it")
 						invalidHintMayBeShown: false
-						valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.password
+						valid: credentialsValidator.isPasswordValid(text) && text !== AccountManager.account.password
 						enabled: !passwordBusyIndicator.visible
 						inputField.onAccepted: passwordChangeButton.clicked()
 					}
@@ -795,7 +795,7 @@ DetailsContent {
 	}
 
 	FormCard.FormCard {
-		visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
+		visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
 		Layout.fillWidth: true
 
 		FormCard.FormHeader {
@@ -807,7 +807,7 @@ DetailsContent {
 		}
 
 		ConfirmationFormButtonArea {
-			visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
+			visible: AccountManager.account.passwordVisibility === Kaidan.PasswordVisible
 			button {
 				text: qsTr("Don't show password as text")
 				description: qsTr("Allow to add additional devices using the login QR code but never show the password")
@@ -815,13 +815,13 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				Kaidan.settings.passwordVisibility = Kaidan.PasswordVisibleQrOnly
+				AccountManager.setAuthPasswordVisibility(Kaidan.PasswordVisibleQrOnly)
 			}
 			busyText: qsTr("Removing password from text…")
 		}
 
 		ConfirmationFormButtonArea {
-			visible: Kaidan.settings.passwordVisibility !== Kaidan.PasswordInvisible
+			visible: AccountManager.account.passwordVisibility !== Kaidan.PasswordInvisible
 			button {
 				text: qsTr("Don't expose password in any way")
 				description: qsTr("Neither allow to add additional devices using the login QR code nor show the password")
@@ -829,7 +829,7 @@ DetailsContent {
 			}
 			confirmationButton.onClicked: {
 				busy = true
-				Kaidan.settings.passwordVisibility = Kaidan.PasswordInvisible
+				AccountManager.setAuthPasswordVisibility(Kaidan.PasswordInvisible)
 			}
 			busyText: qsTr("Removing password from text and QR code…")
 		}
@@ -867,7 +867,7 @@ DetailsContent {
 						Layout.preferredHeight: customConnectionSettings.portField.implicitHeight
 						Layout.alignment: Qt.AlignBottom
 						onClicked: {
-							if (customConnectionSettings.hostField.text === AccountManager.host && customConnectionSettings.portField.value === AccountManager.port) {
+							if (customConnectionSettings.hostField.text === AccountManager.account.host && customConnectionSettings.portField.value === AccountManager.account.port) {
 								connectionSettingsErrorMessage.text = qsTr("Enter different connection settings to change them")
 								connectionSettingsErrorMessage.visible = true
 							} else {
@@ -939,8 +939,8 @@ DetailsContent {
 				}
 
 				function logIn() {
-					AccountManager.host = customConnectionSettings.hostField.text
-					AccountManager.port = customConnectionSettings.portField.value
+					AccountManager.account.host = customConnectionSettings.hostField.text
+					AccountManager.account.port = customConnectionSettings.portField.value
 					Kaidan.logIn()
 				}
 			}

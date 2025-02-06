@@ -49,7 +49,7 @@ RosterModel::RosterModel(QObject *parent)
     connect(MessageDb::instance(), &MessageDb::draftMessageRemoved, this, &RosterModel::handleDraftMessageRemoved);
     connect(MessageDb::instance(), &MessageDb::messageRemoved, this, &RosterModel::handleMessageRemoved);
 
-    connect(AccountManager::instance(), &AccountManager::jidChanged, this, [this] {
+    connect(AccountManager::instance(), &AccountManager::accountChanged, this, [this] {
         beginResetModel();
         m_items.clear();
         endResetModel();

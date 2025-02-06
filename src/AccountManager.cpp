@@ -13,6 +13,7 @@
 #include <QSettings>
 #include <QStringBuilder>
 // QXmpp
+#include <QXmppCredentials.h>
 #include <QXmppSasl2UserAgent.h>
 #include <QXmppUtils.h>
 // Kaidan
@@ -28,6 +29,29 @@
 #include "SystemUtils.h"
 #include "VCardCache.h"
 
+#define UPDATE_ACCOUNT(PROPERTY)                                                                                                                               \
+    {                                                                                                                                                          \
+        QMutexLocker locker(&m_mutex);                                                                                                                         \
+        if (m_tmpAccount) {                                                                                                                                    \
+            m_tmpAccount->PROPERTY = PROPERTY;                                                                                                                 \
+            locker.unlock();                                                                                                                                   \
+            Q_EMIT accountChanged();                                                                                                                           \
+            return;                                                                                                                                            \
+        }                                                                                                                                                      \
+    }                                                                                                                                                          \
+    await(AccountDb::instance()->updateAccount(AccountManager::account().jid,                                                                                  \
+                                               [PROPERTY](Account &account) {                                                                                  \
+                                                   account.PROPERTY = PROPERTY;                                                                                \
+                                               }),                                                                                                             \
+          this,                                                                                                                                                \
+          [this, PROPERTY]() {                                                                                                                                 \
+              {                                                                                                                                                \
+                  QMutexLocker locker(&m_mutex);                                                                                                               \
+                  m_account.PROPERTY = PROPERTY;                                                                                                               \
+              }                                                                                                                                                \
+              Q_EMIT accountChanged();                                                                                                                         \
+          })
+
 AccountManager *AccountManager::s_instance = nullptr;
 
 AccountManager *AccountManager::instance()
@@ -38,178 +62,195 @@ AccountManager *AccountManager::instance()
 AccountManager::AccountManager(Settings *settings, VCardCache *cache, QObject *parent)
     : QObject(parent)
     , m_settings(settings)
-    , m_port(PORT_AUTODETECT)
 {
     Q_ASSERT(!s_instance);
     s_instance = this;
 
     connect(cache, &VCardCache::vCardChanged, this, [this](const QString &jid) {
-        if (m_jid == jid) {
-            Q_EMIT displayNameChanged();
+        const auto currentJid = account().jid;
+
+        if (currentJid == jid) {
+            if (const auto vCard = Kaidan::instance()->vCardCache()->vCard(jid)) {
+                const auto name = vCard->nickName();
+                UPDATE_ACCOUNT(name);
+            }
         }
     });
 }
 
-const Account &AccountManager::account() const
+Account AccountManager::account() const
 {
-    return m_account;
+    QMutexLocker locker(&m_mutex);
+    return m_tmpAccount ? *m_tmpAccount : m_account;
 }
 
-void AccountManager::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule)
+bool AccountManager::hasNewAccount() const
 {
-    await(AccountDb::instance()->updateAccount(jid,
-                                               [rule](Account &account) {
-                                                   account.contactNotificationRule = rule;
-                                               }),
-          this,
-          [this, rule]() {
-              m_account.contactNotificationRule = rule;
-              Q_EMIT accountChanged();
-          });
+    QMutexLocker locker(&m_mutex);
+    return m_tmpAccount.has_value();
 }
 
-void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule)
+void AccountManager::setAuthOnline(bool online)
 {
-    await(AccountDb::instance()->updateAccount(jid,
-                                               [rule](Account &account) {
-                                                   account.groupChatNotificationRule = rule;
-                                               }),
-          this,
-          [this, rule]() {
-              m_account.groupChatNotificationRule = rule;
-              Q_EMIT accountChanged();
-          });
+    UPDATE_ACCOUNT(online);
+}
+
+void AccountManager::setAuthJidResourcePrefix(const QString &resourcePrefix)
+{
+    UPDATE_ACCOUNT(resourcePrefix);
+}
+
+void AccountManager::setAuthPassword(const QString &password)
+{
+    UPDATE_ACCOUNT(password);
+}
+
+void AccountManager::setAuthCredentials(const QXmppCredentials &credentials)
+{
+    UPDATE_ACCOUNT(credentials);
+}
+
+void AccountManager::setAuthHost(const QString &host)
+{
+    UPDATE_ACCOUNT(host);
+}
+
+void AccountManager::setAuthPort(quint16 port)
+{
+    UPDATE_ACCOUNT(port);
+}
+
+void AccountManager::setAuthTlsErrorsIgnored(bool tlsErrorsIgnored)
+{
+    UPDATE_ACCOUNT(tlsErrorsIgnored);
+}
+
+void AccountManager::setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode tlsRequirement)
+{
+    UPDATE_ACCOUNT(tlsRequirement);
+}
+
+void AccountManager::setAuthPasswordVisibility(Kaidan::PasswordVisibility passwordVisibility)
+{
+    UPDATE_ACCOUNT(passwordVisibility);
+}
+
+void AccountManager::setUserAgentDeviceId(const QUuid &userAgentDeviceId)
+{
+    UPDATE_ACCOUNT(userAgentDeviceId);
+}
+
+void AccountManager::setEncryption(Encryption::Enum encryption)
+{
+    UPDATE_ACCOUNT(encryption);
+}
+
+void AccountManager::setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule)
+{
+    UPDATE_ACCOUNT(automaticMediaDownloadsRule);
+}
+
+void AccountManager::setContactNotificationRule(const QString &jid, Account::ContactNotificationRule contactNotificationRule)
+{
+    Q_UNUSED(jid)
+    UPDATE_ACCOUNT(contactNotificationRule);
+}
+
+void AccountManager::setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule groupChatNotificationRule)
+{
+    Q_UNUSED(jid)
+    UPDATE_ACCOUNT(groupChatNotificationRule);
 }
 
 void AccountManager::setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled)
 {
-    await(AccountDb::instance()->updateAccount(jid,
-                                               [geoLocationMapPreviewEnabled](Account &account) {
-                                                   account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
-                                               }),
-          this,
-          [this, geoLocationMapPreviewEnabled]() {
-              m_account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled;
-              Q_EMIT accountChanged();
-          });
+    Q_UNUSED(jid)
+    UPDATE_ACCOUNT(geoLocationMapPreviewEnabled);
 }
 
 void AccountManager::setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService)
 {
-    await(AccountDb::instance()->updateAccount(jid,
-                                               [geoLocationMapService](Account &account) {
-                                                   account.geoLocationMapService = geoLocationMapService;
-                                               }),
-          this,
-          [this, geoLocationMapService]() {
-              m_account.geoLocationMapService = geoLocationMapService;
-              Q_EMIT accountChanged();
-          });
+    Q_UNUSED(jid)
+    UPDATE_ACCOUNT(geoLocationMapService);
 }
 
-QString AccountManager::jid()
+void AccountManager::setNewAccount(const QString &jid, const QString &password, const QString &host, quint16 port)
 {
-    QMutexLocker locker(&m_mutex);
-    return m_jid;
-}
+    if (AccountManager::account().jid != jid) {
+        {
+            QMutexLocker locker(&m_mutex);
 
-void AccountManager::setJid(const QString &jid)
-{
-    QMutexLocker locker(&m_mutex);
+            m_tmpAccount = [&]() -> std::optional<Account> {
+                if (jid.isEmpty()) {
+                    return {};
+                }
 
-    if (m_jid != jid) {
-        m_jid = jid;
-        m_hasNewCredentials = true;
+                Account account;
+                account.jid = jid;
+                account.password = password;
+                account.host = host;
+                account.port = port;
+                return account;
+            }();
 
-        // If a server's JID is set during registration, it should not be added as an account.
-        // Thus, the JID must contain a local part (user).
-        //
-        // If the JID is cleared, there is no corresponding account.
-        // Thus, the JID must not be empty.
-        if (!QXmppUtils::jidToUser(jid).isEmpty()) {
-            AccountDb::instance()->addAccount(jid);
-
-            await(AccountDb::instance()->account(jid), this, [this](Account &&account) {
-                m_account = std::move(account);
-                Q_EMIT accountChanged();
-            });
-
-            await(AccountDb::instance()->fetchHttpUploadLimit(jid), this, [](qint64 &&limit) {
-                Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(limit);
-            });
+            if (jid.isEmpty() && !m_tmpAccount) {
+                m_account = {};
+            }
         }
 
-        locker.unlock();
-        Q_EMIT jidChanged();
+        Q_EMIT accountChanged();
     }
 }
 
-void AccountManager::setJidResourcePrefix(const QString &jidResourcePrefix)
+void AccountManager::setNewAccountJid(const QString &jid)
 {
-    m_jidResourcePrefix = jidResourcePrefix;
-    m_jidResource = generateJidResourceWithRandomSuffix();
+    setNewAccount(jid, {});
 }
 
-QString AccountManager::jidResource() const
+void AccountManager::setNewAccountPassword(const QString &password)
 {
-    return m_jidResourcePrefix.isEmpty() ? generateJidResourceWithRandomSuffix() : m_jidResource;
-}
+    {
+        QMutexLocker locker(&m_mutex);
 
-QString AccountManager::password()
-{
-    QMutexLocker locker(&m_mutex);
-    return m_password;
-}
+        if (!m_tmpAccount) {
+            return;
+        }
 
-void AccountManager::setPassword(const QString &password)
-{
-    QMutexLocker locker(&m_mutex);
-
-    if (m_password != password) {
-        m_password = password;
-        m_hasNewCredentials = true;
-
-        locker.unlock();
-        Q_EMIT passwordChanged();
+        m_tmpAccount->password = password;
     }
+
+    Q_EMIT accountChanged();
 }
 
-QString AccountManager::host()
+void AccountManager::setNewAccountHost(const QString &host, quint16 port)
 {
-    QMutexLocker locker(&m_mutex);
-    return m_host;
-}
+    {
+        QMutexLocker locker(&m_mutex);
 
-void AccountManager::setHost(const QString &host)
-{
-    QMutexLocker locker(&m_mutex);
+        if (!m_tmpAccount) {
+            return;
+        }
 
-    if (m_host != host) {
-        m_host = host;
-        m_hasNewConnectionSettings = true;
-
-        locker.unlock();
-        Q_EMIT hostChanged();
+        m_tmpAccount->host = host;
+        m_tmpAccount->port = port;
     }
+
+    Q_EMIT accountChanged();
 }
 
-quint16 AccountManager::port()
+void AccountManager::resetNewAccount()
 {
-    QMutexLocker locker(&m_mutex);
-    return m_port;
-}
+    {
+        QMutexLocker locker(&m_mutex);
 
-void AccountManager::setPort(const quint16 port)
-{
-    QMutexLocker locker(&m_mutex);
+        if (!m_tmpAccount) {
+            return;
+        }
 
-    if (m_port != port) {
-        m_port = port;
-        m_hasNewConnectionSettings = true;
-
-        locker.unlock();
-        Q_EMIT portChanged();
+        m_tmpAccount.reset();
     }
+
+    Q_EMIT accountChanged();
 }
 
 quint16 AccountManager::portAutodetect() const
@@ -217,116 +258,73 @@ quint16 AccountManager::portAutodetect() const
     return PORT_AUTODETECT;
 }
 
-QString AccountManager::displayName()
-{
-    // no mutex locker required, own attributes are not accessed
-    if (const auto vCard = Kaidan::instance()->vCardCache()->vCard(m_jid)) {
-        if (const auto nickname = vCard->nickName(); !nickname.isEmpty()) {
-            return nickname;
-        }
-    }
-
-    return QXmppUtils::jidToUser(m_jid);
-}
-
 void AccountManager::resetCustomConnectionSettings()
 {
-    setHost({});
-    setPort(PORT_AUTODETECT);
-}
-
-bool AccountManager::hasNewCredentials() const
-{
-    return m_hasNewCredentials;
-}
-
-void AccountManager::setHasNewCredentials(bool hasNewCredentials)
-{
-    m_hasNewCredentials = hasNewCredentials;
+    setNewAccountHost({}, PORT_AUTODETECT);
 }
 
 bool AccountManager::hasEnoughCredentialsForLogin()
 {
-    return !(jid().isEmpty() || password().isEmpty());
-}
-
-bool AccountManager::hasNewConnectionSettings() const
-{
-    return m_hasNewConnectionSettings;
-}
-
-void AccountManager::setHasNewConnectionSettings(bool hasNewConnectionSettings)
-{
-    m_hasNewConnectionSettings = hasNewConnectionSettings;
+    const auto account = AccountManager::account();
+    return !(account.jid.isEmpty() || account.password.isEmpty());
 }
 
 QXmppSasl2UserAgent AccountManager::userAgent()
 {
-    auto deviceId = m_settings->userAgentDeviceId();
+    auto deviceId = account().userAgentDeviceId;
     if (deviceId.isNull()) {
         deviceId = QUuid::createUuid();
-        m_settings->setUserAgentDeviceId(deviceId);
+        setUserAgentDeviceId(deviceId);
     }
     return QXmppSasl2UserAgent(deviceId, QStringLiteral(APPLICATION_DISPLAY_NAME), SystemUtils::productName());
 }
 
-bool AccountManager::loadConnectionData()
+void AccountManager::loadConnectionData()
 {
     if (!hasEnoughCredentialsForLogin()) {
-        // Load the credentials from the settings file.
-        setJid(m_settings->authJid());
-        setPassword(m_settings->authPassword());
+        await(AccountDb::instance()->firstAccount(), this, [this](Account &&account) {
+            const auto jid = account.jid;
 
-        // Use a default prefix for the JID's resource part if no prefix is already set.
-        setJidResourcePrefix(m_settings->authJidResourcePrefix());
+            Kaidan::instance()->serverFeaturesCache()->setHttpUploadLimit(account.httpUploadLimit);
 
-        // Load the custom connection setings.
-        setHost(m_settings->authHost());
-        setPort(m_settings->authPort());
+            {
+                QMutexLocker locker(&m_mutex);
 
-        // This method is only used to load old credentials and connection settings.
-        // Thus, "m_hasNewCredentials" and "m_hasNewConnectionSettings" which were set to "true" by
-        // setting the credentials and connection settings in this method are reset here.
-        m_hasNewCredentials = false;
-        m_hasNewConnectionSettings = false;
+                Q_ASSERT(!m_tmpAccount);
+                m_account = std::move(account);
+            }
 
-        // If no credentials could be loaded from the settings file, notify the GUI to ask
-        // the user for credentials.
-        if (!hasEnoughCredentialsForLogin())
-            return false;
+            Q_EMIT accountChanged();
+            Q_EMIT connectionDataLoaded();
+        });
+    }
+}
+
+void AccountManager::storeAccount()
+{
+    if (!hasNewAccount()) {
+        return;
     }
 
-    return true;
-}
+    auto currentAccount = AccountManager::account();
+    const auto currentJid = currentAccount.jid;
 
-void AccountManager::storeJid()
-{
-    m_settings->setAuthJid(jid());
-}
+    await(AccountDb::instance()->addAccount(currentJid), this, [this, currentJid, newAccount = std::move(currentAccount)]() {
+        await(AccountDb::instance()->updateAccount(currentJid,
+                                                   [&newAccount](Account &account) {
+                                                       account = newAccount;
+                                                   }),
+              this,
+              [this]() {
+                  {
+                      QMutexLocker locker(&m_mutex);
+                      m_account = *m_tmpAccount;
+                      m_tmpAccount.reset();
+                  }
 
-void AccountManager::storePassword()
-{
-    m_settings->setAuthPassword(password());
-}
-
-void AccountManager::storeCustomConnectionSettings()
-{
-    if (m_host.isEmpty())
-        m_settings->resetAuthHost();
-    else
-        m_settings->setAuthHost(m_host);
-
-    if (m_settings->isDefaultAuthPort())
-        m_settings->resetAuthPort();
-    else
-        m_settings->setAuthPort(m_port);
-}
-
-void AccountManager::storeConnectionData()
-{
-    storeJid();
-    storePassword();
-    storeCustomConnectionSettings();
+                  Q_EMIT accountChanged();
+              });
+    });
 }
 
 void AccountManager::deleteAccountFromClient()
@@ -426,18 +424,13 @@ void AccountManager::handleDisconnected()
     // was connected and had to disconnect first.
     if (m_deletionStates.testFlag(DeletionState::DeletedFromServer)) {
         await(EncryptionController::instance()->resetLocally(), this, [this]() {
-            removeAccount(m_jid);
+            removeAccount(account().jid);
         });
     } else if (m_deletionStates.testFlag(DeletionState::ToBeDeletedFromClient)) {
-        removeAccount(m_jid);
+        removeAccount(account().jid);
     }
 
     m_deletionStates = DeletionState::NotToBeDeleted;
-}
-
-QString AccountManager::generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters) const
-{
-    return m_jidResourcePrefix % QLatin1Char('.') % QXmppUtils::generateStanzaHash(numberOfRandomSuffixCharacters);
 }
 
 void AccountManager::removeAccount(const QString &accountJid)
@@ -447,27 +440,10 @@ void AccountManager::removeAccount(const QString &accountJid)
     AccountDb::instance()->removeAccount(accountJid);
 
     m_settings->remove({
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_ONLINE),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_JID),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_CREDENTIALS),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_HOST),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_PORT),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY),
-        QStringLiteral(KAIDAN_SETTINGS_AUTH_DEVICE_ID),
-        QStringLiteral(KAIDAN_SETTINGS_ENCRYPTION),
         QStringLiteral(KAIDAN_SETTINGS_FAVORITE_EMOJIS),
-        QStringLiteral(KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE),
-
     });
 
-    setJid({});
-    m_jidResourcePrefix.clear();
-    m_jidResource.clear();
-    setPassword({});
-    resetCustomConnectionSettings();
+    setNewAccount({}, {}, {}, PORT_AUTODETECT);
 
     Q_EMIT credentialsNeeded();
 }

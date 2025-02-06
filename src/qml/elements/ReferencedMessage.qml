@@ -64,7 +64,7 @@ RowLayout {
 			Avatar {
 				id: avatar
 				jid: root.senderId ? root.senderId : ChatController.accountJid
-				name: root.senderName ? root.senderName : AccountManager.displayName
+				name: root.senderName ? root.senderName : AccountManager.account.displayName
 			}
 
 			ColumnLayout {
@@ -73,7 +73,7 @@ RowLayout {
 					textFormat: Text.PlainText
 					font.weight: Font.Medium
 					font.italic: !root.senderName
-					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(ChatController.accountJid, AccountManager.displayName)
+					color: root.senderId ? Utils.userColor(root.senderId, root.senderName) : Utils.userColor(ChatController.accountJid, AccountManager.account.displayName)
 
 					TextMetrics {
 						id: senderNameTextMetrics

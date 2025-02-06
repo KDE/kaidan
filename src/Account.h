@@ -8,15 +8,41 @@
 #include <QDateTime>
 #include <QObject>
 #include <QString>
+#include <QUuid>
+
+#include <QXmppConfiguration.h>
+#include <QXmppCredentials.h>
+
+#include "Encryption.h"
+#include "Globals.h"
+#include "Kaidan.h"
+
+constexpr quint16 PORT_AUTODETECT = 0;
 
 class Account
 {
     Q_GADGET
 
-    Q_PROPERTY(ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule)
-    Q_PROPERTY(GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule)
-    Q_PROPERTY(bool geoLocationMapPreviewEnabled MEMBER geoLocationMapPreviewEnabled)
-    Q_PROPERTY(GeoLocationMapService geoLocationMapService MEMBER geoLocationMapService)
+    Q_PROPERTY(bool online MEMBER online CONSTANT FINAL)
+    Q_PROPERTY(QString jid MEMBER jid CONSTANT FINAL)
+    Q_PROPERTY(QString resourcePrefix MEMBER resourcePrefix CONSTANT FINAL)
+    Q_PROPERTY(QString password MEMBER password CONSTANT FINAL)
+    Q_PROPERTY(QXmppCredentials credentials MEMBER credentials CONSTANT FINAL)
+    Q_PROPERTY(QString host MEMBER host CONSTANT FINAL)
+    Q_PROPERTY(quint16 port MEMBER port CONSTANT FINAL)
+    Q_PROPERTY(bool tlsErrorsIgnored MEMBER tlsErrorsIgnored CONSTANT FINAL)
+    Q_PROPERTY(QXmppConfiguration::StreamSecurityMode tlsRequirement MEMBER tlsRequirement CONSTANT FINAL)
+    Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility MEMBER passwordVisibility CONSTANT FINAL)
+    Q_PROPERTY(QUuid userAgentDeviceId MEMBER userAgentDeviceId CONSTANT FINAL)
+    Q_PROPERTY(Encryption::Enum encryption MEMBER encryption CONSTANT FINAL)
+    Q_PROPERTY(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule MEMBER automaticMediaDownloadsRule CONSTANT FINAL)
+    Q_PROPERTY(QString name MEMBER name CONSTANT FINAL)
+    Q_PROPERTY(ContactNotificationRule contactNotificationRule MEMBER contactNotificationRule CONSTANT FINAL)
+    Q_PROPERTY(GroupChatNotificationRule groupChatNotificationRule MEMBER groupChatNotificationRule CONSTANT FINAL)
+    Q_PROPERTY(bool geoLocationMapPreviewEnabled MEMBER geoLocationMapPreviewEnabled CONSTANT FINAL)
+    Q_PROPERTY(GeoLocationMapService geoLocationMapService MEMBER geoLocationMapService CONSTANT FINAL)
+    Q_PROPERTY(QString displayName READ displayName)
+    Q_PROPERTY(QString jidResource READ jidResource)
 
 public:
     /**
@@ -64,6 +90,11 @@ public:
 
     Account() = default;
 
+    QString displayName() const;
+    QString jidResource() const;
+
+    bool isDefaultPort() const;
+
     bool operator==(const Account &other) const = default;
     bool operator!=(const Account &other) const = default;
 
@@ -72,7 +103,19 @@ public:
     bool operator<=(const Account &other) const;
     bool operator>=(const Account &other) const;
 
+    bool online = true;
     QString jid;
+    QString resourcePrefix = QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX);
+    QString password;
+    QXmppCredentials credentials;
+    QString host;
+    quint16 port = PORT_AUTODETECT;
+    bool tlsErrorsIgnored = false;
+    QXmppConfiguration::StreamSecurityMode tlsRequirement = QXmppConfiguration::TLSRequired;
+    Kaidan::PasswordVisibility passwordVisibility = Kaidan::PasswordVisible;
+    QUuid userAgentDeviceId;
+    Encryption::Enum encryption = Encryption::Omemo2;
+    Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule = Account::AutomaticMediaDownloadsRule::Default;
     QString name;
     QString latestMessageStanzaId;
     QDateTime latestMessageStanzaTimestamp;
@@ -81,6 +124,10 @@ public:
     GroupChatNotificationRule groupChatNotificationRule = GroupChatNotificationRule::Default;
     bool geoLocationMapPreviewEnabled = true;
     GeoLocationMapService geoLocationMapService = GeoLocationMapService::System;
+
+private:
+    // This is dynamic and not saved into db
+    mutable QString m_jidResource;
 };
 
 Q_DECLARE_METATYPE(Account)

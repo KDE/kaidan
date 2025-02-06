@@ -17,10 +17,10 @@ import "../elements"
 Kirigami.Page {
 	id: root
 
-	property url imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.jid)
+	property url imagePath: Kaidan.avatarStorage.getAvatarUrl(AccountManager.account.jid)
 
 	title: qsTr("Change profile image")
-	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).jid = AccountManager.jid
+	Component.onDestruction: openView(accountDetailsDialog, accountDetailsPage).jid = AccountManager.account.jid
 
 	Controls.BusyIndicator {
 		id: busyIndicator

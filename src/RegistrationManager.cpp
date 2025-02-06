@@ -18,7 +18,6 @@
 #include "Kaidan.h"
 #include "RegistrationDataFormModel.h"
 #include "ServerFeaturesCache.h"
-#include "Settings.h"
 
 using namespace std::chrono_literals;
 
@@ -69,7 +68,7 @@ void RegistrationManager::deleteAccount()
 void RegistrationManager::requestRegistrationForm()
 {
     if (m_client->state() != QXmppClient::DisconnectedState) {
-        if (registerOnConnectEnabled() && m_client->configuration().jidBare() == AccountManager::instance()->jid()) {
+        if (registerOnConnectEnabled() && m_client->configuration().jidBare() == AccountManager::instance()->account().jid) {
             m_manager->requestRegistrationForm();
             return;
         }
@@ -77,7 +76,6 @@ void RegistrationManager::requestRegistrationForm()
         m_client->disconnectFromServer();
     }
 
-    AccountManager::instance()->setHasNewCredentials(true);
     setRegisterOnConnectEnabled(true);
     m_clientWorker->connectToServer();
 }
@@ -100,7 +98,6 @@ void RegistrationManager::sendRegistrationForm()
         m_manager->setRegistrationFormToSend(m_dataFormModel->form());
     }
 
-    AccountManager::instance()->setHasNewCredentials(true);
     setRegisterOnConnectEnabled(true);
 
     // If the client is still connected/connecting to the server, send the registration form
@@ -180,8 +177,8 @@ void RegistrationManager::handleRegistrationFormReceived(const QXmppRegisterIq &
 
 void RegistrationManager::handleRegistrationSucceeded()
 {
-    AccountManager::instance()->setJid(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()));
-    AccountManager::instance()->setPassword(m_dataFormModel->extractPassword());
+    AccountManager::instance()->setNewAccount(m_dataFormModel->extractUsername().append(QLatin1Char('@')).append(m_client->configuration().domain()),
+                                              m_dataFormModel->extractPassword());
 
     m_client->disconnectFromServer();
     setRegisterOnConnectEnabled(false);
@@ -246,9 +243,8 @@ void RegistrationManager::handleRegistrationFailed(const QXmppStanza::Error &err
 
 void RegistrationManager::handlePasswordChanged(const QString &newPassword)
 {
-    AccountManager::instance()->setPassword(newPassword);
-    AccountManager::instance()->storePassword();
-    AccountManager::instance()->setHasNewCredentials(false);
+    AccountManager::instance()->setNewAccountPassword(newPassword);
+    AccountManager::instance()->storeAccount();
     m_clientWorker->finishTask();
     Q_EMIT Kaidan::instance()->passwordChangeSucceeded();
 }
@@ -302,9 +298,9 @@ void RegistrationManager::abortRegistration()
     const auto accountManager = AccountManager::instance();
 
     // Reset the registration steps if the client connected to a server for registration.
-    if (accountManager->jid() != m_clientWorker->caches()->settings->authJid()) {
+    if (accountManager->hasNewAccount()) {
         // Resetting the cached JID is needed to clear the JID field of LoginArea.
-        accountManager->setJid({});
+        accountManager->resetNewAccount();
 
         // Disconnect from any server that the client is still connected to.
         if (m_client->state() != QXmppClient::DisconnectedState) {

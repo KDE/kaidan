@@ -6,14 +6,16 @@
 // SPDX-FileCopyrightText: 2023 Sergey Smirnykh <sergey.smirnykh@siborgium.xyz>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
-// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "Database.h"
 
+#include "Account.h"
+#include "AccountDb.h"
 #include "Globals.h"
 #include "Kaidan.h"
+#include "Settings.h"
 #include "SqlUtils.h"
 #include "kaidan_core_debug.h"
 
@@ -45,8 +47,8 @@ using namespace SqlUtils;
     }
 
 // Both need to be updated on version bump:
-#define DATABASE_LATEST_VERSION 47
-#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(47)
+#define DATABASE_LATEST_VERSION 48
+#define DATABASE_CONVERT_TO_LATEST_VERSION() DATABASE_CONVERT_TO_VERSION(48)
 
 #define SQL_BOOL "BOOL"
 #define SQL_BOOL_NOT_NULL "BOOL NOT NULL"
@@ -362,8 +364,13 @@ void Database::createNewDatabase()
                                SQL_ATTRIBUTE(jid, SQL_TEXT_NOT_NULL) SQL_ATTRIBUTE(name, SQL_TEXT) SQL_ATTRIBUTE(latestMessageStanzaId, SQL_TEXT)
                                    SQL_ATTRIBUTE(latestMessageStanzaTimestamp, SQL_TEXT) SQL_ATTRIBUTE(httpUploadLimit, SQL_INTEGER)
                                        SQL_ATTRIBUTE(contactNotificationRule, SQL_INTEGER) SQL_ATTRIBUTE(groupChatNotificationRule, SQL_INTEGER)
-                                           SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL)
-                                               SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER) "PRIMARY KEY(jid)"));
+                                           SQL_ATTRIBUTE(geoLocationMapPreviewEnabled, SQL_BOOL) SQL_ATTRIBUTE(geoLocationMapService, SQL_INTEGER)
+                                               SQL_ATTRIBUTE(online, SQL_BOOL) SQL_ATTRIBUTE(resourcePrefix, SQL_TEXT) SQL_ATTRIBUTE(password, SQL_TEXT)
+                                                   SQL_ATTRIBUTE(credentials, SQL_TEXT) SQL_ATTRIBUTE(host, SQL_TEXT) SQL_ATTRIBUTE(port, SQL_BOOL)
+                                                       SQL_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER) SQL_ATTRIBUTE(tlsRequirement, SQL_INTEGER)
+                                                           SQL_ATTRIBUTE(passwordVisibility, SQL_INTEGER) SQL_ATTRIBUTE(userAgentDeviceId, SQL_TEXT)
+                                                               SQL_ATTRIBUTE(encryption, SQL_INTEGER)
+                                                                   SQL_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER) "PRIMARY KEY(jid)"));
 
     // roster
     execQuery(query,
@@ -1625,6 +1632,136 @@ void Database::convertDatabaseToV47()
     execQuery(query, QStringLiteral("DELETE FROM fileEncryptedSources"));
 
     d->version = 47;
+}
+
+void Database::convertDatabaseToV48()
+{
+    DATABASE_CONVERT_TO_VERSION(47)
+    QSqlQuery query(currentDatabase());
+
+    for (const auto &column : {
+             SQL_LAST_ATTRIBUTE(online, SQL_BOOL),
+             SQL_LAST_ATTRIBUTE(resourcePrefix, SQL_TEXT),
+             SQL_LAST_ATTRIBUTE(password, SQL_TEXT),
+             SQL_LAST_ATTRIBUTE(credentials, SQL_TEXT),
+             SQL_LAST_ATTRIBUTE(host, SQL_TEXT),
+             SQL_LAST_ATTRIBUTE(port, SQL_BOOL),
+             SQL_LAST_ATTRIBUTE(tlsErrorsIgnored, SQL_INTEGER),
+             SQL_LAST_ATTRIBUTE(tlsRequirement, SQL_INTEGER),
+             SQL_LAST_ATTRIBUTE(passwordVisibility, SQL_INTEGER),
+             SQL_LAST_ATTRIBUTE(userAgentDeviceId, SQL_TEXT),
+             SQL_LAST_ATTRIBUTE(encryption, SQL_INTEGER),
+             SQL_LAST_ATTRIBUTE(automaticMediaDownloadsRule, SQL_INTEGER),
+         }) {
+        execQuery(query, QStringLiteral("ALTER TABLE accounts ADD %1").arg(QString::fromUtf8(column)));
+    }
+
+    // Import account settings from settings file
+    {
+        const QString Online = QStringLiteral("auth/online");
+        const QString Jid = QStringLiteral("auth/jid");
+        const QString JidResourcePrefix = QStringLiteral("auth/jidResourcePrefix");
+        const QString Password = QStringLiteral("auth/password");
+        const QString Credentials = QStringLiteral("auth/credentials");
+        const QString Host = QStringLiteral("auth/host");
+        const QString Port = QStringLiteral("auth/port");
+        const QString TlsErrorsIgnored = QStringLiteral("auth/tlsErrorsIgnored");
+        const QString TlsRequirement = QStringLiteral("auth/tlsRequirement");
+        const QString PasswordVisibility = QStringLiteral("auth/passwordVisibility");
+        const QString UserAgentDeviceId = QStringLiteral("auth/userAgentDeviceId");
+        const QString Encryption = QStringLiteral("encryption");
+        const QString AutomaticDownloadsRule = QStringLiteral("media/automaticDownloadsRule");
+
+        Settings settings;
+        const auto settingsAccount = [&]() -> std::optional<Account> {
+            const auto jid = settings.value<QString>(Jid);
+
+            if (jid.isEmpty()) {
+                return {};
+            }
+
+            Account account;
+
+            account.jid = jid;
+            account.online = settings.value<bool>(Online, true);
+            account.resourcePrefix = settings.value<QString>(JidResourcePrefix, QStringLiteral(KAIDAN_JID_RESOURCE_DEFAULT_PREFIX));
+            account.password = QString::fromUtf8(QByteArray::fromBase64(settings.value<QString>(Password).toUtf8()));
+            account.credentials = [&]() {
+                QXmlStreamReader r(settings.value<QString>(Credentials));
+                r.readNextStartElement();
+                return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
+            }();
+            account.host = settings.value<QString>(Host);
+            account.port = settings.value<quint16>(Port, PORT_AUTODETECT);
+            account.tlsErrorsIgnored = settings.value<bool>(TlsErrorsIgnored, false);
+            account.tlsRequirement = settings.value<QXmppConfiguration::StreamSecurityMode>(TlsRequirement, QXmppConfiguration::TLSRequired);
+            account.passwordVisibility = settings.value<Kaidan::PasswordVisibility>(PasswordVisibility, Kaidan::PasswordVisible);
+            account.userAgentDeviceId = settings.value<QUuid>(UserAgentDeviceId);
+            account.encryption = settings.value<Encryption::Enum>(Encryption, Encryption::Omemo2);
+            account.automaticMediaDownloadsRule =
+                settings.value<Account::AutomaticMediaDownloadsRule>(AutomaticDownloadsRule, Account::AutomaticMediaDownloadsRule::Default);
+
+            return account;
+        }();
+
+        if (settingsAccount) {
+            const auto sqlAccount = [&]() -> Account {
+                execQuery(query, QStringLiteral("SELECT * FROM accounts"));
+                QList<Account> accounts;
+                AccountDb::parseAccountsFromQuery(query, accounts);
+
+                if (const auto it = std::find_if(accounts.cbegin(),
+                                                 accounts.cend(),
+                                                 [jid = settingsAccount->jid](const Account &acc) {
+                                                     return jid == acc.jid;
+                                                 });
+                    it != accounts.cend()) {
+                    auto acc = *it;
+
+                    acc.online = settingsAccount->online;
+                    acc.resourcePrefix = settingsAccount->resourcePrefix;
+                    acc.password = settingsAccount->password;
+                    acc.credentials = settingsAccount->credentials;
+                    acc.host = settingsAccount->host;
+                    acc.port = settingsAccount->port;
+                    acc.tlsErrorsIgnored = settingsAccount->tlsErrorsIgnored;
+                    acc.tlsRequirement = settingsAccount->tlsRequirement;
+                    acc.passwordVisibility = settingsAccount->passwordVisibility;
+                    acc.userAgentDeviceId = settingsAccount->userAgentDeviceId;
+                    acc.encryption = settingsAccount->encryption;
+                    acc.automaticMediaDownloadsRule = settingsAccount->automaticMediaDownloadsRule;
+                }
+
+                return *settingsAccount;
+            }();
+            const auto record = AccountDb::createUpdateRecord(Account(), sqlAccount);
+            const auto updateAccountSQL = [&]() -> QString {
+                const auto driver = currentDatabase().driver();
+                return QString(driver->sqlStatement(QSqlDriver::InsertStatement, QStringLiteral(DB_TABLE_ACCOUNTS), record, false))
+                    .replace(QStringLiteral("INSERT "), QStringLiteral("INSERT OR REPLACE "));
+            }();
+
+            execQuery(query, updateAccountSQL);
+
+            settings.remove({
+                Online,
+                Jid,
+                JidResourcePrefix,
+                Password,
+                Credentials,
+                Host,
+                Port,
+                TlsErrorsIgnored,
+                TlsRequirement,
+                PasswordVisibility,
+                UserAgentDeviceId,
+                Encryption,
+                AutomaticDownloadsRule,
+            });
+        }
+    }
+
+    d->version = 48;
 }
 
 #include "moc_Database.cpp"

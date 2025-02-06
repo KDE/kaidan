@@ -15,15 +15,16 @@ LoginQrCodeGenerator::LoginQrCodeGenerator(QObject *parent)
     : AbstractQrCodeGenerator(parent)
 {
     connect(this, &LoginQrCodeGenerator::jidChanged, this, &LoginQrCodeGenerator::updateText);
-    connect(AccountManager::instance(), &AccountManager::passwordChanged, this, &LoginQrCodeGenerator::updateText);
+    connect(AccountManager::instance(), &AccountManager::accountChanged, this, &LoginQrCodeGenerator::updateText);
 }
 
 void LoginQrCodeGenerator::updateText()
 {
+    const auto accountManager = AccountManager::instance();
     QXmpp::Uri::Login loginQuery;
 
-    if (Kaidan::instance()->settings()->authPasswordVisibility() != Kaidan::PasswordInvisible) {
-        loginQuery.password = (AccountManager::instance()->password());
+    if (accountManager->account().passwordVisibility != Kaidan::PasswordInvisible) {
+        loginQuery.password = accountManager->account().password;
     }
 
     QXmppUri uri;

@@ -5,7 +5,6 @@
 // SPDX-FileCopyrightText: 2022 Bhavy Airi <airiragahv@gmail.com>
 // SPDX-FileCopyrightText: 2023 Filipe Azevedo <pasnox@gmail.com>
 // SPDX-FileCopyrightText: 2023 Tibor Csötönyi <work@taibsu.de>
-// SPDX-FileCopyrightText: 2024 Filipe Azevedo <pasnox@gmail.com>
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -132,6 +131,7 @@ private:
     void convertDatabaseToV45();
     void convertDatabaseToV46();
     void convertDatabaseToV47();
+    void convertDatabaseToV48();
 
     std::unique_ptr<DatabasePrivate> d;
 

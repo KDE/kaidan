@@ -14,6 +14,8 @@
 #include <QXmppStanza.h>
 // Kaidan
 #include "Account.h"
+#include "Encryption.h"
+#include "Kaidan.h"
 
 class Settings;
 class VCardCache;
@@ -26,13 +28,8 @@ class AccountManager : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(const Account &account READ account NOTIFY accountChanged)
-    Q_PROPERTY(QString jid READ jid WRITE setJid NOTIFY jidChanged)
-    Q_PROPERTY(QString password READ password WRITE setPassword NOTIFY passwordChanged)
-    Q_PROPERTY(QString host READ host WRITE setHost NOTIFY hostChanged)
-    Q_PROPERTY(quint16 port READ port WRITE setPort NOTIFY portChanged)
+    Q_PROPERTY(Account account READ account NOTIFY accountChanged)
     Q_PROPERTY(quint16 portAutodetect READ portAutodetect CONSTANT)
-    Q_PROPERTY(QString displayName READ displayName NOTIFY displayNameChanged)
 
 public:
     enum class DeletionState {
@@ -48,100 +45,34 @@ public:
 
     AccountManager(Settings *settings, VCardCache *cache, QObject *parent = nullptr);
 
-    const Account &account() const;
+    Account account() const;
     Q_SIGNAL void accountChanged();
 
+    bool hasNewAccount() const;
+
+    // TODO: When multi account is there, Account must become a real QObject and those helpers goes into Account instead.
+    Q_INVOKABLE void setAuthOnline(bool online);
+    Q_INVOKABLE void setAuthJidResourcePrefix(const QString &prefix);
+    Q_INVOKABLE void setAuthPassword(const QString &password);
+    Q_INVOKABLE void setAuthCredentials(const QXmppCredentials &credentials);
+    Q_INVOKABLE void setAuthHost(const QString &host);
+    Q_INVOKABLE void setAuthPort(quint16 port);
+    Q_INVOKABLE void setAuthTlsErrorsIgnored(bool enabled);
+    Q_INVOKABLE void setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode);
+    Q_INVOKABLE void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
+    Q_INVOKABLE void setUserAgentDeviceId(const QUuid &userAgentDeviceId);
+    Q_INVOKABLE void setEncryption(Encryption::Enum encryption);
+    Q_INVOKABLE void setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule);
     Q_INVOKABLE void setContactNotificationRule(const QString &jid, Account::ContactNotificationRule rule);
     Q_INVOKABLE void setGroupChatNotificationRule(const QString &jid, Account::GroupChatNotificationRule rule);
     Q_INVOKABLE void setGeoLocationMapPreviewEnabled(const QString &jid, bool geoLocationMapPreviewEnabled);
     Q_INVOKABLE void setGeoLocationMapService(const QString &jid, Account::GeoLocationMapService geoLocationMapService);
 
-    /**
-     * Returns the bare JID of the account.
-     *
-     * This method is thread-safe.
-     */
-    QString jid();
-
-    /**
-     * Sets the bare JID of the account.
-     *
-     * This method is thread-safe.
-     *
-     * @param jid bare JID of the account
-     */
-    void setJid(const QString &jid);
-
-    /**
-     * Returns the resource part of the account's full JID.
-     */
-    QString jidResource() const;
-
-    /**
-     * Sets the prefix of the account's full JID's resource part.
-     *
-     * The resource prefix is used to create the complete resource. The resource is created by
-     * appending a dot and random alphanumeric characters.
-     *
-     * Example:
-     *  Full JID: alice@example.org/Kaidan.DzF9
-     *  Resource prefix: Kaidan
-     *
-     * @param jidResourcePrefix prefix of the account's full JID's resource part
-     */
-    void setJidResourcePrefix(const QString &jidResourcePrefix);
-
-    /**
-     * Returns the password of the account.
-     *
-     * This method is thread-safe.
-     */
-    QString password();
-
-    /**
-     * Sets the password of the account.
-     *
-     * This method is thread-safe.
-     *
-     * @param password password of the account
-     */
-    void setPassword(const QString &password);
-
-    /**
-     * Returns the custom host.
-     *
-     * This method is thread-safe.
-     *
-     * @return the custom host or an empty string if no custom host is set
-     */
-    QString host();
-
-    /**
-     * Sets a custom host for connecting.
-     *
-     * This method is thread-safe.
-     *
-     * @param host host to connect to
-     */
-    void setHost(const QString &host);
-
-    /**
-     * Returns the custom port.
-     *
-     * This method is thread-safe.
-     *
-     * @return the custom port or portAutodetect if no custom port is set
-     */
-    quint16 port();
-
-    /**
-     * Sets a custom port for connecting.
-     *
-     * This method is thread-safe.
-     *
-     * @param port port to connect to
-     */
-    void setPort(const quint16 port);
+    Q_INVOKABLE void setNewAccount(const QString &jid, const QString &password, const QString &host = {}, quint16 port = PORT_AUTODETECT);
+    Q_INVOKABLE void setNewAccountJid(const QString &jid);
+    Q_INVOKABLE void setNewAccountPassword(const QString &password);
+    Q_INVOKABLE void setNewAccountHost(const QString &host, quint16 port);
+    Q_INVOKABLE void resetNewAccount();
 
     /**
      * Returns the port which indicates that no custom port is set.
@@ -149,54 +80,14 @@ public:
     quint16 portAutodetect() const;
 
     /**
-     * Returns the user's display name.
-     */
-    QString displayName();
-
-    /**
      * Resets the custom connection settings.
      */
     Q_INVOKABLE void resetCustomConnectionSettings();
 
     /**
-     * Provides a way to cache whether the current credentials are new to this client.
-     *
-     * The credentials are new to the client if they were not already in use. That is the case
-     * after entering the credentials the first time to log in or on the first login after
-     * registration.
-     *
-     * @return true if the credentials are new, otherwise false
-     */
-    bool hasNewCredentials() const;
-
-    /**
-     * Sets whether the current credentials are new to this client.
-     *
-     * @param hasNewCredentials true if the credentials are new, otherwise false
-     */
-    void setHasNewCredentials(bool hasNewCredentials);
-
-    /**
      * Returns whether there are enough credentials available to log in to the server.
      */
-    bool hasEnoughCredentialsForLogin();
-
-    /**
-     * Provides a way to cache whether the current connection settings are new to this client.
-     *
-     * The connections settings are new to the client if they were not already in use during the
-     * previous login.
-     *
-     * @return whether the connection settings are new
-     */
-    bool hasNewConnectionSettings() const;
-
-    /**
-     * Sets whether the current connection settings are new to this client.
-     *
-     * @param hasNewConnectionSettings whether the settings are new
-     */
-    void setHasNewConnectionSettings(bool hasNewConnectionSettings);
+    Q_INVOKABLE bool hasEnoughCredentialsForLogin();
 
     /**
      * Returns the user agent of the current account (thread-safe).
@@ -206,31 +97,15 @@ public:
     /**
      * Loads all credentials and connection settings used to connect to the server.
      *
-     * @return true if the credentials could be loaded, otherwise false
+     * Emits connectionDataLoaded when done. Use hasEnoughCredentialsForLogin for the result.
      */
-    Q_INVOKABLE bool loadConnectionData();
-
-    /**
-     * Stores the currently set JID in the settings file.
-     */
-    void storeJid();
-
-    /**
-     * Stores the currently set password in the settings file.
-     */
-    void storePassword();
-
-    /**
-     * Stores the currently set custom host and port in the settings file.
-     *
-     * If a custom connection setting is not set, it is removed from the settings file.
-     */
-    void storeCustomConnectionSettings();
+    Q_INVOKABLE void loadConnectionData();
+    Q_SIGNAL void connectionDataLoaded();
 
     /**
      * Stores credentials and connection settings in the settings file.
      */
-    void storeConnectionData();
+    void storeAccount();
 
     /**
      * Deletes the account data from the configuration file and database.
@@ -260,45 +135,11 @@ public:
 
 Q_SIGNALS:
     /**
-     * Emitted when the JID changed.
-     */
-    void jidChanged();
-
-    /**
-     * Emitted when the password changed.
-     */
-    void passwordChanged();
-
-    /**
-     * Emitted when the custom host changed.
-     */
-    void hostChanged();
-
-    /**
-     * Emitted when the custom port changed.
-     */
-    void portChanged();
-
-    /**
-     * Emitted when the user's display name changed.
-     */
-    void displayNameChanged();
-
-    /**
      * Emitted when there are no (correct) credentials to log in.
      */
     void credentialsNeeded();
 
 private:
-    /**
-     * Generates the JID's resource part with the set JID resource prefix and a suffix
-     * consisting of a dot followed by random alphanumeric characters.
-     *
-     * @param numberOfRandomSuffixCharacters number of random alphanumeric characters the
-     * suffix should consist of after the dot
-     */
-    QString generateJidResourceWithRandomSuffix(unsigned int numberOfRandomSuffixCharacters = 4) const;
-
     /**
      * Removes an account.
      *
@@ -306,20 +147,14 @@ private:
      */
     void removeAccount(const QString &accountJid);
 
-    QMutex m_mutex;
+    mutable QMutex m_mutex;
     Settings *const m_settings;
 
     Account m_account;
 
-    QString m_jid;
-    QString m_jidResourcePrefix;
-    QString m_jidResource;
-    QString m_password;
-    QString m_host;
-    quint16 m_port;
-
-    bool m_hasNewCredentials;
-    bool m_hasNewConnectionSettings;
+    // Temporary account until stored to db
+    // Use for new account setup or account registration.
+    std::optional<Account> m_tmpAccount;
 
     // These variables are used for checking the state of an ongoing account deletion.
     DeletionStates m_deletionStates = DeletionState::NotToBeDeleted;

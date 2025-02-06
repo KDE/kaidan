@@ -121,7 +121,7 @@ ClientWorker::ClientWorker(Caches *caches, Database *database, bool enableLoggin
     connect(m_client, &QXmppClient::errorOccurred, this, &ClientWorker::onConnectionError);
 
     connect(m_client, &QXmppClient::credentialsChanged, this, [this]() {
-        m_caches->settings->setAuthCredentials(m_client->configuration().credentials());
+        AccountManager::instance()->setAuthCredentials(m_client->configuration().credentials());
     });
 
     connect(Kaidan::instance(), &Kaidan::logInRequested, this, &ClientWorker::logIn);
@@ -156,7 +156,7 @@ void ClientWorker::startTask(const std::function<void()> &task)
         // credentials are available. That way, the variable can already be set locally
         // during account initialization (like during registration) and set on the server
         // after the first login.
-        if (!AccountManager::instance()->hasNewCredentials() && m_client->state() != QXmppClient::ConnectingState)
+        if (!AccountManager::instance()->hasNewAccount() && m_client->state() != QXmppClient::ConnectingState)
             logIn();
     }
 }
@@ -165,13 +165,15 @@ void ClientWorker::finishTask()
 {
     // If m_activeTasks > 0, there are still running tasks.
     // If m_activeTasks = 0, all tasks are finished (the tasks may have finished directly).
-    if (m_activeTasks > 0 && --m_activeTasks == 0 && !AccountManager::instance()->hasNewCredentials())
+    if (m_activeTasks > 0 && --m_activeTasks == 0 && !AccountManager::instance()->hasNewAccount())
         logOut();
 }
 
 void ClientWorker::logIn()
 {
-    const auto jid = AccountManager::instance()->jid();
+    const auto accountManager = AccountManager::instance();
+    const auto account = accountManager->account();
+    const auto jid = account.jid;
     m_atmManager->setAccountJid(jid);
     m_omemoDb->setAccountJid(jid);
 
@@ -181,15 +183,15 @@ void ClientWorker::logIn()
             return EncryptionController::instance()->load();
         },
         this,
-        [this]() {
-            if (!m_isFirstLoginAfterStart || m_caches->settings->authOnline()) {
+        [this, accountManager, account]() {
+            if (!m_isFirstLoginAfterStart || account.online) {
                 // Store the latest online state which is restored when opening Kaidan again after closing.
-                m_caches->settings->setAuthOnline(true);
+                accountManager->setAuthOnline(true);
 
                 QXmppConfiguration config;
-                config.setResource(AccountManager::instance()->jidResource());
-                config.setCredentials(m_caches->settings->authCredentials());
-                config.setPassword(AccountManager::instance()->password());
+                config.setResource(account.jidResource());
+                config.setCredentials(account.credentials);
+                config.setPassword(account.password);
                 config.setAutoAcceptSubscriptions(false);
 
                 // Servers using LDAP do not support SASL PLAIN authentication.
@@ -204,6 +206,9 @@ void ClientWorker::logIn()
 
 void ClientWorker::connectToServer(QXmppConfiguration config)
 {
+    const auto accountManager = AccountManager::instance();
+    const auto account = accountManager->account();
+
     switch (m_client->state()) {
     case QXmppClient::ConnectingState:
         qCDebug(KAIDAN_CORE_LOG) << "[main] Tried to connect even if already connecting! Nothing is done.";
@@ -215,24 +220,22 @@ void ClientWorker::connectToServer(QXmppConfiguration config)
         logOut();
         break;
     case QXmppClient::DisconnectedState:
-        config.setJid(AccountManager::instance()->jid());
-        config.setStreamSecurityMode(m_caches->settings->authTlsRequirement());
-        config.setIgnoreSslErrors(m_caches->settings->authTlsErrorsIgnored());
-        config.setResourcePrefix(m_caches->settings->authJidResourcePrefix());
-        config.setSasl2UserAgent(m_caches->accountManager->userAgent());
+        config.setJid(account.jid);
+        config.setStreamSecurityMode(account.tlsRequirement);
+        config.setIgnoreSslErrors(account.tlsErrorsIgnored);
+        config.setResourcePrefix(account.resourcePrefix);
+        config.setSasl2UserAgent(accountManager->userAgent());
 
-        auto host = AccountManager::instance()->host();
-        if (!host.isEmpty()) {
-            config.setHost(host);
+        if (!account.host.isEmpty()) {
+            config.setHost(account.host);
         }
 
-        auto port = AccountManager::instance()->port();
-        if (port != PORT_AUTODETECT) {
-            config.setPort(port);
+        if (account.port != PORT_AUTODETECT) {
+            config.setPort(account.port);
 
             // Set the JID's domain part as the host if no custom host is set.
-            if (host.isEmpty()) {
-                config.setHost(QXmppUtils::jidToDomain(AccountManager::instance()->jid()));
+            if (account.host.isEmpty()) {
+                config.setHost(QXmppUtils::jidToDomain(account.jid));
             }
         }
 
@@ -255,7 +258,7 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 {
     // Store the latest online state which is restored when opening Kaidan again after closing.
     if (!isApplicationBeingClosed) {
-        m_caches->settings->setAuthOnline(false);
+        AccountManager::instance()->setAuthOnline(false);
     }
 
     switch (m_client->state()) {
@@ -273,14 +276,6 @@ void ClientWorker::logOut(bool isApplicationBeingClosed)
 
         break;
     case QXmppClient::ConnectedState:
-        if (AccountManager::instance()->hasNewCredentials()) {
-            AccountManager::instance()->setHasNewCredentials(false);
-        }
-
-        if (AccountManager::instance()->hasNewConnectionSettings()) {
-            AccountManager::instance()->setHasNewConnectionSettings(false);
-        }
-
         await(
             EncryptionController::instance(),
             []() {
@@ -327,31 +322,31 @@ void ClientWorker::onConnected()
 
             // The following tasks are only done after a login with new credentials or connection
             // settings.
-            if (AccountManager::instance()->hasNewCredentials() || AccountManager::instance()->hasNewConnectionSettings()) {
-                if (AccountManager::instance()->hasNewCredentials()) {
-                    Q_EMIT loggedInWithNewCredentials();
-                }
+            if (AccountManager::instance()->hasNewAccount()) {
+                Q_EMIT loggedInWithNewCredentials();
 
                 // Store the valid connection data.
-                AccountManager::instance()->storeConnectionData();
+                AccountManager::instance()->storeAccount();
             }
 
             // Enable auto reconnection so that the client is always trying to reconnect
             // automatically in case of a connection outage.
             m_client->configuration().setAutoReconnectionEnabled(true);
 
+            const auto jid = AccountManager::instance()->account().jid;
+
             // Send message that could not be sent yet because the client was offline.
-            runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+            runOnThread(MessageController::instance(), [jid]() {
                 MessageController::instance()->sendPendingMessages();
             });
 
             // Send read markers that could not be sent yet because the client was offline.
-            runOnThread(RosterModel::instance(), [jid = AccountManager::instance()->jid()]() {
+            runOnThread(RosterModel::instance(), [jid]() {
                 RosterModel::instance()->sendPendingReadMarkers(jid);
             });
 
             // Send message reactions that could not be sent yet because the client was offline.
-            runOnThread(MessageController::instance(), [jid = AccountManager::instance()->jid()]() {
+            runOnThread(MessageController::instance(), [jid]() {
                 MessageController::instance()->sendPendingMessageReactions(jid);
             });
 
@@ -448,7 +443,7 @@ bool ClientWorker::startPendingTasks()
         isBusy = true;
     }
 
-    return !AccountManager::instance()->hasNewCredentials() && isBusy;
+    return !AccountManager::instance()->hasNewAccount() && isBusy;
 }
 
 #include "moc_ClientWorker.cpp"

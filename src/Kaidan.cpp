@@ -135,7 +135,15 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
     m_cltThrd->setObjectName("XmppClient");
     m_cltThrd->waitForStarted();
 
-    connect(AccountManager::instance(), &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
+    auto accountManager = AccountManager::instance();
+
+    connect(accountManager, &AccountManager::credentialsNeeded, this, &Kaidan::credentialsNeeded);
+    connect(accountManager, &AccountManager::connectionDataLoaded, this, [this, accountManager]() {
+        if (accountManager->hasEnoughCredentialsForLogin()) {
+            openChatViewRequested();
+            logIn();
+        }
+    });
     connect(m_client, &ClientWorker::loggedInWithNewCredentials, this, &Kaidan::openChatViewRequested);
     connect(m_client, &ClientWorker::connectionStateChanged, this, &Kaidan::setConnectionState);
     connect(m_client, &ClientWorker::connectionErrorChanged, this, &Kaidan::setConnectionError);
@@ -158,10 +166,10 @@ Kaidan::Kaidan(bool enableLogging, QObject *parent)
             if (const auto item = RosterModel::instance()->findItem(message.chatJid)) {
                 const auto contactRule = item->automaticMediaDownloadsRule;
 
-                const auto effectiveRule = [this, contactRule]() -> Account::AutomaticMediaDownloadsRule {
+                const auto effectiveRule = [contactRule]() -> Account::AutomaticMediaDownloadsRule {
                     switch (contactRule) {
                     case RosterItem::AutomaticMediaDownloadsRule::Account:
-                        return settings()->automaticMediaDownloadsRule();
+                        return AccountManager::instance()->account().automaticMediaDownloadsRule;
                     case RosterItem::AutomaticMediaDownloadsRule::Never:
                         return Account::AutomaticMediaDownloadsRule::Never;
                     case RosterItem::AutomaticMediaDownloadsRule::Always:
@@ -313,7 +321,6 @@ quint8 Kaidan::logInByUri(const QString &uriString)
             return quint8(LoginByUriState::InvalidLoginUri);
         }
 
-        AccountManager::instance()->setJid(jid);
         const auto password = std::any_cast<QXmpp::Uri::Login>(query).password;
 
         if (!CredentialsValidator::isPasswordValid(password)) {
@@ -321,7 +328,7 @@ quint8 Kaidan::logInByUri(const QString &uriString)
         }
 
         // Connect with the extracted credentials.
-        AccountManager::instance()->setPassword(password);
+        AccountManager::instance()->setNewAccount(jid, password);
         logIn();
 
         return quint8(LoginByUriState::Connecting);

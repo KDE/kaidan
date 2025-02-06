@@ -98,10 +98,9 @@ FormCard.FormCard {
 			} else if (!passwordField.valid) {
 				passwordField.forceActiveFocus()
 			} else {
-				AccountManager.jid = jidField.text
-				AccountManager.password = passwordField.text
-				AccountManager.host = customConnectionSettings.hostField.text
-				AccountManager.port = customConnectionSettings.portField.value
+				AccountManager.setNewAccount(jidField.text, passwordField.text,
+											 customConnectionSettings.hostField.text,
+											 customConnectionSettings.portField.value)
 
 				Kaidan.logIn()
 			}

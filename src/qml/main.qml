@@ -139,8 +139,8 @@ Kirigami.ApplicationWindow {
 		id: groupChatJoiningDialog
 
 		GroupChatJoiningDialog {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
+			accountJid: AccountManager.account.jid
+			nickname: AccountManager.account.displayName
 		}
 	}
 
@@ -148,8 +148,8 @@ Kirigami.ApplicationWindow {
 		id: groupChatJoiningPage
 
 		GroupChatJoiningPage {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
+			accountJid: AccountManager.account.jid
+			nickname: AccountManager.account.displayName
 		}
 	}
 
@@ -343,13 +343,9 @@ Kirigami.ApplicationWindow {
 			}
 		}
 
-		if (AccountManager.loadConnectionData()) {
-			openChatView()
-			// Announce that the user interface is ready and the application can start connecting.
-			Kaidan.logIn()
-		} else {
-			openStartPage()
-		}
+		openStartPage()
+
+		AccountManager.loadConnectionData()
 	}
 
 	Component.onDestruction: {

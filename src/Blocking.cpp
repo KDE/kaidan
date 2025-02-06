@@ -136,7 +136,7 @@ void BlockingController::subscribeToBlocklist()
     m_subscribed = true;
 
     // load blocklist from database
-    await(m_db->blockedJids(AccountManager::instance()->jid()), this, [this](auto result) {
+    await(m_db->blockedJids(AccountManager::instance()->account().jid), this, [this](auto result) {
         handleBlocklist({Blocklist::Db, std::move(result)});
     });
 
@@ -242,7 +242,7 @@ void BlockingController::updateDbBlocklist(const QList<QString> &blockedJids)
         // skip if we already know that the db version is up to date
         return;
     }
-    m_db->resetBlockedJids(AccountManager::instance()->jid(), blockedJids);
+    m_db->resetBlockedJids(AccountManager::instance()->account().jid, blockedJids);
 }
 
 void BlockingController::onJidsBlocked(const QList<QString> &jids)
@@ -250,7 +250,7 @@ void BlockingController::onJidsBlocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->addBlockedJids(AccountManager::instance()->jid(), jids);
+    m_db->addBlockedJids(AccountManager::instance()->account().jid, jids);
 
     m_blocklist->jids.append(jids);
     makeUnique(m_blocklist->jids);
@@ -267,7 +267,7 @@ void BlockingController::onJidsUnblocked(const QList<QString> &jids)
     Q_ASSERT(m_blocklist);
     Q_ASSERT(m_blocklist->source == Blocklist::Xmpp);
 
-    m_db->removeBlockedJids(AccountManager::instance()->jid(), jids);
+    m_db->removeBlockedJids(AccountManager::instance()->account().jid, jids);
 
     for (const auto &jid : jids) {
         m_blocklist->jids.removeOne(jid);

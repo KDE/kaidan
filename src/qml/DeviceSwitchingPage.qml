@@ -57,7 +57,7 @@ ExplanationOptionsTogglePage {
 	}
 	explanationAreaBackground.opacity: 1
 	primaryArea: LoginQrCode {
-		jid: AccountManager.jid
+		jid: AccountManager.account.jid
 		width: Math.min(largeButtonWidth, parent.width, parent.height)
 		height: width
 		anchors.centerIn: parent
@@ -70,7 +70,7 @@ ExplanationOptionsTogglePage {
 			Layout.fillWidth: true
 
 			Controls.Label {
-				text: AccountManager.jid
+				text: AccountManager.account.jid
 				Layout.fillWidth: true
 			}
 
@@ -80,17 +80,17 @@ ExplanationOptionsTogglePage {
 				display: Controls.AbstractButton.IconOnly
 				flat: true
 				Layout.alignment: Qt.AlignRight
-				onClicked: Utils.copyToClipboard(AccountManager.jid)
+				onClicked: Utils.copyToClipboard(AccountManager.account.jid)
 			}
 		}
 
 		RowLayout {
 			Kirigami.FormData.label: qsTr("Password:")
-			visible: Kaidan.settings.passwordVisibility === Kaidan.PasswordVisible
+			visible: AccountManager.account.passwordVisibility === Kaidan.PasswordVisible
 			Layout.fillWidth: true
 
 			Controls.Label {
-				text: AccountManager.password
+				text: AccountManager.account.password
 				Layout.fillWidth: true
 			}
 
@@ -100,7 +100,7 @@ ExplanationOptionsTogglePage {
 				display: Controls.AbstractButton.IconOnly
 				flat: true
 				Layout.alignment: Qt.AlignRight
-				onClicked: Utils.copyToClipboard(AccountManager.password)
+				onClicked: Utils.copyToClipboard(AccountManager.account.password)
 			}
 		}
 	}

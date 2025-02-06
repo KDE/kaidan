@@ -102,14 +102,14 @@ struct ClientRosterItemSettings {
 
 struct ClientConfiguration {
     ClientConfiguration() = default;
-    explicit ClientConfiguration(const Settings &settings)
+    explicit ClientConfiguration(const Account &account)
     {
-        authHost = settings.authHost();
-        authPort = settings.authPort();
-        authTlsErrorsIgnored = settings.authTlsErrorsIgnored();
-        authTlsRequirement = settings.authTlsRequirement();
-        authJid = settings.authJid();
-        authPassword = settings.authPassword();
+        authHost = account.host;
+        authPort = account.port;
+        authTlsErrorsIgnored = account.tlsErrorsIgnored;
+        authTlsRequirement = account.tlsRequirement;
+        authJid = account.jid;
+        authPassword = account.password;
     }
 
     static std::variant<ClientConfiguration, QXmppError> fromDom(const QDomElement &rootElement)
@@ -183,8 +183,8 @@ struct ClientConfiguration {
 
 struct ClientSettings {
     ClientSettings() = default;
-    explicit ClientSettings(Settings *settings, const QList<RosterItem> &rosterItems)
-        : oldConfiguration(*settings)
+    explicit ClientSettings(const Account &account, const QList<RosterItem> &rosterItems)
+        : oldConfiguration(account)
         , roster(transform(rosterItems, [](const RosterItem &item) {
             return ClientRosterItemSettings(item);
         }))
@@ -518,7 +518,7 @@ void AccountMigrationManager::cancelMigration()
             const auto accountManager = AccountManager::instance();
 
             // If the stored JID differs from the cached one, reconnect with the stored one.
-            if (accountManager->jid() != m_worker->caches()->settings->authJid()) {
+            if (accountManager->hasNewAccount()) {
                 // Disconnect from any server that the client is connecting to because of a login
                 // attempt.
                 if (m_worker->xmppClient()->state() == QXmppClient::ConnectingState) {
@@ -527,9 +527,9 @@ void AccountMigrationManager::cancelMigration()
 
                 // Resetting the cached JID is needed to load the stored JID via
                 // AccountManager::loadConnectionData().
-                accountManager->setJid({});
+                accountManager->resetNewAccount();
 
-                if (accountManager->loadConnectionData()) {
+                if (accountManager->hasEnoughCredentialsForLogin()) {
                     m_worker->logIn();
                 }
             }
@@ -631,8 +631,8 @@ QXmppTask<AccountMigrationManager::ImportResult> AccountMigrationManager::import
 
 QXmppTask<AccountMigrationManager::ExportResult> AccountMigrationManager::exportClientSettingsTask()
 {
-    return runAsyncTask(this, Kaidan::instance(), [settings = m_worker->caches()->settings]() -> ExportResult {
-        return ClientSettings(settings, RosterModel::instance()->items());
+    return runAsyncTask(this, Kaidan::instance(), [account = AccountManager::instance()->account()]() -> ExportResult {
+        return ClientSettings(account, RosterModel::instance()->items());
     });
 }
 

@@ -387,6 +387,7 @@ QVariant MessageModel::data(const QModelIndex &index, int role) const
 void MessageModel::fetchMore(const QModelIndex &)
 {
     if (!m_fetchedAllFromDb) {
+        const auto accountJid = AccountManager::instance()->account().jid;
         if (m_messages.isEmpty()) {
             // If there are unread messages, all messages until the first unread message are
             // fetched.
@@ -397,32 +398,25 @@ void MessageModel::fetchMore(const QModelIndex &)
                 // lastReadContactMessageId can be empty if there is no contact message stored or
                 // the oldest stored contact message is marked as first unread.
                 if (lastReadContactMessageId.isEmpty()) {
-                    await(MessageDb::instance()->fetchMessagesUntilFirstContactMessage(AccountManager::instance()->jid(),
-                                                                                       ChatController::instance()->chatJid(),
-                                                                                       0),
+                    await(MessageDb::instance()->fetchMessagesUntilFirstContactMessage(accountJid, ChatController::instance()->chatJid(), 0),
                           this,
                           [this](QList<Message> &&messages) {
                               handleMessagesFetched(messages);
                           });
                 } else {
-                    await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(),
-                                                                      ChatController::instance()->chatJid(),
-                                                                      0,
-                                                                      lastReadContactMessageId),
+                    await(MessageDb::instance()->fetchMessagesUntilId(accountJid, ChatController::instance()->chatJid(), 0, lastReadContactMessageId),
                           this,
                           [this](MessageDb::MessageResult &&result) {
                               handleMessagesFetched(result.messages);
                           });
                 }
             } else {
-                await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), 0),
-                      this,
-                      [this](QList<Message> &&messages) {
-                          handleMessagesFetched(messages);
-                      });
+                await(MessageDb::instance()->fetchMessages(accountJid, ChatController::instance()->chatJid(), 0), this, [this](QList<Message> &&messages) {
+                    handleMessagesFetched(messages);
+                });
             }
         } else {
-            await(MessageDb::instance()->fetchMessages(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), m_messages.size()),
+            await(MessageDb::instance()->fetchMessages(accountJid, ChatController::instance()->chatJid(), m_messages.size()),
                   this,
                   [this](QList<Message> &&messages) {
                       handleMessagesFetched(messages);
@@ -948,7 +942,7 @@ int MessageModel::searchMessageById(const QString &messageId)
         }
     }
 
-    await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->jid(), ChatController::instance()->chatJid(), i, messageId, 0),
+    await(MessageDb::instance()->fetchMessagesUntilId(AccountManager::instance()->account().jid, ChatController::instance()->chatJid(), i, messageId, 0),
           this,
           [this](MessageDb::MessageResult &&result) {
               if (const auto messages = result.messages; !messages.isEmpty()) {
@@ -972,7 +966,7 @@ int MessageModel::searchForMessageFromNewToOld(const QString &searchString, int 
             }
         }
 
-        await(MessageDb::instance()->fetchMessagesUntilQueryString(AccountManager::instance()->jid(),
+        await(MessageDb::instance()->fetchMessagesUntilQueryString(AccountManager::instance()->account().jid,
                                                                    ChatController::instance()->chatJid(),
                                                                    foundIndex,
                                                                    searchString),
@@ -1288,7 +1282,7 @@ void MessageModel::showMessageNotification(const Message &message, MessageOrigin
     }
 
     if (!message.isOwn) {
-        const auto accountJid = AccountManager::instance()->jid();
+        const auto accountJid = AccountManager::instance()->account().jid;
         const auto chatJid = message.chatJid;
 
         const auto rosterItem = RosterModel::instance()->findItem(chatJid).value_or(RosterItem{});

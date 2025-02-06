@@ -14,13 +14,9 @@
 #include <QSettings>
 #include <QSize>
 
-#include "Account.h"
-#include "Encryption.h"
-#include "Kaidan.h"
+#include "Enums.h"
 
 #include <optional>
-
-constexpr quint16 PORT_AUTODETECT = 0;
 
 /**
  * Manages settings stored in the settings file.
@@ -31,16 +27,14 @@ class Settings : public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(Kaidan::PasswordVisibility passwordVisibility READ authPasswordVisibility WRITE setAuthPasswordVisibility NOTIFY authPasswordVisibilityChanged)
-    Q_PROPERTY(Encryption::Enum encryption READ encryption WRITE setEncryption NOTIFY encryptionChanged)
     Q_PROPERTY(bool contactAdditionQrCodePageExplanationVisible READ contactAdditionQrCodePageExplanationVisible WRITE
                    setContactAdditionQrCodePageExplanationVisible NOTIFY contactAdditionQrCodePageExplanationVisibleChanged)
     Q_PROPERTY(bool keyAuthenticationPageExplanationVisible READ keyAuthenticationPageExplanationVisible WRITE setKeyAuthenticationPageExplanationVisible NOTIFY
                    keyAuthenticationPageExplanationVisibleChanged)
     Q_PROPERTY(QPoint windowPosition READ windowPosition WRITE setWindowPosition NOTIFY windowPositionChanged)
     Q_PROPERTY(QSize windowSize READ windowSize WRITE setWindowSize NOTIFY windowSizeChanged)
-    Q_PROPERTY(Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule READ automaticMediaDownloadsRule WRITE setAutomaticMediaDownloadsRule NOTIFY
-                   automaticMediaDownloadsRuleChanged)
+
+    friend class Database;
 
 public:
     explicit Settings(QObject *parent = nullptr);
@@ -50,45 +44,6 @@ public:
     /// but it is useful if you need to manually manage config groups
     ///
     QSettings &raw();
-
-    bool authOnline() const;
-    void setAuthOnline(bool online);
-
-    QString authJid() const;
-    void setAuthJid(const QString &jid);
-
-    QString authJidResourcePrefix() const;
-    void setAuthJidResourcePrefix(const QString &prefix);
-
-    QString authPassword() const;
-    void setAuthPassword(const QString &password);
-
-    QXmppCredentials authCredentials() const;
-    void setAuthCredentials(const QXmppCredentials &credentials);
-
-    QString authHost() const;
-    void setAuthHost(const QString &host);
-    void resetAuthHost();
-
-    quint16 authPort() const;
-    void setAuthPort(quint16 port);
-    void resetAuthPort();
-    bool isDefaultAuthPort() const;
-
-    bool authTlsErrorsIgnored() const;
-    void setAuthTlsErrorsIgnored(bool enabled);
-
-    QXmppConfiguration::StreamSecurityMode authTlsRequirement() const;
-    void setAuthTlsRequirement(QXmppConfiguration::StreamSecurityMode mode);
-
-    Kaidan::PasswordVisibility authPasswordVisibility() const;
-    void setAuthPasswordVisibility(Kaidan::PasswordVisibility visibility);
-
-    QUuid userAgentDeviceId() const;
-    void setUserAgentDeviceId(QUuid deviceId);
-
-    Encryption::Enum encryption() const;
-    void setEncryption(Encryption::Enum encryption);
 
     bool contactAdditionQrCodePageExplanationVisible() const;
     void setContactAdditionQrCodePageExplanationVisible(bool visible);
@@ -105,28 +60,14 @@ public:
     QSize windowSize() const;
     void setWindowSize(const QSize &windowSize);
 
-    Account::AutomaticMediaDownloadsRule automaticMediaDownloadsRule() const;
-    void setAutomaticMediaDownloadsRule(Account::AutomaticMediaDownloadsRule rule);
-
     void remove(const QStringList &keys);
 
 Q_SIGNALS:
-    void authOnlineChanged();
-    void authJidChanged();
-    void authJidResourcePrefixChanged();
-    void authPasswordChanged();
-    void authHostChanged();
-    void authPortChanged();
-    void authIgnoreTlsErrosChanged();
-    void authTlsRequirementChanged();
-    void authPasswordVisibilityChanged();
-    void encryptionChanged();
     void contactAdditionQrCodePageExplanationVisibleChanged();
     void keyAuthenticationPageExplanationVisibleChanged();
     void favoriteEmojisChanged();
     void windowPositionChanged();
     void windowSizeChanged();
-    void automaticMediaDownloadsRuleChanged();
 
 private:
     template<typename T>

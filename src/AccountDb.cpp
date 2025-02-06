@@ -16,6 +16,39 @@
 
 using namespace SqlUtils;
 
+template<typename T>
+T readValue(const QVariant &value)
+{
+    if constexpr (std::is_same<T, QXmppCredentials>::value) {
+        QXmlStreamReader r(value.toString());
+        r.readNextStartElement();
+        return QXmppCredentials::fromXml(r).value_or(QXmppCredentials());
+    } else if constexpr (std::is_same<T, QUuid>::value) {
+        return QUuid::fromString(value.toString());
+    } else if constexpr (has_enum_type<T>::value || std::is_enum<T>::value) {
+        return static_cast<T>(value.value<qint64>());
+    }
+
+    return value.value<T>();
+}
+
+template<typename T>
+QVariant writeValue(const T &value)
+{
+    if constexpr (std::is_same<T, QXmppCredentials>::value) {
+        QString xml;
+        QXmlStreamWriter writer(&xml);
+        value.toXml(writer);
+        return xml;
+    } else if constexpr (std::is_same<T, QUuid>::value) {
+        return value.toString(QUuid::WithoutBraces);
+    } else if constexpr (has_enum_type<T>::value || std::is_enum<T>::value) {
+        return QVariant::fromValue(Enums::toIntegral(value));
+    }
+
+    return QVariant::fromValue(value);
+}
+
 AccountDb *AccountDb::s_instance = nullptr;
 
 AccountDb::AccountDb(Database *db, QObject *parent)
@@ -72,6 +105,23 @@ QFuture<Account> AccountDb::account(const QString &jid)
         parseAccountsFromQuery(query, accounts);
 
         return accounts.first();
+    });
+}
+
+QFuture<Account> AccountDb::firstAccount()
+{
+    // Get the last created account, which is the last we want to use.
+    // When migrating, the old account is not deleted. Before we would store the jid to login in the settings file so we would retrieve it correctly
+    // but now it's all asynchronous and tehre is no more settings. So the accoutn we need is the last one.
+    // We may considere to just delete the previous account in db later, for now just don't change the behavior.
+    return run([this]() {
+        auto query = createQuery();
+        execQuery(query, QStringLiteral(R"(SELECT * FROM accounts ORDER BY rowid DESC LIMIT 1)"));
+
+        QList<Account> accounts;
+        parseAccountsFromQuery(query, accounts);
+
+        return accounts.isEmpty() ? Account() : accounts.constFirst();
     });
 }
 
@@ -134,30 +184,6 @@ QFuture<QString> AccountDb::fetchLatestMessageStanzaId(const QString &jid)
     });
 }
 
-QFuture<qint64> AccountDb::fetchHttpUploadLimit(const QString &jid)
-{
-    return run([this, jid]() {
-        auto query = createQuery();
-        execQuery(query,
-                  QStringLiteral(R"(
-				SELECT httpUploadLimit
-				FROM accounts
-				WHERE jid = :jid
-			)"),
-                  {
-                      {u":jid", jid},
-                  });
-
-        qint64 size = 0;
-
-        if (query.first()) {
-            size = query.value(0).toLongLong();
-        }
-
-        return size;
-    });
-}
-
 QFuture<void> AccountDb::removeAccount(const QString &jid)
 {
     return run([this, jid]() {
@@ -185,32 +211,53 @@ void AccountDb::parseAccountsFromQuery(QSqlQuery &query, QList<Account> &account
     int idxGroupChatNotificationRule = rec.indexOf(QStringLiteral("groupChatNotificationRule"));
     int idxGeoLocationMapPreviewEnabled = rec.indexOf(QStringLiteral("geoLocationMapPreviewEnabled"));
     int idxGeoLocationMapService = rec.indexOf(QStringLiteral("geoLocationMapService"));
+    int idxOnline = rec.indexOf(QStringLiteral("online"));
+    int idxResourcePrefix = rec.indexOf(QStringLiteral("resourcePrefix"));
+    int idxPassword = rec.indexOf(QStringLiteral("password"));
+    int idxCredentials = rec.indexOf(QStringLiteral("credentials"));
+    int idxHost = rec.indexOf(QStringLiteral("host"));
+    int idxPort = rec.indexOf(QStringLiteral("port"));
+    int idxTlsErrorsIgnored = rec.indexOf(QStringLiteral("tlsErrorsIgnored"));
+    int idxTlsRequirement = rec.indexOf(QStringLiteral("tlsRequirement"));
+    int idxPasswordVisibility = rec.indexOf(QStringLiteral("passwordVisibility"));
+    int idxUserAgentDeviceId = rec.indexOf(QStringLiteral("userAgentDeviceId"));
+    int idxEncryption = rec.indexOf(QStringLiteral("encryption"));
+    int idxAutomaticMediaDownloadsRule = rec.indexOf(QStringLiteral("automaticMediaDownloadsRule"));
 
     reserve(accounts, query);
     while (query.next()) {
         Account account;
 
         account.jid = query.value(idxJid).toString();
-        account.name = query.value(idxName).toString();
         account.latestMessageStanzaId = query.value(idxLatestMessageStanzaId).toString();
         account.latestMessageStanzaTimestamp = query.value(idxLatestMessageStanzaTimestamp).toDateTime();
         account.httpUploadLimit = query.value(idxHttpUploadLimit).toLongLong();
 
-        if (const auto contactNotificationRule = query.value(idxContactNotificationRule); !contactNotificationRule.isNull()) {
-            account.contactNotificationRule = contactNotificationRule.value<Account::ContactNotificationRule>();
-        }
+#define SET_IF(IDX, NAME, TYPE)                                                                                                                                \
+    if (const auto NAME = query.value(IDX); !NAME.isNull())                                                                                                    \
+    account.NAME = readValue<TYPE>(NAME)
 
-        if (const auto groupChatNotificationRule = query.value(idxGroupChatNotificationRule); !groupChatNotificationRule.isNull()) {
-            account.groupChatNotificationRule = groupChatNotificationRule.value<Account::GroupChatNotificationRule>();
-        }
+        SET_IF(idxName, name, QString);
+        SET_IF(idxContactNotificationRule, contactNotificationRule, Account::ContactNotificationRule);
+        SET_IF(idxGroupChatNotificationRule, groupChatNotificationRule, Account::GroupChatNotificationRule);
+        SET_IF(idxGeoLocationMapPreviewEnabled, geoLocationMapPreviewEnabled, bool);
+        SET_IF(idxGeoLocationMapService, geoLocationMapService, Account::GeoLocationMapService);
+        SET_IF(idxOnline, online, bool);
+        SET_IF(idxResourcePrefix, resourcePrefix, QString);
+        SET_IF(idxPassword, password, QString);
+        // Password is stored as base64 unencrypted
+        account.password = QString::fromUtf8(QByteArray::fromBase64(account.password.toUtf8()));
+        SET_IF(idxCredentials, credentials, QXmppCredentials);
+        SET_IF(idxHost, host, QString);
+        SET_IF(idxPort, port, quint16);
+        SET_IF(idxTlsErrorsIgnored, tlsErrorsIgnored, bool);
+        SET_IF(idxTlsRequirement, tlsRequirement, QXmppConfiguration::StreamSecurityMode);
+        SET_IF(idxPasswordVisibility, passwordVisibility, Kaidan::PasswordVisibility);
+        SET_IF(idxUserAgentDeviceId, userAgentDeviceId, QUuid);
+        SET_IF(idxEncryption, encryption, Encryption::Enum);
+        SET_IF(idxAutomaticMediaDownloadsRule, automaticMediaDownloadsRule, Account::AutomaticMediaDownloadsRule);
 
-        if (const auto geoLocationMapPreviewEnabled = query.value(idxGeoLocationMapPreviewEnabled); !geoLocationMapPreviewEnabled.isNull()) {
-            account.geoLocationMapPreviewEnabled = geoLocationMapPreviewEnabled.toBool();
-        }
-
-        if (const auto geoLocationMapService = query.value(idxGeoLocationMapService); !geoLocationMapService.isNull()) {
-            account.geoLocationMapService = geoLocationMapService.value<Account::GeoLocationMapService>();
-        }
+#undef SET_IF
 
         accounts << std::move(account);
     }
@@ -220,33 +267,41 @@ QSqlRecord AccountDb::createUpdateRecord(const Account &oldAccount, const Accoun
 {
     QSqlRecord rec;
 
-    if (oldAccount.jid != newAccount.jid) {
-        rec.append(createSqlField(QStringLiteral("jid"), newAccount.jid));
+#define SET_IF_NEW(NAME, TYPE)                                                                                                                                 \
+    if (oldAccount.NAME != newAccount.NAME)                                                                                                                    \
+    rec.append(createSqlField(QStringLiteral(QT_STRINGIFY(NAME)), writeValue<TYPE>(newAccount.NAME)))
+
+    SET_IF_NEW(jid, QString);
+    SET_IF_NEW(name, QString);
+    SET_IF_NEW(latestMessageStanzaId, QString);
+    SET_IF_NEW(latestMessageStanzaTimestamp, QDateTime);
+    SET_IF_NEW(httpUploadLimit, qint64);
+    SET_IF_NEW(contactNotificationRule, Account::ContactNotificationRule);
+    SET_IF_NEW(groupChatNotificationRule, Account::GroupChatNotificationRule);
+    SET_IF_NEW(geoLocationMapPreviewEnabled, bool);
+    SET_IF_NEW(geoLocationMapService, Account::GeoLocationMapService);
+
+    SET_IF_NEW(online, bool);
+    SET_IF_NEW(resourcePrefix, QString);
+    SET_IF_NEW(password, QString);
+    // Password is stored as base64 unencrypted
+    if (auto field = rec.field(rec.count() - 1); field.name().compare(QStringLiteral("password"), Qt::CaseInsensitive) == 0) {
+        if (!field.isNull()) {
+            field.setValue(QString::fromUtf8(field.value().toString().toUtf8().toBase64()));
+            rec.replace(rec.count() - 1, field);
+        }
     }
-    if (oldAccount.name != newAccount.name) {
-        rec.append(createSqlField(QStringLiteral("name"), newAccount.name));
-    }
-    if (oldAccount.latestMessageStanzaId != newAccount.latestMessageStanzaId) {
-        rec.append(createSqlField(QStringLiteral("latestMessageStanzaId"), newAccount.latestMessageStanzaId));
-    }
-    if (oldAccount.latestMessageStanzaTimestamp != newAccount.latestMessageStanzaTimestamp) {
-        rec.append(createSqlField(QStringLiteral("latestMessageStanzaTimestamp"), newAccount.latestMessageStanzaTimestamp));
-    }
-    if (oldAccount.httpUploadLimit != newAccount.httpUploadLimit) {
-        rec.append(createSqlField(QStringLiteral("httpUploadLimit"), newAccount.httpUploadLimit));
-    }
-    if (oldAccount.contactNotificationRule != newAccount.contactNotificationRule) {
-        rec.append(createSqlField(QStringLiteral("contactNotificationRule"), static_cast<int>(newAccount.contactNotificationRule)));
-    }
-    if (oldAccount.groupChatNotificationRule != newAccount.groupChatNotificationRule) {
-        rec.append(createSqlField(QStringLiteral("groupChatNotificationRule"), static_cast<int>(newAccount.groupChatNotificationRule)));
-    }
-    if (oldAccount.geoLocationMapPreviewEnabled != newAccount.geoLocationMapPreviewEnabled) {
-        rec.append(createSqlField(QStringLiteral("geoLocationMapPreviewEnabled"), newAccount.geoLocationMapPreviewEnabled));
-    }
-    if (oldAccount.geoLocationMapService != newAccount.geoLocationMapService) {
-        rec.append(createSqlField(QStringLiteral("geoLocationMapService"), static_cast<int>(newAccount.geoLocationMapService)));
-    }
+    SET_IF_NEW(credentials, QXmppCredentials);
+    SET_IF_NEW(host, QString);
+    SET_IF_NEW(port, quint16);
+    SET_IF_NEW(tlsErrorsIgnored, bool);
+    SET_IF_NEW(tlsRequirement, QXmppConfiguration::StreamSecurityMode);
+    SET_IF_NEW(passwordVisibility, Kaidan::PasswordVisibility);
+    SET_IF_NEW(userAgentDeviceId, QUuid);
+    SET_IF_NEW(encryption, Encryption::Enum);
+    SET_IF_NEW(automaticMediaDownloadsRule, Account::AutomaticMediaDownloadsRule);
+
+#undef SET_IF_NEW
 
     return rec;
 }

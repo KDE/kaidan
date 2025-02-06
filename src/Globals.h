@@ -14,22 +14,9 @@
 #include <QLatin1String>
 
 // Kaidan settings
-#define KAIDAN_SETTINGS_AUTH_ONLINE "auth/online"
-#define KAIDAN_SETTINGS_AUTH_JID "auth/jid"
-#define KAIDAN_SETTINGS_AUTH_JID_RESOURCE_PREFIX "auth/jidResourcePrefix"
-#define KAIDAN_SETTINGS_AUTH_PASSWD "auth/password"
-#define KAIDAN_SETTINGS_AUTH_CREDENTIALS "auth/credentials"
-#define KAIDAN_SETTINGS_AUTH_HOST "auth/host"
-#define KAIDAN_SETTINGS_AUTH_PORT "auth/port"
-#define KAIDAN_SETTINGS_AUTH_TLS_ERRORS_IGNORED "auth/tlsErrorsIgnored"
-#define KAIDAN_SETTINGS_AUTH_TLS_REQUIREMENT "auth/tlsRequirement"
-#define KAIDAN_SETTINGS_AUTH_PASSWD_VISIBILITY "auth/passwordVisibility"
-#define KAIDAN_SETTINGS_AUTH_DEVICE_ID "auth/userAgentDeviceId"
-#define KAIDAN_SETTINGS_ENCRYPTION "encryption"
 #define KAIDAN_SETTINGS_FAVORITE_EMOJIS "emojis/favorites"
 #define KAIDAN_SETTINGS_WINDOW_POSITION "window/position"
 #define KAIDAN_SETTINGS_WINDOW_SIZE "window/size"
-#define KAIDAN_SETTINGS_AUTOMATIC_MEDIA_DOWNLOADS_RULE "media/automaticDownloadsRule"
 #define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_CONTACT_ADDITION_QR_CODE_PAGE "explanationVisibility/contactAdditionQrCodePage"
 #define KAIDAN_SETTINGS_EXPLANATION_VISIBILITY_KEY_AUTHENTICATION_PAGE "explanationVisibility/keyAuthenticationPage"
 

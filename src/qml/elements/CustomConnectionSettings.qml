@@ -24,7 +24,7 @@ RowLayout {
 		id: hostField
 		labelText: qsTr("Hostname:")
 		placeholderText: "xmpp.example.org"
-		text: AccountManager.host
+		text: AccountManager.account.host
 		inputMethodHints: Qt.ImhUrlCharactersOnly
 		invalidHintText: qsTr("The hostname must not contain blank spaces")
 		invalidHintMayBeShown: true
@@ -54,7 +54,7 @@ RowLayout {
 			editable: true
 			from: AccountManager.portAutodetect
 			to: 65535
-			value: AccountManager.port
+			value: AccountManager.account.port
 			Layout.minimumWidth: 80
 
 			textFromValue: function(value, locale) {

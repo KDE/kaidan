@@ -34,7 +34,7 @@ Kirigami.GlobalDrawer {
 				}
 
 				InlineListView {
-					model: [ AccountManager.jid ]
+					model: [ AccountManager.account.jid ]
 					delegate: ColumnLayout {
 						spacing: 0
 						width: ListView.view.width
@@ -48,13 +48,13 @@ Kirigami.GlobalDrawer {
 							background: FormCard.FormDelegateBackground { control: accountArea }
 							leading: Avatar {
 								jid: modelData
-								name: AccountManager.displayName
+								name: AccountManager.account.displayName
 							}
 							leadingPadding: 10
-							// The placeholder text is used while "AccountManager.displayName"
+							// The placeholder text is used while "AccountManager.account.displayName"
 							// is not yet loaded to avoid a binding loop for the property
 							// "implicitHeight".
-							text: AccountManager.displayName ? AccountManager.displayName : " "
+							text: AccountManager.account.displayName ? AccountManager.account.displayName : " "
 							description: Kaidan.connectionStateText
 							descriptionItem {
 								color: connected ? Kirigami.Theme.positiveTextColor : Kirigami.Theme.textColor
@@ -209,8 +209,8 @@ Kirigami.GlobalDrawer {
 		id: groupChatCreationDialog
 
 		GroupChatCreationDialog {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
+			accountJid: AccountManager.account.jid
+			nickname: AccountManager.account.displayName
 		}
 	}
 
@@ -218,8 +218,8 @@ Kirigami.GlobalDrawer {
 		id: groupChatCreationPage
 
 		GroupChatCreationPage {
-			accountJid: AccountManager.jid
-			nickname: AccountManager.displayName
+			accountJid: AccountManager.account.jid
+			nickname: AccountManager.account.displayName
 		}
 	}
 

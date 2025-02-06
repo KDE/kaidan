@@ -23,7 +23,7 @@ ImageBackgroundPage {
 	 */
 	function requestRegistrationForm() {
 		// Set the provider's JID.
-		AccountManager.jid = provider
+		AccountManager.setNewAccountJid(provider)
 
 		// Request a registration form.
 		Kaidan.client.registrationManager.registrationFormRequested()

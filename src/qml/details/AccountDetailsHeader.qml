@@ -12,7 +12,7 @@ DetailsHeader {
 
 	property Kirigami.Dialog dialog
 
-	displayName: AccountManager.displayName
+	displayName: AccountManager.account.displayName
 	avatarAction: Kirigami.Action {
 		text: qsTr("Change your profile image")
 		icon.name: "camera-photo-symbolic"

@@ -14,6 +14,8 @@ class AccountDb : public DatabaseComponent
 {
     Q_OBJECT
 
+    friend class Database;
+
 public:
     AccountDb(Database *db, QObject *parent = nullptr);
     ~AccountDb();
@@ -22,17 +24,13 @@ public:
 
     QFuture<void> addAccount(const QString &jid);
     QFuture<Account> account(const QString &jid);
+    QFuture<Account> firstAccount();
     QFuture<void> updateAccount(const QString &jid, const std::function<void(Account &)> &updateAccount);
 
     /**
      * Fetches the stanza ID of the latest locally stored (existing or removed) message.
      */
     QFuture<QString> fetchLatestMessageStanzaId(const QString &jid);
-
-    /**
-     * Fetches the maximum size of each uploaded file (in bytes) allowed by the server.
-     */
-    QFuture<qint64> fetchHttpUploadLimit(const QString &jid);
 
     QFuture<void> removeAccount(const QString &jid);
 
