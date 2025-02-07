@@ -8,6 +8,7 @@
 This script updates the year in the copyright headers of files.
 
 It should be run every new year but not before because it uses the current year as the new one.
+It prints the modified files.
 """
 
 import logging
@@ -54,4 +55,6 @@ for searched_directory in SEARCHED_DIRECTORIES:
 			if new_content != old_content:
 				with open(node, "w") as file:
 					file.write(new_content)
-					logging.info("Updated %s" % node)
+					logging.debug("Updated %s", node)
+					if LOG_LEVEL == logging.INFO:
+					    print(node)
