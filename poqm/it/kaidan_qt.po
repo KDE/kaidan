@@ -1,8 +1,8 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Vincenzo Reale <smart2128vr@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Vincenzo Reale <smart2128vr@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2024-12-01 12:27+0100\n"
+"PO-Revision-Date: 2024-12-06 22:08+0100\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.08.3\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -363,17 +363,17 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "gg MMM alle hh:mm"
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 msgctxt "Message|"
 msgid "Location"
 msgstr "Posizione"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -418,44 +418,44 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr "Questo messaggio è cifrato con %1 ma non può essere decifrato"
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:300
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "In attesa"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:302
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Inviato"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:304
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Consegnato"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:306
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Errore"
 
-#: src/MessageModel.cpp:707 src/MessageModel.cpp:777
+#: src/MessageModel.cpp:652 src/MessageModel.cpp:722
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Impossibile inviare la reazione: %1"
 
-#: src/MessageModel.cpp:852
+#: src/MessageModel.cpp:797
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Impossibile inviare le reazioni: %1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1449
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Oggi"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1452
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Ieri"
@@ -1492,12 +1492,9 @@ msgid "Your contact has devices that are not verified"
 msgstr "Il tuo contatto ha dispositivi non verificati"
 
 #: src/qml/details/ContactKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "ContactKeyAuthenticationButton|"
-#| msgid "All your contact's devices are verified"
 msgctxt "ContactKeyAuthenticationButton|"
 msgid "All your contact's known devices are verified"
-msgstr "Tutti i dispositivi del tuo contatto sono verificati"
+msgstr "Tutti i dispositivi noti del tuo contatto sono verificati"
 
 #: src/qml/details/DetailsContent.qml:57
 msgctxt "DetailsContent|"
@@ -1842,12 +1839,9 @@ msgid "Some participants have devices that are not verified"
 msgstr "Alcuni partecipanti hanno dispositivi non verificati"
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:31
-#, fuzzy
-#| msgctxt "GroupChatUserKeyAuthenticationButton|"
-#| msgid "All participants' devices are verified"
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "All participants' known devices are verified"
-msgstr "Tutti i dispositivi dei partecipanti sono verificati"
+msgstr "Tutti i dispositivi noti dei partecipanti sono verificati"
 
 #: src/qml/details/MediaOverview.qml:71
 msgctxt "MediaOverview|"
@@ -2140,17 +2134,17 @@ msgstr ""
 "La fotocamera è occupata.\n"
 "Prova a chiudere le altre applicazioni che la utilizzano."
 
-#: src/qml/elements/ChatMessage.qml:204
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Spoiler"
 
-#: src/qml/elements/ChatMessage.qml:417
+#: src/qml/elements/ChatMessage.qml:425
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nuovo"
 
-#: src/qml/elements/ChatMessage.qml:445
+#: src/qml/elements/ChatMessage.qml:453
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"

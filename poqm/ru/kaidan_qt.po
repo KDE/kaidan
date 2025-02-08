@@ -394,12 +394,12 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr ""
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 #, fuzzy
 #| msgctxt "MediaUtils|"
 #| msgid "Location"
@@ -407,7 +407,7 @@ msgctxt "Message|"
 msgid "Location"
 msgstr "Карта"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -462,27 +462,27 @@ msgctxt "MessageController|"
 msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:300
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "Ожидает отправки"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:302
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Отправлено"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:304
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Доставлено"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:306
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Ошибка"
 
-#: src/MessageModel.cpp:707 src/MessageModel.cpp:777
+#: src/MessageModel.cpp:652 src/MessageModel.cpp:722
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -490,7 +490,7 @@ msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:852
+#: src/MessageModel.cpp:797
 #, fuzzy, qt-format
 #| msgctxt "MessageHandler|"
 #| msgid "Message could not be sent."
@@ -498,12 +498,12 @@ msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Не удалось отправить сообщение."
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1449
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr ""
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1452
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr ""
@@ -2610,17 +2610,17 @@ msgstr ""
 "Камера уже используется.\n"
 "Попробуйте закрыть приложения, использующие камеру."
 
-#: src/qml/elements/ChatMessage.qml:204
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Спойлер"
 
-#: src/qml/elements/ChatMessage.qml:417
+#: src/qml/elements/ChatMessage.qml:425
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr ""
 
-#: src/qml/elements/ChatMessage.qml:445
+#: src/qml/elements/ChatMessage.qml:453
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"

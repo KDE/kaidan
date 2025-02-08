@@ -1,9 +1,9 @@
-# SPDX-FileCopyrightText: 2022, 2023, 2024 Xavier Besnard <xavier.besnard@kde.org>
+# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Xavier Besnard <xavier.besnard@kde.org>
 # Xavier Besnard <xavier.besnard@kde.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: kaidan_qt\n"
-"PO-Revision-Date: 2024-12-07 10:25+0100\n"
+"PO-Revision-Date: 2025-01-22 15:01+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.11.90\n"
+"X-Generator: Lokalize 24.12.1\n"
 "X-Qt-Contexts: true\n"
 
 #: src/AbstractQrCodeGenerator.cpp:57
@@ -370,17 +370,17 @@ msgctxt "QObject|"
 msgid "dd MMM at hh:mm"
 msgstr "dd MMM à hh : mm"
 
-#: src/Message.cpp:396
+#: src/Message.cpp:355
 msgctxt "Message|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
 
-#: src/Message.cpp:406
+#: src/Message.cpp:365
 msgctxt "Message|"
 msgid "Location"
 msgstr "Emplacement"
 
-#: src/Message.cpp:449
+#: src/Message.cpp:452
 #, qt-format
 msgctxt "Message|"
 msgid "Invitation to group %1"
@@ -426,44 +426,44 @@ msgid "This message is encrypted with %1 but could not be decrypted"
 msgstr ""
 "Ce message est chiffré avec %1 mais il est impossible de le déchiffrer."
 
-#: src/MessageModel.cpp:299
+#: src/MessageModel.cpp:300
 msgctxt "MessageModel|"
 msgid "Pending"
 msgstr "En attente"
 
-#: src/MessageModel.cpp:301
+#: src/MessageModel.cpp:302
 msgctxt "MessageModel|"
 msgid "Sent"
 msgstr "Envoyé"
 
-#: src/MessageModel.cpp:303
+#: src/MessageModel.cpp:304
 msgctxt "MessageModel|"
 msgid "Delivered"
 msgstr "Livrés"
 
-#: src/MessageModel.cpp:305
+#: src/MessageModel.cpp:306
 msgctxt "MessageModel|"
 msgid "Error"
 msgstr "Erreur"
 
-#: src/MessageModel.cpp:707 src/MessageModel.cpp:777
+#: src/MessageModel.cpp:652 src/MessageModel.cpp:722
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reaction could not be sent: %1"
 msgstr "Il a été impossible d'envoyer une réaction : %1"
 
-#: src/MessageModel.cpp:852
+#: src/MessageModel.cpp:797
 #, qt-format
 msgctxt "MessageModel|"
 msgid "Reactions could not be sent: %1"
 msgstr "Il a été impossible d'envoyer des réactions : %1"
 
-#: src/MessageModel.cpp:1445
+#: src/MessageModel.cpp:1449
 msgctxt "MessageModel|"
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/MessageModel.cpp:1448
+#: src/MessageModel.cpp:1452
 msgctxt "MessageModel|"
 msgid "Yesterday"
 msgstr "Hier"
@@ -494,7 +494,7 @@ msgstr "Impossible de renommer le groupe %1 : %2"
 #: src/MixController.cpp:199
 msgctxt "MixController|"
 msgid "The group does not exist"
-msgstr "Le groupe n’existe pas."
+msgstr "Le groupe n'existe pas."
 
 #: src/MixController.cpp:202
 msgctxt "MixController|"
@@ -727,7 +727,7 @@ msgctxt "AccountDetailsContent|"
 msgid "Share this account's chat address via a web page with usage help"
 msgstr ""
 "Partager cette adresse de discussions de ce compte grâce à une page Internet "
-"avec aide à l’utilisation"
+"avec aide à l'utilisation"
 
 #: src/qml/details/AccountDetailsContent.qml:270
 msgctxt "AccountDetailsContent|"
@@ -1333,7 +1333,7 @@ msgctxt "ContactDetailsContent|"
 msgid "Share this contact's chat address via a web page with usage help"
 msgstr ""
 "Partager cette adresse de discussions de ce contact grâce à une page "
-"Internet avec aide à l’utilisation"
+"Internet avec aide à l'utilisation"
 
 #: src/qml/details/ContactDetailsContent.qml:99
 msgctxt "ContactDetailsContent|"
@@ -1673,7 +1673,7 @@ msgctxt "GroupChatDetailsContent|"
 msgid "Share this group's chat address via a web page with usage help"
 msgstr ""
 "Partager cette adresse de discussions de groupe grâce à une page Internet "
-"avec aide à l’utilisation"
+"avec aide à l'utilisation"
 
 #: src/qml/details/GroupChatDetailsContent.qml:333
 msgctxt "GroupChatDetailsContent|"
@@ -1833,7 +1833,7 @@ msgstr ""
 msgctxt "GroupChatUserKeyAuthenticationButton|"
 msgid "Verify the participants' devices for maximum security"
 msgstr ""
-"Vérifier les  périphériques des participants pour un niveau maximal  de "
+"Vérifier les périphériques des participants pour un niveau maximal de "
 "sécurité."
 
 #: src/qml/details/GroupChatUserKeyAuthenticationButton.qml:17
@@ -1924,7 +1924,7 @@ msgid ""
 "read or modify the data that is synchronized across your devices."
 msgstr ""
 "Le chiffrement de bout en bout avec le module « OMEMO 2 » vous garantit que "
-"personne en dehors de vous  ne peut lire ou modifier des données "
+"personne en dehors de vous ne peut lire ou modifier des données "
 "synchronisées entre vos périphériques."
 
 #: src/qml/details/NotesChatDetailsContent.qml:55
@@ -2174,17 +2174,17 @@ msgstr ""
 "Votre appareil photo est occupé.\n"
 "Veuillez essayer de fermer les autres applications l'utilisant."
 
-#: src/qml/elements/ChatMessage.qml:204
+#: src/qml/elements/ChatMessage.qml:207
 msgctxt "ChatMessage|"
 msgid "Spoiler"
 msgstr "Message inapproprié"
 
-#: src/qml/elements/ChatMessage.qml:417
+#: src/qml/elements/ChatMessage.qml:425
 msgctxt "ChatMessage|"
 msgid "New"
 msgstr "Nouveau"
 
-#: src/qml/elements/ChatMessage.qml:445
+#: src/qml/elements/ChatMessage.qml:453
 #, qt-format
 msgctxt "ChatMessage|"
 msgid "%1 has read up to this point"
@@ -3195,7 +3195,7 @@ msgstr "Disponible / publiée depuis"
 #: src/qml/registration/ProviderPage.qml:183
 msgctxt "ProviderPage|"
 msgid "Maximum size of shared media"
-msgstr "Taille maximale des media partagés"
+msgstr "Taille maximale des média partagés"
 
 #: src/qml/registration/ProviderPage.qml:188
 msgctxt "ProviderPage|"
@@ -3225,7 +3225,7 @@ msgstr "Demande d'inscription..."
 #: src/qml/registration/ProviderPage.qml:230
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr "Vous devez entrer un adresse de fournisseur"
+msgstr "Vous devez saisir un adresse de fournisseur"
 
 #: src/qml/registration/ProviderPage.qml:291
 msgctxt "ProviderPage|"
