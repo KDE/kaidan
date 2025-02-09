@@ -1,11 +1,19 @@
+# SPDX-FileCopyrightText: 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
+"Project-Id-Version: \n"
+"PO-Revision-Date: 2025-02-08 06:46+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
 "X-Language: he\n"
 "X-Qt-Contexts: true\n"
+"X-Generator: Lokalize 24.12.1\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -2767,12 +2775,9 @@ msgid "Joining group chat…"
 msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:27
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "GroupChatJoiningContent|"
 msgid "Address"
-msgstr "כתובת שיחה:"
+msgstr "כתובת"
 
 #: src/qml/elements/GroupChatJoiningContent.qml:29
 msgctxt "GroupChatJoiningContent|"
@@ -2790,12 +2795,10 @@ msgid "Nickname (optional):"
 msgstr ""
 
 #: src/qml/elements/GroupChatJoiningContent.qml:48
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "GroupChatJoiningContent|"
 msgid "The group %1 could not be joined%2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להצטרף לקבוצה %1%2"
 
 #: src/qml/elements/GroupChatJoiningDialog.qml:17
 msgctxt "GroupChatJoiningDialog|"
@@ -2808,12 +2811,9 @@ msgid "Join group chat"
 msgstr ""
 
 #: src/qml/elements/GroupChatParticipantPicker.qml:54
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "GroupChatParticipantPicker|"
 msgid "Invite contacts to this group…"
-msgstr "שינוי שם"
+msgstr "הזמנת אנשי קשר לקבוצה הזאת…"
 
 #: src/qml/elements/GroupChatUserKeyAuthenticationPage.qml:19
 #, fuzzy
@@ -2832,9 +2832,6 @@ msgid "Unverified participant devices"
 msgstr ""
 
 #: src/qml/elements/ImageCaptureDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Take picture"
 msgctxt "ImageCaptureDialog|"
 msgid "Take a picture"
 msgstr "צילום תמונה"
@@ -2851,10 +2848,9 @@ msgid "Show explanation"
 msgstr ""
 
 #: src/qml/elements/KeyAuthenticationPage.qml:28
-#, fuzzy
 msgctxt "KeyAuthenticationPage|"
 msgid "Scan QR codes"
-msgstr "סריקת קוד QR"
+msgstr "סריקת קודים מסוג QR"
 
 #: src/qml/elements/KeyAuthenticationPage.qml:39
 msgctxt "KeyAuthenticationPage|"
@@ -2893,39 +2889,26 @@ msgid "Fingerprint copied to clipboard"
 msgstr ""
 
 #: src/qml/elements/LoadingArea.qml:34
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "LoadingArea|"
 msgid "Loading…"
-msgstr "בהתחברות…"
+msgstr "בטעינה…"
 
 #: src/qml/elements/LoginArea.qml:26 src/qml/elements/LoginArea.qml:87
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "LoginArea|"
 msgid "Log in"
-msgstr "התחברות"
+msgstr "כניסה"
 
 #: src/qml/elements/LoginArea.qml:35
-#, fuzzy
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr "סריקת קוד QR"
+msgstr "סריקת קוד QR לכניסה"
 
 #: src/qml/elements/LoginArea.qml:54
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connection settings"
-msgstr "בהתחברות…"
+msgstr "הגדרות חיבור"
 
 #: src/qml/elements/LoginArea.qml:88
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "LoginArea|"
 msgid "Connecting…"
 msgstr "בהתחברות…"
@@ -2936,12 +2919,9 @@ msgid "Description"
 msgstr ""
 
 #: src/qml/elements/MediumSendingPreview.qml:50
-#, fuzzy
-#| msgctxt "LocalAccountRemoval|"
-#| msgid "Remove"
 msgctxt "MediumSendingPreview|"
 msgid "Remove file"
-msgstr "הסרה"
+msgstr "הסרת קובץ"
 
 #: src/qml/elements/MessageBackground.qml:106
 msgctxt "MessageBackground|"
@@ -2974,20 +2954,14 @@ msgid "Will be removed once you are connected"
 msgstr ""
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:124
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be added"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להוסיף"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:129
-#, fuzzy
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
 msgctxt "MessageReactionDisplayButton|"
 msgid "Could not be removed"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להסיר"
 
 #: src/qml/elements/MessageReactionDisplayButton.qml:133
 msgctxt "MessageReactionDisplayButton|"
@@ -3045,12 +3019,9 @@ msgid "Making trust decisions…"
 msgstr ""
 
 #: src/qml/elements/QrCodeScanningArea.qml:113
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "QrCodeScanningArea|"
 msgid "Adding contact…"
-msgstr "שינוי שם"
+msgstr "הוספת איש קשר…"
 
 #: src/qml/elements/ReferencedMessage.qml:80
 msgctxt "ReferencedMessage|"
@@ -3058,12 +3029,9 @@ msgid "Me"
 msgstr ""
 
 #: src/qml/elements/ReferencedMessage.qml:96
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ReferencedMessage|"
 msgid "Location"
-msgstr "שליחת מיקום"
+msgstr "מקום"
 
 #: src/qml/elements/ReferencedMessage.qml:99
 msgctxt "ReferencedMessage|"
@@ -3071,20 +3039,14 @@ msgid "Media"
 msgstr ""
 
 #: src/qml/elements/RosterFilteringArea.qml:27
-#, fuzzy
-#| msgctxt "NewMedia|"
-#| msgid "Unavailable"
 msgctxt "RosterFilteringArea|"
 msgid "Unavailable contacts"
-msgstr "לא זמין/ה"
+msgstr "אנשי קשר שאינם זמינים"
 
 #: src/qml/elements/RosterFilteringArea.qml:31
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "RosterFilteringArea|"
 msgid "Available contacts"
-msgstr "שינוי שם"
+msgstr "אנשי קשר זמינים"
 
 #: src/qml/elements/RosterFilteringArea.qml:35
 msgctxt "RosterFilteringArea|"
@@ -3092,20 +3054,14 @@ msgid "Private groups"
 msgstr ""
 
 #: src/qml/elements/RosterFilteringArea.qml:39
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "RosterFilteringArea|"
 msgid "Public groups"
-msgstr "חיפוש"
+msgstr "קבוצות ציבוריות"
 
 #: src/qml/elements/RosterFilteringArea.qml:52
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by type"
-msgstr "מחיקה"
+msgstr "סינון לפי סוג"
 
 #: src/qml/elements/RosterFilteringArea.qml:53
 msgctxt "RosterFilteringArea|"
@@ -3113,12 +3069,9 @@ msgid "Show only entries of specific types"
 msgstr ""
 
 #: src/qml/elements/RosterFilteringArea.qml:115
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterFilteringArea|"
 msgid "Filter by accounts"
-msgstr "מחיקה"
+msgstr "סינון לפי חשבונות"
 
 #: src/qml/elements/RosterFilteringArea.qml:116
 msgctxt "RosterFilteringArea|"
@@ -3136,20 +3089,14 @@ msgid "Show only chats with selected labels"
 msgstr ""
 
 #: src/qml/elements/RosterListItem.qml:83
-#, fuzzy
-#| msgctxt "RosterRemoveContactSheet|"
-#| msgid "Delete"
 msgctxt "RosterListItem|"
 msgid "Deleted"
-msgstr "מחיקה"
+msgstr "נמחקה"
 
 #: src/qml/elements/RosterListItem.qml:101
-#, fuzzy
-#| msgctxt "ChatMessageContextMenu|"
-#| msgid "Copy message"
 msgctxt "RosterListItem|"
 msgid "No messages yet"
-msgstr "העתקת ההודעה"
+msgstr "אין הודעות עדיין"
 
 #: src/qml/elements/RosterListItem.qml:117
 msgctxt "RosterListItem|"
@@ -3178,28 +3125,20 @@ msgid "Pin"
 msgstr ""
 
 #: src/qml/elements/SearchBarPage.qml:28
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "SearchBarPage|"
 msgid "Search"
 msgstr "חיפוש"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:20
-#, fuzzy, qt-format
-#| msgctxt "ChatPage|"
-#| msgid "Search"
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Search public groups (%1)"
-msgstr "חיפוש"
+msgstr "חיפוש בקבוצות ציבוריות (%1)"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:72
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "Downloading…"
-msgstr "בהתחברות…"
+msgstr "מתבצעת הורדה…"
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:97
 msgctxt "SearchPublicGroupChatDialog|"
@@ -3207,25 +3146,17 @@ msgid "Retry"
 msgstr ""
 
 #: src/qml/elements/SearchPublicGroupChatDialog.qml:181
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "SearchPublicGroupChatDialog|"
 msgid "The public groups could not be retrieved: %1"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן למשוך את הקבוצות הציבוריות: %1"
 
 #: src/qml/elements/UrlFormButtonDelegate.qml:24
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "UrlFormButtonDelegate|"
 msgid "Copy web address"
-msgstr "כתובת שיחה:"
+msgstr "העתקת כתובת"
 
 #: src/qml/elements/VideoRecordingDialog.qml:17
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Record video"
 msgctxt "VideoRecordingDialog|"
 msgid "Record a video"
 msgstr "הקלטת סרטון"
@@ -3236,12 +3167,9 @@ msgid "Select a chat to start"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:33
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "GlobalDrawer|"
 msgid "Accounts"
-msgstr "אבטחת החשבון"
+msgstr "חשבונות"
 
 #: src/qml/GlobalDrawer.qml:105
 msgctxt "GlobalDrawer|"
@@ -3254,12 +3182,9 @@ msgid "Add contact by QR code"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:115
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "GlobalDrawer|"
 msgid "Add contact by chat address"
-msgstr "כתובת שיחה:"
+msgstr "הוספת פרטי קשר לפי כתובת צ׳אט"
 
 #: src/qml/GlobalDrawer.qml:121
 msgctxt "GlobalDrawer|"
@@ -3272,12 +3197,9 @@ msgid "Join group"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:136
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Search"
 msgctxt "GlobalDrawer|"
 msgid "Search public groups"
-msgstr "חיפוש"
+msgstr "חיפוש בקבוצות ציבוריות"
 
 #: src/qml/GlobalDrawer.qml:147
 msgctxt "GlobalDrawer|"
@@ -3285,7 +3207,6 @@ msgid "Switch device"
 msgstr ""
 
 #: src/qml/GlobalDrawer.qml:153
-#, fuzzy
 msgctxt "GlobalDrawer|"
 msgid "About"
 msgstr "על אודות"
@@ -3314,13 +3235,11 @@ msgid "Could not unblock %1: %2"
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:23
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan a QR Code"
 msgstr "סריקת קוד QR"
 
 #: src/qml/QrCodeOnboardingPage.qml:25
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan QR code"
 msgstr "סריקת קוד QR"
@@ -3331,10 +3250,9 @@ msgid "Show explanation"
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:42
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Scan your old device's QR code"
-msgstr "סריקת קוד QR"
+msgstr "נא לסרוק את קוד ה־QR של המכשיר הישן שלך"
 
 #: src/qml/QrCodeOnboardingPage.qml:90
 msgctxt "QrCodeOnboardingPage|"
@@ -3342,7 +3260,6 @@ msgid "This QR code is not a valid login QR code."
 msgstr ""
 
 #: src/qml/QrCodeOnboardingPage.qml:97
-#, fuzzy
 msgctxt "QrCodeOnboardingPage|"
 msgid "Connecting…"
 msgstr "בהתחברות…"
@@ -3363,12 +3280,9 @@ msgid "Complete the registration!"
 msgstr ""
 
 #: src/qml/registration/CustomDataFormArea.qml:25
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "CustomDataFormArea|"
 msgid "Enter additional information"
-msgstr "שליחת מיקום"
+msgstr "נא למלא פרטים נוספים"
 
 #: src/qml/registration/CustomDataFormArea.qml:29
 msgctxt "CustomDataFormArea|"
@@ -3391,12 +3305,9 @@ msgid "Complete the registration form!"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:61
-#, fuzzy
-#| msgctxt "ChangePassword|"
-#| msgid "Current password:"
 msgctxt "ManualRegistrationPage|"
 msgid "Enter your desired credentials"
-msgstr "הססמה הנוכחית:"
+msgstr "נא למלא את פרטי הגישה הרצויים"
 
 #: src/qml/registration/ManualRegistrationPage.qml:68
 msgctxt "ManualRegistrationPage|"
@@ -3404,12 +3315,9 @@ msgid "Display Name"
 msgstr ""
 
 #: src/qml/registration/ManualRegistrationPage.qml:76
-#, fuzzy
-#| msgctxt "RosterRenameContactSheet|"
-#| msgid "Rename"
 msgctxt "ManualRegistrationPage|"
 msgid "Username"
-msgstr "שינוי שם"
+msgstr "שם משתמש"
 
 #: src/qml/registration/ManualRegistrationPage.qml:80
 msgctxt "ManualRegistrationPage|"
@@ -3432,12 +3340,9 @@ msgid "A new random username has been generated."
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:22
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose video"
 msgctxt "ProviderPage|"
 msgid "Choose a Provider"
-msgstr "בחירת סרטון"
+msgstr "נא לבחור ספק"
 
 #: src/qml/registration/ProviderPage.qml:39
 msgctxt "ProviderPage|"
@@ -3445,28 +3350,19 @@ msgid "Choose a provider to register!"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:110
-#, fuzzy
-#| msgctxt "AccountTransferPage|"
-#| msgid "Chat address:"
 msgctxt "ProviderPage|"
 msgid "Provider Address"
-msgstr "כתובת שיחה:"
+msgstr "כתובת ספק"
 
 #: src/qml/registration/ProviderPage.qml:123
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "ProviderPage|"
 msgid "Connection settings"
-msgstr "בהתחברות…"
+msgstr "הגדרות חיבור"
 
 #: src/qml/registration/ProviderPage.qml:171
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "ProviderPage|"
 msgid "Server locations"
-msgstr "שליחת מיקום"
+msgstr "מקומות שרת"
 
 #: src/qml/registration/ProviderPage.qml:176
 msgctxt "ProviderPage|"
@@ -3499,12 +3395,9 @@ msgid "Open the provider's details web page"
 msgstr ""
 
 #: src/qml/registration/ProviderPage.qml:210
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Choose file"
 msgctxt "ProviderPage|"
 msgid "Choose"
-msgstr "בחירת קובץ"
+msgstr "בחירה"
 
 #: src/qml/registration/ProviderPage.qml:211
 msgctxt "ProviderPage|"
@@ -3527,12 +3420,9 @@ msgid "You are temporarily blocked: "
 msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:24
-#, fuzzy
-#| msgctxt "MediaUtils|"
-#| msgid "Send location"
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr "שליחת מיקום"
+msgstr "כניסה לאחר אימות הדוא״ל"
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
@@ -3540,20 +3430,14 @@ msgid "Register"
 msgstr ""
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "התחברות"
+msgstr "מתבצעת כניסה…"
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "GlobalDrawer|"
-#| msgid "Connecting…"
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "בהתחברות…"
+msgstr "מתבצע רישום…"
 
 #: src/qml/registration/RegistrationPage.qml:58
 msgctxt "RegistrationPage|"
@@ -3619,12 +3503,9 @@ msgid "Filter"
 msgstr ""
 
 #: src/qml/StartPage.qml:26
-#, fuzzy
-#| msgctxt "AccountSecurity|"
-#| msgid "Account Security"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "אבטחת החשבון"
+msgstr "הסבת חשבון"
 
 #: src/qml/StartPage.qml:56
 msgctxt "StartPage|"
@@ -3739,12 +3620,10 @@ msgid "Notes"
 msgstr ""
 
 #: src/RosterManager.cpp:191
-#, fuzzy, qt-format
-#| msgctxt "MessageHandler|"
-#| msgid "Message could not be sent."
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "לא היה ניתן לשלוח את ההודעה."
+msgstr "לא ניתן להוסיף את %1: %2"
 
 #: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
@@ -3797,7 +3676,6 @@ msgid "Nickname"
 msgstr ""
 
 #: src/VCardModel.cpp:119
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "על אודות"

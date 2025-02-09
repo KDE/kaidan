@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"PO-Revision-Date: 2025-01-25 14:01+0100\n"
+"PO-Revision-Date: 2025-02-08 11:27+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -114,7 +114,7 @@ msgstr ""
 #: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
 msgid "Refuse"
-msgstr ""
+msgstr "Errefusatu"
 
 #: src/ChatHintModel.cpp:319
 msgctxt "ChatHintModel|"
@@ -3345,12 +3345,9 @@ msgstr ""
 #: src/qml/registration/ProviderPage.qml:196
 msgctxt "ProviderPage|"
 msgid "Open the provider's details web page"
-msgstr ""
+msgstr "Ireki hornitzailearen xehetasun web orria"
 
 #: src/qml/registration/ProviderPage.qml:210
-#, fuzzy
-#| msgctxt "ChatPage|"
-#| msgid "Select a file"
 msgctxt "ProviderPage|"
 msgid "Choose"
 msgstr "Aukeratu"
@@ -3358,85 +3355,78 @@ msgstr "Aukeratu"
 #: src/qml/registration/ProviderPage.qml:211
 msgctxt "ProviderPage|"
 msgid "Requesting registration…"
-msgstr ""
+msgstr "Erregistratzea eskatzen..."
 
 #: src/qml/registration/ProviderPage.qml:237
 msgctxt "ProviderPage|"
 msgid "You must enter a provider address"
-msgstr ""
+msgstr "Hornitzailearen helbide bat sartu behar duzu"
 
 #: src/qml/registration/ProviderPage.qml:299
-#, fuzzy
 msgctxt "ProviderPage|"
 msgid "The provider does not support registration via this app."
-msgstr "Zerbitzariak ez du konexio segururik onartzen."
+msgstr "Hornitzaileak ez du aplikazio honen bidez erregistratzea onartzen."
 
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "Aldi baterako oztopoa duzu:"
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
 msgid "Log in after email confirmation"
-msgstr ""
+msgstr "Saioan sartu e-posta baieztatu ondoren"
 
 #: src/qml/registration/RegistrationButton.qml:24
-#, fuzzy
 msgctxt "RegistrationButton|"
 msgid "Register"
 msgstr "Erregistratu"
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in"
 msgctxt "RegistrationButton|"
 msgid "Logging in…"
-msgstr "Saioa hasten..."
+msgstr "Saioan sartzen..."
 
 #: src/qml/registration/RegistrationButton.qml:25
-#, fuzzy
 msgctxt "RegistrationButton|"
 msgid "Registering…"
-msgstr "Konektatzen…"
+msgstr "Erregistratzen…"
 
 #: src/qml/registration/RegistrationPage.qml:58
 msgctxt "RegistrationPage|"
 msgid "CAPTCHA input was wrong"
-msgstr ""
+msgstr "CAPTCHA sarrera okerra izan da"
 
 #: src/qml/registration/RegistrationPage.qml:67
 msgctxt "RegistrationPage|"
 msgid "Required information is missing: "
-msgstr ""
+msgstr "Beharrezko informazioa falta da:"
 
 #: src/qml/registration/RegistrationPage.qml:76
-#, fuzzy
 msgctxt "RegistrationPage|"
 msgid "Registration failed:"
-msgstr "Erregistratzeak huts egin du: %1"
+msgstr "Erregistratzeak huts egin du:"
 
 #: src/qml/registration/WebRegistrationPage.qml:26
 msgctxt "WebRegistrationPage|"
 msgid "Web Registration"
-msgstr ""
+msgstr "Web bidez erregistratzea"
 
 #: src/qml/registration/WebRegistrationPage.qml:30
 msgctxt "WebRegistrationPage|"
 msgid "Register via the provider's website!"
-msgstr ""
+msgstr "Erregistratu hornitzailearen webgunearen bidez!"
 
 #: src/qml/registration/WebRegistrationPage.qml:50
 msgctxt "WebRegistrationPage|"
 msgid "Step 1: Register account"
-msgstr ""
+msgstr "1. urratsa: Kontua erregistratu"
 
 #: src/qml/registration/WebRegistrationPage.qml:54
-#, fuzzy
 msgctxt "WebRegistrationPage|"
 msgid "The selected provider only supports web registration"
-msgstr "Zerbitzariak ez du konexio segururik onartzen."
+msgstr ""
+"Aukeratutako hornitzaileak web bidez erregistratzea besterik ez du onartzen"
 
 #: src/qml/registration/WebRegistrationPage.qml:55
 msgctxt "WebRegistrationPage|"
@@ -3444,47 +3434,41 @@ msgid ""
 "After creating an account via the provider's website, you can log in via "
 "Kaidan"
 msgstr ""
+"Hornitzailearen webgunearen bidez kontu bat sortu ondoren, Kaidan erabiliz "
+"saioan sar zaitezke"
 
 #: src/qml/registration/WebRegistrationPage.qml:60
 msgctxt "WebRegistrationPage|"
 msgid "Visit registration page"
-msgstr ""
+msgstr "Bisitatu erregistratzeko orria"
 
 #: src/qml/registration/WebRegistrationPage.qml:61
 msgctxt "WebRegistrationPage|"
 msgid "Open the provider's registration web page"
-msgstr ""
+msgstr "Ireki hornitzailearen erregistratzeko web-orrian"
 
 #: src/qml/registration/WebRegistrationPage.qml:71
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Log in to your XMPP account"
 msgctxt "WebRegistrationPage|"
 msgid "Step 2: Log in with your registered account"
-msgstr "Hasi saioa zure XMPP kontuan"
+msgstr "2. urratsa: Saioan sartu erregistratutako zure konturekin"
 
 #: src/qml/RosterPage.qml:25 src/qml/RosterPage.qml:35
 #: src/qml/RosterPage.qml:48
-#, fuzzy
 msgctxt "RosterPage|"
 msgid "Filter"
 msgstr "Iragazkia"
 
 #: src/qml/StartPage.qml:26
-#, fuzzy
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
 msgctxt "StartPage|"
 msgid "Account Migration"
-msgstr "Konektatzen…"
+msgstr "Kontua migratzea"
 
 #: src/qml/StartPage.qml:56
 msgctxt "StartPage|"
 msgid "Enjoy free communication on every device!"
-msgstr ""
+msgstr "Gozatu komunikazio askeaz gailu guztietan!"
 
 #: src/qml/StartPage.qml:120
-#, fuzzy
 msgctxt "StartPage|"
 msgid "Register"
 msgstr "Erregistratu"
@@ -3492,37 +3476,34 @@ msgstr "Erregistratu"
 #: src/qml/StartPage.qml:124
 msgctxt "StartPage|"
 msgid "Generate account automatically"
-msgstr ""
+msgstr "Kontua automatikoki sortu"
 
 #: src/qml/StartPage.qml:129
 msgctxt "StartPage|"
 msgid "Create account manually"
-msgstr ""
+msgstr "Kontua eskuz sortu"
 
 #: src/QmlUtils.cpp:88
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Invalid username or password."
-msgstr "Erabiltzaile-izen edo pasahitz baliogabea"
+msgstr "Erabiltzaile-izen edo pasahitz baliogabea."
 
 #: src/QmlUtils.cpp:90
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Cannot connect to the server. Please check your internet connection."
 msgstr ""
-"Ezin da zerbitzarira konektatu. Mesedez egiaztatu zure internet konexioa."
+"Ezin du zerbitzariarekin konektatu. Mesedez, egiaztatu zure Interneterako "
+"konexioa."
 
 #: src/QmlUtils.cpp:92
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Error while trying to connect securely."
-msgstr "Akatsa segurtasunez konektatzerakoan."
+msgstr "Errorea era seguruan konektatzen saiatzean."
 
 #: src/QmlUtils.cpp:94
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "The server doesn't support secure connections."
-msgstr "Zerbitzariak ez du konexio segururik onartzen."
+msgstr "Zerbitzariak ez ditu konexio seguruak onartzen."
 
 #: src/QmlUtils.cpp:96
 msgctxt "QmlUtils|"
@@ -3530,22 +3511,23 @@ msgid ""
 "Could not connect to the server. Please check your internet connection or "
 "your server name."
 msgstr ""
+"Ezin izan du zerbitzariarekin konektatu. Mesedez, egiaztatu Interneterako "
+"zure konexioa edo zure zerbitzariaren izena."
 
 #: src/QmlUtils.cpp:98
 msgctxt "QmlUtils|"
 msgid "The server is offline or blocked by a firewall."
-msgstr ""
+msgstr "Zerbitzaria lerroz kanpo dago edo suhesiak oztopatzen du."
 
 #: src/QmlUtils.cpp:100
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Authentification protocol not supported by the server."
-msgstr "Autentifikazio protokoloa ez da zerbitzariarekin bateragarria."
+msgstr "Zerbitzariak ez du onartzen autentifikazio protokoloa."
 
 #: src/QmlUtils.cpp:102
 msgctxt "QmlUtils|"
 msgid "The connection could not be refreshed."
-msgstr ""
+msgstr "Ezin izan du konexioa berritu."
 
 #: src/QmlUtils.cpp:104
 msgctxt "QmlUtils|"
@@ -3553,75 +3535,74 @@ msgid ""
 "The internet access is not permitted. Please check your system's internet "
 "access configuration."
 msgstr ""
+"Interneterako sarbidea ez dago baimenduta. Mesedez, egiaztatu zure "
+"sistemaren interneterako sarbidearen konfigurazioa."
 
 #: src/QmlUtils.cpp:106
 msgctxt "QmlUtils|"
 msgid "This server does not support registration."
-msgstr ""
+msgstr "Zerbitzari honek ez du erregistratzea onartzen."
 
 #: src/QmlUtils.cpp:108
 msgctxt "QmlUtils|"
 msgid "Could not log in. Confirm the email message you received first."
 msgstr ""
+"Ezin izan du saioan sartu. Aurrena, baieztatu jaso duzun e-posta mezua."
 
 #: src/QmlUtils.cpp:110
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Could not connect to the server."
-msgstr "Ezin da INDI zerbitzaria abiatu: ataka errorea."
+msgstr "Ezin izan du zerbitzarira konektatu."
 
 #: src/QmlUtils.cpp:257
-#, fuzzy
 msgctxt "QmlUtils|"
 msgid "Unknown size"
 msgstr "Neurri ezezaguna"
 
 #: src/QmlUtils.cpp:279
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is online"
-msgstr "%1 linean dago."
+msgstr "%1 lerroan dago"
 
 #: src/QmlUtils.cpp:281
-#, fuzzy, qt-format
+#, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 is typing…"
-msgstr "%2 tekleatzen ari da"
+msgstr "%1 tekleatzen ari da..."
 
 #: src/QmlUtils.cpp:283
 #, qt-format
 msgctxt "QmlUtils|"
 msgid "%1 paused typing"
-msgstr ""
+msgstr "%1(e)k tekleatzeari utzi dio"
 
 #: src/RosterItem.cpp:36
-#, fuzzy
 msgctxt "QObject|"
 msgid "Notes"
 msgstr "Oharrak"
 
 #: src/RosterManager.cpp:191
-#, fuzzy, qt-format
-#| msgctxt "LoginPage|"
-#| msgid "Connecting…"
+#, qt-format
 msgctxt "RosterManager|"
 msgid "%1 could not be added: %2"
-msgstr "«*» ezin izan da gehitu."
+msgstr "Ezin izan da %1 gehitu: %2"
 
 #: src/RosterManager.cpp:200
 msgctxt "RosterManager|"
 msgid "Could not add contact, as a result of not being connected."
-msgstr "Ezin izan da kontaktua gehitu, konektaturik ez zaudelako."
+msgstr "Ezin izan du kontaktua gehitu, konektatu gabe egotearen ondorioz."
 
 #: src/RosterManager.cpp:211
 msgctxt "RosterManager|"
 msgid "Could not remove contact, as a result of not being connected."
-msgstr "Ezin izan da kontaktua ezabatu, konektaturik ez zaudelako."
+msgstr "Ezin izan du kontaktua ezabatu, konektatu gabe egotearen ondorioz."
 
 #: src/RosterManager.cpp:222
 msgctxt "RosterManager|"
 msgid "Could not rename contact, as a result of not being connected."
 msgstr ""
+"Ezin izan du kontaktua berrizendatu, konektatu gabe egotearen ondorioz."
 
 #: src/RosterManager.cpp:233
 #, qt-format
@@ -3630,39 +3611,37 @@ msgid ""
 "Requesting to see the personal data of %1 failed because of a connection "
 "problem: %2"
 msgstr ""
+"%1(e)ren datu pertsonalak ikusteko eskaera egitea huts egin du, konexio "
+"arazo baten ondorioz: %2"
 
 #: src/RosterManager.cpp:244
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Allowing %1 to see your personal data failed"
-msgstr ""
+msgstr "%1(e)ri zure datu pertsonalak ikustea baimentzea huts egin du"
 
 #: src/RosterManager.cpp:255
 #, qt-format
 msgctxt "RosterManager|"
 msgid "Stopping %1 to see your personal data failed"
-msgstr ""
+msgstr "%1(e)ri zure datu pertsonalak ikustea geldiaraztea huts egin du"
 
 #: src/RosterModel.cpp:858
-#, fuzzy
 msgctxt "RosterModel|"
 msgid "Yesterday"
 msgstr "Atzo"
 
 #: src/VCardModel.cpp:117
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "Name"
 msgstr "Izena"
 
 #: src/VCardModel.cpp:118
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "Nickname"
 msgstr "Goitizena"
 
 #: src/VCardModel.cpp:119
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "About"
 msgstr "Honi buruz"
@@ -3670,16 +3649,14 @@ msgstr "Honi buruz"
 #: src/VCardModel.cpp:120
 msgctxt "VCardModel|"
 msgid "Email"
-msgstr "Posta elektronikoa"
+msgstr "E-posta"
 
 #: src/VCardModel.cpp:121
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "Birthday"
-msgstr "Urtebetetzea"
+msgstr "Jaioteguna"
 
 #: src/VCardModel.cpp:128
-#, fuzzy
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "Webgunea"
