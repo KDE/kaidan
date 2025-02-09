@@ -31,7 +31,7 @@ DetailsHeader {
 
 	function handleDisplayNameChanged() {
 		if (Kaidan.connectionState === Enums.StateConnected) {
-			Kaidan.client.vCardManager.clientVCardRequested(root.jid)
+			Kaidan.client.vCardManager.clientVCardRequested()
 		}
 	}
 }
