@@ -48,7 +48,9 @@ inline QXmppTask<void> makeReadyTask()
 template<typename T, typename Handler>
 void await(const QFuture<T> &future, QObject *context, Handler handler)
 {
-    auto *watcher = new QFutureWatcher<T>(context);
+    auto *watcher = new QFutureWatcher<T>();
+    watcher->moveToThread(context->thread());
+    watcher->setParent(context);
     QObject::connect(watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
         if constexpr (std::is_same_v<T, void> || std::is_invocable<Handler>::value) {
             handler();
@@ -67,7 +69,9 @@ void await(Runner *runner, Functor function, QObject *context, Handler handler)
     // function() returns QFuture<T>, we get T by using QFutureValueType
     using Result = QFutureValueType<std::invoke_result_t<Functor>>;
 
-    auto *watcher = new QFutureWatcher<Result>(context);
+    auto *watcher = new QFutureWatcher<Result>();
+    watcher->moveToThread(context->thread());
+    watcher->setParent(context);
     QObject::connect(watcher, &QFutureWatcherBase::finished, context, [watcher, handler = std::move(handler)]() mutable {
         if constexpr (std::is_same_v<Result, void> || std::is_invocable<Handler>::value) {
             handler();
