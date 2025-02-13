@@ -12,8 +12,8 @@ msgstr ""
 "X-Crowdin-Project: kdeorg\n"
 "X-Crowdin-Project-ID: 269464\n"
 "X-Crowdin-Language: zh-CN\n"
-"X-Crowdin-File: /kf5-trunk/messages/kaidan/kaidan_qt.pot\n"
-"X-Crowdin-File-ID: 26946\n"
+"X-Crowdin-File: /kf6-trunk/messages/kaidan/kaidan_qt.pot\n"
+"X-Crowdin-File-ID: 57154\n"
 
 #: src/AbstractQrCodeGenerator.cpp:51
 #, qt-format
@@ -2518,7 +2518,7 @@ msgstr "登录"
 #: src/qml/elements/LoginArea.qml:35
 msgctxt "LoginArea|"
 msgid "Scan login QR code"
-msgstr ""
+msgstr "扫描登录二维码"
 
 #: src/qml/elements/LoginArea.qml:54
 msgctxt "LoginArea|"
@@ -3034,7 +3034,7 @@ msgstr "提供者不支持通过此应用注册。"
 #: src/qml/registration/ProviderPage.qml:302
 msgctxt "ProviderPage|"
 msgid "You are temporarily blocked: "
-msgstr ""
+msgstr "您被暂时屏蔽："
 
 #: src/qml/registration/RegistrationButton.qml:24
 msgctxt "RegistrationButton|"
@@ -3311,7 +3311,3 @@ msgstr "生日"
 msgctxt "VCardModel|"
 msgid "Website"
 msgstr "网站"
-
-#~ msgctxt "AvatarChangePage|"
-#~ msgid "Choose profile image"
-#~ msgstr "选择个人资料照片"
