@@ -18,7 +18,6 @@
         "--env=LD_LIBRARY_PATH=/usr/lib/"
     ],
     "separate-locales": false,
-
     "modules": [
         {
             "name": "kirigami-addons",
@@ -37,8 +36,9 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://invent.kde.org/libraries/kquickimageeditor.git"
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/kquickimageeditor/kquickimageeditor-0.4.0.tar.xz",
+                    "sha256": "d853894811d350fae499c67ebaafb2cc252d3c818b89fcf71757bc34f541a3fb"
                 }
             ]
         },
@@ -47,8 +47,9 @@
             "buildsystem": "cmake-ninja",
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://invent.kde.org/frameworks/prison.git"
+                    "type": "archive",
+                    "url": "https://download.kde.org/stable/frameworks/6.6/prison-6.6.0.tar.xz",
+                    "sha256": "d8baf33252cf2bb431f8048c459a0a0c4b72ce6a7c2f5e7325ad2df7ca74ba5c"
                 }
             ]
         },
@@ -78,7 +79,7 @@
         {
             "name": "qxmpp",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON", "-DQT_VERSION_MAJOR=6"],
+            "config-opts": ["-DQT_VERSION_MAJOR=6", "-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON"],
             "sources": [
                 {
                     "type": "git",
@@ -90,7 +91,6 @@
         {
             "name": "kaidan",
             "buildsystem": "cmake-ninja",
-            "config-opts": ["-DQUICK_COMPILER=0"],
             "sources": [
                 {
                     "type": "dir",
