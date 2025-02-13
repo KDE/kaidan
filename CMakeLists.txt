@@ -52,7 +52,6 @@ option(BUILD_TESTS "Build unit tests" FALSE)
 option(APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
 option(UBUNTU_TOUCH "Building an Ubuntu Touch click (internal use only!)" FALSE)
 option(CLICK_ARCH "Architecture that will be used in the click's manifest")
-option(CLICK_DATE "Date used in the version number in the click's manifest")
 option(QUICK_COMPILER "Use QtQuick compiler to improve performance" FALSE)
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
 option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
@@ -158,11 +157,6 @@ elseif(IOS)
 endif()
 
 if(UBUNTU_TOUCH AND CLICK_ARCH)
-    set(CLICK_VERSION ${VERSION_STRING})
-    if(DEVELOPMENT_BUILD)
-        set(CLICK_VERSION "${CLICK_VERSION}.${CLICK_DATE}")
-    endif()
-
     # will replace ${CLICK_ARCH} with its value
     configure_file(${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json.in
                    ${CMAKE_SOURCE_DIR}/misc/ubuntu-touch/manifest.json)
