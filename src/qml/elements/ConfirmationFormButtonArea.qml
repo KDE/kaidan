@@ -52,7 +52,7 @@ ColumnLayout {
 			// direct child of FormCard.FormCard.
 			corners {
 				bottomLeftRadius: root._bottomCornersRounded ? Kirigami.Units.smallSpacing : 0
-				bottomRightRadius: corners.bottomLeftRadius
+				bottomRightRadius: root._bottomCornersRounded ? Kirigami.Units.smallSpacing : 0
 			}
 		}
 	}
