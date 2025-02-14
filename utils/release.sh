@@ -432,6 +432,35 @@ finalize_release() {
     announce_release
 }
 
+clear_working_directory() {
+    initial_branch=$(git branch --show-current)
+    stashed="false"
+
+    if [ $(git diff --name-only) ]
+    then
+        git stash -u
+        stashed="true"
+    fi
+}
+
+restore_working_directory() {
+    cd "${kaidan_root_directory}"
+
+    set +e
+    git rebase --abort &> /dev/null
+    git merge --abort &> /dev/null
+    set -e
+
+    git clean -df
+    git restore -SW .
+    git checkout "${initial_branch}"
+
+    if [ "${stashed}" = "true" ]
+    then
+        git stash apply
+    fi
+}
+
 initialize() {
     # Reset an old temporary directory in case of any previous error.
     rm -fr "${temporary_data_directory}"
@@ -447,12 +476,7 @@ initialize() {
     set -x
 
     cd "${kaidan_root_directory}"
-
-    # Clear the current working directory.
-    initial_branch=$(git branch --show-current)
-    stashed="false"
-    [ $(git diff --name-only) ] && git stash -u && stashed="true"
-
+    clear_working_directory
     git fetch "${remote}"
 }
 
@@ -465,16 +489,7 @@ deinitialize() {
         printf "Execution failed! See ${log_file_path} before function '${FUNCNAME}'\n" >&${user_output_file_descriptor}
     fi
 
-    # Restore the working directory.
-    cd "${kaidan_root_directory}"
-    set +e
-    git rebase --abort &> /dev/null
-    git merge --abort &> /dev/null
-    set -e
-    git clean -df
-    git restore -SW .
-    git checkout "${initial_branch}"
-    [ "${stashed}" = true ] && git stash apply
+    restore_working_directory
 }
 trap deinitialize ERR EXIT
 
