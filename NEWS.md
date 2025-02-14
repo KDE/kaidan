@@ -1,4 +1,28 @@
 <!-- markdownlint-disable MD022 MD032 MD041 -->
+Version 0.11.0
+--------------
+Released: 2025-02-14
+
+Features:
+* Highlight public XMPP provider titles while card is expanded (melvo)
+* Round corners of cards and buttons (melvo)
+* Add fading in/out hover effect to map previews (melvo)
+* Collapse contact profiles by default if they have more than 3 entries (melvo)
+* Show colored check mark for delivered messages instead of none to avoid message bubble resizing (melvo)
+
+Bugfixes:
+* Fix opening public MUC-based group chats via another XMPP client (melvo)
+* Fix playing voice messages and changing playing position (melvo)
+* Fix updating message reactions that could not be sent instead of adding them a second time (melvo)
+* Fix updating group chat users in user interface (melvo)
+* Fix displaying message reaction details (melvo)
+* Update filtering contacts by labels even if label list is not open anymore (melvo)
+* Fix scrolling media overview (melvo)
+* Fix updating draft messages (melvo)
+
+Notes:
+* Kaidan requires Qt 6.6 now (mlaurent, melvo, fazevedo, plata)
+
 Version 0.10.1
 --------------
 Released: 2024-12-14
