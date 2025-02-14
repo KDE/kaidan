@@ -13,6 +13,20 @@ markdown:
     entrypoint: [""]
   script: markdownlint-cli2 "**/*.md"
 
+flatpak-appstream:
+  stage: validate
+  image:
+    name: ghcr.io/flathub/flatpak-builder-lint:latest
+    entrypoint: [""]
+  script: flatpak-builder-lint appstream "misc/im.kaidan.kaidan.appdata.xml"
+
+flatpak-manifest:
+  stage: validate
+  image:
+    name: ghcr.io/flathub/flatpak-builder-lint:latest
+    entrypoint: [""]
+  script: flatpak-builder-lint --exceptions --user-exceptions ".flatpak-exceptions.json" manifest ".flatpak-manifest.json"
+
 include:
   - project: sysadmin/ci-utilities
     file:
