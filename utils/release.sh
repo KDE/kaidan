@@ -72,10 +72,14 @@ git_archive_url="https://invent.kde.org/network/kaidan/-/archive/v${version}/kai
 git_compressed_archive_url="${git_archive_url}.gz"
 
 release_files_directory_path="${temporary_data_directory}/release-files"
-release_files_name_prefix="kaidan-${version}"
+release_files_repository="git@invent.kde.org:network/kaidan.git"
+release_files_repository_name=$(echo "${release_files_repository}" | awk -F '/' '{print $2}' | awk -F '.' '{print $1}')
+release_files_name_prefix="${release_files_repository_name}-${version}"
+release_files_repository_directory_path="${release_files_directory_path}/${release_files_name_prefix}"
 release_files_archive_name="${release_files_name_prefix}.tar"
+release_files_compressed_archive_name="${release_files_archive_name}.xz"
 release_files_upload_url="ftp://upload.kde.org/incoming/"
-release_files_download_url="https://download.kde.org/unstable/kaidan/${version}/"
+release_files_download_url="https://download.kde.org/unstable/${release_files_repository_name}/${version}/"
 release_files_ticket_url="https://go.kde.org/systickets"
 
 release_announcement_website="https://invent.kde.org/websites/kaidan-im#release-posts"
@@ -376,9 +380,10 @@ publish_release_files() {
     cd "${release_files_directory_path}"
 
     # Download, compress and sign the release files.
-    curl -L "${git_archive_url}" > "${release_files_archive_name}"
-    xz -z "${release_files_archive_name}"
-    gpg -o "${release_files_archive_name}.xz.sig" -abs "${release_files_archive_name}.xz"
+    git clone --depth=1 -b "${release_tag_name}" "${release_files_repository}" "${release_files_repository_directory_path}"
+    rm -rf "${release_files_repository_directory_path}/.git"
+    tar -I "xz -9" -cf "${release_files_compressed_archive_name}" "${release_files_name_prefix}"
+    gpg -o "${release_files_compressed_archive_name}.sig" -abs "${release_files_compressed_archive_name}"
 
     # Upload the release files.
     release_files="${release_files_name_prefix}.*"
