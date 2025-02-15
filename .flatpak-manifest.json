@@ -82,8 +82,9 @@
             "config-opts": ["-DQT_VERSION_MAJOR=6", "-DBUILD_TESTS=OFF", "-DBUILD_EXAMPLES=OFF", "-DBUILD_OMEMO=ON"],
             "sources": [
                 {
-                    "type": "git",
-                    "url": "https://github.com/qxmpp-project/qxmpp.git"
+                    "type": "archive",
+                    "url": "https://github.com/qxmpp-project/qxmpp/archive/refs/tags/v1.9.4.tar.gz",
+                    "sha256": "4403e43a0e8b6afa68f6e1e986e4ec19a08a6bf0db539ab7934a58afa1ddc532"
                 }
             ],
             "cleanup": ["/include", "/lib/cmake", "/lib/pkgconfig"]
