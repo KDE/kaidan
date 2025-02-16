@@ -52,7 +52,6 @@ option(BUILD_TESTS "Build unit tests" FALSE)
 option(APPIMAGE "Build Kaidan as AppImage (will only work in the appimage script)" FALSE)
 option(UBUNTU_TOUCH "Building an Ubuntu Touch click (internal use only!)" FALSE)
 option(CLICK_ARCH "Architecture that will be used in the click's manifest")
-option(QUICK_COMPILER "Use QtQuick compiler to improve performance" FALSE)
 option(USE_KNOTIFICATIONS "Use KNotifications for displaying notifications" TRUE)
 option(BUNDLE_ICONS "Bundle breeze icons" FALSE)
 
@@ -89,15 +88,6 @@ kde_configure_git_pre_commit_hook(CHECKS CLANG_FORMAT)
 
 # QML modules
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
-
-# Optional QtQuickCompiler
-if(QUICK_COMPILER)
-    find_package(Qt6QuickCompiler)
-    set_package_properties(Qt6QuickCompiler PROPERTIES
-        DESCRIPTION "Compile QML at build time"
-        TYPE OPTIONAL
-    )
-endif()
 
 if(USE_KNOTIFICATIONS)
     find_package(KF6Notifications ${KF_MIN_VERSION} REQUIRED)

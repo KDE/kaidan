@@ -242,13 +242,7 @@ ecm_add_app_icon(KAIDAN_ICNS ICONS ${ICONS_SRCS})
 message(STATUS ${KAIDAN_ICNS})
 target_sources(${PROJECT_NAME} PRIVATE ${KAIDAN_ICNS})
 
-# QML files
-if(QUICK_COMPILER)
-    qtquick_compiler_add_resources(COMPILED_QML_QRC qml/qml.qrc)
-    target_sources(${PROJECT_NAME} PRIVATE ${COMPILED_QML_QRC})
-else()
-    target_sources(${PROJECT_NAME} PRIVATE qml/qml.qrc)
-endif()
+target_sources(${PROJECT_NAME} PRIVATE qml/qml.qrc)
 
 ecm_create_qm_loader(${PROJECT_NAME} kaidan_qt)
 
