@@ -6,13 +6,17 @@ SPDX-License-Identifier: CC0-1.0
 
 # Contributing
 
+[TOC]
+
+## Introduction
+
 This is a guideline for contributing to Kaidan.
 There is also a guide for a [basic setup](https://invent.kde.org/network/kaidan/-/wikis/setup) targeted at contributors which are unfamiliar with KDE Identity, GitLab or Git and want to start contributing quickly.
 
+## Branches
+
 In order to contribute to Kaidan, please create branches on your forked repository and submit merge requests for them.
 Please do not create branches on Kaidan's main repository or push your commits directly to its *master* branch.
-
-## Branches
 
 Use the following prefixes for branch names:
 
