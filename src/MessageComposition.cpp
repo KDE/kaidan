@@ -359,7 +359,7 @@ void MessageComposition::loadDraft()
                 await(MessageDb::instance()->fetchMessage(m_accountJid, m_chatJid, replaceId), this, [this](std::optional<Message> &&message) {
                     if (message) {
                         if (const auto &reply = message->reply) {
-                            setOriginalReplyId(message->reply->id);
+                            setOriginalReplyId(reply->id);
                         }
 
                         setOriginalBody(message->body);
