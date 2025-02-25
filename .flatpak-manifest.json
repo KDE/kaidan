@@ -12,6 +12,7 @@
         "--share=network",
         "--socket=fallback-x11",
         "--socket=wayland",
+        "--filesystem=home",
         "--device=dri",
         "--device=all",
         "--talk-name=org.freedesktop.Notifications",
@@ -39,6 +40,20 @@
                     "type": "archive",
                     "url": "https://download.kde.org/stable/kquickimageeditor/kquickimageeditor-0.5.0.tar.xz",
                     "sha256": "8ebbfdce39efbbb63679badc3320fe06eb3aa68a4da5f50740197645c985ad0f"
+                }
+            ]
+        },
+        {
+            "name": "ffmpegthumbs",
+            "buildsystem": "cmake-ninja",
+            "config-opts": [
+                "-DQT_MAJOR_VERSION=6"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "sha256": "ebf7bfc2edcc11a223fb5bc8af2c58b1667a02af018ef6f898d383e11cba940e",
+                    "url": "https://download.kde.org/stable/release-service/24.12.2/src/ffmpegthumbs-24.12.2.tar.xz"
                 }
             ]
         },
