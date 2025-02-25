@@ -27,7 +27,6 @@ ChatPageBase {
 
 	property alias searchBar: searchBar
 	property alias messageReactionEmojiPicker: messageReactionEmojiPicker
-	property alias messageReactionDetailsDialog: messageReactionDetailsDialog
 	property alias messageListView: messageListView
 	property ChatPageSendingPane sendingPane
 	property ChatInfo globalChatDate
@@ -191,12 +190,6 @@ ChatPageBase {
 		id: messageReactionEmojiPicker
 	}
 
-	MessageReactionDetailsDialog {
-		id: messageReactionDetailsDialog
-		accountJid: ChatController.accountJid
-		chatJid: ChatController.chatJid
-	}
-
 	// View containing the messages
 	ListView {
 		id: messageListView
@@ -314,7 +307,6 @@ ChatPageBase {
 			messageListView: root.messageListView
 			sendingPane: root.sendingPane
 			reactionEmojiPicker: root.messageReactionEmojiPicker
-			reactionDetailsDialog: root.messageReactionDetailsDialog
 			modelIndex: index
 			msgId: model.id
 			senderJid: model.senderJid

@@ -49,8 +49,8 @@ Dialog {
 			hoverEnabled: jid
 			onClicked: {
 				if (jid) {
-					Kaidan.openChatPageRequested(accountJid, jid)
 					root.close()
+					Kaidan.openChatPageRequested(accountJid, jid)
 				}
 			}
 

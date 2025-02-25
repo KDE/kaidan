@@ -18,7 +18,6 @@ MessageReactionButton {
 	property string messageId
 	property bool isOwnMessage
 	property var reactions
-	property MessageReactionDetailsDialog detailsDialog
 
 	text: qsTr("Show details")
 	primaryColor: isOwnMessage ? primaryBackgroundColor : secondaryBackgroundColor
@@ -26,6 +25,7 @@ MessageReactionButton {
 		source: "view-more-symbolic"
 	}
 	onClicked: {
+		var detailsDialog = openOverlay(detailsDialogComponent)
 		detailsDialog.messageId = messageId
 		detailsDialog.reactions = reactions
 		detailsDialog.open()
@@ -36,4 +36,13 @@ MessageReactionButton {
 		}
 	}
 	Controls.ToolTip.text: text
+
+	Component {
+		id: detailsDialogComponent
+
+		MessageReactionDetailsDialog {
+			accountJid: ChatController.accountJid
+			chatJid: ChatController.chatJid
+		}
+	}
 }
