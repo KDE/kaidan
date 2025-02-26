@@ -144,6 +144,10 @@ Q_DECLARE_METATYPE(std::shared_ptr<Message>)
 #include <windows.h>
 #endif
 
+const auto QUICK_CONTROLS_STYLE_VARIABLE = "QT_QUICK_CONTROLS_STYLE";
+const auto QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE = QStringLiteral("org.kde.desktop");
+const auto QUICK_CONTROLS_DEFAULT_MOBILE_STYLE = QStringLiteral("Material");
+
 enum CommandLineParseResult {
     CommandLineOk,
     CommandLineError,
@@ -209,15 +213,19 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication::setApplicationVersion(QStringLiteral(VERSION_STRING));
     QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
 
-    // Set the default style for Qt Quick Controls.
-    if (qEnvironmentVariableIsEmpty("QT_QUICK_CONTROLS_STYLE")) {
+    // Set the Qt Quick Controls style explicitly.
+    // That is needed since setting the environment variable while using specific platform themes
+    // (e.g., QT_QPA_PLATFORMTHEME=xdgdesktopportal) is not sufficient for unclear reasons.
+    if (qEnvironmentVariableIsEmpty(QUICK_CONTROLS_STYLE_VARIABLE)) {
 #if defined(Q_OS_ANDROID) || defined(Q_OS_IOS)
-        const QString defaultStyle = QStringLiteral("Material");
+        const QString defaultStyle = QUICK_CONTROLS_DEFAULT_MOBILE_STYLE;
 #else
-        const QString defaultStyle = QStringLiteral("org.kde.desktop");
+        const QString defaultStyle = QUICK_CONTROLS_DEFAULT_DESKTOP_STYLE;
 #endif
-        qCDebug(KAIDAN_LOG) << "QT_QUICK_CONTROLS_STYLE not set, setting to" << defaultStyle;
-        qputenv("QT_QUICK_CONTROLS_STYLE", defaultStyle.toLatin1());
+        qCDebug(KAIDAN_LOG) << QUICK_CONTROLS_STYLE_VARIABLE << "not set, using" << defaultStyle;
+        QQuickStyle::setStyle(defaultStyle);
+    } else {
+        QQuickStyle::setStyle(QString::fromLatin1(qgetenv(QUICK_CONTROLS_STYLE_VARIABLE)));
     }
 
 #if defined(Q_OS_WIN) || defined(Q_OS_MACOS)
