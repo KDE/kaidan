@@ -234,6 +234,14 @@ Those *nightly builds* are based on Kaidan's [`master` branch](https://invent.kd
 Kaidan is packaged for several [Linux distributions](https://repology.org/project/kaidan/versions).
 For distributions supporting Flatpak, there is a [Flatpak configuration](.flatpak-manifest.json) (called [*manifest*](https://docs.flatpak.org/en/latest/manifests.html)) for [nightly builds](https://invent.kde.org/network/kaidan/-/wikis/using/flatpak).
 The builds are created by including a corresponding file in Kaidan's [GitLab CI/CD configuration](.gitlab-ci.yml) which triggers the `flatpak` job.
+
+You can download Flatpak builds for a specific branch via `https://invent.kde.org/<user>/kaidan/-/jobs/artifacts/<branch>/raw/kaidan.flatpak?job=flatpak` (replace `<user>` and `<branch>` with the desired values).
+Alternatively, you can navigate to the Flatpak build via the corresponding CI job page and its *Job artifacts* section.
+Once downloaded, you can install it for the current user via `flatpak install --user <download directory>/kaidan.flatpak` (replace `<download directory>` with the desired value).
+After installing Kaidan, it can be run via `flatpak run --user im.kaidan.kaidan`.
+Environment variables can be passed via `--env="<variable>=<value>"` (replace `<variable>` and `<value>` with the desired values).
+To remove Kaidan, execute `flatpak remove --user im.kaidan.kaidan`.
+
 There is also a [Flatpak configuration](https://github.com/flathub/im.kaidan.kaidan/blob/master/im.kaidan.kaidan.json) for [stable builds on Flathub](https://flathub.org/apps/details/im.kaidan.kaidan).
 See [KDE's Flatpak documentation](https://develop.kde.org/docs/packaging/flatpak/publishing/) for more information.
 
