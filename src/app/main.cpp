@@ -214,6 +214,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QGuiApplication::setApplicationVersion(QStringLiteral(VERSION_STRING));
     QGuiApplication::setDesktopFileName(QStringLiteral(APPLICATION_ID));
 
+#if !defined(Q_OS_ANDROID) && !defined(Q_OS_IOS)
+    // Set the window icon for X11.
+    QGuiApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral(APPLICATION_NAME)));
+#endif
+
     // Set the Qt Quick Controls style explicitly.
     // That is needed since setting the environment variable while using specific platform themes
     // (e.g., QT_QPA_PLATFORMTHEME=xdgdesktopportal) is not sufficient for unclear reasons.
