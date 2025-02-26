@@ -248,7 +248,7 @@ See [KDE's Flatpak documentation](https://develop.kde.org/docs/packaging/flatpak
 In addition, there is a [KDE Craft configuration](https://invent.kde.org/packaging/craft-blueprints-kde/-/blob/master/kde/unreleased/kaidan/kaidan.py) (called [*blueprint*](https://community.kde.org/Craft/Blueprints)) for [Windows builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_windows_qt6_x86_64), [macOS ARM builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_arm64) and [macOS x86 builds](https://invent.kde.org/network/kaidan/-/jobs/artifacts/master/browse/kde-ci-packages/?job=craft_macos_qt6_x86_64).
 
 Dependencies are mainly managed by Kaidan's [root CMakeLists file](CMakeLists.txt).
-When you add or remove dependencies, update the [README](README.md#dependencies) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
+When you add, update or remove dependencies, update the [README](README.md) and the [building guides](https://invent.kde.org/network/kaidan/-/wikis/home#building-kaidan-from-sources) as well.
 
 You also need to modify the KDE Craft and Flatpak configuration files for Kaidan.
 Only dependencies that are not configured by [KDE's Flatpak runtime](https://invent.kde.org/packaging/flatpak-kde-runtime) via its file `org.kde.Sdk.json.in`, need to be added to Kaidan's Flatpak configuration.
