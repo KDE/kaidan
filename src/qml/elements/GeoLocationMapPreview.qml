@@ -10,7 +10,7 @@ GeoLocationMap {
 
 	property Item message
 
-	layer.enabled: true
+	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
 	layer.effect: Kirigami.ShadowedTexture {
 		radius: roundedCornersRadius
 	}

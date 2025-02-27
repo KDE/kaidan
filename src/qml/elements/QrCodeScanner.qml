@@ -41,7 +41,7 @@ Item {
 		VideoOutput {
 			id: videoOutput
 			fillMode: VideoOutput.PreserveAspectCrop
-			layer.enabled: true
+			layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
 			layer.effect: Kirigami.ShadowedTexture {
 				radius: cameraStatusArea.radius
 			}

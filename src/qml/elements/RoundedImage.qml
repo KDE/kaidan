@@ -14,7 +14,7 @@ Kirigami.Icon {
 
 	property real radius: relativeRoundedCornersRadius(width, height)
 
-	layer.enabled: true
+	layer.enabled: GraphicsInfo.api !== GraphicsInfo.Software
 	layer.effect: Kirigami.ShadowedTexture {
 		radius: root.radius
 	}
